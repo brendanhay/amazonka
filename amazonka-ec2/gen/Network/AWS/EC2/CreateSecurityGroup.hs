@@ -21,7 +21,7 @@
 -- Creates a security group.
 --
 --
--- A security group is for use with instances either in the EC2-Classic platform or in a specific VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups> in the /Amazon Elastic Compute Cloud User Guide/ and <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
+-- A security group is for use with instances either in the EC2-Classic platform or in a specific VPC. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups> in the /Amazon Elastic Compute Cloud User Guide/ and <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 -- /Important:/ EC2-Classic: You can have up to 500 security groups.
 --
@@ -59,11 +59,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for CreateSecurityGroup.
---
---
---
--- /See:/ 'createSecurityGroup' smart constructor.
+-- | /See:/ 'createSecurityGroup' smart constructor.
 data CreateSecurityGroup = CreateSecurityGroup'
   { _csgVPCId       :: !(Maybe Text)
   , _csgDryRun      :: !(Maybe Bool)
@@ -141,11 +137,7 @@ instance ToQuery CreateSecurityGroup where
                "GroupDescription" =: _csgDescription,
                "GroupName" =: _csgGroupName]
 
--- | Contains the output of CreateSecurityGroup.
---
---
---
--- /See:/ 'createSecurityGroupResponse' smart constructor.
+-- | /See:/ 'createSecurityGroupResponse' smart constructor.
 data CreateSecurityGroupResponse = CreateSecurityGroupResponse'
   { _csgrsResponseStatus :: !Int
   , _csgrsGroupId        :: !Text

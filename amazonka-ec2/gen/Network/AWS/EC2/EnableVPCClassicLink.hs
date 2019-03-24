@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your ClassicLink-enabled VPC to allow communication over private IP addresses. You cannot enable your VPC for ClassicLink if any of your VPC's route tables have existing routes for address ranges within the @10.0.0.0/8@ IP address range, excluding local routes for VPCs in the @10.0.0.0/16@ and @10.1.0.0/16@ IP address ranges. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your ClassicLink-enabled VPC to allow communication over private IP addresses. You cannot enable your VPC for ClassicLink if any of your VPC route tables have existing routes for address ranges within the @10.0.0.0/8@ IP address range, excluding local routes for VPCs in the @10.0.0.0/16@ and @10.1.0.0/16@ IP address ranges. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 --
 module Network.AWS.EC2.EnableVPCClassicLink
@@ -45,11 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for EnableVpcClassicLink.
---
---
---
--- /See:/ 'enableVPCClassicLink' smart constructor.
+-- | /See:/ 'enableVPCClassicLink' smart constructor.
 data EnableVPCClassicLink = EnableVPCClassicLink'
   { _evclDryRun :: !(Maybe Bool)
   , _evclVPCId  :: !Text
@@ -105,11 +101,7 @@ instance ToQuery EnableVPCClassicLink where
                "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _evclDryRun, "VpcId" =: _evclVPCId]
 
--- | Contains the output of EnableVpcClassicLink.
---
---
---
--- /See:/ 'enableVPCClassicLinkResponse' smart constructor.
+-- | /See:/ 'enableVPCClassicLinkResponse' smart constructor.
 data EnableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'
   { _evclrsReturn         :: !(Maybe Bool)
   , _evclrsResponseStatus :: !Int

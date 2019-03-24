@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more of the your NAT gateways.
+-- Describes one or more of your NAT gateways.
 --
 --
 --
@@ -51,11 +51,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeNatGateways.
---
---
---
--- /See:/ 'describeNatGateways' smart constructor.
+-- | /See:/ 'describeNatGateways' smart constructor.
 data DescribeNatGateways = DescribeNatGateways'
   { _dngNatGatewayIds :: !(Maybe [Text])
   , _dngNextToken     :: !(Maybe Text)
@@ -70,11 +66,11 @@ data DescribeNatGateways = DescribeNatGateways'
 --
 -- * 'dngNatGatewayIds' - One or more NAT gateway IDs.
 --
--- * 'dngNextToken' - The token to retrieve the next page of results.
+-- * 'dngNextToken' - The token for the next page of results.
 --
--- * 'dngFilter' - One or more filters.     * @nat-gateway-id@ - The ID of the NAT gateway.     * @state@ - The state of the NAT gateway (@pending@ | @failed@ | @available@ | @deleting@ | @deleted@ ).     * @subnet-id@ - The ID of the subnet in which the NAT gateway resides.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @vpc-id@ - The ID of the VPC in which the NAT gateway resides.
+-- * 'dngFilter' - One or more filters.     * @nat-gateway-id@ - The ID of the NAT gateway.     * @state@ - The state of the NAT gateway (@pending@ | @failed@ | @available@ | @deleting@ | @deleted@ ).     * @subnet-id@ - The ID of the subnet in which the NAT gateway resides.     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.     * @vpc-id@ - The ID of the VPC in which the NAT gateway resides.
 --
--- * 'dngMaxResults' - The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results. Constraint: If the value specified is greater than 1000, we return only 1000 items.
+-- * 'dngMaxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 describeNatGateways
     :: DescribeNatGateways
 describeNatGateways =
@@ -90,15 +86,15 @@ describeNatGateways =
 dngNatGatewayIds :: Lens' DescribeNatGateways [Text]
 dngNatGatewayIds = lens _dngNatGatewayIds (\ s a -> s{_dngNatGatewayIds = a}) . _Default . _Coerce
 
--- | The token to retrieve the next page of results.
+-- | The token for the next page of results.
 dngNextToken :: Lens' DescribeNatGateways (Maybe Text)
 dngNextToken = lens _dngNextToken (\ s a -> s{_dngNextToken = a})
 
--- | One or more filters.     * @nat-gateway-id@ - The ID of the NAT gateway.     * @state@ - The state of the NAT gateway (@pending@ | @failed@ | @available@ | @deleting@ | @deleted@ ).     * @subnet-id@ - The ID of the subnet in which the NAT gateway resides.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @vpc-id@ - The ID of the VPC in which the NAT gateway resides.
+-- | One or more filters.     * @nat-gateway-id@ - The ID of the NAT gateway.     * @state@ - The state of the NAT gateway (@pending@ | @failed@ | @available@ | @deleting@ | @deleted@ ).     * @subnet-id@ - The ID of the subnet in which the NAT gateway resides.     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.     * @vpc-id@ - The ID of the VPC in which the NAT gateway resides.
 dngFilter :: Lens' DescribeNatGateways [Filter]
 dngFilter = lens _dngFilter (\ s a -> s{_dngFilter = a}) . _Default . _Coerce
 
--- | The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results. Constraint: If the value specified is greater than 1000, we return only 1000 items.
+-- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 dngMaxResults :: Lens' DescribeNatGateways (Maybe Int)
 dngMaxResults = lens _dngMaxResults (\ s a -> s{_dngMaxResults = a})
 
@@ -143,11 +139,7 @@ instance ToQuery DescribeNatGateways where
                toQuery (toQueryList "Filter" <$> _dngFilter),
                "MaxResults" =: _dngMaxResults]
 
--- | Contains the output of DescribeNatGateways.
---
---
---
--- /See:/ 'describeNatGatewaysResponse' smart constructor.
+-- | /See:/ 'describeNatGatewaysResponse' smart constructor.
 data DescribeNatGatewaysResponse = DescribeNatGatewaysResponse'
   { _dngrsNatGateways    :: !(Maybe [NatGateway])
   , _dngrsNextToken      :: !(Maybe Text)

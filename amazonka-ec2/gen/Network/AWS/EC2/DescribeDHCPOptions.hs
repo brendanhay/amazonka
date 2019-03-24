@@ -21,7 +21,7 @@
 -- Describes one or more of your DHCP options sets.
 --
 --
--- For more information about DHCP options sets, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets> in the /Amazon Virtual Private Cloud User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 module Network.AWS.EC2.DescribeDHCPOptions
     (
@@ -48,11 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeDhcpOptions.
---
---
---
--- /See:/ 'describeDHCPOptions' smart constructor.
+-- | /See:/ 'describeDHCPOptions' smart constructor.
 data DescribeDHCPOptions = DescribeDHCPOptions'
   { _ddoFilters        :: !(Maybe [Filter])
   , _ddoDHCPOptionsIds :: !(Maybe [Text])
@@ -64,7 +60,7 @@ data DescribeDHCPOptions = DescribeDHCPOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddoFilters' - One or more filters.     * @dhcp-options-id@ - The ID of a set of DHCP options.     * @key@ - The key for one of the options (for example, @domain-name@ ).     * @value@ - The value for one of the options.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.
+-- * 'ddoFilters' - One or more filters.     * @dhcp-options-id@ - The ID of a DHCP options set.     * @key@ - The key for one of the options (for example, @domain-name@ ).     * @value@ - The value for one of the options.     * @owner-id@ - The ID of the AWS account that owns the DHCP options set.     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
 --
 -- * 'ddoDHCPOptionsIds' - The IDs of one or more DHCP options sets. Default: Describes all your DHCP options sets.
 --
@@ -76,7 +72,7 @@ describeDHCPOptions =
     {_ddoFilters = Nothing, _ddoDHCPOptionsIds = Nothing, _ddoDryRun = Nothing}
 
 
--- | One or more filters.     * @dhcp-options-id@ - The ID of a set of DHCP options.     * @key@ - The key for one of the options (for example, @domain-name@ ).     * @value@ - The value for one of the options.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.
+-- | One or more filters.     * @dhcp-options-id@ - The ID of a DHCP options set.     * @key@ - The key for one of the options (for example, @domain-name@ ).     * @value@ - The value for one of the options.     * @owner-id@ - The ID of the AWS account that owns the DHCP options set.     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
 ddoFilters :: Lens' DescribeDHCPOptions [Filter]
 ddoFilters = lens _ddoFilters (\ s a -> s{_ddoFilters = a}) . _Default . _Coerce
 
@@ -120,11 +116,7 @@ instance ToQuery DescribeDHCPOptions where
                  (toQueryList "DhcpOptionsId" <$> _ddoDHCPOptionsIds),
                "DryRun" =: _ddoDryRun]
 
--- | Contains the output of DescribeDhcpOptions.
---
---
---
--- /See:/ 'describeDHCPOptionsResponse' smart constructor.
+-- | /See:/ 'describeDHCPOptionsResponse' smart constructor.
 data DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'
   { _ddorsDHCPOptions    :: !(Maybe [DHCPOptions])
   , _ddorsResponseStatus :: !Int

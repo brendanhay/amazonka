@@ -21,7 +21,7 @@
 -- Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. The action returns an association ID, which you need in order to disassociate the route table from the subnet later. A route table can be associated with multiple subnets.
 --
 --
--- For more information about route tables, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /Amazon Virtual Private Cloud User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 module Network.AWS.EC2.AssociateRouteTable
     (
@@ -48,11 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for AssociateRouteTable.
---
---
---
--- /See:/ 'associateRouteTable' smart constructor.
+-- | /See:/ 'associateRouteTable' smart constructor.
 data AssociateRouteTable = AssociateRouteTable'
   { _artDryRun       :: !(Maybe Bool)
   , _artRouteTableId :: !Text
@@ -122,11 +118,7 @@ instance ToQuery AssociateRouteTable where
                "RouteTableId" =: _artRouteTableId,
                "SubnetId" =: _artSubnetId]
 
--- | Contains the output of AssociateRouteTable.
---
---
---
--- /See:/ 'associateRouteTableResponse' smart constructor.
+-- | /See:/ 'associateRouteTableResponse' smart constructor.
 data AssociateRouteTableResponse = AssociateRouteTableResponse'
   { _artrsAssociationId  :: !(Maybe Text)
   , _artrsResponseStatus :: !Int
@@ -137,7 +129,7 @@ data AssociateRouteTableResponse = AssociateRouteTableResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'artrsAssociationId' - The route table association ID (needed to disassociate the route table).
+-- * 'artrsAssociationId' - The route table association ID. This ID is required for disassociating the route table.
 --
 -- * 'artrsResponseStatus' - -- | The response status code.
 associateRouteTableResponse
@@ -148,7 +140,7 @@ associateRouteTableResponse pResponseStatus_ =
     {_artrsAssociationId = Nothing, _artrsResponseStatus = pResponseStatus_}
 
 
--- | The route table association ID (needed to disassociate the route table).
+-- | The route table association ID. This ID is required for disassociating the route table.
 artrsAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
 artrsAssociationId = lens _artrsAssociationId (\ s a -> s{_artrsAssociationId = a})
 

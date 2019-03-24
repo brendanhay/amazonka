@@ -21,7 +21,7 @@
 -- Describes one or more of the tags for your EC2 resources.
 --
 --
--- For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- For more information about tags, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 --
 -- This operation returns paginated results.
@@ -53,11 +53,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeTags.
---
---
---
--- /See:/ 'describeTags' smart constructor.
+-- | /See:/ 'describeTags' smart constructor.
 data DescribeTags = DescribeTags'
   { _dtFilters    :: !(Maybe [Filter])
   , _dtNextToken  :: !(Maybe Text)
@@ -70,7 +66,7 @@ data DescribeTags = DescribeTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtFilters' - One or more filters.     * @key@ - The tag key.     * @resource-id@ - The resource ID.     * @resource-type@ - The resource type (@customer-gateway@ | @dhcp-options@ | @elastic-ip@ | @fpga-image@ | @image@ | @instance@ | @internet-gateway@ | @launch-template@ | @natgateway@ | @network-acl@ | @network-interface@ | @reserved-instances@ | @route-table@ | @security-group@ | @snapshot@ | @spot-instances-request@ | @subnet@ | @volume@ | @vpc@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ ).     * @value@ - The tag value.
+-- * 'dtFilters' - One or more filters.     * @key@ - The tag key.     * @resource-id@ - The ID of the resource.     * @resource-type@ - The resource type (@customer-gateway@ | @dedicated-host@ | @dhcp-options@ | @elastic-ip@ | @fleet@ | @fpga-image@ | @image@ | @instance@ | @host-reservation@ | @internet-gateway@ | @launch-template@ | @natgateway@ | @network-acl@ | @network-interface@ | @reserved-instances@ | @route-table@ | @security-group@ | @snapshot@ | @spot-instances-request@ | @subnet@ | @volume@ | @vpc@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ ).     * @tag@ :<key> - The key/value combination of the tag. For example, specify "tag:Owner" for the filter name and "TeamA" for the filter value to find resources with the tag "Owner=TeamA".     * @value@ - The tag value.
 --
 -- * 'dtNextToken' - The token to retrieve the next page of results.
 --
@@ -88,7 +84,7 @@ describeTags =
     }
 
 
--- | One or more filters.     * @key@ - The tag key.     * @resource-id@ - The resource ID.     * @resource-type@ - The resource type (@customer-gateway@ | @dhcp-options@ | @elastic-ip@ | @fpga-image@ | @image@ | @instance@ | @internet-gateway@ | @launch-template@ | @natgateway@ | @network-acl@ | @network-interface@ | @reserved-instances@ | @route-table@ | @security-group@ | @snapshot@ | @spot-instances-request@ | @subnet@ | @volume@ | @vpc@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ ).     * @value@ - The tag value.
+-- | One or more filters.     * @key@ - The tag key.     * @resource-id@ - The ID of the resource.     * @resource-type@ - The resource type (@customer-gateway@ | @dedicated-host@ | @dhcp-options@ | @elastic-ip@ | @fleet@ | @fpga-image@ | @image@ | @instance@ | @host-reservation@ | @internet-gateway@ | @launch-template@ | @natgateway@ | @network-acl@ | @network-interface@ | @reserved-instances@ | @route-table@ | @security-group@ | @snapshot@ | @spot-instances-request@ | @subnet@ | @volume@ | @vpc@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ ).     * @tag@ :<key> - The key/value combination of the tag. For example, specify "tag:Owner" for the filter name and "TeamA" for the filter value to find resources with the tag "Owner=TeamA".     * @value@ - The tag value.
 dtFilters :: Lens' DescribeTags [Filter]
 dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce
 
@@ -142,11 +138,7 @@ instance ToQuery DescribeTags where
                "NextToken" =: _dtNextToken, "DryRun" =: _dtDryRun,
                "MaxResults" =: _dtMaxResults]
 
--- | Contains the output of DescribeTags.
---
---
---
--- /See:/ 'describeTagsResponse' smart constructor.
+-- | /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
   { _dtrsNextToken      :: !(Maybe Text)
   , _dtrsTags           :: !(Maybe [TagDescription])
@@ -158,9 +150,9 @@ data DescribeTagsResponse = DescribeTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return..
+-- * 'dtrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
--- * 'dtrsTags' - A list of tags.
+-- * 'dtrsTags' - The tags.
 --
 -- * 'dtrsResponseStatus' - -- | The response status code.
 describeTagsResponse
@@ -174,11 +166,11 @@ describeTagsResponse pResponseStatus_ =
     }
 
 
--- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return..
+-- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a})
 
--- | A list of tags.
+-- | The tags.
 dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce
 

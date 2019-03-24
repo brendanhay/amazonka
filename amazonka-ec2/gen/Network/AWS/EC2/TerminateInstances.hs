@@ -27,9 +27,9 @@
 --
 -- By default, Amazon EC2 deletes all EBS volumes that were attached when the instance launched. Volumes attached after instance launch continue running.
 --
--- You can stop, start, and terminate EBS-backed instances. You can only terminate instance store-backed instances. What happens to an instance differs if you stop it or terminate it. For example, when you stop an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, any attached EBS volumes with the @DeleteOnTermination@ block device mapping parameter set to @true@ are automatically deleted. For more information about the differences between stopping and terminating instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html Instance Lifecycle> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- You can stop, start, and terminate EBS-backed instances. You can only terminate instance store-backed instances. What happens to an instance differs if you stop it or terminate it. For example, when you stop an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, any attached EBS volumes with the @DeleteOnTermination@ block device mapping parameter set to @true@ are automatically deleted. For more information about the differences between stopping and terminating instances, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html Instance Lifecycle> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- For more information about troubleshooting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html Troubleshooting Terminating Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- For more information about troubleshooting, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html Troubleshooting Terminating Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 module Network.AWS.EC2.TerminateInstances
     (
@@ -55,11 +55,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for TerminateInstances.
---
---
---
--- /See:/ 'terminateInstances' smart constructor.
+-- | /See:/ 'terminateInstances' smart constructor.
 data TerminateInstances = TerminateInstances'
   { _tiDryRun      :: !(Maybe Bool)
   , _tiInstanceIds :: ![Text]
@@ -117,11 +113,7 @@ instance ToQuery TerminateInstances where
                "DryRun" =: _tiDryRun,
                toQueryList "InstanceId" _tiInstanceIds]
 
--- | Contains the output of TerminateInstances.
---
---
---
--- /See:/ 'terminateInstancesResponse' smart constructor.
+-- | /See:/ 'terminateInstancesResponse' smart constructor.
 data TerminateInstancesResponse = TerminateInstancesResponse'
   { _tirsTerminatingInstances :: !(Maybe [InstanceStateChange])
   , _tirsResponseStatus       :: !Int

@@ -21,6 +21,8 @@
 -- Describes your import snapshot tasks.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeImportSnapshotTasks
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.EC2.DescribeImportSnapshotTasks
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -107,6 +110,13 @@ distDryRun = lens _distDryRun (\ s a -> s{_distDryRun = a})
 -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 distMaxResults :: Lens' DescribeImportSnapshotTasks (Maybe Int)
 distMaxResults = lens _distMaxResults (\ s a -> s{_distMaxResults = a})
+
+instance AWSPager DescribeImportSnapshotTasks where
+        page rq rs
+          | stop (rs ^. distrsNextToken) = Nothing
+          | stop (rs ^. distrsImportSnapshotTasks) = Nothing
+          | otherwise =
+            Just $ rq & distNextToken .~ rs ^. distrsNextToken
 
 instance AWSRequest DescribeImportSnapshotTasks where
         type Rs DescribeImportSnapshotTasks =

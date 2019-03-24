@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more of the EBS snapshots available to you. Available snapshots include public snapshots available for any AWS account to launch, private snapshots that you own, and private snapshots owned by another AWS account but for which you've been given explicit create volume permissions.
+-- Describes one or more of the EBS snapshots available to you. Available snapshots include public snapshots available for use by any AWS account, private snapshots that you own, and private snapshots owned by another AWS account for which you've been given explicit create volume permissions.
 --
 --
 -- The create volume permissions fall into the following categories:
@@ -41,7 +41,7 @@
 --
 -- If you are describing a long list of snapshots, you can paginate the output to make the list more manageable. The @MaxResults@ parameter sets the maximum number of results returned in a single page. If the list of results exceeds your @MaxResults@ value, then that number of results is returned along with a @NextToken@ value that can be passed to a subsequent @DescribeSnapshots@ request to retrieve the remaining results.
 --
--- For more information about EBS snapshots, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- For more information about EBS snapshots, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 --
 -- This operation returns paginated results.
@@ -96,13 +96,13 @@ data DescribeSnapshots = DescribeSnapshots'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssOwnerIds' - Returns the snapshots owned by the specified owner. Multiple owners can be specified.
+-- * 'dssOwnerIds' - Describes the snapshots owned by one or more owners.
 --
--- * 'dssFilters' - One or more filters.     * @description@ - A description of the snapshot.     * @owner-alias@ - Value from an Amazon-maintained list (@amazon@ | @aws-marketplace@ | @microsoft@ ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console.     * @owner-id@ - The ID of the AWS account that owns the snapshot.     * @progress@ - The progress of the snapshot, as a percentage (for example, 80%).     * @snapshot-id@ - The snapshot ID.     * @start-time@ - The time stamp when the snapshot was initiated.     * @status@ - The status of the snapshot (@pending@ | @completed@ | @error@ ).     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @volume-id@ - The ID of the volume the snapshot is for.     * @volume-size@ - The size of the volume, in GiB.
+-- * 'dssFilters' - One or more filters.     * @description@ - A description of the snapshot.     * @owner-alias@ - Value from an Amazon-maintained list (@amazon@ | @aws-marketplace@ | @microsoft@ ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console.     * @owner-id@ - The ID of the AWS account that owns the snapshot.     * @progress@ - The progress of the snapshot, as a percentage (for example, 80%).     * @snapshot-id@ - The snapshot ID.     * @start-time@ - The time stamp when the snapshot was initiated.     * @status@ - The status of the snapshot (@pending@ | @completed@ | @error@ ).     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.     * @volume-id@ - The ID of the volume the snapshot is for.     * @volume-size@ - The size of the volume, in GiB.
 --
 -- * 'dssNextToken' - The @NextToken@ value returned from a previous paginated @DescribeSnapshots@ request where @MaxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @NextToken@ value. This value is @null@ when there are no more results to return.
 --
--- * 'dssSnapshotIds' - One or more snapshot IDs. Default: Describes snapshots for which you have launch permissions.
+-- * 'dssSnapshotIds' - One or more snapshot IDs. Default: Describes the snapshots for which you have create volume permissions.
 --
 -- * 'dssRestorableByUserIds' - One or more AWS accounts IDs that can create volumes from the snapshot.
 --
@@ -123,11 +123,11 @@ describeSnapshots =
     }
 
 
--- | Returns the snapshots owned by the specified owner. Multiple owners can be specified.
+-- | Describes the snapshots owned by one or more owners.
 dssOwnerIds :: Lens' DescribeSnapshots [Text]
 dssOwnerIds = lens _dssOwnerIds (\ s a -> s{_dssOwnerIds = a}) . _Default . _Coerce
 
--- | One or more filters.     * @description@ - A description of the snapshot.     * @owner-alias@ - Value from an Amazon-maintained list (@amazon@ | @aws-marketplace@ | @microsoft@ ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console.     * @owner-id@ - The ID of the AWS account that owns the snapshot.     * @progress@ - The progress of the snapshot, as a percentage (for example, 80%).     * @snapshot-id@ - The snapshot ID.     * @start-time@ - The time stamp when the snapshot was initiated.     * @status@ - The status of the snapshot (@pending@ | @completed@ | @error@ ).     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @volume-id@ - The ID of the volume the snapshot is for.     * @volume-size@ - The size of the volume, in GiB.
+-- | One or more filters.     * @description@ - A description of the snapshot.     * @owner-alias@ - Value from an Amazon-maintained list (@amazon@ | @aws-marketplace@ | @microsoft@ ) of snapshot owners. Not to be confused with the user-configured AWS account alias, which is set from the IAM console.     * @owner-id@ - The ID of the AWS account that owns the snapshot.     * @progress@ - The progress of the snapshot, as a percentage (for example, 80%).     * @snapshot-id@ - The snapshot ID.     * @start-time@ - The time stamp when the snapshot was initiated.     * @status@ - The status of the snapshot (@pending@ | @completed@ | @error@ ).     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.     * @volume-id@ - The ID of the volume the snapshot is for.     * @volume-size@ - The size of the volume, in GiB.
 dssFilters :: Lens' DescribeSnapshots [Filter]
 dssFilters = lens _dssFilters (\ s a -> s{_dssFilters = a}) . _Default . _Coerce
 
@@ -135,7 +135,7 @@ dssFilters = lens _dssFilters (\ s a -> s{_dssFilters = a}) . _Default . _Coerce
 dssNextToken :: Lens' DescribeSnapshots (Maybe Text)
 dssNextToken = lens _dssNextToken (\ s a -> s{_dssNextToken = a})
 
--- | One or more snapshot IDs. Default: Describes snapshots for which you have launch permissions.
+-- | One or more snapshot IDs. Default: Describes the snapshots for which you have create volume permissions.
 dssSnapshotIds :: Lens' DescribeSnapshots [Text]
 dssSnapshotIds = lens _dssSnapshotIds (\ s a -> s{_dssSnapshotIds = a}) . _Default . _Coerce
 

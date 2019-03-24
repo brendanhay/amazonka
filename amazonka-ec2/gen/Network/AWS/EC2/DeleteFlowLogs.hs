@@ -27,6 +27,7 @@ module Network.AWS.EC2.DeleteFlowLogs
       deleteFlowLogs
     , DeleteFlowLogs
     -- * Request Lenses
+    , dflDryRun
     , dflFlowLogIds
 
     -- * Destructuring the Response
@@ -44,13 +45,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DeleteFlowLogs.
---
---
---
--- /See:/ 'deleteFlowLogs' smart constructor.
-newtype DeleteFlowLogs = DeleteFlowLogs'
-  { _dflFlowLogIds :: [Text]
+-- | /See:/ 'deleteFlowLogs' smart constructor.
+data DeleteFlowLogs = DeleteFlowLogs'
+  { _dflDryRun     :: !(Maybe Bool)
+  , _dflFlowLogIds :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -58,11 +56,17 @@ newtype DeleteFlowLogs = DeleteFlowLogs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dflDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
 -- * 'dflFlowLogIds' - One or more flow log IDs.
 deleteFlowLogs
     :: DeleteFlowLogs
-deleteFlowLogs = DeleteFlowLogs' {_dflFlowLogIds = mempty}
+deleteFlowLogs = DeleteFlowLogs' {_dflDryRun = Nothing, _dflFlowLogIds = mempty}
 
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+dflDryRun :: Lens' DeleteFlowLogs (Maybe Bool)
+dflDryRun = lens _dflDryRun (\ s a -> s{_dflDryRun = a})
 
 -- | One or more flow log IDs.
 dflFlowLogIds :: Lens' DeleteFlowLogs [Text]
@@ -94,13 +98,10 @@ instance ToQuery DeleteFlowLogs where
           = mconcat
               ["Action" =: ("DeleteFlowLogs" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
+               "DryRun" =: _dflDryRun,
                toQueryList "FlowLogId" _dflFlowLogIds]
 
--- | Contains the output of DeleteFlowLogs.
---
---
---
--- /See:/ 'deleteFlowLogsResponse' smart constructor.
+-- | /See:/ 'deleteFlowLogsResponse' smart constructor.
 data DeleteFlowLogsResponse = DeleteFlowLogsResponse'
   { _dflrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
   , _dflrsResponseStatus :: !Int

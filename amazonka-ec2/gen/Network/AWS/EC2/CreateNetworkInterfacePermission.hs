@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Grants an AWS authorized partner account permission to attach the specified network interface to an instance in their account.
+-- Grants an AWS-authorized account permission to attach the specified network interface to an instance in their account.
 --
 --
 -- You can grant permission to a single AWS account only, and only one account at a time.

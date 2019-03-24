@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables detailed monitoring for a running instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- Disables detailed monitoring for a running instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 --
 module Network.AWS.EC2.UnmonitorInstances
@@ -45,11 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for UnmonitorInstances.
---
---
---
--- /See:/ 'unmonitorInstances' smart constructor.
+-- | /See:/ 'unmonitorInstances' smart constructor.
 data UnmonitorInstances = UnmonitorInstances'
   { _uiDryRun      :: !(Maybe Bool)
   , _uiInstanceIds :: ![Text]
@@ -107,11 +103,7 @@ instance ToQuery UnmonitorInstances where
                "DryRun" =: _uiDryRun,
                toQueryList "InstanceId" _uiInstanceIds]
 
--- | Contains the output of UnmonitorInstances.
---
---
---
--- /See:/ 'unmonitorInstancesResponse' smart constructor.
+-- | /See:/ 'unmonitorInstancesResponse' smart constructor.
 data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
   { _uirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
   , _uirsResponseStatus      :: !Int

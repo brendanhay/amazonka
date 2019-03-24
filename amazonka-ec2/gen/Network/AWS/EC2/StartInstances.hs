@@ -27,7 +27,7 @@
 --
 -- Performing this operation on an instance that uses an instance store as its root device returns an error.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html Stopping Instances> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html Stopping Instances> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 module Network.AWS.EC2.StartInstances
     (
@@ -54,11 +54,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for StartInstances.
---
---
---
--- /See:/ 'startInstances' smart constructor.
+-- | /See:/ 'startInstances' smart constructor.
 data StartInstances = StartInstances'
   { _sAdditionalInfo :: !(Maybe Text)
   , _sDryRun         :: !(Maybe Bool)
@@ -124,11 +120,7 @@ instance ToQuery StartInstances where
                "DryRun" =: _sDryRun,
                toQueryList "InstanceId" _sInstanceIds]
 
--- | Contains the output of StartInstances.
---
---
---
--- /See:/ 'startInstancesResponse' smart constructor.
+-- | /See:/ 'startInstancesResponse' smart constructor.
 data StartInstancesResponse = StartInstancesResponse'
   { _srsStartingInstances :: !(Maybe [InstanceStateChange])
   , _srsResponseStatus    :: !Int

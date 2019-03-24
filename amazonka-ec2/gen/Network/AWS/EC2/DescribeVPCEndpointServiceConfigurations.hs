@@ -21,6 +21,8 @@
 -- Describes the VPC endpoint service configurations in your account (your services).
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeVPCEndpointServiceConfigurations
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.EC2.DescribeVPCEndpointServiceConfigurations
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -103,6 +106,15 @@ dvescDryRun = lens _dvescDryRun (\ s a -> s{_dvescDryRun = a})
 -- | The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned.
 dvescMaxResults :: Lens' DescribeVPCEndpointServiceConfigurations (Maybe Int)
 dvescMaxResults = lens _dvescMaxResults (\ s a -> s{_dvescMaxResults = a})
+
+instance AWSPager
+           DescribeVPCEndpointServiceConfigurations
+         where
+        page rq rs
+          | stop (rs ^. dvescrsNextToken) = Nothing
+          | stop (rs ^. dvescrsServiceConfigurations) = Nothing
+          | otherwise =
+            Just $ rq & dvescNextToken .~ rs ^. dvescrsNextToken
 
 instance AWSRequest
            DescribeVPCEndpointServiceConfigurations

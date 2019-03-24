@@ -21,7 +21,9 @@
 -- Adds or removes permission settings for the specified snapshot. You may add or remove specified AWS account IDs from a snapshot's list of create volume permissions, but you cannot do both in a single API call. If you need to both add and remove account IDs for a snapshot, you must use multiple API calls.
 --
 --
--- For more information on modifying snapshot permissions, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing Snapshots> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- Encrypted snapshots and snapshots with AWS Marketplace product codes cannot be made public. Snapshots encrypted with your default CMK cannot be shared with other accounts.
+--
+-- For more information about modifying snapshot permissions, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing Snapshots> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 module Network.AWS.EC2.ModifySnapshotAttribute
     (
@@ -69,7 +71,7 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'msaAttribute' - The snapshot attribute to modify.
+-- * 'msaAttribute' - The snapshot attribute to modify. Only volume creation permissions can be modified.
 --
 -- * 'msaCreateVolumePermission' - A JSON representation of the snapshot attribute modification.
 --
@@ -97,7 +99,7 @@ modifySnapshotAttribute pSnapshotId_ =
     }
 
 
--- | The snapshot attribute to modify.
+-- | The snapshot attribute to modify. Only volume creation permissions can be modified.
 msaAttribute :: Lens' ModifySnapshotAttribute (Maybe SnapshotAttributeName)
 msaAttribute = lens _msaAttribute (\ s a -> s{_msaAttribute = a})
 

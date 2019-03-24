@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables detailed monitoring for a running instance. Otherwise, basic monitoring is enabled. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- Enables detailed monitoring for a running instance. Otherwise, basic monitoring is enabled. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 --
 -- To disable detailed monitoring, see .
@@ -47,11 +47,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for MonitorInstances.
---
---
---
--- /See:/ 'monitorInstances' smart constructor.
+-- | /See:/ 'monitorInstances' smart constructor.
 data MonitorInstances = MonitorInstances'
   { _miDryRun      :: !(Maybe Bool)
   , _miInstanceIds :: ![Text]
@@ -108,11 +104,7 @@ instance ToQuery MonitorInstances where
                "DryRun" =: _miDryRun,
                toQueryList "InstanceId" _miInstanceIds]
 
--- | Contains the output of MonitorInstances.
---
---
---
--- /See:/ 'monitorInstancesResponse' smart constructor.
+-- | /See:/ 'monitorInstancesResponse' smart constructor.
 data MonitorInstancesResponse = MonitorInstancesResponse'
   { _mirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
   , _mirsResponseStatus      :: !Int

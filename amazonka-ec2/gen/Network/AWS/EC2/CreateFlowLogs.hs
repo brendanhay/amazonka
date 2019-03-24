@@ -18,12 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates one or more flow logs to capture IP traffic for a specific network interface, subnet, or VPC. Flow logs are delivered to a specified log group in Amazon CloudWatch Logs. If you specify a VPC or subnet in the request, a log stream is created in CloudWatch Logs for each network interface in the subnet or VPC. Log streams can include information about accepted and rejected traffic to a network interface. You can view the data in your log streams using Amazon CloudWatch Logs.
+-- Creates one or more flow logs to capture information about IP traffic for a specific network interface, subnet, or VPC.
 --
 --
--- In your request, you must also specify an IAM role that has permission to publish logs to CloudWatch Logs.
+-- Flow log data for a monitored network interface is recorded as flow log records, which are log events consisting of fields that describe the traffic flow. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html#flow-log-records Flow Log Records> in the /Amazon Virtual Private Cloud User Guide/ .
 --
--- For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html VPC Flow Logs> in the /Amazon Virtual Private Cloud User Guide/ .
+-- When publishing to CloudWatch Logs, flow log records are published to a log group, and each network interface has a unique log stream in the log group. When publishing to Amazon S3, flow log records for all of the monitored network interfaces are published to a single log file object that is stored in the specified bucket.
+--
+-- For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html VPC Flow Logs> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 module Network.AWS.EC2.CreateFlowLogs
     (
@@ -32,8 +34,11 @@ module Network.AWS.EC2.CreateFlowLogs
     , CreateFlowLogs
     -- * Request Lenses
     , cflClientToken
-    , cflDeliverLogsPermissionARN
+    , cflLogDestination
     , cflLogGroupName
+    , cflDeliverLogsPermissionARN
+    , cflLogDestinationType
+    , cflDryRun
     , cflResourceIds
     , cflResourceType
     , cflTrafficType
@@ -55,15 +60,14 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for CreateFlowLogs.
---
---
---
--- /See:/ 'createFlowLogs' smart constructor.
+-- | /See:/ 'createFlowLogs' smart constructor.
 data CreateFlowLogs = CreateFlowLogs'
   { _cflClientToken              :: !(Maybe Text)
-  , _cflDeliverLogsPermissionARN :: !Text
-  , _cflLogGroupName             :: !Text
+  , _cflLogDestination           :: !(Maybe Text)
+  , _cflLogGroupName             :: !(Maybe Text)
+  , _cflDeliverLogsPermissionARN :: !(Maybe Text)
+  , _cflLogDestinationType       :: !(Maybe LogDestinationType)
+  , _cflDryRun                   :: !(Maybe Bool)
   , _cflResourceIds              :: ![Text]
   , _cflResourceType             :: !FlowLogsResourceType
   , _cflTrafficType              :: !TrafficType
@@ -74,11 +78,17 @@ data CreateFlowLogs = CreateFlowLogs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cflClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+-- * 'cflClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 --
--- * 'cflDeliverLogsPermissionARN' - The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group.
+-- * 'cflLogDestination' - Specifies the destination to which the flow log data is to be published. Flow log data can be published to an CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType. If LogDestinationType is not specified or @cloud-watch-logs@ , specify the Amazon Resource Name (ARN) of the CloudWatch Logs log group. If LogDestinationType is @s3@ , specify the ARN of the Amazon S3 bucket. You can also specify a subfolder in the bucket. To specify a subfolder in the bucket, use the following ARN format: @bucket_ARN/subfolder_name/@ . For example, to specify a subfolder named @my-logs@ in a bucket named @my-bucket@ , use the following ARN: @arn:aws:s3:::my-bucket/my-logs/@ . You cannot use @AWSLogs@ as a subfolder name. This is a reserved term.
 --
--- * 'cflLogGroupName' - The name of the CloudWatch log group.
+-- * 'cflLogGroupName' - The name of the log group.
+--
+-- * 'cflDeliverLogsPermissionARN' - The ARN for the IAM role that's used to post flow logs to a log group.
+--
+-- * 'cflLogDestinationType' - Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3. To publish flow log data to CloudWatch Logs, specify @cloud-watch-logs@ . To publish flow log data to Amazon S3, specify @s3@ . Default: @cloud-watch-logs@
+--
+-- * 'cflDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- * 'cflResourceIds' - One or more subnet, network interface, or VPC IDs. Constraints: Maximum of 1000 resources
 --
@@ -86,33 +96,46 @@ data CreateFlowLogs = CreateFlowLogs'
 --
 -- * 'cflTrafficType' - The type of traffic to log.
 createFlowLogs
-    :: Text -- ^ 'cflDeliverLogsPermissionARN'
-    -> Text -- ^ 'cflLogGroupName'
-    -> FlowLogsResourceType -- ^ 'cflResourceType'
+    :: FlowLogsResourceType -- ^ 'cflResourceType'
     -> TrafficType -- ^ 'cflTrafficType'
     -> CreateFlowLogs
-createFlowLogs pDeliverLogsPermissionARN_ pLogGroupName_ pResourceType_ pTrafficType_ =
+createFlowLogs pResourceType_ pTrafficType_ =
   CreateFlowLogs'
     { _cflClientToken = Nothing
-    , _cflDeliverLogsPermissionARN = pDeliverLogsPermissionARN_
-    , _cflLogGroupName = pLogGroupName_
+    , _cflLogDestination = Nothing
+    , _cflLogGroupName = Nothing
+    , _cflDeliverLogsPermissionARN = Nothing
+    , _cflLogDestinationType = Nothing
+    , _cflDryRun = Nothing
     , _cflResourceIds = mempty
     , _cflResourceType = pResourceType_
     , _cflTrafficType = pTrafficType_
     }
 
 
--- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+-- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 cflClientToken :: Lens' CreateFlowLogs (Maybe Text)
 cflClientToken = lens _cflClientToken (\ s a -> s{_cflClientToken = a})
 
--- | The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group.
-cflDeliverLogsPermissionARN :: Lens' CreateFlowLogs Text
+-- | Specifies the destination to which the flow log data is to be published. Flow log data can be published to an CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType. If LogDestinationType is not specified or @cloud-watch-logs@ , specify the Amazon Resource Name (ARN) of the CloudWatch Logs log group. If LogDestinationType is @s3@ , specify the ARN of the Amazon S3 bucket. You can also specify a subfolder in the bucket. To specify a subfolder in the bucket, use the following ARN format: @bucket_ARN/subfolder_name/@ . For example, to specify a subfolder named @my-logs@ in a bucket named @my-bucket@ , use the following ARN: @arn:aws:s3:::my-bucket/my-logs/@ . You cannot use @AWSLogs@ as a subfolder name. This is a reserved term.
+cflLogDestination :: Lens' CreateFlowLogs (Maybe Text)
+cflLogDestination = lens _cflLogDestination (\ s a -> s{_cflLogDestination = a})
+
+-- | The name of the log group.
+cflLogGroupName :: Lens' CreateFlowLogs (Maybe Text)
+cflLogGroupName = lens _cflLogGroupName (\ s a -> s{_cflLogGroupName = a})
+
+-- | The ARN for the IAM role that's used to post flow logs to a log group.
+cflDeliverLogsPermissionARN :: Lens' CreateFlowLogs (Maybe Text)
 cflDeliverLogsPermissionARN = lens _cflDeliverLogsPermissionARN (\ s a -> s{_cflDeliverLogsPermissionARN = a})
 
--- | The name of the CloudWatch log group.
-cflLogGroupName :: Lens' CreateFlowLogs Text
-cflLogGroupName = lens _cflLogGroupName (\ s a -> s{_cflLogGroupName = a})
+-- | Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3. To publish flow log data to CloudWatch Logs, specify @cloud-watch-logs@ . To publish flow log data to Amazon S3, specify @s3@ . Default: @cloud-watch-logs@
+cflLogDestinationType :: Lens' CreateFlowLogs (Maybe LogDestinationType)
+cflLogDestinationType = lens _cflLogDestinationType (\ s a -> s{_cflLogDestinationType = a})
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+cflDryRun :: Lens' CreateFlowLogs (Maybe Bool)
+cflDryRun = lens _cflDryRun (\ s a -> s{_cflDryRun = a})
 
 -- | One or more subnet, network interface, or VPC IDs. Constraints: Maximum of 1000 resources
 cflResourceIds :: Lens' CreateFlowLogs [Text]
@@ -157,18 +180,17 @@ instance ToQuery CreateFlowLogs where
               ["Action" =: ("CreateFlowLogs" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
                "ClientToken" =: _cflClientToken,
+               "LogDestination" =: _cflLogDestination,
+               "LogGroupName" =: _cflLogGroupName,
                "DeliverLogsPermissionArn" =:
                  _cflDeliverLogsPermissionARN,
-               "LogGroupName" =: _cflLogGroupName,
+               "LogDestinationType" =: _cflLogDestinationType,
+               "DryRun" =: _cflDryRun,
                toQueryList "ResourceId" _cflResourceIds,
                "ResourceType" =: _cflResourceType,
                "TrafficType" =: _cflTrafficType]
 
--- | Contains the output of CreateFlowLogs.
---
---
---
--- /See:/ 'createFlowLogsResponse' smart constructor.
+-- | /See:/ 'createFlowLogsResponse' smart constructor.
 data CreateFlowLogsResponse = CreateFlowLogsResponse'
   { _cflrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
   , _cflrsClientToken    :: !(Maybe Text)
@@ -183,7 +205,7 @@ data CreateFlowLogsResponse = CreateFlowLogsResponse'
 --
 -- * 'cflrsUnsuccessful' - Information about the flow logs that could not be created successfully.
 --
--- * 'cflrsClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
+-- * 'cflrsClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
 --
 -- * 'cflrsFlowLogIds' - The IDs of the flow logs.
 --
@@ -204,7 +226,7 @@ createFlowLogsResponse pResponseStatus_ =
 cflrsUnsuccessful :: Lens' CreateFlowLogsResponse [UnsuccessfulItem]
 cflrsUnsuccessful = lens _cflrsUnsuccessful (\ s a -> s{_cflrsUnsuccessful = a}) . _Default . _Coerce
 
--- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
+-- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
 cflrsClientToken :: Lens' CreateFlowLogsResponse (Maybe Text)
 cflrsClientToken = lens _cflrsClientToken (\ s a -> s{_cflrsClientToken = a})
 

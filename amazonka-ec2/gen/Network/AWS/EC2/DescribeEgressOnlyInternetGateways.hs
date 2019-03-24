@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more of your egress-only Internet gateways.
+-- Describes one or more of your egress-only internet gateways.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeEgressOnlyInternetGateways
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.EC2.DescribeEgressOnlyInternetGateways
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -61,13 +64,13 @@ data DescribeEgressOnlyInternetGateways = DescribeEgressOnlyInternetGateways'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deoigEgressOnlyInternetGatewayIds' - One or more egress-only Internet gateway IDs.
+-- * 'deoigEgressOnlyInternetGatewayIds' - One or more egress-only internet gateway IDs.
 --
--- * 'deoigNextToken' - The token to retrieve the next page of results.
+-- * 'deoigNextToken' - The token for the next page of results.
 --
 -- * 'deoigDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'deoigMaxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned.
+-- * 'deoigMaxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 describeEgressOnlyInternetGateways
     :: DescribeEgressOnlyInternetGateways
 describeEgressOnlyInternetGateways =
@@ -79,11 +82,11 @@ describeEgressOnlyInternetGateways =
     }
 
 
--- | One or more egress-only Internet gateway IDs.
+-- | One or more egress-only internet gateway IDs.
 deoigEgressOnlyInternetGatewayIds :: Lens' DescribeEgressOnlyInternetGateways [Text]
 deoigEgressOnlyInternetGatewayIds = lens _deoigEgressOnlyInternetGatewayIds (\ s a -> s{_deoigEgressOnlyInternetGatewayIds = a}) . _Default . _Coerce
 
--- | The token to retrieve the next page of results.
+-- | The token for the next page of results.
 deoigNextToken :: Lens' DescribeEgressOnlyInternetGateways (Maybe Text)
 deoigNextToken = lens _deoigNextToken (\ s a -> s{_deoigNextToken = a})
 
@@ -91,9 +94,18 @@ deoigNextToken = lens _deoigNextToken (\ s a -> s{_deoigNextToken = a})
 deoigDryRun :: Lens' DescribeEgressOnlyInternetGateways (Maybe Bool)
 deoigDryRun = lens _deoigDryRun (\ s a -> s{_deoigDryRun = a})
 
--- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned.
+-- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 deoigMaxResults :: Lens' DescribeEgressOnlyInternetGateways (Maybe Int)
 deoigMaxResults = lens _deoigMaxResults (\ s a -> s{_deoigMaxResults = a})
+
+instance AWSPager DescribeEgressOnlyInternetGateways
+         where
+        page rq rs
+          | stop (rs ^. deoigrsNextToken) = Nothing
+          | stop (rs ^. deoigrsEgressOnlyInternetGateways) =
+            Nothing
+          | otherwise =
+            Just $ rq & deoigNextToken .~ rs ^. deoigrsNextToken
 
 instance AWSRequest
            DescribeEgressOnlyInternetGateways
@@ -150,9 +162,9 @@ data DescribeEgressOnlyInternetGatewaysResponse = DescribeEgressOnlyInternetGate
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deoigrsEgressOnlyInternetGateways' - Information about the egress-only Internet gateways.
+-- * 'deoigrsEgressOnlyInternetGateways' - Information about the egress-only internet gateways.
 --
--- * 'deoigrsNextToken' - The token to use to retrieve the next page of results.
+-- * 'deoigrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- * 'deoigrsResponseStatus' - -- | The response status code.
 describeEgressOnlyInternetGatewaysResponse
@@ -166,11 +178,11 @@ describeEgressOnlyInternetGatewaysResponse pResponseStatus_ =
     }
 
 
--- | Information about the egress-only Internet gateways.
+-- | Information about the egress-only internet gateways.
 deoigrsEgressOnlyInternetGateways :: Lens' DescribeEgressOnlyInternetGatewaysResponse [EgressOnlyInternetGateway]
 deoigrsEgressOnlyInternetGateways = lens _deoigrsEgressOnlyInternetGateways (\ s a -> s{_deoigrsEgressOnlyInternetGateways = a}) . _Default . _Coerce
 
--- | The token to use to retrieve the next page of results.
+-- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 deoigrsNextToken :: Lens' DescribeEgressOnlyInternetGatewaysResponse (Maybe Text)
 deoigrsNextToken = lens _deoigrsNextToken (\ s a -> s{_deoigrsNextToken = a})
 

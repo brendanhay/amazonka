@@ -29,7 +29,7 @@
 --
 -- This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.
 --
--- For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html AWS Managed VPN Connections> in the /Amazon Virtual Private Cloud User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html AWS Site-to-Site VPN> in the /AWS Site-to-Site VPN User Guide/ .
 --
 module Network.AWS.EC2.CreateVPNConnection
     (
@@ -37,11 +37,12 @@ module Network.AWS.EC2.CreateVPNConnection
       createVPNConnection
     , CreateVPNConnection
     -- * Request Lenses
+    , cvcVPNGatewayId
+    , cvcTransitGatewayId
     , cvcOptions
     , cvcDryRun
     , cvcCustomerGatewayId
     , cvcType
-    , cvcVPNGatewayId
 
     -- * Destructuring the Response
     , createVPNConnectionResponse
@@ -64,17 +65,22 @@ import Network.AWS.Response
 --
 -- /See:/ 'createVPNConnection' smart constructor.
 data CreateVPNConnection = CreateVPNConnection'
-  { _cvcOptions           :: !(Maybe VPNConnectionOptionsSpecification)
+  { _cvcVPNGatewayId      :: !(Maybe Text)
+  , _cvcTransitGatewayId  :: !(Maybe Text)
+  , _cvcOptions           :: !(Maybe VPNConnectionOptionsSpecification)
   , _cvcDryRun            :: !(Maybe Bool)
   , _cvcCustomerGatewayId :: !Text
   , _cvcType              :: !Text
-  , _cvcVPNGatewayId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'CreateVPNConnection' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvcVPNGatewayId' - The ID of the virtual private gateway. If you specify a virtual private gateway, you cannot specify a transit gateway.
+--
+-- * 'cvcTransitGatewayId' - The ID of the transit gateway. If you specify a transit gateway, you cannot specify a virtual private gateway.
 --
 -- * 'cvcOptions' - The options for the VPN connection.
 --
@@ -83,22 +89,28 @@ data CreateVPNConnection = CreateVPNConnection'
 -- * 'cvcCustomerGatewayId' - The ID of the customer gateway.
 --
 -- * 'cvcType' - The type of VPN connection (@ipsec.1@ ).
---
--- * 'cvcVPNGatewayId' - The ID of the virtual private gateway.
 createVPNConnection
     :: Text -- ^ 'cvcCustomerGatewayId'
     -> Text -- ^ 'cvcType'
-    -> Text -- ^ 'cvcVPNGatewayId'
     -> CreateVPNConnection
-createVPNConnection pCustomerGatewayId_ pType_ pVPNGatewayId_ =
+createVPNConnection pCustomerGatewayId_ pType_ =
   CreateVPNConnection'
-    { _cvcOptions = Nothing
+    { _cvcVPNGatewayId = Nothing
+    , _cvcTransitGatewayId = Nothing
+    , _cvcOptions = Nothing
     , _cvcDryRun = Nothing
     , _cvcCustomerGatewayId = pCustomerGatewayId_
     , _cvcType = pType_
-    , _cvcVPNGatewayId = pVPNGatewayId_
     }
 
+
+-- | The ID of the virtual private gateway. If you specify a virtual private gateway, you cannot specify a transit gateway.
+cvcVPNGatewayId :: Lens' CreateVPNConnection (Maybe Text)
+cvcVPNGatewayId = lens _cvcVPNGatewayId (\ s a -> s{_cvcVPNGatewayId = a})
+
+-- | The ID of the transit gateway. If you specify a transit gateway, you cannot specify a virtual private gateway.
+cvcTransitGatewayId :: Lens' CreateVPNConnection (Maybe Text)
+cvcTransitGatewayId = lens _cvcTransitGatewayId (\ s a -> s{_cvcTransitGatewayId = a})
 
 -- | The options for the VPN connection.
 cvcOptions :: Lens' CreateVPNConnection (Maybe VPNConnectionOptionsSpecification)
@@ -115,10 +127,6 @@ cvcCustomerGatewayId = lens _cvcCustomerGatewayId (\ s a -> s{_cvcCustomerGatewa
 -- | The type of VPN connection (@ipsec.1@ ).
 cvcType :: Lens' CreateVPNConnection Text
 cvcType = lens _cvcType (\ s a -> s{_cvcType = a})
-
--- | The ID of the virtual private gateway.
-cvcVPNGatewayId :: Lens' CreateVPNConnection Text
-cvcVPNGatewayId = lens _cvcVPNGatewayId (\ s a -> s{_cvcVPNGatewayId = a})
 
 instance AWSRequest CreateVPNConnection where
         type Rs CreateVPNConnection =
@@ -145,10 +153,11 @@ instance ToQuery CreateVPNConnection where
           = mconcat
               ["Action" =: ("CreateVpnConnection" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
+               "VpnGatewayId" =: _cvcVPNGatewayId,
+               "TransitGatewayId" =: _cvcTransitGatewayId,
                "Options" =: _cvcOptions, "DryRun" =: _cvcDryRun,
                "CustomerGatewayId" =: _cvcCustomerGatewayId,
-               "Type" =: _cvcType,
-               "VpnGatewayId" =: _cvcVPNGatewayId]
+               "Type" =: _cvcType]
 
 -- | Contains the output of CreateVpnConnection.
 --

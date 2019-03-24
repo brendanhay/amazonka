@@ -42,11 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DeleteDhcpOptions.
---
---
---
--- /See:/ 'deleteDHCPOptions' smart constructor.
+-- | /See:/ 'deleteDHCPOptions' smart constructor.
 data DeleteDHCPOptions = DeleteDHCPOptions'
   { _ddhcpoDryRun        :: !(Maybe Bool)
   , _ddhcpoDHCPOptionsId :: !Text

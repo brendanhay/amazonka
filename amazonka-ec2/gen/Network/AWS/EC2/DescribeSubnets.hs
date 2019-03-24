@@ -21,7 +21,7 @@
 -- Describes one or more of your subnets.
 --
 --
--- For more information about subnets, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html Your VPC and Subnets> in the /Amazon Virtual Private Cloud User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html Your VPC and Subnets> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 module Network.AWS.EC2.DescribeSubnets
     (
@@ -48,11 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeSubnets.
---
---
---
--- /See:/ 'describeSubnets' smart constructor.
+-- | /See:/ 'describeSubnets' smart constructor.
 data DescribeSubnets = DescribeSubnets'
   { _dsSubnetIds :: !(Maybe [Text])
   , _dsFilters   :: !(Maybe [Filter])
@@ -66,7 +62,7 @@ data DescribeSubnets = DescribeSubnets'
 --
 -- * 'dsSubnetIds' - One or more subnet IDs. Default: Describes all your subnets.
 --
--- * 'dsFilters' - One or more filters.     * @availabilityZone@ - The Availability Zone for the subnet. You can also use @availability-zone@ as the filter name.     * @available-ip-address-count@ - The number of IPv4 addresses in the subnet that are available.     * @cidrBlock@ - The IPv4 CIDR block of the subnet. The CIDR block you specify must exactly match the subnet's CIDR block for information to be returned for the subnet. You can also use @cidr@ or @cidr-block@ as the filter names.     * @defaultForAz@ - Indicates whether this is the default subnet for the Availability Zone. You can also use @default-for-az@ as the filter name.     * @ipv6-cidr-block-association.ipv6-cidr-block@ - An IPv6 CIDR block associated with the subnet.     * @ipv6-cidr-block-association.association-id@ - An association ID for an IPv6 CIDR block associated with the subnet.     * @ipv6-cidr-block-association.state@ - The state of an IPv6 CIDR block associated with the subnet.     * @state@ - The state of the subnet (@pending@ | @available@ ).     * @subnet-id@ - The ID of the subnet.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @vpc-id@ - The ID of the VPC for the subnet.
+-- * 'dsFilters' - One or more filters.     * @availability-zone@ - The Availability Zone for the subnet. You can also use @availabilityZone@ as the filter name.     * @availability-zone-id@ - The ID of the Availability Zone for the subnet. You can also use @availabilityZoneId@ as the filter name.     * @available-ip-address-count@ - The number of IPv4 addresses in the subnet that are available.     * @cidr-block@ - The IPv4 CIDR block of the subnet. The CIDR block you specify must exactly match the subnet's CIDR block for information to be returned for the subnet. You can also use @cidr@ or @cidrBlock@ as the filter names.     * @default-for-az@ - Indicates whether this is the default subnet for the Availability Zone. You can also use @defaultForAz@ as the filter name.     * @ipv6-cidr-block-association.ipv6-cidr-block@ - An IPv6 CIDR block associated with the subnet.     * @ipv6-cidr-block-association.association-id@ - An association ID for an IPv6 CIDR block associated with the subnet.     * @ipv6-cidr-block-association.state@ - The state of an IPv6 CIDR block associated with the subnet.     * @owner-id@ - The ID of the AWS account that owns the subnet.     * @state@ - The state of the subnet (@pending@ | @available@ ).     * @subnet-arn@ - The Amazon Resource Name (ARN) of the subnet.     * @subnet-id@ - The ID of the subnet.     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.     * @vpc-id@ - The ID of the VPC for the subnet.
 --
 -- * 'dsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 describeSubnets
@@ -80,7 +76,7 @@ describeSubnets =
 dsSubnetIds :: Lens' DescribeSubnets [Text]
 dsSubnetIds = lens _dsSubnetIds (\ s a -> s{_dsSubnetIds = a}) . _Default . _Coerce
 
--- | One or more filters.     * @availabilityZone@ - The Availability Zone for the subnet. You can also use @availability-zone@ as the filter name.     * @available-ip-address-count@ - The number of IPv4 addresses in the subnet that are available.     * @cidrBlock@ - The IPv4 CIDR block of the subnet. The CIDR block you specify must exactly match the subnet's CIDR block for information to be returned for the subnet. You can also use @cidr@ or @cidr-block@ as the filter names.     * @defaultForAz@ - Indicates whether this is the default subnet for the Availability Zone. You can also use @default-for-az@ as the filter name.     * @ipv6-cidr-block-association.ipv6-cidr-block@ - An IPv6 CIDR block associated with the subnet.     * @ipv6-cidr-block-association.association-id@ - An association ID for an IPv6 CIDR block associated with the subnet.     * @ipv6-cidr-block-association.state@ - The state of an IPv6 CIDR block associated with the subnet.     * @state@ - The state of the subnet (@pending@ | @available@ ).     * @subnet-id@ - The ID of the subnet.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @vpc-id@ - The ID of the VPC for the subnet.
+-- | One or more filters.     * @availability-zone@ - The Availability Zone for the subnet. You can also use @availabilityZone@ as the filter name.     * @availability-zone-id@ - The ID of the Availability Zone for the subnet. You can also use @availabilityZoneId@ as the filter name.     * @available-ip-address-count@ - The number of IPv4 addresses in the subnet that are available.     * @cidr-block@ - The IPv4 CIDR block of the subnet. The CIDR block you specify must exactly match the subnet's CIDR block for information to be returned for the subnet. You can also use @cidr@ or @cidrBlock@ as the filter names.     * @default-for-az@ - Indicates whether this is the default subnet for the Availability Zone. You can also use @defaultForAz@ as the filter name.     * @ipv6-cidr-block-association.ipv6-cidr-block@ - An IPv6 CIDR block associated with the subnet.     * @ipv6-cidr-block-association.association-id@ - An association ID for an IPv6 CIDR block associated with the subnet.     * @ipv6-cidr-block-association.state@ - The state of an IPv6 CIDR block associated with the subnet.     * @owner-id@ - The ID of the AWS account that owns the subnet.     * @state@ - The state of the subnet (@pending@ | @available@ ).     * @subnet-arn@ - The Amazon Resource Name (ARN) of the subnet.     * @subnet-id@ - The ID of the subnet.     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.     * @vpc-id@ - The ID of the VPC for the subnet.
 dsFilters :: Lens' DescribeSubnets [Filter]
 dsFilters = lens _dsFilters (\ s a -> s{_dsFilters = a}) . _Default . _Coerce
 
@@ -118,11 +114,7 @@ instance ToQuery DescribeSubnets where
                toQuery (toQueryList "Filter" <$> _dsFilters),
                "DryRun" =: _dsDryRun]
 
--- | Contains the output of DescribeSubnets.
---
---
---
--- /See:/ 'describeSubnetsResponse' smart constructor.
+-- | /See:/ 'describeSubnetsResponse' smart constructor.
 data DescribeSubnetsResponse = DescribeSubnetsResponse'
   { _dsrsSubnets        :: !(Maybe [Subnet])
   , _dsrsResponseStatus :: !Int

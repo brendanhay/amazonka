@@ -21,7 +21,7 @@
 -- Disassociates a subnet from a route table.
 --
 --
--- After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /Amazon Virtual Private Cloud User Guide/ .
+-- After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 module Network.AWS.EC2.DisassociateRouteTable
     (
@@ -44,11 +44,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DisassociateRouteTable.
---
---
---
--- /See:/ 'disassociateRouteTable' smart constructor.
+-- | /See:/ 'disassociateRouteTable' smart constructor.
 data DisassociateRouteTable = DisassociateRouteTable'
   { _drtDryRun        :: !(Maybe Bool)
   , _drtAssociationId :: !Text

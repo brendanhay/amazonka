@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Replaces an entry (rule) in a network ACL. For more information about network ACLs, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs> in the /Amazon Virtual Private Cloud User Guide/ .
+-- Replaces an entry (rule) in a network ACL. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 --
 module Network.AWS.EC2.ReplaceNetworkACLEntry
@@ -50,11 +50,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for ReplaceNetworkAclEntry.
---
---
---
--- /See:/ 'replaceNetworkACLEntry' smart constructor.
+-- | /See:/ 'replaceNetworkACLEntry' smart constructor.
 data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
   { _rnaeIPv6CidrBlock :: !(Maybe Text)
   , _rnaeICMPTypeCode  :: !(Maybe ICMPTypeCode)
@@ -75,9 +71,9 @@ data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
 --
 -- * 'rnaeIPv6CidrBlock' - The IPv6 network range to allow or deny, in CIDR notation (for example @2001:bd8:1234:1a00::/64@ ).
 --
--- * 'rnaeICMPTypeCode' - ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying the ICMP (1) protocol, or protocol 58 (ICMPv6) with an IPv6 CIDR block.
+-- * 'rnaeICMPTypeCode' - ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
 --
--- * 'rnaePortRange' - TCP or UDP protocols: The range of ports the rule applies to. Required if specifying TCP (6) or UDP (17) for the protocol.
+-- * 'rnaePortRange' - TCP or UDP protocols: The range of ports the rule applies to. Required if specifying protocol 6 (TCP) or 17 (UDP).
 --
 -- * 'rnaeCidrBlock' - The IPv4 network range to allow or deny, in CIDR notation (for example @172.16.0.0/24@ ).
 --
@@ -87,7 +83,7 @@ data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
 --
 -- * 'rnaeNetworkACLId' - The ID of the ACL.
 --
--- * 'rnaeProtocol' - The IP protocol. You can specify @all@ or @-1@ to mean all protocols. If you specify @all@ , @-1@ , or a protocol number other than @tcp@ , @udp@ , or @icmp@ , traffic on all ports is allowed, regardless of any ports or ICMP types or codes you specify. If you specify protocol @58@ (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol @58@ (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
+-- * 'rnaeProtocol' - The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
 --
 -- * 'rnaeRuleAction' - Indicates whether to allow or deny the traffic that matches the rule.
 --
@@ -118,11 +114,11 @@ replaceNetworkACLEntry pEgress_ pNetworkACLId_ pProtocol_ pRuleAction_ pRuleNumb
 rnaeIPv6CidrBlock :: Lens' ReplaceNetworkACLEntry (Maybe Text)
 rnaeIPv6CidrBlock = lens _rnaeIPv6CidrBlock (\ s a -> s{_rnaeIPv6CidrBlock = a})
 
--- | ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying the ICMP (1) protocol, or protocol 58 (ICMPv6) with an IPv6 CIDR block.
+-- | ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
 rnaeICMPTypeCode :: Lens' ReplaceNetworkACLEntry (Maybe ICMPTypeCode)
 rnaeICMPTypeCode = lens _rnaeICMPTypeCode (\ s a -> s{_rnaeICMPTypeCode = a})
 
--- | TCP or UDP protocols: The range of ports the rule applies to. Required if specifying TCP (6) or UDP (17) for the protocol.
+-- | TCP or UDP protocols: The range of ports the rule applies to. Required if specifying protocol 6 (TCP) or 17 (UDP).
 rnaePortRange :: Lens' ReplaceNetworkACLEntry (Maybe PortRange)
 rnaePortRange = lens _rnaePortRange (\ s a -> s{_rnaePortRange = a})
 
@@ -142,7 +138,7 @@ rnaeEgress = lens _rnaeEgress (\ s a -> s{_rnaeEgress = a})
 rnaeNetworkACLId :: Lens' ReplaceNetworkACLEntry Text
 rnaeNetworkACLId = lens _rnaeNetworkACLId (\ s a -> s{_rnaeNetworkACLId = a})
 
--- | The IP protocol. You can specify @all@ or @-1@ to mean all protocols. If you specify @all@ , @-1@ , or a protocol number other than @tcp@ , @udp@ , or @icmp@ , traffic on all ports is allowed, regardless of any ports or ICMP types or codes you specify. If you specify protocol @58@ (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol @58@ (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
+-- | The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
 rnaeProtocol :: Lens' ReplaceNetworkACLEntry Text
 rnaeProtocol = lens _rnaeProtocol (\ s a -> s{_rnaeProtocol = a})
 

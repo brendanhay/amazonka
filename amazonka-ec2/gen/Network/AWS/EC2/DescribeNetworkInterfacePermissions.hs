@@ -21,6 +21,8 @@
 -- Describes the permissions for your network interfaces.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeNetworkInterfacePermissions
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.EC2.DescribeNetworkInterfacePermissions
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -98,6 +101,15 @@ dnipNetworkInterfacePermissionIds = lens _dnipNetworkInterfacePermissionIds (\ s
 -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. If this parameter is not specified, up to 50 results are returned by default.
 dnipMaxResults :: Lens' DescribeNetworkInterfacePermissions (Maybe Int)
 dnipMaxResults = lens _dnipMaxResults (\ s a -> s{_dnipMaxResults = a})
+
+instance AWSPager DescribeNetworkInterfacePermissions
+         where
+        page rq rs
+          | stop (rs ^. dnipsrsNextToken) = Nothing
+          | stop (rs ^. dnipsrsNetworkInterfacePermissions) =
+            Nothing
+          | otherwise =
+            Just $ rq & dnipNextToken .~ rs ^. dnipsrsNextToken
 
 instance AWSRequest
            DescribeNetworkInterfacePermissions

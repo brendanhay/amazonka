@@ -21,6 +21,8 @@
 -- Describes the principals (service consumers) that are permitted to discover your VPC endpoint service.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeVPCEndpointServicePermissions
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.EC2.DescribeVPCEndpointServicePermissions
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -104,6 +107,15 @@ dvespMaxResults = lens _dvespMaxResults (\ s a -> s{_dvespMaxResults = a})
 -- | The ID of the service.
 dvespServiceId :: Lens' DescribeVPCEndpointServicePermissions Text
 dvespServiceId = lens _dvespServiceId (\ s a -> s{_dvespServiceId = a})
+
+instance AWSPager
+           DescribeVPCEndpointServicePermissions
+         where
+        page rq rs
+          | stop (rs ^. dvesprsNextToken) = Nothing
+          | stop (rs ^. dvesprsAllowedPrincipals) = Nothing
+          | otherwise =
+            Just $ rq & dvespNextToken .~ rs ^. dvesprsNextToken
 
 instance AWSRequest
            DescribeVPCEndpointServicePermissions

@@ -21,6 +21,8 @@
 -- Describes one or more of your VPC endpoints.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeVPCEndpoints
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.EC2.DescribeVPCEndpoints
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -107,6 +110,13 @@ dvpceDryRun = lens _dvpceDryRun (\ s a -> s{_dvpceDryRun = a})
 -- | The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results. Constraint: If the value is greater than 1000, we return only 1000 items.
 dvpceMaxResults :: Lens' DescribeVPCEndpoints (Maybe Int)
 dvpceMaxResults = lens _dvpceMaxResults (\ s a -> s{_dvpceMaxResults = a})
+
+instance AWSPager DescribeVPCEndpoints where
+        page rq rs
+          | stop (rs ^. dvpcersNextToken) = Nothing
+          | stop (rs ^. dvpcersVPCEndpoints) = Nothing
+          | otherwise =
+            Just $ rq & dvpceNextToken .~ rs ^. dvpcersNextToken
 
 instance AWSRequest DescribeVPCEndpoints where
         type Rs DescribeVPCEndpoints =

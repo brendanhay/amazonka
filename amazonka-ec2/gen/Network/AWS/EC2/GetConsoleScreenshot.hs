@@ -49,11 +49,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for the request.
---
---
---
--- /See:/ 'getConsoleScreenshot' smart constructor.
+-- | /See:/ 'getConsoleScreenshot' smart constructor.
 data GetConsoleScreenshot = GetConsoleScreenshot'
   { _gcsWakeUp     :: !(Maybe Bool)
   , _gcsDryRun     :: !(Maybe Bool)
@@ -119,11 +115,7 @@ instance ToQuery GetConsoleScreenshot where
                "WakeUp" =: _gcsWakeUp, "DryRun" =: _gcsDryRun,
                "InstanceId" =: _gcsInstanceId]
 
--- | Contains the output of the request.
---
---
---
--- /See:/ 'getConsoleScreenshotResponse' smart constructor.
+-- | /See:/ 'getConsoleScreenshotResponse' smart constructor.
 data GetConsoleScreenshotResponse = GetConsoleScreenshotResponse'
   { _gcsrsInstanceId     :: !(Maybe Text)
   , _gcsrsImageData      :: !(Maybe Text)

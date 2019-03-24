@@ -42,11 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DeleteKeyPair.
---
---
---
--- /See:/ 'deleteKeyPair' smart constructor.
+-- | /See:/ 'deleteKeyPair' smart constructor.
 data DeleteKeyPair = DeleteKeyPair'
   { _dkpDryRun  :: !(Maybe Bool)
   , _dkpKeyName :: !Text

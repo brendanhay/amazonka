@@ -21,8 +21,10 @@
 -- Describes one or more of your Dedicated Hosts.
 --
 --
--- The results describe only the Dedicated Hosts in the region you're currently using. All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have recently been released will be listed with the state @released@ .
+-- The results describe only the Dedicated Hosts in the Region you're currently using. All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have recently been released are listed with the state @released@ .
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeHosts
     (
     -- * Creating a Request
@@ -46,15 +48,12 @@ module Network.AWS.EC2.DescribeHosts
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeHosts.
---
---
---
--- /See:/ 'describeHosts' smart constructor.
+-- | /See:/ 'describeHosts' smart constructor.
 data DescribeHosts = DescribeHosts'
   { _dhNextToken  :: !(Maybe Text)
   , _dhFilter     :: !(Maybe [Filter])
@@ -69,11 +68,11 @@ data DescribeHosts = DescribeHosts'
 --
 -- * 'dhNextToken' - The token to retrieve the next page of results.
 --
--- * 'dhFilter' - One or more filters.     * @auto-placement@ - Whether auto-placement is enabled or disabled (@on@ | @off@ ).     * @availability-zone@ - The Availability Zone of the host.     * @client-token@ - The idempotency token you provided when you allocated the host.     * @host-reservation-id@ - The ID of the reservation assigned to this host.     * @instance-type@ - The instance type size that the Dedicated Host is configured to support.     * @state@ - The allocation state of the Dedicated Host (@available@ | @under-assessment@ | @permanent-failure@ | @released@ | @released-permanent-failure@ ).
+-- * 'dhFilter' - One or more filters.     * @auto-placement@ - Whether auto-placement is enabled or disabled (@on@ | @off@ ).     * @availability-zone@ - The Availability Zone of the host.     * @client-token@ - The idempotency token that you provided when you allocated the host.     * @host-reservation-id@ - The ID of the reservation assigned to this host.     * @instance-type@ - The instance type size that the Dedicated Host is configured to support.     * @state@ - The allocation state of the Dedicated Host (@available@ | @under-assessment@ | @permanent-failure@ | @released@ | @released-permanent-failure@ ).     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
 --
 -- * 'dhHostIds' - The IDs of the Dedicated Hosts. The IDs are used for targeted instance launches.
 --
--- * 'dhMaxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500; if @maxResults@ is given a larger value than 500, you will receive an error. You cannot specify this parameter and the host IDs parameter in the same request.
+-- * 'dhMaxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error. You cannot specify this parameter and the host IDs parameter in the same request.
 describeHosts
     :: DescribeHosts
 describeHosts =
@@ -89,7 +88,7 @@ describeHosts =
 dhNextToken :: Lens' DescribeHosts (Maybe Text)
 dhNextToken = lens _dhNextToken (\ s a -> s{_dhNextToken = a})
 
--- | One or more filters.     * @auto-placement@ - Whether auto-placement is enabled or disabled (@on@ | @off@ ).     * @availability-zone@ - The Availability Zone of the host.     * @client-token@ - The idempotency token you provided when you allocated the host.     * @host-reservation-id@ - The ID of the reservation assigned to this host.     * @instance-type@ - The instance type size that the Dedicated Host is configured to support.     * @state@ - The allocation state of the Dedicated Host (@available@ | @under-assessment@ | @permanent-failure@ | @released@ | @released-permanent-failure@ ).
+-- | One or more filters.     * @auto-placement@ - Whether auto-placement is enabled or disabled (@on@ | @off@ ).     * @availability-zone@ - The Availability Zone of the host.     * @client-token@ - The idempotency token that you provided when you allocated the host.     * @host-reservation-id@ - The ID of the reservation assigned to this host.     * @instance-type@ - The instance type size that the Dedicated Host is configured to support.     * @state@ - The allocation state of the Dedicated Host (@available@ | @under-assessment@ | @permanent-failure@ | @released@ | @released-permanent-failure@ ).     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
 dhFilter :: Lens' DescribeHosts [Filter]
 dhFilter = lens _dhFilter (\ s a -> s{_dhFilter = a}) . _Default . _Coerce
 
@@ -97,9 +96,16 @@ dhFilter = lens _dhFilter (\ s a -> s{_dhFilter = a}) . _Default . _Coerce
 dhHostIds :: Lens' DescribeHosts [Text]
 dhHostIds = lens _dhHostIds (\ s a -> s{_dhHostIds = a}) . _Default . _Coerce
 
--- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500; if @maxResults@ is given a larger value than 500, you will receive an error. You cannot specify this parameter and the host IDs parameter in the same request.
+-- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error. You cannot specify this parameter and the host IDs parameter in the same request.
 dhMaxResults :: Lens' DescribeHosts (Maybe Int)
 dhMaxResults = lens _dhMaxResults (\ s a -> s{_dhMaxResults = a})
+
+instance AWSPager DescribeHosts where
+        page rq rs
+          | stop (rs ^. dhrsNextToken) = Nothing
+          | stop (rs ^. dhrsHosts) = Nothing
+          | otherwise =
+            Just $ rq & dhNextToken .~ rs ^. dhrsNextToken
 
 instance AWSRequest DescribeHosts where
         type Rs DescribeHosts = DescribeHostsResponse
@@ -133,11 +139,7 @@ instance ToQuery DescribeHosts where
                toQuery (toQueryList "HostId" <$> _dhHostIds),
                "MaxResults" =: _dhMaxResults]
 
--- | Contains the output of DescribeHosts.
---
---
---
--- /See:/ 'describeHostsResponse' smart constructor.
+-- | /See:/ 'describeHostsResponse' smart constructor.
 data DescribeHostsResponse = DescribeHostsResponse'
   { _dhrsHosts          :: !(Maybe [Host])
   , _dhrsNextToken      :: !(Maybe Text)

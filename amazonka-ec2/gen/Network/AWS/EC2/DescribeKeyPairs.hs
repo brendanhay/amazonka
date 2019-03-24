@@ -21,7 +21,7 @@
 -- Describes one or more of your key pairs.
 --
 --
--- For more information about key pairs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- For more information about key pairs, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 module Network.AWS.EC2.DescribeKeyPairs
     (
@@ -48,11 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeKeyPairs.
---
---
---
--- /See:/ 'describeKeyPairs' smart constructor.
+-- | /See:/ 'describeKeyPairs' smart constructor.
 data DescribeKeyPairs = DescribeKeyPairs'
   { _dkpsFilters  :: !(Maybe [Filter])
   , _dkpsKeyNames :: !(Maybe [Text])
@@ -118,11 +114,7 @@ instance ToQuery DescribeKeyPairs where
                toQuery (toQueryList "KeyName" <$> _dkpsKeyNames),
                "DryRun" =: _dkpsDryRun]
 
--- | Contains the output of DescribeKeyPairs.
---
---
---
--- /See:/ 'describeKeyPairsResponse' smart constructor.
+-- | /See:/ 'describeKeyPairsResponse' smart constructor.
 data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
   { _dkprsKeyPairs       :: !(Maybe [KeyPairInfo])
   , _dkprsResponseStatus :: !Int

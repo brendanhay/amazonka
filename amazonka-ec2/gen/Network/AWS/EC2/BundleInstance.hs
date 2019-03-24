@@ -23,8 +23,6 @@
 --
 -- During bundling, only the root device volume (C:\) is bundled. Data on other instance store volumes is not preserved.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html Creating an Instance Store-Backed Windows AMI> .
---
 module Network.AWS.EC2.BundleInstance
     (
     -- * Creating a Request

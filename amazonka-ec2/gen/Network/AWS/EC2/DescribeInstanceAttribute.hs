@@ -60,11 +60,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeInstanceAttribute.
---
---
---
--- /See:/ 'describeInstanceAttribute' smart constructor.
+-- | /See:/ 'describeInstanceAttribute' smart constructor.
 data DescribeInstanceAttribute = DescribeInstanceAttribute'
   { _diaDryRun     :: !(Maybe Bool)
   , _diaAttribute  :: !InstanceAttributeName

@@ -23,7 +23,7 @@
 --
 -- If an instance does not cleanly shut down within four minutes, Amazon EC2 performs a hard reboot.
 --
--- For more information about troubleshooting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html Getting Console Output and Rebooting Instances> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- For more information about troubleshooting, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html Getting Console Output and Rebooting Instances> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 module Network.AWS.EC2.RebootInstances
     (
@@ -46,11 +46,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for RebootInstances.
---
---
---
--- /See:/ 'rebootInstances' smart constructor.
+-- | /See:/ 'rebootInstances' smart constructor.
 data RebootInstances = RebootInstances'
   { _rebDryRun      :: !(Maybe Bool)
   , _rebInstanceIds :: ![Text]

@@ -51,11 +51,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for AttachClassicLinkVpc.
---
---
---
--- /See:/ 'attachClassicLinkVPC' smart constructor.
+-- | /See:/ 'attachClassicLinkVPC' smart constructor.
 data AttachClassicLinkVPC = AttachClassicLinkVPC'
   { _aclvDryRun     :: !(Maybe Bool)
   , _aclvGroups     :: ![Text]
@@ -134,11 +130,7 @@ instance ToQuery AttachClassicLinkVPC where
                "InstanceId" =: _aclvInstanceId,
                "VpcId" =: _aclvVPCId]
 
--- | Contains the output of AttachClassicLinkVpc.
---
---
---
--- /See:/ 'attachClassicLinkVPCResponse' smart constructor.
+-- | /See:/ 'attachClassicLinkVPCResponse' smart constructor.
 data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'
   { _aclvrsReturn         :: !(Maybe Bool)
   , _aclvrsResponseStatus :: !Int

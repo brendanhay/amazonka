@@ -64,7 +64,7 @@ data DescribeFleetInstances = DescribeFleetInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfisFilters' - One or more filters.
+-- * 'dfisFilters' - One or more filters.     * @instance-type@ - The instance type.
 --
 -- * 'dfisNextToken' - The token for the next set of results.
 --
@@ -86,7 +86,7 @@ describeFleetInstances pFleetId_ =
     }
 
 
--- | One or more filters.
+-- | One or more filters.     * @instance-type@ - The instance type.
 dfisFilters :: Lens' DescribeFleetInstances [Filter]
 dfisFilters = lens _dfisFilters (\ s a -> s{_dfisFilters = a}) . _Default . _Coerce
 

@@ -18,17 +18,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the credit option for CPU usage of one or more of your T2 instances. The credit options are @standard@ and @unlimited@ .
+-- Describes the credit option for CPU usage of one or more of your T2 or T3 instances. The credit options are @standard@ and @unlimited@ .
 --
 --
--- If you do not specify an instance ID, Amazon EC2 returns only the T2 instances with the @unlimited@ credit option. If you specify one or more instance IDs, Amazon EC2 returns the credit option (@standard@ or @unlimited@ ) of those instances. If you specify an instance ID that is not valid, such as an instance that is not a T2 instance, an error is returned.
+-- If you do not specify an instance ID, Amazon EC2 returns T2 and T3 instances with the @unlimited@ credit option, as well as instances that were previously configured as T2 or T3 with the @unlimited@ credit option. For example, if you resize a T2 instance, while it is configured as @unlimited@ , to an M4 instance, Amazon EC2 returns the M4 instance.
+--
+-- If you specify one or more instance IDs, Amazon EC2 returns the credit option (@standard@ or @unlimited@ ) of those instances. If you specify an instance ID that is not valid, such as an instance that is not a T2 or T3 instance, an error is returned.
 --
 -- Recently terminated instances might appear in the returned results. This interval is usually less than one hour.
 --
 -- If an Availability Zone is experiencing a service disruption and you specify instance IDs in the affected zone, or do not specify any instance IDs at all, the call fails. If you specify only instance IDs in an unaffected zone, the call works normally.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-instances.html T2 Instances> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html Burstable Performance Instances> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeInstanceCreditSpecifications
     (
     -- * Creating a Request
@@ -53,6 +57,7 @@ module Network.AWS.EC2.DescribeInstanceCreditSpecifications
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -63,7 +68,7 @@ data DescribeInstanceCreditSpecifications = DescribeInstanceCreditSpecifications
   , _dicsNextToken   :: !(Maybe Text)
   , _dicsInstanceIds :: !(Maybe [Text])
   , _dicsDryRun      :: !(Maybe Bool)
-  , _dicsMaxResults  :: !(Maybe Int)
+  , _dicsMaxResults  :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -109,8 +114,18 @@ dicsDryRun :: Lens' DescribeInstanceCreditSpecifications (Maybe Bool)
 dicsDryRun = lens _dicsDryRun (\ s a -> s{_dicsDryRun = a})
 
 -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000. You cannot specify this parameter and the instance IDs parameter in the same call.
-dicsMaxResults :: Lens' DescribeInstanceCreditSpecifications (Maybe Int)
-dicsMaxResults = lens _dicsMaxResults (\ s a -> s{_dicsMaxResults = a})
+dicsMaxResults :: Lens' DescribeInstanceCreditSpecifications (Maybe Natural)
+dicsMaxResults = lens _dicsMaxResults (\ s a -> s{_dicsMaxResults = a}) . mapping _Nat
+
+instance AWSPager
+           DescribeInstanceCreditSpecifications
+         where
+        page rq rs
+          | stop (rs ^. dicsrsNextToken) = Nothing
+          | stop (rs ^. dicsrsInstanceCreditSpecifications) =
+            Nothing
+          | otherwise =
+            Just $ rq & dicsNextToken .~ rs ^. dicsrsNextToken
 
 instance AWSRequest
            DescribeInstanceCreditSpecifications

@@ -21,7 +21,7 @@
 -- Deletes the specified set of tags from the specified set of resources.
 --
 --
--- To list the current tags, use 'DescribeTags' . For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- To list the current tags, use 'DescribeTags' . For more information about tags, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 module Network.AWS.EC2.DeleteTags
     (
@@ -45,11 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DeleteTags.
---
---
---
--- /See:/ 'deleteTags' smart constructor.
+-- | /See:/ 'deleteTags' smart constructor.
 data DeleteTags = DeleteTags'
   { _dtsDryRun    :: !(Maybe Bool)
   , _dtsTags      :: !(Maybe [Tag])
@@ -65,7 +61,7 @@ data DeleteTags = DeleteTags'
 --
 -- * 'dtsTags' - One or more tags to delete. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string. If you omit this parameter, we delete all user-defined tags for the specified resources. We do not delete AWS-generated tags (tags that have the @aws:@ prefix).
 --
--- * 'dtsResources' - The IDs of one or more resources.
+-- * 'dtsResources' - The IDs of one or more resources, separated by spaces. Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
 deleteTags
     :: DeleteTags
 deleteTags =
@@ -80,7 +76,7 @@ dtsDryRun = lens _dtsDryRun (\ s a -> s{_dtsDryRun = a})
 dtsTags :: Lens' DeleteTags [Tag]
 dtsTags = lens _dtsTags (\ s a -> s{_dtsTags = a}) . _Default . _Coerce
 
--- | The IDs of one or more resources.
+-- | The IDs of one or more resources, separated by spaces. Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
 dtsResources :: Lens' DeleteTags [Text]
 dtsResources = lens _dtsResources (\ s a -> s{_dtsResources = a}) . _Coerce
 

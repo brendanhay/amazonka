@@ -45,11 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DisableVpcClassicLink.
---
---
---
--- /See:/ 'disableVPCClassicLink' smart constructor.
+-- | /See:/ 'disableVPCClassicLink' smart constructor.
 data DisableVPCClassicLink = DisableVPCClassicLink'
   { _dvpcclDryRun :: !(Maybe Bool)
   , _dvpcclVPCId  :: !Text
@@ -105,11 +101,7 @@ instance ToQuery DisableVPCClassicLink where
                "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _dvpcclDryRun, "VpcId" =: _dvpcclVPCId]
 
--- | Contains the output of DisableVpcClassicLink.
---
---
---
--- /See:/ 'disableVPCClassicLinkResponse' smart constructor.
+-- | /See:/ 'disableVPCClassicLinkResponse' smart constructor.
 data DisableVPCClassicLinkResponse = DisableVPCClassicLinkResponse'
   { _dvpcclrsReturn         :: !(Maybe Bool)
   , _dvpcclrsResponseStatus :: !Int

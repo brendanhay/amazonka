@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes Dedicated Host Reservations which are associated with Dedicated Hosts in your account.
+-- Describes reservations that are associated with Dedicated Hosts in your account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeHostReservations
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.EC2.DescribeHostReservations
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -65,9 +68,9 @@ data DescribeHostReservations = DescribeHostReservations'
 --
 -- * 'dhrHostReservationIdSet' - One or more host reservation IDs.
 --
--- * 'dhrFilter' - One or more filters.     * @instance-family@ - The instance family (e.g., @m4@ ).     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).     * @state@ - The state of the reservation (@payment-pending@ | @payment-failed@ | @active@ | @retired@ ).
+-- * 'dhrFilter' - One or more filters.     * @instance-family@ - The instance family (for example, @m4@ ).     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).     * @state@ - The state of the reservation (@payment-pending@ | @payment-failed@ | @active@ | @retired@ ).     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
 --
--- * 'dhrMaxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500; if @maxResults@ is given a larger value than 500, you will receive an error.
+-- * 'dhrMaxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error.
 describeHostReservations
     :: DescribeHostReservations
 describeHostReservations =
@@ -87,13 +90,20 @@ dhrNextToken = lens _dhrNextToken (\ s a -> s{_dhrNextToken = a})
 dhrHostReservationIdSet :: Lens' DescribeHostReservations [Text]
 dhrHostReservationIdSet = lens _dhrHostReservationIdSet (\ s a -> s{_dhrHostReservationIdSet = a}) . _Default . _Coerce
 
--- | One or more filters.     * @instance-family@ - The instance family (e.g., @m4@ ).     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).     * @state@ - The state of the reservation (@payment-pending@ | @payment-failed@ | @active@ | @retired@ ).
+-- | One or more filters.     * @instance-family@ - The instance family (for example, @m4@ ).     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).     * @state@ - The state of the reservation (@payment-pending@ | @payment-failed@ | @active@ | @retired@ ).     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
 dhrFilter :: Lens' DescribeHostReservations [Filter]
 dhrFilter = lens _dhrFilter (\ s a -> s{_dhrFilter = a}) . _Default . _Coerce
 
--- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500; if @maxResults@ is given a larger value than 500, you will receive an error.
+-- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error.
 dhrMaxResults :: Lens' DescribeHostReservations (Maybe Int)
 dhrMaxResults = lens _dhrMaxResults (\ s a -> s{_dhrMaxResults = a})
+
+instance AWSPager DescribeHostReservations where
+        page rq rs
+          | stop (rs ^. dhrrsNextToken) = Nothing
+          | stop (rs ^. dhrrsHostReservationSet) = Nothing
+          | otherwise =
+            Just $ rq & dhrNextToken .~ rs ^. dhrrsNextToken
 
 instance AWSRequest DescribeHostReservations where
         type Rs DescribeHostReservations =

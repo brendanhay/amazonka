@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes the route table associated with a given subnet in a VPC. After the operation completes, the subnet uses the routes in the new route table it's associated with. For more information about route tables, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /Amazon Virtual Private Cloud User Guide/ .
+-- Changes the route table associated with a given subnet in a VPC. After the operation completes, the subnet uses the routes in the new route table it's associated with. For more information about route tables, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 --
 -- You can also use ReplaceRouteTableAssociation to change which table is the main route table in the VPC. You just specify the main route table's association ID and the route table to be the new main route table.
@@ -48,11 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for ReplaceRouteTableAssociation.
---
---
---
--- /See:/ 'replaceRouteTableAssociation' smart constructor.
+-- | /See:/ 'replaceRouteTableAssociation' smart constructor.
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation'
   { _rrtaDryRun        :: !(Maybe Bool)
   , _rrtaAssociationId :: !Text
@@ -124,11 +120,7 @@ instance ToQuery ReplaceRouteTableAssociation where
                "AssociationId" =: _rrtaAssociationId,
                "RouteTableId" =: _rrtaRouteTableId]
 
--- | Contains the output of ReplaceRouteTableAssociation.
---
---
---
--- /See:/ 'replaceRouteTableAssociationResponse' smart constructor.
+-- | /See:/ 'replaceRouteTableAssociationResponse' smart constructor.
 data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'
   { _rrtarsNewAssociationId :: !(Maybe Text)
   , _rrtarsResponseStatus   :: !Int

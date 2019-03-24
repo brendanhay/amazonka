@@ -21,6 +21,8 @@
 -- Describes the connection notifications for VPC endpoints and VPC endpoint services.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeVPCEndpointConnectionNotifications
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.EC2.DescribeVPCEndpointConnectionNotifications
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -103,6 +106,17 @@ dvpcecnDryRun = lens _dvpcecnDryRun (\ s a -> s{_dvpcecnDryRun = a})
 -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another request with the returned @NextToken@ value.
 dvpcecnMaxResults :: Lens' DescribeVPCEndpointConnectionNotifications (Maybe Int)
 dvpcecnMaxResults = lens _dvpcecnMaxResults (\ s a -> s{_dvpcecnMaxResults = a})
+
+instance AWSPager
+           DescribeVPCEndpointConnectionNotifications
+         where
+        page rq rs
+          | stop (rs ^. dvpcecnrsNextToken) = Nothing
+          | stop (rs ^. dvpcecnrsConnectionNotificationSet) =
+            Nothing
+          | otherwise =
+            Just $ rq &
+              dvpcecnNextToken .~ rs ^. dvpcecnrsNextToken
 
 instance AWSRequest
            DescribeVPCEndpointConnectionNotifications

@@ -44,11 +44,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DeleteNetworkAclEntry.
---
---
---
--- /See:/ 'deleteNetworkACLEntry' smart constructor.
+-- | /See:/ 'deleteNetworkACLEntry' smart constructor.
 data DeleteNetworkACLEntry = DeleteNetworkACLEntry'
   { _dnaeDryRun       :: !(Maybe Bool)
   , _dnaeEgress       :: !Bool

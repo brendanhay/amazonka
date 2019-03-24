@@ -54,11 +54,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for RevokeSecurityGroupIngress.
---
---
---
--- /See:/ 'revokeSecurityGroupIngress' smart constructor.
+-- | /See:/ 'revokeSecurityGroupIngress' smart constructor.
 data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
   { _rsgiFromPort                   :: !(Maybe Int)
   , _rsgiIPPermissions              :: !(Maybe [IPPermission])

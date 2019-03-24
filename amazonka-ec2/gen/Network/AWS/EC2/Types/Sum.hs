@@ -195,20 +195,23 @@ instance FromXML AllocationStrategy where
     parseXML = parseXMLText "AllocationStrategy"
 
 data ArchitectureValues
-  = I386
+  = ARM64
+  | I386
   | X86_64
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ArchitectureValues where
     parser = takeLowerText >>= \case
+        "arm64" -> pure ARM64
         "i386" -> pure I386
         "x86_64" -> pure X86_64
         e -> fromTextError $ "Failure parsing ArchitectureValues from value: '" <> e
-           <> "'. Accepted values: i386, x86_64"
+           <> "'. Accepted values: arm64, i386, x86_64"
 
 instance ToText ArchitectureValues where
     toText = \case
+        ARM64 -> "arm64"
         I386 -> "i386"
         X86_64 -> "x86_64"
 
@@ -220,6 +223,66 @@ instance ToHeader     ArchitectureValues
 
 instance FromXML ArchitectureValues where
     parseXML = parseXMLText "ArchitectureValues"
+
+data AssociatedNetworkType =
+  ANTVPC
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AssociatedNetworkType where
+    parser = takeLowerText >>= \case
+        "vpc" -> pure ANTVPC
+        e -> fromTextError $ "Failure parsing AssociatedNetworkType from value: '" <> e
+           <> "'. Accepted values: vpc"
+
+instance ToText AssociatedNetworkType where
+    toText = \case
+        ANTVPC -> "vpc"
+
+instance Hashable     AssociatedNetworkType
+instance NFData       AssociatedNetworkType
+instance ToByteString AssociatedNetworkType
+instance ToQuery      AssociatedNetworkType
+instance ToHeader     AssociatedNetworkType
+
+instance FromXML AssociatedNetworkType where
+    parseXML = parseXMLText "AssociatedNetworkType"
+
+data AssociationStatusCode
+  = ASCAssociated
+  | ASCAssociating
+  | ASCAssociationFailed
+  | ASCDisassociated
+  | ASCDisassociating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AssociationStatusCode where
+    parser = takeLowerText >>= \case
+        "associated" -> pure ASCAssociated
+        "associating" -> pure ASCAssociating
+        "association-failed" -> pure ASCAssociationFailed
+        "disassociated" -> pure ASCDisassociated
+        "disassociating" -> pure ASCDisassociating
+        e -> fromTextError $ "Failure parsing AssociationStatusCode from value: '" <> e
+           <> "'. Accepted values: associated, associating, association-failed, disassociated, disassociating"
+
+instance ToText AssociationStatusCode where
+    toText = \case
+        ASCAssociated -> "associated"
+        ASCAssociating -> "associating"
+        ASCAssociationFailed -> "association-failed"
+        ASCDisassociated -> "disassociated"
+        ASCDisassociating -> "disassociating"
+
+instance Hashable     AssociationStatusCode
+instance NFData       AssociationStatusCode
+instance ToByteString AssociationStatusCode
+instance ToQuery      AssociationStatusCode
+instance ToHeader     AssociationStatusCode
+
+instance FromXML AssociationStatusCode where
+    parseXML = parseXMLText "AssociationStatusCode"
 
 data AttachmentStatus
   = AAttached
@@ -259,6 +322,33 @@ instance ToHeader     AttachmentStatus
 
 instance FromXML AttachmentStatus where
     parseXML = parseXMLText "AttachmentStatus"
+
+data AutoAcceptSharedAttachmentsValue
+  = Disable
+  | Enable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AutoAcceptSharedAttachmentsValue where
+    parser = takeLowerText >>= \case
+        "disable" -> pure Disable
+        "enable" -> pure Enable
+        e -> fromTextError $ "Failure parsing AutoAcceptSharedAttachmentsValue from value: '" <> e
+           <> "'. Accepted values: disable, enable"
+
+instance ToText AutoAcceptSharedAttachmentsValue where
+    toText = \case
+        Disable -> "disable"
+        Enable -> "enable"
+
+instance Hashable     AutoAcceptSharedAttachmentsValue
+instance NFData       AutoAcceptSharedAttachmentsValue
+instance ToByteString AutoAcceptSharedAttachmentsValue
+instance ToQuery      AutoAcceptSharedAttachmentsValue
+instance ToHeader     AutoAcceptSharedAttachmentsValue
+
+instance FromXML AutoAcceptSharedAttachmentsValue where
+    parseXML = parseXMLText "AutoAcceptSharedAttachmentsValue"
 
 data AutoPlacement
   = ON
@@ -404,6 +494,48 @@ instance ToHeader     BundleTaskState
 instance FromXML BundleTaskState where
     parseXML = parseXMLText "BundleTaskState"
 
+data ByoipCidrState
+  = Advertised
+  | Deprovisioned
+  | FailedDeprovision
+  | FailedProvision
+  | PendingDeprovision
+  | PendingProvision
+  | Provisioned
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ByoipCidrState where
+    parser = takeLowerText >>= \case
+        "advertised" -> pure Advertised
+        "deprovisioned" -> pure Deprovisioned
+        "failed-deprovision" -> pure FailedDeprovision
+        "failed-provision" -> pure FailedProvision
+        "pending-deprovision" -> pure PendingDeprovision
+        "pending-provision" -> pure PendingProvision
+        "provisioned" -> pure Provisioned
+        e -> fromTextError $ "Failure parsing ByoipCidrState from value: '" <> e
+           <> "'. Accepted values: advertised, deprovisioned, failed-deprovision, failed-provision, pending-deprovision, pending-provision, provisioned"
+
+instance ToText ByoipCidrState where
+    toText = \case
+        Advertised -> "advertised"
+        Deprovisioned -> "deprovisioned"
+        FailedDeprovision -> "failed-deprovision"
+        FailedProvision -> "failed-provision"
+        PendingDeprovision -> "pending-deprovision"
+        PendingProvision -> "pending-provision"
+        Provisioned -> "provisioned"
+
+instance Hashable     ByoipCidrState
+instance NFData       ByoipCidrState
+instance ToByteString ByoipCidrState
+instance ToQuery      ByoipCidrState
+instance ToHeader     ByoipCidrState
+
+instance FromXML ByoipCidrState where
+    parseXML = parseXMLText "ByoipCidrState"
+
 data CancelBatchErrorCode
   = CBECFleetRequestIdDoesNotExist
   | CBECFleetRequestIdMalformed
@@ -473,23 +605,353 @@ instance ToHeader     CancelSpotInstanceRequestState
 instance FromXML CancelSpotInstanceRequestState where
     parseXML = parseXMLText "CancelSpotInstanceRequestState"
 
+data CapacityReservationInstancePlatform
+  = CRIPLinuxUnix
+  | CRIPLinuxWithSqlServerEnterprise
+  | CRIPLinuxWithSqlServerStandard
+  | CRIPLinuxWithSqlServerWeb
+  | CRIPRedHatEnterpriseLinux
+  | CRIPSuseLinux
+  | CRIPWindows
+  | CRIPWindowsWithSqlServer
+  | CRIPWindowsWithSqlServerEnterprise
+  | CRIPWindowsWithSqlServerStandard
+  | CRIPWindowsWithSqlServerWeb
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CapacityReservationInstancePlatform where
+    parser = takeLowerText >>= \case
+        "linux/unix" -> pure CRIPLinuxUnix
+        "linux with sql server enterprise" -> pure CRIPLinuxWithSqlServerEnterprise
+        "linux with sql server standard" -> pure CRIPLinuxWithSqlServerStandard
+        "linux with sql server web" -> pure CRIPLinuxWithSqlServerWeb
+        "red hat enterprise linux" -> pure CRIPRedHatEnterpriseLinux
+        "suse linux" -> pure CRIPSuseLinux
+        "windows" -> pure CRIPWindows
+        "windows with sql server" -> pure CRIPWindowsWithSqlServer
+        "windows with sql server enterprise" -> pure CRIPWindowsWithSqlServerEnterprise
+        "windows with sql server standard" -> pure CRIPWindowsWithSqlServerStandard
+        "windows with sql server web" -> pure CRIPWindowsWithSqlServerWeb
+        e -> fromTextError $ "Failure parsing CapacityReservationInstancePlatform from value: '" <> e
+           <> "'. Accepted values: linux/unix, linux with sql server enterprise, linux with sql server standard, linux with sql server web, red hat enterprise linux, suse linux, windows, windows with sql server, windows with sql server enterprise, windows with sql server standard, windows with sql server web"
+
+instance ToText CapacityReservationInstancePlatform where
+    toText = \case
+        CRIPLinuxUnix -> "Linux/UNIX"
+        CRIPLinuxWithSqlServerEnterprise -> "Linux with SQL Server Enterprise"
+        CRIPLinuxWithSqlServerStandard -> "Linux with SQL Server Standard"
+        CRIPLinuxWithSqlServerWeb -> "Linux with SQL Server Web"
+        CRIPRedHatEnterpriseLinux -> "Red Hat Enterprise Linux"
+        CRIPSuseLinux -> "SUSE Linux"
+        CRIPWindows -> "Windows"
+        CRIPWindowsWithSqlServer -> "Windows with SQL Server"
+        CRIPWindowsWithSqlServerEnterprise -> "Windows with SQL Server Enterprise"
+        CRIPWindowsWithSqlServerStandard -> "Windows with SQL Server Standard"
+        CRIPWindowsWithSqlServerWeb -> "Windows with SQL Server Web"
+
+instance Hashable     CapacityReservationInstancePlatform
+instance NFData       CapacityReservationInstancePlatform
+instance ToByteString CapacityReservationInstancePlatform
+instance ToQuery      CapacityReservationInstancePlatform
+instance ToHeader     CapacityReservationInstancePlatform
+
+instance FromXML CapacityReservationInstancePlatform where
+    parseXML = parseXMLText "CapacityReservationInstancePlatform"
+
+data CapacityReservationPreference
+  = None
+  | Open
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CapacityReservationPreference where
+    parser = takeLowerText >>= \case
+        "none" -> pure None
+        "open" -> pure Open
+        e -> fromTextError $ "Failure parsing CapacityReservationPreference from value: '" <> e
+           <> "'. Accepted values: none, open"
+
+instance ToText CapacityReservationPreference where
+    toText = \case
+        None -> "none"
+        Open -> "open"
+
+instance Hashable     CapacityReservationPreference
+instance NFData       CapacityReservationPreference
+instance ToByteString CapacityReservationPreference
+instance ToQuery      CapacityReservationPreference
+instance ToHeader     CapacityReservationPreference
+
+instance FromXML CapacityReservationPreference where
+    parseXML = parseXMLText "CapacityReservationPreference"
+
+data CapacityReservationState
+  = CRSActive
+  | CRSCancelled
+  | CRSExpired
+  | CRSFailed
+  | CRSPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CapacityReservationState where
+    parser = takeLowerText >>= \case
+        "active" -> pure CRSActive
+        "cancelled" -> pure CRSCancelled
+        "expired" -> pure CRSExpired
+        "failed" -> pure CRSFailed
+        "pending" -> pure CRSPending
+        e -> fromTextError $ "Failure parsing CapacityReservationState from value: '" <> e
+           <> "'. Accepted values: active, cancelled, expired, failed, pending"
+
+instance ToText CapacityReservationState where
+    toText = \case
+        CRSActive -> "active"
+        CRSCancelled -> "cancelled"
+        CRSExpired -> "expired"
+        CRSFailed -> "failed"
+        CRSPending -> "pending"
+
+instance Hashable     CapacityReservationState
+instance NFData       CapacityReservationState
+instance ToByteString CapacityReservationState
+instance ToQuery      CapacityReservationState
+instance ToHeader     CapacityReservationState
+
+instance FromXML CapacityReservationState where
+    parseXML = parseXMLText "CapacityReservationState"
+
+data CapacityReservationTenancy
+  = CRTDedicated
+  | CRTDefault
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CapacityReservationTenancy where
+    parser = takeLowerText >>= \case
+        "dedicated" -> pure CRTDedicated
+        "default" -> pure CRTDefault
+        e -> fromTextError $ "Failure parsing CapacityReservationTenancy from value: '" <> e
+           <> "'. Accepted values: dedicated, default"
+
+instance ToText CapacityReservationTenancy where
+    toText = \case
+        CRTDedicated -> "dedicated"
+        CRTDefault -> "default"
+
+instance Hashable     CapacityReservationTenancy
+instance NFData       CapacityReservationTenancy
+instance ToByteString CapacityReservationTenancy
+instance ToQuery      CapacityReservationTenancy
+instance ToHeader     CapacityReservationTenancy
+
+instance FromXML CapacityReservationTenancy where
+    parseXML = parseXMLText "CapacityReservationTenancy"
+
+data ClientCertificateRevocationListStatusCode
+  = CCRLSCActive
+  | CCRLSCPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ClientCertificateRevocationListStatusCode where
+    parser = takeLowerText >>= \case
+        "active" -> pure CCRLSCActive
+        "pending" -> pure CCRLSCPending
+        e -> fromTextError $ "Failure parsing ClientCertificateRevocationListStatusCode from value: '" <> e
+           <> "'. Accepted values: active, pending"
+
+instance ToText ClientCertificateRevocationListStatusCode where
+    toText = \case
+        CCRLSCActive -> "active"
+        CCRLSCPending -> "pending"
+
+instance Hashable     ClientCertificateRevocationListStatusCode
+instance NFData       ClientCertificateRevocationListStatusCode
+instance ToByteString ClientCertificateRevocationListStatusCode
+instance ToQuery      ClientCertificateRevocationListStatusCode
+instance ToHeader     ClientCertificateRevocationListStatusCode
+
+instance FromXML ClientCertificateRevocationListStatusCode where
+    parseXML = parseXMLText "ClientCertificateRevocationListStatusCode"
+
+data ClientVPNAuthenticationType
+  = CertificateAuthentication
+  | DirectoryServiceAuthentication
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ClientVPNAuthenticationType where
+    parser = takeLowerText >>= \case
+        "certificate-authentication" -> pure CertificateAuthentication
+        "directory-service-authentication" -> pure DirectoryServiceAuthentication
+        e -> fromTextError $ "Failure parsing ClientVPNAuthenticationType from value: '" <> e
+           <> "'. Accepted values: certificate-authentication, directory-service-authentication"
+
+instance ToText ClientVPNAuthenticationType where
+    toText = \case
+        CertificateAuthentication -> "certificate-authentication"
+        DirectoryServiceAuthentication -> "directory-service-authentication"
+
+instance Hashable     ClientVPNAuthenticationType
+instance NFData       ClientVPNAuthenticationType
+instance ToByteString ClientVPNAuthenticationType
+instance ToQuery      ClientVPNAuthenticationType
+instance ToHeader     ClientVPNAuthenticationType
+
+instance FromXML ClientVPNAuthenticationType where
+    parseXML = parseXMLText "ClientVPNAuthenticationType"
+
+data ClientVPNAuthorizationRuleStatusCode
+  = CVARSCActive
+  | CVARSCAuthorizing
+  | CVARSCFailed
+  | CVARSCRevoking
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ClientVPNAuthorizationRuleStatusCode where
+    parser = takeLowerText >>= \case
+        "active" -> pure CVARSCActive
+        "authorizing" -> pure CVARSCAuthorizing
+        "failed" -> pure CVARSCFailed
+        "revoking" -> pure CVARSCRevoking
+        e -> fromTextError $ "Failure parsing ClientVPNAuthorizationRuleStatusCode from value: '" <> e
+           <> "'. Accepted values: active, authorizing, failed, revoking"
+
+instance ToText ClientVPNAuthorizationRuleStatusCode where
+    toText = \case
+        CVARSCActive -> "active"
+        CVARSCAuthorizing -> "authorizing"
+        CVARSCFailed -> "failed"
+        CVARSCRevoking -> "revoking"
+
+instance Hashable     ClientVPNAuthorizationRuleStatusCode
+instance NFData       ClientVPNAuthorizationRuleStatusCode
+instance ToByteString ClientVPNAuthorizationRuleStatusCode
+instance ToQuery      ClientVPNAuthorizationRuleStatusCode
+instance ToHeader     ClientVPNAuthorizationRuleStatusCode
+
+instance FromXML ClientVPNAuthorizationRuleStatusCode where
+    parseXML = parseXMLText "ClientVPNAuthorizationRuleStatusCode"
+
+data ClientVPNConnectionStatusCode
+  = CVCSCActive
+  | CVCSCFailedToTerminate
+  | CVCSCTerminated
+  | CVCSCTerminating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ClientVPNConnectionStatusCode where
+    parser = takeLowerText >>= \case
+        "active" -> pure CVCSCActive
+        "failed-to-terminate" -> pure CVCSCFailedToTerminate
+        "terminated" -> pure CVCSCTerminated
+        "terminating" -> pure CVCSCTerminating
+        e -> fromTextError $ "Failure parsing ClientVPNConnectionStatusCode from value: '" <> e
+           <> "'. Accepted values: active, failed-to-terminate, terminated, terminating"
+
+instance ToText ClientVPNConnectionStatusCode where
+    toText = \case
+        CVCSCActive -> "active"
+        CVCSCFailedToTerminate -> "failed-to-terminate"
+        CVCSCTerminated -> "terminated"
+        CVCSCTerminating -> "terminating"
+
+instance Hashable     ClientVPNConnectionStatusCode
+instance NFData       ClientVPNConnectionStatusCode
+instance ToByteString ClientVPNConnectionStatusCode
+instance ToQuery      ClientVPNConnectionStatusCode
+instance ToHeader     ClientVPNConnectionStatusCode
+
+instance FromXML ClientVPNConnectionStatusCode where
+    parseXML = parseXMLText "ClientVPNConnectionStatusCode"
+
+data ClientVPNEndpointStatusCode
+  = CVESCAvailable
+  | CVESCDeleted
+  | CVESCDeleting
+  | CVESCPendingAssociate
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ClientVPNEndpointStatusCode where
+    parser = takeLowerText >>= \case
+        "available" -> pure CVESCAvailable
+        "deleted" -> pure CVESCDeleted
+        "deleting" -> pure CVESCDeleting
+        "pending-associate" -> pure CVESCPendingAssociate
+        e -> fromTextError $ "Failure parsing ClientVPNEndpointStatusCode from value: '" <> e
+           <> "'. Accepted values: available, deleted, deleting, pending-associate"
+
+instance ToText ClientVPNEndpointStatusCode where
+    toText = \case
+        CVESCAvailable -> "available"
+        CVESCDeleted -> "deleted"
+        CVESCDeleting -> "deleting"
+        CVESCPendingAssociate -> "pending-associate"
+
+instance Hashable     ClientVPNEndpointStatusCode
+instance NFData       ClientVPNEndpointStatusCode
+instance ToByteString ClientVPNEndpointStatusCode
+instance ToQuery      ClientVPNEndpointStatusCode
+instance ToHeader     ClientVPNEndpointStatusCode
+
+instance FromXML ClientVPNEndpointStatusCode where
+    parseXML = parseXMLText "ClientVPNEndpointStatusCode"
+
+data ClientVPNRouteStatusCode
+  = CVRSCActive
+  | CVRSCCreating
+  | CVRSCDeleting
+  | CVRSCFailed
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ClientVPNRouteStatusCode where
+    parser = takeLowerText >>= \case
+        "active" -> pure CVRSCActive
+        "creating" -> pure CVRSCCreating
+        "deleting" -> pure CVRSCDeleting
+        "failed" -> pure CVRSCFailed
+        e -> fromTextError $ "Failure parsing ClientVPNRouteStatusCode from value: '" <> e
+           <> "'. Accepted values: active, creating, deleting, failed"
+
+instance ToText ClientVPNRouteStatusCode where
+    toText = \case
+        CVRSCActive -> "active"
+        CVRSCCreating -> "creating"
+        CVRSCDeleting -> "deleting"
+        CVRSCFailed -> "failed"
+
+instance Hashable     ClientVPNRouteStatusCode
+instance NFData       ClientVPNRouteStatusCode
+instance ToByteString ClientVPNRouteStatusCode
+instance ToQuery      ClientVPNRouteStatusCode
+instance ToHeader     ClientVPNRouteStatusCode
+
+instance FromXML ClientVPNRouteStatusCode where
+    parseXML = parseXMLText "ClientVPNRouteStatusCode"
+
 data ConnectionNotificationState
-  = Disabled
-  | Enabled
+  = CNSDisabled
+  | CNSEnabled
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ConnectionNotificationState where
     parser = takeLowerText >>= \case
-        "disabled" -> pure Disabled
-        "enabled" -> pure Enabled
+        "disabled" -> pure CNSDisabled
+        "enabled" -> pure CNSEnabled
         e -> fromTextError $ "Failure parsing ConnectionNotificationState from value: '" <> e
            <> "'. Accepted values: disabled, enabled"
 
 instance ToText ConnectionNotificationState where
     toText = \case
-        Disabled -> "Disabled"
-        Enabled -> "Enabled"
+        CNSDisabled -> "Disabled"
+        CNSEnabled -> "Enabled"
 
 instance Hashable     ConnectionNotificationState
 instance NFData       ConnectionNotificationState
@@ -605,6 +1067,33 @@ instance ToHeader     CurrencyCodeValues
 instance FromXML CurrencyCodeValues where
     parseXML = parseXMLText "CurrencyCodeValues"
 
+data DNSSupportValue
+  = DSVDisable
+  | DSVEnable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DNSSupportValue where
+    parser = takeLowerText >>= \case
+        "disable" -> pure DSVDisable
+        "enable" -> pure DSVEnable
+        e -> fromTextError $ "Failure parsing DNSSupportValue from value: '" <> e
+           <> "'. Accepted values: disable, enable"
+
+instance ToText DNSSupportValue where
+    toText = \case
+        DSVDisable -> "disable"
+        DSVEnable -> "enable"
+
+instance Hashable     DNSSupportValue
+instance NFData       DNSSupportValue
+instance ToByteString DNSSupportValue
+instance ToQuery      DNSSupportValue
+instance ToHeader     DNSSupportValue
+
+instance FromXML DNSSupportValue where
+    parseXML = parseXMLText "DNSSupportValue"
+
 data DatafeedSubscriptionState
   = DSSActive
   | DSSInactive
@@ -631,6 +1120,60 @@ instance ToHeader     DatafeedSubscriptionState
 
 instance FromXML DatafeedSubscriptionState where
     parseXML = parseXMLText "DatafeedSubscriptionState"
+
+data DefaultRouteTableAssociationValue
+  = DRTAVDisable
+  | DRTAVEnable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DefaultRouteTableAssociationValue where
+    parser = takeLowerText >>= \case
+        "disable" -> pure DRTAVDisable
+        "enable" -> pure DRTAVEnable
+        e -> fromTextError $ "Failure parsing DefaultRouteTableAssociationValue from value: '" <> e
+           <> "'. Accepted values: disable, enable"
+
+instance ToText DefaultRouteTableAssociationValue where
+    toText = \case
+        DRTAVDisable -> "disable"
+        DRTAVEnable -> "enable"
+
+instance Hashable     DefaultRouteTableAssociationValue
+instance NFData       DefaultRouteTableAssociationValue
+instance ToByteString DefaultRouteTableAssociationValue
+instance ToQuery      DefaultRouteTableAssociationValue
+instance ToHeader     DefaultRouteTableAssociationValue
+
+instance FromXML DefaultRouteTableAssociationValue where
+    parseXML = parseXMLText "DefaultRouteTableAssociationValue"
+
+data DefaultRouteTablePropagationValue
+  = DRTPVDisable
+  | DRTPVEnable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DefaultRouteTablePropagationValue where
+    parser = takeLowerText >>= \case
+        "disable" -> pure DRTPVDisable
+        "enable" -> pure DRTPVEnable
+        e -> fromTextError $ "Failure parsing DefaultRouteTablePropagationValue from value: '" <> e
+           <> "'. Accepted values: disable, enable"
+
+instance ToText DefaultRouteTablePropagationValue where
+    toText = \case
+        DRTPVDisable -> "disable"
+        DRTPVEnable -> "enable"
+
+instance Hashable     DefaultRouteTablePropagationValue
+instance NFData       DefaultRouteTablePropagationValue
+instance ToByteString DefaultRouteTablePropagationValue
+instance ToQuery      DefaultRouteTablePropagationValue
+instance ToHeader     DefaultRouteTablePropagationValue
+
+instance FromXML DefaultRouteTablePropagationValue where
+    parseXML = parseXMLText "DefaultRouteTablePropagationValue"
 
 data DefaultTargetCapacityType
   = DTCTOnDemand
@@ -826,6 +1369,33 @@ instance ToHeader     ElasticGpuStatus
 
 instance FromXML ElasticGpuStatus where
     parseXML = parseXMLText "ElasticGpuStatus"
+
+data EndDateType
+  = Limited
+  | Unlimited
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText EndDateType where
+    parser = takeLowerText >>= \case
+        "limited" -> pure Limited
+        "unlimited" -> pure Unlimited
+        e -> fromTextError $ "Failure parsing EndDateType from value: '" <> e
+           <> "'. Accepted values: limited, unlimited"
+
+instance ToText EndDateType where
+    toText = \case
+        Limited -> "limited"
+        Unlimited -> "unlimited"
+
+instance Hashable     EndDateType
+instance NFData       EndDateType
+instance ToByteString EndDateType
+instance ToQuery      EndDateType
+instance ToHeader     EndDateType
+
+instance FromXML EndDateType where
+    parseXML = parseXMLText "EndDateType"
 
 data EventCode
   = InstanceReboot
@@ -1073,6 +1643,33 @@ instance ToHeader     FleetExcessCapacityTerminationPolicy
 instance FromXML FleetExcessCapacityTerminationPolicy where
     parseXML = parseXMLText "FleetExcessCapacityTerminationPolicy"
 
+data FleetOnDemandAllocationStrategy
+  = FODASLowestPrice
+  | FODASPrioritized
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FleetOnDemandAllocationStrategy where
+    parser = takeLowerText >>= \case
+        "lowest-price" -> pure FODASLowestPrice
+        "prioritized" -> pure FODASPrioritized
+        e -> fromTextError $ "Failure parsing FleetOnDemandAllocationStrategy from value: '" <> e
+           <> "'. Accepted values: lowest-price, prioritized"
+
+instance ToText FleetOnDemandAllocationStrategy where
+    toText = \case
+        FODASLowestPrice -> "lowest-price"
+        FODASPrioritized -> "prioritized"
+
+instance Hashable     FleetOnDemandAllocationStrategy
+instance NFData       FleetOnDemandAllocationStrategy
+instance ToByteString FleetOnDemandAllocationStrategy
+instance ToQuery      FleetOnDemandAllocationStrategy
+instance ToHeader     FleetOnDemandAllocationStrategy
+
+instance FromXML FleetOnDemandAllocationStrategy where
+    parseXML = parseXMLText "FleetOnDemandAllocationStrategy"
+
 data FleetStateCode
   = FSCActive
   | FSCDeleted
@@ -1116,20 +1713,23 @@ instance FromXML FleetStateCode where
     parseXML = parseXMLText "FleetStateCode"
 
 data FleetType
-  = FTMaintain
+  = FTInstant
+  | FTMaintain
   | FTRequest
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText FleetType where
     parser = takeLowerText >>= \case
+        "instant" -> pure FTInstant
         "maintain" -> pure FTMaintain
         "request" -> pure FTRequest
         e -> fromTextError $ "Failure parsing FleetType from value: '" <> e
-           <> "'. Accepted values: maintain, request"
+           <> "'. Accepted values: instant, maintain, request"
 
 instance ToText FleetType where
     toText = \case
+        FTInstant -> "instant"
         FTMaintain -> "maintain"
         FTRequest -> "request"
 
@@ -1308,28 +1908,28 @@ instance FromXML HypervisorType where
     parseXML = parseXMLText "HypervisorType"
 
 data IAMInstanceProfileAssociationState
-  = Associated
-  | Associating
-  | Disassociated
-  | Disassociating
+  = IAPASAssociated
+  | IAPASAssociating
+  | IAPASDisassociated
+  | IAPASDisassociating
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText IAMInstanceProfileAssociationState where
     parser = takeLowerText >>= \case
-        "associated" -> pure Associated
-        "associating" -> pure Associating
-        "disassociated" -> pure Disassociated
-        "disassociating" -> pure Disassociating
+        "associated" -> pure IAPASAssociated
+        "associating" -> pure IAPASAssociating
+        "disassociated" -> pure IAPASDisassociated
+        "disassociating" -> pure IAPASDisassociating
         e -> fromTextError $ "Failure parsing IAMInstanceProfileAssociationState from value: '" <> e
            <> "'. Accepted values: associated, associating, disassociated, disassociating"
 
 instance ToText IAMInstanceProfileAssociationState where
     toText = \case
-        Associated -> "associated"
-        Associating -> "associating"
-        Disassociated -> "disassociated"
-        Disassociating -> "disassociating"
+        IAPASAssociated -> "associated"
+        IAPASAssociating -> "associating"
+        IAPASDisassociated -> "disassociated"
+        IAPASDisassociating -> "disassociating"
 
 instance Hashable     IAMInstanceProfileAssociationState
 instance NFData       IAMInstanceProfileAssociationState
@@ -1339,6 +1939,33 @@ instance ToHeader     IAMInstanceProfileAssociationState
 
 instance FromXML IAMInstanceProfileAssociationState where
     parseXML = parseXMLText "IAMInstanceProfileAssociationState"
+
+data IPv6SupportValue
+  = ISVDisable
+  | ISVEnable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText IPv6SupportValue where
+    parser = takeLowerText >>= \case
+        "disable" -> pure ISVDisable
+        "enable" -> pure ISVEnable
+        e -> fromTextError $ "Failure parsing IPv6SupportValue from value: '" <> e
+           <> "'. Accepted values: disable, enable"
+
+instance ToText IPv6SupportValue where
+    toText = \case
+        ISVDisable -> "disable"
+        ISVEnable -> "enable"
+
+instance Hashable     IPv6SupportValue
+instance NFData       IPv6SupportValue
+instance ToByteString IPv6SupportValue
+instance ToQuery      IPv6SupportValue
+instance ToHeader     IPv6SupportValue
+
+instance FromXML IPv6SupportValue where
+    parseXML = parseXMLText "IPv6SupportValue"
 
 data ImageAttributeName
   = BlockDeviceMapping
@@ -1568,6 +2195,33 @@ instance ToHeader     InstanceInterruptionBehavior
 instance FromXML InstanceInterruptionBehavior where
     parseXML = parseXMLText "InstanceInterruptionBehavior"
 
+data InstanceLifecycle
+  = ILOnDemand
+  | ILSpot
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText InstanceLifecycle where
+    parser = takeLowerText >>= \case
+        "on-demand" -> pure ILOnDemand
+        "spot" -> pure ILSpot
+        e -> fromTextError $ "Failure parsing InstanceLifecycle from value: '" <> e
+           <> "'. Accepted values: on-demand, spot"
+
+instance ToText InstanceLifecycle where
+    toText = \case
+        ILOnDemand -> "on-demand"
+        ILSpot -> "spot"
+
+instance Hashable     InstanceLifecycle
+instance NFData       InstanceLifecycle
+instance ToByteString InstanceLifecycle
+instance ToQuery      InstanceLifecycle
+instance ToHeader     InstanceLifecycle
+
+instance FromXML InstanceLifecycle where
+    parseXML = parseXMLText "InstanceLifecycle"
+
 data InstanceLifecycleType
   = ILTScheduled
   | ILTSpot
@@ -1594,6 +2248,33 @@ instance ToHeader     InstanceLifecycleType
 
 instance FromXML InstanceLifecycleType where
     parseXML = parseXMLText "InstanceLifecycleType"
+
+data InstanceMatchCriteria
+  = IMCOpen
+  | IMCTargeted
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText InstanceMatchCriteria where
+    parser = takeLowerText >>= \case
+        "open" -> pure IMCOpen
+        "targeted" -> pure IMCTargeted
+        e -> fromTextError $ "Failure parsing InstanceMatchCriteria from value: '" <> e
+           <> "'. Accepted values: open, targeted"
+
+instance ToText InstanceMatchCriteria where
+    toText = \case
+        IMCOpen -> "open"
+        IMCTargeted -> "targeted"
+
+instance Hashable     InstanceMatchCriteria
+instance NFData       InstanceMatchCriteria
+instance ToByteString InstanceMatchCriteria
+instance ToQuery      InstanceMatchCriteria
+instance ToHeader     InstanceMatchCriteria
+
+instance FromXML InstanceMatchCriteria where
+    parseXML = parseXMLText "InstanceMatchCriteria"
 
 data InstanceStateName
   = ISNPending
@@ -1635,7 +2316,12 @@ instance FromXML InstanceStateName where
     parseXML = parseXMLText "InstanceStateName"
 
 data InstanceType
-  = C1_Medium
+  = A1_2XLarge
+  | A1_4XLarge
+  | A1_Large
+  | A1_Medium
+  | A1_XLarge
+  | C1_Medium
   | C1_XLarge
   | C3_2XLarge
   | C3_4XLarge
@@ -1653,6 +2339,18 @@ data InstanceType
   | C5_9XLarge
   | C5_Large
   | C5_XLarge
+  | C5d_18XLarge
+  | C5d_2XLarge
+  | C5d_4XLarge
+  | C5d_9XLarge
+  | C5d_Large
+  | C5d_XLarge
+  | C5n_18XLarge
+  | C5n_2XLarge
+  | C5n_4XLarge
+  | C5n_9XLarge
+  | C5n_Large
+  | C5n_XLarge
   | CC1_4XLarge
   | CC2_8XLarge
   | CG1_4XLarge
@@ -1663,11 +2361,13 @@ data InstanceType
   | D2_XLarge
   | F1_16XLarge
   | F1_2XLarge
+  | F1_4XLarge
   | G2_2XLarge
   | G2_8XLarge
   | G3_16XLarge
   | G3_4XLarge
   | G3_8XLarge
+  | G3s_XLarge
   | H1_16XLarge
   | H1_2XLarge
   | H1_4XLarge
@@ -1683,6 +2383,7 @@ data InstanceType
   | I3_4XLarge
   | I3_8XLarge
   | I3_Large
+  | I3_Metal
   | I3_XLarge
   | M1_Large
   | M1_Medium
@@ -1706,13 +2407,28 @@ data InstanceType
   | M5_2XLarge
   | M5_4XLarge
   | M5_Large
+  | M5_Metal
   | M5_XLarge
+  | M5a_12XLarge
+  | M5a_24XLarge
+  | M5a_2XLarge
+  | M5a_4XLarge
+  | M5a_Large
+  | M5a_XLarge
+  | M5d_12XLarge
+  | M5d_24XLarge
+  | M5d_2XLarge
+  | M5d_4XLarge
+  | M5d_Large
+  | M5d_Metal
+  | M5d_XLarge
   | P2_16XLarge
   | P2_8XLarge
   | P2_XLarge
   | P3_16XLarge
   | P3_2XLarge
   | P3_8XLarge
+  | P3dn_24XLarge
   | R3_2XLarge
   | R3_4XLarge
   | R3_8XLarge
@@ -1724,6 +2440,26 @@ data InstanceType
   | R4_8XLarge
   | R4_Large
   | R4_XLarge
+  | R5_12XLarge
+  | R5_24XLarge
+  | R5_2XLarge
+  | R5_4XLarge
+  | R5_Large
+  | R5_Metal
+  | R5_XLarge
+  | R5a_12XLarge
+  | R5a_24XLarge
+  | R5a_2XLarge
+  | R5a_4XLarge
+  | R5a_Large
+  | R5a_XLarge
+  | R5d_12XLarge
+  | R5d_24XLarge
+  | R5d_2XLarge
+  | R5d_4XLarge
+  | R5d_Large
+  | R5d_Metal
+  | R5d_XLarge
   | T1_Micro
   | T2_2XLarge
   | T2_Large
@@ -1732,6 +2468,16 @@ data InstanceType
   | T2_Nano
   | T2_Small
   | T2_XLarge
+  | T3_2XLarge
+  | T3_Large
+  | T3_Medium
+  | T3_Micro
+  | T3_Nano
+  | T3_Small
+  | T3_XLarge
+  | U12TB1_Metal
+  | U6TB1_Metal
+  | U9TB1_Metal
   | X1_16XLarge
   | X1_32XLarge
   | X1e_16XLarge
@@ -1740,11 +2486,23 @@ data InstanceType
   | X1e_4XLarge
   | X1e_8XLarge
   | X1e_XLarge
+  | Z1d_12XLarge
+  | Z1d_2XLarge
+  | Z1d_3XLarge
+  | Z1d_6XLarge
+  | Z1d_Large
+  | Z1d_Metal
+  | Z1d_XLarge
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText InstanceType where
     parser = takeLowerText >>= \case
+        "a1.2xlarge" -> pure A1_2XLarge
+        "a1.4xlarge" -> pure A1_4XLarge
+        "a1.large" -> pure A1_Large
+        "a1.medium" -> pure A1_Medium
+        "a1.xlarge" -> pure A1_XLarge
         "c1.medium" -> pure C1_Medium
         "c1.xlarge" -> pure C1_XLarge
         "c3.2xlarge" -> pure C3_2XLarge
@@ -1763,6 +2521,18 @@ instance FromText InstanceType where
         "c5.9xlarge" -> pure C5_9XLarge
         "c5.large" -> pure C5_Large
         "c5.xlarge" -> pure C5_XLarge
+        "c5d.18xlarge" -> pure C5d_18XLarge
+        "c5d.2xlarge" -> pure C5d_2XLarge
+        "c5d.4xlarge" -> pure C5d_4XLarge
+        "c5d.9xlarge" -> pure C5d_9XLarge
+        "c5d.large" -> pure C5d_Large
+        "c5d.xlarge" -> pure C5d_XLarge
+        "c5n.18xlarge" -> pure C5n_18XLarge
+        "c5n.2xlarge" -> pure C5n_2XLarge
+        "c5n.4xlarge" -> pure C5n_4XLarge
+        "c5n.9xlarge" -> pure C5n_9XLarge
+        "c5n.large" -> pure C5n_Large
+        "c5n.xlarge" -> pure C5n_XLarge
         "cc1.4xlarge" -> pure CC1_4XLarge
         "cc2.8xlarge" -> pure CC2_8XLarge
         "cg1.4xlarge" -> pure CG1_4XLarge
@@ -1773,11 +2543,13 @@ instance FromText InstanceType where
         "d2.xlarge" -> pure D2_XLarge
         "f1.16xlarge" -> pure F1_16XLarge
         "f1.2xlarge" -> pure F1_2XLarge
+        "f1.4xlarge" -> pure F1_4XLarge
         "g2.2xlarge" -> pure G2_2XLarge
         "g2.8xlarge" -> pure G2_8XLarge
         "g3.16xlarge" -> pure G3_16XLarge
         "g3.4xlarge" -> pure G3_4XLarge
         "g3.8xlarge" -> pure G3_8XLarge
+        "g3s.xlarge" -> pure G3s_XLarge
         "h1.16xlarge" -> pure H1_16XLarge
         "h1.2xlarge" -> pure H1_2XLarge
         "h1.4xlarge" -> pure H1_4XLarge
@@ -1793,6 +2565,7 @@ instance FromText InstanceType where
         "i3.4xlarge" -> pure I3_4XLarge
         "i3.8xlarge" -> pure I3_8XLarge
         "i3.large" -> pure I3_Large
+        "i3.metal" -> pure I3_Metal
         "i3.xlarge" -> pure I3_XLarge
         "m1.large" -> pure M1_Large
         "m1.medium" -> pure M1_Medium
@@ -1816,13 +2589,28 @@ instance FromText InstanceType where
         "m5.2xlarge" -> pure M5_2XLarge
         "m5.4xlarge" -> pure M5_4XLarge
         "m5.large" -> pure M5_Large
+        "m5.metal" -> pure M5_Metal
         "m5.xlarge" -> pure M5_XLarge
+        "m5a.12xlarge" -> pure M5a_12XLarge
+        "m5a.24xlarge" -> pure M5a_24XLarge
+        "m5a.2xlarge" -> pure M5a_2XLarge
+        "m5a.4xlarge" -> pure M5a_4XLarge
+        "m5a.large" -> pure M5a_Large
+        "m5a.xlarge" -> pure M5a_XLarge
+        "m5d.12xlarge" -> pure M5d_12XLarge
+        "m5d.24xlarge" -> pure M5d_24XLarge
+        "m5d.2xlarge" -> pure M5d_2XLarge
+        "m5d.4xlarge" -> pure M5d_4XLarge
+        "m5d.large" -> pure M5d_Large
+        "m5d.metal" -> pure M5d_Metal
+        "m5d.xlarge" -> pure M5d_XLarge
         "p2.16xlarge" -> pure P2_16XLarge
         "p2.8xlarge" -> pure P2_8XLarge
         "p2.xlarge" -> pure P2_XLarge
         "p3.16xlarge" -> pure P3_16XLarge
         "p3.2xlarge" -> pure P3_2XLarge
         "p3.8xlarge" -> pure P3_8XLarge
+        "p3dn.24xlarge" -> pure P3dn_24XLarge
         "r3.2xlarge" -> pure R3_2XLarge
         "r3.4xlarge" -> pure R3_4XLarge
         "r3.8xlarge" -> pure R3_8XLarge
@@ -1834,6 +2622,26 @@ instance FromText InstanceType where
         "r4.8xlarge" -> pure R4_8XLarge
         "r4.large" -> pure R4_Large
         "r4.xlarge" -> pure R4_XLarge
+        "r5.12xlarge" -> pure R5_12XLarge
+        "r5.24xlarge" -> pure R5_24XLarge
+        "r5.2xlarge" -> pure R5_2XLarge
+        "r5.4xlarge" -> pure R5_4XLarge
+        "r5.large" -> pure R5_Large
+        "r5.metal" -> pure R5_Metal
+        "r5.xlarge" -> pure R5_XLarge
+        "r5a.12xlarge" -> pure R5a_12XLarge
+        "r5a.24xlarge" -> pure R5a_24XLarge
+        "r5a.2xlarge" -> pure R5a_2XLarge
+        "r5a.4xlarge" -> pure R5a_4XLarge
+        "r5a.large" -> pure R5a_Large
+        "r5a.xlarge" -> pure R5a_XLarge
+        "r5d.12xlarge" -> pure R5d_12XLarge
+        "r5d.24xlarge" -> pure R5d_24XLarge
+        "r5d.2xlarge" -> pure R5d_2XLarge
+        "r5d.4xlarge" -> pure R5d_4XLarge
+        "r5d.large" -> pure R5d_Large
+        "r5d.metal" -> pure R5d_Metal
+        "r5d.xlarge" -> pure R5d_XLarge
         "t1.micro" -> pure T1_Micro
         "t2.2xlarge" -> pure T2_2XLarge
         "t2.large" -> pure T2_Large
@@ -1842,6 +2650,16 @@ instance FromText InstanceType where
         "t2.nano" -> pure T2_Nano
         "t2.small" -> pure T2_Small
         "t2.xlarge" -> pure T2_XLarge
+        "t3.2xlarge" -> pure T3_2XLarge
+        "t3.large" -> pure T3_Large
+        "t3.medium" -> pure T3_Medium
+        "t3.micro" -> pure T3_Micro
+        "t3.nano" -> pure T3_Nano
+        "t3.small" -> pure T3_Small
+        "t3.xlarge" -> pure T3_XLarge
+        "u-12tb1.metal" -> pure U12TB1_Metal
+        "u-6tb1.metal" -> pure U6TB1_Metal
+        "u-9tb1.metal" -> pure U9TB1_Metal
         "x1.16xlarge" -> pure X1_16XLarge
         "x1.32xlarge" -> pure X1_32XLarge
         "x1e.16xlarge" -> pure X1e_16XLarge
@@ -1850,11 +2668,23 @@ instance FromText InstanceType where
         "x1e.4xlarge" -> pure X1e_4XLarge
         "x1e.8xlarge" -> pure X1e_8XLarge
         "x1e.xlarge" -> pure X1e_XLarge
+        "z1d.12xlarge" -> pure Z1d_12XLarge
+        "z1d.2xlarge" -> pure Z1d_2XLarge
+        "z1d.3xlarge" -> pure Z1d_3XLarge
+        "z1d.6xlarge" -> pure Z1d_6XLarge
+        "z1d.large" -> pure Z1d_Large
+        "z1d.metal" -> pure Z1d_Metal
+        "z1d.xlarge" -> pure Z1d_XLarge
         e -> fromTextError $ "Failure parsing InstanceType from value: '" <> e
-           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, c5.18xlarge, c5.2xlarge, c5.4xlarge, c5.9xlarge, c5.large, c5.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, f1.16xlarge, f1.2xlarge, g2.2xlarge, g2.8xlarge, g3.16xlarge, g3.4xlarge, g3.8xlarge, h1.16xlarge, h1.2xlarge, h1.4xlarge, h1.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, i3.16xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge, i3.large, i3.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.16xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, m5.12xlarge, m5.24xlarge, m5.2xlarge, m5.4xlarge, m5.large, m5.xlarge, p2.16xlarge, p2.8xlarge, p2.xlarge, p3.16xlarge, p3.2xlarge, p3.8xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, r4.16xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.large, r4.xlarge, t1.micro, t2.2xlarge, t2.large, t2.medium, t2.micro, t2.nano, t2.small, t2.xlarge, x1.16xlarge, x1.32xlarge, x1e.16xlarge, x1e.2xlarge, x1e.32xlarge, x1e.4xlarge, x1e.8xlarge, x1e.xlarge"
+           <> "'. Accepted values: a1.2xlarge, a1.4xlarge, a1.large, a1.medium, a1.xlarge, c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, c5.18xlarge, c5.2xlarge, c5.4xlarge, c5.9xlarge, c5.large, c5.xlarge, c5d.18xlarge, c5d.2xlarge, c5d.4xlarge, c5d.9xlarge, c5d.large, c5d.xlarge, c5n.18xlarge, c5n.2xlarge, c5n.4xlarge, c5n.9xlarge, c5n.large, c5n.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, f1.16xlarge, f1.2xlarge, f1.4xlarge, g2.2xlarge, g2.8xlarge, g3.16xlarge, g3.4xlarge, g3.8xlarge, g3s.xlarge, h1.16xlarge, h1.2xlarge, h1.4xlarge, h1.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, i3.16xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge, i3.large, i3.metal, i3.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.16xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, m5.12xlarge, m5.24xlarge, m5.2xlarge, m5.4xlarge, m5.large, m5.metal, m5.xlarge, m5a.12xlarge, m5a.24xlarge, m5a.2xlarge, m5a.4xlarge, m5a.large, m5a.xlarge, m5d.12xlarge, m5d.24xlarge, m5d.2xlarge, m5d.4xlarge, m5d.large, m5d.metal, m5d.xlarge, p2.16xlarge, p2.8xlarge, p2.xlarge, p3.16xlarge, p3.2xlarge, p3.8xlarge, p3dn.24xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, r4.16xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.large, r4.xlarge, r5.12xlarge, r5.24xlarge, r5.2xlarge, r5.4xlarge, r5.large, r5.metal, r5.xlarge, r5a.12xlarge, r5a.24xlarge, r5a.2xlarge, r5a.4xlarge, r5a.large, r5a.xlarge, r5d.12xlarge, r5d.24xlarge, r5d.2xlarge, r5d.4xlarge, r5d.large, r5d.metal, r5d.xlarge, t1.micro, t2.2xlarge, t2.large, t2.medium, t2.micro, t2.nano, t2.small, t2.xlarge, t3.2xlarge, t3.large, t3.medium, t3.micro, t3.nano, t3.small, t3.xlarge, u-12tb1.metal, u-6tb1.metal, u-9tb1.metal, x1.16xlarge, x1.32xlarge, x1e.16xlarge, x1e.2xlarge, x1e.32xlarge, x1e.4xlarge, x1e.8xlarge, x1e.xlarge, z1d.12xlarge, z1d.2xlarge, z1d.3xlarge, z1d.6xlarge, z1d.large, z1d.metal, z1d.xlarge"
 
 instance ToText InstanceType where
     toText = \case
+        A1_2XLarge -> "a1.2xlarge"
+        A1_4XLarge -> "a1.4xlarge"
+        A1_Large -> "a1.large"
+        A1_Medium -> "a1.medium"
+        A1_XLarge -> "a1.xlarge"
         C1_Medium -> "c1.medium"
         C1_XLarge -> "c1.xlarge"
         C3_2XLarge -> "c3.2xlarge"
@@ -1873,6 +2703,18 @@ instance ToText InstanceType where
         C5_9XLarge -> "c5.9xlarge"
         C5_Large -> "c5.large"
         C5_XLarge -> "c5.xlarge"
+        C5d_18XLarge -> "c5d.18xlarge"
+        C5d_2XLarge -> "c5d.2xlarge"
+        C5d_4XLarge -> "c5d.4xlarge"
+        C5d_9XLarge -> "c5d.9xlarge"
+        C5d_Large -> "c5d.large"
+        C5d_XLarge -> "c5d.xlarge"
+        C5n_18XLarge -> "c5n.18xlarge"
+        C5n_2XLarge -> "c5n.2xlarge"
+        C5n_4XLarge -> "c5n.4xlarge"
+        C5n_9XLarge -> "c5n.9xlarge"
+        C5n_Large -> "c5n.large"
+        C5n_XLarge -> "c5n.xlarge"
         CC1_4XLarge -> "cc1.4xlarge"
         CC2_8XLarge -> "cc2.8xlarge"
         CG1_4XLarge -> "cg1.4xlarge"
@@ -1883,11 +2725,13 @@ instance ToText InstanceType where
         D2_XLarge -> "d2.xlarge"
         F1_16XLarge -> "f1.16xlarge"
         F1_2XLarge -> "f1.2xlarge"
+        F1_4XLarge -> "f1.4xlarge"
         G2_2XLarge -> "g2.2xlarge"
         G2_8XLarge -> "g2.8xlarge"
         G3_16XLarge -> "g3.16xlarge"
         G3_4XLarge -> "g3.4xlarge"
         G3_8XLarge -> "g3.8xlarge"
+        G3s_XLarge -> "g3s.xlarge"
         H1_16XLarge -> "h1.16xlarge"
         H1_2XLarge -> "h1.2xlarge"
         H1_4XLarge -> "h1.4xlarge"
@@ -1903,6 +2747,7 @@ instance ToText InstanceType where
         I3_4XLarge -> "i3.4xlarge"
         I3_8XLarge -> "i3.8xlarge"
         I3_Large -> "i3.large"
+        I3_Metal -> "i3.metal"
         I3_XLarge -> "i3.xlarge"
         M1_Large -> "m1.large"
         M1_Medium -> "m1.medium"
@@ -1926,13 +2771,28 @@ instance ToText InstanceType where
         M5_2XLarge -> "m5.2xlarge"
         M5_4XLarge -> "m5.4xlarge"
         M5_Large -> "m5.large"
+        M5_Metal -> "m5.metal"
         M5_XLarge -> "m5.xlarge"
+        M5a_12XLarge -> "m5a.12xlarge"
+        M5a_24XLarge -> "m5a.24xlarge"
+        M5a_2XLarge -> "m5a.2xlarge"
+        M5a_4XLarge -> "m5a.4xlarge"
+        M5a_Large -> "m5a.large"
+        M5a_XLarge -> "m5a.xlarge"
+        M5d_12XLarge -> "m5d.12xlarge"
+        M5d_24XLarge -> "m5d.24xlarge"
+        M5d_2XLarge -> "m5d.2xlarge"
+        M5d_4XLarge -> "m5d.4xlarge"
+        M5d_Large -> "m5d.large"
+        M5d_Metal -> "m5d.metal"
+        M5d_XLarge -> "m5d.xlarge"
         P2_16XLarge -> "p2.16xlarge"
         P2_8XLarge -> "p2.8xlarge"
         P2_XLarge -> "p2.xlarge"
         P3_16XLarge -> "p3.16xlarge"
         P3_2XLarge -> "p3.2xlarge"
         P3_8XLarge -> "p3.8xlarge"
+        P3dn_24XLarge -> "p3dn.24xlarge"
         R3_2XLarge -> "r3.2xlarge"
         R3_4XLarge -> "r3.4xlarge"
         R3_8XLarge -> "r3.8xlarge"
@@ -1944,6 +2804,26 @@ instance ToText InstanceType where
         R4_8XLarge -> "r4.8xlarge"
         R4_Large -> "r4.large"
         R4_XLarge -> "r4.xlarge"
+        R5_12XLarge -> "r5.12xlarge"
+        R5_24XLarge -> "r5.24xlarge"
+        R5_2XLarge -> "r5.2xlarge"
+        R5_4XLarge -> "r5.4xlarge"
+        R5_Large -> "r5.large"
+        R5_Metal -> "r5.metal"
+        R5_XLarge -> "r5.xlarge"
+        R5a_12XLarge -> "r5a.12xlarge"
+        R5a_24XLarge -> "r5a.24xlarge"
+        R5a_2XLarge -> "r5a.2xlarge"
+        R5a_4XLarge -> "r5a.4xlarge"
+        R5a_Large -> "r5a.large"
+        R5a_XLarge -> "r5a.xlarge"
+        R5d_12XLarge -> "r5d.12xlarge"
+        R5d_24XLarge -> "r5d.24xlarge"
+        R5d_2XLarge -> "r5d.2xlarge"
+        R5d_4XLarge -> "r5d.4xlarge"
+        R5d_Large -> "r5d.large"
+        R5d_Metal -> "r5d.metal"
+        R5d_XLarge -> "r5d.xlarge"
         T1_Micro -> "t1.micro"
         T2_2XLarge -> "t2.2xlarge"
         T2_Large -> "t2.large"
@@ -1952,6 +2832,16 @@ instance ToText InstanceType where
         T2_Nano -> "t2.nano"
         T2_Small -> "t2.small"
         T2_XLarge -> "t2.xlarge"
+        T3_2XLarge -> "t3.2xlarge"
+        T3_Large -> "t3.large"
+        T3_Medium -> "t3.medium"
+        T3_Micro -> "t3.micro"
+        T3_Nano -> "t3.nano"
+        T3_Small -> "t3.small"
+        T3_XLarge -> "t3.xlarge"
+        U12TB1_Metal -> "u-12tb1.metal"
+        U6TB1_Metal -> "u-6tb1.metal"
+        U9TB1_Metal -> "u-9tb1.metal"
         X1_16XLarge -> "x1.16xlarge"
         X1_32XLarge -> "x1.32xlarge"
         X1e_16XLarge -> "x1e.16xlarge"
@@ -1960,6 +2850,13 @@ instance ToText InstanceType where
         X1e_4XLarge -> "x1e.4xlarge"
         X1e_8XLarge -> "x1e.8xlarge"
         X1e_XLarge -> "x1e.xlarge"
+        Z1d_12XLarge -> "z1d.12xlarge"
+        Z1d_2XLarge -> "z1d.2xlarge"
+        Z1d_3XLarge -> "z1d.3xlarge"
+        Z1d_6XLarge -> "z1d.6xlarge"
+        Z1d_Large -> "z1d.large"
+        Z1d_Metal -> "z1d.metal"
+        Z1d_XLarge -> "z1d.xlarge"
 
 instance Hashable     InstanceType
 instance NFData       InstanceType
@@ -2101,6 +2998,33 @@ instance ToHeader     ListingStatus
 
 instance FromXML ListingStatus where
     parseXML = parseXMLText "ListingStatus"
+
+data LogDestinationType
+  = CloudWatchLogs
+  | S3
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText LogDestinationType where
+    parser = takeLowerText >>= \case
+        "cloud-watch-logs" -> pure CloudWatchLogs
+        "s3" -> pure S3
+        e -> fromTextError $ "Failure parsing LogDestinationType from value: '" <> e
+           <> "'. Accepted values: cloud-watch-logs, s3"
+
+instance ToText LogDestinationType where
+    toText = \case
+        CloudWatchLogs -> "cloud-watch-logs"
+        S3 -> "s3"
+
+instance Hashable     LogDestinationType
+instance NFData       LogDestinationType
+instance ToByteString LogDestinationType
+instance ToQuery      LogDestinationType
+instance ToHeader     LogDestinationType
+
+instance FromXML LogDestinationType where
+    parseXML = parseXMLText "LogDestinationType"
 
 data MarketType =
   Spot
@@ -2414,6 +3338,33 @@ instance ToHeader     OfferingTypeValues
 instance FromXML OfferingTypeValues where
     parseXML = parseXMLText "OfferingTypeValues"
 
+data OnDemandAllocationStrategy
+  = ODASLowestPrice
+  | ODASPrioritized
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText OnDemandAllocationStrategy where
+    parser = takeLowerText >>= \case
+        "lowestprice" -> pure ODASLowestPrice
+        "prioritized" -> pure ODASPrioritized
+        e -> fromTextError $ "Failure parsing OnDemandAllocationStrategy from value: '" <> e
+           <> "'. Accepted values: lowestprice, prioritized"
+
+instance ToText OnDemandAllocationStrategy where
+    toText = \case
+        ODASLowestPrice -> "lowestPrice"
+        ODASPrioritized -> "prioritized"
+
+instance Hashable     OnDemandAllocationStrategy
+instance NFData       OnDemandAllocationStrategy
+instance ToByteString OnDemandAllocationStrategy
+instance ToQuery      OnDemandAllocationStrategy
+instance ToHeader     OnDemandAllocationStrategy
+
+instance FromXML OnDemandAllocationStrategy where
+    parseXML = parseXMLText "OnDemandAllocationStrategy"
+
 data OperationType
   = Add
   | Remove
@@ -2527,6 +3478,7 @@ instance FromXML PlacementGroupState where
 
 data PlacementStrategy
   = Cluster
+  | Partition
   | Spread
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -2534,13 +3486,15 @@ data PlacementStrategy
 instance FromText PlacementStrategy where
     parser = takeLowerText >>= \case
         "cluster" -> pure Cluster
+        "partition" -> pure Partition
         "spread" -> pure Spread
         e -> fromTextError $ "Failure parsing PlacementStrategy from value: '" <> e
-           <> "'. Accepted values: cluster, spread"
+           <> "'. Accepted values: cluster, partition, spread"
 
 instance ToText PlacementStrategy where
     toText = \case
         Cluster -> "cluster"
+        Partition -> "partition"
         Spread -> "spread"
 
 instance Hashable     PlacementStrategy
@@ -2877,67 +3831,103 @@ instance ToQuery      ResetImageAttributeName
 instance ToHeader     ResetImageAttributeName
 
 data ResourceType
-  = CustomerGateway
-  | DHCPOptions
-  | Image
-  | Instance
-  | InternetGateway
-  | NetworkACL
-  | NetworkInterface
-  | ReservedInstances
-  | RouteTable
-  | SecurityGroup
-  | Snapshot
-  | SpotInstancesRequest
-  | Subnet
-  | VPC
-  | VPNConnection
-  | VPNGateway
-  | Volume
+  = RTClientVPNEndpoint
+  | RTCustomerGateway
+  | RTDHCPOptions
+  | RTDedicatedHost
+  | RTElasticIP
+  | RTFleet
+  | RTFpgaImage
+  | RTHostReservation
+  | RTImage
+  | RTInstance
+  | RTInternetGateway
+  | RTLaunchTemplate
+  | RTNatgateway
+  | RTNetworkACL
+  | RTNetworkInterface
+  | RTReservedInstances
+  | RTRouteTable
+  | RTSecurityGroup
+  | RTSnapshot
+  | RTSpotInstancesRequest
+  | RTSubnet
+  | RTTransitGateway
+  | RTTransitGatewayAttachment
+  | RTTransitGatewayRouteTable
+  | RTVPC
+  | RTVPCPeeringConnection
+  | RTVPNConnection
+  | RTVPNGateway
+  | RTVolume
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ResourceType where
     parser = takeLowerText >>= \case
-        "customer-gateway" -> pure CustomerGateway
-        "dhcp-options" -> pure DHCPOptions
-        "image" -> pure Image
-        "instance" -> pure Instance
-        "internet-gateway" -> pure InternetGateway
-        "network-acl" -> pure NetworkACL
-        "network-interface" -> pure NetworkInterface
-        "reserved-instances" -> pure ReservedInstances
-        "route-table" -> pure RouteTable
-        "security-group" -> pure SecurityGroup
-        "snapshot" -> pure Snapshot
-        "spot-instances-request" -> pure SpotInstancesRequest
-        "subnet" -> pure Subnet
-        "vpc" -> pure VPC
-        "vpn-connection" -> pure VPNConnection
-        "vpn-gateway" -> pure VPNGateway
-        "volume" -> pure Volume
+        "client-vpn-endpoint" -> pure RTClientVPNEndpoint
+        "customer-gateway" -> pure RTCustomerGateway
+        "dhcp-options" -> pure RTDHCPOptions
+        "dedicated-host" -> pure RTDedicatedHost
+        "elastic-ip" -> pure RTElasticIP
+        "fleet" -> pure RTFleet
+        "fpga-image" -> pure RTFpgaImage
+        "host-reservation" -> pure RTHostReservation
+        "image" -> pure RTImage
+        "instance" -> pure RTInstance
+        "internet-gateway" -> pure RTInternetGateway
+        "launch-template" -> pure RTLaunchTemplate
+        "natgateway" -> pure RTNatgateway
+        "network-acl" -> pure RTNetworkACL
+        "network-interface" -> pure RTNetworkInterface
+        "reserved-instances" -> pure RTReservedInstances
+        "route-table" -> pure RTRouteTable
+        "security-group" -> pure RTSecurityGroup
+        "snapshot" -> pure RTSnapshot
+        "spot-instances-request" -> pure RTSpotInstancesRequest
+        "subnet" -> pure RTSubnet
+        "transit-gateway" -> pure RTTransitGateway
+        "transit-gateway-attachment" -> pure RTTransitGatewayAttachment
+        "transit-gateway-route-table" -> pure RTTransitGatewayRouteTable
+        "vpc" -> pure RTVPC
+        "vpc-peering-connection" -> pure RTVPCPeeringConnection
+        "vpn-connection" -> pure RTVPNConnection
+        "vpn-gateway" -> pure RTVPNGateway
+        "volume" -> pure RTVolume
         e -> fromTextError $ "Failure parsing ResourceType from value: '" <> e
-           <> "'. Accepted values: customer-gateway, dhcp-options, image, instance, internet-gateway, network-acl, network-interface, reserved-instances, route-table, security-group, snapshot, spot-instances-request, subnet, vpc, vpn-connection, vpn-gateway, volume"
+           <> "'. Accepted values: client-vpn-endpoint, customer-gateway, dhcp-options, dedicated-host, elastic-ip, fleet, fpga-image, host-reservation, image, instance, internet-gateway, launch-template, natgateway, network-acl, network-interface, reserved-instances, route-table, security-group, snapshot, spot-instances-request, subnet, transit-gateway, transit-gateway-attachment, transit-gateway-route-table, vpc, vpc-peering-connection, vpn-connection, vpn-gateway, volume"
 
 instance ToText ResourceType where
     toText = \case
-        CustomerGateway -> "customer-gateway"
-        DHCPOptions -> "dhcp-options"
-        Image -> "image"
-        Instance -> "instance"
-        InternetGateway -> "internet-gateway"
-        NetworkACL -> "network-acl"
-        NetworkInterface -> "network-interface"
-        ReservedInstances -> "reserved-instances"
-        RouteTable -> "route-table"
-        SecurityGroup -> "security-group"
-        Snapshot -> "snapshot"
-        SpotInstancesRequest -> "spot-instances-request"
-        Subnet -> "subnet"
-        VPC -> "vpc"
-        VPNConnection -> "vpn-connection"
-        VPNGateway -> "vpn-gateway"
-        Volume -> "volume"
+        RTClientVPNEndpoint -> "client-vpn-endpoint"
+        RTCustomerGateway -> "customer-gateway"
+        RTDHCPOptions -> "dhcp-options"
+        RTDedicatedHost -> "dedicated-host"
+        RTElasticIP -> "elastic-ip"
+        RTFleet -> "fleet"
+        RTFpgaImage -> "fpga-image"
+        RTHostReservation -> "host-reservation"
+        RTImage -> "image"
+        RTInstance -> "instance"
+        RTInternetGateway -> "internet-gateway"
+        RTLaunchTemplate -> "launch-template"
+        RTNatgateway -> "natgateway"
+        RTNetworkACL -> "network-acl"
+        RTNetworkInterface -> "network-interface"
+        RTReservedInstances -> "reserved-instances"
+        RTRouteTable -> "route-table"
+        RTSecurityGroup -> "security-group"
+        RTSnapshot -> "snapshot"
+        RTSpotInstancesRequest -> "spot-instances-request"
+        RTSubnet -> "subnet"
+        RTTransitGateway -> "transit-gateway"
+        RTTransitGatewayAttachment -> "transit-gateway-attachment"
+        RTTransitGatewayRouteTable -> "transit-gateway-route-table"
+        RTVPC -> "vpc"
+        RTVPCPeeringConnection -> "vpc-peering-connection"
+        RTVPNConnection -> "vpn-connection"
+        RTVPNGateway -> "vpn-gateway"
+        RTVolume -> "volume"
 
 instance Hashable     ResourceType
 instance NFData       ResourceType
@@ -3614,6 +4604,312 @@ instance ToHeader     TrafficType
 instance FromXML TrafficType where
     parseXML = parseXMLText "TrafficType"
 
+data TransitGatewayAssociationState
+  = Associated
+  | Associating
+  | Disassociated
+  | Disassociating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TransitGatewayAssociationState where
+    parser = takeLowerText >>= \case
+        "associated" -> pure Associated
+        "associating" -> pure Associating
+        "disassociated" -> pure Disassociated
+        "disassociating" -> pure Disassociating
+        e -> fromTextError $ "Failure parsing TransitGatewayAssociationState from value: '" <> e
+           <> "'. Accepted values: associated, associating, disassociated, disassociating"
+
+instance ToText TransitGatewayAssociationState where
+    toText = \case
+        Associated -> "associated"
+        Associating -> "associating"
+        Disassociated -> "disassociated"
+        Disassociating -> "disassociating"
+
+instance Hashable     TransitGatewayAssociationState
+instance NFData       TransitGatewayAssociationState
+instance ToByteString TransitGatewayAssociationState
+instance ToQuery      TransitGatewayAssociationState
+instance ToHeader     TransitGatewayAssociationState
+
+instance FromXML TransitGatewayAssociationState where
+    parseXML = parseXMLText "TransitGatewayAssociationState"
+
+data TransitGatewayAttachmentResourceType
+  = VPC
+  | VPN
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TransitGatewayAttachmentResourceType where
+    parser = takeLowerText >>= \case
+        "vpc" -> pure VPC
+        "vpn" -> pure VPN
+        e -> fromTextError $ "Failure parsing TransitGatewayAttachmentResourceType from value: '" <> e
+           <> "'. Accepted values: vpc, vpn"
+
+instance ToText TransitGatewayAttachmentResourceType where
+    toText = \case
+        VPC -> "vpc"
+        VPN -> "vpn"
+
+instance Hashable     TransitGatewayAttachmentResourceType
+instance NFData       TransitGatewayAttachmentResourceType
+instance ToByteString TransitGatewayAttachmentResourceType
+instance ToQuery      TransitGatewayAttachmentResourceType
+instance ToHeader     TransitGatewayAttachmentResourceType
+
+instance FromXML TransitGatewayAttachmentResourceType where
+    parseXML = parseXMLText "TransitGatewayAttachmentResourceType"
+
+data TransitGatewayAttachmentState
+  = TGASAvailable
+  | TGASDeleted
+  | TGASDeleting
+  | TGASFailed
+  | TGASFailing
+  | TGASModifying
+  | TGASPending
+  | TGASPendingAcceptance
+  | TGASRejected
+  | TGASRejecting
+  | TGASRollingBack
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TransitGatewayAttachmentState where
+    parser = takeLowerText >>= \case
+        "available" -> pure TGASAvailable
+        "deleted" -> pure TGASDeleted
+        "deleting" -> pure TGASDeleting
+        "failed" -> pure TGASFailed
+        "failing" -> pure TGASFailing
+        "modifying" -> pure TGASModifying
+        "pending" -> pure TGASPending
+        "pendingacceptance" -> pure TGASPendingAcceptance
+        "rejected" -> pure TGASRejected
+        "rejecting" -> pure TGASRejecting
+        "rollingback" -> pure TGASRollingBack
+        e -> fromTextError $ "Failure parsing TransitGatewayAttachmentState from value: '" <> e
+           <> "'. Accepted values: available, deleted, deleting, failed, failing, modifying, pending, pendingacceptance, rejected, rejecting, rollingback"
+
+instance ToText TransitGatewayAttachmentState where
+    toText = \case
+        TGASAvailable -> "available"
+        TGASDeleted -> "deleted"
+        TGASDeleting -> "deleting"
+        TGASFailed -> "failed"
+        TGASFailing -> "failing"
+        TGASModifying -> "modifying"
+        TGASPending -> "pending"
+        TGASPendingAcceptance -> "pendingAcceptance"
+        TGASRejected -> "rejected"
+        TGASRejecting -> "rejecting"
+        TGASRollingBack -> "rollingBack"
+
+instance Hashable     TransitGatewayAttachmentState
+instance NFData       TransitGatewayAttachmentState
+instance ToByteString TransitGatewayAttachmentState
+instance ToQuery      TransitGatewayAttachmentState
+instance ToHeader     TransitGatewayAttachmentState
+
+instance FromXML TransitGatewayAttachmentState where
+    parseXML = parseXMLText "TransitGatewayAttachmentState"
+
+data TransitGatewayPropagationState
+  = Disabled
+  | Disabling
+  | Enabled
+  | Enabling
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TransitGatewayPropagationState where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure Disabled
+        "disabling" -> pure Disabling
+        "enabled" -> pure Enabled
+        "enabling" -> pure Enabling
+        e -> fromTextError $ "Failure parsing TransitGatewayPropagationState from value: '" <> e
+           <> "'. Accepted values: disabled, disabling, enabled, enabling"
+
+instance ToText TransitGatewayPropagationState where
+    toText = \case
+        Disabled -> "disabled"
+        Disabling -> "disabling"
+        Enabled -> "enabled"
+        Enabling -> "enabling"
+
+instance Hashable     TransitGatewayPropagationState
+instance NFData       TransitGatewayPropagationState
+instance ToByteString TransitGatewayPropagationState
+instance ToQuery      TransitGatewayPropagationState
+instance ToHeader     TransitGatewayPropagationState
+
+instance FromXML TransitGatewayPropagationState where
+    parseXML = parseXMLText "TransitGatewayPropagationState"
+
+data TransitGatewayRouteState
+  = TGRSActive
+  | TGRSBlackhole
+  | TGRSDeleted
+  | TGRSDeleting
+  | TGRSPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TransitGatewayRouteState where
+    parser = takeLowerText >>= \case
+        "active" -> pure TGRSActive
+        "blackhole" -> pure TGRSBlackhole
+        "deleted" -> pure TGRSDeleted
+        "deleting" -> pure TGRSDeleting
+        "pending" -> pure TGRSPending
+        e -> fromTextError $ "Failure parsing TransitGatewayRouteState from value: '" <> e
+           <> "'. Accepted values: active, blackhole, deleted, deleting, pending"
+
+instance ToText TransitGatewayRouteState where
+    toText = \case
+        TGRSActive -> "active"
+        TGRSBlackhole -> "blackhole"
+        TGRSDeleted -> "deleted"
+        TGRSDeleting -> "deleting"
+        TGRSPending -> "pending"
+
+instance Hashable     TransitGatewayRouteState
+instance NFData       TransitGatewayRouteState
+instance ToByteString TransitGatewayRouteState
+instance ToQuery      TransitGatewayRouteState
+instance ToHeader     TransitGatewayRouteState
+
+instance FromXML TransitGatewayRouteState where
+    parseXML = parseXMLText "TransitGatewayRouteState"
+
+data TransitGatewayRouteTableState
+  = TGRTSAvailable
+  | TGRTSDeleted
+  | TGRTSDeleting
+  | TGRTSPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TransitGatewayRouteTableState where
+    parser = takeLowerText >>= \case
+        "available" -> pure TGRTSAvailable
+        "deleted" -> pure TGRTSDeleted
+        "deleting" -> pure TGRTSDeleting
+        "pending" -> pure TGRTSPending
+        e -> fromTextError $ "Failure parsing TransitGatewayRouteTableState from value: '" <> e
+           <> "'. Accepted values: available, deleted, deleting, pending"
+
+instance ToText TransitGatewayRouteTableState where
+    toText = \case
+        TGRTSAvailable -> "available"
+        TGRTSDeleted -> "deleted"
+        TGRTSDeleting -> "deleting"
+        TGRTSPending -> "pending"
+
+instance Hashable     TransitGatewayRouteTableState
+instance NFData       TransitGatewayRouteTableState
+instance ToByteString TransitGatewayRouteTableState
+instance ToQuery      TransitGatewayRouteTableState
+instance ToHeader     TransitGatewayRouteTableState
+
+instance FromXML TransitGatewayRouteTableState where
+    parseXML = parseXMLText "TransitGatewayRouteTableState"
+
+data TransitGatewayRouteType
+  = TGRTPropagated
+  | TGRTStatic
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TransitGatewayRouteType where
+    parser = takeLowerText >>= \case
+        "propagated" -> pure TGRTPropagated
+        "static" -> pure TGRTStatic
+        e -> fromTextError $ "Failure parsing TransitGatewayRouteType from value: '" <> e
+           <> "'. Accepted values: propagated, static"
+
+instance ToText TransitGatewayRouteType where
+    toText = \case
+        TGRTPropagated -> "propagated"
+        TGRTStatic -> "static"
+
+instance Hashable     TransitGatewayRouteType
+instance NFData       TransitGatewayRouteType
+instance ToByteString TransitGatewayRouteType
+instance ToQuery      TransitGatewayRouteType
+instance ToHeader     TransitGatewayRouteType
+
+instance FromXML TransitGatewayRouteType where
+    parseXML = parseXMLText "TransitGatewayRouteType"
+
+data TransitGatewayState
+  = TGSAvailable
+  | TGSDeleted
+  | TGSDeleting
+  | TGSModifying
+  | TGSPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TransitGatewayState where
+    parser = takeLowerText >>= \case
+        "available" -> pure TGSAvailable
+        "deleted" -> pure TGSDeleted
+        "deleting" -> pure TGSDeleting
+        "modifying" -> pure TGSModifying
+        "pending" -> pure TGSPending
+        e -> fromTextError $ "Failure parsing TransitGatewayState from value: '" <> e
+           <> "'. Accepted values: available, deleted, deleting, modifying, pending"
+
+instance ToText TransitGatewayState where
+    toText = \case
+        TGSAvailable -> "available"
+        TGSDeleted -> "deleted"
+        TGSDeleting -> "deleting"
+        TGSModifying -> "modifying"
+        TGSPending -> "pending"
+
+instance Hashable     TransitGatewayState
+instance NFData       TransitGatewayState
+instance ToByteString TransitGatewayState
+instance ToQuery      TransitGatewayState
+instance ToHeader     TransitGatewayState
+
+instance FromXML TransitGatewayState where
+    parseXML = parseXMLText "TransitGatewayState"
+
+data TransportProtocol
+  = TCP
+  | Udp
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TransportProtocol where
+    parser = takeLowerText >>= \case
+        "tcp" -> pure TCP
+        "udp" -> pure Udp
+        e -> fromTextError $ "Failure parsing TransportProtocol from value: '" <> e
+           <> "'. Accepted values: tcp, udp"
+
+instance ToText TransportProtocol where
+    toText = \case
+        TCP -> "tcp"
+        Udp -> "udp"
+
+instance Hashable     TransportProtocol
+instance NFData       TransportProtocol
+instance ToByteString TransportProtocol
+instance ToQuery      TransportProtocol
+instance ToHeader     TransportProtocol
+
+instance FromXML TransportProtocol where
+    parseXML = parseXMLText "TransportProtocol"
+
 data UnsuccessfulInstanceCreditSpecificationErrorCode
   = IncorrectInstanceState
   | InstanceCreditSpecification_NotSupported
@@ -3832,6 +5128,57 @@ instance NFData       VPCTenancy
 instance ToByteString VPCTenancy
 instance ToQuery      VPCTenancy
 instance ToHeader     VPCTenancy
+
+data VPNEcmpSupportValue
+  = VESVDisable
+  | VESVEnable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText VPNEcmpSupportValue where
+    parser = takeLowerText >>= \case
+        "disable" -> pure VESVDisable
+        "enable" -> pure VESVEnable
+        e -> fromTextError $ "Failure parsing VPNEcmpSupportValue from value: '" <> e
+           <> "'. Accepted values: disable, enable"
+
+instance ToText VPNEcmpSupportValue where
+    toText = \case
+        VESVDisable -> "disable"
+        VESVEnable -> "enable"
+
+instance Hashable     VPNEcmpSupportValue
+instance NFData       VPNEcmpSupportValue
+instance ToByteString VPNEcmpSupportValue
+instance ToQuery      VPNEcmpSupportValue
+instance ToHeader     VPNEcmpSupportValue
+
+instance FromXML VPNEcmpSupportValue where
+    parseXML = parseXMLText "VPNEcmpSupportValue"
+
+data VPNProtocol =
+  Openvpn
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText VPNProtocol where
+    parser = takeLowerText >>= \case
+        "openvpn" -> pure Openvpn
+        e -> fromTextError $ "Failure parsing VPNProtocol from value: '" <> e
+           <> "'. Accepted values: openvpn"
+
+instance ToText VPNProtocol where
+    toText = \case
+        Openvpn -> "openvpn"
+
+instance Hashable     VPNProtocol
+instance NFData       VPNProtocol
+instance ToByteString VPNProtocol
+instance ToQuery      VPNProtocol
+instance ToHeader     VPNProtocol
+
+instance FromXML VPNProtocol where
+    parseXML = parseXMLText "VPNProtocol"
 
 data VPNState
   = VSAvailable

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the DNS hostname of a linked EC2-Classic instance resolves to its private IP address when addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname of an instance in a VPC resolves to its private IP address when addressed from a linked EC2-Classic instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the DNS hostname of a linked EC2-Classic instance resolves to its private IP address when addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname of an instance in a VPC resolves to its private IP address when addressed from a linked EC2-Classic instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeVPCClassicLinkDNSSupport
     (
     -- * Creating a Request
@@ -43,15 +45,12 @@ module Network.AWS.EC2.DescribeVPCClassicLinkDNSSupport
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeVpcClassicLinkDnsSupport.
---
---
---
--- /See:/ 'describeVPCClassicLinkDNSSupport' smart constructor.
+-- | /See:/ 'describeVPCClassicLinkDNSSupport' smart constructor.
 data DescribeVPCClassicLinkDNSSupport = DescribeVPCClassicLinkDNSSupport'
   { _dvcldsNextToken  :: !(Maybe Text)
   , _dvcldsVPCIds     :: !(Maybe [Text])
@@ -63,11 +62,11 @@ data DescribeVPCClassicLinkDNSSupport = DescribeVPCClassicLinkDNSSupport'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvcldsNextToken' - The token for the next set of items to return. (You received this token from a prior call.)
+-- * 'dvcldsNextToken' - The token for the next page of results.
 --
 -- * 'dvcldsVPCIds' - One or more VPC IDs.
 --
--- * 'dvcldsMaxResults' - The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
+-- * 'dvcldsMaxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 describeVPCClassicLinkDNSSupport
     :: DescribeVPCClassicLinkDNSSupport
 describeVPCClassicLinkDNSSupport =
@@ -78,7 +77,7 @@ describeVPCClassicLinkDNSSupport =
     }
 
 
--- | The token for the next set of items to return. (You received this token from a prior call.)
+-- | The token for the next page of results.
 dvcldsNextToken :: Lens' DescribeVPCClassicLinkDNSSupport (Maybe Text)
 dvcldsNextToken = lens _dvcldsNextToken (\ s a -> s{_dvcldsNextToken = a})
 
@@ -86,9 +85,18 @@ dvcldsNextToken = lens _dvcldsNextToken (\ s a -> s{_dvcldsNextToken = a})
 dvcldsVPCIds :: Lens' DescribeVPCClassicLinkDNSSupport [Text]
 dvcldsVPCIds = lens _dvcldsVPCIds (\ s a -> s{_dvcldsVPCIds = a}) . _Default . _Coerce
 
--- | The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
+-- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 dvcldsMaxResults :: Lens' DescribeVPCClassicLinkDNSSupport (Maybe Natural)
 dvcldsMaxResults = lens _dvcldsMaxResults (\ s a -> s{_dvcldsMaxResults = a}) . mapping _Nat
+
+instance AWSPager DescribeVPCClassicLinkDNSSupport
+         where
+        page rq rs
+          | stop (rs ^. dvpccldnssrsNextToken) = Nothing
+          | stop (rs ^. dvpccldnssrsVPCs) = Nothing
+          | otherwise =
+            Just $ rq &
+              dvcldsNextToken .~ rs ^. dvpccldnssrsNextToken
 
 instance AWSRequest DescribeVPCClassicLinkDNSSupport
          where
@@ -129,11 +137,7 @@ instance ToQuery DescribeVPCClassicLinkDNSSupport
                toQuery (toQueryList "VpcIds" <$> _dvcldsVPCIds),
                "MaxResults" =: _dvcldsMaxResults]
 
--- | Contains the output of DescribeVpcClassicLinkDnsSupport.
---
---
---
--- /See:/ 'describeVPCClassicLinkDNSSupportResponse' smart constructor.
+-- | /See:/ 'describeVPCClassicLinkDNSSupportResponse' smart constructor.
 data DescribeVPCClassicLinkDNSSupportResponse = DescribeVPCClassicLinkDNSSupportResponse'
   { _dvpccldnssrsVPCs           :: !(Maybe [ClassicLinkDNSSupport])
   , _dvpccldnssrsNextToken      :: !(Maybe Text)
@@ -147,7 +151,7 @@ data DescribeVPCClassicLinkDNSSupportResponse = DescribeVPCClassicLinkDNSSupport
 --
 -- * 'dvpccldnssrsVPCs' - Information about the ClassicLink DNS support status of the VPCs.
 --
--- * 'dvpccldnssrsNextToken' - The token to use when requesting the next set of items.
+-- * 'dvpccldnssrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- * 'dvpccldnssrsResponseStatus' - -- | The response status code.
 describeVPCClassicLinkDNSSupportResponse
@@ -165,7 +169,7 @@ describeVPCClassicLinkDNSSupportResponse pResponseStatus_ =
 dvpccldnssrsVPCs :: Lens' DescribeVPCClassicLinkDNSSupportResponse [ClassicLinkDNSSupport]
 dvpccldnssrsVPCs = lens _dvpccldnssrsVPCs (\ s a -> s{_dvpccldnssrsVPCs = a}) . _Default . _Coerce
 
--- | The token to use when requesting the next set of items.
+-- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dvpccldnssrsNextToken :: Lens' DescribeVPCClassicLinkDNSSupportResponse (Maybe Text)
 dvpccldnssrsNextToken = lens _dvpccldnssrsNextToken (\ s a -> s{_dvpccldnssrsNextToken = a})
 

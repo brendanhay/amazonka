@@ -21,7 +21,7 @@
 -- Creates a VPC endpoint service configuration to which service consumers (AWS accounts, IAM users, and IAM roles) can connect. Service consumers can create an interface VPC endpoint to connect to your service.
 --
 --
--- To create an endpoint service configuration, you must first create a Network Load Balancer for your service. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/endpoint-service.html VPC Endpoint Services> in the /Amazon Virtual Private Cloud User Guide/ .
+-- To create an endpoint service configuration, you must first create a Network Load Balancer for your service. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/endpoint-service.html VPC Endpoint Services> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 module Network.AWS.EC2.CreateVPCEndpointServiceConfiguration
     (
@@ -63,7 +63,7 @@ data CreateVPCEndpointServiceConfiguration = CreateVPCEndpointServiceConfigurati
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvescClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+-- * 'cvescClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 --
 -- * 'cvescAcceptanceRequired' - Indicate whether requests from service consumers to create an endpoint to your service must be accepted. To accept a request, use 'AcceptVpcEndpointConnections' .
 --
@@ -81,7 +81,7 @@ createVPCEndpointServiceConfiguration =
     }
 
 
--- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+-- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 cvescClientToken :: Lens' CreateVPCEndpointServiceConfiguration (Maybe Text)
 cvescClientToken = lens _cvescClientToken (\ s a -> s{_cvescClientToken = a})
 

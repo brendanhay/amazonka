@@ -21,7 +21,7 @@
 -- Describes one or more regions that are currently available to you.
 --
 --
--- For a list of the regions supported by Amazon EC2, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region Regions and Endpoints> .
+-- For a list of the regions supported by Amazon EC2, see <https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region Regions and Endpoints> .
 --
 module Network.AWS.EC2.DescribeRegions
     (
@@ -48,11 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeRegions.
---
---
---
--- /See:/ 'describeRegions' smart constructor.
+-- | /See:/ 'describeRegions' smart constructor.
 data DescribeRegions = DescribeRegions'
   { _drsRegionNames :: !(Maybe [Text])
   , _drsFilters     :: !(Maybe [Filter])
@@ -119,11 +115,7 @@ instance ToQuery DescribeRegions where
                toQuery (toQueryList "Filter" <$> _drsFilters),
                "DryRun" =: _drsDryRun]
 
--- | Contains the output of DescribeRegions.
---
---
---
--- /See:/ 'describeRegionsResponse' smart constructor.
+-- | /See:/ 'describeRegionsResponse' smart constructor.
 data DescribeRegionsResponse = DescribeRegionsResponse'
   { _drrsRegions        :: !(Maybe [RegionInfo])
   , _drrsResponseStatus :: !Int

@@ -21,6 +21,8 @@
 -- Describes one or more versions of a specified launch template. You can describe all versions, individual versions, or a range of versions.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeLaunchTemplateVersions
     (
     -- * Creating a Request
@@ -49,6 +51,7 @@ module Network.AWS.EC2.DescribeLaunchTemplateVersions
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -87,7 +90,7 @@ data DescribeLaunchTemplateVersions = DescribeLaunchTemplateVersions'
 --
 -- * 'dltvsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dltvsMaxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000.
+-- * 'dltvsMaxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 1 and 200.
 describeLaunchTemplateVersions
     :: DescribeLaunchTemplateVersions
 describeLaunchTemplateVersions =
@@ -136,9 +139,17 @@ dltvsNextToken = lens _dltvsNextToken (\ s a -> s{_dltvsNextToken = a})
 dltvsDryRun :: Lens' DescribeLaunchTemplateVersions (Maybe Bool)
 dltvsDryRun = lens _dltvsDryRun (\ s a -> s{_dltvsDryRun = a})
 
--- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000.
+-- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 1 and 200.
 dltvsMaxResults :: Lens' DescribeLaunchTemplateVersions (Maybe Int)
 dltvsMaxResults = lens _dltvsMaxResults (\ s a -> s{_dltvsMaxResults = a})
+
+instance AWSPager DescribeLaunchTemplateVersions
+         where
+        page rq rs
+          | stop (rs ^. dltvrsNextToken) = Nothing
+          | stop (rs ^. dltvrsLaunchTemplateVersions) = Nothing
+          | otherwise =
+            Just $ rq & dltvsNextToken .~ rs ^. dltvrsNextToken
 
 instance AWSRequest DescribeLaunchTemplateVersions
          where

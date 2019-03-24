@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more of your placement groups. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- Describes one or more of your placement groups. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 --
 module Network.AWS.EC2.DescribePlacementGroups
@@ -46,11 +46,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribePlacementGroups.
---
---
---
--- /See:/ 'describePlacementGroups' smart constructor.
+-- | /See:/ 'describePlacementGroups' smart constructor.
 data DescribePlacementGroups = DescribePlacementGroups'
   { _dpgsFilters    :: !(Maybe [Filter])
   , _dpgsGroupNames :: !(Maybe [Text])
@@ -62,7 +58,7 @@ data DescribePlacementGroups = DescribePlacementGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpgsFilters' - One or more filters.     * @group-name@ - The name of the placement group.     * @state@ - The state of the placement group (@pending@ | @available@ | @deleting@ | @deleted@ ).     * @strategy@ - The strategy of the placement group (@cluster@ | @spread@ ).
+-- * 'dpgsFilters' - One or more filters.     * @group-name@ - The name of the placement group.     * @state@ - The state of the placement group (@pending@ | @available@ | @deleting@ | @deleted@ ).     * @strategy@ - The strategy of the placement group (@cluster@ | @spread@ | @partition@ ).
 --
 -- * 'dpgsGroupNames' - One or more placement group names. Default: Describes all your placement groups, or only those otherwise specified.
 --
@@ -74,7 +70,7 @@ describePlacementGroups =
     {_dpgsFilters = Nothing, _dpgsGroupNames = Nothing, _dpgsDryRun = Nothing}
 
 
--- | One or more filters.     * @group-name@ - The name of the placement group.     * @state@ - The state of the placement group (@pending@ | @available@ | @deleting@ | @deleted@ ).     * @strategy@ - The strategy of the placement group (@cluster@ | @spread@ ).
+-- | One or more filters.     * @group-name@ - The name of the placement group.     * @state@ - The state of the placement group (@pending@ | @available@ | @deleting@ | @deleted@ ).     * @strategy@ - The strategy of the placement group (@cluster@ | @spread@ | @partition@ ).
 dpgsFilters :: Lens' DescribePlacementGroups [Filter]
 dpgsFilters = lens _dpgsFilters (\ s a -> s{_dpgsFilters = a}) . _Default . _Coerce
 
@@ -119,11 +115,7 @@ instance ToQuery DescribePlacementGroups where
                  (toQueryList "GroupName" <$> _dpgsGroupNames),
                "DryRun" =: _dpgsDryRun]
 
--- | Contains the output of DescribePlacementGroups.
---
---
---
--- /See:/ 'describePlacementGroupsResponse' smart constructor.
+-- | /See:/ 'describePlacementGroupsResponse' smart constructor.
 data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
   { _dpgrsPlacementGroups :: !(Maybe [PlacementGroup])
   , _dpgrsResponseStatus  :: !Int

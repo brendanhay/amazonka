@@ -21,7 +21,7 @@
 -- Disassociates an Elastic IP address from the instance or network interface it's associated with.
 --
 --
--- An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 -- This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.
 --
@@ -47,11 +47,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DisassociateAddress.
---
---
---
--- /See:/ 'disassociateAddress' smart constructor.
+-- | /See:/ 'disassociateAddress' smart constructor.
 data DisassociateAddress = DisassociateAddress'
   { _dasAssociationId :: !(Maybe Text)
   , _dasPublicIP      :: !(Maybe Text)

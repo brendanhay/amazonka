@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- When you no longer want to use an On-Demand Dedicated Host it can be released. On-Demand billing is stopped and the host goes into @released@ state. The host ID of Dedicated Hosts that have been released can no longer be specified in another request, e.g., ModifyHosts. You must stop or terminate all instances on a host before it can be released.
+-- When you no longer want to use an On-Demand Dedicated Host it can be released. On-Demand billing is stopped and the host goes into @released@ state. The host ID of Dedicated Hosts that have been released can no longer be specified in another request, for example, to modify the host. You must stop or terminate all instances on a host before it can be released.
 --
 --
--- When Dedicated Hosts are released, it make take some time for them to stop counting toward your limit and you may receive capacity errors when trying to allocate new Dedicated hosts. Try waiting a few minutes, and then try again.
+-- When Dedicated Hosts are released, it may take some time for them to stop counting toward your limit and you may receive capacity errors when trying to allocate new Dedicated Hosts. Wait a few minutes and then try again.
 --
--- Released hosts will still appear in a 'DescribeHosts' response.
+-- Released hosts still appear in a 'DescribeHosts' response.
 --
 module Network.AWS.EC2.ReleaseHosts
     (
@@ -49,11 +49,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for ReleaseHosts.
---
---
---
--- /See:/ 'releaseHosts' smart constructor.
+-- | /See:/ 'releaseHosts' smart constructor.
 newtype ReleaseHosts = ReleaseHosts'
   { _rhHostIds :: [Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -63,13 +59,13 @@ newtype ReleaseHosts = ReleaseHosts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rhHostIds' - The IDs of the Dedicated Hosts you want to release.
+-- * 'rhHostIds' - The IDs of the Dedicated Hosts to release.
 releaseHosts
     :: ReleaseHosts
 releaseHosts = ReleaseHosts' {_rhHostIds = mempty}
 
 
--- | The IDs of the Dedicated Hosts you want to release.
+-- | The IDs of the Dedicated Hosts to release.
 rhHostIds :: Lens' ReleaseHosts [Text]
 rhHostIds = lens _rhHostIds (\ s a -> s{_rhHostIds = a}) . _Coerce
 
@@ -104,11 +100,7 @@ instance ToQuery ReleaseHosts where
                "Version" =: ("2016-11-15" :: ByteString),
                toQueryList "HostId" _rhHostIds]
 
--- | Contains the output of ReleaseHosts.
---
---
---
--- /See:/ 'releaseHostsResponse' smart constructor.
+-- | /See:/ 'releaseHostsResponse' smart constructor.
 data ReleaseHostsResponse = ReleaseHostsResponse'
   { _rhrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
   , _rhrsSuccessful     :: !(Maybe [Text])

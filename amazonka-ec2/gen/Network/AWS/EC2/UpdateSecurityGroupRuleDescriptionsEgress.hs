@@ -49,11 +49,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for UpdateSecurityGroupRuleDescriptionsEgress.
---
---
---
--- /See:/ 'updateSecurityGroupRuleDescriptionsEgress' smart constructor.
+-- | /See:/ 'updateSecurityGroupRuleDescriptionsEgress' smart constructor.
 data UpdateSecurityGroupRuleDescriptionsEgress = UpdateSecurityGroupRuleDescriptionsEgress'
   { _usgrdeGroupId       :: !(Maybe Text)
   , _usgrdeGroupName     :: !(Maybe Text)
@@ -145,11 +141,7 @@ instance ToQuery
                "DryRun" =: _usgrdeDryRun,
                toQueryList "IpPermissions" _usgrdeIPPermissions]
 
--- | Contains the output of UpdateSecurityGroupRuleDescriptionsEgress.
---
---
---
--- /See:/ 'updateSecurityGroupRuleDescriptionsEgressResponse' smart constructor.
+-- | /See:/ 'updateSecurityGroupRuleDescriptionsEgressResponse' smart constructor.
 data UpdateSecurityGroupRuleDescriptionsEgressResponse = UpdateSecurityGroupRuleDescriptionsEgressResponse'
   { _usgrdersReturn         :: !(Maybe Bool)
   , _usgrdersResponseStatus :: !Int

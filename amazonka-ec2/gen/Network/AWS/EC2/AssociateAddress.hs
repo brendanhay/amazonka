@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates an Elastic IP address with an instance or a network interface.
+-- Associates an Elastic IP address with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account.
 --
 --
--- An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 -- [EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is already associated with a different instance, it is disassociated from that instance and associated with the specified instance. If you associate an Elastic IP address with an instance that has an existing Elastic IP address, the existing address is disassociated from the instance, but remains allocated to your account.
 --
@@ -58,11 +58,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for AssociateAddress.
---
---
---
--- /See:/ 'associateAddress' smart constructor.
+-- | /See:/ 'associateAddress' smart constructor.
 data AssociateAddress = AssociateAddress'
   { _aasInstanceId         :: !(Maybe Text)
   , _aasAllocationId       :: !(Maybe Text)
@@ -164,11 +160,7 @@ instance ToQuery AssociateAddress where
                "PrivateIpAddress" =: _aasPrivateIPAddress,
                "PublicIp" =: _aasPublicIP, "DryRun" =: _aasDryRun]
 
--- | Contains the output of AssociateAddress.
---
---
---
--- /See:/ 'associateAddressResponse' smart constructor.
+-- | /See:/ 'associateAddressResponse' smart constructor.
 data AssociateAddressResponse = AssociateAddressResponse'
   { _arsAssociationId  :: !(Maybe Text)
   , _arsResponseStatus :: !Int

@@ -21,6 +21,8 @@
 -- Describes one or more launch templates.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeLaunchTemplates
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.EC2.DescribeLaunchTemplates
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -65,7 +68,7 @@ data DescribeLaunchTemplates = DescribeLaunchTemplates'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dltsFilters' - One or more filters.     * @create-time@ - The time the launch template was created.     * @launch-template-name@ - The name of the launch template.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of the tag's key). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.
+-- * 'dltsFilters' - One or more filters.     * @create-time@ - The time the launch template was created.     * @launch-template-name@ - The name of the launch template.     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
 --
 -- * 'dltsNextToken' - The token to request the next page of results.
 --
@@ -73,7 +76,7 @@ data DescribeLaunchTemplates = DescribeLaunchTemplates'
 --
 -- * 'dltsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dltsMaxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000.
+-- * 'dltsMaxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 1 and 200.
 --
 -- * 'dltsLaunchTemplateNames' - One or more launch template names.
 describeLaunchTemplates
@@ -89,7 +92,7 @@ describeLaunchTemplates =
     }
 
 
--- | One or more filters.     * @create-time@ - The time the launch template was created.     * @launch-template-name@ - The name of the launch template.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource. Specify the key of the tag in the filter name and the value of the tag in the filter value. For example, for the tag Purpose=X, specify @tag:Purpose@ for the filter name and @X@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of the tag's key). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.
+-- | One or more filters.     * @create-time@ - The time the launch template was created.     * @launch-template-name@ - The name of the launch template.     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
 dltsFilters :: Lens' DescribeLaunchTemplates [Filter]
 dltsFilters = lens _dltsFilters (\ s a -> s{_dltsFilters = a}) . _Default . _Coerce
 
@@ -105,13 +108,20 @@ dltsLaunchTemplateIds = lens _dltsLaunchTemplateIds (\ s a -> s{_dltsLaunchTempl
 dltsDryRun :: Lens' DescribeLaunchTemplates (Maybe Bool)
 dltsDryRun = lens _dltsDryRun (\ s a -> s{_dltsDryRun = a})
 
--- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000.
+-- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 1 and 200.
 dltsMaxResults :: Lens' DescribeLaunchTemplates (Maybe Int)
 dltsMaxResults = lens _dltsMaxResults (\ s a -> s{_dltsMaxResults = a})
 
 -- | One or more launch template names.
 dltsLaunchTemplateNames :: Lens' DescribeLaunchTemplates [Text]
 dltsLaunchTemplateNames = lens _dltsLaunchTemplateNames (\ s a -> s{_dltsLaunchTemplateNames = a}) . _Default . _Coerce
+
+instance AWSPager DescribeLaunchTemplates where
+        page rq rs
+          | stop (rs ^. dltsrsNextToken) = Nothing
+          | stop (rs ^. dltsrsLaunchTemplates) = Nothing
+          | otherwise =
+            Just $ rq & dltsNextToken .~ rs ^. dltsrsNextToken
 
 instance AWSRequest DescribeLaunchTemplates where
         type Rs DescribeLaunchTemplates =

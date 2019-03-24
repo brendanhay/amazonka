@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI). For more information, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html Importing a VM as an Image Using VM Import/Export> in the /VM Import\/Export User Guide/ .
+-- Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI). For more information, see <https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html Importing a VM as an Image Using VM Import/Export> in the /VM Import\/Export User Guide/ .
 --
 --
 module Network.AWS.EC2.ImportImage
@@ -32,6 +32,8 @@ module Network.AWS.EC2.ImportImage
     , impClientToken
     , impLicenseType
     , impRoleName
+    , impEncrypted
+    , impKMSKeyId
     , impArchitecture
     , impDescription
     , impDryRun
@@ -48,6 +50,8 @@ module Network.AWS.EC2.ImportImage
     , irsProgress
     , irsLicenseType
     , irsSnapshotDetails
+    , irsEncrypted
+    , irsKMSKeyId
     , irsStatusMessage
     , irsImageId
     , irsImportTaskId
@@ -74,6 +78,8 @@ data ImportImage = ImportImage'
   , _impClientToken    :: !(Maybe Text)
   , _impLicenseType    :: !(Maybe Text)
   , _impRoleName       :: !(Maybe Text)
+  , _impEncrypted      :: !(Maybe Bool)
+  , _impKMSKeyId       :: !(Maybe Text)
   , _impArchitecture   :: !(Maybe Text)
   , _impDescription    :: !(Maybe Text)
   , _impDryRun         :: !(Maybe Bool)
@@ -92,9 +98,13 @@ data ImportImage = ImportImage'
 --
 -- * 'impClientToken' - The token to enable idempotency for VM import requests.
 --
--- * 'impLicenseType' - The license type to be used for the Amazon Machine Image (AMI) after importing. __Note:__ You may only use BYOL if you have existing licenses with rights to use these licenses in a third party cloud like AWS. For more information, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites> in the VM Import/Export User Guide. Valid values: @AWS@ | @BYOL@
+-- * 'impLicenseType' - The license type to be used for the Amazon Machine Image (AMI) after importing. __Note:__ You may only use BYOL if you have existing licenses with rights to use these licenses in a third party cloud like AWS. For more information, see <https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites> in the VM Import/Export User Guide. Valid values include:     * @Auto@ - Detects the source-system operating system (OS) and applies the appropriate license.     * @AWS@ - Replaces the source-system license with an AWS license, if appropriate.     * @BYOL@ - Retains the source-system license, if appropriate. Default value: @Auto@
 --
 -- * 'impRoleName' - The name of the role to use when not using the default role, 'vmimport'.
+--
+-- * 'impEncrypted' - Specifies whether the destination AMI of the imported image should be encrypted. The default CMK for EBS is used unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using @KmsKeyId@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+-- * 'impKMSKeyId' - An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted AMI. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.  The CMK identifier may be provided in any of the following formats:      * Key ID     * Key alias, in the form @alias//ExampleAlias/ @      * ARN using key ID. The ID ARN contains the @arn:aws:kms@ namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the @key@ namespace, and then the CMK ID. For example, arn:aws:kms:/us-east-1/ :/012345678910/ :key//abcd1234-a123-456a-a12b-a123b4cd56ef/ .     * ARN using key alias. The alias ARN contains the @arn:aws:kms@ namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the @alias@ namespace, and then the CMK alias. For example, arn:aws:kms:/us-east-1/ :/012345678910/ :alias//ExampleAlias/ .  AWS parses @KmsKeyId@ asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure.  The specified CMK must exist in the region that the AMI is being copied to.
 --
 -- * 'impArchitecture' - The architecture of the virtual machine. Valid values: @i386@ | @x86_64@
 --
@@ -114,6 +124,8 @@ importImage =
     , _impClientToken = Nothing
     , _impLicenseType = Nothing
     , _impRoleName = Nothing
+    , _impEncrypted = Nothing
+    , _impKMSKeyId = Nothing
     , _impArchitecture = Nothing
     , _impDescription = Nothing
     , _impDryRun = Nothing
@@ -134,13 +146,21 @@ impPlatform = lens _impPlatform (\ s a -> s{_impPlatform = a})
 impClientToken :: Lens' ImportImage (Maybe Text)
 impClientToken = lens _impClientToken (\ s a -> s{_impClientToken = a})
 
--- | The license type to be used for the Amazon Machine Image (AMI) after importing. __Note:__ You may only use BYOL if you have existing licenses with rights to use these licenses in a third party cloud like AWS. For more information, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites> in the VM Import/Export User Guide. Valid values: @AWS@ | @BYOL@
+-- | The license type to be used for the Amazon Machine Image (AMI) after importing. __Note:__ You may only use BYOL if you have existing licenses with rights to use these licenses in a third party cloud like AWS. For more information, see <https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites> in the VM Import/Export User Guide. Valid values include:     * @Auto@ - Detects the source-system operating system (OS) and applies the appropriate license.     * @AWS@ - Replaces the source-system license with an AWS license, if appropriate.     * @BYOL@ - Retains the source-system license, if appropriate. Default value: @Auto@
 impLicenseType :: Lens' ImportImage (Maybe Text)
 impLicenseType = lens _impLicenseType (\ s a -> s{_impLicenseType = a})
 
 -- | The name of the role to use when not using the default role, 'vmimport'.
 impRoleName :: Lens' ImportImage (Maybe Text)
 impRoleName = lens _impRoleName (\ s a -> s{_impRoleName = a})
+
+-- | Specifies whether the destination AMI of the imported image should be encrypted. The default CMK for EBS is used unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using @KmsKeyId@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
+impEncrypted :: Lens' ImportImage (Maybe Bool)
+impEncrypted = lens _impEncrypted (\ s a -> s{_impEncrypted = a})
+
+-- | An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted AMI. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.  The CMK identifier may be provided in any of the following formats:      * Key ID     * Key alias, in the form @alias//ExampleAlias/ @      * ARN using key ID. The ID ARN contains the @arn:aws:kms@ namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the @key@ namespace, and then the CMK ID. For example, arn:aws:kms:/us-east-1/ :/012345678910/ :key//abcd1234-a123-456a-a12b-a123b4cd56ef/ .     * ARN using key alias. The alias ARN contains the @arn:aws:kms@ namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the @alias@ namespace, and then the CMK alias. For example, arn:aws:kms:/us-east-1/ :/012345678910/ :alias//ExampleAlias/ .  AWS parses @KmsKeyId@ asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure.  The specified CMK must exist in the region that the AMI is being copied to.
+impKMSKeyId :: Lens' ImportImage (Maybe Text)
+impKMSKeyId = lens _impKMSKeyId (\ s a -> s{_impKMSKeyId = a})
 
 -- | The architecture of the virtual machine. Valid values: @i386@ | @x86_64@
 impArchitecture :: Lens' ImportImage (Maybe Text)
@@ -176,6 +196,8 @@ instance AWSRequest ImportImage where
                      <*>
                      (x .@? "snapshotDetailSet" .!@ mempty >>=
                         may (parseXMLList "item"))
+                     <*> (x .@? "encrypted")
+                     <*> (x .@? "kmsKeyId")
                      <*> (x .@? "statusMessage")
                      <*> (x .@? "imageId")
                      <*> (x .@? "importTaskId")
@@ -203,6 +225,8 @@ instance ToQuery ImportImage where
                "ClientToken" =: _impClientToken,
                "LicenseType" =: _impLicenseType,
                "RoleName" =: _impRoleName,
+               "Encrypted" =: _impEncrypted,
+               "KmsKeyId" =: _impKMSKeyId,
                "Architecture" =: _impArchitecture,
                "Description" =: _impDescription,
                "DryRun" =: _impDryRun,
@@ -222,6 +246,8 @@ data ImportImageResponse = ImportImageResponse'
   , _irsProgress        :: !(Maybe Text)
   , _irsLicenseType     :: !(Maybe Text)
   , _irsSnapshotDetails :: !(Maybe [SnapshotDetail])
+  , _irsEncrypted       :: !(Maybe Bool)
+  , _irsKMSKeyId        :: !(Maybe Text)
   , _irsStatusMessage   :: !(Maybe Text)
   , _irsImageId         :: !(Maybe Text)
   , _irsImportTaskId    :: !(Maybe Text)
@@ -247,6 +273,10 @@ data ImportImageResponse = ImportImageResponse'
 --
 -- * 'irsSnapshotDetails' - Information about the snapshots.
 --
+-- * 'irsEncrypted' - Indicates whether the AMI is encypted.
+--
+-- * 'irsKMSKeyId' - The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted AMI.
+--
 -- * 'irsStatusMessage' - A detailed status message of the import task.
 --
 -- * 'irsImageId' - The ID of the Amazon Machine Image (AMI) created by the import task.
@@ -269,6 +299,8 @@ importImageResponse pResponseStatus_ =
     , _irsProgress = Nothing
     , _irsLicenseType = Nothing
     , _irsSnapshotDetails = Nothing
+    , _irsEncrypted = Nothing
+    , _irsKMSKeyId = Nothing
     , _irsStatusMessage = Nothing
     , _irsImageId = Nothing
     , _irsImportTaskId = Nothing
@@ -301,6 +333,14 @@ irsLicenseType = lens _irsLicenseType (\ s a -> s{_irsLicenseType = a})
 -- | Information about the snapshots.
 irsSnapshotDetails :: Lens' ImportImageResponse [SnapshotDetail]
 irsSnapshotDetails = lens _irsSnapshotDetails (\ s a -> s{_irsSnapshotDetails = a}) . _Default . _Coerce
+
+-- | Indicates whether the AMI is encypted.
+irsEncrypted :: Lens' ImportImageResponse (Maybe Bool)
+irsEncrypted = lens _irsEncrypted (\ s a -> s{_irsEncrypted = a})
+
+-- | The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted AMI.
+irsKMSKeyId :: Lens' ImportImageResponse (Maybe Text)
+irsKMSKeyId = lens _irsKMSKeyId (\ s a -> s{_irsKMSKeyId = a})
 
 -- | A detailed status message of the import task.
 irsStatusMessage :: Lens' ImportImageResponse (Maybe Text)

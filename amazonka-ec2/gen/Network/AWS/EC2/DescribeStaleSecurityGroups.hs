@@ -21,6 +21,8 @@
 -- [EC2-VPC only] Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in a peer VPC, or a security group in a peer VPC for which the VPC peering connection has been deleted.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeStaleSecurityGroups
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.EC2.DescribeStaleSecurityGroups
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -63,7 +66,7 @@ data DescribeStaleSecurityGroups = DescribeStaleSecurityGroups'
 --
 -- * 'dssgNextToken' - The token for the next set of items to return. (You received this token from a prior call.)
 --
--- * 'dssgDryRun' - Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
+-- * 'dssgDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- * 'dssgMaxResults' - The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
 --
@@ -84,7 +87,7 @@ describeStaleSecurityGroups pVPCId_ =
 dssgNextToken :: Lens' DescribeStaleSecurityGroups (Maybe Text)
 dssgNextToken = lens _dssgNextToken (\ s a -> s{_dssgNextToken = a})
 
--- | Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dssgDryRun :: Lens' DescribeStaleSecurityGroups (Maybe Bool)
 dssgDryRun = lens _dssgDryRun (\ s a -> s{_dssgDryRun = a})
 
@@ -95,6 +98,13 @@ dssgMaxResults = lens _dssgMaxResults (\ s a -> s{_dssgMaxResults = a}) . mappin
 -- | The ID of the VPC.
 dssgVPCId :: Lens' DescribeStaleSecurityGroups Text
 dssgVPCId = lens _dssgVPCId (\ s a -> s{_dssgVPCId = a})
+
+instance AWSPager DescribeStaleSecurityGroups where
+        page rq rs
+          | stop (rs ^. dssgrsNextToken) = Nothing
+          | stop (rs ^. dssgrsStaleSecurityGroupSet) = Nothing
+          | otherwise =
+            Just $ rq & dssgNextToken .~ rs ^. dssgrsNextToken
 
 instance AWSRequest DescribeStaleSecurityGroups where
         type Rs DescribeStaleSecurityGroups =

@@ -47,11 +47,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for AcceptVpcPeeringConnection.
---
---
---
--- /See:/ 'acceptVPCPeeringConnection' smart constructor.
+-- | /See:/ 'acceptVPCPeeringConnection' smart constructor.
 data AcceptVPCPeeringConnection = AcceptVPCPeeringConnection'
   { _avpcVPCPeeringConnectionId :: !(Maybe Text)
   , _avpcDryRun                 :: !(Maybe Bool)
@@ -111,11 +107,7 @@ instance ToQuery AcceptVPCPeeringConnection where
                  _avpcVPCPeeringConnectionId,
                "DryRun" =: _avpcDryRun]
 
--- | Contains the output of AcceptVpcPeeringConnection.
---
---
---
--- /See:/ 'acceptVPCPeeringConnectionResponse' smart constructor.
+-- | /See:/ 'acceptVPCPeeringConnectionResponse' smart constructor.
 data AcceptVPCPeeringConnectionResponse = AcceptVPCPeeringConnectionResponse'
   { _avpcrsVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
   , _avpcrsResponseStatus       :: !Int

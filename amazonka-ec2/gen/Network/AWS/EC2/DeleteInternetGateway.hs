@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified Internet gateway. You must detach the Internet gateway from the VPC before you can delete it.
+-- Deletes the specified internet gateway. You must detach the internet gateway from the VPC before you can delete it.
 --
 --
 module Network.AWS.EC2.DeleteInternetGateway
@@ -42,11 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DeleteInternetGateway.
---
---
---
--- /See:/ 'deleteInternetGateway' smart constructor.
+-- | /See:/ 'deleteInternetGateway' smart constructor.
 data DeleteInternetGateway = DeleteInternetGateway'
   { _digiDryRun            :: !(Maybe Bool)
   , _digiInternetGatewayId :: !Text
@@ -59,7 +55,7 @@ data DeleteInternetGateway = DeleteInternetGateway'
 --
 -- * 'digiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'digiInternetGatewayId' - The ID of the Internet gateway.
+-- * 'digiInternetGatewayId' - The ID of the internet gateway.
 deleteInternetGateway
     :: Text -- ^ 'digiInternetGatewayId'
     -> DeleteInternetGateway
@@ -72,7 +68,7 @@ deleteInternetGateway pInternetGatewayId_ =
 digiDryRun :: Lens' DeleteInternetGateway (Maybe Bool)
 digiDryRun = lens _digiDryRun (\ s a -> s{_digiDryRun = a})
 
--- | The ID of the Internet gateway.
+-- | The ID of the internet gateway.
 digiInternetGatewayId :: Lens' DeleteInternetGateway Text
 digiInternetGatewayId = lens _digiInternetGatewayId (\ s a -> s{_digiInternetGatewayId = a})
 

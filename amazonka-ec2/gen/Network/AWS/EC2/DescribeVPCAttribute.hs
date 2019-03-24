@@ -48,11 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeVpcAttribute.
---
---
---
--- /See:/ 'describeVPCAttribute' smart constructor.
+-- | /See:/ 'describeVPCAttribute' smart constructor.
 data DescribeVPCAttribute = DescribeVPCAttribute'
   { _dvpcaDryRun    :: !(Maybe Bool)
   , _dvpcaAttribute :: !VPCAttributeName
@@ -125,11 +121,7 @@ instance ToQuery DescribeVPCAttribute where
                "Attribute" =: _dvpcaAttribute,
                "VpcId" =: _dvpcaVPCId]
 
--- | Contains the output of DescribeVpcAttribute.
---
---
---
--- /See:/ 'describeVPCAttributeResponse' smart constructor.
+-- | /See:/ 'describeVPCAttributeResponse' smart constructor.
 data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'
   { _dvpcarsEnableDNSHostnames :: !(Maybe AttributeBooleanValue)
   , _dvpcarsEnableDNSSupport   :: !(Maybe AttributeBooleanValue)

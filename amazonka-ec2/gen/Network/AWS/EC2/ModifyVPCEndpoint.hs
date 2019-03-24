@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies attributes of a specified VPC endpoint. The attributes that you can modify depend on the type of VPC endpoint (interface or gateway). For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html VPC Endpoints> in the /Amazon Virtual Private Cloud User Guide/ .
+-- Modifies attributes of a specified VPC endpoint. The attributes that you can modify depend on the type of VPC endpoint (interface or gateway). For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html VPC Endpoints> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 --
 module Network.AWS.EC2.ModifyVPCEndpoint
@@ -78,7 +78,7 @@ data ModifyVPCEndpoint = ModifyVPCEndpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mvePolicyDocument' - (Gateway endpoint) A policy document to attach to the endpoint. The policy must be in valid JSON format.
+-- * 'mvePolicyDocument' - A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format. If this parameter is not specified, we attach a default policy that allows full access to the service.
 --
 -- * 'mveRemoveRouteTableIds' - (Gateway endpoint) One or more route table IDs to disassociate from the endpoint.
 --
@@ -118,7 +118,7 @@ modifyVPCEndpoint pVPCEndpointId_ =
     }
 
 
--- | (Gateway endpoint) A policy document to attach to the endpoint. The policy must be in valid JSON format.
+-- | A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format. If this parameter is not specified, we attach a default policy that allows full access to the service.
 mvePolicyDocument :: Lens' ModifyVPCEndpoint (Maybe Text)
 mvePolicyDocument = lens _mvePolicyDocument (\ s a -> s{_mvePolicyDocument = a})
 

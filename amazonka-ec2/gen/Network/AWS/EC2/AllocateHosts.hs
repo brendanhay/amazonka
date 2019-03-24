@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allocates a Dedicated Host to your account. At minimum you need to specify the instance size type, Availability Zone, and quantity of hosts you want to allocate.
+-- Allocates a Dedicated Host to your account. At a minimum, specify the instance size type, Availability Zone, and quantity of hosts to allocate.
 --
 --
 module Network.AWS.EC2.AllocateHosts
@@ -28,6 +28,7 @@ module Network.AWS.EC2.AllocateHosts
     , AllocateHosts
     -- * Request Lenses
     , ahClientToken
+    , ahTagSpecifications
     , ahAutoPlacement
     , ahAvailabilityZone
     , ahInstanceType
@@ -48,17 +49,14 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for AllocateHosts.
---
---
---
--- /See:/ 'allocateHosts' smart constructor.
+-- | /See:/ 'allocateHosts' smart constructor.
 data AllocateHosts = AllocateHosts'
-  { _ahClientToken      :: !(Maybe Text)
-  , _ahAutoPlacement    :: !(Maybe AutoPlacement)
-  , _ahAvailabilityZone :: !Text
-  , _ahInstanceType     :: !Text
-  , _ahQuantity         :: !Int
+  { _ahClientToken       :: !(Maybe Text)
+  , _ahTagSpecifications :: !(Maybe [TagSpecification])
+  , _ahAutoPlacement     :: !(Maybe AutoPlacement)
+  , _ahAvailabilityZone  :: !Text
+  , _ahInstanceType      :: !Text
+  , _ahQuantity          :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -66,15 +64,17 @@ data AllocateHosts = AllocateHosts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ahClientToken' - Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'ahClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+-- * 'ahTagSpecifications' - The tags to apply to the Dedicated Host during creation.
 --
 -- * 'ahAutoPlacement' - This is enabled by default. This property allows instances to be automatically placed onto available Dedicated Hosts, when you are launching instances without specifying a host ID. Default: Enabled
 --
 -- * 'ahAvailabilityZone' - The Availability Zone for the Dedicated Hosts.
 --
--- * 'ahInstanceType' - Specify the instance type that you want your Dedicated Hosts to be configured for. When you specify the instance type, that is the only instance type that you can launch onto that host.
+-- * 'ahInstanceType' - Specify the instance type for which to configure your Dedicated Hosts. When you specify the instance type, that is the only instance type that you can launch onto that host.
 --
--- * 'ahQuantity' - The number of Dedicated Hosts you want to allocate to your account with these parameters.
+-- * 'ahQuantity' - The number of Dedicated Hosts to allocate to your account with these parameters.
 allocateHosts
     :: Text -- ^ 'ahAvailabilityZone'
     -> Text -- ^ 'ahInstanceType'
@@ -83,6 +83,7 @@ allocateHosts
 allocateHosts pAvailabilityZone_ pInstanceType_ pQuantity_ =
   AllocateHosts'
     { _ahClientToken = Nothing
+    , _ahTagSpecifications = Nothing
     , _ahAutoPlacement = Nothing
     , _ahAvailabilityZone = pAvailabilityZone_
     , _ahInstanceType = pInstanceType_
@@ -90,9 +91,13 @@ allocateHosts pAvailabilityZone_ pInstanceType_ pQuantity_ =
     }
 
 
--- | Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
 ahClientToken :: Lens' AllocateHosts (Maybe Text)
 ahClientToken = lens _ahClientToken (\ s a -> s{_ahClientToken = a})
+
+-- | The tags to apply to the Dedicated Host during creation.
+ahTagSpecifications :: Lens' AllocateHosts [TagSpecification]
+ahTagSpecifications = lens _ahTagSpecifications (\ s a -> s{_ahTagSpecifications = a}) . _Default . _Coerce
 
 -- | This is enabled by default. This property allows instances to be automatically placed onto available Dedicated Hosts, when you are launching instances without specifying a host ID. Default: Enabled
 ahAutoPlacement :: Lens' AllocateHosts (Maybe AutoPlacement)
@@ -102,11 +107,11 @@ ahAutoPlacement = lens _ahAutoPlacement (\ s a -> s{_ahAutoPlacement = a})
 ahAvailabilityZone :: Lens' AllocateHosts Text
 ahAvailabilityZone = lens _ahAvailabilityZone (\ s a -> s{_ahAvailabilityZone = a})
 
--- | Specify the instance type that you want your Dedicated Hosts to be configured for. When you specify the instance type, that is the only instance type that you can launch onto that host.
+-- | Specify the instance type for which to configure your Dedicated Hosts. When you specify the instance type, that is the only instance type that you can launch onto that host.
 ahInstanceType :: Lens' AllocateHosts Text
 ahInstanceType = lens _ahInstanceType (\ s a -> s{_ahInstanceType = a})
 
--- | The number of Dedicated Hosts you want to allocate to your account with these parameters.
+-- | The number of Dedicated Hosts to allocate to your account with these parameters.
 ahQuantity :: Lens' AllocateHosts Int
 ahQuantity = lens _ahQuantity (\ s a -> s{_ahQuantity = a})
 
@@ -137,6 +142,9 @@ instance ToQuery AllocateHosts where
               ["Action" =: ("AllocateHosts" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
                "ClientToken" =: _ahClientToken,
+               toQuery
+                 (toQueryList "TagSpecification" <$>
+                    _ahTagSpecifications),
                "AutoPlacement" =: _ahAutoPlacement,
                "AvailabilityZone" =: _ahAvailabilityZone,
                "InstanceType" =: _ahInstanceType,
@@ -157,7 +165,7 @@ data AllocateHostsResponse = AllocateHostsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ahrsHostIds' - The ID of the allocated Dedicated Host. This is used when you want to launch an instance onto a specific host.
+-- * 'ahrsHostIds' - The ID of the allocated Dedicated Host. This is used to launch an instance onto a specific host.
 --
 -- * 'ahrsResponseStatus' - -- | The response status code.
 allocateHostsResponse
@@ -168,7 +176,7 @@ allocateHostsResponse pResponseStatus_ =
     {_ahrsHostIds = Nothing, _ahrsResponseStatus = pResponseStatus_}
 
 
--- | The ID of the allocated Dedicated Host. This is used when you want to launch an instance onto a specific host.
+-- | The ID of the allocated Dedicated Host. This is used to launch an instance onto a specific host.
 ahrsHostIds :: Lens' AllocateHostsResponse [Text]
 ahrsHostIds = lens _ahrsHostIds (\ s a -> s{_ahrsHostIds = a}) . _Default . _Coerce
 

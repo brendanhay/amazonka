@@ -21,7 +21,7 @@
 -- Attaches a virtual private gateway to a VPC. You can attach one virtual private gateway to one VPC at a time.
 --
 --
--- For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html AWS Managed VPN Connections> in the /Amazon Virtual Private Cloud User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html AWS Site-to-Site VPN> in the /AWS Site-to-Site VPN User Guide/ .
 --
 module Network.AWS.EC2.AttachVPNGateway
     (

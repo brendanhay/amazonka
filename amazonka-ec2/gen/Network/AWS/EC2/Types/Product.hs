@@ -171,6 +171,7 @@ data Address = Address'
   , _aAllocationId            :: !(Maybe Text)
   , _aDomain                  :: !(Maybe DomainType)
   , _aNetworkInterfaceId      :: !(Maybe Text)
+  , _aPublicIPv4Pool          :: !(Maybe Text)
   , _aPrivateIPAddress        :: !(Maybe Text)
   , _aPublicIP                :: !(Maybe Text)
   , _aTags                    :: !(Maybe [Tag])
@@ -193,6 +194,8 @@ data Address = Address'
 --
 -- * 'aNetworkInterfaceId' - The ID of the network interface.
 --
+-- * 'aPublicIPv4Pool' - The ID of an address pool.
+--
 -- * 'aPrivateIPAddress' - The private IP address associated with the Elastic IP address.
 --
 -- * 'aPublicIP' - The Elastic IP address.
@@ -208,6 +211,7 @@ address =
     , _aAllocationId = Nothing
     , _aDomain = Nothing
     , _aNetworkInterfaceId = Nothing
+    , _aPublicIPv4Pool = Nothing
     , _aPrivateIPAddress = Nothing
     , _aPublicIP = Nothing
     , _aTags = Nothing
@@ -238,6 +242,10 @@ aDomain = lens _aDomain (\ s a -> s{_aDomain = a})
 aNetworkInterfaceId :: Lens' Address (Maybe Text)
 aNetworkInterfaceId = lens _aNetworkInterfaceId (\ s a -> s{_aNetworkInterfaceId = a})
 
+-- | The ID of an address pool.
+aPublicIPv4Pool :: Lens' Address (Maybe Text)
+aPublicIPv4Pool = lens _aPublicIPv4Pool (\ s a -> s{_aPublicIPv4Pool = a})
+
 -- | The private IP address associated with the Elastic IP address.
 aPrivateIPAddress :: Lens' Address (Maybe Text)
 aPrivateIPAddress = lens _aPrivateIPAddress (\ s a -> s{_aPrivateIPAddress = a})
@@ -258,6 +266,7 @@ instance FromXML Address where
                 <*> (x .@? "allocationId")
                 <*> (x .@? "domain")
                 <*> (x .@? "networkInterfaceId")
+                <*> (x .@? "publicIpv4Pool")
                 <*> (x .@? "privateIpAddress")
                 <*> (x .@? "publicIp")
                 <*>
@@ -308,6 +317,87 @@ instance FromXML AllowedPrincipal where
 instance Hashable AllowedPrincipal where
 
 instance NFData AllowedPrincipal where
+
+-- | Describes a target network that is associated with a Client VPN endpoint. A target network is a subnet in a VPC.
+--
+--
+--
+-- /See:/ 'associatedTargetNetwork' smart constructor.
+data AssociatedTargetNetwork = AssociatedTargetNetwork'
+  { _atnNetworkId   :: !(Maybe Text)
+  , _atnNetworkType :: !(Maybe AssociatedNetworkType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AssociatedTargetNetwork' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'atnNetworkId' - The ID of the subnet.
+--
+-- * 'atnNetworkType' - The target network type.
+associatedTargetNetwork
+    :: AssociatedTargetNetwork
+associatedTargetNetwork =
+  AssociatedTargetNetwork' {_atnNetworkId = Nothing, _atnNetworkType = Nothing}
+
+
+-- | The ID of the subnet.
+atnNetworkId :: Lens' AssociatedTargetNetwork (Maybe Text)
+atnNetworkId = lens _atnNetworkId (\ s a -> s{_atnNetworkId = a})
+
+-- | The target network type.
+atnNetworkType :: Lens' AssociatedTargetNetwork (Maybe AssociatedNetworkType)
+atnNetworkType = lens _atnNetworkType (\ s a -> s{_atnNetworkType = a})
+
+instance FromXML AssociatedTargetNetwork where
+        parseXML x
+          = AssociatedTargetNetwork' <$>
+              (x .@? "networkId") <*> (x .@? "networkType")
+
+instance Hashable AssociatedTargetNetwork where
+
+instance NFData AssociatedTargetNetwork where
+
+-- | Describes the state of a target network association.
+--
+--
+--
+-- /See:/ 'associationStatus' smart constructor.
+data AssociationStatus = AssociationStatus'
+  { _asCode    :: !(Maybe AssociationStatusCode)
+  , _asMessage :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AssociationStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asCode' - The state of the target network association.
+--
+-- * 'asMessage' - A message about the status of the target network association, if applicable.
+associationStatus
+    :: AssociationStatus
+associationStatus = AssociationStatus' {_asCode = Nothing, _asMessage = Nothing}
+
+
+-- | The state of the target network association.
+asCode :: Lens' AssociationStatus (Maybe AssociationStatusCode)
+asCode = lens _asCode (\ s a -> s{_asCode = a})
+
+-- | A message about the status of the target network association, if applicable.
+asMessage :: Lens' AssociationStatus (Maybe Text)
+asMessage = lens _asMessage (\ s a -> s{_asMessage = a})
+
+instance FromXML AssociationStatus where
+        parseXML x
+          = AssociationStatus' <$>
+              (x .@? "code") <*> (x .@? "message")
+
+instance Hashable AssociationStatus where
+
+instance NFData AssociationStatus where
 
 -- | Describes a value for a resource attribute that is a Boolean value.
 --
@@ -380,6 +470,86 @@ instance ToQuery AttributeValue where
         toQuery AttributeValue'{..}
           = mconcat ["Value" =: _avValue]
 
+-- | Information about an authorization rule.
+--
+--
+--
+-- /See:/ 'authorizationRule' smart constructor.
+data AuthorizationRule = AuthorizationRule'
+  { _arStatus              :: !(Maybe ClientVPNAuthorizationRuleStatus)
+  , _arAccessAll           :: !(Maybe Bool)
+  , _arClientVPNEndpointId :: !(Maybe Text)
+  , _arGroupId             :: !(Maybe Text)
+  , _arDestinationCidr     :: !(Maybe Text)
+  , _arDescription         :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AuthorizationRule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'arStatus' - The current state of the authorization rule.
+--
+-- * 'arAccessAll' - Indicates whether the authorization rule grants access to all clients.
+--
+-- * 'arClientVPNEndpointId' - The ID of the Client VPN endpoint with which the authorization rule is associated.
+--
+-- * 'arGroupId' - The ID of the Active Directory group to which the authorization rule grants access.
+--
+-- * 'arDestinationCidr' - The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+--
+-- * 'arDescription' - A brief description of the authorization rule.
+authorizationRule
+    :: AuthorizationRule
+authorizationRule =
+  AuthorizationRule'
+    { _arStatus = Nothing
+    , _arAccessAll = Nothing
+    , _arClientVPNEndpointId = Nothing
+    , _arGroupId = Nothing
+    , _arDestinationCidr = Nothing
+    , _arDescription = Nothing
+    }
+
+
+-- | The current state of the authorization rule.
+arStatus :: Lens' AuthorizationRule (Maybe ClientVPNAuthorizationRuleStatus)
+arStatus = lens _arStatus (\ s a -> s{_arStatus = a})
+
+-- | Indicates whether the authorization rule grants access to all clients.
+arAccessAll :: Lens' AuthorizationRule (Maybe Bool)
+arAccessAll = lens _arAccessAll (\ s a -> s{_arAccessAll = a})
+
+-- | The ID of the Client VPN endpoint with which the authorization rule is associated.
+arClientVPNEndpointId :: Lens' AuthorizationRule (Maybe Text)
+arClientVPNEndpointId = lens _arClientVPNEndpointId (\ s a -> s{_arClientVPNEndpointId = a})
+
+-- | The ID of the Active Directory group to which the authorization rule grants access.
+arGroupId :: Lens' AuthorizationRule (Maybe Text)
+arGroupId = lens _arGroupId (\ s a -> s{_arGroupId = a})
+
+-- | The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+arDestinationCidr :: Lens' AuthorizationRule (Maybe Text)
+arDestinationCidr = lens _arDestinationCidr (\ s a -> s{_arDestinationCidr = a})
+
+-- | A brief description of the authorization rule.
+arDescription :: Lens' AuthorizationRule (Maybe Text)
+arDescription = lens _arDescription (\ s a -> s{_arDescription = a})
+
+instance FromXML AuthorizationRule where
+        parseXML x
+          = AuthorizationRule' <$>
+              (x .@? "status") <*> (x .@? "accessAll") <*>
+                (x .@? "clientVpnEndpointId")
+                <*> (x .@? "groupId")
+                <*> (x .@? "destinationCidr")
+                <*> (x .@? "description")
+
+instance Hashable AuthorizationRule where
+
+instance NFData AuthorizationRule where
+
 -- | Describes an Availability Zone.
 --
 --
@@ -388,6 +558,7 @@ instance ToQuery AttributeValue where
 data AvailabilityZone = AvailabilityZone'
   { _azState      :: !(Maybe AvailabilityZoneState)
   , _azRegionName :: !(Maybe Text)
+  , _azZoneId     :: !(Maybe Text)
   , _azZoneName   :: !(Maybe Text)
   , _azMessages   :: !(Maybe [AvailabilityZoneMessage])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -401,6 +572,8 @@ data AvailabilityZone = AvailabilityZone'
 --
 -- * 'azRegionName' - The name of the region.
 --
+-- * 'azZoneId' - The ID of the Availability Zone.
+--
 -- * 'azZoneName' - The name of the Availability Zone.
 --
 -- * 'azMessages' - Any messages about the Availability Zone.
@@ -410,6 +583,7 @@ availabilityZone =
   AvailabilityZone'
     { _azState = Nothing
     , _azRegionName = Nothing
+    , _azZoneId = Nothing
     , _azZoneName = Nothing
     , _azMessages = Nothing
     }
@@ -423,6 +597,10 @@ azState = lens _azState (\ s a -> s{_azState = a})
 azRegionName :: Lens' AvailabilityZone (Maybe Text)
 azRegionName = lens _azRegionName (\ s a -> s{_azRegionName = a})
 
+-- | The ID of the Availability Zone.
+azZoneId :: Lens' AvailabilityZone (Maybe Text)
+azZoneId = lens _azZoneId (\ s a -> s{_azZoneId = a})
+
 -- | The name of the Availability Zone.
 azZoneName :: Lens' AvailabilityZone (Maybe Text)
 azZoneName = lens _azZoneName (\ s a -> s{_azZoneName = a})
@@ -435,7 +613,8 @@ instance FromXML AvailabilityZone where
         parseXML x
           = AvailabilityZone' <$>
               (x .@? "zoneState") <*> (x .@? "regionName") <*>
-                (x .@? "zoneName")
+                (x .@? "zoneId")
+                <*> (x .@? "zoneName")
                 <*>
                 (x .@? "messageSet" .!@ mempty >>=
                    may (parseXMLList "item"))
@@ -491,7 +670,7 @@ data AvailableCapacity = AvailableCapacity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acAvailableInstanceCapacity' - The total number of instances that the Dedicated Host supports.
+-- * 'acAvailableInstanceCapacity' - The total number of instances supported by the Dedicated Host.
 --
 -- * 'acAvailableVCPUs' - The number of vCPUs available on the Dedicated Host.
 availableCapacity
@@ -501,7 +680,7 @@ availableCapacity =
     {_acAvailableInstanceCapacity = Nothing, _acAvailableVCPUs = Nothing}
 
 
--- | The total number of instances that the Dedicated Host supports.
+-- | The total number of instances supported by the Dedicated Host.
 acAvailableInstanceCapacity :: Lens' AvailableCapacity [InstanceCapacity]
 acAvailableInstanceCapacity = lens _acAvailableInstanceCapacity (\ s a -> s{_acAvailableInstanceCapacity = a}) . _Default . _Coerce
 
@@ -565,7 +744,7 @@ data BlockDeviceMapping = BlockDeviceMapping'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bdmVirtualName' - The virtual device name (@ephemeral@ N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for @ephemeral0@ and @ephemeral1@ .The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume. Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+-- * 'bdmVirtualName' - The virtual device name (@ephemeral@ N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for @ephemeral0@ and @ephemeral1@ . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume. NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect. Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
 --
 -- * 'bdmNoDevice' - Suppresses the specified device included in the block device mapping of the AMI.
 --
@@ -584,7 +763,7 @@ blockDeviceMapping pDeviceName_ =
     }
 
 
--- | The virtual device name (@ephemeral@ N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for @ephemeral0@ and @ephemeral1@ .The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume. Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
+-- | The virtual device name (@ephemeral@ N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for @ephemeral0@ and @ephemeral1@ . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume. NVMe instance store volumes are automatically enumerated and assigned a device name. Including them in your block device mapping has no effect. Constraints: For M3 instances, you must specify instance store volumes in the block device mapping for the instance. When you launch an M3 instance, we ignore any instance store volumes specified in the block device mapping for the AMI.
 bdmVirtualName :: Lens' BlockDeviceMapping (Maybe Text)
 bdmVirtualName = lens _bdmVirtualName (\ s a -> s{_bdmVirtualName = a})
 
@@ -763,6 +942,68 @@ instance Hashable BundleTaskError where
 
 instance NFData BundleTaskError where
 
+-- | Information about an address range that is provisioned for use with your AWS resources through bring your own IP addresses (BYOIP).
+--
+--
+--
+-- /See:/ 'byoipCidr' smart constructor.
+data ByoipCidr = ByoipCidr'
+  { _bcState         :: !(Maybe ByoipCidrState)
+  , _bcCidr          :: !(Maybe Text)
+  , _bcStatusMessage :: !(Maybe Text)
+  , _bcDescription   :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ByoipCidr' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bcState' - The state of the address pool.
+--
+-- * 'bcCidr' - The public IPv4 address range, in CIDR notation.
+--
+-- * 'bcStatusMessage' - Upon success, contains the ID of the address pool. Otherwise, contains an error message.
+--
+-- * 'bcDescription' - The description of the address range.
+byoipCidr
+    :: ByoipCidr
+byoipCidr =
+  ByoipCidr'
+    { _bcState = Nothing
+    , _bcCidr = Nothing
+    , _bcStatusMessage = Nothing
+    , _bcDescription = Nothing
+    }
+
+
+-- | The state of the address pool.
+bcState :: Lens' ByoipCidr (Maybe ByoipCidrState)
+bcState = lens _bcState (\ s a -> s{_bcState = a})
+
+-- | The public IPv4 address range, in CIDR notation.
+bcCidr :: Lens' ByoipCidr (Maybe Text)
+bcCidr = lens _bcCidr (\ s a -> s{_bcCidr = a})
+
+-- | Upon success, contains the ID of the address pool. Otherwise, contains an error message.
+bcStatusMessage :: Lens' ByoipCidr (Maybe Text)
+bcStatusMessage = lens _bcStatusMessage (\ s a -> s{_bcStatusMessage = a})
+
+-- | The description of the address range.
+bcDescription :: Lens' ByoipCidr (Maybe Text)
+bcDescription = lens _bcDescription (\ s a -> s{_bcDescription = a})
+
+instance FromXML ByoipCidr where
+        parseXML x
+          = ByoipCidr' <$>
+              (x .@? "state") <*> (x .@? "cidr") <*>
+                (x .@? "statusMessage")
+                <*> (x .@? "description")
+
+instance Hashable ByoipCidr where
+
+instance NFData ByoipCidr where
+
 -- | The CPU options for the instance.
 --
 --
@@ -851,8 +1092,8 @@ instance ToQuery CPUOptionsRequest where
 --
 -- /See:/ 'cancelSpotFleetRequestsError' smart constructor.
 data CancelSpotFleetRequestsError = CancelSpotFleetRequestsError'
-  { _csfreCode    :: !CancelBatchErrorCode
-  , _csfreMessage :: !Text
+  { _csfreCode    :: !(Maybe CancelBatchErrorCode)
+  , _csfreMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -864,25 +1105,23 @@ data CancelSpotFleetRequestsError = CancelSpotFleetRequestsError'
 --
 -- * 'csfreMessage' - The description for the error code.
 cancelSpotFleetRequestsError
-    :: CancelBatchErrorCode -- ^ 'csfreCode'
-    -> Text -- ^ 'csfreMessage'
-    -> CancelSpotFleetRequestsError
-cancelSpotFleetRequestsError pCode_ pMessage_ =
-  CancelSpotFleetRequestsError' {_csfreCode = pCode_, _csfreMessage = pMessage_}
+    :: CancelSpotFleetRequestsError
+cancelSpotFleetRequestsError =
+  CancelSpotFleetRequestsError' {_csfreCode = Nothing, _csfreMessage = Nothing}
 
 
 -- | The error code.
-csfreCode :: Lens' CancelSpotFleetRequestsError CancelBatchErrorCode
+csfreCode :: Lens' CancelSpotFleetRequestsError (Maybe CancelBatchErrorCode)
 csfreCode = lens _csfreCode (\ s a -> s{_csfreCode = a})
 
 -- | The description for the error code.
-csfreMessage :: Lens' CancelSpotFleetRequestsError Text
+csfreMessage :: Lens' CancelSpotFleetRequestsError (Maybe Text)
 csfreMessage = lens _csfreMessage (\ s a -> s{_csfreMessage = a})
 
 instance FromXML CancelSpotFleetRequestsError where
         parseXML x
           = CancelSpotFleetRequestsError' <$>
-              (x .@ "code") <*> (x .@ "message")
+              (x .@? "code") <*> (x .@? "message")
 
 instance Hashable CancelSpotFleetRequestsError where
 
@@ -894,8 +1133,8 @@ instance NFData CancelSpotFleetRequestsError where
 --
 -- /See:/ 'cancelSpotFleetRequestsErrorItem' smart constructor.
 data CancelSpotFleetRequestsErrorItem = CancelSpotFleetRequestsErrorItem'
-  { _csfreiError              :: !CancelSpotFleetRequestsError
-  , _csfreiSpotFleetRequestId :: !Text
+  { _csfreiError              :: !(Maybe CancelSpotFleetRequestsError)
+  , _csfreiSpotFleetRequestId :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -907,27 +1146,25 @@ data CancelSpotFleetRequestsErrorItem = CancelSpotFleetRequestsErrorItem'
 --
 -- * 'csfreiSpotFleetRequestId' - The ID of the Spot Fleet request.
 cancelSpotFleetRequestsErrorItem
-    :: CancelSpotFleetRequestsError -- ^ 'csfreiError'
-    -> Text -- ^ 'csfreiSpotFleetRequestId'
-    -> CancelSpotFleetRequestsErrorItem
-cancelSpotFleetRequestsErrorItem pError_ pSpotFleetRequestId_ =
+    :: CancelSpotFleetRequestsErrorItem
+cancelSpotFleetRequestsErrorItem =
   CancelSpotFleetRequestsErrorItem'
-    {_csfreiError = pError_, _csfreiSpotFleetRequestId = pSpotFleetRequestId_}
+    {_csfreiError = Nothing, _csfreiSpotFleetRequestId = Nothing}
 
 
 -- | The error.
-csfreiError :: Lens' CancelSpotFleetRequestsErrorItem CancelSpotFleetRequestsError
+csfreiError :: Lens' CancelSpotFleetRequestsErrorItem (Maybe CancelSpotFleetRequestsError)
 csfreiError = lens _csfreiError (\ s a -> s{_csfreiError = a})
 
 -- | The ID of the Spot Fleet request.
-csfreiSpotFleetRequestId :: Lens' CancelSpotFleetRequestsErrorItem Text
+csfreiSpotFleetRequestId :: Lens' CancelSpotFleetRequestsErrorItem (Maybe Text)
 csfreiSpotFleetRequestId = lens _csfreiSpotFleetRequestId (\ s a -> s{_csfreiSpotFleetRequestId = a})
 
 instance FromXML CancelSpotFleetRequestsErrorItem
          where
         parseXML x
           = CancelSpotFleetRequestsErrorItem' <$>
-              (x .@ "error") <*> (x .@ "spotFleetRequestId")
+              (x .@? "error") <*> (x .@? "spotFleetRequestId")
 
 instance Hashable CancelSpotFleetRequestsErrorItem
          where
@@ -941,9 +1178,9 @@ instance NFData CancelSpotFleetRequestsErrorItem
 --
 -- /See:/ 'cancelSpotFleetRequestsSuccessItem' smart constructor.
 data CancelSpotFleetRequestsSuccessItem = CancelSpotFleetRequestsSuccessItem'
-  { _csfrsiCurrentSpotFleetRequestState  :: !BatchState
-  , _csfrsiPreviousSpotFleetRequestState :: !BatchState
-  , _csfrsiSpotFleetRequestId            :: !Text
+  { _csfrsiCurrentSpotFleetRequestState  :: !(Maybe BatchState)
+  , _csfrsiSpotFleetRequestId            :: !(Maybe Text)
+  , _csfrsiPreviousSpotFleetRequestState :: !(Maybe BatchState)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -953,41 +1190,38 @@ data CancelSpotFleetRequestsSuccessItem = CancelSpotFleetRequestsSuccessItem'
 --
 -- * 'csfrsiCurrentSpotFleetRequestState' - The current state of the Spot Fleet request.
 --
--- * 'csfrsiPreviousSpotFleetRequestState' - The previous state of the Spot Fleet request.
---
 -- * 'csfrsiSpotFleetRequestId' - The ID of the Spot Fleet request.
+--
+-- * 'csfrsiPreviousSpotFleetRequestState' - The previous state of the Spot Fleet request.
 cancelSpotFleetRequestsSuccessItem
-    :: BatchState -- ^ 'csfrsiCurrentSpotFleetRequestState'
-    -> BatchState -- ^ 'csfrsiPreviousSpotFleetRequestState'
-    -> Text -- ^ 'csfrsiSpotFleetRequestId'
-    -> CancelSpotFleetRequestsSuccessItem
-cancelSpotFleetRequestsSuccessItem pCurrentSpotFleetRequestState_ pPreviousSpotFleetRequestState_ pSpotFleetRequestId_ =
+    :: CancelSpotFleetRequestsSuccessItem
+cancelSpotFleetRequestsSuccessItem =
   CancelSpotFleetRequestsSuccessItem'
-    { _csfrsiCurrentSpotFleetRequestState = pCurrentSpotFleetRequestState_
-    , _csfrsiPreviousSpotFleetRequestState = pPreviousSpotFleetRequestState_
-    , _csfrsiSpotFleetRequestId = pSpotFleetRequestId_
+    { _csfrsiCurrentSpotFleetRequestState = Nothing
+    , _csfrsiSpotFleetRequestId = Nothing
+    , _csfrsiPreviousSpotFleetRequestState = Nothing
     }
 
 
 -- | The current state of the Spot Fleet request.
-csfrsiCurrentSpotFleetRequestState :: Lens' CancelSpotFleetRequestsSuccessItem BatchState
+csfrsiCurrentSpotFleetRequestState :: Lens' CancelSpotFleetRequestsSuccessItem (Maybe BatchState)
 csfrsiCurrentSpotFleetRequestState = lens _csfrsiCurrentSpotFleetRequestState (\ s a -> s{_csfrsiCurrentSpotFleetRequestState = a})
 
--- | The previous state of the Spot Fleet request.
-csfrsiPreviousSpotFleetRequestState :: Lens' CancelSpotFleetRequestsSuccessItem BatchState
-csfrsiPreviousSpotFleetRequestState = lens _csfrsiPreviousSpotFleetRequestState (\ s a -> s{_csfrsiPreviousSpotFleetRequestState = a})
-
 -- | The ID of the Spot Fleet request.
-csfrsiSpotFleetRequestId :: Lens' CancelSpotFleetRequestsSuccessItem Text
+csfrsiSpotFleetRequestId :: Lens' CancelSpotFleetRequestsSuccessItem (Maybe Text)
 csfrsiSpotFleetRequestId = lens _csfrsiSpotFleetRequestId (\ s a -> s{_csfrsiSpotFleetRequestId = a})
+
+-- | The previous state of the Spot Fleet request.
+csfrsiPreviousSpotFleetRequestState :: Lens' CancelSpotFleetRequestsSuccessItem (Maybe BatchState)
+csfrsiPreviousSpotFleetRequestState = lens _csfrsiPreviousSpotFleetRequestState (\ s a -> s{_csfrsiPreviousSpotFleetRequestState = a})
 
 instance FromXML CancelSpotFleetRequestsSuccessItem
          where
         parseXML x
           = CancelSpotFleetRequestsSuccessItem' <$>
-              (x .@ "currentSpotFleetRequestState") <*>
-                (x .@ "previousSpotFleetRequestState")
-                <*> (x .@ "spotFleetRequestId")
+              (x .@? "currentSpotFleetRequestState") <*>
+                (x .@? "spotFleetRequestId")
+                <*> (x .@? "previousSpotFleetRequestState")
 
 instance Hashable CancelSpotFleetRequestsSuccessItem
          where
@@ -1036,6 +1270,462 @@ instance FromXML CancelledSpotInstanceRequest where
 instance Hashable CancelledSpotInstanceRequest where
 
 instance NFData CancelledSpotInstanceRequest where
+
+-- | Describes a Capacity Reservation.
+--
+--
+--
+-- /See:/ 'capacityReservation' smart constructor.
+data CapacityReservation = CapacityReservation'
+  { _crState                  :: !(Maybe CapacityReservationState)
+  , _crCreateDate             :: !(Maybe ISO8601)
+  , _crEndDate                :: !(Maybe ISO8601)
+  , _crAvailableInstanceCount :: !(Maybe Int)
+  , _crEphemeralStorage       :: !(Maybe Bool)
+  , _crInstancePlatform       :: !(Maybe CapacityReservationInstancePlatform)
+  , _crInstanceMatchCriteria  :: !(Maybe InstanceMatchCriteria)
+  , _crCapacityReservationId  :: !(Maybe Text)
+  , _crInstanceType           :: !(Maybe Text)
+  , _crEBSOptimized           :: !(Maybe Bool)
+  , _crAvailabilityZone       :: !(Maybe Text)
+  , _crTenancy                :: !(Maybe CapacityReservationTenancy)
+  , _crTotalInstanceCount     :: !(Maybe Int)
+  , _crEndDateType            :: !(Maybe EndDateType)
+  , _crTags                   :: !(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CapacityReservation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crState' - The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:     * @active@ - The Capacity Reservation is active and the capacity is available for your use.     * @cancelled@ - The Capacity Reservation expired automatically at the date and time specified in your request. The reserved capacity is no longer available for your use.     * @expired@ - The Capacity Reservation was manually cancelled. The reserved capacity is no longer available for your use.     * @pending@ - The Capacity Reservation request was successful but the capacity provisioning is still pending.     * @failed@ - The Capacity Reservation request has failed. A request might fail due to invalid request parameters, capacity constraints, or instance limit constraints. Failed requests are retained for 60 minutes.
+--
+-- * 'crCreateDate' - The date and time at which the Capacity Reservation was created.
+--
+-- * 'crEndDate' - The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to @expired@ when it reaches its end date and time.
+--
+-- * 'crAvailableInstanceCount' - The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.
+--
+-- * 'crEphemeralStorage' - Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
+--
+-- * 'crInstancePlatform' - The type of operating system for which the Capacity Reservation reserves capacity.
+--
+-- * 'crInstanceMatchCriteria' - Indicates the type of instance launches that the Capacity Reservation accepts. The options include:     * @open@ - The Capacity Reservation accepts all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes launch into the Capacity Reservation automatically without specifying any additional parameters.     * @targeted@ - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+--
+-- * 'crCapacityReservationId' - The ID of the Capacity Reservation.
+--
+-- * 'crInstanceType' - The type of instance for which the Capacity Reservation reserves capacity.
+--
+-- * 'crEBSOptimized' - Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
+--
+-- * 'crAvailabilityZone' - The Availability Zone in which the capacity is reserved.
+--
+-- * 'crTenancy' - Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:     * @default@ - The Capacity Reservation is created on hardware that is shared with other AWS accounts.     * @dedicated@ - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account.
+--
+-- * 'crTotalInstanceCount' - The number of instances for which the Capacity Reservation reserves capacity.
+--
+-- * 'crEndDateType' - Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:     * @unlimited@ - The Capacity Reservation remains active until you explicitly cancel it.     * @limited@ - The Capacity Reservation expires automatically at a specified date and time.
+--
+-- * 'crTags' - Any tags assigned to the Capacity Reservation.
+capacityReservation
+    :: CapacityReservation
+capacityReservation =
+  CapacityReservation'
+    { _crState = Nothing
+    , _crCreateDate = Nothing
+    , _crEndDate = Nothing
+    , _crAvailableInstanceCount = Nothing
+    , _crEphemeralStorage = Nothing
+    , _crInstancePlatform = Nothing
+    , _crInstanceMatchCriteria = Nothing
+    , _crCapacityReservationId = Nothing
+    , _crInstanceType = Nothing
+    , _crEBSOptimized = Nothing
+    , _crAvailabilityZone = Nothing
+    , _crTenancy = Nothing
+    , _crTotalInstanceCount = Nothing
+    , _crEndDateType = Nothing
+    , _crTags = Nothing
+    }
+
+
+-- | The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:     * @active@ - The Capacity Reservation is active and the capacity is available for your use.     * @cancelled@ - The Capacity Reservation expired automatically at the date and time specified in your request. The reserved capacity is no longer available for your use.     * @expired@ - The Capacity Reservation was manually cancelled. The reserved capacity is no longer available for your use.     * @pending@ - The Capacity Reservation request was successful but the capacity provisioning is still pending.     * @failed@ - The Capacity Reservation request has failed. A request might fail due to invalid request parameters, capacity constraints, or instance limit constraints. Failed requests are retained for 60 minutes.
+crState :: Lens' CapacityReservation (Maybe CapacityReservationState)
+crState = lens _crState (\ s a -> s{_crState = a})
+
+-- | The date and time at which the Capacity Reservation was created.
+crCreateDate :: Lens' CapacityReservation (Maybe UTCTime)
+crCreateDate = lens _crCreateDate (\ s a -> s{_crCreateDate = a}) . mapping _Time
+
+-- | The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to @expired@ when it reaches its end date and time.
+crEndDate :: Lens' CapacityReservation (Maybe UTCTime)
+crEndDate = lens _crEndDate (\ s a -> s{_crEndDate = a}) . mapping _Time
+
+-- | The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.
+crAvailableInstanceCount :: Lens' CapacityReservation (Maybe Int)
+crAvailableInstanceCount = lens _crAvailableInstanceCount (\ s a -> s{_crAvailableInstanceCount = a})
+
+-- | Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
+crEphemeralStorage :: Lens' CapacityReservation (Maybe Bool)
+crEphemeralStorage = lens _crEphemeralStorage (\ s a -> s{_crEphemeralStorage = a})
+
+-- | The type of operating system for which the Capacity Reservation reserves capacity.
+crInstancePlatform :: Lens' CapacityReservation (Maybe CapacityReservationInstancePlatform)
+crInstancePlatform = lens _crInstancePlatform (\ s a -> s{_crInstancePlatform = a})
+
+-- | Indicates the type of instance launches that the Capacity Reservation accepts. The options include:     * @open@ - The Capacity Reservation accepts all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes launch into the Capacity Reservation automatically without specifying any additional parameters.     * @targeted@ - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+crInstanceMatchCriteria :: Lens' CapacityReservation (Maybe InstanceMatchCriteria)
+crInstanceMatchCriteria = lens _crInstanceMatchCriteria (\ s a -> s{_crInstanceMatchCriteria = a})
+
+-- | The ID of the Capacity Reservation.
+crCapacityReservationId :: Lens' CapacityReservation (Maybe Text)
+crCapacityReservationId = lens _crCapacityReservationId (\ s a -> s{_crCapacityReservationId = a})
+
+-- | The type of instance for which the Capacity Reservation reserves capacity.
+crInstanceType :: Lens' CapacityReservation (Maybe Text)
+crInstanceType = lens _crInstanceType (\ s a -> s{_crInstanceType = a})
+
+-- | Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
+crEBSOptimized :: Lens' CapacityReservation (Maybe Bool)
+crEBSOptimized = lens _crEBSOptimized (\ s a -> s{_crEBSOptimized = a})
+
+-- | The Availability Zone in which the capacity is reserved.
+crAvailabilityZone :: Lens' CapacityReservation (Maybe Text)
+crAvailabilityZone = lens _crAvailabilityZone (\ s a -> s{_crAvailabilityZone = a})
+
+-- | Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:     * @default@ - The Capacity Reservation is created on hardware that is shared with other AWS accounts.     * @dedicated@ - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account.
+crTenancy :: Lens' CapacityReservation (Maybe CapacityReservationTenancy)
+crTenancy = lens _crTenancy (\ s a -> s{_crTenancy = a})
+
+-- | The number of instances for which the Capacity Reservation reserves capacity.
+crTotalInstanceCount :: Lens' CapacityReservation (Maybe Int)
+crTotalInstanceCount = lens _crTotalInstanceCount (\ s a -> s{_crTotalInstanceCount = a})
+
+-- | Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:     * @unlimited@ - The Capacity Reservation remains active until you explicitly cancel it.     * @limited@ - The Capacity Reservation expires automatically at a specified date and time.
+crEndDateType :: Lens' CapacityReservation (Maybe EndDateType)
+crEndDateType = lens _crEndDateType (\ s a -> s{_crEndDateType = a})
+
+-- | Any tags assigned to the Capacity Reservation.
+crTags :: Lens' CapacityReservation [Tag]
+crTags = lens _crTags (\ s a -> s{_crTags = a}) . _Default . _Coerce
+
+instance FromXML CapacityReservation where
+        parseXML x
+          = CapacityReservation' <$>
+              (x .@? "state") <*> (x .@? "createDate") <*>
+                (x .@? "endDate")
+                <*> (x .@? "availableInstanceCount")
+                <*> (x .@? "ephemeralStorage")
+                <*> (x .@? "instancePlatform")
+                <*> (x .@? "instanceMatchCriteria")
+                <*> (x .@? "capacityReservationId")
+                <*> (x .@? "instanceType")
+                <*> (x .@? "ebsOptimized")
+                <*> (x .@? "availabilityZone")
+                <*> (x .@? "tenancy")
+                <*> (x .@? "totalInstanceCount")
+                <*> (x .@? "endDateType")
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+
+instance Hashable CapacityReservation where
+
+instance NFData CapacityReservation where
+
+-- | Describes an instance's Capacity Reservation targeting option. You can specify only one parameter at a time. If you specify @CapacityReservationPreference@ and @CapacityReservationTarget@ , the request fails.
+--
+--
+-- Use the @CapacityReservationPreference@ parameter to configure the instance to run as an On-Demand Instance or to run in any @open@ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). Use the @CapacityReservationTarget@ parameter to explicitly target a specific Capacity Reservation.
+--
+--
+-- /See:/ 'capacityReservationSpecification' smart constructor.
+data CapacityReservationSpecification = CapacityReservationSpecification'
+  { _cCapacityReservationTarget     :: !(Maybe CapacityReservationTarget)
+  , _cCapacityReservationPreference :: !(Maybe CapacityReservationPreference)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CapacityReservationSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cCapacityReservationTarget' - Information about the target Capacity Reservation.
+--
+-- * 'cCapacityReservationPreference' - Indicates the instance's Capacity Reservation preferences. Possible preferences include:     * @open@ - The instance can run in any @open@ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).     * @none@ - The instance avoids running in a Capacity Reservation even if one is available. The instance runs as an On-Demand Instance.
+capacityReservationSpecification
+    :: CapacityReservationSpecification
+capacityReservationSpecification =
+  CapacityReservationSpecification'
+    { _cCapacityReservationTarget = Nothing
+    , _cCapacityReservationPreference = Nothing
+    }
+
+
+-- | Information about the target Capacity Reservation.
+cCapacityReservationTarget :: Lens' CapacityReservationSpecification (Maybe CapacityReservationTarget)
+cCapacityReservationTarget = lens _cCapacityReservationTarget (\ s a -> s{_cCapacityReservationTarget = a})
+
+-- | Indicates the instance's Capacity Reservation preferences. Possible preferences include:     * @open@ - The instance can run in any @open@ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).     * @none@ - The instance avoids running in a Capacity Reservation even if one is available. The instance runs as an On-Demand Instance.
+cCapacityReservationPreference :: Lens' CapacityReservationSpecification (Maybe CapacityReservationPreference)
+cCapacityReservationPreference = lens _cCapacityReservationPreference (\ s a -> s{_cCapacityReservationPreference = a})
+
+instance Hashable CapacityReservationSpecification
+         where
+
+instance NFData CapacityReservationSpecification
+         where
+
+instance ToQuery CapacityReservationSpecification
+         where
+        toQuery CapacityReservationSpecification'{..}
+          = mconcat
+              ["CapacityReservationTarget" =:
+                 _cCapacityReservationTarget,
+               "CapacityReservationPreference" =:
+                 _cCapacityReservationPreference]
+
+-- | Describes the instance's Capacity Reservation targeting preferences. The action returns the @capacityReservationPreference@ response element if the instance is configured to run in On-Demand capacity, or if it is configured in run in any @open@ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). The action returns the @capacityReservationTarget@ response element if the instance explicily targets a specific Capacity Reservation.
+--
+--
+--
+-- /See:/ 'capacityReservationSpecificationResponse' smart constructor.
+data CapacityReservationSpecificationResponse = CapacityReservationSpecificationResponse'
+  { _crsCapacityReservationTarget :: !(Maybe CapacityReservationTargetResponse)
+  , _crsCapacityReservationPreference :: !(Maybe CapacityReservationPreference)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CapacityReservationSpecificationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crsCapacityReservationTarget' - Information about the targeted Capacity Reservation.
+--
+-- * 'crsCapacityReservationPreference' - Describes the instance's Capacity Reservation preferences. Possible preferences include:     * @open@ - The instance can run in any @open@ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).     * @none@ - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
+capacityReservationSpecificationResponse
+    :: CapacityReservationSpecificationResponse
+capacityReservationSpecificationResponse =
+  CapacityReservationSpecificationResponse'
+    { _crsCapacityReservationTarget = Nothing
+    , _crsCapacityReservationPreference = Nothing
+    }
+
+
+-- | Information about the targeted Capacity Reservation.
+crsCapacityReservationTarget :: Lens' CapacityReservationSpecificationResponse (Maybe CapacityReservationTargetResponse)
+crsCapacityReservationTarget = lens _crsCapacityReservationTarget (\ s a -> s{_crsCapacityReservationTarget = a})
+
+-- | Describes the instance's Capacity Reservation preferences. Possible preferences include:     * @open@ - The instance can run in any @open@ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).     * @none@ - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
+crsCapacityReservationPreference :: Lens' CapacityReservationSpecificationResponse (Maybe CapacityReservationPreference)
+crsCapacityReservationPreference = lens _crsCapacityReservationPreference (\ s a -> s{_crsCapacityReservationPreference = a})
+
+instance FromXML
+           CapacityReservationSpecificationResponse
+         where
+        parseXML x
+          = CapacityReservationSpecificationResponse' <$>
+              (x .@? "capacityReservationTarget") <*>
+                (x .@? "capacityReservationPreference")
+
+instance Hashable
+           CapacityReservationSpecificationResponse
+         where
+
+instance NFData
+           CapacityReservationSpecificationResponse
+         where
+
+-- | Describes a target Capacity Reservation.
+--
+--
+--
+-- /See:/ 'capacityReservationTarget' smart constructor.
+newtype CapacityReservationTarget = CapacityReservationTarget'
+  { _crtCapacityReservationId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CapacityReservationTarget' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crtCapacityReservationId' - The ID of the Capacity Reservation.
+capacityReservationTarget
+    :: CapacityReservationTarget
+capacityReservationTarget =
+  CapacityReservationTarget' {_crtCapacityReservationId = Nothing}
+
+
+-- | The ID of the Capacity Reservation.
+crtCapacityReservationId :: Lens' CapacityReservationTarget (Maybe Text)
+crtCapacityReservationId = lens _crtCapacityReservationId (\ s a -> s{_crtCapacityReservationId = a})
+
+instance Hashable CapacityReservationTarget where
+
+instance NFData CapacityReservationTarget where
+
+instance ToQuery CapacityReservationTarget where
+        toQuery CapacityReservationTarget'{..}
+          = mconcat
+              ["CapacityReservationId" =:
+                 _crtCapacityReservationId]
+
+-- | Describes a target Capacity Reservation.
+--
+--
+--
+-- /See:/ 'capacityReservationTargetResponse' smart constructor.
+newtype CapacityReservationTargetResponse = CapacityReservationTargetResponse'
+  { _cCapacityReservationId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CapacityReservationTargetResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cCapacityReservationId' - The ID of the Capacity Reservation.
+capacityReservationTargetResponse
+    :: CapacityReservationTargetResponse
+capacityReservationTargetResponse =
+  CapacityReservationTargetResponse' {_cCapacityReservationId = Nothing}
+
+
+-- | The ID of the Capacity Reservation.
+cCapacityReservationId :: Lens' CapacityReservationTargetResponse (Maybe Text)
+cCapacityReservationId = lens _cCapacityReservationId (\ s a -> s{_cCapacityReservationId = a})
+
+instance FromXML CapacityReservationTargetResponse
+         where
+        parseXML x
+          = CapacityReservationTargetResponse' <$>
+              (x .@? "capacityReservationId")
+
+instance Hashable CapacityReservationTargetResponse
+         where
+
+instance NFData CapacityReservationTargetResponse
+         where
+
+-- | Information about the client certificate used for authentication.
+--
+--
+--
+-- /See:/ 'certificateAuthentication' smart constructor.
+newtype CertificateAuthentication = CertificateAuthentication'
+  { _caClientRootCertificateChain :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CertificateAuthentication' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'caClientRootCertificateChain' - The ARN of the client certificate.
+certificateAuthentication
+    :: CertificateAuthentication
+certificateAuthentication =
+  CertificateAuthentication' {_caClientRootCertificateChain = Nothing}
+
+
+-- | The ARN of the client certificate.
+caClientRootCertificateChain :: Lens' CertificateAuthentication (Maybe Text)
+caClientRootCertificateChain = lens _caClientRootCertificateChain (\ s a -> s{_caClientRootCertificateChain = a})
+
+instance FromXML CertificateAuthentication where
+        parseXML x
+          = CertificateAuthentication' <$>
+              (x .@? "clientRootCertificateChain")
+
+instance Hashable CertificateAuthentication where
+
+instance NFData CertificateAuthentication where
+
+-- | Information about the client certificate to be used for authentication.
+--
+--
+--
+-- /See:/ 'certificateAuthenticationRequest' smart constructor.
+newtype CertificateAuthenticationRequest = CertificateAuthenticationRequest'
+  { _carClientRootCertificateChainARN :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CertificateAuthenticationRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'carClientRootCertificateChainARN' - The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM).
+certificateAuthenticationRequest
+    :: CertificateAuthenticationRequest
+certificateAuthenticationRequest =
+  CertificateAuthenticationRequest'
+    {_carClientRootCertificateChainARN = Nothing}
+
+
+-- | The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM).
+carClientRootCertificateChainARN :: Lens' CertificateAuthenticationRequest (Maybe Text)
+carClientRootCertificateChainARN = lens _carClientRootCertificateChainARN (\ s a -> s{_carClientRootCertificateChainARN = a})
+
+instance Hashable CertificateAuthenticationRequest
+         where
+
+instance NFData CertificateAuthenticationRequest
+         where
+
+instance ToQuery CertificateAuthenticationRequest
+         where
+        toQuery CertificateAuthenticationRequest'{..}
+          = mconcat
+              ["ClientRootCertificateChainArn" =:
+                 _carClientRootCertificateChainARN]
+
+-- | Provides authorization for Amazon to bring a specific IP address range to a specific AWS account using bring your own IP addresses (BYOIP). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip Prepare to Bring Your Address Range to Your AWS Account> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+--
+--
+-- /See:/ 'cidrAuthorizationContext' smart constructor.
+data CidrAuthorizationContext = CidrAuthorizationContext'
+  { _cacMessage   :: !Text
+  , _cacSignature :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CidrAuthorizationContext' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cacMessage' - The plain-text authorization message for the prefix and account.
+--
+-- * 'cacSignature' - The signed authorization message for the prefix and account.
+cidrAuthorizationContext
+    :: Text -- ^ 'cacMessage'
+    -> Text -- ^ 'cacSignature'
+    -> CidrAuthorizationContext
+cidrAuthorizationContext pMessage_ pSignature_ =
+  CidrAuthorizationContext'
+    {_cacMessage = pMessage_, _cacSignature = pSignature_}
+
+
+-- | The plain-text authorization message for the prefix and account.
+cacMessage :: Lens' CidrAuthorizationContext Text
+cacMessage = lens _cacMessage (\ s a -> s{_cacMessage = a})
+
+-- | The signed authorization message for the prefix and account.
+cacSignature :: Lens' CidrAuthorizationContext Text
+cacSignature = lens _cacSignature (\ s a -> s{_cacSignature = a})
+
+instance Hashable CidrAuthorizationContext where
+
+instance NFData CidrAuthorizationContext where
+
+instance ToQuery CidrAuthorizationContext where
+        toQuery CidrAuthorizationContext'{..}
+          = mconcat
+              ["Message" =: _cacMessage,
+               "Signature" =: _cacSignature]
 
 -- | Describes an IPv4 CIDR block.
 --
@@ -1182,7 +1872,7 @@ instance NFData ClassicLinkInstance where
 --
 -- /See:/ 'classicLoadBalancer' smart constructor.
 newtype ClassicLoadBalancer = ClassicLoadBalancer'
-  { _clbName :: Text
+  { _clbName :: Maybe Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1192,17 +1882,16 @@ newtype ClassicLoadBalancer = ClassicLoadBalancer'
 --
 -- * 'clbName' - The name of the load balancer.
 classicLoadBalancer
-    :: Text -- ^ 'clbName'
-    -> ClassicLoadBalancer
-classicLoadBalancer pName_ = ClassicLoadBalancer' {_clbName = pName_}
+    :: ClassicLoadBalancer
+classicLoadBalancer = ClassicLoadBalancer' {_clbName = Nothing}
 
 
 -- | The name of the load balancer.
-clbName :: Lens' ClassicLoadBalancer Text
+clbName :: Lens' ClassicLoadBalancer (Maybe Text)
 clbName = lens _clbName (\ s a -> s{_clbName = a})
 
 instance FromXML ClassicLoadBalancer where
-        parseXML x = ClassicLoadBalancer' <$> (x .@ "name")
+        parseXML x = ClassicLoadBalancer' <$> (x .@? "name")
 
 instance Hashable ClassicLoadBalancer where
 
@@ -1218,7 +1907,7 @@ instance ToQuery ClassicLoadBalancer where
 --
 -- /See:/ 'classicLoadBalancersConfig' smart constructor.
 newtype ClassicLoadBalancersConfig = ClassicLoadBalancersConfig'
-  { _clbcClassicLoadBalancers :: List1 ClassicLoadBalancer
+  { _clbcClassicLoadBalancers :: Maybe (List1 ClassicLoadBalancer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1228,22 +1917,20 @@ newtype ClassicLoadBalancersConfig = ClassicLoadBalancersConfig'
 --
 -- * 'clbcClassicLoadBalancers' - One or more Classic Load Balancers.
 classicLoadBalancersConfig
-    :: NonEmpty ClassicLoadBalancer -- ^ 'clbcClassicLoadBalancers'
-    -> ClassicLoadBalancersConfig
-classicLoadBalancersConfig pClassicLoadBalancers_ =
-  ClassicLoadBalancersConfig'
-    {_clbcClassicLoadBalancers = _List1 # pClassicLoadBalancers_}
+    :: ClassicLoadBalancersConfig
+classicLoadBalancersConfig =
+  ClassicLoadBalancersConfig' {_clbcClassicLoadBalancers = Nothing}
 
 
 -- | One or more Classic Load Balancers.
-clbcClassicLoadBalancers :: Lens' ClassicLoadBalancersConfig (NonEmpty ClassicLoadBalancer)
-clbcClassicLoadBalancers = lens _clbcClassicLoadBalancers (\ s a -> s{_clbcClassicLoadBalancers = a}) . _List1
+clbcClassicLoadBalancers :: Lens' ClassicLoadBalancersConfig (Maybe (NonEmpty ClassicLoadBalancer))
+clbcClassicLoadBalancers = lens _clbcClassicLoadBalancers (\ s a -> s{_clbcClassicLoadBalancers = a}) . mapping _List1
 
 instance FromXML ClassicLoadBalancersConfig where
         parseXML x
           = ClassicLoadBalancersConfig' <$>
               (x .@? "classicLoadBalancers" .!@ mempty >>=
-                 parseXMLList1 "item")
+                 may (parseXMLList1 "item"))
 
 instance Hashable ClassicLoadBalancersConfig where
 
@@ -1252,8 +1939,56 @@ instance NFData ClassicLoadBalancersConfig where
 instance ToQuery ClassicLoadBalancersConfig where
         toQuery ClassicLoadBalancersConfig'{..}
           = mconcat
-              [toQueryList "ClassicLoadBalancers"
-                 _clbcClassicLoadBalancers]
+              [toQuery
+                 (toQueryList "ClassicLoadBalancers" <$>
+                    _clbcClassicLoadBalancers)]
+
+-- | Describes the state of a client certificate revocation list.
+--
+--
+--
+-- /See:/ 'clientCertificateRevocationListStatus' smart constructor.
+data ClientCertificateRevocationListStatus = ClientCertificateRevocationListStatus'
+  { _ccrlsCode    :: !(Maybe ClientCertificateRevocationListStatusCode)
+  , _ccrlsMessage :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ClientCertificateRevocationListStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccrlsCode' - The state of the client certificate revocation list.
+--
+-- * 'ccrlsMessage' - A message about the status of the client certificate revocation list, if applicable.
+clientCertificateRevocationListStatus
+    :: ClientCertificateRevocationListStatus
+clientCertificateRevocationListStatus =
+  ClientCertificateRevocationListStatus'
+    {_ccrlsCode = Nothing, _ccrlsMessage = Nothing}
+
+
+-- | The state of the client certificate revocation list.
+ccrlsCode :: Lens' ClientCertificateRevocationListStatus (Maybe ClientCertificateRevocationListStatusCode)
+ccrlsCode = lens _ccrlsCode (\ s a -> s{_ccrlsCode = a})
+
+-- | A message about the status of the client certificate revocation list, if applicable.
+ccrlsMessage :: Lens' ClientCertificateRevocationListStatus (Maybe Text)
+ccrlsMessage = lens _ccrlsMessage (\ s a -> s{_ccrlsMessage = a})
+
+instance FromXML
+           ClientCertificateRevocationListStatus
+         where
+        parseXML x
+          = ClientCertificateRevocationListStatus' <$>
+              (x .@? "code") <*> (x .@? "message")
+
+instance Hashable
+           ClientCertificateRevocationListStatus
+         where
+
+instance NFData ClientCertificateRevocationListStatus
+         where
 
 -- | Describes the client-specific data.
 --
@@ -1316,6 +2051,799 @@ instance ToQuery ClientData where
               ["UploadStart" =: _cdUploadStart,
                "UploadSize" =: _cdUploadSize,
                "UploadEnd" =: _cdUploadEnd, "Comment" =: _cdComment]
+
+-- | Describes the authentication methods used by a Client VPN endpoint. Client VPN supports Active Directory and mutual authentication. For more information, see <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication Authentication> in the /AWS Client VPN Administrator Guide/ .
+--
+--
+--
+-- /See:/ 'clientVPNAuthentication' smart constructor.
+data ClientVPNAuthentication = ClientVPNAuthentication'
+  { _cvaActiveDirectory      :: !(Maybe DirectoryServiceAuthentication)
+  , _cvaMutualAuthentication :: !(Maybe CertificateAuthentication)
+  , _cvaType                 :: !(Maybe ClientVPNAuthenticationType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ClientVPNAuthentication' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvaActiveDirectory' - Information about the Active Directory, if applicable.
+--
+-- * 'cvaMutualAuthentication' - Information about the authentication certificates, if applicable.
+--
+-- * 'cvaType' - The authentication type used.
+clientVPNAuthentication
+    :: ClientVPNAuthentication
+clientVPNAuthentication =
+  ClientVPNAuthentication'
+    { _cvaActiveDirectory = Nothing
+    , _cvaMutualAuthentication = Nothing
+    , _cvaType = Nothing
+    }
+
+
+-- | Information about the Active Directory, if applicable.
+cvaActiveDirectory :: Lens' ClientVPNAuthentication (Maybe DirectoryServiceAuthentication)
+cvaActiveDirectory = lens _cvaActiveDirectory (\ s a -> s{_cvaActiveDirectory = a})
+
+-- | Information about the authentication certificates, if applicable.
+cvaMutualAuthentication :: Lens' ClientVPNAuthentication (Maybe CertificateAuthentication)
+cvaMutualAuthentication = lens _cvaMutualAuthentication (\ s a -> s{_cvaMutualAuthentication = a})
+
+-- | The authentication type used.
+cvaType :: Lens' ClientVPNAuthentication (Maybe ClientVPNAuthenticationType)
+cvaType = lens _cvaType (\ s a -> s{_cvaType = a})
+
+instance FromXML ClientVPNAuthentication where
+        parseXML x
+          = ClientVPNAuthentication' <$>
+              (x .@? "activeDirectory") <*>
+                (x .@? "mutualAuthentication")
+                <*> (x .@? "type")
+
+instance Hashable ClientVPNAuthentication where
+
+instance NFData ClientVPNAuthentication where
+
+-- | Describes the authentication method to be used by a Client VPN endpoint. Client VPN supports Active Directory and mutual authentication. For more information, see <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication Authentication> in the /AWS Client VPN Administrator Guide/ .
+--
+--
+--
+-- /See:/ 'clientVPNAuthenticationRequest' smart constructor.
+data ClientVPNAuthenticationRequest = ClientVPNAuthenticationRequest'
+  { _cvarActiveDirectory      :: !(Maybe DirectoryServiceAuthenticationRequest)
+  , _cvarMutualAuthentication :: !(Maybe CertificateAuthenticationRequest)
+  , _cvarType                 :: !(Maybe ClientVPNAuthenticationType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ClientVPNAuthenticationRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvarActiveDirectory' - Information about the Active Directory to be used, if applicable. You must provide this information if __Type__ is @directory-service-authentication@ .
+--
+-- * 'cvarMutualAuthentication' - Information about the authentication certificates to be used, if applicable. You must provide this information if __Type__ is @certificate-authentication@ .
+--
+-- * 'cvarType' - The type of client authentication to be used. Specify @certificate-authentication@ to use certificate-based authentication, or @directory-service-authentication@ to use Active Directory authentication.
+clientVPNAuthenticationRequest
+    :: ClientVPNAuthenticationRequest
+clientVPNAuthenticationRequest =
+  ClientVPNAuthenticationRequest'
+    { _cvarActiveDirectory = Nothing
+    , _cvarMutualAuthentication = Nothing
+    , _cvarType = Nothing
+    }
+
+
+-- | Information about the Active Directory to be used, if applicable. You must provide this information if __Type__ is @directory-service-authentication@ .
+cvarActiveDirectory :: Lens' ClientVPNAuthenticationRequest (Maybe DirectoryServiceAuthenticationRequest)
+cvarActiveDirectory = lens _cvarActiveDirectory (\ s a -> s{_cvarActiveDirectory = a})
+
+-- | Information about the authentication certificates to be used, if applicable. You must provide this information if __Type__ is @certificate-authentication@ .
+cvarMutualAuthentication :: Lens' ClientVPNAuthenticationRequest (Maybe CertificateAuthenticationRequest)
+cvarMutualAuthentication = lens _cvarMutualAuthentication (\ s a -> s{_cvarMutualAuthentication = a})
+
+-- | The type of client authentication to be used. Specify @certificate-authentication@ to use certificate-based authentication, or @directory-service-authentication@ to use Active Directory authentication.
+cvarType :: Lens' ClientVPNAuthenticationRequest (Maybe ClientVPNAuthenticationType)
+cvarType = lens _cvarType (\ s a -> s{_cvarType = a})
+
+instance Hashable ClientVPNAuthenticationRequest
+         where
+
+instance NFData ClientVPNAuthenticationRequest where
+
+instance ToQuery ClientVPNAuthenticationRequest where
+        toQuery ClientVPNAuthenticationRequest'{..}
+          = mconcat
+              ["ActiveDirectory" =: _cvarActiveDirectory,
+               "MutualAuthentication" =: _cvarMutualAuthentication,
+               "Type" =: _cvarType]
+
+-- | Describes the state of an authorization rule.
+--
+--
+--
+-- /See:/ 'clientVPNAuthorizationRuleStatus' smart constructor.
+data ClientVPNAuthorizationRuleStatus = ClientVPNAuthorizationRuleStatus'
+  { _cvarsCode    :: !(Maybe ClientVPNAuthorizationRuleStatusCode)
+  , _cvarsMessage :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ClientVPNAuthorizationRuleStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvarsCode' - The state of the authorization rule.
+--
+-- * 'cvarsMessage' - A message about the status of the authorization rule, if applicable.
+clientVPNAuthorizationRuleStatus
+    :: ClientVPNAuthorizationRuleStatus
+clientVPNAuthorizationRuleStatus =
+  ClientVPNAuthorizationRuleStatus'
+    {_cvarsCode = Nothing, _cvarsMessage = Nothing}
+
+
+-- | The state of the authorization rule.
+cvarsCode :: Lens' ClientVPNAuthorizationRuleStatus (Maybe ClientVPNAuthorizationRuleStatusCode)
+cvarsCode = lens _cvarsCode (\ s a -> s{_cvarsCode = a})
+
+-- | A message about the status of the authorization rule, if applicable.
+cvarsMessage :: Lens' ClientVPNAuthorizationRuleStatus (Maybe Text)
+cvarsMessage = lens _cvarsMessage (\ s a -> s{_cvarsMessage = a})
+
+instance FromXML ClientVPNAuthorizationRuleStatus
+         where
+        parseXML x
+          = ClientVPNAuthorizationRuleStatus' <$>
+              (x .@? "code") <*> (x .@? "message")
+
+instance Hashable ClientVPNAuthorizationRuleStatus
+         where
+
+instance NFData ClientVPNAuthorizationRuleStatus
+         where
+
+-- | Describes a client connection.
+--
+--
+--
+-- /See:/ 'clientVPNConnection' smart constructor.
+data ClientVPNConnection = ClientVPNConnection'
+  { _cvcIngressPackets            :: !(Maybe Text)
+  , _cvcStatus                    :: !(Maybe ClientVPNConnectionStatus)
+  , _cvcConnectionEndTime         :: !(Maybe Text)
+  , _cvcCommonName                :: !(Maybe Text)
+  , _cvcConnectionEstablishedTime :: !(Maybe Text)
+  , _cvcConnectionId              :: !(Maybe Text)
+  , _cvcIngressBytes              :: !(Maybe Text)
+  , _cvcUsername                  :: !(Maybe Text)
+  , _cvcEgressBytes               :: !(Maybe Text)
+  , _cvcClientVPNEndpointId       :: !(Maybe Text)
+  , _cvcClientIP                  :: !(Maybe Text)
+  , _cvcEgressPackets             :: !(Maybe Text)
+  , _cvcTimestamp                 :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ClientVPNConnection' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvcIngressPackets' - The number of packets sent by the client.
+--
+-- * 'cvcStatus' - The current state of the client connection.
+--
+-- * 'cvcConnectionEndTime' - The date and time the client connection was terminated.
+--
+-- * 'cvcCommonName' - The common name associated with the client. This is either the name of the client certificate, or the Active Directory user name.
+--
+-- * 'cvcConnectionEstablishedTime' - The date and time the client connection was established.
+--
+-- * 'cvcConnectionId' - The ID of the client connection.
+--
+-- * 'cvcIngressBytes' - The number of bytes sent by the client.
+--
+-- * 'cvcUsername' - The username of the client who established the client connection. This information is only provided if Active Directory client authentication is used.
+--
+-- * 'cvcEgressBytes' - The number of bytes received by the client.
+--
+-- * 'cvcClientVPNEndpointId' - The ID of the Client VPN endpoint to which the client is connected.
+--
+-- * 'cvcClientIP' - The IP address of the client.
+--
+-- * 'cvcEgressPackets' - The number of packets received by the client.
+--
+-- * 'cvcTimestamp' - The current date and time.
+clientVPNConnection
+    :: ClientVPNConnection
+clientVPNConnection =
+  ClientVPNConnection'
+    { _cvcIngressPackets = Nothing
+    , _cvcStatus = Nothing
+    , _cvcConnectionEndTime = Nothing
+    , _cvcCommonName = Nothing
+    , _cvcConnectionEstablishedTime = Nothing
+    , _cvcConnectionId = Nothing
+    , _cvcIngressBytes = Nothing
+    , _cvcUsername = Nothing
+    , _cvcEgressBytes = Nothing
+    , _cvcClientVPNEndpointId = Nothing
+    , _cvcClientIP = Nothing
+    , _cvcEgressPackets = Nothing
+    , _cvcTimestamp = Nothing
+    }
+
+
+-- | The number of packets sent by the client.
+cvcIngressPackets :: Lens' ClientVPNConnection (Maybe Text)
+cvcIngressPackets = lens _cvcIngressPackets (\ s a -> s{_cvcIngressPackets = a})
+
+-- | The current state of the client connection.
+cvcStatus :: Lens' ClientVPNConnection (Maybe ClientVPNConnectionStatus)
+cvcStatus = lens _cvcStatus (\ s a -> s{_cvcStatus = a})
+
+-- | The date and time the client connection was terminated.
+cvcConnectionEndTime :: Lens' ClientVPNConnection (Maybe Text)
+cvcConnectionEndTime = lens _cvcConnectionEndTime (\ s a -> s{_cvcConnectionEndTime = a})
+
+-- | The common name associated with the client. This is either the name of the client certificate, or the Active Directory user name.
+cvcCommonName :: Lens' ClientVPNConnection (Maybe Text)
+cvcCommonName = lens _cvcCommonName (\ s a -> s{_cvcCommonName = a})
+
+-- | The date and time the client connection was established.
+cvcConnectionEstablishedTime :: Lens' ClientVPNConnection (Maybe Text)
+cvcConnectionEstablishedTime = lens _cvcConnectionEstablishedTime (\ s a -> s{_cvcConnectionEstablishedTime = a})
+
+-- | The ID of the client connection.
+cvcConnectionId :: Lens' ClientVPNConnection (Maybe Text)
+cvcConnectionId = lens _cvcConnectionId (\ s a -> s{_cvcConnectionId = a})
+
+-- | The number of bytes sent by the client.
+cvcIngressBytes :: Lens' ClientVPNConnection (Maybe Text)
+cvcIngressBytes = lens _cvcIngressBytes (\ s a -> s{_cvcIngressBytes = a})
+
+-- | The username of the client who established the client connection. This information is only provided if Active Directory client authentication is used.
+cvcUsername :: Lens' ClientVPNConnection (Maybe Text)
+cvcUsername = lens _cvcUsername (\ s a -> s{_cvcUsername = a})
+
+-- | The number of bytes received by the client.
+cvcEgressBytes :: Lens' ClientVPNConnection (Maybe Text)
+cvcEgressBytes = lens _cvcEgressBytes (\ s a -> s{_cvcEgressBytes = a})
+
+-- | The ID of the Client VPN endpoint to which the client is connected.
+cvcClientVPNEndpointId :: Lens' ClientVPNConnection (Maybe Text)
+cvcClientVPNEndpointId = lens _cvcClientVPNEndpointId (\ s a -> s{_cvcClientVPNEndpointId = a})
+
+-- | The IP address of the client.
+cvcClientIP :: Lens' ClientVPNConnection (Maybe Text)
+cvcClientIP = lens _cvcClientIP (\ s a -> s{_cvcClientIP = a})
+
+-- | The number of packets received by the client.
+cvcEgressPackets :: Lens' ClientVPNConnection (Maybe Text)
+cvcEgressPackets = lens _cvcEgressPackets (\ s a -> s{_cvcEgressPackets = a})
+
+-- | The current date and time.
+cvcTimestamp :: Lens' ClientVPNConnection (Maybe Text)
+cvcTimestamp = lens _cvcTimestamp (\ s a -> s{_cvcTimestamp = a})
+
+instance FromXML ClientVPNConnection where
+        parseXML x
+          = ClientVPNConnection' <$>
+              (x .@? "ingressPackets") <*> (x .@? "status") <*>
+                (x .@? "connectionEndTime")
+                <*> (x .@? "commonName")
+                <*> (x .@? "connectionEstablishedTime")
+                <*> (x .@? "connectionId")
+                <*> (x .@? "ingressBytes")
+                <*> (x .@? "username")
+                <*> (x .@? "egressBytes")
+                <*> (x .@? "clientVpnEndpointId")
+                <*> (x .@? "clientIp")
+                <*> (x .@? "egressPackets")
+                <*> (x .@? "timestamp")
+
+instance Hashable ClientVPNConnection where
+
+instance NFData ClientVPNConnection where
+
+-- | Describes the status of a client connection.
+--
+--
+--
+-- /See:/ 'clientVPNConnectionStatus' smart constructor.
+data ClientVPNConnectionStatus = ClientVPNConnectionStatus'
+  { _cvcsCode    :: !(Maybe ClientVPNConnectionStatusCode)
+  , _cvcsMessage :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ClientVPNConnectionStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvcsCode' - The state of the client connection.
+--
+-- * 'cvcsMessage' - A message about the status of the client connection, if applicable.
+clientVPNConnectionStatus
+    :: ClientVPNConnectionStatus
+clientVPNConnectionStatus =
+  ClientVPNConnectionStatus' {_cvcsCode = Nothing, _cvcsMessage = Nothing}
+
+
+-- | The state of the client connection.
+cvcsCode :: Lens' ClientVPNConnectionStatus (Maybe ClientVPNConnectionStatusCode)
+cvcsCode = lens _cvcsCode (\ s a -> s{_cvcsCode = a})
+
+-- | A message about the status of the client connection, if applicable.
+cvcsMessage :: Lens' ClientVPNConnectionStatus (Maybe Text)
+cvcsMessage = lens _cvcsMessage (\ s a -> s{_cvcsMessage = a})
+
+instance FromXML ClientVPNConnectionStatus where
+        parseXML x
+          = ClientVPNConnectionStatus' <$>
+              (x .@? "code") <*> (x .@? "message")
+
+instance Hashable ClientVPNConnectionStatus where
+
+instance NFData ClientVPNConnectionStatus where
+
+-- | Describes a Client VPN endpoint.
+--
+--
+--
+-- /See:/ 'clientVPNEndpoint' smart constructor.
+data ClientVPNEndpoint = ClientVPNEndpoint'
+  { _cveCreationTime             :: !(Maybe Text)
+  , _cveStatus                   :: !(Maybe ClientVPNEndpointStatus)
+  , _cveAssociatedTargetNetworks :: !(Maybe [AssociatedTargetNetwork])
+  , _cveConnectionLogOptions     :: !(Maybe ConnectionLogResponseOptions)
+  , _cveSplitTunnel              :: !(Maybe Bool)
+  , _cveTransportProtocol        :: !(Maybe TransportProtocol)
+  , _cveDeletionTime             :: !(Maybe Text)
+  , _cveClientCidrBlock          :: !(Maybe Text)
+  , _cveDNSServers               :: !(Maybe [Text])
+  , _cveClientVPNEndpointId      :: !(Maybe Text)
+  , _cveServerCertificateARN     :: !(Maybe Text)
+  , _cveAuthenticationOptions    :: !(Maybe [ClientVPNAuthentication])
+  , _cveDescription              :: !(Maybe Text)
+  , _cveDNSName                  :: !(Maybe Text)
+  , _cveVPNProtocol              :: !(Maybe VPNProtocol)
+  , _cveTags                     :: !(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ClientVPNEndpoint' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cveCreationTime' - The date and time the Client VPN endpoint was created.
+--
+-- * 'cveStatus' - The current state of the Client VPN endpoint.
+--
+-- * 'cveAssociatedTargetNetworks' - Information about the associated target networks. A target network is a subnet in a VPC.
+--
+-- * 'cveConnectionLogOptions' - Information about the client connection logging options for the Client VPN endpoint.
+--
+-- * 'cveSplitTunnel' - Indicates whether VPN split tunneling is supported.
+--
+-- * 'cveTransportProtocol' - The transport protocol used by the Client VPN endpoint.
+--
+-- * 'cveDeletionTime' - The date and time the Client VPN endpoint was deleted, if applicable.
+--
+-- * 'cveClientCidrBlock' - The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
+--
+-- * 'cveDNSServers' - Information about the DNS servers to be used for DNS resolution.
+--
+-- * 'cveClientVPNEndpointId' - The ID of the Client VPN endpoint.
+--
+-- * 'cveServerCertificateARN' - The ARN of the server certificate.
+--
+-- * 'cveAuthenticationOptions' - Information about the authentication method used by the Client VPN endpoint.
+--
+-- * 'cveDescription' - A brief description of the endpoint.
+--
+-- * 'cveDNSName' - The DNS name to be used by clients when connecting to the Client VPN endpoint.
+--
+-- * 'cveVPNProtocol' - The protocol used by the VPN session.
+--
+-- * 'cveTags' - Any tags assigned to the Client VPN endpoint.
+clientVPNEndpoint
+    :: ClientVPNEndpoint
+clientVPNEndpoint =
+  ClientVPNEndpoint'
+    { _cveCreationTime = Nothing
+    , _cveStatus = Nothing
+    , _cveAssociatedTargetNetworks = Nothing
+    , _cveConnectionLogOptions = Nothing
+    , _cveSplitTunnel = Nothing
+    , _cveTransportProtocol = Nothing
+    , _cveDeletionTime = Nothing
+    , _cveClientCidrBlock = Nothing
+    , _cveDNSServers = Nothing
+    , _cveClientVPNEndpointId = Nothing
+    , _cveServerCertificateARN = Nothing
+    , _cveAuthenticationOptions = Nothing
+    , _cveDescription = Nothing
+    , _cveDNSName = Nothing
+    , _cveVPNProtocol = Nothing
+    , _cveTags = Nothing
+    }
+
+
+-- | The date and time the Client VPN endpoint was created.
+cveCreationTime :: Lens' ClientVPNEndpoint (Maybe Text)
+cveCreationTime = lens _cveCreationTime (\ s a -> s{_cveCreationTime = a})
+
+-- | The current state of the Client VPN endpoint.
+cveStatus :: Lens' ClientVPNEndpoint (Maybe ClientVPNEndpointStatus)
+cveStatus = lens _cveStatus (\ s a -> s{_cveStatus = a})
+
+-- | Information about the associated target networks. A target network is a subnet in a VPC.
+cveAssociatedTargetNetworks :: Lens' ClientVPNEndpoint [AssociatedTargetNetwork]
+cveAssociatedTargetNetworks = lens _cveAssociatedTargetNetworks (\ s a -> s{_cveAssociatedTargetNetworks = a}) . _Default . _Coerce
+
+-- | Information about the client connection logging options for the Client VPN endpoint.
+cveConnectionLogOptions :: Lens' ClientVPNEndpoint (Maybe ConnectionLogResponseOptions)
+cveConnectionLogOptions = lens _cveConnectionLogOptions (\ s a -> s{_cveConnectionLogOptions = a})
+
+-- | Indicates whether VPN split tunneling is supported.
+cveSplitTunnel :: Lens' ClientVPNEndpoint (Maybe Bool)
+cveSplitTunnel = lens _cveSplitTunnel (\ s a -> s{_cveSplitTunnel = a})
+
+-- | The transport protocol used by the Client VPN endpoint.
+cveTransportProtocol :: Lens' ClientVPNEndpoint (Maybe TransportProtocol)
+cveTransportProtocol = lens _cveTransportProtocol (\ s a -> s{_cveTransportProtocol = a})
+
+-- | The date and time the Client VPN endpoint was deleted, if applicable.
+cveDeletionTime :: Lens' ClientVPNEndpoint (Maybe Text)
+cveDeletionTime = lens _cveDeletionTime (\ s a -> s{_cveDeletionTime = a})
+
+-- | The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
+cveClientCidrBlock :: Lens' ClientVPNEndpoint (Maybe Text)
+cveClientCidrBlock = lens _cveClientCidrBlock (\ s a -> s{_cveClientCidrBlock = a})
+
+-- | Information about the DNS servers to be used for DNS resolution.
+cveDNSServers :: Lens' ClientVPNEndpoint [Text]
+cveDNSServers = lens _cveDNSServers (\ s a -> s{_cveDNSServers = a}) . _Default . _Coerce
+
+-- | The ID of the Client VPN endpoint.
+cveClientVPNEndpointId :: Lens' ClientVPNEndpoint (Maybe Text)
+cveClientVPNEndpointId = lens _cveClientVPNEndpointId (\ s a -> s{_cveClientVPNEndpointId = a})
+
+-- | The ARN of the server certificate.
+cveServerCertificateARN :: Lens' ClientVPNEndpoint (Maybe Text)
+cveServerCertificateARN = lens _cveServerCertificateARN (\ s a -> s{_cveServerCertificateARN = a})
+
+-- | Information about the authentication method used by the Client VPN endpoint.
+cveAuthenticationOptions :: Lens' ClientVPNEndpoint [ClientVPNAuthentication]
+cveAuthenticationOptions = lens _cveAuthenticationOptions (\ s a -> s{_cveAuthenticationOptions = a}) . _Default . _Coerce
+
+-- | A brief description of the endpoint.
+cveDescription :: Lens' ClientVPNEndpoint (Maybe Text)
+cveDescription = lens _cveDescription (\ s a -> s{_cveDescription = a})
+
+-- | The DNS name to be used by clients when connecting to the Client VPN endpoint.
+cveDNSName :: Lens' ClientVPNEndpoint (Maybe Text)
+cveDNSName = lens _cveDNSName (\ s a -> s{_cveDNSName = a})
+
+-- | The protocol used by the VPN session.
+cveVPNProtocol :: Lens' ClientVPNEndpoint (Maybe VPNProtocol)
+cveVPNProtocol = lens _cveVPNProtocol (\ s a -> s{_cveVPNProtocol = a})
+
+-- | Any tags assigned to the Client VPN endpoint.
+cveTags :: Lens' ClientVPNEndpoint [Tag]
+cveTags = lens _cveTags (\ s a -> s{_cveTags = a}) . _Default . _Coerce
+
+instance FromXML ClientVPNEndpoint where
+        parseXML x
+          = ClientVPNEndpoint' <$>
+              (x .@? "creationTime") <*> (x .@? "status") <*>
+                (x .@? "associatedTargetNetwork" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "connectionLogOptions")
+                <*> (x .@? "splitTunnel")
+                <*> (x .@? "transportProtocol")
+                <*> (x .@? "deletionTime")
+                <*> (x .@? "clientCidrBlock")
+                <*>
+                (x .@? "dnsServer" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "clientVpnEndpointId")
+                <*> (x .@? "serverCertificateArn")
+                <*>
+                (x .@? "authenticationOptions" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "description")
+                <*> (x .@? "dnsName")
+                <*> (x .@? "vpnProtocol")
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+
+instance Hashable ClientVPNEndpoint where
+
+instance NFData ClientVPNEndpoint where
+
+-- | Describes the state of a Client VPN endpoint.
+--
+--
+--
+-- /See:/ 'clientVPNEndpointStatus' smart constructor.
+data ClientVPNEndpointStatus = ClientVPNEndpointStatus'
+  { _cvesCode    :: !(Maybe ClientVPNEndpointStatusCode)
+  , _cvesMessage :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ClientVPNEndpointStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvesCode' - The state of the Client VPN endpoint. Possible states include:     * @pending-associate@ - The Client VPN endpoint has been created but no target networks have been associated. The Client VPN endpoint cannot accept connections.     * @available@ - The Client VPN endpoint has been created and a target network has been associated. The Client VPN endpoint can accept connections.     * @deleting@ - The Client VPN endpoint is being deleted. The Client VPN endpoint cannot accept connections.     * @deleted@ - The Client VPN endpoint has been deleted. The Client VPN endpoint cannot accept connections.
+--
+-- * 'cvesMessage' - A message about the status of the Client VPN endpoint.
+clientVPNEndpointStatus
+    :: ClientVPNEndpointStatus
+clientVPNEndpointStatus =
+  ClientVPNEndpointStatus' {_cvesCode = Nothing, _cvesMessage = Nothing}
+
+
+-- | The state of the Client VPN endpoint. Possible states include:     * @pending-associate@ - The Client VPN endpoint has been created but no target networks have been associated. The Client VPN endpoint cannot accept connections.     * @available@ - The Client VPN endpoint has been created and a target network has been associated. The Client VPN endpoint can accept connections.     * @deleting@ - The Client VPN endpoint is being deleted. The Client VPN endpoint cannot accept connections.     * @deleted@ - The Client VPN endpoint has been deleted. The Client VPN endpoint cannot accept connections.
+cvesCode :: Lens' ClientVPNEndpointStatus (Maybe ClientVPNEndpointStatusCode)
+cvesCode = lens _cvesCode (\ s a -> s{_cvesCode = a})
+
+-- | A message about the status of the Client VPN endpoint.
+cvesMessage :: Lens' ClientVPNEndpointStatus (Maybe Text)
+cvesMessage = lens _cvesMessage (\ s a -> s{_cvesMessage = a})
+
+instance FromXML ClientVPNEndpointStatus where
+        parseXML x
+          = ClientVPNEndpointStatus' <$>
+              (x .@? "code") <*> (x .@? "message")
+
+instance Hashable ClientVPNEndpointStatus where
+
+instance NFData ClientVPNEndpointStatus where
+
+-- | Information about a Client VPN endpoint route.
+--
+--
+--
+-- /See:/ 'clientVPNRoute' smart constructor.
+data ClientVPNRoute = ClientVPNRoute'
+  { _cvrStatus              :: !(Maybe ClientVPNRouteStatus)
+  , _cvrOrigin              :: !(Maybe Text)
+  , _cvrClientVPNEndpointId :: !(Maybe Text)
+  , _cvrTargetSubnet        :: !(Maybe Text)
+  , _cvrDestinationCidr     :: !(Maybe Text)
+  , _cvrType                :: !(Maybe Text)
+  , _cvrDescription         :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ClientVPNRoute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvrStatus' - The current state of the route.
+--
+-- * 'cvrOrigin' - Indicates how the route was associated with the Client VPN endpoint. @associate@ indicates that the route was automatically added when the target network was associated with the Client VPN endpoint. @add-route@ indicates that the route was manually added using the __CreateClientVpnRoute__ action.
+--
+-- * 'cvrClientVPNEndpointId' - The ID of the Client VPN endpoint with which the route is associated.
+--
+-- * 'cvrTargetSubnet' - The ID of the subnet through which traffic is routed.
+--
+-- * 'cvrDestinationCidr' - The IPv4 address range, in CIDR notation, of the route destination.
+--
+-- * 'cvrType' - The route type.
+--
+-- * 'cvrDescription' - A brief description of the route.
+clientVPNRoute
+    :: ClientVPNRoute
+clientVPNRoute =
+  ClientVPNRoute'
+    { _cvrStatus = Nothing
+    , _cvrOrigin = Nothing
+    , _cvrClientVPNEndpointId = Nothing
+    , _cvrTargetSubnet = Nothing
+    , _cvrDestinationCidr = Nothing
+    , _cvrType = Nothing
+    , _cvrDescription = Nothing
+    }
+
+
+-- | The current state of the route.
+cvrStatus :: Lens' ClientVPNRoute (Maybe ClientVPNRouteStatus)
+cvrStatus = lens _cvrStatus (\ s a -> s{_cvrStatus = a})
+
+-- | Indicates how the route was associated with the Client VPN endpoint. @associate@ indicates that the route was automatically added when the target network was associated with the Client VPN endpoint. @add-route@ indicates that the route was manually added using the __CreateClientVpnRoute__ action.
+cvrOrigin :: Lens' ClientVPNRoute (Maybe Text)
+cvrOrigin = lens _cvrOrigin (\ s a -> s{_cvrOrigin = a})
+
+-- | The ID of the Client VPN endpoint with which the route is associated.
+cvrClientVPNEndpointId :: Lens' ClientVPNRoute (Maybe Text)
+cvrClientVPNEndpointId = lens _cvrClientVPNEndpointId (\ s a -> s{_cvrClientVPNEndpointId = a})
+
+-- | The ID of the subnet through which traffic is routed.
+cvrTargetSubnet :: Lens' ClientVPNRoute (Maybe Text)
+cvrTargetSubnet = lens _cvrTargetSubnet (\ s a -> s{_cvrTargetSubnet = a})
+
+-- | The IPv4 address range, in CIDR notation, of the route destination.
+cvrDestinationCidr :: Lens' ClientVPNRoute (Maybe Text)
+cvrDestinationCidr = lens _cvrDestinationCidr (\ s a -> s{_cvrDestinationCidr = a})
+
+-- | The route type.
+cvrType :: Lens' ClientVPNRoute (Maybe Text)
+cvrType = lens _cvrType (\ s a -> s{_cvrType = a})
+
+-- | A brief description of the route.
+cvrDescription :: Lens' ClientVPNRoute (Maybe Text)
+cvrDescription = lens _cvrDescription (\ s a -> s{_cvrDescription = a})
+
+instance FromXML ClientVPNRoute where
+        parseXML x
+          = ClientVPNRoute' <$>
+              (x .@? "status") <*> (x .@? "origin") <*>
+                (x .@? "clientVpnEndpointId")
+                <*> (x .@? "targetSubnet")
+                <*> (x .@? "destinationCidr")
+                <*> (x .@? "type")
+                <*> (x .@? "description")
+
+instance Hashable ClientVPNRoute where
+
+instance NFData ClientVPNRoute where
+
+-- | Describes the state of a Client VPN endpoint route.
+--
+--
+--
+-- /See:/ 'clientVPNRouteStatus' smart constructor.
+data ClientVPNRouteStatus = ClientVPNRouteStatus'
+  { _cvrsCode    :: !(Maybe ClientVPNRouteStatusCode)
+  , _cvrsMessage :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ClientVPNRouteStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvrsCode' - The state of the Client VPN endpoint route.
+--
+-- * 'cvrsMessage' - A message about the status of the Client VPN endpoint route, if applicable.
+clientVPNRouteStatus
+    :: ClientVPNRouteStatus
+clientVPNRouteStatus =
+  ClientVPNRouteStatus' {_cvrsCode = Nothing, _cvrsMessage = Nothing}
+
+
+-- | The state of the Client VPN endpoint route.
+cvrsCode :: Lens' ClientVPNRouteStatus (Maybe ClientVPNRouteStatusCode)
+cvrsCode = lens _cvrsCode (\ s a -> s{_cvrsCode = a})
+
+-- | A message about the status of the Client VPN endpoint route, if applicable.
+cvrsMessage :: Lens' ClientVPNRouteStatus (Maybe Text)
+cvrsMessage = lens _cvrsMessage (\ s a -> s{_cvrsMessage = a})
+
+instance FromXML ClientVPNRouteStatus where
+        parseXML x
+          = ClientVPNRouteStatus' <$>
+              (x .@? "code") <*> (x .@? "message")
+
+instance Hashable ClientVPNRouteStatus where
+
+instance NFData ClientVPNRouteStatus where
+
+-- | Describes the client connection logging options for the Client VPN endpoint.
+--
+--
+--
+-- /See:/ 'connectionLogOptions' smart constructor.
+data ConnectionLogOptions = ConnectionLogOptions'
+  { _cloEnabled             :: !(Maybe Bool)
+  , _cloCloudwatchLogStream :: !(Maybe Text)
+  , _cloCloudwatchLogGroup  :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ConnectionLogOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cloEnabled' - Indicates whether connection logging is enabled.
+--
+-- * 'cloCloudwatchLogStream' - The name of the CloudWatch Logs log stream to which the connection data is published.
+--
+-- * 'cloCloudwatchLogGroup' - The name of the CloudWatch Logs log group.
+connectionLogOptions
+    :: ConnectionLogOptions
+connectionLogOptions =
+  ConnectionLogOptions'
+    { _cloEnabled = Nothing
+    , _cloCloudwatchLogStream = Nothing
+    , _cloCloudwatchLogGroup = Nothing
+    }
+
+
+-- | Indicates whether connection logging is enabled.
+cloEnabled :: Lens' ConnectionLogOptions (Maybe Bool)
+cloEnabled = lens _cloEnabled (\ s a -> s{_cloEnabled = a})
+
+-- | The name of the CloudWatch Logs log stream to which the connection data is published.
+cloCloudwatchLogStream :: Lens' ConnectionLogOptions (Maybe Text)
+cloCloudwatchLogStream = lens _cloCloudwatchLogStream (\ s a -> s{_cloCloudwatchLogStream = a})
+
+-- | The name of the CloudWatch Logs log group.
+cloCloudwatchLogGroup :: Lens' ConnectionLogOptions (Maybe Text)
+cloCloudwatchLogGroup = lens _cloCloudwatchLogGroup (\ s a -> s{_cloCloudwatchLogGroup = a})
+
+instance Hashable ConnectionLogOptions where
+
+instance NFData ConnectionLogOptions where
+
+instance ToQuery ConnectionLogOptions where
+        toQuery ConnectionLogOptions'{..}
+          = mconcat
+              ["Enabled" =: _cloEnabled,
+               "CloudwatchLogStream" =: _cloCloudwatchLogStream,
+               "CloudwatchLogGroup" =: _cloCloudwatchLogGroup]
+
+-- | Information about the client connection logging options for a Client VPN endpoint.
+--
+--
+--
+-- /See:/ 'connectionLogResponseOptions' smart constructor.
+data ConnectionLogResponseOptions = ConnectionLogResponseOptions'
+  { _clroEnabled             :: !(Maybe Bool)
+  , _clroCloudwatchLogStream :: !(Maybe Text)
+  , _clroCloudwatchLogGroup  :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ConnectionLogResponseOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'clroEnabled' - Indicates whether client connection logging is enabled for the Client VPN endpoint.
+--
+-- * 'clroCloudwatchLogStream' - The name of the Amazon CloudWatch Logs log stream to which connection logging data is published.
+--
+-- * 'clroCloudwatchLogGroup' - The name of the Amazon CloudWatch Logs log group to which connection logging data is published.
+connectionLogResponseOptions
+    :: ConnectionLogResponseOptions
+connectionLogResponseOptions =
+  ConnectionLogResponseOptions'
+    { _clroEnabled = Nothing
+    , _clroCloudwatchLogStream = Nothing
+    , _clroCloudwatchLogGroup = Nothing
+    }
+
+
+-- | Indicates whether client connection logging is enabled for the Client VPN endpoint.
+clroEnabled :: Lens' ConnectionLogResponseOptions (Maybe Bool)
+clroEnabled = lens _clroEnabled (\ s a -> s{_clroEnabled = a})
+
+-- | The name of the Amazon CloudWatch Logs log stream to which connection logging data is published.
+clroCloudwatchLogStream :: Lens' ConnectionLogResponseOptions (Maybe Text)
+clroCloudwatchLogStream = lens _clroCloudwatchLogStream (\ s a -> s{_clroCloudwatchLogStream = a})
+
+-- | The name of the Amazon CloudWatch Logs log group to which connection logging data is published.
+clroCloudwatchLogGroup :: Lens' ConnectionLogResponseOptions (Maybe Text)
+clroCloudwatchLogGroup = lens _clroCloudwatchLogGroup (\ s a -> s{_clroCloudwatchLogGroup = a})
+
+instance FromXML ConnectionLogResponseOptions where
+        parseXML x
+          = ConnectionLogResponseOptions' <$>
+              (x .@? "Enabled") <*> (x .@? "CloudwatchLogStream")
+                <*> (x .@? "CloudwatchLogGroup")
+
+instance Hashable ConnectionLogResponseOptions where
+
+instance NFData ConnectionLogResponseOptions where
 
 -- | Describes a connection notification for a VPC endpoint or VPC endpoint service.
 --
@@ -1500,7 +3028,193 @@ instance Hashable ConversionTask where
 
 instance NFData ConversionTask where
 
--- | Describes the user or group to be added or removed from the permissions for a volume.
+-- | Describes the instances that could not be launched by the fleet.
+--
+--
+--
+-- /See:/ 'createFleetError' smart constructor.
+data CreateFleetError = CreateFleetError'
+  { _cfeLifecycle :: !(Maybe InstanceLifecycle)
+  , _cfeLaunchTemplateAndOverrides :: !(Maybe LaunchTemplateAndOverridesResponse)
+  , _cfeErrorCode :: !(Maybe Text)
+  , _cfeErrorMessage :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CreateFleetError' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cfeLifecycle' - Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.
+--
+-- * 'cfeLaunchTemplateAndOverrides' - The launch templates and overrides that were used for launching the instances. Any parameters that you specify in the Overrides override the same parameters in the launch template.
+--
+-- * 'cfeErrorCode' - The error code that indicates why the instance could not be launched. For more information about error codes, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes> .
+--
+-- * 'cfeErrorMessage' - The error message that describes why the instance could not be launched. For more information about error messages, see ee <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes> .
+createFleetError
+    :: CreateFleetError
+createFleetError =
+  CreateFleetError'
+    { _cfeLifecycle = Nothing
+    , _cfeLaunchTemplateAndOverrides = Nothing
+    , _cfeErrorCode = Nothing
+    , _cfeErrorMessage = Nothing
+    }
+
+
+-- | Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.
+cfeLifecycle :: Lens' CreateFleetError (Maybe InstanceLifecycle)
+cfeLifecycle = lens _cfeLifecycle (\ s a -> s{_cfeLifecycle = a})
+
+-- | The launch templates and overrides that were used for launching the instances. Any parameters that you specify in the Overrides override the same parameters in the launch template.
+cfeLaunchTemplateAndOverrides :: Lens' CreateFleetError (Maybe LaunchTemplateAndOverridesResponse)
+cfeLaunchTemplateAndOverrides = lens _cfeLaunchTemplateAndOverrides (\ s a -> s{_cfeLaunchTemplateAndOverrides = a})
+
+-- | The error code that indicates why the instance could not be launched. For more information about error codes, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes> .
+cfeErrorCode :: Lens' CreateFleetError (Maybe Text)
+cfeErrorCode = lens _cfeErrorCode (\ s a -> s{_cfeErrorCode = a})
+
+-- | The error message that describes why the instance could not be launched. For more information about error messages, see ee <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes> .
+cfeErrorMessage :: Lens' CreateFleetError (Maybe Text)
+cfeErrorMessage = lens _cfeErrorMessage (\ s a -> s{_cfeErrorMessage = a})
+
+instance FromXML CreateFleetError where
+        parseXML x
+          = CreateFleetError' <$>
+              (x .@? "lifecycle") <*>
+                (x .@? "launchTemplateAndOverrides")
+                <*> (x .@? "errorCode")
+                <*> (x .@? "errorMessage")
+
+instance Hashable CreateFleetError where
+
+instance NFData CreateFleetError where
+
+-- | Describes the instances that were launched by the fleet.
+--
+--
+--
+-- /See:/ 'createFleetInstance' smart constructor.
+data CreateFleetInstance = CreateFleetInstance'
+  { _cfiPlatform :: !(Maybe PlatformValues)
+  , _cfiLifecycle :: !(Maybe InstanceLifecycle)
+  , _cfiLaunchTemplateAndOverrides :: !(Maybe LaunchTemplateAndOverridesResponse)
+  , _cfiInstanceType :: !(Maybe InstanceType)
+  , _cfiInstanceIds :: !(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CreateFleetInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cfiPlatform' - The value is @Windows@ for Windows instances; otherwise blank.
+--
+-- * 'cfiLifecycle' - Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
+--
+-- * 'cfiLaunchTemplateAndOverrides' - The launch templates and overrides that were used for launching the instances. Any parameters that you specify in the Overrides override the same parameters in the launch template.
+--
+-- * 'cfiInstanceType' - The instance type.
+--
+-- * 'cfiInstanceIds' - The IDs of the instances.
+createFleetInstance
+    :: CreateFleetInstance
+createFleetInstance =
+  CreateFleetInstance'
+    { _cfiPlatform = Nothing
+    , _cfiLifecycle = Nothing
+    , _cfiLaunchTemplateAndOverrides = Nothing
+    , _cfiInstanceType = Nothing
+    , _cfiInstanceIds = Nothing
+    }
+
+
+-- | The value is @Windows@ for Windows instances; otherwise blank.
+cfiPlatform :: Lens' CreateFleetInstance (Maybe PlatformValues)
+cfiPlatform = lens _cfiPlatform (\ s a -> s{_cfiPlatform = a})
+
+-- | Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
+cfiLifecycle :: Lens' CreateFleetInstance (Maybe InstanceLifecycle)
+cfiLifecycle = lens _cfiLifecycle (\ s a -> s{_cfiLifecycle = a})
+
+-- | The launch templates and overrides that were used for launching the instances. Any parameters that you specify in the Overrides override the same parameters in the launch template.
+cfiLaunchTemplateAndOverrides :: Lens' CreateFleetInstance (Maybe LaunchTemplateAndOverridesResponse)
+cfiLaunchTemplateAndOverrides = lens _cfiLaunchTemplateAndOverrides (\ s a -> s{_cfiLaunchTemplateAndOverrides = a})
+
+-- | The instance type.
+cfiInstanceType :: Lens' CreateFleetInstance (Maybe InstanceType)
+cfiInstanceType = lens _cfiInstanceType (\ s a -> s{_cfiInstanceType = a})
+
+-- | The IDs of the instances.
+cfiInstanceIds :: Lens' CreateFleetInstance [Text]
+cfiInstanceIds = lens _cfiInstanceIds (\ s a -> s{_cfiInstanceIds = a}) . _Default . _Coerce
+
+instance FromXML CreateFleetInstance where
+        parseXML x
+          = CreateFleetInstance' <$>
+              (x .@? "platform") <*> (x .@? "lifecycle") <*>
+                (x .@? "launchTemplateAndOverrides")
+                <*> (x .@? "instanceType")
+                <*>
+                (x .@? "instanceIds" .!@ mempty >>=
+                   may (parseXMLList "item"))
+
+instance Hashable CreateFleetInstance where
+
+instance NFData CreateFleetInstance where
+
+-- | Describes the options for a VPC attachment.
+--
+--
+--
+-- /See:/ 'createTransitGatewayVPCAttachmentRequestOptions' smart constructor.
+data CreateTransitGatewayVPCAttachmentRequestOptions = CreateTransitGatewayVPCAttachmentRequestOptions'
+  { _ctgvaroIPv6Support :: !(Maybe IPv6SupportValue)
+  , _ctgvaroDNSSupport  :: !(Maybe DNSSupportValue)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CreateTransitGatewayVPCAttachmentRequestOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ctgvaroIPv6Support' - Enable or disable IPv6 support. The default is @enable@ .
+--
+-- * 'ctgvaroDNSSupport' - Enable or disable DNS support. The default is @enable@ .
+createTransitGatewayVPCAttachmentRequestOptions
+    :: CreateTransitGatewayVPCAttachmentRequestOptions
+createTransitGatewayVPCAttachmentRequestOptions =
+  CreateTransitGatewayVPCAttachmentRequestOptions'
+    {_ctgvaroIPv6Support = Nothing, _ctgvaroDNSSupport = Nothing}
+
+
+-- | Enable or disable IPv6 support. The default is @enable@ .
+ctgvaroIPv6Support :: Lens' CreateTransitGatewayVPCAttachmentRequestOptions (Maybe IPv6SupportValue)
+ctgvaroIPv6Support = lens _ctgvaroIPv6Support (\ s a -> s{_ctgvaroIPv6Support = a})
+
+-- | Enable or disable DNS support. The default is @enable@ .
+ctgvaroDNSSupport :: Lens' CreateTransitGatewayVPCAttachmentRequestOptions (Maybe DNSSupportValue)
+ctgvaroDNSSupport = lens _ctgvaroDNSSupport (\ s a -> s{_ctgvaroDNSSupport = a})
+
+instance Hashable
+           CreateTransitGatewayVPCAttachmentRequestOptions
+         where
+
+instance NFData
+           CreateTransitGatewayVPCAttachmentRequestOptions
+         where
+
+instance ToQuery
+           CreateTransitGatewayVPCAttachmentRequestOptions
+         where
+        toQuery
+          CreateTransitGatewayVPCAttachmentRequestOptions'{..}
+          = mconcat
+              ["Ipv6Support" =: _ctgvaroIPv6Support,
+               "DnsSupport" =: _ctgvaroDNSSupport]
+
+-- | Describes the user or group to be added or removed from the list of create volume permissions for a volume.
 --
 --
 --
@@ -1515,20 +3229,20 @@ data CreateVolumePermission = CreateVolumePermission'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvpGroup' - The specific group that is to be added or removed from a volume's list of create volume permissions.
+-- * 'cvpGroup' - The group to be added or removed. The possible value is @all@ .
 --
--- * 'cvpUserId' - The specific AWS account ID that is to be added or removed from a volume's list of create volume permissions.
+-- * 'cvpUserId' - The AWS account ID to be added or removed.
 createVolumePermission
     :: CreateVolumePermission
 createVolumePermission =
   CreateVolumePermission' {_cvpGroup = Nothing, _cvpUserId = Nothing}
 
 
--- | The specific group that is to be added or removed from a volume's list of create volume permissions.
+-- | The group to be added or removed. The possible value is @all@ .
 cvpGroup :: Lens' CreateVolumePermission (Maybe PermissionGroup)
 cvpGroup = lens _cvpGroup (\ s a -> s{_cvpGroup = a})
 
--- | The specific AWS account ID that is to be added or removed from a volume's list of create volume permissions.
+-- | The AWS account ID to be added or removed.
 cvpUserId :: Lens' CreateVolumePermission (Maybe Text)
 cvpUserId = lens _cvpUserId (\ s a -> s{_cvpUserId = a})
 
@@ -1546,7 +3260,7 @@ instance ToQuery CreateVolumePermission where
           = mconcat
               ["Group" =: _cvpGroup, "UserId" =: _cvpUserId]
 
--- | Describes modifications to the permissions for a volume.
+-- | Describes modifications to the list of create volume permissions for a volume.
 --
 --
 --
@@ -1561,9 +3275,9 @@ data CreateVolumePermissionModifications = CreateVolumePermissionModifications'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvpmRemove' - Removes a specific AWS account ID or group from a volume's list of create volume permissions.
+-- * 'cvpmRemove' - Removes the specified AWS account ID or group from the list.
 --
--- * 'cvpmAdd' - Adds a specific AWS account ID or group to a volume's list of create volume permissions.
+-- * 'cvpmAdd' - Adds the specified AWS account ID or group to the list.
 createVolumePermissionModifications
     :: CreateVolumePermissionModifications
 createVolumePermissionModifications =
@@ -1571,11 +3285,11 @@ createVolumePermissionModifications =
     {_cvpmRemove = Nothing, _cvpmAdd = Nothing}
 
 
--- | Removes a specific AWS account ID or group from a volume's list of create volume permissions.
+-- | Removes the specified AWS account ID or group from the list.
 cvpmRemove :: Lens' CreateVolumePermissionModifications [CreateVolumePermission]
 cvpmRemove = lens _cvpmRemove (\ s a -> s{_cvpmRemove = a}) . _Default . _Coerce
 
--- | Adds a specific AWS account ID or group to a volume's list of create volume permissions.
+-- | Adds the specified AWS account ID or group to the list.
 cvpmAdd :: Lens' CreateVolumePermissionModifications [CreateVolumePermission]
 cvpmAdd = lens _cvpmAdd (\ s a -> s{_cvpmAdd = a}) . _Default . _Coerce
 
@@ -1592,7 +3306,7 @@ instance ToQuery CreateVolumePermissionModifications
               [toQuery (toQueryList "Remove" <$> _cvpmRemove),
                toQuery (toQueryList "Add" <$> _cvpmAdd)]
 
--- | Describes the credit option for CPU usage of a T2 instance.
+-- | Describes the credit option for CPU usage of a T2 or T3 instance.
 --
 --
 --
@@ -1606,13 +3320,13 @@ newtype CreditSpecification = CreditSpecification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csCPUCredits' - The credit option for CPU usage of a T2 instance.
+-- * 'csCPUCredits' - The credit option for CPU usage of a T2 or T3 instance. Valid values are @standard@ and @unlimited@ .
 creditSpecification
     :: CreditSpecification
 creditSpecification = CreditSpecification' {_csCPUCredits = Nothing}
 
 
--- | The credit option for CPU usage of a T2 instance.
+-- | The credit option for CPU usage of a T2 or T3 instance. Valid values are @standard@ and @unlimited@ .
 csCPUCredits :: Lens' CreditSpecification (Maybe Text)
 csCPUCredits = lens _csCPUCredits (\ s a -> s{_csCPUCredits = a})
 
@@ -1624,7 +3338,7 @@ instance Hashable CreditSpecification where
 
 instance NFData CreditSpecification where
 
--- | The credit option for CPU usage of a T2 instance.
+-- | The credit option for CPU usage of a T2 or T3 instance.
 --
 --
 --
@@ -1638,7 +3352,7 @@ newtype CreditSpecificationRequest = CreditSpecificationRequest'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csrCPUCredits' - The credit option for CPU usage of a T2 instance. Valid values are @standard@ and @unlimited@ .
+-- * 'csrCPUCredits' - The credit option for CPU usage of a T2 or T3 instance. Valid values are @standard@ and @unlimited@ .
 creditSpecificationRequest
     :: Text -- ^ 'csrCPUCredits'
     -> CreditSpecificationRequest
@@ -1646,7 +3360,7 @@ creditSpecificationRequest pCPUCredits_ =
   CreditSpecificationRequest' {_csrCPUCredits = pCPUCredits_}
 
 
--- | The credit option for CPU usage of a T2 instance. Valid values are @standard@ and @unlimited@ .
+-- | The credit option for CPU usage of a T2 or T3 instance. Valid values are @standard@ and @unlimited@ .
 csrCPUCredits :: Lens' CreditSpecificationRequest Text
 csrCPUCredits = lens _csrCPUCredits (\ s a -> s{_csrCPUCredits = a})
 
@@ -1794,6 +3508,7 @@ instance NFData DHCPConfiguration where
 -- /See:/ 'dhcpOptions' smart constructor.
 data DHCPOptions = DHCPOptions'
   { _doDHCPConfigurations :: !(Maybe [DHCPConfiguration])
+  , _doOwnerId            :: !(Maybe Text)
   , _doDHCPOptionsId      :: !(Maybe Text)
   , _doTags               :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -1805,6 +3520,8 @@ data DHCPOptions = DHCPOptions'
 --
 -- * 'doDHCPConfigurations' - One or more DHCP options in the set.
 --
+-- * 'doOwnerId' - The ID of the AWS account that owns the DHCP options set.
+--
 -- * 'doDHCPOptionsId' - The ID of the set of DHCP options.
 --
 -- * 'doTags' - Any tags assigned to the DHCP options set.
@@ -1813,6 +3530,7 @@ dhcpOptions
 dhcpOptions =
   DHCPOptions'
     { _doDHCPConfigurations = Nothing
+    , _doOwnerId = Nothing
     , _doDHCPOptionsId = Nothing
     , _doTags = Nothing
     }
@@ -1821,6 +3539,10 @@ dhcpOptions =
 -- | One or more DHCP options in the set.
 doDHCPConfigurations :: Lens' DHCPOptions [DHCPConfiguration]
 doDHCPConfigurations = lens _doDHCPConfigurations (\ s a -> s{_doDHCPConfigurations = a}) . _Default . _Coerce
+
+-- | The ID of the AWS account that owns the DHCP options set.
+doOwnerId :: Lens' DHCPOptions (Maybe Text)
+doOwnerId = lens _doOwnerId (\ s a -> s{_doOwnerId = a})
 
 -- | The ID of the set of DHCP options.
 doDHCPOptionsId :: Lens' DHCPOptions (Maybe Text)
@@ -1835,6 +3557,7 @@ instance FromXML DHCPOptions where
           = DHCPOptions' <$>
               (x .@? "dhcpConfigurationSet" .!@ mempty >>=
                  may (parseXMLList "item"))
+                <*> (x .@? "ownerId")
                 <*> (x .@? "dhcpOptionsId")
                 <*>
                 (x .@? "tagSet" .!@ mempty >>=
@@ -1883,6 +3606,54 @@ instance FromXML DNSEntry where
 instance Hashable DNSEntry where
 
 instance NFData DNSEntry where
+
+-- | Information about the DNS server to be used.
+--
+--
+--
+-- /See:/ 'dnsServersOptionsModifyStructure' smart constructor.
+data DNSServersOptionsModifyStructure = DNSServersOptionsModifyStructure'
+  { _dsomsEnabled          :: !(Maybe Bool)
+  , _dsomsCustomDNSServers :: !(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DNSServersOptionsModifyStructure' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsomsEnabled' - Indicates whether DNS servers should be used. Specify @False@ to delete the existing DNS servers.
+--
+-- * 'dsomsCustomDNSServers' - The IPv4 address range, in CIDR notation, of the DNS servers to be used. You can specify up to two DNS servers. Ensure that the DNS servers can be reached by the clients. The specified values overwrite the existing values.
+dnsServersOptionsModifyStructure
+    :: DNSServersOptionsModifyStructure
+dnsServersOptionsModifyStructure =
+  DNSServersOptionsModifyStructure'
+    {_dsomsEnabled = Nothing, _dsomsCustomDNSServers = Nothing}
+
+
+-- | Indicates whether DNS servers should be used. Specify @False@ to delete the existing DNS servers.
+dsomsEnabled :: Lens' DNSServersOptionsModifyStructure (Maybe Bool)
+dsomsEnabled = lens _dsomsEnabled (\ s a -> s{_dsomsEnabled = a})
+
+-- | The IPv4 address range, in CIDR notation, of the DNS servers to be used. You can specify up to two DNS servers. Ensure that the DNS servers can be reached by the clients. The specified values overwrite the existing values.
+dsomsCustomDNSServers :: Lens' DNSServersOptionsModifyStructure [Text]
+dsomsCustomDNSServers = lens _dsomsCustomDNSServers (\ s a -> s{_dsomsCustomDNSServers = a}) . _Default . _Coerce
+
+instance Hashable DNSServersOptionsModifyStructure
+         where
+
+instance NFData DNSServersOptionsModifyStructure
+         where
+
+instance ToQuery DNSServersOptionsModifyStructure
+         where
+        toQuery DNSServersOptionsModifyStructure'{..}
+          = mconcat
+              ["Enabled" =: _dsomsEnabled,
+               toQuery
+                 (toQueryList "CustomDnsServers" <$>
+                    _dsomsCustomDNSServers)]
 
 -- | Describes an EC2 Fleet error.
 --
@@ -2149,6 +3920,215 @@ instance NFData
            DeleteLaunchTemplateVersionsResponseSuccessItem
          where
 
+-- | Describes the instances that could not be launched by the fleet.
+--
+--
+--
+-- /See:/ 'describeFleetError' smart constructor.
+data DescribeFleetError = DescribeFleetError'
+  { _dfeLifecycle :: !(Maybe InstanceLifecycle)
+  , _dfeLaunchTemplateAndOverrides :: !(Maybe LaunchTemplateAndOverridesResponse)
+  , _dfeErrorCode :: !(Maybe Text)
+  , _dfeErrorMessage :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DescribeFleetError' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dfeLifecycle' - Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.
+--
+-- * 'dfeLaunchTemplateAndOverrides' - The launch templates and overrides that were used for launching the instances. Any parameters that you specify in the Overrides override the same parameters in the launch template.
+--
+-- * 'dfeErrorCode' - The error code that indicates why the instance could not be launched. For more information about error codes, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes> .
+--
+-- * 'dfeErrorMessage' - The error message that describes why the instance could not be launched. For more information about error messages, see ee <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes> .
+describeFleetError
+    :: DescribeFleetError
+describeFleetError =
+  DescribeFleetError'
+    { _dfeLifecycle = Nothing
+    , _dfeLaunchTemplateAndOverrides = Nothing
+    , _dfeErrorCode = Nothing
+    , _dfeErrorMessage = Nothing
+    }
+
+
+-- | Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.
+dfeLifecycle :: Lens' DescribeFleetError (Maybe InstanceLifecycle)
+dfeLifecycle = lens _dfeLifecycle (\ s a -> s{_dfeLifecycle = a})
+
+-- | The launch templates and overrides that were used for launching the instances. Any parameters that you specify in the Overrides override the same parameters in the launch template.
+dfeLaunchTemplateAndOverrides :: Lens' DescribeFleetError (Maybe LaunchTemplateAndOverridesResponse)
+dfeLaunchTemplateAndOverrides = lens _dfeLaunchTemplateAndOverrides (\ s a -> s{_dfeLaunchTemplateAndOverrides = a})
+
+-- | The error code that indicates why the instance could not be launched. For more information about error codes, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes> .
+dfeErrorCode :: Lens' DescribeFleetError (Maybe Text)
+dfeErrorCode = lens _dfeErrorCode (\ s a -> s{_dfeErrorCode = a})
+
+-- | The error message that describes why the instance could not be launched. For more information about error messages, see ee <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes> .
+dfeErrorMessage :: Lens' DescribeFleetError (Maybe Text)
+dfeErrorMessage = lens _dfeErrorMessage (\ s a -> s{_dfeErrorMessage = a})
+
+instance FromXML DescribeFleetError where
+        parseXML x
+          = DescribeFleetError' <$>
+              (x .@? "lifecycle") <*>
+                (x .@? "launchTemplateAndOverrides")
+                <*> (x .@? "errorCode")
+                <*> (x .@? "errorMessage")
+
+instance Hashable DescribeFleetError where
+
+instance NFData DescribeFleetError where
+
+-- | Describes the instances that were launched by the fleet.
+--
+--
+--
+-- /See:/ 'describeFleetsInstances' smart constructor.
+data DescribeFleetsInstances = DescribeFleetsInstances'
+  { _dfiPlatform :: !(Maybe PlatformValues)
+  , _dfiLifecycle :: !(Maybe InstanceLifecycle)
+  , _dfiLaunchTemplateAndOverrides :: !(Maybe LaunchTemplateAndOverridesResponse)
+  , _dfiInstanceType :: !(Maybe InstanceType)
+  , _dfiInstanceIds :: !(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DescribeFleetsInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dfiPlatform' - The value is @Windows@ for Windows instances; otherwise blank.
+--
+-- * 'dfiLifecycle' - Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
+--
+-- * 'dfiLaunchTemplateAndOverrides' - The launch templates and overrides that were used for launching the instances. Any parameters that you specify in the Overrides override the same parameters in the launch template.
+--
+-- * 'dfiInstanceType' - The instance type.
+--
+-- * 'dfiInstanceIds' - The IDs of the instances.
+describeFleetsInstances
+    :: DescribeFleetsInstances
+describeFleetsInstances =
+  DescribeFleetsInstances'
+    { _dfiPlatform = Nothing
+    , _dfiLifecycle = Nothing
+    , _dfiLaunchTemplateAndOverrides = Nothing
+    , _dfiInstanceType = Nothing
+    , _dfiInstanceIds = Nothing
+    }
+
+
+-- | The value is @Windows@ for Windows instances; otherwise blank.
+dfiPlatform :: Lens' DescribeFleetsInstances (Maybe PlatformValues)
+dfiPlatform = lens _dfiPlatform (\ s a -> s{_dfiPlatform = a})
+
+-- | Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
+dfiLifecycle :: Lens' DescribeFleetsInstances (Maybe InstanceLifecycle)
+dfiLifecycle = lens _dfiLifecycle (\ s a -> s{_dfiLifecycle = a})
+
+-- | The launch templates and overrides that were used for launching the instances. Any parameters that you specify in the Overrides override the same parameters in the launch template.
+dfiLaunchTemplateAndOverrides :: Lens' DescribeFleetsInstances (Maybe LaunchTemplateAndOverridesResponse)
+dfiLaunchTemplateAndOverrides = lens _dfiLaunchTemplateAndOverrides (\ s a -> s{_dfiLaunchTemplateAndOverrides = a})
+
+-- | The instance type.
+dfiInstanceType :: Lens' DescribeFleetsInstances (Maybe InstanceType)
+dfiInstanceType = lens _dfiInstanceType (\ s a -> s{_dfiInstanceType = a})
+
+-- | The IDs of the instances.
+dfiInstanceIds :: Lens' DescribeFleetsInstances [Text]
+dfiInstanceIds = lens _dfiInstanceIds (\ s a -> s{_dfiInstanceIds = a}) . _Default . _Coerce
+
+instance FromXML DescribeFleetsInstances where
+        parseXML x
+          = DescribeFleetsInstances' <$>
+              (x .@? "platform") <*> (x .@? "lifecycle") <*>
+                (x .@? "launchTemplateAndOverrides")
+                <*> (x .@? "instanceType")
+                <*>
+                (x .@? "instanceIds" .!@ mempty >>=
+                   may (parseXMLList "item"))
+
+instance Hashable DescribeFleetsInstances where
+
+instance NFData DescribeFleetsInstances where
+
+-- | Describes an Active Directory.
+--
+--
+--
+-- /See:/ 'directoryServiceAuthentication' smart constructor.
+newtype DirectoryServiceAuthentication = DirectoryServiceAuthentication'
+  { _dsaDirectoryId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DirectoryServiceAuthentication' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsaDirectoryId' - The ID of the Active Directory used for authentication.
+directoryServiceAuthentication
+    :: DirectoryServiceAuthentication
+directoryServiceAuthentication =
+  DirectoryServiceAuthentication' {_dsaDirectoryId = Nothing}
+
+
+-- | The ID of the Active Directory used for authentication.
+dsaDirectoryId :: Lens' DirectoryServiceAuthentication (Maybe Text)
+dsaDirectoryId = lens _dsaDirectoryId (\ s a -> s{_dsaDirectoryId = a})
+
+instance FromXML DirectoryServiceAuthentication where
+        parseXML x
+          = DirectoryServiceAuthentication' <$>
+              (x .@? "directoryId")
+
+instance Hashable DirectoryServiceAuthentication
+         where
+
+instance NFData DirectoryServiceAuthentication where
+
+-- | Describes the Active Directory to be used for client authentication.
+--
+--
+--
+-- /See:/ 'directoryServiceAuthenticationRequest' smart constructor.
+newtype DirectoryServiceAuthenticationRequest = DirectoryServiceAuthenticationRequest'
+  { _dsarDirectoryId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DirectoryServiceAuthenticationRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsarDirectoryId' - The ID of the Active Directory to be used for authentication.
+directoryServiceAuthenticationRequest
+    :: DirectoryServiceAuthenticationRequest
+directoryServiceAuthenticationRequest =
+  DirectoryServiceAuthenticationRequest' {_dsarDirectoryId = Nothing}
+
+
+-- | The ID of the Active Directory to be used for authentication.
+dsarDirectoryId :: Lens' DirectoryServiceAuthenticationRequest (Maybe Text)
+dsarDirectoryId = lens _dsarDirectoryId (\ s a -> s{_dsarDirectoryId = a})
+
+instance Hashable
+           DirectoryServiceAuthenticationRequest
+         where
+
+instance NFData DirectoryServiceAuthenticationRequest
+         where
+
+instance ToQuery
+           DirectoryServiceAuthenticationRequest
+         where
+        toQuery DirectoryServiceAuthenticationRequest'{..}
+          = mconcat ["DirectoryId" =: _dsarDirectoryId]
+
 -- | Describes a disk image.
 --
 --
@@ -2221,7 +4201,7 @@ data DiskImageDescription = DiskImageDescription'
 --
 -- * 'dFormat' - The disk image format.
 --
--- * 'dImportManifestURL' - A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ . For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
+-- * 'dImportManifestURL' - A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ . For information about the import manifest referenced by this API action, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
 diskImageDescription
     :: DiskImageDescription
 diskImageDescription =
@@ -2245,7 +4225,7 @@ dChecksum = lens _dChecksum (\ s a -> s{_dChecksum = a})
 dFormat :: Lens' DiskImageDescription (Maybe DiskImageFormat)
 dFormat = lens _dFormat (\ s a -> s{_dFormat = a})
 
--- | A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ . For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
+-- | A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ . For information about the import manifest referenced by this API action, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
 dImportManifestURL :: Lens' DiskImageDescription (Maybe Text)
 dImportManifestURL = lens _dImportManifestURL (\ s a -> s{_dImportManifestURL = a})
 
@@ -2280,7 +4260,7 @@ data DiskImageDetail = DiskImageDetail'
 --
 -- * 'didFormat' - The disk image format.
 --
--- * 'didImportManifestURL' - A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ . For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
+-- * 'didImportManifestURL' - A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ . For information about the import manifest referenced by this API action, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
 diskImageDetail
     :: Integer -- ^ 'didBytes'
     -> DiskImageFormat -- ^ 'didFormat'
@@ -2302,7 +4282,7 @@ didBytes = lens _didBytes (\ s a -> s{_didBytes = a})
 didFormat :: Lens' DiskImageDetail DiskImageFormat
 didFormat = lens _didFormat (\ s a -> s{_didFormat = a})
 
--- | A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ . For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
+-- | A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ . For information about the import manifest referenced by this API action, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
 didImportManifestURL :: Lens' DiskImageDetail Text
 didImportManifestURL = lens _didImportManifestURL (\ s a -> s{_didImportManifestURL = a})
 
@@ -2381,11 +4361,11 @@ data EBSBlockDevice = EBSBlockDevice'
 --
 -- * 'ebdVolumeSize' - The size of the volume, in GiB. Constraints: 1-16384 for General Purpose SSD (@gp2@ ), 4-16384 for Provisioned IOPS SSD (@io1@ ), 500-16384 for Throughput Optimized HDD (@st1@ ), 500-16384 for Cold HDD (@sc1@ ), and 1-1024 for Magnetic (@standard@ ) volumes. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
 --
--- * 'ebdIOPS' - The number of I/O operations per second (IOPS) that the volume supports. For @io1@ , this represents the number of IOPS that are provisioned for the volume. For @gp2@ , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ . Constraint: Range is 100-20000 IOPS for @io1@ volumes and 100-10000 IOPS for @gp2@ volumes. Condition: This parameter is required for requests to create @io1@ volumes; it is not used in requests to create @gp2@ , @st1@ , @sc1@ , or @standard@ volumes.
+-- * 'ebdIOPS' - The number of I/O operations per second (IOPS) that the volume supports. For @io1@ volumes, this represents the number of IOPS that are provisioned for the volume. For @gp2@ volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ . Constraints: Range is 100-16,000 IOPS for @gp2@ volumes and 100 to 64,000IOPS for @io1@ volumes, in most Regions. The maximum IOPS for @io1@ of 64,000 is guaranteed only on <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> . Other instance families guarantee performance up to 32,000 IOPS. Condition: This parameter is required for requests to create @io1@ volumes; it is not used in requests to create @gp2@ , @st1@ , @sc1@ , or @standard@ volumes.
 --
--- * 'ebdEncrypted' - Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value. This is because only blank volumes can be encrypted on creation.
+-- * 'ebdEncrypted' - Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you cannot specify an encryption value. This is because only blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS volume, you cannot specify an encryption value that differs from that of the EBS volume. We recommend that you omit the encryption value from the block device mappings when creating an image from an instance.
 --
--- * 'ebdKMSKeyId' - Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is encrypted. Note: This parameter is only supported on @BlockDeviceMapping@ objects called by <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> , <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html RequestSpotFleet> , and <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html RequestSpotInstances> .
+-- * 'ebdKMSKeyId' - Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is encrypted. This parameter is only supported on @BlockDeviceMapping@ objects called by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> , <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html RequestSpotFleet> , and <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html RequestSpotInstances> .
 --
 -- * 'ebdVolumeType' - The volume type: @gp2@ , @io1@ , @st1@ , @sc1@ , or @standard@ . Default: @standard@
 --
@@ -2412,15 +4392,15 @@ ebdDeleteOnTermination = lens _ebdDeleteOnTermination (\ s a -> s{_ebdDeleteOnTe
 ebdVolumeSize :: Lens' EBSBlockDevice (Maybe Int)
 ebdVolumeSize = lens _ebdVolumeSize (\ s a -> s{_ebdVolumeSize = a})
 
--- | The number of I/O operations per second (IOPS) that the volume supports. For @io1@ , this represents the number of IOPS that are provisioned for the volume. For @gp2@ , this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ . Constraint: Range is 100-20000 IOPS for @io1@ volumes and 100-10000 IOPS for @gp2@ volumes. Condition: This parameter is required for requests to create @io1@ volumes; it is not used in requests to create @gp2@ , @st1@ , @sc1@ , or @standard@ volumes.
+-- | The number of I/O operations per second (IOPS) that the volume supports. For @io1@ volumes, this represents the number of IOPS that are provisioned for the volume. For @gp2@ volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ . Constraints: Range is 100-16,000 IOPS for @gp2@ volumes and 100 to 64,000IOPS for @io1@ volumes, in most Regions. The maximum IOPS for @io1@ of 64,000 is guaranteed only on <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> . Other instance families guarantee performance up to 32,000 IOPS. Condition: This parameter is required for requests to create @io1@ volumes; it is not used in requests to create @gp2@ , @st1@ , @sc1@ , or @standard@ volumes.
 ebdIOPS :: Lens' EBSBlockDevice (Maybe Int)
 ebdIOPS = lens _ebdIOPS (\ s a -> s{_ebdIOPS = a})
 
--- | Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value. This is because only blank volumes can be encrypted on creation.
+-- | Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you cannot specify an encryption value. This is because only blank volumes can be encrypted on creation. If you are creating a snapshot from an existing EBS volume, you cannot specify an encryption value that differs from that of the EBS volume. We recommend that you omit the encryption value from the block device mappings when creating an image from an instance.
 ebdEncrypted :: Lens' EBSBlockDevice (Maybe Bool)
 ebdEncrypted = lens _ebdEncrypted (\ s a -> s{_ebdEncrypted = a})
 
--- | Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is encrypted. Note: This parameter is only supported on @BlockDeviceMapping@ objects called by <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> , <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html RequestSpotFleet> , and <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html RequestSpotInstances> .
+-- | Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is encrypted. This parameter is only supported on @BlockDeviceMapping@ objects called by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances> , <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html RequestSpotFleet> , and <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html RequestSpotInstances> .
 ebdKMSKeyId :: Lens' EBSBlockDevice (Maybe Text)
 ebdKMSKeyId = lens _ebdKMSKeyId (\ s a -> s{_ebdKMSKeyId = a})
 
@@ -2565,7 +4545,7 @@ instance ToQuery EBSInstanceBlockDeviceSpecification
               ["DeleteOnTermination" =: _eibdsDeleteOnTermination,
                "VolumeId" =: _eibdsVolumeId]
 
--- | Describes an egress-only Internet gateway.
+-- | Describes an egress-only internet gateway.
 --
 --
 --
@@ -2580,9 +4560,9 @@ data EgressOnlyInternetGateway = EgressOnlyInternetGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eoigEgressOnlyInternetGatewayId' - The ID of the egress-only Internet gateway.
+-- * 'eoigEgressOnlyInternetGatewayId' - The ID of the egress-only internet gateway.
 --
--- * 'eoigAttachments' - Information about the attachment of the egress-only Internet gateway.
+-- * 'eoigAttachments' - Information about the attachment of the egress-only internet gateway.
 egressOnlyInternetGateway
     :: EgressOnlyInternetGateway
 egressOnlyInternetGateway =
@@ -2590,11 +4570,11 @@ egressOnlyInternetGateway =
     {_eoigEgressOnlyInternetGatewayId = Nothing, _eoigAttachments = Nothing}
 
 
--- | The ID of the egress-only Internet gateway.
+-- | The ID of the egress-only internet gateway.
 eoigEgressOnlyInternetGatewayId :: Lens' EgressOnlyInternetGateway (Maybe Text)
 eoigEgressOnlyInternetGatewayId = lens _eoigEgressOnlyInternetGatewayId (\ s a -> s{_eoigEgressOnlyInternetGatewayId = a})
 
--- | Information about the attachment of the egress-only Internet gateway.
+-- | Information about the attachment of the egress-only internet gateway.
 eoigAttachments :: Lens' EgressOnlyInternetGateway [InternetGatewayAttachment]
 eoigAttachments = lens _eoigAttachments (\ s a -> s{_eoigAttachments = a}) . _Default . _Coerce
 
@@ -2609,7 +4589,7 @@ instance Hashable EgressOnlyInternetGateway where
 
 instance NFData EgressOnlyInternetGateway where
 
--- | Describes the association between an instance and an Elastic GPU.
+-- | Describes the association between an instance and an Elastic Graphics accelerator.
 --
 --
 --
@@ -2626,13 +4606,13 @@ data ElasticGpuAssociation = ElasticGpuAssociation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'egaElasticGpuId' - The ID of the Elastic GPU.
+-- * 'egaElasticGpuId' - The ID of the Elastic Graphics accelerator.
 --
 -- * 'egaElasticGpuAssociationId' - The ID of the association.
 --
--- * 'egaElasticGpuAssociationTime' - The time the Elastic GPU was associated with the instance.
+-- * 'egaElasticGpuAssociationTime' - The time the Elastic Graphics accelerator was associated with the instance.
 --
--- * 'egaElasticGpuAssociationState' - The state of the association between the instance and the Elastic GPU.
+-- * 'egaElasticGpuAssociationState' - The state of the association between the instance and the Elastic Graphics accelerator.
 elasticGpuAssociation
     :: ElasticGpuAssociation
 elasticGpuAssociation =
@@ -2644,7 +4624,7 @@ elasticGpuAssociation =
     }
 
 
--- | The ID of the Elastic GPU.
+-- | The ID of the Elastic Graphics accelerator.
 egaElasticGpuId :: Lens' ElasticGpuAssociation (Maybe Text)
 egaElasticGpuId = lens _egaElasticGpuId (\ s a -> s{_egaElasticGpuId = a})
 
@@ -2652,11 +4632,11 @@ egaElasticGpuId = lens _egaElasticGpuId (\ s a -> s{_egaElasticGpuId = a})
 egaElasticGpuAssociationId :: Lens' ElasticGpuAssociation (Maybe Text)
 egaElasticGpuAssociationId = lens _egaElasticGpuAssociationId (\ s a -> s{_egaElasticGpuAssociationId = a})
 
--- | The time the Elastic GPU was associated with the instance.
+-- | The time the Elastic Graphics accelerator was associated with the instance.
 egaElasticGpuAssociationTime :: Lens' ElasticGpuAssociation (Maybe Text)
 egaElasticGpuAssociationTime = lens _egaElasticGpuAssociationTime (\ s a -> s{_egaElasticGpuAssociationTime = a})
 
--- | The state of the association between the instance and the Elastic GPU.
+-- | The state of the association between the instance and the Elastic Graphics accelerator.
 egaElasticGpuAssociationState :: Lens' ElasticGpuAssociation (Maybe Text)
 egaElasticGpuAssociationState = lens _egaElasticGpuAssociationState (\ s a -> s{_egaElasticGpuAssociationState = a})
 
@@ -2672,7 +4652,7 @@ instance Hashable ElasticGpuAssociation where
 
 instance NFData ElasticGpuAssociation where
 
--- | Describes the status of an Elastic GPU.
+-- | Describes the status of an Elastic Graphics accelerator.
 --
 --
 --
@@ -2703,7 +4683,7 @@ instance Hashable ElasticGpuHealth where
 
 instance NFData ElasticGpuHealth where
 
--- | A specification for an Elastic GPU.
+-- | A specification for an Elastic Graphics accelerator.
 --
 --
 --
@@ -2717,14 +4697,14 @@ newtype ElasticGpuSpecification = ElasticGpuSpecification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'egsType' - The type of Elastic GPU.
+-- * 'egsType' - The type of Elastic Graphics accelerator.
 elasticGpuSpecification
     :: Text -- ^ 'egsType'
     -> ElasticGpuSpecification
 elasticGpuSpecification pType_ = ElasticGpuSpecification' {_egsType = pType_}
 
 
--- | The type of Elastic GPU.
+-- | The type of Elastic Graphics accelerator.
 egsType :: Lens' ElasticGpuSpecification Text
 egsType = lens _egsType (\ s a -> s{_egsType = a})
 
@@ -2771,7 +4751,7 @@ instance Hashable ElasticGpuSpecificationResponse
 
 instance NFData ElasticGpuSpecificationResponse where
 
--- | Describes an Elastic GPU.
+-- | Describes an Elastic Graphics accelerator.
 --
 --
 --
@@ -2790,17 +4770,17 @@ data ElasticGpus = ElasticGpus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'egInstanceId' - The ID of the instance to which the Elastic GPU is attached.
+-- * 'egInstanceId' - The ID of the instance to which the Elastic Graphics accelerator is attached.
 --
--- * 'egElasticGpuType' - The type of Elastic GPU.
+-- * 'egElasticGpuType' - The type of Elastic Graphics accelerator.
 --
--- * 'egElasticGpuId' - The ID of the Elastic GPU.
+-- * 'egElasticGpuId' - The ID of the Elastic Graphics accelerator.
 --
--- * 'egElasticGpuState' - The state of the Elastic GPU.
+-- * 'egElasticGpuState' - The state of the Elastic Graphics accelerator.
 --
--- * 'egElasticGpuHealth' - The status of the Elastic GPU.
+-- * 'egElasticGpuHealth' - The status of the Elastic Graphics accelerator.
 --
--- * 'egAvailabilityZone' - The Availability Zone in the which the Elastic GPU resides.
+-- * 'egAvailabilityZone' - The Availability Zone in the which the Elastic Graphics accelerator resides.
 elasticGpus
     :: ElasticGpus
 elasticGpus =
@@ -2814,27 +4794,27 @@ elasticGpus =
     }
 
 
--- | The ID of the instance to which the Elastic GPU is attached.
+-- | The ID of the instance to which the Elastic Graphics accelerator is attached.
 egInstanceId :: Lens' ElasticGpus (Maybe Text)
 egInstanceId = lens _egInstanceId (\ s a -> s{_egInstanceId = a})
 
--- | The type of Elastic GPU.
+-- | The type of Elastic Graphics accelerator.
 egElasticGpuType :: Lens' ElasticGpus (Maybe Text)
 egElasticGpuType = lens _egElasticGpuType (\ s a -> s{_egElasticGpuType = a})
 
--- | The ID of the Elastic GPU.
+-- | The ID of the Elastic Graphics accelerator.
 egElasticGpuId :: Lens' ElasticGpus (Maybe Text)
 egElasticGpuId = lens _egElasticGpuId (\ s a -> s{_egElasticGpuId = a})
 
--- | The state of the Elastic GPU.
+-- | The state of the Elastic Graphics accelerator.
 egElasticGpuState :: Lens' ElasticGpus (Maybe ElasticGpuState)
 egElasticGpuState = lens _egElasticGpuState (\ s a -> s{_egElasticGpuState = a})
 
--- | The status of the Elastic GPU.
+-- | The status of the Elastic Graphics accelerator.
 egElasticGpuHealth :: Lens' ElasticGpus (Maybe ElasticGpuHealth)
 egElasticGpuHealth = lens _egElasticGpuHealth (\ s a -> s{_egElasticGpuHealth = a})
 
--- | The Availability Zone in the which the Elastic GPU resides.
+-- | The Availability Zone in the which the Elastic Graphics accelerator resides.
 egAvailabilityZone :: Lens' ElasticGpus (Maybe Text)
 egAvailabilityZone = lens _egAvailabilityZone (\ s a -> s{_egAvailabilityZone = a})
 
@@ -2850,6 +4830,111 @@ instance FromXML ElasticGpus where
 instance Hashable ElasticGpus where
 
 instance NFData ElasticGpus where
+
+-- | Describes an elastic inference accelerator.
+--
+--
+--
+-- /See:/ 'elasticInferenceAccelerator' smart constructor.
+newtype ElasticInferenceAccelerator = ElasticInferenceAccelerator'
+  { _eiaType :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ElasticInferenceAccelerator' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eiaType' - The type of elastic inference accelerator. The possible values are eia1.small, eia1.medium, and eia1.large.
+elasticInferenceAccelerator
+    :: Text -- ^ 'eiaType'
+    -> ElasticInferenceAccelerator
+elasticInferenceAccelerator pType_ =
+  ElasticInferenceAccelerator' {_eiaType = pType_}
+
+
+-- | The type of elastic inference accelerator. The possible values are eia1.small, eia1.medium, and eia1.large.
+eiaType :: Lens' ElasticInferenceAccelerator Text
+eiaType = lens _eiaType (\ s a -> s{_eiaType = a})
+
+instance Hashable ElasticInferenceAccelerator where
+
+instance NFData ElasticInferenceAccelerator where
+
+instance ToQuery ElasticInferenceAccelerator where
+        toQuery ElasticInferenceAccelerator'{..}
+          = mconcat ["Type" =: _eiaType]
+
+-- | Describes the association between an instance and an elastic inference accelerator.
+--
+--
+--
+-- /See:/ 'elasticInferenceAcceleratorAssociation' smart constructor.
+data ElasticInferenceAcceleratorAssociation = ElasticInferenceAcceleratorAssociation'
+  { _eiaaElasticInferenceAcceleratorAssociationState :: !(Maybe Text)
+  , _eiaaElasticInferenceAcceleratorAssociationTime  :: !(Maybe ISO8601)
+  , _eiaaElasticInferenceAcceleratorARN              :: !(Maybe Text)
+  , _eiaaElasticInferenceAcceleratorAssociationId    :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ElasticInferenceAcceleratorAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eiaaElasticInferenceAcceleratorAssociationState' - The state of the elastic inference accelerator.
+--
+-- * 'eiaaElasticInferenceAcceleratorAssociationTime' - The time at which the elastic inference accelerator is associated with an instance.
+--
+-- * 'eiaaElasticInferenceAcceleratorARN' - The Amazon Resource Name (ARN) of the elastic inference accelerator.
+--
+-- * 'eiaaElasticInferenceAcceleratorAssociationId' - The ID of the association.
+elasticInferenceAcceleratorAssociation
+    :: ElasticInferenceAcceleratorAssociation
+elasticInferenceAcceleratorAssociation =
+  ElasticInferenceAcceleratorAssociation'
+    { _eiaaElasticInferenceAcceleratorAssociationState = Nothing
+    , _eiaaElasticInferenceAcceleratorAssociationTime = Nothing
+    , _eiaaElasticInferenceAcceleratorARN = Nothing
+    , _eiaaElasticInferenceAcceleratorAssociationId = Nothing
+    }
+
+
+-- | The state of the elastic inference accelerator.
+eiaaElasticInferenceAcceleratorAssociationState :: Lens' ElasticInferenceAcceleratorAssociation (Maybe Text)
+eiaaElasticInferenceAcceleratorAssociationState = lens _eiaaElasticInferenceAcceleratorAssociationState (\ s a -> s{_eiaaElasticInferenceAcceleratorAssociationState = a})
+
+-- | The time at which the elastic inference accelerator is associated with an instance.
+eiaaElasticInferenceAcceleratorAssociationTime :: Lens' ElasticInferenceAcceleratorAssociation (Maybe UTCTime)
+eiaaElasticInferenceAcceleratorAssociationTime = lens _eiaaElasticInferenceAcceleratorAssociationTime (\ s a -> s{_eiaaElasticInferenceAcceleratorAssociationTime = a}) . mapping _Time
+
+-- | The Amazon Resource Name (ARN) of the elastic inference accelerator.
+eiaaElasticInferenceAcceleratorARN :: Lens' ElasticInferenceAcceleratorAssociation (Maybe Text)
+eiaaElasticInferenceAcceleratorARN = lens _eiaaElasticInferenceAcceleratorARN (\ s a -> s{_eiaaElasticInferenceAcceleratorARN = a})
+
+-- | The ID of the association.
+eiaaElasticInferenceAcceleratorAssociationId :: Lens' ElasticInferenceAcceleratorAssociation (Maybe Text)
+eiaaElasticInferenceAcceleratorAssociationId = lens _eiaaElasticInferenceAcceleratorAssociationId (\ s a -> s{_eiaaElasticInferenceAcceleratorAssociationId = a})
+
+instance FromXML
+           ElasticInferenceAcceleratorAssociation
+         where
+        parseXML x
+          = ElasticInferenceAcceleratorAssociation' <$>
+              (x .@? "elasticInferenceAcceleratorAssociationState")
+                <*>
+                (x .@? "elasticInferenceAcceleratorAssociationTime")
+                <*> (x .@? "elasticInferenceAcceleratorArn")
+                <*>
+                (x .@? "elasticInferenceAcceleratorAssociationId")
+
+instance Hashable
+           ElasticInferenceAcceleratorAssociation
+         where
+
+instance NFData
+           ElasticInferenceAcceleratorAssociation
+         where
 
 -- | Describes a Spot Fleet event.
 --
@@ -2871,7 +4956,7 @@ data EventInformation = EventInformation'
 --
 -- * 'eiEventDescription' - The description of the event.
 --
--- * 'eiEventSubType' - The event. The following are the @error@ events:     * @iamFleetRoleInvalid@ - The Spot Fleet did not have the required permissions either to launch or terminate an instance.     * @launchSpecTemporarilyBlacklisted@ - The configuration is not valid and several attempts to launch instances have failed. For more information, see the description of the event.     * @spotFleetRequestConfigurationInvalid@ - The configuration is not valid. For more information, see the description of the event.     * @spotInstanceCountLimitExceeded@ - You've reached the limit on the number of Spot Instances that you can launch. The following are the @fleetRequestChange@ events:     * @active@ - The Spot Fleet has been validated and Amazon EC2 is attempting to maintain the target number of running Spot Instances.     * @cancelled@ - The Spot Fleet is canceled and has no running Spot Instances. The Spot Fleet will be deleted two days after its instances were terminated.     * @cancelled_running@ - The Spot Fleet is canceled and does not launch additional Spot Instances. Existing Spot Instances continue to run until they are interrupted or terminated.     * @cancelled_terminating@ - The Spot Fleet is canceled and its Spot Instances are terminating.     * @expired@ - The Spot Fleet request has expired. A subsequent event indicates that the instances were terminated, if the request was created with @TerminateInstancesWithExpiration@ set.     * @modify_in_progress@ - A request to modify the Spot Fleet request was accepted and is in progress.     * @modify_successful@ - The Spot Fleet request was modified.     * @price_update@ - The price for a launch configuration was adjusted because it was too high. This change is permanent.     * @submitted@ - The Spot Fleet request is being evaluated and Amazon EC2 is preparing to launch the target number of Spot Instances. The following are the @instanceChange@ events:     * @launched@ - A request was fulfilled and a new instance was launched.     * @terminated@ - An instance was terminated by the user. The following are the @Information@ events:     * @launchSpecUnusable@ - The price in a launch specification is not valid because it is below the Spot price or the Spot price is above the On-Demand price.     * @fleetProgressHalted@ - The price in every launch specification is not valid. A launch specification might become valid if the Spot price changes.
+-- * 'eiEventSubType' - The event. The following are the @error@ events:     * @iamFleetRoleInvalid@ - The Spot Fleet did not have the required permissions either to launch or terminate an instance.     * @spotFleetRequestConfigurationInvalid@ - The configuration is not valid. For more information, see the description of the event.     * @spotInstanceCountLimitExceeded@ - You've reached the limit on the number of Spot Instances that you can launch. The following are the @fleetRequestChange@ events:     * @active@ - The Spot Fleet has been validated and Amazon EC2 is attempting to maintain the target number of running Spot Instances.     * @cancelled@ - The Spot Fleet is canceled and has no running Spot Instances. The Spot Fleet will be deleted two days after its instances were terminated.     * @cancelled_running@ - The Spot Fleet is canceled and does not launch additional Spot Instances. Existing Spot Instances continue to run until they are interrupted or terminated.     * @cancelled_terminating@ - The Spot Fleet is canceled and its Spot Instances are terminating.     * @expired@ - The Spot Fleet request has expired. A subsequent event indicates that the instances were terminated, if the request was created with @TerminateInstancesWithExpiration@ set.     * @modify_in_progress@ - A request to modify the Spot Fleet request was accepted and is in progress.     * @modify_successful@ - The Spot Fleet request was modified.     * @price_update@ - The price for a launch configuration was adjusted because it was too high. This change is permanent.     * @submitted@ - The Spot Fleet request is being evaluated and Amazon EC2 is preparing to launch the target number of Spot Instances. The following are the @instanceChange@ events:     * @launched@ - A request was fulfilled and a new instance was launched.     * @terminated@ - An instance was terminated by the user. The following are the @Information@ events:     * @launchSpecTemporarilyBlacklisted@ - The configuration is not valid and several attempts to launch instances have failed. For more information, see the description of the event.     * @launchSpecUnusable@ - The price in a launch specification is not valid because it is below the Spot price or the Spot price is above the On-Demand price.     * @fleetProgressHalted@ - The price in every launch specification is not valid. A launch specification might become valid if the Spot price changes.
 eventInformation
     :: EventInformation
 eventInformation =
@@ -2890,7 +4975,7 @@ eiInstanceId = lens _eiInstanceId (\ s a -> s{_eiInstanceId = a})
 eiEventDescription :: Lens' EventInformation (Maybe Text)
 eiEventDescription = lens _eiEventDescription (\ s a -> s{_eiEventDescription = a})
 
--- | The event. The following are the @error@ events:     * @iamFleetRoleInvalid@ - The Spot Fleet did not have the required permissions either to launch or terminate an instance.     * @launchSpecTemporarilyBlacklisted@ - The configuration is not valid and several attempts to launch instances have failed. For more information, see the description of the event.     * @spotFleetRequestConfigurationInvalid@ - The configuration is not valid. For more information, see the description of the event.     * @spotInstanceCountLimitExceeded@ - You've reached the limit on the number of Spot Instances that you can launch. The following are the @fleetRequestChange@ events:     * @active@ - The Spot Fleet has been validated and Amazon EC2 is attempting to maintain the target number of running Spot Instances.     * @cancelled@ - The Spot Fleet is canceled and has no running Spot Instances. The Spot Fleet will be deleted two days after its instances were terminated.     * @cancelled_running@ - The Spot Fleet is canceled and does not launch additional Spot Instances. Existing Spot Instances continue to run until they are interrupted or terminated.     * @cancelled_terminating@ - The Spot Fleet is canceled and its Spot Instances are terminating.     * @expired@ - The Spot Fleet request has expired. A subsequent event indicates that the instances were terminated, if the request was created with @TerminateInstancesWithExpiration@ set.     * @modify_in_progress@ - A request to modify the Spot Fleet request was accepted and is in progress.     * @modify_successful@ - The Spot Fleet request was modified.     * @price_update@ - The price for a launch configuration was adjusted because it was too high. This change is permanent.     * @submitted@ - The Spot Fleet request is being evaluated and Amazon EC2 is preparing to launch the target number of Spot Instances. The following are the @instanceChange@ events:     * @launched@ - A request was fulfilled and a new instance was launched.     * @terminated@ - An instance was terminated by the user. The following are the @Information@ events:     * @launchSpecUnusable@ - The price in a launch specification is not valid because it is below the Spot price or the Spot price is above the On-Demand price.     * @fleetProgressHalted@ - The price in every launch specification is not valid. A launch specification might become valid if the Spot price changes.
+-- | The event. The following are the @error@ events:     * @iamFleetRoleInvalid@ - The Spot Fleet did not have the required permissions either to launch or terminate an instance.     * @spotFleetRequestConfigurationInvalid@ - The configuration is not valid. For more information, see the description of the event.     * @spotInstanceCountLimitExceeded@ - You've reached the limit on the number of Spot Instances that you can launch. The following are the @fleetRequestChange@ events:     * @active@ - The Spot Fleet has been validated and Amazon EC2 is attempting to maintain the target number of running Spot Instances.     * @cancelled@ - The Spot Fleet is canceled and has no running Spot Instances. The Spot Fleet will be deleted two days after its instances were terminated.     * @cancelled_running@ - The Spot Fleet is canceled and does not launch additional Spot Instances. Existing Spot Instances continue to run until they are interrupted or terminated.     * @cancelled_terminating@ - The Spot Fleet is canceled and its Spot Instances are terminating.     * @expired@ - The Spot Fleet request has expired. A subsequent event indicates that the instances were terminated, if the request was created with @TerminateInstancesWithExpiration@ set.     * @modify_in_progress@ - A request to modify the Spot Fleet request was accepted and is in progress.     * @modify_successful@ - The Spot Fleet request was modified.     * @price_update@ - The price for a launch configuration was adjusted because it was too high. This change is permanent.     * @submitted@ - The Spot Fleet request is being evaluated and Amazon EC2 is preparing to launch the target number of Spot Instances. The following are the @instanceChange@ events:     * @launched@ - A request was fulfilled and a new instance was launched.     * @terminated@ - An instance was terminated by the user. The following are the @Information@ events:     * @launchSpecTemporarilyBlacklisted@ - The configuration is not valid and several attempts to launch instances have failed. For more information, see the description of the event.     * @launchSpecUnusable@ - The price in a launch specification is not valid because it is below the Spot price or the Spot price is above the On-Demand price.     * @fleetProgressHalted@ - The price in every launch specification is not valid. A launch specification might become valid if the Spot price changes.
 eiEventSubType :: Lens' EventInformation (Maybe Text)
 eiEventSubType = lens _eiEventSubType (\ s a -> s{_eiEventSubType = a})
 
@@ -3189,16 +5274,19 @@ data FleetData = FleetData'
   , _fdTargetCapacitySpecification :: !(Maybe TargetCapacitySpecification)
   , _fdSpotOptions :: !(Maybe SpotOptions)
   , _fdExcessCapacityTerminationPolicy :: !(Maybe FleetExcessCapacityTerminationPolicy)
+  , _fdOnDemandOptions :: !(Maybe OnDemandOptions)
   , _fdFleetState :: !(Maybe FleetStateCode)
   , _fdLaunchTemplateConfigs :: !(Maybe [FleetLaunchTemplateConfig])
   , _fdValidUntil :: !(Maybe ISO8601)
   , _fdTerminateInstancesWithExpiration :: !(Maybe Bool)
+  , _fdInstances :: !(Maybe [DescribeFleetsInstances])
   , _fdFulfilledCapacity :: !(Maybe Double)
   , _fdType :: !(Maybe FleetType)
   , _fdValidFrom :: !(Maybe ISO8601)
   , _fdReplaceUnhealthyInstances :: !(Maybe Bool)
   , _fdFulfilledOnDemandCapacity :: !(Maybe Double)
   , _fdFleetId :: !(Maybe Text)
+  , _fdErrors :: !(Maybe [DescribeFleetError])
   , _fdCreateTime :: !(Maybe ISO8601)
   , _fdTags :: !(Maybe [Tag])
   , _fdActivityStatus :: !(Maybe FleetActivityStatus)
@@ -3209,13 +5297,15 @@ data FleetData = FleetData'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fdClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> . Constraints: Maximum 64 ASCII characters
+-- * 'fdClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> . Constraints: Maximum 64 ASCII characters
 --
 -- * 'fdTargetCapacitySpecification' - The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is @maintain@ , you can specify a target capacity of 0 and add capacity later.
 --
 -- * 'fdSpotOptions' - The configuration of Spot Instances in an EC2 Fleet.
 --
 -- * 'fdExcessCapacityTerminationPolicy' - Indicates whether running instances should be terminated if the target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
+--
+-- * 'fdOnDemandOptions' - The allocation strategy of On-Demand Instances in an EC2 Fleet.
 --
 -- * 'fdFleetState' - The state of the EC2 Fleet.
 --
@@ -3224,6 +5314,8 @@ data FleetData = FleetData'
 -- * 'fdValidUntil' - The end date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). At this point, no new instance requests are placed or able to fulfill the request. The default end date is 7 days from the current date.
 --
 -- * 'fdTerminateInstancesWithExpiration' - Indicates whether running instances should be terminated when the EC2 Fleet expires.
+--
+-- * 'fdInstances' - Information about the instances that were launched by the fleet. Valid only when __Type__ is set to @instant@ .
 --
 -- * 'fdFulfilledCapacity' - The number of units fulfilled by this request compared to the set target capacity.
 --
@@ -3236,6 +5328,8 @@ data FleetData = FleetData'
 -- * 'fdFulfilledOnDemandCapacity' - The number of units fulfilled by this request compared to the set target On-Demand capacity.
 --
 -- * 'fdFleetId' - The ID of the EC2 Fleet.
+--
+-- * 'fdErrors' - Information about the instances that could not be launched by the fleet. Valid only when __Type__ is set to @instant@ .
 --
 -- * 'fdCreateTime' - The creation date and time of the EC2 Fleet.
 --
@@ -3250,23 +5344,26 @@ fleetData =
     , _fdTargetCapacitySpecification = Nothing
     , _fdSpotOptions = Nothing
     , _fdExcessCapacityTerminationPolicy = Nothing
+    , _fdOnDemandOptions = Nothing
     , _fdFleetState = Nothing
     , _fdLaunchTemplateConfigs = Nothing
     , _fdValidUntil = Nothing
     , _fdTerminateInstancesWithExpiration = Nothing
+    , _fdInstances = Nothing
     , _fdFulfilledCapacity = Nothing
     , _fdType = Nothing
     , _fdValidFrom = Nothing
     , _fdReplaceUnhealthyInstances = Nothing
     , _fdFulfilledOnDemandCapacity = Nothing
     , _fdFleetId = Nothing
+    , _fdErrors = Nothing
     , _fdCreateTime = Nothing
     , _fdTags = Nothing
     , _fdActivityStatus = Nothing
     }
 
 
--- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> . Constraints: Maximum 64 ASCII characters
+-- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> . Constraints: Maximum 64 ASCII characters
 fdClientToken :: Lens' FleetData (Maybe Text)
 fdClientToken = lens _fdClientToken (\ s a -> s{_fdClientToken = a})
 
@@ -3281,6 +5378,10 @@ fdSpotOptions = lens _fdSpotOptions (\ s a -> s{_fdSpotOptions = a})
 -- | Indicates whether running instances should be terminated if the target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.
 fdExcessCapacityTerminationPolicy :: Lens' FleetData (Maybe FleetExcessCapacityTerminationPolicy)
 fdExcessCapacityTerminationPolicy = lens _fdExcessCapacityTerminationPolicy (\ s a -> s{_fdExcessCapacityTerminationPolicy = a})
+
+-- | The allocation strategy of On-Demand Instances in an EC2 Fleet.
+fdOnDemandOptions :: Lens' FleetData (Maybe OnDemandOptions)
+fdOnDemandOptions = lens _fdOnDemandOptions (\ s a -> s{_fdOnDemandOptions = a})
 
 -- | The state of the EC2 Fleet.
 fdFleetState :: Lens' FleetData (Maybe FleetStateCode)
@@ -3297,6 +5398,10 @@ fdValidUntil = lens _fdValidUntil (\ s a -> s{_fdValidUntil = a}) . mapping _Tim
 -- | Indicates whether running instances should be terminated when the EC2 Fleet expires.
 fdTerminateInstancesWithExpiration :: Lens' FleetData (Maybe Bool)
 fdTerminateInstancesWithExpiration = lens _fdTerminateInstancesWithExpiration (\ s a -> s{_fdTerminateInstancesWithExpiration = a})
+
+-- | Information about the instances that were launched by the fleet. Valid only when __Type__ is set to @instant@ .
+fdInstances :: Lens' FleetData [DescribeFleetsInstances]
+fdInstances = lens _fdInstances (\ s a -> s{_fdInstances = a}) . _Default . _Coerce
 
 -- | The number of units fulfilled by this request compared to the set target capacity.
 fdFulfilledCapacity :: Lens' FleetData (Maybe Double)
@@ -3322,6 +5427,10 @@ fdFulfilledOnDemandCapacity = lens _fdFulfilledOnDemandCapacity (\ s a -> s{_fdF
 fdFleetId :: Lens' FleetData (Maybe Text)
 fdFleetId = lens _fdFleetId (\ s a -> s{_fdFleetId = a})
 
+-- | Information about the instances that could not be launched by the fleet. Valid only when __Type__ is set to @instant@ .
+fdErrors :: Lens' FleetData [DescribeFleetError]
+fdErrors = lens _fdErrors (\ s a -> s{_fdErrors = a}) . _Default . _Coerce
+
 -- | The creation date and time of the EC2 Fleet.
 fdCreateTime :: Lens' FleetData (Maybe UTCTime)
 fdCreateTime = lens _fdCreateTime (\ s a -> s{_fdCreateTime = a}) . mapping _Time
@@ -3341,18 +5450,25 @@ instance FromXML FleetData where
                 (x .@? "targetCapacitySpecification")
                 <*> (x .@? "spotOptions")
                 <*> (x .@? "excessCapacityTerminationPolicy")
+                <*> (x .@? "onDemandOptions")
                 <*> (x .@? "fleetState")
                 <*>
                 (x .@? "launchTemplateConfigs" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*> (x .@? "validUntil")
                 <*> (x .@? "terminateInstancesWithExpiration")
+                <*>
+                (x .@? "fleetInstanceSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "fulfilledCapacity")
                 <*> (x .@? "type")
                 <*> (x .@? "validFrom")
                 <*> (x .@? "replaceUnhealthyInstances")
                 <*> (x .@? "fulfilledOnDemandCapacity")
                 <*> (x .@? "fleetId")
+                <*>
+                (x .@? "errorSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "createTime")
                 <*>
                 (x .@? "tagSet" .!@ mempty >>=
@@ -3461,10 +5577,12 @@ instance ToQuery FleetLaunchTemplateConfigRequest
 --
 -- /See:/ 'fleetLaunchTemplateOverrides' smart constructor.
 data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
-  { _fltoWeightedCapacity :: !(Maybe Double)
+  { _fltoPriority         :: !(Maybe Double)
+  , _fltoWeightedCapacity :: !(Maybe Double)
   , _fltoSubnetId         :: !(Maybe Text)
   , _fltoInstanceType     :: !(Maybe InstanceType)
   , _fltoAvailabilityZone :: !(Maybe Text)
+  , _fltoPlacement        :: !(Maybe PlacementResponse)
   , _fltoMaxPrice         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -3472,6 +5590,8 @@ data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
 -- | Creates a value of 'FleetLaunchTemplateOverrides' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fltoPriority' - The priority for the launch template override. If __AllocationStrategy__ is set to @prioritized@ , EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. Valid values are whole numbers starting at @0@ . The lower the number, the higher the priority. If no number is set, the override has the lowest priority.
 --
 -- * 'fltoWeightedCapacity' - The number of units provided by the specified instance type.
 --
@@ -3481,18 +5601,26 @@ data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
 --
 -- * 'fltoAvailabilityZone' - The Availability Zone in which to launch the instances.
 --
+-- * 'fltoPlacement' - The location where the instance launched, if applicable.
+--
 -- * 'fltoMaxPrice' - The maximum price per unit hour that you are willing to pay for a Spot Instance.
 fleetLaunchTemplateOverrides
     :: FleetLaunchTemplateOverrides
 fleetLaunchTemplateOverrides =
   FleetLaunchTemplateOverrides'
-    { _fltoWeightedCapacity = Nothing
+    { _fltoPriority = Nothing
+    , _fltoWeightedCapacity = Nothing
     , _fltoSubnetId = Nothing
     , _fltoInstanceType = Nothing
     , _fltoAvailabilityZone = Nothing
+    , _fltoPlacement = Nothing
     , _fltoMaxPrice = Nothing
     }
 
+
+-- | The priority for the launch template override. If __AllocationStrategy__ is set to @prioritized@ , EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. Valid values are whole numbers starting at @0@ . The lower the number, the higher the priority. If no number is set, the override has the lowest priority.
+fltoPriority :: Lens' FleetLaunchTemplateOverrides (Maybe Double)
+fltoPriority = lens _fltoPriority (\ s a -> s{_fltoPriority = a})
 
 -- | The number of units provided by the specified instance type.
 fltoWeightedCapacity :: Lens' FleetLaunchTemplateOverrides (Maybe Double)
@@ -3510,6 +5638,10 @@ fltoInstanceType = lens _fltoInstanceType (\ s a -> s{_fltoInstanceType = a})
 fltoAvailabilityZone :: Lens' FleetLaunchTemplateOverrides (Maybe Text)
 fltoAvailabilityZone = lens _fltoAvailabilityZone (\ s a -> s{_fltoAvailabilityZone = a})
 
+-- | The location where the instance launched, if applicable.
+fltoPlacement :: Lens' FleetLaunchTemplateOverrides (Maybe PlacementResponse)
+fltoPlacement = lens _fltoPlacement (\ s a -> s{_fltoPlacement = a})
+
 -- | The maximum price per unit hour that you are willing to pay for a Spot Instance.
 fltoMaxPrice :: Lens' FleetLaunchTemplateOverrides (Maybe Text)
 fltoMaxPrice = lens _fltoMaxPrice (\ s a -> s{_fltoMaxPrice = a})
@@ -3517,9 +5649,11 @@ fltoMaxPrice = lens _fltoMaxPrice (\ s a -> s{_fltoMaxPrice = a})
 instance FromXML FleetLaunchTemplateOverrides where
         parseXML x
           = FleetLaunchTemplateOverrides' <$>
-              (x .@? "weightedCapacity") <*> (x .@? "subnetId") <*>
-                (x .@? "instanceType")
+              (x .@? "priority") <*> (x .@? "weightedCapacity") <*>
+                (x .@? "subnetId")
+                <*> (x .@? "instanceType")
                 <*> (x .@? "availabilityZone")
+                <*> (x .@? "placement")
                 <*> (x .@? "maxPrice")
 
 instance Hashable FleetLaunchTemplateOverrides where
@@ -3532,10 +5666,12 @@ instance NFData FleetLaunchTemplateOverrides where
 --
 -- /See:/ 'fleetLaunchTemplateOverridesRequest' smart constructor.
 data FleetLaunchTemplateOverridesRequest = FleetLaunchTemplateOverridesRequest'
-  { _fltorWeightedCapacity :: !(Maybe Double)
+  { _fltorPriority         :: !(Maybe Double)
+  , _fltorWeightedCapacity :: !(Maybe Double)
   , _fltorSubnetId         :: !(Maybe Text)
   , _fltorInstanceType     :: !(Maybe InstanceType)
   , _fltorAvailabilityZone :: !(Maybe Text)
+  , _fltorPlacement        :: !(Maybe Placement)
   , _fltorMaxPrice         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -3543,6 +5679,8 @@ data FleetLaunchTemplateOverridesRequest = FleetLaunchTemplateOverridesRequest'
 -- | Creates a value of 'FleetLaunchTemplateOverridesRequest' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fltorPriority' - The priority for the launch template override. If __AllocationStrategy__ is set to @prioritized@ , EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. Valid values are whole numbers starting at @0@ . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
 --
 -- * 'fltorWeightedCapacity' - The number of units provided by the specified instance type.
 --
@@ -3552,18 +5690,26 @@ data FleetLaunchTemplateOverridesRequest = FleetLaunchTemplateOverridesRequest'
 --
 -- * 'fltorAvailabilityZone' - The Availability Zone in which to launch the instances.
 --
+-- * 'fltorPlacement' - The location where the instance launched, if applicable.
+--
 -- * 'fltorMaxPrice' - The maximum price per unit hour that you are willing to pay for a Spot Instance.
 fleetLaunchTemplateOverridesRequest
     :: FleetLaunchTemplateOverridesRequest
 fleetLaunchTemplateOverridesRequest =
   FleetLaunchTemplateOverridesRequest'
-    { _fltorWeightedCapacity = Nothing
+    { _fltorPriority = Nothing
+    , _fltorWeightedCapacity = Nothing
     , _fltorSubnetId = Nothing
     , _fltorInstanceType = Nothing
     , _fltorAvailabilityZone = Nothing
+    , _fltorPlacement = Nothing
     , _fltorMaxPrice = Nothing
     }
 
+
+-- | The priority for the launch template override. If __AllocationStrategy__ is set to @prioritized@ , EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. Valid values are whole numbers starting at @0@ . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
+fltorPriority :: Lens' FleetLaunchTemplateOverridesRequest (Maybe Double)
+fltorPriority = lens _fltorPriority (\ s a -> s{_fltorPriority = a})
 
 -- | The number of units provided by the specified instance type.
 fltorWeightedCapacity :: Lens' FleetLaunchTemplateOverridesRequest (Maybe Double)
@@ -3581,6 +5727,10 @@ fltorInstanceType = lens _fltorInstanceType (\ s a -> s{_fltorInstanceType = a})
 fltorAvailabilityZone :: Lens' FleetLaunchTemplateOverridesRequest (Maybe Text)
 fltorAvailabilityZone = lens _fltorAvailabilityZone (\ s a -> s{_fltorAvailabilityZone = a})
 
+-- | The location where the instance launched, if applicable.
+fltorPlacement :: Lens' FleetLaunchTemplateOverridesRequest (Maybe Placement)
+fltorPlacement = lens _fltorPlacement (\ s a -> s{_fltorPlacement = a})
+
 -- | The maximum price per unit hour that you are willing to pay for a Spot Instance.
 fltorMaxPrice :: Lens' FleetLaunchTemplateOverridesRequest (Maybe Text)
 fltorMaxPrice = lens _fltorMaxPrice (\ s a -> s{_fltorMaxPrice = a})
@@ -3595,10 +5745,12 @@ instance ToQuery FleetLaunchTemplateOverridesRequest
          where
         toQuery FleetLaunchTemplateOverridesRequest'{..}
           = mconcat
-              ["WeightedCapacity" =: _fltorWeightedCapacity,
+              ["Priority" =: _fltorPriority,
+               "WeightedCapacity" =: _fltorWeightedCapacity,
                "SubnetId" =: _fltorSubnetId,
                "InstanceType" =: _fltorInstanceType,
                "AvailabilityZone" =: _fltorAvailabilityZone,
+               "Placement" =: _fltorPlacement,
                "MaxPrice" =: _fltorMaxPrice]
 
 -- | Describes a launch template.
@@ -3621,7 +5773,7 @@ data FleetLaunchTemplateSpecification = FleetLaunchTemplateSpecification'
 --
 -- * 'fltsLaunchTemplateId' - The ID of the launch template. You must specify either a template ID or a template name.
 --
--- * 'fltsVersion' - The version number. By default, the default version of the launch template is used.
+-- * 'fltsVersion' - The version number of the launch template. You must specify a version number.
 fleetLaunchTemplateSpecification
     :: FleetLaunchTemplateSpecification
 fleetLaunchTemplateSpecification =
@@ -3640,7 +5792,7 @@ fltsLaunchTemplateName = lens _fltsLaunchTemplateName (\ s a -> s{_fltsLaunchTem
 fltsLaunchTemplateId :: Lens' FleetLaunchTemplateSpecification (Maybe Text)
 fltsLaunchTemplateId = lens _fltsLaunchTemplateId (\ s a -> s{_fltsLaunchTemplateId = a})
 
--- | The version number. By default, the default version of the launch template is used.
+-- | The version number of the launch template. You must specify a version number.
 fltsVersion :: Lens' FleetLaunchTemplateSpecification (Maybe Text)
 fltsVersion = lens _fltsVersion (\ s a -> s{_fltsVersion = a})
 
@@ -3736,10 +5888,12 @@ data FlowLog = FlowLog'
   , _flResourceId               :: !(Maybe Text)
   , _flFlowLogStatus            :: !(Maybe Text)
   , _flTrafficType              :: !(Maybe TrafficType)
+  , _flLogDestination           :: !(Maybe Text)
   , _flDeliverLogsStatus        :: !(Maybe Text)
   , _flDeliverLogsErrorMessage  :: !(Maybe Text)
   , _flLogGroupName             :: !(Maybe Text)
   , _flDeliverLogsPermissionARN :: !(Maybe Text)
+  , _flLogDestinationType       :: !(Maybe LogDestinationType)
   , _flFlowLogId                :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -3756,13 +5910,17 @@ data FlowLog = FlowLog'
 --
 -- * 'flTrafficType' - The type of traffic captured for the flow log.
 --
+-- * 'flLogDestination' - Specifies the destination to which the flow log data is published. Flow log data can be published to an CloudWatch Logs log group or an Amazon S3 bucket. If the flow log publishes to CloudWatch Logs, this element indicates the Amazon Resource Name (ARN) of the CloudWatch Logs log group to which the data is published. If the flow log publishes to Amazon S3, this element indicates the ARN of the Amazon S3 bucket to which the data is published.
+--
 -- * 'flDeliverLogsStatus' - The status of the logs delivery (@SUCCESS@ | @FAILED@ ).
 --
--- * 'flDeliverLogsErrorMessage' - Information about the error that occurred. @Rate limited@ indicates that CloudWatch logs throttling has been applied for one or more network interfaces, or that you've reached the limit on the number of CloudWatch Logs log groups that you can create. @Access error@ indicates that the IAM role associated with the flow log does not have sufficient permissions to publish to CloudWatch Logs. @Unknown error@ indicates an internal error.
+-- * 'flDeliverLogsErrorMessage' - Information about the error that occurred. @Rate limited@ indicates that CloudWatch Logs throttling has been applied for one or more network interfaces, or that you've reached the limit on the number of log groups that you can create. @Access error@ indicates that the IAM role associated with the flow log does not have sufficient permissions to publish to CloudWatch Logs. @Unknown error@ indicates an internal error.
 --
 -- * 'flLogGroupName' - The name of the flow log group.
 --
 -- * 'flDeliverLogsPermissionARN' - The ARN of the IAM role that posts logs to CloudWatch Logs.
+--
+-- * 'flLogDestinationType' - Specifies the type of destination to which the flow log data is published. Flow log data can be published to CloudWatch Logs or Amazon S3.
 --
 -- * 'flFlowLogId' - The flow log ID.
 flowLog
@@ -3773,10 +5931,12 @@ flowLog =
     , _flResourceId = Nothing
     , _flFlowLogStatus = Nothing
     , _flTrafficType = Nothing
+    , _flLogDestination = Nothing
     , _flDeliverLogsStatus = Nothing
     , _flDeliverLogsErrorMessage = Nothing
     , _flLogGroupName = Nothing
     , _flDeliverLogsPermissionARN = Nothing
+    , _flLogDestinationType = Nothing
     , _flFlowLogId = Nothing
     }
 
@@ -3797,11 +5957,15 @@ flFlowLogStatus = lens _flFlowLogStatus (\ s a -> s{_flFlowLogStatus = a})
 flTrafficType :: Lens' FlowLog (Maybe TrafficType)
 flTrafficType = lens _flTrafficType (\ s a -> s{_flTrafficType = a})
 
+-- | Specifies the destination to which the flow log data is published. Flow log data can be published to an CloudWatch Logs log group or an Amazon S3 bucket. If the flow log publishes to CloudWatch Logs, this element indicates the Amazon Resource Name (ARN) of the CloudWatch Logs log group to which the data is published. If the flow log publishes to Amazon S3, this element indicates the ARN of the Amazon S3 bucket to which the data is published.
+flLogDestination :: Lens' FlowLog (Maybe Text)
+flLogDestination = lens _flLogDestination (\ s a -> s{_flLogDestination = a})
+
 -- | The status of the logs delivery (@SUCCESS@ | @FAILED@ ).
 flDeliverLogsStatus :: Lens' FlowLog (Maybe Text)
 flDeliverLogsStatus = lens _flDeliverLogsStatus (\ s a -> s{_flDeliverLogsStatus = a})
 
--- | Information about the error that occurred. @Rate limited@ indicates that CloudWatch logs throttling has been applied for one or more network interfaces, or that you've reached the limit on the number of CloudWatch Logs log groups that you can create. @Access error@ indicates that the IAM role associated with the flow log does not have sufficient permissions to publish to CloudWatch Logs. @Unknown error@ indicates an internal error.
+-- | Information about the error that occurred. @Rate limited@ indicates that CloudWatch Logs throttling has been applied for one or more network interfaces, or that you've reached the limit on the number of log groups that you can create. @Access error@ indicates that the IAM role associated with the flow log does not have sufficient permissions to publish to CloudWatch Logs. @Unknown error@ indicates an internal error.
 flDeliverLogsErrorMessage :: Lens' FlowLog (Maybe Text)
 flDeliverLogsErrorMessage = lens _flDeliverLogsErrorMessage (\ s a -> s{_flDeliverLogsErrorMessage = a})
 
@@ -3813,6 +5977,10 @@ flLogGroupName = lens _flLogGroupName (\ s a -> s{_flLogGroupName = a})
 flDeliverLogsPermissionARN :: Lens' FlowLog (Maybe Text)
 flDeliverLogsPermissionARN = lens _flDeliverLogsPermissionARN (\ s a -> s{_flDeliverLogsPermissionARN = a})
 
+-- | Specifies the type of destination to which the flow log data is published. Flow log data can be published to CloudWatch Logs or Amazon S3.
+flLogDestinationType :: Lens' FlowLog (Maybe LogDestinationType)
+flLogDestinationType = lens _flLogDestinationType (\ s a -> s{_flLogDestinationType = a})
+
 -- | The flow log ID.
 flFlowLogId :: Lens' FlowLog (Maybe Text)
 flFlowLogId = lens _flFlowLogId (\ s a -> s{_flFlowLogId = a})
@@ -3823,10 +5991,12 @@ instance FromXML FlowLog where
               (x .@? "creationTime") <*> (x .@? "resourceId") <*>
                 (x .@? "flowLogStatus")
                 <*> (x .@? "trafficType")
+                <*> (x .@? "logDestination")
                 <*> (x .@? "deliverLogsStatus")
                 <*> (x .@? "deliverLogsErrorMessage")
                 <*> (x .@? "logGroupName")
                 <*> (x .@? "deliverLogsPermissionArn")
+                <*> (x .@? "logDestinationType")
                 <*> (x .@? "flowLogId")
 
 instance Hashable FlowLog where
@@ -3839,20 +6009,21 @@ instance NFData FlowLog where
 --
 -- /See:/ 'fpgaImage' smart constructor.
 data FpgaImage = FpgaImage'
-  { _fiShellVersion      :: !(Maybe Text)
-  , _fiPciId             :: !(Maybe PciId)
-  , _fiState             :: !(Maybe FpgaImageState)
-  , _fiOwnerAlias        :: !(Maybe Text)
-  , _fiFpgaImageId       :: !(Maybe Text)
-  , _fiOwnerId           :: !(Maybe Text)
-  , _fiUpdateTime        :: !(Maybe ISO8601)
-  , _fiName              :: !(Maybe Text)
-  , _fiProductCodes      :: !(Maybe [ProductCode])
-  , _fiDescription       :: !(Maybe Text)
-  , _fiCreateTime        :: !(Maybe ISO8601)
-  , _fiTags              :: !(Maybe [Tag])
-  , _fiPublic            :: !(Maybe Bool)
-  , _fiFpgaImageGlobalId :: !(Maybe Text)
+  { _fiShellVersion         :: !(Maybe Text)
+  , _fiPciId                :: !(Maybe PciId)
+  , _fiState                :: !(Maybe FpgaImageState)
+  , _fiOwnerAlias           :: !(Maybe Text)
+  , _fiFpgaImageId          :: !(Maybe Text)
+  , _fiDataRetentionSupport :: !(Maybe Bool)
+  , _fiOwnerId              :: !(Maybe Text)
+  , _fiUpdateTime           :: !(Maybe ISO8601)
+  , _fiName                 :: !(Maybe Text)
+  , _fiProductCodes         :: !(Maybe [ProductCode])
+  , _fiDescription          :: !(Maybe Text)
+  , _fiCreateTime           :: !(Maybe ISO8601)
+  , _fiTags                 :: !(Maybe [Tag])
+  , _fiPublic               :: !(Maybe Bool)
+  , _fiFpgaImageGlobalId    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3869,6 +6040,8 @@ data FpgaImage = FpgaImage'
 -- * 'fiOwnerAlias' - The alias of the AFI owner. Possible values include @self@ , @amazon@ , and @aws-marketplace@ .
 --
 -- * 'fiFpgaImageId' - The FPGA image identifier (AFI ID).
+--
+-- * 'fiDataRetentionSupport' - Indicates whether data retention support is enabled for the AFI.
 --
 -- * 'fiOwnerId' - The AWS account ID of the AFI owner.
 --
@@ -3896,6 +6069,7 @@ fpgaImage =
     , _fiState = Nothing
     , _fiOwnerAlias = Nothing
     , _fiFpgaImageId = Nothing
+    , _fiDataRetentionSupport = Nothing
     , _fiOwnerId = Nothing
     , _fiUpdateTime = Nothing
     , _fiName = Nothing
@@ -3927,6 +6101,10 @@ fiOwnerAlias = lens _fiOwnerAlias (\ s a -> s{_fiOwnerAlias = a})
 -- | The FPGA image identifier (AFI ID).
 fiFpgaImageId :: Lens' FpgaImage (Maybe Text)
 fiFpgaImageId = lens _fiFpgaImageId (\ s a -> s{_fiFpgaImageId = a})
+
+-- | Indicates whether data retention support is enabled for the AFI.
+fiDataRetentionSupport :: Lens' FpgaImage (Maybe Bool)
+fiDataRetentionSupport = lens _fiDataRetentionSupport (\ s a -> s{_fiDataRetentionSupport = a})
 
 -- | The AWS account ID of the AFI owner.
 fiOwnerId :: Lens' FpgaImage (Maybe Text)
@@ -3971,6 +6149,7 @@ instance FromXML FpgaImage where
                 (x .@? "state")
                 <*> (x .@? "ownerAlias")
                 <*> (x .@? "fpgaImageId")
+                <*> (x .@? "dataRetentionSupport")
                 <*> (x .@? "ownerId")
                 <*> (x .@? "updateTime")
                 <*> (x .@? "name")
@@ -4150,15 +6329,80 @@ instance ToQuery GroupIdentifier where
               ["GroupId" =: _giGroupId,
                "GroupName" =: _giGroupName]
 
+-- | Indicates whether your instance is configured for hibernation. This parameter is valid only if the instance meets the <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites hibernation prerequisites> . Hibernation is currently supported only for Amazon Linux. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+--
+--
+-- /See:/ 'hibernationOptions' smart constructor.
+newtype HibernationOptions = HibernationOptions'
+  { _hoConfigured :: Maybe Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'HibernationOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'hoConfigured' - If this parameter is set to @true@ , your instance is enabled for hibernation; otherwise, it is not enabled for hibernation.
+hibernationOptions
+    :: HibernationOptions
+hibernationOptions = HibernationOptions' {_hoConfigured = Nothing}
+
+
+-- | If this parameter is set to @true@ , your instance is enabled for hibernation; otherwise, it is not enabled for hibernation.
+hoConfigured :: Lens' HibernationOptions (Maybe Bool)
+hoConfigured = lens _hoConfigured (\ s a -> s{_hoConfigured = a})
+
+instance FromXML HibernationOptions where
+        parseXML x
+          = HibernationOptions' <$> (x .@? "configured")
+
+instance Hashable HibernationOptions where
+
+instance NFData HibernationOptions where
+
+-- | Indicates whether your instance is configured for hibernation. This parameter is valid only if the instance meets the <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites hibernation prerequisites> . Hibernation is currently supported only for Amazon Linux. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+--
+--
+-- /See:/ 'hibernationOptionsRequest' smart constructor.
+newtype HibernationOptionsRequest = HibernationOptionsRequest'
+  { _horConfigured :: Maybe Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'HibernationOptionsRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'horConfigured' - If you set this parameter to @true@ , your instance is enabled for hibernation. Default: @false@
+hibernationOptionsRequest
+    :: HibernationOptionsRequest
+hibernationOptionsRequest =
+  HibernationOptionsRequest' {_horConfigured = Nothing}
+
+
+-- | If you set this parameter to @true@ , your instance is enabled for hibernation. Default: @false@
+horConfigured :: Lens' HibernationOptionsRequest (Maybe Bool)
+horConfigured = lens _horConfigured (\ s a -> s{_horConfigured = a})
+
+instance Hashable HibernationOptionsRequest where
+
+instance NFData HibernationOptionsRequest where
+
+instance ToQuery HibernationOptionsRequest where
+        toQuery HibernationOptionsRequest'{..}
+          = mconcat ["Configured" =: _horConfigured]
+
 -- | Describes an event in the history of the Spot Fleet request.
 --
 --
 --
 -- /See:/ 'historyRecord' smart constructor.
 data HistoryRecord = HistoryRecord'
-  { _hrEventInformation :: !EventInformation
-  , _hrEventType        :: !EventType
-  , _hrTimestamp        :: !ISO8601
+  { _hrEventType        :: !(Maybe EventType)
+  , _hrEventInformation :: !(Maybe EventInformation)
+  , _hrTimestamp        :: !(Maybe ISO8601)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4166,47 +6410,44 @@ data HistoryRecord = HistoryRecord'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hrEventInformation' - Information about the event.
---
 -- * 'hrEventType' - The event type.     * @error@ - An error with the Spot Fleet request.     * @fleetRequestChange@ - A change in the status or configuration of the Spot Fleet request.     * @instanceChange@ - An instance was launched or terminated.     * @Information@ - An informational event.
+--
+-- * 'hrEventInformation' - Information about the event.
 --
 -- * 'hrTimestamp' - The date and time of the event, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 historyRecord
-    :: EventInformation -- ^ 'hrEventInformation'
-    -> EventType -- ^ 'hrEventType'
-    -> UTCTime -- ^ 'hrTimestamp'
-    -> HistoryRecord
-historyRecord pEventInformation_ pEventType_ pTimestamp_ =
+    :: HistoryRecord
+historyRecord =
   HistoryRecord'
-    { _hrEventInformation = pEventInformation_
-    , _hrEventType = pEventType_
-    , _hrTimestamp = _Time # pTimestamp_
+    { _hrEventType = Nothing
+    , _hrEventInformation = Nothing
+    , _hrTimestamp = Nothing
     }
 
 
--- | Information about the event.
-hrEventInformation :: Lens' HistoryRecord EventInformation
-hrEventInformation = lens _hrEventInformation (\ s a -> s{_hrEventInformation = a})
-
 -- | The event type.     * @error@ - An error with the Spot Fleet request.     * @fleetRequestChange@ - A change in the status or configuration of the Spot Fleet request.     * @instanceChange@ - An instance was launched or terminated.     * @Information@ - An informational event.
-hrEventType :: Lens' HistoryRecord EventType
+hrEventType :: Lens' HistoryRecord (Maybe EventType)
 hrEventType = lens _hrEventType (\ s a -> s{_hrEventType = a})
 
+-- | Information about the event.
+hrEventInformation :: Lens' HistoryRecord (Maybe EventInformation)
+hrEventInformation = lens _hrEventInformation (\ s a -> s{_hrEventInformation = a})
+
 -- | The date and time of the event, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
-hrTimestamp :: Lens' HistoryRecord UTCTime
-hrTimestamp = lens _hrTimestamp (\ s a -> s{_hrTimestamp = a}) . _Time
+hrTimestamp :: Lens' HistoryRecord (Maybe UTCTime)
+hrTimestamp = lens _hrTimestamp (\ s a -> s{_hrTimestamp = a}) . mapping _Time
 
 instance FromXML HistoryRecord where
         parseXML x
           = HistoryRecord' <$>
-              (x .@ "eventInformation") <*> (x .@ "eventType") <*>
-                (x .@ "timestamp")
+              (x .@? "eventType") <*> (x .@? "eventInformation")
+                <*> (x .@? "timestamp")
 
 instance Hashable HistoryRecord where
 
 instance NFData HistoryRecord where
 
--- | Describes an event in the history of the EC2 Fleet.
+-- | Describes an event in the history of an EC2 Fleet.
 --
 --
 --
@@ -4276,6 +6517,7 @@ data Host = Host'
   , _hInstances         :: !(Maybe [HostInstance])
   , _hAllocationTime    :: !(Maybe ISO8601)
   , _hAutoPlacement     :: !(Maybe AutoPlacement)
+  , _hTags              :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4287,7 +6529,7 @@ data Host = Host'
 --
 -- * 'hState' - The Dedicated Host's state.
 --
--- * 'hClientToken' - Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'hClientToken' - Unique, case-sensitive identifier that you provide to ensure idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 -- * 'hHostId' - The ID of the Dedicated Host.
 --
@@ -4304,6 +6546,8 @@ data Host = Host'
 -- * 'hAllocationTime' - The time that the Dedicated Host was allocated.
 --
 -- * 'hAutoPlacement' - Whether auto-placement is on or off.
+--
+-- * 'hTags' - Any tags assigned to the Dedicated Host.
 host
     :: Host
 host =
@@ -4319,6 +6563,7 @@ host =
     , _hInstances = Nothing
     , _hAllocationTime = Nothing
     , _hAutoPlacement = Nothing
+    , _hTags = Nothing
     }
 
 
@@ -4330,7 +6575,7 @@ hReleaseTime = lens _hReleaseTime (\ s a -> s{_hReleaseTime = a}) . mapping _Tim
 hState :: Lens' Host (Maybe AllocationState)
 hState = lens _hState (\ s a -> s{_hState = a})
 
--- | Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- | Unique, case-sensitive identifier that you provide to ensure idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
 hClientToken :: Lens' Host (Maybe Text)
 hClientToken = lens _hClientToken (\ s a -> s{_hClientToken = a})
 
@@ -4366,6 +6611,10 @@ hAllocationTime = lens _hAllocationTime (\ s a -> s{_hAllocationTime = a}) . map
 hAutoPlacement :: Lens' Host (Maybe AutoPlacement)
 hAutoPlacement = lens _hAutoPlacement (\ s a -> s{_hAutoPlacement = a})
 
+-- | Any tags assigned to the Dedicated Host.
+hTags :: Lens' Host [Tag]
+hTags = lens _hTags (\ s a -> s{_hTags = a}) . _Default . _Coerce
+
 instance FromXML Host where
         parseXML x
           = Host' <$>
@@ -4381,6 +6630,9 @@ instance FromXML Host where
                    may (parseXMLList "item"))
                 <*> (x .@? "allocationTime")
                 <*> (x .@? "autoPlacement")
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
 
 instance Hashable Host where
 
@@ -4596,6 +6848,7 @@ data HostReservation = HostReservation'
   , _hrHostIdSet         :: !(Maybe [Text])
   , _hrOfferingId        :: !(Maybe Text)
   , _hrDuration          :: !(Maybe Int)
+  , _hrTags              :: !(Maybe [Tag])
   , _hrPaymentOption     :: !(Maybe PaymentOption)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -4628,6 +6881,8 @@ data HostReservation = HostReservation'
 --
 -- * 'hrDuration' - The length of the reservation's term, specified in seconds. Can be @31536000 (1 year)@ | @94608000 (3 years)@ .
 --
+-- * 'hrTags' - Any tags assigned to the Dedicated Host Reservation.
+--
 -- * 'hrPaymentOption' - The payment option selected for this reservation.
 hostReservation
     :: HostReservation
@@ -4645,6 +6900,7 @@ hostReservation =
     , _hrHostIdSet = Nothing
     , _hrOfferingId = Nothing
     , _hrDuration = Nothing
+    , _hrTags = Nothing
     , _hrPaymentOption = Nothing
     }
 
@@ -4697,6 +6953,10 @@ hrOfferingId = lens _hrOfferingId (\ s a -> s{_hrOfferingId = a})
 hrDuration :: Lens' HostReservation (Maybe Int)
 hrDuration = lens _hrDuration (\ s a -> s{_hrDuration = a})
 
+-- | Any tags assigned to the Dedicated Host Reservation.
+hrTags :: Lens' HostReservation [Tag]
+hrTags = lens _hrTags (\ s a -> s{_hrTags = a}) . _Default . _Coerce
+
 -- | The payment option selected for this reservation.
 hrPaymentOption :: Lens' HostReservation (Maybe PaymentOption)
 hrPaymentOption = lens _hrPaymentOption (\ s a -> s{_hrPaymentOption = a})
@@ -4717,6 +6977,9 @@ instance FromXML HostReservation where
                    may (parseXMLList "item"))
                 <*> (x .@? "offeringId")
                 <*> (x .@? "duration")
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "paymentOption")
 
 instance Hashable HostReservation where
@@ -4949,7 +7212,7 @@ data IPPermission = IPPermission'
 --
 -- * 'ipUserIdGroupPairs' - One or more security group and AWS account ID pairs.
 --
--- * 'ipPrefixListIds' - (EC2-VPC only; valid for 'AuthorizeSecurityGroupEgress' , 'RevokeSecurityGroupEgress' and 'DescribeSecurityGroups' only) One or more prefix list IDs for an AWS service. In an 'AuthorizeSecurityGroupEgress' request, this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+-- * 'ipPrefixListIds' - [EC2-VPC only] One or more prefix list IDs for an AWS service. With 'AuthorizeSecurityGroupEgress' , this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
 --
 -- * 'ipToPort' - The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of @-1@ indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.
 --
@@ -4981,7 +7244,7 @@ ipFromPort = lens _ipFromPort (\ s a -> s{_ipFromPort = a})
 ipUserIdGroupPairs :: Lens' IPPermission [UserIdGroupPair]
 ipUserIdGroupPairs = lens _ipUserIdGroupPairs (\ s a -> s{_ipUserIdGroupPairs = a}) . _Default . _Coerce
 
--- | (EC2-VPC only; valid for 'AuthorizeSecurityGroupEgress' , 'RevokeSecurityGroupEgress' and 'DescribeSecurityGroups' only) One or more prefix list IDs for an AWS service. In an 'AuthorizeSecurityGroupEgress' request, this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
+-- | [EC2-VPC only] One or more prefix list IDs for an AWS service. With 'AuthorizeSecurityGroupEgress' , this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
 ipPrefixListIds :: Lens' IPPermission [PrefixListId]
 ipPrefixListIds = lens _ipPrefixListIds (\ s a -> s{_ipPrefixListIds = a}) . _Default . _Coerce
 
@@ -5561,6 +7824,8 @@ data ImportImageTask = ImportImageTask'
   , _iitProgress        :: !(Maybe Text)
   , _iitLicenseType     :: !(Maybe Text)
   , _iitSnapshotDetails :: !(Maybe [SnapshotDetail])
+  , _iitEncrypted       :: !(Maybe Bool)
+  , _iitKMSKeyId        :: !(Maybe Text)
   , _iitStatusMessage   :: !(Maybe Text)
   , _iitImageId         :: !(Maybe Text)
   , _iitImportTaskId    :: !(Maybe Text)
@@ -5585,6 +7850,10 @@ data ImportImageTask = ImportImageTask'
 --
 -- * 'iitSnapshotDetails' - Information about the snapshots.
 --
+-- * 'iitEncrypted' - Indicates whether the image is encrypted.
+--
+-- * 'iitKMSKeyId' - The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted image.
+--
 -- * 'iitStatusMessage' - A descriptive status message for the import image task.
 --
 -- * 'iitImageId' - The ID of the Amazon Machine Image (AMI) of the imported virtual machine.
@@ -5604,6 +7873,8 @@ importImageTask =
     , _iitProgress = Nothing
     , _iitLicenseType = Nothing
     , _iitSnapshotDetails = Nothing
+    , _iitEncrypted = Nothing
+    , _iitKMSKeyId = Nothing
     , _iitStatusMessage = Nothing
     , _iitImageId = Nothing
     , _iitImportTaskId = Nothing
@@ -5636,6 +7907,14 @@ iitLicenseType = lens _iitLicenseType (\ s a -> s{_iitLicenseType = a})
 iitSnapshotDetails :: Lens' ImportImageTask [SnapshotDetail]
 iitSnapshotDetails = lens _iitSnapshotDetails (\ s a -> s{_iitSnapshotDetails = a}) . _Default . _Coerce
 
+-- | Indicates whether the image is encrypted.
+iitEncrypted :: Lens' ImportImageTask (Maybe Bool)
+iitEncrypted = lens _iitEncrypted (\ s a -> s{_iitEncrypted = a})
+
+-- | The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted image.
+iitKMSKeyId :: Lens' ImportImageTask (Maybe Text)
+iitKMSKeyId = lens _iitKMSKeyId (\ s a -> s{_iitKMSKeyId = a})
+
 -- | A descriptive status message for the import image task.
 iitStatusMessage :: Lens' ImportImageTask (Maybe Text)
 iitStatusMessage = lens _iitStatusMessage (\ s a -> s{_iitStatusMessage = a})
@@ -5666,6 +7945,8 @@ instance FromXML ImportImageTask where
                 <*>
                 (x .@? "snapshotDetailSet" .!@ mempty >>=
                    may (parseXMLList "item"))
+                <*> (x .@? "encrypted")
+                <*> (x .@? "kmsKeyId")
                 <*> (x .@? "statusMessage")
                 <*> (x .@? "imageId")
                 <*> (x .@? "importTaskId")
@@ -5706,7 +7987,7 @@ data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification'
 --
 -- * 'iilsSubnetId' - [EC2-VPC] The ID of the subnet in which to launch the instance.
 --
--- * 'iilsInstanceType' - The instance type. For more information about the instance types that you can import, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types Instance Types> in the VM Import/Export User Guide.
+-- * 'iilsInstanceType' - The instance type. For more information about the instance types that you can import, see <https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types Instance Types> in the VM Import/Export User Guide.
 --
 -- * 'iilsGroupIds' - One or more security group IDs.
 --
@@ -5751,7 +8032,7 @@ iilsGroupNames = lens _iilsGroupNames (\ s a -> s{_iilsGroupNames = a}) . _Defau
 iilsSubnetId :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
 iilsSubnetId = lens _iilsSubnetId (\ s a -> s{_iilsSubnetId = a})
 
--- | The instance type. For more information about the instance types that you can import, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types Instance Types> in the VM Import/Export User Guide.
+-- | The instance type. For more information about the instance types that you can import, see <https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types Instance Types> in the VM Import/Export User Guide.
 iilsInstanceType :: Lens' ImportInstanceLaunchSpecification (Maybe InstanceType)
 iilsInstanceType = lens _iilsInstanceType (\ s a -> s{_iilsInstanceType = a})
 
@@ -5876,13 +8157,13 @@ instance NFData ImportInstanceTaskDetails where
 --
 -- /See:/ 'importInstanceVolumeDetailItem' smart constructor.
 data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem'
-  { _iivdiStatusMessage    :: !(Maybe Text)
+  { _iivdiStatus           :: !(Maybe Text)
+  , _iivdiBytesConverted   :: !(Maybe Integer)
+  , _iivdiImage            :: !(Maybe DiskImageDescription)
+  , _iivdiVolume           :: !(Maybe DiskImageVolumeDescription)
+  , _iivdiAvailabilityZone :: !(Maybe Text)
+  , _iivdiStatusMessage    :: !(Maybe Text)
   , _iivdiDescription      :: !(Maybe Text)
-  , _iivdiAvailabilityZone :: !Text
-  , _iivdiBytesConverted   :: !Integer
-  , _iivdiImage            :: !DiskImageDescription
-  , _iivdiStatus           :: !Text
-  , _iivdiVolume           :: !DiskImageVolumeDescription
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5890,37 +8171,52 @@ data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iivdiStatusMessage' - The status information or errors related to the disk image.
---
--- * 'iivdiDescription' - A description of the task.
---
--- * 'iivdiAvailabilityZone' - The Availability Zone where the resulting instance will reside.
+-- * 'iivdiStatus' - The status of the import of this particular disk image.
 --
 -- * 'iivdiBytesConverted' - The number of bytes converted so far.
 --
 -- * 'iivdiImage' - The image.
 --
--- * 'iivdiStatus' - The status of the import of this particular disk image.
---
 -- * 'iivdiVolume' - The volume.
+--
+-- * 'iivdiAvailabilityZone' - The Availability Zone where the resulting instance will reside.
+--
+-- * 'iivdiStatusMessage' - The status information or errors related to the disk image.
+--
+-- * 'iivdiDescription' - A description of the task.
 importInstanceVolumeDetailItem
-    :: Text -- ^ 'iivdiAvailabilityZone'
-    -> Integer -- ^ 'iivdiBytesConverted'
-    -> DiskImageDescription -- ^ 'iivdiImage'
-    -> Text -- ^ 'iivdiStatus'
-    -> DiskImageVolumeDescription -- ^ 'iivdiVolume'
-    -> ImportInstanceVolumeDetailItem
-importInstanceVolumeDetailItem pAvailabilityZone_ pBytesConverted_ pImage_ pStatus_ pVolume_ =
+    :: ImportInstanceVolumeDetailItem
+importInstanceVolumeDetailItem =
   ImportInstanceVolumeDetailItem'
-    { _iivdiStatusMessage = Nothing
+    { _iivdiStatus = Nothing
+    , _iivdiBytesConverted = Nothing
+    , _iivdiImage = Nothing
+    , _iivdiVolume = Nothing
+    , _iivdiAvailabilityZone = Nothing
+    , _iivdiStatusMessage = Nothing
     , _iivdiDescription = Nothing
-    , _iivdiAvailabilityZone = pAvailabilityZone_
-    , _iivdiBytesConverted = pBytesConverted_
-    , _iivdiImage = pImage_
-    , _iivdiStatus = pStatus_
-    , _iivdiVolume = pVolume_
     }
 
+
+-- | The status of the import of this particular disk image.
+iivdiStatus :: Lens' ImportInstanceVolumeDetailItem (Maybe Text)
+iivdiStatus = lens _iivdiStatus (\ s a -> s{_iivdiStatus = a})
+
+-- | The number of bytes converted so far.
+iivdiBytesConverted :: Lens' ImportInstanceVolumeDetailItem (Maybe Integer)
+iivdiBytesConverted = lens _iivdiBytesConverted (\ s a -> s{_iivdiBytesConverted = a})
+
+-- | The image.
+iivdiImage :: Lens' ImportInstanceVolumeDetailItem (Maybe DiskImageDescription)
+iivdiImage = lens _iivdiImage (\ s a -> s{_iivdiImage = a})
+
+-- | The volume.
+iivdiVolume :: Lens' ImportInstanceVolumeDetailItem (Maybe DiskImageVolumeDescription)
+iivdiVolume = lens _iivdiVolume (\ s a -> s{_iivdiVolume = a})
+
+-- | The Availability Zone where the resulting instance will reside.
+iivdiAvailabilityZone :: Lens' ImportInstanceVolumeDetailItem (Maybe Text)
+iivdiAvailabilityZone = lens _iivdiAvailabilityZone (\ s a -> s{_iivdiAvailabilityZone = a})
 
 -- | The status information or errors related to the disk image.
 iivdiStatusMessage :: Lens' ImportInstanceVolumeDetailItem (Maybe Text)
@@ -5930,35 +8226,15 @@ iivdiStatusMessage = lens _iivdiStatusMessage (\ s a -> s{_iivdiStatusMessage = 
 iivdiDescription :: Lens' ImportInstanceVolumeDetailItem (Maybe Text)
 iivdiDescription = lens _iivdiDescription (\ s a -> s{_iivdiDescription = a})
 
--- | The Availability Zone where the resulting instance will reside.
-iivdiAvailabilityZone :: Lens' ImportInstanceVolumeDetailItem Text
-iivdiAvailabilityZone = lens _iivdiAvailabilityZone (\ s a -> s{_iivdiAvailabilityZone = a})
-
--- | The number of bytes converted so far.
-iivdiBytesConverted :: Lens' ImportInstanceVolumeDetailItem Integer
-iivdiBytesConverted = lens _iivdiBytesConverted (\ s a -> s{_iivdiBytesConverted = a})
-
--- | The image.
-iivdiImage :: Lens' ImportInstanceVolumeDetailItem DiskImageDescription
-iivdiImage = lens _iivdiImage (\ s a -> s{_iivdiImage = a})
-
--- | The status of the import of this particular disk image.
-iivdiStatus :: Lens' ImportInstanceVolumeDetailItem Text
-iivdiStatus = lens _iivdiStatus (\ s a -> s{_iivdiStatus = a})
-
--- | The volume.
-iivdiVolume :: Lens' ImportInstanceVolumeDetailItem DiskImageVolumeDescription
-iivdiVolume = lens _iivdiVolume (\ s a -> s{_iivdiVolume = a})
-
 instance FromXML ImportInstanceVolumeDetailItem where
         parseXML x
           = ImportInstanceVolumeDetailItem' <$>
-              (x .@? "statusMessage") <*> (x .@? "description") <*>
-                (x .@ "availabilityZone")
-                <*> (x .@ "bytesConverted")
-                <*> (x .@ "image")
-                <*> (x .@ "status")
-                <*> (x .@ "volume")
+              (x .@? "status") <*> (x .@? "bytesConverted") <*>
+                (x .@? "image")
+                <*> (x .@? "volume")
+                <*> (x .@? "availabilityZone")
+                <*> (x .@? "statusMessage")
+                <*> (x .@? "description")
 
 instance Hashable ImportInstanceVolumeDetailItem
          where
@@ -6096,46 +8372,51 @@ instance NFData ImportVolumeTaskDetails where
 --
 -- /See:/ 'instance'' smart constructor.
 data Instance = Instance'
-  { _insPublicDNSName          :: !(Maybe Text)
-  , _insPlatform               :: !(Maybe PlatformValues)
-  , _insSecurityGroups         :: !(Maybe [GroupIdentifier])
-  , _insClientToken            :: !(Maybe Text)
-  , _insEnaSupport             :: !(Maybe Bool)
-  , _insSourceDestCheck        :: !(Maybe Bool)
+  { _insPublicDNSName :: !(Maybe Text)
+  , _insPlatform :: !(Maybe PlatformValues)
+  , _insSecurityGroups :: !(Maybe [GroupIdentifier])
+  , _insClientToken :: !(Maybe Text)
+  , _insEnaSupport :: !(Maybe Bool)
+  , _insSourceDestCheck :: !(Maybe Bool)
   , _insElasticGpuAssociations :: !(Maybe [ElasticGpuAssociation])
-  , _insVPCId                  :: !(Maybe Text)
-  , _insKeyName                :: !(Maybe Text)
-  , _insNetworkInterfaces      :: !(Maybe [InstanceNetworkInterface])
-  , _insRAMDiskId              :: !(Maybe Text)
-  , _insCPUOptions             :: !(Maybe CPUOptions)
-  , _insSubnetId               :: !(Maybe Text)
-  , _insKernelId               :: !(Maybe Text)
-  , _insRootDeviceName         :: !(Maybe Text)
-  , _insSRIOVNetSupport        :: !(Maybe Text)
-  , _insEBSOptimized           :: !(Maybe Bool)
-  , _insStateTransitionReason  :: !(Maybe Text)
-  , _insInstanceLifecycle      :: !(Maybe InstanceLifecycleType)
-  , _insIAMInstanceProfile     :: !(Maybe IAMInstanceProfile)
-  , _insPrivateIPAddress       :: !(Maybe Text)
-  , _insProductCodes           :: !(Maybe [ProductCode])
-  , _insSpotInstanceRequestId  :: !(Maybe Text)
-  , _insPrivateDNSName         :: !(Maybe Text)
-  , _insStateReason            :: !(Maybe StateReason)
-  , _insBlockDeviceMappings    :: !(Maybe [InstanceBlockDeviceMapping])
-  , _insPublicIPAddress        :: !(Maybe Text)
-  , _insTags                   :: !(Maybe [Tag])
-  , _insInstanceId             :: !Text
-  , _insImageId                :: !Text
-  , _insAMILaunchIndex         :: !Int
-  , _insInstanceType           :: !InstanceType
-  , _insLaunchTime             :: !ISO8601
-  , _insPlacement              :: !Placement
-  , _insMonitoring             :: !Monitoring
-  , _insArchitecture           :: !ArchitectureValues
-  , _insRootDeviceType         :: !DeviceType
-  , _insVirtualizationType     :: !VirtualizationType
-  , _insHypervisor             :: !HypervisorType
-  , _insState                  :: !InstanceState
+  , _insVPCId :: !(Maybe Text)
+  , _insKeyName :: !(Maybe Text)
+  , _insNetworkInterfaces :: !(Maybe [InstanceNetworkInterface])
+  , _insRAMDiskId :: !(Maybe Text)
+  , _insCPUOptions :: !(Maybe CPUOptions)
+  , _insSubnetId :: !(Maybe Text)
+  , _insKernelId :: !(Maybe Text)
+  , _insRootDeviceName :: !(Maybe Text)
+  , _insCapacityReservationId :: !(Maybe Text)
+  , _insCapacityReservationSpecification :: !(Maybe CapacityReservationSpecificationResponse)
+  , _insSRIOVNetSupport :: !(Maybe Text)
+  , _insEBSOptimized :: !(Maybe Bool)
+  , _insStateTransitionReason :: !(Maybe Text)
+  , _insHibernationOptions :: !(Maybe HibernationOptions)
+  , _insInstanceLifecycle :: !(Maybe InstanceLifecycleType)
+  , _insIAMInstanceProfile :: !(Maybe IAMInstanceProfile)
+  , _insPrivateIPAddress :: !(Maybe Text)
+  , _insProductCodes :: !(Maybe [ProductCode])
+  , _insSpotInstanceRequestId :: !(Maybe Text)
+  , _insLicenses :: !(Maybe [LicenseConfiguration])
+  , _insElasticInferenceAcceleratorAssociations :: !(Maybe [ElasticInferenceAcceleratorAssociation])
+  , _insPrivateDNSName :: !(Maybe Text)
+  , _insStateReason :: !(Maybe StateReason)
+  , _insBlockDeviceMappings :: !(Maybe [InstanceBlockDeviceMapping])
+  , _insPublicIPAddress :: !(Maybe Text)
+  , _insTags :: !(Maybe [Tag])
+  , _insInstanceId :: !Text
+  , _insImageId :: !Text
+  , _insAMILaunchIndex :: !Int
+  , _insInstanceType :: !InstanceType
+  , _insLaunchTime :: !ISO8601
+  , _insPlacement :: !Placement
+  , _insMonitoring :: !Monitoring
+  , _insArchitecture :: !ArchitectureValues
+  , _insRootDeviceType :: !DeviceType
+  , _insVirtualizationType :: !VirtualizationType
+  , _insHypervisor :: !HypervisorType
+  , _insState :: !InstanceState
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6153,7 +8434,7 @@ data Instance = Instance'
 --
 -- * 'insEnaSupport' - Specifies whether enhanced networking with ENA is enabled.
 --
--- * 'insSourceDestCheck' - Specifies whether to enable an instance launched in a VPC to perform NAT. This controls whether source/destination checking is enabled on the instance. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. The value must be @false@ for the instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
+-- * 'insSourceDestCheck' - Specifies whether to enable an instance launched in a VPC to perform NAT. This controls whether source/destination checking is enabled on the instance. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. The value must be @false@ for the instance to perform NAT. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 -- * 'insElasticGpuAssociations' - The Elastic GPU associated with the instance.
 --
@@ -6173,11 +8454,17 @@ data Instance = Instance'
 --
 -- * 'insRootDeviceName' - The device name of the root device volume (for example, @/dev/sda1@ ).
 --
+-- * 'insCapacityReservationId' - The ID of the Capacity Reservation.
+--
+-- * 'insCapacityReservationSpecification' - Information about the Capacity Reservation targeting option.
+--
 -- * 'insSRIOVNetSupport' - Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
 --
 -- * 'insEBSOptimized' - Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
 --
 -- * 'insStateTransitionReason' - The reason for the most recent state transition. This might be an empty string.
+--
+-- * 'insHibernationOptions' - Indicates whether the instance is enabled for hibernation.
 --
 -- * 'insInstanceLifecycle' - Indicates whether this is a Spot Instance or a Scheduled Instance.
 --
@@ -6188,6 +8475,10 @@ data Instance = Instance'
 -- * 'insProductCodes' - The product codes attached to this instance, if applicable.
 --
 -- * 'insSpotInstanceRequestId' - If the request is a Spot Instance request, the ID of the request.
+--
+-- * 'insLicenses' - The license configurations.
+--
+-- * 'insElasticInferenceAcceleratorAssociations' - The elastic inference accelerator associated with the instance.
 --
 -- * 'insPrivateDNSName' - (IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname can only be used inside the Amazon EC2 network. This name is not available until the instance enters the @running@ state.  [EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.
 --
@@ -6253,14 +8544,19 @@ instance' pInstanceId_ pImageId_ pAMILaunchIndex_ pInstanceType_ pLaunchTime_ pP
     , _insSubnetId = Nothing
     , _insKernelId = Nothing
     , _insRootDeviceName = Nothing
+    , _insCapacityReservationId = Nothing
+    , _insCapacityReservationSpecification = Nothing
     , _insSRIOVNetSupport = Nothing
     , _insEBSOptimized = Nothing
     , _insStateTransitionReason = Nothing
+    , _insHibernationOptions = Nothing
     , _insInstanceLifecycle = Nothing
     , _insIAMInstanceProfile = Nothing
     , _insPrivateIPAddress = Nothing
     , _insProductCodes = Nothing
     , _insSpotInstanceRequestId = Nothing
+    , _insLicenses = Nothing
+    , _insElasticInferenceAcceleratorAssociations = Nothing
     , _insPrivateDNSName = Nothing
     , _insStateReason = Nothing
     , _insBlockDeviceMappings = Nothing
@@ -6301,7 +8597,7 @@ insClientToken = lens _insClientToken (\ s a -> s{_insClientToken = a})
 insEnaSupport :: Lens' Instance (Maybe Bool)
 insEnaSupport = lens _insEnaSupport (\ s a -> s{_insEnaSupport = a})
 
--- | Specifies whether to enable an instance launched in a VPC to perform NAT. This controls whether source/destination checking is enabled on the instance. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. The value must be @false@ for the instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
+-- | Specifies whether to enable an instance launched in a VPC to perform NAT. This controls whether source/destination checking is enabled on the instance. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. The value must be @false@ for the instance to perform NAT. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
 insSourceDestCheck :: Lens' Instance (Maybe Bool)
 insSourceDestCheck = lens _insSourceDestCheck (\ s a -> s{_insSourceDestCheck = a})
 
@@ -6341,6 +8637,14 @@ insKernelId = lens _insKernelId (\ s a -> s{_insKernelId = a})
 insRootDeviceName :: Lens' Instance (Maybe Text)
 insRootDeviceName = lens _insRootDeviceName (\ s a -> s{_insRootDeviceName = a})
 
+-- | The ID of the Capacity Reservation.
+insCapacityReservationId :: Lens' Instance (Maybe Text)
+insCapacityReservationId = lens _insCapacityReservationId (\ s a -> s{_insCapacityReservationId = a})
+
+-- | Information about the Capacity Reservation targeting option.
+insCapacityReservationSpecification :: Lens' Instance (Maybe CapacityReservationSpecificationResponse)
+insCapacityReservationSpecification = lens _insCapacityReservationSpecification (\ s a -> s{_insCapacityReservationSpecification = a})
+
 -- | Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
 insSRIOVNetSupport :: Lens' Instance (Maybe Text)
 insSRIOVNetSupport = lens _insSRIOVNetSupport (\ s a -> s{_insSRIOVNetSupport = a})
@@ -6352,6 +8656,10 @@ insEBSOptimized = lens _insEBSOptimized (\ s a -> s{_insEBSOptimized = a})
 -- | The reason for the most recent state transition. This might be an empty string.
 insStateTransitionReason :: Lens' Instance (Maybe Text)
 insStateTransitionReason = lens _insStateTransitionReason (\ s a -> s{_insStateTransitionReason = a})
+
+-- | Indicates whether the instance is enabled for hibernation.
+insHibernationOptions :: Lens' Instance (Maybe HibernationOptions)
+insHibernationOptions = lens _insHibernationOptions (\ s a -> s{_insHibernationOptions = a})
 
 -- | Indicates whether this is a Spot Instance or a Scheduled Instance.
 insInstanceLifecycle :: Lens' Instance (Maybe InstanceLifecycleType)
@@ -6372,6 +8680,14 @@ insProductCodes = lens _insProductCodes (\ s a -> s{_insProductCodes = a}) . _De
 -- | If the request is a Spot Instance request, the ID of the request.
 insSpotInstanceRequestId :: Lens' Instance (Maybe Text)
 insSpotInstanceRequestId = lens _insSpotInstanceRequestId (\ s a -> s{_insSpotInstanceRequestId = a})
+
+-- | The license configurations.
+insLicenses :: Lens' Instance [LicenseConfiguration]
+insLicenses = lens _insLicenses (\ s a -> s{_insLicenses = a}) . _Default . _Coerce
+
+-- | The elastic inference accelerator associated with the instance.
+insElasticInferenceAcceleratorAssociations :: Lens' Instance [ElasticInferenceAcceleratorAssociation]
+insElasticInferenceAcceleratorAssociations = lens _insElasticInferenceAcceleratorAssociations (\ s a -> s{_insElasticInferenceAcceleratorAssociations = a}) . _Default . _Coerce
 
 -- | (IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname can only be used inside the Amazon EC2 network. This name is not available until the instance enters the @running@ state.  [EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.
 insPrivateDNSName :: Lens' Instance (Maybe Text)
@@ -6463,9 +8779,12 @@ instance FromXML Instance where
                 <*> (x .@? "subnetId")
                 <*> (x .@? "kernelId")
                 <*> (x .@? "rootDeviceName")
+                <*> (x .@? "capacityReservationId")
+                <*> (x .@? "capacityReservationSpecification")
                 <*> (x .@? "sriovNetSupport")
                 <*> (x .@? "ebsOptimized")
                 <*> (x .@? "reason")
+                <*> (x .@? "hibernationOptions")
                 <*> (x .@? "instanceLifecycle")
                 <*> (x .@? "iamInstanceProfile")
                 <*> (x .@? "privateIpAddress")
@@ -6473,6 +8792,13 @@ instance FromXML Instance where
                 (x .@? "productCodes" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*> (x .@? "spotInstanceRequestId")
+                <*>
+                (x .@? "licenseSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*>
+                (x .@? "elasticInferenceAcceleratorAssociationSet"
+                   .!@ mempty
+                   >>= may (parseXMLList "item"))
                 <*> (x .@? "privateDnsName")
                 <*> (x .@? "stateReason")
                 <*>
@@ -6702,7 +9028,7 @@ instance Hashable InstanceCount where
 
 instance NFData InstanceCount where
 
--- | Describes the credit option for CPU usage of a T2 instance.
+-- | Describes the credit option for CPU usage of a T2 or T3 instance.
 --
 --
 --
@@ -6744,7 +9070,7 @@ instance Hashable InstanceCreditSpecification where
 
 instance NFData InstanceCreditSpecification where
 
--- | Describes the credit option for CPU usage of a T2 instance.
+-- | Describes the credit option for CPU usage of a T2 or T3 instance.
 --
 --
 --
@@ -7530,7 +9856,7 @@ data InstanceState = InstanceState'
 --
 -- * 'isName' - The current state of the instance.
 --
--- * 'isCode' - The low byte represents the state. The high byte is an opaque internal value and should be ignored.     * @0@ : @pending@      * @16@ : @running@      * @32@ : @shutting-down@      * @48@ : @terminated@      * @64@ : @stopping@      * @80@ : @stopped@
+-- * 'isCode' - The state of the instance as a 16-bit unsigned integer.  The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored. The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255.  The valid values for instance-state-code will all be in the range of the low byte and they are:     * @0@ : @pending@      * @16@ : @running@      * @32@ : @shutting-down@      * @48@ : @terminated@      * @64@ : @stopping@      * @80@ : @stopped@  You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
 instanceState
     :: InstanceStateName -- ^ 'isName'
     -> Int -- ^ 'isCode'
@@ -7543,7 +9869,7 @@ instanceState pName_ pCode_ =
 isName :: Lens' InstanceState InstanceStateName
 isName = lens _isName (\ s a -> s{_isName = a})
 
--- | The low byte represents the state. The high byte is an opaque internal value and should be ignored.     * @0@ : @pending@      * @16@ : @running@      * @32@ : @shutting-down@      * @48@ : @terminated@      * @64@ : @stopping@      * @80@ : @stopped@
+-- | The state of the instance as a 16-bit unsigned integer.  The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values between 256 and 65,535. These numerical values are used for internal purposes and should be ignored. The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values between 0 and 255.  The valid values for instance-state-code will all be in the range of the low byte and they are:     * @0@ : @pending@      * @16@ : @running@      * @32@ : @shutting-down@      * @48@ : @terminated@      * @64@ : @stopping@      * @80@ : @stopped@  You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in decimal.
 isCode :: Lens' InstanceState Int
 isCode = lens _isCode (\ s a -> s{_isCode = a})
 
@@ -7745,10 +10071,12 @@ instance NFData InstanceStatusDetails where
 --
 -- /See:/ 'instanceStatusEvent' smart constructor.
 data InstanceStatusEvent = InstanceStatusEvent'
-  { _iseNotBefore   :: !(Maybe ISO8601)
-  , _iseCode        :: !(Maybe EventCode)
-  , _iseDescription :: !(Maybe Text)
-  , _iseNotAfter    :: !(Maybe ISO8601)
+  { _iseNotBefore         :: !(Maybe ISO8601)
+  , _iseCode              :: !(Maybe EventCode)
+  , _iseInstanceEventId   :: !(Maybe Text)
+  , _iseDescription       :: !(Maybe Text)
+  , _iseNotBeforeDeadline :: !(Maybe ISO8601)
+  , _iseNotAfter          :: !(Maybe ISO8601)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -7760,7 +10088,11 @@ data InstanceStatusEvent = InstanceStatusEvent'
 --
 -- * 'iseCode' - The event code.
 --
+-- * 'iseInstanceEventId' - The ID of the event.
+--
 -- * 'iseDescription' - A description of the event. After a scheduled event is completed, it can still be described for up to a week. If the event has been completed, this description starts with the following text: [Completed].
+--
+-- * 'iseNotBeforeDeadline' - The deadline for starting the event.
 --
 -- * 'iseNotAfter' - The latest scheduled end time for the event.
 instanceStatusEvent
@@ -7769,7 +10101,9 @@ instanceStatusEvent =
   InstanceStatusEvent'
     { _iseNotBefore = Nothing
     , _iseCode = Nothing
+    , _iseInstanceEventId = Nothing
     , _iseDescription = Nothing
+    , _iseNotBeforeDeadline = Nothing
     , _iseNotAfter = Nothing
     }
 
@@ -7782,9 +10116,17 @@ iseNotBefore = lens _iseNotBefore (\ s a -> s{_iseNotBefore = a}) . mapping _Tim
 iseCode :: Lens' InstanceStatusEvent (Maybe EventCode)
 iseCode = lens _iseCode (\ s a -> s{_iseCode = a})
 
+-- | The ID of the event.
+iseInstanceEventId :: Lens' InstanceStatusEvent (Maybe Text)
+iseInstanceEventId = lens _iseInstanceEventId (\ s a -> s{_iseInstanceEventId = a})
+
 -- | A description of the event. After a scheduled event is completed, it can still be described for up to a week. If the event has been completed, this description starts with the following text: [Completed].
 iseDescription :: Lens' InstanceStatusEvent (Maybe Text)
 iseDescription = lens _iseDescription (\ s a -> s{_iseDescription = a})
+
+-- | The deadline for starting the event.
+iseNotBeforeDeadline :: Lens' InstanceStatusEvent (Maybe UTCTime)
+iseNotBeforeDeadline = lens _iseNotBeforeDeadline (\ s a -> s{_iseNotBeforeDeadline = a}) . mapping _Time
 
 -- | The latest scheduled end time for the event.
 iseNotAfter :: Lens' InstanceStatusEvent (Maybe UTCTime)
@@ -7794,7 +10136,9 @@ instance FromXML InstanceStatusEvent where
         parseXML x
           = InstanceStatusEvent' <$>
               (x .@? "notBefore") <*> (x .@? "code") <*>
-                (x .@? "description")
+                (x .@? "instanceEventId")
+                <*> (x .@? "description")
+                <*> (x .@? "notBeforeDeadline")
                 <*> (x .@? "notAfter")
 
 instance Hashable InstanceStatusEvent where
@@ -7845,13 +10189,14 @@ instance Hashable InstanceStatusSummary where
 
 instance NFData InstanceStatusSummary where
 
--- | Describes an Internet gateway.
+-- | Describes an internet gateway.
 --
 --
 --
 -- /See:/ 'internetGateway' smart constructor.
 data InternetGateway = InternetGateway'
   { _igAttachments       :: !(Maybe [InternetGatewayAttachment])
+  , _igOwnerId           :: !(Maybe Text)
   , _igTags              :: !(Maybe [Tag])
   , _igInternetGatewayId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -7861,31 +10206,38 @@ data InternetGateway = InternetGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'igAttachments' - Any VPCs attached to the Internet gateway.
+-- * 'igAttachments' - Any VPCs attached to the internet gateway.
 --
--- * 'igTags' - Any tags assigned to the Internet gateway.
+-- * 'igOwnerId' - The ID of the AWS account that owns the internet gateway.
 --
--- * 'igInternetGatewayId' - The ID of the Internet gateway.
+-- * 'igTags' - Any tags assigned to the internet gateway.
+--
+-- * 'igInternetGatewayId' - The ID of the internet gateway.
 internetGateway
     :: Text -- ^ 'igInternetGatewayId'
     -> InternetGateway
 internetGateway pInternetGatewayId_ =
   InternetGateway'
     { _igAttachments = Nothing
+    , _igOwnerId = Nothing
     , _igTags = Nothing
     , _igInternetGatewayId = pInternetGatewayId_
     }
 
 
--- | Any VPCs attached to the Internet gateway.
+-- | Any VPCs attached to the internet gateway.
 igAttachments :: Lens' InternetGateway [InternetGatewayAttachment]
 igAttachments = lens _igAttachments (\ s a -> s{_igAttachments = a}) . _Default . _Coerce
 
--- | Any tags assigned to the Internet gateway.
+-- | The ID of the AWS account that owns the internet gateway.
+igOwnerId :: Lens' InternetGateway (Maybe Text)
+igOwnerId = lens _igOwnerId (\ s a -> s{_igOwnerId = a})
+
+-- | Any tags assigned to the internet gateway.
 igTags :: Lens' InternetGateway [Tag]
 igTags = lens _igTags (\ s a -> s{_igTags = a}) . _Default . _Coerce
 
--- | The ID of the Internet gateway.
+-- | The ID of the internet gateway.
 igInternetGatewayId :: Lens' InternetGateway Text
 igInternetGatewayId = lens _igInternetGatewayId (\ s a -> s{_igInternetGatewayId = a})
 
@@ -7894,6 +10246,7 @@ instance FromXML InternetGateway where
           = InternetGateway' <$>
               (x .@? "attachmentSet" .!@ mempty >>=
                  may (parseXMLList "item"))
+                <*> (x .@? "ownerId")
                 <*>
                 (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
@@ -7903,7 +10256,7 @@ instance Hashable InternetGateway where
 
 instance NFData InternetGateway where
 
--- | Describes the attachment of a VPC to an Internet gateway or an egress-only Internet gateway.
+-- | Describes the attachment of a VPC to an internet gateway or an egress-only internet gateway.
 --
 --
 --
@@ -7918,7 +10271,7 @@ data InternetGatewayAttachment = InternetGatewayAttachment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'igaState' - The current state of the attachment. For an Internet gateway, the state is @available@ when attached to a VPC; otherwise, this value is not returned.
+-- * 'igaState' - The current state of the attachment. For an internet gateway, the state is @available@ when attached to a VPC; otherwise, this value is not returned.
 --
 -- * 'igaVPCId' - The ID of the VPC.
 internetGatewayAttachment
@@ -7929,7 +10282,7 @@ internetGatewayAttachment pState_ pVPCId_ =
   InternetGatewayAttachment' {_igaState = pState_, _igaVPCId = pVPCId_}
 
 
--- | The current state of the attachment. For an Internet gateway, the state is @available@ when attached to a VPC; otherwise, this value is not returned.
+-- | The current state of the attachment. For an internet gateway, the state is @available@ when attached to a VPC; otherwise, this value is not returned.
 igaState :: Lens' InternetGatewayAttachment AttachmentStatus
 igaState = lens _igaState (\ s a -> s{_igaState = a})
 
@@ -8331,6 +10684,52 @@ instance Hashable LaunchTemplate where
 
 instance NFData LaunchTemplate where
 
+-- | Describes a launch template and overrides.
+--
+--
+--
+-- /See:/ 'launchTemplateAndOverridesResponse' smart constructor.
+data LaunchTemplateAndOverridesResponse = LaunchTemplateAndOverridesResponse'
+  { _ltaoOverrides :: !(Maybe FleetLaunchTemplateOverrides)
+  , _ltaoLaunchTemplateSpecification :: !(Maybe FleetLaunchTemplateSpecification)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LaunchTemplateAndOverridesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltaoOverrides' - Any parameters that you specify override the same parameters in the launch template.
+--
+-- * 'ltaoLaunchTemplateSpecification' - The launch template.
+launchTemplateAndOverridesResponse
+    :: LaunchTemplateAndOverridesResponse
+launchTemplateAndOverridesResponse =
+  LaunchTemplateAndOverridesResponse'
+    {_ltaoOverrides = Nothing, _ltaoLaunchTemplateSpecification = Nothing}
+
+
+-- | Any parameters that you specify override the same parameters in the launch template.
+ltaoOverrides :: Lens' LaunchTemplateAndOverridesResponse (Maybe FleetLaunchTemplateOverrides)
+ltaoOverrides = lens _ltaoOverrides (\ s a -> s{_ltaoOverrides = a})
+
+-- | The launch template.
+ltaoLaunchTemplateSpecification :: Lens' LaunchTemplateAndOverridesResponse (Maybe FleetLaunchTemplateSpecification)
+ltaoLaunchTemplateSpecification = lens _ltaoLaunchTemplateSpecification (\ s a -> s{_ltaoLaunchTemplateSpecification = a})
+
+instance FromXML LaunchTemplateAndOverridesResponse
+         where
+        parseXML x
+          = LaunchTemplateAndOverridesResponse' <$>
+              (x .@? "overrides") <*>
+                (x .@? "launchTemplateSpecification")
+
+instance Hashable LaunchTemplateAndOverridesResponse
+         where
+
+instance NFData LaunchTemplateAndOverridesResponse
+         where
+
 -- | Describes a block device mapping.
 --
 --
@@ -8463,6 +10862,199 @@ instance ToQuery
               ["VirtualName" =: _ltbdmrVirtualName,
                "NoDevice" =: _ltbdmrNoDevice, "Ebs" =: _ltbdmrEBS,
                "DeviceName" =: _ltbdmrDeviceName]
+
+-- | The CPU options for the instance.
+--
+--
+--
+-- /See:/ 'launchTemplateCPUOptions' smart constructor.
+data LaunchTemplateCPUOptions = LaunchTemplateCPUOptions'
+  { _ltcoCoreCount      :: !(Maybe Int)
+  , _ltcoThreadsPerCore :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LaunchTemplateCPUOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltcoCoreCount' - The number of CPU cores for the instance.
+--
+-- * 'ltcoThreadsPerCore' - The number of threads per CPU core.
+launchTemplateCPUOptions
+    :: LaunchTemplateCPUOptions
+launchTemplateCPUOptions =
+  LaunchTemplateCPUOptions'
+    {_ltcoCoreCount = Nothing, _ltcoThreadsPerCore = Nothing}
+
+
+-- | The number of CPU cores for the instance.
+ltcoCoreCount :: Lens' LaunchTemplateCPUOptions (Maybe Int)
+ltcoCoreCount = lens _ltcoCoreCount (\ s a -> s{_ltcoCoreCount = a})
+
+-- | The number of threads per CPU core.
+ltcoThreadsPerCore :: Lens' LaunchTemplateCPUOptions (Maybe Int)
+ltcoThreadsPerCore = lens _ltcoThreadsPerCore (\ s a -> s{_ltcoThreadsPerCore = a})
+
+instance FromXML LaunchTemplateCPUOptions where
+        parseXML x
+          = LaunchTemplateCPUOptions' <$>
+              (x .@? "coreCount") <*> (x .@? "threadsPerCore")
+
+instance Hashable LaunchTemplateCPUOptions where
+
+instance NFData LaunchTemplateCPUOptions where
+
+-- | The CPU options for the instance. Both the core count and threads per core must be specified in the request.
+--
+--
+--
+-- /See:/ 'launchTemplateCPUOptionsRequest' smart constructor.
+data LaunchTemplateCPUOptionsRequest = LaunchTemplateCPUOptionsRequest'
+  { _ltcorCoreCount      :: !(Maybe Int)
+  , _ltcorThreadsPerCore :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LaunchTemplateCPUOptionsRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltcorCoreCount' - The number of CPU cores for the instance.
+--
+-- * 'ltcorThreadsPerCore' - The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1. Otherwise, specify the default value of 2.
+launchTemplateCPUOptionsRequest
+    :: LaunchTemplateCPUOptionsRequest
+launchTemplateCPUOptionsRequest =
+  LaunchTemplateCPUOptionsRequest'
+    {_ltcorCoreCount = Nothing, _ltcorThreadsPerCore = Nothing}
+
+
+-- | The number of CPU cores for the instance.
+ltcorCoreCount :: Lens' LaunchTemplateCPUOptionsRequest (Maybe Int)
+ltcorCoreCount = lens _ltcorCoreCount (\ s a -> s{_ltcorCoreCount = a})
+
+-- | The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1. Otherwise, specify the default value of 2.
+ltcorThreadsPerCore :: Lens' LaunchTemplateCPUOptionsRequest (Maybe Int)
+ltcorThreadsPerCore = lens _ltcorThreadsPerCore (\ s a -> s{_ltcorThreadsPerCore = a})
+
+instance Hashable LaunchTemplateCPUOptionsRequest
+         where
+
+instance NFData LaunchTemplateCPUOptionsRequest where
+
+instance ToQuery LaunchTemplateCPUOptionsRequest
+         where
+        toQuery LaunchTemplateCPUOptionsRequest'{..}
+          = mconcat
+              ["CoreCount" =: _ltcorCoreCount,
+               "ThreadsPerCore" =: _ltcorThreadsPerCore]
+
+-- | Describes an instance's Capacity Reservation targeting option. You can specify only one option at a time. Use the @CapacityReservationPreference@ parameter to configure the instance to run in On-Demand capacity or to run in any @open@ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). Use the @CapacityReservationTarget@ parameter to explicitly target a specific Capacity Reservation.
+--
+--
+--
+-- /See:/ 'launchTemplateCapacityReservationSpecificationRequest' smart constructor.
+data LaunchTemplateCapacityReservationSpecificationRequest = LaunchTemplateCapacityReservationSpecificationRequest'
+  { _ltcrsrCapacityReservationTarget :: !(Maybe CapacityReservationTarget)
+  , _ltcrsrCapacityReservationPreference :: !(Maybe CapacityReservationPreference)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LaunchTemplateCapacityReservationSpecificationRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltcrsrCapacityReservationTarget' - Information about the target Capacity Reservation.
+--
+-- * 'ltcrsrCapacityReservationPreference' - Indicates the instance's Capacity Reservation preferences. Possible preferences include:     * @open@ - The instance can run in any @open@ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).     * @none@ - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
+launchTemplateCapacityReservationSpecificationRequest
+    :: LaunchTemplateCapacityReservationSpecificationRequest
+launchTemplateCapacityReservationSpecificationRequest =
+  LaunchTemplateCapacityReservationSpecificationRequest'
+    { _ltcrsrCapacityReservationTarget = Nothing
+    , _ltcrsrCapacityReservationPreference = Nothing
+    }
+
+
+-- | Information about the target Capacity Reservation.
+ltcrsrCapacityReservationTarget :: Lens' LaunchTemplateCapacityReservationSpecificationRequest (Maybe CapacityReservationTarget)
+ltcrsrCapacityReservationTarget = lens _ltcrsrCapacityReservationTarget (\ s a -> s{_ltcrsrCapacityReservationTarget = a})
+
+-- | Indicates the instance's Capacity Reservation preferences. Possible preferences include:     * @open@ - The instance can run in any @open@ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).     * @none@ - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
+ltcrsrCapacityReservationPreference :: Lens' LaunchTemplateCapacityReservationSpecificationRequest (Maybe CapacityReservationPreference)
+ltcrsrCapacityReservationPreference = lens _ltcrsrCapacityReservationPreference (\ s a -> s{_ltcrsrCapacityReservationPreference = a})
+
+instance Hashable
+           LaunchTemplateCapacityReservationSpecificationRequest
+         where
+
+instance NFData
+           LaunchTemplateCapacityReservationSpecificationRequest
+         where
+
+instance ToQuery
+           LaunchTemplateCapacityReservationSpecificationRequest
+         where
+        toQuery
+          LaunchTemplateCapacityReservationSpecificationRequest'{..}
+          = mconcat
+              ["CapacityReservationTarget" =:
+                 _ltcrsrCapacityReservationTarget,
+               "CapacityReservationPreference" =:
+                 _ltcrsrCapacityReservationPreference]
+
+-- | Information about the Capacity Reservation targeting option.
+--
+--
+--
+-- /See:/ 'launchTemplateCapacityReservationSpecificationResponse' smart constructor.
+data LaunchTemplateCapacityReservationSpecificationResponse = LaunchTemplateCapacityReservationSpecificationResponse'
+  { _ltcrsCapacityReservationTarget :: !(Maybe CapacityReservationTargetResponse)
+  , _ltcrsCapacityReservationPreference :: !(Maybe CapacityReservationPreference)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LaunchTemplateCapacityReservationSpecificationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltcrsCapacityReservationTarget' - Information about the target Capacity Reservation.
+--
+-- * 'ltcrsCapacityReservationPreference' - Indicates the instance's Capacity Reservation preferences. Possible preferences include:     * @open@ - The instance can run in any @open@ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).     * @none@ - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
+launchTemplateCapacityReservationSpecificationResponse
+    :: LaunchTemplateCapacityReservationSpecificationResponse
+launchTemplateCapacityReservationSpecificationResponse =
+  LaunchTemplateCapacityReservationSpecificationResponse'
+    { _ltcrsCapacityReservationTarget = Nothing
+    , _ltcrsCapacityReservationPreference = Nothing
+    }
+
+
+-- | Information about the target Capacity Reservation.
+ltcrsCapacityReservationTarget :: Lens' LaunchTemplateCapacityReservationSpecificationResponse (Maybe CapacityReservationTargetResponse)
+ltcrsCapacityReservationTarget = lens _ltcrsCapacityReservationTarget (\ s a -> s{_ltcrsCapacityReservationTarget = a})
+
+-- | Indicates the instance's Capacity Reservation preferences. Possible preferences include:     * @open@ - The instance can run in any @open@ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).     * @none@ - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
+ltcrsCapacityReservationPreference :: Lens' LaunchTemplateCapacityReservationSpecificationResponse (Maybe CapacityReservationPreference)
+ltcrsCapacityReservationPreference = lens _ltcrsCapacityReservationPreference (\ s a -> s{_ltcrsCapacityReservationPreference = a})
+
+instance FromXML
+           LaunchTemplateCapacityReservationSpecificationResponse
+         where
+        parseXML x
+          = LaunchTemplateCapacityReservationSpecificationResponse'
+              <$>
+              (x .@? "capacityReservationTarget") <*>
+                (x .@? "capacityReservationPreference")
+
+instance Hashable
+           LaunchTemplateCapacityReservationSpecificationResponse
+         where
+
+instance NFData
+           LaunchTemplateCapacityReservationSpecificationResponse
+         where
 
 -- | Describes a launch template and overrides.
 --
@@ -8697,6 +11289,163 @@ instance ToQuery LaunchTemplateEBSBlockDeviceRequest
                "KmsKeyId" =: _ltebdrKMSKeyId,
                "VolumeType" =: _ltebdrVolumeType,
                "SnapshotId" =: _ltebdrSnapshotId]
+
+-- | Describes an elastic inference accelerator.
+--
+--
+--
+-- /See:/ 'launchTemplateElasticInferenceAccelerator' smart constructor.
+newtype LaunchTemplateElasticInferenceAccelerator = LaunchTemplateElasticInferenceAccelerator'
+  { _lteiaType :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LaunchTemplateElasticInferenceAccelerator' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lteiaType' - The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
+launchTemplateElasticInferenceAccelerator
+    :: Text -- ^ 'lteiaType'
+    -> LaunchTemplateElasticInferenceAccelerator
+launchTemplateElasticInferenceAccelerator pType_ =
+  LaunchTemplateElasticInferenceAccelerator' {_lteiaType = pType_}
+
+
+-- | The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
+lteiaType :: Lens' LaunchTemplateElasticInferenceAccelerator Text
+lteiaType = lens _lteiaType (\ s a -> s{_lteiaType = a})
+
+instance Hashable
+           LaunchTemplateElasticInferenceAccelerator
+         where
+
+instance NFData
+           LaunchTemplateElasticInferenceAccelerator
+         where
+
+instance ToQuery
+           LaunchTemplateElasticInferenceAccelerator
+         where
+        toQuery
+          LaunchTemplateElasticInferenceAccelerator'{..}
+          = mconcat ["Type" =: _lteiaType]
+
+-- | Describes an elastic inference accelerator.
+--
+--
+--
+-- /See:/ 'launchTemplateElasticInferenceAcceleratorResponse' smart constructor.
+newtype LaunchTemplateElasticInferenceAcceleratorResponse = LaunchTemplateElasticInferenceAcceleratorResponse'
+  { _lType :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LaunchTemplateElasticInferenceAcceleratorResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lType' - The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
+launchTemplateElasticInferenceAcceleratorResponse
+    :: LaunchTemplateElasticInferenceAcceleratorResponse
+launchTemplateElasticInferenceAcceleratorResponse =
+  LaunchTemplateElasticInferenceAcceleratorResponse' {_lType = Nothing}
+
+
+-- | The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
+lType :: Lens' LaunchTemplateElasticInferenceAcceleratorResponse (Maybe Text)
+lType = lens _lType (\ s a -> s{_lType = a})
+
+instance FromXML
+           LaunchTemplateElasticInferenceAcceleratorResponse
+         where
+        parseXML x
+          = LaunchTemplateElasticInferenceAcceleratorResponse'
+              <$> (x .@? "type")
+
+instance Hashable
+           LaunchTemplateElasticInferenceAcceleratorResponse
+         where
+
+instance NFData
+           LaunchTemplateElasticInferenceAcceleratorResponse
+         where
+
+-- | Indicates whether an instance is configured for hibernation.
+--
+--
+--
+-- /See:/ 'launchTemplateHibernationOptions' smart constructor.
+newtype LaunchTemplateHibernationOptions = LaunchTemplateHibernationOptions'
+  { _lthoConfigured :: Maybe Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LaunchTemplateHibernationOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lthoConfigured' - If this parameter is set to @true@ , the instance is enabled for hibernation; otherwise, it is not enabled for hibernation.
+launchTemplateHibernationOptions
+    :: LaunchTemplateHibernationOptions
+launchTemplateHibernationOptions =
+  LaunchTemplateHibernationOptions' {_lthoConfigured = Nothing}
+
+
+-- | If this parameter is set to @true@ , the instance is enabled for hibernation; otherwise, it is not enabled for hibernation.
+lthoConfigured :: Lens' LaunchTemplateHibernationOptions (Maybe Bool)
+lthoConfigured = lens _lthoConfigured (\ s a -> s{_lthoConfigured = a})
+
+instance FromXML LaunchTemplateHibernationOptions
+         where
+        parseXML x
+          = LaunchTemplateHibernationOptions' <$>
+              (x .@? "configured")
+
+instance Hashable LaunchTemplateHibernationOptions
+         where
+
+instance NFData LaunchTemplateHibernationOptions
+         where
+
+-- | Indicates whether the instance is configured for hibernation. This parameter is valid only if the instance meets the <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites hibernation prerequisites> . Hibernation is currently supported only for Amazon Linux.
+--
+--
+--
+-- /See:/ 'launchTemplateHibernationOptionsRequest' smart constructor.
+newtype LaunchTemplateHibernationOptionsRequest = LaunchTemplateHibernationOptionsRequest'
+  { _lthorConfigured :: Maybe Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LaunchTemplateHibernationOptionsRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lthorConfigured' - If you set this parameter to @true@ , the instance is enabled for hibernation. Default: @false@
+launchTemplateHibernationOptionsRequest
+    :: LaunchTemplateHibernationOptionsRequest
+launchTemplateHibernationOptionsRequest =
+  LaunchTemplateHibernationOptionsRequest' {_lthorConfigured = Nothing}
+
+
+-- | If you set this parameter to @true@ , the instance is enabled for hibernation. Default: @false@
+lthorConfigured :: Lens' LaunchTemplateHibernationOptionsRequest (Maybe Bool)
+lthorConfigured = lens _lthorConfigured (\ s a -> s{_lthorConfigured = a})
+
+instance Hashable
+           LaunchTemplateHibernationOptionsRequest
+         where
+
+instance NFData
+           LaunchTemplateHibernationOptionsRequest
+         where
+
+instance ToQuery
+           LaunchTemplateHibernationOptionsRequest
+         where
+        toQuery LaunchTemplateHibernationOptionsRequest'{..}
+          = mconcat ["Configured" =: _lthorConfigured]
 
 -- | Describes an IAM instance profile.
 --
@@ -9186,13 +11935,94 @@ instance ToQuery
                  (toQueryList "Ipv6Addresses" <$>
                     _ltinisrIPv6Addresses)]
 
+-- | Describes a license configuration.
+--
+--
+--
+-- /See:/ 'launchTemplateLicenseConfiguration' smart constructor.
+newtype LaunchTemplateLicenseConfiguration = LaunchTemplateLicenseConfiguration'
+  { _ltlcLicenseConfigurationARN :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LaunchTemplateLicenseConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltlcLicenseConfigurationARN' - The Amazon Resource Name (ARN) of the license configuration.
+launchTemplateLicenseConfiguration
+    :: LaunchTemplateLicenseConfiguration
+launchTemplateLicenseConfiguration =
+  LaunchTemplateLicenseConfiguration' {_ltlcLicenseConfigurationARN = Nothing}
+
+
+-- | The Amazon Resource Name (ARN) of the license configuration.
+ltlcLicenseConfigurationARN :: Lens' LaunchTemplateLicenseConfiguration (Maybe Text)
+ltlcLicenseConfigurationARN = lens _ltlcLicenseConfigurationARN (\ s a -> s{_ltlcLicenseConfigurationARN = a})
+
+instance FromXML LaunchTemplateLicenseConfiguration
+         where
+        parseXML x
+          = LaunchTemplateLicenseConfiguration' <$>
+              (x .@? "licenseConfigurationArn")
+
+instance Hashable LaunchTemplateLicenseConfiguration
+         where
+
+instance NFData LaunchTemplateLicenseConfiguration
+         where
+
+-- | Describes a license configuration.
+--
+--
+--
+-- /See:/ 'launchTemplateLicenseConfigurationRequest' smart constructor.
+newtype LaunchTemplateLicenseConfigurationRequest = LaunchTemplateLicenseConfigurationRequest'
+  { _ltlcrLicenseConfigurationARN :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LaunchTemplateLicenseConfigurationRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltlcrLicenseConfigurationARN' - The Amazon Resource Name (ARN) of the license configuration.
+launchTemplateLicenseConfigurationRequest
+    :: LaunchTemplateLicenseConfigurationRequest
+launchTemplateLicenseConfigurationRequest =
+  LaunchTemplateLicenseConfigurationRequest'
+    {_ltlcrLicenseConfigurationARN = Nothing}
+
+
+-- | The Amazon Resource Name (ARN) of the license configuration.
+ltlcrLicenseConfigurationARN :: Lens' LaunchTemplateLicenseConfigurationRequest (Maybe Text)
+ltlcrLicenseConfigurationARN = lens _ltlcrLicenseConfigurationARN (\ s a -> s{_ltlcrLicenseConfigurationARN = a})
+
+instance Hashable
+           LaunchTemplateLicenseConfigurationRequest
+         where
+
+instance NFData
+           LaunchTemplateLicenseConfigurationRequest
+         where
+
+instance ToQuery
+           LaunchTemplateLicenseConfigurationRequest
+         where
+        toQuery
+          LaunchTemplateLicenseConfigurationRequest'{..}
+          = mconcat
+              ["LicenseConfigurationArn" =:
+                 _ltlcrLicenseConfigurationARN]
+
 -- | Describes overrides for a launch template.
 --
 --
 --
 -- /See:/ 'launchTemplateOverrides' smart constructor.
 data LaunchTemplateOverrides = LaunchTemplateOverrides'
-  { _ltoSpotPrice        :: !(Maybe Text)
+  { _ltoPriority         :: !(Maybe Double)
+  , _ltoSpotPrice        :: !(Maybe Text)
   , _ltoWeightedCapacity :: !(Maybe Double)
   , _ltoSubnetId         :: !(Maybe Text)
   , _ltoInstanceType     :: !(Maybe InstanceType)
@@ -9203,6 +12033,8 @@ data LaunchTemplateOverrides = LaunchTemplateOverrides'
 -- | Creates a value of 'LaunchTemplateOverrides' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltoPriority' - The priority for the launch template override. If __OnDemandAllocationStrategy__ is set to @prioritized@ , Spot Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. Valid values are whole numbers starting at @0@ . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
 --
 -- * 'ltoSpotPrice' - The maximum price per unit hour that you are willing to pay for a Spot Instance.
 --
@@ -9217,13 +12049,18 @@ launchTemplateOverrides
     :: LaunchTemplateOverrides
 launchTemplateOverrides =
   LaunchTemplateOverrides'
-    { _ltoSpotPrice = Nothing
+    { _ltoPriority = Nothing
+    , _ltoSpotPrice = Nothing
     , _ltoWeightedCapacity = Nothing
     , _ltoSubnetId = Nothing
     , _ltoInstanceType = Nothing
     , _ltoAvailabilityZone = Nothing
     }
 
+
+-- | The priority for the launch template override. If __OnDemandAllocationStrategy__ is set to @prioritized@ , Spot Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. Valid values are whole numbers starting at @0@ . The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
+ltoPriority :: Lens' LaunchTemplateOverrides (Maybe Double)
+ltoPriority = lens _ltoPriority (\ s a -> s{_ltoPriority = a})
 
 -- | The maximum price per unit hour that you are willing to pay for a Spot Instance.
 ltoSpotPrice :: Lens' LaunchTemplateOverrides (Maybe Text)
@@ -9248,7 +12085,8 @@ ltoAvailabilityZone = lens _ltoAvailabilityZone (\ s a -> s{_ltoAvailabilityZone
 instance FromXML LaunchTemplateOverrides where
         parseXML x
           = LaunchTemplateOverrides' <$>
-              (x .@? "spotPrice") <*> (x .@? "weightedCapacity")
+              (x .@? "priority") <*> (x .@? "spotPrice") <*>
+                (x .@? "weightedCapacity")
                 <*> (x .@? "subnetId")
                 <*> (x .@? "instanceType")
                 <*> (x .@? "availabilityZone")
@@ -9260,7 +12098,8 @@ instance NFData LaunchTemplateOverrides where
 instance ToQuery LaunchTemplateOverrides where
         toQuery LaunchTemplateOverrides'{..}
           = mconcat
-              ["SpotPrice" =: _ltoSpotPrice,
+              ["Priority" =: _ltoPriority,
+               "SpotPrice" =: _ltoSpotPrice,
                "WeightedCapacity" =: _ltoWeightedCapacity,
                "SubnetId" =: _ltoSubnetId,
                "InstanceType" =: _ltoInstanceType,
@@ -9346,7 +12185,7 @@ instance Hashable LaunchTemplatePlacement where
 
 instance NFData LaunchTemplatePlacement where
 
--- | The placement for the instance.
+-- | Describes the placement of an instance.
 --
 --
 --
@@ -9696,7 +12535,7 @@ data LaunchTemplateTagSpecificationRequest = LaunchTemplateTagSpecificationReque
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lttsrResourceType' - The type of resource to tag. Currently, the resource types that support tagging on creation are @instance@ and @volume@ .
+-- * 'lttsrResourceType' - The type of resource to tag. Currently, the resource types that support tagging on creation are @instance@ and @volume@ . To tag a resource after it has been created, see 'CreateTags' .
 --
 -- * 'lttsrTags' - The tags to apply to the resource.
 launchTemplateTagSpecificationRequest
@@ -9706,7 +12545,7 @@ launchTemplateTagSpecificationRequest =
     {_lttsrResourceType = Nothing, _lttsrTags = Nothing}
 
 
--- | The type of resource to tag. Currently, the resource types that support tagging on creation are @instance@ and @volume@ .
+-- | The type of resource to tag. Currently, the resource types that support tagging on creation are @instance@ and @volume@ . To tag a resource after it has been created, see 'CreateTags' .
 lttsrResourceType :: Lens' LaunchTemplateTagSpecificationRequest (Maybe ResourceType)
 lttsrResourceType = lens _lttsrResourceType (\ s a -> s{_lttsrResourceType = a})
 
@@ -9896,6 +12735,75 @@ instance ToQuery LaunchTemplatesMonitoringRequest
         toQuery LaunchTemplatesMonitoringRequest'{..}
           = mconcat ["Enabled" =: _ltmrEnabled]
 
+-- | Describes a license configuration.
+--
+--
+--
+-- /See:/ 'licenseConfiguration' smart constructor.
+newtype LicenseConfiguration = LicenseConfiguration'
+  { _lcLicenseConfigurationARN :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LicenseConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lcLicenseConfigurationARN' - The Amazon Resource Name (ARN) of the license configuration.
+licenseConfiguration
+    :: LicenseConfiguration
+licenseConfiguration =
+  LicenseConfiguration' {_lcLicenseConfigurationARN = Nothing}
+
+
+-- | The Amazon Resource Name (ARN) of the license configuration.
+lcLicenseConfigurationARN :: Lens' LicenseConfiguration (Maybe Text)
+lcLicenseConfigurationARN = lens _lcLicenseConfigurationARN (\ s a -> s{_lcLicenseConfigurationARN = a})
+
+instance FromXML LicenseConfiguration where
+        parseXML x
+          = LicenseConfiguration' <$>
+              (x .@? "licenseConfigurationArn")
+
+instance Hashable LicenseConfiguration where
+
+instance NFData LicenseConfiguration where
+
+-- | Describes a license configuration.
+--
+--
+--
+-- /See:/ 'licenseConfigurationRequest' smart constructor.
+newtype LicenseConfigurationRequest = LicenseConfigurationRequest'
+  { _lcrLicenseConfigurationARN :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LicenseConfigurationRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lcrLicenseConfigurationARN' - The Amazon Resource Name (ARN) of the license configuration.
+licenseConfigurationRequest
+    :: LicenseConfigurationRequest
+licenseConfigurationRequest =
+  LicenseConfigurationRequest' {_lcrLicenseConfigurationARN = Nothing}
+
+
+-- | The Amazon Resource Name (ARN) of the license configuration.
+lcrLicenseConfigurationARN :: Lens' LicenseConfigurationRequest (Maybe Text)
+lcrLicenseConfigurationARN = lens _lcrLicenseConfigurationARN (\ s a -> s{_lcrLicenseConfigurationARN = a})
+
+instance Hashable LicenseConfigurationRequest where
+
+instance NFData LicenseConfigurationRequest where
+
+instance ToQuery LicenseConfigurationRequest where
+        toQuery LicenseConfigurationRequest'{..}
+          = mconcat
+              ["LicenseConfigurationArn" =:
+                 _lcrLicenseConfigurationARN]
+
 -- | Describes the Classic Load Balancers and target groups to attach to a Spot Fleet request.
 --
 --
@@ -10069,6 +12977,56 @@ instance ToQuery LoadPermissionRequest where
           = mconcat
               ["Group" =: _lprGroup, "UserId" =: _lprUserId]
 
+-- | Describes the options for a VPC attachment.
+--
+--
+--
+-- /See:/ 'modifyTransitGatewayVPCAttachmentRequestOptions' smart constructor.
+data ModifyTransitGatewayVPCAttachmentRequestOptions = ModifyTransitGatewayVPCAttachmentRequestOptions'
+  { _mtgvaroIPv6Support :: !(Maybe IPv6SupportValue)
+  , _mtgvaroDNSSupport  :: !(Maybe DNSSupportValue)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ModifyTransitGatewayVPCAttachmentRequestOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mtgvaroIPv6Support' - Enable or disable IPv6 support. The default is @enable@ .
+--
+-- * 'mtgvaroDNSSupport' - Enable or disable DNS support. The default is @enable@ .
+modifyTransitGatewayVPCAttachmentRequestOptions
+    :: ModifyTransitGatewayVPCAttachmentRequestOptions
+modifyTransitGatewayVPCAttachmentRequestOptions =
+  ModifyTransitGatewayVPCAttachmentRequestOptions'
+    {_mtgvaroIPv6Support = Nothing, _mtgvaroDNSSupport = Nothing}
+
+
+-- | Enable or disable IPv6 support. The default is @enable@ .
+mtgvaroIPv6Support :: Lens' ModifyTransitGatewayVPCAttachmentRequestOptions (Maybe IPv6SupportValue)
+mtgvaroIPv6Support = lens _mtgvaroIPv6Support (\ s a -> s{_mtgvaroIPv6Support = a})
+
+-- | Enable or disable DNS support. The default is @enable@ .
+mtgvaroDNSSupport :: Lens' ModifyTransitGatewayVPCAttachmentRequestOptions (Maybe DNSSupportValue)
+mtgvaroDNSSupport = lens _mtgvaroDNSSupport (\ s a -> s{_mtgvaroDNSSupport = a})
+
+instance Hashable
+           ModifyTransitGatewayVPCAttachmentRequestOptions
+         where
+
+instance NFData
+           ModifyTransitGatewayVPCAttachmentRequestOptions
+         where
+
+instance ToQuery
+           ModifyTransitGatewayVPCAttachmentRequestOptions
+         where
+        toQuery
+          ModifyTransitGatewayVPCAttachmentRequestOptions'{..}
+          = mconcat
+              ["Ipv6Support" =: _mtgvaroIPv6Support,
+               "DnsSupport" =: _mtgvaroDNSSupport]
+
 -- | Describes the monitoring of an instance.
 --
 --
@@ -10179,7 +13137,7 @@ data NatGateway = NatGateway'
 --
 -- * 'ngDeleteTime' - The date and time the NAT gateway was deleted, if applicable.
 --
--- * 'ngProvisionedBandwidth' - Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
+-- * 'ngProvisionedBandwidth' - Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
 --
 -- * 'ngNatGatewayAddresses' - Information about the IP addresses and network interface associated with the NAT gateway.
 --
@@ -10232,7 +13190,7 @@ ngSubnetId = lens _ngSubnetId (\ s a -> s{_ngSubnetId = a})
 ngDeleteTime :: Lens' NatGateway (Maybe UTCTime)
 ngDeleteTime = lens _ngDeleteTime (\ s a -> s{_ngDeleteTime = a}) . mapping _Time
 
--- | Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
+-- | Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
 ngProvisionedBandwidth :: Lens' NatGateway (Maybe ProvisionedBandwidth)
 ngProvisionedBandwidth = lens _ngProvisionedBandwidth (\ s a -> s{_ngProvisionedBandwidth = a})
 
@@ -10341,6 +13299,7 @@ data NetworkACL = NetworkACL'
   { _naEntries      :: !(Maybe [NetworkACLEntry])
   , _naNetworkACLId :: !(Maybe Text)
   , _naVPCId        :: !(Maybe Text)
+  , _naOwnerId      :: !(Maybe Text)
   , _naAssociations :: !(Maybe [NetworkACLAssociation])
   , _naTags         :: !(Maybe [Tag])
   , _naIsDefault    :: !(Maybe Bool)
@@ -10357,6 +13316,8 @@ data NetworkACL = NetworkACL'
 --
 -- * 'naVPCId' - The ID of the VPC for the network ACL.
 --
+-- * 'naOwnerId' - The ID of the AWS account that owns the network ACL.
+--
 -- * 'naAssociations' - Any associations between the network ACL and one or more subnets
 --
 -- * 'naTags' - Any tags assigned to the network ACL.
@@ -10369,6 +13330,7 @@ networkACL =
     { _naEntries = Nothing
     , _naNetworkACLId = Nothing
     , _naVPCId = Nothing
+    , _naOwnerId = Nothing
     , _naAssociations = Nothing
     , _naTags = Nothing
     , _naIsDefault = Nothing
@@ -10386,6 +13348,10 @@ naNetworkACLId = lens _naNetworkACLId (\ s a -> s{_naNetworkACLId = a})
 -- | The ID of the VPC for the network ACL.
 naVPCId :: Lens' NetworkACL (Maybe Text)
 naVPCId = lens _naVPCId (\ s a -> s{_naVPCId = a})
+
+-- | The ID of the AWS account that owns the network ACL.
+naOwnerId :: Lens' NetworkACL (Maybe Text)
+naOwnerId = lens _naOwnerId (\ s a -> s{_naOwnerId = a})
 
 -- | Any associations between the network ACL and one or more subnets
 naAssociations :: Lens' NetworkACL [NetworkACLAssociation]
@@ -10406,6 +13372,7 @@ instance FromXML NetworkACL where
                  may (parseXMLList "item"))
                 <*> (x .@? "networkAclId")
                 <*> (x .@? "vpcId")
+                <*> (x .@? "ownerId")
                 <*>
                 (x .@? "associationSet" .!@ mempty >>=
                    may (parseXMLList "item"))
@@ -10500,7 +13467,7 @@ data NetworkACLEntry = NetworkACLEntry'
 --
 -- * 'naeRuleAction' - Indicates whether to allow or deny the traffic that matches the rule.
 --
--- * 'naeProtocol' - The protocol. A value of @-1@ means all protocols.
+-- * 'naeProtocol' - The protocol number. A value of "-1" means all protocols.
 --
 -- * 'naePortRange' - TCP or UDP protocols: The range of ports the rule applies to.
 --
@@ -10538,7 +13505,7 @@ naeRuleNumber = lens _naeRuleNumber (\ s a -> s{_naeRuleNumber = a})
 naeRuleAction :: Lens' NetworkACLEntry (Maybe RuleAction)
 naeRuleAction = lens _naeRuleAction (\ s a -> s{_naeRuleAction = a})
 
--- | The protocol. A value of @-1@ means all protocols.
+-- | The protocol number. A value of "-1" means all protocols.
 naeProtocol :: Lens' NetworkACLEntry (Maybe Text)
 naeProtocol = lens _naeProtocol (\ s a -> s{_naeProtocol = a})
 
@@ -11251,6 +14218,133 @@ instance ToQuery NewDHCPConfiguration where
               [toQuery (toQueryList "Value" <$> _ndcValues),
                "Key" =: _ndcKey]
 
+-- | The allocation strategy of On-Demand Instances in an EC2 Fleet.
+--
+--
+--
+-- /See:/ 'onDemandOptions' smart constructor.
+data OnDemandOptions = OnDemandOptions'
+  { _odoSingleAvailabilityZone :: !(Maybe Bool)
+  , _odoMinTargetCapacity      :: !(Maybe Int)
+  , _odoSingleInstanceType     :: !(Maybe Bool)
+  , _odoAllocationStrategy     :: !(Maybe FleetOnDemandAllocationStrategy)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'OnDemandOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'odoSingleAvailabilityZone' - Indicates that the fleet launches all On-Demand Instances into a single Availability Zone.
+--
+-- * 'odoMinTargetCapacity' - The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+--
+-- * 'odoSingleInstanceType' - Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet.
+--
+-- * 'odoAllocationStrategy' - The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify @lowest-price@ , EC2 Fleet uses price to determine the order, launching the lowest price first. If you specify @prioritized@ , EC2 Fleet uses the priority that you assigned to each launch template override, launching the highest priority first. If you do not specify a value, EC2 Fleet defaults to @lowest-price@ .
+onDemandOptions
+    :: OnDemandOptions
+onDemandOptions =
+  OnDemandOptions'
+    { _odoSingleAvailabilityZone = Nothing
+    , _odoMinTargetCapacity = Nothing
+    , _odoSingleInstanceType = Nothing
+    , _odoAllocationStrategy = Nothing
+    }
+
+
+-- | Indicates that the fleet launches all On-Demand Instances into a single Availability Zone.
+odoSingleAvailabilityZone :: Lens' OnDemandOptions (Maybe Bool)
+odoSingleAvailabilityZone = lens _odoSingleAvailabilityZone (\ s a -> s{_odoSingleAvailabilityZone = a})
+
+-- | The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+odoMinTargetCapacity :: Lens' OnDemandOptions (Maybe Int)
+odoMinTargetCapacity = lens _odoMinTargetCapacity (\ s a -> s{_odoMinTargetCapacity = a})
+
+-- | Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet.
+odoSingleInstanceType :: Lens' OnDemandOptions (Maybe Bool)
+odoSingleInstanceType = lens _odoSingleInstanceType (\ s a -> s{_odoSingleInstanceType = a})
+
+-- | The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify @lowest-price@ , EC2 Fleet uses price to determine the order, launching the lowest price first. If you specify @prioritized@ , EC2 Fleet uses the priority that you assigned to each launch template override, launching the highest priority first. If you do not specify a value, EC2 Fleet defaults to @lowest-price@ .
+odoAllocationStrategy :: Lens' OnDemandOptions (Maybe FleetOnDemandAllocationStrategy)
+odoAllocationStrategy = lens _odoAllocationStrategy (\ s a -> s{_odoAllocationStrategy = a})
+
+instance FromXML OnDemandOptions where
+        parseXML x
+          = OnDemandOptions' <$>
+              (x .@? "singleAvailabilityZone") <*>
+                (x .@? "minTargetCapacity")
+                <*> (x .@? "singleInstanceType")
+                <*> (x .@? "allocationStrategy")
+
+instance Hashable OnDemandOptions where
+
+instance NFData OnDemandOptions where
+
+-- | The allocation strategy of On-Demand Instances in an EC2 Fleet.
+--
+--
+--
+-- /See:/ 'onDemandOptionsRequest' smart constructor.
+data OnDemandOptionsRequest = OnDemandOptionsRequest'
+  { _odorSingleAvailabilityZone :: !(Maybe Bool)
+  , _odorMinTargetCapacity      :: !(Maybe Int)
+  , _odorSingleInstanceType     :: !(Maybe Bool)
+  , _odorAllocationStrategy     :: !(Maybe FleetOnDemandAllocationStrategy)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'OnDemandOptionsRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'odorSingleAvailabilityZone' - Indicates that the fleet launches all On-Demand Instances into a single Availability Zone.
+--
+-- * 'odorMinTargetCapacity' - The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+--
+-- * 'odorSingleInstanceType' - Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet.
+--
+-- * 'odorAllocationStrategy' - The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify @lowest-price@ , EC2 Fleet uses price to determine the order, launching the lowest price first. If you specify @prioritized@ , EC2 Fleet uses the priority that you assigned to each launch template override, launching the highest priority first. If you do not specify a value, EC2 Fleet defaults to @lowest-price@ .
+onDemandOptionsRequest
+    :: OnDemandOptionsRequest
+onDemandOptionsRequest =
+  OnDemandOptionsRequest'
+    { _odorSingleAvailabilityZone = Nothing
+    , _odorMinTargetCapacity = Nothing
+    , _odorSingleInstanceType = Nothing
+    , _odorAllocationStrategy = Nothing
+    }
+
+
+-- | Indicates that the fleet launches all On-Demand Instances into a single Availability Zone.
+odorSingleAvailabilityZone :: Lens' OnDemandOptionsRequest (Maybe Bool)
+odorSingleAvailabilityZone = lens _odorSingleAvailabilityZone (\ s a -> s{_odorSingleAvailabilityZone = a})
+
+-- | The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+odorMinTargetCapacity :: Lens' OnDemandOptionsRequest (Maybe Int)
+odorMinTargetCapacity = lens _odorMinTargetCapacity (\ s a -> s{_odorMinTargetCapacity = a})
+
+-- | Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet.
+odorSingleInstanceType :: Lens' OnDemandOptionsRequest (Maybe Bool)
+odorSingleInstanceType = lens _odorSingleInstanceType (\ s a -> s{_odorSingleInstanceType = a})
+
+-- | The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify @lowest-price@ , EC2 Fleet uses price to determine the order, launching the lowest price first. If you specify @prioritized@ , EC2 Fleet uses the priority that you assigned to each launch template override, launching the highest priority first. If you do not specify a value, EC2 Fleet defaults to @lowest-price@ .
+odorAllocationStrategy :: Lens' OnDemandOptionsRequest (Maybe FleetOnDemandAllocationStrategy)
+odorAllocationStrategy = lens _odorAllocationStrategy (\ s a -> s{_odorAllocationStrategy = a})
+
+instance Hashable OnDemandOptionsRequest where
+
+instance NFData OnDemandOptionsRequest where
+
+instance ToQuery OnDemandOptionsRequest where
+        toQuery OnDemandOptionsRequest'{..}
+          = mconcat
+              ["SingleAvailabilityZone" =:
+                 _odorSingleAvailabilityZone,
+               "MinTargetCapacity" =: _odorMinTargetCapacity,
+               "SingleInstanceType" =: _odorSingleInstanceType,
+               "AllocationStrategy" =: _odorAllocationStrategy]
+
 -- | Describes the data that identifies an Amazon FPGA image (AFI) on the PCI bus.
 --
 --
@@ -11329,9 +14423,9 @@ data PeeringConnectionOptions = PeeringConnectionOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pcoAllowEgressFromLocalVPCToRemoteClassicLink' - If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC via ClassicLink.
+-- * 'pcoAllowEgressFromLocalVPCToRemoteClassicLink' - If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.
 --
--- * 'pcoAllowEgressFromLocalClassicLinkToRemoteVPC' - If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC via ClassicLink to instances in a peer VPC.
+-- * 'pcoAllowEgressFromLocalClassicLinkToRemoteVPC' - If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.
 --
 -- * 'pcoAllowDNSResolutionFromRemoteVPC' - If true, the public DNS hostnames of instances in the specified VPC resolve to private IP addresses when queried from instances in the peer VPC.
 peeringConnectionOptions
@@ -11344,11 +14438,11 @@ peeringConnectionOptions =
     }
 
 
--- | If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC via ClassicLink.
+-- | If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.
 pcoAllowEgressFromLocalVPCToRemoteClassicLink :: Lens' PeeringConnectionOptions (Maybe Bool)
 pcoAllowEgressFromLocalVPCToRemoteClassicLink = lens _pcoAllowEgressFromLocalVPCToRemoteClassicLink (\ s a -> s{_pcoAllowEgressFromLocalVPCToRemoteClassicLink = a})
 
--- | If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC via ClassicLink to instances in a peer VPC.
+-- | If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.
 pcoAllowEgressFromLocalClassicLinkToRemoteVPC :: Lens' PeeringConnectionOptions (Maybe Bool)
 pcoAllowEgressFromLocalClassicLinkToRemoteVPC = lens _pcoAllowEgressFromLocalClassicLinkToRemoteVPC (\ s a -> s{_pcoAllowEgressFromLocalClassicLinkToRemoteVPC = a})
 
@@ -11384,9 +14478,9 @@ data PeeringConnectionOptionsRequest = PeeringConnectionOptionsRequest'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pcorAllowEgressFromLocalVPCToRemoteClassicLink' - If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC via ClassicLink.
+-- * 'pcorAllowEgressFromLocalVPCToRemoteClassicLink' - If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.
 --
--- * 'pcorAllowEgressFromLocalClassicLinkToRemoteVPC' - If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC via ClassicLink to instances in a peer VPC.
+-- * 'pcorAllowEgressFromLocalClassicLinkToRemoteVPC' - If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.
 --
 -- * 'pcorAllowDNSResolutionFromRemoteVPC' - If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 peeringConnectionOptionsRequest
@@ -11399,11 +14493,11 @@ peeringConnectionOptionsRequest =
     }
 
 
--- | If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC via ClassicLink.
+-- | If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.
 pcorAllowEgressFromLocalVPCToRemoteClassicLink :: Lens' PeeringConnectionOptionsRequest (Maybe Bool)
 pcorAllowEgressFromLocalVPCToRemoteClassicLink = lens _pcorAllowEgressFromLocalVPCToRemoteClassicLink (\ s a -> s{_pcorAllowEgressFromLocalVPCToRemoteClassicLink = a})
 
--- | If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC via ClassicLink to instances in a peer VPC.
+-- | If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.
 pcorAllowEgressFromLocalClassicLinkToRemoteVPC :: Lens' PeeringConnectionOptionsRequest (Maybe Bool)
 pcorAllowEgressFromLocalClassicLinkToRemoteVPC = lens _pcorAllowEgressFromLocalClassicLinkToRemoteVPC (\ s a -> s{_pcorAllowEgressFromLocalClassicLinkToRemoteVPC = a})
 
@@ -11433,12 +14527,13 @@ instance ToQuery PeeringConnectionOptionsRequest
 --
 -- /See:/ 'placement' smart constructor.
 data Placement = Placement'
-  { _pAffinity         :: !(Maybe Text)
-  , _pHostId           :: !(Maybe Text)
-  , _pSpreadDomain     :: !(Maybe Text)
-  , _pAvailabilityZone :: !(Maybe Text)
-  , _pTenancy          :: !(Maybe Tenancy)
-  , _pGroupName        :: !(Maybe Text)
+  { _plaAffinity         :: !(Maybe Text)
+  , _plaHostId           :: !(Maybe Text)
+  , _plaPartitionNumber  :: !(Maybe Int)
+  , _plaSpreadDomain     :: !(Maybe Text)
+  , _plaAvailabilityZone :: !(Maybe Text)
+  , _plaTenancy          :: !(Maybe Tenancy)
+  , _plaGroupName        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -11446,59 +14541,67 @@ data Placement = Placement'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pAffinity' - The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the 'ImportInstance' command.
+-- * 'plaAffinity' - The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the 'ImportInstance' command.
 --
--- * 'pHostId' - The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the 'ImportInstance' command.
+-- * 'plaHostId' - The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the 'ImportInstance' command.
 --
--- * 'pSpreadDomain' - Reserved for future use.
+-- * 'plaPartitionNumber' - The number of the partition the instance is in. Valid only if the placement group strategy is set to @partition@ .
 --
--- * 'pAvailabilityZone' - The Availability Zone of the instance.
+-- * 'plaSpreadDomain' - Reserved for future use.
 --
--- * 'pTenancy' - The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware. The @host@ tenancy is not supported for the 'ImportInstance' command.
+-- * 'plaAvailabilityZone' - The Availability Zone of the instance.
 --
--- * 'pGroupName' - The name of the placement group the instance is in (for cluster compute instances).
+-- * 'plaTenancy' - The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware. The @host@ tenancy is not supported for the 'ImportInstance' command.
+--
+-- * 'plaGroupName' - The name of the placement group the instance is in.
 placement
     :: Placement
 placement =
   Placement'
-    { _pAffinity = Nothing
-    , _pHostId = Nothing
-    , _pSpreadDomain = Nothing
-    , _pAvailabilityZone = Nothing
-    , _pTenancy = Nothing
-    , _pGroupName = Nothing
+    { _plaAffinity = Nothing
+    , _plaHostId = Nothing
+    , _plaPartitionNumber = Nothing
+    , _plaSpreadDomain = Nothing
+    , _plaAvailabilityZone = Nothing
+    , _plaTenancy = Nothing
+    , _plaGroupName = Nothing
     }
 
 
 -- | The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the 'ImportInstance' command.
-pAffinity :: Lens' Placement (Maybe Text)
-pAffinity = lens _pAffinity (\ s a -> s{_pAffinity = a})
+plaAffinity :: Lens' Placement (Maybe Text)
+plaAffinity = lens _plaAffinity (\ s a -> s{_plaAffinity = a})
 
 -- | The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the 'ImportInstance' command.
-pHostId :: Lens' Placement (Maybe Text)
-pHostId = lens _pHostId (\ s a -> s{_pHostId = a})
+plaHostId :: Lens' Placement (Maybe Text)
+plaHostId = lens _plaHostId (\ s a -> s{_plaHostId = a})
+
+-- | The number of the partition the instance is in. Valid only if the placement group strategy is set to @partition@ .
+plaPartitionNumber :: Lens' Placement (Maybe Int)
+plaPartitionNumber = lens _plaPartitionNumber (\ s a -> s{_plaPartitionNumber = a})
 
 -- | Reserved for future use.
-pSpreadDomain :: Lens' Placement (Maybe Text)
-pSpreadDomain = lens _pSpreadDomain (\ s a -> s{_pSpreadDomain = a})
+plaSpreadDomain :: Lens' Placement (Maybe Text)
+plaSpreadDomain = lens _plaSpreadDomain (\ s a -> s{_plaSpreadDomain = a})
 
 -- | The Availability Zone of the instance.
-pAvailabilityZone :: Lens' Placement (Maybe Text)
-pAvailabilityZone = lens _pAvailabilityZone (\ s a -> s{_pAvailabilityZone = a})
+plaAvailabilityZone :: Lens' Placement (Maybe Text)
+plaAvailabilityZone = lens _plaAvailabilityZone (\ s a -> s{_plaAvailabilityZone = a})
 
 -- | The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware. The @host@ tenancy is not supported for the 'ImportInstance' command.
-pTenancy :: Lens' Placement (Maybe Tenancy)
-pTenancy = lens _pTenancy (\ s a -> s{_pTenancy = a})
+plaTenancy :: Lens' Placement (Maybe Tenancy)
+plaTenancy = lens _plaTenancy (\ s a -> s{_plaTenancy = a})
 
--- | The name of the placement group the instance is in (for cluster compute instances).
-pGroupName :: Lens' Placement (Maybe Text)
-pGroupName = lens _pGroupName (\ s a -> s{_pGroupName = a})
+-- | The name of the placement group the instance is in.
+plaGroupName :: Lens' Placement (Maybe Text)
+plaGroupName = lens _plaGroupName (\ s a -> s{_plaGroupName = a})
 
 instance FromXML Placement where
         parseXML x
           = Placement' <$>
               (x .@? "affinity") <*> (x .@? "hostId") <*>
-                (x .@? "spreadDomain")
+                (x .@? "partitionNumber")
+                <*> (x .@? "spreadDomain")
                 <*> (x .@? "availabilityZone")
                 <*> (x .@? "tenancy")
                 <*> (x .@? "groupName")
@@ -11510,10 +14613,12 @@ instance NFData Placement where
 instance ToQuery Placement where
         toQuery Placement'{..}
           = mconcat
-              ["Affinity" =: _pAffinity, "HostId" =: _pHostId,
-               "SpreadDomain" =: _pSpreadDomain,
-               "AvailabilityZone" =: _pAvailabilityZone,
-               "Tenancy" =: _pTenancy, "GroupName" =: _pGroupName]
+              ["Affinity" =: _plaAffinity, "HostId" =: _plaHostId,
+               "PartitionNumber" =: _plaPartitionNumber,
+               "SpreadDomain" =: _plaSpreadDomain,
+               "AvailabilityZone" =: _plaAvailabilityZone,
+               "Tenancy" =: _plaTenancy,
+               "GroupName" =: _plaGroupName]
 
 -- | Describes a placement group.
 --
@@ -11521,9 +14626,10 @@ instance ToQuery Placement where
 --
 -- /See:/ 'placementGroup' smart constructor.
 data PlacementGroup = PlacementGroup'
-  { _pgState     :: !(Maybe PlacementGroupState)
-  , _pgStrategy  :: !(Maybe PlacementStrategy)
-  , _pgGroupName :: !(Maybe Text)
+  { _pgState          :: !(Maybe PlacementGroupState)
+  , _pgStrategy       :: !(Maybe PlacementStrategy)
+  , _pgGroupName      :: !(Maybe Text)
+  , _pgPartitionCount :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -11536,11 +14642,17 @@ data PlacementGroup = PlacementGroup'
 -- * 'pgStrategy' - The placement strategy.
 --
 -- * 'pgGroupName' - The name of the placement group.
+--
+-- * 'pgPartitionCount' - The number of partitions. Valid only if __strategy__ is set to @partition@ .
 placementGroup
     :: PlacementGroup
 placementGroup =
   PlacementGroup'
-    {_pgState = Nothing, _pgStrategy = Nothing, _pgGroupName = Nothing}
+    { _pgState = Nothing
+    , _pgStrategy = Nothing
+    , _pgGroupName = Nothing
+    , _pgPartitionCount = Nothing
+    }
 
 
 -- | The state of the placement group.
@@ -11555,15 +14667,52 @@ pgStrategy = lens _pgStrategy (\ s a -> s{_pgStrategy = a})
 pgGroupName :: Lens' PlacementGroup (Maybe Text)
 pgGroupName = lens _pgGroupName (\ s a -> s{_pgGroupName = a})
 
+-- | The number of partitions. Valid only if __strategy__ is set to @partition@ .
+pgPartitionCount :: Lens' PlacementGroup (Maybe Int)
+pgPartitionCount = lens _pgPartitionCount (\ s a -> s{_pgPartitionCount = a})
+
 instance FromXML PlacementGroup where
         parseXML x
           = PlacementGroup' <$>
               (x .@? "state") <*> (x .@? "strategy") <*>
                 (x .@? "groupName")
+                <*> (x .@? "partitionCount")
 
 instance Hashable PlacementGroup where
 
 instance NFData PlacementGroup where
+
+-- | Describes the placement of an instance.
+--
+--
+--
+-- /See:/ 'placementResponse' smart constructor.
+newtype PlacementResponse = PlacementResponse'
+  { _pGroupName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'PlacementResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pGroupName' - The name of the placement group the instance is in.
+placementResponse
+    :: PlacementResponse
+placementResponse = PlacementResponse' {_pGroupName = Nothing}
+
+
+-- | The name of the placement group the instance is in.
+pGroupName :: Lens' PlacementResponse (Maybe Text)
+pGroupName = lens _pGroupName (\ s a -> s{_pGroupName = a})
+
+instance FromXML PlacementResponse where
+        parseXML x
+          = PlacementResponse' <$> (x .@? "groupName")
+
+instance Hashable PlacementResponse where
+
+instance NFData PlacementResponse where
 
 -- | Describes a range of ports.
 --
@@ -11660,7 +14809,7 @@ instance Hashable PrefixList where
 
 instance NFData PrefixList where
 
--- | [EC2-VPC only] The ID of the prefix.
+-- | Describes a prefix list ID.
 --
 --
 --
@@ -11909,7 +15058,7 @@ instance NFData PrincipalIdFormat where
 -- /See:/ 'privateIPAddressSpecification' smart constructor.
 data PrivateIPAddressSpecification = PrivateIPAddressSpecification'
   { _piasPrimary          :: !(Maybe Bool)
-  , _piasPrivateIPAddress :: !Text
+  , _piasPrivateIPAddress :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -11921,11 +15070,10 @@ data PrivateIPAddressSpecification = PrivateIPAddressSpecification'
 --
 -- * 'piasPrivateIPAddress' - The private IPv4 addresses.
 privateIPAddressSpecification
-    :: Text -- ^ 'piasPrivateIPAddress'
-    -> PrivateIPAddressSpecification
-privateIPAddressSpecification pPrivateIPAddress_ =
+    :: PrivateIPAddressSpecification
+privateIPAddressSpecification =
   PrivateIPAddressSpecification'
-    {_piasPrimary = Nothing, _piasPrivateIPAddress = pPrivateIPAddress_}
+    {_piasPrimary = Nothing, _piasPrivateIPAddress = Nothing}
 
 
 -- | Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
@@ -11933,13 +15081,13 @@ piasPrimary :: Lens' PrivateIPAddressSpecification (Maybe Bool)
 piasPrimary = lens _piasPrimary (\ s a -> s{_piasPrimary = a})
 
 -- | The private IPv4 addresses.
-piasPrivateIPAddress :: Lens' PrivateIPAddressSpecification Text
+piasPrivateIPAddress :: Lens' PrivateIPAddressSpecification (Maybe Text)
 piasPrivateIPAddress = lens _piasPrivateIPAddress (\ s a -> s{_piasPrivateIPAddress = a})
 
 instance FromXML PrivateIPAddressSpecification where
         parseXML x
           = PrivateIPAddressSpecification' <$>
-              (x .@? "primary") <*> (x .@ "privateIpAddress")
+              (x .@? "primary") <*> (x .@? "privateIpAddress")
 
 instance Hashable PrivateIPAddressSpecification where
 
@@ -12006,13 +15154,13 @@ newtype PropagatingVGW = PropagatingVGW'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pvGatewayId' - The ID of the virtual private gateway (VGW).
+-- * 'pvGatewayId' - The ID of the virtual private gateway.
 propagatingVGW
     :: PropagatingVGW
 propagatingVGW = PropagatingVGW' {_pvGatewayId = Nothing}
 
 
--- | The ID of the virtual private gateway (VGW).
+-- | The ID of the virtual private gateway.
 pvGatewayId :: Lens' PropagatingVGW (Maybe Text)
 pvGatewayId = lens _pvGatewayId (\ s a -> s{_pvGatewayId = a})
 
@@ -12023,7 +15171,7 @@ instance Hashable PropagatingVGW where
 
 instance NFData PropagatingVGW where
 
--- | Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
+-- | Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
 --
 --
 --
@@ -12041,15 +15189,15 @@ data ProvisionedBandwidth = ProvisionedBandwidth'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbStatus' - Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
+-- * 'pbStatus' - Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
 --
--- * 'pbRequested' - Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
+-- * 'pbRequested' - Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
 --
--- * 'pbProvisioned' - Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
+-- * 'pbProvisioned' - Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
 --
--- * 'pbRequestTime' - Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
+-- * 'pbRequestTime' - Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
 --
--- * 'pbProvisionTime' - Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
+-- * 'pbProvisionTime' - Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
 provisionedBandwidth
     :: ProvisionedBandwidth
 provisionedBandwidth =
@@ -12062,23 +15210,23 @@ provisionedBandwidth =
     }
 
 
--- | Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
+-- | Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
 pbStatus :: Lens' ProvisionedBandwidth (Maybe Text)
 pbStatus = lens _pbStatus (\ s a -> s{_pbStatus = a})
 
--- | Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
+-- | Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
 pbRequested :: Lens' ProvisionedBandwidth (Maybe Text)
 pbRequested = lens _pbRequested (\ s a -> s{_pbRequested = a})
 
--- | Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
+-- | Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
 pbProvisioned :: Lens' ProvisionedBandwidth (Maybe Text)
 pbProvisioned = lens _pbProvisioned (\ s a -> s{_pbProvisioned = a})
 
--- | Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
+-- | Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
 pbRequestTime :: Lens' ProvisionedBandwidth (Maybe UTCTime)
 pbRequestTime = lens _pbRequestTime (\ s a -> s{_pbRequestTime = a}) . mapping _Time
 
--- | Reserved. If you need to sustain traffic greater than the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
+-- | Reserved. If you need to sustain traffic greater than the <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html documented limits> , contact us through the <https://console.aws.amazon.com/support/home? Support Center> .
 pbProvisionTime :: Lens' ProvisionedBandwidth (Maybe UTCTime)
 pbProvisionTime = lens _pbProvisionTime (\ s a -> s{_pbProvisionTime = a}) . mapping _Time
 
@@ -12093,6 +15241,143 @@ instance FromXML ProvisionedBandwidth where
 instance Hashable ProvisionedBandwidth where
 
 instance NFData ProvisionedBandwidth where
+
+-- | Describes an address pool.
+--
+--
+--
+-- /See:/ 'publicIPv4Pool' smart constructor.
+data PublicIPv4Pool = PublicIPv4Pool'
+  { _pipTotalAddressCount          :: !(Maybe Int)
+  , _pipTotalAvailableAddressCount :: !(Maybe Int)
+  , _pipPoolAddressRanges          :: !(Maybe [PublicIPv4PoolRange])
+  , _pipPoolId                     :: !(Maybe Text)
+  , _pipDescription                :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'PublicIPv4Pool' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pipTotalAddressCount' - The total number of addresses.
+--
+-- * 'pipTotalAvailableAddressCount' - The total number of available addresses.
+--
+-- * 'pipPoolAddressRanges' - The address ranges.
+--
+-- * 'pipPoolId' - The ID of the IPv4 address pool.
+--
+-- * 'pipDescription' - A description of the address pool.
+publicIPv4Pool
+    :: PublicIPv4Pool
+publicIPv4Pool =
+  PublicIPv4Pool'
+    { _pipTotalAddressCount = Nothing
+    , _pipTotalAvailableAddressCount = Nothing
+    , _pipPoolAddressRanges = Nothing
+    , _pipPoolId = Nothing
+    , _pipDescription = Nothing
+    }
+
+
+-- | The total number of addresses.
+pipTotalAddressCount :: Lens' PublicIPv4Pool (Maybe Int)
+pipTotalAddressCount = lens _pipTotalAddressCount (\ s a -> s{_pipTotalAddressCount = a})
+
+-- | The total number of available addresses.
+pipTotalAvailableAddressCount :: Lens' PublicIPv4Pool (Maybe Int)
+pipTotalAvailableAddressCount = lens _pipTotalAvailableAddressCount (\ s a -> s{_pipTotalAvailableAddressCount = a})
+
+-- | The address ranges.
+pipPoolAddressRanges :: Lens' PublicIPv4Pool [PublicIPv4PoolRange]
+pipPoolAddressRanges = lens _pipPoolAddressRanges (\ s a -> s{_pipPoolAddressRanges = a}) . _Default . _Coerce
+
+-- | The ID of the IPv4 address pool.
+pipPoolId :: Lens' PublicIPv4Pool (Maybe Text)
+pipPoolId = lens _pipPoolId (\ s a -> s{_pipPoolId = a})
+
+-- | A description of the address pool.
+pipDescription :: Lens' PublicIPv4Pool (Maybe Text)
+pipDescription = lens _pipDescription (\ s a -> s{_pipDescription = a})
+
+instance FromXML PublicIPv4Pool where
+        parseXML x
+          = PublicIPv4Pool' <$>
+              (x .@? "totalAddressCount") <*>
+                (x .@? "totalAvailableAddressCount")
+                <*>
+                (x .@? "poolAddressRangeSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "poolId")
+                <*> (x .@? "description")
+
+instance Hashable PublicIPv4Pool where
+
+instance NFData PublicIPv4Pool where
+
+-- | Describes an address range of an IPv4 address pool.
+--
+--
+--
+-- /See:/ 'publicIPv4PoolRange' smart constructor.
+data PublicIPv4PoolRange = PublicIPv4PoolRange'
+  { _piprAvailableAddressCount :: !(Maybe Int)
+  , _piprLastAddress           :: !(Maybe Text)
+  , _piprFirstAddress          :: !(Maybe Text)
+  , _piprAddressCount          :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'PublicIPv4PoolRange' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'piprAvailableAddressCount' - The number of available addresses in the range.
+--
+-- * 'piprLastAddress' - The last IP address in the range.
+--
+-- * 'piprFirstAddress' - The first IP address in the range.
+--
+-- * 'piprAddressCount' - The number of addresses in the range.
+publicIPv4PoolRange
+    :: PublicIPv4PoolRange
+publicIPv4PoolRange =
+  PublicIPv4PoolRange'
+    { _piprAvailableAddressCount = Nothing
+    , _piprLastAddress = Nothing
+    , _piprFirstAddress = Nothing
+    , _piprAddressCount = Nothing
+    }
+
+
+-- | The number of available addresses in the range.
+piprAvailableAddressCount :: Lens' PublicIPv4PoolRange (Maybe Int)
+piprAvailableAddressCount = lens _piprAvailableAddressCount (\ s a -> s{_piprAvailableAddressCount = a})
+
+-- | The last IP address in the range.
+piprLastAddress :: Lens' PublicIPv4PoolRange (Maybe Text)
+piprLastAddress = lens _piprLastAddress (\ s a -> s{_piprLastAddress = a})
+
+-- | The first IP address in the range.
+piprFirstAddress :: Lens' PublicIPv4PoolRange (Maybe Text)
+piprFirstAddress = lens _piprFirstAddress (\ s a -> s{_piprFirstAddress = a})
+
+-- | The number of addresses in the range.
+piprAddressCount :: Lens' PublicIPv4PoolRange (Maybe Int)
+piprAddressCount = lens _piprAddressCount (\ s a -> s{_piprAddressCount = a})
+
+instance FromXML PublicIPv4PoolRange where
+        parseXML x
+          = PublicIPv4PoolRange' <$>
+              (x .@? "availableAddressCount") <*>
+                (x .@? "lastAddress")
+                <*> (x .@? "firstAddress")
+                <*> (x .@? "addressCount")
+
+instance Hashable PublicIPv4PoolRange where
+
+instance NFData PublicIPv4PoolRange where
 
 -- | Describes the result of the purchase.
 --
@@ -12327,18 +15612,23 @@ instance NFData RegionInfo where
 data RequestLaunchTemplateData = RequestLaunchTemplateData'
   { _rltdSecurityGroupIds :: !(Maybe [Text])
   , _rltdSecurityGroups :: !(Maybe [Text])
+  , _rltdElasticInferenceAccelerators :: !(Maybe [LaunchTemplateElasticInferenceAccelerator])
   , _rltdInstanceMarketOptions :: !(Maybe LaunchTemplateInstanceMarketOptionsRequest)
+  , _rltdLicenseSpecifications :: !(Maybe [LaunchTemplateLicenseConfigurationRequest])
   , _rltdDisableAPITermination :: !(Maybe Bool)
   , _rltdKeyName :: !(Maybe Text)
   , _rltdNetworkInterfaces :: !(Maybe [LaunchTemplateInstanceNetworkInterfaceSpecificationRequest])
+  , _rltdCPUOptions :: !(Maybe LaunchTemplateCPUOptionsRequest)
   , _rltdRamDiskId :: !(Maybe Text)
   , _rltdKernelId :: !(Maybe Text)
   , _rltdElasticGpuSpecifications :: !(Maybe [ElasticGpuSpecification])
   , _rltdInstanceType :: !(Maybe InstanceType)
+  , _rltdCapacityReservationSpecification :: !(Maybe LaunchTemplateCapacityReservationSpecificationRequest)
   , _rltdEBSOptimized :: !(Maybe Bool)
   , _rltdUserData :: !(Maybe Text)
   , _rltdMonitoring :: !(Maybe LaunchTemplatesMonitoringRequest)
   , _rltdTagSpecifications :: !(Maybe [LaunchTemplateTagSpecificationRequest])
+  , _rltdHibernationOptions :: !(Maybe LaunchTemplateHibernationOptionsRequest)
   , _rltdIAMInstanceProfile :: !(Maybe LaunchTemplateIAMInstanceProfileSpecificationRequest)
   , _rltdImageId :: !(Maybe Text)
   , _rltdInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
@@ -12356,7 +15646,11 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
 --
 -- * 'rltdSecurityGroups' - [EC2-Classic, default VPC] One or more security group names. For a nondefault VPC, you must use security group IDs instead. You cannot specify both a security group ID and security name in the same request.
 --
+-- * 'rltdElasticInferenceAccelerators' - The elastic inference accelerator for the instance.
+--
 -- * 'rltdInstanceMarketOptions' - The market (purchasing) option for the instances.
+--
+-- * 'rltdLicenseSpecifications' - The license configurations.
 --
 -- * 'rltdDisableAPITermination' - If set to @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API. To change this attribute to @false@ after launch, use 'ModifyInstanceAttribute' .
 --
@@ -12364,21 +15658,27 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
 --
 -- * 'rltdNetworkInterfaces' - One or more network interfaces.
 --
--- * 'rltdRamDiskId' - The ID of the RAM disk. /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'rltdCPUOptions' - The CPU options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU Options> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- * 'rltdKernelId' - The ID of the kernel. /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'rltdRamDiskId' - The ID of the RAM disk. /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+-- * 'rltdKernelId' - The ID of the kernel. /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 -- * 'rltdElasticGpuSpecifications' - An elastic GPU to associate with the instance.
 --
--- * 'rltdInstanceType' - The instance type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'rltdInstanceType' - The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+-- * 'rltdCapacityReservationSpecification' - The Capacity Reservation targeting option. If you do not specify this parameter, the instance's Capacity Reservation preference defaults to @open@ , which enables it to run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
 --
 -- * 'rltdEBSOptimized' - Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
 --
--- * 'rltdUserData' - The Base64-encoded user data to make available to the instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running Commands on Your Linux Instance at Launch> (Linux) and <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data> (Windows).
+-- * 'rltdUserData' - The Base64-encoded user data to make available to the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running Commands on Your Linux Instance at Launch> (Linux) and <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data> (Windows).
 --
 -- * 'rltdMonitoring' - The monitoring for the instance.
 --
--- * 'rltdTagSpecifications' - The tags to apply to the resources during launch. You can tag instances and volumes. The specified tags are applied to all instances or volumes that are created during launch.
+-- * 'rltdTagSpecifications' - The tags to apply to the resources during launch. You can only tag instances and volumes on launch. The specified tags are applied to all instances or volumes that are created during launch. To tag a resource after it has been created, see 'CreateTags' .
+--
+-- * 'rltdHibernationOptions' - Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites hibernation prerequisites> . Hibernation is currently supported only for Amazon Linux. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 -- * 'rltdIAMInstanceProfile' - The IAM instance profile.
 --
@@ -12386,7 +15686,7 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
 --
 -- * 'rltdInstanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown). Default: @stop@
 --
--- * 'rltdCreditSpecification' - The credit option for CPU usage of the instance. Valid for T2 instances only.
+-- * 'rltdCreditSpecification' - The credit option for CPU usage of the instance. Valid for T2 or T3 instances only.
 --
 -- * 'rltdBlockDeviceMappings' - The block device mapping. /Important:/ Supplying both a snapshot ID and an encryption value as arguments for block-device mapping results in an error. This is because only blank volumes can be encrypted on start, and these are not created from a snapshot. If a snapshot is the basis for the volume, it contains data by definition and its encryption status cannot be changed using this action.
 --
@@ -12397,18 +15697,23 @@ requestLaunchTemplateData =
   RequestLaunchTemplateData'
     { _rltdSecurityGroupIds = Nothing
     , _rltdSecurityGroups = Nothing
+    , _rltdElasticInferenceAccelerators = Nothing
     , _rltdInstanceMarketOptions = Nothing
+    , _rltdLicenseSpecifications = Nothing
     , _rltdDisableAPITermination = Nothing
     , _rltdKeyName = Nothing
     , _rltdNetworkInterfaces = Nothing
+    , _rltdCPUOptions = Nothing
     , _rltdRamDiskId = Nothing
     , _rltdKernelId = Nothing
     , _rltdElasticGpuSpecifications = Nothing
     , _rltdInstanceType = Nothing
+    , _rltdCapacityReservationSpecification = Nothing
     , _rltdEBSOptimized = Nothing
     , _rltdUserData = Nothing
     , _rltdMonitoring = Nothing
     , _rltdTagSpecifications = Nothing
+    , _rltdHibernationOptions = Nothing
     , _rltdIAMInstanceProfile = Nothing
     , _rltdImageId = Nothing
     , _rltdInstanceInitiatedShutdownBehavior = Nothing
@@ -12426,9 +15731,17 @@ rltdSecurityGroupIds = lens _rltdSecurityGroupIds (\ s a -> s{_rltdSecurityGroup
 rltdSecurityGroups :: Lens' RequestLaunchTemplateData [Text]
 rltdSecurityGroups = lens _rltdSecurityGroups (\ s a -> s{_rltdSecurityGroups = a}) . _Default . _Coerce
 
+-- | The elastic inference accelerator for the instance.
+rltdElasticInferenceAccelerators :: Lens' RequestLaunchTemplateData [LaunchTemplateElasticInferenceAccelerator]
+rltdElasticInferenceAccelerators = lens _rltdElasticInferenceAccelerators (\ s a -> s{_rltdElasticInferenceAccelerators = a}) . _Default . _Coerce
+
 -- | The market (purchasing) option for the instances.
 rltdInstanceMarketOptions :: Lens' RequestLaunchTemplateData (Maybe LaunchTemplateInstanceMarketOptionsRequest)
 rltdInstanceMarketOptions = lens _rltdInstanceMarketOptions (\ s a -> s{_rltdInstanceMarketOptions = a})
+
+-- | The license configurations.
+rltdLicenseSpecifications :: Lens' RequestLaunchTemplateData [LaunchTemplateLicenseConfigurationRequest]
+rltdLicenseSpecifications = lens _rltdLicenseSpecifications (\ s a -> s{_rltdLicenseSpecifications = a}) . _Default . _Coerce
 
 -- | If set to @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API. To change this attribute to @false@ after launch, use 'ModifyInstanceAttribute' .
 rltdDisableAPITermination :: Lens' RequestLaunchTemplateData (Maybe Bool)
@@ -12442,11 +15755,15 @@ rltdKeyName = lens _rltdKeyName (\ s a -> s{_rltdKeyName = a})
 rltdNetworkInterfaces :: Lens' RequestLaunchTemplateData [LaunchTemplateInstanceNetworkInterfaceSpecificationRequest]
 rltdNetworkInterfaces = lens _rltdNetworkInterfaces (\ s a -> s{_rltdNetworkInterfaces = a}) . _Default . _Coerce
 
--- | The ID of the RAM disk. /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- | The CPU options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU Options> in the /Amazon Elastic Compute Cloud User Guide/ .
+rltdCPUOptions :: Lens' RequestLaunchTemplateData (Maybe LaunchTemplateCPUOptionsRequest)
+rltdCPUOptions = lens _rltdCPUOptions (\ s a -> s{_rltdCPUOptions = a})
+
+-- | The ID of the RAM disk. /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels> in the /Amazon Elastic Compute Cloud User Guide/ .
 rltdRamDiskId :: Lens' RequestLaunchTemplateData (Maybe Text)
 rltdRamDiskId = lens _rltdRamDiskId (\ s a -> s{_rltdRamDiskId = a})
 
--- | The ID of the kernel. /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- | The ID of the kernel. /Important:/ We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html User Provided Kernels> in the /Amazon Elastic Compute Cloud User Guide/ .
 rltdKernelId :: Lens' RequestLaunchTemplateData (Maybe Text)
 rltdKernelId = lens _rltdKernelId (\ s a -> s{_rltdKernelId = a})
 
@@ -12454,15 +15771,19 @@ rltdKernelId = lens _rltdKernelId (\ s a -> s{_rltdKernelId = a})
 rltdElasticGpuSpecifications :: Lens' RequestLaunchTemplateData [ElasticGpuSpecification]
 rltdElasticGpuSpecifications = lens _rltdElasticGpuSpecifications (\ s a -> s{_rltdElasticGpuSpecifications = a}) . _Default . _Coerce
 
--- | The instance type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- | The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
 rltdInstanceType :: Lens' RequestLaunchTemplateData (Maybe InstanceType)
 rltdInstanceType = lens _rltdInstanceType (\ s a -> s{_rltdInstanceType = a})
+
+-- | The Capacity Reservation targeting option. If you do not specify this parameter, the instance's Capacity Reservation preference defaults to @open@ , which enables it to run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
+rltdCapacityReservationSpecification :: Lens' RequestLaunchTemplateData (Maybe LaunchTemplateCapacityReservationSpecificationRequest)
+rltdCapacityReservationSpecification = lens _rltdCapacityReservationSpecification (\ s a -> s{_rltdCapacityReservationSpecification = a})
 
 -- | Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.
 rltdEBSOptimized :: Lens' RequestLaunchTemplateData (Maybe Bool)
 rltdEBSOptimized = lens _rltdEBSOptimized (\ s a -> s{_rltdEBSOptimized = a})
 
--- | The Base64-encoded user data to make available to the instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running Commands on Your Linux Instance at Launch> (Linux) and <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data> (Windows).
+-- | The Base64-encoded user data to make available to the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running Commands on Your Linux Instance at Launch> (Linux) and <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data> (Windows).
 rltdUserData :: Lens' RequestLaunchTemplateData (Maybe Text)
 rltdUserData = lens _rltdUserData (\ s a -> s{_rltdUserData = a})
 
@@ -12470,9 +15791,13 @@ rltdUserData = lens _rltdUserData (\ s a -> s{_rltdUserData = a})
 rltdMonitoring :: Lens' RequestLaunchTemplateData (Maybe LaunchTemplatesMonitoringRequest)
 rltdMonitoring = lens _rltdMonitoring (\ s a -> s{_rltdMonitoring = a})
 
--- | The tags to apply to the resources during launch. You can tag instances and volumes. The specified tags are applied to all instances or volumes that are created during launch.
+-- | The tags to apply to the resources during launch. You can only tag instances and volumes on launch. The specified tags are applied to all instances or volumes that are created during launch. To tag a resource after it has been created, see 'CreateTags' .
 rltdTagSpecifications :: Lens' RequestLaunchTemplateData [LaunchTemplateTagSpecificationRequest]
 rltdTagSpecifications = lens _rltdTagSpecifications (\ s a -> s{_rltdTagSpecifications = a}) . _Default . _Coerce
+
+-- | Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites hibernation prerequisites> . Hibernation is currently supported only for Amazon Linux. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
+rltdHibernationOptions :: Lens' RequestLaunchTemplateData (Maybe LaunchTemplateHibernationOptionsRequest)
+rltdHibernationOptions = lens _rltdHibernationOptions (\ s a -> s{_rltdHibernationOptions = a})
 
 -- | The IAM instance profile.
 rltdIAMInstanceProfile :: Lens' RequestLaunchTemplateData (Maybe LaunchTemplateIAMInstanceProfileSpecificationRequest)
@@ -12486,7 +15811,7 @@ rltdImageId = lens _rltdImageId (\ s a -> s{_rltdImageId = a})
 rltdInstanceInitiatedShutdownBehavior :: Lens' RequestLaunchTemplateData (Maybe ShutdownBehavior)
 rltdInstanceInitiatedShutdownBehavior = lens _rltdInstanceInitiatedShutdownBehavior (\ s a -> s{_rltdInstanceInitiatedShutdownBehavior = a})
 
--- | The credit option for CPU usage of the instance. Valid for T2 instances only.
+-- | The credit option for CPU usage of the instance. Valid for T2 or T3 instances only.
 rltdCreditSpecification :: Lens' RequestLaunchTemplateData (Maybe CreditSpecificationRequest)
 rltdCreditSpecification = lens _rltdCreditSpecification (\ s a -> s{_rltdCreditSpecification = a})
 
@@ -12511,26 +15836,36 @@ instance ToQuery RequestLaunchTemplateData where
                toQuery
                  (toQueryList "SecurityGroup" <$>
                     _rltdSecurityGroups),
+               toQuery
+                 (toQueryList "ElasticInferenceAccelerator" <$>
+                    _rltdElasticInferenceAccelerators),
                "InstanceMarketOptions" =:
                  _rltdInstanceMarketOptions,
+               toQuery
+                 (toQueryList "LicenseSpecification" <$>
+                    _rltdLicenseSpecifications),
                "DisableApiTermination" =:
                  _rltdDisableAPITermination,
                "KeyName" =: _rltdKeyName,
                toQuery
                  (toQueryList "NetworkInterface" <$>
                     _rltdNetworkInterfaces),
+               "CpuOptions" =: _rltdCPUOptions,
                "RamDiskId" =: _rltdRamDiskId,
                "KernelId" =: _rltdKernelId,
                toQuery
                  (toQueryList "ElasticGpuSpecification" <$>
                     _rltdElasticGpuSpecifications),
                "InstanceType" =: _rltdInstanceType,
+               "CapacityReservationSpecification" =:
+                 _rltdCapacityReservationSpecification,
                "EbsOptimized" =: _rltdEBSOptimized,
                "UserData" =: _rltdUserData,
                "Monitoring" =: _rltdMonitoring,
                toQuery
                  (toQueryList "TagSpecification" <$>
                     _rltdTagSpecifications),
+               "HibernationOptions" =: _rltdHibernationOptions,
                "IamInstanceProfile" =: _rltdIAMInstanceProfile,
                "ImageId" =: _rltdImageId,
                "InstanceInitiatedShutdownBehavior" =:
@@ -13272,7 +16607,7 @@ data ReservedInstancesListing = ReservedInstancesListing'
 --
 -- * 'rilStatus' - The status of the Reserved Instance listing.
 --
--- * 'rilClientToken' - A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- * 'rilClientToken' - A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
 -- * 'rilUpdateDate' - The last modified timestamp of the listing.
 --
@@ -13310,7 +16645,7 @@ reservedInstancesListing =
 rilStatus :: Lens' ReservedInstancesListing (Maybe ListingStatus)
 rilStatus = lens _rilStatus (\ s a -> s{_rilStatus = a})
 
--- | A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- | A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 rilClientToken :: Lens' ReservedInstancesListing (Maybe Text)
 rilClientToken = lens _rilClientToken (\ s a -> s{_rilClientToken = a})
 
@@ -13395,7 +16730,7 @@ data ReservedInstancesModification = ReservedInstancesModification'
 --
 -- * 'rimStatus' - The status of the Reserved Instances modification request.
 --
--- * 'rimClientToken' - A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- * 'rimClientToken' - A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
 -- * 'rimUpdateDate' - The time when the modification request was last updated.
 --
@@ -13432,7 +16767,7 @@ rimModificationResults = lens _rimModificationResults (\ s a -> s{_rimModificati
 rimStatus :: Lens' ReservedInstancesModification (Maybe Text)
 rimStatus = lens _rimStatus (\ s a -> s{_rimStatus = a})
 
--- | A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- | A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 rimClientToken :: Lens' ReservedInstancesModification (Maybe Text)
 rimClientToken = lens _rimClientToken (\ s a -> s{_rimClientToken = a})
 
@@ -13739,18 +17074,23 @@ instance NFData ResponseError where
 data ResponseLaunchTemplateData = ResponseLaunchTemplateData'
   { _rSecurityGroupIds :: !(Maybe [Text])
   , _rSecurityGroups :: !(Maybe [Text])
+  , _rElasticInferenceAccelerators :: !(Maybe [LaunchTemplateElasticInferenceAcceleratorResponse])
   , _rInstanceMarketOptions :: !(Maybe LaunchTemplateInstanceMarketOptions)
+  , _rLicenseSpecifications :: !(Maybe [LaunchTemplateLicenseConfiguration])
   , _rDisableAPITermination :: !(Maybe Bool)
   , _rKeyName :: !(Maybe Text)
   , _rNetworkInterfaces :: !(Maybe [LaunchTemplateInstanceNetworkInterfaceSpecification])
+  , _rCPUOptions :: !(Maybe LaunchTemplateCPUOptions)
   , _rRamDiskId :: !(Maybe Text)
   , _rKernelId :: !(Maybe Text)
   , _rElasticGpuSpecifications :: !(Maybe [ElasticGpuSpecificationResponse])
   , _rInstanceType :: !(Maybe InstanceType)
+  , _rCapacityReservationSpecification :: !(Maybe LaunchTemplateCapacityReservationSpecificationResponse)
   , _rEBSOptimized :: !(Maybe Bool)
   , _rUserData :: !(Maybe Text)
   , _rMonitoring :: !(Maybe LaunchTemplatesMonitoring)
   , _rTagSpecifications :: !(Maybe [LaunchTemplateTagSpecification])
+  , _rHibernationOptions :: !(Maybe LaunchTemplateHibernationOptions)
   , _rIAMInstanceProfile :: !(Maybe LaunchTemplateIAMInstanceProfileSpecification)
   , _rImageId :: !(Maybe Text)
   , _rInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
@@ -13768,13 +17108,19 @@ data ResponseLaunchTemplateData = ResponseLaunchTemplateData'
 --
 -- * 'rSecurityGroups' - The security group names.
 --
+-- * 'rElasticInferenceAccelerators' - The elastic inference accelerator for the instance.
+--
 -- * 'rInstanceMarketOptions' - The market (purchasing) option for the instances.
+--
+-- * 'rLicenseSpecifications' - The license configurations.
 --
 -- * 'rDisableAPITermination' - If set to @true@ , indicates that the instance cannot be terminated using the Amazon EC2 console, command line tool, or API.
 --
 -- * 'rKeyName' - The name of the key pair.
 --
 -- * 'rNetworkInterfaces' - The network interfaces.
+--
+-- * 'rCPUOptions' - The CPU options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU Options> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 -- * 'rRamDiskId' - The ID of the RAM disk, if applicable.
 --
@@ -13784,6 +17130,8 @@ data ResponseLaunchTemplateData = ResponseLaunchTemplateData'
 --
 -- * 'rInstanceType' - The instance type.
 --
+-- * 'rCapacityReservationSpecification' - Information about the Capacity Reservation targeting option.
+--
 -- * 'rEBSOptimized' - Indicates whether the instance is optimized for Amazon EBS I/O.
 --
 -- * 'rUserData' - The user data for the instance.
@@ -13791,6 +17139,8 @@ data ResponseLaunchTemplateData = ResponseLaunchTemplateData'
 -- * 'rMonitoring' - The monitoring for the instance.
 --
 -- * 'rTagSpecifications' - The tags.
+--
+-- * 'rHibernationOptions' - Indicates whether an instance is configured for hibernation. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 -- * 'rIAMInstanceProfile' - The IAM instance profile.
 --
@@ -13809,18 +17159,23 @@ responseLaunchTemplateData =
   ResponseLaunchTemplateData'
     { _rSecurityGroupIds = Nothing
     , _rSecurityGroups = Nothing
+    , _rElasticInferenceAccelerators = Nothing
     , _rInstanceMarketOptions = Nothing
+    , _rLicenseSpecifications = Nothing
     , _rDisableAPITermination = Nothing
     , _rKeyName = Nothing
     , _rNetworkInterfaces = Nothing
+    , _rCPUOptions = Nothing
     , _rRamDiskId = Nothing
     , _rKernelId = Nothing
     , _rElasticGpuSpecifications = Nothing
     , _rInstanceType = Nothing
+    , _rCapacityReservationSpecification = Nothing
     , _rEBSOptimized = Nothing
     , _rUserData = Nothing
     , _rMonitoring = Nothing
     , _rTagSpecifications = Nothing
+    , _rHibernationOptions = Nothing
     , _rIAMInstanceProfile = Nothing
     , _rImageId = Nothing
     , _rInstanceInitiatedShutdownBehavior = Nothing
@@ -13838,9 +17193,17 @@ rSecurityGroupIds = lens _rSecurityGroupIds (\ s a -> s{_rSecurityGroupIds = a})
 rSecurityGroups :: Lens' ResponseLaunchTemplateData [Text]
 rSecurityGroups = lens _rSecurityGroups (\ s a -> s{_rSecurityGroups = a}) . _Default . _Coerce
 
+-- | The elastic inference accelerator for the instance.
+rElasticInferenceAccelerators :: Lens' ResponseLaunchTemplateData [LaunchTemplateElasticInferenceAcceleratorResponse]
+rElasticInferenceAccelerators = lens _rElasticInferenceAccelerators (\ s a -> s{_rElasticInferenceAccelerators = a}) . _Default . _Coerce
+
 -- | The market (purchasing) option for the instances.
 rInstanceMarketOptions :: Lens' ResponseLaunchTemplateData (Maybe LaunchTemplateInstanceMarketOptions)
 rInstanceMarketOptions = lens _rInstanceMarketOptions (\ s a -> s{_rInstanceMarketOptions = a})
+
+-- | The license configurations.
+rLicenseSpecifications :: Lens' ResponseLaunchTemplateData [LaunchTemplateLicenseConfiguration]
+rLicenseSpecifications = lens _rLicenseSpecifications (\ s a -> s{_rLicenseSpecifications = a}) . _Default . _Coerce
 
 -- | If set to @true@ , indicates that the instance cannot be terminated using the Amazon EC2 console, command line tool, or API.
 rDisableAPITermination :: Lens' ResponseLaunchTemplateData (Maybe Bool)
@@ -13853,6 +17216,10 @@ rKeyName = lens _rKeyName (\ s a -> s{_rKeyName = a})
 -- | The network interfaces.
 rNetworkInterfaces :: Lens' ResponseLaunchTemplateData [LaunchTemplateInstanceNetworkInterfaceSpecification]
 rNetworkInterfaces = lens _rNetworkInterfaces (\ s a -> s{_rNetworkInterfaces = a}) . _Default . _Coerce
+
+-- | The CPU options for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU Options> in the /Amazon Elastic Compute Cloud User Guide/ .
+rCPUOptions :: Lens' ResponseLaunchTemplateData (Maybe LaunchTemplateCPUOptions)
+rCPUOptions = lens _rCPUOptions (\ s a -> s{_rCPUOptions = a})
 
 -- | The ID of the RAM disk, if applicable.
 rRamDiskId :: Lens' ResponseLaunchTemplateData (Maybe Text)
@@ -13870,6 +17237,10 @@ rElasticGpuSpecifications = lens _rElasticGpuSpecifications (\ s a -> s{_rElasti
 rInstanceType :: Lens' ResponseLaunchTemplateData (Maybe InstanceType)
 rInstanceType = lens _rInstanceType (\ s a -> s{_rInstanceType = a})
 
+-- | Information about the Capacity Reservation targeting option.
+rCapacityReservationSpecification :: Lens' ResponseLaunchTemplateData (Maybe LaunchTemplateCapacityReservationSpecificationResponse)
+rCapacityReservationSpecification = lens _rCapacityReservationSpecification (\ s a -> s{_rCapacityReservationSpecification = a})
+
 -- | Indicates whether the instance is optimized for Amazon EBS I/O.
 rEBSOptimized :: Lens' ResponseLaunchTemplateData (Maybe Bool)
 rEBSOptimized = lens _rEBSOptimized (\ s a -> s{_rEBSOptimized = a})
@@ -13885,6 +17256,10 @@ rMonitoring = lens _rMonitoring (\ s a -> s{_rMonitoring = a})
 -- | The tags.
 rTagSpecifications :: Lens' ResponseLaunchTemplateData [LaunchTemplateTagSpecification]
 rTagSpecifications = lens _rTagSpecifications (\ s a -> s{_rTagSpecifications = a}) . _Default . _Coerce
+
+-- | Indicates whether an instance is configured for hibernation. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
+rHibernationOptions :: Lens' ResponseLaunchTemplateData (Maybe LaunchTemplateHibernationOptions)
+rHibernationOptions = lens _rHibernationOptions (\ s a -> s{_rHibernationOptions = a})
 
 -- | The IAM instance profile.
 rIAMInstanceProfile :: Lens' ResponseLaunchTemplateData (Maybe LaunchTemplateIAMInstanceProfileSpecification)
@@ -13918,24 +17293,33 @@ instance FromXML ResponseLaunchTemplateData where
                 <*>
                 (x .@? "securityGroupSet" .!@ mempty >>=
                    may (parseXMLList "item"))
+                <*>
+                (x .@? "elasticInferenceAcceleratorSet" .!@ mempty
+                   >>= may (parseXMLList "item"))
                 <*> (x .@? "instanceMarketOptions")
+                <*>
+                (x .@? "licenseSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "disableApiTermination")
                 <*> (x .@? "keyName")
                 <*>
                 (x .@? "networkInterfaceSet" .!@ mempty >>=
                    may (parseXMLList "item"))
+                <*> (x .@? "cpuOptions")
                 <*> (x .@? "ramDiskId")
                 <*> (x .@? "kernelId")
                 <*>
                 (x .@? "elasticGpuSpecificationSet" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*> (x .@? "instanceType")
+                <*> (x .@? "capacityReservationSpecification")
                 <*> (x .@? "ebsOptimized")
                 <*> (x .@? "userData")
                 <*> (x .@? "monitoring")
                 <*>
                 (x .@? "tagSpecificationSet" .!@ mempty >>=
                    may (parseXMLList "item"))
+                <*> (x .@? "hibernationOptions")
                 <*> (x .@? "iamInstanceProfile")
                 <*> (x .@? "imageId")
                 <*> (x .@? "instanceInitiatedShutdownBehavior")
@@ -13963,6 +17347,7 @@ data Route = Route'
   , _rDestinationIPv6CidrBlock    :: !(Maybe Text)
   , _rNatGatewayId                :: !(Maybe Text)
   , _rNetworkInterfaceId          :: !(Maybe Text)
+  , _rTransitGatewayId            :: !(Maybe Text)
   , _rGatewayId                   :: !(Maybe Text)
   , _rInstanceOwnerId             :: !(Maybe Text)
   , _rDestinationPrefixListId     :: !(Maybe Text)
@@ -13974,7 +17359,7 @@ data Route = Route'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rVPCPeeringConnectionId' - The ID of the VPC peering connection.
+-- * 'rVPCPeeringConnectionId' - The ID of a VPC peering connection.
 --
 -- * 'rInstanceId' - The ID of a NAT instance in your VPC.
 --
@@ -13982,13 +17367,15 @@ data Route = Route'
 --
 -- * 'rState' - The state of the route. The @blackhole@ state indicates that the route's target isn't available (for example, the specified gateway isn't attached to the VPC, or the specified NAT instance has been terminated).
 --
--- * 'rEgressOnlyInternetGatewayId' - The ID of the egress-only Internet gateway.
+-- * 'rEgressOnlyInternetGatewayId' - The ID of the egress-only internet gateway.
 --
 -- * 'rDestinationIPv6CidrBlock' - The IPv6 CIDR block used for the destination match.
 --
 -- * 'rNatGatewayId' - The ID of a NAT gateway.
 --
 -- * 'rNetworkInterfaceId' - The ID of the network interface.
+--
+-- * 'rTransitGatewayId' - The ID of a transit gateway.
 --
 -- * 'rGatewayId' - The ID of a gateway attached to your VPC.
 --
@@ -14009,6 +17396,7 @@ route =
     , _rDestinationIPv6CidrBlock = Nothing
     , _rNatGatewayId = Nothing
     , _rNetworkInterfaceId = Nothing
+    , _rTransitGatewayId = Nothing
     , _rGatewayId = Nothing
     , _rInstanceOwnerId = Nothing
     , _rDestinationPrefixListId = Nothing
@@ -14016,7 +17404,7 @@ route =
     }
 
 
--- | The ID of the VPC peering connection.
+-- | The ID of a VPC peering connection.
 rVPCPeeringConnectionId :: Lens' Route (Maybe Text)
 rVPCPeeringConnectionId = lens _rVPCPeeringConnectionId (\ s a -> s{_rVPCPeeringConnectionId = a})
 
@@ -14032,7 +17420,7 @@ rOrigin = lens _rOrigin (\ s a -> s{_rOrigin = a})
 rState :: Lens' Route (Maybe RouteState)
 rState = lens _rState (\ s a -> s{_rState = a})
 
--- | The ID of the egress-only Internet gateway.
+-- | The ID of the egress-only internet gateway.
 rEgressOnlyInternetGatewayId :: Lens' Route (Maybe Text)
 rEgressOnlyInternetGatewayId = lens _rEgressOnlyInternetGatewayId (\ s a -> s{_rEgressOnlyInternetGatewayId = a})
 
@@ -14047,6 +17435,10 @@ rNatGatewayId = lens _rNatGatewayId (\ s a -> s{_rNatGatewayId = a})
 -- | The ID of the network interface.
 rNetworkInterfaceId :: Lens' Route (Maybe Text)
 rNetworkInterfaceId = lens _rNetworkInterfaceId (\ s a -> s{_rNetworkInterfaceId = a})
+
+-- | The ID of a transit gateway.
+rTransitGatewayId :: Lens' Route (Maybe Text)
+rTransitGatewayId = lens _rTransitGatewayId (\ s a -> s{_rTransitGatewayId = a})
 
 -- | The ID of a gateway attached to your VPC.
 rGatewayId :: Lens' Route (Maybe Text)
@@ -14075,6 +17467,7 @@ instance FromXML Route where
                 <*> (x .@? "destinationIpv6CidrBlock")
                 <*> (x .@? "natGatewayId")
                 <*> (x .@? "networkInterfaceId")
+                <*> (x .@? "transitGatewayId")
                 <*> (x .@? "gatewayId")
                 <*> (x .@? "instanceOwnerId")
                 <*> (x .@? "destinationPrefixListId")
@@ -14094,6 +17487,7 @@ data RouteTable = RouteTable'
   , _rtRoutes          :: !(Maybe [Route])
   , _rtVPCId           :: !(Maybe Text)
   , _rtPropagatingVGWs :: !(Maybe [PropagatingVGW])
+  , _rtOwnerId         :: !(Maybe Text)
   , _rtAssociations    :: !(Maybe [RouteTableAssociation])
   , _rtTags            :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -14111,6 +17505,8 @@ data RouteTable = RouteTable'
 --
 -- * 'rtPropagatingVGWs' - Any virtual private gateway (VGW) propagating routes.
 --
+-- * 'rtOwnerId' - The ID of the AWS account that owns the route table.
+--
 -- * 'rtAssociations' - The associations between the route table and one or more subnets.
 --
 -- * 'rtTags' - Any tags assigned to the route table.
@@ -14122,6 +17518,7 @@ routeTable =
     , _rtRoutes = Nothing
     , _rtVPCId = Nothing
     , _rtPropagatingVGWs = Nothing
+    , _rtOwnerId = Nothing
     , _rtAssociations = Nothing
     , _rtTags = Nothing
     }
@@ -14143,6 +17540,10 @@ rtVPCId = lens _rtVPCId (\ s a -> s{_rtVPCId = a})
 rtPropagatingVGWs :: Lens' RouteTable [PropagatingVGW]
 rtPropagatingVGWs = lens _rtPropagatingVGWs (\ s a -> s{_rtPropagatingVGWs = a}) . _Default . _Coerce
 
+-- | The ID of the AWS account that owns the route table.
+rtOwnerId :: Lens' RouteTable (Maybe Text)
+rtOwnerId = lens _rtOwnerId (\ s a -> s{_rtOwnerId = a})
+
 -- | The associations between the route table and one or more subnets.
 rtAssociations :: Lens' RouteTable [RouteTableAssociation]
 rtAssociations = lens _rtAssociations (\ s a -> s{_rtAssociations = a}) . _Default . _Coerce
@@ -14161,6 +17562,7 @@ instance FromXML RouteTable where
                 <*>
                 (x .@? "propagatingVgwSet" .!@ mempty >>=
                    may (parseXMLList "item"))
+                <*> (x .@? "ownerId")
                 <*>
                 (x .@? "associationSet" .!@ mempty >>=
                    may (parseXMLList "item"))
@@ -14299,7 +17701,7 @@ data S3Storage = S3Storage'
 --
 -- * 'ssUploadPolicySignature' - The signature of the JSON document.
 --
--- * 'ssAWSAccessKeyId' - The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance in <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing AWS Access Keys> .
+-- * 'ssAWSAccessKeyId' - The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance in <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing AWS Access Keys> .
 s3Storage
     :: S3Storage
 s3Storage =
@@ -14328,7 +17730,7 @@ ssBucket = lens _ssBucket (\ s a -> s{_ssBucket = a})
 ssUploadPolicySignature :: Lens' S3Storage (Maybe Text)
 ssUploadPolicySignature = lens _ssUploadPolicySignature (\ s a -> s{_ssUploadPolicySignature = a})
 
--- | The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance in <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing AWS Access Keys> .
+-- | The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance in <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best Practices for Managing AWS Access Keys> .
 ssAWSAccessKeyId :: Lens' S3Storage (Maybe Text)
 ssAWSAccessKeyId = lens _ssAWSAccessKeyId (\ s a -> s{_ssAWSAccessKeyId = a})
 
@@ -14899,7 +18301,7 @@ data ScheduledInstancesEBS = ScheduledInstancesEBS'
 --
 -- * 'sieVolumeSize' - The size of the volume, in GiB. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
 --
--- * 'sieIOPS' - The number of I/O operations per second (IOPS) that the volume supports. For io1 volumes, this represents the number of IOPS that are provisioned for the volume. For @gp2@ volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about @gp2@ baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ . Constraint: Range is 100-20000 IOPS for @io1@ volumes and 100-10000 IOPS for @gp2@ volumes. Condition: This parameter is required for requests to create @io1@ volumes; it is not used in requests to create @gp2@ , @st1@ , @sc1@ , or @standard@ volumes.
+-- * 'sieIOPS' - The number of I/O operations per second (IOPS) that the volume supports. For io1 volumes, this represents the number of IOPS that are provisioned for the volume. For @gp2@ volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about @gp2@ baseline performance, I/O credits, and bursting, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ . Constraint: Range is 100-20000 IOPS for @io1@ volumes and 100-10000 IOPS for @gp2@ volumes. Condition: This parameter is required for requests to create @io1@ volumes; it is not used in requests to create @gp2@ , @st1@ , @sc1@ , or @standard@ volumes.
 --
 -- * 'sieEncrypted' - Indicates whether the volume is encrypted. You can attached encrypted volumes only to instances that support them.
 --
@@ -14927,7 +18329,7 @@ sieDeleteOnTermination = lens _sieDeleteOnTermination (\ s a -> s{_sieDeleteOnTe
 sieVolumeSize :: Lens' ScheduledInstancesEBS (Maybe Int)
 sieVolumeSize = lens _sieVolumeSize (\ s a -> s{_sieVolumeSize = a})
 
--- | The number of I/O operations per second (IOPS) that the volume supports. For io1 volumes, this represents the number of IOPS that are provisioned for the volume. For @gp2@ volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about @gp2@ baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ . Constraint: Range is 100-20000 IOPS for @io1@ volumes and 100-10000 IOPS for @gp2@ volumes. Condition: This parameter is required for requests to create @io1@ volumes; it is not used in requests to create @gp2@ , @st1@ , @sc1@ , or @standard@ volumes.
+-- | The number of I/O operations per second (IOPS) that the volume supports. For io1 volumes, this represents the number of IOPS that are provisioned for the volume. For @gp2@ volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about @gp2@ baseline performance, I/O credits, and bursting, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ . Constraint: Range is 100-20000 IOPS for @io1@ volumes and 100-10000 IOPS for @gp2@ volumes. Condition: This parameter is required for requests to create @io1@ volumes; it is not used in requests to create @gp2@ , @st1@ , @sc1@ , or @standard@ volumes.
 sieIOPS :: Lens' ScheduledInstancesEBS (Maybe Int)
 sieIOPS = lens _sieIOPS (\ s a -> s{_sieIOPS = a})
 
@@ -15625,8 +19027,8 @@ instance NFData SecurityGroupIdentifier where
 -- /See:/ 'securityGroupReference' smart constructor.
 data SecurityGroupReference = SecurityGroupReference'
   { _sgrVPCPeeringConnectionId :: !(Maybe Text)
-  , _sgrGroupId                :: !Text
-  , _sgrReferencingVPCId       :: !Text
+  , _sgrReferencingVPCId       :: !(Maybe Text)
+  , _sgrGroupId                :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -15636,18 +19038,16 @@ data SecurityGroupReference = SecurityGroupReference'
 --
 -- * 'sgrVPCPeeringConnectionId' - The ID of the VPC peering connection.
 --
--- * 'sgrGroupId' - The ID of your security group.
---
 -- * 'sgrReferencingVPCId' - The ID of the VPC with the referencing security group.
+--
+-- * 'sgrGroupId' - The ID of your security group.
 securityGroupReference
-    :: Text -- ^ 'sgrGroupId'
-    -> Text -- ^ 'sgrReferencingVPCId'
-    -> SecurityGroupReference
-securityGroupReference pGroupId_ pReferencingVPCId_ =
+    :: SecurityGroupReference
+securityGroupReference =
   SecurityGroupReference'
     { _sgrVPCPeeringConnectionId = Nothing
-    , _sgrGroupId = pGroupId_
-    , _sgrReferencingVPCId = pReferencingVPCId_
+    , _sgrReferencingVPCId = Nothing
+    , _sgrGroupId = Nothing
     }
 
 
@@ -15655,19 +19055,20 @@ securityGroupReference pGroupId_ pReferencingVPCId_ =
 sgrVPCPeeringConnectionId :: Lens' SecurityGroupReference (Maybe Text)
 sgrVPCPeeringConnectionId = lens _sgrVPCPeeringConnectionId (\ s a -> s{_sgrVPCPeeringConnectionId = a})
 
--- | The ID of your security group.
-sgrGroupId :: Lens' SecurityGroupReference Text
-sgrGroupId = lens _sgrGroupId (\ s a -> s{_sgrGroupId = a})
-
 -- | The ID of the VPC with the referencing security group.
-sgrReferencingVPCId :: Lens' SecurityGroupReference Text
+sgrReferencingVPCId :: Lens' SecurityGroupReference (Maybe Text)
 sgrReferencingVPCId = lens _sgrReferencingVPCId (\ s a -> s{_sgrReferencingVPCId = a})
+
+-- | The ID of your security group.
+sgrGroupId :: Lens' SecurityGroupReference (Maybe Text)
+sgrGroupId = lens _sgrGroupId (\ s a -> s{_sgrGroupId = a})
 
 instance FromXML SecurityGroupReference where
         parseXML x
           = SecurityGroupReference' <$>
-              (x .@? "vpcPeeringConnectionId") <*> (x .@ "groupId")
-                <*> (x .@ "referencingVpcId")
+              (x .@? "vpcPeeringConnectionId") <*>
+                (x .@? "referencingVpcId")
+                <*> (x .@? "groupId")
 
 instance Hashable SecurityGroupReference where
 
@@ -16310,7 +19711,7 @@ data SnapshotDiskContainer = SnapshotDiskContainer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdcFormat' - The format of the disk image being imported. Valid values: @VHD@ | @VMDK@ | @OVA@
+-- * 'sdcFormat' - The format of the disk image being imported. Valid values: @VHD@ | @VMDK@
 --
 -- * 'sdcURL' - The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..).
 --
@@ -16328,7 +19729,7 @@ snapshotDiskContainer =
     }
 
 
--- | The format of the disk image being imported. Valid values: @VHD@ | @VMDK@ | @OVA@
+-- | The format of the disk image being imported. Valid values: @VHD@ | @VMDK@
 sdcFormat :: Lens' SnapshotDiskContainer (Maybe Text)
 sdcFormat = lens _sdcFormat (\ s a -> s{_sdcFormat = a})
 
@@ -16365,6 +19766,8 @@ data SnapshotTaskDetail = SnapshotTaskDetail'
   , _stdProgress      :: !(Maybe Text)
   , _stdFormat        :: !(Maybe Text)
   , _stdURL           :: !(Maybe Text)
+  , _stdEncrypted     :: !(Maybe Bool)
+  , _stdKMSKeyId      :: !(Maybe Text)
   , _stdStatusMessage :: !(Maybe Text)
   , _stdUserBucket    :: !(Maybe UserBucketDetails)
   , _stdDiskImageSize :: !(Maybe Double)
@@ -16385,6 +19788,10 @@ data SnapshotTaskDetail = SnapshotTaskDetail'
 --
 -- * 'stdURL' - The URL of the disk image from which the snapshot is created.
 --
+-- * 'stdEncrypted' - Indicates whether the snapshot is encrypted.
+--
+-- * 'stdKMSKeyId' - The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted snapshot.
+--
 -- * 'stdStatusMessage' - A detailed status message for the import snapshot task.
 --
 -- * 'stdUserBucket' - The S3 bucket for the disk image.
@@ -16402,6 +19809,8 @@ snapshotTaskDetail =
     , _stdProgress = Nothing
     , _stdFormat = Nothing
     , _stdURL = Nothing
+    , _stdEncrypted = Nothing
+    , _stdKMSKeyId = Nothing
     , _stdStatusMessage = Nothing
     , _stdUserBucket = Nothing
     , _stdDiskImageSize = Nothing
@@ -16425,6 +19834,14 @@ stdFormat = lens _stdFormat (\ s a -> s{_stdFormat = a})
 -- | The URL of the disk image from which the snapshot is created.
 stdURL :: Lens' SnapshotTaskDetail (Maybe Text)
 stdURL = lens _stdURL (\ s a -> s{_stdURL = a})
+
+-- | Indicates whether the snapshot is encrypted.
+stdEncrypted :: Lens' SnapshotTaskDetail (Maybe Bool)
+stdEncrypted = lens _stdEncrypted (\ s a -> s{_stdEncrypted = a})
+
+-- | The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted snapshot.
+stdKMSKeyId :: Lens' SnapshotTaskDetail (Maybe Text)
+stdKMSKeyId = lens _stdKMSKeyId (\ s a -> s{_stdKMSKeyId = a})
 
 -- | A detailed status message for the import snapshot task.
 stdStatusMessage :: Lens' SnapshotTaskDetail (Maybe Text)
@@ -16452,6 +19869,8 @@ instance FromXML SnapshotTaskDetail where
               (x .@? "status") <*> (x .@? "progress") <*>
                 (x .@? "format")
                 <*> (x .@? "url")
+                <*> (x .@? "encrypted")
+                <*> (x .@? "kmsKeyId")
                 <*> (x .@? "statusMessage")
                 <*> (x .@? "userBucket")
                 <*> (x .@? "diskImageSize")
@@ -16800,11 +20219,11 @@ instance ToQuery SpotFleetMonitoring where
 --
 -- /See:/ 'spotFleetRequestConfig' smart constructor.
 data SpotFleetRequestConfig = SpotFleetRequestConfig'
-  { _sfrcActivityStatus         :: !(Maybe ActivityStatus)
-  , _sfrcCreateTime             :: !ISO8601
-  , _sfrcSpotFleetRequestConfig :: !SpotFleetRequestConfigData
-  , _sfrcSpotFleetRequestId     :: !Text
-  , _sfrcSpotFleetRequestState  :: !BatchState
+  { _sfrcSpotFleetRequestConfig :: !(Maybe SpotFleetRequestConfigData)
+  , _sfrcSpotFleetRequestId     :: !(Maybe Text)
+  , _sfrcSpotFleetRequestState  :: !(Maybe BatchState)
+  , _sfrcCreateTime             :: !(Maybe ISO8601)
+  , _sfrcActivityStatus         :: !(Maybe ActivityStatus)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -16812,58 +20231,55 @@ data SpotFleetRequestConfig = SpotFleetRequestConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sfrcActivityStatus' - The progress of the Spot Fleet request. If there is an error, the status is @error@ . After all requests are placed, the status is @pending_fulfillment@ . If the size of the fleet is equal to or greater than its target capacity, the status is @fulfilled@ . If the size of the fleet is decreased, the status is @pending_termination@ while Spot Instances are terminating.
---
--- * 'sfrcCreateTime' - The creation date and time of the request.
---
 -- * 'sfrcSpotFleetRequestConfig' - The configuration of the Spot Fleet request.
 --
 -- * 'sfrcSpotFleetRequestId' - The ID of the Spot Fleet request.
 --
 -- * 'sfrcSpotFleetRequestState' - The state of the Spot Fleet request.
+--
+-- * 'sfrcCreateTime' - The creation date and time of the request.
+--
+-- * 'sfrcActivityStatus' - The progress of the Spot Fleet request. If there is an error, the status is @error@ . After all requests are placed, the status is @pending_fulfillment@ . If the size of the fleet is equal to or greater than its target capacity, the status is @fulfilled@ . If the size of the fleet is decreased, the status is @pending_termination@ while Spot Instances are terminating.
 spotFleetRequestConfig
-    :: UTCTime -- ^ 'sfrcCreateTime'
-    -> SpotFleetRequestConfigData -- ^ 'sfrcSpotFleetRequestConfig'
-    -> Text -- ^ 'sfrcSpotFleetRequestId'
-    -> BatchState -- ^ 'sfrcSpotFleetRequestState'
-    -> SpotFleetRequestConfig
-spotFleetRequestConfig pCreateTime_ pSpotFleetRequestConfig_ pSpotFleetRequestId_ pSpotFleetRequestState_ =
+    :: SpotFleetRequestConfig
+spotFleetRequestConfig =
   SpotFleetRequestConfig'
-    { _sfrcActivityStatus = Nothing
-    , _sfrcCreateTime = _Time # pCreateTime_
-    , _sfrcSpotFleetRequestConfig = pSpotFleetRequestConfig_
-    , _sfrcSpotFleetRequestId = pSpotFleetRequestId_
-    , _sfrcSpotFleetRequestState = pSpotFleetRequestState_
+    { _sfrcSpotFleetRequestConfig = Nothing
+    , _sfrcSpotFleetRequestId = Nothing
+    , _sfrcSpotFleetRequestState = Nothing
+    , _sfrcCreateTime = Nothing
+    , _sfrcActivityStatus = Nothing
     }
 
+
+-- | The configuration of the Spot Fleet request.
+sfrcSpotFleetRequestConfig :: Lens' SpotFleetRequestConfig (Maybe SpotFleetRequestConfigData)
+sfrcSpotFleetRequestConfig = lens _sfrcSpotFleetRequestConfig (\ s a -> s{_sfrcSpotFleetRequestConfig = a})
+
+-- | The ID of the Spot Fleet request.
+sfrcSpotFleetRequestId :: Lens' SpotFleetRequestConfig (Maybe Text)
+sfrcSpotFleetRequestId = lens _sfrcSpotFleetRequestId (\ s a -> s{_sfrcSpotFleetRequestId = a})
+
+-- | The state of the Spot Fleet request.
+sfrcSpotFleetRequestState :: Lens' SpotFleetRequestConfig (Maybe BatchState)
+sfrcSpotFleetRequestState = lens _sfrcSpotFleetRequestState (\ s a -> s{_sfrcSpotFleetRequestState = a})
+
+-- | The creation date and time of the request.
+sfrcCreateTime :: Lens' SpotFleetRequestConfig (Maybe UTCTime)
+sfrcCreateTime = lens _sfrcCreateTime (\ s a -> s{_sfrcCreateTime = a}) . mapping _Time
 
 -- | The progress of the Spot Fleet request. If there is an error, the status is @error@ . After all requests are placed, the status is @pending_fulfillment@ . If the size of the fleet is equal to or greater than its target capacity, the status is @fulfilled@ . If the size of the fleet is decreased, the status is @pending_termination@ while Spot Instances are terminating.
 sfrcActivityStatus :: Lens' SpotFleetRequestConfig (Maybe ActivityStatus)
 sfrcActivityStatus = lens _sfrcActivityStatus (\ s a -> s{_sfrcActivityStatus = a})
 
--- | The creation date and time of the request.
-sfrcCreateTime :: Lens' SpotFleetRequestConfig UTCTime
-sfrcCreateTime = lens _sfrcCreateTime (\ s a -> s{_sfrcCreateTime = a}) . _Time
-
--- | The configuration of the Spot Fleet request.
-sfrcSpotFleetRequestConfig :: Lens' SpotFleetRequestConfig SpotFleetRequestConfigData
-sfrcSpotFleetRequestConfig = lens _sfrcSpotFleetRequestConfig (\ s a -> s{_sfrcSpotFleetRequestConfig = a})
-
--- | The ID of the Spot Fleet request.
-sfrcSpotFleetRequestId :: Lens' SpotFleetRequestConfig Text
-sfrcSpotFleetRequestId = lens _sfrcSpotFleetRequestId (\ s a -> s{_sfrcSpotFleetRequestId = a})
-
--- | The state of the Spot Fleet request.
-sfrcSpotFleetRequestState :: Lens' SpotFleetRequestConfig BatchState
-sfrcSpotFleetRequestState = lens _sfrcSpotFleetRequestState (\ s a -> s{_sfrcSpotFleetRequestState = a})
-
 instance FromXML SpotFleetRequestConfig where
         parseXML x
           = SpotFleetRequestConfig' <$>
-              (x .@? "activityStatus") <*> (x .@ "createTime") <*>
-                (x .@ "spotFleetRequestConfig")
-                <*> (x .@ "spotFleetRequestId")
-                <*> (x .@ "spotFleetRequestState")
+              (x .@? "spotFleetRequestConfig") <*>
+                (x .@? "spotFleetRequestId")
+                <*> (x .@? "spotFleetRequestState")
+                <*> (x .@? "createTime")
+                <*> (x .@? "activityStatus")
 
 instance Hashable SpotFleetRequestConfig where
 
@@ -16884,6 +20300,8 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
   , _sfrcdLaunchTemplateConfigs :: !(Maybe [LaunchTemplateConfig])
   , _sfrcdValidUntil :: !(Maybe ISO8601)
   , _sfrcdTerminateInstancesWithExpiration :: !(Maybe Bool)
+  , _sfrcdOnDemandAllocationStrategy :: !(Maybe OnDemandAllocationStrategy)
+  , _sfrcdInstancePoolsToUseCount :: !(Maybe Int)
   , _sfrcdFulfilledCapacity :: !(Maybe Double)
   , _sfrcdType :: !(Maybe FleetType)
   , _sfrcdValidFrom :: !(Maybe ISO8601)
@@ -16900,7 +20318,7 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sfrcdClientToken' - A unique, case-sensitive identifier that you provide to ensure the idempotency of your listings. This helps to avoid duplicate listings. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- * 'sfrcdClientToken' - A unique, case-sensitive identifier that you provide to ensure the idempotency of your listings. This helps to avoid duplicate listings. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
 -- * 'sfrcdInstanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is @terminate@ .
 --
@@ -16914,13 +20332,17 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 --
 -- * 'sfrcdLaunchTemplateConfigs' - The launch template and overrides.
 --
--- * 'sfrcdValidUntil' - The end date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). At this point, no new Spot Instance requests are placed or able to fulfill the request. The default end date is 7 days from the current date.
+-- * 'sfrcdValidUntil' - The end date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). At this point, no new Spot Instance requests are placed or able to fulfill the request. If no value is specified, the Spot Fleet request remains until you cancel it.
 --
 -- * 'sfrcdTerminateInstancesWithExpiration' - Indicates whether running Spot Instances should be terminated when the Spot Fleet request expires.
 --
--- * 'sfrcdFulfilledCapacity' - The number of units fulfilled by this request compared to the set target capacity.
+-- * 'sfrcdOnDemandAllocationStrategy' - The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify @lowestPrice@ , Spot Fleet uses price to determine the order, launching the lowest price first. If you specify @prioritized@ , Spot Fleet uses the priority that you assign to each Spot Fleet launch template override, launching the highest priority first. If you do not specify a value, Spot Fleet defaults to @lowestPrice@ .
 --
--- * 'sfrcdType' - The type of request. Indicates whether the Spot Fleet only requests the target capacity or also attempts to maintain it. When this value is @request@ , the Spot Fleet only places the required requests. It does not attempt to replenish Spot Instances if capacity is diminished, nor does it submit requests in alternative Spot pools if capacity is not available. To maintain a certain target capacity, the Spot Fleet places the required requests to meet capacity and automatically replenishes any interrupted instances. Default: @maintain@ .
+-- * 'sfrcdInstancePoolsToUseCount' - The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot __AllocationStrategy__ is set to @lowest-price@ . Spot Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+--
+-- * 'sfrcdFulfilledCapacity' - The number of units fulfilled by this request compared to the set target capacity. You cannot set this value.
+--
+-- * 'sfrcdType' - The type of request. Indicates whether the Spot Fleet only requests the target capacity or also attempts to maintain it. When this value is @request@ , the Spot Fleet only places the required requests. It does not attempt to replenish Spot Instances if capacity is diminished, nor does it submit requests in alternative Spot pools if capacity is not available. When this value is @maintain@ , the Spot Fleet maintains the target capacity. The Spot Fleet places the required requests to meet capacity and automatically replenishes any interrupted instances. Default: @maintain@ . @instant@ is listed but is not used by Spot Fleet.
 --
 -- * 'sfrcdValidFrom' - The start date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The default is to start fulfilling the request immediately.
 --
@@ -16950,6 +20372,8 @@ spotFleetRequestConfigData pIAMFleetRole_ pTargetCapacity_ =
     , _sfrcdLaunchTemplateConfigs = Nothing
     , _sfrcdValidUntil = Nothing
     , _sfrcdTerminateInstancesWithExpiration = Nothing
+    , _sfrcdOnDemandAllocationStrategy = Nothing
+    , _sfrcdInstancePoolsToUseCount = Nothing
     , _sfrcdFulfilledCapacity = Nothing
     , _sfrcdType = Nothing
     , _sfrcdValidFrom = Nothing
@@ -16962,7 +20386,7 @@ spotFleetRequestConfigData pIAMFleetRole_ pTargetCapacity_ =
     }
 
 
--- | A unique, case-sensitive identifier that you provide to ensure the idempotency of your listings. This helps to avoid duplicate listings. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- | A unique, case-sensitive identifier that you provide to ensure the idempotency of your listings. This helps to avoid duplicate listings. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 sfrcdClientToken :: Lens' SpotFleetRequestConfigData (Maybe Text)
 sfrcdClientToken = lens _sfrcdClientToken (\ s a -> s{_sfrcdClientToken = a})
 
@@ -16990,7 +20414,7 @@ sfrcdOnDemandTargetCapacity = lens _sfrcdOnDemandTargetCapacity (\ s a -> s{_sfr
 sfrcdLaunchTemplateConfigs :: Lens' SpotFleetRequestConfigData [LaunchTemplateConfig]
 sfrcdLaunchTemplateConfigs = lens _sfrcdLaunchTemplateConfigs (\ s a -> s{_sfrcdLaunchTemplateConfigs = a}) . _Default . _Coerce
 
--- | The end date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). At this point, no new Spot Instance requests are placed or able to fulfill the request. The default end date is 7 days from the current date.
+-- | The end date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). At this point, no new Spot Instance requests are placed or able to fulfill the request. If no value is specified, the Spot Fleet request remains until you cancel it.
 sfrcdValidUntil :: Lens' SpotFleetRequestConfigData (Maybe UTCTime)
 sfrcdValidUntil = lens _sfrcdValidUntil (\ s a -> s{_sfrcdValidUntil = a}) . mapping _Time
 
@@ -16998,11 +20422,19 @@ sfrcdValidUntil = lens _sfrcdValidUntil (\ s a -> s{_sfrcdValidUntil = a}) . map
 sfrcdTerminateInstancesWithExpiration :: Lens' SpotFleetRequestConfigData (Maybe Bool)
 sfrcdTerminateInstancesWithExpiration = lens _sfrcdTerminateInstancesWithExpiration (\ s a -> s{_sfrcdTerminateInstancesWithExpiration = a})
 
--- | The number of units fulfilled by this request compared to the set target capacity.
+-- | The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify @lowestPrice@ , Spot Fleet uses price to determine the order, launching the lowest price first. If you specify @prioritized@ , Spot Fleet uses the priority that you assign to each Spot Fleet launch template override, launching the highest priority first. If you do not specify a value, Spot Fleet defaults to @lowestPrice@ .
+sfrcdOnDemandAllocationStrategy :: Lens' SpotFleetRequestConfigData (Maybe OnDemandAllocationStrategy)
+sfrcdOnDemandAllocationStrategy = lens _sfrcdOnDemandAllocationStrategy (\ s a -> s{_sfrcdOnDemandAllocationStrategy = a})
+
+-- | The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot __AllocationStrategy__ is set to @lowest-price@ . Spot Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+sfrcdInstancePoolsToUseCount :: Lens' SpotFleetRequestConfigData (Maybe Int)
+sfrcdInstancePoolsToUseCount = lens _sfrcdInstancePoolsToUseCount (\ s a -> s{_sfrcdInstancePoolsToUseCount = a})
+
+-- | The number of units fulfilled by this request compared to the set target capacity. You cannot set this value.
 sfrcdFulfilledCapacity :: Lens' SpotFleetRequestConfigData (Maybe Double)
 sfrcdFulfilledCapacity = lens _sfrcdFulfilledCapacity (\ s a -> s{_sfrcdFulfilledCapacity = a})
 
--- | The type of request. Indicates whether the Spot Fleet only requests the target capacity or also attempts to maintain it. When this value is @request@ , the Spot Fleet only places the required requests. It does not attempt to replenish Spot Instances if capacity is diminished, nor does it submit requests in alternative Spot pools if capacity is not available. To maintain a certain target capacity, the Spot Fleet places the required requests to meet capacity and automatically replenishes any interrupted instances. Default: @maintain@ .
+-- | The type of request. Indicates whether the Spot Fleet only requests the target capacity or also attempts to maintain it. When this value is @request@ , the Spot Fleet only places the required requests. It does not attempt to replenish Spot Instances if capacity is diminished, nor does it submit requests in alternative Spot pools if capacity is not available. When this value is @maintain@ , the Spot Fleet maintains the target capacity. The Spot Fleet places the required requests to meet capacity and automatically replenishes any interrupted instances. Default: @maintain@ . @instant@ is listed but is not used by Spot Fleet.
 sfrcdType :: Lens' SpotFleetRequestConfigData (Maybe FleetType)
 sfrcdType = lens _sfrcdType (\ s a -> s{_sfrcdType = a})
 
@@ -17048,6 +20480,8 @@ instance FromXML SpotFleetRequestConfigData where
                    may (parseXMLList "item"))
                 <*> (x .@? "validUntil")
                 <*> (x .@? "terminateInstancesWithExpiration")
+                <*> (x .@? "onDemandAllocationStrategy")
+                <*> (x .@? "instancePoolsToUseCount")
                 <*> (x .@? "fulfilledCapacity")
                 <*> (x .@? "type")
                 <*> (x .@? "validFrom")
@@ -17082,6 +20516,10 @@ instance ToQuery SpotFleetRequestConfigData where
                "ValidUntil" =: _sfrcdValidUntil,
                "TerminateInstancesWithExpiration" =:
                  _sfrcdTerminateInstancesWithExpiration,
+               "OnDemandAllocationStrategy" =:
+                 _sfrcdOnDemandAllocationStrategy,
+               "InstancePoolsToUseCount" =:
+                 _sfrcdInstancePoolsToUseCount,
                "FulfilledCapacity" =: _sfrcdFulfilledCapacity,
                "Type" =: _sfrcdType, "ValidFrom" =: _sfrcdValidFrom,
                "ReplaceUnhealthyInstances" =:
@@ -17180,7 +20618,7 @@ data SpotInstanceRequest = SpotInstanceRequest'
 --
 -- * 'sirStatus' - The status code and status message describing the Spot Instance request.
 --
--- * 'sirState' - The state of the Spot Instance request. Spot status information helps track your Spot Instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot Status> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- * 'sirState' - The state of the Spot Instance request. Spot status information helps track your Spot Instance requests. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot Status> in the /Amazon EC2 User Guide for Linux Instances/ .
 --
 -- * 'sirActualBlockHourlyPrice' - If you specified a duration and your Spot Instance request was fulfilled, this is the fixed hourly price in effect for the Spot Instance while it runs.
 --
@@ -17247,7 +20685,7 @@ sirInstanceId = lens _sirInstanceId (\ s a -> s{_sirInstanceId = a})
 sirStatus :: Lens' SpotInstanceRequest (Maybe SpotInstanceStatus)
 sirStatus = lens _sirStatus (\ s a -> s{_sirStatus = a})
 
--- | The state of the Spot Instance request. Spot status information helps track your Spot Instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot Status> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- | The state of the Spot Instance request. Spot status information helps track your Spot Instance requests. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot Status> in the /Amazon EC2 User Guide for Linux Instances/ .
 sirState :: Lens' SpotInstanceRequest (Maybe SpotInstanceState)
 sirState = lens _sirState (\ s a -> s{_sirState = a})
 
@@ -17402,7 +20840,7 @@ data SpotInstanceStatus = SpotInstanceStatus'
 --
 -- * 'sisUpdateTime' - The date and time of the most recent status update, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 --
--- * 'sisCode' - The status code. For a list of status codes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand Spot Status Codes> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- * 'sisCode' - The status code. For a list of status codes, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand Spot Status Codes> in the /Amazon EC2 User Guide for Linux Instances/ .
 --
 -- * 'sisMessage' - The description for the status code.
 spotInstanceStatus
@@ -17416,7 +20854,7 @@ spotInstanceStatus =
 sisUpdateTime :: Lens' SpotInstanceStatus (Maybe UTCTime)
 sisUpdateTime = lens _sisUpdateTime (\ s a -> s{_sisUpdateTime = a}) . mapping _Time
 
--- | The status code. For a list of status codes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand Spot Status Codes> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- | The status code. For a list of status codes, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand Spot Status Codes> in the /Amazon EC2 User Guide for Linux Instances/ .
 sisCode :: Lens' SpotInstanceStatus (Maybe Text)
 sisCode = lens _sisCode (\ s a -> s{_sisCode = a})
 
@@ -17458,7 +20896,7 @@ data SpotMarketOptions = SpotMarketOptions'
 --
 -- * 'smoValidUntil' - The end date of the request. For a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date and time is reached. The default end date is 7 days from the current date.
 --
--- * 'smoSpotInstanceType' - The Spot Instance request type.
+-- * 'smoSpotInstanceType' - The Spot Instance request type. For 'RunInstances' , persistent Spot Instance requests are only supported when __InstanceInterruptionBehavior__ is set to either @hibernate@ or @stop@ .
 --
 -- * 'smoMaxPrice' - The maximum hourly price you're willing to pay for the Spot Instances. The default is the On-Demand price.
 spotMarketOptions
@@ -17485,7 +20923,7 @@ smoInstanceInterruptionBehavior = lens _smoInstanceInterruptionBehavior (\ s a -
 smoValidUntil :: Lens' SpotMarketOptions (Maybe UTCTime)
 smoValidUntil = lens _smoValidUntil (\ s a -> s{_smoValidUntil = a}) . mapping _Time
 
--- | The Spot Instance request type.
+-- | The Spot Instance request type. For 'RunInstances' , persistent Spot Instance requests are only supported when __InstanceInterruptionBehavior__ is set to either @hibernate@ or @stop@ .
 smoSpotInstanceType :: Lens' SpotMarketOptions (Maybe SpotInstanceType)
 smoSpotInstanceType = lens _smoSpotInstanceType (\ s a -> s{_smoSpotInstanceType = a})
 
@@ -17514,6 +20952,10 @@ instance ToQuery SpotMarketOptions where
 -- /See:/ 'spotOptions' smart constructor.
 data SpotOptions = SpotOptions'
   { _soInstanceInterruptionBehavior :: !(Maybe SpotInstanceInterruptionBehavior)
+  , _soSingleAvailabilityZone       :: !(Maybe Bool)
+  , _soMinTargetCapacity            :: !(Maybe Int)
+  , _soInstancePoolsToUseCount      :: !(Maybe Int)
+  , _soSingleInstanceType           :: !(Maybe Bool)
   , _soAllocationStrategy           :: !(Maybe SpotAllocationStrategy)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -17524,19 +20966,49 @@ data SpotOptions = SpotOptions'
 --
 -- * 'soInstanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is @terminate@ .
 --
--- * 'soAllocationStrategy' - Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request. The default is @lowestPrice@ .
+-- * 'soSingleAvailabilityZone' - Indicates that the fleet launches all Spot Instances into a single Availability Zone.
+--
+-- * 'soMinTargetCapacity' - The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+--
+-- * 'soInstancePoolsToUseCount' - The number of Spot pools across which to allocate your target Spot capacity. Valid only when __AllocationStrategy__ is set to @lowestPrice@ . EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+--
+-- * 'soSingleInstanceType' - Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
+--
+-- * 'soAllocationStrategy' - Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request. The default is @lowest-price@ .
 spotOptions
     :: SpotOptions
 spotOptions =
   SpotOptions'
-    {_soInstanceInterruptionBehavior = Nothing, _soAllocationStrategy = Nothing}
+    { _soInstanceInterruptionBehavior = Nothing
+    , _soSingleAvailabilityZone = Nothing
+    , _soMinTargetCapacity = Nothing
+    , _soInstancePoolsToUseCount = Nothing
+    , _soSingleInstanceType = Nothing
+    , _soAllocationStrategy = Nothing
+    }
 
 
 -- | The behavior when a Spot Instance is interrupted. The default is @terminate@ .
 soInstanceInterruptionBehavior :: Lens' SpotOptions (Maybe SpotInstanceInterruptionBehavior)
 soInstanceInterruptionBehavior = lens _soInstanceInterruptionBehavior (\ s a -> s{_soInstanceInterruptionBehavior = a})
 
--- | Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request. The default is @lowestPrice@ .
+-- | Indicates that the fleet launches all Spot Instances into a single Availability Zone.
+soSingleAvailabilityZone :: Lens' SpotOptions (Maybe Bool)
+soSingleAvailabilityZone = lens _soSingleAvailabilityZone (\ s a -> s{_soSingleAvailabilityZone = a})
+
+-- | The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+soMinTargetCapacity :: Lens' SpotOptions (Maybe Int)
+soMinTargetCapacity = lens _soMinTargetCapacity (\ s a -> s{_soMinTargetCapacity = a})
+
+-- | The number of Spot pools across which to allocate your target Spot capacity. Valid only when __AllocationStrategy__ is set to @lowestPrice@ . EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+soInstancePoolsToUseCount :: Lens' SpotOptions (Maybe Int)
+soInstancePoolsToUseCount = lens _soInstancePoolsToUseCount (\ s a -> s{_soInstancePoolsToUseCount = a})
+
+-- | Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
+soSingleInstanceType :: Lens' SpotOptions (Maybe Bool)
+soSingleInstanceType = lens _soSingleInstanceType (\ s a -> s{_soSingleInstanceType = a})
+
+-- | Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request. The default is @lowest-price@ .
 soAllocationStrategy :: Lens' SpotOptions (Maybe SpotAllocationStrategy)
 soAllocationStrategy = lens _soAllocationStrategy (\ s a -> s{_soAllocationStrategy = a})
 
@@ -17544,7 +21016,11 @@ instance FromXML SpotOptions where
         parseXML x
           = SpotOptions' <$>
               (x .@? "instanceInterruptionBehavior") <*>
-                (x .@? "allocationStrategy")
+                (x .@? "singleAvailabilityZone")
+                <*> (x .@? "minTargetCapacity")
+                <*> (x .@? "instancePoolsToUseCount")
+                <*> (x .@? "singleInstanceType")
+                <*> (x .@? "allocationStrategy")
 
 instance Hashable SpotOptions where
 
@@ -17557,6 +21033,10 @@ instance NFData SpotOptions where
 -- /See:/ 'spotOptionsRequest' smart constructor.
 data SpotOptionsRequest = SpotOptionsRequest'
   { _sorInstanceInterruptionBehavior :: !(Maybe SpotInstanceInterruptionBehavior)
+  , _sorSingleAvailabilityZone :: !(Maybe Bool)
+  , _sorMinTargetCapacity :: !(Maybe Int)
+  , _sorInstancePoolsToUseCount :: !(Maybe Int)
+  , _sorSingleInstanceType :: !(Maybe Bool)
   , _sorAllocationStrategy :: !(Maybe SpotAllocationStrategy)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -17567,12 +21047,24 @@ data SpotOptionsRequest = SpotOptionsRequest'
 --
 -- * 'sorInstanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is @terminate@ .
 --
+-- * 'sorSingleAvailabilityZone' - Indicates that the fleet launches all Spot Instances into a single Availability Zone.
+--
+-- * 'sorMinTargetCapacity' - The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+--
+-- * 'sorInstancePoolsToUseCount' - The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot __AllocationStrategy__ is set to @lowest-price@ . EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+--
+-- * 'sorSingleInstanceType' - Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
+--
 -- * 'sorAllocationStrategy' - Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request. The default is @lowestPrice@ .
 spotOptionsRequest
     :: SpotOptionsRequest
 spotOptionsRequest =
   SpotOptionsRequest'
     { _sorInstanceInterruptionBehavior = Nothing
+    , _sorSingleAvailabilityZone = Nothing
+    , _sorMinTargetCapacity = Nothing
+    , _sorInstancePoolsToUseCount = Nothing
+    , _sorSingleInstanceType = Nothing
     , _sorAllocationStrategy = Nothing
     }
 
@@ -17580,6 +21072,22 @@ spotOptionsRequest =
 -- | The behavior when a Spot Instance is interrupted. The default is @terminate@ .
 sorInstanceInterruptionBehavior :: Lens' SpotOptionsRequest (Maybe SpotInstanceInterruptionBehavior)
 sorInstanceInterruptionBehavior = lens _sorInstanceInterruptionBehavior (\ s a -> s{_sorInstanceInterruptionBehavior = a})
+
+-- | Indicates that the fleet launches all Spot Instances into a single Availability Zone.
+sorSingleAvailabilityZone :: Lens' SpotOptionsRequest (Maybe Bool)
+sorSingleAvailabilityZone = lens _sorSingleAvailabilityZone (\ s a -> s{_sorSingleAvailabilityZone = a})
+
+-- | The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.
+sorMinTargetCapacity :: Lens' SpotOptionsRequest (Maybe Int)
+sorMinTargetCapacity = lens _sorMinTargetCapacity (\ s a -> s{_sorMinTargetCapacity = a})
+
+-- | The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot __AllocationStrategy__ is set to @lowest-price@ . EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
+sorInstancePoolsToUseCount :: Lens' SpotOptionsRequest (Maybe Int)
+sorInstancePoolsToUseCount = lens _sorInstancePoolsToUseCount (\ s a -> s{_sorInstancePoolsToUseCount = a})
+
+-- | Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet.
+sorSingleInstanceType :: Lens' SpotOptionsRequest (Maybe Bool)
+sorSingleInstanceType = lens _sorSingleInstanceType (\ s a -> s{_sorSingleInstanceType = a})
 
 -- | Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request. The default is @lowestPrice@ .
 sorAllocationStrategy :: Lens' SpotOptionsRequest (Maybe SpotAllocationStrategy)
@@ -17594,6 +21102,12 @@ instance ToQuery SpotOptionsRequest where
           = mconcat
               ["InstanceInterruptionBehavior" =:
                  _sorInstanceInterruptionBehavior,
+               "SingleAvailabilityZone" =:
+                 _sorSingleAvailabilityZone,
+               "MinTargetCapacity" =: _sorMinTargetCapacity,
+               "InstancePoolsToUseCount" =:
+                 _sorInstancePoolsToUseCount,
+               "SingleInstanceType" =: _sorSingleInstanceType,
                "AllocationStrategy" =: _sorAllocationStrategy]
 
 -- | Describes Spot Instance placement.
@@ -17819,11 +21333,11 @@ instance NFData StaleIPPermission where
 -- /See:/ 'staleSecurityGroup' smart constructor.
 data StaleSecurityGroup = StaleSecurityGroup'
   { _ssgVPCId                    :: !(Maybe Text)
+  , _ssgGroupId                  :: !(Maybe Text)
   , _ssgGroupName                :: !(Maybe Text)
   , _ssgStaleIPPermissionsEgress :: !(Maybe [StaleIPPermission])
   , _ssgStaleIPPermissions       :: !(Maybe [StaleIPPermission])
   , _ssgDescription              :: !(Maybe Text)
-  , _ssgGroupId                  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -17833,6 +21347,8 @@ data StaleSecurityGroup = StaleSecurityGroup'
 --
 -- * 'ssgVPCId' - The ID of the VPC for the security group.
 --
+-- * 'ssgGroupId' - The ID of the security group.
+--
 -- * 'ssgGroupName' - The name of the security group.
 --
 -- * 'ssgStaleIPPermissionsEgress' - Information about the stale outbound rules in the security group.
@@ -17840,25 +21356,26 @@ data StaleSecurityGroup = StaleSecurityGroup'
 -- * 'ssgStaleIPPermissions' - Information about the stale inbound rules in the security group.
 --
 -- * 'ssgDescription' - The description of the security group.
---
--- * 'ssgGroupId' - The ID of the security group.
 staleSecurityGroup
-    :: Text -- ^ 'ssgGroupId'
-    -> StaleSecurityGroup
-staleSecurityGroup pGroupId_ =
+    :: StaleSecurityGroup
+staleSecurityGroup =
   StaleSecurityGroup'
     { _ssgVPCId = Nothing
+    , _ssgGroupId = Nothing
     , _ssgGroupName = Nothing
     , _ssgStaleIPPermissionsEgress = Nothing
     , _ssgStaleIPPermissions = Nothing
     , _ssgDescription = Nothing
-    , _ssgGroupId = pGroupId_
     }
 
 
 -- | The ID of the VPC for the security group.
 ssgVPCId :: Lens' StaleSecurityGroup (Maybe Text)
 ssgVPCId = lens _ssgVPCId (\ s a -> s{_ssgVPCId = a})
+
+-- | The ID of the security group.
+ssgGroupId :: Lens' StaleSecurityGroup (Maybe Text)
+ssgGroupId = lens _ssgGroupId (\ s a -> s{_ssgGroupId = a})
 
 -- | The name of the security group.
 ssgGroupName :: Lens' StaleSecurityGroup (Maybe Text)
@@ -17876,21 +21393,18 @@ ssgStaleIPPermissions = lens _ssgStaleIPPermissions (\ s a -> s{_ssgStaleIPPermi
 ssgDescription :: Lens' StaleSecurityGroup (Maybe Text)
 ssgDescription = lens _ssgDescription (\ s a -> s{_ssgDescription = a})
 
--- | The ID of the security group.
-ssgGroupId :: Lens' StaleSecurityGroup Text
-ssgGroupId = lens _ssgGroupId (\ s a -> s{_ssgGroupId = a})
-
 instance FromXML StaleSecurityGroup where
         parseXML x
           = StaleSecurityGroup' <$>
-              (x .@? "vpcId") <*> (x .@? "groupName") <*>
+              (x .@? "vpcId") <*> (x .@? "groupId") <*>
+                (x .@? "groupName")
+                <*>
                 (x .@? "staleIpPermissionsEgress" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*>
                 (x .@? "staleIpPermissions" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*> (x .@? "description")
-                <*> (x .@ "groupId")
 
 instance Hashable StaleSecurityGroup where
 
@@ -17913,7 +21427,7 @@ data StateReason = StateReason'
 --
 -- * 'srCode' - The reason code for the state change.
 --
--- * 'srMessage' - The message for the state change.     * @Server.InsufficientInstanceCapacity@ : There was insufficient instance capacity to satisfy the launch request.     * @Server.InternalError@ : An internal error occurred during instance launch, resulting in termination.     * @Server.ScheduledStop@ : The instance was stopped due to a scheduled retirement.     * @Server.SpotInstanceTermination@ : A Spot Instance was terminated due to an increase in the Spot price.     * @Client.InternalError@ : A client error caused the instance to terminate on launch.     * @Client.InstanceInitiatedShutdown@ : The instance was shut down using the @shutdown -h@ command from the instance.     * @Client.InstanceTerminated@ : The instance was terminated or rebooted during AMI creation.     * @Client.UserInitiatedShutdown@ : The instance was shut down using the Amazon EC2 API.     * @Client.VolumeLimitExceeded@ : The limit on the number of EBS volumes or total storage was exceeded. Decrease usage or request an increase in your limits.     * @Client.InvalidSnapshot.NotFound@ : The specified snapshot was not found.
+-- * 'srMessage' - The message for the state change.     * @Server.InsufficientInstanceCapacity@ : There was insufficient capacity available to satisfy the launch request.     * @Server.InternalError@ : An internal error caused the instance to terminate during launch.     * @Server.ScheduledStop@ : The instance was stopped due to a scheduled retirement.     * @Server.SpotInstanceShutdown@ : The instance was stopped because the number of Spot requests with a maximum price equal to or higher than the Spot price exceeded available capacity or because of an increase in the Spot price.     * @Server.SpotInstanceTermination@ : The instance was terminated because the number of Spot requests with a maximum price equal to or higher than the Spot price exceeded available capacity or because of an increase in the Spot price.     * @Client.InstanceInitiatedShutdown@ : The instance was shut down using the @shutdown -h@ command from the instance.     * @Client.InstanceTerminated@ : The instance was terminated or rebooted during AMI creation.     * @Client.InternalError@ : A client error caused the instance to terminate during launch.     * @Client.InvalidSnapshot.NotFound@ : The specified snapshot was not found.     * @Client.UserInitiatedHibernate@ : Hibernation was initiated on the instance.     * @Client.UserInitiatedShutdown@ : The instance was shut down using the Amazon EC2 API.     * @Client.VolumeLimitExceeded@ : The limit on the number of EBS volumes or total storage was exceeded. Decrease usage or request an increase in your account limits.
 stateReason
     :: StateReason
 stateReason = StateReason' {_srCode = Nothing, _srMessage = Nothing}
@@ -17923,7 +21437,7 @@ stateReason = StateReason' {_srCode = Nothing, _srMessage = Nothing}
 srCode :: Lens' StateReason (Maybe Text)
 srCode = lens _srCode (\ s a -> s{_srCode = a})
 
--- | The message for the state change.     * @Server.InsufficientInstanceCapacity@ : There was insufficient instance capacity to satisfy the launch request.     * @Server.InternalError@ : An internal error occurred during instance launch, resulting in termination.     * @Server.ScheduledStop@ : The instance was stopped due to a scheduled retirement.     * @Server.SpotInstanceTermination@ : A Spot Instance was terminated due to an increase in the Spot price.     * @Client.InternalError@ : A client error caused the instance to terminate on launch.     * @Client.InstanceInitiatedShutdown@ : The instance was shut down using the @shutdown -h@ command from the instance.     * @Client.InstanceTerminated@ : The instance was terminated or rebooted during AMI creation.     * @Client.UserInitiatedShutdown@ : The instance was shut down using the Amazon EC2 API.     * @Client.VolumeLimitExceeded@ : The limit on the number of EBS volumes or total storage was exceeded. Decrease usage or request an increase in your limits.     * @Client.InvalidSnapshot.NotFound@ : The specified snapshot was not found.
+-- | The message for the state change.     * @Server.InsufficientInstanceCapacity@ : There was insufficient capacity available to satisfy the launch request.     * @Server.InternalError@ : An internal error caused the instance to terminate during launch.     * @Server.ScheduledStop@ : The instance was stopped due to a scheduled retirement.     * @Server.SpotInstanceShutdown@ : The instance was stopped because the number of Spot requests with a maximum price equal to or higher than the Spot price exceeded available capacity or because of an increase in the Spot price.     * @Server.SpotInstanceTermination@ : The instance was terminated because the number of Spot requests with a maximum price equal to or higher than the Spot price exceeded available capacity or because of an increase in the Spot price.     * @Client.InstanceInitiatedShutdown@ : The instance was shut down using the @shutdown -h@ command from the instance.     * @Client.InstanceTerminated@ : The instance was terminated or rebooted during AMI creation.     * @Client.InternalError@ : A client error caused the instance to terminate during launch.     * @Client.InvalidSnapshot.NotFound@ : The specified snapshot was not found.     * @Client.UserInitiatedHibernate@ : Hibernation was initiated on the instance.     * @Client.UserInitiatedShutdown@ : The instance was shut down using the Amazon EC2 API.     * @Client.VolumeLimitExceeded@ : The limit on the number of EBS volumes or total storage was exceeded. Decrease usage or request an increase in your account limits.
 srMessage :: Lens' StateReason (Maybe Text)
 srMessage = lens _srMessage (\ s a -> s{_srMessage = a})
 
@@ -18016,7 +21530,10 @@ instance ToQuery StorageLocation where
 -- /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'
   { _subIPv6CidrBlockAssociationSet :: !(Maybe [SubnetIPv6CidrBlockAssociation])
+  , _subAvailabilityZoneId          :: !(Maybe Text)
   , _subAssignIPv6AddressOnCreation :: !(Maybe Bool)
+  , _subSubnetARN                   :: !(Maybe Text)
+  , _subOwnerId                     :: !(Maybe Text)
   , _subMapPublicIPOnLaunch         :: !(Maybe Bool)
   , _subDefaultForAz                :: !(Maybe Bool)
   , _subTags                        :: !(Maybe [Tag])
@@ -18035,7 +21552,13 @@ data Subnet = Subnet'
 --
 -- * 'subIPv6CidrBlockAssociationSet' - Information about the IPv6 CIDR blocks associated with the subnet.
 --
+-- * 'subAvailabilityZoneId' - The AZ ID of the subnet.
+--
 -- * 'subAssignIPv6AddressOnCreation' - Indicates whether a network interface created in this subnet (including a network interface created by 'RunInstances' ) receives an IPv6 address.
+--
+-- * 'subSubnetARN' - The Amazon Resource Name (ARN) of the subnet.
+--
+-- * 'subOwnerId' - The ID of the AWS account that owns the subnet.
 --
 -- * 'subMapPublicIPOnLaunch' - Indicates whether instances launched in this subnet receive a public IPv4 address.
 --
@@ -18045,7 +21568,7 @@ data Subnet = Subnet'
 --
 -- * 'subAvailabilityZone' - The Availability Zone of the subnet.
 --
--- * 'subAvailableIPAddressCount' - The number of unused private IPv4 addresses in the subnet. Note that the IPv4 addresses for any stopped instances are considered unavailable.
+-- * 'subAvailableIPAddressCount' - The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any stopped instances are considered unavailable.
 --
 -- * 'subCidrBlock' - The IPv4 CIDR block assigned to the subnet.
 --
@@ -18065,7 +21588,10 @@ subnet
 subnet pAvailabilityZone_ pAvailableIPAddressCount_ pCidrBlock_ pState_ pSubnetId_ pVPCId_ =
   Subnet'
     { _subIPv6CidrBlockAssociationSet = Nothing
+    , _subAvailabilityZoneId = Nothing
     , _subAssignIPv6AddressOnCreation = Nothing
+    , _subSubnetARN = Nothing
+    , _subOwnerId = Nothing
     , _subMapPublicIPOnLaunch = Nothing
     , _subDefaultForAz = Nothing
     , _subTags = Nothing
@@ -18082,9 +21608,21 @@ subnet pAvailabilityZone_ pAvailableIPAddressCount_ pCidrBlock_ pState_ pSubnetI
 subIPv6CidrBlockAssociationSet :: Lens' Subnet [SubnetIPv6CidrBlockAssociation]
 subIPv6CidrBlockAssociationSet = lens _subIPv6CidrBlockAssociationSet (\ s a -> s{_subIPv6CidrBlockAssociationSet = a}) . _Default . _Coerce
 
+-- | The AZ ID of the subnet.
+subAvailabilityZoneId :: Lens' Subnet (Maybe Text)
+subAvailabilityZoneId = lens _subAvailabilityZoneId (\ s a -> s{_subAvailabilityZoneId = a})
+
 -- | Indicates whether a network interface created in this subnet (including a network interface created by 'RunInstances' ) receives an IPv6 address.
 subAssignIPv6AddressOnCreation :: Lens' Subnet (Maybe Bool)
 subAssignIPv6AddressOnCreation = lens _subAssignIPv6AddressOnCreation (\ s a -> s{_subAssignIPv6AddressOnCreation = a})
+
+-- | The Amazon Resource Name (ARN) of the subnet.
+subSubnetARN :: Lens' Subnet (Maybe Text)
+subSubnetARN = lens _subSubnetARN (\ s a -> s{_subSubnetARN = a})
+
+-- | The ID of the AWS account that owns the subnet.
+subOwnerId :: Lens' Subnet (Maybe Text)
+subOwnerId = lens _subOwnerId (\ s a -> s{_subOwnerId = a})
 
 -- | Indicates whether instances launched in this subnet receive a public IPv4 address.
 subMapPublicIPOnLaunch :: Lens' Subnet (Maybe Bool)
@@ -18102,7 +21640,7 @@ subTags = lens _subTags (\ s a -> s{_subTags = a}) . _Default . _Coerce
 subAvailabilityZone :: Lens' Subnet Text
 subAvailabilityZone = lens _subAvailabilityZone (\ s a -> s{_subAvailabilityZone = a})
 
--- | The number of unused private IPv4 addresses in the subnet. Note that the IPv4 addresses for any stopped instances are considered unavailable.
+-- | The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any stopped instances are considered unavailable.
 subAvailableIPAddressCount :: Lens' Subnet Int
 subAvailableIPAddressCount = lens _subAvailableIPAddressCount (\ s a -> s{_subAvailableIPAddressCount = a})
 
@@ -18127,7 +21665,10 @@ instance FromXML Subnet where
           = Subnet' <$>
               (x .@? "ipv6CidrBlockAssociationSet" .!@ mempty >>=
                  may (parseXMLList "item"))
+                <*> (x .@? "availabilityZoneId")
                 <*> (x .@? "assignIpv6AddressOnCreation")
+                <*> (x .@? "subnetArn")
+                <*> (x .@? "ownerId")
                 <*> (x .@? "mapPublicIpOnLaunch")
                 <*> (x .@? "defaultForAz")
                 <*>
@@ -18239,7 +21780,7 @@ instance Hashable SubnetIPv6CidrBlockAssociation
 
 instance NFData SubnetIPv6CidrBlockAssociation where
 
--- | Describes the T2 instance whose credit option for CPU usage was successfully modified.
+-- | Describes the T2 or T3 instance whose credit option for CPU usage was successfully modified.
 --
 --
 --
@@ -18294,7 +21835,7 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagKey' - The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with @aws:@
+-- * 'tagKey' - The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with @aws:@ .
 --
 -- * 'tagValue' - The value of the tag. Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
 tag
@@ -18304,7 +21845,7 @@ tag
 tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
 
 
--- | The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with @aws:@
+-- | The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with @aws:@ .
 tagKey :: Lens' Tag Text
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
 
@@ -18340,7 +21881,7 @@ data TagDescription = TagDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tdResourceId' - The ID of the resource. For example, @ami-1a2b3c4d@ .
+-- * 'tdResourceId' - The ID of the resource.
 --
 -- * 'tdResourceType' - The resource type.
 --
@@ -18362,7 +21903,7 @@ tagDescription pResourceId_ pResourceType_ pKey_ pValue_ =
     }
 
 
--- | The ID of the resource. For example, @ami-1a2b3c4d@ .
+-- | The ID of the resource.
 tdResourceId :: Lens' TagDescription Text
 tdResourceId = lens _tdResourceId (\ s a -> s{_tdResourceId = a})
 
@@ -18404,7 +21945,7 @@ data TagSpecification = TagSpecification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tsResourceType' - The type of resource to tag. Currently, the resource types that support tagging on creation are @instance@ and @volume@ .
+-- * 'tsResourceType' - The type of resource to tag. Currently, the resource types that support tagging on creation are @fleet@ , @dedicated-host@ , @instance@ , @snapshot@ , and @volume@ . To tag a resource after it has been created, see 'CreateTags' .
 --
 -- * 'tsTags' - The tags to apply to the resource.
 tagSpecification
@@ -18413,7 +21954,7 @@ tagSpecification =
   TagSpecification' {_tsResourceType = Nothing, _tsTags = Nothing}
 
 
--- | The type of resource to tag. Currently, the resource types that support tagging on creation are @instance@ and @volume@ .
+-- | The type of resource to tag. Currently, the resource types that support tagging on creation are @fleet@ , @dedicated-host@ , @instance@ , @snapshot@ , and @volume@ . To tag a resource after it has been created, see 'CreateTags' .
 tsResourceType :: Lens' TagSpecification (Maybe ResourceType)
 tsResourceType = lens _tsResourceType (\ s a -> s{_tsResourceType = a})
 
@@ -18654,7 +22195,7 @@ instance ToQuery TargetConfigurationRequest where
 --
 -- /See:/ 'targetGroup' smart constructor.
 newtype TargetGroup = TargetGroup'
-  { _tgARN :: Text
+  { _tgARN :: Maybe Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -18664,17 +22205,16 @@ newtype TargetGroup = TargetGroup'
 --
 -- * 'tgARN' - The Amazon Resource Name (ARN) of the target group.
 targetGroup
-    :: Text -- ^ 'tgARN'
-    -> TargetGroup
-targetGroup pARN_ = TargetGroup' {_tgARN = pARN_}
+    :: TargetGroup
+targetGroup = TargetGroup' {_tgARN = Nothing}
 
 
 -- | The Amazon Resource Name (ARN) of the target group.
-tgARN :: Lens' TargetGroup Text
+tgARN :: Lens' TargetGroup (Maybe Text)
 tgARN = lens _tgARN (\ s a -> s{_tgARN = a})
 
 instance FromXML TargetGroup where
-        parseXML x = TargetGroup' <$> (x .@ "arn")
+        parseXML x = TargetGroup' <$> (x .@? "arn")
 
 instance Hashable TargetGroup where
 
@@ -18689,7 +22229,7 @@ instance ToQuery TargetGroup where
 --
 -- /See:/ 'targetGroupsConfig' smart constructor.
 newtype TargetGroupsConfig = TargetGroupsConfig'
-  { _tgcTargetGroups :: List1 TargetGroup
+  { _tgcTargetGroups :: Maybe (List1 TargetGroup)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -18699,21 +22239,19 @@ newtype TargetGroupsConfig = TargetGroupsConfig'
 --
 -- * 'tgcTargetGroups' - One or more target groups.
 targetGroupsConfig
-    :: NonEmpty TargetGroup -- ^ 'tgcTargetGroups'
-    -> TargetGroupsConfig
-targetGroupsConfig pTargetGroups_ =
-  TargetGroupsConfig' {_tgcTargetGroups = _List1 # pTargetGroups_}
+    :: TargetGroupsConfig
+targetGroupsConfig = TargetGroupsConfig' {_tgcTargetGroups = Nothing}
 
 
 -- | One or more target groups.
-tgcTargetGroups :: Lens' TargetGroupsConfig (NonEmpty TargetGroup)
-tgcTargetGroups = lens _tgcTargetGroups (\ s a -> s{_tgcTargetGroups = a}) . _List1
+tgcTargetGroups :: Lens' TargetGroupsConfig (Maybe (NonEmpty TargetGroup))
+tgcTargetGroups = lens _tgcTargetGroups (\ s a -> s{_tgcTargetGroups = a}) . mapping _List1
 
 instance FromXML TargetGroupsConfig where
         parseXML x
           = TargetGroupsConfig' <$>
               (x .@? "targetGroups" .!@ mempty >>=
-                 parseXMLList1 "item")
+                 may (parseXMLList1 "item"))
 
 instance Hashable TargetGroupsConfig where
 
@@ -18722,7 +22260,89 @@ instance NFData TargetGroupsConfig where
 instance ToQuery TargetGroupsConfig where
         toQuery TargetGroupsConfig'{..}
           = mconcat
-              [toQueryList "TargetGroups" _tgcTargetGroups]
+              [toQuery
+                 (toQueryList "TargetGroups" <$> _tgcTargetGroups)]
+
+-- | Describes a target network associated with a Client VPN endpoint.
+--
+--
+--
+-- /See:/ 'targetNetwork' smart constructor.
+data TargetNetwork = TargetNetwork'
+  { _tnAssociationId       :: !(Maybe Text)
+  , _tnStatus              :: !(Maybe AssociationStatus)
+  , _tnSecurityGroups      :: !(Maybe [Text])
+  , _tnTargetNetworkId     :: !(Maybe Text)
+  , _tnVPCId               :: !(Maybe Text)
+  , _tnClientVPNEndpointId :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TargetNetwork' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tnAssociationId' - The ID of the association.
+--
+-- * 'tnStatus' - The current state of the target network association.
+--
+-- * 'tnSecurityGroups' - The IDs of the security groups applied to the target network association.
+--
+-- * 'tnTargetNetworkId' - The ID of the subnet specified as the target network.
+--
+-- * 'tnVPCId' - The ID of the VPC in which the target network (subnet) is located.
+--
+-- * 'tnClientVPNEndpointId' - The ID of the Client VPN endpoint with which the target network is associated.
+targetNetwork
+    :: TargetNetwork
+targetNetwork =
+  TargetNetwork'
+    { _tnAssociationId = Nothing
+    , _tnStatus = Nothing
+    , _tnSecurityGroups = Nothing
+    , _tnTargetNetworkId = Nothing
+    , _tnVPCId = Nothing
+    , _tnClientVPNEndpointId = Nothing
+    }
+
+
+-- | The ID of the association.
+tnAssociationId :: Lens' TargetNetwork (Maybe Text)
+tnAssociationId = lens _tnAssociationId (\ s a -> s{_tnAssociationId = a})
+
+-- | The current state of the target network association.
+tnStatus :: Lens' TargetNetwork (Maybe AssociationStatus)
+tnStatus = lens _tnStatus (\ s a -> s{_tnStatus = a})
+
+-- | The IDs of the security groups applied to the target network association.
+tnSecurityGroups :: Lens' TargetNetwork [Text]
+tnSecurityGroups = lens _tnSecurityGroups (\ s a -> s{_tnSecurityGroups = a}) . _Default . _Coerce
+
+-- | The ID of the subnet specified as the target network.
+tnTargetNetworkId :: Lens' TargetNetwork (Maybe Text)
+tnTargetNetworkId = lens _tnTargetNetworkId (\ s a -> s{_tnTargetNetworkId = a})
+
+-- | The ID of the VPC in which the target network (subnet) is located.
+tnVPCId :: Lens' TargetNetwork (Maybe Text)
+tnVPCId = lens _tnVPCId (\ s a -> s{_tnVPCId = a})
+
+-- | The ID of the Client VPN endpoint with which the target network is associated.
+tnClientVPNEndpointId :: Lens' TargetNetwork (Maybe Text)
+tnClientVPNEndpointId = lens _tnClientVPNEndpointId (\ s a -> s{_tnClientVPNEndpointId = a})
+
+instance FromXML TargetNetwork where
+        parseXML x
+          = TargetNetwork' <$>
+              (x .@? "associationId") <*> (x .@? "status") <*>
+                (x .@? "securityGroups" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "targetNetworkId")
+                <*> (x .@? "vpcId")
+                <*> (x .@? "clientVpnEndpointId")
+
+instance Hashable TargetNetwork where
+
+instance NFData TargetNetwork where
 
 -- | The total value of the new Convertible Reserved Instances.
 --
@@ -18767,7 +22387,1188 @@ instance Hashable TargetReservationValue where
 
 instance NFData TargetReservationValue where
 
--- | Describes the T2 instance whose credit option for CPU usage was not modified.
+-- | Information about a terminated Client VPN endpoint client connection.
+--
+--
+--
+-- /See:/ 'terminateConnectionStatus' smart constructor.
+data TerminateConnectionStatus = TerminateConnectionStatus'
+  { _tcsCurrentStatus  :: !(Maybe ClientVPNConnectionStatus)
+  , _tcsConnectionId   :: !(Maybe Text)
+  , _tcsPreviousStatus :: !(Maybe ClientVPNConnectionStatus)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TerminateConnectionStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tcsCurrentStatus' - A message about the status of the client connection, if applicable.
+--
+-- * 'tcsConnectionId' - The ID of the client connection.
+--
+-- * 'tcsPreviousStatus' - The state of the client connection.
+terminateConnectionStatus
+    :: TerminateConnectionStatus
+terminateConnectionStatus =
+  TerminateConnectionStatus'
+    { _tcsCurrentStatus = Nothing
+    , _tcsConnectionId = Nothing
+    , _tcsPreviousStatus = Nothing
+    }
+
+
+-- | A message about the status of the client connection, if applicable.
+tcsCurrentStatus :: Lens' TerminateConnectionStatus (Maybe ClientVPNConnectionStatus)
+tcsCurrentStatus = lens _tcsCurrentStatus (\ s a -> s{_tcsCurrentStatus = a})
+
+-- | The ID of the client connection.
+tcsConnectionId :: Lens' TerminateConnectionStatus (Maybe Text)
+tcsConnectionId = lens _tcsConnectionId (\ s a -> s{_tcsConnectionId = a})
+
+-- | The state of the client connection.
+tcsPreviousStatus :: Lens' TerminateConnectionStatus (Maybe ClientVPNConnectionStatus)
+tcsPreviousStatus = lens _tcsPreviousStatus (\ s a -> s{_tcsPreviousStatus = a})
+
+instance FromXML TerminateConnectionStatus where
+        parseXML x
+          = TerminateConnectionStatus' <$>
+              (x .@? "currentStatus") <*> (x .@? "connectionId")
+                <*> (x .@? "previousStatus")
+
+instance Hashable TerminateConnectionStatus where
+
+instance NFData TerminateConnectionStatus where
+
+-- | Describes a transit gateway.
+--
+--
+--
+-- /See:/ 'transitGateway' smart constructor.
+data TransitGateway = TransitGateway'
+  { _tgCreationTime      :: !(Maybe ISO8601)
+  , _tgState             :: !(Maybe TransitGatewayState)
+  , _tgOwnerId           :: !(Maybe Text)
+  , _tgTransitGatewayARN :: !(Maybe Text)
+  , _tgTransitGatewayId  :: !(Maybe Text)
+  , _tgOptions           :: !(Maybe TransitGatewayOptions)
+  , _tgDescription       :: !(Maybe Text)
+  , _tgTags              :: !(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TransitGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgCreationTime' - The creation time.
+--
+-- * 'tgState' - The state of the transit gateway.
+--
+-- * 'tgOwnerId' - The ID of the AWS account ID that owns the transit gateway.
+--
+-- * 'tgTransitGatewayARN' - The Amazon Resource Name (ARN) of the transit gateway.
+--
+-- * 'tgTransitGatewayId' - The ID of the transit gateway.
+--
+-- * 'tgOptions' - The transit gateway options.
+--
+-- * 'tgDescription' - The description of the transit gateway.
+--
+-- * 'tgTags' - The tags for the transit gateway.
+transitGateway
+    :: TransitGateway
+transitGateway =
+  TransitGateway'
+    { _tgCreationTime = Nothing
+    , _tgState = Nothing
+    , _tgOwnerId = Nothing
+    , _tgTransitGatewayARN = Nothing
+    , _tgTransitGatewayId = Nothing
+    , _tgOptions = Nothing
+    , _tgDescription = Nothing
+    , _tgTags = Nothing
+    }
+
+
+-- | The creation time.
+tgCreationTime :: Lens' TransitGateway (Maybe UTCTime)
+tgCreationTime = lens _tgCreationTime (\ s a -> s{_tgCreationTime = a}) . mapping _Time
+
+-- | The state of the transit gateway.
+tgState :: Lens' TransitGateway (Maybe TransitGatewayState)
+tgState = lens _tgState (\ s a -> s{_tgState = a})
+
+-- | The ID of the AWS account ID that owns the transit gateway.
+tgOwnerId :: Lens' TransitGateway (Maybe Text)
+tgOwnerId = lens _tgOwnerId (\ s a -> s{_tgOwnerId = a})
+
+-- | The Amazon Resource Name (ARN) of the transit gateway.
+tgTransitGatewayARN :: Lens' TransitGateway (Maybe Text)
+tgTransitGatewayARN = lens _tgTransitGatewayARN (\ s a -> s{_tgTransitGatewayARN = a})
+
+-- | The ID of the transit gateway.
+tgTransitGatewayId :: Lens' TransitGateway (Maybe Text)
+tgTransitGatewayId = lens _tgTransitGatewayId (\ s a -> s{_tgTransitGatewayId = a})
+
+-- | The transit gateway options.
+tgOptions :: Lens' TransitGateway (Maybe TransitGatewayOptions)
+tgOptions = lens _tgOptions (\ s a -> s{_tgOptions = a})
+
+-- | The description of the transit gateway.
+tgDescription :: Lens' TransitGateway (Maybe Text)
+tgDescription = lens _tgDescription (\ s a -> s{_tgDescription = a})
+
+-- | The tags for the transit gateway.
+tgTags :: Lens' TransitGateway [Tag]
+tgTags = lens _tgTags (\ s a -> s{_tgTags = a}) . _Default . _Coerce
+
+instance FromXML TransitGateway where
+        parseXML x
+          = TransitGateway' <$>
+              (x .@? "creationTime") <*> (x .@? "state") <*>
+                (x .@? "ownerId")
+                <*> (x .@? "transitGatewayArn")
+                <*> (x .@? "transitGatewayId")
+                <*> (x .@? "options")
+                <*> (x .@? "description")
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+
+instance Hashable TransitGateway where
+
+instance NFData TransitGateway where
+
+-- | Describes an association between a resource attachment and a transit gateway route table.
+--
+--
+--
+-- /See:/ 'transitGatewayAssociation' smart constructor.
+data TransitGatewayAssociation = TransitGatewayAssociation'
+  { _tState :: !(Maybe TransitGatewayAssociationState)
+  , _tResourceId :: !(Maybe Text)
+  , _tResourceType :: !(Maybe TransitGatewayAttachmentResourceType)
+  , _tTransitGatewayRouteTableId :: !(Maybe Text)
+  , _tTransitGatewayAttachmentId :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TransitGatewayAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tState' - The state of the association.
+--
+-- * 'tResourceId' - The ID of the resource.
+--
+-- * 'tResourceType' - The resource type.
+--
+-- * 'tTransitGatewayRouteTableId' - The ID of the transit gateway route table.
+--
+-- * 'tTransitGatewayAttachmentId' - The ID of the attachment.
+transitGatewayAssociation
+    :: TransitGatewayAssociation
+transitGatewayAssociation =
+  TransitGatewayAssociation'
+    { _tState = Nothing
+    , _tResourceId = Nothing
+    , _tResourceType = Nothing
+    , _tTransitGatewayRouteTableId = Nothing
+    , _tTransitGatewayAttachmentId = Nothing
+    }
+
+
+-- | The state of the association.
+tState :: Lens' TransitGatewayAssociation (Maybe TransitGatewayAssociationState)
+tState = lens _tState (\ s a -> s{_tState = a})
+
+-- | The ID of the resource.
+tResourceId :: Lens' TransitGatewayAssociation (Maybe Text)
+tResourceId = lens _tResourceId (\ s a -> s{_tResourceId = a})
+
+-- | The resource type.
+tResourceType :: Lens' TransitGatewayAssociation (Maybe TransitGatewayAttachmentResourceType)
+tResourceType = lens _tResourceType (\ s a -> s{_tResourceType = a})
+
+-- | The ID of the transit gateway route table.
+tTransitGatewayRouteTableId :: Lens' TransitGatewayAssociation (Maybe Text)
+tTransitGatewayRouteTableId = lens _tTransitGatewayRouteTableId (\ s a -> s{_tTransitGatewayRouteTableId = a})
+
+-- | The ID of the attachment.
+tTransitGatewayAttachmentId :: Lens' TransitGatewayAssociation (Maybe Text)
+tTransitGatewayAttachmentId = lens _tTransitGatewayAttachmentId (\ s a -> s{_tTransitGatewayAttachmentId = a})
+
+instance FromXML TransitGatewayAssociation where
+        parseXML x
+          = TransitGatewayAssociation' <$>
+              (x .@? "state") <*> (x .@? "resourceId") <*>
+                (x .@? "resourceType")
+                <*> (x .@? "transitGatewayRouteTableId")
+                <*> (x .@? "transitGatewayAttachmentId")
+
+instance Hashable TransitGatewayAssociation where
+
+instance NFData TransitGatewayAssociation where
+
+-- | Describes an attachment between a resource and a transit gateway.
+--
+--
+--
+-- /See:/ 'transitGatewayAttachment' smart constructor.
+data TransitGatewayAttachment = TransitGatewayAttachment'
+  { _tgaCreationTime :: !(Maybe ISO8601)
+  , _tgaState :: !(Maybe TransitGatewayAttachmentState)
+  , _tgaResourceId :: !(Maybe Text)
+  , _tgaResourceType :: !(Maybe TransitGatewayAttachmentResourceType)
+  , _tgaTransitGatewayOwnerId :: !(Maybe Text)
+  , _tgaTransitGatewayId :: !(Maybe Text)
+  , _tgaTransitGatewayAttachmentId :: !(Maybe Text)
+  , _tgaResourceOwnerId :: !(Maybe Text)
+  , _tgaTags :: !(Maybe [Tag])
+  , _tgaAssociation :: !(Maybe TransitGatewayAttachmentAssociation)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TransitGatewayAttachment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgaCreationTime' - The creation time.
+--
+-- * 'tgaState' - The attachment state.
+--
+-- * 'tgaResourceId' - The ID of the resource.
+--
+-- * 'tgaResourceType' - The resource type.
+--
+-- * 'tgaTransitGatewayOwnerId' - The ID of the AWS account that owns the transit gateway.
+--
+-- * 'tgaTransitGatewayId' - The ID of the transit gateway.
+--
+-- * 'tgaTransitGatewayAttachmentId' - The ID of the attachment.
+--
+-- * 'tgaResourceOwnerId' - The ID of the AWS account that owns the resource.
+--
+-- * 'tgaTags' - The tags for the attachment.
+--
+-- * 'tgaAssociation' - The association.
+transitGatewayAttachment
+    :: TransitGatewayAttachment
+transitGatewayAttachment =
+  TransitGatewayAttachment'
+    { _tgaCreationTime = Nothing
+    , _tgaState = Nothing
+    , _tgaResourceId = Nothing
+    , _tgaResourceType = Nothing
+    , _tgaTransitGatewayOwnerId = Nothing
+    , _tgaTransitGatewayId = Nothing
+    , _tgaTransitGatewayAttachmentId = Nothing
+    , _tgaResourceOwnerId = Nothing
+    , _tgaTags = Nothing
+    , _tgaAssociation = Nothing
+    }
+
+
+-- | The creation time.
+tgaCreationTime :: Lens' TransitGatewayAttachment (Maybe UTCTime)
+tgaCreationTime = lens _tgaCreationTime (\ s a -> s{_tgaCreationTime = a}) . mapping _Time
+
+-- | The attachment state.
+tgaState :: Lens' TransitGatewayAttachment (Maybe TransitGatewayAttachmentState)
+tgaState = lens _tgaState (\ s a -> s{_tgaState = a})
+
+-- | The ID of the resource.
+tgaResourceId :: Lens' TransitGatewayAttachment (Maybe Text)
+tgaResourceId = lens _tgaResourceId (\ s a -> s{_tgaResourceId = a})
+
+-- | The resource type.
+tgaResourceType :: Lens' TransitGatewayAttachment (Maybe TransitGatewayAttachmentResourceType)
+tgaResourceType = lens _tgaResourceType (\ s a -> s{_tgaResourceType = a})
+
+-- | The ID of the AWS account that owns the transit gateway.
+tgaTransitGatewayOwnerId :: Lens' TransitGatewayAttachment (Maybe Text)
+tgaTransitGatewayOwnerId = lens _tgaTransitGatewayOwnerId (\ s a -> s{_tgaTransitGatewayOwnerId = a})
+
+-- | The ID of the transit gateway.
+tgaTransitGatewayId :: Lens' TransitGatewayAttachment (Maybe Text)
+tgaTransitGatewayId = lens _tgaTransitGatewayId (\ s a -> s{_tgaTransitGatewayId = a})
+
+-- | The ID of the attachment.
+tgaTransitGatewayAttachmentId :: Lens' TransitGatewayAttachment (Maybe Text)
+tgaTransitGatewayAttachmentId = lens _tgaTransitGatewayAttachmentId (\ s a -> s{_tgaTransitGatewayAttachmentId = a})
+
+-- | The ID of the AWS account that owns the resource.
+tgaResourceOwnerId :: Lens' TransitGatewayAttachment (Maybe Text)
+tgaResourceOwnerId = lens _tgaResourceOwnerId (\ s a -> s{_tgaResourceOwnerId = a})
+
+-- | The tags for the attachment.
+tgaTags :: Lens' TransitGatewayAttachment [Tag]
+tgaTags = lens _tgaTags (\ s a -> s{_tgaTags = a}) . _Default . _Coerce
+
+-- | The association.
+tgaAssociation :: Lens' TransitGatewayAttachment (Maybe TransitGatewayAttachmentAssociation)
+tgaAssociation = lens _tgaAssociation (\ s a -> s{_tgaAssociation = a})
+
+instance FromXML TransitGatewayAttachment where
+        parseXML x
+          = TransitGatewayAttachment' <$>
+              (x .@? "creationTime") <*> (x .@? "state") <*>
+                (x .@? "resourceId")
+                <*> (x .@? "resourceType")
+                <*> (x .@? "transitGatewayOwnerId")
+                <*> (x .@? "transitGatewayId")
+                <*> (x .@? "transitGatewayAttachmentId")
+                <*> (x .@? "resourceOwnerId")
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "association")
+
+instance Hashable TransitGatewayAttachment where
+
+instance NFData TransitGatewayAttachment where
+
+-- | Describes an association.
+--
+--
+--
+-- /See:/ 'transitGatewayAttachmentAssociation' smart constructor.
+data TransitGatewayAttachmentAssociation = TransitGatewayAttachmentAssociation'
+  { _tgaaState                      :: !(Maybe TransitGatewayAssociationState)
+  , _tgaaTransitGatewayRouteTableId :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TransitGatewayAttachmentAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgaaState' - The state of the association.
+--
+-- * 'tgaaTransitGatewayRouteTableId' - The ID of the route table for the transit gateway.
+transitGatewayAttachmentAssociation
+    :: TransitGatewayAttachmentAssociation
+transitGatewayAttachmentAssociation =
+  TransitGatewayAttachmentAssociation'
+    {_tgaaState = Nothing, _tgaaTransitGatewayRouteTableId = Nothing}
+
+
+-- | The state of the association.
+tgaaState :: Lens' TransitGatewayAttachmentAssociation (Maybe TransitGatewayAssociationState)
+tgaaState = lens _tgaaState (\ s a -> s{_tgaaState = a})
+
+-- | The ID of the route table for the transit gateway.
+tgaaTransitGatewayRouteTableId :: Lens' TransitGatewayAttachmentAssociation (Maybe Text)
+tgaaTransitGatewayRouteTableId = lens _tgaaTransitGatewayRouteTableId (\ s a -> s{_tgaaTransitGatewayRouteTableId = a})
+
+instance FromXML TransitGatewayAttachmentAssociation
+         where
+        parseXML x
+          = TransitGatewayAttachmentAssociation' <$>
+              (x .@? "state") <*>
+                (x .@? "transitGatewayRouteTableId")
+
+instance Hashable TransitGatewayAttachmentAssociation
+         where
+
+instance NFData TransitGatewayAttachmentAssociation
+         where
+
+-- | Describes a propagation route table.
+--
+--
+--
+-- /See:/ 'transitGatewayAttachmentPropagation' smart constructor.
+data TransitGatewayAttachmentPropagation = TransitGatewayAttachmentPropagation'
+  { _tgapState                      :: !(Maybe TransitGatewayPropagationState)
+  , _tgapTransitGatewayRouteTableId :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TransitGatewayAttachmentPropagation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgapState' - The state of the propagation route table.
+--
+-- * 'tgapTransitGatewayRouteTableId' - The ID of the propagation route table.
+transitGatewayAttachmentPropagation
+    :: TransitGatewayAttachmentPropagation
+transitGatewayAttachmentPropagation =
+  TransitGatewayAttachmentPropagation'
+    {_tgapState = Nothing, _tgapTransitGatewayRouteTableId = Nothing}
+
+
+-- | The state of the propagation route table.
+tgapState :: Lens' TransitGatewayAttachmentPropagation (Maybe TransitGatewayPropagationState)
+tgapState = lens _tgapState (\ s a -> s{_tgapState = a})
+
+-- | The ID of the propagation route table.
+tgapTransitGatewayRouteTableId :: Lens' TransitGatewayAttachmentPropagation (Maybe Text)
+tgapTransitGatewayRouteTableId = lens _tgapTransitGatewayRouteTableId (\ s a -> s{_tgapTransitGatewayRouteTableId = a})
+
+instance FromXML TransitGatewayAttachmentPropagation
+         where
+        parseXML x
+          = TransitGatewayAttachmentPropagation' <$>
+              (x .@? "state") <*>
+                (x .@? "transitGatewayRouteTableId")
+
+instance Hashable TransitGatewayAttachmentPropagation
+         where
+
+instance NFData TransitGatewayAttachmentPropagation
+         where
+
+-- | Describes the options for a transit gateway.
+--
+--
+--
+-- /See:/ 'transitGatewayOptions' smart constructor.
+data TransitGatewayOptions = TransitGatewayOptions'
+  { _tgoVPNEcmpSupport :: !(Maybe VPNEcmpSupportValue)
+  , _tgoAutoAcceptSharedAttachments :: !(Maybe AutoAcceptSharedAttachmentsValue)
+  , _tgoPropagationDefaultRouteTableId :: !(Maybe Text)
+  , _tgoDefaultRouteTableAssociation :: !(Maybe DefaultRouteTableAssociationValue)
+  , _tgoAssociationDefaultRouteTableId :: !(Maybe Text)
+  , _tgoAmazonSideASN :: !(Maybe Integer)
+  , _tgoDefaultRouteTablePropagation :: !(Maybe DefaultRouteTablePropagationValue)
+  , _tgoDNSSupport :: !(Maybe DNSSupportValue)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TransitGatewayOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgoVPNEcmpSupport' - Indicates whether Equal Cost Multipath Protocol support is enabled.
+--
+-- * 'tgoAutoAcceptSharedAttachments' - Indicates whether attachment requests are automatically accepted.
+--
+-- * 'tgoPropagationDefaultRouteTableId' - The ID of the default propagation route table.
+--
+-- * 'tgoDefaultRouteTableAssociation' - Indicates whether resource attachments are automatically associated with the default association route table.
+--
+-- * 'tgoAssociationDefaultRouteTableId' - The ID of the default association route table.
+--
+-- * 'tgoAmazonSideASN' - A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.
+--
+-- * 'tgoDefaultRouteTablePropagation' - Indicates whether resource attachments automatically propagate routes to the default propagation route table.
+--
+-- * 'tgoDNSSupport' - Indicates whether DNS support is enabled.
+transitGatewayOptions
+    :: TransitGatewayOptions
+transitGatewayOptions =
+  TransitGatewayOptions'
+    { _tgoVPNEcmpSupport = Nothing
+    , _tgoAutoAcceptSharedAttachments = Nothing
+    , _tgoPropagationDefaultRouteTableId = Nothing
+    , _tgoDefaultRouteTableAssociation = Nothing
+    , _tgoAssociationDefaultRouteTableId = Nothing
+    , _tgoAmazonSideASN = Nothing
+    , _tgoDefaultRouteTablePropagation = Nothing
+    , _tgoDNSSupport = Nothing
+    }
+
+
+-- | Indicates whether Equal Cost Multipath Protocol support is enabled.
+tgoVPNEcmpSupport :: Lens' TransitGatewayOptions (Maybe VPNEcmpSupportValue)
+tgoVPNEcmpSupport = lens _tgoVPNEcmpSupport (\ s a -> s{_tgoVPNEcmpSupport = a})
+
+-- | Indicates whether attachment requests are automatically accepted.
+tgoAutoAcceptSharedAttachments :: Lens' TransitGatewayOptions (Maybe AutoAcceptSharedAttachmentsValue)
+tgoAutoAcceptSharedAttachments = lens _tgoAutoAcceptSharedAttachments (\ s a -> s{_tgoAutoAcceptSharedAttachments = a})
+
+-- | The ID of the default propagation route table.
+tgoPropagationDefaultRouteTableId :: Lens' TransitGatewayOptions (Maybe Text)
+tgoPropagationDefaultRouteTableId = lens _tgoPropagationDefaultRouteTableId (\ s a -> s{_tgoPropagationDefaultRouteTableId = a})
+
+-- | Indicates whether resource attachments are automatically associated with the default association route table.
+tgoDefaultRouteTableAssociation :: Lens' TransitGatewayOptions (Maybe DefaultRouteTableAssociationValue)
+tgoDefaultRouteTableAssociation = lens _tgoDefaultRouteTableAssociation (\ s a -> s{_tgoDefaultRouteTableAssociation = a})
+
+-- | The ID of the default association route table.
+tgoAssociationDefaultRouteTableId :: Lens' TransitGatewayOptions (Maybe Text)
+tgoAssociationDefaultRouteTableId = lens _tgoAssociationDefaultRouteTableId (\ s a -> s{_tgoAssociationDefaultRouteTableId = a})
+
+-- | A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.
+tgoAmazonSideASN :: Lens' TransitGatewayOptions (Maybe Integer)
+tgoAmazonSideASN = lens _tgoAmazonSideASN (\ s a -> s{_tgoAmazonSideASN = a})
+
+-- | Indicates whether resource attachments automatically propagate routes to the default propagation route table.
+tgoDefaultRouteTablePropagation :: Lens' TransitGatewayOptions (Maybe DefaultRouteTablePropagationValue)
+tgoDefaultRouteTablePropagation = lens _tgoDefaultRouteTablePropagation (\ s a -> s{_tgoDefaultRouteTablePropagation = a})
+
+-- | Indicates whether DNS support is enabled.
+tgoDNSSupport :: Lens' TransitGatewayOptions (Maybe DNSSupportValue)
+tgoDNSSupport = lens _tgoDNSSupport (\ s a -> s{_tgoDNSSupport = a})
+
+instance FromXML TransitGatewayOptions where
+        parseXML x
+          = TransitGatewayOptions' <$>
+              (x .@? "vpnEcmpSupport") <*>
+                (x .@? "autoAcceptSharedAttachments")
+                <*> (x .@? "propagationDefaultRouteTableId")
+                <*> (x .@? "defaultRouteTableAssociation")
+                <*> (x .@? "associationDefaultRouteTableId")
+                <*> (x .@? "amazonSideAsn")
+                <*> (x .@? "defaultRouteTablePropagation")
+                <*> (x .@? "dnsSupport")
+
+instance Hashable TransitGatewayOptions where
+
+instance NFData TransitGatewayOptions where
+
+-- | Describes route propagation.
+--
+--
+--
+-- /See:/ 'transitGatewayPropagation' smart constructor.
+data TransitGatewayPropagation = TransitGatewayPropagation'
+  { _tgpState :: !(Maybe TransitGatewayPropagationState)
+  , _tgpResourceId :: !(Maybe Text)
+  , _tgpResourceType :: !(Maybe TransitGatewayAttachmentResourceType)
+  , _tgpTransitGatewayRouteTableId :: !(Maybe Text)
+  , _tgpTransitGatewayAttachmentId :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TransitGatewayPropagation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgpState' - The state.
+--
+-- * 'tgpResourceId' - The ID of the resource.
+--
+-- * 'tgpResourceType' - The resource type.
+--
+-- * 'tgpTransitGatewayRouteTableId' - The ID of the transit gateway route table.
+--
+-- * 'tgpTransitGatewayAttachmentId' - The ID of the attachment.
+transitGatewayPropagation
+    :: TransitGatewayPropagation
+transitGatewayPropagation =
+  TransitGatewayPropagation'
+    { _tgpState = Nothing
+    , _tgpResourceId = Nothing
+    , _tgpResourceType = Nothing
+    , _tgpTransitGatewayRouteTableId = Nothing
+    , _tgpTransitGatewayAttachmentId = Nothing
+    }
+
+
+-- | The state.
+tgpState :: Lens' TransitGatewayPropagation (Maybe TransitGatewayPropagationState)
+tgpState = lens _tgpState (\ s a -> s{_tgpState = a})
+
+-- | The ID of the resource.
+tgpResourceId :: Lens' TransitGatewayPropagation (Maybe Text)
+tgpResourceId = lens _tgpResourceId (\ s a -> s{_tgpResourceId = a})
+
+-- | The resource type.
+tgpResourceType :: Lens' TransitGatewayPropagation (Maybe TransitGatewayAttachmentResourceType)
+tgpResourceType = lens _tgpResourceType (\ s a -> s{_tgpResourceType = a})
+
+-- | The ID of the transit gateway route table.
+tgpTransitGatewayRouteTableId :: Lens' TransitGatewayPropagation (Maybe Text)
+tgpTransitGatewayRouteTableId = lens _tgpTransitGatewayRouteTableId (\ s a -> s{_tgpTransitGatewayRouteTableId = a})
+
+-- | The ID of the attachment.
+tgpTransitGatewayAttachmentId :: Lens' TransitGatewayPropagation (Maybe Text)
+tgpTransitGatewayAttachmentId = lens _tgpTransitGatewayAttachmentId (\ s a -> s{_tgpTransitGatewayAttachmentId = a})
+
+instance FromXML TransitGatewayPropagation where
+        parseXML x
+          = TransitGatewayPropagation' <$>
+              (x .@? "state") <*> (x .@? "resourceId") <*>
+                (x .@? "resourceType")
+                <*> (x .@? "transitGatewayRouteTableId")
+                <*> (x .@? "transitGatewayAttachmentId")
+
+instance Hashable TransitGatewayPropagation where
+
+instance NFData TransitGatewayPropagation where
+
+-- | Describes the options for a transit gateway.
+--
+--
+--
+-- /See:/ 'transitGatewayRequestOptions' smart constructor.
+data TransitGatewayRequestOptions = TransitGatewayRequestOptions'
+  { _tgroVPNEcmpSupport :: !(Maybe VPNEcmpSupportValue)
+  , _tgroAutoAcceptSharedAttachments :: !(Maybe AutoAcceptSharedAttachmentsValue)
+  , _tgroDefaultRouteTableAssociation :: !(Maybe DefaultRouteTableAssociationValue)
+  , _tgroAmazonSideASN :: !(Maybe Integer)
+  , _tgroDefaultRouteTablePropagation :: !(Maybe DefaultRouteTablePropagationValue)
+  , _tgroDNSSupport :: !(Maybe DNSSupportValue)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TransitGatewayRequestOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgroVPNEcmpSupport' - Enable or disable Equal Cost Multipath Protocol support.
+--
+-- * 'tgroAutoAcceptSharedAttachments' - Enable or disable automatic acceptance of attachment requests. The default is @disable@ .
+--
+-- * 'tgroDefaultRouteTableAssociation' - Enable or disable automatic association with the default association route table. The default is @enable@ .
+--
+-- * 'tgroAmazonSideASN' - A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.
+--
+-- * 'tgroDefaultRouteTablePropagation' - Enable or disable automatic propagation of routes to the default propagation route table. The default is @enable@ .
+--
+-- * 'tgroDNSSupport' - Enable or disable DNS support.
+transitGatewayRequestOptions
+    :: TransitGatewayRequestOptions
+transitGatewayRequestOptions =
+  TransitGatewayRequestOptions'
+    { _tgroVPNEcmpSupport = Nothing
+    , _tgroAutoAcceptSharedAttachments = Nothing
+    , _tgroDefaultRouteTableAssociation = Nothing
+    , _tgroAmazonSideASN = Nothing
+    , _tgroDefaultRouteTablePropagation = Nothing
+    , _tgroDNSSupport = Nothing
+    }
+
+
+-- | Enable or disable Equal Cost Multipath Protocol support.
+tgroVPNEcmpSupport :: Lens' TransitGatewayRequestOptions (Maybe VPNEcmpSupportValue)
+tgroVPNEcmpSupport = lens _tgroVPNEcmpSupport (\ s a -> s{_tgroVPNEcmpSupport = a})
+
+-- | Enable or disable automatic acceptance of attachment requests. The default is @disable@ .
+tgroAutoAcceptSharedAttachments :: Lens' TransitGatewayRequestOptions (Maybe AutoAcceptSharedAttachmentsValue)
+tgroAutoAcceptSharedAttachments = lens _tgroAutoAcceptSharedAttachments (\ s a -> s{_tgroAutoAcceptSharedAttachments = a})
+
+-- | Enable or disable automatic association with the default association route table. The default is @enable@ .
+tgroDefaultRouteTableAssociation :: Lens' TransitGatewayRequestOptions (Maybe DefaultRouteTableAssociationValue)
+tgroDefaultRouteTableAssociation = lens _tgroDefaultRouteTableAssociation (\ s a -> s{_tgroDefaultRouteTableAssociation = a})
+
+-- | A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.
+tgroAmazonSideASN :: Lens' TransitGatewayRequestOptions (Maybe Integer)
+tgroAmazonSideASN = lens _tgroAmazonSideASN (\ s a -> s{_tgroAmazonSideASN = a})
+
+-- | Enable or disable automatic propagation of routes to the default propagation route table. The default is @enable@ .
+tgroDefaultRouteTablePropagation :: Lens' TransitGatewayRequestOptions (Maybe DefaultRouteTablePropagationValue)
+tgroDefaultRouteTablePropagation = lens _tgroDefaultRouteTablePropagation (\ s a -> s{_tgroDefaultRouteTablePropagation = a})
+
+-- | Enable or disable DNS support.
+tgroDNSSupport :: Lens' TransitGatewayRequestOptions (Maybe DNSSupportValue)
+tgroDNSSupport = lens _tgroDNSSupport (\ s a -> s{_tgroDNSSupport = a})
+
+instance Hashable TransitGatewayRequestOptions where
+
+instance NFData TransitGatewayRequestOptions where
+
+instance ToQuery TransitGatewayRequestOptions where
+        toQuery TransitGatewayRequestOptions'{..}
+          = mconcat
+              ["VpnEcmpSupport" =: _tgroVPNEcmpSupport,
+               "AutoAcceptSharedAttachments" =:
+                 _tgroAutoAcceptSharedAttachments,
+               "DefaultRouteTableAssociation" =:
+                 _tgroDefaultRouteTableAssociation,
+               "AmazonSideAsn" =: _tgroAmazonSideASN,
+               "DefaultRouteTablePropagation" =:
+                 _tgroDefaultRouteTablePropagation,
+               "DnsSupport" =: _tgroDNSSupport]
+
+-- | Describes a route for a transit gateway route table.
+--
+--
+--
+-- /See:/ 'transitGatewayRoute' smart constructor.
+data TransitGatewayRoute = TransitGatewayRoute'
+  { _tgrState                     :: !(Maybe TransitGatewayRouteState)
+  , _tgrTransitGatewayAttachments :: !(Maybe [TransitGatewayRouteAttachment])
+  , _tgrType                      :: !(Maybe TransitGatewayRouteType)
+  , _tgrDestinationCidrBlock      :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TransitGatewayRoute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgrState' - The state of the route.
+--
+-- * 'tgrTransitGatewayAttachments' - The attachments.
+--
+-- * 'tgrType' - The route type.
+--
+-- * 'tgrDestinationCidrBlock' - The CIDR block used for destination matches.
+transitGatewayRoute
+    :: TransitGatewayRoute
+transitGatewayRoute =
+  TransitGatewayRoute'
+    { _tgrState = Nothing
+    , _tgrTransitGatewayAttachments = Nothing
+    , _tgrType = Nothing
+    , _tgrDestinationCidrBlock = Nothing
+    }
+
+
+-- | The state of the route.
+tgrState :: Lens' TransitGatewayRoute (Maybe TransitGatewayRouteState)
+tgrState = lens _tgrState (\ s a -> s{_tgrState = a})
+
+-- | The attachments.
+tgrTransitGatewayAttachments :: Lens' TransitGatewayRoute [TransitGatewayRouteAttachment]
+tgrTransitGatewayAttachments = lens _tgrTransitGatewayAttachments (\ s a -> s{_tgrTransitGatewayAttachments = a}) . _Default . _Coerce
+
+-- | The route type.
+tgrType :: Lens' TransitGatewayRoute (Maybe TransitGatewayRouteType)
+tgrType = lens _tgrType (\ s a -> s{_tgrType = a})
+
+-- | The CIDR block used for destination matches.
+tgrDestinationCidrBlock :: Lens' TransitGatewayRoute (Maybe Text)
+tgrDestinationCidrBlock = lens _tgrDestinationCidrBlock (\ s a -> s{_tgrDestinationCidrBlock = a})
+
+instance FromXML TransitGatewayRoute where
+        parseXML x
+          = TransitGatewayRoute' <$>
+              (x .@? "state") <*>
+                (x .@? "transitGatewayAttachments" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "type")
+                <*> (x .@? "destinationCidrBlock")
+
+instance Hashable TransitGatewayRoute where
+
+instance NFData TransitGatewayRoute where
+
+-- | Describes a route attachment.
+--
+--
+--
+-- /See:/ 'transitGatewayRouteAttachment' smart constructor.
+data TransitGatewayRouteAttachment = TransitGatewayRouteAttachment'
+  { _tgraResourceId :: !(Maybe Text)
+  , _tgraResourceType :: !(Maybe TransitGatewayAttachmentResourceType)
+  , _tgraTransitGatewayAttachmentId :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TransitGatewayRouteAttachment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgraResourceId' - The ID of the resource.
+--
+-- * 'tgraResourceType' - The resource type.
+--
+-- * 'tgraTransitGatewayAttachmentId' - The ID of the attachment.
+transitGatewayRouteAttachment
+    :: TransitGatewayRouteAttachment
+transitGatewayRouteAttachment =
+  TransitGatewayRouteAttachment'
+    { _tgraResourceId = Nothing
+    , _tgraResourceType = Nothing
+    , _tgraTransitGatewayAttachmentId = Nothing
+    }
+
+
+-- | The ID of the resource.
+tgraResourceId :: Lens' TransitGatewayRouteAttachment (Maybe Text)
+tgraResourceId = lens _tgraResourceId (\ s a -> s{_tgraResourceId = a})
+
+-- | The resource type.
+tgraResourceType :: Lens' TransitGatewayRouteAttachment (Maybe TransitGatewayAttachmentResourceType)
+tgraResourceType = lens _tgraResourceType (\ s a -> s{_tgraResourceType = a})
+
+-- | The ID of the attachment.
+tgraTransitGatewayAttachmentId :: Lens' TransitGatewayRouteAttachment (Maybe Text)
+tgraTransitGatewayAttachmentId = lens _tgraTransitGatewayAttachmentId (\ s a -> s{_tgraTransitGatewayAttachmentId = a})
+
+instance FromXML TransitGatewayRouteAttachment where
+        parseXML x
+          = TransitGatewayRouteAttachment' <$>
+              (x .@? "resourceId") <*> (x .@? "resourceType") <*>
+                (x .@? "transitGatewayAttachmentId")
+
+instance Hashable TransitGatewayRouteAttachment where
+
+instance NFData TransitGatewayRouteAttachment where
+
+-- | Describes a transit gateway route table.
+--
+--
+--
+-- /See:/ 'transitGatewayRouteTable' smart constructor.
+data TransitGatewayRouteTable = TransitGatewayRouteTable'
+  { _tgrtCreationTime                 :: !(Maybe ISO8601)
+  , _tgrtState                        :: !(Maybe TransitGatewayRouteTableState)
+  , _tgrtDefaultPropagationRouteTable :: !(Maybe Bool)
+  , _tgrtTransitGatewayRouteTableId   :: !(Maybe Text)
+  , _tgrtTransitGatewayId             :: !(Maybe Text)
+  , _tgrtDefaultAssociationRouteTable :: !(Maybe Bool)
+  , _tgrtTags                         :: !(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TransitGatewayRouteTable' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgrtCreationTime' - The creation time.
+--
+-- * 'tgrtState' - The state of the transit gateway route table.
+--
+-- * 'tgrtDefaultPropagationRouteTable' - Indicates whether this is the default propagation route table for the transit gateway.
+--
+-- * 'tgrtTransitGatewayRouteTableId' - The ID of the transit gateway route table.
+--
+-- * 'tgrtTransitGatewayId' - The ID of the transit gateway.
+--
+-- * 'tgrtDefaultAssociationRouteTable' - Indicates whether this is the default association route table for the transit gateway.
+--
+-- * 'tgrtTags' - Any tags assigned to the route table.
+transitGatewayRouteTable
+    :: TransitGatewayRouteTable
+transitGatewayRouteTable =
+  TransitGatewayRouteTable'
+    { _tgrtCreationTime = Nothing
+    , _tgrtState = Nothing
+    , _tgrtDefaultPropagationRouteTable = Nothing
+    , _tgrtTransitGatewayRouteTableId = Nothing
+    , _tgrtTransitGatewayId = Nothing
+    , _tgrtDefaultAssociationRouteTable = Nothing
+    , _tgrtTags = Nothing
+    }
+
+
+-- | The creation time.
+tgrtCreationTime :: Lens' TransitGatewayRouteTable (Maybe UTCTime)
+tgrtCreationTime = lens _tgrtCreationTime (\ s a -> s{_tgrtCreationTime = a}) . mapping _Time
+
+-- | The state of the transit gateway route table.
+tgrtState :: Lens' TransitGatewayRouteTable (Maybe TransitGatewayRouteTableState)
+tgrtState = lens _tgrtState (\ s a -> s{_tgrtState = a})
+
+-- | Indicates whether this is the default propagation route table for the transit gateway.
+tgrtDefaultPropagationRouteTable :: Lens' TransitGatewayRouteTable (Maybe Bool)
+tgrtDefaultPropagationRouteTable = lens _tgrtDefaultPropagationRouteTable (\ s a -> s{_tgrtDefaultPropagationRouteTable = a})
+
+-- | The ID of the transit gateway route table.
+tgrtTransitGatewayRouteTableId :: Lens' TransitGatewayRouteTable (Maybe Text)
+tgrtTransitGatewayRouteTableId = lens _tgrtTransitGatewayRouteTableId (\ s a -> s{_tgrtTransitGatewayRouteTableId = a})
+
+-- | The ID of the transit gateway.
+tgrtTransitGatewayId :: Lens' TransitGatewayRouteTable (Maybe Text)
+tgrtTransitGatewayId = lens _tgrtTransitGatewayId (\ s a -> s{_tgrtTransitGatewayId = a})
+
+-- | Indicates whether this is the default association route table for the transit gateway.
+tgrtDefaultAssociationRouteTable :: Lens' TransitGatewayRouteTable (Maybe Bool)
+tgrtDefaultAssociationRouteTable = lens _tgrtDefaultAssociationRouteTable (\ s a -> s{_tgrtDefaultAssociationRouteTable = a})
+
+-- | Any tags assigned to the route table.
+tgrtTags :: Lens' TransitGatewayRouteTable [Tag]
+tgrtTags = lens _tgrtTags (\ s a -> s{_tgrtTags = a}) . _Default . _Coerce
+
+instance FromXML TransitGatewayRouteTable where
+        parseXML x
+          = TransitGatewayRouteTable' <$>
+              (x .@? "creationTime") <*> (x .@? "state") <*>
+                (x .@? "defaultPropagationRouteTable")
+                <*> (x .@? "transitGatewayRouteTableId")
+                <*> (x .@? "transitGatewayId")
+                <*> (x .@? "defaultAssociationRouteTable")
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+
+instance Hashable TransitGatewayRouteTable where
+
+instance NFData TransitGatewayRouteTable where
+
+-- | Describes an association between a route table and a resource attachment.
+--
+--
+--
+-- /See:/ 'transitGatewayRouteTableAssociation' smart constructor.
+data TransitGatewayRouteTableAssociation = TransitGatewayRouteTableAssociation'
+  { _tgrtaState :: !(Maybe TransitGatewayAssociationState)
+  , _tgrtaResourceId :: !(Maybe Text)
+  , _tgrtaResourceType :: !(Maybe TransitGatewayAttachmentResourceType)
+  , _tgrtaTransitGatewayAttachmentId :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TransitGatewayRouteTableAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgrtaState' - The state of the association.
+--
+-- * 'tgrtaResourceId' - The ID of the resource.
+--
+-- * 'tgrtaResourceType' - The resource type.
+--
+-- * 'tgrtaTransitGatewayAttachmentId' - The ID of the attachment.
+transitGatewayRouteTableAssociation
+    :: TransitGatewayRouteTableAssociation
+transitGatewayRouteTableAssociation =
+  TransitGatewayRouteTableAssociation'
+    { _tgrtaState = Nothing
+    , _tgrtaResourceId = Nothing
+    , _tgrtaResourceType = Nothing
+    , _tgrtaTransitGatewayAttachmentId = Nothing
+    }
+
+
+-- | The state of the association.
+tgrtaState :: Lens' TransitGatewayRouteTableAssociation (Maybe TransitGatewayAssociationState)
+tgrtaState = lens _tgrtaState (\ s a -> s{_tgrtaState = a})
+
+-- | The ID of the resource.
+tgrtaResourceId :: Lens' TransitGatewayRouteTableAssociation (Maybe Text)
+tgrtaResourceId = lens _tgrtaResourceId (\ s a -> s{_tgrtaResourceId = a})
+
+-- | The resource type.
+tgrtaResourceType :: Lens' TransitGatewayRouteTableAssociation (Maybe TransitGatewayAttachmentResourceType)
+tgrtaResourceType = lens _tgrtaResourceType (\ s a -> s{_tgrtaResourceType = a})
+
+-- | The ID of the attachment.
+tgrtaTransitGatewayAttachmentId :: Lens' TransitGatewayRouteTableAssociation (Maybe Text)
+tgrtaTransitGatewayAttachmentId = lens _tgrtaTransitGatewayAttachmentId (\ s a -> s{_tgrtaTransitGatewayAttachmentId = a})
+
+instance FromXML TransitGatewayRouteTableAssociation
+         where
+        parseXML x
+          = TransitGatewayRouteTableAssociation' <$>
+              (x .@? "state") <*> (x .@? "resourceId") <*>
+                (x .@? "resourceType")
+                <*> (x .@? "transitGatewayAttachmentId")
+
+instance Hashable TransitGatewayRouteTableAssociation
+         where
+
+instance NFData TransitGatewayRouteTableAssociation
+         where
+
+-- | Describes a route table propagation.
+--
+--
+--
+-- /See:/ 'transitGatewayRouteTablePropagation' smart constructor.
+data TransitGatewayRouteTablePropagation = TransitGatewayRouteTablePropagation'
+  { _tgrtpState :: !(Maybe TransitGatewayPropagationState)
+  , _tgrtpResourceId :: !(Maybe Text)
+  , _tgrtpResourceType :: !(Maybe TransitGatewayAttachmentResourceType)
+  , _tgrtpTransitGatewayAttachmentId :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TransitGatewayRouteTablePropagation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgrtpState' - The state of the resource.
+--
+-- * 'tgrtpResourceId' - The ID of the resource.
+--
+-- * 'tgrtpResourceType' - The type of resource.
+--
+-- * 'tgrtpTransitGatewayAttachmentId' - The ID of the attachment.
+transitGatewayRouteTablePropagation
+    :: TransitGatewayRouteTablePropagation
+transitGatewayRouteTablePropagation =
+  TransitGatewayRouteTablePropagation'
+    { _tgrtpState = Nothing
+    , _tgrtpResourceId = Nothing
+    , _tgrtpResourceType = Nothing
+    , _tgrtpTransitGatewayAttachmentId = Nothing
+    }
+
+
+-- | The state of the resource.
+tgrtpState :: Lens' TransitGatewayRouteTablePropagation (Maybe TransitGatewayPropagationState)
+tgrtpState = lens _tgrtpState (\ s a -> s{_tgrtpState = a})
+
+-- | The ID of the resource.
+tgrtpResourceId :: Lens' TransitGatewayRouteTablePropagation (Maybe Text)
+tgrtpResourceId = lens _tgrtpResourceId (\ s a -> s{_tgrtpResourceId = a})
+
+-- | The type of resource.
+tgrtpResourceType :: Lens' TransitGatewayRouteTablePropagation (Maybe TransitGatewayAttachmentResourceType)
+tgrtpResourceType = lens _tgrtpResourceType (\ s a -> s{_tgrtpResourceType = a})
+
+-- | The ID of the attachment.
+tgrtpTransitGatewayAttachmentId :: Lens' TransitGatewayRouteTablePropagation (Maybe Text)
+tgrtpTransitGatewayAttachmentId = lens _tgrtpTransitGatewayAttachmentId (\ s a -> s{_tgrtpTransitGatewayAttachmentId = a})
+
+instance FromXML TransitGatewayRouteTablePropagation
+         where
+        parseXML x
+          = TransitGatewayRouteTablePropagation' <$>
+              (x .@? "state") <*> (x .@? "resourceId") <*>
+                (x .@? "resourceType")
+                <*> (x .@? "transitGatewayAttachmentId")
+
+instance Hashable TransitGatewayRouteTablePropagation
+         where
+
+instance NFData TransitGatewayRouteTablePropagation
+         where
+
+-- | Describes a VPC attachment.
+--
+--
+--
+-- /See:/ 'transitGatewayVPCAttachment' smart constructor.
+data TransitGatewayVPCAttachment = TransitGatewayVPCAttachment'
+  { _tgvaCreationTime :: !(Maybe ISO8601)
+  , _tgvaState :: !(Maybe TransitGatewayAttachmentState)
+  , _tgvaSubnetIds :: !(Maybe [Text])
+  , _tgvaVPCId :: !(Maybe Text)
+  , _tgvaTransitGatewayId :: !(Maybe Text)
+  , _tgvaOptions :: !(Maybe TransitGatewayVPCAttachmentOptions)
+  , _tgvaTransitGatewayAttachmentId :: !(Maybe Text)
+  , _tgvaTags :: !(Maybe [Tag])
+  , _tgvaVPCOwnerId :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TransitGatewayVPCAttachment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgvaCreationTime' - The creation time.
+--
+-- * 'tgvaState' - The state of the VPC attachment.
+--
+-- * 'tgvaSubnetIds' - The IDs of the subnets.
+--
+-- * 'tgvaVPCId' - The ID of the VPC.
+--
+-- * 'tgvaTransitGatewayId' - The ID of the transit gateway.
+--
+-- * 'tgvaOptions' - The VPC attachment options.
+--
+-- * 'tgvaTransitGatewayAttachmentId' - The ID of the attachment.
+--
+-- * 'tgvaTags' - The tags for the VPC attachment.
+--
+-- * 'tgvaVPCOwnerId' - The ID of the AWS account that owns the VPC.
+transitGatewayVPCAttachment
+    :: TransitGatewayVPCAttachment
+transitGatewayVPCAttachment =
+  TransitGatewayVPCAttachment'
+    { _tgvaCreationTime = Nothing
+    , _tgvaState = Nothing
+    , _tgvaSubnetIds = Nothing
+    , _tgvaVPCId = Nothing
+    , _tgvaTransitGatewayId = Nothing
+    , _tgvaOptions = Nothing
+    , _tgvaTransitGatewayAttachmentId = Nothing
+    , _tgvaTags = Nothing
+    , _tgvaVPCOwnerId = Nothing
+    }
+
+
+-- | The creation time.
+tgvaCreationTime :: Lens' TransitGatewayVPCAttachment (Maybe UTCTime)
+tgvaCreationTime = lens _tgvaCreationTime (\ s a -> s{_tgvaCreationTime = a}) . mapping _Time
+
+-- | The state of the VPC attachment.
+tgvaState :: Lens' TransitGatewayVPCAttachment (Maybe TransitGatewayAttachmentState)
+tgvaState = lens _tgvaState (\ s a -> s{_tgvaState = a})
+
+-- | The IDs of the subnets.
+tgvaSubnetIds :: Lens' TransitGatewayVPCAttachment [Text]
+tgvaSubnetIds = lens _tgvaSubnetIds (\ s a -> s{_tgvaSubnetIds = a}) . _Default . _Coerce
+
+-- | The ID of the VPC.
+tgvaVPCId :: Lens' TransitGatewayVPCAttachment (Maybe Text)
+tgvaVPCId = lens _tgvaVPCId (\ s a -> s{_tgvaVPCId = a})
+
+-- | The ID of the transit gateway.
+tgvaTransitGatewayId :: Lens' TransitGatewayVPCAttachment (Maybe Text)
+tgvaTransitGatewayId = lens _tgvaTransitGatewayId (\ s a -> s{_tgvaTransitGatewayId = a})
+
+-- | The VPC attachment options.
+tgvaOptions :: Lens' TransitGatewayVPCAttachment (Maybe TransitGatewayVPCAttachmentOptions)
+tgvaOptions = lens _tgvaOptions (\ s a -> s{_tgvaOptions = a})
+
+-- | The ID of the attachment.
+tgvaTransitGatewayAttachmentId :: Lens' TransitGatewayVPCAttachment (Maybe Text)
+tgvaTransitGatewayAttachmentId = lens _tgvaTransitGatewayAttachmentId (\ s a -> s{_tgvaTransitGatewayAttachmentId = a})
+
+-- | The tags for the VPC attachment.
+tgvaTags :: Lens' TransitGatewayVPCAttachment [Tag]
+tgvaTags = lens _tgvaTags (\ s a -> s{_tgvaTags = a}) . _Default . _Coerce
+
+-- | The ID of the AWS account that owns the VPC.
+tgvaVPCOwnerId :: Lens' TransitGatewayVPCAttachment (Maybe Text)
+tgvaVPCOwnerId = lens _tgvaVPCOwnerId (\ s a -> s{_tgvaVPCOwnerId = a})
+
+instance FromXML TransitGatewayVPCAttachment where
+        parseXML x
+          = TransitGatewayVPCAttachment' <$>
+              (x .@? "creationTime") <*> (x .@? "state") <*>
+                (x .@? "subnetIds" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "vpcId")
+                <*> (x .@? "transitGatewayId")
+                <*> (x .@? "options")
+                <*> (x .@? "transitGatewayAttachmentId")
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "vpcOwnerId")
+
+instance Hashable TransitGatewayVPCAttachment where
+
+instance NFData TransitGatewayVPCAttachment where
+
+-- | Describes the VPC attachment options.
+--
+--
+--
+-- /See:/ 'transitGatewayVPCAttachmentOptions' smart constructor.
+data TransitGatewayVPCAttachmentOptions = TransitGatewayVPCAttachmentOptions'
+  { _tgvaoIPv6Support :: !(Maybe IPv6SupportValue)
+  , _tgvaoDNSSupport  :: !(Maybe DNSSupportValue)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TransitGatewayVPCAttachmentOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgvaoIPv6Support' - Indicates whether IPv6 support is enabled.
+--
+-- * 'tgvaoDNSSupport' - Indicates whether DNS support is enabled.
+transitGatewayVPCAttachmentOptions
+    :: TransitGatewayVPCAttachmentOptions
+transitGatewayVPCAttachmentOptions =
+  TransitGatewayVPCAttachmentOptions'
+    {_tgvaoIPv6Support = Nothing, _tgvaoDNSSupport = Nothing}
+
+
+-- | Indicates whether IPv6 support is enabled.
+tgvaoIPv6Support :: Lens' TransitGatewayVPCAttachmentOptions (Maybe IPv6SupportValue)
+tgvaoIPv6Support = lens _tgvaoIPv6Support (\ s a -> s{_tgvaoIPv6Support = a})
+
+-- | Indicates whether DNS support is enabled.
+tgvaoDNSSupport :: Lens' TransitGatewayVPCAttachmentOptions (Maybe DNSSupportValue)
+tgvaoDNSSupport = lens _tgvaoDNSSupport (\ s a -> s{_tgvaoDNSSupport = a})
+
+instance FromXML TransitGatewayVPCAttachmentOptions
+         where
+        parseXML x
+          = TransitGatewayVPCAttachmentOptions' <$>
+              (x .@? "ipv6Support") <*> (x .@? "dnsSupport")
+
+instance Hashable TransitGatewayVPCAttachmentOptions
+         where
+
+instance NFData TransitGatewayVPCAttachmentOptions
+         where
+
+-- | Describes the T2 or T3 instance whose credit option for CPU usage was not modified.
 --
 --
 --
@@ -18784,7 +23585,7 @@ data UnsuccessfulInstanceCreditSpecificationItem = UnsuccessfulInstanceCreditSpe
 --
 -- * 'uicsiInstanceId' - The ID of the instance.
 --
--- * 'uicsiError' - The applicable error for the T2 instance whose credit option for CPU usage was not modified.
+-- * 'uicsiError' - The applicable error for the T2 or T3 instance whose credit option for CPU usage was not modified.
 unsuccessfulInstanceCreditSpecificationItem
     :: UnsuccessfulInstanceCreditSpecificationItem
 unsuccessfulInstanceCreditSpecificationItem =
@@ -18796,7 +23597,7 @@ unsuccessfulInstanceCreditSpecificationItem =
 uicsiInstanceId :: Lens' UnsuccessfulInstanceCreditSpecificationItem (Maybe Text)
 uicsiInstanceId = lens _uicsiInstanceId (\ s a -> s{_uicsiInstanceId = a})
 
--- | The applicable error for the T2 instance whose credit option for CPU usage was not modified.
+-- | The applicable error for the T2 or T3 instance whose credit option for CPU usage was not modified.
 uicsiError :: Lens' UnsuccessfulInstanceCreditSpecificationItem (Maybe UnsuccessfulInstanceCreditSpecificationItemError)
 uicsiError = lens _uicsiError (\ s a -> s{_uicsiError = a})
 
@@ -18815,7 +23616,7 @@ instance NFData
            UnsuccessfulInstanceCreditSpecificationItem
          where
 
--- | Information about the error for the T2 instance whose credit option for CPU usage was not modified.
+-- | Information about the error for the T2 or T3 instance whose credit option for CPU usage was not modified.
 --
 --
 --
@@ -18870,7 +23671,7 @@ instance NFData
 -- /See:/ 'unsuccessfulItem' smart constructor.
 data UnsuccessfulItem = UnsuccessfulItem'
   { _uiResourceId :: !(Maybe Text)
-  , _uiError      :: !UnsuccessfulItemError
+  , _uiError      :: !(Maybe UnsuccessfulItemError)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -18882,10 +23683,9 @@ data UnsuccessfulItem = UnsuccessfulItem'
 --
 -- * 'uiError' - Information about the error.
 unsuccessfulItem
-    :: UnsuccessfulItemError -- ^ 'uiError'
-    -> UnsuccessfulItem
-unsuccessfulItem pError_ =
-  UnsuccessfulItem' {_uiResourceId = Nothing, _uiError = pError_}
+    :: UnsuccessfulItem
+unsuccessfulItem =
+  UnsuccessfulItem' {_uiResourceId = Nothing, _uiError = Nothing}
 
 
 -- | The ID of the resource.
@@ -18893,26 +23693,26 @@ uiResourceId :: Lens' UnsuccessfulItem (Maybe Text)
 uiResourceId = lens _uiResourceId (\ s a -> s{_uiResourceId = a})
 
 -- | Information about the error.
-uiError :: Lens' UnsuccessfulItem UnsuccessfulItemError
+uiError :: Lens' UnsuccessfulItem (Maybe UnsuccessfulItemError)
 uiError = lens _uiError (\ s a -> s{_uiError = a})
 
 instance FromXML UnsuccessfulItem where
         parseXML x
           = UnsuccessfulItem' <$>
-              (x .@? "resourceId") <*> (x .@ "error")
+              (x .@? "resourceId") <*> (x .@? "error")
 
 instance Hashable UnsuccessfulItem where
 
 instance NFData UnsuccessfulItem where
 
--- | Information about the error that occurred. For more information about errors, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes> .
+-- | Information about the error that occurred. For more information about errors, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes> .
 --
 --
 --
 -- /See:/ 'unsuccessfulItemError' smart constructor.
 data UnsuccessfulItemError = UnsuccessfulItemError'
-  { _uieCode    :: !Text
-  , _uieMessage :: !Text
+  { _uieCode    :: !(Maybe Text)
+  , _uieMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -18924,25 +23724,23 @@ data UnsuccessfulItemError = UnsuccessfulItemError'
 --
 -- * 'uieMessage' - The error message accompanying the error code.
 unsuccessfulItemError
-    :: Text -- ^ 'uieCode'
-    -> Text -- ^ 'uieMessage'
-    -> UnsuccessfulItemError
-unsuccessfulItemError pCode_ pMessage_ =
-  UnsuccessfulItemError' {_uieCode = pCode_, _uieMessage = pMessage_}
+    :: UnsuccessfulItemError
+unsuccessfulItemError =
+  UnsuccessfulItemError' {_uieCode = Nothing, _uieMessage = Nothing}
 
 
 -- | The error code.
-uieCode :: Lens' UnsuccessfulItemError Text
+uieCode :: Lens' UnsuccessfulItemError (Maybe Text)
 uieCode = lens _uieCode (\ s a -> s{_uieCode = a})
 
 -- | The error message accompanying the error code.
-uieMessage :: Lens' UnsuccessfulItemError Text
+uieMessage :: Lens' UnsuccessfulItemError (Maybe Text)
 uieMessage = lens _uieMessage (\ s a -> s{_uieMessage = a})
 
 instance FromXML UnsuccessfulItemError where
         parseXML x
           = UnsuccessfulItemError' <$>
-              (x .@ "code") <*> (x .@ "message")
+              (x .@? "code") <*> (x .@? "message")
 
 instance Hashable UnsuccessfulItemError where
 
@@ -19239,6 +24037,7 @@ instance NFData VGWTelemetry where
 data VPC = VPC'
   { _vpcIPv6CidrBlockAssociationSet :: !(Maybe [VPCIPv6CidrBlockAssociation])
   , _vpcCidrBlockAssociationSet     :: !(Maybe [VPCCidrBlockAssociation])
+  , _vpcOwnerId                     :: !(Maybe Text)
   , _vpcTags                        :: !(Maybe [Tag])
   , _vpcIsDefault                   :: !(Maybe Bool)
   , _vpcCidrBlock                   :: !Text
@@ -19256,6 +24055,8 @@ data VPC = VPC'
 -- * 'vpcIPv6CidrBlockAssociationSet' - Information about the IPv6 CIDR blocks associated with the VPC.
 --
 -- * 'vpcCidrBlockAssociationSet' - Information about the IPv4 CIDR blocks associated with the VPC.
+--
+-- * 'vpcOwnerId' - The ID of the AWS account that owns the VPC.
 --
 -- * 'vpcTags' - Any tags assigned to the VPC.
 --
@@ -19281,6 +24082,7 @@ vpc pCidrBlock_ pDHCPOptionsId_ pInstanceTenancy_ pState_ pVPCId_ =
   VPC'
     { _vpcIPv6CidrBlockAssociationSet = Nothing
     , _vpcCidrBlockAssociationSet = Nothing
+    , _vpcOwnerId = Nothing
     , _vpcTags = Nothing
     , _vpcIsDefault = Nothing
     , _vpcCidrBlock = pCidrBlock_
@@ -19298,6 +24100,10 @@ vpcIPv6CidrBlockAssociationSet = lens _vpcIPv6CidrBlockAssociationSet (\ s a -> 
 -- | Information about the IPv4 CIDR blocks associated with the VPC.
 vpcCidrBlockAssociationSet :: Lens' VPC [VPCCidrBlockAssociation]
 vpcCidrBlockAssociationSet = lens _vpcCidrBlockAssociationSet (\ s a -> s{_vpcCidrBlockAssociationSet = a}) . _Default . _Coerce
+
+-- | The ID of the AWS account that owns the VPC.
+vpcOwnerId :: Lens' VPC (Maybe Text)
+vpcOwnerId = lens _vpcOwnerId (\ s a -> s{_vpcOwnerId = a})
 
 -- | Any tags assigned to the VPC.
 vpcTags :: Lens' VPC [Tag]
@@ -19335,6 +24141,7 @@ instance FromXML VPC where
                 <*>
                 (x .@? "cidrBlockAssociationSet" .!@ mempty >>=
                    may (parseXMLList "item"))
+                <*> (x .@? "ownerId")
                 <*>
                 (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
@@ -20103,6 +24910,7 @@ data VPNConnection = VPNConnection'
   , _vcRoutes                       :: !(Maybe [VPNStaticRoute])
   , _vcVPNGatewayId                 :: !(Maybe Text)
   , _vcCategory                     :: !(Maybe Text)
+  , _vcTransitGatewayId             :: !(Maybe Text)
   , _vcOptions                      :: !(Maybe VPNConnectionOptions)
   , _vcTags                         :: !(Maybe [Tag])
   , _vcVGWTelemetry                 :: !(Maybe [VGWTelemetry])
@@ -20123,7 +24931,9 @@ data VPNConnection = VPNConnection'
 --
 -- * 'vcVPNGatewayId' - The ID of the virtual private gateway at the AWS side of the VPN connection.
 --
--- * 'vcCategory' - The category of the VPN connection. A value of @VPN@ indicates an AWS VPN connection. A value of @VPN-Classic@ indicates an AWS Classic VPN connection. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html#vpn-categories AWS Managed VPN Categories> in the /Amazon Virtual Private Cloud User Guide/ .
+-- * 'vcCategory' - The category of the VPN connection. A value of @VPN@ indicates an AWS VPN connection. A value of @VPN-Classic@ indicates an AWS Classic VPN connection.
+--
+-- * 'vcTransitGatewayId' - The ID of the transit gateway associated with the VPN connection.
 --
 -- * 'vcOptions' - The VPN connection options.
 --
@@ -20150,6 +24960,7 @@ vpnConnection pVPNConnectionId_ pCustomerGatewayId_ pState_ pType_ =
     , _vcRoutes = Nothing
     , _vcVPNGatewayId = Nothing
     , _vcCategory = Nothing
+    , _vcTransitGatewayId = Nothing
     , _vcOptions = Nothing
     , _vcTags = Nothing
     , _vcVGWTelemetry = Nothing
@@ -20172,9 +24983,13 @@ vcRoutes = lens _vcRoutes (\ s a -> s{_vcRoutes = a}) . _Default . _Coerce
 vcVPNGatewayId :: Lens' VPNConnection (Maybe Text)
 vcVPNGatewayId = lens _vcVPNGatewayId (\ s a -> s{_vcVPNGatewayId = a})
 
--- | The category of the VPN connection. A value of @VPN@ indicates an AWS VPN connection. A value of @VPN-Classic@ indicates an AWS Classic VPN connection. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html#vpn-categories AWS Managed VPN Categories> in the /Amazon Virtual Private Cloud User Guide/ .
+-- | The category of the VPN connection. A value of @VPN@ indicates an AWS VPN connection. A value of @VPN-Classic@ indicates an AWS Classic VPN connection.
 vcCategory :: Lens' VPNConnection (Maybe Text)
 vcCategory = lens _vcCategory (\ s a -> s{_vcCategory = a})
+
+-- | The ID of the transit gateway associated with the VPN connection.
+vcTransitGatewayId :: Lens' VPNConnection (Maybe Text)
+vcTransitGatewayId = lens _vcTransitGatewayId (\ s a -> s{_vcTransitGatewayId = a})
 
 -- | The VPN connection options.
 vcOptions :: Lens' VPNConnection (Maybe VPNConnectionOptions)
@@ -20212,6 +25027,7 @@ instance FromXML VPNConnection where
                    may (parseXMLList "item"))
                 <*> (x .@? "vpnGatewayId")
                 <*> (x .@? "category")
+                <*> (x .@? "transitGatewayId")
                 <*> (x .@? "options")
                 <*>
                 (x .@? "tagSet" .!@ mempty >>=
@@ -20524,7 +25340,7 @@ data Volume = Volume'
 --
 -- * 'vAttachments' - Information about the volume attachments.
 --
--- * 'vIOPS' - The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD volumes, this represents the number of IOPS that are provisioned for the volume. For General Purpose SSD volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information on General Purpose SSD baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ . Constraint: Range is 100-32000 IOPS for io1 volumes and 100-10000 IOPS for @gp2@ volumes. Condition: This parameter is required for requests to create @io1@ volumes; it is not used in requests to create @gp2@ , @st1@ , @sc1@ , or @standard@ volumes.
+-- * 'vIOPS' - The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD volumes, this represents the number of IOPS that are provisioned for the volume. For General Purpose SSD volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ . Constraints: Range is 100-16,000 IOPS for @gp2@ volumes and 100 to 64,000IOPS for @io1@ volumes, in most Regions. The maximum IOPS for @io1@ of 64,000 is guaranteed only on <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> . Other instance families guarantee performance up to 32,000 IOPS. Condition: This parameter is required for requests to create @io1@ volumes; it is not used in requests to create @gp2@ , @st1@ , @sc1@ , or @standard@ volumes.
 --
 -- * 'vKMSKeyId' - The full ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to protect the volume encryption key for the volume.
 --
@@ -20576,7 +25392,7 @@ volume pAvailabilityZone_ pCreateTime_ pEncrypted_ pSize_ pSnapshotId_ pState_ p
 vAttachments :: Lens' Volume [VolumeAttachment]
 vAttachments = lens _vAttachments (\ s a -> s{_vAttachments = a}) . _Default . _Coerce
 
--- | The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD volumes, this represents the number of IOPS that are provisioned for the volume. For General Purpose SSD volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information on General Purpose SSD baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ . Constraint: Range is 100-32000 IOPS for io1 volumes and 100-10000 IOPS for @gp2@ volumes. Condition: This parameter is required for requests to create @io1@ volumes; it is not used in requests to create @gp2@ , @st1@ , @sc1@ , or @standard@ volumes.
+-- | The number of I/O operations per second (IOPS) that the volume supports. For Provisioned IOPS SSD volumes, this represents the number of IOPS that are provisioned for the volume. For General Purpose SSD volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ . Constraints: Range is 100-16,000 IOPS for @gp2@ volumes and 100 to 64,000IOPS for @io1@ volumes, in most Regions. The maximum IOPS for @io1@ of 64,000 is guaranteed only on <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> . Other instance families guarantee performance up to 32,000 IOPS. Condition: This parameter is required for requests to create @io1@ volumes; it is not used in requests to create @gp2@ , @st1@ , @sc1@ , or @standard@ volumes.
 vIOPS :: Lens' Volume (Maybe Int)
 vIOPS = lens _vIOPS (\ s a -> s{_vIOPS = a})
 
@@ -20784,29 +25600,29 @@ data VolumeModification = VolumeModification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vmProgress' - Modification progress from 0 to 100%.
+-- * 'vmProgress' - The modification progress, from 0 to 100 percent complete.
 --
--- * 'vmStartTime' - Modification start time
+-- * 'vmStartTime' - The modification start time.
 --
--- * 'vmModificationState' - Current state of modification. Modification state is null for unmodified volumes.
+-- * 'vmModificationState' - The current modification state. The modification state is null for unmodified volumes.
 --
--- * 'vmTargetVolumeType' - Target EBS volume type of the volume being modified.
+-- * 'vmTargetVolumeType' - The target EBS volume type of the volume.
 --
--- * 'vmOriginalVolumeType' - Original EBS volume type of the volume being modified.
+-- * 'vmOriginalVolumeType' - The original EBS volume type of the volume.
 --
--- * 'vmTargetSize' - Target size of the volume being modified.
+-- * 'vmTargetSize' - The target size of the volume, in GiB.
 --
--- * 'vmTargetIOPS' - Target IOPS rate of the volume being modified.
+-- * 'vmTargetIOPS' - The target IOPS rate of the volume.
 --
--- * 'vmOriginalSize' - Original size of the volume being modified.
+-- * 'vmOriginalSize' - The original size of the volume.
 --
--- * 'vmOriginalIOPS' - Original IOPS rate of the volume being modified.
+-- * 'vmOriginalIOPS' - The original IOPS rate of the volume.
 --
--- * 'vmStatusMessage' - Generic status message on modification progress or failure.
+-- * 'vmStatusMessage' - A status message about the modification progress or failure.
 --
--- * 'vmEndTime' - Modification completion or failure time.
+-- * 'vmEndTime' - The modification completion or failure time.
 --
--- * 'vmVolumeId' - ID of the volume being modified.
+-- * 'vmVolumeId' - The ID of the volume.
 volumeModification
     :: VolumeModification
 volumeModification =
@@ -20826,51 +25642,51 @@ volumeModification =
     }
 
 
--- | Modification progress from 0 to 100%.
+-- | The modification progress, from 0 to 100 percent complete.
 vmProgress :: Lens' VolumeModification (Maybe Integer)
 vmProgress = lens _vmProgress (\ s a -> s{_vmProgress = a})
 
--- | Modification start time
+-- | The modification start time.
 vmStartTime :: Lens' VolumeModification (Maybe UTCTime)
 vmStartTime = lens _vmStartTime (\ s a -> s{_vmStartTime = a}) . mapping _Time
 
--- | Current state of modification. Modification state is null for unmodified volumes.
+-- | The current modification state. The modification state is null for unmodified volumes.
 vmModificationState :: Lens' VolumeModification (Maybe VolumeModificationState)
 vmModificationState = lens _vmModificationState (\ s a -> s{_vmModificationState = a})
 
--- | Target EBS volume type of the volume being modified.
+-- | The target EBS volume type of the volume.
 vmTargetVolumeType :: Lens' VolumeModification (Maybe VolumeType)
 vmTargetVolumeType = lens _vmTargetVolumeType (\ s a -> s{_vmTargetVolumeType = a})
 
--- | Original EBS volume type of the volume being modified.
+-- | The original EBS volume type of the volume.
 vmOriginalVolumeType :: Lens' VolumeModification (Maybe VolumeType)
 vmOriginalVolumeType = lens _vmOriginalVolumeType (\ s a -> s{_vmOriginalVolumeType = a})
 
--- | Target size of the volume being modified.
+-- | The target size of the volume, in GiB.
 vmTargetSize :: Lens' VolumeModification (Maybe Int)
 vmTargetSize = lens _vmTargetSize (\ s a -> s{_vmTargetSize = a})
 
--- | Target IOPS rate of the volume being modified.
+-- | The target IOPS rate of the volume.
 vmTargetIOPS :: Lens' VolumeModification (Maybe Int)
 vmTargetIOPS = lens _vmTargetIOPS (\ s a -> s{_vmTargetIOPS = a})
 
--- | Original size of the volume being modified.
+-- | The original size of the volume.
 vmOriginalSize :: Lens' VolumeModification (Maybe Int)
 vmOriginalSize = lens _vmOriginalSize (\ s a -> s{_vmOriginalSize = a})
 
--- | Original IOPS rate of the volume being modified.
+-- | The original IOPS rate of the volume.
 vmOriginalIOPS :: Lens' VolumeModification (Maybe Int)
 vmOriginalIOPS = lens _vmOriginalIOPS (\ s a -> s{_vmOriginalIOPS = a})
 
--- | Generic status message on modification progress or failure.
+-- | A status message about the modification progress or failure.
 vmStatusMessage :: Lens' VolumeModification (Maybe Text)
 vmStatusMessage = lens _vmStatusMessage (\ s a -> s{_vmStatusMessage = a})
 
--- | Modification completion or failure time.
+-- | The modification completion or failure time.
 vmEndTime :: Lens' VolumeModification (Maybe UTCTime)
 vmEndTime = lens _vmEndTime (\ s a -> s{_vmEndTime = a}) . mapping _Time
 
--- | ID of the volume being modified.
+-- | The ID of the volume.
 vmVolumeId :: Lens' VolumeModification (Maybe Text)
 vmVolumeId = lens _vmVolumeId (\ s a -> s{_vmVolumeId = a})
 

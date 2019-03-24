@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more of your linked EC2-Classic instances. This request only returns information about EC2-Classic instances linked to a VPC through ClassicLink; you cannot use this request to return information about other instances.
+-- Describes one or more of your linked EC2-Classic instances. This request only returns information about EC2-Classic instances linked to a VPC through ClassicLink. You cannot use this request to return information about other instances.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeClassicLinkInstances
     (
     -- * Creating a Request
@@ -45,15 +47,12 @@ module Network.AWS.EC2.DescribeClassicLinkInstances
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeClassicLinkInstances.
---
---
---
--- /See:/ 'describeClassicLinkInstances' smart constructor.
+-- | /See:/ 'describeClassicLinkInstances' smart constructor.
 data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
   { _dcliFilters     :: !(Maybe [Filter])
   , _dcliNextToken   :: !(Maybe Text)
@@ -67,15 +66,15 @@ data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcliFilters' - One or more filters.     * @group-id@ - The ID of a VPC security group that's associated with the instance.     * @instance-id@ - The ID of the instance.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @vpc-id@ - The ID of the VPC that the instance is linked to.
+-- * 'dcliFilters' - One or more filters.     * @group-id@ - The ID of a VPC security group that's associated with the instance.     * @instance-id@ - The ID of the instance.     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.     * @vpc-id@ - The ID of the VPC to which the instance is linked. @vpc-id@ - The ID of the VPC that the instance is linked to.
 --
--- * 'dcliNextToken' - The token to retrieve the next page of results.
+-- * 'dcliNextToken' - The token for the next page of results.
 --
 -- * 'dcliInstanceIds' - One or more instance IDs. Must be instances linked to a VPC through ClassicLink.
 --
 -- * 'dcliDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dcliMaxResults' - The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the instance IDs parameter in the same request. Constraint: If the value is greater than 1000, we return only 1000 items.
+-- * 'dcliMaxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value. Constraint: If the value is greater than 1000, we return only 1000 items.
 describeClassicLinkInstances
     :: DescribeClassicLinkInstances
 describeClassicLinkInstances =
@@ -88,11 +87,11 @@ describeClassicLinkInstances =
     }
 
 
--- | One or more filters.     * @group-id@ - The ID of a VPC security group that's associated with the instance.     * @instance-id@ - The ID of the instance.     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @vpc-id@ - The ID of the VPC that the instance is linked to.
+-- | One or more filters.     * @group-id@ - The ID of a VPC security group that's associated with the instance.     * @instance-id@ - The ID of the instance.     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.     * @vpc-id@ - The ID of the VPC to which the instance is linked. @vpc-id@ - The ID of the VPC that the instance is linked to.
 dcliFilters :: Lens' DescribeClassicLinkInstances [Filter]
 dcliFilters = lens _dcliFilters (\ s a -> s{_dcliFilters = a}) . _Default . _Coerce
 
--- | The token to retrieve the next page of results.
+-- | The token for the next page of results.
 dcliNextToken :: Lens' DescribeClassicLinkInstances (Maybe Text)
 dcliNextToken = lens _dcliNextToken (\ s a -> s{_dcliNextToken = a})
 
@@ -104,9 +103,16 @@ dcliInstanceIds = lens _dcliInstanceIds (\ s a -> s{_dcliInstanceIds = a}) . _De
 dcliDryRun :: Lens' DescribeClassicLinkInstances (Maybe Bool)
 dcliDryRun = lens _dcliDryRun (\ s a -> s{_dcliDryRun = a})
 
--- | The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the instance IDs parameter in the same request. Constraint: If the value is greater than 1000, we return only 1000 items.
+-- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value. Constraint: If the value is greater than 1000, we return only 1000 items.
 dcliMaxResults :: Lens' DescribeClassicLinkInstances (Maybe Int)
 dcliMaxResults = lens _dcliMaxResults (\ s a -> s{_dcliMaxResults = a})
+
+instance AWSPager DescribeClassicLinkInstances where
+        page rq rs
+          | stop (rs ^. dclirsNextToken) = Nothing
+          | stop (rs ^. dclirsInstances) = Nothing
+          | otherwise =
+            Just $ rq & dcliNextToken .~ rs ^. dclirsNextToken
 
 instance AWSRequest DescribeClassicLinkInstances
          where
@@ -145,11 +151,7 @@ instance ToQuery DescribeClassicLinkInstances where
                "DryRun" =: _dcliDryRun,
                "MaxResults" =: _dcliMaxResults]
 
--- | Contains the output of DescribeClassicLinkInstances.
---
---
---
--- /See:/ 'describeClassicLinkInstancesResponse' smart constructor.
+-- | /See:/ 'describeClassicLinkInstancesResponse' smart constructor.
 data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'
   { _dclirsNextToken      :: !(Maybe Text)
   , _dclirsInstances      :: !(Maybe [ClassicLinkInstance])

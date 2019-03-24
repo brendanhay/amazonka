@@ -45,11 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DeleteVpcPeeringConnection.
---
---
---
--- /See:/ 'deleteVPCPeeringConnection' smart constructor.
+-- | /See:/ 'deleteVPCPeeringConnection' smart constructor.
 data DeleteVPCPeeringConnection = DeleteVPCPeeringConnection'
   { _dvpcDryRun                 :: !(Maybe Bool)
   , _dvpcVPCPeeringConnectionId :: !Text
@@ -111,11 +107,7 @@ instance ToQuery DeleteVPCPeeringConnection where
                "VpcPeeringConnectionId" =:
                  _dvpcVPCPeeringConnectionId]
 
--- | Contains the output of DeleteVpcPeeringConnection.
---
---
---
--- /See:/ 'deleteVPCPeeringConnectionResponse' smart constructor.
+-- | /See:/ 'deleteVPCPeeringConnectionResponse' smart constructor.
 data DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'
   { _dvpcrsReturn         :: !(Maybe Bool)
   , _dvpcrsResponseStatus :: !Int

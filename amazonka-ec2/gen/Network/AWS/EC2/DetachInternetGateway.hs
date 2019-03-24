@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Detaches an Internet gateway from a VPC, disabling connectivity between the Internet and the VPC. The VPC must not contain any running instances with Elastic IP addresses or public IPv4 addresses.
+-- Detaches an internet gateway from a VPC, disabling connectivity between the internet and the VPC. The VPC must not contain any running instances with Elastic IP addresses or public IPv4 addresses.
 --
 --
 module Network.AWS.EC2.DetachInternetGateway
@@ -43,11 +43,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DetachInternetGateway.
---
---
---
--- /See:/ 'detachInternetGateway' smart constructor.
+-- | /See:/ 'detachInternetGateway' smart constructor.
 data DetachInternetGateway = DetachInternetGateway'
   { _digDryRun            :: !(Maybe Bool)
   , _digInternetGatewayId :: !Text
@@ -61,7 +57,7 @@ data DetachInternetGateway = DetachInternetGateway'
 --
 -- * 'digDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'digInternetGatewayId' - The ID of the Internet gateway.
+-- * 'digInternetGatewayId' - The ID of the internet gateway.
 --
 -- * 'digVPCId' - The ID of the VPC.
 detachInternetGateway
@@ -80,7 +76,7 @@ detachInternetGateway pInternetGatewayId_ pVPCId_ =
 digDryRun :: Lens' DetachInternetGateway (Maybe Bool)
 digDryRun = lens _digDryRun (\ s a -> s{_digDryRun = a})
 
--- | The ID of the Internet gateway.
+-- | The ID of the internet gateway.
 digInternetGatewayId :: Lens' DetachInternetGateway Text
 digInternetGatewayId = lens _digInternetGatewayId (\ s a -> s{_digInternetGatewayId = a})
 

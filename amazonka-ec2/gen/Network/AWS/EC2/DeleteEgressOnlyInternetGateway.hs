@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an egress-only Internet gateway.
+-- Deletes an egress-only internet gateway.
 --
 --
 module Network.AWS.EC2.DeleteEgressOnlyInternetGateway
@@ -58,7 +58,7 @@ data DeleteEgressOnlyInternetGateway = DeleteEgressOnlyInternetGateway'
 --
 -- * 'deoigeDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'deoigeEgressOnlyInternetGatewayId' - The ID of the egress-only Internet gateway.
+-- * 'deoigeEgressOnlyInternetGatewayId' - The ID of the egress-only internet gateway.
 deleteEgressOnlyInternetGateway
     :: Text -- ^ 'deoigeEgressOnlyInternetGatewayId'
     -> DeleteEgressOnlyInternetGateway
@@ -73,7 +73,7 @@ deleteEgressOnlyInternetGateway pEgressOnlyInternetGatewayId_ =
 deoigeDryRun :: Lens' DeleteEgressOnlyInternetGateway (Maybe Bool)
 deoigeDryRun = lens _deoigeDryRun (\ s a -> s{_deoigeDryRun = a})
 
--- | The ID of the egress-only Internet gateway.
+-- | The ID of the egress-only internet gateway.
 deoigeEgressOnlyInternetGatewayId :: Lens' DeleteEgressOnlyInternetGateway Text
 deoigeEgressOnlyInternetGatewayId = lens _deoigeEgressOnlyInternetGatewayId (\ s a -> s{_deoigeEgressOnlyInternetGatewayId = a})
 

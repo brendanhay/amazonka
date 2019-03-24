@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Requests a VPC peering connection between two VPCs: a requester VPC that you own and an accepter VPC with which to create the connection. The accepter VPC can belong to another AWS account and can be in a different region to the requester VPC. The requester VPC and accepter VPC cannot have overlapping CIDR blocks.
+-- Requests a VPC peering connection between two VPCs: a requester VPC that you own and an accepter VPC with which to create the connection. The accepter VPC can belong to another AWS account and can be in a different Region to the requester VPC. The requester VPC and accepter VPC cannot have overlapping CIDR blocks.
 --
 --
 -- The owner of the accepter VPC must accept the peering request to activate the peering connection. The VPC peering connection request expires after 7 days, after which it cannot be accepted or rejected.
@@ -52,11 +52,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for CreateVpcPeeringConnection.
---
---
---
--- /See:/ 'createVPCPeeringConnection' smart constructor.
+-- | /See:/ 'createVPCPeeringConnection' smart constructor.
 data CreateVPCPeeringConnection = CreateVPCPeeringConnection'
   { _cvpcPeerVPCId   :: !(Maybe Text)
   , _cvpcVPCId       :: !(Maybe Text)
@@ -143,11 +139,7 @@ instance ToQuery CreateVPCPeeringConnection where
                "PeerRegion" =: _cvpcPeerRegion,
                "DryRun" =: _cvpcDryRun]
 
--- | Contains the output of CreateVpcPeeringConnection.
---
---
---
--- /See:/ 'createVPCPeeringConnectionResponse' smart constructor.
+-- | /See:/ 'createVPCPeeringConnectionResponse' smart constructor.
 data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
   { _cvpcrsVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
   , _cvpcrsResponseStatus       :: !Int

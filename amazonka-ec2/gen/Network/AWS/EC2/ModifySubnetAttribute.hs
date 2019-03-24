@@ -43,11 +43,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for ModifySubnetAttribute.
---
---
---
--- /See:/ 'modifySubnetAttribute' smart constructor.
+-- | /See:/ 'modifySubnetAttribute' smart constructor.
 data ModifySubnetAttribute = ModifySubnetAttribute'
   { _msaAssignIPv6AddressOnCreation :: !(Maybe AttributeBooleanValue)
   , _msaMapPublicIPOnLaunch         :: !(Maybe AttributeBooleanValue)

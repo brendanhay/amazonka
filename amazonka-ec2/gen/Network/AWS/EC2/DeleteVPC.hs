@@ -42,11 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DeleteVpc.
---
---
---
--- /See:/ 'deleteVPC' smart constructor.
+-- | /See:/ 'deleteVPC' smart constructor.
 data DeleteVPC = DeleteVPC'
   { _delDryRun :: !(Maybe Bool)
   , _delVPCId  :: !Text

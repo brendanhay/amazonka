@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the credit option for CPU usage on a running or stopped T2 instance. The credit options are @standard@ and @unlimited@ .
+-- Modifies the credit option for CPU usage on a running or stopped T2 or T3 instance. The credit options are @standard@ and @unlimited@ .
 --
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-instances.html T2 Instances> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html Burstable Performance Instances> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 module Network.AWS.EC2.ModifyInstanceCreditSpecification
     (
@@ -61,7 +61,7 @@ data ModifyInstanceCreditSpecification = ModifyInstanceCreditSpecification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'micsClientToken' - A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- * 'micsClientToken' - A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
 -- * 'micsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
@@ -76,7 +76,7 @@ modifyInstanceCreditSpecification =
     }
 
 
--- | A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- | A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 micsClientToken :: Lens' ModifyInstanceCreditSpecification (Maybe Text)
 micsClientToken = lens _micsClientToken (\ s a -> s{_micsClientToken = a})
 

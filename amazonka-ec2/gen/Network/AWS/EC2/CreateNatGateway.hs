@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a NAT gateway in the specified public subnet. This action creates a network interface in the specified subnet with a private IP address from the IP address range of the subnet. Internet-bound traffic from a private subnet can be routed to the NAT gateway, therefore enabling instances in the private subnet to connect to the internet. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html NAT Gateways> in the /Amazon Virtual Private Cloud User Guide/ .
+-- Creates a NAT gateway in the specified public subnet. This action creates a network interface in the specified subnet with a private IP address from the IP address range of the subnet. Internet-bound traffic from a private subnet can be routed to the NAT gateway, therefore enabling instances in the private subnet to connect to the internet. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html NAT Gateways> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 --
 module Network.AWS.EC2.CreateNatGateway
@@ -47,11 +47,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for CreateNatGateway.
---
---
---
--- /See:/ 'createNatGateway' smart constructor.
+-- | /See:/ 'createNatGateway' smart constructor.
 data CreateNatGateway = CreateNatGateway'
   { _cngClientToken  :: !(Maybe Text)
   , _cngAllocationId :: !Text
@@ -63,7 +59,7 @@ data CreateNatGateway = CreateNatGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cngClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> . Constraint: Maximum 64 ASCII characters.
+-- * 'cngClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> . Constraint: Maximum 64 ASCII characters.
 --
 -- * 'cngAllocationId' - The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.
 --
@@ -80,7 +76,7 @@ createNatGateway pAllocationId_ pSubnetId_ =
     }
 
 
--- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> . Constraint: Maximum 64 ASCII characters.
+-- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> . Constraint: Maximum 64 ASCII characters.
 cngClientToken :: Lens' CreateNatGateway (Maybe Text)
 cngClientToken = lens _cngClientToken (\ s a -> s{_cngClientToken = a})
 
@@ -121,11 +117,7 @@ instance ToQuery CreateNatGateway where
                "AllocationId" =: _cngAllocationId,
                "SubnetId" =: _cngSubnetId]
 
--- | Contains the output of CreateNatGateway.
---
---
---
--- /See:/ 'createNatGatewayResponse' smart constructor.
+-- | /See:/ 'createNatGatewayResponse' smart constructor.
 data CreateNatGatewayResponse = CreateNatGatewayResponse'
   { _cngrsClientToken    :: !(Maybe Text)
   , _cngrsNatGateway     :: !(Maybe NatGateway)

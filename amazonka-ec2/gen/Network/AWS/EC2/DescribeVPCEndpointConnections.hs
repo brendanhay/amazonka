@@ -21,6 +21,8 @@
 -- Describes the VPC endpoint connections to your VPC endpoint services, including any endpoints that are pending your acceptance.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeVPCEndpointConnections
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.EC2.DescribeVPCEndpointConnections
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -94,6 +97,14 @@ dvecDryRun = lens _dvecDryRun (\ s a -> s{_dvecDryRun = a})
 -- | The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned.
 dvecMaxResults :: Lens' DescribeVPCEndpointConnections (Maybe Int)
 dvecMaxResults = lens _dvecMaxResults (\ s a -> s{_dvecMaxResults = a})
+
+instance AWSPager DescribeVPCEndpointConnections
+         where
+        page rq rs
+          | stop (rs ^. dvecrsNextToken) = Nothing
+          | stop (rs ^. dvecrsVPCEndpointConnections) = Nothing
+          | otherwise =
+            Just $ rq & dvecNextToken .~ rs ^. dvecrsNextToken
 
 instance AWSRequest DescribeVPCEndpointConnections
          where

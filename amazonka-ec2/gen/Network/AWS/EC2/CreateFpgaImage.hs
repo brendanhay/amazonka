@@ -69,7 +69,7 @@ data CreateFpgaImage = CreateFpgaImage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'creClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- * 'creClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
 -- * 'creLogsStorageLocation' - The location in Amazon S3 for the output logs.
 --
@@ -94,7 +94,7 @@ createFpgaImage pInputStorageLocation_ =
     }
 
 
--- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> .
 creClientToken :: Lens' CreateFpgaImage (Maybe Text)
 creClientToken = lens _creClientToken (\ s a -> s{_creClientToken = a})
 

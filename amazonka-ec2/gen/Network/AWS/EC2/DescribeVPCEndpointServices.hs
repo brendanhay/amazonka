@@ -21,6 +21,8 @@
 -- Describes available services to which you can create a VPC endpoint.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeVPCEndpointServices
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.EC2.DescribeVPCEndpointServices
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -108,6 +111,13 @@ dvesDryRun = lens _dvesDryRun (\ s a -> s{_dvesDryRun = a})
 -- | The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results. Constraint: If the value is greater than 1000, we return only 1000 items.
 dvesMaxResults :: Lens' DescribeVPCEndpointServices (Maybe Int)
 dvesMaxResults = lens _dvesMaxResults (\ s a -> s{_dvesMaxResults = a})
+
+instance AWSPager DescribeVPCEndpointServices where
+        page rq rs
+          | stop (rs ^. dvesrsNextToken) = Nothing
+          | stop (rs ^. dvesrsServiceDetails) = Nothing
+          | otherwise =
+            Just $ rq & dvesNextToken .~ rs ^. dvesrsNextToken
 
 instance AWSRequest DescribeVPCEndpointServices where
         type Rs DescribeVPCEndpointServices =

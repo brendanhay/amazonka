@@ -25,6 +25,8 @@
 --
 -- The following resource types support longer IDs: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @reservation@ | @route-table@ | @route-table-association@ | @security-group@ | @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribePrincipalIdFormat
     (
     -- * Creating a Request
@@ -48,6 +50,7 @@ module Network.AWS.EC2.DescribePrincipalIdFormat
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -98,6 +101,13 @@ dpifDryRun = lens _dpifDryRun (\ s a -> s{_dpifDryRun = a})
 -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value.
 dpifMaxResults :: Lens' DescribePrincipalIdFormat (Maybe Int)
 dpifMaxResults = lens _dpifMaxResults (\ s a -> s{_dpifMaxResults = a})
+
+instance AWSPager DescribePrincipalIdFormat where
+        page rq rs
+          | stop (rs ^. dpifrsNextToken) = Nothing
+          | stop (rs ^. dpifrsPrincipals) = Nothing
+          | otherwise =
+            Just $ rq & dpifNextToken .~ rs ^. dpifrsNextToken
 
 instance AWSRequest DescribePrincipalIdFormat where
         type Rs DescribePrincipalIdFormat =

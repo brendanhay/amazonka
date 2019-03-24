@@ -13,8 +13,8 @@
 --
 module Network.AWS.EC2.Internal where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.Lens
+import Network.AWS.Prelude
 
 -- | Custom 'Tag' type which has an optional value component.
 --

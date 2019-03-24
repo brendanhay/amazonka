@@ -31,7 +31,7 @@
 --
 -- You can specify tags for the Spot Instances. You cannot tag other resource types in a Spot Fleet request because only the @instance@ resource type is supported.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html Spot Fleet Requests> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html Spot Fleet Requests> in the /Amazon EC2 User Guide for Linux Instances/ .
 --
 module Network.AWS.EC2.RequestSpotFleet
     (
@@ -46,8 +46,8 @@ module Network.AWS.EC2.RequestSpotFleet
     , requestSpotFleetResponse
     , RequestSpotFleetResponse
     -- * Response Lenses
-    , rsfrsResponseStatus
     , rsfrsSpotFleetRequestId
+    , rsfrsResponseStatus
     ) where
 
 import Network.AWS.EC2.Types
@@ -100,7 +100,7 @@ instance AWSRequest RequestSpotFleet where
           = receiveXML
               (\ s h x ->
                  RequestSpotFleetResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "spotFleetRequestId"))
+                   (x .@? "spotFleetRequestId") <*> (pure (fromEnum s)))
 
 instance Hashable RequestSpotFleet where
 
@@ -127,8 +127,8 @@ instance ToQuery RequestSpotFleet where
 --
 -- /See:/ 'requestSpotFleetResponse' smart constructor.
 data RequestSpotFleetResponse = RequestSpotFleetResponse'
-  { _rsfrsResponseStatus     :: !Int
-  , _rsfrsSpotFleetRequestId :: !Text
+  { _rsfrsSpotFleetRequestId :: !(Maybe Text)
+  , _rsfrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -136,26 +136,25 @@ data RequestSpotFleetResponse = RequestSpotFleetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsfrsResponseStatus' - -- | The response status code.
---
 -- * 'rsfrsSpotFleetRequestId' - The ID of the Spot Fleet request.
+--
+-- * 'rsfrsResponseStatus' - -- | The response status code.
 requestSpotFleetResponse
     :: Int -- ^ 'rsfrsResponseStatus'
-    -> Text -- ^ 'rsfrsSpotFleetRequestId'
     -> RequestSpotFleetResponse
-requestSpotFleetResponse pResponseStatus_ pSpotFleetRequestId_ =
+requestSpotFleetResponse pResponseStatus_ =
   RequestSpotFleetResponse'
-    { _rsfrsResponseStatus = pResponseStatus_
-    , _rsfrsSpotFleetRequestId = pSpotFleetRequestId_
+    { _rsfrsSpotFleetRequestId = Nothing
+    , _rsfrsResponseStatus = pResponseStatus_
     }
 
+
+-- | The ID of the Spot Fleet request.
+rsfrsSpotFleetRequestId :: Lens' RequestSpotFleetResponse (Maybe Text)
+rsfrsSpotFleetRequestId = lens _rsfrsSpotFleetRequestId (\ s a -> s{_rsfrsSpotFleetRequestId = a})
 
 -- | -- | The response status code.
 rsfrsResponseStatus :: Lens' RequestSpotFleetResponse Int
 rsfrsResponseStatus = lens _rsfrsResponseStatus (\ s a -> s{_rsfrsResponseStatus = a})
-
--- | The ID of the Spot Fleet request.
-rsfrsSpotFleetRequestId :: Lens' RequestSpotFleetResponse Text
-rsfrsSpotFleetRequestId = lens _rsfrsSpotFleetRequestId (\ s a -> s{_rsfrsSpotFleetRequestId = a})
 
 instance NFData RequestSpotFleetResponse where

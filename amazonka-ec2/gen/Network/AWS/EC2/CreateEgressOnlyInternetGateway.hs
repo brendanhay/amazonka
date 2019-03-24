@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- [IPv6 only] Creates an egress-only Internet gateway for your VPC. An egress-only Internet gateway is used to enable outbound communication over IPv6 from instances in your VPC to the Internet, and prevents hosts outside of your VPC from initiating an IPv6 connection with your instance.
+-- [IPv6 only] Creates an egress-only internet gateway for your VPC. An egress-only internet gateway is used to enable outbound communication over IPv6 from instances in your VPC to the internet, and prevents hosts outside of your VPC from initiating an IPv6 connection with your instance.
 --
 --
 module Network.AWS.EC2.CreateEgressOnlyInternetGateway
@@ -59,11 +59,11 @@ data CreateEgressOnlyInternetGateway = CreateEgressOnlyInternetGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ceoigClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+-- * 'ceoigClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 --
 -- * 'ceoigDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'ceoigVPCId' - The ID of the VPC for which to create the egress-only Internet gateway.
+-- * 'ceoigVPCId' - The ID of the VPC for which to create the egress-only internet gateway.
 createEgressOnlyInternetGateway
     :: Text -- ^ 'ceoigVPCId'
     -> CreateEgressOnlyInternetGateway
@@ -72,7 +72,7 @@ createEgressOnlyInternetGateway pVPCId_ =
     {_ceoigClientToken = Nothing, _ceoigDryRun = Nothing, _ceoigVPCId = pVPCId_}
 
 
--- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+-- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 ceoigClientToken :: Lens' CreateEgressOnlyInternetGateway (Maybe Text)
 ceoigClientToken = lens _ceoigClientToken (\ s a -> s{_ceoigClientToken = a})
 
@@ -80,7 +80,7 @@ ceoigClientToken = lens _ceoigClientToken (\ s a -> s{_ceoigClientToken = a})
 ceoigDryRun :: Lens' CreateEgressOnlyInternetGateway (Maybe Bool)
 ceoigDryRun = lens _ceoigDryRun (\ s a -> s{_ceoigDryRun = a})
 
--- | The ID of the VPC for which to create the egress-only Internet gateway.
+-- | The ID of the VPC for which to create the egress-only internet gateway.
 ceoigVPCId :: Lens' CreateEgressOnlyInternetGateway Text
 ceoigVPCId = lens _ceoigVPCId (\ s a -> s{_ceoigVPCId = a})
 
@@ -131,9 +131,9 @@ data CreateEgressOnlyInternetGatewayResponse = CreateEgressOnlyInternetGatewayRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ceoigrsClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
+-- * 'ceoigrsClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
 --
--- * 'ceoigrsEgressOnlyInternetGateway' - Information about the egress-only Internet gateway.
+-- * 'ceoigrsEgressOnlyInternetGateway' - Information about the egress-only internet gateway.
 --
 -- * 'ceoigrsResponseStatus' - -- | The response status code.
 createEgressOnlyInternetGatewayResponse
@@ -147,11 +147,11 @@ createEgressOnlyInternetGatewayResponse pResponseStatus_ =
     }
 
 
--- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
+-- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
 ceoigrsClientToken :: Lens' CreateEgressOnlyInternetGatewayResponse (Maybe Text)
 ceoigrsClientToken = lens _ceoigrsClientToken (\ s a -> s{_ceoigrsClientToken = a})
 
--- | Information about the egress-only Internet gateway.
+-- | Information about the egress-only internet gateway.
 ceoigrsEgressOnlyInternetGateway :: Lens' CreateEgressOnlyInternetGatewayResponse (Maybe EgressOnlyInternetGateway)
 ceoigrsEgressOnlyInternetGateway = lens _ceoigrsEgressOnlyInternetGateway (\ s a -> s{_ceoigrsEgressOnlyInternetGateway = a})
 

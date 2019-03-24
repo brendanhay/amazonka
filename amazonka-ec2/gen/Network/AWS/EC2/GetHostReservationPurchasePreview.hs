@@ -61,7 +61,7 @@ data GetHostReservationPurchasePreview = GetHostReservationPurchasePreview'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ghrppHostIdSet' - The ID/s of the Dedicated Host/s that the reservation will be associated with.
+-- * 'ghrppHostIdSet' - The IDs of the Dedicated Hosts with which the reservation is associated.
 --
 -- * 'ghrppOfferingId' - The offering ID of the reservation.
 getHostReservationPurchasePreview
@@ -72,7 +72,7 @@ getHostReservationPurchasePreview pOfferingId_ =
     {_ghrppHostIdSet = mempty, _ghrppOfferingId = pOfferingId_}
 
 
--- | The ID/s of the Dedicated Host/s that the reservation will be associated with.
+-- | The IDs of the Dedicated Hosts with which the reservation is associated.
 ghrppHostIdSet :: Lens' GetHostReservationPurchasePreview [Text]
 ghrppHostIdSet = lens _ghrppHostIdSet (\ s a -> s{_ghrppHostIdSet = a}) . _Coerce
 
@@ -140,7 +140,7 @@ data GetHostReservationPurchasePreviewResponse = GetHostReservationPurchasePrevi
 --
 -- * 'ghrpprsTotalUpfrontPrice' - The potential total upfront price. This is billed immediately.
 --
--- * 'ghrpprsPurchase' - The purchase information of the Dedicated Host Reservation and the Dedicated Hosts associated with it.
+-- * 'ghrpprsPurchase' - The purchase information of the Dedicated Host reservation and the Dedicated Hosts associated with it.
 --
 -- * 'ghrpprsResponseStatus' - -- | The response status code.
 getHostReservationPurchasePreviewResponse
@@ -168,7 +168,7 @@ ghrpprsTotalHourlyPrice = lens _ghrpprsTotalHourlyPrice (\ s a -> s{_ghrpprsTota
 ghrpprsTotalUpfrontPrice :: Lens' GetHostReservationPurchasePreviewResponse (Maybe Text)
 ghrpprsTotalUpfrontPrice = lens _ghrpprsTotalUpfrontPrice (\ s a -> s{_ghrpprsTotalUpfrontPrice = a})
 
--- | The purchase information of the Dedicated Host Reservation and the Dedicated Hosts associated with it.
+-- | The purchase information of the Dedicated Host reservation and the Dedicated Hosts associated with it.
 ghrpprsPurchase :: Lens' GetHostReservationPurchasePreviewResponse [Purchase]
 ghrpprsPurchase = lens _ghrpprsPurchase (\ s a -> s{_ghrpprsPurchase = a}) . _Default . _Coerce
 

@@ -21,6 +21,8 @@
 -- Displays details about an import virtual machine or import snapshot tasks that are already created.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeImportImageTasks
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.EC2.DescribeImportImageTasks
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -107,6 +110,13 @@ diitDryRun = lens _diitDryRun (\ s a -> s{_diitDryRun = a})
 -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 diitMaxResults :: Lens' DescribeImportImageTasks (Maybe Int)
 diitMaxResults = lens _diitMaxResults (\ s a -> s{_diitMaxResults = a})
+
+instance AWSPager DescribeImportImageTasks where
+        page rq rs
+          | stop (rs ^. diitrsNextToken) = Nothing
+          | stop (rs ^. diitrsImportImageTasks) = Nothing
+          | otherwise =
+            Just $ rq & diitNextToken .~ rs ^. diitrsNextToken
 
 instance AWSRequest DescribeImportImageTasks where
         type Rs DescribeImportImageTasks =

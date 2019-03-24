@@ -23,7 +23,7 @@
 --
 -- After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.
 --
--- For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets> in the /Amazon Virtual Private Cloud User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets> in the /Amazon Virtual Private Cloud User Guide/ .
 --
 module Network.AWS.EC2.AssociateDHCPOptions
     (
@@ -47,11 +47,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for AssociateDhcpOptions.
---
---
---
--- /See:/ 'associateDHCPOptions' smart constructor.
+-- | /See:/ 'associateDHCPOptions' smart constructor.
 data AssociateDHCPOptions = AssociateDHCPOptions'
   { _adoDryRun        :: !(Maybe Bool)
   , _adoDHCPOptionsId :: !Text

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the Elastic GPUs associated with your instances. For more information about Elastic GPUs, see <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html Amazon EC2 Elastic GPUs> .
+-- Describes the Elastic Graphics accelerator associated with your instances. For more information about Elastic Graphics, see <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html Amazon Elastic Graphics> .
 --
 --
 module Network.AWS.EC2.DescribeElasticGpus
@@ -64,7 +64,7 @@ data DescribeElasticGpus = DescribeElasticGpus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'degFilters' - One or more filters.     * @availability-zone@ - The Availability Zone in which the Elastic GPU resides.     * @elastic-gpu-health@ - The status of the Elastic GPU (@OK@ | @IMPAIRED@ ).     * @elastic-gpu-state@ - The state of the Elastic GPU (@ATTACHED@ ).     * @elastic-gpu-type@ - The type of Elastic GPU; for example, @eg1.medium@ .     * @instance-id@ - The ID of the instance to which the Elastic GPU is associated.
+-- * 'degFilters' - One or more filters.     * @availability-zone@ - The Availability Zone in which the Elastic Graphics accelerator resides.     * @elastic-gpu-health@ - The status of the Elastic Graphics accelerator (@OK@ | @IMPAIRED@ ).     * @elastic-gpu-state@ - The state of the Elastic Graphics accelerator (@ATTACHED@ ).     * @elastic-gpu-type@ - The type of Elastic Graphics accelerator; for example, @eg1.medium@ .     * @instance-id@ - The ID of the instance to which the Elastic Graphics accelerator is associated.
 --
 -- * 'degNextToken' - The token to request the next page of results.
 --
@@ -72,7 +72,7 @@ data DescribeElasticGpus = DescribeElasticGpus'
 --
 -- * 'degMaxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000.
 --
--- * 'degElasticGpuIds' - One or more Elastic GPU IDs.
+-- * 'degElasticGpuIds' - One or more Elastic Graphics accelerator IDs.
 describeElasticGpus
     :: DescribeElasticGpus
 describeElasticGpus =
@@ -85,7 +85,7 @@ describeElasticGpus =
     }
 
 
--- | One or more filters.     * @availability-zone@ - The Availability Zone in which the Elastic GPU resides.     * @elastic-gpu-health@ - The status of the Elastic GPU (@OK@ | @IMPAIRED@ ).     * @elastic-gpu-state@ - The state of the Elastic GPU (@ATTACHED@ ).     * @elastic-gpu-type@ - The type of Elastic GPU; for example, @eg1.medium@ .     * @instance-id@ - The ID of the instance to which the Elastic GPU is associated.
+-- | One or more filters.     * @availability-zone@ - The Availability Zone in which the Elastic Graphics accelerator resides.     * @elastic-gpu-health@ - The status of the Elastic Graphics accelerator (@OK@ | @IMPAIRED@ ).     * @elastic-gpu-state@ - The state of the Elastic Graphics accelerator (@ATTACHED@ ).     * @elastic-gpu-type@ - The type of Elastic Graphics accelerator; for example, @eg1.medium@ .     * @instance-id@ - The ID of the instance to which the Elastic Graphics accelerator is associated.
 degFilters :: Lens' DescribeElasticGpus [Filter]
 degFilters = lens _degFilters (\ s a -> s{_degFilters = a}) . _Default . _Coerce
 
@@ -101,7 +101,7 @@ degDryRun = lens _degDryRun (\ s a -> s{_degDryRun = a})
 degMaxResults :: Lens' DescribeElasticGpus (Maybe Int)
 degMaxResults = lens _degMaxResults (\ s a -> s{_degMaxResults = a})
 
--- | One or more Elastic GPU IDs.
+-- | One or more Elastic Graphics accelerator IDs.
 degElasticGpuIds :: Lens' DescribeElasticGpus [Text]
 degElasticGpuIds = lens _degElasticGpuIds (\ s a -> s{_degElasticGpuIds = a}) . _Default . _Coerce
 
@@ -153,7 +153,7 @@ data DescribeElasticGpusResponse = DescribeElasticGpusResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'degrsElasticGpuSet' - Information about the Elastic GPUs.
+-- * 'degrsElasticGpuSet' - Information about the Elastic Graphics accelerators.
 --
 -- * 'degrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
@@ -172,7 +172,7 @@ describeElasticGpusResponse pResponseStatus_ =
     }
 
 
--- | Information about the Elastic GPUs.
+-- | Information about the Elastic Graphics accelerators.
 degrsElasticGpuSet :: Lens' DescribeElasticGpusResponse [ElasticGpus]
 degrsElasticGpuSet = lens _degrsElasticGpuSet (\ s a -> s{_degrsElasticGpuSet = a}) . _Default . _Coerce
 

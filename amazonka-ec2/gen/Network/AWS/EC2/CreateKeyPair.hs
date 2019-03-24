@@ -25,7 +25,7 @@
 --
 -- The key pair returned to you is available only in the region in which you create it. If you prefer, you can create your own key pair using a third-party tool and upload it to any region using 'ImportKeyPair' .
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 module Network.AWS.EC2.CreateKeyPair
     (
@@ -53,11 +53,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for CreateKeyPair.
---
---
---
--- /See:/ 'createKeyPair' smart constructor.
+-- | /See:/ 'createKeyPair' smart constructor.
 data CreateKeyPair = CreateKeyPair'
   { _ckpDryRun  :: !(Maybe Bool)
   , _ckpKeyName :: !Text

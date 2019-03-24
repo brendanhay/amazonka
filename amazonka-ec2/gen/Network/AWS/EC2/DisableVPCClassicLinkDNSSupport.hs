@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to public IP addresses when addressed between a linked EC2-Classic instance and instances in the VPC to which it's linked. For more information about ClassicLink, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to public IP addresses when addressed between a linked EC2-Classic instance and instances in the VPC to which it's linked. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 --
 module Network.AWS.EC2.DisableVPCClassicLinkDNSSupport
@@ -44,11 +44,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DisableVpcClassicLinkDnsSupport.
---
---
---
--- /See:/ 'disableVPCClassicLinkDNSSupport' smart constructor.
+-- | /See:/ 'disableVPCClassicLinkDNSSupport' smart constructor.
 newtype DisableVPCClassicLinkDNSSupport = DisableVPCClassicLinkDNSSupport'
   { _dvcldsVPCId :: Maybe Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -101,11 +97,7 @@ instance ToQuery DisableVPCClassicLinkDNSSupport
                "Version" =: ("2016-11-15" :: ByteString),
                "VpcId" =: _dvcldsVPCId]
 
--- | Contains the output of DisableVpcClassicLinkDnsSupport.
---
---
---
--- /See:/ 'disableVPCClassicLinkDNSSupportResponse' smart constructor.
+-- | /See:/ 'disableVPCClassicLinkDNSSupportResponse' smart constructor.
 data DisableVPCClassicLinkDNSSupportResponse = DisableVPCClassicLinkDNSSupportResponse'
   { _dvcldsrsReturn         :: !(Maybe Bool)
   , _dvcldsrsResponseStatus :: !Int

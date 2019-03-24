@@ -62,7 +62,7 @@ data CreateLaunchTemplate = CreateLaunchTemplate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cltClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- * 'cltClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> . Constraint: Maximum 128 ASCII characters.
 --
 -- * 'cltVersionDescription' - A description for the first version of the launch template.
 --
@@ -85,7 +85,7 @@ createLaunchTemplate pLaunchTemplateName_ pLaunchTemplateData_ =
     }
 
 
--- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> . Constraint: Maximum 128 ASCII characters.
 cltClientToken :: Lens' CreateLaunchTemplate (Maybe Text)
 cltClientToken = lens _cltClientToken (\ s a -> s{_cltClientToken = a})
 

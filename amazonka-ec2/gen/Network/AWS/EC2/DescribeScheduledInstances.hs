@@ -21,6 +21,8 @@
 -- Describes one or more of your Scheduled Instances.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeScheduledInstances
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.EC2.DescribeScheduledInstances
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -116,6 +119,13 @@ dsiDryRun = lens _dsiDryRun (\ s a -> s{_dsiDryRun = a})
 -- | The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 100. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 dsiMaxResults :: Lens' DescribeScheduledInstances (Maybe Int)
 dsiMaxResults = lens _dsiMaxResults (\ s a -> s{_dsiMaxResults = a})
+
+instance AWSPager DescribeScheduledInstances where
+        page rq rs
+          | stop (rs ^. dsirsNextToken) = Nothing
+          | stop (rs ^. dsirsScheduledInstanceSet) = Nothing
+          | otherwise =
+            Just $ rq & dsiNextToken .~ rs ^. dsirsNextToken
 
 instance AWSRequest DescribeScheduledInstances where
         type Rs DescribeScheduledInstances =

@@ -21,7 +21,7 @@
 -- Describes one or more of the Availability Zones that are available to you. The results include zones only for the region you're currently using. If there is an event impacting an Availability Zone, you can use this request to view the state and any provided message for that Availability Zone.
 --
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html Regions and Availability Zones> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html Regions and Availability Zones> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 module Network.AWS.EC2.DescribeAvailabilityZones
     (
@@ -30,6 +30,7 @@ module Network.AWS.EC2.DescribeAvailabilityZones
     , DescribeAvailabilityZones
     -- * Request Lenses
     , dazZoneNames
+    , dazZoneIds
     , dazFilters
     , dazDryRun
 
@@ -48,13 +49,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for DescribeAvailabilityZones.
---
---
---
--- /See:/ 'describeAvailabilityZones' smart constructor.
+-- | /See:/ 'describeAvailabilityZones' smart constructor.
 data DescribeAvailabilityZones = DescribeAvailabilityZones'
   { _dazZoneNames :: !(Maybe [Text])
+  , _dazZoneIds   :: !(Maybe [Text])
   , _dazFilters   :: !(Maybe [Filter])
   , _dazDryRun    :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -66,21 +64,31 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones'
 --
 -- * 'dazZoneNames' - The names of one or more Availability Zones.
 --
--- * 'dazFilters' - One or more filters.     * @message@ - Information about the Availability Zone.     * @region-name@ - The name of the region for the Availability Zone (for example, @us-east-1@ ).     * @state@ - The state of the Availability Zone (@available@ | @information@ | @impaired@ | @unavailable@ ).     * @zone-name@ - The name of the Availability Zone (for example, @us-east-1a@ ).
+-- * 'dazZoneIds' - The IDs of one or more Availability Zones.
+--
+-- * 'dazFilters' - One or more filters.     * @message@ - Information about the Availability Zone.     * @region-name@ - The name of the region for the Availability Zone (for example, @us-east-1@ ).     * @state@ - The state of the Availability Zone (@available@ | @information@ | @impaired@ | @unavailable@ ).     * @zone-id@ - The ID of the Availability Zone (for example, @use1-az1@ ).     * @zone-name@ - The name of the Availability Zone (for example, @us-east-1a@ ).
 --
 -- * 'dazDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 describeAvailabilityZones
     :: DescribeAvailabilityZones
 describeAvailabilityZones =
   DescribeAvailabilityZones'
-    {_dazZoneNames = Nothing, _dazFilters = Nothing, _dazDryRun = Nothing}
+    { _dazZoneNames = Nothing
+    , _dazZoneIds = Nothing
+    , _dazFilters = Nothing
+    , _dazDryRun = Nothing
+    }
 
 
 -- | The names of one or more Availability Zones.
 dazZoneNames :: Lens' DescribeAvailabilityZones [Text]
 dazZoneNames = lens _dazZoneNames (\ s a -> s{_dazZoneNames = a}) . _Default . _Coerce
 
--- | One or more filters.     * @message@ - Information about the Availability Zone.     * @region-name@ - The name of the region for the Availability Zone (for example, @us-east-1@ ).     * @state@ - The state of the Availability Zone (@available@ | @information@ | @impaired@ | @unavailable@ ).     * @zone-name@ - The name of the Availability Zone (for example, @us-east-1a@ ).
+-- | The IDs of one or more Availability Zones.
+dazZoneIds :: Lens' DescribeAvailabilityZones [Text]
+dazZoneIds = lens _dazZoneIds (\ s a -> s{_dazZoneIds = a}) . _Default . _Coerce
+
+-- | One or more filters.     * @message@ - Information about the Availability Zone.     * @region-name@ - The name of the region for the Availability Zone (for example, @us-east-1@ ).     * @state@ - The state of the Availability Zone (@available@ | @information@ | @impaired@ | @unavailable@ ).     * @zone-id@ - The ID of the Availability Zone (for example, @use1-az1@ ).     * @zone-name@ - The name of the Availability Zone (for example, @us-east-1a@ ).
 dazFilters :: Lens' DescribeAvailabilityZones [Filter]
 dazFilters = lens _dazFilters (\ s a -> s{_dazFilters = a}) . _Default . _Coerce
 
@@ -117,14 +125,11 @@ instance ToQuery DescribeAvailabilityZones where
                  ("DescribeAvailabilityZones" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
                toQuery (toQueryList "ZoneName" <$> _dazZoneNames),
+               toQuery (toQueryList "ZoneId" <$> _dazZoneIds),
                toQuery (toQueryList "Filter" <$> _dazFilters),
                "DryRun" =: _dazDryRun]
 
--- | Contains the output of DescribeAvailabiltyZones.
---
---
---
--- /See:/ 'describeAvailabilityZonesResponse' smart constructor.
+-- | /See:/ 'describeAvailabilityZonesResponse' smart constructor.
 data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'
   { _dazrsAvailabilityZones :: !(Maybe [AvailabilityZone])
   , _dazrsResponseStatus    :: !Int

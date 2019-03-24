@@ -21,7 +21,7 @@
 -- Exports a running or stopped instance to an S3 bucket.
 --
 --
--- For information about the supported operating systems, image formats, and known limitations for the types of instances you can export, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html Exporting an Instance as a VM Using VM Import/Export> in the /VM Import\/Export User Guide/ .
+-- For information about the supported operating systems, image formats, and known limitations for the types of instances you can export, see <https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html Exporting an Instance as a VM Using VM Import/Export> in the /VM Import\/Export User Guide/ .
 --
 module Network.AWS.EC2.CreateInstanceExportTask
     (

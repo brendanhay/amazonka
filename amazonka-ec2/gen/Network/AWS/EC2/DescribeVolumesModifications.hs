@@ -23,8 +23,10 @@
 --
 -- Current-generation EBS volumes support modification of attributes including type, size, and (for @io1@ volumes) IOPS provisioning while either attached to or detached from an instance. Following an action from the API or the console to modify a volume, the status of the modification may be @modifying@ , @optimizing@ , @completed@ , or @failed@ . If a volume has never been modified, then certain elements of the returned @VolumeModification@ objects are null.
 --
--- You can also use CloudWatch Events to check the status of a modification to an EBS volume. For information about CloudWatch Events, see the <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ Amazon CloudWatch Events User Guide> . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods Monitoring Volume Modifications"> .
+-- You can also use CloudWatch Events to check the status of a modification to an EBS volume. For information about CloudWatch Events, see the <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ Amazon CloudWatch Events User Guide> . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods Monitoring Volume Modifications"> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeVolumesModifications
     (
     -- * Creating a Request
@@ -49,6 +51,7 @@ module Network.AWS.EC2.DescribeVolumesModifications
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -107,6 +110,13 @@ dvmDryRun = lens _dvmDryRun (\ s a -> s{_dvmDryRun = a})
 -- | The maximum number of results (up to a limit of 500) to be returned in a paginated request.
 dvmMaxResults :: Lens' DescribeVolumesModifications (Maybe Int)
 dvmMaxResults = lens _dvmMaxResults (\ s a -> s{_dvmMaxResults = a})
+
+instance AWSPager DescribeVolumesModifications where
+        page rq rs
+          | stop (rs ^. dvmrsNextToken) = Nothing
+          | stop (rs ^. dvmrsVolumesModifications) = Nothing
+          | otherwise =
+            Just $ rq & dvmNextToken .~ rs ^. dvmrsNextToken
 
 instance AWSRequest DescribeVolumesModifications
          where

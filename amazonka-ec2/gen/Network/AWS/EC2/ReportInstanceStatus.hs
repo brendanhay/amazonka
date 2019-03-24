@@ -49,11 +49,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for ReportInstanceStatus.
---
---
---
--- /See:/ 'reportInstanceStatus' smart constructor.
+-- | /See:/ 'reportInstanceStatus' smart constructor.
 data ReportInstanceStatus = ReportInstanceStatus'
   { _rissStartTime   :: !(Maybe ISO8601)
   , _rissEndTime     :: !(Maybe ISO8601)

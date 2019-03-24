@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels one or more Spot Instance requests. Spot Instances are instances that Amazon EC2 starts on your behalf when the maximum price that you specify exceeds the current Spot price. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- Cancels one or more Spot Instance requests.
 --
 --
 -- /Important:/ Canceling a Spot Instance request does not terminate running Spot Instances associated with the request.

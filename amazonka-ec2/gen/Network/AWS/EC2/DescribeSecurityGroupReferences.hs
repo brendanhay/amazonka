@@ -56,7 +56,7 @@ data DescribeSecurityGroupReferences = DescribeSecurityGroupReferences'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsgrDryRun' - Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
+-- * 'dsgrDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- * 'dsgrGroupId' - One or more security group IDs in your account.
 describeSecurityGroupReferences
@@ -66,7 +66,7 @@ describeSecurityGroupReferences =
     {_dsgrDryRun = Nothing, _dsgrGroupId = mempty}
 
 
--- | Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsgrDryRun :: Lens' DescribeSecurityGroupReferences (Maybe Bool)
 dsgrDryRun = lens _dsgrDryRun (\ s a -> s{_dsgrDryRun = a})
 

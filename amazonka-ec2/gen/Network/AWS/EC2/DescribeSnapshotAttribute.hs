@@ -21,7 +21,7 @@
 -- Describes the specified attribute of the specified snapshot. You can specify only one attribute at a time.
 --
 --
--- For more information about EBS snapshots, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- For more information about EBS snapshots, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 module Network.AWS.EC2.DescribeSnapshotAttribute
     (
@@ -147,9 +147,9 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsarsCreateVolumePermissions' - A list of permissions for creating volumes from the snapshot.
+-- * 'dsarsCreateVolumePermissions' - The users and groups that have the permissions for creating volumes from the snapshot.
 --
--- * 'dsarsProductCodes' - A list of product codes.
+-- * 'dsarsProductCodes' - The product codes.
 --
 -- * 'dsarsSnapshotId' - The ID of the EBS snapshot.
 --
@@ -166,11 +166,11 @@ describeSnapshotAttributeResponse pResponseStatus_ =
     }
 
 
--- | A list of permissions for creating volumes from the snapshot.
+-- | The users and groups that have the permissions for creating volumes from the snapshot.
 dsarsCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
 dsarsCreateVolumePermissions = lens _dsarsCreateVolumePermissions (\ s a -> s{_dsarsCreateVolumePermissions = a}) . _Default . _Coerce
 
--- | A list of product codes.
+-- | The product codes.
 dsarsProductCodes :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
 dsarsProductCodes = lens _dsarsProductCodes (\ s a -> s{_dsarsProductCodes = a}) . _Default . _Coerce
 

@@ -70,7 +70,7 @@ data CreateLaunchTemplateVersion = CreateLaunchTemplateVersion'
 --
 -- * 'cltvLaunchTemplateName' - The name of the launch template. You must specify either the launch template ID or launch template name in the request.
 --
--- * 'cltvClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- * 'cltvClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> . Constraint: Maximum 128 ASCII characters.
 --
 -- * 'cltvLaunchTemplateId' - The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
 --
@@ -100,7 +100,7 @@ createLaunchTemplateVersion pLaunchTemplateData_ =
 cltvLaunchTemplateName :: Lens' CreateLaunchTemplateVersion (Maybe Text)
 cltvLaunchTemplateName = lens _cltvLaunchTemplateName (\ s a -> s{_cltvLaunchTemplateName = a})
 
--- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> . Constraint: Maximum 128 ASCII characters.
 cltvClientToken :: Lens' CreateLaunchTemplateVersion (Maybe Text)
 cltvClientToken = lens _cltvClientToken (\ s a -> s{_cltvClientToken = a})
 

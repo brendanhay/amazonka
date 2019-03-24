@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled, AWS will place instances that you launch with a tenancy of @host@ , but without targeting a specific host ID, onto any available Dedicated Host in your account which has auto-placement enabled. When auto-placement is disabled, you need to provide a host ID if you want the instance to launch onto a specific host. If no host ID is provided, the instance will be launched onto a suitable host which has auto-placement enabled.
+-- Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled, any instances that you launch with a tenancy of @host@ but without a specific host ID are placed onto any available Dedicated Host in your account that has auto-placement enabled. When auto-placement is disabled, you need to provide a host ID to have the instance launch onto a specific host. If no host ID is provided, the instance is launched onto a suitable host with auto-placement enabled.
 --
 --
 module Network.AWS.EC2.ModifyHosts
@@ -46,11 +46,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Contains the parameters for ModifyHosts.
---
---
---
--- /See:/ 'modifyHosts' smart constructor.
+-- | /See:/ 'modifyHosts' smart constructor.
 data ModifyHosts = ModifyHosts'
   { _mhAutoPlacement :: !AutoPlacement
   , _mhHostIds       :: ![Text]
@@ -63,7 +59,7 @@ data ModifyHosts = ModifyHosts'
 --
 -- * 'mhAutoPlacement' - Specify whether to enable or disable auto-placement.
 --
--- * 'mhHostIds' - The host IDs of the Dedicated Hosts you want to modify.
+-- * 'mhHostIds' - The IDs of the Dedicated Hosts to modify.
 modifyHosts
     :: AutoPlacement -- ^ 'mhAutoPlacement'
     -> ModifyHosts
@@ -75,7 +71,7 @@ modifyHosts pAutoPlacement_ =
 mhAutoPlacement :: Lens' ModifyHosts AutoPlacement
 mhAutoPlacement = lens _mhAutoPlacement (\ s a -> s{_mhAutoPlacement = a})
 
--- | The host IDs of the Dedicated Hosts you want to modify.
+-- | The IDs of the Dedicated Hosts to modify.
 mhHostIds :: Lens' ModifyHosts [Text]
 mhHostIds = lens _mhHostIds (\ s a -> s{_mhHostIds = a}) . _Coerce
 
@@ -111,11 +107,7 @@ instance ToQuery ModifyHosts where
                "AutoPlacement" =: _mhAutoPlacement,
                toQueryList "HostId" _mhHostIds]
 
--- | Contains the output of ModifyHosts.
---
---
---
--- /See:/ 'modifyHostsResponse' smart constructor.
+-- | /See:/ 'modifyHostsResponse' smart constructor.
 data ModifyHostsResponse = ModifyHostsResponse'
   { _mhrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
   , _mhrsSuccessful     :: !(Maybe [Text])

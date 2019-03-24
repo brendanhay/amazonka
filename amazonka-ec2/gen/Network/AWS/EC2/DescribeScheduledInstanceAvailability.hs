@@ -25,6 +25,8 @@
 --
 -- After you find a schedule that meets your needs, call 'PurchaseScheduledInstances' to purchase Scheduled Instances with that schedule.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeScheduledInstanceAvailability
     (
     -- * Creating a Request
@@ -52,6 +54,7 @@ module Network.AWS.EC2.DescribeScheduledInstanceAvailability
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -140,6 +143,16 @@ dsiaFirstSlotStartTimeRange = lens _dsiaFirstSlotStartTimeRange (\ s a -> s{_dsi
 -- | The schedule recurrence.
 dsiaRecurrence :: Lens' DescribeScheduledInstanceAvailability ScheduledInstanceRecurrenceRequest
 dsiaRecurrence = lens _dsiaRecurrence (\ s a -> s{_dsiaRecurrence = a})
+
+instance AWSPager
+           DescribeScheduledInstanceAvailability
+         where
+        page rq rs
+          | stop (rs ^. dsiarsNextToken) = Nothing
+          | stop (rs ^. dsiarsScheduledInstanceAvailabilitySet)
+            = Nothing
+          | otherwise =
+            Just $ rq & dsiaNextToken .~ rs ^. dsiarsNextToken
 
 instance AWSRequest
            DescribeScheduledInstanceAvailability

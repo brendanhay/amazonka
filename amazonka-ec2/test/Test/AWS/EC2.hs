@@ -14,13 +14,13 @@ module Test.AWS.EC2
     , fixtures
     ) where
 
-import           Data.Time
-import           Network.AWS.EC2
-import           Network.AWS.Lens    ((&), (.~), (?~))
-import           Network.AWS.Prelude
-import           Test.AWS.Gen.EC2
-import           Test.AWS.TH
-import           Test.Tasty
+import Data.Time
+import Network.AWS.EC2
+import Network.AWS.Lens    ((&), (.~), (?~))
+import Network.AWS.Prelude
+import Test.AWS.Gen.EC2
+import Test.AWS.TH
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

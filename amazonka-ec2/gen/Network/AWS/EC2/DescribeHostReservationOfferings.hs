@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the Dedicated Host Reservations that are available to purchase.
+-- Describes the Dedicated Host reservations that are available to purchase.
 --
 --
--- The results describe all the Dedicated Host Reservation offerings, including offerings that may not match the instance family and region of your Dedicated Hosts. When purchasing an offering, ensure that the the instance family and region of the offering matches that of the Dedicated Host/s it will be associated with. For an overview of supported instance types, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html Dedicated Hosts Overview> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- The results describe all the Dedicated Host reservation offerings, including offerings that may not match the instance family and Region of your Dedicated Hosts. When purchasing an offering, ensure that the instance family and Region of the offering matches that of the Dedicated Hosts with which it is to be associated. For more information about supported instance types, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html Dedicated Hosts Overview> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeHostReservationOfferings
     (
     -- * Creating a Request
@@ -48,6 +50,7 @@ module Network.AWS.EC2.DescribeHostReservationOfferings
 import Network.AWS.EC2.Types
 import Network.AWS.EC2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -59,7 +62,7 @@ data DescribeHostReservationOfferings = DescribeHostReservationOfferings'
   , _dhroMinDuration :: !(Maybe Int)
   , _dhroOfferingId  :: !(Maybe Text)
   , _dhroFilter      :: !(Maybe [Filter])
-  , _dhroMaxResults  :: !(Maybe Int)
+  , _dhroMaxResults  :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -67,7 +70,7 @@ data DescribeHostReservationOfferings = DescribeHostReservationOfferings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhroMaxDuration' - This is the maximum duration of the reservation you'd like to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 94608000 for three years.
+-- * 'dhroMaxDuration' - This is the maximum duration of the reservation to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 94608000 for three years.
 --
 -- * 'dhroNextToken' - The token to use to retrieve the next page of results.
 --
@@ -75,9 +78,9 @@ data DescribeHostReservationOfferings = DescribeHostReservationOfferings'
 --
 -- * 'dhroOfferingId' - The ID of the reservation offering.
 --
--- * 'dhroFilter' - One or more filters.     * @instance-family@ - The instance family of the offering (e.g., @m4@ ).     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).
+-- * 'dhroFilter' - One or more filters.     * @instance-family@ - The instance family of the offering (for example, @m4@ ).     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).
 --
--- * 'dhroMaxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500; if @maxResults@ is given a larger value than 500, you will receive an error.
+-- * 'dhroMaxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error.
 describeHostReservationOfferings
     :: DescribeHostReservationOfferings
 describeHostReservationOfferings =
@@ -91,7 +94,7 @@ describeHostReservationOfferings =
     }
 
 
--- | This is the maximum duration of the reservation you'd like to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 94608000 for three years.
+-- | This is the maximum duration of the reservation to purchase, specified in seconds. Reservations are available in one-year and three-year terms. The number of seconds specified must be the number of seconds in a year (365x24x60x60) times one of the supported durations (1 or 3). For example, specify 94608000 for three years.
 dhroMaxDuration :: Lens' DescribeHostReservationOfferings (Maybe Int)
 dhroMaxDuration = lens _dhroMaxDuration (\ s a -> s{_dhroMaxDuration = a})
 
@@ -107,13 +110,21 @@ dhroMinDuration = lens _dhroMinDuration (\ s a -> s{_dhroMinDuration = a})
 dhroOfferingId :: Lens' DescribeHostReservationOfferings (Maybe Text)
 dhroOfferingId = lens _dhroOfferingId (\ s a -> s{_dhroOfferingId = a})
 
--- | One or more filters.     * @instance-family@ - The instance family of the offering (e.g., @m4@ ).     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).
+-- | One or more filters.     * @instance-family@ - The instance family of the offering (for example, @m4@ ).     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).
 dhroFilter :: Lens' DescribeHostReservationOfferings [Filter]
 dhroFilter = lens _dhroFilter (\ s a -> s{_dhroFilter = a}) . _Default . _Coerce
 
--- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500; if @maxResults@ is given a larger value than 500, you will receive an error.
-dhroMaxResults :: Lens' DescribeHostReservationOfferings (Maybe Int)
-dhroMaxResults = lens _dhroMaxResults (\ s a -> s{_dhroMaxResults = a})
+-- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error.
+dhroMaxResults :: Lens' DescribeHostReservationOfferings (Maybe Natural)
+dhroMaxResults = lens _dhroMaxResults (\ s a -> s{_dhroMaxResults = a}) . mapping _Nat
+
+instance AWSPager DescribeHostReservationOfferings
+         where
+        page rq rs
+          | stop (rs ^. dhrorsNextToken) = Nothing
+          | stop (rs ^. dhrorsOfferingSet) = Nothing
+          | otherwise =
+            Just $ rq & dhroNextToken .~ rs ^. dhrorsNextToken
 
 instance AWSRequest DescribeHostReservationOfferings
          where

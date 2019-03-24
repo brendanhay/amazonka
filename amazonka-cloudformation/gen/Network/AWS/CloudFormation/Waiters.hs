@@ -36,27 +36,27 @@ stackCreateComplete =
         [ matchAll
             "CREATE_COMPLETE"
             AcceptSuccess
-            (folding (concatOf dsrsStacks) . sStackStatus . to toTextCI)
+            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI)
         , matchAny
             "CREATE_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . sStackStatus . to toTextCI)
+            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI)
         , matchAny
             "DELETE_COMPLETE"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . sStackStatus . to toTextCI)
+            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI)
         , matchAny
             "DELETE_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . sStackStatus . to toTextCI)
+            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI)
         , matchAny
             "ROLLBACK_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . sStackStatus . to toTextCI)
+            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI)
         , matchAny
             "ROLLBACK_COMPLETE"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . sStackStatus . to toTextCI)
+            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI)
         , matchError "ValidationError" AcceptFailure
         ]
     }
@@ -73,19 +73,19 @@ stackUpdateComplete =
         [ matchAll
             "UPDATE_COMPLETE"
             AcceptSuccess
-            (folding (concatOf dsrsStacks) . sStackStatus . to toTextCI)
+            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI)
         , matchAny
             "UPDATE_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . sStackStatus . to toTextCI)
+            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI)
         , matchAny
             "UPDATE_ROLLBACK_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . sStackStatus . to toTextCI)
+            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI)
         , matchAny
             "UPDATE_ROLLBACK_COMPLETE"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . sStackStatus . to toTextCI)
+            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI)
         , matchError "ValidationError" AcceptFailure
         ]
     }
@@ -116,28 +116,28 @@ stackDeleteComplete =
         [ matchAll
             "DELETE_COMPLETE"
             AcceptSuccess
-            (folding (concatOf dsrsStacks) . sStackStatus . to toTextCI)
+            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI)
         , matchError "ValidationError" AcceptSuccess
         , matchAny
             "DELETE_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . sStackStatus . to toTextCI)
+            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI)
         , matchAny
             "CREATE_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . sStackStatus . to toTextCI)
+            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI)
         , matchAny
             "ROLLBACK_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . sStackStatus . to toTextCI)
+            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI)
         , matchAny
             "UPDATE_ROLLBACK_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . sStackStatus . to toTextCI)
+            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI)
         , matchAny
             "UPDATE_ROLLBACK_IN_PROGRESS"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . sStackStatus . to toTextCI)
+            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI)
         ]
     }
 
@@ -150,8 +150,8 @@ changeSetCreateComplete =
     , _waitAttempts = 120
     , _waitDelay = 30
     , _waitAcceptors =
-        [ matchAll "CREATE_COMPLETE" AcceptSuccess (desrsStatus . to toTextCI)
-        , matchAll "FAILED" AcceptFailure (desrsStatus . to toTextCI)
+        [ matchAll "CREATE_COMPLETE" AcceptSuccess (dcscrsStatus . to toTextCI)
+        , matchAll "FAILED" AcceptFailure (dcscrsStatus . to toTextCI)
         , matchError "ValidationError" AcceptFailure
         ]
     }

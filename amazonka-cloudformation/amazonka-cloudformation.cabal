@@ -57,13 +57,17 @@ library
         , Network.AWS.CloudFormation.DeleteStackSet
         , Network.AWS.CloudFormation.DescribeAccountLimits
         , Network.AWS.CloudFormation.DescribeChangeSet
+        , Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus
         , Network.AWS.CloudFormation.DescribeStackEvents
         , Network.AWS.CloudFormation.DescribeStackInstance
         , Network.AWS.CloudFormation.DescribeStackResource
+        , Network.AWS.CloudFormation.DescribeStackResourceDrifts
         , Network.AWS.CloudFormation.DescribeStackResources
         , Network.AWS.CloudFormation.DescribeStackSet
         , Network.AWS.CloudFormation.DescribeStackSetOperation
         , Network.AWS.CloudFormation.DescribeStacks
+        , Network.AWS.CloudFormation.DetectStackDrift
+        , Network.AWS.CloudFormation.DetectStackResourceDrift
         , Network.AWS.CloudFormation.EstimateTemplateCost
         , Network.AWS.CloudFormation.ExecuteChangeSet
         , Network.AWS.CloudFormation.GetStackPolicy

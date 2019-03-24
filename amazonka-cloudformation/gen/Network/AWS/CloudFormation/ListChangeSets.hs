@@ -21,6 +21,8 @@
 -- Returns the ID and status of each active change set for a stack. For example, AWS CloudFormation lists change sets that are in the @CREATE_IN_PROGRESS@ or @CREATE_PENDING@ state.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListChangeSets
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.CloudFormation.ListChangeSets
 import Network.AWS.CloudFormation.Types
 import Network.AWS.CloudFormation.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -78,6 +81,13 @@ lcsNextToken = lens _lcsNextToken (\ s a -> s{_lcsNextToken = a})
 -- | The name or the Amazon Resource Name (ARN) of the stack for which you want to list change sets.
 lcsStackName :: Lens' ListChangeSets Text
 lcsStackName = lens _lcsStackName (\ s a -> s{_lcsStackName = a})
+
+instance AWSPager ListChangeSets where
+        page rq rs
+          | stop (rs ^. lcsrsNextToken) = Nothing
+          | stop (rs ^. lcsrsSummaries) = Nothing
+          | otherwise =
+            Just $ rq & lcsNextToken .~ rs ^. lcsrsNextToken
 
 instance AWSRequest ListChangeSets where
         type Rs ListChangeSets = ListChangeSetsResponse

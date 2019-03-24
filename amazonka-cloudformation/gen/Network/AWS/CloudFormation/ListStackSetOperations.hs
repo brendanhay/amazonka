@@ -21,6 +21,8 @@
 -- Returns summary information about operations performed on a stack set.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListStackSetOperations
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.CloudFormation.ListStackSetOperations
 import Network.AWS.CloudFormation.Types
 import Network.AWS.CloudFormation.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -86,6 +89,13 @@ lssoMaxResults = lens _lssoMaxResults (\ s a -> s{_lssoMaxResults = a}) . mappin
 -- | The name or unique ID of the stack set that you want to get operation summaries for.
 lssoStackSetName :: Lens' ListStackSetOperations Text
 lssoStackSetName = lens _lssoStackSetName (\ s a -> s{_lssoStackSetName = a})
+
+instance AWSPager ListStackSetOperations where
+        page rq rs
+          | stop (rs ^. lssorsNextToken) = Nothing
+          | stop (rs ^. lssorsSummaries) = Nothing
+          | otherwise =
+            Just $ rq & lssoNextToken .~ rs ^. lssorsNextToken
 
 instance AWSRequest ListStackSetOperations where
         type Rs ListStackSetOperations =

@@ -21,6 +21,8 @@
 -- Retrieves your account's AWS CloudFormation limits, such as the maximum number of stacks that you can create in your account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudFormation.DescribeAccountLimits
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.CloudFormation.DescribeAccountLimits
 import Network.AWS.CloudFormation.Types
 import Network.AWS.CloudFormation.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -68,6 +71,13 @@ describeAccountLimits = DescribeAccountLimits' {_dalNextToken = Nothing}
 -- | A string that identifies the next page of limits that you want to retrieve.
 dalNextToken :: Lens' DescribeAccountLimits (Maybe Text)
 dalNextToken = lens _dalNextToken (\ s a -> s{_dalNextToken = a})
+
+instance AWSPager DescribeAccountLimits where
+        page rq rs
+          | stop (rs ^. dalrsNextToken) = Nothing
+          | stop (rs ^. dalrsAccountLimits) = Nothing
+          | otherwise =
+            Just $ rq & dalNextToken .~ rs ^. dalrsNextToken
 
 instance AWSRequest DescribeAccountLimits where
         type Rs DescribeAccountLimits =

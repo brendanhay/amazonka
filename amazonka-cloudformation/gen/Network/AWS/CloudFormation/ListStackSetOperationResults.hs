@@ -21,6 +21,8 @@
 -- Returns summary information about the results of a stack set operation.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListStackSetOperationResults
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.CloudFormation.ListStackSetOperationResults
 import Network.AWS.CloudFormation.Types
 import Network.AWS.CloudFormation.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -96,6 +99,13 @@ lssorStackSetName = lens _lssorStackSetName (\ s a -> s{_lssorStackSetName = a})
 -- | The ID of the stack set operation.
 lssorOperationId :: Lens' ListStackSetOperationResults Text
 lssorOperationId = lens _lssorOperationId (\ s a -> s{_lssorOperationId = a})
+
+instance AWSPager ListStackSetOperationResults where
+        page rq rs
+          | stop (rs ^. lssorrsNextToken) = Nothing
+          | stop (rs ^. lssorrsSummaries) = Nothing
+          | otherwise =
+            Just $ rq & lssorNextToken .~ rs ^. lssorrsNextToken
 
 instance AWSRequest ListStackSetOperationResults
          where

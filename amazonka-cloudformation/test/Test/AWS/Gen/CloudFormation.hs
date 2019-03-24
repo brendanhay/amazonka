@@ -82,6 +82,9 @@ import Test.Tasty
 --         , requestCancelUpdateStack $
 --             cancelUpdateStack
 --
+--         , requestDetectStackDrift $
+--             detectStackDrift
+--
 --         , requestDescribeStackEvents $
 --             describeStackEvents
 --
@@ -93,6 +96,9 @@ import Test.Tasty
 --
 --         , requestListImports $
 --             listImports
+--
+--         , requestDescribeStackResourceDrifts $
+--             describeStackResourceDrifts
 --
 --         , requestListStacks $
 --             listStacks
@@ -127,6 +133,9 @@ import Test.Tasty
 --         , requestListExports $
 --             listExports
 --
+--         , requestDescribeStackDriftDetectionStatus $
+--             describeStackDriftDetectionStatus
+--
 --         , requestCreateStackSet $
 --             createStackSet
 --
@@ -135,6 +144,9 @@ import Test.Tasty
 --
 --         , requestGetTemplate $
 --             getTemplate
+--
+--         , requestDetectStackResourceDrift $
+--             detectStackResourceDrift
 --
 --         , requestDescribeChangeSet $
 --             describeChangeSet
@@ -208,6 +220,9 @@ import Test.Tasty
 --         , responseCancelUpdateStack $
 --             cancelUpdateStackResponse
 --
+--         , responseDetectStackDrift $
+--             detectStackDriftResponse
+--
 --         , responseDescribeStackEvents $
 --             describeStackEventsResponse
 --
@@ -219,6 +234,9 @@ import Test.Tasty
 --
 --         , responseListImports $
 --             listImportsResponse
+--
+--         , responseDescribeStackResourceDrifts $
+--             describeStackResourceDriftsResponse
 --
 --         , responseListStacks $
 --             listStacksResponse
@@ -253,6 +271,9 @@ import Test.Tasty
 --         , responseListExports $
 --             listExportsResponse
 --
+--         , responseDescribeStackDriftDetectionStatus $
+--             describeStackDriftDetectionStatusResponse
+--
 --         , responseCreateStackSet $
 --             createStackSetResponse
 --
@@ -261,6 +282,9 @@ import Test.Tasty
 --
 --         , responseGetTemplate $
 --             getTemplateResponse
+--
+--         , responseDetectStackResourceDrift $
+--             detectStackResourceDriftResponse
 --
 --         , responseDescribeChangeSet $
 --             describeChangeSetResponse
@@ -372,6 +396,11 @@ requestCancelUpdateStack = req
     "CancelUpdateStack"
     "fixture/CancelUpdateStack.yaml"
 
+requestDetectStackDrift :: DetectStackDrift -> TestTree
+requestDetectStackDrift = req
+    "DetectStackDrift"
+    "fixture/DetectStackDrift.yaml"
+
 requestDescribeStackEvents :: DescribeStackEvents -> TestTree
 requestDescribeStackEvents = req
     "DescribeStackEvents"
@@ -391,6 +420,11 @@ requestListImports :: ListImports -> TestTree
 requestListImports = req
     "ListImports"
     "fixture/ListImports.yaml"
+
+requestDescribeStackResourceDrifts :: DescribeStackResourceDrifts -> TestTree
+requestDescribeStackResourceDrifts = req
+    "DescribeStackResourceDrifts"
+    "fixture/DescribeStackResourceDrifts.yaml"
 
 requestListStacks :: ListStacks -> TestTree
 requestListStacks = req
@@ -447,6 +481,11 @@ requestListExports = req
     "ListExports"
     "fixture/ListExports.yaml"
 
+requestDescribeStackDriftDetectionStatus :: DescribeStackDriftDetectionStatus -> TestTree
+requestDescribeStackDriftDetectionStatus = req
+    "DescribeStackDriftDetectionStatus"
+    "fixture/DescribeStackDriftDetectionStatus.yaml"
+
 requestCreateStackSet :: CreateStackSet -> TestTree
 requestCreateStackSet = req
     "CreateStackSet"
@@ -461,6 +500,11 @@ requestGetTemplate :: GetTemplate -> TestTree
 requestGetTemplate = req
     "GetTemplate"
     "fixture/GetTemplate.yaml"
+
+requestDetectStackResourceDrift :: DetectStackResourceDrift -> TestTree
+requestDetectStackResourceDrift = req
+    "DetectStackResourceDrift"
+    "fixture/DetectStackResourceDrift.yaml"
 
 requestDescribeChangeSet :: DescribeChangeSet -> TestTree
 requestDescribeChangeSet = req
@@ -615,6 +659,13 @@ responseCancelUpdateStack = res
     cloudFormation
     (Proxy :: Proxy CancelUpdateStack)
 
+responseDetectStackDrift :: DetectStackDriftResponse -> TestTree
+responseDetectStackDrift = res
+    "DetectStackDriftResponse"
+    "fixture/DetectStackDriftResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy DetectStackDrift)
+
 responseDescribeStackEvents :: DescribeStackEventsResponse -> TestTree
 responseDescribeStackEvents = res
     "DescribeStackEventsResponse"
@@ -642,6 +693,13 @@ responseListImports = res
     "fixture/ListImportsResponse.proto"
     cloudFormation
     (Proxy :: Proxy ListImports)
+
+responseDescribeStackResourceDrifts :: DescribeStackResourceDriftsResponse -> TestTree
+responseDescribeStackResourceDrifts = res
+    "DescribeStackResourceDriftsResponse"
+    "fixture/DescribeStackResourceDriftsResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy DescribeStackResourceDrifts)
 
 responseListStacks :: ListStacksResponse -> TestTree
 responseListStacks = res
@@ -720,6 +778,13 @@ responseListExports = res
     cloudFormation
     (Proxy :: Proxy ListExports)
 
+responseDescribeStackDriftDetectionStatus :: DescribeStackDriftDetectionStatusResponse -> TestTree
+responseDescribeStackDriftDetectionStatus = res
+    "DescribeStackDriftDetectionStatusResponse"
+    "fixture/DescribeStackDriftDetectionStatusResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy DescribeStackDriftDetectionStatus)
+
 responseCreateStackSet :: CreateStackSetResponse -> TestTree
 responseCreateStackSet = res
     "CreateStackSetResponse"
@@ -740,6 +805,13 @@ responseGetTemplate = res
     "fixture/GetTemplateResponse.proto"
     cloudFormation
     (Proxy :: Proxy GetTemplate)
+
+responseDetectStackResourceDrift :: DetectStackResourceDriftResponse -> TestTree
+responseDetectStackResourceDrift = res
+    "DetectStackResourceDriftResponse"
+    "fixture/DetectStackResourceDriftResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy DetectStackResourceDrift)
 
 responseDescribeChangeSet :: DescribeChangeSetResponse -> TestTree
 responseDescribeChangeSet = res

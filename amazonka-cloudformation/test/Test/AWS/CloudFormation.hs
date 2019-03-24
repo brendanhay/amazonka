@@ -15,9 +15,9 @@ module Test.AWS.CloudFormation
     , fixtures
     ) where
 
-import           Network.AWS.CloudFormation
-import           Test.AWS.Gen.CloudFormation
-import           Test.Tasty
+import Network.AWS.CloudFormation
+import Test.AWS.Gen.CloudFormation
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

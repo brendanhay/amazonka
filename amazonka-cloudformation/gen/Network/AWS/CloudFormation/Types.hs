@@ -54,6 +54,9 @@ module Network.AWS.CloudFormation.Types
     -- * ChangeType
     , ChangeType (..)
 
+    -- * DifferenceType
+    , DifferenceType (..)
+
     -- * EvaluationType
     , EvaluationType (..)
 
@@ -78,8 +81,17 @@ module Network.AWS.CloudFormation.Types
     -- * ResourceStatus
     , ResourceStatus (..)
 
+    -- * StackDriftDetectionStatus
+    , StackDriftDetectionStatus (..)
+
+    -- * StackDriftStatus
+    , StackDriftStatus (..)
+
     -- * StackInstanceStatus
     , StackInstanceStatus (..)
+
+    -- * StackResourceDriftStatus
+    , StackResourceDriftStatus (..)
 
     -- * StackSetOperationAction
     , StackSetOperationAction (..)
@@ -168,6 +180,20 @@ module Network.AWS.CloudFormation.Types
     , pdNoEcho
     , pdDescription
 
+    -- * PhysicalResourceIdContextKeyValuePair
+    , PhysicalResourceIdContextKeyValuePair
+    , physicalResourceIdContextKeyValuePair
+    , prickvpKey
+    , prickvpValue
+
+    -- * PropertyDifference
+    , PropertyDifference
+    , propertyDifference
+    , pdPropertyPath
+    , pdExpectedValue
+    , pdActualValue
+    , pdDifferenceType
+
     -- * ResourceChange
     , ResourceChange
     , resourceChange
@@ -209,27 +235,40 @@ module Network.AWS.CloudFormation.Types
     -- * Stack
     , Stack
     , stack
-    , sDisableRollback
-    , sLastUpdatedTime
-    , sRootId
-    , sNotificationARNs
-    , sStackStatusReason
-    , sEnableTerminationProtection
-    , sChangeSetId
-    , sDeletionTime
-    , sOutputs
-    , sParameters
-    , sStackId
-    , sDescription
-    , sCapabilities
-    , sRollbackConfiguration
-    , sTags
-    , sTimeoutInMinutes
-    , sParentId
-    , sRoleARN
-    , sStackName
-    , sCreationTime
-    , sStackStatus
+    , staDisableRollback
+    , staLastUpdatedTime
+    , staRootId
+    , staNotificationARNs
+    , staStackStatusReason
+    , staEnableTerminationProtection
+    , staDriftInformation
+    , staChangeSetId
+    , staDeletionTime
+    , staOutputs
+    , staParameters
+    , staStackId
+    , staDescription
+    , staCapabilities
+    , staRollbackConfiguration
+    , staTags
+    , staTimeoutInMinutes
+    , staParentId
+    , staRoleARN
+    , staStackName
+    , staCreationTime
+    , staStackStatus
+
+    -- * StackDriftInformation
+    , StackDriftInformation
+    , stackDriftInformation
+    , sdiLastCheckTimestamp
+    , sdiStackDriftStatus
+
+    -- * StackDriftInformationSummary
+    , StackDriftInformationSummary
+    , stackDriftInformationSummary
+    , sdisLastCheckTimestamp
+    , sdisStackDriftStatus
 
     -- * StackEvent
     , StackEvent
@@ -272,6 +311,7 @@ module Network.AWS.CloudFormation.Types
     , stackResource
     , srPhysicalResourceId
     , srResourceStatusReason
+    , srDriftInformation
     , srStackId
     , srDescription
     , srStackName
@@ -283,22 +323,50 @@ module Network.AWS.CloudFormation.Types
     -- * StackResourceDetail
     , StackResourceDetail
     , stackResourceDetail
+    , sPhysicalResourceId
+    , sResourceStatusReason
+    , sDriftInformation
+    , sMetadata
+    , sStackId
+    , sDescription
+    , sStackName
+    , sLogicalResourceId
+    , sResourceType
+    , sLastUpdatedTimestamp
+    , sResourceStatus
+
+    -- * StackResourceDrift
+    , StackResourceDrift
+    , stackResourceDrift
+    , srdActualProperties
     , srdPhysicalResourceId
-    , srdResourceStatusReason
-    , srdMetadata
+    , srdPhysicalResourceIdContext
+    , srdPropertyDifferences
+    , srdExpectedProperties
     , srdStackId
-    , srdDescription
-    , srdStackName
     , srdLogicalResourceId
     , srdResourceType
-    , srdLastUpdatedTimestamp
-    , srdResourceStatus
+    , srdStackResourceDriftStatus
+    , srdTimestamp
+
+    -- * StackResourceDriftInformation
+    , StackResourceDriftInformation
+    , stackResourceDriftInformation
+    , srdiLastCheckTimestamp
+    , srdiStackResourceDriftStatus
+
+    -- * StackResourceDriftInformationSummary
+    , StackResourceDriftInformationSummary
+    , stackResourceDriftInformationSummary
+    , srdisLastCheckTimestamp
+    , srdisStackResourceDriftStatus
 
     -- * StackResourceSummary
     , StackResourceSummary
     , stackResourceSummary
     , srsPhysicalResourceId
     , srsResourceStatusReason
+    , srsDriftInformation
     , srsLogicalResourceId
     , srsResourceType
     , srsLastUpdatedTimestamp
@@ -317,6 +385,7 @@ module Network.AWS.CloudFormation.Types
     , ssCapabilities
     , ssTags
     , ssStackSetId
+    , ssExecutionRoleName
 
     -- * StackSetOperation
     , StackSetOperation
@@ -330,6 +399,7 @@ module Network.AWS.CloudFormation.Types
     , ssoOperationId
     , ssoRetainStacks
     , ssoStackSetId
+    , ssoExecutionRoleName
 
     -- * StackSetOperationPreferences
     , StackSetOperationPreferences
@@ -373,6 +443,7 @@ module Network.AWS.CloudFormation.Types
     , ssRootId
     , ssStackStatusReason
     , ssTemplateDescription
+    , ssDriftInformation
     , ssDeletionTime
     , ssStackId
     , ssParentId

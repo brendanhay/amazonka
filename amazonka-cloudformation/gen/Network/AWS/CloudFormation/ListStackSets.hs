@@ -21,6 +21,8 @@
 -- Returns summary information about stack sets that are associated with the user.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListStackSets
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.CloudFormation.ListStackSets
 import Network.AWS.CloudFormation.Types
 import Network.AWS.CloudFormation.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -82,6 +85,13 @@ lssNextToken = lens _lssNextToken (\ s a -> s{_lssNextToken = a})
 -- | The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
 lssMaxResults :: Lens' ListStackSets (Maybe Natural)
 lssMaxResults = lens _lssMaxResults (\ s a -> s{_lssMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListStackSets where
+        page rq rs
+          | stop (rs ^. lssrsNextToken) = Nothing
+          | stop (rs ^. lssrsSummaries) = Nothing
+          | otherwise =
+            Just $ rq & lssNextToken .~ rs ^. lssrsNextToken
 
 instance AWSRequest ListStackSets where
         type Rs ListStackSets = ListStackSetsResponse

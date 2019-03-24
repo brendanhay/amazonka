@@ -21,6 +21,8 @@
 -- Returns summary information about stack instances that are associated with the specified stack set. You can filter for stack instances that are associated with a specific AWS account name or region.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListStackInstances
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.CloudFormation.ListStackInstances
 import Network.AWS.CloudFormation.Types
 import Network.AWS.CloudFormation.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -104,6 +107,13 @@ lsiMaxResults = lens _lsiMaxResults (\ s a -> s{_lsiMaxResults = a}) . mapping _
 -- | The name or unique ID of the stack set that you want to list stack instances for.
 lsiStackSetName :: Lens' ListStackInstances Text
 lsiStackSetName = lens _lsiStackSetName (\ s a -> s{_lsiStackSetName = a})
+
+instance AWSPager ListStackInstances where
+        page rq rs
+          | stop (rs ^. lsirsNextToken) = Nothing
+          | stop (rs ^. lsirsSummaries) = Nothing
+          | otherwise =
+            Just $ rq & lsiNextToken .~ rs ^. lsirsNextToken
 
 instance AWSRequest ListStackInstances where
         type Rs ListStackInstances =

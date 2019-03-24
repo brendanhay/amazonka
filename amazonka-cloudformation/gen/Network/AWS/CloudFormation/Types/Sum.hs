@@ -50,20 +50,23 @@ instance FromXML AccountGateStatus where
     parseXML = parseXMLText "AccountGateStatus"
 
 data Capability
-  = CapabilityIAM
+  = CapabilityAutoExpand
+  | CapabilityIAM
   | CapabilityNamedIAM
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText Capability where
     parser = takeLowerText >>= \case
+        "capability_auto_expand" -> pure CapabilityAutoExpand
         "capability_iam" -> pure CapabilityIAM
         "capability_named_iam" -> pure CapabilityNamedIAM
         e -> fromTextError $ "Failure parsing Capability from value: '" <> e
-           <> "'. Accepted values: capability_iam, capability_named_iam"
+           <> "'. Accepted values: capability_auto_expand, capability_iam, capability_named_iam"
 
 instance ToText Capability where
     toText = \case
+        CapabilityAutoExpand -> "CAPABILITY_AUTO_EXPAND"
         CapabilityIAM -> "CAPABILITY_IAM"
         CapabilityNamedIAM -> "CAPABILITY_NAMED_IAM"
 
@@ -225,6 +228,36 @@ instance ToHeader     ChangeType
 
 instance FromXML ChangeType where
     parseXML = parseXMLText "ChangeType"
+
+data DifferenceType
+  = DTAdd
+  | DTNotEqual
+  | DTRemove
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DifferenceType where
+    parser = takeLowerText >>= \case
+        "add" -> pure DTAdd
+        "not_equal" -> pure DTNotEqual
+        "remove" -> pure DTRemove
+        e -> fromTextError $ "Failure parsing DifferenceType from value: '" <> e
+           <> "'. Accepted values: add, not_equal, remove"
+
+instance ToText DifferenceType where
+    toText = \case
+        DTAdd -> "ADD"
+        DTNotEqual -> "NOT_EQUAL"
+        DTRemove -> "REMOVE"
+
+instance Hashable     DifferenceType
+instance NFData       DifferenceType
+instance ToByteString DifferenceType
+instance ToQuery      DifferenceType
+instance ToHeader     DifferenceType
+
+instance FromXML DifferenceType where
+    parseXML = parseXMLText "DifferenceType"
 
 data EvaluationType
   = Dynamic
@@ -493,6 +526,69 @@ instance ToHeader     ResourceStatus
 instance FromXML ResourceStatus where
     parseXML = parseXMLText "ResourceStatus"
 
+data StackDriftDetectionStatus
+  = DetectionComplete
+  | DetectionFailed
+  | DetectionInProgress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText StackDriftDetectionStatus where
+    parser = takeLowerText >>= \case
+        "detection_complete" -> pure DetectionComplete
+        "detection_failed" -> pure DetectionFailed
+        "detection_in_progress" -> pure DetectionInProgress
+        e -> fromTextError $ "Failure parsing StackDriftDetectionStatus from value: '" <> e
+           <> "'. Accepted values: detection_complete, detection_failed, detection_in_progress"
+
+instance ToText StackDriftDetectionStatus where
+    toText = \case
+        DetectionComplete -> "DETECTION_COMPLETE"
+        DetectionFailed -> "DETECTION_FAILED"
+        DetectionInProgress -> "DETECTION_IN_PROGRESS"
+
+instance Hashable     StackDriftDetectionStatus
+instance NFData       StackDriftDetectionStatus
+instance ToByteString StackDriftDetectionStatus
+instance ToQuery      StackDriftDetectionStatus
+instance ToHeader     StackDriftDetectionStatus
+
+instance FromXML StackDriftDetectionStatus where
+    parseXML = parseXMLText "StackDriftDetectionStatus"
+
+data StackDriftStatus
+  = Drifted
+  | InSync
+  | NotChecked
+  | Unknown
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText StackDriftStatus where
+    parser = takeLowerText >>= \case
+        "drifted" -> pure Drifted
+        "in_sync" -> pure InSync
+        "not_checked" -> pure NotChecked
+        "unknown" -> pure Unknown
+        e -> fromTextError $ "Failure parsing StackDriftStatus from value: '" <> e
+           <> "'. Accepted values: drifted, in_sync, not_checked, unknown"
+
+instance ToText StackDriftStatus where
+    toText = \case
+        Drifted -> "DRIFTED"
+        InSync -> "IN_SYNC"
+        NotChecked -> "NOT_CHECKED"
+        Unknown -> "UNKNOWN"
+
+instance Hashable     StackDriftStatus
+instance NFData       StackDriftStatus
+instance ToByteString StackDriftStatus
+instance ToQuery      StackDriftStatus
+instance ToHeader     StackDriftStatus
+
+instance FromXML StackDriftStatus where
+    parseXML = parseXMLText "StackDriftStatus"
+
 data StackInstanceStatus
   = Current
   | Inoperable
@@ -522,6 +618,39 @@ instance ToHeader     StackInstanceStatus
 
 instance FromXML StackInstanceStatus where
     parseXML = parseXMLText "StackInstanceStatus"
+
+data StackResourceDriftStatus
+  = SRDSDeleted
+  | SRDSInSync
+  | SRDSModified
+  | SRDSNotChecked
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText StackResourceDriftStatus where
+    parser = takeLowerText >>= \case
+        "deleted" -> pure SRDSDeleted
+        "in_sync" -> pure SRDSInSync
+        "modified" -> pure SRDSModified
+        "not_checked" -> pure SRDSNotChecked
+        e -> fromTextError $ "Failure parsing StackResourceDriftStatus from value: '" <> e
+           <> "'. Accepted values: deleted, in_sync, modified, not_checked"
+
+instance ToText StackResourceDriftStatus where
+    toText = \case
+        SRDSDeleted -> "DELETED"
+        SRDSInSync -> "IN_SYNC"
+        SRDSModified -> "MODIFIED"
+        SRDSNotChecked -> "NOT_CHECKED"
+
+instance Hashable     StackResourceDriftStatus
+instance NFData       StackResourceDriftStatus
+instance ToByteString StackResourceDriftStatus
+instance ToQuery      StackResourceDriftStatus
+instance ToHeader     StackResourceDriftStatus
+
+instance FromXML StackResourceDriftStatus where
+    parseXML = parseXMLText "StackResourceDriftStatus"
 
 data StackSetOperationAction
   = SSOACreate

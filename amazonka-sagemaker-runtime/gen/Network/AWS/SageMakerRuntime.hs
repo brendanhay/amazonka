@@ -11,7 +11,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon SageMaker runtime API.
+-- The Amazon SageMaker runtime API.
 --
 --
 module Network.AWS.SageMakerRuntime

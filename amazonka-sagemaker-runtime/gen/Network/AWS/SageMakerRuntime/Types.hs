@@ -67,7 +67,7 @@ sageMakerRuntime =
       | otherwise = Nothing
 
 
--- | Service is unavailable. Try your call again.
+-- | The service is unavailable. Try your call again.
 --
 --
 _ServiceUnavailable :: AsError a => Getting (First ServiceError) a ServiceError
@@ -82,7 +82,7 @@ _ModelError :: AsError a => Getting (First ServiceError) a ServiceError
 _ModelError = _MatchServiceError sageMakerRuntime "ModelError" . hasStatus 424
 
 
--- | Internal failure occurred.
+-- | An internal failure occurred.
 --
 --
 _InternalFailure :: AsError a => Getting (First ServiceError) a ServiceError

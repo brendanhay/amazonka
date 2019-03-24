@@ -54,6 +54,7 @@ library
         , Network.AWS.ElastiCache.CreateCacheSubnetGroup
         , Network.AWS.ElastiCache.CreateReplicationGroup
         , Network.AWS.ElastiCache.CreateSnapshot
+        , Network.AWS.ElastiCache.DecreaseReplicaCount
         , Network.AWS.ElastiCache.DeleteCacheCluster
         , Network.AWS.ElastiCache.DeleteCacheParameterGroup
         , Network.AWS.ElastiCache.DeleteCacheSecurityGroup
@@ -72,6 +73,7 @@ library
         , Network.AWS.ElastiCache.DescribeReservedCacheNodes
         , Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
         , Network.AWS.ElastiCache.DescribeSnapshots
+        , Network.AWS.ElastiCache.IncreaseReplicaCount
         , Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
         , Network.AWS.ElastiCache.ListTagsForResource
         , Network.AWS.ElastiCache.ModifyCacheCluster

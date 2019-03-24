@@ -38,6 +38,7 @@ module Network.AWS.ElastiCache.Types
     , _APICallRateForCustomerExceededFault
     , _NodeGroupNotFoundFault
     , _CacheParameterGroupAlreadyExistsFault
+    , _ServiceLinkedRoleNotFoundFault
     , _ReservedCacheNodeNotFoundFault
     , _CacheSubnetGroupNotFoundFault
     , _SnapshotFeatureNotSupportedFault
@@ -58,6 +59,7 @@ module Network.AWS.ElastiCache.Types
     , _CacheSubnetQuotaExceededFault
     , _CacheParameterGroupNotFoundFault
     , _InvalidARNFault
+    , _NoOperationFault
     , _InvalidCacheParameterGroupStateFault
     , _InvalidParameterCombinationException
     , _InvalidCacheSecurityGroupStateFault
@@ -192,6 +194,13 @@ module Network.AWS.ElastiCache.Types
     , csgCacheSubnetGroupName
     , csgCacheSubnetGroupDescription
 
+    -- * ConfigureShard
+    , ConfigureShard
+    , configureShard
+    , csPreferredAvailabilityZones
+    , csNodeGroupId
+    , csNewReplicaCount
+
     -- * EC2SecurityGroup
     , EC2SecurityGroup
     , ec2SecurityGroup
@@ -237,6 +246,7 @@ module Network.AWS.ElastiCache.Types
     , ngcReplicaCount
     , ngcPrimaryAvailabilityZone
     , ngcReplicaAvailabilityZones
+    , ngcNodeGroupId
 
     -- * NodeGroupMember
     , NodeGroupMember
@@ -331,6 +341,7 @@ module Network.AWS.ElastiCache.Types
     , rcnState
     , rcnStartTime
     , rcnProductDescription
+    , rcnReservationARN
     , rcnCacheNodeCount
     , rcnReservedCacheNodeId
     , rcnRecurringCharges
@@ -356,6 +367,7 @@ module Network.AWS.ElastiCache.Types
     , ReshardingConfiguration
     , reshardingConfiguration
     , rcPreferredAvailabilityZones
+    , rcNodeGroupId
 
     -- * ReshardingStatus
     , ReshardingStatus
@@ -645,6 +657,15 @@ _CacheParameterGroupAlreadyExistsFault =
   hasStatus 400
 
 
+-- | The specified service linked role (SLR) was not found.
+--
+--
+_ServiceLinkedRoleNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
+_ServiceLinkedRoleNotFoundFault =
+  _MatchServiceError elastiCache "ServiceLinkedRoleNotFoundFault" .
+  hasStatus 400
+
+
 -- | The requested reserved cache node was not found.
 --
 --
@@ -686,7 +707,9 @@ _InvalidParameterValueException =
   _MatchServiceError elastiCache "InvalidParameterValue" . hasStatus 400
 
 
--- | Prism for TestFailoverNotAvailableFault' errors.
+-- | The @TestFailover@ action is not available.
+--
+--
 _TestFailoverNotAvailableFault :: AsError a => Getting (First ServiceError) a ServiceError
 _TestFailoverNotAvailableFault =
   _MatchServiceError elastiCache "TestFailoverNotAvailableFault" . hasStatus 400
@@ -811,6 +834,14 @@ _CacheParameterGroupNotFoundFault =
 --
 _InvalidARNFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidARNFault = _MatchServiceError elastiCache "InvalidARN" . hasStatus 400
+
+
+-- | The operation was not performed because no changes were required.
+--
+--
+_NoOperationFault :: AsError a => Getting (First ServiceError) a ServiceError
+_NoOperationFault =
+  _MatchServiceError elastiCache "NoOperationFault" . hasStatus 400
 
 
 -- | The current state of the cache parameter group does not allow the requested operation to occur.

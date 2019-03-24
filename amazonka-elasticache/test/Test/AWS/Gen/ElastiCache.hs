@@ -85,6 +85,9 @@ import Test.Tasty
 --         , requestCreateCacheSecurityGroup $
 --             createCacheSecurityGroup
 --
+--         , requestDecreaseReplicaCount $
+--             decreaseReplicaCount
+--
 --         , requestAddTagsToResource $
 --             addTagsToResource
 --
@@ -105,6 +108,9 @@ import Test.Tasty
 --
 --         , requestListAllowedNodeTypeModifications $
 --             listAllowedNodeTypeModifications
+--
+--         , requestIncreaseReplicaCount $
+--             increaseReplicaCount
 --
 --         , requestModifyReplicationGroupShardConfiguration $
 --             modifyReplicationGroupShardConfiguration
@@ -208,6 +214,9 @@ import Test.Tasty
 --         , responseCreateCacheSecurityGroup $
 --             createCacheSecurityGroupResponse
 --
+--         , responseDecreaseReplicaCount $
+--             decreaseReplicaCountResponse
+--
 --         , responseAddTagsToResource $
 --             tagListMessage
 --
@@ -228,6 +237,9 @@ import Test.Tasty
 --
 --         , responseListAllowedNodeTypeModifications $
 --             listAllowedNodeTypeModificationsResponse
+--
+--         , responseIncreaseReplicaCount $
+--             increaseReplicaCountResponse
 --
 --         , responseModifyReplicationGroupShardConfiguration $
 --             modifyReplicationGroupShardConfigurationResponse
@@ -371,6 +383,11 @@ requestCreateCacheSecurityGroup = req
     "CreateCacheSecurityGroup"
     "fixture/CreateCacheSecurityGroup.yaml"
 
+requestDecreaseReplicaCount :: DecreaseReplicaCount -> TestTree
+requestDecreaseReplicaCount = req
+    "DecreaseReplicaCount"
+    "fixture/DecreaseReplicaCount.yaml"
+
 requestAddTagsToResource :: AddTagsToResource -> TestTree
 requestAddTagsToResource = req
     "AddTagsToResource"
@@ -405,6 +422,11 @@ requestListAllowedNodeTypeModifications :: ListAllowedNodeTypeModifications -> T
 requestListAllowedNodeTypeModifications = req
     "ListAllowedNodeTypeModifications"
     "fixture/ListAllowedNodeTypeModifications.yaml"
+
+requestIncreaseReplicaCount :: IncreaseReplicaCount -> TestTree
+requestIncreaseReplicaCount = req
+    "IncreaseReplicaCount"
+    "fixture/IncreaseReplicaCount.yaml"
 
 requestModifyReplicationGroupShardConfiguration :: ModifyReplicationGroupShardConfiguration -> TestTree
 requestModifyReplicationGroupShardConfiguration = req
@@ -611,6 +633,13 @@ responseCreateCacheSecurityGroup = res
     elastiCache
     (Proxy :: Proxy CreateCacheSecurityGroup)
 
+responseDecreaseReplicaCount :: DecreaseReplicaCountResponse -> TestTree
+responseDecreaseReplicaCount = res
+    "DecreaseReplicaCountResponse"
+    "fixture/DecreaseReplicaCountResponse.proto"
+    elastiCache
+    (Proxy :: Proxy DecreaseReplicaCount)
+
 responseAddTagsToResource :: TagListMessage -> TestTree
 responseAddTagsToResource = res
     "AddTagsToResourceResponse"
@@ -659,6 +688,13 @@ responseListAllowedNodeTypeModifications = res
     "fixture/ListAllowedNodeTypeModificationsResponse.proto"
     elastiCache
     (Proxy :: Proxy ListAllowedNodeTypeModifications)
+
+responseIncreaseReplicaCount :: IncreaseReplicaCountResponse -> TestTree
+responseIncreaseReplicaCount = res
+    "IncreaseReplicaCountResponse"
+    "fixture/IncreaseReplicaCountResponse.proto"
+    elastiCache
+    (Proxy :: Proxy IncreaseReplicaCount)
 
 responseModifyReplicationGroupShardConfiguration :: ModifyReplicationGroupShardConfigurationResponse -> TestTree
 responseModifyReplicationGroupShardConfiguration = res

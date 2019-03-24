@@ -47,7 +47,7 @@
 --
 -- For more information see:
 --
---     * <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/ECEvents.Viewing.html Viewing ElastiCache Events> in the /ElastiCache User Guide/
+--     * <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ECEvents.Viewing.html Viewing ElastiCache Events> in the /ElastiCache User Guide/
 --
 --     * <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html DescribeEvents> in the ElastiCache API Reference
 --
@@ -55,7 +55,7 @@
 --
 --
 --
--- Also see, <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/AutoFailover.html#auto-failover-test Testing Multi-AZ with Automatic Failover> in the /ElastiCache User Guide/ .
+-- Also see, <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html#auto-failover-test Testing Multi-AZ with Automatic Failover> in the /ElastiCache User Guide/ .
 --
 module Network.AWS.ElastiCache.TestFailover
     (

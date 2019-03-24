@@ -93,6 +93,9 @@ module Network.AWS.ElastiCache
     -- ** CacheParameterGroupAlreadyExistsFault
     , _CacheParameterGroupAlreadyExistsFault
 
+    -- ** ServiceLinkedRoleNotFoundFault
+    , _ServiceLinkedRoleNotFoundFault
+
     -- ** ReservedCacheNodeNotFoundFault
     , _ReservedCacheNodeNotFoundFault
 
@@ -152,6 +155,9 @@ module Network.AWS.ElastiCache
 
     -- ** InvalidARNFault
     , _InvalidARNFault
+
+    -- ** NoOperationFault
+    , _NoOperationFault
 
     -- ** InvalidCacheParameterGroupStateFault
     , _InvalidCacheParameterGroupStateFault
@@ -240,6 +246,9 @@ module Network.AWS.ElastiCache
     -- ** CreateCacheSecurityGroup
     , module Network.AWS.ElastiCache.CreateCacheSecurityGroup
 
+    -- ** DecreaseReplicaCount
+    , module Network.AWS.ElastiCache.DecreaseReplicaCount
+
     -- ** AddTagsToResource
     , module Network.AWS.ElastiCache.AddTagsToResource
 
@@ -260,6 +269,9 @@ module Network.AWS.ElastiCache
 
     -- ** ListAllowedNodeTypeModifications
     , module Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
+
+    -- ** IncreaseReplicaCount
+    , module Network.AWS.ElastiCache.IncreaseReplicaCount
 
     -- ** ModifyReplicationGroupShardConfiguration
     , module Network.AWS.ElastiCache.ModifyReplicationGroupShardConfiguration
@@ -434,6 +446,13 @@ module Network.AWS.ElastiCache
     , csgCacheSubnetGroupName
     , csgCacheSubnetGroupDescription
 
+    -- ** ConfigureShard
+    , ConfigureShard
+    , configureShard
+    , csPreferredAvailabilityZones
+    , csNodeGroupId
+    , csNewReplicaCount
+
     -- ** EC2SecurityGroup
     , EC2SecurityGroup
     , ec2SecurityGroup
@@ -479,6 +498,7 @@ module Network.AWS.ElastiCache
     , ngcReplicaCount
     , ngcPrimaryAvailabilityZone
     , ngcReplicaAvailabilityZones
+    , ngcNodeGroupId
 
     -- ** NodeGroupMember
     , NodeGroupMember
@@ -573,6 +593,7 @@ module Network.AWS.ElastiCache
     , rcnState
     , rcnStartTime
     , rcnProductDescription
+    , rcnReservationARN
     , rcnCacheNodeCount
     , rcnReservedCacheNodeId
     , rcnRecurringCharges
@@ -598,6 +619,7 @@ module Network.AWS.ElastiCache
     , ReshardingConfiguration
     , reshardingConfiguration
     , rcPreferredAvailabilityZones
+    , rcNodeGroupId
 
     -- ** ReshardingStatus
     , ReshardingStatus
@@ -670,6 +692,7 @@ import Network.AWS.ElastiCache.CreateCacheSecurityGroup
 import Network.AWS.ElastiCache.CreateCacheSubnetGroup
 import Network.AWS.ElastiCache.CreateReplicationGroup
 import Network.AWS.ElastiCache.CreateSnapshot
+import Network.AWS.ElastiCache.DecreaseReplicaCount
 import Network.AWS.ElastiCache.DeleteCacheCluster
 import Network.AWS.ElastiCache.DeleteCacheParameterGroup
 import Network.AWS.ElastiCache.DeleteCacheSecurityGroup
@@ -688,6 +711,7 @@ import Network.AWS.ElastiCache.DescribeReplicationGroups
 import Network.AWS.ElastiCache.DescribeReservedCacheNodes
 import Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
 import Network.AWS.ElastiCache.DescribeSnapshots
+import Network.AWS.ElastiCache.IncreaseReplicaCount
 import Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
 import Network.AWS.ElastiCache.ListTagsForResource
 import Network.AWS.ElastiCache.ModifyCacheCluster

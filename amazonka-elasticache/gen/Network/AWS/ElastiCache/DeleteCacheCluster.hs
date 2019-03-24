@@ -23,7 +23,7 @@
 --
 -- This operation cannot be used to delete a cluster that is the last read replica of a replication group or node group (shard) that has Multi-AZ mode enabled or a cluster from a Redis (cluster mode enabled) replication group.
 --
--- /Important:/ Due to current limitations on Redis (cluster mode disabled), this operation or parameter is not supported on Redis (cluster mode enabled) replication groups.
+-- This operation is not valid for Redis (cluster mode enabled) clusters.
 --
 module Network.AWS.ElastiCache.DeleteCacheCluster
     (

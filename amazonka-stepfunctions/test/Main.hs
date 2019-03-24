@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.StepFunctions
 import Test.AWS.StepFunctions.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "StepFunctions"

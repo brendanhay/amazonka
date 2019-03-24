@@ -34,6 +34,9 @@ import Test.Tasty
 --         , requestDescribeStateMachine $
 --             describeStateMachine
 --
+--         , requestListTagsForResource $
+--             listTagsForResource
+--
 --         , requestStopExecution $
 --             stopExecution
 --
@@ -79,6 +82,12 @@ import Test.Tasty
 --         , requestStartExecution $
 --             startExecution
 --
+--         , requestTagResource $
+--             tagResource
+--
+--         , requestUntagResource $
+--             untagResource
+--
 --         , requestGetExecutionHistory $
 --             getExecutionHistory
 --
@@ -93,6 +102,9 @@ import Test.Tasty
 --
 --         , responseDescribeStateMachine $
 --             describeStateMachineResponse
+--
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
 --
 --         , responseStopExecution $
 --             stopExecutionResponse
@@ -139,6 +151,12 @@ import Test.Tasty
 --         , responseStartExecution $
 --             startExecutionResponse
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
+--
 --         , responseGetExecutionHistory $
 --             getExecutionHistoryResponse
 --
@@ -159,6 +177,11 @@ requestDescribeStateMachine :: DescribeStateMachine -> TestTree
 requestDescribeStateMachine = req
     "DescribeStateMachine"
     "fixture/DescribeStateMachine.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource = req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestStopExecution :: StopExecution -> TestTree
 requestStopExecution = req
@@ -235,6 +258,16 @@ requestStartExecution = req
     "StartExecution"
     "fixture/StartExecution.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
 requestGetExecutionHistory :: GetExecutionHistory -> TestTree
 requestGetExecutionHistory = req
     "GetExecutionHistory"
@@ -260,6 +293,13 @@ responseDescribeStateMachine = res
     "fixture/DescribeStateMachineResponse.proto"
     stepFunctions
     (Proxy :: Proxy DescribeStateMachine)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource = res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    stepFunctions
+    (Proxy :: Proxy ListTagsForResource)
 
 responseStopExecution :: StopExecutionResponse -> TestTree
 responseStopExecution = res
@@ -365,6 +405,20 @@ responseStartExecution = res
     "fixture/StartExecutionResponse.proto"
     stepFunctions
     (Proxy :: Proxy StartExecution)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    stepFunctions
+    (Proxy :: Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    stepFunctions
+    (Proxy :: Proxy UntagResource)
 
 responseGetExecutionHistory :: GetExecutionHistoryResponse -> TestTree
 responseGetExecutionHistory = res

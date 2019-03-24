@@ -48,19 +48,19 @@ import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'stopExecution' smart constructor.
 data StopExecution = StopExecution'
-  { _seError        :: !(Maybe Text)
-  , _seCause        :: !(Maybe Text)
+  { _seError        :: !(Maybe (Sensitive Text))
+  , _seCause        :: !(Maybe (Sensitive Text))
   , _seExecutionARN :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'StopExecution' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'seError' - An arbitrary error code that identifies the cause of the termination.
+-- * 'seError' - The error code of the failure.
 --
--- * 'seCause' - A more detailed explanation of the cause of the termination.
+-- * 'seCause' - A more detailed explanation of the cause of the failure.
 --
 -- * 'seExecutionARN' - The Amazon Resource Name (ARN) of the execution to stop.
 stopExecution
@@ -71,13 +71,13 @@ stopExecution pExecutionARN_ =
     {_seError = Nothing, _seCause = Nothing, _seExecutionARN = pExecutionARN_}
 
 
--- | An arbitrary error code that identifies the cause of the termination.
+-- | The error code of the failure.
 seError :: Lens' StopExecution (Maybe Text)
-seError = lens _seError (\ s a -> s{_seError = a})
+seError = lens _seError (\ s a -> s{_seError = a}) . mapping _Sensitive
 
--- | A more detailed explanation of the cause of the termination.
+-- | A more detailed explanation of the cause of the failure.
 seCause :: Lens' StopExecution (Maybe Text)
-seCause = lens _seCause (\ s a -> s{_seCause = a})
+seCause = lens _seCause (\ s a -> s{_seCause = a}) . mapping _Sensitive
 
 -- | The Amazon Resource Name (ARN) of the execution to stop.
 seExecutionARN :: Lens' StopExecution Text

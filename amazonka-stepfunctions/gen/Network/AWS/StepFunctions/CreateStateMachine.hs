@@ -27,6 +27,7 @@ module Network.AWS.StepFunctions.CreateStateMachine
       createStateMachine
     , CreateStateMachine
     -- * Request Lenses
+    , csmTags
     , csmName
     , csmDefinition
     , csmRoleARN
@@ -49,19 +50,22 @@ import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'createStateMachine' smart constructor.
 data CreateStateMachine = CreateStateMachine'
-  { _csmName       :: !Text
-  , _csmDefinition :: !Text
+  { _csmTags       :: !(Maybe [Tag])
+  , _csmName       :: !Text
+  , _csmDefinition :: !(Sensitive Text)
   , _csmRoleARN    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'CreateStateMachine' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csmName' - The name of the state machine. This name must be unique for your AWS account and region for 90 days. For more information, see <http://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions> in the /AWS Step Functions Developer Guide/ . A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
+-- * 'csmTags' - Tags to be added when creating a state machine.
 --
--- * 'csmDefinition' - The Amazon States Language definition of the state machine.
+-- * 'csmName' - The name of the state machine.  A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
+--
+-- * 'csmDefinition' - The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
 --
 -- * 'csmRoleARN' - The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 createStateMachine
@@ -71,16 +75,24 @@ createStateMachine
     -> CreateStateMachine
 createStateMachine pName_ pDefinition_ pRoleARN_ =
   CreateStateMachine'
-    {_csmName = pName_, _csmDefinition = pDefinition_, _csmRoleARN = pRoleARN_}
+    { _csmTags = Nothing
+    , _csmName = pName_
+    , _csmDefinition = _Sensitive # pDefinition_
+    , _csmRoleARN = pRoleARN_
+    }
 
 
--- | The name of the state machine. This name must be unique for your AWS account and region for 90 days. For more information, see <http://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions> in the /AWS Step Functions Developer Guide/ . A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
+-- | Tags to be added when creating a state machine.
+csmTags :: Lens' CreateStateMachine [Tag]
+csmTags = lens _csmTags (\ s a -> s{_csmTags = a}) . _Default . _Coerce
+
+-- | The name of the state machine.  A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 csmName :: Lens' CreateStateMachine Text
 csmName = lens _csmName (\ s a -> s{_csmName = a})
 
--- | The Amazon States Language definition of the state machine.
+-- | The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
 csmDefinition :: Lens' CreateStateMachine Text
-csmDefinition = lens _csmDefinition (\ s a -> s{_csmDefinition = a})
+csmDefinition = lens _csmDefinition (\ s a -> s{_csmDefinition = a}) . _Sensitive
 
 -- | The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 csmRoleARN :: Lens' CreateStateMachine Text
@@ -115,7 +127,7 @@ instance ToJSON CreateStateMachine where
         toJSON CreateStateMachine'{..}
           = object
               (catMaybes
-                 [Just ("name" .= _csmName),
+                 [("tags" .=) <$> _csmTags, Just ("name" .= _csmName),
                   Just ("definition" .= _csmDefinition),
                   Just ("roleArn" .= _csmRoleARN)])
 

@@ -23,6 +23,8 @@
 --
 -- /Important:/ Workers should set their client side socket timeout to at least 65 seconds (5 seconds higher than the maximum time the service may hold the poll request).
 --
+-- Polling with @GetActivityTask@ can cause latency in some implementations. See <https://docs.aws.amazon.com/step-functions/latest/dg/bp-activity-pollers.html Avoid Latency When Polling for Activity Tasks> in the Step Functions Developer Guide.
+--
 module Network.AWS.StepFunctions.GetActivityTask
     (
     -- * Creating a Request
@@ -115,10 +117,10 @@ instance ToQuery GetActivityTask where
 
 -- | /See:/ 'getActivityTaskResponse' smart constructor.
 data GetActivityTaskResponse = GetActivityTaskResponse'
-  { _gatrsInput          :: !(Maybe Text)
+  { _gatrsInput          :: !(Maybe (Sensitive Text))
   , _gatrsTaskToken      :: !(Maybe Text)
   , _gatrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'GetActivityTaskResponse' with the minimum fields required to make a request.
@@ -143,7 +145,7 @@ getActivityTaskResponse pResponseStatus_ =
 
 -- | The string that contains the JSON input data for the task.
 gatrsInput :: Lens' GetActivityTaskResponse (Maybe Text)
-gatrsInput = lens _gatrsInput (\ s a -> s{_gatrsInput = a})
+gatrsInput = lens _gatrsInput (\ s a -> s{_gatrsInput = a}) . mapping _Sensitive
 
 -- | A token that identifies the scheduled task. This token must be copied and included in subsequent calls to 'SendTaskHeartbeat' , 'SendTaskSuccess' or 'SendTaskFailure' in order to report the progress or completion of the task.
 gatrsTaskToken :: Lens' GetActivityTaskResponse (Maybe Text)

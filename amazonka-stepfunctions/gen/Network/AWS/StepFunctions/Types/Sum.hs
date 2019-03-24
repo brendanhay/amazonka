@@ -90,9 +90,17 @@ data HistoryEventType
   | PassStateExited
   | SucceedStateEntered
   | SucceedStateExited
+  | TaskFailed
+  | TaskScheduled
+  | TaskStartFailed
+  | TaskStarted
   | TaskStateAborted
   | TaskStateEntered
   | TaskStateExited
+  | TaskSubmitFailed
+  | TaskSubmitted
+  | TaskSucceeded
+  | TaskTimedOut
   | WaitStateAborted
   | WaitStateEntered
   | WaitStateExited
@@ -132,14 +140,22 @@ instance FromText HistoryEventType where
         "passstateexited" -> pure PassStateExited
         "succeedstateentered" -> pure SucceedStateEntered
         "succeedstateexited" -> pure SucceedStateExited
+        "taskfailed" -> pure TaskFailed
+        "taskscheduled" -> pure TaskScheduled
+        "taskstartfailed" -> pure TaskStartFailed
+        "taskstarted" -> pure TaskStarted
         "taskstateaborted" -> pure TaskStateAborted
         "taskstateentered" -> pure TaskStateEntered
         "taskstateexited" -> pure TaskStateExited
+        "tasksubmitfailed" -> pure TaskSubmitFailed
+        "tasksubmitted" -> pure TaskSubmitted
+        "tasksucceeded" -> pure TaskSucceeded
+        "tasktimedout" -> pure TaskTimedOut
         "waitstateaborted" -> pure WaitStateAborted
         "waitstateentered" -> pure WaitStateEntered
         "waitstateexited" -> pure WaitStateExited
         e -> fromTextError $ "Failure parsing HistoryEventType from value: '" <> e
-           <> "'. Accepted values: activityfailed, activityschedulefailed, activityscheduled, activitystarted, activitysucceeded, activitytimedout, choicestateentered, choicestateexited, executionaborted, executionfailed, executionstarted, executionsucceeded, executiontimedout, failstateentered, lambdafunctionfailed, lambdafunctionschedulefailed, lambdafunctionscheduled, lambdafunctionstartfailed, lambdafunctionstarted, lambdafunctionsucceeded, lambdafunctiontimedout, parallelstateaborted, parallelstateentered, parallelstateexited, parallelstatefailed, parallelstatestarted, parallelstatesucceeded, passstateentered, passstateexited, succeedstateentered, succeedstateexited, taskstateaborted, taskstateentered, taskstateexited, waitstateaborted, waitstateentered, waitstateexited"
+           <> "'. Accepted values: activityfailed, activityschedulefailed, activityscheduled, activitystarted, activitysucceeded, activitytimedout, choicestateentered, choicestateexited, executionaborted, executionfailed, executionstarted, executionsucceeded, executiontimedout, failstateentered, lambdafunctionfailed, lambdafunctionschedulefailed, lambdafunctionscheduled, lambdafunctionstartfailed, lambdafunctionstarted, lambdafunctionsucceeded, lambdafunctiontimedout, parallelstateaborted, parallelstateentered, parallelstateexited, parallelstatefailed, parallelstatestarted, parallelstatesucceeded, passstateentered, passstateexited, succeedstateentered, succeedstateexited, taskfailed, taskscheduled, taskstartfailed, taskstarted, taskstateaborted, taskstateentered, taskstateexited, tasksubmitfailed, tasksubmitted, tasksucceeded, tasktimedout, waitstateaborted, waitstateentered, waitstateexited"
 
 instance ToText HistoryEventType where
     toText = \case
@@ -174,9 +190,17 @@ instance ToText HistoryEventType where
         PassStateExited -> "PassStateExited"
         SucceedStateEntered -> "SucceedStateEntered"
         SucceedStateExited -> "SucceedStateExited"
+        TaskFailed -> "TaskFailed"
+        TaskScheduled -> "TaskScheduled"
+        TaskStartFailed -> "TaskStartFailed"
+        TaskStarted -> "TaskStarted"
         TaskStateAborted -> "TaskStateAborted"
         TaskStateEntered -> "TaskStateEntered"
         TaskStateExited -> "TaskStateExited"
+        TaskSubmitFailed -> "TaskSubmitFailed"
+        TaskSubmitted -> "TaskSubmitted"
+        TaskSucceeded -> "TaskSucceeded"
+        TaskTimedOut -> "TaskTimedOut"
         WaitStateAborted -> "WaitStateAborted"
         WaitStateEntered -> "WaitStateEntered"
         WaitStateExited -> "WaitStateExited"

@@ -118,10 +118,10 @@ data DescribeStateMachineResponse = DescribeStateMachineResponse'
   , _dsmrsResponseStatus  :: !Int
   , _dsmrsStateMachineARN :: !Text
   , _dsmrsName            :: !Text
-  , _dsmrsDefinition      :: !Text
+  , _dsmrsDefinition      :: !(Sensitive Text)
   , _dsmrsRoleARN         :: !Text
   , _dsmrsCreationDate    :: !POSIX
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'DescribeStateMachineResponse' with the minimum fields required to make a request.
@@ -136,7 +136,7 @@ data DescribeStateMachineResponse = DescribeStateMachineResponse'
 --
 -- * 'dsmrsName' - The name of the state machine. A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 --
--- * 'dsmrsDefinition' - The Amazon States Language definition of the state machine.
+-- * 'dsmrsDefinition' - The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
 --
 -- * 'dsmrsRoleARN' - The Amazon Resource Name (ARN) of the IAM role used when creating this state machine. (The IAM role maintains security by granting Step Functions access to AWS resources.)
 --
@@ -155,7 +155,7 @@ describeStateMachineResponse pResponseStatus_ pStateMachineARN_ pName_ pDefiniti
     , _dsmrsResponseStatus = pResponseStatus_
     , _dsmrsStateMachineARN = pStateMachineARN_
     , _dsmrsName = pName_
-    , _dsmrsDefinition = pDefinition_
+    , _dsmrsDefinition = _Sensitive # pDefinition_
     , _dsmrsRoleARN = pRoleARN_
     , _dsmrsCreationDate = _Time # pCreationDate_
     }
@@ -177,9 +177,9 @@ dsmrsStateMachineARN = lens _dsmrsStateMachineARN (\ s a -> s{_dsmrsStateMachine
 dsmrsName :: Lens' DescribeStateMachineResponse Text
 dsmrsName = lens _dsmrsName (\ s a -> s{_dsmrsName = a})
 
--- | The Amazon States Language definition of the state machine.
+-- | The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
 dsmrsDefinition :: Lens' DescribeStateMachineResponse Text
-dsmrsDefinition = lens _dsmrsDefinition (\ s a -> s{_dsmrsDefinition = a})
+dsmrsDefinition = lens _dsmrsDefinition (\ s a -> s{_dsmrsDefinition = a}) . _Sensitive
 
 -- | The Amazon Resource Name (ARN) of the IAM role used when creating this state machine. (The IAM role maintains security by granting Step Functions access to AWS resources.)
 dsmrsRoleARN :: Lens' DescribeStateMachineResponse Text

@@ -118,14 +118,14 @@ instance ToQuery DescribeExecution where
 data DescribeExecutionResponse = DescribeExecutionResponse'
   { _dersStopDate        :: !(Maybe POSIX)
   , _dersName            :: !(Maybe Text)
-  , _dersOutput          :: !(Maybe Text)
+  , _dersOutput          :: !(Maybe (Sensitive Text))
   , _dersResponseStatus  :: !Int
   , _dersExecutionARN    :: !Text
   , _dersStateMachineARN :: !Text
   , _dersStatus          :: !ExecutionStatus
   , _dersStartDate       :: !POSIX
-  , _dersInput           :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  , _dersInput           :: !(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'DescribeExecutionResponse' with the minimum fields required to make a request.
@@ -167,7 +167,7 @@ describeExecutionResponse pResponseStatus_ pExecutionARN_ pStateMachineARN_ pSta
     , _dersStateMachineARN = pStateMachineARN_
     , _dersStatus = pStatus_
     , _dersStartDate = _Time # pStartDate_
-    , _dersInput = pInput_
+    , _dersInput = _Sensitive # pInput_
     }
 
 
@@ -181,7 +181,7 @@ dersName = lens _dersName (\ s a -> s{_dersName = a})
 
 -- | The JSON output data of the execution.
 dersOutput :: Lens' DescribeExecutionResponse (Maybe Text)
-dersOutput = lens _dersOutput (\ s a -> s{_dersOutput = a})
+dersOutput = lens _dersOutput (\ s a -> s{_dersOutput = a}) . mapping _Sensitive
 
 -- | -- | The response status code.
 dersResponseStatus :: Lens' DescribeExecutionResponse Int
@@ -205,6 +205,6 @@ dersStartDate = lens _dersStartDate (\ s a -> s{_dersStartDate = a}) . _Time
 
 -- | The string that contains the JSON input data of the execution.
 dersInput :: Lens' DescribeExecutionResponse Text
-dersInput = lens _dersInput (\ s a -> s{_dersInput = a})
+dersInput = lens _dersInput (\ s a -> s{_dersInput = a}) . _Sensitive
 
 instance NFData DescribeExecutionResponse where

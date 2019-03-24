@@ -58,12 +58,15 @@ library
         , Network.AWS.StepFunctions.ListActivities
         , Network.AWS.StepFunctions.ListExecutions
         , Network.AWS.StepFunctions.ListStateMachines
+        , Network.AWS.StepFunctions.ListTagsForResource
         , Network.AWS.StepFunctions.SendTaskFailure
         , Network.AWS.StepFunctions.SendTaskHeartbeat
         , Network.AWS.StepFunctions.SendTaskSuccess
         , Network.AWS.StepFunctions.StartExecution
         , Network.AWS.StepFunctions.StopExecution
+        , Network.AWS.StepFunctions.TagResource
         , Network.AWS.StepFunctions.Types
+        , Network.AWS.StepFunctions.UntagResource
         , Network.AWS.StepFunctions.UpdateStateMachine
         , Network.AWS.StepFunctions.Waiters
 

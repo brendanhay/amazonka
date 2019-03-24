@@ -17,7 +17,7 @@
 --
 -- You can use Step Functions to build applications from individual components, each of which performs a discrete function, or /task/ , allowing you to scale and change applications quickly. Step Functions provides a console that helps visualize the components of your application as a series of steps. Step Functions automatically triggers and tracks each step, and retries steps when there are errors, so your application executes predictably and in the right order every time. Step Functions logs the state of each step, so you can quickly diagnose and debug any issues.
 --
--- Step Functions manages operations and underlying infrastructure to ensure your application is available at any scale. You can run tasks on AWS, your own servers, or any system that has access to AWS. You can access and use Step Functions using the console, the AWS SDKs, or an HTTP API. For more information about Step Functions, see the /<http:\/\/docs.aws.amazon.com\/step-functions\/latest\/dg\/welcome.html AWS Step Functions Developer Guide> / .
+-- Step Functions manages operations and underlying infrastructure to ensure your application is available at any scale. You can run tasks on AWS, your own servers, or any system that has access to AWS. You can access and use Step Functions using the console, the AWS SDKs, or an HTTP API. For more information about Step Functions, see the /<https:\/\/docs.aws.amazon.com\/step-functions\/latest\/dg\/welcome.html AWS Step Functions Developer Guide> / .
 --
 module Network.AWS.StepFunctions
     (
@@ -78,11 +78,17 @@ module Network.AWS.StepFunctions
     -- ** ActivityLimitExceeded
     , _ActivityLimitExceeded
 
+    -- ** TooManyTags
+    , _TooManyTags
+
     -- ** ExecutionDoesNotExist
     , _ExecutionDoesNotExist
 
     -- ** StateMachineDoesNotExist
     , _StateMachineDoesNotExist
+
+    -- ** ResourceNotFound
+    , _ResourceNotFound
 
     -- * Waiters
     -- $waiters
@@ -95,6 +101,9 @@ module Network.AWS.StepFunctions
 
     -- ** DescribeStateMachine
     , module Network.AWS.StepFunctions.DescribeStateMachine
+
+    -- ** ListTagsForResource
+    , module Network.AWS.StepFunctions.ListTagsForResource
 
     -- ** StopExecution
     , module Network.AWS.StepFunctions.StopExecution
@@ -140,6 +149,12 @@ module Network.AWS.StepFunctions
 
     -- ** StartExecution
     , module Network.AWS.StepFunctions.StartExecution
+
+    -- ** TagResource
+    , module Network.AWS.StepFunctions.TagResource
+
+    -- ** UntagResource
+    , module Network.AWS.StepFunctions.UntagResource
 
     -- ** GetExecutionHistory (Paginated)
     , module Network.AWS.StepFunctions.GetExecutionHistory
@@ -243,17 +258,24 @@ module Network.AWS.StepFunctions
     -- ** HistoryEvent
     , HistoryEvent
     , historyEvent
+    , heTaskSubmitFailedEventDetails
+    , heTaskStartedEventDetails
     , heActivityStartedEventDetails
+    , heTaskSubmittedEventDetails
     , heLambdaFunctionStartFailedEventDetails
+    , heTaskStartFailedEventDetails
     , heStateExitedEventDetails
     , heLambdaFunctionSucceededEventDetails
+    , heTaskSucceededEventDetails
     , heActivitySucceededEventDetails
     , heLambdaFunctionTimedOutEventDetails
+    , heTaskTimedOutEventDetails
     , heActivityTimedOutEventDetails
     , heExecutionFailedEventDetails
     , heExecutionAbortedEventDetails
     , heExecutionSucceededEventDetails
     , heLambdaFunctionScheduledEventDetails
+    , heTaskScheduledEventDetails
     , heActivityScheduledEventDetails
     , heExecutionStartedEventDetails
     , heActivityScheduleFailedEventDetails
@@ -261,6 +283,7 @@ module Network.AWS.StepFunctions
     , heStateEnteredEventDetails
     , hePreviousEventId
     , heActivityFailedEventDetails
+    , heTaskFailedEventDetails
     , heLambdaFunctionFailedEventDetails
     , heExecutionTimedOutEventDetails
     , heTimestamp
@@ -321,6 +344,73 @@ module Network.AWS.StepFunctions
     , smliStateMachineARN
     , smliName
     , smliCreationDate
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
+
+    -- ** TaskFailedEventDetails
+    , TaskFailedEventDetails
+    , taskFailedEventDetails
+    , tfedError
+    , tfedCause
+    , tfedResourceType
+    , tfedResource
+
+    -- ** TaskScheduledEventDetails
+    , TaskScheduledEventDetails
+    , taskScheduledEventDetails
+    , tasTimeoutInSeconds
+    , tasResourceType
+    , tasResource
+    , tasRegion
+    , tasParameters
+
+    -- ** TaskStartFailedEventDetails
+    , TaskStartFailedEventDetails
+    , taskStartFailedEventDetails
+    , tsfedsError
+    , tsfedsCause
+    , tsfedsResourceType
+    , tsfedsResource
+
+    -- ** TaskStartedEventDetails
+    , TaskStartedEventDetails
+    , taskStartedEventDetails
+    , tsedResourceType
+    , tsedResource
+
+    -- ** TaskSubmitFailedEventDetails
+    , TaskSubmitFailedEventDetails
+    , taskSubmitFailedEventDetails
+    , tsfedError
+    , tsfedCause
+    , tsfedResourceType
+    , tsfedResource
+
+    -- ** TaskSubmittedEventDetails
+    , TaskSubmittedEventDetails
+    , taskSubmittedEventDetails
+    , tOutput
+    , tResourceType
+    , tResource
+
+    -- ** TaskSucceededEventDetails
+    , TaskSucceededEventDetails
+    , taskSucceededEventDetails
+    , tsedsOutput
+    , tsedsResourceType
+    , tsedsResource
+
+    -- ** TaskTimedOutEventDetails
+    , TaskTimedOutEventDetails
+    , taskTimedOutEventDetails
+    , ttoedError
+    , ttoedCause
+    , ttoedResourceType
+    , ttoedResource
     ) where
 
 import Network.AWS.StepFunctions.CreateActivity
@@ -336,12 +426,15 @@ import Network.AWS.StepFunctions.GetExecutionHistory
 import Network.AWS.StepFunctions.ListActivities
 import Network.AWS.StepFunctions.ListExecutions
 import Network.AWS.StepFunctions.ListStateMachines
+import Network.AWS.StepFunctions.ListTagsForResource
 import Network.AWS.StepFunctions.SendTaskFailure
 import Network.AWS.StepFunctions.SendTaskHeartbeat
 import Network.AWS.StepFunctions.SendTaskSuccess
 import Network.AWS.StepFunctions.StartExecution
 import Network.AWS.StepFunctions.StopExecution
+import Network.AWS.StepFunctions.TagResource
 import Network.AWS.StepFunctions.Types
+import Network.AWS.StepFunctions.UntagResource
 import Network.AWS.StepFunctions.UpdateStateMachine
 import Network.AWS.StepFunctions.Waiters
 

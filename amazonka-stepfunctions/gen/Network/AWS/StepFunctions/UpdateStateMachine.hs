@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing state machine by modifying its @definition@ and/or @roleArn@ . Running executions will continue to use the previous @definition@ and @roleArn@ .
+-- Updates an existing state machine by modifying its @definition@ and/or @roleArn@ . Running executions will continue to use the previous @definition@ and @roleArn@ . You must include at least one of @definition@ or @roleArn@ or you will receive a @MissingRequiredParameter@ error.
 --
 --
 module Network.AWS.StepFunctions.UpdateStateMachine
@@ -48,17 +48,17 @@ import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'updateStateMachine' smart constructor.
 data UpdateStateMachine = UpdateStateMachine'
-  { _usmDefinition      :: !(Maybe Text)
+  { _usmDefinition      :: !(Maybe (Sensitive Text))
   , _usmRoleARN         :: !(Maybe Text)
   , _usmStateMachineARN :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'UpdateStateMachine' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usmDefinition' - The Amazon States Language definition of the state machine.
+-- * 'usmDefinition' - The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
 --
 -- * 'usmRoleARN' - The Amazon Resource Name (ARN) of the IAM role of the state machine.
 --
@@ -74,9 +74,9 @@ updateStateMachine pStateMachineARN_ =
     }
 
 
--- | The Amazon States Language definition of the state machine.
+-- | The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
 usmDefinition :: Lens' UpdateStateMachine (Maybe Text)
-usmDefinition = lens _usmDefinition (\ s a -> s{_usmDefinition = a})
+usmDefinition = lens _usmDefinition (\ s a -> s{_usmDefinition = a}) . mapping _Sensitive
 
 -- | The Amazon Resource Name (ARN) of the IAM role of the state machine.
 usmRoleARN :: Lens' UpdateStateMachine (Maybe Text)

@@ -33,8 +33,10 @@ module Network.AWS.StepFunctions.Types
     , _InvalidToken
     , _ActivityWorkerLimitExceeded
     , _ActivityLimitExceeded
+    , _TooManyTags
     , _ExecutionDoesNotExist
     , _StateMachineDoesNotExist
+    , _ResourceNotFound
 
     -- * ExecutionStatus
     , ExecutionStatus (..)
@@ -130,17 +132,24 @@ module Network.AWS.StepFunctions.Types
     -- * HistoryEvent
     , HistoryEvent
     , historyEvent
+    , heTaskSubmitFailedEventDetails
+    , heTaskStartedEventDetails
     , heActivityStartedEventDetails
+    , heTaskSubmittedEventDetails
     , heLambdaFunctionStartFailedEventDetails
+    , heTaskStartFailedEventDetails
     , heStateExitedEventDetails
     , heLambdaFunctionSucceededEventDetails
+    , heTaskSucceededEventDetails
     , heActivitySucceededEventDetails
     , heLambdaFunctionTimedOutEventDetails
+    , heTaskTimedOutEventDetails
     , heActivityTimedOutEventDetails
     , heExecutionFailedEventDetails
     , heExecutionAbortedEventDetails
     , heExecutionSucceededEventDetails
     , heLambdaFunctionScheduledEventDetails
+    , heTaskScheduledEventDetails
     , heActivityScheduledEventDetails
     , heExecutionStartedEventDetails
     , heActivityScheduleFailedEventDetails
@@ -148,6 +157,7 @@ module Network.AWS.StepFunctions.Types
     , heStateEnteredEventDetails
     , hePreviousEventId
     , heActivityFailedEventDetails
+    , heTaskFailedEventDetails
     , heLambdaFunctionFailedEventDetails
     , heExecutionTimedOutEventDetails
     , heTimestamp
@@ -208,6 +218,73 @@ module Network.AWS.StepFunctions.Types
     , smliStateMachineARN
     , smliName
     , smliCreationDate
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
+
+    -- * TaskFailedEventDetails
+    , TaskFailedEventDetails
+    , taskFailedEventDetails
+    , tfedError
+    , tfedCause
+    , tfedResourceType
+    , tfedResource
+
+    -- * TaskScheduledEventDetails
+    , TaskScheduledEventDetails
+    , taskScheduledEventDetails
+    , tasTimeoutInSeconds
+    , tasResourceType
+    , tasResource
+    , tasRegion
+    , tasParameters
+
+    -- * TaskStartFailedEventDetails
+    , TaskStartFailedEventDetails
+    , taskStartFailedEventDetails
+    , tsfedsError
+    , tsfedsCause
+    , tsfedsResourceType
+    , tsfedsResource
+
+    -- * TaskStartedEventDetails
+    , TaskStartedEventDetails
+    , taskStartedEventDetails
+    , tsedResourceType
+    , tsedResource
+
+    -- * TaskSubmitFailedEventDetails
+    , TaskSubmitFailedEventDetails
+    , taskSubmitFailedEventDetails
+    , tsfedError
+    , tsfedCause
+    , tsfedResourceType
+    , tsfedResource
+
+    -- * TaskSubmittedEventDetails
+    , TaskSubmittedEventDetails
+    , taskSubmittedEventDetails
+    , tOutput
+    , tResourceType
+    , tResource
+
+    -- * TaskSucceededEventDetails
+    , TaskSucceededEventDetails
+    , taskSucceededEventDetails
+    , tsedsOutput
+    , tsedsResourceType
+    , tsedsResource
+
+    -- * TaskTimedOutEventDetails
+    , TaskTimedOutEventDetails
+    , taskTimedOutEventDetails
+    , ttoedError
+    , ttoedCause
+    , ttoedResourceType
+    , ttoedResource
     ) where
 
 import Network.AWS.Lens
@@ -378,6 +455,13 @@ _ActivityLimitExceeded =
   _MatchServiceError stepFunctions "ActivityLimitExceeded"
 
 
+-- | You've exceeded the number of tags allowed for a resource. See the <https://docs.aws.amazon.com/step-functions/latest/dg/limits.html Limits Topic> in the AWS Step Functions Developer Guide.
+--
+--
+_TooManyTags :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyTags = _MatchServiceError stepFunctions "TooManyTags"
+
+
 -- | The specified execution does not exist.
 --
 --
@@ -392,4 +476,11 @@ _ExecutionDoesNotExist =
 _StateMachineDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceError
 _StateMachineDoesNotExist =
   _MatchServiceError stepFunctions "StateMachineDoesNotExist"
+
+
+-- | Could not fine the referenced resource. Only state machine and activity ARNs are supported.
+--
+--
+_ResourceNotFound :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFound = _MatchServiceError stepFunctions "ResourceNotFound"
 

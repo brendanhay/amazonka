@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an activity. An activity is a task which you write in any programming language and host on any machine which has access to AWS Step Functions. Activities must poll Step Functions using the @GetActivityTask@ API action and respond using @SendTask*@ API actions. This function lets Step Functions know the existence of your activity and returns an identifier for use in a state machine and when polling from the activity.
+-- Creates an activity. An activity is a task that you write in any programming language and host on any machine that has access to AWS Step Functions. Activities must poll Step Functions using the @GetActivityTask@ API action and respond using @SendTask*@ API actions. This function lets Step Functions know the existence of your activity and returns an identifier for use in a state machine and when polling from the activity.
 --
 --
 module Network.AWS.StepFunctions.CreateActivity
@@ -27,6 +27,7 @@ module Network.AWS.StepFunctions.CreateActivity
       createActivity
     , CreateActivity
     -- * Request Lenses
+    , caTags
     , caName
 
     -- * Destructuring the Response
@@ -46,8 +47,9 @@ import Network.AWS.StepFunctions.Types
 import Network.AWS.StepFunctions.Types.Product
 
 -- | /See:/ 'createActivity' smart constructor.
-newtype CreateActivity = CreateActivity'
-  { _caName :: Text
+data CreateActivity = CreateActivity'
+  { _caTags :: !(Maybe [Tag])
+  , _caName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -55,14 +57,20 @@ newtype CreateActivity = CreateActivity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caName' - The name of the activity to create. This name must be unique for your AWS account and region for 90 days. For more information, see <http://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions> in the /AWS Step Functions Developer Guide/ . A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
+-- * 'caTags' - The list of tags to add to a resource.
+--
+-- * 'caName' - The name of the activity to create. This name must be unique for your AWS account and region for 90 days. For more information, see <https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions> in the /AWS Step Functions Developer Guide/ . A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 createActivity
     :: Text -- ^ 'caName'
     -> CreateActivity
-createActivity pName_ = CreateActivity' {_caName = pName_}
+createActivity pName_ = CreateActivity' {_caTags = Nothing, _caName = pName_}
 
 
--- | The name of the activity to create. This name must be unique for your AWS account and region for 90 days. For more information, see <http://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions> in the /AWS Step Functions Developer Guide/ . A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
+-- | The list of tags to add to a resource.
+caTags :: Lens' CreateActivity [Tag]
+caTags = lens _caTags (\ s a -> s{_caTags = a}) . _Default . _Coerce
+
+-- | The name of the activity to create. This name must be unique for your AWS account and region for 90 days. For more information, see <https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions> in the /AWS Step Functions Developer Guide/ . A name must /not/ contain:     * whitespace     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ )
 caName :: Lens' CreateActivity Text
 caName = lens _caName (\ s a -> s{_caName = a})
 
@@ -91,7 +99,9 @@ instance ToHeaders CreateActivity where
 
 instance ToJSON CreateActivity where
         toJSON CreateActivity'{..}
-          = object (catMaybes [Just ("name" .= _caName)])
+          = object
+              (catMaybes
+                 [("tags" .=) <$> _caTags, Just ("name" .= _caName)])
 
 instance ToPath CreateActivity where
         toPath = const "/"

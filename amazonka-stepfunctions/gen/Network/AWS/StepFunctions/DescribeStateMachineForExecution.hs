@@ -122,10 +122,10 @@ data DescribeStateMachineForExecutionResponse = DescribeStateMachineForExecution
   { _dsmfersResponseStatus  :: !Int
   , _dsmfersStateMachineARN :: !Text
   , _dsmfersName            :: !Text
-  , _dsmfersDefinition      :: !Text
+  , _dsmfersDefinition      :: !(Sensitive Text)
   , _dsmfersRoleARN         :: !Text
   , _dsmfersUpdateDate      :: !POSIX
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'DescribeStateMachineForExecutionResponse' with the minimum fields required to make a request.
@@ -138,7 +138,7 @@ data DescribeStateMachineForExecutionResponse = DescribeStateMachineForExecution
 --
 -- * 'dsmfersName' - The name of the state machine associated with the execution.
 --
--- * 'dsmfersDefinition' - The Amazon States Language definition of the state machine.
+-- * 'dsmfersDefinition' - The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
 --
 -- * 'dsmfersRoleARN' - The Amazon Resource Name (ARN) of the IAM role of the State Machine for the execution.
 --
@@ -156,7 +156,7 @@ describeStateMachineForExecutionResponse pResponseStatus_ pStateMachineARN_ pNam
     { _dsmfersResponseStatus = pResponseStatus_
     , _dsmfersStateMachineARN = pStateMachineARN_
     , _dsmfersName = pName_
-    , _dsmfersDefinition = pDefinition_
+    , _dsmfersDefinition = _Sensitive # pDefinition_
     , _dsmfersRoleARN = pRoleARN_
     , _dsmfersUpdateDate = _Time # pUpdateDate_
     }
@@ -174,9 +174,9 @@ dsmfersStateMachineARN = lens _dsmfersStateMachineARN (\ s a -> s{_dsmfersStateM
 dsmfersName :: Lens' DescribeStateMachineForExecutionResponse Text
 dsmfersName = lens _dsmfersName (\ s a -> s{_dsmfersName = a})
 
--- | The Amazon States Language definition of the state machine.
+-- | The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
 dsmfersDefinition :: Lens' DescribeStateMachineForExecutionResponse Text
-dsmfersDefinition = lens _dsmfersDefinition (\ s a -> s{_dsmfersDefinition = a})
+dsmfersDefinition = lens _dsmfersDefinition (\ s a -> s{_dsmfersDefinition = a}) . _Sensitive
 
 -- | The Amazon Resource Name (ARN) of the IAM role of the State Machine for the execution.
 dsmfersRoleARN :: Lens' DescribeStateMachineForExecutionResponse Text

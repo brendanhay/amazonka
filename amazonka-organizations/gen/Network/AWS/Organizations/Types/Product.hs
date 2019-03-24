@@ -47,7 +47,7 @@ data Account = Account'
 --
 -- * 'aEmail' - The email address associated with the AWS account. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that represents a standard Internet email address.
 --
--- * 'aARN' - The Amazon Resource Name (ARN) of the account. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- * 'aARN' - The Amazon Resource Name (ARN) of the account. For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 --
 -- * 'aJoinedTimestamp' - The date the account became a part of the organization.
 --
@@ -80,7 +80,7 @@ aJoinedMethod = lens _aJoinedMethod (\ s a -> s{_aJoinedMethod = a})
 aEmail :: Lens' Account (Maybe Text)
 aEmail = lens _aEmail (\ s a -> s{_aEmail = a}) . mapping _Sensitive
 
--- | The Amazon Resource Name (ARN) of the account. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- | The Amazon Resource Name (ARN) of the account. For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 aARN :: Lens' Account (Maybe Text)
 aARN = lens _aARN (\ s a -> s{_aARN = a})
 
@@ -312,7 +312,7 @@ data Handshake = Handshake'
 --
 -- * 'hState' - The current state of the handshake. Use the state to trace the flow of the handshake through the process from its creation to its acceptance. The meaning of each of the valid values is as follows:     * __REQUESTED__ : This handshake was sent to multiple recipients (applicable to only some handshake types) and not all recipients have responded yet. The request stays in this state until all recipients respond.     * __OPEN__ : This handshake was sent to multiple recipients (applicable to only some policy types) and all recipients have responded, allowing the originator to complete the handshake action.     * __CANCELED__ : This handshake is no longer active because it was canceled by the originating account.     * __ACCEPTED__ : This handshake is complete because it has been accepted by the recipient.     * __DECLINED__ : This handshake is no longer active because it was declined by the recipient account.     * __EXPIRED__ : This handshake is no longer active because the originator did not receive a response of any kind from the recipient before the expiration time (15 days).
 --
--- * 'hARN' - The Amazon Resource Name (ARN) of a handshake. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- * 'hARN' - The Amazon Resource Name (ARN) of a handshake. For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 --
 -- * 'hAction' - The type of handshake, indicating what action occurs when the recipient accepts the handshake. The following handshake types are supported:     * __INVITE__ : This type of handshake represents a request to join an organization. It is always sent from the master account to only non-member accounts.     * __ENABLE_ALL_FEATURES__ : This type of handshake represents a request to enable all features in an organization. It is always sent from the master account to only /invited/ member accounts. Created accounts do not receive this because those accounts were created by the organization's master account and approval is inferred.     * __APPROVE_ALL_FEATURES__ : This type of handshake is sent from the Organizations service when all member accounts have approved the @ENABLE_ALL_FEATURES@ invitation. It is sent only to the master account and signals the master that it can finalize the process to enable all features.
 --
@@ -344,7 +344,7 @@ handshake =
 hState :: Lens' Handshake (Maybe HandshakeState)
 hState = lens _hState (\ s a -> s{_hState = a})
 
--- | The Amazon Resource Name (ARN) of a handshake. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- | The Amazon Resource Name (ARN) of a handshake. For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 hARN :: Lens' Handshake (Maybe Text)
 hARN = lens _hARN (\ s a -> s{_hARN = a})
 
@@ -554,11 +554,11 @@ data Organization = Organization'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oARN' - The Amazon Resource Name (ARN) of an organization. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- * 'oARN' - The Amazon Resource Name (ARN) of an organization. For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 --
 -- * 'oMasterAccountId' - The unique identifier (ID) of the master account of an organization. The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
 --
--- * 'oMasterAccountARN' - The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- * 'oMasterAccountARN' - The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization. For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 --
 -- * 'oMasterAccountEmail' - The email address that is associated with the AWS account that is designated as the master account for the organization.
 --
@@ -566,7 +566,7 @@ data Organization = Organization'
 --
 -- * 'oId' - The unique identifier (ID) of an organization. The <http://wikipedia.org/wiki/regex regex pattern> for an organization ID string requires "o-" followed by from 10 to 32 lower-case letters or digits.
 --
--- * 'oFeatureSet' - Specifies the functionality that currently is available to the organization. If set to "ALL", then all features are enabled and policies can be applied to accounts in the organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality is available. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization> in the /AWS Organizations User Guide/ .
+-- * 'oFeatureSet' - Specifies the functionality that currently is available to the organization. If set to "ALL", then all features are enabled and policies can be applied to accounts in the organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality is available. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization> in the /AWS Organizations User Guide/ .
 organization
     :: Organization
 organization =
@@ -581,7 +581,7 @@ organization =
     }
 
 
--- | The Amazon Resource Name (ARN) of an organization. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- | The Amazon Resource Name (ARN) of an organization. For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 oARN :: Lens' Organization (Maybe Text)
 oARN = lens _oARN (\ s a -> s{_oARN = a})
 
@@ -589,7 +589,7 @@ oARN = lens _oARN (\ s a -> s{_oARN = a})
 oMasterAccountId :: Lens' Organization (Maybe Text)
 oMasterAccountId = lens _oMasterAccountId (\ s a -> s{_oMasterAccountId = a})
 
--- | The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- | The Amazon Resource Name (ARN) of the account that is designated as the master account for the organization. For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 oMasterAccountARN :: Lens' Organization (Maybe Text)
 oMasterAccountARN = lens _oMasterAccountARN (\ s a -> s{_oMasterAccountARN = a})
 
@@ -605,7 +605,7 @@ oAvailablePolicyTypes = lens _oAvailablePolicyTypes (\ s a -> s{_oAvailablePolic
 oId :: Lens' Organization (Maybe Text)
 oId = lens _oId (\ s a -> s{_oId = a})
 
--- | Specifies the functionality that currently is available to the organization. If set to "ALL", then all features are enabled and policies can be applied to accounts in the organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality is available. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization> in the /AWS Organizations User Guide/ .
+-- | Specifies the functionality that currently is available to the organization. If set to "ALL", then all features are enabled and policies can be applied to accounts in the organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality is available. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization> in the /AWS Organizations User Guide/ .
 oFeatureSet :: Lens' Organization (Maybe OrganizationFeatureSet)
 oFeatureSet = lens _oFeatureSet (\ s a -> s{_oFeatureSet = a})
 
@@ -641,7 +641,7 @@ data OrganizationalUnit = OrganizationalUnit'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ouARN' - The Amazon Resource Name (ARN) of this OU. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- * 'ouARN' - The Amazon Resource Name (ARN) of this OU. For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 --
 -- * 'ouName' - The friendly name of this OU. The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
 --
@@ -652,7 +652,7 @@ organizationalUnit =
   OrganizationalUnit' {_ouARN = Nothing, _ouName = Nothing, _ouId = Nothing}
 
 
--- | The Amazon Resource Name (ARN) of this OU. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- | The Amazon Resource Name (ARN) of this OU. For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 ouARN :: Lens' OrganizationalUnit (Maybe Text)
 ouARN = lens _ouARN (\ s a -> s{_ouARN = a})
 
@@ -776,7 +776,7 @@ data PolicySummary = PolicySummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'psARN' - The Amazon Resource Name (ARN) of the policy. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- * 'psARN' - The Amazon Resource Name (ARN) of the policy. For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 --
 -- * 'psName' - The friendly name of the policy. The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
 --
@@ -800,7 +800,7 @@ policySummary =
     }
 
 
--- | The Amazon Resource Name (ARN) of the policy. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- | The Amazon Resource Name (ARN) of the policy. For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 psARN :: Lens' PolicySummary (Maybe Text)
 psARN = lens _psARN (\ s a -> s{_psARN = a})
 
@@ -857,7 +857,7 @@ data PolicyTargetSummary = PolicyTargetSummary'
 --
 -- * 'polTargetId' - The unique identifier (ID) of the policy target. The <http://wikipedia.org/wiki/regex regex pattern> for a target ID string requires one of the following:     * Root: a string that begins with "r-" followed by from 4 to 32 lower-case letters or digits.     * Account: a string that consists of exactly 12 digits.     * Organizational unit (OU): a string that begins with "ou-" followed by from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in) followed by a second "-" dash and from 8 to 32 additional lower-case letters or digits.
 --
--- * 'polARN' - The Amazon Resource Name (ARN) of the policy target. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- * 'polARN' - The Amazon Resource Name (ARN) of the policy target. For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 --
 -- * 'polName' - The friendly name of the policy target. The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
 --
@@ -877,7 +877,7 @@ policyTargetSummary =
 polTargetId :: Lens' PolicyTargetSummary (Maybe Text)
 polTargetId = lens _polTargetId (\ s a -> s{_polTargetId = a})
 
--- | The Amazon Resource Name (ARN) of the policy target. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- | The Amazon Resource Name (ARN) of the policy target. For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 polARN :: Lens' PolicyTargetSummary (Maybe Text)
 polARN = lens _polARN (\ s a -> s{_polARN = a})
 
@@ -962,7 +962,7 @@ data Root = Root'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rARN' - The Amazon Resource Name (ARN) of the root. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- * 'rARN' - The Amazon Resource Name (ARN) of the root. For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 --
 -- * 'rName' - The friendly name of the root. The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
 --
@@ -976,7 +976,7 @@ root =
     {_rARN = Nothing, _rName = Nothing, _rId = Nothing, _rPolicyTypes = Nothing}
 
 
--- | The Amazon Resource Name (ARN) of the root. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+-- | The Amazon Resource Name (ARN) of the root. For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 rARN :: Lens' Root (Maybe Text)
 rARN = lens _rARN (\ s a -> s{_rARN = a})
 

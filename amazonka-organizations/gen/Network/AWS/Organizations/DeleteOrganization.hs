@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the organization. You can delete an organization only by using credentials from the master account. The organization must be empty of member accounts, OUs, and policies.
+-- Deletes the organization. You can delete an organization only by using credentials from the master account. The organization must be empty of member accounts.
 --
 --
 module Network.AWS.Organizations.DeleteOrganization

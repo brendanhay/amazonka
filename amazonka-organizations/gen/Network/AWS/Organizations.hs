@@ -15,19 +15,19 @@
 --
 -- AWS Organizations is a web service that enables you to consolidate your multiple AWS accounts into an /organization/ and centrally manage your accounts and their resources.
 --
--- This guide provides descriptions of the Organizations API. For more information about using this service, see the <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html AWS Organizations User Guide> .
+-- This guide provides descriptions of the Organizations API. For more information about using this service, see the <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html AWS Organizations User Guide> .
 --
 -- __API Version__
 --
 -- This version of the Organizations API Reference documents the Organizations API version 2016-11-28.
 --
--- We recommend that you use the AWS SDKs to make programmatic API calls to Organizations. However, you also can use the Organizations Query API to make direct calls to the Organizations web service. To learn more about the Organizations Query API, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_query-requests.html Making Query Requests> in the /AWS Organizations User Guide/ . Organizations supports GET and POST requests for all actions. That is, the API does not require you to use GET for some actions and POST for others. However, GET requests are subject to the limitation size of a URL. Therefore, for operations that require larger sizes, use a POST request.
+-- We recommend that you use the AWS SDKs to make programmatic API calls to Organizations. However, you also can use the Organizations Query API to make direct calls to the Organizations web service. To learn more about the Organizations Query API, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_query-requests.html Making Query Requests> in the /AWS Organizations User Guide/ . Organizations supports GET and POST requests for all actions. That is, the API does not require you to use GET for some actions and POST for others. However, GET requests are subject to the limitation size of a URL. Therefore, for operations that require larger sizes, use a POST request.
 --
 -- __Signing Requests__
 --
 -- When you send HTTP requests to AWS, you must sign the requests so that AWS can identify who sent them. You sign requests with your AWS access key, which consists of an access key ID and a secret access key. We strongly recommend that you do not create an access key for your root account. Anyone who has the access key for your root account has unrestricted access to all the resources in your account. Instead, create an access key for an IAM user account that has administrative privileges. As another option, use AWS Security Token Service to generate temporary security credentials, and use those credentials to sign requests.
 --
--- To sign requests, we recommend that you use <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4> . If you have an existing application that uses Signature Version 2, you do not have to update it to use Signature Version 4. However, some operations now require Signature Version 4. The documentation for operations that require version 4 indicate this requirement.
+-- To sign requests, we recommend that you use <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4> . If you have an existing application that uses Signature Version 2, you do not have to update it to use Signature Version 4. However, some operations now require Signature Version 4. The documentation for operations that require version 4 indicate this requirement.
 --
 -- When you use the AWS Command Line Interface (AWS CLI) or one of the AWS SDKs to make requests to AWS, these tools automatically sign the requests for you with the access key that you specify when you configure the tools.
 --
@@ -55,7 +55,7 @@
 --
 --
 --
--- For the various SDKs used to call the APIs, see the documentation for the SDK of interest to learn how to direct the requests to a specific endpoint. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#sts_region Regions and Endpoints> in the /AWS General Reference/ .
+-- For the various SDKs used to call the APIs, see the documentation for the SDK of interest to learn how to direct the requests to a specific endpoint. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html#sts_region Regions and Endpoints> in the /AWS General Reference/ .
 --
 -- __How examples are presented__
 --
@@ -63,7 +63,7 @@
 --
 -- __Recording API Requests__
 --
--- AWS Organizations supports AWS CloudTrail, a service that records AWS API calls for your AWS account and delivers log files to an Amazon S3 bucket. By using information collected by AWS CloudTrail, you can determine which requests were successfully made to Organizations, who made the request, when it was made, and so on. For more about AWS Organizations and its support for AWS CloudTrail, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_cloudtrail-integration.html Logging AWS Organizations Events with AWS CloudTrail> in the /AWS Organizations User Guide/ . To learn more about CloudTrail, including how to turn it on and find your log files, see the <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html AWS CloudTrail User Guide> .
+-- AWS Organizations supports AWS CloudTrail, a service that records AWS API calls for your AWS account and delivers log files to an Amazon S3 bucket. By using information collected by AWS CloudTrail, you can determine which requests were successfully made to Organizations, who made the request, when it was made, and so on. For more about AWS Organizations and its support for AWS CloudTrail, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html#orgs_cloudtrail-integration Logging AWS Organizations Events with AWS CloudTrail> in the /AWS Organizations User Guide/ . To learn more about CloudTrail, including how to turn it on and find your log files, see the <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html AWS CloudTrail User Guide> .
 --
 module Network.AWS.Organizations
     (
@@ -123,6 +123,9 @@ module Network.AWS.Organizations
 
     -- ** OrganizationNotEmptyException
     , _OrganizationNotEmptyException
+
+    -- ** AccountOwnerNotVerifiedException
+    , _AccountOwnerNotVerifiedException
 
     -- ** PolicyTypeNotEnabledException
     , _PolicyTypeNotEnabledException

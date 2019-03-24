@@ -33,6 +33,7 @@ module Network.AWS.Organizations.Types
     , _OrganizationalUnitNotFoundException
     , _DestinationParentNotFoundException
     , _OrganizationNotEmptyException
+    , _AccountOwnerNotVerifiedException
     , _PolicyTypeNotEnabledException
     , _DuplicateHandshakeException
     , _OrganizationalUnitNotEmptyException
@@ -273,7 +274,7 @@ organizations =
       | otherwise = Nothing
 
 
--- | We can't find a policy with the PolicyId that you specified.
+-- | We can't find a policy with the @PolicyId@ that you specified.
 --
 --
 _PolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -292,19 +293,19 @@ _PolicyTypeAlreadyEnabledException =
 -- | The requested operation would violate the constraint identified in the reason code.
 --
 --
---     * ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of accounts in an organization. __Note__ : deleted and closed accounts still count toward your limit.
+--     * ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of accounts in an organization. Note that deleted and closed accounts still count toward your limit.
 --
--- /Important:/ If you get an exception that indicates that you exceeded your account limits for the organization or that you can"t add an account because your organization is still initializing, please contact <https://console.aws.amazon.com/support/home#/ AWS Customer Support> .
+-- /Important:/ If you get this exception immediately after creating the organization, wait one hour and try again. If after an hour it continues to fail with this error, contact <https://console.aws.amazon.com/support/home#/ AWS Support> .
 --
---     * HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of handshakes you can send in one day.
+--     * HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of handshakes that you can send in one day.
 --
 --     * ALREADY_IN_AN_ORGANIZATION: The handshake request is invalid because the invited account is already a member of an organization.
 --
 --     * ORGANIZATION_ALREADY_HAS_ALL_FEATURES: The handshake request is invalid because the organization has already enabled all features.
 --
---     * INVITE_DISABLED_DURING_ENABLE_ALL_FEATURES: You cannot issue new invitations to join an organization while it is in the process of enabling all features. You can resume inviting accounts after you finalize the process when all accounts have agreed to the change.
+--     * INVITE_DISABLED_DURING_ENABLE_ALL_FEATURES: You can't issue new invitations to join an organization while it's in the process of enabling all features. You can resume inviting accounts after you finalize the process when all accounts have agreed to the change.
 --
---     * PAYMENT_INSTRUMENT_REQUIRED: You cannot complete the operation with an account that does not have a payment instrument, such as a credit card, associated with it.
+--     * PAYMENT_INSTRUMENT_REQUIRED: You can't complete the operation with an account that doesn't have a payment instrument, such as a credit card, associated with it.
 --
 --     * ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD: The request failed because the account is from a different marketplace than the accounts in the organization. For example, accounts with India addresses must be associated with the AISPL marketplace. All accounts in an organization must be from the same marketplace.
 --
@@ -317,7 +318,7 @@ _HandshakeConstraintViolationException =
   _MatchServiceError organizations "HandshakeConstraintViolationException"
 
 
--- | You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html Access Management> in the /IAM User Guide/ .
+-- | You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html Access Management> in the /IAM User Guide/ .
 --
 --
 _AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -325,7 +326,7 @@ _AccessDeniedException =
   _MatchServiceError organizations "AccessDeniedException"
 
 
--- | The provided policy document does not meet the requirements of the specified policy type. For example, the syntax might be incorrect. For details about service control policy syntax, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide/ .
+-- | The provided policy document doesn't meet the requirements of the specified policy type. For example, the syntax might be incorrect. For details about service control policy syntax, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide/ .
 --
 --
 _MalformedPolicyDocumentException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -333,7 +334,7 @@ _MalformedPolicyDocumentException =
   _MatchServiceError organizations "MalformedPolicyDocumentException"
 
 
--- | We can't find a root with the RootId that you specified.
+-- | We can't find a root with the @RootId@ that you specified.
 --
 --
 _RootNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -349,7 +350,7 @@ _MasterCannotLeaveOrganizationException =
   _MatchServiceError organizations "MasterCannotLeaveOrganizationException"
 
 
--- | We can't find an AWS account with the AccountId that you specified, or the account whose credentials you used to make this request is not a member of an organization.
+-- | We can't find an AWS account with the @AccountId@ that you specified, or the account whose credentials you used to make this request isn't a member of an organization.
 --
 --
 _AccountNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -365,24 +366,24 @@ _DuplicatePolicyException =
   _MatchServiceError organizations "DuplicatePolicyException"
 
 
--- | Performing this operation violates a minimum or maximum value limit. For example, attempting to removing the last SCP from an OU or root, inviting or creating too many accounts to the organization, or attaching too many policies to an account, OU, or root. This exception includes a reason that contains additional information about the violated limit:
+-- | Performing this operation violates a minimum or maximum value limit. For example, attempting to removing the last service control policy (SCP) from an OU or root, inviting or creating too many accounts to the organization, or attaching too many policies to an account, OU, or root. This exception includes a reason that contains additional information about the violated limit.
 --
 --
+-- Some of the reasons in the following list might not be applicable to this specific API or operation:
 --
+--     * ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of accounts in an organization. If you need more accounts, contact<https://console.aws.amazon.com/support/home#/ AWS Support> to request an increase in your limit.
 --
---     * ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of accounts in an organization. If you need more accounts, contact AWS Support to request an increase in your limit.
+-- Or the number of invitations that you tried to send would cause you to exceed the limit of accounts in your organization. Send fewer invitations or contact AWS Support to request an increase in the number of accounts.
 --
--- Or, The number of invitations that you tried to send would cause you to exceed the limit of accounts in your organization. Send fewer invitations, or contact AWS Support to request an increase in the number of accounts.
+-- /Important:/ If you get receive this exception when running a command immediately after creating the organization, wait one hour and try again. If after an hour it continues to fail with this error, contact <https://console.aws.amazon.com/support/home#/ AWS Support> .
 --
--- __Note__ : deleted and closed accounts still count toward your limit.
+--     * HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of handshakes that you can send in one day.
 --
--- /Important:/ If you get an exception that indicates that you exceeded your account limits for the organization or that you can"t add an account because your organization is still initializing, please contact <https://console.aws.amazon.com/support/home#/ AWS Customer Support> .
+--     * OU_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the number of OUs that you can have in an organization.
 --
---     * HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of handshakes you can send in one day.
+--     * OU_DEPTH_LIMIT_EXCEEDED: You attempted to create an OU tree that is too many levels deep.
 --
---     * OU_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the number of organizational units you can have in an organization.
---
---     * OU_DEPTH_LIMIT_EXCEEDED: You attempted to create an organizational unit tree that is too many levels deep.
+--     * ORGANIZATION_NOT_IN_ALL_FEATURES_MODE: You attempted to perform an operation that requires the organization to be configured to support all features. An organization that supports only consolidated billing features can't perform this operation.
 --
 --     * POLICY_NUMBER_LIMIT_EXCEEDED. You attempted to exceed the number of policies that you can have in an organization.
 --
@@ -390,11 +391,11 @@ _DuplicatePolicyException =
 --
 --     * MIN_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED: You attempted to detach a policy from an entity that would cause the entity to have fewer than the minimum number of policies of a certain type required.
 --
---     * ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: You attempted to remove an account from the organization that does not yet have enough information to exist as a stand-alone account. This account requires you to first agree to the AWS Customer Agreement. Follow the steps at <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info To leave an organization when all required account information has not yet been provided> in the /AWS Organizations User Guide/ .
+--     * ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: You attempted to remove an account from the organization that doesn't yet have enough information to exist as a standalone account. This account requires you to first agree to the AWS Customer Agreement. Follow the steps at <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info To leave an organization when all required account information has not yet been provided> in the /AWS Organizations User Guide/ .
 --
---     * ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION: You attempted to remove an account from the organization that does not yet have enough information to exist as a stand-alone account. This account requires you to first complete phone verification. Follow the steps at <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info To leave an organization when all required account information has not yet been provided> in the /AWS Organizations User Guide/ .
+--     * ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION: You attempted to remove an account from the organization that doesn't yet have enough information to exist as a standalone account. This account requires you to first complete phone verification. Follow the steps at <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info To leave an organization when all required account information has not yet been provided> in the /AWS Organizations User Guide/ .
 --
---     * MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this account, you first must associate a payment instrument, such as a credit card, with the account. Follow the steps at <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info To leave an organization when all required account information has not yet been provided> in the /AWS Organizations User Guide/ .
+--     * MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with this master account, you first must associate a payment instrument, such as a credit card, with the account. Follow the steps at <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info To leave an organization when all required account information has not yet been provided> in the /AWS Organizations User Guide/ .
 --
 --     * MEMBER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To complete this operation with this member account, you first must associate a payment instrument, such as a credit card, with the account. Follow the steps at <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info To leave an organization when all required account information has not yet been provided> in the /AWS Organizations User Guide/ .
 --
@@ -411,7 +412,7 @@ _ConstraintViolationException =
   _MatchServiceError organizations "ConstraintViolationException"
 
 
--- | AWS Organizations could not finalize the creation of your organization. Try again later. If this persists, contact AWS customer support.
+-- | AWS Organizations couldn't perform the operation because your organization hasn't finished initializing. This can take up to an hour. Try again later. If after one hour you continue to receive this error, contact <https://console.aws.amazon.com/support/home#/ AWS Support> .
 --
 --
 _FinalizingOrganizationException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -419,7 +420,7 @@ _FinalizingOrganizationException =
   _MatchServiceError organizations "FinalizingOrganizationException"
 
 
--- | We can't find a handshake with the HandshakeId that you specified.
+-- | We can't find a handshake with the @HandshakeId@ that you specified.
 --
 --
 _HandshakeNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -427,7 +428,7 @@ _HandshakeNotFoundException =
   _MatchServiceError organizations "HandshakeNotFoundException"
 
 
--- | You can't use the specified policy type with the feature set currently enabled for this organization. For example, you can enable service control policies (SCPs) only after you enable all features in the organization. For more information, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html#enable_policies_on_root Enabling and Disabling a Policy Type on a Root> in the /AWS Organizations User Guide/ .
+-- | You can't use the specified policy type with the feature set currently enabled for this organization. For example, you can enable SCPs only after you enable all features in the organization. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html#enable_policies_on_root Enabling and Disabling a Policy Type on a Root> in the /AWS Organizations User Guide/ .
 --
 --
 _PolicyTypeNotAvailableForOrganizationException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -437,7 +438,7 @@ _PolicyTypeNotAvailableForOrganizationException =
     "PolicyTypeNotAvailableForOrganizationException"
 
 
--- | We can't find an organizational unit (OU) or AWS account with the ChildId that you specified.
+-- | We can't find an organizational unit (OU) or AWS account with the @ChildId@ that you specified.
 --
 --
 _ChildNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -445,7 +446,7 @@ _ChildNotFoundException =
   _MatchServiceError organizations "ChildNotFoundException"
 
 
--- | We can't find an organizational unit (OU) with the OrganizationalUnitId that you specified.
+-- | We can't find an OU with the @OrganizationalUnitId@ that you specified.
 --
 --
 _OrganizationalUnitNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -453,7 +454,7 @@ _OrganizationalUnitNotFoundException =
   _MatchServiceError organizations "OrganizationalUnitNotFoundException"
 
 
--- | We can't find the destination container (a root or OU) with the ParentId that you specified.
+-- | We can't find the destination container (a root or OU) with the @ParentId@ that you specified.
 --
 --
 _DestinationParentNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -461,7 +462,7 @@ _DestinationParentNotFoundException =
   _MatchServiceError organizations "DestinationParentNotFoundException"
 
 
--- | The organization isn't empty. To delete an organization, you must first remove all accounts except the master account, delete all organizational units (OUs), and delete all policies.
+-- | The organization isn't empty. To delete an organization, you must first remove all accounts except the master account, delete all OUs, and delete all policies.
 --
 --
 _OrganizationNotEmptyException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -469,7 +470,15 @@ _OrganizationNotEmptyException =
   _MatchServiceError organizations "OrganizationNotEmptyException"
 
 
--- | The specified policy type is not currently enabled in this root. You cannot attach policies of the specified type to entities in a root until you enable that type in the root. For more information, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization> in the /AWS Organizations User Guide/ .
+-- | You can't invite an existing account to your organization until you verify that you own the email address associated with the master account. For more information, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_create.html#about-email-verification Email Address Verification> in the /AWS Organizations User Guide/ .
+--
+--
+_AccountOwnerNotVerifiedException :: AsError a => Getting (First ServiceError) a ServiceError
+_AccountOwnerNotVerifiedException =
+  _MatchServiceError organizations "AccountOwnerNotVerifiedException"
+
+
+-- | The specified policy type isn't currently enabled in this root. You can't attach policies of the specified type to entities in a root until you enable that type in the root. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization> in the /AWS Organizations User Guide/ .
 --
 --
 _PolicyTypeNotEnabledException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -485,7 +494,7 @@ _DuplicateHandshakeException =
   _MatchServiceError organizations "DuplicateHandshakeException"
 
 
--- | The specified organizational unit (OU) is not empty. Move all accounts to another root or to other OUs, remove all child OUs, and then try the operation again.
+-- | The specified OU is not empty. Move all accounts to another root or to other OUs, remove all child OUs, and try the operation again.
 --
 --
 _OrganizationalUnitNotEmptyException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -495,6 +504,8 @@ _OrganizationalUnitNotEmptyException =
 
 -- | You've sent too many requests in too short a period of time. The limit helps protect against denial-of-service attacks. Try again later.
 --
+--
+-- For information on limits that affect Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html Limits of AWS Organizations> in the /AWS Organizations User Guide/ .
 --
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyRequestsException =
@@ -516,7 +527,7 @@ _ServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceException = _MatchServiceError organizations "ServiceException"
 
 
--- | We can't find a source root or OU with the ParentId that you specified.
+-- | We can't find a source root or OU with the @ParentId@ that you specified.
 --
 --
 _SourceParentNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -524,7 +535,7 @@ _SourceParentNotFoundException =
   _MatchServiceError organizations "SourceParentNotFoundException"
 
 
--- | We can't find a root, OU, or account with the TargetId that you specified.
+-- | We can't find a root, OU, or account with the @TargetId@ that you specified.
 --
 --
 _TargetNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -532,7 +543,7 @@ _TargetNotFoundException =
   _MatchServiceError organizations "TargetNotFoundException"
 
 
--- | We can't find an create account request with the CreateAccountRequestId that you specified.
+-- | We can't find an create account request with the @CreateAccountRequestId@ that you specified.
 --
 --
 _CreateAccountStatusNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -548,7 +559,7 @@ _AlreadyInOrganizationException =
   _MatchServiceError organizations "AlreadyInOrganizationException"
 
 
--- | An organizational unit (OU) with the same name already exists.
+-- | An OU with the same name already exists.
 --
 --
 _DuplicateOrganizationalUnitException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -559,11 +570,11 @@ _DuplicateOrganizationalUnitException =
 -- | The requested operation failed because you provided invalid values for one or more of the request parameters. This exception includes a reason that contains additional information about the violated limit:
 --
 --
---     * IMMUTABLE_POLICY: You specified a policy that is managed by AWS and cannot be modified.
+--     * IMMUTABLE_POLICY: You specified a policy that is managed by AWS and can't be modified.
 --
 --     * INPUT_REQUIRED: You must include a value for all required parameters.
 --
---     * INVALID_ENUM: You specified a value that is not valid for that parameter.
+--     * INVALID_ENUM: You specified a value that isn't valid for that parameter.
 --
 --     * INVALID_FULL_NAME_TARGET: You specified a full name that contains invalid characters.
 --
@@ -571,15 +582,15 @@ _DuplicateOrganizationalUnitException =
 --
 --     * INVALID_PARTY_TYPE_TARGET: You specified the wrong type of entity (account, organization, or email) as a party.
 --
---     * INVALID_PAGINATION_TOKEN: Get the value for the NextToken parameter from the response to a previous call of the operation.
+--     * INVALID_PAGINATION_TOKEN: Get the value for the @NextToken@ parameter from the response to a previous call of the operation.
 --
 --     * INVALID_PATTERN: You provided a value that doesn't match the required pattern.
 --
 --     * INVALID_PATTERN_TARGET_ID: You specified a policy target ID that doesn't match the required pattern.
 --
---     * INVALID_ROLE_NAME: You provided a role name that is not valid. A role name can’t begin with the reserved prefix 'AWSServiceRoleFor'.
+--     * INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name can't begin with the reserved prefix @AWSServiceRoleFor@ .
 --
---     * INVALID_SYNTAX_ORGANIZATION_ARN: You specified an invalid ARN for the organization.
+--     * INVALID_SYNTAX_ORGANIZATION_ARN: You specified an invalid Amazon Resource Name (ARN) for the organization.
 --
 --     * INVALID_SYNTAX_POLICY_ID: You specified an invalid policy ID.
 --
@@ -610,7 +621,7 @@ _PolicyNotAttachedException =
   _MatchServiceError organizations "PolicyNotAttachedException"
 
 
--- | We can't find a root or organizational unit (OU) with the ParentId that you specified.
+-- | We can't find a root or OU with the @ParentId@ that you specified.
 --
 --
 _ParentNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -618,7 +629,7 @@ _ParentNotFoundException =
   _MatchServiceError organizations "ParentNotFoundException"
 
 
--- | The operation you attempted requires you to have the @iam:CreateServiceLinkedRole@ so that Organizations can create the required service-linked role. You do not have that permission.
+-- | The operation that you attempted requires you to have the @iam:CreateServiceLinkedRole@ so that AWS Organizations can create the required service-linked role. You don't have that permission.
 --
 --
 _AccessDeniedForDependencyException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -626,7 +637,7 @@ _AccessDeniedForDependencyException =
   _MatchServiceError organizations "AccessDeniedForDependencyException"
 
 
--- | Your account is not a member of an organization. To make this request, you must use the credentials of an account that belongs to an organization.
+-- | Your account isn't a member of an organization. To make this request, you must use the credentials of an account that belongs to an organization.
 --
 --
 _AWSOrganizationsNotInUseException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -634,14 +645,14 @@ _AWSOrganizationsNotInUseException =
   _MatchServiceError organizations "AWSOrganizationsNotInUseException"
 
 
--- | The policy is attached to one or more entities. You must detach it from all roots, organizational units (OUs), and accounts before performing this operation.
+-- | The policy is attached to one or more entities. You must detach it from all roots, OUs, and accounts before performing this operation.
 --
 --
 _PolicyInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _PolicyInUseException = _MatchServiceError organizations "PolicyInUseException"
 
 
--- | You can't perform the operation on the handshake in its current state. For example, you can't cancel a handshake that was already accepted, or accept a handshake that was already declined.
+-- | You can't perform the operation on the handshake in its current state. For example, you can't cancel a handshake that was already accepted or accept a handshake that was already declined.
 --
 --
 _InvalidHandshakeTransitionException :: AsError a => Getting (First ServiceError) a ServiceError

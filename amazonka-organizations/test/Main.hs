@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.Organizations
 import Test.AWS.Organizations.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "Organizations"

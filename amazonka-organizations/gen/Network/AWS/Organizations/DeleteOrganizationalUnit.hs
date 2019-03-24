@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an organizational unit from a root or another OU. You must first remove all accounts and child OUs from the OU that you want to delete.
+-- Deletes an organizational unit (OU) from a root or another OU. You must first remove all accounts and child OUs from the OU that you want to delete.
 --
 --
 -- This operation can be called only from the organization's master account.

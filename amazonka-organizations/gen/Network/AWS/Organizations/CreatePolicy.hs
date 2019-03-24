@@ -21,7 +21,7 @@
 -- Creates a policy of a specified type that you can attach to a root, an organizational unit (OU), or an individual AWS account.
 --
 --
--- For more information about policies and their use, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html Managing Organization Policies> .
+-- For more information about policies and their use, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html Managing Organization Policies> .
 --
 -- This operation can be called only from the organization's master account.
 --
@@ -64,7 +64,7 @@ data CreatePolicy = CreatePolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpContent' - The policy content to add to the new policy. For example, if you create a <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html service control policy> (SCP), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles. For more information about the SCP syntax, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide/ .
+-- * 'cpContent' - The policy content to add to the new policy. For example, if you create a <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html service control policy> (SCP), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles. For more information about the SCP syntax, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide/ .
 --
 -- * 'cpDescription' - An optional description to assign to the policy.
 --
@@ -86,7 +86,7 @@ createPolicy pContent_ pDescription_ pName_ pType_ =
     }
 
 
--- | The policy content to add to the new policy. For example, if you create a <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html service control policy> (SCP), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles. For more information about the SCP syntax, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide/ .
+-- | The policy content to add to the new policy. For example, if you create a <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html service control policy> (SCP), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles. For more information about the SCP syntax, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide/ .
 cpContent :: Lens' CreatePolicy Text
 cpContent = lens _cpContent (\ s a -> s{_cpContent = a})
 

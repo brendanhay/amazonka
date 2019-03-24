@@ -79,6 +79,6 @@ parseNotation t = mappend msg `first` A.parseOnly expr1 t
 
     label = mkId <$> strip (A.takeWhile1 delim)
 
-    delim = A.notInClass "0-9[].`()|><= "
+    delim = A.notInClass "[].`()|><= "
 
     strip p = A.skipSpace *> p <* A.skipSpace

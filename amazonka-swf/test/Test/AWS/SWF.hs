@@ -16,11 +16,11 @@ module Test.AWS.SWF
     , fixtures
     ) where
 
-import           Data.Time
-import           Network.AWS.Prelude
-import           Network.AWS.SWF
-import           Test.AWS.Gen.SWF
-import           Test.AWS.Prelude
+import Data.Time
+import Network.AWS.Prelude
+import Network.AWS.SWF
+import Test.AWS.Gen.SWF
+import Test.AWS.Prelude
 
 tests :: [TestTree]
 tests = []

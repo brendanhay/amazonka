@@ -13,7 +13,7 @@
 --
 -- __AWS OpsWorks CM__
 --
--- AWS OpsWorks for configuration management (CM) is a service that runs and manages configuration management servers.
+-- AWS OpsWorks for configuration management (CM) is a service that runs and manages configuration management servers. You can use AWS OpsWorks CM to create and manage AWS OpsWorks for Chef Automate and AWS OpsWorks for Puppet Enterprise servers, and add or remove nodes for the servers to manage.
 --
 -- __Glossary of terms__
 --
@@ -35,7 +35,19 @@
 --
 --     * opsworks-cm.us-east-1.amazonaws.com
 --
+--     * opsworks-cm.us-east-2.amazonaws.com
+--
+--     * opsworks-cm.us-west-1.amazonaws.com
+--
 --     * opsworks-cm.us-west-2.amazonaws.com
+--
+--     * opsworks-cm.ap-northeast-1.amazonaws.com
+--
+--     * opsworks-cm.ap-southeast-1.amazonaws.com
+--
+--     * opsworks-cm.ap-southeast-2.amazonaws.com
+--
+--     * opsworks-cm.eu-central-1.amazonaws.com
 --
 --     * opsworks-cm.eu-west-1.amazonaws.com
 --
@@ -92,7 +104,7 @@ module Network.AWS.OpsWorksCM
     -- ** DeleteBackup
     , module Network.AWS.OpsWorksCM.DeleteBackup
 
-    -- ** DescribeEvents
+    -- ** DescribeEvents (Paginated)
     , module Network.AWS.OpsWorksCM.DescribeEvents
 
     -- ** DisassociateNode
@@ -107,7 +119,7 @@ module Network.AWS.OpsWorksCM
     -- ** StartMaintenance
     , module Network.AWS.OpsWorksCM.StartMaintenance
 
-    -- ** DescribeBackups
+    -- ** DescribeBackups (Paginated)
     , module Network.AWS.OpsWorksCM.DescribeBackups
 
     -- ** CreateServer
@@ -122,8 +134,11 @@ module Network.AWS.OpsWorksCM
     -- ** DescribeAccountAttributes
     , module Network.AWS.OpsWorksCM.DescribeAccountAttributes
 
-    -- ** DescribeServers
+    -- ** DescribeServers (Paginated)
     , module Network.AWS.OpsWorksCM.DescribeServers
+
+    -- ** ExportServerEngineAttribute
+    , module Network.AWS.OpsWorksCM.ExportServerEngineAttribute
 
     -- * Types
 
@@ -230,6 +245,7 @@ import Network.AWS.OpsWorksCM.DescribeEvents
 import Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
 import Network.AWS.OpsWorksCM.DescribeServers
 import Network.AWS.OpsWorksCM.DisassociateNode
+import Network.AWS.OpsWorksCM.ExportServerEngineAttribute
 import Network.AWS.OpsWorksCM.RestoreServer
 import Network.AWS.OpsWorksCM.StartMaintenance
 import Network.AWS.OpsWorksCM.Types

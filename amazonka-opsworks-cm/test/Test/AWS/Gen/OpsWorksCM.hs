@@ -73,6 +73,9 @@ import Test.Tasty
 --         , requestDescribeServers $
 --             describeServers
 --
+--         , requestExportServerEngineAttribute $
+--             exportServerEngineAttribute
+--
 --           ]
 
 --     , testGroup "response"
@@ -120,6 +123,9 @@ import Test.Tasty
 --
 --         , responseDescribeServers $
 --             describeServersResponse
+--
+--         , responseExportServerEngineAttribute $
+--             exportServerEngineAttributeResponse
 --
 --           ]
 --     ]
@@ -200,6 +206,11 @@ requestDescribeServers :: DescribeServers -> TestTree
 requestDescribeServers = req
     "DescribeServers"
     "fixture/DescribeServers.yaml"
+
+requestExportServerEngineAttribute :: ExportServerEngineAttribute -> TestTree
+requestExportServerEngineAttribute = req
+    "ExportServerEngineAttribute"
+    "fixture/ExportServerEngineAttribute.yaml"
 
 -- Responses
 
@@ -307,3 +318,10 @@ responseDescribeServers = res
     "fixture/DescribeServersResponse.proto"
     opsWorksCM
     (Proxy :: Proxy DescribeServers)
+
+responseExportServerEngineAttribute :: ExportServerEngineAttributeResponse -> TestTree
+responseExportServerEngineAttribute = res
+    "ExportServerEngineAttributeResponse"
+    "fixture/ExportServerEngineAttributeResponse.proto"
+    opsWorksCM
+    (Proxy :: Proxy ExportServerEngineAttribute)

@@ -56,6 +56,7 @@ library
         , Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
         , Network.AWS.OpsWorksCM.DescribeServers
         , Network.AWS.OpsWorksCM.DisassociateNode
+        , Network.AWS.OpsWorksCM.ExportServerEngineAttribute
         , Network.AWS.OpsWorksCM.RestoreServer
         , Network.AWS.OpsWorksCM.StartMaintenance
         , Network.AWS.OpsWorksCM.Types

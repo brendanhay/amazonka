@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates engine-specific attributes on a specified server. The server enters the @MODIFYING@ state when this operation is in progress. Only one update can occur at a time. You can use this command to reset a Chef server's private key (@CHEF_PIVOTAL_KEY@ ), a Chef server's admin password (@CHEF_DELIVERY_ADMIN_PASSWORD@ ), or a Puppet server's admin password (@PUPPET_ADMIN_PASSWORD@ ).
+-- Updates engine-specific attributes on a specified server. The server enters the @MODIFYING@ state when this operation is in progress. Only one update can occur at a time. You can use this command to reset a Chef server's public key (@CHEF_PIVOTAL_KEY@ ) or a Puppet server's admin password (@PUPPET_ADMIN_PASSWORD@ ).
 --
 --
 -- This operation is asynchronous.

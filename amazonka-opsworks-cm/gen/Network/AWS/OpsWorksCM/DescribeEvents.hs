@@ -25,6 +25,8 @@
 --
 -- A @ResourceNotFoundException@ is thrown when the server does not exist. A @ValidationException@ is raised when parameters of the request are not valid.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.OpsWorksCM.DescribeEvents
     (
     -- * Creating a Request
@@ -47,6 +49,7 @@ module Network.AWS.OpsWorksCM.DescribeEvents
 import Network.AWS.Lens
 import Network.AWS.OpsWorksCM.Types
 import Network.AWS.OpsWorksCM.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -90,6 +93,13 @@ deMaxResults = lens _deMaxResults (\ s a -> s{_deMaxResults = a}) . mapping _Nat
 -- | The name of the server for which you want to view events.
 deServerName :: Lens' DescribeEvents Text
 deServerName = lens _deServerName (\ s a -> s{_deServerName = a})
+
+instance AWSPager DescribeEvents where
+        page rq rs
+          | stop (rs ^. dersNextToken) = Nothing
+          | stop (rs ^. dersServerEvents) = Nothing
+          | otherwise =
+            Just $ rq & deNextToken .~ rs ^. dersNextToken
 
 instance AWSRequest DescribeEvents where
         type Rs DescribeEvents = DescribeEventsResponse

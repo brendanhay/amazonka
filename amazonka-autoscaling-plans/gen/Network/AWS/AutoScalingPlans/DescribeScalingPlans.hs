@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified scaling plans or all of your scaling plans.
+-- Describes one or more of your scaling plans.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.AutoScalingPlans.DescribeScalingPlans
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.AutoScalingPlans.DescribeScalingPlans
 import Network.AWS.AutoScalingPlans.Types
 import Network.AWS.AutoScalingPlans.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -63,7 +66,7 @@ data DescribeScalingPlans = DescribeScalingPlans'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dScalingPlanVersion' - The version of the scaling plan. If you specify a scaling plan version, you must also specify a scaling plan name.
+-- * 'dScalingPlanVersion' - The version number of the scaling plan. If you specify a scaling plan version, you must also specify a scaling plan name.
 --
 -- * 'dScalingPlanNames' - The names of the scaling plans (up to 10). If you specify application sources, you cannot specify scaling plan names.
 --
@@ -84,7 +87,7 @@ describeScalingPlans =
     }
 
 
--- | The version of the scaling plan. If you specify a scaling plan version, you must also specify a scaling plan name.
+-- | The version number of the scaling plan. If you specify a scaling plan version, you must also specify a scaling plan name.
 dScalingPlanVersion :: Lens' DescribeScalingPlans (Maybe Integer)
 dScalingPlanVersion = lens _dScalingPlanVersion (\ s a -> s{_dScalingPlanVersion = a})
 
@@ -103,6 +106,13 @@ dApplicationSources = lens _dApplicationSources (\ s a -> s{_dApplicationSources
 -- | The maximum number of scalable resources to return. This value can be between 1 and 50. The default value is 50.
 dMaxResults :: Lens' DescribeScalingPlans (Maybe Int)
 dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a})
+
+instance AWSPager DescribeScalingPlans where
+        page rq rs
+          | stop (rs ^. drsNextToken) = Nothing
+          | stop (rs ^. drsScalingPlans) = Nothing
+          | otherwise =
+            Just $ rq & dNextToken .~ rs ^. drsNextToken
 
 instance AWSRequest DescribeScalingPlans where
         type Rs DescribeScalingPlans =

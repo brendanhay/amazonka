@@ -49,6 +49,7 @@ library
         , Network.AWS.AutoScalingPlans.DeleteScalingPlan
         , Network.AWS.AutoScalingPlans.DescribeScalingPlanResources
         , Network.AWS.AutoScalingPlans.DescribeScalingPlans
+        , Network.AWS.AutoScalingPlans.GetScalingPlanResourceForecastData
         , Network.AWS.AutoScalingPlans.Types
         , Network.AWS.AutoScalingPlans.UpdateScalingPlan
         , Network.AWS.AutoScalingPlans.Waiters

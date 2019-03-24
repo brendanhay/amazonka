@@ -23,11 +23,23 @@ module Network.AWS.AutoScalingPlans.Types
     , _ObjectNotFoundException
     , _LimitExceededException
 
+    -- * ForecastDataType
+    , ForecastDataType (..)
+
+    -- * LoadMetricType
+    , LoadMetricType (..)
+
     -- * MetricStatistic
     , MetricStatistic (..)
 
     -- * PolicyType
     , PolicyType (..)
+
+    -- * PredictiveScalingMaxCapacityBehavior
+    , PredictiveScalingMaxCapacityBehavior (..)
+
+    -- * PredictiveScalingMode
+    , PredictiveScalingMode (..)
 
     -- * ScalableDimension
     , ScalableDimension (..)
@@ -37,6 +49,9 @@ module Network.AWS.AutoScalingPlans.Types
 
     -- * ScalingPlanStatusCode
     , ScalingPlanStatusCode (..)
+
+    -- * ScalingPolicyUpdateBehavior
+    , ScalingPolicyUpdateBehavior (..)
 
     -- * ScalingStatusCode
     , ScalingStatusCode (..)
@@ -50,6 +65,15 @@ module Network.AWS.AutoScalingPlans.Types
     , asTagFilters
     , asCloudFormationStackARN
 
+    -- * CustomizedLoadMetricSpecification
+    , CustomizedLoadMetricSpecification
+    , customizedLoadMetricSpecification
+    , clmsDimensions
+    , clmsUnit
+    , clmsMetricName
+    , clmsNamespace
+    , clmsStatistic
+
     -- * CustomizedScalingMetricSpecification
     , CustomizedScalingMetricSpecification
     , customizedScalingMetricSpecification
@@ -59,11 +83,23 @@ module Network.AWS.AutoScalingPlans.Types
     , csmsNamespace
     , csmsStatistic
 
+    -- * Datapoint
+    , Datapoint
+    , datapoint
+    , dValue
+    , dTimestamp
+
     -- * MetricDimension
     , MetricDimension
     , metricDimension
     , mdName
     , mdValue
+
+    -- * PredefinedLoadMetricSpecification
+    , PredefinedLoadMetricSpecification
+    , predefinedLoadMetricSpecification
+    , plmsResourceLabel
+    , plmsPredefinedLoadMetricType
 
     -- * PredefinedScalingMetricSpecification
     , PredefinedScalingMetricSpecification
@@ -74,6 +110,14 @@ module Network.AWS.AutoScalingPlans.Types
     -- * ScalingInstruction
     , ScalingInstruction
     , scalingInstruction
+    , siScheduledActionBufferTime
+    , siPredictiveScalingMaxCapacityBuffer
+    , siScalingPolicyUpdateBehavior
+    , siCustomizedLoadMetricSpecification
+    , siPredictiveScalingMode
+    , siDisableDynamicScaling
+    , siPredictiveScalingMaxCapacityBehavior
+    , siPredefinedLoadMetricSpecification
     , siServiceNamespace
     , siResourceId
     , siScalableDimension

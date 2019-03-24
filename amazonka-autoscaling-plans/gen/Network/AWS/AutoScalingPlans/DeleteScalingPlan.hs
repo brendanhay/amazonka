@@ -21,6 +21,10 @@
 -- Deletes the specified scaling plan.
 --
 --
+-- Deleting a scaling plan deletes the underlying 'ScalingInstruction' for all of the scalable resources that are covered by the plan.
+--
+-- If the plan has launched resources or has scaling activities in progress, you must delete those resources separately.
+--
 module Network.AWS.AutoScalingPlans.DeleteScalingPlan
     (
     -- * Creating a Request
@@ -57,7 +61,7 @@ data DeleteScalingPlan = DeleteScalingPlan'
 --
 -- * 'dspScalingPlanName' - The name of the scaling plan.
 --
--- * 'dspScalingPlanVersion' - The version of the scaling plan.
+-- * 'dspScalingPlanVersion' - The version number of the scaling plan.
 deleteScalingPlan
     :: Text -- ^ 'dspScalingPlanName'
     -> Integer -- ^ 'dspScalingPlanVersion'
@@ -73,7 +77,7 @@ deleteScalingPlan pScalingPlanName_ pScalingPlanVersion_ =
 dspScalingPlanName :: Lens' DeleteScalingPlan Text
 dspScalingPlanName = lens _dspScalingPlanName (\ s a -> s{_dspScalingPlanName = a})
 
--- | The version of the scaling plan.
+-- | The version number of the scaling plan.
 dspScalingPlanVersion :: Lens' DeleteScalingPlan Integer
 dspScalingPlanVersion = lens _dspScalingPlanVersion (\ s a -> s{_dspScalingPlanVersion = a})
 

@@ -19,6 +19,75 @@ module Network.AWS.AutoScalingPlans.Types.Sum where
 
 import Network.AWS.Prelude
 
+data ForecastDataType
+  = CapacityForecast
+  | LoadForecast
+  | ScheduledActionMaxCapacity
+  | ScheduledActionMinCapacity
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ForecastDataType where
+    parser = takeLowerText >>= \case
+        "capacityforecast" -> pure CapacityForecast
+        "loadforecast" -> pure LoadForecast
+        "scheduledactionmaxcapacity" -> pure ScheduledActionMaxCapacity
+        "scheduledactionmincapacity" -> pure ScheduledActionMinCapacity
+        e -> fromTextError $ "Failure parsing ForecastDataType from value: '" <> e
+           <> "'. Accepted values: capacityforecast, loadforecast, scheduledactionmaxcapacity, scheduledactionmincapacity"
+
+instance ToText ForecastDataType where
+    toText = \case
+        CapacityForecast -> "CapacityForecast"
+        LoadForecast -> "LoadForecast"
+        ScheduledActionMaxCapacity -> "ScheduledActionMaxCapacity"
+        ScheduledActionMinCapacity -> "ScheduledActionMinCapacity"
+
+instance Hashable     ForecastDataType
+instance NFData       ForecastDataType
+instance ToByteString ForecastDataType
+instance ToQuery      ForecastDataType
+instance ToHeader     ForecastDataType
+
+instance ToJSON ForecastDataType where
+    toJSON = toJSONText
+
+data LoadMetricType
+  = ALBTargetGroupRequestCount
+  | ASGTotalCPUUtilization
+  | ASGTotalNetworkIn
+  | ASGTotalNetworkOut
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText LoadMetricType where
+    parser = takeLowerText >>= \case
+        "albtargetgrouprequestcount" -> pure ALBTargetGroupRequestCount
+        "asgtotalcpuutilization" -> pure ASGTotalCPUUtilization
+        "asgtotalnetworkin" -> pure ASGTotalNetworkIn
+        "asgtotalnetworkout" -> pure ASGTotalNetworkOut
+        e -> fromTextError $ "Failure parsing LoadMetricType from value: '" <> e
+           <> "'. Accepted values: albtargetgrouprequestcount, asgtotalcpuutilization, asgtotalnetworkin, asgtotalnetworkout"
+
+instance ToText LoadMetricType where
+    toText = \case
+        ALBTargetGroupRequestCount -> "ALBTargetGroupRequestCount"
+        ASGTotalCPUUtilization -> "ASGTotalCPUUtilization"
+        ASGTotalNetworkIn -> "ASGTotalNetworkIn"
+        ASGTotalNetworkOut -> "ASGTotalNetworkOut"
+
+instance Hashable     LoadMetricType
+instance NFData       LoadMetricType
+instance ToByteString LoadMetricType
+instance ToQuery      LoadMetricType
+instance ToHeader     LoadMetricType
+
+instance ToJSON LoadMetricType where
+    toJSON = toJSONText
+
+instance FromJSON LoadMetricType where
+    parseJSON = parseJSONText "LoadMetricType"
+
 data MetricStatistic
   = Average
   | Maximum
@@ -81,6 +150,69 @@ instance ToHeader     PolicyType
 
 instance FromJSON PolicyType where
     parseJSON = parseJSONText "PolicyType"
+
+data PredictiveScalingMaxCapacityBehavior
+  = SetForecastCapacityToMaxCapacity
+  | SetMaxCapacityAboveForecastCapacity
+  | SetMaxCapacityToForecastCapacity
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PredictiveScalingMaxCapacityBehavior where
+    parser = takeLowerText >>= \case
+        "setforecastcapacitytomaxcapacity" -> pure SetForecastCapacityToMaxCapacity
+        "setmaxcapacityaboveforecastcapacity" -> pure SetMaxCapacityAboveForecastCapacity
+        "setmaxcapacitytoforecastcapacity" -> pure SetMaxCapacityToForecastCapacity
+        e -> fromTextError $ "Failure parsing PredictiveScalingMaxCapacityBehavior from value: '" <> e
+           <> "'. Accepted values: setforecastcapacitytomaxcapacity, setmaxcapacityaboveforecastcapacity, setmaxcapacitytoforecastcapacity"
+
+instance ToText PredictiveScalingMaxCapacityBehavior where
+    toText = \case
+        SetForecastCapacityToMaxCapacity -> "SetForecastCapacityToMaxCapacity"
+        SetMaxCapacityAboveForecastCapacity -> "SetMaxCapacityAboveForecastCapacity"
+        SetMaxCapacityToForecastCapacity -> "SetMaxCapacityToForecastCapacity"
+
+instance Hashable     PredictiveScalingMaxCapacityBehavior
+instance NFData       PredictiveScalingMaxCapacityBehavior
+instance ToByteString PredictiveScalingMaxCapacityBehavior
+instance ToQuery      PredictiveScalingMaxCapacityBehavior
+instance ToHeader     PredictiveScalingMaxCapacityBehavior
+
+instance ToJSON PredictiveScalingMaxCapacityBehavior where
+    toJSON = toJSONText
+
+instance FromJSON PredictiveScalingMaxCapacityBehavior where
+    parseJSON = parseJSONText "PredictiveScalingMaxCapacityBehavior"
+
+data PredictiveScalingMode
+  = ForecastAndScale
+  | ForecastOnly
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PredictiveScalingMode where
+    parser = takeLowerText >>= \case
+        "forecastandscale" -> pure ForecastAndScale
+        "forecastonly" -> pure ForecastOnly
+        e -> fromTextError $ "Failure parsing PredictiveScalingMode from value: '" <> e
+           <> "'. Accepted values: forecastandscale, forecastonly"
+
+instance ToText PredictiveScalingMode where
+    toText = \case
+        ForecastAndScale -> "ForecastAndScale"
+        ForecastOnly -> "ForecastOnly"
+
+instance Hashable     PredictiveScalingMode
+instance NFData       PredictiveScalingMode
+instance ToByteString PredictiveScalingMode
+instance ToQuery      PredictiveScalingMode
+instance ToHeader     PredictiveScalingMode
+
+instance ToJSON PredictiveScalingMode where
+    toJSON = toJSONText
+
+instance FromJSON PredictiveScalingMode where
+    parseJSON = parseJSONText "PredictiveScalingMode"
 
 data ScalableDimension
   = AutoscalingAutoScalingGroupDesiredCapacity
@@ -237,6 +369,36 @@ instance ToHeader     ScalingPlanStatusCode
 
 instance FromJSON ScalingPlanStatusCode where
     parseJSON = parseJSONText "ScalingPlanStatusCode"
+
+data ScalingPolicyUpdateBehavior
+  = KeepExternalPolicies
+  | ReplaceExternalPolicies
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ScalingPolicyUpdateBehavior where
+    parser = takeLowerText >>= \case
+        "keepexternalpolicies" -> pure KeepExternalPolicies
+        "replaceexternalpolicies" -> pure ReplaceExternalPolicies
+        e -> fromTextError $ "Failure parsing ScalingPolicyUpdateBehavior from value: '" <> e
+           <> "'. Accepted values: keepexternalpolicies, replaceexternalpolicies"
+
+instance ToText ScalingPolicyUpdateBehavior where
+    toText = \case
+        KeepExternalPolicies -> "KeepExternalPolicies"
+        ReplaceExternalPolicies -> "ReplaceExternalPolicies"
+
+instance Hashable     ScalingPolicyUpdateBehavior
+instance NFData       ScalingPolicyUpdateBehavior
+instance ToByteString ScalingPolicyUpdateBehavior
+instance ToQuery      ScalingPolicyUpdateBehavior
+instance ToHeader     ScalingPolicyUpdateBehavior
+
+instance ToJSON ScalingPolicyUpdateBehavior where
+    toJSON = toJSONText
+
+instance FromJSON ScalingPolicyUpdateBehavior where
+    parseJSON = parseJSONText "ScalingPolicyUpdateBehavior"
 
 data ScalingStatusCode
   = Active

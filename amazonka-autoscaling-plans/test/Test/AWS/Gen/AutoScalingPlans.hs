@@ -43,6 +43,9 @@ import Test.Tasty
 --         , requestDescribeScalingPlans $
 --             describeScalingPlans
 --
+--         , requestGetScalingPlanResourceForecastData $
+--             getScalingPlanResourceForecastData
+--
 --           ]
 
 --     , testGroup "response"
@@ -60,6 +63,9 @@ import Test.Tasty
 --
 --         , responseDescribeScalingPlans $
 --             describeScalingPlansResponse
+--
+--         , responseGetScalingPlanResourceForecastData $
+--             getScalingPlanResourceForecastDataResponse
 --
 --           ]
 --     ]
@@ -90,6 +96,11 @@ requestDescribeScalingPlans :: DescribeScalingPlans -> TestTree
 requestDescribeScalingPlans = req
     "DescribeScalingPlans"
     "fixture/DescribeScalingPlans.yaml"
+
+requestGetScalingPlanResourceForecastData :: GetScalingPlanResourceForecastData -> TestTree
+requestGetScalingPlanResourceForecastData = req
+    "GetScalingPlanResourceForecastData"
+    "fixture/GetScalingPlanResourceForecastData.yaml"
 
 -- Responses
 
@@ -127,3 +138,10 @@ responseDescribeScalingPlans = res
     "fixture/DescribeScalingPlansResponse.proto"
     autoScalingPlans
     (Proxy :: Proxy DescribeScalingPlans)
+
+responseGetScalingPlanResourceForecastData :: GetScalingPlanResourceForecastDataResponse -> TestTree
+responseGetScalingPlanResourceForecastData = res
+    "GetScalingPlanResourceForecastDataResponse"
+    "fixture/GetScalingPlanResourceForecastDataResponse.proto"
+    autoScalingPlans
+    (Proxy :: Proxy GetScalingPlanResourceForecastData)

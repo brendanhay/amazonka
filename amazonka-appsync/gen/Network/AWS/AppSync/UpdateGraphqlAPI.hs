@@ -64,13 +64,13 @@ data UpdateGraphqlAPI = UpdateGraphqlAPI'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ugaOpenIdConnectConfig' - The Open Id Connect configuration configuration for the @GraphqlApi@ object.
+-- * 'ugaOpenIdConnectConfig' - The OpenID Connect configuration for the @GraphqlApi@ object.
 --
--- * 'ugaUserPoolConfig' - The new Amazon Cognito User Pool configuration for the @GraphqlApi@ object.
+-- * 'ugaUserPoolConfig' - The new Amazon Cognito user pool configuration for the @GraphqlApi@ object.
 --
 -- * 'ugaAuthenticationType' - The new authentication type for the @GraphqlApi@ object.
 --
--- * 'ugaLogConfig' - The Amazon CloudWatch logs configuration for the @GraphqlApi@ object.
+-- * 'ugaLogConfig' - The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.
 --
 -- * 'ugaApiId' - The API ID.
 --
@@ -90,11 +90,11 @@ updateGraphqlAPI pApiId_ pName_ =
     }
 
 
--- | The Open Id Connect configuration configuration for the @GraphqlApi@ object.
+-- | The OpenID Connect configuration for the @GraphqlApi@ object.
 ugaOpenIdConnectConfig :: Lens' UpdateGraphqlAPI (Maybe OpenIdConnectConfig)
 ugaOpenIdConnectConfig = lens _ugaOpenIdConnectConfig (\ s a -> s{_ugaOpenIdConnectConfig = a})
 
--- | The new Amazon Cognito User Pool configuration for the @GraphqlApi@ object.
+-- | The new Amazon Cognito user pool configuration for the @GraphqlApi@ object.
 ugaUserPoolConfig :: Lens' UpdateGraphqlAPI (Maybe UserPoolConfig)
 ugaUserPoolConfig = lens _ugaUserPoolConfig (\ s a -> s{_ugaUserPoolConfig = a})
 
@@ -102,7 +102,7 @@ ugaUserPoolConfig = lens _ugaUserPoolConfig (\ s a -> s{_ugaUserPoolConfig = a})
 ugaAuthenticationType :: Lens' UpdateGraphqlAPI (Maybe AuthenticationType)
 ugaAuthenticationType = lens _ugaAuthenticationType (\ s a -> s{_ugaAuthenticationType = a})
 
--- | The Amazon CloudWatch logs configuration for the @GraphqlApi@ object.
+-- | The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.
 ugaLogConfig :: Lens' UpdateGraphqlAPI (Maybe LogConfig)
 ugaLogConfig = lens _ugaLogConfig (\ s a -> s{_ugaLogConfig = a})
 

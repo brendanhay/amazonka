@@ -47,15 +47,18 @@ library
           Network.AWS.AppSync
         , Network.AWS.AppSync.CreateAPIKey
         , Network.AWS.AppSync.CreateDataSource
+        , Network.AWS.AppSync.CreateFunction
         , Network.AWS.AppSync.CreateGraphqlAPI
         , Network.AWS.AppSync.CreateResolver
         , Network.AWS.AppSync.CreateType
         , Network.AWS.AppSync.DeleteAPIKey
         , Network.AWS.AppSync.DeleteDataSource
+        , Network.AWS.AppSync.DeleteFunction
         , Network.AWS.AppSync.DeleteGraphqlAPI
         , Network.AWS.AppSync.DeleteResolver
         , Network.AWS.AppSync.DeleteType
         , Network.AWS.AppSync.GetDataSource
+        , Network.AWS.AppSync.GetFunction
         , Network.AWS.AppSync.GetGraphqlAPI
         , Network.AWS.AppSync.GetIntrospectionSchema
         , Network.AWS.AppSync.GetResolver
@@ -63,13 +66,16 @@ library
         , Network.AWS.AppSync.GetType
         , Network.AWS.AppSync.ListAPIKeys
         , Network.AWS.AppSync.ListDataSources
+        , Network.AWS.AppSync.ListFunctions
         , Network.AWS.AppSync.ListGraphqlAPIs
         , Network.AWS.AppSync.ListResolvers
+        , Network.AWS.AppSync.ListResolversByFunction
         , Network.AWS.AppSync.ListTypes
         , Network.AWS.AppSync.StartSchemaCreation
         , Network.AWS.AppSync.Types
         , Network.AWS.AppSync.UpdateAPIKey
         , Network.AWS.AppSync.UpdateDataSource
+        , Network.AWS.AppSync.UpdateFunction
         , Network.AWS.AppSync.UpdateGraphqlAPI
         , Network.AWS.AppSync.UpdateResolver
         , Network.AWS.AppSync.UpdateType

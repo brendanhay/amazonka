@@ -88,6 +88,12 @@ module Network.AWS.AppSync
     -- ** GetDataSource
     , module Network.AWS.AppSync.GetDataSource
 
+    -- ** ListResolversByFunction (Paginated)
+    , module Network.AWS.AppSync.ListResolversByFunction
+
+    -- ** CreateFunction
+    , module Network.AWS.AppSync.CreateFunction
+
     -- ** DeleteAPIKey
     , module Network.AWS.AppSync.DeleteAPIKey
 
@@ -103,10 +109,13 @@ module Network.AWS.AppSync
     -- ** CreateDataSource
     , module Network.AWS.AppSync.CreateDataSource
 
-    -- ** ListTypes
+    -- ** ListTypes (Paginated)
     , module Network.AWS.AppSync.ListTypes
 
-    -- ** ListDataSources
+    -- ** GetFunction
+    , module Network.AWS.AppSync.GetFunction
+
+    -- ** ListDataSources (Paginated)
     , module Network.AWS.AppSync.ListDataSources
 
     -- ** UpdateResolver
@@ -115,7 +124,7 @@ module Network.AWS.AppSync
     -- ** DeleteResolver
     , module Network.AWS.AppSync.DeleteResolver
 
-    -- ** ListResolvers
+    -- ** ListResolvers (Paginated)
     , module Network.AWS.AppSync.ListResolvers
 
     -- ** CreateResolver
@@ -124,16 +133,25 @@ module Network.AWS.AppSync
     -- ** GetSchemaCreationStatus
     , module Network.AWS.AppSync.GetSchemaCreationStatus
 
-    -- ** ListGraphqlAPIs
+    -- ** ListGraphqlAPIs (Paginated)
     , module Network.AWS.AppSync.ListGraphqlAPIs
 
     -- ** GetResolver
     , module Network.AWS.AppSync.GetResolver
 
+    -- ** UpdateFunction
+    , module Network.AWS.AppSync.UpdateFunction
+
+    -- ** DeleteFunction
+    , module Network.AWS.AppSync.DeleteFunction
+
     -- ** CreateAPIKey
     , module Network.AWS.AppSync.CreateAPIKey
 
-    -- ** ListAPIKeys
+    -- ** ListFunctions (Paginated)
+    , module Network.AWS.AppSync.ListFunctions
+
+    -- ** ListAPIKeys (Paginated)
     , module Network.AWS.AppSync.ListAPIKeys
 
     -- ** GetType
@@ -143,6 +161,9 @@ module Network.AWS.AppSync
 
     -- ** AuthenticationType
     , AuthenticationType (..)
+
+    -- ** AuthorizationType
+    , AuthorizationType (..)
 
     -- ** DataSourceType
     , DataSourceType (..)
@@ -155,6 +176,12 @@ module Network.AWS.AppSync
 
     -- ** OutputType
     , OutputType (..)
+
+    -- ** RelationalDatabaseSourceType
+    , RelationalDatabaseSourceType (..)
+
+    -- ** ResolverKind
+    , ResolverKind (..)
 
     -- ** SchemaStatus
     , SchemaStatus (..)
@@ -169,13 +196,27 @@ module Network.AWS.AppSync
     , akId
     , akDescription
 
+    -- ** AWSIAMConfig
+    , AWSIAMConfig
+    , awsIAMConfig
+    , aicSigningServiceName
+    , aicSigningRegion
+
+    -- ** AuthorizationConfig
+    , AuthorizationConfig
+    , authorizationConfig
+    , acAwsIAMConfig
+    , acAuthorizationType
+
     -- ** DataSource
     , DataSource
     , dataSource
     , dsServiceRoleARN
+    , dsRelationalDatabaseConfig
     , dsDataSourceARN
     , dsDynamodbConfig
     , dsName
+    , dsHttpConfig
     , dsLambdaConfig
     , dsType
     , dsDescription
@@ -194,6 +235,18 @@ module Network.AWS.AppSync
     , edscEndpoint
     , edscAwsRegion
 
+    -- ** FunctionConfiguration
+    , FunctionConfiguration
+    , functionConfiguration
+    , fcFunctionARN
+    , fcDataSourceName
+    , fcRequestMappingTemplate
+    , fcName
+    , fcFunctionId
+    , fcResponseMappingTemplate
+    , fcFunctionVersion
+    , fcDescription
+
     -- ** GraphqlAPI
     , GraphqlAPI
     , graphqlAPI
@@ -205,6 +258,12 @@ module Network.AWS.AppSync
     , gaUserPoolConfig
     , gaAuthenticationType
     , gaLogConfig
+
+    -- ** HTTPDataSourceConfig
+    , HTTPDataSourceConfig
+    , hTTPDataSourceConfig
+    , httpdscAuthorizationConfig
+    , httpdscEndpoint
 
     -- ** LambdaDataSourceConfig
     , LambdaDataSourceConfig
@@ -225,15 +284,37 @@ module Network.AWS.AppSync
     , oiccIatTTL
     , oiccIssuer
 
+    -- ** PipelineConfig
+    , PipelineConfig
+    , pipelineConfig
+    , pcFunctions
+
+    -- ** RDSHTTPEndpointConfig
+    , RDSHTTPEndpointConfig
+    , rdsHTTPEndpointConfig
+    , rhttpecDbClusterIdentifier
+    , rhttpecSchema
+    , rhttpecDatabaseName
+    , rhttpecAwsRegion
+    , rhttpecAwsSecretStoreARN
+
+    -- ** RelationalDatabaseDataSourceConfig
+    , RelationalDatabaseDataSourceConfig
+    , relationalDatabaseDataSourceConfig
+    , rddscRelationalDatabaseSourceType
+    , rddscRdsHTTPEndpointConfig
+
     -- ** Resolver
     , Resolver
     , resolver
     , rTypeName
     , rDataSourceName
     , rRequestMappingTemplate
+    , rKind
     , rResolverARN
     , rResponseMappingTemplate
     , rFieldName
+    , rPipelineConfig
 
     -- ** Type
     , Type
@@ -255,15 +336,18 @@ module Network.AWS.AppSync
 
 import Network.AWS.AppSync.CreateAPIKey
 import Network.AWS.AppSync.CreateDataSource
+import Network.AWS.AppSync.CreateFunction
 import Network.AWS.AppSync.CreateGraphqlAPI
 import Network.AWS.AppSync.CreateResolver
 import Network.AWS.AppSync.CreateType
 import Network.AWS.AppSync.DeleteAPIKey
 import Network.AWS.AppSync.DeleteDataSource
+import Network.AWS.AppSync.DeleteFunction
 import Network.AWS.AppSync.DeleteGraphqlAPI
 import Network.AWS.AppSync.DeleteResolver
 import Network.AWS.AppSync.DeleteType
 import Network.AWS.AppSync.GetDataSource
+import Network.AWS.AppSync.GetFunction
 import Network.AWS.AppSync.GetGraphqlAPI
 import Network.AWS.AppSync.GetIntrospectionSchema
 import Network.AWS.AppSync.GetResolver
@@ -271,13 +355,16 @@ import Network.AWS.AppSync.GetSchemaCreationStatus
 import Network.AWS.AppSync.GetType
 import Network.AWS.AppSync.ListAPIKeys
 import Network.AWS.AppSync.ListDataSources
+import Network.AWS.AppSync.ListFunctions
 import Network.AWS.AppSync.ListGraphqlAPIs
 import Network.AWS.AppSync.ListResolvers
+import Network.AWS.AppSync.ListResolversByFunction
 import Network.AWS.AppSync.ListTypes
 import Network.AWS.AppSync.StartSchemaCreation
 import Network.AWS.AppSync.Types
 import Network.AWS.AppSync.UpdateAPIKey
 import Network.AWS.AppSync.UpdateDataSource
+import Network.AWS.AppSync.UpdateFunction
 import Network.AWS.AppSync.UpdateGraphqlAPI
 import Network.AWS.AppSync.UpdateResolver
 import Network.AWS.AppSync.UpdateType

@@ -27,11 +27,13 @@ module Network.AWS.AppSync.UpdateResolver
       updateResolver
     , UpdateResolver
     -- * Request Lenses
+    , urDataSourceName
+    , urKind
     , urResponseMappingTemplate
+    , urPipelineConfig
     , urApiId
     , urTypeName
     , urFieldName
-    , urDataSourceName
     , urRequestMappingTemplate
 
     -- * Destructuring the Response
@@ -51,11 +53,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateResolver' smart constructor.
 data UpdateResolver = UpdateResolver'
-  { _urResponseMappingTemplate :: !(Maybe Text)
+  { _urDataSourceName          :: !(Maybe Text)
+  , _urKind                    :: !(Maybe ResolverKind)
+  , _urResponseMappingTemplate :: !(Maybe Text)
+  , _urPipelineConfig          :: !(Maybe PipelineConfig)
   , _urApiId                   :: !Text
   , _urTypeName                :: !Text
   , _urFieldName               :: !Text
-  , _urDataSourceName          :: !Text
   , _urRequestMappingTemplate  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -64,7 +68,13 @@ data UpdateResolver = UpdateResolver'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'urDataSourceName' - The new data source name.
+--
+-- * 'urKind' - The resolver type.     * __UNIT__ : A UNIT resolver type. A UNIT resolver is the default resolver type. A UNIT resolver enables you to execute a GraphQL query against a single data source.     * __PIPELINE__ : A PIPELINE resolver type. A PIPELINE resolver enables you to execute a series of @Function@ in a serial manner. You can use a pipeline resolver to execute a GraphQL query against multiple data sources.
+--
 -- * 'urResponseMappingTemplate' - The new response mapping template.
+--
+-- * 'urPipelineConfig' - The @PipelineConfig@ .
 --
 -- * 'urApiId' - The API ID.
 --
@@ -72,30 +82,41 @@ data UpdateResolver = UpdateResolver'
 --
 -- * 'urFieldName' - The new field name.
 --
--- * 'urDataSourceName' - The new data source name.
---
 -- * 'urRequestMappingTemplate' - The new request mapping template.
 updateResolver
     :: Text -- ^ 'urApiId'
     -> Text -- ^ 'urTypeName'
     -> Text -- ^ 'urFieldName'
-    -> Text -- ^ 'urDataSourceName'
     -> Text -- ^ 'urRequestMappingTemplate'
     -> UpdateResolver
-updateResolver pApiId_ pTypeName_ pFieldName_ pDataSourceName_ pRequestMappingTemplate_ =
+updateResolver pApiId_ pTypeName_ pFieldName_ pRequestMappingTemplate_ =
   UpdateResolver'
-    { _urResponseMappingTemplate = Nothing
+    { _urDataSourceName = Nothing
+    , _urKind = Nothing
+    , _urResponseMappingTemplate = Nothing
+    , _urPipelineConfig = Nothing
     , _urApiId = pApiId_
     , _urTypeName = pTypeName_
     , _urFieldName = pFieldName_
-    , _urDataSourceName = pDataSourceName_
     , _urRequestMappingTemplate = pRequestMappingTemplate_
     }
 
 
+-- | The new data source name.
+urDataSourceName :: Lens' UpdateResolver (Maybe Text)
+urDataSourceName = lens _urDataSourceName (\ s a -> s{_urDataSourceName = a})
+
+-- | The resolver type.     * __UNIT__ : A UNIT resolver type. A UNIT resolver is the default resolver type. A UNIT resolver enables you to execute a GraphQL query against a single data source.     * __PIPELINE__ : A PIPELINE resolver type. A PIPELINE resolver enables you to execute a series of @Function@ in a serial manner. You can use a pipeline resolver to execute a GraphQL query against multiple data sources.
+urKind :: Lens' UpdateResolver (Maybe ResolverKind)
+urKind = lens _urKind (\ s a -> s{_urKind = a})
+
 -- | The new response mapping template.
 urResponseMappingTemplate :: Lens' UpdateResolver (Maybe Text)
 urResponseMappingTemplate = lens _urResponseMappingTemplate (\ s a -> s{_urResponseMappingTemplate = a})
+
+-- | The @PipelineConfig@ .
+urPipelineConfig :: Lens' UpdateResolver (Maybe PipelineConfig)
+urPipelineConfig = lens _urPipelineConfig (\ s a -> s{_urPipelineConfig = a})
 
 -- | The API ID.
 urApiId :: Lens' UpdateResolver Text
@@ -108,10 +129,6 @@ urTypeName = lens _urTypeName (\ s a -> s{_urTypeName = a})
 -- | The new field name.
 urFieldName :: Lens' UpdateResolver Text
 urFieldName = lens _urFieldName (\ s a -> s{_urFieldName = a})
-
--- | The new data source name.
-urDataSourceName :: Lens' UpdateResolver Text
-urDataSourceName = lens _urDataSourceName (\ s a -> s{_urDataSourceName = a})
 
 -- | The new request mapping template.
 urRequestMappingTemplate :: Lens' UpdateResolver Text
@@ -141,9 +158,11 @@ instance ToJSON UpdateResolver where
         toJSON UpdateResolver'{..}
           = object
               (catMaybes
-                 [("responseMappingTemplate" .=) <$>
+                 [("dataSourceName" .=) <$> _urDataSourceName,
+                  ("kind" .=) <$> _urKind,
+                  ("responseMappingTemplate" .=) <$>
                     _urResponseMappingTemplate,
-                  Just ("dataSourceName" .= _urDataSourceName),
+                  ("pipelineConfig" .=) <$> _urPipelineConfig,
                   Just
                     ("requestMappingTemplate" .=
                        _urRequestMappingTemplate)])

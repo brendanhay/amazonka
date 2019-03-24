@@ -21,6 +21,8 @@
 -- Lists the API keys for a given API.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.AppSync.ListAPIKeys
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.AppSync.ListAPIKeys
 import Network.AWS.AppSync.Types
 import Network.AWS.AppSync.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -83,6 +86,13 @@ lakMaxResults = lens _lakMaxResults (\ s a -> s{_lakMaxResults = a}) . mapping _
 -- | The API ID.
 lakApiId :: Lens' ListAPIKeys Text
 lakApiId = lens _lakApiId (\ s a -> s{_lakApiId = a})
+
+instance AWSPager ListAPIKeys where
+        page rq rs
+          | stop (rs ^. lakrsNextToken) = Nothing
+          | stop (rs ^. lakrsApiKeys) = Nothing
+          | otherwise =
+            Just $ rq & lakNextToken .~ rs ^. lakrsNextToken
 
 instance AWSRequest ListAPIKeys where
         type Rs ListAPIKeys = ListAPIKeysResponse

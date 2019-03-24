@@ -58,6 +58,12 @@ import Test.Tasty
 --         , requestGetDataSource $
 --             getDataSource
 --
+--         , requestListResolversByFunction $
+--             listResolversByFunction
+--
+--         , requestCreateFunction $
+--             createFunction
+--
 --         , requestDeleteAPIKey $
 --             deleteAPIKey
 --
@@ -75,6 +81,9 @@ import Test.Tasty
 --
 --         , requestListTypes $
 --             listTypes
+--
+--         , requestGetFunction $
+--             getFunction
 --
 --         , requestListDataSources $
 --             listDataSources
@@ -100,8 +109,17 @@ import Test.Tasty
 --         , requestGetResolver $
 --             getResolver
 --
+--         , requestUpdateFunction $
+--             updateFunction
+--
+--         , requestDeleteFunction $
+--             deleteFunction
+--
 --         , requestCreateAPIKey $
 --             createAPIKey
+--
+--         , requestListFunctions $
+--             listFunctions
 --
 --         , requestListAPIKeys $
 --             listAPIKeys
@@ -142,6 +160,12 @@ import Test.Tasty
 --         , responseGetDataSource $
 --             getDataSourceResponse
 --
+--         , responseListResolversByFunction $
+--             listResolversByFunctionResponse
+--
+--         , responseCreateFunction $
+--             createFunctionResponse
+--
 --         , responseDeleteAPIKey $
 --             deleteAPIKeyResponse
 --
@@ -159,6 +183,9 @@ import Test.Tasty
 --
 --         , responseListTypes $
 --             listTypesResponse
+--
+--         , responseGetFunction $
+--             getFunctionResponse
 --
 --         , responseListDataSources $
 --             listDataSourcesResponse
@@ -184,8 +211,17 @@ import Test.Tasty
 --         , responseGetResolver $
 --             getResolverResponse
 --
+--         , responseUpdateFunction $
+--             updateFunctionResponse
+--
+--         , responseDeleteFunction $
+--             deleteFunctionResponse
+--
 --         , responseCreateAPIKey $
 --             createAPIKeyResponse
+--
+--         , responseListFunctions $
+--             listFunctionsResponse
 --
 --         , responseListAPIKeys $
 --             listAPIKeysResponse
@@ -248,6 +284,16 @@ requestGetDataSource = req
     "GetDataSource"
     "fixture/GetDataSource.yaml"
 
+requestListResolversByFunction :: ListResolversByFunction -> TestTree
+requestListResolversByFunction = req
+    "ListResolversByFunction"
+    "fixture/ListResolversByFunction.yaml"
+
+requestCreateFunction :: CreateFunction -> TestTree
+requestCreateFunction = req
+    "CreateFunction"
+    "fixture/CreateFunction.yaml"
+
 requestDeleteAPIKey :: DeleteAPIKey -> TestTree
 requestDeleteAPIKey = req
     "DeleteAPIKey"
@@ -277,6 +323,11 @@ requestListTypes :: ListTypes -> TestTree
 requestListTypes = req
     "ListTypes"
     "fixture/ListTypes.yaml"
+
+requestGetFunction :: GetFunction -> TestTree
+requestGetFunction = req
+    "GetFunction"
+    "fixture/GetFunction.yaml"
 
 requestListDataSources :: ListDataSources -> TestTree
 requestListDataSources = req
@@ -318,10 +369,25 @@ requestGetResolver = req
     "GetResolver"
     "fixture/GetResolver.yaml"
 
+requestUpdateFunction :: UpdateFunction -> TestTree
+requestUpdateFunction = req
+    "UpdateFunction"
+    "fixture/UpdateFunction.yaml"
+
+requestDeleteFunction :: DeleteFunction -> TestTree
+requestDeleteFunction = req
+    "DeleteFunction"
+    "fixture/DeleteFunction.yaml"
+
 requestCreateAPIKey :: CreateAPIKey -> TestTree
 requestCreateAPIKey = req
     "CreateAPIKey"
     "fixture/CreateAPIKey.yaml"
+
+requestListFunctions :: ListFunctions -> TestTree
+requestListFunctions = req
+    "ListFunctions"
+    "fixture/ListFunctions.yaml"
 
 requestListAPIKeys :: ListAPIKeys -> TestTree
 requestListAPIKeys = req
@@ -405,6 +471,20 @@ responseGetDataSource = res
     appSync
     (Proxy :: Proxy GetDataSource)
 
+responseListResolversByFunction :: ListResolversByFunctionResponse -> TestTree
+responseListResolversByFunction = res
+    "ListResolversByFunctionResponse"
+    "fixture/ListResolversByFunctionResponse.proto"
+    appSync
+    (Proxy :: Proxy ListResolversByFunction)
+
+responseCreateFunction :: CreateFunctionResponse -> TestTree
+responseCreateFunction = res
+    "CreateFunctionResponse"
+    "fixture/CreateFunctionResponse.proto"
+    appSync
+    (Proxy :: Proxy CreateFunction)
+
 responseDeleteAPIKey :: DeleteAPIKeyResponse -> TestTree
 responseDeleteAPIKey = res
     "DeleteAPIKeyResponse"
@@ -446,6 +526,13 @@ responseListTypes = res
     "fixture/ListTypesResponse.proto"
     appSync
     (Proxy :: Proxy ListTypes)
+
+responseGetFunction :: GetFunctionResponse -> TestTree
+responseGetFunction = res
+    "GetFunctionResponse"
+    "fixture/GetFunctionResponse.proto"
+    appSync
+    (Proxy :: Proxy GetFunction)
 
 responseListDataSources :: ListDataSourcesResponse -> TestTree
 responseListDataSources = res
@@ -503,12 +590,33 @@ responseGetResolver = res
     appSync
     (Proxy :: Proxy GetResolver)
 
+responseUpdateFunction :: UpdateFunctionResponse -> TestTree
+responseUpdateFunction = res
+    "UpdateFunctionResponse"
+    "fixture/UpdateFunctionResponse.proto"
+    appSync
+    (Proxy :: Proxy UpdateFunction)
+
+responseDeleteFunction :: DeleteFunctionResponse -> TestTree
+responseDeleteFunction = res
+    "DeleteFunctionResponse"
+    "fixture/DeleteFunctionResponse.proto"
+    appSync
+    (Proxy :: Proxy DeleteFunction)
+
 responseCreateAPIKey :: CreateAPIKeyResponse -> TestTree
 responseCreateAPIKey = res
     "CreateAPIKeyResponse"
     "fixture/CreateAPIKeyResponse.proto"
     appSync
     (Proxy :: Proxy CreateAPIKey)
+
+responseListFunctions :: ListFunctionsResponse -> TestTree
+responseListFunctions = res
+    "ListFunctionsResponse"
+    "fixture/ListFunctionsResponse.proto"
+    appSync
+    (Proxy :: Proxy ListFunctions)
 
 responseListAPIKeys :: ListAPIKeysResponse -> TestTree
 responseListAPIKeys = res

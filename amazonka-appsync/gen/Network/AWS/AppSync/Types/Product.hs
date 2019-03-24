@@ -24,9 +24,9 @@ import Network.AWS.Prelude
 -- | Describes an API key.
 --
 --
--- Customers invoke AWS AppSync GraphQL APIs with API keys as an identity mechanism. There are two key versions:
+-- Customers invoke AWS AppSync GraphQL API operations with API keys as an identity mechanism. There are two key versions:
 --
--- __da1__ : This version was introduced at launch in November 2017. These keys always expire after 7 days. Key expiration is managed by DynamoDB TTL. The keys will cease to be valid after Feb 21, 2018 and should not be used after that date.
+-- __da1__ : This version was introduced at launch in November 2017. These keys always expire after 7 days. Key expiration is managed by Amazon DynamoDB TTL. The keys ceased to be valid after February 21, 2018 and should not be used after that date.
 --
 --     * @ListApiKeys@ returns the expiration time in milliseconds.
 --
@@ -36,7 +36,7 @@ import Network.AWS.Prelude
 --
 --     * @DeleteApiKey@ deletes the item from the table.
 --
---     * Expiration is stored in DynamoDB as milliseconds. This results in a bug where keys are not automatically deleted because DynamoDB expects the TTL to be stored in seconds. As a one-time action, we will delete these keys from the table after Feb 21, 2018.
+--     * Expiration is stored in Amazon DynamoDB as milliseconds. This results in a bug where keys are not automatically deleted because DynamoDB expects the TTL to be stored in seconds. As a one-time action, we will delete these keys from the table after February 21, 2018.
 --
 --
 --
@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 --
 --     * @DeleteApiKey@ deletes the item from the table.
 --
---     * Expiration is stored in DynamoDB as seconds.
+--     * Expiration is stored in Amazon DynamoDB as seconds.
 --
 --
 --
@@ -102,20 +102,127 @@ instance Hashable APIKey where
 
 instance NFData APIKey where
 
+-- | The AWS IAM configuration.
+--
+--
+--
+-- /See:/ 'awsIAMConfig' smart constructor.
+data AWSIAMConfig = AWSIAMConfig'
+  { _aicSigningServiceName :: !(Maybe Text)
+  , _aicSigningRegion      :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AWSIAMConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aicSigningServiceName' - The signing service name for AWS IAM authorization.
+--
+-- * 'aicSigningRegion' - The signing region for AWS IAM authorization.
+awsIAMConfig
+    :: AWSIAMConfig
+awsIAMConfig =
+  AWSIAMConfig' {_aicSigningServiceName = Nothing, _aicSigningRegion = Nothing}
+
+
+-- | The signing service name for AWS IAM authorization.
+aicSigningServiceName :: Lens' AWSIAMConfig (Maybe Text)
+aicSigningServiceName = lens _aicSigningServiceName (\ s a -> s{_aicSigningServiceName = a})
+
+-- | The signing region for AWS IAM authorization.
+aicSigningRegion :: Lens' AWSIAMConfig (Maybe Text)
+aicSigningRegion = lens _aicSigningRegion (\ s a -> s{_aicSigningRegion = a})
+
+instance FromJSON AWSIAMConfig where
+        parseJSON
+          = withObject "AWSIAMConfig"
+              (\ x ->
+                 AWSIAMConfig' <$>
+                   (x .:? "signingServiceName") <*>
+                     (x .:? "signingRegion"))
+
+instance Hashable AWSIAMConfig where
+
+instance NFData AWSIAMConfig where
+
+instance ToJSON AWSIAMConfig where
+        toJSON AWSIAMConfig'{..}
+          = object
+              (catMaybes
+                 [("signingServiceName" .=) <$>
+                    _aicSigningServiceName,
+                  ("signingRegion" .=) <$> _aicSigningRegion])
+
+-- | The authorization config in case the HTTP endpoint requires authorization.
+--
+--
+--
+-- /See:/ 'authorizationConfig' smart constructor.
+data AuthorizationConfig = AuthorizationConfig'
+  { _acAwsIAMConfig      :: !(Maybe AWSIAMConfig)
+  , _acAuthorizationType :: !AuthorizationType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AuthorizationConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acAwsIAMConfig' - The AWS IAM settings.
+--
+-- * 'acAuthorizationType' - The authorization type required by the HTTP endpoint.     * __AWS_IAM__ : The authorization type is Sigv4.
+authorizationConfig
+    :: AuthorizationType -- ^ 'acAuthorizationType'
+    -> AuthorizationConfig
+authorizationConfig pAuthorizationType_ =
+  AuthorizationConfig'
+    {_acAwsIAMConfig = Nothing, _acAuthorizationType = pAuthorizationType_}
+
+
+-- | The AWS IAM settings.
+acAwsIAMConfig :: Lens' AuthorizationConfig (Maybe AWSIAMConfig)
+acAwsIAMConfig = lens _acAwsIAMConfig (\ s a -> s{_acAwsIAMConfig = a})
+
+-- | The authorization type required by the HTTP endpoint.     * __AWS_IAM__ : The authorization type is Sigv4.
+acAuthorizationType :: Lens' AuthorizationConfig AuthorizationType
+acAuthorizationType = lens _acAuthorizationType (\ s a -> s{_acAuthorizationType = a})
+
+instance FromJSON AuthorizationConfig where
+        parseJSON
+          = withObject "AuthorizationConfig"
+              (\ x ->
+                 AuthorizationConfig' <$>
+                   (x .:? "awsIamConfig") <*>
+                     (x .: "authorizationType"))
+
+instance Hashable AuthorizationConfig where
+
+instance NFData AuthorizationConfig where
+
+instance ToJSON AuthorizationConfig where
+        toJSON AuthorizationConfig'{..}
+          = object
+              (catMaybes
+                 [("awsIamConfig" .=) <$> _acAwsIAMConfig,
+                  Just ("authorizationType" .= _acAuthorizationType)])
+
 -- | Describes a data source.
 --
 --
 --
 -- /See:/ 'dataSource' smart constructor.
 data DataSource = DataSource'
-  { _dsServiceRoleARN      :: !(Maybe Text)
-  , _dsDataSourceARN       :: !(Maybe Text)
-  , _dsDynamodbConfig      :: !(Maybe DynamodbDataSourceConfig)
-  , _dsName                :: !(Maybe Text)
-  , _dsLambdaConfig        :: !(Maybe LambdaDataSourceConfig)
-  , _dsType                :: !(Maybe DataSourceType)
-  , _dsDescription         :: !(Maybe Text)
-  , _dsElasticsearchConfig :: !(Maybe ElasticsearchDataSourceConfig)
+  { _dsServiceRoleARN           :: !(Maybe Text)
+  , _dsRelationalDatabaseConfig :: !(Maybe RelationalDatabaseDataSourceConfig)
+  , _dsDataSourceARN            :: !(Maybe Text)
+  , _dsDynamodbConfig           :: !(Maybe DynamodbDataSourceConfig)
+  , _dsName                     :: !(Maybe Text)
+  , _dsHttpConfig               :: !(Maybe HTTPDataSourceConfig)
+  , _dsLambdaConfig             :: !(Maybe LambdaDataSourceConfig)
+  , _dsType                     :: !(Maybe DataSourceType)
+  , _dsDescription              :: !(Maybe Text)
+  , _dsElasticsearchConfig      :: !(Maybe ElasticsearchDataSourceConfig)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,29 +230,35 @@ data DataSource = DataSource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsServiceRoleARN' - The IAM service role ARN for the data source. The system assumes this role when accessing the data source.
+-- * 'dsServiceRoleARN' - The AWS IAM service role ARN for the data source. The system assumes this role when accessing the data source.
+--
+-- * 'dsRelationalDatabaseConfig' - Relational database settings.
 --
 -- * 'dsDataSourceARN' - The data source ARN.
 --
--- * 'dsDynamodbConfig' - DynamoDB settings.
+-- * 'dsDynamodbConfig' - Amazon DynamoDB settings.
 --
 -- * 'dsName' - The name of the data source.
 --
--- * 'dsLambdaConfig' - Lambda settings.
+-- * 'dsHttpConfig' - HTTP endpoint settings.
 --
--- * 'dsType' - The type of the data source.     * __AMAZON_DYNAMODB__ : The data source is an Amazon DynamoDB table.     * __AMAZON_ELASTICSEARCH__ : The data source is an Amazon Elasticsearch Service domain.     * __AWS_LAMBDA__ : The data source is an AWS Lambda function.     * __NONE__ : There is no data source. This type is used when when you wish to invoke a GraphQL operation without connecting to a data source, such as performing data transformation with resolvers or triggering a subscription to be invoked from a mutation.
+-- * 'dsLambdaConfig' - AWS Lambda settings.
+--
+-- * 'dsType' - The type of the data source.     * __AMAZON_DYNAMODB__ : The data source is an Amazon DynamoDB table.     * __AMAZON_ELASTICSEARCH__ : The data source is an Amazon Elasticsearch Service domain.     * __AWS_LAMBDA__ : The data source is an AWS Lambda function.     * __NONE__ : There is no data source. This type is used when you wish to invoke a GraphQL operation without connecting to a data source, such as performing data transformation with resolvers or triggering a subscription to be invoked from a mutation.     * __HTTP__ : The data source is an HTTP endpoint.     * __RELATIONAL_DATABASE__ : The data source is a relational database.
 --
 -- * 'dsDescription' - The description of the data source.
 --
--- * 'dsElasticsearchConfig' - Amazon Elasticsearch settings.
+-- * 'dsElasticsearchConfig' - Amazon Elasticsearch Service settings.
 dataSource
     :: DataSource
 dataSource =
   DataSource'
     { _dsServiceRoleARN = Nothing
+    , _dsRelationalDatabaseConfig = Nothing
     , _dsDataSourceARN = Nothing
     , _dsDynamodbConfig = Nothing
     , _dsName = Nothing
+    , _dsHttpConfig = Nothing
     , _dsLambdaConfig = Nothing
     , _dsType = Nothing
     , _dsDescription = Nothing
@@ -153,15 +266,19 @@ dataSource =
     }
 
 
--- | The IAM service role ARN for the data source. The system assumes this role when accessing the data source.
+-- | The AWS IAM service role ARN for the data source. The system assumes this role when accessing the data source.
 dsServiceRoleARN :: Lens' DataSource (Maybe Text)
 dsServiceRoleARN = lens _dsServiceRoleARN (\ s a -> s{_dsServiceRoleARN = a})
+
+-- | Relational database settings.
+dsRelationalDatabaseConfig :: Lens' DataSource (Maybe RelationalDatabaseDataSourceConfig)
+dsRelationalDatabaseConfig = lens _dsRelationalDatabaseConfig (\ s a -> s{_dsRelationalDatabaseConfig = a})
 
 -- | The data source ARN.
 dsDataSourceARN :: Lens' DataSource (Maybe Text)
 dsDataSourceARN = lens _dsDataSourceARN (\ s a -> s{_dsDataSourceARN = a})
 
--- | DynamoDB settings.
+-- | Amazon DynamoDB settings.
 dsDynamodbConfig :: Lens' DataSource (Maybe DynamodbDataSourceConfig)
 dsDynamodbConfig = lens _dsDynamodbConfig (\ s a -> s{_dsDynamodbConfig = a})
 
@@ -169,11 +286,15 @@ dsDynamodbConfig = lens _dsDynamodbConfig (\ s a -> s{_dsDynamodbConfig = a})
 dsName :: Lens' DataSource (Maybe Text)
 dsName = lens _dsName (\ s a -> s{_dsName = a})
 
--- | Lambda settings.
+-- | HTTP endpoint settings.
+dsHttpConfig :: Lens' DataSource (Maybe HTTPDataSourceConfig)
+dsHttpConfig = lens _dsHttpConfig (\ s a -> s{_dsHttpConfig = a})
+
+-- | AWS Lambda settings.
 dsLambdaConfig :: Lens' DataSource (Maybe LambdaDataSourceConfig)
 dsLambdaConfig = lens _dsLambdaConfig (\ s a -> s{_dsLambdaConfig = a})
 
--- | The type of the data source.     * __AMAZON_DYNAMODB__ : The data source is an Amazon DynamoDB table.     * __AMAZON_ELASTICSEARCH__ : The data source is an Amazon Elasticsearch Service domain.     * __AWS_LAMBDA__ : The data source is an AWS Lambda function.     * __NONE__ : There is no data source. This type is used when when you wish to invoke a GraphQL operation without connecting to a data source, such as performing data transformation with resolvers or triggering a subscription to be invoked from a mutation.
+-- | The type of the data source.     * __AMAZON_DYNAMODB__ : The data source is an Amazon DynamoDB table.     * __AMAZON_ELASTICSEARCH__ : The data source is an Amazon Elasticsearch Service domain.     * __AWS_LAMBDA__ : The data source is an AWS Lambda function.     * __NONE__ : There is no data source. This type is used when you wish to invoke a GraphQL operation without connecting to a data source, such as performing data transformation with resolvers or triggering a subscription to be invoked from a mutation.     * __HTTP__ : The data source is an HTTP endpoint.     * __RELATIONAL_DATABASE__ : The data source is a relational database.
 dsType :: Lens' DataSource (Maybe DataSourceType)
 dsType = lens _dsType (\ s a -> s{_dsType = a})
 
@@ -181,7 +302,7 @@ dsType = lens _dsType (\ s a -> s{_dsType = a})
 dsDescription :: Lens' DataSource (Maybe Text)
 dsDescription = lens _dsDescription (\ s a -> s{_dsDescription = a})
 
--- | Amazon Elasticsearch settings.
+-- | Amazon Elasticsearch Service settings.
 dsElasticsearchConfig :: Lens' DataSource (Maybe ElasticsearchDataSourceConfig)
 dsElasticsearchConfig = lens _dsElasticsearchConfig (\ s a -> s{_dsElasticsearchConfig = a})
 
@@ -190,9 +311,12 @@ instance FromJSON DataSource where
           = withObject "DataSource"
               (\ x ->
                  DataSource' <$>
-                   (x .:? "serviceRoleArn") <*> (x .:? "dataSourceArn")
+                   (x .:? "serviceRoleArn") <*>
+                     (x .:? "relationalDatabaseConfig")
+                     <*> (x .:? "dataSourceArn")
                      <*> (x .:? "dynamodbConfig")
                      <*> (x .:? "name")
+                     <*> (x .:? "httpConfig")
                      <*> (x .:? "lambdaConfig")
                      <*> (x .:? "type")
                      <*> (x .:? "description")
@@ -202,7 +326,7 @@ instance Hashable DataSource where
 
 instance NFData DataSource where
 
--- | Describes a DynamoDB data source configuration.
+-- | Describes an Amazon DynamoDB data source configuration.
 --
 --
 --
@@ -222,7 +346,7 @@ data DynamodbDataSourceConfig = DynamodbDataSourceConfig'
 --
 -- * 'ddscTableName' - The table name.
 --
--- * 'ddscAwsRegion' - The AWS region.
+-- * 'ddscAwsRegion' - The AWS Region.
 dynamodbDataSourceConfig
     :: Text -- ^ 'ddscTableName'
     -> Text -- ^ 'ddscAwsRegion'
@@ -243,7 +367,7 @@ ddscUseCallerCredentials = lens _ddscUseCallerCredentials (\ s a -> s{_ddscUseCa
 ddscTableName :: Lens' DynamodbDataSourceConfig Text
 ddscTableName = lens _ddscTableName (\ s a -> s{_ddscTableName = a})
 
--- | The AWS region.
+-- | The AWS Region.
 ddscAwsRegion :: Lens' DynamodbDataSourceConfig Text
 ddscAwsRegion = lens _ddscAwsRegion (\ s a -> s{_ddscAwsRegion = a})
 
@@ -285,7 +409,7 @@ data ElasticsearchDataSourceConfig = ElasticsearchDataSourceConfig'
 --
 -- * 'edscEndpoint' - The endpoint.
 --
--- * 'edscAwsRegion' - The AWS region.
+-- * 'edscAwsRegion' - The AWS Region.
 elasticsearchDataSourceConfig
     :: Text -- ^ 'edscEndpoint'
     -> Text -- ^ 'edscAwsRegion'
@@ -299,7 +423,7 @@ elasticsearchDataSourceConfig pEndpoint_ pAwsRegion_ =
 edscEndpoint :: Lens' ElasticsearchDataSourceConfig Text
 edscEndpoint = lens _edscEndpoint (\ s a -> s{_edscEndpoint = a})
 
--- | The AWS region.
+-- | The AWS Region.
 edscAwsRegion :: Lens' ElasticsearchDataSourceConfig Text
 edscAwsRegion = lens _edscAwsRegion (\ s a -> s{_edscAwsRegion = a})
 
@@ -320,6 +444,106 @@ instance ToJSON ElasticsearchDataSourceConfig where
               (catMaybes
                  [Just ("endpoint" .= _edscEndpoint),
                   Just ("awsRegion" .= _edscAwsRegion)])
+
+-- | A function is a reusable entity. Multiple functions can be used to compose the resolver logic.
+--
+--
+--
+-- /See:/ 'functionConfiguration' smart constructor.
+data FunctionConfiguration = FunctionConfiguration'
+  { _fcFunctionARN             :: !(Maybe Text)
+  , _fcDataSourceName          :: !(Maybe Text)
+  , _fcRequestMappingTemplate  :: !(Maybe Text)
+  , _fcName                    :: !(Maybe Text)
+  , _fcFunctionId              :: !(Maybe Text)
+  , _fcResponseMappingTemplate :: !(Maybe Text)
+  , _fcFunctionVersion         :: !(Maybe Text)
+  , _fcDescription             :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'FunctionConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fcFunctionARN' - The ARN of the @Function@ object.
+--
+-- * 'fcDataSourceName' - The name of the @DataSource@ .
+--
+-- * 'fcRequestMappingTemplate' - The @Function@ request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+--
+-- * 'fcName' - The name of the @Function@ object.
+--
+-- * 'fcFunctionId' - A unique ID representing the @Function@ object.
+--
+-- * 'fcResponseMappingTemplate' - The @Function@ response mapping template.
+--
+-- * 'fcFunctionVersion' - The version of the request mapping template. Currently only the 2018-05-29 version of the template is supported.
+--
+-- * 'fcDescription' - The @Function@ description.
+functionConfiguration
+    :: FunctionConfiguration
+functionConfiguration =
+  FunctionConfiguration'
+    { _fcFunctionARN = Nothing
+    , _fcDataSourceName = Nothing
+    , _fcRequestMappingTemplate = Nothing
+    , _fcName = Nothing
+    , _fcFunctionId = Nothing
+    , _fcResponseMappingTemplate = Nothing
+    , _fcFunctionVersion = Nothing
+    , _fcDescription = Nothing
+    }
+
+
+-- | The ARN of the @Function@ object.
+fcFunctionARN :: Lens' FunctionConfiguration (Maybe Text)
+fcFunctionARN = lens _fcFunctionARN (\ s a -> s{_fcFunctionARN = a})
+
+-- | The name of the @DataSource@ .
+fcDataSourceName :: Lens' FunctionConfiguration (Maybe Text)
+fcDataSourceName = lens _fcDataSourceName (\ s a -> s{_fcDataSourceName = a})
+
+-- | The @Function@ request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+fcRequestMappingTemplate :: Lens' FunctionConfiguration (Maybe Text)
+fcRequestMappingTemplate = lens _fcRequestMappingTemplate (\ s a -> s{_fcRequestMappingTemplate = a})
+
+-- | The name of the @Function@ object.
+fcName :: Lens' FunctionConfiguration (Maybe Text)
+fcName = lens _fcName (\ s a -> s{_fcName = a})
+
+-- | A unique ID representing the @Function@ object.
+fcFunctionId :: Lens' FunctionConfiguration (Maybe Text)
+fcFunctionId = lens _fcFunctionId (\ s a -> s{_fcFunctionId = a})
+
+-- | The @Function@ response mapping template.
+fcResponseMappingTemplate :: Lens' FunctionConfiguration (Maybe Text)
+fcResponseMappingTemplate = lens _fcResponseMappingTemplate (\ s a -> s{_fcResponseMappingTemplate = a})
+
+-- | The version of the request mapping template. Currently only the 2018-05-29 version of the template is supported.
+fcFunctionVersion :: Lens' FunctionConfiguration (Maybe Text)
+fcFunctionVersion = lens _fcFunctionVersion (\ s a -> s{_fcFunctionVersion = a})
+
+-- | The @Function@ description.
+fcDescription :: Lens' FunctionConfiguration (Maybe Text)
+fcDescription = lens _fcDescription (\ s a -> s{_fcDescription = a})
+
+instance FromJSON FunctionConfiguration where
+        parseJSON
+          = withObject "FunctionConfiguration"
+              (\ x ->
+                 FunctionConfiguration' <$>
+                   (x .:? "functionArn") <*> (x .:? "dataSourceName")
+                     <*> (x .:? "requestMappingTemplate")
+                     <*> (x .:? "name")
+                     <*> (x .:? "functionId")
+                     <*> (x .:? "responseMappingTemplate")
+                     <*> (x .:? "functionVersion")
+                     <*> (x .:? "description"))
+
+instance Hashable FunctionConfiguration where
+
+instance NFData FunctionConfiguration where
 
 -- | Describes a GraphQL API.
 --
@@ -348,11 +572,11 @@ data GraphqlAPI = GraphqlAPI'
 --
 -- * 'gaUris' - The URIs.
 --
--- * 'gaOpenIdConnectConfig' - The Open Id Connect configuration.
+-- * 'gaOpenIdConnectConfig' - The OpenID Connect configuration.
 --
 -- * 'gaName' - The API name.
 --
--- * 'gaUserPoolConfig' - The Amazon Cognito User Pool configuration.
+-- * 'gaUserPoolConfig' - The Amazon Cognito user pool configuration.
 --
 -- * 'gaAuthenticationType' - The authentication type.
 --
@@ -384,7 +608,7 @@ gaApiId = lens _gaApiId (\ s a -> s{_gaApiId = a})
 gaUris :: Lens' GraphqlAPI (HashMap Text Text)
 gaUris = lens _gaUris (\ s a -> s{_gaUris = a}) . _Default . _Map
 
--- | The Open Id Connect configuration.
+-- | The OpenID Connect configuration.
 gaOpenIdConnectConfig :: Lens' GraphqlAPI (Maybe OpenIdConnectConfig)
 gaOpenIdConnectConfig = lens _gaOpenIdConnectConfig (\ s a -> s{_gaOpenIdConnectConfig = a})
 
@@ -392,7 +616,7 @@ gaOpenIdConnectConfig = lens _gaOpenIdConnectConfig (\ s a -> s{_gaOpenIdConnect
 gaName :: Lens' GraphqlAPI (Maybe Text)
 gaName = lens _gaName (\ s a -> s{_gaName = a})
 
--- | The Amazon Cognito User Pool configuration.
+-- | The Amazon Cognito user pool configuration.
 gaUserPoolConfig :: Lens' GraphqlAPI (Maybe UserPoolConfig)
 gaUserPoolConfig = lens _gaUserPoolConfig (\ s a -> s{_gaUserPoolConfig = a})
 
@@ -421,7 +645,59 @@ instance Hashable GraphqlAPI where
 
 instance NFData GraphqlAPI where
 
--- | Describes a Lambda data source configuration.
+-- | Describes an HTTP data source configuration.
+--
+--
+--
+-- /See:/ 'hTTPDataSourceConfig' smart constructor.
+data HTTPDataSourceConfig = HTTPDataSourceConfig'
+  { _httpdscAuthorizationConfig :: !(Maybe AuthorizationConfig)
+  , _httpdscEndpoint            :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'HTTPDataSourceConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'httpdscAuthorizationConfig' - The authorization config in case the HTTP endpoint requires authorization.
+--
+-- * 'httpdscEndpoint' - The HTTP URL endpoint. You can either specify the domain name or IP, and port combination, and the URL scheme must be HTTP or HTTPS. If the port is not specified, AWS AppSync uses the default port 80 for the HTTP endpoint and port 443 for HTTPS endpoints.
+hTTPDataSourceConfig
+    :: HTTPDataSourceConfig
+hTTPDataSourceConfig =
+  HTTPDataSourceConfig'
+    {_httpdscAuthorizationConfig = Nothing, _httpdscEndpoint = Nothing}
+
+
+-- | The authorization config in case the HTTP endpoint requires authorization.
+httpdscAuthorizationConfig :: Lens' HTTPDataSourceConfig (Maybe AuthorizationConfig)
+httpdscAuthorizationConfig = lens _httpdscAuthorizationConfig (\ s a -> s{_httpdscAuthorizationConfig = a})
+
+-- | The HTTP URL endpoint. You can either specify the domain name or IP, and port combination, and the URL scheme must be HTTP or HTTPS. If the port is not specified, AWS AppSync uses the default port 80 for the HTTP endpoint and port 443 for HTTPS endpoints.
+httpdscEndpoint :: Lens' HTTPDataSourceConfig (Maybe Text)
+httpdscEndpoint = lens _httpdscEndpoint (\ s a -> s{_httpdscEndpoint = a})
+
+instance FromJSON HTTPDataSourceConfig where
+        parseJSON
+          = withObject "HTTPDataSourceConfig"
+              (\ x ->
+                 HTTPDataSourceConfig' <$>
+                   (x .:? "authorizationConfig") <*> (x .:? "endpoint"))
+
+instance Hashable HTTPDataSourceConfig where
+
+instance NFData HTTPDataSourceConfig where
+
+instance ToJSON HTTPDataSourceConfig where
+        toJSON HTTPDataSourceConfig'{..}
+          = object
+              (catMaybes
+                 [("authorizationConfig" .=) <$>
+                    _httpdscAuthorizationConfig,
+                  ("endpoint" .=) <$> _httpdscEndpoint])
+
+-- | Describes an AWS Lambda data source configuration.
 --
 --
 --
@@ -480,7 +756,7 @@ data LogConfig = LogConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcFieldLogLevel' - The field logging level. Values can be NONE, ERROR, ALL.      * __NONE__ : No field-level logs are captured.     * __ERROR__ : Logs the following information only for the fields that are in error:     * The error section in the server response.     * Field-level errors.     * The generated request/response functions that got resolved for error fields.     * __ALL__ : The following information is logged for all fields in the query:     * Field-level tracing information.     * The generated request/response functions that got resolved for each field.
+-- * 'lcFieldLogLevel' - The field logging level. Values can be NONE, ERROR, or ALL.      * __NONE__ : No field-level logs are captured.     * __ERROR__ : Logs the following information only for the fields that are in error:     * The error section in the server response.     * Field-level errors.     * The generated request/response functions that got resolved for error fields.     * __ALL__ : The following information is logged for all fields in the query:     * Field-level tracing information.     * The generated request/response functions that got resolved for each field.
 --
 -- * 'lcCloudWatchLogsRoleARN' - The service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
 logConfig
@@ -494,7 +770,7 @@ logConfig pFieldLogLevel_ pCloudWatchLogsRoleARN_ =
     }
 
 
--- | The field logging level. Values can be NONE, ERROR, ALL.      * __NONE__ : No field-level logs are captured.     * __ERROR__ : Logs the following information only for the fields that are in error:     * The error section in the server response.     * Field-level errors.     * The generated request/response functions that got resolved for error fields.     * __ALL__ : The following information is logged for all fields in the query:     * Field-level tracing information.     * The generated request/response functions that got resolved for each field.
+-- | The field logging level. Values can be NONE, ERROR, or ALL.      * __NONE__ : No field-level logs are captured.     * __ERROR__ : Logs the following information only for the fields that are in error:     * The error section in the server response.     * Field-level errors.     * The generated request/response functions that got resolved for error fields.     * __ALL__ : The following information is logged for all fields in the query:     * Field-level tracing information.     * The generated request/response functions that got resolved for each field.
 lcFieldLogLevel :: Lens' LogConfig FieldLogLevel
 lcFieldLogLevel = lens _lcFieldLogLevel (\ s a -> s{_lcFieldLogLevel = a})
 
@@ -523,7 +799,7 @@ instance ToJSON LogConfig where
                     ("cloudWatchLogsRoleArn" .=
                        _lcCloudWatchLogsRoleARN)])
 
--- | Describes an Open Id Connect configuration.
+-- | Describes an OpenID Connect configuration.
 --
 --
 --
@@ -542,11 +818,11 @@ data OpenIdConnectConfig = OpenIdConnectConfig'
 --
 -- * 'oiccAuthTTL' - The number of milliseconds a token is valid after being authenticated.
 --
--- * 'oiccClientId' - The client identifier of the Relying party at the OpenID Provider. This identifier is typically obtained when the Relying party is registered with the OpenID Provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time
+-- * 'oiccClientId' - The client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
 --
 -- * 'oiccIatTTL' - The number of milliseconds a token is valid after being issued to a user.
 --
--- * 'oiccIssuer' - The issuer for the open id connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
+-- * 'oiccIssuer' - The issuer for the OpenID Connect configuration. The issuer returned by discovery must exactly match the value of @iss@ in the ID token.
 openIdConnectConfig
     :: Text -- ^ 'oiccIssuer'
     -> OpenIdConnectConfig
@@ -563,7 +839,7 @@ openIdConnectConfig pIssuer_ =
 oiccAuthTTL :: Lens' OpenIdConnectConfig (Maybe Integer)
 oiccAuthTTL = lens _oiccAuthTTL (\ s a -> s{_oiccAuthTTL = a})
 
--- | The client identifier of the Relying party at the OpenID Provider. This identifier is typically obtained when the Relying party is registered with the OpenID Provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time
+-- | The client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
 oiccClientId :: Lens' OpenIdConnectConfig (Maybe Text)
 oiccClientId = lens _oiccClientId (\ s a -> s{_oiccClientId = a})
 
@@ -571,7 +847,7 @@ oiccClientId = lens _oiccClientId (\ s a -> s{_oiccClientId = a})
 oiccIatTTL :: Lens' OpenIdConnectConfig (Maybe Integer)
 oiccIatTTL = lens _oiccIatTTL (\ s a -> s{_oiccIatTTL = a})
 
--- | The issuer for the open id connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
+-- | The issuer for the OpenID Connect configuration. The issuer returned by discovery must exactly match the value of @iss@ in the ID token.
 oiccIssuer :: Lens' OpenIdConnectConfig Text
 oiccIssuer = lens _oiccIssuer (\ s a -> s{_oiccIssuer = a})
 
@@ -597,6 +873,190 @@ instance ToJSON OpenIdConnectConfig where
                   ("iatTTL" .=) <$> _oiccIatTTL,
                   Just ("issuer" .= _oiccIssuer)])
 
+-- | The pipeline configuration for a resolver of kind @PIPELINE@ .
+--
+--
+--
+-- /See:/ 'pipelineConfig' smart constructor.
+newtype PipelineConfig = PipelineConfig'
+  { _pcFunctions :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'PipelineConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pcFunctions' - A list of @Function@ objects.
+pipelineConfig
+    :: PipelineConfig
+pipelineConfig = PipelineConfig' {_pcFunctions = Nothing}
+
+
+-- | A list of @Function@ objects.
+pcFunctions :: Lens' PipelineConfig [Text]
+pcFunctions = lens _pcFunctions (\ s a -> s{_pcFunctions = a}) . _Default . _Coerce
+
+instance FromJSON PipelineConfig where
+        parseJSON
+          = withObject "PipelineConfig"
+              (\ x ->
+                 PipelineConfig' <$> (x .:? "functions" .!= mempty))
+
+instance Hashable PipelineConfig where
+
+instance NFData PipelineConfig where
+
+instance ToJSON PipelineConfig where
+        toJSON PipelineConfig'{..}
+          = object
+              (catMaybes [("functions" .=) <$> _pcFunctions])
+
+-- | The Amazon RDS HTTP endpoint configuration.
+--
+--
+--
+-- /See:/ 'rdsHTTPEndpointConfig' smart constructor.
+data RDSHTTPEndpointConfig = RDSHTTPEndpointConfig'
+  { _rhttpecDbClusterIdentifier :: !(Maybe Text)
+  , _rhttpecSchema              :: !(Maybe Text)
+  , _rhttpecDatabaseName        :: !(Maybe Text)
+  , _rhttpecAwsRegion           :: !(Maybe Text)
+  , _rhttpecAwsSecretStoreARN   :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RDSHTTPEndpointConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rhttpecDbClusterIdentifier' - Amazon RDS cluster identifier.
+--
+-- * 'rhttpecSchema' - Logical schema name.
+--
+-- * 'rhttpecDatabaseName' - Logical database name.
+--
+-- * 'rhttpecAwsRegion' - AWS Region for RDS HTTP endpoint.
+--
+-- * 'rhttpecAwsSecretStoreARN' - AWS secret store ARN for database credentials.
+rdsHTTPEndpointConfig
+    :: RDSHTTPEndpointConfig
+rdsHTTPEndpointConfig =
+  RDSHTTPEndpointConfig'
+    { _rhttpecDbClusterIdentifier = Nothing
+    , _rhttpecSchema = Nothing
+    , _rhttpecDatabaseName = Nothing
+    , _rhttpecAwsRegion = Nothing
+    , _rhttpecAwsSecretStoreARN = Nothing
+    }
+
+
+-- | Amazon RDS cluster identifier.
+rhttpecDbClusterIdentifier :: Lens' RDSHTTPEndpointConfig (Maybe Text)
+rhttpecDbClusterIdentifier = lens _rhttpecDbClusterIdentifier (\ s a -> s{_rhttpecDbClusterIdentifier = a})
+
+-- | Logical schema name.
+rhttpecSchema :: Lens' RDSHTTPEndpointConfig (Maybe Text)
+rhttpecSchema = lens _rhttpecSchema (\ s a -> s{_rhttpecSchema = a})
+
+-- | Logical database name.
+rhttpecDatabaseName :: Lens' RDSHTTPEndpointConfig (Maybe Text)
+rhttpecDatabaseName = lens _rhttpecDatabaseName (\ s a -> s{_rhttpecDatabaseName = a})
+
+-- | AWS Region for RDS HTTP endpoint.
+rhttpecAwsRegion :: Lens' RDSHTTPEndpointConfig (Maybe Text)
+rhttpecAwsRegion = lens _rhttpecAwsRegion (\ s a -> s{_rhttpecAwsRegion = a})
+
+-- | AWS secret store ARN for database credentials.
+rhttpecAwsSecretStoreARN :: Lens' RDSHTTPEndpointConfig (Maybe Text)
+rhttpecAwsSecretStoreARN = lens _rhttpecAwsSecretStoreARN (\ s a -> s{_rhttpecAwsSecretStoreARN = a})
+
+instance FromJSON RDSHTTPEndpointConfig where
+        parseJSON
+          = withObject "RDSHTTPEndpointConfig"
+              (\ x ->
+                 RDSHTTPEndpointConfig' <$>
+                   (x .:? "dbClusterIdentifier") <*> (x .:? "schema")
+                     <*> (x .:? "databaseName")
+                     <*> (x .:? "awsRegion")
+                     <*> (x .:? "awsSecretStoreArn"))
+
+instance Hashable RDSHTTPEndpointConfig where
+
+instance NFData RDSHTTPEndpointConfig where
+
+instance ToJSON RDSHTTPEndpointConfig where
+        toJSON RDSHTTPEndpointConfig'{..}
+          = object
+              (catMaybes
+                 [("dbClusterIdentifier" .=) <$>
+                    _rhttpecDbClusterIdentifier,
+                  ("schema" .=) <$> _rhttpecSchema,
+                  ("databaseName" .=) <$> _rhttpecDatabaseName,
+                  ("awsRegion" .=) <$> _rhttpecAwsRegion,
+                  ("awsSecretStoreArn" .=) <$>
+                    _rhttpecAwsSecretStoreARN])
+
+-- | Describes a relational database data source configuration.
+--
+--
+--
+-- /See:/ 'relationalDatabaseDataSourceConfig' smart constructor.
+data RelationalDatabaseDataSourceConfig = RelationalDatabaseDataSourceConfig'
+  { _rddscRelationalDatabaseSourceType :: !(Maybe RelationalDatabaseSourceType)
+  , _rddscRdsHTTPEndpointConfig        :: !(Maybe RDSHTTPEndpointConfig)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RelationalDatabaseDataSourceConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rddscRelationalDatabaseSourceType' - Source type for the relational database.     * __RDS_HTTP_ENDPOINT__ : The relational database source type is an Amazon RDS HTTP endpoint.
+--
+-- * 'rddscRdsHTTPEndpointConfig' - Amazon RDS HTTP endpoint settings.
+relationalDatabaseDataSourceConfig
+    :: RelationalDatabaseDataSourceConfig
+relationalDatabaseDataSourceConfig =
+  RelationalDatabaseDataSourceConfig'
+    { _rddscRelationalDatabaseSourceType = Nothing
+    , _rddscRdsHTTPEndpointConfig = Nothing
+    }
+
+
+-- | Source type for the relational database.     * __RDS_HTTP_ENDPOINT__ : The relational database source type is an Amazon RDS HTTP endpoint.
+rddscRelationalDatabaseSourceType :: Lens' RelationalDatabaseDataSourceConfig (Maybe RelationalDatabaseSourceType)
+rddscRelationalDatabaseSourceType = lens _rddscRelationalDatabaseSourceType (\ s a -> s{_rddscRelationalDatabaseSourceType = a})
+
+-- | Amazon RDS HTTP endpoint settings.
+rddscRdsHTTPEndpointConfig :: Lens' RelationalDatabaseDataSourceConfig (Maybe RDSHTTPEndpointConfig)
+rddscRdsHTTPEndpointConfig = lens _rddscRdsHTTPEndpointConfig (\ s a -> s{_rddscRdsHTTPEndpointConfig = a})
+
+instance FromJSON RelationalDatabaseDataSourceConfig
+         where
+        parseJSON
+          = withObject "RelationalDatabaseDataSourceConfig"
+              (\ x ->
+                 RelationalDatabaseDataSourceConfig' <$>
+                   (x .:? "relationalDatabaseSourceType") <*>
+                     (x .:? "rdsHttpEndpointConfig"))
+
+instance Hashable RelationalDatabaseDataSourceConfig
+         where
+
+instance NFData RelationalDatabaseDataSourceConfig
+         where
+
+instance ToJSON RelationalDatabaseDataSourceConfig
+         where
+        toJSON RelationalDatabaseDataSourceConfig'{..}
+          = object
+              (catMaybes
+                 [("relationalDatabaseSourceType" .=) <$>
+                    _rddscRelationalDatabaseSourceType,
+                  ("rdsHttpEndpointConfig" .=) <$>
+                    _rddscRdsHTTPEndpointConfig])
+
 -- | Describes a resolver.
 --
 --
@@ -606,9 +1066,11 @@ data Resolver = Resolver'
   { _rTypeName                :: !(Maybe Text)
   , _rDataSourceName          :: !(Maybe Text)
   , _rRequestMappingTemplate  :: !(Maybe Text)
+  , _rKind                    :: !(Maybe ResolverKind)
   , _rResolverARN             :: !(Maybe Text)
   , _rResponseMappingTemplate :: !(Maybe Text)
   , _rFieldName               :: !(Maybe Text)
+  , _rPipelineConfig          :: !(Maybe PipelineConfig)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -622,11 +1084,15 @@ data Resolver = Resolver'
 --
 -- * 'rRequestMappingTemplate' - The request mapping template.
 --
+-- * 'rKind' - The resolver type.     * __UNIT__ : A UNIT resolver type. A UNIT resolver is the default resolver type. A UNIT resolver enables you to execute a GraphQL query against a single data source.     * __PIPELINE__ : A PIPELINE resolver type. A PIPELINE resolver enables you to execute a series of @Function@ in a serial manner. You can use a pipeline resolver to execute a GraphQL query against multiple data sources.
+--
 -- * 'rResolverARN' - The resolver ARN.
 --
 -- * 'rResponseMappingTemplate' - The response mapping template.
 --
 -- * 'rFieldName' - The resolver field name.
+--
+-- * 'rPipelineConfig' - The @PipelineConfig@ .
 resolver
     :: Resolver
 resolver =
@@ -634,9 +1100,11 @@ resolver =
     { _rTypeName = Nothing
     , _rDataSourceName = Nothing
     , _rRequestMappingTemplate = Nothing
+    , _rKind = Nothing
     , _rResolverARN = Nothing
     , _rResponseMappingTemplate = Nothing
     , _rFieldName = Nothing
+    , _rPipelineConfig = Nothing
     }
 
 
@@ -652,6 +1120,10 @@ rDataSourceName = lens _rDataSourceName (\ s a -> s{_rDataSourceName = a})
 rRequestMappingTemplate :: Lens' Resolver (Maybe Text)
 rRequestMappingTemplate = lens _rRequestMappingTemplate (\ s a -> s{_rRequestMappingTemplate = a})
 
+-- | The resolver type.     * __UNIT__ : A UNIT resolver type. A UNIT resolver is the default resolver type. A UNIT resolver enables you to execute a GraphQL query against a single data source.     * __PIPELINE__ : A PIPELINE resolver type. A PIPELINE resolver enables you to execute a series of @Function@ in a serial manner. You can use a pipeline resolver to execute a GraphQL query against multiple data sources.
+rKind :: Lens' Resolver (Maybe ResolverKind)
+rKind = lens _rKind (\ s a -> s{_rKind = a})
+
 -- | The resolver ARN.
 rResolverARN :: Lens' Resolver (Maybe Text)
 rResolverARN = lens _rResolverARN (\ s a -> s{_rResolverARN = a})
@@ -664,6 +1136,10 @@ rResponseMappingTemplate = lens _rResponseMappingTemplate (\ s a -> s{_rResponse
 rFieldName :: Lens' Resolver (Maybe Text)
 rFieldName = lens _rFieldName (\ s a -> s{_rFieldName = a})
 
+-- | The @PipelineConfig@ .
+rPipelineConfig :: Lens' Resolver (Maybe PipelineConfig)
+rPipelineConfig = lens _rPipelineConfig (\ s a -> s{_rPipelineConfig = a})
+
 instance FromJSON Resolver where
         parseJSON
           = withObject "Resolver"
@@ -671,9 +1147,11 @@ instance FromJSON Resolver where
                  Resolver' <$>
                    (x .:? "typeName") <*> (x .:? "dataSourceName") <*>
                      (x .:? "requestMappingTemplate")
+                     <*> (x .:? "kind")
                      <*> (x .:? "resolverArn")
                      <*> (x .:? "responseMappingTemplate")
-                     <*> (x .:? "fieldName"))
+                     <*> (x .:? "fieldName")
+                     <*> (x .:? "pipelineConfig"))
 
 instance Hashable Resolver where
 
@@ -752,7 +1230,7 @@ instance Hashable Type where
 
 instance NFData Type where
 
--- | Describes an Amazon Cognito User Pool configuration.
+-- | Describes an Amazon Cognito user pool configuration.
 --
 --
 --
@@ -769,13 +1247,13 @@ data UserPoolConfig = UserPoolConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upcAppIdClientRegex' - A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+-- * 'upcAppIdClientRegex' - A regular expression for validating the incoming Amazon Cognito user pool app client ID.
 --
 -- * 'upcUserPoolId' - The user pool ID.
 --
--- * 'upcAwsRegion' - The AWS region in which the user pool was created.
+-- * 'upcAwsRegion' - The AWS Region in which the user pool was created.
 --
--- * 'upcDefaultAction' - The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration.
+-- * 'upcDefaultAction' - The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool authentication doesn't match the Amazon Cognito user pool configuration.
 userPoolConfig
     :: Text -- ^ 'upcUserPoolId'
     -> Text -- ^ 'upcAwsRegion'
@@ -790,7 +1268,7 @@ userPoolConfig pUserPoolId_ pAwsRegion_ pDefaultAction_ =
     }
 
 
--- | A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+-- | A regular expression for validating the incoming Amazon Cognito user pool app client ID.
 upcAppIdClientRegex :: Lens' UserPoolConfig (Maybe Text)
 upcAppIdClientRegex = lens _upcAppIdClientRegex (\ s a -> s{_upcAppIdClientRegex = a})
 
@@ -798,11 +1276,11 @@ upcAppIdClientRegex = lens _upcAppIdClientRegex (\ s a -> s{_upcAppIdClientRegex
 upcUserPoolId :: Lens' UserPoolConfig Text
 upcUserPoolId = lens _upcUserPoolId (\ s a -> s{_upcUserPoolId = a})
 
--- | The AWS region in which the user pool was created.
+-- | The AWS Region in which the user pool was created.
 upcAwsRegion :: Lens' UserPoolConfig Text
 upcAwsRegion = lens _upcAwsRegion (\ s a -> s{_upcAwsRegion = a})
 
--- | The action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration.
+-- | The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool authentication doesn't match the Amazon Cognito user pool configuration.
 upcDefaultAction :: Lens' UserPoolConfig DefaultAction
 upcDefaultAction = lens _upcDefaultAction (\ s a -> s{_upcDefaultAction = a})
 

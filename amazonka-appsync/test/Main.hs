@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.AppSync
 import Test.AWS.AppSync.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "AppSync"

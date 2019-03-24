@@ -123,7 +123,7 @@ data StartSchemaCreationResponse = StartSchemaCreationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sscrsStatus' - The current state of the schema (PROCESSING, ACTIVE, or DELETING). Once the schema is in the ACTIVE state, you can add data.
+-- * 'sscrsStatus' - The current state of the schema (PROCESSING, ACTIVE, or DELETING). When the schema is in the ACTIVE state, you can add data.
 --
 -- * 'sscrsResponseStatus' - -- | The response status code.
 startSchemaCreationResponse
@@ -134,7 +134,7 @@ startSchemaCreationResponse pResponseStatus_ =
     {_sscrsStatus = Nothing, _sscrsResponseStatus = pResponseStatus_}
 
 
--- | The current state of the schema (PROCESSING, ACTIVE, or DELETING). Once the schema is in the ACTIVE state, you can add data.
+-- | The current state of the schema (PROCESSING, ACTIVE, or DELETING). When the schema is in the ACTIVE state, you can add data.
 sscrsStatus :: Lens' StartSchemaCreationResponse (Maybe SchemaStatus)
 sscrsStatus = lens _sscrsStatus (\ s a -> s{_sscrsStatus = a})
 

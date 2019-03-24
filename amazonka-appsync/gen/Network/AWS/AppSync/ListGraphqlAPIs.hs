@@ -21,6 +21,8 @@
 -- Lists your GraphQL APIs.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.AppSync.ListGraphqlAPIs
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.AppSync.ListGraphqlAPIs
 import Network.AWS.AppSync.Types
 import Network.AWS.AppSync.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -73,6 +76,13 @@ lgaNextToken = lens _lgaNextToken (\ s a -> s{_lgaNextToken = a})
 -- | The maximum number of results you want the request to return.
 lgaMaxResults :: Lens' ListGraphqlAPIs (Maybe Natural)
 lgaMaxResults = lens _lgaMaxResults (\ s a -> s{_lgaMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListGraphqlAPIs where
+        page rq rs
+          | stop (rs ^. lgarsNextToken) = Nothing
+          | stop (rs ^. lgarsGraphqlAPIs) = Nothing
+          | otherwise =
+            Just $ rq & lgaNextToken .~ rs ^. lgarsNextToken
 
 instance AWSRequest ListGraphqlAPIs where
         type Rs ListGraphqlAPIs = ListGraphqlAPIsResponse

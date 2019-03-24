@@ -21,6 +21,8 @@
 -- Lists the resolvers for a given API and type.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.AppSync.ListResolvers
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.AppSync.ListResolvers
 import Network.AWS.AppSync.Types
 import Network.AWS.AppSync.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -96,6 +99,13 @@ lrApiId = lens _lrApiId (\ s a -> s{_lrApiId = a})
 -- | The type name.
 lrTypeName :: Lens' ListResolvers Text
 lrTypeName = lens _lrTypeName (\ s a -> s{_lrTypeName = a})
+
+instance AWSPager ListResolvers where
+        page rq rs
+          | stop (rs ^. lrrsNextToken) = Nothing
+          | stop (rs ^. lrrsResolvers) = Nothing
+          | otherwise =
+            Just $ rq & lrNextToken .~ rs ^. lrrsNextToken
 
 instance AWSRequest ListResolvers where
         type Rs ListResolvers = ListResolversResponse

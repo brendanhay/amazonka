@@ -21,6 +21,8 @@
 -- Lists the types for a given API.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.AppSync.ListTypes
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.AppSync.ListTypes
 import Network.AWS.AppSync.Types
 import Network.AWS.AppSync.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -96,6 +99,13 @@ ltApiId = lens _ltApiId (\ s a -> s{_ltApiId = a})
 -- | The type format: SDL or JSON.
 ltFormat :: Lens' ListTypes TypeDefinitionFormat
 ltFormat = lens _ltFormat (\ s a -> s{_ltFormat = a})
+
+instance AWSPager ListTypes where
+        page rq rs
+          | stop (rs ^. ltrsNextToken) = Nothing
+          | stop (rs ^. ltrsTypes) = Nothing
+          | otherwise =
+            Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
 
 instance AWSRequest ListTypes where
         type Rs ListTypes = ListTypesResponse

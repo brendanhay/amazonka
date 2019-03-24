@@ -20,28 +20,28 @@ module Network.AWS.AppSync.Types.Sum where
 import Network.AWS.Prelude
 
 data AuthenticationType
-  = APIKey
-  | AWSIAM
-  | AmazonCognitoUserPools
-  | OpenidConnect
+  = ATAPIKey
+  | ATAWSIAM
+  | ATAmazonCognitoUserPools
+  | ATOpenidConnect
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText AuthenticationType where
     parser = takeLowerText >>= \case
-        "api_key" -> pure APIKey
-        "aws_iam" -> pure AWSIAM
-        "amazon_cognito_user_pools" -> pure AmazonCognitoUserPools
-        "openid_connect" -> pure OpenidConnect
+        "api_key" -> pure ATAPIKey
+        "aws_iam" -> pure ATAWSIAM
+        "amazon_cognito_user_pools" -> pure ATAmazonCognitoUserPools
+        "openid_connect" -> pure ATOpenidConnect
         e -> fromTextError $ "Failure parsing AuthenticationType from value: '" <> e
            <> "'. Accepted values: api_key, aws_iam, amazon_cognito_user_pools, openid_connect"
 
 instance ToText AuthenticationType where
     toText = \case
-        APIKey -> "API_KEY"
-        AWSIAM -> "AWS_IAM"
-        AmazonCognitoUserPools -> "AMAZON_COGNITO_USER_POOLS"
-        OpenidConnect -> "OPENID_CONNECT"
+        ATAPIKey -> "API_KEY"
+        ATAWSIAM -> "AWS_IAM"
+        ATAmazonCognitoUserPools -> "AMAZON_COGNITO_USER_POOLS"
+        ATOpenidConnect -> "OPENID_CONNECT"
 
 instance Hashable     AuthenticationType
 instance NFData       AuthenticationType
@@ -55,11 +55,40 @@ instance ToJSON AuthenticationType where
 instance FromJSON AuthenticationType where
     parseJSON = parseJSONText "AuthenticationType"
 
+data AuthorizationType =
+  AWSIAM
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AuthorizationType where
+    parser = takeLowerText >>= \case
+        "aws_iam" -> pure AWSIAM
+        e -> fromTextError $ "Failure parsing AuthorizationType from value: '" <> e
+           <> "'. Accepted values: aws_iam"
+
+instance ToText AuthorizationType where
+    toText = \case
+        AWSIAM -> "AWS_IAM"
+
+instance Hashable     AuthorizationType
+instance NFData       AuthorizationType
+instance ToByteString AuthorizationType
+instance ToQuery      AuthorizationType
+instance ToHeader     AuthorizationType
+
+instance ToJSON AuthorizationType where
+    toJSON = toJSONText
+
+instance FromJSON AuthorizationType where
+    parseJSON = parseJSONText "AuthorizationType"
+
 data DataSourceType
   = AWSLambda
   | AmazonDynamodb
   | AmazonElasticsearch
+  | HTTP
   | None
+  | RelationalDatabase
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -68,16 +97,20 @@ instance FromText DataSourceType where
         "aws_lambda" -> pure AWSLambda
         "amazon_dynamodb" -> pure AmazonDynamodb
         "amazon_elasticsearch" -> pure AmazonElasticsearch
+        "http" -> pure HTTP
         "none" -> pure None
+        "relational_database" -> pure RelationalDatabase
         e -> fromTextError $ "Failure parsing DataSourceType from value: '" <> e
-           <> "'. Accepted values: aws_lambda, amazon_dynamodb, amazon_elasticsearch, none"
+           <> "'. Accepted values: aws_lambda, amazon_dynamodb, amazon_elasticsearch, http, none, relational_database"
 
 instance ToText DataSourceType where
     toText = \case
         AWSLambda -> "AWS_LAMBDA"
         AmazonDynamodb -> "AMAZON_DYNAMODB"
         AmazonElasticsearch -> "AMAZON_ELASTICSEARCH"
+        HTTP -> "HTTP"
         None -> "NONE"
+        RelationalDatabase -> "RELATIONAL_DATABASE"
 
 instance Hashable     DataSourceType
 instance NFData       DataSourceType
@@ -180,6 +213,63 @@ instance ToHeader     OutputType
 
 instance ToJSON OutputType where
     toJSON = toJSONText
+
+data RelationalDatabaseSourceType =
+  RDSHTTPEndpoint
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText RelationalDatabaseSourceType where
+    parser = takeLowerText >>= \case
+        "rds_http_endpoint" -> pure RDSHTTPEndpoint
+        e -> fromTextError $ "Failure parsing RelationalDatabaseSourceType from value: '" <> e
+           <> "'. Accepted values: rds_http_endpoint"
+
+instance ToText RelationalDatabaseSourceType where
+    toText = \case
+        RDSHTTPEndpoint -> "RDS_HTTP_ENDPOINT"
+
+instance Hashable     RelationalDatabaseSourceType
+instance NFData       RelationalDatabaseSourceType
+instance ToByteString RelationalDatabaseSourceType
+instance ToQuery      RelationalDatabaseSourceType
+instance ToHeader     RelationalDatabaseSourceType
+
+instance ToJSON RelationalDatabaseSourceType where
+    toJSON = toJSONText
+
+instance FromJSON RelationalDatabaseSourceType where
+    parseJSON = parseJSONText "RelationalDatabaseSourceType"
+
+data ResolverKind
+  = Pipeline
+  | Unit
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ResolverKind where
+    parser = takeLowerText >>= \case
+        "pipeline" -> pure Pipeline
+        "unit" -> pure Unit
+        e -> fromTextError $ "Failure parsing ResolverKind from value: '" <> e
+           <> "'. Accepted values: pipeline, unit"
+
+instance ToText ResolverKind where
+    toText = \case
+        Pipeline -> "PIPELINE"
+        Unit -> "UNIT"
+
+instance Hashable     ResolverKind
+instance NFData       ResolverKind
+instance ToByteString ResolverKind
+instance ToQuery      ResolverKind
+instance ToHeader     ResolverKind
+
+instance ToJSON ResolverKind where
+    toJSON = toJSONText
+
+instance FromJSON ResolverKind where
+    parseJSON = parseJSONText "ResolverKind"
 
 data SchemaStatus
   = Active

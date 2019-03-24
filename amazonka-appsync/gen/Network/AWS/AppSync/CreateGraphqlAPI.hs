@@ -62,15 +62,15 @@ data CreateGraphqlAPI = CreateGraphqlAPI'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cgaOpenIdConnectConfig' - The Open Id Connect configuration configuration.
+-- * 'cgaOpenIdConnectConfig' - The OpenID Connect configuration.
 --
--- * 'cgaUserPoolConfig' - The Amazon Cognito User Pool configuration.
+-- * 'cgaUserPoolConfig' - The Amazon Cognito user pool configuration.
 --
--- * 'cgaLogConfig' - The Amazon CloudWatch logs configuration.
+-- * 'cgaLogConfig' - The Amazon CloudWatch Logs configuration.
 --
 -- * 'cgaName' - A user-supplied name for the @GraphqlApi@ .
 --
--- * 'cgaAuthenticationType' - The authentication type: API key, IAM, or Amazon Cognito User Pools.
+-- * 'cgaAuthenticationType' - The authentication type: API key, AWS IAM, or Amazon Cognito user pools.
 createGraphqlAPI
     :: Text -- ^ 'cgaName'
     -> AuthenticationType -- ^ 'cgaAuthenticationType'
@@ -85,15 +85,15 @@ createGraphqlAPI pName_ pAuthenticationType_ =
     }
 
 
--- | The Open Id Connect configuration configuration.
+-- | The OpenID Connect configuration.
 cgaOpenIdConnectConfig :: Lens' CreateGraphqlAPI (Maybe OpenIdConnectConfig)
 cgaOpenIdConnectConfig = lens _cgaOpenIdConnectConfig (\ s a -> s{_cgaOpenIdConnectConfig = a})
 
--- | The Amazon Cognito User Pool configuration.
+-- | The Amazon Cognito user pool configuration.
 cgaUserPoolConfig :: Lens' CreateGraphqlAPI (Maybe UserPoolConfig)
 cgaUserPoolConfig = lens _cgaUserPoolConfig (\ s a -> s{_cgaUserPoolConfig = a})
 
--- | The Amazon CloudWatch logs configuration.
+-- | The Amazon CloudWatch Logs configuration.
 cgaLogConfig :: Lens' CreateGraphqlAPI (Maybe LogConfig)
 cgaLogConfig = lens _cgaLogConfig (\ s a -> s{_cgaLogConfig = a})
 
@@ -101,7 +101,7 @@ cgaLogConfig = lens _cgaLogConfig (\ s a -> s{_cgaLogConfig = a})
 cgaName :: Lens' CreateGraphqlAPI Text
 cgaName = lens _cgaName (\ s a -> s{_cgaName = a})
 
--- | The authentication type: API key, IAM, or Amazon Cognito User Pools.
+-- | The authentication type: API key, AWS IAM, or Amazon Cognito user pools.
 cgaAuthenticationType :: Lens' CreateGraphqlAPI AuthenticationType
 cgaAuthenticationType = lens _cgaAuthenticationType (\ s a -> s{_cgaAuthenticationType = a})
 

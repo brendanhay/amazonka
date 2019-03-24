@@ -30,6 +30,9 @@ module Network.AWS.AppSync.Types
     -- * AuthenticationType
     , AuthenticationType (..)
 
+    -- * AuthorizationType
+    , AuthorizationType (..)
+
     -- * DataSourceType
     , DataSourceType (..)
 
@@ -41,6 +44,12 @@ module Network.AWS.AppSync.Types
 
     -- * OutputType
     , OutputType (..)
+
+    -- * RelationalDatabaseSourceType
+    , RelationalDatabaseSourceType (..)
+
+    -- * ResolverKind
+    , ResolverKind (..)
 
     -- * SchemaStatus
     , SchemaStatus (..)
@@ -55,13 +64,27 @@ module Network.AWS.AppSync.Types
     , akId
     , akDescription
 
+    -- * AWSIAMConfig
+    , AWSIAMConfig
+    , awsIAMConfig
+    , aicSigningServiceName
+    , aicSigningRegion
+
+    -- * AuthorizationConfig
+    , AuthorizationConfig
+    , authorizationConfig
+    , acAwsIAMConfig
+    , acAuthorizationType
+
     -- * DataSource
     , DataSource
     , dataSource
     , dsServiceRoleARN
+    , dsRelationalDatabaseConfig
     , dsDataSourceARN
     , dsDynamodbConfig
     , dsName
+    , dsHttpConfig
     , dsLambdaConfig
     , dsType
     , dsDescription
@@ -80,6 +103,18 @@ module Network.AWS.AppSync.Types
     , edscEndpoint
     , edscAwsRegion
 
+    -- * FunctionConfiguration
+    , FunctionConfiguration
+    , functionConfiguration
+    , fcFunctionARN
+    , fcDataSourceName
+    , fcRequestMappingTemplate
+    , fcName
+    , fcFunctionId
+    , fcResponseMappingTemplate
+    , fcFunctionVersion
+    , fcDescription
+
     -- * GraphqlAPI
     , GraphqlAPI
     , graphqlAPI
@@ -91,6 +126,12 @@ module Network.AWS.AppSync.Types
     , gaUserPoolConfig
     , gaAuthenticationType
     , gaLogConfig
+
+    -- * HTTPDataSourceConfig
+    , HTTPDataSourceConfig
+    , hTTPDataSourceConfig
+    , httpdscAuthorizationConfig
+    , httpdscEndpoint
 
     -- * LambdaDataSourceConfig
     , LambdaDataSourceConfig
@@ -111,15 +152,37 @@ module Network.AWS.AppSync.Types
     , oiccIatTTL
     , oiccIssuer
 
+    -- * PipelineConfig
+    , PipelineConfig
+    , pipelineConfig
+    , pcFunctions
+
+    -- * RDSHTTPEndpointConfig
+    , RDSHTTPEndpointConfig
+    , rdsHTTPEndpointConfig
+    , rhttpecDbClusterIdentifier
+    , rhttpecSchema
+    , rhttpecDatabaseName
+    , rhttpecAwsRegion
+    , rhttpecAwsSecretStoreARN
+
+    -- * RelationalDatabaseDataSourceConfig
+    , RelationalDatabaseDataSourceConfig
+    , relationalDatabaseDataSourceConfig
+    , rddscRelationalDatabaseSourceType
+    , rddscRdsHTTPEndpointConfig
+
     -- * Resolver
     , Resolver
     , resolver
     , rTypeName
     , rDataSourceName
     , rRequestMappingTemplate
+    , rKind
     , rResolverARN
     , rResponseMappingTemplate
     , rFieldName
+    , rPipelineConfig
 
     -- * Type
     , Type
@@ -209,7 +272,7 @@ _APILimitExceededException =
   _MatchServiceError appSync "ApiLimitExceededException" . hasStatus 400
 
 
--- | The resource specified in the request was not found. Check the resource and try again.
+-- | The resource specified in the request was not found. Check the resource, and then try again.
 --
 --
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -225,7 +288,7 @@ _GraphQLSchemaException =
   _MatchServiceError appSync "GraphQLSchemaException" . hasStatus 400
 
 
--- | Another modification is being made. That modification must complete before you can make your change.
+-- | Another modification is in progress at this time and it must complete before you can make your change.
 --
 --
 _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -249,7 +312,7 @@ _UnauthorizedException =
   _MatchServiceError appSync "UnauthorizedException" . hasStatus 401
 
 
--- | The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.
+-- | The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and then try again.
 --
 --
 _BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError

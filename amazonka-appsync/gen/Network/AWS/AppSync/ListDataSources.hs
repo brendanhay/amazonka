@@ -21,6 +21,8 @@
 -- Lists the data sources for a given API.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.AppSync.ListDataSources
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.AppSync.ListDataSources
 import Network.AWS.AppSync.Types
 import Network.AWS.AppSync.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -83,6 +86,13 @@ ldsMaxResults = lens _ldsMaxResults (\ s a -> s{_ldsMaxResults = a}) . mapping _
 -- | The API ID.
 ldsApiId :: Lens' ListDataSources Text
 ldsApiId = lens _ldsApiId (\ s a -> s{_ldsApiId = a})
+
+instance AWSPager ListDataSources where
+        page rq rs
+          | stop (rs ^. ldsrsNextToken) = Nothing
+          | stop (rs ^. ldsrsDataSources) = Nothing
+          | otherwise =
+            Just $ rq & ldsNextToken .~ rs ^. ldsrsNextToken
 
 instance AWSRequest ListDataSources where
         type Rs ListDataSources = ListDataSourcesResponse

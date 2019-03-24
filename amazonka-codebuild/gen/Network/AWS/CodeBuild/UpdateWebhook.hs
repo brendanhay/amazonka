@@ -29,6 +29,7 @@ module Network.AWS.CodeBuild.UpdateWebhook
     -- * Request Lenses
     , uwBranchFilter
     , uwRotateSecret
+    , uwFilterGroups
     , uwProjectName
 
     -- * Destructuring the Response
@@ -50,6 +51,7 @@ import Network.AWS.Response
 data UpdateWebhook = UpdateWebhook'
   { _uwBranchFilter :: !(Maybe Text)
   , _uwRotateSecret :: !(Maybe Bool)
+  , _uwFilterGroups :: !(Maybe [[WebhookFilter]])
   , _uwProjectName  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -58,9 +60,11 @@ data UpdateWebhook = UpdateWebhook'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uwBranchFilter' - A regular expression used to determine which branches in a repository are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If it doesn't match, then it is not. If branchFilter is empty, then all branches are built.
+-- * 'uwBranchFilter' - A regular expression used to determine which repository branches are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If @branchFilter@ is empty, then all branches are built.
 --
--- * 'uwRotateSecret' - A boolean value that specifies whether the associated repository's secret token should be updated.
+-- * 'uwRotateSecret' - A boolean value that specifies whether the associated GitHub repository's secret token should be updated. If you use Bitbucket for your repository, @rotateSecret@ is ignored.
+--
+-- * 'uwFilterGroups' - An array of arrays of @WebhookFilter@ objects used to determine if a webhook event can trigger a build. A filter group must pcontain at least one @EVENT@ @WebhookFilter@ .
 --
 -- * 'uwProjectName' - The name of the AWS CodeBuild project.
 updateWebhook
@@ -70,17 +74,22 @@ updateWebhook pProjectName_ =
   UpdateWebhook'
     { _uwBranchFilter = Nothing
     , _uwRotateSecret = Nothing
+    , _uwFilterGroups = Nothing
     , _uwProjectName = pProjectName_
     }
 
 
--- | A regular expression used to determine which branches in a repository are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If it doesn't match, then it is not. If branchFilter is empty, then all branches are built.
+-- | A regular expression used to determine which repository branches are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If @branchFilter@ is empty, then all branches are built.
 uwBranchFilter :: Lens' UpdateWebhook (Maybe Text)
 uwBranchFilter = lens _uwBranchFilter (\ s a -> s{_uwBranchFilter = a})
 
--- | A boolean value that specifies whether the associated repository's secret token should be updated.
+-- | A boolean value that specifies whether the associated GitHub repository's secret token should be updated. If you use Bitbucket for your repository, @rotateSecret@ is ignored.
 uwRotateSecret :: Lens' UpdateWebhook (Maybe Bool)
 uwRotateSecret = lens _uwRotateSecret (\ s a -> s{_uwRotateSecret = a})
+
+-- | An array of arrays of @WebhookFilter@ objects used to determine if a webhook event can trigger a build. A filter group must pcontain at least one @EVENT@ @WebhookFilter@ .
+uwFilterGroups :: Lens' UpdateWebhook [[WebhookFilter]]
+uwFilterGroups = lens _uwFilterGroups (\ s a -> s{_uwFilterGroups = a}) . _Default . _Coerce
 
 -- | The name of the AWS CodeBuild project.
 uwProjectName :: Lens' UpdateWebhook Text
@@ -114,6 +123,7 @@ instance ToJSON UpdateWebhook where
               (catMaybes
                  [("branchFilter" .=) <$> _uwBranchFilter,
                   ("rotateSecret" .=) <$> _uwRotateSecret,
+                  ("filterGroups" .=) <$> _uwFilterGroups,
                   Just ("projectName" .= _uwProjectName)])
 
 instance ToPath UpdateWebhook where

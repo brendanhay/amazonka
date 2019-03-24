@@ -37,11 +37,20 @@ import Test.Tasty
 --         , requestUpdateProject $
 --             updateProject
 --
+--         , requestDeleteSourceCredentials $
+--             deleteSourceCredentials
+--
 --         , requestListBuilds $
 --             listBuilds
 --
+--         , requestListSourceCredentials $
+--             listSourceCredentials
+--
 --         , requestCreateWebhook $
 --             createWebhook
+--
+--         , requestImportSourceCredentials $
+--             importSourceCredentials
 --
 --         , requestStartBuild $
 --             startBuild
@@ -88,11 +97,20 @@ import Test.Tasty
 --         , responseUpdateProject $
 --             updateProjectResponse
 --
+--         , responseDeleteSourceCredentials $
+--             deleteSourceCredentialsResponse
+--
 --         , responseListBuilds $
 --             listBuildsResponse
 --
+--         , responseListSourceCredentials $
+--             listSourceCredentialsResponse
+--
 --         , responseCreateWebhook $
 --             createWebhookResponse
+--
+--         , responseImportSourceCredentials $
+--             importSourceCredentialsResponse
 --
 --         , responseStartBuild $
 --             startBuildResponse
@@ -147,15 +165,30 @@ requestUpdateProject = req
     "UpdateProject"
     "fixture/UpdateProject.yaml"
 
+requestDeleteSourceCredentials :: DeleteSourceCredentials -> TestTree
+requestDeleteSourceCredentials = req
+    "DeleteSourceCredentials"
+    "fixture/DeleteSourceCredentials.yaml"
+
 requestListBuilds :: ListBuilds -> TestTree
 requestListBuilds = req
     "ListBuilds"
     "fixture/ListBuilds.yaml"
 
+requestListSourceCredentials :: ListSourceCredentials -> TestTree
+requestListSourceCredentials = req
+    "ListSourceCredentials"
+    "fixture/ListSourceCredentials.yaml"
+
 requestCreateWebhook :: CreateWebhook -> TestTree
 requestCreateWebhook = req
     "CreateWebhook"
     "fixture/CreateWebhook.yaml"
+
+requestImportSourceCredentials :: ImportSourceCredentials -> TestTree
+requestImportSourceCredentials = req
+    "ImportSourceCredentials"
+    "fixture/ImportSourceCredentials.yaml"
 
 requestStartBuild :: StartBuild -> TestTree
 requestStartBuild = req
@@ -235,6 +268,13 @@ responseUpdateProject = res
     codeBuild
     (Proxy :: Proxy UpdateProject)
 
+responseDeleteSourceCredentials :: DeleteSourceCredentialsResponse -> TestTree
+responseDeleteSourceCredentials = res
+    "DeleteSourceCredentialsResponse"
+    "fixture/DeleteSourceCredentialsResponse.proto"
+    codeBuild
+    (Proxy :: Proxy DeleteSourceCredentials)
+
 responseListBuilds :: ListBuildsResponse -> TestTree
 responseListBuilds = res
     "ListBuildsResponse"
@@ -242,12 +282,26 @@ responseListBuilds = res
     codeBuild
     (Proxy :: Proxy ListBuilds)
 
+responseListSourceCredentials :: ListSourceCredentialsResponse -> TestTree
+responseListSourceCredentials = res
+    "ListSourceCredentialsResponse"
+    "fixture/ListSourceCredentialsResponse.proto"
+    codeBuild
+    (Proxy :: Proxy ListSourceCredentials)
+
 responseCreateWebhook :: CreateWebhookResponse -> TestTree
 responseCreateWebhook = res
     "CreateWebhookResponse"
     "fixture/CreateWebhookResponse.proto"
     codeBuild
     (Proxy :: Proxy CreateWebhook)
+
+responseImportSourceCredentials :: ImportSourceCredentialsResponse -> TestTree
+responseImportSourceCredentials = res
+    "ImportSourceCredentialsResponse"
+    "fixture/ImportSourceCredentialsResponse.proto"
+    codeBuild
+    (Proxy :: Proxy ImportSourceCredentials)
 
 responseStartBuild :: StartBuildResponse -> TestTree
 responseStartBuild = res

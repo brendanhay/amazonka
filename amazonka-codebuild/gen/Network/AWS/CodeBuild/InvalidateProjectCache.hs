@@ -53,7 +53,7 @@ newtype InvalidateProjectCache = InvalidateProjectCache'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ipcProjectName' - The name of the AWS CodeBuild build project that the cache will be reset for.
+-- * 'ipcProjectName' - The name of the AWS CodeBuild build project that the cache is reset for.
 invalidateProjectCache
     :: Text -- ^ 'ipcProjectName'
     -> InvalidateProjectCache
@@ -61,7 +61,7 @@ invalidateProjectCache pProjectName_ =
   InvalidateProjectCache' {_ipcProjectName = pProjectName_}
 
 
--- | The name of the AWS CodeBuild build project that the cache will be reset for.
+-- | The name of the AWS CodeBuild build project that the cache is reset for.
 ipcProjectName :: Lens' InvalidateProjectCache Text
 ipcProjectName = lens _ipcProjectName (\ s a -> s{_ipcProjectName = a})
 

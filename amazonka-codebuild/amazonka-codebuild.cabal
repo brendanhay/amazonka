@@ -51,12 +51,15 @@ library
         , Network.AWS.CodeBuild.CreateProject
         , Network.AWS.CodeBuild.CreateWebhook
         , Network.AWS.CodeBuild.DeleteProject
+        , Network.AWS.CodeBuild.DeleteSourceCredentials
         , Network.AWS.CodeBuild.DeleteWebhook
+        , Network.AWS.CodeBuild.ImportSourceCredentials
         , Network.AWS.CodeBuild.InvalidateProjectCache
         , Network.AWS.CodeBuild.ListBuilds
         , Network.AWS.CodeBuild.ListBuildsForProject
         , Network.AWS.CodeBuild.ListCuratedEnvironmentImages
         , Network.AWS.CodeBuild.ListProjects
+        , Network.AWS.CodeBuild.ListSourceCredentials
         , Network.AWS.CodeBuild.StartBuild
         , Network.AWS.CodeBuild.StopBuild
         , Network.AWS.CodeBuild.Types

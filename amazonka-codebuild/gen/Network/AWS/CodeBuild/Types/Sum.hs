@@ -112,6 +112,39 @@ instance ToJSON ArtifactsType where
 instance FromJSON ArtifactsType where
     parseJSON = parseJSONText "ArtifactsType"
 
+data AuthType
+  = ATBasicAuth
+  | ATOauth
+  | ATPersonalAccessToken
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AuthType where
+    parser = takeLowerText >>= \case
+        "basic_auth" -> pure ATBasicAuth
+        "oauth" -> pure ATOauth
+        "personal_access_token" -> pure ATPersonalAccessToken
+        e -> fromTextError $ "Failure parsing AuthType from value: '" <> e
+           <> "'. Accepted values: basic_auth, oauth, personal_access_token"
+
+instance ToText AuthType where
+    toText = \case
+        ATBasicAuth -> "BASIC_AUTH"
+        ATOauth -> "OAUTH"
+        ATPersonalAccessToken -> "PERSONAL_ACCESS_TOKEN"
+
+instance Hashable     AuthType
+instance NFData       AuthType
+instance ToByteString AuthType
+instance ToQuery      AuthType
+instance ToHeader     AuthType
+
+instance ToJSON AuthType where
+    toJSON = toJSONText
+
+instance FromJSON AuthType where
+    parseJSON = parseJSONText "AuthType"
+
 data BuildPhaseType
   = Build
   | Completed
@@ -121,6 +154,7 @@ data BuildPhaseType
   | PostBuild
   | PreBuild
   | Provisioning
+  | Queued
   | Submitted
   | UploadArtifacts
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -136,10 +170,11 @@ instance FromText BuildPhaseType where
         "post_build" -> pure PostBuild
         "pre_build" -> pure PreBuild
         "provisioning" -> pure Provisioning
+        "queued" -> pure Queued
         "submitted" -> pure Submitted
         "upload_artifacts" -> pure UploadArtifacts
         e -> fromTextError $ "Failure parsing BuildPhaseType from value: '" <> e
-           <> "'. Accepted values: build, completed, download_source, finalizing, install, post_build, pre_build, provisioning, submitted, upload_artifacts"
+           <> "'. Accepted values: build, completed, download_source, finalizing, install, post_build, pre_build, provisioning, queued, submitted, upload_artifacts"
 
 instance ToText BuildPhaseType where
     toText = \case
@@ -151,6 +186,7 @@ instance ToText BuildPhaseType where
         PostBuild -> "POST_BUILD"
         PreBuild -> "PRE_BUILD"
         Provisioning -> "PROVISIONING"
+        Queued -> "QUEUED"
         Submitted -> "SUBMITTED"
         UploadArtifacts -> "UPLOAD_ARTIFACTS"
 
@@ -163,21 +199,57 @@ instance ToHeader     BuildPhaseType
 instance FromJSON BuildPhaseType where
     parseJSON = parseJSONText "BuildPhaseType"
 
+data CacheMode
+  = LocalCustomCache
+  | LocalDockerLayerCache
+  | LocalSourceCache
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CacheMode where
+    parser = takeLowerText >>= \case
+        "local_custom_cache" -> pure LocalCustomCache
+        "local_docker_layer_cache" -> pure LocalDockerLayerCache
+        "local_source_cache" -> pure LocalSourceCache
+        e -> fromTextError $ "Failure parsing CacheMode from value: '" <> e
+           <> "'. Accepted values: local_custom_cache, local_docker_layer_cache, local_source_cache"
+
+instance ToText CacheMode where
+    toText = \case
+        LocalCustomCache -> "LOCAL_CUSTOM_CACHE"
+        LocalDockerLayerCache -> "LOCAL_DOCKER_LAYER_CACHE"
+        LocalSourceCache -> "LOCAL_SOURCE_CACHE"
+
+instance Hashable     CacheMode
+instance NFData       CacheMode
+instance ToByteString CacheMode
+instance ToQuery      CacheMode
+instance ToHeader     CacheMode
+
+instance ToJSON CacheMode where
+    toJSON = toJSONText
+
+instance FromJSON CacheMode where
+    parseJSON = parseJSONText "CacheMode"
+
 data CacheType
-  = CTNoCache
+  = CTLocal
+  | CTNoCache
   | CTS3
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText CacheType where
     parser = takeLowerText >>= \case
+        "local" -> pure CTLocal
         "no_cache" -> pure CTNoCache
         "s3" -> pure CTS3
         e -> fromTextError $ "Failure parsing CacheType from value: '" <> e
-           <> "'. Accepted values: no_cache, s3"
+           <> "'. Accepted values: local, no_cache, s3"
 
 instance ToText CacheType where
     toText = \case
+        CTLocal -> "LOCAL"
         CTNoCache -> "NO_CACHE"
         CTS3 -> "S3"
 
@@ -226,20 +298,50 @@ instance ToJSON ComputeType where
 instance FromJSON ComputeType where
     parseJSON = parseJSONText "ComputeType"
 
-data EnvironmentType =
-  LinuxContainer
+data CredentialProviderType =
+  SecretsManager
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CredentialProviderType where
+    parser = takeLowerText >>= \case
+        "secrets_manager" -> pure SecretsManager
+        e -> fromTextError $ "Failure parsing CredentialProviderType from value: '" <> e
+           <> "'. Accepted values: secrets_manager"
+
+instance ToText CredentialProviderType where
+    toText = \case
+        SecretsManager -> "SECRETS_MANAGER"
+
+instance Hashable     CredentialProviderType
+instance NFData       CredentialProviderType
+instance ToByteString CredentialProviderType
+instance ToQuery      CredentialProviderType
+instance ToHeader     CredentialProviderType
+
+instance ToJSON CredentialProviderType where
+    toJSON = toJSONText
+
+instance FromJSON CredentialProviderType where
+    parseJSON = parseJSONText "CredentialProviderType"
+
+data EnvironmentType
+  = LinuxContainer
+  | WindowsContainer
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText EnvironmentType where
     parser = takeLowerText >>= \case
         "linux_container" -> pure LinuxContainer
+        "windows_container" -> pure WindowsContainer
         e -> fromTextError $ "Failure parsing EnvironmentType from value: '" <> e
-           <> "'. Accepted values: linux_container"
+           <> "'. Accepted values: linux_container, windows_container"
 
 instance ToText EnvironmentType where
     toText = \case
         LinuxContainer -> "LINUX_CONTAINER"
+        WindowsContainer -> "WINDOWS_CONTAINER"
 
 instance Hashable     EnvironmentType
 instance NFData       EnvironmentType
@@ -283,6 +385,36 @@ instance ToJSON EnvironmentVariableType where
 instance FromJSON EnvironmentVariableType where
     parseJSON = parseJSONText "EnvironmentVariableType"
 
+data ImagePullCredentialsType
+  = Codebuild
+  | ServiceRole
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ImagePullCredentialsType where
+    parser = takeLowerText >>= \case
+        "codebuild" -> pure Codebuild
+        "service_role" -> pure ServiceRole
+        e -> fromTextError $ "Failure parsing ImagePullCredentialsType from value: '" <> e
+           <> "'. Accepted values: codebuild, service_role"
+
+instance ToText ImagePullCredentialsType where
+    toText = \case
+        Codebuild -> "CODEBUILD"
+        ServiceRole -> "SERVICE_ROLE"
+
+instance Hashable     ImagePullCredentialsType
+instance NFData       ImagePullCredentialsType
+instance ToByteString ImagePullCredentialsType
+instance ToQuery      ImagePullCredentialsType
+instance ToHeader     ImagePullCredentialsType
+
+instance ToJSON ImagePullCredentialsType where
+    toJSON = toJSONText
+
+instance FromJSON ImagePullCredentialsType where
+    parseJSON = parseJSONText "ImagePullCredentialsType"
+
 data LanguageType
   = Android
   | Base
@@ -291,6 +423,7 @@ data LanguageType
   | Golang
   | Java
   | NodeJs
+  | PHP
   | Python
   | Ruby
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -305,10 +438,11 @@ instance FromText LanguageType where
         "golang" -> pure Golang
         "java" -> pure Java
         "node_js" -> pure NodeJs
+        "php" -> pure PHP
         "python" -> pure Python
         "ruby" -> pure Ruby
         e -> fromTextError $ "Failure parsing LanguageType from value: '" <> e
-           <> "'. Accepted values: android, base, docker, dotnet, golang, java, node_js, python, ruby"
+           <> "'. Accepted values: android, base, docker, dotnet, golang, java, node_js, php, python, ruby"
 
 instance ToText LanguageType where
     toText = \case
@@ -319,6 +453,7 @@ instance ToText LanguageType where
         Golang -> "GOLANG"
         Java -> "JAVA"
         NodeJs -> "NODE_JS"
+        PHP -> "PHP"
         Python -> "PYTHON"
         Ruby -> "RUBY"
 
@@ -331,10 +466,41 @@ instance ToHeader     LanguageType
 instance FromJSON LanguageType where
     parseJSON = parseJSONText "LanguageType"
 
+data LogsConfigStatusType
+  = Disabled
+  | Enabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText LogsConfigStatusType where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure Disabled
+        "enabled" -> pure Enabled
+        e -> fromTextError $ "Failure parsing LogsConfigStatusType from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText LogsConfigStatusType where
+    toText = \case
+        Disabled -> "DISABLED"
+        Enabled -> "ENABLED"
+
+instance Hashable     LogsConfigStatusType
+instance NFData       LogsConfigStatusType
+instance ToByteString LogsConfigStatusType
+instance ToQuery      LogsConfigStatusType
+instance ToHeader     LogsConfigStatusType
+
+instance ToJSON LogsConfigStatusType where
+    toJSON = toJSONText
+
+instance FromJSON LogsConfigStatusType where
+    parseJSON = parseJSONText "LogsConfigStatusType"
+
 data PlatformType
   = AmazonLinux
   | Debian
   | Ubuntu
+  | WindowsServer
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -343,14 +509,16 @@ instance FromText PlatformType where
         "amazon_linux" -> pure AmazonLinux
         "debian" -> pure Debian
         "ubuntu" -> pure Ubuntu
+        "windows_server" -> pure WindowsServer
         e -> fromTextError $ "Failure parsing PlatformType from value: '" <> e
-           <> "'. Accepted values: amazon_linux, debian, ubuntu"
+           <> "'. Accepted values: amazon_linux, debian, ubuntu, windows_server"
 
 instance ToText PlatformType where
     toText = \case
         AmazonLinux -> "AMAZON_LINUX"
         Debian -> "DEBIAN"
         Ubuntu -> "UBUNTU"
+        WindowsServer -> "WINDOWS_SERVER"
 
 instance Hashable     PlatformType
 instance NFData       PlatformType
@@ -390,6 +558,39 @@ instance ToHeader     ProjectSortByType
 
 instance ToJSON ProjectSortByType where
     toJSON = toJSONText
+
+data ServerType
+  = Bitbucket
+  | Github
+  | GithubEnterprise
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ServerType where
+    parser = takeLowerText >>= \case
+        "bitbucket" -> pure Bitbucket
+        "github" -> pure Github
+        "github_enterprise" -> pure GithubEnterprise
+        e -> fromTextError $ "Failure parsing ServerType from value: '" <> e
+           <> "'. Accepted values: bitbucket, github, github_enterprise"
+
+instance ToText ServerType where
+    toText = \case
+        Bitbucket -> "BITBUCKET"
+        Github -> "GITHUB"
+        GithubEnterprise -> "GITHUB_ENTERPRISE"
+
+instance Hashable     ServerType
+instance NFData       ServerType
+instance ToByteString ServerType
+instance ToQuery      ServerType
+instance ToHeader     ServerType
+
+instance ToJSON ServerType where
+    toJSON = toJSONText
+
+instance FromJSON ServerType where
+    parseJSON = parseJSONText "ServerType"
 
 data SortOrderType
   = Ascending
@@ -451,6 +652,7 @@ data SourceType
   | STCodepipeline
   | STGithub
   | STGithubEnterprise
+  | STNoSource
   | STS3
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -462,9 +664,10 @@ instance FromText SourceType where
         "codepipeline" -> pure STCodepipeline
         "github" -> pure STGithub
         "github_enterprise" -> pure STGithubEnterprise
+        "no_source" -> pure STNoSource
         "s3" -> pure STS3
         e -> fromTextError $ "Failure parsing SourceType from value: '" <> e
-           <> "'. Accepted values: bitbucket, codecommit, codepipeline, github, github_enterprise, s3"
+           <> "'. Accepted values: bitbucket, codecommit, codepipeline, github, github_enterprise, no_source, s3"
 
 instance ToText SourceType where
     toText = \case
@@ -473,6 +676,7 @@ instance ToText SourceType where
         STCodepipeline -> "CODEPIPELINE"
         STGithub -> "GITHUB"
         STGithubEnterprise -> "GITHUB_ENTERPRISE"
+        STNoSource -> "NO_SOURCE"
         STS3 -> "S3"
 
 instance Hashable     SourceType
@@ -525,3 +729,42 @@ instance ToHeader     StatusType
 
 instance FromJSON StatusType where
     parseJSON = parseJSONText "StatusType"
+
+data WebhookFilterType
+  = ActorAccountId
+  | BaseRef
+  | Event
+  | FilePath
+  | HeadRef
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText WebhookFilterType where
+    parser = takeLowerText >>= \case
+        "actor_account_id" -> pure ActorAccountId
+        "base_ref" -> pure BaseRef
+        "event" -> pure Event
+        "file_path" -> pure FilePath
+        "head_ref" -> pure HeadRef
+        e -> fromTextError $ "Failure parsing WebhookFilterType from value: '" <> e
+           <> "'. Accepted values: actor_account_id, base_ref, event, file_path, head_ref"
+
+instance ToText WebhookFilterType where
+    toText = \case
+        ActorAccountId -> "ACTOR_ACCOUNT_ID"
+        BaseRef -> "BASE_REF"
+        Event -> "EVENT"
+        FilePath -> "FILE_PATH"
+        HeadRef -> "HEAD_REF"
+
+instance Hashable     WebhookFilterType
+instance NFData       WebhookFilterType
+instance ToByteString WebhookFilterType
+instance ToQuery      WebhookFilterType
+instance ToHeader     WebhookFilterType
+
+instance ToJSON WebhookFilterType where
+    toJSON = toJSONText
+
+instance FromJSON WebhookFilterType where
+    parseJSON = parseJSONText "WebhookFilterType"

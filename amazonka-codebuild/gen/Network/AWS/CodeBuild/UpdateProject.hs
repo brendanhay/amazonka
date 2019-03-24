@@ -27,12 +27,16 @@ module Network.AWS.CodeBuild.UpdateProject
       updateProject
     , UpdateProject
     -- * Request Lenses
+    , upSecondaryArtifacts
     , upArtifacts
     , upEnvironment
     , upBadgeEnabled
+    , upQueuedTimeoutInMinutes
     , upCache
+    , upSecondarySources
     , upVpcConfig
     , upSource
+    , upLogsConfig
     , upEncryptionKey
     , upDescription
     , upServiceRole
@@ -57,18 +61,22 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateProject' smart constructor.
 data UpdateProject = UpdateProject'
-  { _upArtifacts        :: !(Maybe ProjectArtifacts)
-  , _upEnvironment      :: !(Maybe ProjectEnvironment)
-  , _upBadgeEnabled     :: !(Maybe Bool)
-  , _upCache            :: !(Maybe ProjectCache)
-  , _upVpcConfig        :: !(Maybe VPCConfig)
-  , _upSource           :: !(Maybe ProjectSource)
-  , _upEncryptionKey    :: !(Maybe Text)
-  , _upDescription      :: !(Maybe Text)
-  , _upServiceRole      :: !(Maybe Text)
-  , _upTags             :: !(Maybe [Tag])
-  , _upTimeoutInMinutes :: !(Maybe Nat)
-  , _upName             :: !Text
+  { _upSecondaryArtifacts     :: !(Maybe [ProjectArtifacts])
+  , _upArtifacts              :: !(Maybe ProjectArtifacts)
+  , _upEnvironment            :: !(Maybe ProjectEnvironment)
+  , _upBadgeEnabled           :: !(Maybe Bool)
+  , _upQueuedTimeoutInMinutes :: !(Maybe Nat)
+  , _upCache                  :: !(Maybe ProjectCache)
+  , _upSecondarySources       :: !(Maybe [ProjectSource])
+  , _upVpcConfig              :: !(Maybe VPCConfig)
+  , _upSource                 :: !(Maybe ProjectSource)
+  , _upLogsConfig             :: !(Maybe LogsConfig)
+  , _upEncryptionKey          :: !(Maybe Text)
+  , _upDescription            :: !(Maybe Text)
+  , _upServiceRole            :: !(Maybe Text)
+  , _upTags                   :: !(Maybe [Tag])
+  , _upTimeoutInMinutes       :: !(Maybe Nat)
+  , _upName                   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -76,19 +84,27 @@ data UpdateProject = UpdateProject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'upSecondaryArtifacts' - An array of @ProjectSource@ objects.
+--
 -- * 'upArtifacts' - Information to be changed about the build output artifacts for the build project.
 --
 -- * 'upEnvironment' - Information to be changed about the build environment for the build project.
 --
--- * 'upBadgeEnabled' - Set this to true to generate a publicly-accessible URL for your project's build badge.
+-- * 'upBadgeEnabled' - Set this to true to generate a publicly accessible URL for your project's build badge.
+--
+-- * 'upQueuedTimeoutInMinutes' - The number of minutes a build is allowed to be queued before it times out.
 --
 -- * 'upCache' - Stores recently used information so that it can be quickly accessed at a later time.
+--
+-- * 'upSecondarySources' - An array of @ProjectSource@ objects.
 --
 -- * 'upVpcConfig' - VpcConfig enables AWS CodeBuild to access resources in an Amazon VPC.
 --
 -- * 'upSource' - Information to be changed about the build input source code for the build project.
 --
--- * 'upEncryptionKey' - The replacement AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
+-- * 'upLogsConfig' - Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, logs in an S3 bucket, or both.
+--
+-- * 'upEncryptionKey' - The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
 --
 -- * 'upDescription' - A new or replacement description of the build project.
 --
@@ -104,12 +120,16 @@ updateProject
     -> UpdateProject
 updateProject pName_ =
   UpdateProject'
-    { _upArtifacts = Nothing
+    { _upSecondaryArtifacts = Nothing
+    , _upArtifacts = Nothing
     , _upEnvironment = Nothing
     , _upBadgeEnabled = Nothing
+    , _upQueuedTimeoutInMinutes = Nothing
     , _upCache = Nothing
+    , _upSecondarySources = Nothing
     , _upVpcConfig = Nothing
     , _upSource = Nothing
+    , _upLogsConfig = Nothing
     , _upEncryptionKey = Nothing
     , _upDescription = Nothing
     , _upServiceRole = Nothing
@@ -119,6 +139,10 @@ updateProject pName_ =
     }
 
 
+-- | An array of @ProjectSource@ objects.
+upSecondaryArtifacts :: Lens' UpdateProject [ProjectArtifacts]
+upSecondaryArtifacts = lens _upSecondaryArtifacts (\ s a -> s{_upSecondaryArtifacts = a}) . _Default . _Coerce
+
 -- | Information to be changed about the build output artifacts for the build project.
 upArtifacts :: Lens' UpdateProject (Maybe ProjectArtifacts)
 upArtifacts = lens _upArtifacts (\ s a -> s{_upArtifacts = a})
@@ -127,13 +151,21 @@ upArtifacts = lens _upArtifacts (\ s a -> s{_upArtifacts = a})
 upEnvironment :: Lens' UpdateProject (Maybe ProjectEnvironment)
 upEnvironment = lens _upEnvironment (\ s a -> s{_upEnvironment = a})
 
--- | Set this to true to generate a publicly-accessible URL for your project's build badge.
+-- | Set this to true to generate a publicly accessible URL for your project's build badge.
 upBadgeEnabled :: Lens' UpdateProject (Maybe Bool)
 upBadgeEnabled = lens _upBadgeEnabled (\ s a -> s{_upBadgeEnabled = a})
+
+-- | The number of minutes a build is allowed to be queued before it times out.
+upQueuedTimeoutInMinutes :: Lens' UpdateProject (Maybe Natural)
+upQueuedTimeoutInMinutes = lens _upQueuedTimeoutInMinutes (\ s a -> s{_upQueuedTimeoutInMinutes = a}) . mapping _Nat
 
 -- | Stores recently used information so that it can be quickly accessed at a later time.
 upCache :: Lens' UpdateProject (Maybe ProjectCache)
 upCache = lens _upCache (\ s a -> s{_upCache = a})
+
+-- | An array of @ProjectSource@ objects.
+upSecondarySources :: Lens' UpdateProject [ProjectSource]
+upSecondarySources = lens _upSecondarySources (\ s a -> s{_upSecondarySources = a}) . _Default . _Coerce
 
 -- | VpcConfig enables AWS CodeBuild to access resources in an Amazon VPC.
 upVpcConfig :: Lens' UpdateProject (Maybe VPCConfig)
@@ -143,7 +175,11 @@ upVpcConfig = lens _upVpcConfig (\ s a -> s{_upVpcConfig = a})
 upSource :: Lens' UpdateProject (Maybe ProjectSource)
 upSource = lens _upSource (\ s a -> s{_upSource = a})
 
--- | The replacement AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
+-- | Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, logs in an S3 bucket, or both.
+upLogsConfig :: Lens' UpdateProject (Maybe LogsConfig)
+upLogsConfig = lens _upLogsConfig (\ s a -> s{_upLogsConfig = a})
+
+-- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
 upEncryptionKey :: Lens' UpdateProject (Maybe Text)
 upEncryptionKey = lens _upEncryptionKey (\ s a -> s{_upEncryptionKey = a})
 
@@ -193,12 +229,17 @@ instance ToJSON UpdateProject where
         toJSON UpdateProject'{..}
           = object
               (catMaybes
-                 [("artifacts" .=) <$> _upArtifacts,
+                 [("secondaryArtifacts" .=) <$> _upSecondaryArtifacts,
+                  ("artifacts" .=) <$> _upArtifacts,
                   ("environment" .=) <$> _upEnvironment,
                   ("badgeEnabled" .=) <$> _upBadgeEnabled,
+                  ("queuedTimeoutInMinutes" .=) <$>
+                    _upQueuedTimeoutInMinutes,
                   ("cache" .=) <$> _upCache,
+                  ("secondarySources" .=) <$> _upSecondarySources,
                   ("vpcConfig" .=) <$> _upVpcConfig,
                   ("source" .=) <$> _upSource,
+                  ("logsConfig" .=) <$> _upLogsConfig,
                   ("encryptionKey" .=) <$> _upEncryptionKey,
                   ("description" .=) <$> _upDescription,
                   ("serviceRole" .=) <$> _upServiceRole,

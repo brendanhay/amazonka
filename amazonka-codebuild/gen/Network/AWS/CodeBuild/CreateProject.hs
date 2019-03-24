@@ -27,18 +27,22 @@ module Network.AWS.CodeBuild.CreateProject
       createProject
     , CreateProject
     -- * Request Lenses
+    , cpSecondaryArtifacts
     , cpBadgeEnabled
+    , cpQueuedTimeoutInMinutes
     , cpCache
+    , cpSecondarySources
     , cpVpcConfig
+    , cpLogsConfig
     , cpEncryptionKey
     , cpDescription
-    , cpServiceRole
     , cpTags
     , cpTimeoutInMinutes
     , cpName
     , cpSource
     , cpArtifacts
     , cpEnvironment
+    , cpServiceRole
 
     -- * Destructuring the Response
     , createProjectResponse
@@ -57,18 +61,22 @@ import Network.AWS.Response
 
 -- | /See:/ 'createProject' smart constructor.
 data CreateProject = CreateProject'
-  { _cpBadgeEnabled     :: !(Maybe Bool)
-  , _cpCache            :: !(Maybe ProjectCache)
-  , _cpVpcConfig        :: !(Maybe VPCConfig)
-  , _cpEncryptionKey    :: !(Maybe Text)
-  , _cpDescription      :: !(Maybe Text)
-  , _cpServiceRole      :: !(Maybe Text)
-  , _cpTags             :: !(Maybe [Tag])
-  , _cpTimeoutInMinutes :: !(Maybe Nat)
-  , _cpName             :: !Text
-  , _cpSource           :: !ProjectSource
-  , _cpArtifacts        :: !ProjectArtifacts
-  , _cpEnvironment      :: !ProjectEnvironment
+  { _cpSecondaryArtifacts     :: !(Maybe [ProjectArtifacts])
+  , _cpBadgeEnabled           :: !(Maybe Bool)
+  , _cpQueuedTimeoutInMinutes :: !(Maybe Nat)
+  , _cpCache                  :: !(Maybe ProjectCache)
+  , _cpSecondarySources       :: !(Maybe [ProjectSource])
+  , _cpVpcConfig              :: !(Maybe VPCConfig)
+  , _cpLogsConfig             :: !(Maybe LogsConfig)
+  , _cpEncryptionKey          :: !(Maybe Text)
+  , _cpDescription            :: !(Maybe Text)
+  , _cpTags                   :: !(Maybe [Tag])
+  , _cpTimeoutInMinutes       :: !(Maybe Nat)
+  , _cpName                   :: !Text
+  , _cpSource                 :: !ProjectSource
+  , _cpArtifacts              :: !ProjectArtifacts
+  , _cpEnvironment            :: !ProjectEnvironment
+  , _cpServiceRole            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -76,21 +84,27 @@ data CreateProject = CreateProject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpBadgeEnabled' - Set this to true to generate a publicly-accessible URL for your project's build badge.
+-- * 'cpSecondaryArtifacts' - An array of @ProjectArtifacts@ objects.
+--
+-- * 'cpBadgeEnabled' - Set this to true to generate a publicly accessible URL for your project's build badge.
+--
+-- * 'cpQueuedTimeoutInMinutes' - The number of minutes a build is allowed to be queued before it times out.
 --
 -- * 'cpCache' - Stores recently used information so that it can be quickly accessed at a later time.
 --
+-- * 'cpSecondarySources' - An array of @ProjectSource@ objects.
+--
 -- * 'cpVpcConfig' - VpcConfig enables AWS CodeBuild to access resources in an Amazon VPC.
 --
--- * 'cpEncryptionKey' - The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
+-- * 'cpLogsConfig' - Information about logs for the build project. These can be logs in Amazon CloudWatch Logs, logs uploaded to a specified S3 bucket, or both.
+--
+-- * 'cpEncryptionKey' - The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
 --
 -- * 'cpDescription' - A description that makes the build project easy to identify.
 --
--- * 'cpServiceRole' - The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
---
 -- * 'cpTags' - A set of tags for this build project. These tags are available for use by AWS services that support AWS CodeBuild build project tags.
 --
--- * 'cpTimeoutInMinutes' - How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any build that has not been marked as completed. The default is 60 minutes.
+-- * 'cpTimeoutInMinutes' - How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before it times out any build that has not been marked as completed. The default is 60 minutes.
 --
 -- * 'cpName' - The name of the build project.
 --
@@ -99,42 +113,65 @@ data CreateProject = CreateProject'
 -- * 'cpArtifacts' - Information about the build output artifacts for the build project.
 --
 -- * 'cpEnvironment' - Information about the build environment for the build project.
+--
+-- * 'cpServiceRole' - The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 createProject
     :: Text -- ^ 'cpName'
     -> ProjectSource -- ^ 'cpSource'
     -> ProjectArtifacts -- ^ 'cpArtifacts'
     -> ProjectEnvironment -- ^ 'cpEnvironment'
+    -> Text -- ^ 'cpServiceRole'
     -> CreateProject
-createProject pName_ pSource_ pArtifacts_ pEnvironment_ =
+createProject pName_ pSource_ pArtifacts_ pEnvironment_ pServiceRole_ =
   CreateProject'
-    { _cpBadgeEnabled = Nothing
+    { _cpSecondaryArtifacts = Nothing
+    , _cpBadgeEnabled = Nothing
+    , _cpQueuedTimeoutInMinutes = Nothing
     , _cpCache = Nothing
+    , _cpSecondarySources = Nothing
     , _cpVpcConfig = Nothing
+    , _cpLogsConfig = Nothing
     , _cpEncryptionKey = Nothing
     , _cpDescription = Nothing
-    , _cpServiceRole = Nothing
     , _cpTags = Nothing
     , _cpTimeoutInMinutes = Nothing
     , _cpName = pName_
     , _cpSource = pSource_
     , _cpArtifacts = pArtifacts_
     , _cpEnvironment = pEnvironment_
+    , _cpServiceRole = pServiceRole_
     }
 
 
--- | Set this to true to generate a publicly-accessible URL for your project's build badge.
+-- | An array of @ProjectArtifacts@ objects.
+cpSecondaryArtifacts :: Lens' CreateProject [ProjectArtifacts]
+cpSecondaryArtifacts = lens _cpSecondaryArtifacts (\ s a -> s{_cpSecondaryArtifacts = a}) . _Default . _Coerce
+
+-- | Set this to true to generate a publicly accessible URL for your project's build badge.
 cpBadgeEnabled :: Lens' CreateProject (Maybe Bool)
 cpBadgeEnabled = lens _cpBadgeEnabled (\ s a -> s{_cpBadgeEnabled = a})
+
+-- | The number of minutes a build is allowed to be queued before it times out.
+cpQueuedTimeoutInMinutes :: Lens' CreateProject (Maybe Natural)
+cpQueuedTimeoutInMinutes = lens _cpQueuedTimeoutInMinutes (\ s a -> s{_cpQueuedTimeoutInMinutes = a}) . mapping _Nat
 
 -- | Stores recently used information so that it can be quickly accessed at a later time.
 cpCache :: Lens' CreateProject (Maybe ProjectCache)
 cpCache = lens _cpCache (\ s a -> s{_cpCache = a})
 
+-- | An array of @ProjectSource@ objects.
+cpSecondarySources :: Lens' CreateProject [ProjectSource]
+cpSecondarySources = lens _cpSecondarySources (\ s a -> s{_cpSecondarySources = a}) . _Default . _Coerce
+
 -- | VpcConfig enables AWS CodeBuild to access resources in an Amazon VPC.
 cpVpcConfig :: Lens' CreateProject (Maybe VPCConfig)
 cpVpcConfig = lens _cpVpcConfig (\ s a -> s{_cpVpcConfig = a})
 
--- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
+-- | Information about logs for the build project. These can be logs in Amazon CloudWatch Logs, logs uploaded to a specified S3 bucket, or both.
+cpLogsConfig :: Lens' CreateProject (Maybe LogsConfig)
+cpLogsConfig = lens _cpLogsConfig (\ s a -> s{_cpLogsConfig = a})
+
+-- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
 cpEncryptionKey :: Lens' CreateProject (Maybe Text)
 cpEncryptionKey = lens _cpEncryptionKey (\ s a -> s{_cpEncryptionKey = a})
 
@@ -142,15 +179,11 @@ cpEncryptionKey = lens _cpEncryptionKey (\ s a -> s{_cpEncryptionKey = a})
 cpDescription :: Lens' CreateProject (Maybe Text)
 cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a})
 
--- | The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
-cpServiceRole :: Lens' CreateProject (Maybe Text)
-cpServiceRole = lens _cpServiceRole (\ s a -> s{_cpServiceRole = a})
-
 -- | A set of tags for this build project. These tags are available for use by AWS services that support AWS CodeBuild build project tags.
 cpTags :: Lens' CreateProject [Tag]
 cpTags = lens _cpTags (\ s a -> s{_cpTags = a}) . _Default . _Coerce
 
--- | How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any build that has not been marked as completed. The default is 60 minutes.
+-- | How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before it times out any build that has not been marked as completed. The default is 60 minutes.
 cpTimeoutInMinutes :: Lens' CreateProject (Maybe Natural)
 cpTimeoutInMinutes = lens _cpTimeoutInMinutes (\ s a -> s{_cpTimeoutInMinutes = a}) . mapping _Nat
 
@@ -169,6 +202,10 @@ cpArtifacts = lens _cpArtifacts (\ s a -> s{_cpArtifacts = a})
 -- | Information about the build environment for the build project.
 cpEnvironment :: Lens' CreateProject ProjectEnvironment
 cpEnvironment = lens _cpEnvironment (\ s a -> s{_cpEnvironment = a})
+
+-- | The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+cpServiceRole :: Lens' CreateProject Text
+cpServiceRole = lens _cpServiceRole (\ s a -> s{_cpServiceRole = a})
 
 instance AWSRequest CreateProject where
         type Rs CreateProject = CreateProjectResponse
@@ -196,18 +233,23 @@ instance ToJSON CreateProject where
         toJSON CreateProject'{..}
           = object
               (catMaybes
-                 [("badgeEnabled" .=) <$> _cpBadgeEnabled,
+                 [("secondaryArtifacts" .=) <$> _cpSecondaryArtifacts,
+                  ("badgeEnabled" .=) <$> _cpBadgeEnabled,
+                  ("queuedTimeoutInMinutes" .=) <$>
+                    _cpQueuedTimeoutInMinutes,
                   ("cache" .=) <$> _cpCache,
+                  ("secondarySources" .=) <$> _cpSecondarySources,
                   ("vpcConfig" .=) <$> _cpVpcConfig,
+                  ("logsConfig" .=) <$> _cpLogsConfig,
                   ("encryptionKey" .=) <$> _cpEncryptionKey,
                   ("description" .=) <$> _cpDescription,
-                  ("serviceRole" .=) <$> _cpServiceRole,
                   ("tags" .=) <$> _cpTags,
                   ("timeoutInMinutes" .=) <$> _cpTimeoutInMinutes,
                   Just ("name" .= _cpName),
                   Just ("source" .= _cpSource),
                   Just ("artifacts" .= _cpArtifacts),
-                  Just ("environment" .= _cpEnvironment)])
+                  Just ("environment" .= _cpEnvironment),
+                  Just ("serviceRole" .= _cpServiceRole)])
 
 instance ToPath CreateProject where
         toPath = const "/"

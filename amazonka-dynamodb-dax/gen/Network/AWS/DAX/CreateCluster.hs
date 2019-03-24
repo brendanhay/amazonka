@@ -28,6 +28,7 @@ module Network.AWS.DAX.CreateCluster
     , CreateCluster
     -- * Request Lenses
     , ccSecurityGroupIds
+    , ccSSESpecification
     , ccSubnetGroupName
     , ccPreferredMaintenanceWindow
     , ccAvailabilityZones
@@ -58,6 +59,7 @@ import Network.AWS.Response
 -- | /See:/ 'createCluster' smart constructor.
 data CreateCluster = CreateCluster'
   { _ccSecurityGroupIds           :: !(Maybe [Text])
+  , _ccSSESpecification           :: !(Maybe SSESpecification)
   , _ccSubnetGroupName            :: !(Maybe Text)
   , _ccPreferredMaintenanceWindow :: !(Maybe Text)
   , _ccAvailabilityZones          :: !(Maybe [Text])
@@ -77,6 +79,8 @@ data CreateCluster = CreateCluster'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ccSecurityGroupIds' - A list of security group IDs to be assigned to each node in the DAX cluster. (Each of the security group ID is system-generated.) If this parameter is not specified, DAX assigns the default VPC security group to each node.
+--
+-- * 'ccSSESpecification' - Represents the settings used to enable server-side encryption on the cluster.
 --
 -- * 'ccSubnetGroupName' - The name of the subnet group to be used for the replication group. /Important:/ DAX clusters can only run in an Amazon VPC environment. All of the subnets that you specify in a subnet group must exist in the same VPC.
 --
@@ -108,6 +112,7 @@ createCluster
 createCluster pClusterName_ pNodeType_ pReplicationFactor_ pIAMRoleARN_ =
   CreateCluster'
     { _ccSecurityGroupIds = Nothing
+    , _ccSSESpecification = Nothing
     , _ccSubnetGroupName = Nothing
     , _ccPreferredMaintenanceWindow = Nothing
     , _ccAvailabilityZones = Nothing
@@ -125,6 +130,10 @@ createCluster pClusterName_ pNodeType_ pReplicationFactor_ pIAMRoleARN_ =
 -- | A list of security group IDs to be assigned to each node in the DAX cluster. (Each of the security group ID is system-generated.) If this parameter is not specified, DAX assigns the default VPC security group to each node.
 ccSecurityGroupIds :: Lens' CreateCluster [Text]
 ccSecurityGroupIds = lens _ccSecurityGroupIds (\ s a -> s{_ccSecurityGroupIds = a}) . _Default . _Coerce
+
+-- | Represents the settings used to enable server-side encryption on the cluster.
+ccSSESpecification :: Lens' CreateCluster (Maybe SSESpecification)
+ccSSESpecification = lens _ccSSESpecification (\ s a -> s{_ccSSESpecification = a})
 
 -- | The name of the subnet group to be used for the replication group. /Important:/ DAX clusters can only run in an Amazon VPC environment. All of the subnets that you specify in a subnet group must exist in the same VPC.
 ccSubnetGroupName :: Lens' CreateCluster (Maybe Text)
@@ -197,6 +206,7 @@ instance ToJSON CreateCluster where
           = object
               (catMaybes
                  [("SecurityGroupIds" .=) <$> _ccSecurityGroupIds,
+                  ("SSESpecification" .=) <$> _ccSSESpecification,
                   ("SubnetGroupName" .=) <$> _ccSubnetGroupName,
                   ("PreferredMaintenanceWindow" .=) <$>
                     _ccPreferredMaintenanceWindow,

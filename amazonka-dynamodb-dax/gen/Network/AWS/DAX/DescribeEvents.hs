@@ -23,6 +23,8 @@
 --
 -- By default, only the events occurring within the last hour are returned; however, you can retrieve up to 14 days' worth of events if necessary.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DAX.DescribeEvents
     (
     -- * Creating a Request
@@ -49,6 +51,7 @@ module Network.AWS.DAX.DescribeEvents
 import Network.AWS.DAX.Types
 import Network.AWS.DAX.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -123,6 +126,13 @@ deDuration = lens _deDuration (\ s a -> s{_deDuration = a})
 -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. The value for @MaxResults@ must be between 20 and 100.
 deMaxResults :: Lens' DescribeEvents (Maybe Int)
 deMaxResults = lens _deMaxResults (\ s a -> s{_deMaxResults = a})
+
+instance AWSPager DescribeEvents where
+        page rq rs
+          | stop (rs ^. dersNextToken) = Nothing
+          | stop (rs ^. dersEvents) = Nothing
+          | otherwise =
+            Just $ rq & deNextToken .~ rs ^. dersNextToken
 
 instance AWSRequest DescribeEvents where
         type Rs DescribeEvents = DescribeEventsResponse

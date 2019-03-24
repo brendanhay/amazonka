@@ -29,6 +29,8 @@
 --
 -- If nodes are currently being removed from the DAX cluster, no endpoint information for the removed nodes is displayed.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DAX.DescribeClusters
     (
     -- * Creating a Request
@@ -51,6 +53,7 @@ module Network.AWS.DAX.DescribeClusters
 import Network.AWS.DAX.Types
 import Network.AWS.DAX.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -90,6 +93,13 @@ dcNextToken = lens _dcNextToken (\ s a -> s{_dcNextToken = a})
 -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. The value for @MaxResults@ must be between 20 and 100.
 dcMaxResults :: Lens' DescribeClusters (Maybe Int)
 dcMaxResults = lens _dcMaxResults (\ s a -> s{_dcMaxResults = a})
+
+instance AWSPager DescribeClusters where
+        page rq rs
+          | stop (rs ^. dcrsNextToken) = Nothing
+          | stop (rs ^. dcrsClusters) = Nothing
+          | otherwise =
+            Just $ rq & dcNextToken .~ rs ^. dcrsNextToken
 
 instance AWSRequest DescribeClusters where
         type Rs DescribeClusters = DescribeClustersResponse

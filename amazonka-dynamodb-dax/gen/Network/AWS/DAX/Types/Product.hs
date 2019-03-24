@@ -41,6 +41,7 @@ data Cluster = Cluster'
   , _cNodeType                   :: !(Maybe Text)
   , _cNodes                      :: !(Maybe [Node])
   , _cClusterDiscoveryEndpoint   :: !(Maybe Endpoint)
+  , _cSSEDescription             :: !(Maybe SSEDescription)
   , _cDescription                :: !(Maybe Text)
   , _cParameterGroup             :: !(Maybe ParameterGroupStatus)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -78,6 +79,8 @@ data Cluster = Cluster'
 --
 -- * 'cClusterDiscoveryEndpoint' - The configuration endpoint for this DAX cluster, consisting of a DNS name and a port number. Client applications can specify this endpoint, rather than an individual node endpoint, and allow the DAX client software to intelligently route requests and responses to nodes in the DAX cluster.
 --
+-- * 'cSSEDescription' - The description of the server-side encryption status on the specified DAX cluster.
+--
 -- * 'cDescription' - The description of the cluster.
 --
 -- * 'cParameterGroup' - The parameter group being used by nodes in the cluster.
@@ -99,6 +102,7 @@ cluster =
     , _cNodeType = Nothing
     , _cNodes = Nothing
     , _cClusterDiscoveryEndpoint = Nothing
+    , _cSSEDescription = Nothing
     , _cDescription = Nothing
     , _cParameterGroup = Nothing
     }
@@ -160,6 +164,10 @@ cNodes = lens _cNodes (\ s a -> s{_cNodes = a}) . _Default . _Coerce
 cClusterDiscoveryEndpoint :: Lens' Cluster (Maybe Endpoint)
 cClusterDiscoveryEndpoint = lens _cClusterDiscoveryEndpoint (\ s a -> s{_cClusterDiscoveryEndpoint = a})
 
+-- | The description of the server-side encryption status on the specified DAX cluster.
+cSSEDescription :: Lens' Cluster (Maybe SSEDescription)
+cSSEDescription = lens _cSSEDescription (\ s a -> s{_cSSEDescription = a})
+
 -- | The description of the cluster.
 cDescription :: Lens' Cluster (Maybe Text)
 cDescription = lens _cDescription (\ s a -> s{_cDescription = a})
@@ -186,6 +194,7 @@ instance FromJSON Cluster where
                      <*> (x .:? "NodeType")
                      <*> (x .:? "Nodes" .!= mempty)
                      <*> (x .:? "ClusterDiscoveryEndpoint")
+                     <*> (x .:? "SSEDescription")
                      <*> (x .:? "Description")
                      <*> (x .:? "ParameterGroup"))
 
@@ -728,6 +737,73 @@ instance ToJSON ParameterNameValue where
               (catMaybes
                  [("ParameterValue" .=) <$> _pnvParameterValue,
                   ("ParameterName" .=) <$> _pnvParameterName])
+
+-- | The description of the server-side encryption status on the specified DAX cluster.
+--
+--
+--
+-- /See:/ 'sSEDescription' smart constructor.
+newtype SSEDescription = SSEDescription'
+  { _ssedStatus :: Maybe SSEStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SSEDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssedStatus' - The current state of server-side encryption:     * @ENABLING@ - Server-side encryption is being enabled.     * @ENABLED@ - Server-side encryption is enabled.     * @DISABLING@ - Server-side encryption is being disabled.     * @DISABLED@ - Server-side encryption is disabled.
+sSEDescription
+    :: SSEDescription
+sSEDescription = SSEDescription' {_ssedStatus = Nothing}
+
+
+-- | The current state of server-side encryption:     * @ENABLING@ - Server-side encryption is being enabled.     * @ENABLED@ - Server-side encryption is enabled.     * @DISABLING@ - Server-side encryption is being disabled.     * @DISABLED@ - Server-side encryption is disabled.
+ssedStatus :: Lens' SSEDescription (Maybe SSEStatus)
+ssedStatus = lens _ssedStatus (\ s a -> s{_ssedStatus = a})
+
+instance FromJSON SSEDescription where
+        parseJSON
+          = withObject "SSEDescription"
+              (\ x -> SSEDescription' <$> (x .:? "Status"))
+
+instance Hashable SSEDescription where
+
+instance NFData SSEDescription where
+
+-- | Represents the settings used to enable server-side encryption.
+--
+--
+--
+-- /See:/ 'sSESpecification' smart constructor.
+newtype SSESpecification = SSESpecification'
+  { _ssesEnabled :: Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SSESpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssesEnabled' - Indicates whether server-side encryption is enabled (true) or disabled (false) on the cluster.
+sSESpecification
+    :: Bool -- ^ 'ssesEnabled'
+    -> SSESpecification
+sSESpecification pEnabled_ = SSESpecification' {_ssesEnabled = pEnabled_}
+
+
+-- | Indicates whether server-side encryption is enabled (true) or disabled (false) on the cluster.
+ssesEnabled :: Lens' SSESpecification Bool
+ssesEnabled = lens _ssesEnabled (\ s a -> s{_ssesEnabled = a})
+
+instance Hashable SSESpecification where
+
+instance NFData SSESpecification where
+
+instance ToJSON SSESpecification where
+        toJSON SSESpecification'{..}
+          = object
+              (catMaybes [Just ("Enabled" .= _ssesEnabled)])
 
 -- | An individual VPC security group and its status.
 --

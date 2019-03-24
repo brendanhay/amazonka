@@ -103,6 +103,39 @@ instance ToHeader     ParameterType
 instance FromJSON ParameterType where
     parseJSON = parseJSONText "ParameterType"
 
+data SSEStatus
+  = Disabled
+  | Disabling
+  | Enabled
+  | Enabling
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText SSEStatus where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure Disabled
+        "disabling" -> pure Disabling
+        "enabled" -> pure Enabled
+        "enabling" -> pure Enabling
+        e -> fromTextError $ "Failure parsing SSEStatus from value: '" <> e
+           <> "'. Accepted values: disabled, disabling, enabled, enabling"
+
+instance ToText SSEStatus where
+    toText = \case
+        Disabled -> "DISABLED"
+        Disabling -> "DISABLING"
+        Enabled -> "ENABLED"
+        Enabling -> "ENABLING"
+
+instance Hashable     SSEStatus
+instance NFData       SSEStatus
+instance ToByteString SSEStatus
+instance ToQuery      SSEStatus
+instance ToHeader     SSEStatus
+
+instance FromJSON SSEStatus where
+    parseJSON = parseJSONText "SSEStatus"
+
 data SourceType
   = Cluster
   | ParameterGroup

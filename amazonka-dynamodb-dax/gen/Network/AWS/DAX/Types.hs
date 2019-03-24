@@ -27,6 +27,7 @@ module Network.AWS.DAX.Types
     , _TagNotFoundFault
     , _NodeQuotaForClusterExceededFault
     , _InvalidClusterStateFault
+    , _ServiceLinkedRoleNotFoundFault
     , _InsufficientClusterCapacityFault
     , _NodeNotFoundFault
     , _ParameterGroupQuotaExceededFault
@@ -51,6 +52,9 @@ module Network.AWS.DAX.Types
     -- * ParameterType
     , ParameterType (..)
 
+    -- * SSEStatus
+    , SSEStatus (..)
+
     -- * SourceType
     , SourceType (..)
 
@@ -71,6 +75,7 @@ module Network.AWS.DAX.Types
     , cNodeType
     , cNodes
     , cClusterDiscoveryEndpoint
+    , cSSEDescription
     , cDescription
     , cParameterGroup
 
@@ -142,6 +147,16 @@ module Network.AWS.DAX.Types
     , parameterNameValue
     , pnvParameterValue
     , pnvParameterName
+
+    -- * SSEDescription
+    , SSEDescription
+    , sSEDescription
+    , ssedStatus
+
+    -- * SSESpecification
+    , SSESpecification
+    , sSESpecification
+    , ssesEnabled
 
     -- * SecurityGroupMembership
     , SecurityGroupMembership
@@ -295,6 +310,12 @@ _NodeQuotaForClusterExceededFault =
 --
 _InvalidClusterStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidClusterStateFault = _MatchServiceError dax "InvalidClusterStateFault"
+
+
+-- | Prism for ServiceLinkedRoleNotFoundFault' errors.
+_ServiceLinkedRoleNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
+_ServiceLinkedRoleNotFoundFault =
+  _MatchServiceError dax "ServiceLinkedRoleNotFoundFault"
 
 
 -- | There are not enough system resources to create the cluster you requested (or to resize an already-existing cluster).

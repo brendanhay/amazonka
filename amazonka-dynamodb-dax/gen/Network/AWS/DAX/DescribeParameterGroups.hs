@@ -21,6 +21,8 @@
 -- Returns a list of parameter group descriptions. If a parameter group name is specified, the list will contain only the descriptions for that group.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DAX.DescribeParameterGroups
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.DAX.DescribeParameterGroups
 import Network.AWS.DAX.Types
 import Network.AWS.DAX.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -85,6 +88,13 @@ dpgParameterGroupNames = lens _dpgParameterGroupNames (\ s a -> s{_dpgParameterG
 -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. The value for @MaxResults@ must be between 20 and 100.
 dpgMaxResults :: Lens' DescribeParameterGroups (Maybe Int)
 dpgMaxResults = lens _dpgMaxResults (\ s a -> s{_dpgMaxResults = a})
+
+instance AWSPager DescribeParameterGroups where
+        page rq rs
+          | stop (rs ^. dpgsrsNextToken) = Nothing
+          | stop (rs ^. dpgsrsParameterGroups) = Nothing
+          | otherwise =
+            Just $ rq & dpgNextToken .~ rs ^. dpgsrsNextToken
 
 instance AWSRequest DescribeParameterGroups where
         type Rs DescribeParameterGroups =

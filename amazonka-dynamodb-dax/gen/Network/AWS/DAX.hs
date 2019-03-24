@@ -55,6 +55,9 @@ module Network.AWS.DAX
     -- ** InvalidClusterStateFault
     , _InvalidClusterStateFault
 
+    -- ** ServiceLinkedRoleNotFoundFault
+    , _ServiceLinkedRoleNotFoundFault
+
     -- ** InsufficientClusterCapacityFault
     , _InsufficientClusterCapacityFault
 
@@ -103,13 +106,13 @@ module Network.AWS.DAX
     -- * Operations
     -- $operations
 
-    -- ** DescribeClusters
+    -- ** DescribeClusters (Paginated)
     , module Network.AWS.DAX.DescribeClusters
 
-    -- ** DescribeParameters
+    -- ** DescribeParameters (Paginated)
     , module Network.AWS.DAX.DescribeParameters
 
-    -- ** DescribeEvents
+    -- ** DescribeEvents (Paginated)
     , module Network.AWS.DAX.DescribeEvents
 
     -- ** IncreaseReplicationFactor
@@ -127,7 +130,7 @@ module Network.AWS.DAX
     -- ** CreateCluster
     , module Network.AWS.DAX.CreateCluster
 
-    -- ** DescribeDefaultParameters
+    -- ** DescribeDefaultParameters (Paginated)
     , module Network.AWS.DAX.DescribeDefaultParameters
 
     -- ** DeleteParameterGroup
@@ -136,7 +139,7 @@ module Network.AWS.DAX
     -- ** UpdateParameterGroup
     , module Network.AWS.DAX.UpdateParameterGroup
 
-    -- ** DescribeSubnetGroups
+    -- ** DescribeSubnetGroups (Paginated)
     , module Network.AWS.DAX.DescribeSubnetGroups
 
     -- ** CreateParameterGroup
@@ -148,13 +151,13 @@ module Network.AWS.DAX
     -- ** DeleteSubnetGroup
     , module Network.AWS.DAX.DeleteSubnetGroup
 
-    -- ** DescribeParameterGroups
+    -- ** DescribeParameterGroups (Paginated)
     , module Network.AWS.DAX.DescribeParameterGroups
 
     -- ** TagResource
     , module Network.AWS.DAX.TagResource
 
-    -- ** ListTags
+    -- ** ListTags (Paginated)
     , module Network.AWS.DAX.ListTags
 
     -- ** DecreaseReplicationFactor
@@ -177,6 +180,9 @@ module Network.AWS.DAX
     -- ** ParameterType
     , ParameterType (..)
 
+    -- ** SSEStatus
+    , SSEStatus (..)
+
     -- ** SourceType
     , SourceType (..)
 
@@ -197,6 +203,7 @@ module Network.AWS.DAX
     , cNodeType
     , cNodes
     , cClusterDiscoveryEndpoint
+    , cSSEDescription
     , cDescription
     , cParameterGroup
 
@@ -268,6 +275,16 @@ module Network.AWS.DAX
     , parameterNameValue
     , pnvParameterValue
     , pnvParameterName
+
+    -- ** SSEDescription
+    , SSEDescription
+    , sSEDescription
+    , ssedStatus
+
+    -- ** SSESpecification
+    , SSESpecification
+    , sSESpecification
+    , ssesEnabled
 
     -- ** SecurityGroupMembership
     , SecurityGroupMembership

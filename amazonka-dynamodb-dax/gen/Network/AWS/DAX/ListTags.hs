@@ -21,6 +21,8 @@
 -- List all of the tags for a DAX cluster. You can call @ListTags@ up to 10 times per second, per account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DAX.ListTags
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.DAX.ListTags
 import Network.AWS.DAX.Types
 import Network.AWS.DAX.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -74,6 +77,13 @@ ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a})
 -- | The name of the DAX resource to which the tags belong.
 ltResourceName :: Lens' ListTags Text
 ltResourceName = lens _ltResourceName (\ s a -> s{_ltResourceName = a})
+
+instance AWSPager ListTags where
+        page rq rs
+          | stop (rs ^. ltrsNextToken) = Nothing
+          | stop (rs ^. ltrsTags) = Nothing
+          | otherwise =
+            Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
 
 instance AWSRequest ListTags where
         type Rs ListTags = ListTagsResponse

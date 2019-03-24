@@ -21,6 +21,8 @@
 -- Returns the detailed parameter list for a particular parameter group.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DAX.DescribeParameters
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.DAX.DescribeParameters
 import Network.AWS.DAX.Types
 import Network.AWS.DAX.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -95,6 +98,13 @@ dpMaxResults = lens _dpMaxResults (\ s a -> s{_dpMaxResults = a})
 -- | The name of the parameter group.
 dpParameterGroupName :: Lens' DescribeParameters Text
 dpParameterGroupName = lens _dpParameterGroupName (\ s a -> s{_dpParameterGroupName = a})
+
+instance AWSPager DescribeParameters where
+        page rq rs
+          | stop (rs ^. dprsNextToken) = Nothing
+          | stop (rs ^. dprsParameters) = Nothing
+          | otherwise =
+            Just $ rq & dpNextToken .~ rs ^. dprsNextToken
 
 instance AWSRequest DescribeParameters where
         type Rs DescribeParameters =

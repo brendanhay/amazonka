@@ -40,6 +40,7 @@ module Network.AWS.Lambda.Types
     , _EC2UnexpectedException
     , _ResourceNotFoundException
     , _KMSAccessDeniedException
+    , _ResourceInUseException
 
     -- * EventSourcePosition
     , EventSourcePosition (..)
@@ -155,6 +156,7 @@ module Network.AWS.Lambda.Types
     , fcVPCConfig
     , fcVersion
     , fcFunctionName
+    , fcLayers
     , fcCodeSize
     , fcHandler
     , fcTimeout
@@ -164,6 +166,44 @@ module Network.AWS.Lambda.Types
     , fcDescription
     , fcRevisionId
     , fcMasterARN
+
+    -- * Layer
+    , Layer
+    , layer
+    , lARN
+    , lCodeSize
+
+    -- * LayerVersionContentInput
+    , LayerVersionContentInput
+    , layerVersionContentInput
+    , lvciS3ObjectVersion
+    , lvciS3Key
+    , lvciZipFile
+    , lvciS3Bucket
+
+    -- * LayerVersionContentOutput
+    , LayerVersionContentOutput
+    , layerVersionContentOutput
+    , lvcoLocation
+    , lvcoCodeSize
+    , lvcoCodeSha256
+
+    -- * LayerVersionsListItem
+    , LayerVersionsListItem
+    , layerVersionsListItem
+    , lvliLayerVersionARN
+    , lvliCreatedDate
+    , lvliVersion
+    , lvliLicenseInfo
+    , lvliDescription
+    , lvliCompatibleRuntimes
+
+    -- * LayersListItem
+    , LayersListItem
+    , layersListItem
+    , lliLayerName
+    , lliLatestMatchingVersion
+    , lliLayerARN
 
     -- * TracingConfig
     , TracingConfig
@@ -274,7 +314,7 @@ _PreconditionFailedException =
   _MatchServiceError lambda "PreconditionFailedException" . hasStatus 412
 
 
--- |
+-- | Need additional permissions to configure VPC settings.
 --
 --
 _EC2AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -330,7 +370,7 @@ _InvalidParameterValueException =
   _MatchServiceError lambda "InvalidParameterValueException" . hasStatus 400
 
 
--- | The request payload exceeded the @Invoke@ request body JSON input limit. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/limits.html Limits> .
+-- | The request payload exceeded the @Invoke@ request body JSON input limit. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/limits.html Limits> .
 --
 --
 _RequestTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -338,7 +378,7 @@ _RequestTooLargeException =
   _MatchServiceError lambda "RequestTooLargeException" . hasStatus 413
 
 
--- |
+-- | Request throughput limit exceeded.
 --
 --
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -378,7 +418,7 @@ _ServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceException = _MatchServiceError lambda "ServiceException" . hasStatus 500
 
 
--- | You have exceeded your maximum total code size per account. <http://docs.aws.amazon.com/lambda/latest/dg/limits.html Limits>
+-- | You have exceeded your maximum total code size per account. <https://docs.aws.amazon.com/lambda/latest/dg/limits.html Limits>
 --
 --
 _CodeStorageExceededException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -386,7 +426,7 @@ _CodeStorageExceededException =
   _MatchServiceError lambda "CodeStorageExceededException" . hasStatus 400
 
 
--- | AWS Lambda could not unzip the function zip file.
+-- | AWS Lambda could not unzip the deployment package.
 --
 --
 _InvalidZipFileException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -424,4 +464,12 @@ _ResourceNotFoundException =
 _KMSAccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSAccessDeniedException =
   _MatchServiceError lambda "KMSAccessDeniedException" . hasStatus 502
+
+
+-- | The operation conflicts with the resource's availability. For example, you attempted to update an EventSource Mapping in CREATING, or tried to delete a EventSource mapping currently in the UPDATING state.
+--
+--
+_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseException =
+  _MatchServiceError lambda "ResourceInUseException" . hasStatus 400
 

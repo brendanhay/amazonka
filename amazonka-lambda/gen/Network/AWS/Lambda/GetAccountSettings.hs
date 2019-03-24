@@ -18,10 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a customer's account settings.
+-- Retrieves details about your account's <https://docs.aws.amazon.com/lambda/latest/dg/limits.html limits> and usage in an AWS Region.
 --
---
--- You can use this operation to retrieve Lambda limits information, such as code size and concurrency limits. For more information about limits, see <http://docs.aws.amazon.com/lambda/latest/dg/limits.html AWS Lambda Limits> . You can also retrieve resource usage statistics, such as code storage usage and function count.
 --
 module Network.AWS.Lambda.GetAccountSettings
     (
@@ -94,9 +92,9 @@ data GetAccountSettingsResponse = GetAccountSettingsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gasrsAccountLimit' - Undocumented member.
+-- * 'gasrsAccountLimit' - Limits that are related to concurrency and code storage.
 --
--- * 'gasrsAccountUsage' - Undocumented member.
+-- * 'gasrsAccountUsage' - The number of functions and amount of storage in use.
 --
 -- * 'gasrsResponseStatus' - -- | The response status code.
 getAccountSettingsResponse
@@ -110,11 +108,11 @@ getAccountSettingsResponse pResponseStatus_ =
     }
 
 
--- | Undocumented member.
+-- | Limits that are related to concurrency and code storage.
 gasrsAccountLimit :: Lens' GetAccountSettingsResponse (Maybe AccountLimit)
 gasrsAccountLimit = lens _gasrsAccountLimit (\ s a -> s{_gasrsAccountLimit = a})
 
--- | Undocumented member.
+-- | The number of functions and amount of storage in use.
 gasrsAccountUsage :: Lens' GetAccountSettingsResponse (Maybe AccountUsage)
 gasrsAccountUsage = lens _gasrsAccountUsage (\ s a -> s{_gasrsAccountUsage = a})
 

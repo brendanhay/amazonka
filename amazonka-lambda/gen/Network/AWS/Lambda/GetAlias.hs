@@ -18,10 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the specified alias information such as the alias ARN, description, and function version it is pointing to. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases> .
+-- Returns details about a Lambda function <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html alias> .
 --
---
--- This requires permission for the @lambda:GetAlias@ action.
 --
 module Network.AWS.Lambda.GetAlias
     (
@@ -62,9 +60,9 @@ data GetAlias = GetAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaFunctionName' - Function name for which the alias is created. An alias is a subresource that exists only in the context of an existing Lambda function so you must specify the function name. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'gaFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
--- * 'gaName' - Name of the alias for which you want to retrieve information.
+-- * 'gaName' - The name of the alias.
 getAlias
     :: Text -- ^ 'gaFunctionName'
     -> Text -- ^ 'gaName'
@@ -73,11 +71,11 @@ getAlias pFunctionName_ pName_ =
   GetAlias' {_gaFunctionName = pFunctionName_, _gaName = pName_}
 
 
--- | Function name for which the alias is created. An alias is a subresource that exists only in the context of an existing Lambda function so you must specify the function name. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- | The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 gaFunctionName :: Lens' GetAlias Text
 gaFunctionName = lens _gaFunctionName (\ s a -> s{_gaFunctionName = a})
 
--- | Name of the alias for which you want to retrieve information.
+-- | The name of the alias.
 gaName :: Lens' GetAlias Text
 gaName = lens _gaName (\ s a -> s{_gaName = a})
 

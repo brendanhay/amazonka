@@ -18,10 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Using this API you can update the function version to which the alias points and the alias description. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases> .
+-- Updates the configuration of a Lambda function <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html alias> .
 --
---
--- This requires permission for the lambda:UpdateAlias action.
 --
 module Network.AWS.Lambda.UpdateAlias
     (
@@ -70,17 +68,17 @@ data UpdateAlias = UpdateAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaRoutingConfig' - Specifies an additional version your alias can point to, allowing you to dictate what percentage of traffic will invoke each version. For more information, see 'lambda-traffic-shifting-using-aliases' .
+-- * 'uaRoutingConfig' - The <https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html routing configuration> of the alias.
 --
--- * 'uaFunctionVersion' - Using this parameter you can change the Lambda function version to which the alias points.
+-- * 'uaFunctionVersion' - The function version that the alias invokes.
 --
--- * 'uaDescription' - You can change the description of the alias using this parameter.
+-- * 'uaDescription' - A description of the alias.
 --
--- * 'uaRevisionId' - An optional value you can use to ensure you are updating the latest update of the function version or alias. If the @RevisionID@ you pass doesn't match the latest @RevisionId@ of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias @RevisionID@ using either or .
+-- * 'uaRevisionId' - Only update the alias if the revision ID matches the ID that's specified. Use this option to avoid modifying an alias that has changed since you last read it.
 --
--- * 'uaFunctionName' - The function name for which the alias is created. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'uaFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
--- * 'uaName' - The alias name.
+-- * 'uaName' - The name of the alias.
 updateAlias
     :: Text -- ^ 'uaFunctionName'
     -> Text -- ^ 'uaName'
@@ -96,27 +94,27 @@ updateAlias pFunctionName_ pName_ =
     }
 
 
--- | Specifies an additional version your alias can point to, allowing you to dictate what percentage of traffic will invoke each version. For more information, see 'lambda-traffic-shifting-using-aliases' .
+-- | The <https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html routing configuration> of the alias.
 uaRoutingConfig :: Lens' UpdateAlias (Maybe AliasRoutingConfiguration)
 uaRoutingConfig = lens _uaRoutingConfig (\ s a -> s{_uaRoutingConfig = a})
 
--- | Using this parameter you can change the Lambda function version to which the alias points.
+-- | The function version that the alias invokes.
 uaFunctionVersion :: Lens' UpdateAlias (Maybe Text)
 uaFunctionVersion = lens _uaFunctionVersion (\ s a -> s{_uaFunctionVersion = a})
 
--- | You can change the description of the alias using this parameter.
+-- | A description of the alias.
 uaDescription :: Lens' UpdateAlias (Maybe Text)
 uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a})
 
--- | An optional value you can use to ensure you are updating the latest update of the function version or alias. If the @RevisionID@ you pass doesn't match the latest @RevisionId@ of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias @RevisionID@ using either or .
+-- | Only update the alias if the revision ID matches the ID that's specified. Use this option to avoid modifying an alias that has changed since you last read it.
 uaRevisionId :: Lens' UpdateAlias (Maybe Text)
 uaRevisionId = lens _uaRevisionId (\ s a -> s{_uaRevisionId = a})
 
--- | The function name for which the alias is created. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- | The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 uaFunctionName :: Lens' UpdateAlias Text
 uaFunctionName = lens _uaFunctionName (\ s a -> s{_uaFunctionName = a})
 
--- | The alias name.
+-- | The name of the alias.
 uaName :: Lens' UpdateAlias Text
 uaName = lens _uaName (\ s a -> s{_uaName = a})
 

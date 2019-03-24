@@ -18,18 +18,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Identifies a stream as an event source for a Lambda function. It can be either an Amazon Kinesis stream or an Amazon DynamoDB stream. AWS Lambda invokes the specified function when records are posted to the stream.
+-- Creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source and triggers the function.
 --
 --
--- This association between a stream source and a Lambda function is called the event source mapping.
+-- For details about each event source type, see the following topics.
 --
--- You provide mapping information (for example, which stream to read from and which Lambda function to invoke) in the request body.
+--     * <https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html Using AWS Lambda with Amazon Kinesis>
 --
--- Each event source, such as an Amazon Kinesis or a DynamoDB stream, can be associated with multiple AWS Lambda functions. A given Lambda function can be associated with multiple AWS event sources.
+--     * <https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html Using AWS Lambda with Amazon SQS>
 --
--- If you are using versioning, you can specify a specific function version or an alias via the function name parameter. For more information about versioning, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases> .
+--     * <https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html Using AWS Lambda with Amazon DynamoDB>
 --
--- This operation requires permission for the @lambda:CreateEventSourceMapping@ action.
+--
 --
 module Network.AWS.Lambda.CreateEventSourceMapping
     (
@@ -40,9 +40,9 @@ module Network.AWS.Lambda.CreateEventSourceMapping
     , cesmStartingPositionTimestamp
     , cesmEnabled
     , cesmBatchSize
+    , cesmStartingPosition
     , cesmEventSourceARN
     , cesmFunctionName
-    , cesmStartingPosition
 
     -- * Destructuring the Response
     , eventSourceMappingConfiguration
@@ -65,18 +65,14 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- |
---
---
---
--- /See:/ 'createEventSourceMapping' smart constructor.
+-- | /See:/ 'createEventSourceMapping' smart constructor.
 data CreateEventSourceMapping = CreateEventSourceMapping'
   { _cesmStartingPositionTimestamp :: !(Maybe POSIX)
   , _cesmEnabled                   :: !(Maybe Bool)
   , _cesmBatchSize                 :: !(Maybe Nat)
+  , _cesmStartingPosition          :: !(Maybe EventSourcePosition)
   , _cesmEventSourceARN            :: !Text
   , _cesmFunctionName              :: !Text
-  , _cesmStartingPosition          :: !EventSourcePosition
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -84,56 +80,55 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cesmStartingPositionTimestamp' - The timestamp of the data record from which to start reading. Used with <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType shard iterator type> AT_TIMESTAMP. If a record with this exact timestamp does not exist, the iterator returned is for the next (later) record. If the timestamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON). Valid only for <http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html Kinesis streams> .
+-- * 'cesmStartingPositionTimestamp' - With @StartingPosition@ set to @AT_TIMESTAMP@ , the time from which to start reading.
 --
--- * 'cesmEnabled' - Indicates whether AWS Lambda should begin polling the event source. By default, @Enabled@ is true.
+-- * 'cesmEnabled' - Disables the event source mapping to pause polling and invocation.
 --
--- * 'cesmBatchSize' - The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function. Your function receives an event with all the retrieved records. The default is 100 records.
+-- * 'cesmBatchSize' - The maximum number of items to retrieve in a single batch.     * __Amazon Kinesis__ - Default 100. Max 10,000.     * __Amazon DynamoDB Streams__ - Default 100. Max 1,000.     * __Amazon Simple Queue Service__ - Default 10. Max 10.
 --
--- * 'cesmEventSourceARN' - The Amazon Resource Name (ARN) of the Amazon Kinesis or the Amazon DynamoDB stream that is the event source. Any record added to this stream could cause AWS Lambda to invoke your Lambda function, it depends on the @BatchSize@ . AWS Lambda POSTs the Amazon Kinesis event, containing records, to your Lambda function as JSON.
+-- * 'cesmStartingPosition' - The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources. @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
 --
--- * 'cesmFunctionName' - The Lambda function to invoke when AWS Lambda detects an event on the stream. You can specify the function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ).  If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). For more information about versioning, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>  AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, @account-id:Thumbnail@ ).  Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'cesmEventSourceARN' - The Amazon Resource Name (ARN) of the event source.     * __Amazon Kinesis__ - The ARN of the data stream or a stream consumer.     * __Amazon DynamoDB Streams__ - The ARN of the stream.     * __Amazon Simple Queue Service__ - The ARN of the queue.
 --
--- * 'cesmStartingPosition' - The position in the DynamoDB or Kinesis stream where AWS Lambda should start reading. For more information, see <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType GetShardIterator> in the /Amazon Kinesis API Reference Guide/ or <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html GetShardIterator> in the /Amazon DynamoDB API Reference Guide/ . The @AT_TIMESTAMP@ value is supported only for <http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html Kinesis streams> .
+-- * 'cesmFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Version or Alias ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
 createEventSourceMapping
     :: Text -- ^ 'cesmEventSourceARN'
     -> Text -- ^ 'cesmFunctionName'
-    -> EventSourcePosition -- ^ 'cesmStartingPosition'
     -> CreateEventSourceMapping
-createEventSourceMapping pEventSourceARN_ pFunctionName_ pStartingPosition_ =
+createEventSourceMapping pEventSourceARN_ pFunctionName_ =
   CreateEventSourceMapping'
     { _cesmStartingPositionTimestamp = Nothing
     , _cesmEnabled = Nothing
     , _cesmBatchSize = Nothing
+    , _cesmStartingPosition = Nothing
     , _cesmEventSourceARN = pEventSourceARN_
     , _cesmFunctionName = pFunctionName_
-    , _cesmStartingPosition = pStartingPosition_
     }
 
 
--- | The timestamp of the data record from which to start reading. Used with <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType shard iterator type> AT_TIMESTAMP. If a record with this exact timestamp does not exist, the iterator returned is for the next (later) record. If the timestamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON). Valid only for <http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html Kinesis streams> .
+-- | With @StartingPosition@ set to @AT_TIMESTAMP@ , the time from which to start reading.
 cesmStartingPositionTimestamp :: Lens' CreateEventSourceMapping (Maybe UTCTime)
 cesmStartingPositionTimestamp = lens _cesmStartingPositionTimestamp (\ s a -> s{_cesmStartingPositionTimestamp = a}) . mapping _Time
 
--- | Indicates whether AWS Lambda should begin polling the event source. By default, @Enabled@ is true.
+-- | Disables the event source mapping to pause polling and invocation.
 cesmEnabled :: Lens' CreateEventSourceMapping (Maybe Bool)
 cesmEnabled = lens _cesmEnabled (\ s a -> s{_cesmEnabled = a})
 
--- | The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function. Your function receives an event with all the retrieved records. The default is 100 records.
+-- | The maximum number of items to retrieve in a single batch.     * __Amazon Kinesis__ - Default 100. Max 10,000.     * __Amazon DynamoDB Streams__ - Default 100. Max 1,000.     * __Amazon Simple Queue Service__ - Default 10. Max 10.
 cesmBatchSize :: Lens' CreateEventSourceMapping (Maybe Natural)
 cesmBatchSize = lens _cesmBatchSize (\ s a -> s{_cesmBatchSize = a}) . mapping _Nat
 
--- | The Amazon Resource Name (ARN) of the Amazon Kinesis or the Amazon DynamoDB stream that is the event source. Any record added to this stream could cause AWS Lambda to invoke your Lambda function, it depends on the @BatchSize@ . AWS Lambda POSTs the Amazon Kinesis event, containing records, to your Lambda function as JSON.
+-- | The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources. @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
+cesmStartingPosition :: Lens' CreateEventSourceMapping (Maybe EventSourcePosition)
+cesmStartingPosition = lens _cesmStartingPosition (\ s a -> s{_cesmStartingPosition = a})
+
+-- | The Amazon Resource Name (ARN) of the event source.     * __Amazon Kinesis__ - The ARN of the data stream or a stream consumer.     * __Amazon DynamoDB Streams__ - The ARN of the stream.     * __Amazon Simple Queue Service__ - The ARN of the queue.
 cesmEventSourceARN :: Lens' CreateEventSourceMapping Text
 cesmEventSourceARN = lens _cesmEventSourceARN (\ s a -> s{_cesmEventSourceARN = a})
 
--- | The Lambda function to invoke when AWS Lambda detects an event on the stream. You can specify the function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ).  If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). For more information about versioning, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>  AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, @account-id:Thumbnail@ ).  Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- | The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Version or Alias ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
 cesmFunctionName :: Lens' CreateEventSourceMapping Text
 cesmFunctionName = lens _cesmFunctionName (\ s a -> s{_cesmFunctionName = a})
-
--- | The position in the DynamoDB or Kinesis stream where AWS Lambda should start reading. For more information, see <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType GetShardIterator> in the /Amazon Kinesis API Reference Guide/ or <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html GetShardIterator> in the /Amazon DynamoDB API Reference Guide/ . The @AT_TIMESTAMP@ value is supported only for <http://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html Kinesis streams> .
-cesmStartingPosition :: Lens' CreateEventSourceMapping EventSourcePosition
-cesmStartingPosition = lens _cesmStartingPosition (\ s a -> s{_cesmStartingPosition = a})
 
 instance AWSRequest CreateEventSourceMapping where
         type Rs CreateEventSourceMapping =
@@ -156,9 +151,9 @@ instance ToJSON CreateEventSourceMapping where
                     _cesmStartingPositionTimestamp,
                   ("Enabled" .=) <$> _cesmEnabled,
                   ("BatchSize" .=) <$> _cesmBatchSize,
+                  ("StartingPosition" .=) <$> _cesmStartingPosition,
                   Just ("EventSourceArn" .= _cesmEventSourceARN),
-                  Just ("FunctionName" .= _cesmFunctionName),
-                  Just ("StartingPosition" .= _cesmStartingPosition)])
+                  Just ("FunctionName" .= _cesmFunctionName)])
 
 instance ToPath CreateEventSourceMapping where
         toPath = const "/2015-03-31/event-source-mappings/"

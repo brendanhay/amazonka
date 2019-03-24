@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes tags from a Lambda function. Requires the function ARN (Amazon Resource Name). For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
+-- Removes <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> from a function.
 --
 --
 module Network.AWS.Lambda.UntagResource
@@ -53,9 +53,9 @@ data UntagResource = UntagResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urResource' - The ARN (Amazon Resource Name) of the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
+-- * 'urResource' - The function's Amazon Resource Name (ARN).
 --
--- * 'urTagKeys' - The list of tag keys to be deleted from the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
+-- * 'urTagKeys' - A list of tag keys to remove from the function.
 untagResource
     :: Text -- ^ 'urResource'
     -> UntagResource
@@ -63,11 +63,11 @@ untagResource pResource_ =
   UntagResource' {_urResource = pResource_, _urTagKeys = mempty}
 
 
--- | The ARN (Amazon Resource Name) of the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
+-- | The function's Amazon Resource Name (ARN).
 urResource :: Lens' UntagResource Text
 urResource = lens _urResource (\ s a -> s{_urResource = a})
 
--- | The list of tag keys to be deleted from the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
+-- | A list of tag keys to remove from the function.
 urTagKeys :: Lens' UntagResource [Text]
 urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _Coerce
 

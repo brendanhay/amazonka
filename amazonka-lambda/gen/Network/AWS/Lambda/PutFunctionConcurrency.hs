@@ -18,8 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets a limit on the number of concurrent executions available to this function. It is a subset of your account's total concurrent execution limit per region. Note that Lambda automatically reserves a buffer of 100 concurrent executions for functions without any reserved concurrency limit. This means if your account limit is 1000, you have a total of 900 available to allocate to individual functions. For more information, see 'concurrent-executions' .
+-- Sets the maximum number of simultaneous executions for a function, and reserves capacity for that concurrency level.
 --
+--
+-- Concurrency settings apply to the function as a whole, including all published versions and the unpublished version. Reserving concurrency both ensures that your function has capacity to process the specified number of events simultaneously, and prevents it from scaling beyond that level. Use 'GetFunction' to see the current setting for a function.
+--
+-- Use 'GetAccountSettings' to see your regional concurrency limit. You can reserve concurrency for as many functions as you like, as long as you leave at least 100 simultaneous executions unreserved for functions that aren't configured with a per-function limit. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html Managing Concurrency> .
 --
 module Network.AWS.Lambda.PutFunctionConcurrency
     (
@@ -55,9 +59,9 @@ data PutFunctionConcurrency = PutFunctionConcurrency'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pfcFunctionName' - The name of the function you are setting concurrent execution limits on. For more information, see 'concurrent-executions' .
+-- * 'pfcFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @my-function@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
--- * 'pfcReservedConcurrentExecutions' - The concurrent execution limit reserved for this function. For more information, see 'concurrent-executions' .
+-- * 'pfcReservedConcurrentExecutions' - The number of simultaneous executions to reserve for the function.
 putFunctionConcurrency
     :: Text -- ^ 'pfcFunctionName'
     -> Natural -- ^ 'pfcReservedConcurrentExecutions'
@@ -69,11 +73,11 @@ putFunctionConcurrency pFunctionName_ pReservedConcurrentExecutions_ =
     }
 
 
--- | The name of the function you are setting concurrent execution limits on. For more information, see 'concurrent-executions' .
+-- | The name of the Lambda function. __Name formats__      * __Function name__ - @my-function@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 pfcFunctionName :: Lens' PutFunctionConcurrency Text
 pfcFunctionName = lens _pfcFunctionName (\ s a -> s{_pfcFunctionName = a})
 
--- | The concurrent execution limit reserved for this function. For more information, see 'concurrent-executions' .
+-- | The number of simultaneous executions to reserve for the function.
 pfcReservedConcurrentExecutions :: Lens' PutFunctionConcurrency Natural
 pfcReservedConcurrentExecutions = lens _pfcReservedConcurrentExecutions (\ s a -> s{_pfcReservedConcurrentExecutions = a}) . _Nat
 

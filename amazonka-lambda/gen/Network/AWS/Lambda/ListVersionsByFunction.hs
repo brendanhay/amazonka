@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List all versions of a function. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases> .
+-- Returns a list of <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html versions> , with the version-specific configuration of each.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Lambda.ListVersionsByFunction
     (
     -- * Creating a Request
@@ -43,15 +45,12 @@ module Network.AWS.Lambda.ListVersionsByFunction
 import Network.AWS.Lambda.Types
 import Network.AWS.Lambda.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- |
---
---
---
--- /See:/ 'listVersionsByFunction' smart constructor.
+-- | /See:/ 'listVersionsByFunction' smart constructor.
 data ListVersionsByFunction = ListVersionsByFunction'
   { _lvbfMarker       :: !(Maybe Text)
   , _lvbfMaxItems     :: !(Maybe Nat)
@@ -63,11 +62,11 @@ data ListVersionsByFunction = ListVersionsByFunction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lvbfMarker' - Optional string. An opaque pagination token returned from a previous @ListVersionsByFunction@ operation. If present, indicates where to continue the listing.
+-- * 'lvbfMarker' - Specify the pagination token that's returned by a previous request to retrieve the next page of results.
 --
--- * 'lvbfMaxItems' - Optional integer. Specifies the maximum number of AWS Lambda function versions to return in response. This parameter value must be greater than 0.
+-- * 'lvbfMaxItems' - Limit the number of versions that are returned.
 --
--- * 'lvbfFunctionName' - Function name whose versions to list. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'lvbfFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 listVersionsByFunction
     :: Text -- ^ 'lvbfFunctionName'
     -> ListVersionsByFunction
@@ -79,17 +78,24 @@ listVersionsByFunction pFunctionName_ =
     }
 
 
--- | Optional string. An opaque pagination token returned from a previous @ListVersionsByFunction@ operation. If present, indicates where to continue the listing.
+-- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
 lvbfMarker :: Lens' ListVersionsByFunction (Maybe Text)
 lvbfMarker = lens _lvbfMarker (\ s a -> s{_lvbfMarker = a})
 
--- | Optional integer. Specifies the maximum number of AWS Lambda function versions to return in response. This parameter value must be greater than 0.
+-- | Limit the number of versions that are returned.
 lvbfMaxItems :: Lens' ListVersionsByFunction (Maybe Natural)
 lvbfMaxItems = lens _lvbfMaxItems (\ s a -> s{_lvbfMaxItems = a}) . mapping _Nat
 
--- | Function name whose versions to list. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- | The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 lvbfFunctionName :: Lens' ListVersionsByFunction Text
 lvbfFunctionName = lens _lvbfFunctionName (\ s a -> s{_lvbfFunctionName = a})
+
+instance AWSPager ListVersionsByFunction where
+        page rq rs
+          | stop (rs ^. lvbfrsNextMarker) = Nothing
+          | stop (rs ^. lvbfrsVersions) = Nothing
+          | otherwise =
+            Just $ rq & lvbfMarker .~ rs ^. lvbfrsNextMarker
 
 instance AWSRequest ListVersionsByFunction where
         type Rs ListVersionsByFunction =
@@ -122,11 +128,7 @@ instance ToQuery ListVersionsByFunction where
               ["Marker" =: _lvbfMarker,
                "MaxItems" =: _lvbfMaxItems]
 
--- |
---
---
---
--- /See:/ 'listVersionsByFunctionResponse' smart constructor.
+-- | /See:/ 'listVersionsByFunctionResponse' smart constructor.
 data ListVersionsByFunctionResponse = ListVersionsByFunctionResponse'
   { _lvbfrsVersions       :: !(Maybe [FunctionConfiguration])
   , _lvbfrsNextMarker     :: !(Maybe Text)
@@ -140,7 +142,7 @@ data ListVersionsByFunctionResponse = ListVersionsByFunctionResponse'
 --
 -- * 'lvbfrsVersions' - A list of Lambda function versions.
 --
--- * 'lvbfrsNextMarker' - A string, present if there are more function versions.
+-- * 'lvbfrsNextMarker' - The pagination token that's included if more results are available.
 --
 -- * 'lvbfrsResponseStatus' - -- | The response status code.
 listVersionsByFunctionResponse
@@ -158,7 +160,7 @@ listVersionsByFunctionResponse pResponseStatus_ =
 lvbfrsVersions :: Lens' ListVersionsByFunctionResponse [FunctionConfiguration]
 lvbfrsVersions = lens _lvbfrsVersions (\ s a -> s{_lvbfrsVersions = a}) . _Default . _Coerce
 
--- | A string, present if there are more function versions.
+-- | The pagination token that's included if more results are available.
 lvbfrsNextMarker :: Lens' ListVersionsByFunctionResponse (Maybe Text)
 lvbfrsNextMarker = lens _lvbfrsNextMarker (\ s a -> s{_lvbfrsNextMarker = a})
 

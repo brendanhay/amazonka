@@ -23,7 +23,7 @@
 --
 -- The operation response returns an array of faces that match, ordered by similarity score with the highest similarity first. More specifically, it is an array of metadata for each face match that is found. Along with the metadata, the response also includes a @confidence@ value for each face match, indicating the confidence that the specific face matches the input face.
 --
--- For an example, see 'search-face-with-id-procedure' .
+-- For an example, see Searching for a Face Using Its Face ID in the Amazon Rekognition Developer Guide.
 --
 -- This operation requires permissions to perform the @rekognition:SearchFaces@ action.
 --

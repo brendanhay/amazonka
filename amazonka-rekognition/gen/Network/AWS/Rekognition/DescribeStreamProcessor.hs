@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides information about a stream processor created by . You can get information about the input and output streams, the input parameters for the face recognition being performed, and the current status of the stream processor.
+-- Provides information about a stream processor created by 'CreateStreamProcessor' . You can get information about the input and output streams, the input parameters for the face recognition being performed, and the current status of the stream processor.
 --
 --
 module Network.AWS.Rekognition.DescribeStreamProcessor
@@ -143,7 +143,7 @@ data DescribeStreamProcessorResponse = DescribeStreamProcessorResponse'
 --
 -- * 'dsprsInput' - Kinesis video stream that provides the source streaming video.
 --
--- * 'dsprsOutput' - Kinesis data stream to which Rekognition Video puts the analysis results.
+-- * 'dsprsOutput' - Kinesis data stream to which Amazon Rekognition Video puts the analysis results.
 --
 -- * 'dsprsStreamProcessorARN' - ARN of the stream processor.
 --
@@ -189,7 +189,7 @@ dsprsSettings = lens _dsprsSettings (\ s a -> s{_dsprsSettings = a})
 dsprsInput :: Lens' DescribeStreamProcessorResponse (Maybe StreamProcessorInput)
 dsprsInput = lens _dsprsInput (\ s a -> s{_dsprsInput = a})
 
--- | Kinesis data stream to which Rekognition Video puts the analysis results.
+-- | Kinesis data stream to which Amazon Rekognition Video puts the analysis results.
 dsprsOutput :: Lens' DescribeStreamProcessorResponse (Maybe StreamProcessorOutput)
 dsprsOutput = lens _dsprsOutput (\ s a -> s{_dsprsOutput = a})
 

@@ -18,16 +18,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the celebrity recognition results for a Rekognition Video analysis started by .
+-- Gets the celebrity recognition results for a Amazon Rekognition Video analysis started by 'StartCelebrityRecognition' .
 --
 --
--- Celebrity recognition in a video is an asynchronous operation. Analysis is started by a call to which returns a job identifier (@JobId@ ). When the celebrity recognition operation finishes, Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to @StartCelebrityRecognition@ . To get the results of the celebrity recognition analysis, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call @GetCelebrityDetection@ and pass the job identifier (@JobId@ ) from the initial call to @StartCelebrityDetection@ . For more information, see 'video' .
+-- Celebrity recognition in a video is an asynchronous operation. Analysis is started by a call to 'StartCelebrityRecognition' which returns a job identifier (@JobId@ ). When the celebrity recognition operation finishes, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to @StartCelebrityRecognition@ . To get the results of the celebrity recognition analysis, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call @GetCelebrityDetection@ and pass the job identifier (@JobId@ ) from the initial call to @StartCelebrityDetection@ .
 --
--- @GetCelebrityRecognition@ returns detected celebrities and the time(s) they are detected in an array (@Celebrities@ ) of objects. Each @CelebrityRecognition@ contains information about the celebrity in a object and the time, @Timestamp@ , the celebrity was detected.
+-- For more information, see Working With Stored Videos in the Amazon Rekognition Developer Guide.
+--
+-- @GetCelebrityRecognition@ returns detected celebrities and the time(s) they are detected in an array (@Celebrities@ ) of 'CelebrityRecognition' objects. Each @CelebrityRecognition@ contains information about the celebrity in a 'CelebrityDetail' object and the time, @Timestamp@ , the celebrity was detected.
 --
 -- By default, the @Celebrities@ array is sorted by time (milliseconds from the start of the video). You can also sort the array by celebrity by specifying the value @ID@ in the @SortBy@ input parameter.
 --
--- The @CelebrityDetail@ object includes the celebrity identifer and additional information urls. If you don't store the additional information urls, you can get them later by calling with the celebrity identifer.
+-- The @CelebrityDetail@ object includes the celebrity identifer and additional information urls. If you don't store the additional information urls, you can get them later by calling 'GetCelebrityInfo' with the celebrity identifer.
 --
 -- No information is returned for faces not recognized as celebrities.
 --
@@ -76,7 +78,7 @@ data GetCelebrityRecognition = GetCelebrityRecognition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcrNextToken' - If the previous response was incomplete (because there is more recognized celebrities to retrieve), Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of celebrities.
+-- * 'gcrNextToken' - If the previous response was incomplete (because there is more recognized celebrities to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of celebrities.
 --
 -- * 'gcrMaxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
 --
@@ -95,7 +97,7 @@ getCelebrityRecognition pJobId_ =
     }
 
 
--- | If the previous response was incomplete (because there is more recognized celebrities to retrieve), Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of celebrities.
+-- | If the previous response was incomplete (because there is more recognized celebrities to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of celebrities.
 gcrNextToken :: Lens' GetCelebrityRecognition (Maybe Text)
 gcrNextToken = lens _gcrNextToken (\ s a -> s{_gcrNextToken = a})
 
@@ -169,9 +171,9 @@ data GetCelebrityRecognitionResponse = GetCelebrityRecognitionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcrrsNextToken' - If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of celebrities.
+-- * 'gcrrsNextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of celebrities.
 --
--- * 'gcrrsVideoMetadata' - Information about a video that Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Rekognition Video operation.
+-- * 'gcrrsVideoMetadata' - Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
 --
 -- * 'gcrrsStatusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
 --
@@ -194,11 +196,11 @@ getCelebrityRecognitionResponse pResponseStatus_ =
     }
 
 
--- | If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of celebrities.
+-- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of celebrities.
 gcrrsNextToken :: Lens' GetCelebrityRecognitionResponse (Maybe Text)
 gcrrsNextToken = lens _gcrrsNextToken (\ s a -> s{_gcrrsNextToken = a})
 
--- | Information about a video that Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Rekognition Video operation.
+-- | Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
 gcrrsVideoMetadata :: Lens' GetCelebrityRecognitionResponse (Maybe VideoMetadata)
 gcrrsVideoMetadata = lens _gcrrsVideoMetadata (\ s a -> s{_gcrrsVideoMetadata = a})
 

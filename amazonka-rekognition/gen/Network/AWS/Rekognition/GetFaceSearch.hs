@@ -18,12 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the face search results for Rekognition Video face search started by . The search returns faces in a collection that match the faces of persons detected in a video. It also includes the time(s) that faces are matched in the video.
+-- Gets the face search results for Amazon Rekognition Video face search started by 'StartFaceSearch' . The search returns faces in a collection that match the faces of persons detected in a video. It also includes the time(s) that faces are matched in the video.
 --
 --
--- Face search in a video is an asynchronous operation. You start face search by calling to which returns a job identifier (@JobId@ ). When the search operation finishes, Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to @StartFaceSearch@ . To get the search results, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call @GetFaceSearch@ and pass the job identifier (@JobId@ ) from the initial call to @StartFaceSearch@ . For more information, see 'collections' .
+-- Face search in a video is an asynchronous operation. You start face search by calling to 'StartFaceSearch' which returns a job identifier (@JobId@ ). When the search operation finishes, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to @StartFaceSearch@ . To get the search results, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call @GetFaceSearch@ and pass the job identifier (@JobId@ ) from the initial call to @StartFaceSearch@ .
 --
--- The search results are retured in an array, @Persons@ , of objects. Each@PersonMatch@ element contains details about the matching faces in the input collection, person information (facial attributes, bounding boxes, and person identifer) for the matched person, and the time the person was matched in the video.
+-- For more information, see Searching Faces in a Collection in the Amazon Rekognition Developer Guide.
+--
+-- The search results are retured in an array, @Persons@ , of 'PersonMatch' objects. Each@PersonMatch@ element contains details about the matching faces in the input collection, person information (facial attributes, bounding boxes, and person identifer) for the matched person, and the time the person was matched in the video.
 --
 -- By default, the @Persons@ array is sorted by the time, in milliseconds from the start of the video, persons are matched. You can also sort by persons by specifying @INDEX@ for the @SORTBY@ input parameter.
 --
@@ -70,7 +72,7 @@ data GetFaceSearch = GetFaceSearch'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gfsNextToken' - If the previous response was incomplete (because there is more search results to retrieve), Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of search results.
+-- * 'gfsNextToken' - If the previous response was incomplete (because there is more search results to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of search results.
 --
 -- * 'gfsMaxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
 --
@@ -89,7 +91,7 @@ getFaceSearch pJobId_ =
     }
 
 
--- | If the previous response was incomplete (because there is more search results to retrieve), Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of search results.
+-- | If the previous response was incomplete (because there is more search results to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of search results.
 gfsNextToken :: Lens' GetFaceSearch (Maybe Text)
 gfsNextToken = lens _gfsNextToken (\ s a -> s{_gfsNextToken = a})
 
@@ -161,15 +163,15 @@ data GetFaceSearchResponse = GetFaceSearchResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gfsrsNextToken' - If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of search results.
+-- * 'gfsrsNextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of search results.
 --
--- * 'gfsrsVideoMetadata' - Information about a video that Amazon Rekognition analyzed. @Videometadata@ is returned in every page of paginated responses from a Rekognition Video operation.
+-- * 'gfsrsVideoMetadata' - Information about a video that Amazon Rekognition analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
 --
 -- * 'gfsrsStatusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
 --
 -- * 'gfsrsJobStatus' - The current status of the face search job.
 --
--- * 'gfsrsPersons' - An array of persons, , in the video whose face(s) match the face(s) in an Amazon Rekognition collection. It also includes time information for when persons are matched in the video. You specify the input collection in an initial call to @StartFaceSearch@ . Each @Persons@ element includes a time the person was matched, face match details (@FaceMatches@ ) for matching faces in the collection, and person information (@Person@ ) for the matched person.
+-- * 'gfsrsPersons' - An array of persons, 'PersonMatch' , in the video whose face(s) match the face(s) in an Amazon Rekognition collection. It also includes time information for when persons are matched in the video. You specify the input collection in an initial call to @StartFaceSearch@ . Each @Persons@ element includes a time the person was matched, face match details (@FaceMatches@ ) for matching faces in the collection, and person information (@Person@ ) for the matched person.
 --
 -- * 'gfsrsResponseStatus' - -- | The response status code.
 getFaceSearchResponse
@@ -186,11 +188,11 @@ getFaceSearchResponse pResponseStatus_ =
     }
 
 
--- | If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of search results.
+-- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of search results.
 gfsrsNextToken :: Lens' GetFaceSearchResponse (Maybe Text)
 gfsrsNextToken = lens _gfsrsNextToken (\ s a -> s{_gfsrsNextToken = a})
 
--- | Information about a video that Amazon Rekognition analyzed. @Videometadata@ is returned in every page of paginated responses from a Rekognition Video operation.
+-- | Information about a video that Amazon Rekognition analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
 gfsrsVideoMetadata :: Lens' GetFaceSearchResponse (Maybe VideoMetadata)
 gfsrsVideoMetadata = lens _gfsrsVideoMetadata (\ s a -> s{_gfsrsVideoMetadata = a})
 
@@ -202,7 +204,7 @@ gfsrsStatusMessage = lens _gfsrsStatusMessage (\ s a -> s{_gfsrsStatusMessage = 
 gfsrsJobStatus :: Lens' GetFaceSearchResponse (Maybe VideoJobStatus)
 gfsrsJobStatus = lens _gfsrsJobStatus (\ s a -> s{_gfsrsJobStatus = a})
 
--- | An array of persons, , in the video whose face(s) match the face(s) in an Amazon Rekognition collection. It also includes time information for when persons are matched in the video. You specify the input collection in an initial call to @StartFaceSearch@ . Each @Persons@ element includes a time the person was matched, face match details (@FaceMatches@ ) for matching faces in the collection, and person information (@Person@ ) for the matched person.
+-- | An array of persons, 'PersonMatch' , in the video whose face(s) match the face(s) in an Amazon Rekognition collection. It also includes time information for when persons are matched in the video. You specify the input collection in an initial call to @StartFaceSearch@ . Each @Persons@ element includes a time the person was matched, face match details (@FaceMatches@ ) for matching faces in the collection, and person information (@Person@ ) for the matched person.
 gfsrsPersons :: Lens' GetFaceSearchResponse [PersonMatch]
 gfsrsPersons = lens _gfsrsPersons (\ s a -> s{_gfsrsPersons = a}) . _Default . _Coerce
 

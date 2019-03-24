@@ -21,7 +21,9 @@
 -- Starts asynchronous recognition of celebrities in a stored video.
 --
 --
--- Rekognition Video can detect celebrities in a video must be stored in an Amazon S3 bucket. Use 'Video' to specify the bucket name and the filename of the video. @StartCelebrityRecognition@ returns a job identifier (@JobId@ ) which you use to get the results of the analysis. When celebrity recognition analysis is finished, Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in @NotificationChannel@ . To get the results of the celebrity recognition analysis, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call and pass the job identifier (@JobId@ ) from the initial call to @StartCelebrityRecognition@ . For more information, see 'celebrities' .
+-- Amazon Rekognition Video can detect celebrities in a video must be stored in an Amazon S3 bucket. Use 'Video' to specify the bucket name and the filename of the video. @StartCelebrityRecognition@ returns a job identifier (@JobId@ ) which you use to get the results of the analysis. When celebrity recognition analysis is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in @NotificationChannel@ . To get the results of the celebrity recognition analysis, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call 'GetCelebrityRecognition' and pass the job identifier (@JobId@ ) from the initial call to @StartCelebrityRecognition@ .
+--
+-- For more information, see Recognizing Celebrities in the Amazon Rekognition Developer Guide.
 --
 module Network.AWS.Rekognition.StartCelebrityRecognition
     (
@@ -64,7 +66,7 @@ data StartCelebrityRecognition = StartCelebrityRecognition'
 --
 -- * 'scrJobTag' - Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic.
 --
--- * 'scrNotificationChannel' - The Amazon SNS topic ARN that you want Rekognition Video to publish the completion status of the celebrity recognition analysis to.
+-- * 'scrNotificationChannel' - The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the celebrity recognition analysis to.
 --
 -- * 'scrClientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartCelebrityRecognition@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 --
@@ -85,7 +87,7 @@ startCelebrityRecognition pVideo_ =
 scrJobTag :: Lens' StartCelebrityRecognition (Maybe Text)
 scrJobTag = lens _scrJobTag (\ s a -> s{_scrJobTag = a})
 
--- | The Amazon SNS topic ARN that you want Rekognition Video to publish the completion status of the celebrity recognition analysis to.
+-- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the celebrity recognition analysis to.
 scrNotificationChannel :: Lens' StartCelebrityRecognition (Maybe NotificationChannel)
 scrNotificationChannel = lens _scrNotificationChannel (\ s a -> s{_scrNotificationChannel = a})
 

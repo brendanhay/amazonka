@@ -18,12 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Detects instances of real-world entities within an image (JPEG or PNG) provided as input. This includes objects like flower, tree, and table; events like wedding, graduation, and birthday party; and concepts like landscape, evening, and nature. For an example, see 'images-s3' .
+-- Detects instances of real-world entities within an image (JPEG or PNG) provided as input. This includes objects like flower, tree, and table; events like wedding, graduation, and birthday party; and concepts like landscape, evening, and nature.
 --
 --
--- You pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file.
+-- For an example, see Analyzing Images Stored in an Amazon S3 Bucket in the Amazon Rekognition Developer Guide.
 --
--- For each object, scene, and concept the API returns one or more labels. Each label provides the object name, and the level of confidence that the image contains the object. For example, suppose the input image has a lighthouse, the sea, and a rock. The response will include all three labels, one for each object.
+-- You pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file.
+--
+-- For each object, scene, and concept the API returns one or more labels. Each label provides the object name, and the level of confidence that the image contains the object. For example, suppose the input image has a lighthouse, the sea, and a rock. The response includes all three labels, one for each object.
 --
 -- @{Name: lighthouse, Confidence: 98.4629}@
 --
@@ -41,7 +43,11 @@
 --
 -- In this example, the detection algorithm more precisely identifies the flower as a tulip.
 --
--- In response, the API returns an array of labels. In addition, the response also includes the orientation correction. Optionally, you can specify @MinConfidence@ to control the confidence threshold for the labels returned. The default is 50%. You can also add the @MaxLabels@ parameter to limit the number of labels returned.
+-- In response, the API returns an array of labels. In addition, the response also includes the orientation correction. Optionally, you can specify @MinConfidence@ to control the confidence threshold for the labels returned. The default is 55%. You can also add the @MaxLabels@ parameter to limit the number of labels returned.
+--
+-- @DetectLabels@ returns bounding boxes for instances of common object labels in an array of 'Instance' objects. An @Instance@ object contains a 'BoundingBox' object, for the location of the label on the image. It also includes the confidence by which the bounding box was detected.
+--
+-- @DetectLabels@ also returns a hierarchical taxonomy of detected labels. For example, a detected car might be assigned the label /car/ . The label /car/ has two parent labels: /Vehicle/ (its parent) and /Transportation/ (its grandparent). The response returns the entire list of ancestors for a label. Each ancestor is a unique label in the response. In the previous example, /Car/ , /Vehicle/ , and /Transportation/ are returned as unique labels in the response.
 --
 -- This is a stateless API operation. That is, the operation does not persist any data.
 --
@@ -63,6 +69,7 @@ module Network.AWS.Rekognition.DetectLabels
     -- * Response Lenses
     , dlrsLabels
     , dlrsOrientationCorrection
+    , dlrsLabelModelVersion
     , dlrsResponseStatus
     ) where
 
@@ -85,11 +92,11 @@ data DetectLabels = DetectLabels'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlMinConfidence' - Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value. If @MinConfidence@ is not specified, the operation returns labels with a confidence values greater than or equal to 50 percent.
+-- * 'dlMinConfidence' - Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value. If @MinConfidence@ is not specified, the operation returns labels with a confidence values greater than or equal to 55 percent.
 --
 -- * 'dlMaxLabels' - Maximum number of labels you want the service to return in the response. The service returns the specified number of highest confidence labels.
 --
--- * 'dlImage' - The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
+-- * 'dlImage' - The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. Images stored in an S3 Bucket do not need to be base64-encoded. If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
 detectLabels
     :: Image -- ^ 'dlImage'
     -> DetectLabels
@@ -98,7 +105,7 @@ detectLabels pImage_ =
     {_dlMinConfidence = Nothing, _dlMaxLabels = Nothing, _dlImage = pImage_}
 
 
--- | Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value. If @MinConfidence@ is not specified, the operation returns labels with a confidence values greater than or equal to 50 percent.
+-- | Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value. If @MinConfidence@ is not specified, the operation returns labels with a confidence values greater than or equal to 55 percent.
 dlMinConfidence :: Lens' DetectLabels (Maybe Double)
 dlMinConfidence = lens _dlMinConfidence (\ s a -> s{_dlMinConfidence = a})
 
@@ -106,7 +113,7 @@ dlMinConfidence = lens _dlMinConfidence (\ s a -> s{_dlMinConfidence = a})
 dlMaxLabels :: Lens' DetectLabels (Maybe Natural)
 dlMaxLabels = lens _dlMaxLabels (\ s a -> s{_dlMaxLabels = a}) . mapping _Nat
 
--- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
+-- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. Images stored in an S3 Bucket do not need to be base64-encoded. If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
 dlImage :: Lens' DetectLabels Image
 dlImage = lens _dlImage (\ s a -> s{_dlImage = a})
 
@@ -119,6 +126,7 @@ instance AWSRequest DetectLabels where
                  DetectLabelsResponse' <$>
                    (x .?> "Labels" .!@ mempty) <*>
                      (x .?> "OrientationCorrection")
+                     <*> (x .?> "LabelModelVersion")
                      <*> (pure (fromEnum s)))
 
 instance Hashable DetectLabels where
@@ -152,6 +160,7 @@ instance ToQuery DetectLabels where
 data DetectLabelsResponse = DetectLabelsResponse'
   { _dlrsLabels                :: !(Maybe [Label])
   , _dlrsOrientationCorrection :: !(Maybe OrientationCorrection)
+  , _dlrsLabelModelVersion     :: !(Maybe Text)
   , _dlrsResponseStatus        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -162,30 +171,4 @@ data DetectLabelsResponse = DetectLabelsResponse'
 --
 -- * 'dlrsLabels' - An array of labels for the real-world objects detected.
 --
--- * 'dlrsOrientationCorrection' - The orientation of the input image (counter-clockwise direction). If your application displays the image, you can use this value to correct the orientation. If Amazon Rekognition detects that the input image was rotated (for example, by 90 degrees), it first corrects the orientation before detecting the labels.
---
--- * 'dlrsResponseStatus' - -- | The response status code.
-detectLabelsResponse
-    :: Int -- ^ 'dlrsResponseStatus'
-    -> DetectLabelsResponse
-detectLabelsResponse pResponseStatus_ =
-  DetectLabelsResponse'
-    { _dlrsLabels = Nothing
-    , _dlrsOrientationCorrection = Nothing
-    , _dlrsResponseStatus = pResponseStatus_
-    }
-
-
--- | An array of labels for the real-world objects detected.
-dlrsLabels :: Lens' DetectLabelsResponse [Label]
-dlrsLabels = lens _dlrsLabels (\ s a -> s{_dlrsLabels = a}) . _Default . _Coerce
-
--- | The orientation of the input image (counter-clockwise direction). If your application displays the image, you can use this value to correct the orientation. If Amazon Rekognition detects that the input image was rotated (for example, by 90 degrees), it first corrects the orientation before detecting the labels.
-dlrsOrientationCorrection :: Lens' DetectLabelsResponse (Maybe OrientationCorrection)
-dlrsOrientationCorrection = lens _dlrsOrientationCorrection (\ s a -> s{_dlrsOrientationCorrection = a})
-
--- | -- | The response status code.
-dlrsResponseStatus :: Lens' DetectLabelsResponse Int
-dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a})
-
-instance NFData DetectLabelsResponse where
+-- * 'dlrsOrientationCorrection' - The value of @OrientationCorrection@ is always null. If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction. The bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata. Amazon Rekognition doesn

@@ -21,9 +21,11 @@
 -- Starts asynchronous detection of explicit or suggestive adult content in a stored video.
 --
 --
--- Rekognition Video can moderate content in a video stored in an Amazon S3 bucket. Use 'Video' to specify the bucket name and the filename of the video. @StartContentModeration@ returns a job identifier (@JobId@ ) which you use to get the results of the analysis. When content moderation analysis is finished, Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in @NotificationChannel@ .
+-- Amazon Rekognition Video can moderate content in a video stored in an Amazon S3 bucket. Use 'Video' to specify the bucket name and the filename of the video. @StartContentModeration@ returns a job identifier (@JobId@ ) which you use to get the results of the analysis. When content moderation analysis is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in @NotificationChannel@ .
 --
--- To get the results of the content moderation analysis, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call and pass the job identifier (@JobId@ ) from the initial call to @StartContentModeration@ . For more information, see 'moderation' .
+-- To get the results of the content moderation analysis, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call 'GetContentModeration' and pass the job identifier (@JobId@ ) from the initial call to @StartContentModeration@ .
+--
+-- For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.
 --
 module Network.AWS.Rekognition.StartContentModeration
     (
@@ -68,11 +70,11 @@ data StartContentModeration = StartContentModeration'
 --
 -- * 'scmJobTag' - Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic.
 --
--- * 'scmNotificationChannel' - The Amazon SNS topic ARN that you want Rekognition Video to publish the completion status of the content moderation analysis to.
+-- * 'scmNotificationChannel' - The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the content moderation analysis to.
 --
 -- * 'scmClientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartContentModeration@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 --
--- * 'scmMinConfidence' - Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label. Confidence represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn't return any moderated content labels with a confidence level lower than this specified value.
+-- * 'scmMinConfidence' - Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label. Confidence represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn't return any moderated content labels with a confidence level lower than this specified value. If you don't specify @MinConfidence@ , @GetContentModeration@ returns labels with confidence values greater than or equal to 50 percent.
 --
 -- * 'scmVideo' - The video in which you want to moderate content. The video must be stored in an Amazon S3 bucket.
 startContentModeration
@@ -92,7 +94,7 @@ startContentModeration pVideo_ =
 scmJobTag :: Lens' StartContentModeration (Maybe Text)
 scmJobTag = lens _scmJobTag (\ s a -> s{_scmJobTag = a})
 
--- | The Amazon SNS topic ARN that you want Rekognition Video to publish the completion status of the content moderation analysis to.
+-- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the content moderation analysis to.
 scmNotificationChannel :: Lens' StartContentModeration (Maybe NotificationChannel)
 scmNotificationChannel = lens _scmNotificationChannel (\ s a -> s{_scmNotificationChannel = a})
 
@@ -100,7 +102,7 @@ scmNotificationChannel = lens _scmNotificationChannel (\ s a -> s{_scmNotificati
 scmClientRequestToken :: Lens' StartContentModeration (Maybe Text)
 scmClientRequestToken = lens _scmClientRequestToken (\ s a -> s{_scmClientRequestToken = a})
 
--- | Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label. Confidence represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn't return any moderated content labels with a confidence level lower than this specified value.
+-- | Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label. Confidence represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn't return any moderated content labels with a confidence level lower than this specified value. If you don't specify @MinConfidence@ , @GetContentModeration@ returns labels with confidence values greater than or equal to 50 percent.
 scmMinConfidence :: Lens' StartContentModeration (Maybe Double)
 scmMinConfidence = lens _scmMinConfidence (\ s a -> s{_scmMinConfidence = a})
 

@@ -21,7 +21,7 @@
 -- Starts the asynchronous search for faces in a collection that match the faces of persons detected in a stored video.
 --
 --
--- The video must be stored in an Amazon S3 bucket. Use 'Video' to specify the bucket name and the filename of the video. @StartFaceSearch@ returns a job identifier (@JobId@ ) which you use to get the search results once the search has completed. When searching is finished, Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in @NotificationChannel@ . To get the search results, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call and pass the job identifier (@JobId@ ) from the initial call to @StartFaceSearch@ . For more information, see 'collections-search-person' .
+-- The video must be stored in an Amazon S3 bucket. Use 'Video' to specify the bucket name and the filename of the video. @StartFaceSearch@ returns a job identifier (@JobId@ ) which you use to get the search results once the search has completed. When searching is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in @NotificationChannel@ . To get the search results, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call 'GetFaceSearch' and pass the job identifier (@JobId@ ) from the initial call to @StartFaceSearch@ . For more information, see 'procedure-person-search-videos' .
 --
 module Network.AWS.Rekognition.StartFaceSearch
     (
@@ -70,7 +70,7 @@ data StartFaceSearch = StartFaceSearch'
 --
 -- * 'sfsJobTag' - Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic.
 --
--- * 'sfsNotificationChannel' - The ARN of the Amazon SNS topic to which you want Rekognition Video to publish the completion status of the search.
+-- * 'sfsNotificationChannel' - The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search.
 --
 -- * 'sfsClientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartFaceSearch@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 --
@@ -100,7 +100,7 @@ sfsFaceMatchThreshold = lens _sfsFaceMatchThreshold (\ s a -> s{_sfsFaceMatchThr
 sfsJobTag :: Lens' StartFaceSearch (Maybe Text)
 sfsJobTag = lens _sfsJobTag (\ s a -> s{_sfsJobTag = a})
 
--- | The ARN of the Amazon SNS topic to which you want Rekognition Video to publish the completion status of the search.
+-- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search.
 sfsNotificationChannel :: Lens' StartFaceSearch (Maybe NotificationChannel)
 sfsNotificationChannel = lens _sfsNotificationChannel (\ s a -> s{_sfsNotificationChannel = a})
 

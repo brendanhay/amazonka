@@ -51,6 +51,7 @@ library
         , Network.AWS.Rekognition.DeleteCollection
         , Network.AWS.Rekognition.DeleteFaces
         , Network.AWS.Rekognition.DeleteStreamProcessor
+        , Network.AWS.Rekognition.DescribeCollection
         , Network.AWS.Rekognition.DescribeStreamProcessor
         , Network.AWS.Rekognition.DetectFaces
         , Network.AWS.Rekognition.DetectLabels

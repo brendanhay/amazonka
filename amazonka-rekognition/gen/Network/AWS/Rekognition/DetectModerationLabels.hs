@@ -21,9 +21,11 @@
 -- Detects explicit or suggestive adult content in a specified JPEG or PNG format image. Use @DetectModerationLabels@ to moderate images depending on your requirements. For example, you might want to filter images that contain nudity, but not images containing suggestive content.
 --
 --
--- To filter images, use the labels returned by @DetectModerationLabels@ to determine which types of content are appropriate. For information about moderation labels, see 'moderation' .
+-- To filter images, use the labels returned by @DetectModerationLabels@ to determine which types of content are appropriate.
 --
--- You pass the input image either as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file.
+-- For information about moderation labels, see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.
+--
+-- You pass the input image either as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file.
 --
 module Network.AWS.Rekognition.DetectModerationLabels
     (
@@ -38,6 +40,7 @@ module Network.AWS.Rekognition.DetectModerationLabels
     , detectModerationLabelsResponse
     , DetectModerationLabelsResponse
     -- * Response Lenses
+    , dmlrsModerationModelVersion
     , dmlrsModerationLabels
     , dmlrsResponseStatus
     ) where
@@ -62,7 +65,7 @@ data DetectModerationLabels = DetectModerationLabels'
 --
 -- * 'dmlMinConfidence' - Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence level lower than this specified value. If you don't specify @MinConfidence@ , the operation returns labels with confidence values greater than or equal to 50 percent.
 --
--- * 'dmlImage' - The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
+-- * 'dmlImage' - The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.  If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
 detectModerationLabels
     :: Image -- ^ 'dmlImage'
     -> DetectModerationLabels
@@ -74,7 +77,7 @@ detectModerationLabels pImage_ =
 dmlMinConfidence :: Lens' DetectModerationLabels (Maybe Double)
 dmlMinConfidence = lens _dmlMinConfidence (\ s a -> s{_dmlMinConfidence = a})
 
--- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
+-- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.  If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
 dmlImage :: Lens' DetectModerationLabels Image
 dmlImage = lens _dmlImage (\ s a -> s{_dmlImage = a})
 
@@ -86,8 +89,9 @@ instance AWSRequest DetectModerationLabels where
           = receiveJSON
               (\ s h x ->
                  DetectModerationLabelsResponse' <$>
-                   (x .?> "ModerationLabels" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+                   (x .?> "ModerationModelVersion") <*>
+                     (x .?> "ModerationLabels" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance Hashable DetectModerationLabels where
 
@@ -118,14 +122,17 @@ instance ToQuery DetectModerationLabels where
 
 -- | /See:/ 'detectModerationLabelsResponse' smart constructor.
 data DetectModerationLabelsResponse = DetectModerationLabelsResponse'
-  { _dmlrsModerationLabels :: !(Maybe [ModerationLabel])
-  , _dmlrsResponseStatus   :: !Int
+  { _dmlrsModerationModelVersion :: !(Maybe Text)
+  , _dmlrsModerationLabels       :: !(Maybe [ModerationLabel])
+  , _dmlrsResponseStatus         :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'DetectModerationLabelsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmlrsModerationModelVersion' - Version number of the moderation detection model that was used to detect unsafe content.
 --
 -- * 'dmlrsModerationLabels' - Array of detected Moderation labels and the time, in millseconds from the start of the video, they were detected.
 --
@@ -135,8 +142,15 @@ detectModerationLabelsResponse
     -> DetectModerationLabelsResponse
 detectModerationLabelsResponse pResponseStatus_ =
   DetectModerationLabelsResponse'
-    {_dmlrsModerationLabels = Nothing, _dmlrsResponseStatus = pResponseStatus_}
+    { _dmlrsModerationModelVersion = Nothing
+    , _dmlrsModerationLabels = Nothing
+    , _dmlrsResponseStatus = pResponseStatus_
+    }
 
+
+-- | Version number of the moderation detection model that was used to detect unsafe content.
+dmlrsModerationModelVersion :: Lens' DetectModerationLabelsResponse (Maybe Text)
+dmlrsModerationModelVersion = lens _dmlrsModerationModelVersion (\ s a -> s{_dmlrsModerationModelVersion = a})
 
 -- | Array of detected Moderation labels and the time, in millseconds from the start of the video, they were detected.
 dmlrsModerationLabels :: Lens' DetectModerationLabelsResponse [ModerationLabel]

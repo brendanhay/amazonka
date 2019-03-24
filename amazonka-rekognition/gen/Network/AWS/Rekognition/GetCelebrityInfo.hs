@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the name and additional information about a celebrity based on his or her Rekognition ID. The additional information is returned as an array of URLs. If there is no additional information about the celebrity, this list is empty. For more information, see 'get-celebrity-info-procedure' .
+-- Gets the name and additional information about a celebrity based on his or her Amazon Rekognition ID. The additional information is returned as an array of URLs. If there is no additional information about the celebrity, this list is empty.
 --
+--
+-- For more information, see Recognizing Celebrities in an Image in the Amazon Rekognition Developer Guide.
 --
 -- This operation requires permissions to perform the @rekognition:GetCelebrityInfo@ action.
 --
@@ -57,14 +59,14 @@ newtype GetCelebrityInfo = GetCelebrityInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gciId' - The ID for the celebrity. You get the celebrity ID from a call to the operation, which recognizes celebrities in an image.
+-- * 'gciId' - The ID for the celebrity. You get the celebrity ID from a call to the 'RecognizeCelebrities' operation, which recognizes celebrities in an image.
 getCelebrityInfo
     :: Text -- ^ 'gciId'
     -> GetCelebrityInfo
 getCelebrityInfo pId_ = GetCelebrityInfo' {_gciId = pId_}
 
 
--- | The ID for the celebrity. You get the celebrity ID from a call to the operation, which recognizes celebrities in an image.
+-- | The ID for the celebrity. You get the celebrity ID from a call to the 'RecognizeCelebrities' operation, which recognizes celebrities in an image.
 gciId :: Lens' GetCelebrityInfo Text
 gciId = lens _gciId (\ s a -> s{_gciId = a})
 

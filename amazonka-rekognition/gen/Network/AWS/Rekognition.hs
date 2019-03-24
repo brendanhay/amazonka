@@ -103,6 +103,9 @@ module Network.AWS.Rekognition
     -- ** ListStreamProcessors (Paginated)
     , module Network.AWS.Rekognition.ListStreamProcessors
 
+    -- ** DescribeCollection
+    , module Network.AWS.Rekognition.DescribeCollection
+
     -- ** RecognizeCelebrities
     , module Network.AWS.Rekognition.RecognizeCelebrities
 
@@ -206,6 +209,12 @@ module Network.AWS.Rekognition
 
     -- ** PersonTrackingSortBy
     , PersonTrackingSortBy (..)
+
+    -- ** QualityFilter
+    , QualityFilter (..)
+
+    -- ** Reason
+    , Reason (..)
 
     -- ** StreamProcessorStatus
     , StreamProcessorStatus (..)
@@ -382,6 +391,12 @@ module Network.AWS.Rekognition
     , iqSharpness
     , iqBrightness
 
+    -- ** Instance
+    , Instance
+    , instance'
+    , iBoundingBox
+    , iConfidence
+
     -- ** KinesisDataStream
     , KinesisDataStream
     , kinesisDataStream
@@ -396,7 +411,9 @@ module Network.AWS.Rekognition
     , Label
     , label
     , lConfidence
+    , lParents
     , lName
+    , lInstances
 
     -- ** LabelDetection
     , LabelDetection
@@ -435,6 +452,11 @@ module Network.AWS.Rekognition
     , notificationChannel
     , ncSNSTopicARN
     , ncRoleARN
+
+    -- ** Parent
+    , Parent
+    , parent
+    , pName
 
     -- ** PersonDetail
     , PersonDetail
@@ -519,6 +541,12 @@ module Network.AWS.Rekognition
     , tdType
     , tdParentId
 
+    -- ** UnindexedFace
+    , UnindexedFace
+    , unindexedFace
+    , ufReasons
+    , ufFaceDetail
+
     -- ** Video
     , Video
     , video
@@ -541,6 +569,7 @@ import Network.AWS.Rekognition.CreateStreamProcessor
 import Network.AWS.Rekognition.DeleteCollection
 import Network.AWS.Rekognition.DeleteFaces
 import Network.AWS.Rekognition.DeleteStreamProcessor
+import Network.AWS.Rekognition.DescribeCollection
 import Network.AWS.Rekognition.DescribeStreamProcessor
 import Network.AWS.Rekognition.DetectFaces
 import Network.AWS.Rekognition.DetectLabels

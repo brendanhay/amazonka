@@ -254,7 +254,8 @@ instance ToJSON LabelDetectionSortBy where
     toJSON = toJSONText
 
 data LandmarkType
-  = EyeLeft
+  = ChinBottom
+  | EyeLeft
   | EyeRight
   | LeftEyeBrowLeft
   | LeftEyeBrowRight
@@ -264,6 +265,8 @@ data LandmarkType
   | LeftEyeRight
   | LeftEyeUp
   | LeftPupil
+  | MidJawlineLeft
+  | MidJawlineRight
   | MouthDown
   | MouthLeft
   | MouthRight
@@ -279,11 +282,14 @@ data LandmarkType
   | RightEyeRight
   | RightEyeUp
   | RightPupil
+  | UpperJawlineLeft
+  | UpperJawlineRight
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText LandmarkType where
     parser = takeLowerText >>= \case
+        "chinbottom" -> pure ChinBottom
         "eyeleft" -> pure EyeLeft
         "eyeright" -> pure EyeRight
         "lefteyebrowleft" -> pure LeftEyeBrowLeft
@@ -294,6 +300,8 @@ instance FromText LandmarkType where
         "lefteyeright" -> pure LeftEyeRight
         "lefteyeup" -> pure LeftEyeUp
         "leftpupil" -> pure LeftPupil
+        "midjawlineleft" -> pure MidJawlineLeft
+        "midjawlineright" -> pure MidJawlineRight
         "mouthdown" -> pure MouthDown
         "mouthleft" -> pure MouthLeft
         "mouthright" -> pure MouthRight
@@ -309,11 +317,14 @@ instance FromText LandmarkType where
         "righteyeright" -> pure RightEyeRight
         "righteyeup" -> pure RightEyeUp
         "rightpupil" -> pure RightPupil
+        "upperjawlineleft" -> pure UpperJawlineLeft
+        "upperjawlineright" -> pure UpperJawlineRight
         e -> fromTextError $ "Failure parsing LandmarkType from value: '" <> e
-           <> "'. Accepted values: eyeleft, eyeright, lefteyebrowleft, lefteyebrowright, lefteyebrowup, lefteyedown, lefteyeleft, lefteyeright, lefteyeup, leftpupil, mouthdown, mouthleft, mouthright, mouthup, nose, noseleft, noseright, righteyebrowleft, righteyebrowright, righteyebrowup, righteyedown, righteyeleft, righteyeright, righteyeup, rightpupil"
+           <> "'. Accepted values: chinbottom, eyeleft, eyeright, lefteyebrowleft, lefteyebrowright, lefteyebrowup, lefteyedown, lefteyeleft, lefteyeright, lefteyeup, leftpupil, midjawlineleft, midjawlineright, mouthdown, mouthleft, mouthright, mouthup, nose, noseleft, noseright, righteyebrowleft, righteyebrowright, righteyebrowup, righteyedown, righteyeleft, righteyeright, righteyeup, rightpupil, upperjawlineleft, upperjawlineright"
 
 instance ToText LandmarkType where
     toText = \case
+        ChinBottom -> "chinBottom"
         EyeLeft -> "eyeLeft"
         EyeRight -> "eyeRight"
         LeftEyeBrowLeft -> "leftEyeBrowLeft"
@@ -324,6 +335,8 @@ instance ToText LandmarkType where
         LeftEyeRight -> "leftEyeRight"
         LeftEyeUp -> "leftEyeUp"
         LeftPupil -> "leftPupil"
+        MidJawlineLeft -> "midJawlineLeft"
+        MidJawlineRight -> "midJawlineRight"
         MouthDown -> "mouthDown"
         MouthLeft -> "mouthLeft"
         MouthRight -> "mouthRight"
@@ -339,6 +352,8 @@ instance ToText LandmarkType where
         RightEyeRight -> "rightEyeRight"
         RightEyeUp -> "rightEyeUp"
         RightPupil -> "rightPupil"
+        UpperJawlineLeft -> "upperJawlineLeft"
+        UpperJawlineRight -> "upperJawlineRight"
 
 instance Hashable     LandmarkType
 instance NFData       LandmarkType
@@ -408,6 +423,72 @@ instance ToHeader     PersonTrackingSortBy
 
 instance ToJSON PersonTrackingSortBy where
     toJSON = toJSONText
+
+data QualityFilter
+  = Auto
+  | None
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText QualityFilter where
+    parser = takeLowerText >>= \case
+        "auto" -> pure Auto
+        "none" -> pure None
+        e -> fromTextError $ "Failure parsing QualityFilter from value: '" <> e
+           <> "'. Accepted values: auto, none"
+
+instance ToText QualityFilter where
+    toText = \case
+        Auto -> "AUTO"
+        None -> "NONE"
+
+instance Hashable     QualityFilter
+instance NFData       QualityFilter
+instance ToByteString QualityFilter
+instance ToQuery      QualityFilter
+instance ToHeader     QualityFilter
+
+instance ToJSON QualityFilter where
+    toJSON = toJSONText
+
+data Reason
+  = ExceedsMaxFaces
+  | ExtremePose
+  | LowBrightness
+  | LowConfidence
+  | LowSharpness
+  | SmallBoundingBox
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText Reason where
+    parser = takeLowerText >>= \case
+        "exceeds_max_faces" -> pure ExceedsMaxFaces
+        "extreme_pose" -> pure ExtremePose
+        "low_brightness" -> pure LowBrightness
+        "low_confidence" -> pure LowConfidence
+        "low_sharpness" -> pure LowSharpness
+        "small_bounding_box" -> pure SmallBoundingBox
+        e -> fromTextError $ "Failure parsing Reason from value: '" <> e
+           <> "'. Accepted values: exceeds_max_faces, extreme_pose, low_brightness, low_confidence, low_sharpness, small_bounding_box"
+
+instance ToText Reason where
+    toText = \case
+        ExceedsMaxFaces -> "EXCEEDS_MAX_FACES"
+        ExtremePose -> "EXTREME_POSE"
+        LowBrightness -> "LOW_BRIGHTNESS"
+        LowConfidence -> "LOW_CONFIDENCE"
+        LowSharpness -> "LOW_SHARPNESS"
+        SmallBoundingBox -> "SMALL_BOUNDING_BOX"
+
+instance Hashable     Reason
+instance NFData       Reason
+instance ToByteString Reason
+instance ToQuery      Reason
+instance ToHeader     Reason
+
+instance FromJSON Reason where
+    parseJSON = parseJSONText "Reason"
 
 data StreamProcessorStatus
   = SPSFailed

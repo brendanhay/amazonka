@@ -23,7 +23,7 @@
 --
 -- Pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, you must pass it as a reference to an image in an Amazon S3 bucket. For the AWS CLI, passing image bytes is not supported. The image must be either a .png or .jpeg formatted file.
 --
--- The @DetectText@ operation returns text in an array of elements, @TextDetections@ . Each @TextDetection@ element provides information about a single word or line of text that was detected in the image.
+-- The @DetectText@ operation returns text in an array of 'TextDetection' elements, @TextDetections@ . Each @TextDetection@ element provides information about a single word or line of text that was detected in the image.
 --
 -- A word is one or more ISO basic latin script characters that are not separated by spaces. @DetectText@ can detect up to 50 words in an image.
 --
@@ -31,9 +31,9 @@
 --
 -- To determine whether a @TextDetection@ element is a line of text or a word, use the @TextDetection@ object @Type@ field.
 --
--- To be detected, text must be within +/- 30 degrees orientation of the horizontal axis.
+-- To be detected, text must be within +/- 90 degrees orientation of the horizontal axis.
 --
--- For more information, see 'text-detection' .
+-- For more information, see DetectText in the Amazon Rekognition Developer Guide.
 --
 module Network.AWS.Rekognition.DetectText
     (
@@ -68,14 +68,14 @@ newtype DetectText = DetectText'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtImage' - The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Rekognition operations, you can't pass image bytes.
+-- * 'dtImage' - The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Rekognition operations, you can't pass image bytes.  If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
 detectText
     :: Image -- ^ 'dtImage'
     -> DetectText
 detectText pImage_ = DetectText' {_dtImage = pImage_}
 
 
--- | The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Rekognition operations, you can't pass image bytes.
+-- | The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Rekognition operations, you can't pass image bytes.  If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
 dtImage :: Lens' DetectText Image
 dtImage = lens _dtImage (\ s a -> s{_dtImage = a})
 

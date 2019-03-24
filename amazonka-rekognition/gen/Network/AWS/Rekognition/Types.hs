@@ -65,6 +65,12 @@ module Network.AWS.Rekognition.Types
     -- * PersonTrackingSortBy
     , PersonTrackingSortBy (..)
 
+    -- * QualityFilter
+    , QualityFilter (..)
+
+    -- * Reason
+    , Reason (..)
+
     -- * StreamProcessorStatus
     , StreamProcessorStatus (..)
 
@@ -240,6 +246,12 @@ module Network.AWS.Rekognition.Types
     , iqSharpness
     , iqBrightness
 
+    -- * Instance
+    , Instance
+    , instance'
+    , iBoundingBox
+    , iConfidence
+
     -- * KinesisDataStream
     , KinesisDataStream
     , kinesisDataStream
@@ -254,7 +266,9 @@ module Network.AWS.Rekognition.Types
     , Label
     , label
     , lConfidence
+    , lParents
     , lName
+    , lInstances
 
     -- * LabelDetection
     , LabelDetection
@@ -293,6 +307,11 @@ module Network.AWS.Rekognition.Types
     , notificationChannel
     , ncSNSTopicARN
     , ncRoleARN
+
+    -- * Parent
+    , Parent
+    , parent
+    , pName
 
     -- * PersonDetail
     , PersonDetail
@@ -376,6 +395,12 @@ module Network.AWS.Rekognition.Types
     , tdId
     , tdType
     , tdParentId
+
+    -- * UnindexedFace
+    , UnindexedFace
+    , unindexedFace
+    , ufReasons
+    , ufFaceDetail
 
     -- * Video
     , Video
@@ -493,7 +518,7 @@ _ProvisionedThroughputExceededException =
   _MatchServiceError rekognition "ProvisionedThroughputExceededException"
 
 
--- | The input image size exceeds the allowed limit. For more information, see 'limits' .
+-- | The input image size exceeds the allowed limit. For more information, see Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide.
 --
 --
 _ImageTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -539,7 +564,7 @@ _InvalidPaginationTokenException =
   _MatchServiceError rekognition "InvalidPaginationTokenException"
 
 
--- | An Amazon Rekognition service limit was exceeded. For example, if you start too many Rekognition Video jobs concurrently, calls to start operations (@StartLabelDetection@ , for example) will raise a @LimitExceededException@ exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit.
+-- | An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations (@StartLabelDetection@ , for example) will raise a @LimitExceededException@ exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError

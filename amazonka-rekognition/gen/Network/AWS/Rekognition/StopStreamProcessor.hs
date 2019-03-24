@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops a running stream processor that was created by .
+-- Stops a running stream processor that was created by 'CreateStreamProcessor' .
 --
 --
 module Network.AWS.Rekognition.StopStreamProcessor
@@ -53,14 +53,14 @@ newtype StopStreamProcessor = StopStreamProcessor'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sspName' - The name of a stream processor created by .
+-- * 'sspName' - The name of a stream processor created by 'CreateStreamProcessor' .
 stopStreamProcessor
     :: Text -- ^ 'sspName'
     -> StopStreamProcessor
 stopStreamProcessor pName_ = StopStreamProcessor' {_sspName = pName_}
 
 
--- | The name of a stream processor created by .
+-- | The name of a stream processor created by 'CreateStreamProcessor' .
 sspName :: Lens' StopStreamProcessor Text
 sspName = lens _sspName (\ s a -> s{_sspName = a})
 

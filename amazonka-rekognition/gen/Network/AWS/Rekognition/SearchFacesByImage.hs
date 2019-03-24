@@ -21,11 +21,11 @@
 -- For a given input image, first detects the largest face in the image, and then searches the specified collection for matching faces. The operation compares the features of the input face with faces in the specified collection.
 --
 --
--- You pass the input image either as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file.
+-- You pass the input image either as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file.
 --
 -- The response returns an array of faces that match, ordered by similarity score with the highest similarity first. More specifically, it is an array of metadata for each face match found. Along with the metadata, the response also includes a @similarity@ indicating how similar the face is to the input face. In the response, the operation also returns the bounding box (and a confidence level that the bounding box contains a face) of the face that Amazon Rekognition used for the input image.
 --
--- For an example, see 'search-face-with-image-procedure' .
+-- For an example, Searching for a Face Using an Image in the Amazon Rekognition Developer Guide.
 --
 -- This operation requires permissions to perform the @rekognition:SearchFacesByImage@ action.
 --
@@ -77,7 +77,7 @@ data SearchFacesByImage = SearchFacesByImage'
 --
 -- * 'sfbiCollectionId' - ID of the collection to search.
 --
--- * 'sfbiImage' - The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
+-- * 'sfbiImage' - The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.  If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
 searchFacesByImage
     :: Text -- ^ 'sfbiCollectionId'
     -> Image -- ^ 'sfbiImage'
@@ -103,7 +103,7 @@ sfbiMaxFaces = lens _sfbiMaxFaces (\ s a -> s{_sfbiMaxFaces = a}) . mapping _Nat
 sfbiCollectionId :: Lens' SearchFacesByImage Text
 sfbiCollectionId = lens _sfbiCollectionId (\ s a -> s{_sfbiCollectionId = a})
 
--- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
+-- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.  If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
 sfbiImage :: Lens' SearchFacesByImage Image
 sfbiImage = lens _sfbiImage (\ s a -> s{_sfbiImage = a})
 

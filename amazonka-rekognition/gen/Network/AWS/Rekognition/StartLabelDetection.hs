@@ -21,11 +21,11 @@
 -- Starts asynchronous detection of labels in a stored video.
 --
 --
--- Rekognition Video can detect labels in a video. Labels are instances of real-world entities. This includes objects like flower, tree, and table; events like wedding, graduation, and birthday party; concepts like landscape, evening, and nature; and activities like a person getting out of a car or a person skiing.
+-- Amazon Rekognition Video can detect labels in a video. Labels are instances of real-world entities. This includes objects like flower, tree, and table; events like wedding, graduation, and birthday party; concepts like landscape, evening, and nature; and activities like a person getting out of a car or a person skiing.
 --
--- The video must be stored in an Amazon S3 bucket. Use 'Video' to specify the bucket name and the filename of the video. @StartLabelDetection@ returns a job identifier (@JobId@ ) which you use to get the results of the operation. When label detection is finished, Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in @NotificationChannel@ .
+-- The video must be stored in an Amazon S3 bucket. Use 'Video' to specify the bucket name and the filename of the video. @StartLabelDetection@ returns a job identifier (@JobId@ ) which you use to get the results of the operation. When label detection is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in @NotificationChannel@ .
 --
--- To get the results of the label detection operation, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call and pass the job identifier (@JobId@ ) from the initial call to @StartLabelDetection@ .
+-- To get the results of the label detection operation, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call 'GetLabelDetection' and pass the job identifier (@JobId@ ) from the initial call to @StartLabelDetection@ .
 --
 --
 --
@@ -72,11 +72,11 @@ data StartLabelDetection = StartLabelDetection'
 --
 -- * 'sldJobTag' - Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic.
 --
--- * 'sldNotificationChannel' - The Amazon SNS topic ARN you want Rekognition Video to publish the completion status of the label detection operation to.
+-- * 'sldNotificationChannel' - The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection operation to.
 --
 -- * 'sldClientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartLabelDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 --
--- * 'sldMinConfidence' - Specifies the minimum confidence that Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Rekognition Video doesn't return any labels with a confidence level lower than this specified value. If you don't specify @MinConfidence@ , the operation returns labels with confidence values greater than or equal to 50 percent.
+-- * 'sldMinConfidence' - Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any labels with a confidence level lower than this specified value. If you don't specify @MinConfidence@ , the operation returns labels with confidence values greater than or equal to 50 percent.
 --
 -- * 'sldVideo' - The video in which you want to detect labels. The video must be stored in an Amazon S3 bucket.
 startLabelDetection
@@ -96,7 +96,7 @@ startLabelDetection pVideo_ =
 sldJobTag :: Lens' StartLabelDetection (Maybe Text)
 sldJobTag = lens _sldJobTag (\ s a -> s{_sldJobTag = a})
 
--- | The Amazon SNS topic ARN you want Rekognition Video to publish the completion status of the label detection operation to.
+-- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection operation to.
 sldNotificationChannel :: Lens' StartLabelDetection (Maybe NotificationChannel)
 sldNotificationChannel = lens _sldNotificationChannel (\ s a -> s{_sldNotificationChannel = a})
 
@@ -104,7 +104,7 @@ sldNotificationChannel = lens _sldNotificationChannel (\ s a -> s{_sldNotificati
 sldClientRequestToken :: Lens' StartLabelDetection (Maybe Text)
 sldClientRequestToken = lens _sldClientRequestToken (\ s a -> s{_sldClientRequestToken = a})
 
--- | Specifies the minimum confidence that Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Rekognition Video doesn't return any labels with a confidence level lower than this specified value. If you don't specify @MinConfidence@ , the operation returns labels with confidence values greater than or equal to 50 percent.
+-- | Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any labels with a confidence level lower than this specified value. If you don't specify @MinConfidence@ , the operation returns labels with confidence values greater than or equal to 50 percent.
 sldMinConfidence :: Lens' StartLabelDetection (Maybe Double)
 sldMinConfidence = lens _sldMinConfidence (\ s a -> s{_sldMinConfidence = a})
 

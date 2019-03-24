@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of stream processors that you have created with .
+-- Gets a list of stream processors that you have created with 'CreateStreamProcessor' .
 --
 --
 --
@@ -60,20 +60,20 @@ data ListStreamProcessors = ListStreamProcessors'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lspNextToken' - If the previous response was incomplete (because there are more stream processors to retrieve), Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of stream processors.
+-- * 'lspNextToken' - If the previous response was incomplete (because there are more stream processors to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of stream processors.
 --
--- * 'lspMaxResults' - Maximum number of stream processors you want Rekognition Video to return in the response. The default is 1000.
+-- * 'lspMaxResults' - Maximum number of stream processors you want Amazon Rekognition Video to return in the response. The default is 1000.
 listStreamProcessors
     :: ListStreamProcessors
 listStreamProcessors =
   ListStreamProcessors' {_lspNextToken = Nothing, _lspMaxResults = Nothing}
 
 
--- | If the previous response was incomplete (because there are more stream processors to retrieve), Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of stream processors.
+-- | If the previous response was incomplete (because there are more stream processors to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of stream processors.
 lspNextToken :: Lens' ListStreamProcessors (Maybe Text)
 lspNextToken = lens _lspNextToken (\ s a -> s{_lspNextToken = a})
 
--- | Maximum number of stream processors you want Rekognition Video to return in the response. The default is 1000.
+-- | Maximum number of stream processors you want Amazon Rekognition Video to return in the response. The default is 1000.
 lspMaxResults :: Lens' ListStreamProcessors (Maybe Natural)
 lspMaxResults = lens _lspMaxResults (\ s a -> s{_lspMaxResults = a}) . mapping _Nat
 
@@ -137,7 +137,7 @@ data ListStreamProcessorsResponse = ListStreamProcessorsResponse'
 --
 -- * 'lsprsStreamProcessors' - List of stream processors that you have created.
 --
--- * 'lsprsNextToken' - If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of stream processors.
+-- * 'lsprsNextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of stream processors.
 --
 -- * 'lsprsResponseStatus' - -- | The response status code.
 listStreamProcessorsResponse
@@ -155,7 +155,7 @@ listStreamProcessorsResponse pResponseStatus_ =
 lsprsStreamProcessors :: Lens' ListStreamProcessorsResponse [StreamProcessor]
 lsprsStreamProcessors = lens _lsprsStreamProcessors (\ s a -> s{_lsprsStreamProcessors = a}) . _Default . _Coerce
 
--- | If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of stream processors.
+-- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of stream processors.
 lsprsNextToken :: Lens' ListStreamProcessorsResponse (Maybe Text)
 lsprsNextToken = lens _lsprsNextToken (\ s a -> s{_lsprsNextToken = a})
 

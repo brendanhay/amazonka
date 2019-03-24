@@ -24,7 +24,7 @@ import Network.AWS.Rekognition.Types.Sum
 -- | Structure containing the estimated age range, in years, for a face.
 --
 --
--- Rekognition estimates an age-range for faces detected in the input image. Estimated age ranges can overlap; a face of a 5 year old may have an estimated range of 4-6 whilst the face of a 6 year old may have an estimated range of 4-8.
+-- Amazon Rekognition estimates an age range for faces detected in the input image. Estimated age ranges can overlap. A face of a 5-year-old might have an estimated range of 4-6, while the face of a 6-year-old might have an estimated range of 4-8.
 --
 --
 -- /See:/ 'ageRange' smart constructor.
@@ -105,7 +105,7 @@ instance Hashable Beard where
 
 instance NFData Beard where
 
--- | Identifies the bounding box around the object, face or text. The @left@ (x-coordinate) and @top@ (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0).
+-- | Identifies the bounding box around the label, face, or text. The @left@ (x-coordinate) and @top@ (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0).
 --
 --
 -- The @top@ and @left@ values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a @left@ value of 0.5 (350/700) and a @top@ value of 0.25 (50/200).
@@ -173,7 +173,7 @@ instance Hashable BoundingBox where
 
 instance NFData BoundingBox where
 
--- | Provides information about a celebrity recognized by the operation.
+-- | Provides information about a celebrity recognized by the 'RecognizeCelebrities' operation.
 --
 --
 --
@@ -191,7 +191,7 @@ data Celebrity = Celebrity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cMatchConfidence' - The confidence, in percentage, that Rekognition has that the recognized face is the celebrity.
+-- * 'cMatchConfidence' - The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity.
 --
 -- * 'cURLs' - An array of URLs pointing to additional information about the celebrity. If there is no additional information about the celebrity, this list is empty.
 --
@@ -212,7 +212,7 @@ celebrity =
     }
 
 
--- | The confidence, in percentage, that Rekognition has that the recognized face is the celebrity.
+-- | The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity.
 cMatchConfidence :: Lens' Celebrity (Maybe Double)
 cMatchConfidence = lens _cMatchConfidence (\ s a -> s{_cMatchConfidence = a})
 
@@ -329,7 +329,7 @@ instance Hashable CelebrityDetail where
 
 instance NFData CelebrityDetail where
 
--- | Information about a detected celebrity and the time the celebrity was detected in a stored video. For more information, see .
+-- | Information about a detected celebrity and the time the celebrity was detected in a stored video. For more information, see GetCelebrityRecognition in the Amazon Rekognition Developer Guide.
 --
 --
 --
@@ -372,7 +372,7 @@ instance Hashable CelebrityRecognition where
 
 instance NFData CelebrityRecognition where
 
--- | Provides information about a face in a target image that matches the source image face analysed by @CompareFaces@ . The @Face@ property contains the bounding box of the face in the target image. The @Similarity@ property is the confidence that the source image face matches the face in the bounding box.
+-- | Provides information about a face in a target image that matches the source image face analyzed by @CompareFaces@ . The @Face@ property contains the bounding box of the face in the target image. The @Similarity@ property is the confidence that the source image face matches the face in the bounding box.
 --
 --
 --
@@ -415,7 +415,7 @@ instance Hashable CompareFacesMatch where
 
 instance NFData CompareFacesMatch where
 
--- | Provides face metadata for target image faces that are analysed by @CompareFaces@ and @RecognizeCelebrities@ .
+-- | Provides face metadata for target image faces that are analyzed by @CompareFaces@ and @RecognizeCelebrities@ .
 --
 --
 --
@@ -779,7 +779,7 @@ instance NFData Face where
 --
 -- A @FaceDetail@ object contains either the default facial attributes or all facial attributes. The default attributes are @BoundingBox@ , @Confidence@ , @Landmarks@ , @Pose@ , and @Quality@ .
 --
--- is the only Rekognition Video stored video operation that can return a @FaceDetail@ object with all attributes. To specify which attributes to return, use the @FaceAttributes@ input parameter for . The following Rekognition Video operations return only the default attributes. The corresponding Start operations don't have a @FaceAttributes@ input parameter.
+-- 'GetFaceDetection' is the only Amazon Rekognition Video stored video operation that can return a @FaceDetail@ object with all attributes. To specify which attributes to return, use the @FaceAttributes@ input parameter for 'StartFaceDetection' . The following Amazon Rekognition Video operations return only the default attributes. The corresponding Start operations don't have a @FaceAttributes@ input parameter.
 --
 --     * GetCelebrityRecognition
 --
@@ -789,7 +789,7 @@ instance NFData Face where
 --
 --
 --
--- The Rekognition Image and operations can return all facial attributes. To specify which attributes to return, use the @Attributes@ input parameter for @DetectFaces@ . For @IndexFaces@ , use the @DetectAttributes@ input parameter.
+-- The Amazon Rekognition Image 'DetectFaces' and 'IndexFaces' operations can return all facial attributes. To specify which attributes to return, use the @Attributes@ input parameter for @DetectFaces@ . For @IndexFaces@ , use the @DetectAttributes@ input parameter.
 --
 --
 -- /See:/ 'faceDetail' smart constructor.
@@ -1035,7 +1035,7 @@ instance Hashable FaceMatch where
 
 instance NFData FaceMatch where
 
--- | Object containing both the face metadata (stored in the back-end database) and facial attributes that are detected but aren't stored in the database.
+-- | Object containing both the face metadata (stored in the backend database), and facial attributes that are detected but aren't stored in the database.
 --
 --
 --
@@ -1077,7 +1077,7 @@ instance Hashable FaceRecord where
 
 instance NFData FaceRecord where
 
--- | Input face recognition parameters for an Amazon Rekognition stream processor. @FaceRecognitionSettings@ is a request parameter for .
+-- | Input face recognition parameters for an Amazon Rekognition stream processor. @FaceRecognitionSettings@ is a request parameter for 'CreateStreamProcessor' .
 --
 --
 --
@@ -1171,7 +1171,7 @@ instance Hashable Gender where
 
 instance NFData Gender where
 
--- | Information about where text detected by is located on an image.
+-- | Information about where the text detected by 'DetectText' is located on an image.
 --
 --
 --
@@ -1217,15 +1217,17 @@ instance NFData Geometry where
 -- | Provides the input image either as bytes or an S3 object.
 --
 --
--- You pass image bytes to a Rekognition API operation by using the @Bytes@ property. For example, you would use the @Bytes@ property to pass an image loaded from a local file system. Image bytes passed by using the @Bytes@ property must be base64-encoded. Your code may not need to encode image bytes if you are using an AWS SDK to call Rekognition API operations. For more information, see 'images-bytes' .
+-- You pass image bytes to an Amazon Rekognition API operation by using the @Bytes@ property. For example, you would use the @Bytes@ property to pass an image loaded from a local file system. Image bytes passed by using the @Bytes@ property must be base64-encoded. Your code may not need to encode image bytes if you are using an AWS SDK to call Amazon Rekognition API operations.
 --
--- You pass images stored in an S3 bucket to a Rekognition API operation by using the @S3Object@ property. Images stored in an S3 bucket do not need to be base64-encoded.
+-- For more information, see Analyzing an Image Loaded from a Local File System in the Amazon Rekognition Developer Guide.
+--
+-- You pass images stored in an S3 bucket to an Amazon Rekognition API operation by using the @S3Object@ property. Images stored in an S3 bucket do not need to be base64-encoded.
 --
 -- The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.
 --
--- If you use the Amazon CLI to call Amazon Rekognition operations, passing image bytes using the Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and then call the operation using the S3Object property.
+-- If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes using the Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and then call the operation using the S3Object property.
 --
--- For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see 'manage-access-resource-policies' .
+-- For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see Resource Based Policies in the Amazon Rekognition Developer Guide.
 --
 --
 -- /See:/ 'image' smart constructor.
@@ -1308,7 +1310,49 @@ instance Hashable ImageQuality where
 
 instance NFData ImageQuality where
 
--- | The Kinesis data stream Amazon Rekognition to which the analysis results of a Amazon Rekognition stream processor are streamed. For more information, see .
+-- | An instance of a label returned by Amazon Rekognition Image ('DetectLabels' ) or by Amazon Rekognition Video ('GetLabelDetection' ).
+--
+--
+--
+-- /See:/ 'instance'' smart constructor.
+data Instance = Instance'
+  { _iBoundingBox :: !(Maybe BoundingBox)
+  , _iConfidence  :: !(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Instance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iBoundingBox' - The position of the label instance on the image.
+--
+-- * 'iConfidence' - The confidence that Amazon Rekognition has in the accuracy of the bounding box.
+instance'
+    :: Instance
+instance' = Instance' {_iBoundingBox = Nothing, _iConfidence = Nothing}
+
+
+-- | The position of the label instance on the image.
+iBoundingBox :: Lens' Instance (Maybe BoundingBox)
+iBoundingBox = lens _iBoundingBox (\ s a -> s{_iBoundingBox = a})
+
+-- | The confidence that Amazon Rekognition has in the accuracy of the bounding box.
+iConfidence :: Lens' Instance (Maybe Double)
+iConfidence = lens _iConfidence (\ s a -> s{_iConfidence = a})
+
+instance FromJSON Instance where
+        parseJSON
+          = withObject "Instance"
+              (\ x ->
+                 Instance' <$>
+                   (x .:? "BoundingBox") <*> (x .:? "Confidence"))
+
+instance Hashable Instance where
+
+instance NFData Instance where
+
+-- | The Kinesis data stream Amazon Rekognition to which the analysis results of a Amazon Rekognition stream processor are streamed. For more information, see CreateStreamProcessor in the Amazon Rekognition Developer Guide.
 --
 --
 --
@@ -1345,7 +1389,7 @@ instance ToJSON KinesisDataStream where
         toJSON KinesisDataStream'{..}
           = object (catMaybes [("Arn" .=) <$> _kdsARN])
 
--- | Kinesis video stream stream that provides the source streaming video for a Rekognition Video stream processor. For more information, see .
+-- | Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor. For more information, see CreateStreamProcessor in the Amazon Rekognition Developer Guide.
 --
 --
 --
@@ -1382,14 +1426,18 @@ instance ToJSON KinesisVideoStream where
         toJSON KinesisVideoStream'{..}
           = object (catMaybes [("Arn" .=) <$> _kvsARN])
 
--- | Structure containing details about the detected label, including name, and level of confidence.
+-- | Structure containing details about the detected label, including the name, detected instances, parent labels, and level of confidence.
+--
+--
 --
 --
 --
 -- /See:/ 'label' smart constructor.
 data Label = Label'
   { _lConfidence :: !(Maybe Double)
+  , _lParents    :: !(Maybe [Parent])
   , _lName       :: !(Maybe Text)
+  , _lInstances  :: !(Maybe [Instance])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1399,25 +1447,46 @@ data Label = Label'
 --
 -- * 'lConfidence' - Level of confidence.
 --
--- * 'lName' - The name (label) of the object.
+-- * 'lParents' - The parent labels for a label. The response includes all ancestor labels.
+--
+-- * 'lName' - The name (label) of the object or scene.
+--
+-- * 'lInstances' - If @Label@ represents an object, @Instances@ contains the bounding boxes for each instance of the detected object. Bounding boxes are returned for common object labels such as people, cars, furniture, apparel or pets.
 label
     :: Label
-label = Label' {_lConfidence = Nothing, _lName = Nothing}
+label =
+  Label'
+    { _lConfidence = Nothing
+    , _lParents = Nothing
+    , _lName = Nothing
+    , _lInstances = Nothing
+    }
 
 
 -- | Level of confidence.
 lConfidence :: Lens' Label (Maybe Double)
 lConfidence = lens _lConfidence (\ s a -> s{_lConfidence = a})
 
--- | The name (label) of the object.
+-- | The parent labels for a label. The response includes all ancestor labels.
+lParents :: Lens' Label [Parent]
+lParents = lens _lParents (\ s a -> s{_lParents = a}) . _Default . _Coerce
+
+-- | The name (label) of the object or scene.
 lName :: Lens' Label (Maybe Text)
 lName = lens _lName (\ s a -> s{_lName = a})
+
+-- | If @Label@ represents an object, @Instances@ contains the bounding boxes for each instance of the detected object. Bounding boxes are returned for common object labels such as people, cars, furniture, apparel or pets.
+lInstances :: Lens' Label [Instance]
+lInstances = lens _lInstances (\ s a -> s{_lInstances = a}) . _Default . _Coerce
 
 instance FromJSON Label where
         parseJSON
           = withObject "Label"
               (\ x ->
-                 Label' <$> (x .:? "Confidence") <*> (x .:? "Name"))
+                 Label' <$>
+                   (x .:? "Confidence") <*> (x .:? "Parents" .!= mempty)
+                     <*> (x .:? "Name")
+                     <*> (x .:? "Instances" .!= mempty))
 
 instance Hashable Label where
 
@@ -1481,25 +1550,25 @@ data Landmark = Landmark'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lType' - Type of the landmark.
+-- * 'lType' - Type of landmark.
 --
--- * 'lX' - x-coordinate from the top left of the landmark expressed as the ratio of the width of the image. For example, if the images is 700x200 and the x-coordinate of the landmark is at 350 pixels, this value is 0.5.
+-- * 'lX' - The x-coordinate from the top left of the landmark expressed as the ratio of the width of the image. For example, if the image is 700 x 200 and the x-coordinate of the landmark is at 350 pixels, this value is 0.5.
 --
--- * 'lY' - y-coordinate from the top left of the landmark expressed as the ratio of the height of the image. For example, if the images is 700x200 and the y-coordinate of the landmark is at 100 pixels, this value is 0.5.
+-- * 'lY' - The y-coordinate from the top left of the landmark expressed as the ratio of the height of the image. For example, if the image is 700 x 200 and the y-coordinate of the landmark is at 100 pixels, this value is 0.5.
 landmark
     :: Landmark
 landmark = Landmark' {_lType = Nothing, _lX = Nothing, _lY = Nothing}
 
 
--- | Type of the landmark.
+-- | Type of landmark.
 lType :: Lens' Landmark (Maybe LandmarkType)
 lType = lens _lType (\ s a -> s{_lType = a})
 
--- | x-coordinate from the top left of the landmark expressed as the ratio of the width of the image. For example, if the images is 700x200 and the x-coordinate of the landmark is at 350 pixels, this value is 0.5.
+-- | The x-coordinate from the top left of the landmark expressed as the ratio of the width of the image. For example, if the image is 700 x 200 and the x-coordinate of the landmark is at 350 pixels, this value is 0.5.
 lX :: Lens' Landmark (Maybe Double)
 lX = lens _lX (\ s a -> s{_lX = a})
 
--- | y-coordinate from the top left of the landmark expressed as the ratio of the height of the image. For example, if the images is 700x200 and the y-coordinate of the landmark is at 100 pixels, this value is 0.5.
+-- | The y-coordinate from the top left of the landmark expressed as the ratio of the height of the image. For example, if the image is 700 x 200 and the y-coordinate of the landmark is at 100 pixels, this value is 0.5.
 lY :: Lens' Landmark (Maybe Double)
 lY = lens _lY (\ s a -> s{_lY = a})
 
@@ -1514,7 +1583,7 @@ instance Hashable Landmark where
 
 instance NFData Landmark where
 
--- | Provides information about a single type of moderated content found in an image or video. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see 'moderation' .
+-- | Provides information about a single type of moderated content found in an image or video. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.
 --
 --
 --
@@ -1534,7 +1603,7 @@ data ModerationLabel = ModerationLabel'
 --
 -- * 'mlName' - The label name for the type of content detected in the image.
 --
--- * 'mlParentName' - The name for the parent label. Labels at the top-level of the hierarchy have the parent label @""@ .
+-- * 'mlParentName' - The name for the parent label. Labels at the top level of the hierarchy have the parent label @""@ .
 moderationLabel
     :: ModerationLabel
 moderationLabel =
@@ -1550,7 +1619,7 @@ mlConfidence = lens _mlConfidence (\ s a -> s{_mlConfidence = a})
 mlName :: Lens' ModerationLabel (Maybe Text)
 mlName = lens _mlName (\ s a -> s{_mlName = a})
 
--- | The name for the parent label. Labels at the top-level of the hierarchy have the parent label @""@ .
+-- | The name for the parent label. Labels at the top level of the hierarchy have the parent label @""@ .
 mlParentName :: Lens' ModerationLabel (Maybe Text)
 mlParentName = lens _mlParentName (\ s a -> s{_mlParentName = a})
 
@@ -1695,6 +1764,39 @@ instance ToJSON NotificationChannel where
                  [Just ("SNSTopicArn" .= _ncSNSTopicARN),
                   Just ("RoleArn" .= _ncRoleARN)])
 
+-- | A parent label for a label. A label can have 0, 1, or more parents.
+--
+--
+--
+-- /See:/ 'parent' smart constructor.
+newtype Parent = Parent'
+  { _pName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Parent' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pName' - The name of the parent label.
+parent
+    :: Parent
+parent = Parent' {_pName = Nothing}
+
+
+-- | The name of the parent label.
+pName :: Lens' Parent (Maybe Text)
+pName = lens _pName (\ s a -> s{_pName = a})
+
+instance FromJSON Parent where
+        parseJSON
+          = withObject "Parent"
+              (\ x -> Parent' <$> (x .:? "Name"))
+
+instance Hashable Parent where
+
+instance NFData Parent where
+
 -- | Details about a person detected in a video analysis request.
 --
 --
@@ -1747,8 +1849,10 @@ instance Hashable PersonDetail where
 
 instance NFData PersonDetail where
 
--- | Details and tracking information for a single time a person is tracked in a video. Amazon Rekognition operations that track persons return an array of @PersonDetection@ objects with elements for each time a person is tracked in a video. For more information, see .
+-- | Details and path tracking information for a single time a person's path is tracked in a video. Amazon Rekognition operations that track people's paths return an array of @PersonDetection@ objects with elements for each time a person's path is tracked in a video.
 --
+--
+-- For more information, see GetPersonTracking in the Amazon Rekognition Developer Guide.
 --
 --
 -- /See:/ 'personDetection' smart constructor.
@@ -1762,19 +1866,19 @@ data PersonDetection = PersonDetection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pdPerson' - Details about a person tracked in a video.
+-- * 'pdPerson' - Details about a person whose path was tracked in a video.
 --
--- * 'pdTimestamp' - The time, in milliseconds from the start of the video, that the person was tracked.
+-- * 'pdTimestamp' - The time, in milliseconds from the start of the video, that the person's path was tracked.
 personDetection
     :: PersonDetection
 personDetection = PersonDetection' {_pdPerson = Nothing, _pdTimestamp = Nothing}
 
 
--- | Details about a person tracked in a video.
+-- | Details about a person whose path was tracked in a video.
 pdPerson :: Lens' PersonDetection (Maybe PersonDetail)
 pdPerson = lens _pdPerson (\ s a -> s{_pdPerson = a})
 
--- | The time, in milliseconds from the start of the video, that the person was tracked.
+-- | The time, in milliseconds from the start of the video, that the person's path was tracked.
 pdTimestamp :: Lens' PersonDetection (Maybe Integer)
 pdTimestamp = lens _pdTimestamp (\ s a -> s{_pdTimestamp = a})
 
@@ -1789,7 +1893,7 @@ instance Hashable PersonDetection where
 
 instance NFData PersonDetection where
 
--- | Information about a person whose face matches a face(s) in a Amazon Rekognition collection. Includes information about the faces in the Amazon Rekognition collection (, information about the person ('PersonDetail' ) and the timestamp for when the person was detected in a video. An array of @PersonMatch@ objects is returned by .
+-- | Information about a person whose face matches a face(s) in an Amazon Rekognition collection. Includes information about the faces in the Amazon Rekognition collection ('FaceMatch' ), information about the person ('PersonDetail' ), and the time stamp for when the person was detected in a video. An array of @PersonMatch@ objects is returned by 'GetFaceSearch' .
 --
 --
 --
@@ -1844,7 +1948,7 @@ instance NFData PersonMatch where
 -- | The X and Y coordinates of a point on an image. The X and Y values returned are ratios of the overall image size. For example, if the input image is 700x200 and the operation returns X=0.5 and Y=0.25, then the point is at the (350,50) pixel coordinate on the image.
 --
 --
--- An array of @Point@ objects, @Polygon@ , is returned by . @Polygon@ represents a fine-grained polygon around detected text. For more information, see .
+-- An array of @Point@ objects, @Polygon@ , is returned by 'DetectText' . @Polygon@ represents a fine-grained polygon around detected text. For more information, see Geometry in the Amazon Rekognition Developer Guide.
 --
 --
 -- /See:/ 'point' smart constructor.
@@ -1937,7 +2041,7 @@ instance NFData Pose where
 --
 -- The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.
 --
--- For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see 'manage-access-resource-policies' .
+-- For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see Resource-Based Policies in the Amazon Rekognition Developer Guide.
 --
 --
 -- /See:/ 's3Object' smart constructor.
@@ -2028,7 +2132,7 @@ instance Hashable Smile where
 
 instance NFData Smile where
 
--- | An object that recognizes faces in a streaming video. An Amazon Rekognition stream processor is created by a call to . The request parameters for @CreateStreamProcessor@ describe the Kinesis video stream source for the streaming video, face recognition parameters, and where to stream the analysis resullts.
+-- | An object that recognizes faces in a streaming video. An Amazon Rekognition stream processor is created by a call to 'CreateStreamProcessor' . The request parameters for @CreateStreamProcessor@ describe the Kinesis video stream source for the streaming video, face recognition parameters, and where to stream the analysis resullts.
 --
 --
 --
@@ -2112,7 +2216,7 @@ instance ToJSON StreamProcessorInput where
                  [("KinesisVideoStream" .=) <$>
                     _spiKinesisVideoStream])
 
--- | Information about the Amazon Kinesis Data Streams stream to which a Rekognition Video stream processor streams the results of a video analysis. For more information, see .
+-- | Information about the Amazon Kinesis Data Streams stream to which a Amazon Rekognition Video stream processor streams the results of a video analysis. For more information, see CreateStreamProcessor in the Amazon Rekognition Developer Guide.
 --
 --
 --
@@ -2234,14 +2338,14 @@ instance Hashable Sunglasses where
 
 instance NFData Sunglasses where
 
--- | Information about a word or line of text detected by .
+-- | Information about a word or line of text detected by 'DetectText' .
 --
 --
 -- The @DetectedText@ field contains the text that Amazon Rekognition detected in the image.
 --
 -- Every word and line has an identifier (@Id@ ). Each word belongs to a line and has a parent identifier (@ParentId@ ) that identifies the line of text in which the word appears. The word @Id@ is also an index for the word within a line of words.
 --
--- For more information, see 'text-detection' .
+-- For more information, see Detecting Text in the Amazon Rekognition Developer Guide.
 --
 --
 -- /See:/ 'textDetection' smart constructor.
@@ -2322,7 +2426,50 @@ instance Hashable TextDetection where
 
 instance NFData TextDetection where
 
--- | Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as use @Video@ to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.
+-- | A face that 'IndexFaces' detected, but didn't index. Use the @Reasons@ response attribute to determine why a face wasn't indexed.
+--
+--
+--
+-- /See:/ 'unindexedFace' smart constructor.
+data UnindexedFace = UnindexedFace'
+  { _ufReasons    :: !(Maybe [Reason])
+  , _ufFaceDetail :: !(Maybe FaceDetail)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'UnindexedFace' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ufReasons' - An array of reasons that specify why a face wasn't indexed.      * EXTREME_POSE - The face is at a pose that can't be detected. For example, the head is turned too far away from the camera.     * EXCEEDS_MAX_FACES - The number of faces detected is already higher than that specified by the @MaxFaces@ input parameter for @IndexFaces@ .     * LOW_BRIGHTNESS - The image is too dark.     * LOW_SHARPNESS - The image is too blurry.     * LOW_CONFIDENCE - The face was detected with a low confidence.     * SMALL_BOUNDING_BOX - The bounding box around the face is too small.
+--
+-- * 'ufFaceDetail' - The structure that contains attributes of a face that @IndexFaces@ detected, but didn't index.
+unindexedFace
+    :: UnindexedFace
+unindexedFace = UnindexedFace' {_ufReasons = Nothing, _ufFaceDetail = Nothing}
+
+
+-- | An array of reasons that specify why a face wasn't indexed.      * EXTREME_POSE - The face is at a pose that can't be detected. For example, the head is turned too far away from the camera.     * EXCEEDS_MAX_FACES - The number of faces detected is already higher than that specified by the @MaxFaces@ input parameter for @IndexFaces@ .     * LOW_BRIGHTNESS - The image is too dark.     * LOW_SHARPNESS - The image is too blurry.     * LOW_CONFIDENCE - The face was detected with a low confidence.     * SMALL_BOUNDING_BOX - The bounding box around the face is too small.
+ufReasons :: Lens' UnindexedFace [Reason]
+ufReasons = lens _ufReasons (\ s a -> s{_ufReasons = a}) . _Default . _Coerce
+
+-- | The structure that contains attributes of a face that @IndexFaces@ detected, but didn't index.
+ufFaceDetail :: Lens' UnindexedFace (Maybe FaceDetail)
+ufFaceDetail = lens _ufFaceDetail (\ s a -> s{_ufFaceDetail = a})
+
+instance FromJSON UnindexedFace where
+        parseJSON
+          = withObject "UnindexedFace"
+              (\ x ->
+                 UnindexedFace' <$>
+                   (x .:? "Reasons" .!= mempty) <*>
+                     (x .:? "FaceDetail"))
+
+instance Hashable UnindexedFace where
+
+instance NFData UnindexedFace where
+
+-- | Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as 'StartLabelDetection' use @Video@ to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.
 --
 --
 --

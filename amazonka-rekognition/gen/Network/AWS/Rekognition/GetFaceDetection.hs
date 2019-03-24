@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets face detection results for a Rekognition Video analysis started by .
+-- Gets face detection results for a Amazon Rekognition Video analysis started by 'StartFaceDetection' .
 --
 --
--- Face detection with Rekognition Video is an asynchronous operation. You start face detection by calling which returns a job identifier (@JobId@ ). When the face detection operation finishes, Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to @StartFaceDetection@ . To get the results of the face detection operation, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call and pass the job identifier (@JobId@ ) from the initial call to @StartFaceDetection@ .
+-- Face detection with Amazon Rekognition Video is an asynchronous operation. You start face detection by calling 'StartFaceDetection' which returns a job identifier (@JobId@ ). When the face detection operation finishes, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to @StartFaceDetection@ . To get the results of the face detection operation, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call 'GetFaceDetection' and pass the job identifier (@JobId@ ) from the initial call to @StartFaceDetection@ .
 --
 -- @GetFaceDetection@ returns an array of detected faces (@Faces@ ) sorted by the time the faces were detected.
 --
@@ -68,7 +68,7 @@ data GetFaceDetection = GetFaceDetection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gfdNextToken' - If the previous response was incomplete (because there are more faces to retrieve), Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.
+-- * 'gfdNextToken' - If the previous response was incomplete (because there are more faces to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.
 --
 -- * 'gfdMaxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
 --
@@ -81,7 +81,7 @@ getFaceDetection pJobId_ =
     {_gfdNextToken = Nothing, _gfdMaxResults = Nothing, _gfdJobId = pJobId_}
 
 
--- | If the previous response was incomplete (because there are more faces to retrieve), Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.
+-- | If the previous response was incomplete (because there are more faces to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.
 gfdNextToken :: Lens' GetFaceDetection (Maybe Text)
 gfdNextToken = lens _gfdNextToken (\ s a -> s{_gfdNextToken = a})
 
@@ -151,7 +151,7 @@ data GetFaceDetectionResponse = GetFaceDetectionResponse'
 --
 -- * 'gfdrsNextToken' - If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces.
 --
--- * 'gfdrsVideoMetadata' - Information about a video that Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition video operation.
+-- * 'gfdrsVideoMetadata' - Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition video operation.
 --
 -- * 'gfdrsStatusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
 --
@@ -178,7 +178,7 @@ getFaceDetectionResponse pResponseStatus_ =
 gfdrsNextToken :: Lens' GetFaceDetectionResponse (Maybe Text)
 gfdrsNextToken = lens _gfdrsNextToken (\ s a -> s{_gfdrsNextToken = a})
 
--- | Information about a video that Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition video operation.
+-- | Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition video operation.
 gfdrsVideoMetadata :: Lens' GetFaceDetectionResponse (Maybe VideoMetadata)
 gfdrsVideoMetadata = lens _gfdrsVideoMetadata (\ s a -> s{_gfdrsVideoMetadata = a})
 

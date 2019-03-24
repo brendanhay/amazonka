@@ -58,6 +58,9 @@ import Test.Tasty
 --         , requestListStreamProcessors $
 --             listStreamProcessors
 --
+--         , requestDescribeCollection $
+--             describeCollection
+--
 --         , requestRecognizeCelebrities $
 --             recognizeCelebrities
 --
@@ -159,6 +162,9 @@ import Test.Tasty
 --
 --         , responseListStreamProcessors $
 --             listStreamProcessorsResponse
+--
+--         , responseDescribeCollection $
+--             describeCollectionResponse
 --
 --         , responseRecognizeCelebrities $
 --             recognizeCelebritiesResponse
@@ -283,6 +289,11 @@ requestListStreamProcessors :: ListStreamProcessors -> TestTree
 requestListStreamProcessors = req
     "ListStreamProcessors"
     "fixture/ListStreamProcessors.yaml"
+
+requestDescribeCollection :: DescribeCollection -> TestTree
+requestDescribeCollection = req
+    "DescribeCollection"
+    "fixture/DescribeCollection.yaml"
 
 requestRecognizeCelebrities :: RecognizeCelebrities -> TestTree
 requestRecognizeCelebrities = req
@@ -470,6 +481,13 @@ responseListStreamProcessors = res
     "fixture/ListStreamProcessorsResponse.proto"
     rekognition
     (Proxy :: Proxy ListStreamProcessors)
+
+responseDescribeCollection :: DescribeCollectionResponse -> TestTree
+responseDescribeCollection = res
+    "DescribeCollectionResponse"
+    "fixture/DescribeCollectionResponse.proto"
+    rekognition
+    (Proxy :: Proxy DescribeCollection)
 
 responseRecognizeCelebrities :: RecognizeCelebritiesResponse -> TestTree
 responseRecognizeCelebrities = res

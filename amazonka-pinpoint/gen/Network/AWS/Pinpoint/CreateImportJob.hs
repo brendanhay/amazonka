@@ -54,7 +54,7 @@ data CreateImportJob = CreateImportJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cijApplicationId' - Undocumented member.
+-- * 'cijApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
 -- * 'cijImportJobRequest' - Undocumented member.
 createImportJob
@@ -68,7 +68,7 @@ createImportJob pApplicationId_ pImportJobRequest_ =
     }
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 cijApplicationId :: Lens' CreateImportJob Text
 cijApplicationId = lens _cijApplicationId (\ s a -> s{_cijApplicationId = a})
 

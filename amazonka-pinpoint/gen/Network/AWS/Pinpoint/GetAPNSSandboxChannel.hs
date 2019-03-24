@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get an APNS sandbox channel
+-- Get an APNS sandbox channel.
 module Network.AWS.Pinpoint.GetAPNSSandboxChannel
     (
     -- * Creating a Request
@@ -52,7 +52,7 @@ newtype GetAPNSSandboxChannel = GetAPNSSandboxChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gascApplicationId' - Undocumented member.
+-- * 'gascApplicationId' - The unique ID of your Amazon Pinpoint application.
 getAPNSSandboxChannel
     :: Text -- ^ 'gascApplicationId'
     -> GetAPNSSandboxChannel
@@ -60,7 +60,7 @@ getAPNSSandboxChannel pApplicationId_ =
   GetAPNSSandboxChannel' {_gascApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gascApplicationId :: Lens' GetAPNSSandboxChannel Text
 gascApplicationId = lens _gascApplicationId (\ s a -> s{_gascApplicationId = a})
 

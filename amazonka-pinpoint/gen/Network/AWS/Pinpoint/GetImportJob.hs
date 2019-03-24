@@ -54,9 +54,9 @@ data GetImportJob = GetImportJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gijApplicationId' - Undocumented member.
+-- * 'gijApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
--- * 'gijJobId' - Undocumented member.
+-- * 'gijJobId' - The unique ID of the job.
 getImportJob
     :: Text -- ^ 'gijApplicationId'
     -> Text -- ^ 'gijJobId'
@@ -65,11 +65,11 @@ getImportJob pApplicationId_ pJobId_ =
   GetImportJob' {_gijApplicationId = pApplicationId_, _gijJobId = pJobId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gijApplicationId :: Lens' GetImportJob Text
 gijApplicationId = lens _gijApplicationId (\ s a -> s{_gijApplicationId = a})
 
--- | Undocumented member.
+-- | The unique ID of the job.
 gijJobId :: Lens' GetImportJob Text
 gijJobId = lens _gijJobId (\ s a -> s{_gijJobId = a})
 

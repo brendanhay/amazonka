@@ -54,7 +54,7 @@ data UpdateBaiduChannel = UpdateBaiduChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ubcApplicationId' - Undocumented member.
+-- * 'ubcApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
 -- * 'ubcBaiduChannelRequest' - Undocumented member.
 updateBaiduChannel
@@ -68,7 +68,7 @@ updateBaiduChannel pApplicationId_ pBaiduChannelRequest_ =
     }
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 ubcApplicationId :: Lens' UpdateBaiduChannel Text
 ubcApplicationId = lens _ubcApplicationId (\ s a -> s{_ubcApplicationId = a})
 

@@ -52,7 +52,7 @@ newtype GetBaiduChannel = GetBaiduChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbcApplicationId' - Undocumented member.
+-- * 'gbcApplicationId' - The unique ID of your Amazon Pinpoint application.
 getBaiduChannel
     :: Text -- ^ 'gbcApplicationId'
     -> GetBaiduChannel
@@ -60,7 +60,7 @@ getBaiduChannel pApplicationId_ =
   GetBaiduChannel' {_gbcApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gbcApplicationId :: Lens' GetBaiduChannel Text
 gbcApplicationId = lens _gbcApplicationId (\ s a -> s{_gbcApplicationId = a})
 

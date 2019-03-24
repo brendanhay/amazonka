@@ -52,7 +52,7 @@ newtype GetApplicationSettings = GetApplicationSettings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gasApplicationId' - Undocumented member.
+-- * 'gasApplicationId' - The unique ID of your Amazon Pinpoint application.
 getApplicationSettings
     :: Text -- ^ 'gasApplicationId'
     -> GetApplicationSettings
@@ -60,7 +60,7 @@ getApplicationSettings pApplicationId_ =
   GetApplicationSettings' {_gasApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gasApplicationId :: Lens' GetApplicationSettings Text
 gasApplicationId = lens _gasApplicationId (\ s a -> s{_gasApplicationId = a})
 

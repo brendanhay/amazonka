@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete an SMS channel
+-- Delete an SMS channel.
 module Network.AWS.Pinpoint.DeleteSmsChannel
     (
     -- * Creating a Request
@@ -52,7 +52,7 @@ newtype DeleteSmsChannel = DeleteSmsChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dscApplicationId' - Undocumented member.
+-- * 'dscApplicationId' - The unique ID of your Amazon Pinpoint application.
 deleteSmsChannel
     :: Text -- ^ 'dscApplicationId'
     -> DeleteSmsChannel
@@ -60,7 +60,7 @@ deleteSmsChannel pApplicationId_ =
   DeleteSmsChannel' {_dscApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 dscApplicationId :: Lens' DeleteSmsChannel Text
 dscApplicationId = lens _dscApplicationId (\ s a -> s{_dscApplicationId = a})
 

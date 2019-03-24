@@ -54,7 +54,7 @@ data UpdateAPNSVoipSandboxChannel = UpdateAPNSVoipSandboxChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uavscApplicationId' - Undocumented member.
+-- * 'uavscApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
 -- * 'uavscAPNSVoipSandboxChannelRequest' - Undocumented member.
 updateAPNSVoipSandboxChannel
@@ -68,7 +68,7 @@ updateAPNSVoipSandboxChannel pApplicationId_ pAPNSVoipSandboxChannelRequest_ =
     }
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 uavscApplicationId :: Lens' UpdateAPNSVoipSandboxChannel Text
 uavscApplicationId = lens _uavscApplicationId (\ s a -> s{_uavscApplicationId = a})
 

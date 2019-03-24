@@ -56,11 +56,11 @@ data GetCampaignVersion = GetCampaignVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcvcVersion' - Undocumented member.
+-- * 'gcvcVersion' - The version of the campaign.
 --
--- * 'gcvcApplicationId' - Undocumented member.
+-- * 'gcvcApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
--- * 'gcvcCampaignId' - Undocumented member.
+-- * 'gcvcCampaignId' - The unique ID of the campaign.
 getCampaignVersion
     :: Text -- ^ 'gcvcVersion'
     -> Text -- ^ 'gcvcApplicationId'
@@ -74,15 +74,15 @@ getCampaignVersion pVersion_ pApplicationId_ pCampaignId_ =
     }
 
 
--- | Undocumented member.
+-- | The version of the campaign.
 gcvcVersion :: Lens' GetCampaignVersion Text
 gcvcVersion = lens _gcvcVersion (\ s a -> s{_gcvcVersion = a})
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gcvcApplicationId :: Lens' GetCampaignVersion Text
 gcvcApplicationId = lens _gcvcApplicationId (\ s a -> s{_gcvcApplicationId = a})
 
--- | Undocumented member.
+-- | The unique ID of the campaign.
 gcvcCampaignId :: Lens' GetCampaignVersion Text
 gcvcCampaignId = lens _gcvcCampaignId (\ s a -> s{_gcvcCampaignId = a})
 

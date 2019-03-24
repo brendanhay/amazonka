@@ -52,7 +52,7 @@ newtype DeleteAPNSChannel = DeleteAPNSChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dacApplicationId' - Undocumented member.
+-- * 'dacApplicationId' - The unique ID of your Amazon Pinpoint application.
 deleteAPNSChannel
     :: Text -- ^ 'dacApplicationId'
     -> DeleteAPNSChannel
@@ -60,7 +60,7 @@ deleteAPNSChannel pApplicationId_ =
   DeleteAPNSChannel' {_dacApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 dacApplicationId :: Lens' DeleteAPNSChannel Text
 dacApplicationId = lens _dacApplicationId (\ s a -> s{_dacApplicationId = a})
 

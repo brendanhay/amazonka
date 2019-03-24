@@ -54,9 +54,9 @@ data DeleteSegment = DeleteSegment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsSegmentId' - Undocumented member.
+-- * 'dsSegmentId' - The unique ID of the segment.
 --
--- * 'dsApplicationId' - Undocumented member.
+-- * 'dsApplicationId' - The unique ID of your Amazon Pinpoint application.
 deleteSegment
     :: Text -- ^ 'dsSegmentId'
     -> Text -- ^ 'dsApplicationId'
@@ -66,11 +66,11 @@ deleteSegment pSegmentId_ pApplicationId_ =
     {_dsSegmentId = pSegmentId_, _dsApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of the segment.
 dsSegmentId :: Lens' DeleteSegment Text
 dsSegmentId = lens _dsSegmentId (\ s a -> s{_dsSegmentId = a})
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 dsApplicationId :: Lens' DeleteSegment Text
 dsApplicationId = lens _dsApplicationId (\ s a -> s{_dsApplicationId = a})
 

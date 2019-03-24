@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Update an SMS channel
+-- Update an SMS channel.
 module Network.AWS.Pinpoint.UpdateSmsChannel
     (
     -- * Creating a Request
@@ -54,7 +54,7 @@ data UpdateSmsChannel = UpdateSmsChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uscApplicationId' - Undocumented member.
+-- * 'uscApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
 -- * 'uscSMSChannelRequest' - Undocumented member.
 updateSmsChannel
@@ -68,7 +68,7 @@ updateSmsChannel pApplicationId_ pSMSChannelRequest_ =
     }
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 uscApplicationId :: Lens' UpdateSmsChannel Text
 uscApplicationId = lens _uscApplicationId (\ s a -> s{_uscApplicationId = a})
 

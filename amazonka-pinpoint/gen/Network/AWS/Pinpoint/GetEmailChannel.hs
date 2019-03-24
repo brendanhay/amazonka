@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get an email channel
+-- Get an email channel.
 module Network.AWS.Pinpoint.GetEmailChannel
     (
     -- * Creating a Request
@@ -52,7 +52,7 @@ newtype GetEmailChannel = GetEmailChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gecApplicationId' - Undocumented member.
+-- * 'gecApplicationId' - The unique ID of your Amazon Pinpoint application.
 getEmailChannel
     :: Text -- ^ 'gecApplicationId'
     -> GetEmailChannel
@@ -60,7 +60,7 @@ getEmailChannel pApplicationId_ =
   GetEmailChannel' {_gecApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gecApplicationId :: Lens' GetEmailChannel Text
 gecApplicationId = lens _gecApplicationId (\ s a -> s{_gecApplicationId = a})
 

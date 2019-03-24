@@ -60,7 +60,7 @@ data GetImportJobs = GetImportJobs'
 --
 -- * 'gijsPageSize' - The number of entries you want on each page in the response.
 --
--- * 'gijsApplicationId' - Undocumented member.
+-- * 'gijsApplicationId' - The unique ID of your Amazon Pinpoint application.
 getImportJobs
     :: Text -- ^ 'gijsApplicationId'
     -> GetImportJobs
@@ -80,7 +80,7 @@ gijsToken = lens _gijsToken (\ s a -> s{_gijsToken = a})
 gijsPageSize :: Lens' GetImportJobs (Maybe Text)
 gijsPageSize = lens _gijsPageSize (\ s a -> s{_gijsPageSize = a})
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gijsApplicationId :: Lens' GetImportJobs Text
 gijsApplicationId = lens _gijsApplicationId (\ s a -> s{_gijsApplicationId = a})
 

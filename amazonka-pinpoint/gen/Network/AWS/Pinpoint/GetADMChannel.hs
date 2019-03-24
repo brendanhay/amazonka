@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get an ADM channel
+-- Get an ADM channel.
 module Network.AWS.Pinpoint.GetADMChannel
     (
     -- * Creating a Request
@@ -52,7 +52,7 @@ newtype GetADMChannel = GetADMChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gadmcApplicationId' - Undocumented member.
+-- * 'gadmcApplicationId' - The unique ID of your Amazon Pinpoint application.
 getADMChannel
     :: Text -- ^ 'gadmcApplicationId'
     -> GetADMChannel
@@ -60,7 +60,7 @@ getADMChannel pApplicationId_ =
   GetADMChannel' {_gadmcApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gadmcApplicationId :: Lens' GetADMChannel Text
 gadmcApplicationId = lens _gadmcApplicationId (\ s a -> s{_gadmcApplicationId = a})
 

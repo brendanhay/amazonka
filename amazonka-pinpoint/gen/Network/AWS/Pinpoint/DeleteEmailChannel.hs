@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete an email channel
+-- Delete an email channel.
 module Network.AWS.Pinpoint.DeleteEmailChannel
     (
     -- * Creating a Request
@@ -52,7 +52,7 @@ newtype DeleteEmailChannel = DeleteEmailChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decApplicationId' - Undocumented member.
+-- * 'decApplicationId' - The unique ID of your Amazon Pinpoint application.
 deleteEmailChannel
     :: Text -- ^ 'decApplicationId'
     -> DeleteEmailChannel
@@ -60,7 +60,7 @@ deleteEmailChannel pApplicationId_ =
   DeleteEmailChannel' {_decApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 decApplicationId :: Lens' DeleteEmailChannel Text
 decApplicationId = lens _decApplicationId (\ s a -> s{_decApplicationId = a})
 

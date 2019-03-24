@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Use to update an endpoint.
+-- Creates or updates an endpoint.
 module Network.AWS.Pinpoint.UpdateEndpoint
     (
     -- * Creating a Request
@@ -56,9 +56,9 @@ data UpdateEndpoint = UpdateEndpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ueApplicationId' - Undocumented member.
+-- * 'ueApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
--- * 'ueEndpointId' - Undocumented member.
+-- * 'ueEndpointId' - The unique ID of the endpoint.
 --
 -- * 'ueEndpointRequest' - Undocumented member.
 updateEndpoint
@@ -74,11 +74,11 @@ updateEndpoint pApplicationId_ pEndpointId_ pEndpointRequest_ =
     }
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 ueApplicationId :: Lens' UpdateEndpoint Text
 ueApplicationId = lens _ueApplicationId (\ s a -> s{_ueApplicationId = a})
 
--- | Undocumented member.
+-- | The unique ID of the endpoint.
 ueEndpointId :: Lens' UpdateEndpoint Text
 ueEndpointId = lens _ueEndpointId (\ s a -> s{_ueEndpointId = a})
 

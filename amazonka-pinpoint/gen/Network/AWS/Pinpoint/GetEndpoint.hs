@@ -54,9 +54,9 @@ data GetEndpoint = GetEndpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'geApplicationId' - Undocumented member.
+-- * 'geApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
--- * 'geEndpointId' - Undocumented member.
+-- * 'geEndpointId' - The unique ID of the endpoint.
 getEndpoint
     :: Text -- ^ 'geApplicationId'
     -> Text -- ^ 'geEndpointId'
@@ -66,11 +66,11 @@ getEndpoint pApplicationId_ pEndpointId_ =
     {_geApplicationId = pApplicationId_, _geEndpointId = pEndpointId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 geApplicationId :: Lens' GetEndpoint Text
 geApplicationId = lens _geApplicationId (\ s a -> s{_geApplicationId = a})
 
--- | Undocumented member.
+-- | The unique ID of the endpoint.
 geEndpointId :: Lens' GetEndpoint Text
 geEndpointId = lens _geEndpointId (\ s a -> s{_geEndpointId = a})
 

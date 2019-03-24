@@ -52,14 +52,14 @@ newtype GetApp = GetApp'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaApplicationId' - Undocumented member.
+-- * 'gaApplicationId' - The unique ID of your Amazon Pinpoint application.
 getApp
     :: Text -- ^ 'gaApplicationId'
     -> GetApp
 getApp pApplicationId_ = GetApp' {_gaApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gaApplicationId :: Lens' GetApp Text
 gaApplicationId = lens _gaApplicationId (\ s a -> s{_gaApplicationId = a})
 

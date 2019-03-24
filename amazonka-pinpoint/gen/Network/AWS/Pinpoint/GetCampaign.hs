@@ -54,9 +54,9 @@ data GetCampaign = GetCampaign'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'getCampaignId' - Undocumented member.
+-- * 'getCampaignId' - The unique ID of the campaign.
 --
--- * 'getApplicationId' - Undocumented member.
+-- * 'getApplicationId' - The unique ID of your Amazon Pinpoint application.
 getCampaign
     :: Text -- ^ 'getCampaignId'
     -> Text -- ^ 'getApplicationId'
@@ -66,11 +66,11 @@ getCampaign pCampaignId_ pApplicationId_ =
     {_getCampaignId = pCampaignId_, _getApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of the campaign.
 getCampaignId :: Lens' GetCampaign Text
 getCampaignId = lens _getCampaignId (\ s a -> s{_getCampaignId = a})
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 getApplicationId :: Lens' GetCampaign Text
 getApplicationId = lens _getApplicationId (\ s a -> s{_getApplicationId = a})
 

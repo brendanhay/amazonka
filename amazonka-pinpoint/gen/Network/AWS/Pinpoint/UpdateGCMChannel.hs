@@ -54,7 +54,7 @@ data UpdateGCMChannel = UpdateGCMChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ugcApplicationId' - Undocumented member.
+-- * 'ugcApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
 -- * 'ugcGCMChannelRequest' - Undocumented member.
 updateGCMChannel
@@ -68,7 +68,7 @@ updateGCMChannel pApplicationId_ pGCMChannelRequest_ =
     }
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 ugcApplicationId :: Lens' UpdateGCMChannel Text
 ugcApplicationId = lens _ugcApplicationId (\ s a -> s{_ugcApplicationId = a})
 

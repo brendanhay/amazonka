@@ -54,7 +54,7 @@ data UpdateApplicationSettings = UpdateApplicationSettings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uasApplicationId' - Undocumented member.
+-- * 'uasApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
 -- * 'uasWriteApplicationSettingsRequest' - Undocumented member.
 updateApplicationSettings
@@ -68,7 +68,7 @@ updateApplicationSettings pApplicationId_ pWriteApplicationSettingsRequest_ =
     }
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 uasApplicationId :: Lens' UpdateApplicationSettings Text
 uasApplicationId = lens _uasApplicationId (\ s a -> s{_uasApplicationId = a})
 

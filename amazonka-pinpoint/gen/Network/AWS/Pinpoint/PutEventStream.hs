@@ -54,9 +54,9 @@ data PutEventStream = PutEventStream'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pesApplicationId' - ApplicationId
+-- * 'pesApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
--- * 'pesWriteEventStream' - EventStream to write.
+-- * 'pesWriteEventStream' - Undocumented member.
 putEventStream
     :: Text -- ^ 'pesApplicationId'
     -> WriteEventStream -- ^ 'pesWriteEventStream'
@@ -68,11 +68,11 @@ putEventStream pApplicationId_ pWriteEventStream_ =
     }
 
 
--- | ApplicationId
+-- | The unique ID of your Amazon Pinpoint application.
 pesApplicationId :: Lens' PutEventStream Text
 pesApplicationId = lens _pesApplicationId (\ s a -> s{_pesApplicationId = a})
 
--- | EventStream to write.
+-- | Undocumented member.
 pesWriteEventStream :: Lens' PutEventStream WriteEventStream
 pesWriteEventStream = lens _pesWriteEventStream (\ s a -> s{_pesWriteEventStream = a})
 

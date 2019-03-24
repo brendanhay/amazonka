@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Send a batch of messages to users
+-- Used to send a message to a list of users.
 module Network.AWS.Pinpoint.SendUsersMessages
     (
     -- * Creating a Request
@@ -54,7 +54,7 @@ data SendUsersMessages = SendUsersMessages'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sumsApplicationId' - Undocumented member.
+-- * 'sumsApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
 -- * 'sumsSendUsersMessageRequest' - Undocumented member.
 sendUsersMessages
@@ -68,7 +68,7 @@ sendUsersMessages pApplicationId_ pSendUsersMessageRequest_ =
     }
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 sumsApplicationId :: Lens' SendUsersMessages Text
 sumsApplicationId = lens _sumsApplicationId (\ s a -> s{_sumsApplicationId = a})
 

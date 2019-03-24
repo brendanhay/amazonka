@@ -52,14 +52,14 @@ newtype DeleteApp = DeleteApp'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daApplicationId' - Undocumented member.
+-- * 'daApplicationId' - The unique ID of your Amazon Pinpoint application.
 deleteApp
     :: Text -- ^ 'daApplicationId'
     -> DeleteApp
 deleteApp pApplicationId_ = DeleteApp' {_daApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 daApplicationId :: Lens' DeleteApp Text
 daApplicationId = lens _daApplicationId (\ s a -> s{_daApplicationId = a})
 

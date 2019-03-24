@@ -56,9 +56,9 @@ data UpdateCampaign = UpdateCampaign'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucCampaignId' - Undocumented member.
+-- * 'ucCampaignId' - The unique ID of the campaign.
 --
--- * 'ucApplicationId' - Undocumented member.
+-- * 'ucApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
 -- * 'ucWriteCampaignRequest' - Undocumented member.
 updateCampaign
@@ -74,11 +74,11 @@ updateCampaign pCampaignId_ pApplicationId_ pWriteCampaignRequest_ =
     }
 
 
--- | Undocumented member.
+-- | The unique ID of the campaign.
 ucCampaignId :: Lens' UpdateCampaign Text
 ucCampaignId = lens _ucCampaignId (\ s a -> s{_ucCampaignId = a})
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 ucApplicationId :: Lens' UpdateCampaign Text
 ucApplicationId = lens _ucApplicationId (\ s a -> s{_ucApplicationId = a})
 

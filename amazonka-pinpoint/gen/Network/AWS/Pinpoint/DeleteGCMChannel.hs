@@ -52,7 +52,7 @@ newtype DeleteGCMChannel = DeleteGCMChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgcApplicationId' - Undocumented member.
+-- * 'dgcApplicationId' - The unique ID of your Amazon Pinpoint application.
 deleteGCMChannel
     :: Text -- ^ 'dgcApplicationId'
     -> DeleteGCMChannel
@@ -60,7 +60,7 @@ deleteGCMChannel pApplicationId_ =
   DeleteGCMChannel' {_dgcApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 dgcApplicationId :: Lens' DeleteGCMChannel Text
 dgcApplicationId = lens _dgcApplicationId (\ s a -> s{_dgcApplicationId = a})
 

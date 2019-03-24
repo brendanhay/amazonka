@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Update an email channel
+-- Update an email channel.
 module Network.AWS.Pinpoint.UpdateEmailChannel
     (
     -- * Creating a Request
@@ -54,7 +54,7 @@ data UpdateEmailChannel = UpdateEmailChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uecApplicationId' - Undocumented member.
+-- * 'uecApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
 -- * 'uecEmailChannelRequest' - Undocumented member.
 updateEmailChannel
@@ -68,7 +68,7 @@ updateEmailChannel pApplicationId_ pEmailChannelRequest_ =
     }
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 uecApplicationId :: Lens' UpdateEmailChannel Text
 uecApplicationId = lens _uecApplicationId (\ s a -> s{_uecApplicationId = a})
 

@@ -62,9 +62,9 @@ data GetCampaignVersions = GetCampaignVersions'
 --
 -- * 'gcvPageSize' - The number of entries you want on each page in the response.
 --
--- * 'gcvApplicationId' - Undocumented member.
+-- * 'gcvApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
--- * 'gcvCampaignId' - Undocumented member.
+-- * 'gcvCampaignId' - The unique ID of the campaign.
 getCampaignVersions
     :: Text -- ^ 'gcvApplicationId'
     -> Text -- ^ 'gcvCampaignId'
@@ -86,11 +86,11 @@ gcvToken = lens _gcvToken (\ s a -> s{_gcvToken = a})
 gcvPageSize :: Lens' GetCampaignVersions (Maybe Text)
 gcvPageSize = lens _gcvPageSize (\ s a -> s{_gcvPageSize = a})
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gcvApplicationId :: Lens' GetCampaignVersions Text
 gcvApplicationId = lens _gcvApplicationId (\ s a -> s{_gcvApplicationId = a})
 
--- | Undocumented member.
+-- | The unique ID of the campaign.
 gcvCampaignId :: Lens' GetCampaignVersions Text
 gcvCampaignId = lens _gcvCampaignId (\ s a -> s{_gcvCampaignId = a})
 

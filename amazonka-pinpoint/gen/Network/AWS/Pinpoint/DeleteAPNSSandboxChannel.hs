@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete an APNS sandbox channel
+-- Delete an APNS sandbox channel.
 module Network.AWS.Pinpoint.DeleteAPNSSandboxChannel
     (
     -- * Creating a Request
@@ -52,7 +52,7 @@ newtype DeleteAPNSSandboxChannel = DeleteAPNSSandboxChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dascApplicationId' - Undocumented member.
+-- * 'dascApplicationId' - The unique ID of your Amazon Pinpoint application.
 deleteAPNSSandboxChannel
     :: Text -- ^ 'dascApplicationId'
     -> DeleteAPNSSandboxChannel
@@ -60,7 +60,7 @@ deleteAPNSSandboxChannel pApplicationId_ =
   DeleteAPNSSandboxChannel' {_dascApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 dascApplicationId :: Lens' DeleteAPNSSandboxChannel Text
 dascApplicationId = lens _dascApplicationId (\ s a -> s{_dascApplicationId = a})
 

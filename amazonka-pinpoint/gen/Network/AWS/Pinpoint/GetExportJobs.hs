@@ -60,7 +60,7 @@ data GetExportJobs = GetExportJobs'
 --
 -- * 'gejsPageSize' - The number of entries you want on each page in the response.
 --
--- * 'gejsApplicationId' - Undocumented member.
+-- * 'gejsApplicationId' - The unique ID of your Amazon Pinpoint application.
 getExportJobs
     :: Text -- ^ 'gejsApplicationId'
     -> GetExportJobs
@@ -80,7 +80,7 @@ gejsToken = lens _gejsToken (\ s a -> s{_gejsToken = a})
 gejsPageSize :: Lens' GetExportJobs (Maybe Text)
 gejsPageSize = lens _gejsPageSize (\ s a -> s{_gejsPageSize = a})
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gejsApplicationId :: Lens' GetExportJobs Text
 gejsApplicationId = lens _gejsApplicationId (\ s a -> s{_gejsApplicationId = a})
 

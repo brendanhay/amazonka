@@ -54,9 +54,9 @@ data GetSegment = GetSegment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsSegmentId' - Undocumented member.
+-- * 'gsSegmentId' - The unique ID of the segment.
 --
--- * 'gsApplicationId' - Undocumented member.
+-- * 'gsApplicationId' - The unique ID of your Amazon Pinpoint application.
 getSegment
     :: Text -- ^ 'gsSegmentId'
     -> Text -- ^ 'gsApplicationId'
@@ -65,11 +65,11 @@ getSegment pSegmentId_ pApplicationId_ =
   GetSegment' {_gsSegmentId = pSegmentId_, _gsApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of the segment.
 gsSegmentId :: Lens' GetSegment Text
 gsSegmentId = lens _gsSegmentId (\ s a -> s{_gsSegmentId = a})
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gsApplicationId :: Lens' GetSegment Text
 gsApplicationId = lens _gsApplicationId (\ s a -> s{_gsApplicationId = a})
 

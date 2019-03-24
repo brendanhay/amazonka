@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Use to update a segment.
+-- Used to update a segment.
 module Network.AWS.Pinpoint.UpdateSegment
     (
     -- * Creating a Request
@@ -56,9 +56,9 @@ data UpdateSegment = UpdateSegment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usSegmentId' - Undocumented member.
+-- * 'usSegmentId' - The unique ID of the segment.
 --
--- * 'usApplicationId' - Undocumented member.
+-- * 'usApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
 -- * 'usWriteSegmentRequest' - Undocumented member.
 updateSegment
@@ -74,11 +74,11 @@ updateSegment pSegmentId_ pApplicationId_ pWriteSegmentRequest_ =
     }
 
 
--- | Undocumented member.
+-- | The unique ID of the segment.
 usSegmentId :: Lens' UpdateSegment Text
 usSegmentId = lens _usSegmentId (\ s a -> s{_usSegmentId = a})
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 usApplicationId :: Lens' UpdateSegment Text
 usApplicationId = lens _usApplicationId (\ s a -> s{_usApplicationId = a})
 

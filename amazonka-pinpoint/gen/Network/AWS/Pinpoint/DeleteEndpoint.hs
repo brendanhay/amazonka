@@ -54,9 +54,9 @@ data DeleteEndpoint = DeleteEndpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deApplicationId' - Undocumented member.
+-- * 'deApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
--- * 'deEndpointId' - Undocumented member.
+-- * 'deEndpointId' - The unique ID of the endpoint.
 deleteEndpoint
     :: Text -- ^ 'deApplicationId'
     -> Text -- ^ 'deEndpointId'
@@ -66,11 +66,11 @@ deleteEndpoint pApplicationId_ pEndpointId_ =
     {_deApplicationId = pApplicationId_, _deEndpointId = pEndpointId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 deApplicationId :: Lens' DeleteEndpoint Text
 deApplicationId = lens _deApplicationId (\ s a -> s{_deApplicationId = a})
 
--- | Undocumented member.
+-- | The unique ID of the endpoint.
 deEndpointId :: Lens' DeleteEndpoint Text
 deEndpointId = lens _deEndpointId (\ s a -> s{_deEndpointId = a})
 

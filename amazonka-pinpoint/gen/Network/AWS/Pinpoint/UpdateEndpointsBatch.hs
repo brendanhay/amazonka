@@ -54,7 +54,7 @@ data UpdateEndpointsBatch = UpdateEndpointsBatch'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uebApplicationId' - Undocumented member.
+-- * 'uebApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
 -- * 'uebEndpointBatchRequest' - Undocumented member.
 updateEndpointsBatch
@@ -68,7 +68,7 @@ updateEndpointsBatch pApplicationId_ pEndpointBatchRequest_ =
     }
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 uebApplicationId :: Lens' UpdateEndpointsBatch Text
 uebApplicationId = lens _uebApplicationId (\ s a -> s{_uebApplicationId = a})
 

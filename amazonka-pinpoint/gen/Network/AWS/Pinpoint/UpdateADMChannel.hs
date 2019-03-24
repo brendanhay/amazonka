@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Update an ADM channel
+-- Update an ADM channel.
 module Network.AWS.Pinpoint.UpdateADMChannel
     (
     -- * Creating a Request
@@ -54,7 +54,7 @@ data UpdateADMChannel = UpdateADMChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uadmcApplicationId' - Undocumented member.
+-- * 'uadmcApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
 -- * 'uadmcADMChannelRequest' - Undocumented member.
 updateADMChannel
@@ -68,7 +68,7 @@ updateADMChannel pApplicationId_ pADMChannelRequest_ =
     }
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 uadmcApplicationId :: Lens' UpdateADMChannel Text
 uadmcApplicationId = lens _uadmcApplicationId (\ s a -> s{_uadmcApplicationId = a})
 

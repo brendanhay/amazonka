@@ -62,9 +62,9 @@ data GetSegmentExportJobs = GetSegmentExportJobs'
 --
 -- * 'gsejPageSize' - The number of entries you want on each page in the response.
 --
--- * 'gsejSegmentId' - Undocumented member.
+-- * 'gsejSegmentId' - The unique ID of the segment.
 --
--- * 'gsejApplicationId' - Undocumented member.
+-- * 'gsejApplicationId' - The unique ID of your Amazon Pinpoint application.
 getSegmentExportJobs
     :: Text -- ^ 'gsejSegmentId'
     -> Text -- ^ 'gsejApplicationId'
@@ -86,11 +86,11 @@ gsejToken = lens _gsejToken (\ s a -> s{_gsejToken = a})
 gsejPageSize :: Lens' GetSegmentExportJobs (Maybe Text)
 gsejPageSize = lens _gsejPageSize (\ s a -> s{_gsejPageSize = a})
 
--- | Undocumented member.
+-- | The unique ID of the segment.
 gsejSegmentId :: Lens' GetSegmentExportJobs Text
 gsejSegmentId = lens _gsejSegmentId (\ s a -> s{_gsejSegmentId = a})
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gsejApplicationId :: Lens' GetSegmentExportJobs Text
 gsejApplicationId = lens _gsejApplicationId (\ s a -> s{_gsejApplicationId = a})
 

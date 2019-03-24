@@ -54,7 +54,7 @@ data CreateCampaign = CreateCampaign'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccApplicationId' - Undocumented member.
+-- * 'ccApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
 -- * 'ccWriteCampaignRequest' - Undocumented member.
 createCampaign
@@ -68,7 +68,7 @@ createCampaign pApplicationId_ pWriteCampaignRequest_ =
     }
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 ccApplicationId :: Lens' CreateCampaign Text
 ccApplicationId = lens _ccApplicationId (\ s a -> s{_ccApplicationId = a})
 

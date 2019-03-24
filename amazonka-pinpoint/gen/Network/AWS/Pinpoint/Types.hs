@@ -47,8 +47,14 @@ module Network.AWS.Pinpoint.Types
     -- * Duration
     , Duration (..)
 
+    -- * FilterType
+    , FilterType (..)
+
     -- * Frequency
     , Frequency (..)
+
+    -- * Include
+    , Include (..)
 
     -- * JobStatus
     , JobStatus (..)
@@ -64,6 +70,12 @@ module Network.AWS.Pinpoint.Types
 
     -- * SegmentType
     , SegmentType (..)
+
+    -- * SourceType
+    , SourceType (..)
+
+    -- * Type
+    , Type (..)
 
     -- * ADMChannelRequest
     , ADMChannelRequest
@@ -242,6 +254,7 @@ module Network.AWS.Pinpoint.Types
     -- * ActivitiesResponse
     , ActivitiesResponse
     , activitiesResponse
+    , aNextToken
     , aItem
 
     -- * ActivityResponse
@@ -274,8 +287,10 @@ module Network.AWS.Pinpoint.Types
     -- * ApplicationResponse
     , ApplicationResponse
     , applicationResponse
+    , appARN
     , appName
     , appId
+    , appTags
 
     -- * ApplicationSettingsResource
     , ApplicationSettingsResource
@@ -297,6 +312,13 @@ module Network.AWS.Pinpoint.Types
     , attributeDimension
     , adValues
     , adAttributeType
+
+    -- * AttributesResource
+    , AttributesResource
+    , attributesResource
+    , arAttributeType
+    , arApplicationId
+    , arAttributes
 
     -- * BaiduChannelRequest
     , BaiduChannelRequest
@@ -330,6 +352,7 @@ module Network.AWS.Pinpoint.Types
     , bmData
     , bmSmallImageIconURL
     , bmBody
+    , bmTimeToLive
     , bmURL
     , bmSound
     , bmAction
@@ -344,6 +367,12 @@ module Network.AWS.Pinpoint.Types
     , cemFromAddress
     , cemHTMLBody
     , cemTitle
+
+    -- * CampaignEventFilter
+    , CampaignEventFilter
+    , campaignEventFilter
+    , cefFilterType
+    , cefDimensions
 
     -- * CampaignHook
     , CampaignHook
@@ -365,6 +394,7 @@ module Network.AWS.Pinpoint.Types
     , campaignResponse
     , cState
     , cLastModifiedDate
+    , cARN
     , cSchedule
     , cHook
     , cTreatmentName
@@ -382,6 +412,7 @@ module Network.AWS.Pinpoint.Types
     , cDescription
     , cSegmentId
     , cAdditionalTreatments
+    , cTags
     , cSegmentVersion
 
     -- * CampaignSmsMessage
@@ -402,10 +433,29 @@ module Network.AWS.Pinpoint.Types
     , cNextToken
     , cItem
 
+    -- * ChannelResponse
+    , ChannelResponse
+    , channelResponse
+    , chaLastModifiedDate
+    , chaEnabled
+    , chaIsArchived
+    , chaApplicationId
+    , chaVersion
+    , chaId
+    , chaCreationDate
+    , chaLastModifiedBy
+    , chaHasCredential
+
+    -- * ChannelsResponse
+    , ChannelsResponse
+    , channelsResponse
+    , cChannels
+
     -- * CreateApplicationRequest
     , CreateApplicationRequest
     , createApplicationRequest
     , carName
+    , carTags
 
     -- * DefaultMessage
     , DefaultMessage
@@ -432,6 +482,8 @@ module Network.AWS.Pinpoint.Types
     , dmcDefaultMessage
     , dmcADMMessage
     , dmcSMSMessage
+    , dmcEmailMessage
+    , dmcVoiceMessage
     , dmcBaiduMessage
     , dmcDefaultPushNotificationMessage
 
@@ -440,6 +492,7 @@ module Network.AWS.Pinpoint.Types
     , emailChannelRequest
     , ecrEnabled
     , ecrFromAddress
+    , ecrConfigurationSet
     , ecrIdentity
     , ecrRoleARN
 
@@ -447,18 +500,31 @@ module Network.AWS.Pinpoint.Types
     , EmailChannelResponse
     , emailChannelResponse
     , ecPlatform
+    , ecMessagesPerSecond
     , ecLastModifiedDate
     , ecEnabled
     , ecFromAddress
     , ecIsArchived
     , ecApplicationId
     , ecVersion
+    , ecConfigurationSet
     , ecId
     , ecCreationDate
     , ecLastModifiedBy
     , ecIdentity
     , ecHasCredential
     , ecRoleARN
+
+    -- * EmailMessage
+    , EmailMessage
+    , emailMessage
+    , emSubstitutions
+    , emBody
+    , emFromAddress
+    , emRawEmail
+    , emFeedbackForwardingAddress
+    , emSimpleEmail
+    , emReplyToAddresses
 
     -- * EndpointBatchItem
     , EndpointBatchItem
@@ -493,6 +559,12 @@ module Network.AWS.Pinpoint.Types
     , edModelVersion
     , edTimezone
 
+    -- * EndpointItemResponse
+    , EndpointItemResponse
+    , endpointItemResponse
+    , eiMessage
+    , eiStatusCode
+
     -- * EndpointLocation
     , EndpointLocation
     , endpointLocation
@@ -510,6 +582,7 @@ module Network.AWS.Pinpoint.Types
     , emrAddress
     , emrStatusMessage
     , emrUpdatedToken
+    , emrMessageId
     , emrStatusCode
 
     -- * EndpointRequest
@@ -530,21 +603,21 @@ module Network.AWS.Pinpoint.Types
     -- * EndpointResponse
     , EndpointResponse
     , endpointResponse
-    , eRequestId
-    , eMetrics
-    , eLocation
-    , eDemographic
-    , eCohortId
-    , eAddress
-    , eEffectiveDate
-    , eUser
-    , eApplicationId
-    , eAttributes
-    , eEndpointStatus
-    , eOptOut
-    , eId
-    , eCreationDate
-    , eChannelType
+    , endRequestId
+    , endMetrics
+    , endLocation
+    , endDemographic
+    , endCohortId
+    , endAddress
+    , endEffectiveDate
+    , endUser
+    , endApplicationId
+    , endAttributes
+    , endEndpointStatus
+    , endOptOut
+    , endId
+    , endCreationDate
+    , endChannelType
 
     -- * EndpointSendConfiguration
     , EndpointSendConfiguration
@@ -561,6 +634,38 @@ module Network.AWS.Pinpoint.Types
     , euUserAttributes
     , euUserId
 
+    -- * EndpointsResponse
+    , EndpointsResponse
+    , endpointsResponse
+    , eItem
+
+    -- * Event
+    , Event
+    , event
+    , eClientSDKVersion
+    , eMetrics
+    , eAppVersionCode
+    , eAppTitle
+    , eEventType
+    , eAppPackageName
+    , eAttributes
+    , eSDKName
+    , eTimestamp
+    , eSession
+
+    -- * EventDimensions
+    , EventDimensions
+    , eventDimensions
+    , edMetrics
+    , edEventType
+    , edAttributes
+
+    -- * EventItemResponse
+    , EventItemResponse
+    , eventItemResponse
+    , eMessage
+    , eStatusCode
+
     -- * EventStream
     , EventStream
     , eventStream
@@ -571,12 +676,29 @@ module Network.AWS.Pinpoint.Types
     , esExternalId
     , esRoleARN
 
+    -- * EventsBatch
+    , EventsBatch
+    , eventsBatch
+    , ebEvents
+    , ebEndpoint
+
+    -- * EventsRequest
+    , EventsRequest
+    , eventsRequest
+    , erBatchItem
+
+    -- * EventsResponse
+    , EventsResponse
+    , eventsResponse
+    , eResults
+
     -- * ExportJobRequest
     , ExportJobRequest
     , exportJobRequest
     , eS3URLPrefix
     , eSegmentId
     , eRoleARN
+    , eSegmentVersion
 
     -- * ExportJobResource
     , ExportJobResource
@@ -584,6 +706,7 @@ module Network.AWS.Pinpoint.Types
     , ejrS3URLPrefix
     , ejrSegmentId
     , ejrRoleARN
+    , ejrSegmentVersion
 
     -- * ExportJobResponse
     , ExportJobResponse
@@ -650,6 +773,18 @@ module Network.AWS.Pinpoint.Types
     , gmTitle
     , gmIconReference
 
+    -- * GPSCoordinates
+    , GPSCoordinates
+    , gPSCoordinates
+    , gpscLatitude
+    , gpscLongitude
+
+    -- * GPSPointDimension
+    , GPSPointDimension
+    , gPSPointDimension
+    , gpspdCoordinates
+    , gpspdRangeInKilometers
+
     -- * ImportJobRequest
     , ImportJobRequest
     , importJobRequest
@@ -697,6 +832,12 @@ module Network.AWS.Pinpoint.Types
     , ijNextToken
     , ijItem
 
+    -- * ItemResponse
+    , ItemResponse
+    , itemResponse
+    , iEndpointItemResponse
+    , iEventsItemResponse
+
     -- * Message
     , Message
     , message
@@ -704,6 +845,7 @@ module Network.AWS.Pinpoint.Types
     , mImageIconURL
     , mRawContent
     , mBody
+    , mTimeToLive
     , mImageSmallIconURL
     , mJSONBody
     , mURL
@@ -732,6 +874,7 @@ module Network.AWS.Pinpoint.Types
     -- * MessageRequest
     , MessageRequest
     , messageRequest
+    , mrTraceId
     , mrContext
     , mrAddresses
     , mrEndpoints
@@ -751,13 +894,64 @@ module Network.AWS.Pinpoint.Types
     , mrDeliveryStatus
     , mrStatusMessage
     , mrUpdatedToken
+    , mrMessageId
     , mrStatusCode
+
+    -- * MetricDimension
+    , MetricDimension
+    , metricDimension
+    , mdValue
+    , mdComparisonOperator
+
+    -- * NumberValidateRequest
+    , NumberValidateRequest
+    , numberValidateRequest
+    , nvrIsoCountryCode
+    , nvrPhoneNumber
+
+    -- * NumberValidateResponse
+    , NumberValidateResponse
+    , numberValidateResponse
+    , nvCarrier
+    , nvCounty
+    , nvCountry
+    , nvCountryCodeNumeric
+    , nvZipCode
+    , nvOriginalPhoneNumber
+    , nvPhoneTypeCode
+    , nvPhoneType
+    , nvCity
+    , nvCountryCodeIso2
+    , nvTimezone
+    , nvOriginalCountryCodeIso2
+    , nvCleansedPhoneNumberNational
+    , nvCleansedPhoneNumberE164
+
+    -- * PublicEndpoint
+    , PublicEndpoint
+    , publicEndpoint
+    , peRequestId
+    , peMetrics
+    , peLocation
+    , peDemographic
+    , peAddress
+    , peEffectiveDate
+    , peUser
+    , peAttributes
+    , peEndpointStatus
+    , peOptOut
+    , peChannelType
 
     -- * QuietTime
     , QuietTime
     , quietTime
     , qtStart
     , qtEnd
+
+    -- * RawEmail
+    , RawEmail
+    , rawEmail
+    , reData
 
     -- * RecencyDimension
     , RecencyDimension
@@ -780,6 +974,8 @@ module Network.AWS.Pinpoint.Types
     , smscLastModifiedDate
     , smscEnabled
     , smscSenderId
+    , smscTransactionalMessagesPerSecond
+    , smscPromotionalMessagesPerSecond
     , smscIsArchived
     , smscApplicationId
     , smscVersion
@@ -796,6 +992,7 @@ module Network.AWS.Pinpoint.Types
     , smsmBody
     , smsmMessageType
     , smsmSenderId
+    , smsmKeyword
 
     -- * Schedule
     , Schedule
@@ -803,6 +1000,7 @@ module Network.AWS.Pinpoint.Types
     , sFrequency
     , sStartTime
     , sQuietTime
+    , sEventFilter
     , sIsLocalTime
     , sEndTime
     , sTimezone
@@ -825,11 +1023,26 @@ module Network.AWS.Pinpoint.Types
     -- * SegmentDimensions
     , SegmentDimensions
     , segmentDimensions
+    , sdMetrics
     , sdLocation
     , sdDemographic
     , sdUserAttributes
     , sdBehavior
     , sdAttributes
+
+    -- * SegmentGroup
+    , SegmentGroup
+    , segmentGroup
+    , sgSourceSegments
+    , sgSourceType
+    , sgType
+    , sgDimensions
+
+    -- * SegmentGroupList
+    , SegmentGroupList
+    , segmentGroupList
+    , sglInclude
+    , sglGroups
 
     -- * SegmentImportResource
     , SegmentImportResource
@@ -845,12 +1058,21 @@ module Network.AWS.Pinpoint.Types
     , SegmentLocation
     , segmentLocation
     , slCountry
+    , slGPSPoint
+
+    -- * SegmentReference
+    , SegmentReference
+    , segmentReference
+    , srVersion
+    , srId
 
     -- * SegmentResponse
     , SegmentResponse
     , segmentResponse
     , sLastModifiedDate
+    , sARN
     , sSegmentType
+    , sSegmentGroups
     , sApplicationId
     , sName
     , sVersion
@@ -858,6 +1080,7 @@ module Network.AWS.Pinpoint.Types
     , sCreationDate
     , sImportDefinition
     , sDimensions
+    , sTags
 
     -- * SegmentsResponse
     , SegmentsResponse
@@ -868,6 +1091,7 @@ module Network.AWS.Pinpoint.Types
     -- * SendUsersMessageRequest
     , SendUsersMessageRequest
     , sendUsersMessageRequest
+    , sumrTraceId
     , sumrContext
     , sumrUsers
     , sumrMessageConfiguration
@@ -879,11 +1103,37 @@ module Network.AWS.Pinpoint.Types
     , sumResult
     , sumApplicationId
 
+    -- * Session
+    , Session
+    , session
+    , sesStopTimestamp
+    , sesId
+    , sesStartTimestamp
+    , sesDuration
+
     -- * SetDimension
     , SetDimension
     , setDimension
     , sdValues
     , sdDimensionType
+
+    -- * SimpleEmail
+    , SimpleEmail
+    , simpleEmail
+    , seSubject
+    , seTextPart
+    , seHTMLPart
+
+    -- * SimpleEmailPart
+    , SimpleEmailPart
+    , simpleEmailPart
+    , sepData
+    , sepCharset
+
+    -- * TagsModel
+    , TagsModel
+    , tagsModel
+    , tmTags
 
     -- * TreatmentResource
     , TreatmentResource
@@ -896,9 +1146,43 @@ module Network.AWS.Pinpoint.Types
     , trId
     , trMessageConfiguration
 
+    -- * UpdateAttributesRequest
+    , UpdateAttributesRequest
+    , updateAttributesRequest
+    , uarBlacklist
+
+    -- * VoiceChannelRequest
+    , VoiceChannelRequest
+    , voiceChannelRequest
+    , vcrEnabled
+
+    -- * VoiceChannelResponse
+    , VoiceChannelResponse
+    , voiceChannelResponse
+    , vcPlatform
+    , vcLastModifiedDate
+    , vcEnabled
+    , vcIsArchived
+    , vcApplicationId
+    , vcVersion
+    , vcId
+    , vcCreationDate
+    , vcLastModifiedBy
+    , vcHasCredential
+
+    -- * VoiceMessage
+    , VoiceMessage
+    , voiceMessage
+    , vmSubstitutions
+    , vmLanguageCode
+    , vmOriginationNumber
+    , vmBody
+    , vmVoiceId
+
     -- * WriteApplicationSettingsRequest
     , WriteApplicationSettingsRequest
     , writeApplicationSettingsRequest
+    , wasrCloudWatchMetricsEnabled
     , wasrLimits
     , wasrQuietTime
     , wasrCampaignHook
@@ -918,6 +1202,7 @@ module Network.AWS.Pinpoint.Types
     , wcrDescription
     , wcrSegmentId
     , wcrAdditionalTreatments
+    , wcrTags
     , wcrSegmentVersion
 
     -- * WriteEventStream
@@ -929,8 +1214,10 @@ module Network.AWS.Pinpoint.Types
     -- * WriteSegmentRequest
     , WriteSegmentRequest
     , writeSegmentRequest
+    , wsrSegmentGroups
     , wsrName
     , wsrDimensions
+    , wsrTags
 
     -- * WriteTreatmentResource
     , WriteTreatmentResource

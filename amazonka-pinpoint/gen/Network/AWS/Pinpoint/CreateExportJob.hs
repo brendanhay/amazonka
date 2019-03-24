@@ -54,7 +54,7 @@ data CreateExportJob = CreateExportJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cejApplicationId' - Undocumented member.
+-- * 'cejApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
 -- * 'cejExportJobRequest' - Undocumented member.
 createExportJob
@@ -68,7 +68,7 @@ createExportJob pApplicationId_ pExportJobRequest_ =
     }
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 cejApplicationId :: Lens' CreateExportJob Text
 cejApplicationId = lens _cejApplicationId (\ s a -> s{_cejApplicationId = a})
 

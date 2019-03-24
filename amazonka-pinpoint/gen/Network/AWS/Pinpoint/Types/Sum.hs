@@ -84,6 +84,7 @@ instance FromJSON AttributeType where
 
 data CampaignStatus
   = Completed
+  | Deleted
   | Executing
   | Paused
   | PendingNextRun
@@ -94,16 +95,18 @@ data CampaignStatus
 instance FromText CampaignStatus where
     parser = takeLowerText >>= \case
         "completed" -> pure Completed
+        "deleted" -> pure Deleted
         "executing" -> pure Executing
         "paused" -> pure Paused
         "pending_next_run" -> pure PendingNextRun
         "scheduled" -> pure Scheduled
         e -> fromTextError $ "Failure parsing CampaignStatus from value: '" <> e
-           <> "'. Accepted values: completed, executing, paused, pending_next_run, scheduled"
+           <> "'. Accepted values: completed, deleted, executing, paused, pending_next_run, scheduled"
 
 instance ToText CampaignStatus where
     toText = \case
         Completed -> "COMPLETED"
+        Deleted -> "DELETED"
         Executing -> "EXECUTING"
         Paused -> "PAUSED"
         PendingNextRun -> "PENDING_NEXT_RUN"
@@ -129,6 +132,7 @@ data ChannelType
   | Email
   | GCM
   | Sms
+  | Voice
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -144,8 +148,9 @@ instance FromText ChannelType where
         "email" -> pure Email
         "gcm" -> pure GCM
         "sms" -> pure Sms
+        "voice" -> pure Voice
         e -> fromTextError $ "Failure parsing ChannelType from value: '" <> e
-           <> "'. Accepted values: adm, apns, apns_sandbox, apns_voip, apns_voip_sandbox, baidu, custom, email, gcm, sms"
+           <> "'. Accepted values: adm, apns, apns_sandbox, apns_voip, apns_voip_sandbox, baidu, custom, email, gcm, sms, voice"
 
 instance ToText ChannelType where
     toText = \case
@@ -159,6 +164,7 @@ instance ToText ChannelType where
         Email -> "EMAIL"
         GCM -> "GCM"
         Sms -> "SMS"
+        Voice -> "VOICE"
 
 instance Hashable     ChannelType
 instance NFData       ChannelType
@@ -310,8 +316,39 @@ instance ToJSON Duration where
 instance FromJSON Duration where
     parseJSON = parseJSONText "Duration"
 
+data FilterType
+  = Endpoint
+  | System
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FilterType where
+    parser = takeLowerText >>= \case
+        "endpoint" -> pure Endpoint
+        "system" -> pure System
+        e -> fromTextError $ "Failure parsing FilterType from value: '" <> e
+           <> "'. Accepted values: endpoint, system"
+
+instance ToText FilterType where
+    toText = \case
+        Endpoint -> "ENDPOINT"
+        System -> "SYSTEM"
+
+instance Hashable     FilterType
+instance NFData       FilterType
+instance ToByteString FilterType
+instance ToQuery      FilterType
+instance ToHeader     FilterType
+
+instance ToJSON FilterType where
+    toJSON = toJSONText
+
+instance FromJSON FilterType where
+    parseJSON = parseJSONText "FilterType"
+
 data Frequency
   = Daily
+  | Event
   | Hourly
   | Monthly
   | Once
@@ -322,16 +359,18 @@ data Frequency
 instance FromText Frequency where
     parser = takeLowerText >>= \case
         "daily" -> pure Daily
+        "event" -> pure Event
         "hourly" -> pure Hourly
         "monthly" -> pure Monthly
         "once" -> pure Once
         "weekly" -> pure Weekly
         e -> fromTextError $ "Failure parsing Frequency from value: '" <> e
-           <> "'. Accepted values: daily, hourly, monthly, once, weekly"
+           <> "'. Accepted values: daily, event, hourly, monthly, once, weekly"
 
 instance ToText Frequency where
     toText = \case
         Daily -> "DAILY"
+        Event -> "EVENT"
         Hourly -> "HOURLY"
         Monthly -> "MONTHLY"
         Once -> "ONCE"
@@ -348,6 +387,39 @@ instance ToJSON Frequency where
 
 instance FromJSON Frequency where
     parseJSON = parseJSONText "Frequency"
+
+data Include
+  = All
+  | Any
+  | None
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText Include where
+    parser = takeLowerText >>= \case
+        "all" -> pure All
+        "any" -> pure Any
+        "none" -> pure None
+        e -> fromTextError $ "Failure parsing Include from value: '" <> e
+           <> "'. Accepted values: all, any, none"
+
+instance ToText Include where
+    toText = \case
+        All -> "ALL"
+        Any -> "ANY"
+        None -> "NONE"
+
+instance Hashable     Include
+instance NFData       Include
+instance ToByteString Include
+instance ToQuery      Include
+instance ToHeader     Include
+
+instance ToJSON Include where
+    toJSON = toJSONText
+
+instance FromJSON Include where
+    parseJSON = parseJSONText "Include"
 
 data JobStatus
   = JSCompleted
@@ -507,3 +579,69 @@ instance ToHeader     SegmentType
 
 instance FromJSON SegmentType where
     parseJSON = parseJSONText "SegmentType"
+
+data SourceType
+  = STAll
+  | STAny
+  | STNone
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText SourceType where
+    parser = takeLowerText >>= \case
+        "all" -> pure STAll
+        "any" -> pure STAny
+        "none" -> pure STNone
+        e -> fromTextError $ "Failure parsing SourceType from value: '" <> e
+           <> "'. Accepted values: all, any, none"
+
+instance ToText SourceType where
+    toText = \case
+        STAll -> "ALL"
+        STAny -> "ANY"
+        STNone -> "NONE"
+
+instance Hashable     SourceType
+instance NFData       SourceType
+instance ToByteString SourceType
+instance ToQuery      SourceType
+instance ToHeader     SourceType
+
+instance ToJSON SourceType where
+    toJSON = toJSONText
+
+instance FromJSON SourceType where
+    parseJSON = parseJSONText "SourceType"
+
+data Type
+  = TAll
+  | TAny
+  | TNone
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText Type where
+    parser = takeLowerText >>= \case
+        "all" -> pure TAll
+        "any" -> pure TAny
+        "none" -> pure TNone
+        e -> fromTextError $ "Failure parsing Type from value: '" <> e
+           <> "'. Accepted values: all, any, none"
+
+instance ToText Type where
+    toText = \case
+        TAll -> "ALL"
+        TAny -> "ANY"
+        TNone -> "NONE"
+
+instance Hashable     Type
+instance NFData       Type
+instance ToByteString Type
+instance ToQuery      Type
+instance ToHeader     Type
+
+instance ToJSON Type where
+    toJSON = toJSONText
+
+instance FromJSON Type where
+    parseJSON = parseJSONText "Type"

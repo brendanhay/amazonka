@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete an ADM channel
+-- Delete an ADM channel.
 module Network.AWS.Pinpoint.DeleteADMChannel
     (
     -- * Creating a Request
@@ -52,7 +52,7 @@ newtype DeleteADMChannel = DeleteADMChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dadmcApplicationId' - Undocumented member.
+-- * 'dadmcApplicationId' - The unique ID of your Amazon Pinpoint application.
 deleteADMChannel
     :: Text -- ^ 'dadmcApplicationId'
     -> DeleteADMChannel
@@ -60,7 +60,7 @@ deleteADMChannel pApplicationId_ =
   DeleteADMChannel' {_dadmcApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 dadmcApplicationId :: Lens' DeleteADMChannel Text
 dadmcApplicationId = lens _dadmcApplicationId (\ s a -> s{_dadmcApplicationId = a})
 

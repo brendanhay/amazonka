@@ -62,9 +62,9 @@ data GetCampaignActivities = GetCampaignActivities'
 --
 -- * 'gcaPageSize' - The number of entries you want on each page in the response.
 --
--- * 'gcaApplicationId' - Undocumented member.
+-- * 'gcaApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
--- * 'gcaCampaignId' - Undocumented member.
+-- * 'gcaCampaignId' - The unique ID of the campaign.
 getCampaignActivities
     :: Text -- ^ 'gcaApplicationId'
     -> Text -- ^ 'gcaCampaignId'
@@ -86,11 +86,11 @@ gcaToken = lens _gcaToken (\ s a -> s{_gcaToken = a})
 gcaPageSize :: Lens' GetCampaignActivities (Maybe Text)
 gcaPageSize = lens _gcaPageSize (\ s a -> s{_gcaPageSize = a})
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gcaApplicationId :: Lens' GetCampaignActivities Text
 gcaApplicationId = lens _gcaApplicationId (\ s a -> s{_gcaApplicationId = a})
 
--- | Undocumented member.
+-- | The unique ID of the campaign.
 gcaCampaignId :: Lens' GetCampaignActivities Text
 gcaCampaignId = lens _gcaCampaignId (\ s a -> s{_gcaCampaignId = a})
 

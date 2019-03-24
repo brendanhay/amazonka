@@ -32,8 +32,8 @@ module Network.AWS.Pinpoint.GetExportJob
     , getExportJobResponse
     , GetExportJobResponse
     -- * Response Lenses
-    , getrsResponseStatus
-    , getrsExportJobResponse
+    , gejersResponseStatus
+    , gejersExportJobResponse
     ) where
 
 import Network.AWS.Lens
@@ -54,9 +54,9 @@ data GetExportJob = GetExportJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gejApplicationId' - Undocumented member.
+-- * 'gejApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
--- * 'gejJobId' - Undocumented member.
+-- * 'gejJobId' - The unique ID of the job.
 getExportJob
     :: Text -- ^ 'gejApplicationId'
     -> Text -- ^ 'gejJobId'
@@ -65,11 +65,11 @@ getExportJob pApplicationId_ pJobId_ =
   GetExportJob' {_gejApplicationId = pApplicationId_, _gejJobId = pJobId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gejApplicationId :: Lens' GetExportJob Text
 gejApplicationId = lens _gejApplicationId (\ s a -> s{_gejApplicationId = a})
 
--- | Undocumented member.
+-- | The unique ID of the job.
 gejJobId :: Lens' GetExportJob Text
 gejJobId = lens _gejJobId (\ s a -> s{_gejJobId = a})
 
@@ -104,8 +104,8 @@ instance ToQuery GetExportJob where
 
 -- | /See:/ 'getExportJobResponse' smart constructor.
 data GetExportJobResponse = GetExportJobResponse'
-  { _getrsResponseStatus    :: !Int
-  , _getrsExportJobResponse :: !ExportJobResponse
+  { _gejersResponseStatus    :: !Int
+  , _gejersExportJobResponse :: !ExportJobResponse
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,26 +113,26 @@ data GetExportJobResponse = GetExportJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'getrsResponseStatus' - -- | The response status code.
+-- * 'gejersResponseStatus' - -- | The response status code.
 --
--- * 'getrsExportJobResponse' - Undocumented member.
+-- * 'gejersExportJobResponse' - Undocumented member.
 getExportJobResponse
-    :: Int -- ^ 'getrsResponseStatus'
-    -> ExportJobResponse -- ^ 'getrsExportJobResponse'
+    :: Int -- ^ 'gejersResponseStatus'
+    -> ExportJobResponse -- ^ 'gejersExportJobResponse'
     -> GetExportJobResponse
 getExportJobResponse pResponseStatus_ pExportJobResponse_ =
   GetExportJobResponse'
-    { _getrsResponseStatus = pResponseStatus_
-    , _getrsExportJobResponse = pExportJobResponse_
+    { _gejersResponseStatus = pResponseStatus_
+    , _gejersExportJobResponse = pExportJobResponse_
     }
 
 
 -- | -- | The response status code.
-getrsResponseStatus :: Lens' GetExportJobResponse Int
-getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a})
+gejersResponseStatus :: Lens' GetExportJobResponse Int
+gejersResponseStatus = lens _gejersResponseStatus (\ s a -> s{_gejersResponseStatus = a})
 
 -- | Undocumented member.
-getrsExportJobResponse :: Lens' GetExportJobResponse ExportJobResponse
-getrsExportJobResponse = lens _getrsExportJobResponse (\ s a -> s{_getrsExportJobResponse = a})
+gejersExportJobResponse :: Lens' GetExportJobResponse ExportJobResponse
+gejersExportJobResponse = lens _gejersExportJobResponse (\ s a -> s{_gejersExportJobResponse = a})
 
 instance NFData GetExportJobResponse where

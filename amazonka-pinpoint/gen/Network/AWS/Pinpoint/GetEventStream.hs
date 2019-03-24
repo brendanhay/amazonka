@@ -42,9 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | GetEventStreamRequest
---
--- /See:/ 'getEventStream' smart constructor.
+-- | /See:/ 'getEventStream' smart constructor.
 newtype GetEventStream = GetEventStream'
   { _gesApplicationId :: Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -54,7 +52,7 @@ newtype GetEventStream = GetEventStream'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gesApplicationId' - ApplicationId
+-- * 'gesApplicationId' - The unique ID of your Amazon Pinpoint application.
 getEventStream
     :: Text -- ^ 'gesApplicationId'
     -> GetEventStream
@@ -62,7 +60,7 @@ getEventStream pApplicationId_ =
   GetEventStream' {_gesApplicationId = pApplicationId_}
 
 
--- | ApplicationId
+-- | The unique ID of your Amazon Pinpoint application.
 gesApplicationId :: Lens' GetEventStream Text
 gesApplicationId = lens _gesApplicationId (\ s a -> s{_gesApplicationId = a})
 

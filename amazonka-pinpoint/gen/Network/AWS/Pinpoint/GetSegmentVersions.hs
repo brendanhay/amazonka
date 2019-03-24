@@ -62,9 +62,9 @@ data GetSegmentVersions = GetSegmentVersions'
 --
 -- * 'gsvPageSize' - The number of entries you want on each page in the response.
 --
--- * 'gsvSegmentId' - Undocumented member.
+-- * 'gsvSegmentId' - The unique ID of the segment.
 --
--- * 'gsvApplicationId' - Undocumented member.
+-- * 'gsvApplicationId' - The unique ID of your Amazon Pinpoint application.
 getSegmentVersions
     :: Text -- ^ 'gsvSegmentId'
     -> Text -- ^ 'gsvApplicationId'
@@ -86,11 +86,11 @@ gsvToken = lens _gsvToken (\ s a -> s{_gsvToken = a})
 gsvPageSize :: Lens' GetSegmentVersions (Maybe Text)
 gsvPageSize = lens _gsvPageSize (\ s a -> s{_gsvPageSize = a})
 
--- | Undocumented member.
+-- | The unique ID of the segment.
 gsvSegmentId :: Lens' GetSegmentVersions Text
 gsvSegmentId = lens _gsvSegmentId (\ s a -> s{_gsvSegmentId = a})
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gsvApplicationId :: Lens' GetSegmentVersions Text
 gsvApplicationId = lens _gsvApplicationId (\ s a -> s{_gsvApplicationId = a})
 

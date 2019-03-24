@@ -42,9 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | DeleteEventStream Request
---
--- /See:/ 'deleteEventStream' smart constructor.
+-- | /See:/ 'deleteEventStream' smart constructor.
 newtype DeleteEventStream = DeleteEventStream'
   { _desApplicationId :: Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -54,7 +52,7 @@ newtype DeleteEventStream = DeleteEventStream'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desApplicationId' - ApplicationId
+-- * 'desApplicationId' - The unique ID of your Amazon Pinpoint application.
 deleteEventStream
     :: Text -- ^ 'desApplicationId'
     -> DeleteEventStream
@@ -62,7 +60,7 @@ deleteEventStream pApplicationId_ =
   DeleteEventStream' {_desApplicationId = pApplicationId_}
 
 
--- | ApplicationId
+-- | The unique ID of your Amazon Pinpoint application.
 desApplicationId :: Lens' DeleteEventStream Text
 desApplicationId = lens _desApplicationId (\ s a -> s{_desApplicationId = a})
 

@@ -35,11 +35,11 @@ data ADMChannelRequest = ADMChannelRequest'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'admcrClientId' - Client ID as gotten from Amazon
+-- * 'admcrClientId' - The Client ID that you obtained from the Amazon App Distribution Portal.
 --
--- * 'admcrClientSecret' - Client secret as gotten from Amazon
+-- * 'admcrClientSecret' - The Client Secret that you obtained from the Amazon App Distribution Portal.
 --
--- * 'admcrEnabled' - If the channel is enabled for sending messages.
+-- * 'admcrEnabled' - Indicates whether or not the channel is enabled for sending messages.
 aDMChannelRequest
     :: ADMChannelRequest
 aDMChannelRequest =
@@ -50,15 +50,15 @@ aDMChannelRequest =
     }
 
 
--- | Client ID as gotten from Amazon
+-- | The Client ID that you obtained from the Amazon App Distribution Portal.
 admcrClientId :: Lens' ADMChannelRequest (Maybe Text)
 admcrClientId = lens _admcrClientId (\ s a -> s{_admcrClientId = a})
 
--- | Client secret as gotten from Amazon
+-- | The Client Secret that you obtained from the Amazon App Distribution Portal.
 admcrClientSecret :: Lens' ADMChannelRequest (Maybe Text)
 admcrClientSecret = lens _admcrClientSecret (\ s a -> s{_admcrClientSecret = a})
 
--- | If the channel is enabled for sending messages.
+-- | Indicates whether or not the channel is enabled for sending messages.
 admcrEnabled :: Lens' ADMChannelRequest (Maybe Bool)
 admcrEnabled = lens _admcrEnabled (\ s a -> s{_admcrEnabled = a})
 
@@ -95,25 +95,25 @@ data ADMChannelResponse = ADMChannelResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'admcPlatform' - Platform type. Will be "ADM"
+-- * 'admcPlatform' - The platform type. For this channel, the value is always "ADM."
 --
--- * 'admcLastModifiedDate' - Last date this was updated
+-- * 'admcLastModifiedDate' - The date and time when this channel was last modified.
 --
--- * 'admcEnabled' - If the channel is enabled for sending messages.
+-- * 'admcEnabled' - Indicates whether or not the channel is enabled for sending messages.
 --
--- * 'admcIsArchived' - Is this channel archived
+-- * 'admcIsArchived' - Indicates whether or not the channel is archived.
 --
 -- * 'admcApplicationId' - The ID of the application to which the channel applies.
 --
--- * 'admcVersion' - Version of channel
+-- * 'admcVersion' - The channel version.
 --
--- * 'admcId' - Channel ID. Not used, only for backwards compatibility.
+-- * 'admcId' - (Deprecated) An identifier for the channel. Retained for backwards compatibility.
 --
--- * 'admcCreationDate' - When was this segment created
+-- * 'admcCreationDate' - The date and time when this channel was created.
 --
--- * 'admcLastModifiedBy' - Who last updated this entry
+-- * 'admcLastModifiedBy' - The user who last updated this channel.
 --
--- * 'admcHasCredential' - Indicates whether the channel is configured with ADM credentials. Amazon Pinpoint uses your credentials to authenticate push notifications with ADM. Provide your credentials by setting the ClientId and ClientSecret attributes.
+-- * 'admcHasCredential' - Not used. Retained for backwards compatibility.
 aDMChannelResponse
     :: ADMChannelResponse
 aDMChannelResponse =
@@ -131,19 +131,19 @@ aDMChannelResponse =
     }
 
 
--- | Platform type. Will be "ADM"
+-- | The platform type. For this channel, the value is always "ADM."
 admcPlatform :: Lens' ADMChannelResponse (Maybe Text)
 admcPlatform = lens _admcPlatform (\ s a -> s{_admcPlatform = a})
 
--- | Last date this was updated
+-- | The date and time when this channel was last modified.
 admcLastModifiedDate :: Lens' ADMChannelResponse (Maybe Text)
 admcLastModifiedDate = lens _admcLastModifiedDate (\ s a -> s{_admcLastModifiedDate = a})
 
--- | If the channel is enabled for sending messages.
+-- | Indicates whether or not the channel is enabled for sending messages.
 admcEnabled :: Lens' ADMChannelResponse (Maybe Bool)
 admcEnabled = lens _admcEnabled (\ s a -> s{_admcEnabled = a})
 
--- | Is this channel archived
+-- | Indicates whether or not the channel is archived.
 admcIsArchived :: Lens' ADMChannelResponse (Maybe Bool)
 admcIsArchived = lens _admcIsArchived (\ s a -> s{_admcIsArchived = a})
 
@@ -151,23 +151,23 @@ admcIsArchived = lens _admcIsArchived (\ s a -> s{_admcIsArchived = a})
 admcApplicationId :: Lens' ADMChannelResponse (Maybe Text)
 admcApplicationId = lens _admcApplicationId (\ s a -> s{_admcApplicationId = a})
 
--- | Version of channel
+-- | The channel version.
 admcVersion :: Lens' ADMChannelResponse (Maybe Int)
 admcVersion = lens _admcVersion (\ s a -> s{_admcVersion = a})
 
--- | Channel ID. Not used, only for backwards compatibility.
+-- | (Deprecated) An identifier for the channel. Retained for backwards compatibility.
 admcId :: Lens' ADMChannelResponse (Maybe Text)
 admcId = lens _admcId (\ s a -> s{_admcId = a})
 
--- | When was this segment created
+-- | The date and time when this channel was created.
 admcCreationDate :: Lens' ADMChannelResponse (Maybe Text)
 admcCreationDate = lens _admcCreationDate (\ s a -> s{_admcCreationDate = a})
 
--- | Who last updated this entry
+-- | The user who last updated this channel.
 admcLastModifiedBy :: Lens' ADMChannelResponse (Maybe Text)
 admcLastModifiedBy = lens _admcLastModifiedBy (\ s a -> s{_admcLastModifiedBy = a})
 
--- | Indicates whether the channel is configured with ADM credentials. Amazon Pinpoint uses your credentials to authenticate push notifications with ADM. Provide your credentials by setting the ClientId and ClientSecret attributes.
+-- | Not used. Retained for backwards compatibility.
 admcHasCredential :: Lens' ADMChannelResponse (Maybe Bool)
 admcHasCredential = lens _admcHasCredential (\ s a -> s{_admcHasCredential = a})
 
@@ -233,7 +233,7 @@ data ADMMessage = ADMMessage'
 --
 -- * 'admmSmallImageIconURL' - The URL that points to an image used as the small icon for the notification which will be used to represent the notification in the status bar and content view
 --
--- * 'admmBody' - The message body of the notification, the email body or the text message.
+-- * 'admmBody' - The message body of the notification.
 --
 -- * 'admmURL' - The URL to open in the user's mobile browser. Used if the value for Action is URL.
 --
@@ -303,7 +303,7 @@ admmData = lens _admmData (\ s a -> s{_admmData = a}) . _Default . _Map
 admmSmallImageIconURL :: Lens' ADMMessage (Maybe Text)
 admmSmallImageIconURL = lens _admmSmallImageIconURL (\ s a -> s{_admmSmallImageIconURL = a})
 
--- | The message body of the notification, the email body or the text message.
+-- | The message body of the notification.
 admmBody :: Lens' ADMMessage (Maybe Text)
 admmBody = lens _admmBody (\ s a -> s{_admmBody = a})
 
@@ -481,9 +481,9 @@ data APNSChannelResponse = APNSChannelResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acPlatform' - The platform type. Will be APNS.
+-- * 'acPlatform' - The platform type. For this channel, the value is always "ADM."
 --
--- * 'acLastModifiedDate' - Last date this was updated
+-- * 'acLastModifiedDate' - The date and time when this channel was last modified.
 --
 -- * 'acEnabled' - If the channel is enabled for sending messages.
 --
@@ -491,19 +491,19 @@ data APNSChannelResponse = APNSChannelResponse'
 --
 -- * 'acDefaultAuthenticationMethod' - The default authentication method used for APNs.
 --
--- * 'acIsArchived' - Is this channel archived
+-- * 'acIsArchived' - Indicates whether or not the channel is archived.
 --
--- * 'acApplicationId' - The ID of the application to which the channel applies.
+-- * 'acApplicationId' - The ID of the application that the channel applies to.
 --
--- * 'acVersion' - Version of channel
+-- * 'acVersion' - The channel version.
 --
--- * 'acId' - Channel ID. Not used. Present only for backwards compatibility.
+-- * 'acId' - (Deprecated) An identifier for the channel. Retained for backwards compatibility.
 --
--- * 'acCreationDate' - When was this segment created
+-- * 'acCreationDate' - The date and time when this channel was created.
 --
--- * 'acLastModifiedBy' - Who last updated this entry
+-- * 'acLastModifiedBy' - The user who last updated this channel.
 --
--- * 'acHasCredential' - Indicates whether the channel is configured with APNs credentials. Amazon Pinpoint uses your credentials to authenticate push notifications with APNs. To use APNs token authentication, set the BundleId, TeamId, TokenKey, and TokenKeyId attributes. To use certificate authentication, set the Certificate and PrivateKey attributes.
+-- * 'acHasCredential' - Not used. Retained for backwards compatibility.
 apnsChannelResponse
     :: APNSChannelResponse
 apnsChannelResponse =
@@ -523,11 +523,11 @@ apnsChannelResponse =
     }
 
 
--- | The platform type. Will be APNS.
+-- | The platform type. For this channel, the value is always "ADM."
 acPlatform :: Lens' APNSChannelResponse (Maybe Text)
 acPlatform = lens _acPlatform (\ s a -> s{_acPlatform = a})
 
--- | Last date this was updated
+-- | The date and time when this channel was last modified.
 acLastModifiedDate :: Lens' APNSChannelResponse (Maybe Text)
 acLastModifiedDate = lens _acLastModifiedDate (\ s a -> s{_acLastModifiedDate = a})
 
@@ -543,31 +543,31 @@ acHasTokenKey = lens _acHasTokenKey (\ s a -> s{_acHasTokenKey = a})
 acDefaultAuthenticationMethod :: Lens' APNSChannelResponse (Maybe Text)
 acDefaultAuthenticationMethod = lens _acDefaultAuthenticationMethod (\ s a -> s{_acDefaultAuthenticationMethod = a})
 
--- | Is this channel archived
+-- | Indicates whether or not the channel is archived.
 acIsArchived :: Lens' APNSChannelResponse (Maybe Bool)
 acIsArchived = lens _acIsArchived (\ s a -> s{_acIsArchived = a})
 
--- | The ID of the application to which the channel applies.
+-- | The ID of the application that the channel applies to.
 acApplicationId :: Lens' APNSChannelResponse (Maybe Text)
 acApplicationId = lens _acApplicationId (\ s a -> s{_acApplicationId = a})
 
--- | Version of channel
+-- | The channel version.
 acVersion :: Lens' APNSChannelResponse (Maybe Int)
 acVersion = lens _acVersion (\ s a -> s{_acVersion = a})
 
--- | Channel ID. Not used. Present only for backwards compatibility.
+-- | (Deprecated) An identifier for the channel. Retained for backwards compatibility.
 acId :: Lens' APNSChannelResponse (Maybe Text)
 acId = lens _acId (\ s a -> s{_acId = a})
 
--- | When was this segment created
+-- | The date and time when this channel was created.
 acCreationDate :: Lens' APNSChannelResponse (Maybe Text)
 acCreationDate = lens _acCreationDate (\ s a -> s{_acCreationDate = a})
 
--- | Who last updated this entry
+-- | The user who last updated this channel.
 acLastModifiedBy :: Lens' APNSChannelResponse (Maybe Text)
 acLastModifiedBy = lens _acLastModifiedBy (\ s a -> s{_acLastModifiedBy = a})
 
--- | Indicates whether the channel is configured with APNs credentials. Amazon Pinpoint uses your credentials to authenticate push notifications with APNs. To use APNs token authentication, set the BundleId, TeamId, TokenKey, and TokenKeyId attributes. To use certificate authentication, set the Certificate and PrivateKey attributes.
+-- | Not used. Retained for backwards compatibility.
 acHasCredential :: Lens' APNSChannelResponse (Maybe Bool)
 acHasCredential = lens _acHasCredential (\ s a -> s{_acHasCredential = a})
 
@@ -630,7 +630,7 @@ data APNSMessage = APNSMessage'
 --
 -- * 'amData' - The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
 --
--- * 'amBody' - The message body of the notification, the email body or the text message.
+-- * 'amBody' - The message body of the notification.
 --
 -- * 'amCategory' - Provide this key with a string value that represents the notification's type. This value corresponds to the value in the identifier property of one of your app's registered categories.
 --
@@ -642,7 +642,7 @@ data APNSMessage = APNSMessage'
 --
 -- * 'amAction' - The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
 --
--- * 'amMediaURL' - The URL that points to a video used in the push notification.
+-- * 'amMediaURL' - A URL that refers to the location of an image or video that you want to display in the push notification.
 --
 -- * 'amPreferredAuthenticationMethod' - The preferred authentication method, either "CERTIFICATE" or "TOKEN"
 --
@@ -697,7 +697,7 @@ amRawContent = lens _amRawContent (\ s a -> s{_amRawContent = a})
 amData :: Lens' APNSMessage (HashMap Text Text)
 amData = lens _amData (\ s a -> s{_amData = a}) . _Default . _Map
 
--- | The message body of the notification, the email body or the text message.
+-- | The message body of the notification.
 amBody :: Lens' APNSMessage (Maybe Text)
 amBody = lens _amBody (\ s a -> s{_amBody = a})
 
@@ -721,7 +721,7 @@ amSound = lens _amSound (\ s a -> s{_amSound = a})
 amAction :: Lens' APNSMessage (Maybe Action)
 amAction = lens _amAction (\ s a -> s{_amAction = a})
 
--- | The URL that points to a video used in the push notification.
+-- | A URL that refers to the location of an image or video that you want to display in the push notification.
 amMediaURL :: Lens' APNSMessage (Maybe Text)
 amMediaURL = lens _amMediaURL (\ s a -> s{_amMediaURL = a})
 
@@ -913,7 +913,7 @@ data APNSSandboxChannelResponse = APNSSandboxChannelResponse'
 --
 -- * 'ascLastModifiedBy' - Who last updated this entry
 --
--- * 'ascHasCredential' - Indicates whether the channel is configured with APNs credentials. Amazon Pinpoint uses your credentials to authenticate push notifications with APNs. To use APNs token authentication, set the BundleId, TeamId, TokenKey, and TokenKeyId attributes. To use certificate authentication, set the Certificate and PrivateKey attributes.
+-- * 'ascHasCredential' - Not used. Retained for backwards compatibility.
 apnsSandboxChannelResponse
     :: APNSSandboxChannelResponse
 apnsSandboxChannelResponse =
@@ -977,7 +977,7 @@ ascCreationDate = lens _ascCreationDate (\ s a -> s{_ascCreationDate = a})
 ascLastModifiedBy :: Lens' APNSSandboxChannelResponse (Maybe Text)
 ascLastModifiedBy = lens _ascLastModifiedBy (\ s a -> s{_ascLastModifiedBy = a})
 
--- | Indicates whether the channel is configured with APNs credentials. Amazon Pinpoint uses your credentials to authenticate push notifications with APNs. To use APNs token authentication, set the BundleId, TeamId, TokenKey, and TokenKeyId attributes. To use certificate authentication, set the Certificate and PrivateKey attributes.
+-- | Not used. Retained for backwards compatibility.
 ascHasCredential :: Lens' APNSSandboxChannelResponse (Maybe Bool)
 ascHasCredential = lens _ascHasCredential (\ s a -> s{_ascHasCredential = a})
 
@@ -1146,7 +1146,7 @@ data APNSVoipChannelResponse = APNSVoipChannelResponse'
 --
 -- * 'avcLastModifiedBy' - Who made the last change
 --
--- * 'avcHasCredential' - If the channel is registered with a credential for authentication.
+-- * 'avcHasCredential' - Not used. Retained for backwards compatibility.
 apnsVoipChannelResponse
     :: APNSVoipChannelResponse
 apnsVoipChannelResponse =
@@ -1210,7 +1210,7 @@ avcCreationDate = lens _avcCreationDate (\ s a -> s{_avcCreationDate = a})
 avcLastModifiedBy :: Lens' APNSVoipChannelResponse (Maybe Text)
 avcLastModifiedBy = lens _avcLastModifiedBy (\ s a -> s{_avcLastModifiedBy = a})
 
--- | If the channel is registered with a credential for authentication.
+-- | Not used. Retained for backwards compatibility.
 avcHasCredential :: Lens' APNSVoipChannelResponse (Maybe Bool)
 avcHasCredential = lens _avcHasCredential (\ s a -> s{_avcHasCredential = a})
 
@@ -1379,7 +1379,7 @@ data APNSVoipSandboxChannelResponse = APNSVoipSandboxChannelResponse'
 --
 -- * 'avscLastModifiedBy' - Who made the last change
 --
--- * 'avscHasCredential' - If the channel is registered with a credential for authentication.
+-- * 'avscHasCredential' - Not used. Retained for backwards compatibility.
 apnsVoipSandboxChannelResponse
     :: APNSVoipSandboxChannelResponse
 apnsVoipSandboxChannelResponse =
@@ -1443,7 +1443,7 @@ avscCreationDate = lens _avscCreationDate (\ s a -> s{_avscCreationDate = a})
 avscLastModifiedBy :: Lens' APNSVoipSandboxChannelResponse (Maybe Text)
 avscLastModifiedBy = lens _avscLastModifiedBy (\ s a -> s{_avscLastModifiedBy = a})
 
--- | If the channel is registered with a credential for authentication.
+-- | Not used. Retained for backwards compatibility.
 avscHasCredential :: Lens' APNSVoipSandboxChannelResponse (Maybe Bool)
 avscHasCredential = lens _avscHasCredential (\ s a -> s{_avscHasCredential = a})
 
@@ -1473,8 +1473,9 @@ instance NFData APNSVoipSandboxChannelResponse where
 -- | Activities for campaign.
 --
 -- /See:/ 'activitiesResponse' smart constructor.
-newtype ActivitiesResponse = ActivitiesResponse'
-  { _aItem :: Maybe [ActivityResponse]
+data ActivitiesResponse = ActivitiesResponse'
+  { _aNextToken :: !(Maybe Text)
+  , _aItem      :: !(Maybe [ActivityResponse])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1482,11 +1483,18 @@ newtype ActivitiesResponse = ActivitiesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'aNextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
+--
 -- * 'aItem' - List of campaign activities
 activitiesResponse
     :: ActivitiesResponse
-activitiesResponse = ActivitiesResponse' {_aItem = Nothing}
+activitiesResponse =
+  ActivitiesResponse' {_aNextToken = Nothing, _aItem = Nothing}
 
+
+-- | The string that you use in a subsequent request to get the next page of results in a paginated response.
+aNextToken :: Lens' ActivitiesResponse (Maybe Text)
+aNextToken = lens _aNextToken (\ s a -> s{_aNextToken = a})
 
 -- | List of campaign activities
 aItem :: Lens' ActivitiesResponse [ActivityResponse]
@@ -1496,7 +1504,8 @@ instance FromJSON ActivitiesResponse where
         parseJSON
           = withObject "ActivitiesResponse"
               (\ x ->
-                 ActivitiesResponse' <$> (x .:? "Item" .!= mempty))
+                 ActivitiesResponse' <$>
+                   (x .:? "NextToken") <*> (x .:? "Item" .!= mempty))
 
 instance Hashable ActivitiesResponse where
 
@@ -1729,8 +1738,10 @@ instance ToJSON AddressConfiguration where
 --
 -- /See:/ 'applicationResponse' smart constructor.
 data ApplicationResponse = ApplicationResponse'
-  { _appName :: !(Maybe Text)
+  { _appARN  :: !(Maybe Text)
+  , _appName :: !(Maybe Text)
   , _appId   :: !(Maybe Text)
+  , _appTags :: !(Maybe (Map Text Text))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1738,14 +1749,27 @@ data ApplicationResponse = ApplicationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'appARN' - The arn for the application.
+--
 -- * 'appName' - The display name of the application.
 --
 -- * 'appId' - The unique application ID.
+--
+-- * 'appTags' - The Tags for the application.
 applicationResponse
     :: ApplicationResponse
 applicationResponse =
-  ApplicationResponse' {_appName = Nothing, _appId = Nothing}
+  ApplicationResponse'
+    { _appARN = Nothing
+    , _appName = Nothing
+    , _appId = Nothing
+    , _appTags = Nothing
+    }
 
+
+-- | The arn for the application.
+appARN :: Lens' ApplicationResponse (Maybe Text)
+appARN = lens _appARN (\ s a -> s{_appARN = a})
 
 -- | The display name of the application.
 appName :: Lens' ApplicationResponse (Maybe Text)
@@ -1755,12 +1779,17 @@ appName = lens _appName (\ s a -> s{_appName = a})
 appId :: Lens' ApplicationResponse (Maybe Text)
 appId = lens _appId (\ s a -> s{_appId = a})
 
+-- | The Tags for the application.
+appTags :: Lens' ApplicationResponse (HashMap Text Text)
+appTags = lens _appTags (\ s a -> s{_appTags = a}) . _Default . _Map
+
 instance FromJSON ApplicationResponse where
         parseJSON
           = withObject "ApplicationResponse"
               (\ x ->
                  ApplicationResponse' <$>
-                   (x .:? "Name") <*> (x .:? "Id"))
+                   (x .:? "Arn") <*> (x .:? "Name") <*> (x .:? "Id") <*>
+                     (x .:? "tags" .!= mempty))
 
 instance Hashable ApplicationResponse where
 
@@ -1786,7 +1815,7 @@ data ApplicationSettingsResource = ApplicationSettingsResource'
 --
 -- * 'asrLimits' - The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own.
 --
--- * 'asrQuietTime' - The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own.
+-- * 'asrQuietTime' - The default quiet time for the app. Campaigns in the app don't send messages to endpoints during the quiet time. Note: Make sure that your endpoints include the Demographics.Timezone attribute if you plan to enable a quiet time for your app. If your endpoints don't include this attribute, they'll receive the messages that you send them, even if quiet time is enabled. When you set up an app to use quiet time, campaigns in that app don't send messages during the time range you specified, as long as all of the following are true: - The endpoint includes a valid Demographic.Timezone attribute. - The current time in the endpoint's time zone is later than or equal to the time specified in the QuietTime.Start attribute for the app (or campaign, if applicable). - The current time in the endpoint's time zone is earlier than or equal to the time specified in the QuietTime.End attribute for the app (or campaign, if applicable). Individual campaigns within the app can have their own quiet time settings, which override the quiet time settings at the app level.
 --
 -- * 'asrApplicationId' - The unique ID for the application.
 --
@@ -1811,7 +1840,7 @@ asrLastModifiedDate = lens _asrLastModifiedDate (\ s a -> s{_asrLastModifiedDate
 asrLimits :: Lens' ApplicationSettingsResource (Maybe CampaignLimits)
 asrLimits = lens _asrLimits (\ s a -> s{_asrLimits = a})
 
--- | The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own.
+-- | The default quiet time for the app. Campaigns in the app don't send messages to endpoints during the quiet time. Note: Make sure that your endpoints include the Demographics.Timezone attribute if you plan to enable a quiet time for your app. If your endpoints don't include this attribute, they'll receive the messages that you send them, even if quiet time is enabled. When you set up an app to use quiet time, campaigns in that app don't send messages during the time range you specified, as long as all of the following are true: - The endpoint includes a valid Demographic.Timezone attribute. - The current time in the endpoint's time zone is later than or equal to the time specified in the QuietTime.Start attribute for the app (or campaign, if applicable). - The current time in the endpoint's time zone is earlier than or equal to the time specified in the QuietTime.End attribute for the app (or campaign, if applicable). Individual campaigns within the app can have their own quiet time settings, which override the quiet time settings at the app level.
 asrQuietTime :: Lens' ApplicationSettingsResource (Maybe QuietTime)
 asrQuietTime = lens _asrQuietTime (\ s a -> s{_asrQuietTime = a})
 
@@ -1927,6 +1956,59 @@ instance ToJSON AttributeDimension where
                  [("Values" .=) <$> _adValues,
                   ("AttributeType" .=) <$> _adAttributeType])
 
+-- | Attributes.
+--
+-- /See:/ 'attributesResource' smart constructor.
+data AttributesResource = AttributesResource'
+  { _arAttributeType :: !(Maybe Text)
+  , _arApplicationId :: !(Maybe Text)
+  , _arAttributes    :: !(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AttributesResource' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'arAttributeType' - The attribute type for the application.
+--
+-- * 'arApplicationId' - The unique ID for the application.
+--
+-- * 'arAttributes' - The attributes for the application.
+attributesResource
+    :: AttributesResource
+attributesResource =
+  AttributesResource'
+    { _arAttributeType = Nothing
+    , _arApplicationId = Nothing
+    , _arAttributes = Nothing
+    }
+
+
+-- | The attribute type for the application.
+arAttributeType :: Lens' AttributesResource (Maybe Text)
+arAttributeType = lens _arAttributeType (\ s a -> s{_arAttributeType = a})
+
+-- | The unique ID for the application.
+arApplicationId :: Lens' AttributesResource (Maybe Text)
+arApplicationId = lens _arApplicationId (\ s a -> s{_arApplicationId = a})
+
+-- | The attributes for the application.
+arAttributes :: Lens' AttributesResource [Text]
+arAttributes = lens _arAttributes (\ s a -> s{_arAttributes = a}) . _Default . _Coerce
+
+instance FromJSON AttributesResource where
+        parseJSON
+          = withObject "AttributesResource"
+              (\ x ->
+                 AttributesResource' <$>
+                   (x .:? "AttributeType") <*> (x .:? "ApplicationId")
+                     <*> (x .:? "Attributes" .!= mempty))
+
+instance Hashable AttributesResource where
+
+instance NFData AttributesResource where
+
 -- | Baidu Cloud Push credentials
 --
 -- /See:/ 'baiduChannelRequest' smart constructor.
@@ -2019,7 +2101,7 @@ data BaiduChannelResponse = BaiduChannelResponse'
 --
 -- * 'bcLastModifiedBy' - Who made the last change
 --
--- * 'bcHasCredential' - Indicates whether the channel is configured with Baidu Cloud Push credentials. Amazon Pinpoint uses your credentials to authenticate push notifications with Baidu Cloud Push. Provide your credentials by setting the ApiKey and SecretKey attributes.
+-- * 'bcHasCredential' - Not used. Retained for backwards compatibility.
 baiduChannelResponse
     :: BaiduChannelResponse
 baiduChannelResponse =
@@ -2078,7 +2160,7 @@ bcCreationDate = lens _bcCreationDate (\ s a -> s{_bcCreationDate = a})
 bcLastModifiedBy :: Lens' BaiduChannelResponse (Maybe Text)
 bcLastModifiedBy = lens _bcLastModifiedBy (\ s a -> s{_bcLastModifiedBy = a})
 
--- | Indicates whether the channel is configured with Baidu Cloud Push credentials. Amazon Pinpoint uses your credentials to authenticate push notifications with Baidu Cloud Push. Provide your credentials by setting the ApiKey and SecretKey attributes.
+-- | Not used. Retained for backwards compatibility.
 bcHasCredential :: Lens' BaiduChannelResponse (Maybe Bool)
 bcHasCredential = lens _bcHasCredential (\ s a -> s{_bcHasCredential = a})
 
@@ -2113,6 +2195,7 @@ data BaiduMessage = BaiduMessage'
   , _bmData              :: !(Maybe (Map Text Text))
   , _bmSmallImageIconURL :: !(Maybe Text)
   , _bmBody              :: !(Maybe Text)
+  , _bmTimeToLive        :: !(Maybe Int)
   , _bmURL               :: !(Maybe Text)
   , _bmSound             :: !(Maybe Text)
   , _bmAction            :: !(Maybe Action)
@@ -2138,7 +2221,9 @@ data BaiduMessage = BaiduMessage'
 --
 -- * 'bmSmallImageIconURL' - The URL that points to an image used as the small icon for the notification which will be used to represent the notification in the status bar and content view
 --
--- * 'bmBody' - The message body of the notification, the email body or the text message.
+-- * 'bmBody' - The message body of the notification.
+--
+-- * 'bmTimeToLive' - This parameter specifies how long (in seconds) the message should be kept in Baidu storage if the device is offline. The and the default value and the maximum time to live supported is 7 days (604800 seconds)
 --
 -- * 'bmURL' - The URL to open in the user's mobile browser. Used if the value for Action is URL.
 --
@@ -2162,6 +2247,7 @@ baiduMessage =
     , _bmData = Nothing
     , _bmSmallImageIconURL = Nothing
     , _bmBody = Nothing
+    , _bmTimeToLive = Nothing
     , _bmURL = Nothing
     , _bmSound = Nothing
     , _bmAction = Nothing
@@ -2195,9 +2281,13 @@ bmData = lens _bmData (\ s a -> s{_bmData = a}) . _Default . _Map
 bmSmallImageIconURL :: Lens' BaiduMessage (Maybe Text)
 bmSmallImageIconURL = lens _bmSmallImageIconURL (\ s a -> s{_bmSmallImageIconURL = a})
 
--- | The message body of the notification, the email body or the text message.
+-- | The message body of the notification.
 bmBody :: Lens' BaiduMessage (Maybe Text)
 bmBody = lens _bmBody (\ s a -> s{_bmBody = a})
+
+-- | This parameter specifies how long (in seconds) the message should be kept in Baidu storage if the device is offline. The and the default value and the maximum time to live supported is 7 days (604800 seconds)
+bmTimeToLive :: Lens' BaiduMessage (Maybe Int)
+bmTimeToLive = lens _bmTimeToLive (\ s a -> s{_bmTimeToLive = a})
 
 -- | The URL to open in the user's mobile browser. Used if the value for Action is URL.
 bmURL :: Lens' BaiduMessage (Maybe Text)
@@ -2237,8 +2327,9 @@ instance ToJSON BaiduMessage where
                   ("RawContent" .=) <$> _bmRawContent,
                   ("Data" .=) <$> _bmData,
                   ("SmallImageIconUrl" .=) <$> _bmSmallImageIconURL,
-                  ("Body" .=) <$> _bmBody, ("Url" .=) <$> _bmURL,
-                  ("Sound" .=) <$> _bmSound,
+                  ("Body" .=) <$> _bmBody,
+                  ("TimeToLive" .=) <$> _bmTimeToLive,
+                  ("Url" .=) <$> _bmURL, ("Sound" .=) <$> _bmSound,
                   ("Action" .=) <$> _bmAction,
                   ("ImageUrl" .=) <$> _bmImageURL,
                   ("Title" .=) <$> _bmTitle,
@@ -2315,7 +2406,57 @@ instance ToJSON CampaignEmailMessage where
                   ("HtmlBody" .=) <$> _cemHTMLBody,
                   ("Title" .=) <$> _cemTitle])
 
--- | /See:/ 'campaignHook' smart constructor.
+-- | An object that defines the events that cause the campaign to be sent.
+--
+-- /See:/ 'campaignEventFilter' smart constructor.
+data CampaignEventFilter = CampaignEventFilter'
+  { _cefFilterType :: !(Maybe FilterType)
+  , _cefDimensions :: !(Maybe EventDimensions)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CampaignEventFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cefFilterType' - The type of event that causes the campaign to be sent. Possible values: SYSTEM - Send the campaign when a system event occurs. See the System resource for more information. ENDPOINT - Send the campaign when an endpoint event occurs. See the Event resource for more information.
+--
+-- * 'cefDimensions' - An object that defines the dimensions for the event filter.
+campaignEventFilter
+    :: CampaignEventFilter
+campaignEventFilter =
+  CampaignEventFilter' {_cefFilterType = Nothing, _cefDimensions = Nothing}
+
+
+-- | The type of event that causes the campaign to be sent. Possible values: SYSTEM - Send the campaign when a system event occurs. See the System resource for more information. ENDPOINT - Send the campaign when an endpoint event occurs. See the Event resource for more information.
+cefFilterType :: Lens' CampaignEventFilter (Maybe FilterType)
+cefFilterType = lens _cefFilterType (\ s a -> s{_cefFilterType = a})
+
+-- | An object that defines the dimensions for the event filter.
+cefDimensions :: Lens' CampaignEventFilter (Maybe EventDimensions)
+cefDimensions = lens _cefDimensions (\ s a -> s{_cefDimensions = a})
+
+instance FromJSON CampaignEventFilter where
+        parseJSON
+          = withObject "CampaignEventFilter"
+              (\ x ->
+                 CampaignEventFilter' <$>
+                   (x .:? "FilterType") <*> (x .:? "Dimensions"))
+
+instance Hashable CampaignEventFilter where
+
+instance NFData CampaignEventFilter where
+
+instance ToJSON CampaignEventFilter where
+        toJSON CampaignEventFilter'{..}
+          = object
+              (catMaybes
+                 [("FilterType" .=) <$> _cefFilterType,
+                  ("Dimensions" .=) <$> _cefDimensions])
+
+-- | Campaign hook information.
+--
+-- /See:/ 'campaignHook' smart constructor.
 data CampaignHook = CampaignHook'
   { _chLambdaFunctionName :: !(Maybe Text)
   , _chMode               :: !(Maybe Mode)
@@ -2371,7 +2512,7 @@ instance ToJSON CampaignHook where
                   ("Mode" .=) <$> _chMode,
                   ("WebUrl" .=) <$> _chWebURL])
 
--- | Campaign Limits are used to limit the number of messages that can be sent to a user.
+-- | Campaign Limits are used to limit the number of messages that can be sent to a single endpoint.
 --
 -- /See:/ 'campaignLimits' smart constructor.
 data CampaignLimits = CampaignLimits'
@@ -2388,9 +2529,9 @@ data CampaignLimits = CampaignLimits'
 --
 -- * 'clMessagesPerSecond' - The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
 --
--- * 'clDaily' - The maximum number of messages that the campaign can send daily.
+-- * 'clDaily' - The maximum number of messages that each campaign can send to a single endpoint in a 24-hour period.
 --
--- * 'clTotal' - The maximum total number of messages that the campaign can send.
+-- * 'clTotal' - The maximum number of messages that an individual campaign can send to a single endpoint over the course of the campaign.
 --
 -- * 'clMaximumDuration' - The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
 campaignLimits
@@ -2408,11 +2549,11 @@ campaignLimits =
 clMessagesPerSecond :: Lens' CampaignLimits (Maybe Int)
 clMessagesPerSecond = lens _clMessagesPerSecond (\ s a -> s{_clMessagesPerSecond = a})
 
--- | The maximum number of messages that the campaign can send daily.
+-- | The maximum number of messages that each campaign can send to a single endpoint in a 24-hour period.
 clDaily :: Lens' CampaignLimits (Maybe Int)
 clDaily = lens _clDaily (\ s a -> s{_clDaily = a})
 
--- | The maximum total number of messages that the campaign can send.
+-- | The maximum number of messages that an individual campaign can send to a single endpoint over the course of the campaign.
 clTotal :: Lens' CampaignLimits (Maybe Int)
 clTotal = lens _clTotal (\ s a -> s{_clTotal = a})
 
@@ -2447,6 +2588,7 @@ instance ToJSON CampaignLimits where
 data CampaignResponse = CampaignResponse'
   { _cState                :: !(Maybe CampaignState)
   , _cLastModifiedDate     :: !(Maybe Text)
+  , _cARN                  :: !(Maybe Text)
   , _cSchedule             :: !(Maybe Schedule)
   , _cHook                 :: !(Maybe CampaignHook)
   , _cTreatmentName        :: !(Maybe Text)
@@ -2464,6 +2606,7 @@ data CampaignResponse = CampaignResponse'
   , _cDescription          :: !(Maybe Text)
   , _cSegmentId            :: !(Maybe Text)
   , _cAdditionalTreatments :: !(Maybe [TreatmentResource])
+  , _cTags                 :: !(Maybe (Map Text Text))
   , _cSegmentVersion       :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -2475,6 +2618,8 @@ data CampaignResponse = CampaignResponse'
 -- * 'cState' - The campaign status. An A/B test campaign will have a status of COMPLETED only when all treatments have a status of COMPLETED.
 --
 -- * 'cLastModifiedDate' - The date the campaign was last updated in ISO 8601 format.
+--
+-- * 'cARN' - The arn for the campaign.
 --
 -- * 'cSchedule' - The campaign schedule.
 --
@@ -2510,6 +2655,8 @@ data CampaignResponse = CampaignResponse'
 --
 -- * 'cAdditionalTreatments' - Treatments that are defined in addition to the default treatment.
 --
+-- * 'cTags' - The Tags for the campaign.
+--
 -- * 'cSegmentVersion' - The version of the segment to which the campaign sends messages.
 campaignResponse
     :: CampaignResponse
@@ -2517,6 +2664,7 @@ campaignResponse =
   CampaignResponse'
     { _cState = Nothing
     , _cLastModifiedDate = Nothing
+    , _cARN = Nothing
     , _cSchedule = Nothing
     , _cHook = Nothing
     , _cTreatmentName = Nothing
@@ -2534,6 +2682,7 @@ campaignResponse =
     , _cDescription = Nothing
     , _cSegmentId = Nothing
     , _cAdditionalTreatments = Nothing
+    , _cTags = Nothing
     , _cSegmentVersion = Nothing
     }
 
@@ -2545,6 +2694,10 @@ cState = lens _cState (\ s a -> s{_cState = a})
 -- | The date the campaign was last updated in ISO 8601 format.
 cLastModifiedDate :: Lens' CampaignResponse (Maybe Text)
 cLastModifiedDate = lens _cLastModifiedDate (\ s a -> s{_cLastModifiedDate = a})
+
+-- | The arn for the campaign.
+cARN :: Lens' CampaignResponse (Maybe Text)
+cARN = lens _cARN (\ s a -> s{_cARN = a})
 
 -- | The campaign schedule.
 cSchedule :: Lens' CampaignResponse (Maybe Schedule)
@@ -2614,6 +2767,10 @@ cSegmentId = lens _cSegmentId (\ s a -> s{_cSegmentId = a})
 cAdditionalTreatments :: Lens' CampaignResponse [TreatmentResource]
 cAdditionalTreatments = lens _cAdditionalTreatments (\ s a -> s{_cAdditionalTreatments = a}) . _Default . _Coerce
 
+-- | The Tags for the campaign.
+cTags :: Lens' CampaignResponse (HashMap Text Text)
+cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Map
+
 -- | The version of the segment to which the campaign sends messages.
 cSegmentVersion :: Lens' CampaignResponse (Maybe Int)
 cSegmentVersion = lens _cSegmentVersion (\ s a -> s{_cSegmentVersion = a})
@@ -2624,7 +2781,8 @@ instance FromJSON CampaignResponse where
               (\ x ->
                  CampaignResponse' <$>
                    (x .:? "State") <*> (x .:? "LastModifiedDate") <*>
-                     (x .:? "Schedule")
+                     (x .:? "Arn")
+                     <*> (x .:? "Schedule")
                      <*> (x .:? "Hook")
                      <*> (x .:? "TreatmentName")
                      <*> (x .:? "Limits")
@@ -2641,6 +2799,7 @@ instance FromJSON CampaignResponse where
                      <*> (x .:? "Description")
                      <*> (x .:? "SegmentId")
                      <*> (x .:? "AdditionalTreatments" .!= mempty)
+                     <*> (x .:? "tags" .!= mempty)
                      <*> (x .:? "SegmentVersion"))
 
 instance Hashable CampaignResponse where
@@ -2776,11 +2935,151 @@ instance Hashable CampaignsResponse where
 
 instance NFData CampaignsResponse where
 
+-- | Base definition for channel response.
+--
+-- /See:/ 'channelResponse' smart constructor.
+data ChannelResponse = ChannelResponse'
+  { _chaLastModifiedDate :: !(Maybe Text)
+  , _chaEnabled          :: !(Maybe Bool)
+  , _chaIsArchived       :: !(Maybe Bool)
+  , _chaApplicationId    :: !(Maybe Text)
+  , _chaVersion          :: !(Maybe Int)
+  , _chaId               :: !(Maybe Text)
+  , _chaCreationDate     :: !(Maybe Text)
+  , _chaLastModifiedBy   :: !(Maybe Text)
+  , _chaHasCredential    :: !(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ChannelResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'chaLastModifiedDate' - Last date this was updated
+--
+-- * 'chaEnabled' - If the channel is enabled for sending messages.
+--
+-- * 'chaIsArchived' - Is this channel archived
+--
+-- * 'chaApplicationId' - Application id
+--
+-- * 'chaVersion' - Version of channel
+--
+-- * 'chaId' - Channel ID. Not used, only for backwards compatibility.
+--
+-- * 'chaCreationDate' - When was this segment created
+--
+-- * 'chaLastModifiedBy' - Who made the last change
+--
+-- * 'chaHasCredential' - Not used. Retained for backwards compatibility.
+channelResponse
+    :: ChannelResponse
+channelResponse =
+  ChannelResponse'
+    { _chaLastModifiedDate = Nothing
+    , _chaEnabled = Nothing
+    , _chaIsArchived = Nothing
+    , _chaApplicationId = Nothing
+    , _chaVersion = Nothing
+    , _chaId = Nothing
+    , _chaCreationDate = Nothing
+    , _chaLastModifiedBy = Nothing
+    , _chaHasCredential = Nothing
+    }
+
+
+-- | Last date this was updated
+chaLastModifiedDate :: Lens' ChannelResponse (Maybe Text)
+chaLastModifiedDate = lens _chaLastModifiedDate (\ s a -> s{_chaLastModifiedDate = a})
+
+-- | If the channel is enabled for sending messages.
+chaEnabled :: Lens' ChannelResponse (Maybe Bool)
+chaEnabled = lens _chaEnabled (\ s a -> s{_chaEnabled = a})
+
+-- | Is this channel archived
+chaIsArchived :: Lens' ChannelResponse (Maybe Bool)
+chaIsArchived = lens _chaIsArchived (\ s a -> s{_chaIsArchived = a})
+
+-- | Application id
+chaApplicationId :: Lens' ChannelResponse (Maybe Text)
+chaApplicationId = lens _chaApplicationId (\ s a -> s{_chaApplicationId = a})
+
+-- | Version of channel
+chaVersion :: Lens' ChannelResponse (Maybe Int)
+chaVersion = lens _chaVersion (\ s a -> s{_chaVersion = a})
+
+-- | Channel ID. Not used, only for backwards compatibility.
+chaId :: Lens' ChannelResponse (Maybe Text)
+chaId = lens _chaId (\ s a -> s{_chaId = a})
+
+-- | When was this segment created
+chaCreationDate :: Lens' ChannelResponse (Maybe Text)
+chaCreationDate = lens _chaCreationDate (\ s a -> s{_chaCreationDate = a})
+
+-- | Who made the last change
+chaLastModifiedBy :: Lens' ChannelResponse (Maybe Text)
+chaLastModifiedBy = lens _chaLastModifiedBy (\ s a -> s{_chaLastModifiedBy = a})
+
+-- | Not used. Retained for backwards compatibility.
+chaHasCredential :: Lens' ChannelResponse (Maybe Bool)
+chaHasCredential = lens _chaHasCredential (\ s a -> s{_chaHasCredential = a})
+
+instance FromJSON ChannelResponse where
+        parseJSON
+          = withObject "ChannelResponse"
+              (\ x ->
+                 ChannelResponse' <$>
+                   (x .:? "LastModifiedDate") <*> (x .:? "Enabled") <*>
+                     (x .:? "IsArchived")
+                     <*> (x .:? "ApplicationId")
+                     <*> (x .:? "Version")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "CreationDate")
+                     <*> (x .:? "LastModifiedBy")
+                     <*> (x .:? "HasCredential"))
+
+instance Hashable ChannelResponse where
+
+instance NFData ChannelResponse where
+
+-- | Get channels definition
+--
+-- /See:/ 'channelsResponse' smart constructor.
+newtype ChannelsResponse = ChannelsResponse'
+  { _cChannels :: Maybe (Map Text ChannelResponse)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ChannelsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cChannels' - A map of channels, with the ChannelType as the key and the Channel as the value.
+channelsResponse
+    :: ChannelsResponse
+channelsResponse = ChannelsResponse' {_cChannels = Nothing}
+
+
+-- | A map of channels, with the ChannelType as the key and the Channel as the value.
+cChannels :: Lens' ChannelsResponse (HashMap Text ChannelResponse)
+cChannels = lens _cChannels (\ s a -> s{_cChannels = a}) . _Default . _Map
+
+instance FromJSON ChannelsResponse where
+        parseJSON
+          = withObject "ChannelsResponse"
+              (\ x ->
+                 ChannelsResponse' <$> (x .:? "Channels" .!= mempty))
+
+instance Hashable ChannelsResponse where
+
+instance NFData ChannelsResponse where
+
 -- | Application Request.
 --
 -- /See:/ 'createApplicationRequest' smart constructor.
-newtype CreateApplicationRequest = CreateApplicationRequest'
-  { _carName :: Maybe Text
+data CreateApplicationRequest = CreateApplicationRequest'
+  { _carName :: !(Maybe Text)
+  , _carTags :: !(Maybe (Map Text Text))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2789,14 +3088,21 @@ newtype CreateApplicationRequest = CreateApplicationRequest'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'carName' - The display name of the application. Used in the Amazon Pinpoint console.
+--
+-- * 'carTags' - The Tags for the app.
 createApplicationRequest
     :: CreateApplicationRequest
-createApplicationRequest = CreateApplicationRequest' {_carName = Nothing}
+createApplicationRequest =
+  CreateApplicationRequest' {_carName = Nothing, _carTags = Nothing}
 
 
 -- | The display name of the application. Used in the Amazon Pinpoint console.
 carName :: Lens' CreateApplicationRequest (Maybe Text)
 carName = lens _carName (\ s a -> s{_carName = a})
+
+-- | The Tags for the app.
+carTags :: Lens' CreateApplicationRequest (HashMap Text Text)
+carTags = lens _carTags (\ s a -> s{_carTags = a}) . _Default . _Map
 
 instance Hashable CreateApplicationRequest where
 
@@ -2804,9 +3110,11 @@ instance NFData CreateApplicationRequest where
 
 instance ToJSON CreateApplicationRequest where
         toJSON CreateApplicationRequest'{..}
-          = object (catMaybes [("Name" .=) <$> _carName])
+          = object
+              (catMaybes
+                 [("Name" .=) <$> _carName, ("tags" .=) <$> _carTags])
 
--- | Default Message across push notification, email, and sms.
+-- | The default message to use across all channels.
 --
 -- /See:/ 'defaultMessage' smart constructor.
 data DefaultMessage = DefaultMessage'
@@ -2866,11 +3174,11 @@ data DefaultPushNotificationMessage = DefaultPushNotificationMessage'
 --
 -- * 'dpnmSubstitutions' - Default message substitutions. Can be overridden by individual address substitutions.
 --
--- * 'dpnmSilentPush' - Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.
+-- * 'dpnmSilentPush' - Indicates if the message should display on the recipient's device. You can use silent pushes for remote configuration or to deliver messages to in-app notification centers.
 --
 -- * 'dpnmData' - The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
 --
--- * 'dpnmBody' - The message body of the notification, the email body or the text message.
+-- * 'dpnmBody' - The message body of the notification.
 --
 -- * 'dpnmURL' - The URL to open in the user's mobile browser. Used if the value for Action is URL.
 --
@@ -2895,7 +3203,7 @@ defaultPushNotificationMessage =
 dpnmSubstitutions :: Lens' DefaultPushNotificationMessage (HashMap Text [Text])
 dpnmSubstitutions = lens _dpnmSubstitutions (\ s a -> s{_dpnmSubstitutions = a}) . _Default . _Map
 
--- | Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.
+-- | Indicates if the message should display on the recipient's device. You can use silent pushes for remote configuration or to deliver messages to in-app notification centers.
 dpnmSilentPush :: Lens' DefaultPushNotificationMessage (Maybe Bool)
 dpnmSilentPush = lens _dpnmSilentPush (\ s a -> s{_dpnmSilentPush = a})
 
@@ -2903,7 +3211,7 @@ dpnmSilentPush = lens _dpnmSilentPush (\ s a -> s{_dpnmSilentPush = a})
 dpnmData :: Lens' DefaultPushNotificationMessage (HashMap Text Text)
 dpnmData = lens _dpnmData (\ s a -> s{_dpnmData = a}) . _Default . _Map
 
--- | The message body of the notification, the email body or the text message.
+-- | The message body of the notification.
 dpnmBody :: Lens' DefaultPushNotificationMessage (Maybe Text)
 dpnmBody = lens _dpnmBody (\ s a -> s{_dpnmBody = a})
 
@@ -2935,7 +3243,7 @@ instance ToJSON DefaultPushNotificationMessage where
                   ("Action" .=) <$> _dpnmAction,
                   ("Title" .=) <$> _dpnmTitle])
 
--- | The message configuration.
+-- | Message definitions for the default message and any messages that are tailored for specific channels.
 --
 -- /See:/ 'directMessageConfiguration' smart constructor.
 data DirectMessageConfiguration = DirectMessageConfiguration'
@@ -2944,6 +3252,8 @@ data DirectMessageConfiguration = DirectMessageConfiguration'
   , _dmcDefaultMessage :: !(Maybe DefaultMessage)
   , _dmcADMMessage :: !(Maybe ADMMessage)
   , _dmcSMSMessage :: !(Maybe SMSMessage)
+  , _dmcEmailMessage :: !(Maybe EmailMessage)
+  , _dmcVoiceMessage :: !(Maybe VoiceMessage)
   , _dmcBaiduMessage :: !(Maybe BaiduMessage)
   , _dmcDefaultPushNotificationMessage :: !(Maybe DefaultPushNotificationMessage)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -2963,6 +3273,10 @@ data DirectMessageConfiguration = DirectMessageConfiguration'
 --
 -- * 'dmcSMSMessage' - The message to SMS channels. Overrides the default message.
 --
+-- * 'dmcEmailMessage' - The message to Email channels. Overrides the default message.
+--
+-- * 'dmcVoiceMessage' - The message to Voice channels. Overrides the default message.
+--
 -- * 'dmcBaiduMessage' - The message to Baidu GCM channels. Overrides the default push notification message.
 --
 -- * 'dmcDefaultPushNotificationMessage' - The default push notification message for all push channels.
@@ -2975,6 +3289,8 @@ directMessageConfiguration =
     , _dmcDefaultMessage = Nothing
     , _dmcADMMessage = Nothing
     , _dmcSMSMessage = Nothing
+    , _dmcEmailMessage = Nothing
+    , _dmcVoiceMessage = Nothing
     , _dmcBaiduMessage = Nothing
     , _dmcDefaultPushNotificationMessage = Nothing
     }
@@ -3000,6 +3316,14 @@ dmcADMMessage = lens _dmcADMMessage (\ s a -> s{_dmcADMMessage = a})
 dmcSMSMessage :: Lens' DirectMessageConfiguration (Maybe SMSMessage)
 dmcSMSMessage = lens _dmcSMSMessage (\ s a -> s{_dmcSMSMessage = a})
 
+-- | The message to Email channels. Overrides the default message.
+dmcEmailMessage :: Lens' DirectMessageConfiguration (Maybe EmailMessage)
+dmcEmailMessage = lens _dmcEmailMessage (\ s a -> s{_dmcEmailMessage = a})
+
+-- | The message to Voice channels. Overrides the default message.
+dmcVoiceMessage :: Lens' DirectMessageConfiguration (Maybe VoiceMessage)
+dmcVoiceMessage = lens _dmcVoiceMessage (\ s a -> s{_dmcVoiceMessage = a})
+
 -- | The message to Baidu GCM channels. Overrides the default push notification message.
 dmcBaiduMessage :: Lens' DirectMessageConfiguration (Maybe BaiduMessage)
 dmcBaiduMessage = lens _dmcBaiduMessage (\ s a -> s{_dmcBaiduMessage = a})
@@ -3021,6 +3345,8 @@ instance ToJSON DirectMessageConfiguration where
                   ("DefaultMessage" .=) <$> _dmcDefaultMessage,
                   ("ADMMessage" .=) <$> _dmcADMMessage,
                   ("SMSMessage" .=) <$> _dmcSMSMessage,
+                  ("EmailMessage" .=) <$> _dmcEmailMessage,
+                  ("VoiceMessage" .=) <$> _dmcVoiceMessage,
                   ("BaiduMessage" .=) <$> _dmcBaiduMessage,
                   ("DefaultPushNotificationMessage" .=) <$>
                     _dmcDefaultPushNotificationMessage])
@@ -3029,10 +3355,11 @@ instance ToJSON DirectMessageConfiguration where
 --
 -- /See:/ 'emailChannelRequest' smart constructor.
 data EmailChannelRequest = EmailChannelRequest'
-  { _ecrEnabled     :: !(Maybe Bool)
-  , _ecrFromAddress :: !(Maybe Text)
-  , _ecrIdentity    :: !(Maybe Text)
-  , _ecrRoleARN     :: !(Maybe Text)
+  { _ecrEnabled          :: !(Maybe Bool)
+  , _ecrFromAddress      :: !(Maybe Text)
+  , _ecrConfigurationSet :: !(Maybe Text)
+  , _ecrIdentity         :: !(Maybe Text)
+  , _ecrRoleARN          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3044,6 +3371,8 @@ data EmailChannelRequest = EmailChannelRequest'
 --
 -- * 'ecrFromAddress' - The email address used to send emails from.
 --
+-- * 'ecrConfigurationSet' - The configuration set that you want to use when you send email using the Pinpoint Email API.
+--
 -- * 'ecrIdentity' - The ARN of an identity verified with SES.
 --
 -- * 'ecrRoleARN' - The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service
@@ -3053,6 +3382,7 @@ emailChannelRequest =
   EmailChannelRequest'
     { _ecrEnabled = Nothing
     , _ecrFromAddress = Nothing
+    , _ecrConfigurationSet = Nothing
     , _ecrIdentity = Nothing
     , _ecrRoleARN = Nothing
     }
@@ -3065,6 +3395,10 @@ ecrEnabled = lens _ecrEnabled (\ s a -> s{_ecrEnabled = a})
 -- | The email address used to send emails from.
 ecrFromAddress :: Lens' EmailChannelRequest (Maybe Text)
 ecrFromAddress = lens _ecrFromAddress (\ s a -> s{_ecrFromAddress = a})
+
+-- | The configuration set that you want to use when you send email using the Pinpoint Email API.
+ecrConfigurationSet :: Lens' EmailChannelRequest (Maybe Text)
+ecrConfigurationSet = lens _ecrConfigurationSet (\ s a -> s{_ecrConfigurationSet = a})
 
 -- | The ARN of an identity verified with SES.
 ecrIdentity :: Lens' EmailChannelRequest (Maybe Text)
@@ -3084,6 +3418,7 @@ instance ToJSON EmailChannelRequest where
               (catMaybes
                  [("Enabled" .=) <$> _ecrEnabled,
                   ("FromAddress" .=) <$> _ecrFromAddress,
+                  ("ConfigurationSet" .=) <$> _ecrConfigurationSet,
                   ("Identity" .=) <$> _ecrIdentity,
                   ("RoleArn" .=) <$> _ecrRoleARN])
 
@@ -3091,19 +3426,21 @@ instance ToJSON EmailChannelRequest where
 --
 -- /See:/ 'emailChannelResponse' smart constructor.
 data EmailChannelResponse = EmailChannelResponse'
-  { _ecPlatform         :: !(Maybe Text)
-  , _ecLastModifiedDate :: !(Maybe Text)
-  , _ecEnabled          :: !(Maybe Bool)
-  , _ecFromAddress      :: !(Maybe Text)
-  , _ecIsArchived       :: !(Maybe Bool)
-  , _ecApplicationId    :: !(Maybe Text)
-  , _ecVersion          :: !(Maybe Int)
-  , _ecId               :: !(Maybe Text)
-  , _ecCreationDate     :: !(Maybe Text)
-  , _ecLastModifiedBy   :: !(Maybe Text)
-  , _ecIdentity         :: !(Maybe Text)
-  , _ecHasCredential    :: !(Maybe Bool)
-  , _ecRoleARN          :: !(Maybe Text)
+  { _ecPlatform          :: !(Maybe Text)
+  , _ecMessagesPerSecond :: !(Maybe Int)
+  , _ecLastModifiedDate  :: !(Maybe Text)
+  , _ecEnabled           :: !(Maybe Bool)
+  , _ecFromAddress       :: !(Maybe Text)
+  , _ecIsArchived        :: !(Maybe Bool)
+  , _ecApplicationId     :: !(Maybe Text)
+  , _ecVersion           :: !(Maybe Int)
+  , _ecConfigurationSet  :: !(Maybe Text)
+  , _ecId                :: !(Maybe Text)
+  , _ecCreationDate      :: !(Maybe Text)
+  , _ecLastModifiedBy    :: !(Maybe Text)
+  , _ecIdentity          :: !(Maybe Text)
+  , _ecHasCredential     :: !(Maybe Bool)
+  , _ecRoleARN           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3112,6 +3449,8 @@ data EmailChannelResponse = EmailChannelResponse'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ecPlatform' - Platform type. Will be "EMAIL"
+--
+-- * 'ecMessagesPerSecond' - Messages per second that can be sent
 --
 -- * 'ecLastModifiedDate' - Last date this was updated
 --
@@ -3125,6 +3464,8 @@ data EmailChannelResponse = EmailChannelResponse'
 --
 -- * 'ecVersion' - Version of channel
 --
+-- * 'ecConfigurationSet' - The configuration set that you want to use when you send email using the Pinpoint Email API.
+--
 -- * 'ecId' - Channel ID. Not used, only for backwards compatibility.
 --
 -- * 'ecCreationDate' - The date that the settings were last updated in ISO 8601 format.
@@ -3133,7 +3474,7 @@ data EmailChannelResponse = EmailChannelResponse'
 --
 -- * 'ecIdentity' - The ARN of an identity verified with SES.
 --
--- * 'ecHasCredential' - If the channel is registered with a credential for authentication.
+-- * 'ecHasCredential' - Not used. Retained for backwards compatibility.
 --
 -- * 'ecRoleARN' - The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service
 emailChannelResponse
@@ -3141,12 +3482,14 @@ emailChannelResponse
 emailChannelResponse =
   EmailChannelResponse'
     { _ecPlatform = Nothing
+    , _ecMessagesPerSecond = Nothing
     , _ecLastModifiedDate = Nothing
     , _ecEnabled = Nothing
     , _ecFromAddress = Nothing
     , _ecIsArchived = Nothing
     , _ecApplicationId = Nothing
     , _ecVersion = Nothing
+    , _ecConfigurationSet = Nothing
     , _ecId = Nothing
     , _ecCreationDate = Nothing
     , _ecLastModifiedBy = Nothing
@@ -3159,6 +3502,10 @@ emailChannelResponse =
 -- | Platform type. Will be "EMAIL"
 ecPlatform :: Lens' EmailChannelResponse (Maybe Text)
 ecPlatform = lens _ecPlatform (\ s a -> s{_ecPlatform = a})
+
+-- | Messages per second that can be sent
+ecMessagesPerSecond :: Lens' EmailChannelResponse (Maybe Int)
+ecMessagesPerSecond = lens _ecMessagesPerSecond (\ s a -> s{_ecMessagesPerSecond = a})
 
 -- | Last date this was updated
 ecLastModifiedDate :: Lens' EmailChannelResponse (Maybe Text)
@@ -3184,6 +3531,10 @@ ecApplicationId = lens _ecApplicationId (\ s a -> s{_ecApplicationId = a})
 ecVersion :: Lens' EmailChannelResponse (Maybe Int)
 ecVersion = lens _ecVersion (\ s a -> s{_ecVersion = a})
 
+-- | The configuration set that you want to use when you send email using the Pinpoint Email API.
+ecConfigurationSet :: Lens' EmailChannelResponse (Maybe Text)
+ecConfigurationSet = lens _ecConfigurationSet (\ s a -> s{_ecConfigurationSet = a})
+
 -- | Channel ID. Not used, only for backwards compatibility.
 ecId :: Lens' EmailChannelResponse (Maybe Text)
 ecId = lens _ecId (\ s a -> s{_ecId = a})
@@ -3200,7 +3551,7 @@ ecLastModifiedBy = lens _ecLastModifiedBy (\ s a -> s{_ecLastModifiedBy = a})
 ecIdentity :: Lens' EmailChannelResponse (Maybe Text)
 ecIdentity = lens _ecIdentity (\ s a -> s{_ecIdentity = a})
 
--- | If the channel is registered with a credential for authentication.
+-- | Not used. Retained for backwards compatibility.
 ecHasCredential :: Lens' EmailChannelResponse (Maybe Bool)
 ecHasCredential = lens _ecHasCredential (\ s a -> s{_ecHasCredential = a})
 
@@ -3213,12 +3564,14 @@ instance FromJSON EmailChannelResponse where
           = withObject "EmailChannelResponse"
               (\ x ->
                  EmailChannelResponse' <$>
-                   (x .:? "Platform") <*> (x .:? "LastModifiedDate") <*>
-                     (x .:? "Enabled")
+                   (x .:? "Platform") <*> (x .:? "MessagesPerSecond")
+                     <*> (x .:? "LastModifiedDate")
+                     <*> (x .:? "Enabled")
                      <*> (x .:? "FromAddress")
                      <*> (x .:? "IsArchived")
                      <*> (x .:? "ApplicationId")
                      <*> (x .:? "Version")
+                     <*> (x .:? "ConfigurationSet")
                      <*> (x .:? "Id")
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "LastModifiedBy")
@@ -3229,6 +3582,96 @@ instance FromJSON EmailChannelResponse where
 instance Hashable EmailChannelResponse where
 
 instance NFData EmailChannelResponse where
+
+-- | Email Message.
+--
+-- /See:/ 'emailMessage' smart constructor.
+data EmailMessage = EmailMessage'
+  { _emSubstitutions             :: !(Maybe (Map Text [Text]))
+  , _emBody                      :: !(Maybe Text)
+  , _emFromAddress               :: !(Maybe Text)
+  , _emRawEmail                  :: !(Maybe RawEmail)
+  , _emFeedbackForwardingAddress :: !(Maybe Text)
+  , _emSimpleEmail               :: !(Maybe SimpleEmail)
+  , _emReplyToAddresses          :: !(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'EmailMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'emSubstitutions' - Default message substitutions. Can be overridden by individual address substitutions.
+--
+-- * 'emBody' - The body of the email message.
+--
+-- * 'emFromAddress' - The email address used to send the email from. Defaults to use FromAddress specified in the Email Channel.
+--
+-- * 'emRawEmail' - An email represented as a raw MIME message.
+--
+-- * 'emFeedbackForwardingAddress' - The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled.
+--
+-- * 'emSimpleEmail' - An email composed of a subject, a text part and a html part.
+--
+-- * 'emReplyToAddresses' - The reply-to email address(es) for the email. If the recipient replies to the email, each reply-to address will receive the reply.
+emailMessage
+    :: EmailMessage
+emailMessage =
+  EmailMessage'
+    { _emSubstitutions = Nothing
+    , _emBody = Nothing
+    , _emFromAddress = Nothing
+    , _emRawEmail = Nothing
+    , _emFeedbackForwardingAddress = Nothing
+    , _emSimpleEmail = Nothing
+    , _emReplyToAddresses = Nothing
+    }
+
+
+-- | Default message substitutions. Can be overridden by individual address substitutions.
+emSubstitutions :: Lens' EmailMessage (HashMap Text [Text])
+emSubstitutions = lens _emSubstitutions (\ s a -> s{_emSubstitutions = a}) . _Default . _Map
+
+-- | The body of the email message.
+emBody :: Lens' EmailMessage (Maybe Text)
+emBody = lens _emBody (\ s a -> s{_emBody = a})
+
+-- | The email address used to send the email from. Defaults to use FromAddress specified in the Email Channel.
+emFromAddress :: Lens' EmailMessage (Maybe Text)
+emFromAddress = lens _emFromAddress (\ s a -> s{_emFromAddress = a})
+
+-- | An email represented as a raw MIME message.
+emRawEmail :: Lens' EmailMessage (Maybe RawEmail)
+emRawEmail = lens _emRawEmail (\ s a -> s{_emRawEmail = a})
+
+-- | The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled.
+emFeedbackForwardingAddress :: Lens' EmailMessage (Maybe Text)
+emFeedbackForwardingAddress = lens _emFeedbackForwardingAddress (\ s a -> s{_emFeedbackForwardingAddress = a})
+
+-- | An email composed of a subject, a text part and a html part.
+emSimpleEmail :: Lens' EmailMessage (Maybe SimpleEmail)
+emSimpleEmail = lens _emSimpleEmail (\ s a -> s{_emSimpleEmail = a})
+
+-- | The reply-to email address(es) for the email. If the recipient replies to the email, each reply-to address will receive the reply.
+emReplyToAddresses :: Lens' EmailMessage [Text]
+emReplyToAddresses = lens _emReplyToAddresses (\ s a -> s{_emReplyToAddresses = a}) . _Default . _Coerce
+
+instance Hashable EmailMessage where
+
+instance NFData EmailMessage where
+
+instance ToJSON EmailMessage where
+        toJSON EmailMessage'{..}
+          = object
+              (catMaybes
+                 [("Substitutions" .=) <$> _emSubstitutions,
+                  ("Body" .=) <$> _emBody,
+                  ("FromAddress" .=) <$> _emFromAddress,
+                  ("RawEmail" .=) <$> _emRawEmail,
+                  ("FeedbackForwardingAddress" .=) <$>
+                    _emFeedbackForwardingAddress,
+                  ("SimpleEmail" .=) <$> _emSimpleEmail,
+                  ("ReplyToAddresses" .=) <$> _emReplyToAddresses])
 
 -- | Endpoint update request
 --
@@ -3261,7 +3704,7 @@ data EndpointBatchItem = EndpointBatchItem'
 --
 -- * 'ebiDemographic' - The endpoint demographic attributes.
 --
--- * 'ebiAddress' - The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).
+-- * 'ebiAddress' - The destination for messages that you send to this endpoint. The address varies by channel. For mobile push channels, use the token provided by the push notification service, such as the APNs device token or the FCM registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100. For the email channel, use an email address.
 --
 -- * 'ebiEffectiveDate' - The last time the endpoint was updated. Provided in ISO 8601 format.
 --
@@ -3269,7 +3712,7 @@ data EndpointBatchItem = EndpointBatchItem'
 --
 -- * 'ebiAttributes' - Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named "interests" might have the values ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create a segment of users to engage with a messaging campaign. The following characters are not recommended in attribute names: # : ? \ /. The Amazon Pinpoint console does not display attributes that include these characters in the name. This limitation does not apply to attribute values.
 --
--- * 'ebiEndpointStatus' - The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated.
+-- * 'ebiEndpointStatus' - Unused.
 --
 -- * 'ebiOptOut' - Indicates whether a user has opted out of receiving messages with one of the following values: ALL - User has opted out of all messages. NONE - Users has not opted out and receives all messages.
 --
@@ -3311,7 +3754,7 @@ ebiLocation = lens _ebiLocation (\ s a -> s{_ebiLocation = a})
 ebiDemographic :: Lens' EndpointBatchItem (Maybe EndpointDemographic)
 ebiDemographic = lens _ebiDemographic (\ s a -> s{_ebiDemographic = a})
 
--- | The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).
+-- | The destination for messages that you send to this endpoint. The address varies by channel. For mobile push channels, use the token provided by the push notification service, such as the APNs device token or the FCM registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100. For the email channel, use an email address.
 ebiAddress :: Lens' EndpointBatchItem (Maybe Text)
 ebiAddress = lens _ebiAddress (\ s a -> s{_ebiAddress = a})
 
@@ -3327,7 +3770,7 @@ ebiUser = lens _ebiUser (\ s a -> s{_ebiUser = a})
 ebiAttributes :: Lens' EndpointBatchItem (HashMap Text [Text])
 ebiAttributes = lens _ebiAttributes (\ s a -> s{_ebiAttributes = a}) . _Default . _Map
 
--- | The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated.
+-- | Unused.
 ebiEndpointStatus :: Lens' EndpointBatchItem (Maybe Text)
 ebiEndpointStatus = lens _ebiEndpointStatus (\ s a -> s{_ebiEndpointStatus = a})
 
@@ -3393,7 +3836,7 @@ instance ToJSON EndpointBatchRequest where
         toJSON EndpointBatchRequest'{..}
           = object (catMaybes [("Item" .=) <$> _ebrItem])
 
--- | Endpoint demographic data
+-- | Demographic information about the endpoint.
 --
 -- /See:/ 'endpointDemographic' smart constructor.
 data EndpointDemographic = EndpointDemographic'
@@ -3412,19 +3855,19 @@ data EndpointDemographic = EndpointDemographic'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'edPlatform' - The endpoint platform, such as ios or android.
+-- * 'edPlatform' - The platform of the endpoint device, such as iOS or Android.
 --
--- * 'edPlatformVersion' - The endpoint platform version.
+-- * 'edPlatformVersion' - The platform version of the endpoint device.
 --
 -- * 'edLocale' - The endpoint locale in the following format: The ISO 639-1 alpha-2 code, followed by an underscore, followed by an ISO 3166-1 alpha-2 value.
 --
 -- * 'edAppVersion' - The version of the application associated with the endpoint.
 --
--- * 'edModel' - The endpoint model, such as iPhone.
+-- * 'edModel' - The model name or number of the endpoint device, such as iPhone.
 --
--- * 'edMake' - The endpoint make, such as such as Apple or Samsung.
+-- * 'edMake' - The manufacturer of the endpoint device, such as Apple or Samsung.
 --
--- * 'edModelVersion' - The endpoint model version.
+-- * 'edModelVersion' - The model version of the endpoint device.
 --
 -- * 'edTimezone' - The timezone of the endpoint. Specified as a tz database value, such as Americas/Los_Angeles.
 endpointDemographic
@@ -3442,11 +3885,11 @@ endpointDemographic =
     }
 
 
--- | The endpoint platform, such as ios or android.
+-- | The platform of the endpoint device, such as iOS or Android.
 edPlatform :: Lens' EndpointDemographic (Maybe Text)
 edPlatform = lens _edPlatform (\ s a -> s{_edPlatform = a})
 
--- | The endpoint platform version.
+-- | The platform version of the endpoint device.
 edPlatformVersion :: Lens' EndpointDemographic (Maybe Text)
 edPlatformVersion = lens _edPlatformVersion (\ s a -> s{_edPlatformVersion = a})
 
@@ -3458,15 +3901,15 @@ edLocale = lens _edLocale (\ s a -> s{_edLocale = a})
 edAppVersion :: Lens' EndpointDemographic (Maybe Text)
 edAppVersion = lens _edAppVersion (\ s a -> s{_edAppVersion = a})
 
--- | The endpoint model, such as iPhone.
+-- | The model name or number of the endpoint device, such as iPhone.
 edModel :: Lens' EndpointDemographic (Maybe Text)
 edModel = lens _edModel (\ s a -> s{_edModel = a})
 
--- | The endpoint make, such as such as Apple or Samsung.
+-- | The manufacturer of the endpoint device, such as Apple or Samsung.
 edMake :: Lens' EndpointDemographic (Maybe Text)
 edMake = lens _edMake (\ s a -> s{_edMake = a})
 
--- | The endpoint model version.
+-- | The model version of the endpoint device.
 edModelVersion :: Lens' EndpointDemographic (Maybe Text)
 edModelVersion = lens _edModelVersion (\ s a -> s{_edModelVersion = a})
 
@@ -3503,7 +3946,48 @@ instance ToJSON EndpointDemographic where
                   ("ModelVersion" .=) <$> _edModelVersion,
                   ("Timezone" .=) <$> _edTimezone])
 
--- | Endpoint location data
+-- | A complex object that holds the status code and message as a result of processing an endpoint.
+--
+-- /See:/ 'endpointItemResponse' smart constructor.
+data EndpointItemResponse = EndpointItemResponse'
+  { _eiMessage    :: !(Maybe Text)
+  , _eiStatusCode :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'EndpointItemResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eiMessage' - A custom message associated with the registration of an endpoint when issuing a response.
+--
+-- * 'eiStatusCode' - The status code associated with the merging of an endpoint when issuing a response.
+endpointItemResponse
+    :: EndpointItemResponse
+endpointItemResponse =
+  EndpointItemResponse' {_eiMessage = Nothing, _eiStatusCode = Nothing}
+
+
+-- | A custom message associated with the registration of an endpoint when issuing a response.
+eiMessage :: Lens' EndpointItemResponse (Maybe Text)
+eiMessage = lens _eiMessage (\ s a -> s{_eiMessage = a})
+
+-- | The status code associated with the merging of an endpoint when issuing a response.
+eiStatusCode :: Lens' EndpointItemResponse (Maybe Int)
+eiStatusCode = lens _eiStatusCode (\ s a -> s{_eiStatusCode = a})
+
+instance FromJSON EndpointItemResponse where
+        parseJSON
+          = withObject "EndpointItemResponse"
+              (\ x ->
+                 EndpointItemResponse' <$>
+                   (x .:? "Message") <*> (x .:? "StatusCode"))
+
+instance Hashable EndpointItemResponse where
+
+instance NFData EndpointItemResponse where
+
+-- | Location data for the endpoint.
 --
 -- /See:/ 'endpointLocation' smart constructor.
 data EndpointLocation = EndpointLocation'
@@ -3522,15 +4006,15 @@ data EndpointLocation = EndpointLocation'
 --
 -- * 'elPostalCode' - The postal code or zip code of the endpoint.
 --
--- * 'elLatitude' - The latitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).
+-- * 'elLatitude' - The latitude of the endpoint location, rounded to one decimal place.
 --
--- * 'elCountry' - Country according to ISO 3166-1 Alpha-2 codes. For example, US.
+-- * 'elCountry' - The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as "US" for the United States.
 --
 -- * 'elCity' - The city where the endpoint is located.
 --
--- * 'elRegion' - The region of the endpoint location. For example, corresponds to a state in US.
+-- * 'elRegion' - The region of the endpoint location. For example, in the United States, this corresponds to a state.
 --
--- * 'elLongitude' - The longitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).
+-- * 'elLongitude' - The longitude of the endpoint location, rounded to one decimal place.
 endpointLocation
     :: EndpointLocation
 endpointLocation =
@@ -3548,11 +4032,11 @@ endpointLocation =
 elPostalCode :: Lens' EndpointLocation (Maybe Text)
 elPostalCode = lens _elPostalCode (\ s a -> s{_elPostalCode = a})
 
--- | The latitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).
+-- | The latitude of the endpoint location, rounded to one decimal place.
 elLatitude :: Lens' EndpointLocation (Maybe Double)
 elLatitude = lens _elLatitude (\ s a -> s{_elLatitude = a})
 
--- | Country according to ISO 3166-1 Alpha-2 codes. For example, US.
+-- | The two-letter code for the country or region of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as "US" for the United States.
 elCountry :: Lens' EndpointLocation (Maybe Text)
 elCountry = lens _elCountry (\ s a -> s{_elCountry = a})
 
@@ -3560,11 +4044,11 @@ elCountry = lens _elCountry (\ s a -> s{_elCountry = a})
 elCity :: Lens' EndpointLocation (Maybe Text)
 elCity = lens _elCity (\ s a -> s{_elCity = a})
 
--- | The region of the endpoint location. For example, corresponds to a state in US.
+-- | The region of the endpoint location. For example, in the United States, this corresponds to a state.
 elRegion :: Lens' EndpointLocation (Maybe Text)
 elRegion = lens _elRegion (\ s a -> s{_elRegion = a})
 
--- | The longitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).
+-- | The longitude of the endpoint location, rounded to one decimal place.
 elLongitude :: Lens' EndpointLocation (Maybe Double)
 elLongitude = lens _elLongitude (\ s a -> s{_elLongitude = a})
 
@@ -3601,6 +4085,7 @@ data EndpointMessageResult = EndpointMessageResult'
   , _emrAddress        :: !(Maybe Text)
   , _emrStatusMessage  :: !(Maybe Text)
   , _emrUpdatedToken   :: !(Maybe Text)
+  , _emrMessageId      :: !(Maybe Text)
   , _emrStatusCode     :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -3609,13 +4094,15 @@ data EndpointMessageResult = EndpointMessageResult'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'emrDeliveryStatus' - Delivery status of message.
+-- * 'emrDeliveryStatus' - The delivery status of the message. Possible values: SUCCESS - The message was successfully delivered to the endpoint. TRANSIENT_FAILURE - A temporary error occurred. Amazon Pinpoint will attempt to deliver the message again later. FAILURE_PERMANENT - An error occurred when delivering the message to the endpoint. Amazon Pinpoint won't attempt to send the message again. TIMEOUT - The message couldn't be sent within the timeout period. QUIET_TIME - The local time for the endpoint was within the QuietTime for the campaign or app. DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour period. HOLDOUT - The endpoint was in a hold out treatment for the campaign. THROTTLED - Amazon Pinpoint throttled sending to this endpoint. EXPIRED - The endpoint address is expired. CAMPAIGN_CAP - The endpoint received the maximum number of messages allowed by the campaign. SERVICE_FAILURE - A service-level failure prevented Amazon Pinpoint from delivering the message. UNKNOWN - An unknown error occurred.
 --
 -- * 'emrAddress' - Address that endpoint message was delivered to.
 --
 -- * 'emrStatusMessage' - Status message for message delivery.
 --
 -- * 'emrUpdatedToken' - If token was updated as part of delivery. (This is GCM Specific)
+--
+-- * 'emrMessageId' - Unique message identifier associated with the message that was sent.
 --
 -- * 'emrStatusCode' - Downstream service status code.
 endpointMessageResult
@@ -3626,11 +4113,12 @@ endpointMessageResult =
     , _emrAddress = Nothing
     , _emrStatusMessage = Nothing
     , _emrUpdatedToken = Nothing
+    , _emrMessageId = Nothing
     , _emrStatusCode = Nothing
     }
 
 
--- | Delivery status of message.
+-- | The delivery status of the message. Possible values: SUCCESS - The message was successfully delivered to the endpoint. TRANSIENT_FAILURE - A temporary error occurred. Amazon Pinpoint will attempt to deliver the message again later. FAILURE_PERMANENT - An error occurred when delivering the message to the endpoint. Amazon Pinpoint won't attempt to send the message again. TIMEOUT - The message couldn't be sent within the timeout period. QUIET_TIME - The local time for the endpoint was within the QuietTime for the campaign or app. DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour period. HOLDOUT - The endpoint was in a hold out treatment for the campaign. THROTTLED - Amazon Pinpoint throttled sending to this endpoint. EXPIRED - The endpoint address is expired. CAMPAIGN_CAP - The endpoint received the maximum number of messages allowed by the campaign. SERVICE_FAILURE - A service-level failure prevented Amazon Pinpoint from delivering the message. UNKNOWN - An unknown error occurred.
 emrDeliveryStatus :: Lens' EndpointMessageResult (Maybe DeliveryStatus)
 emrDeliveryStatus = lens _emrDeliveryStatus (\ s a -> s{_emrDeliveryStatus = a})
 
@@ -3646,6 +4134,10 @@ emrStatusMessage = lens _emrStatusMessage (\ s a -> s{_emrStatusMessage = a})
 emrUpdatedToken :: Lens' EndpointMessageResult (Maybe Text)
 emrUpdatedToken = lens _emrUpdatedToken (\ s a -> s{_emrUpdatedToken = a})
 
+-- | Unique message identifier associated with the message that was sent.
+emrMessageId :: Lens' EndpointMessageResult (Maybe Text)
+emrMessageId = lens _emrMessageId (\ s a -> s{_emrMessageId = a})
+
 -- | Downstream service status code.
 emrStatusCode :: Lens' EndpointMessageResult (Maybe Int)
 emrStatusCode = lens _emrStatusCode (\ s a -> s{_emrStatusCode = a})
@@ -3658,13 +4150,14 @@ instance FromJSON EndpointMessageResult where
                    (x .:? "DeliveryStatus") <*> (x .:? "Address") <*>
                      (x .:? "StatusMessage")
                      <*> (x .:? "UpdatedToken")
+                     <*> (x .:? "MessageId")
                      <*> (x .:? "StatusCode"))
 
 instance Hashable EndpointMessageResult where
 
 instance NFData EndpointMessageResult where
 
--- | Endpoint update request
+-- | An endpoint update request.
 --
 -- /See:/ 'endpointRequest' smart constructor.
 data EndpointRequest = EndpointRequest'
@@ -3692,17 +4185,17 @@ data EndpointRequest = EndpointRequest'
 --
 -- * 'erLocation' - The endpoint location attributes.
 --
--- * 'erDemographic' - The endpoint demographic attributes.
+-- * 'erDemographic' - Demographic attributes for the endpoint.
 --
--- * 'erAddress' - The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).
+-- * 'erAddress' - The destination for messages that you send to this endpoint. The address varies by channel. For mobile push channels, use the token provided by the push notification service, such as the APNs device token or the FCM registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100. For the email channel, use an email address.
 --
--- * 'erEffectiveDate' - The last time the endpoint was updated. Provided in ISO 8601 format.
+-- * 'erEffectiveDate' - The date and time when the endpoint was updated, shown in ISO 8601 format.
 --
 -- * 'erUser' - Custom user-specific attributes that your app reports to Amazon Pinpoint.
 --
 -- * 'erAttributes' - Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named "interests" might have the values ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create a segment of users to engage with a messaging campaign. The following characters are not recommended in attribute names: # : ? \ /. The Amazon Pinpoint console does not display attributes that include these characters in the name. This limitation does not apply to attribute values.
 --
--- * 'erEndpointStatus' - The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated.
+-- * 'erEndpointStatus' - Unused.
 --
 -- * 'erOptOut' - Indicates whether a user has opted out of receiving messages with one of the following values: ALL - User has opted out of all messages. NONE - Users has not opted out and receives all messages.
 --
@@ -3737,15 +4230,15 @@ erMetrics = lens _erMetrics (\ s a -> s{_erMetrics = a}) . _Default . _Map
 erLocation :: Lens' EndpointRequest (Maybe EndpointLocation)
 erLocation = lens _erLocation (\ s a -> s{_erLocation = a})
 
--- | The endpoint demographic attributes.
+-- | Demographic attributes for the endpoint.
 erDemographic :: Lens' EndpointRequest (Maybe EndpointDemographic)
 erDemographic = lens _erDemographic (\ s a -> s{_erDemographic = a})
 
--- | The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).
+-- | The destination for messages that you send to this endpoint. The address varies by channel. For mobile push channels, use the token provided by the push notification service, such as the APNs device token or the FCM registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100. For the email channel, use an email address.
 erAddress :: Lens' EndpointRequest (Maybe Text)
 erAddress = lens _erAddress (\ s a -> s{_erAddress = a})
 
--- | The last time the endpoint was updated. Provided in ISO 8601 format.
+-- | The date and time when the endpoint was updated, shown in ISO 8601 format.
 erEffectiveDate :: Lens' EndpointRequest (Maybe Text)
 erEffectiveDate = lens _erEffectiveDate (\ s a -> s{_erEffectiveDate = a})
 
@@ -3757,7 +4250,7 @@ erUser = lens _erUser (\ s a -> s{_erUser = a})
 erAttributes :: Lens' EndpointRequest (HashMap Text [Text])
 erAttributes = lens _erAttributes (\ s a -> s{_erAttributes = a}) . _Default . _Map
 
--- | The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated.
+-- | Unused.
 erEndpointStatus :: Lens' EndpointRequest (Maybe Text)
 erEndpointStatus = lens _erEndpointStatus (\ s a -> s{_erEndpointStatus = a})
 
@@ -3793,21 +4286,21 @@ instance ToJSON EndpointRequest where
 --
 -- /See:/ 'endpointResponse' smart constructor.
 data EndpointResponse = EndpointResponse'
-  { _eRequestId      :: !(Maybe Text)
-  , _eMetrics        :: !(Maybe (Map Text Double))
-  , _eLocation       :: !(Maybe EndpointLocation)
-  , _eDemographic    :: !(Maybe EndpointDemographic)
-  , _eCohortId       :: !(Maybe Text)
-  , _eAddress        :: !(Maybe Text)
-  , _eEffectiveDate  :: !(Maybe Text)
-  , _eUser           :: !(Maybe EndpointUser)
-  , _eApplicationId  :: !(Maybe Text)
-  , _eAttributes     :: !(Maybe (Map Text [Text]))
-  , _eEndpointStatus :: !(Maybe Text)
-  , _eOptOut         :: !(Maybe Text)
-  , _eId             :: !(Maybe Text)
-  , _eCreationDate   :: !(Maybe Text)
-  , _eChannelType    :: !(Maybe ChannelType)
+  { _endRequestId      :: !(Maybe Text)
+  , _endMetrics        :: !(Maybe (Map Text Double))
+  , _endLocation       :: !(Maybe EndpointLocation)
+  , _endDemographic    :: !(Maybe EndpointDemographic)
+  , _endCohortId       :: !(Maybe Text)
+  , _endAddress        :: !(Maybe Text)
+  , _endEffectiveDate  :: !(Maybe Text)
+  , _endUser           :: !(Maybe EndpointUser)
+  , _endApplicationId  :: !(Maybe Text)
+  , _endAttributes     :: !(Maybe (Map Text [Text]))
+  , _endEndpointStatus :: !(Maybe Text)
+  , _endOptOut         :: !(Maybe Text)
+  , _endId             :: !(Maybe Text)
+  , _endCreationDate   :: !(Maybe Text)
+  , _endChannelType    :: !(Maybe ChannelType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3815,116 +4308,116 @@ data EndpointResponse = EndpointResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eRequestId' - The unique ID for the most recent request to update the endpoint.
+-- * 'endRequestId' - The unique ID for the most recent request to update the endpoint.
 --
--- * 'eMetrics' - Custom metrics that your app reports to Amazon Pinpoint.
+-- * 'endMetrics' - Custom metrics that your app reports to Amazon Pinpoint.
 --
--- * 'eLocation' - The endpoint location attributes.
+-- * 'endLocation' - The endpoint location attributes.
 --
--- * 'eDemographic' - The endpoint demographic attributes.
+-- * 'endDemographic' - The endpoint demographic attributes.
 --
--- * 'eCohortId' - A number from 0 - 99 that represents the cohort the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an app. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for a campaign.
+-- * 'endCohortId' - A number from 0-99 that represents the cohort the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an app. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for a campaign.
 --
--- * 'eAddress' - The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).
+-- * 'endAddress' - The address of the endpoint as provided by your push provider. For example, the DeviceToken or RegistrationId.
 --
--- * 'eEffectiveDate' - The last time the endpoint was updated. Provided in ISO 8601 format.
+-- * 'endEffectiveDate' - The date and time when the endpoint was last updated, shown in ISO 8601 format.
 --
--- * 'eUser' - Custom user-specific attributes that your app reports to Amazon Pinpoint.
+-- * 'endUser' - Custom user-specific attributes that your app reports to Amazon Pinpoint.
 --
--- * 'eApplicationId' - The ID of the application associated with the endpoint.
+-- * 'endApplicationId' - The ID of the application that is associated with the endpoint.
 --
--- * 'eAttributes' - Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named "interests" might have the values ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create a segment of users to engage with a messaging campaign. The following characters are not recommended in attribute names: # : ? \ /. The Amazon Pinpoint console does not display attributes that include these characters in the name. This limitation does not apply to attribute values.
+-- * 'endAttributes' - Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named "interests" might have the following values: ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can't display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
 --
--- * 'eEndpointStatus' - The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated.
+-- * 'endEndpointStatus' - Unused.
 --
--- * 'eOptOut' - Indicates whether a user has opted out of receiving messages with one of the following values: ALL - User has opted out of all messages. NONE - Users has not opted out and receives all messages.
+-- * 'endOptOut' - Indicates whether a user has opted out of receiving messages with one of the following values: ALL - User has opted out of all messages. NONE - Users has not opted out and receives all messages.
 --
--- * 'eId' - The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it is unique compared to all other endpoints for the application.
+-- * 'endId' - The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it doesn't conflict with other endpoint IDs associated with the application.
 --
--- * 'eCreationDate' - The last time the endpoint was created. Provided in ISO 8601 format.
+-- * 'endCreationDate' - The date and time when the endpoint was created, shown in ISO 8601 format.
 --
--- * 'eChannelType' - The channel type. Valid values: GCM | APNS | APNS_SANDBOX | APNS_VOIP | APNS_VOIP_SANDBOX | ADM | SMS | EMAIL | BAIDU
+-- * 'endChannelType' - The channel type. Valid values: GCM | APNS | APNS_SANDBOX | APNS_VOIP | APNS_VOIP_SANDBOX | ADM | SMS | EMAIL | BAIDU
 endpointResponse
     :: EndpointResponse
 endpointResponse =
   EndpointResponse'
-    { _eRequestId = Nothing
-    , _eMetrics = Nothing
-    , _eLocation = Nothing
-    , _eDemographic = Nothing
-    , _eCohortId = Nothing
-    , _eAddress = Nothing
-    , _eEffectiveDate = Nothing
-    , _eUser = Nothing
-    , _eApplicationId = Nothing
-    , _eAttributes = Nothing
-    , _eEndpointStatus = Nothing
-    , _eOptOut = Nothing
-    , _eId = Nothing
-    , _eCreationDate = Nothing
-    , _eChannelType = Nothing
+    { _endRequestId = Nothing
+    , _endMetrics = Nothing
+    , _endLocation = Nothing
+    , _endDemographic = Nothing
+    , _endCohortId = Nothing
+    , _endAddress = Nothing
+    , _endEffectiveDate = Nothing
+    , _endUser = Nothing
+    , _endApplicationId = Nothing
+    , _endAttributes = Nothing
+    , _endEndpointStatus = Nothing
+    , _endOptOut = Nothing
+    , _endId = Nothing
+    , _endCreationDate = Nothing
+    , _endChannelType = Nothing
     }
 
 
 -- | The unique ID for the most recent request to update the endpoint.
-eRequestId :: Lens' EndpointResponse (Maybe Text)
-eRequestId = lens _eRequestId (\ s a -> s{_eRequestId = a})
+endRequestId :: Lens' EndpointResponse (Maybe Text)
+endRequestId = lens _endRequestId (\ s a -> s{_endRequestId = a})
 
 -- | Custom metrics that your app reports to Amazon Pinpoint.
-eMetrics :: Lens' EndpointResponse (HashMap Text Double)
-eMetrics = lens _eMetrics (\ s a -> s{_eMetrics = a}) . _Default . _Map
+endMetrics :: Lens' EndpointResponse (HashMap Text Double)
+endMetrics = lens _endMetrics (\ s a -> s{_endMetrics = a}) . _Default . _Map
 
 -- | The endpoint location attributes.
-eLocation :: Lens' EndpointResponse (Maybe EndpointLocation)
-eLocation = lens _eLocation (\ s a -> s{_eLocation = a})
+endLocation :: Lens' EndpointResponse (Maybe EndpointLocation)
+endLocation = lens _endLocation (\ s a -> s{_endLocation = a})
 
 -- | The endpoint demographic attributes.
-eDemographic :: Lens' EndpointResponse (Maybe EndpointDemographic)
-eDemographic = lens _eDemographic (\ s a -> s{_eDemographic = a})
+endDemographic :: Lens' EndpointResponse (Maybe EndpointDemographic)
+endDemographic = lens _endDemographic (\ s a -> s{_endDemographic = a})
 
--- | A number from 0 - 99 that represents the cohort the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an app. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for a campaign.
-eCohortId :: Lens' EndpointResponse (Maybe Text)
-eCohortId = lens _eCohortId (\ s a -> s{_eCohortId = a})
+-- | A number from 0-99 that represents the cohort the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an app. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for a campaign.
+endCohortId :: Lens' EndpointResponse (Maybe Text)
+endCohortId = lens _endCohortId (\ s a -> s{_endCohortId = a})
 
--- | The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).
-eAddress :: Lens' EndpointResponse (Maybe Text)
-eAddress = lens _eAddress (\ s a -> s{_eAddress = a})
+-- | The address of the endpoint as provided by your push provider. For example, the DeviceToken or RegistrationId.
+endAddress :: Lens' EndpointResponse (Maybe Text)
+endAddress = lens _endAddress (\ s a -> s{_endAddress = a})
 
--- | The last time the endpoint was updated. Provided in ISO 8601 format.
-eEffectiveDate :: Lens' EndpointResponse (Maybe Text)
-eEffectiveDate = lens _eEffectiveDate (\ s a -> s{_eEffectiveDate = a})
+-- | The date and time when the endpoint was last updated, shown in ISO 8601 format.
+endEffectiveDate :: Lens' EndpointResponse (Maybe Text)
+endEffectiveDate = lens _endEffectiveDate (\ s a -> s{_endEffectiveDate = a})
 
 -- | Custom user-specific attributes that your app reports to Amazon Pinpoint.
-eUser :: Lens' EndpointResponse (Maybe EndpointUser)
-eUser = lens _eUser (\ s a -> s{_eUser = a})
+endUser :: Lens' EndpointResponse (Maybe EndpointUser)
+endUser = lens _endUser (\ s a -> s{_endUser = a})
 
--- | The ID of the application associated with the endpoint.
-eApplicationId :: Lens' EndpointResponse (Maybe Text)
-eApplicationId = lens _eApplicationId (\ s a -> s{_eApplicationId = a})
+-- | The ID of the application that is associated with the endpoint.
+endApplicationId :: Lens' EndpointResponse (Maybe Text)
+endApplicationId = lens _endApplicationId (\ s a -> s{_endApplicationId = a})
 
--- | Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named "interests" might have the values ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create a segment of users to engage with a messaging campaign. The following characters are not recommended in attribute names: # : ? \ /. The Amazon Pinpoint console does not display attributes that include these characters in the name. This limitation does not apply to attribute values.
-eAttributes :: Lens' EndpointResponse (HashMap Text [Text])
-eAttributes = lens _eAttributes (\ s a -> s{_eAttributes = a}) . _Default . _Map
+-- | Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named "interests" might have the following values: ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can't display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
+endAttributes :: Lens' EndpointResponse (HashMap Text [Text])
+endAttributes = lens _endAttributes (\ s a -> s{_endAttributes = a}) . _Default . _Map
 
--- | The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated.
-eEndpointStatus :: Lens' EndpointResponse (Maybe Text)
-eEndpointStatus = lens _eEndpointStatus (\ s a -> s{_eEndpointStatus = a})
+-- | Unused.
+endEndpointStatus :: Lens' EndpointResponse (Maybe Text)
+endEndpointStatus = lens _endEndpointStatus (\ s a -> s{_endEndpointStatus = a})
 
 -- | Indicates whether a user has opted out of receiving messages with one of the following values: ALL - User has opted out of all messages. NONE - Users has not opted out and receives all messages.
-eOptOut :: Lens' EndpointResponse (Maybe Text)
-eOptOut = lens _eOptOut (\ s a -> s{_eOptOut = a})
+endOptOut :: Lens' EndpointResponse (Maybe Text)
+endOptOut = lens _endOptOut (\ s a -> s{_endOptOut = a})
 
--- | The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it is unique compared to all other endpoints for the application.
-eId :: Lens' EndpointResponse (Maybe Text)
-eId = lens _eId (\ s a -> s{_eId = a})
+-- | The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it doesn't conflict with other endpoint IDs associated with the application.
+endId :: Lens' EndpointResponse (Maybe Text)
+endId = lens _endId (\ s a -> s{_endId = a})
 
--- | The last time the endpoint was created. Provided in ISO 8601 format.
-eCreationDate :: Lens' EndpointResponse (Maybe Text)
-eCreationDate = lens _eCreationDate (\ s a -> s{_eCreationDate = a})
+-- | The date and time when the endpoint was created, shown in ISO 8601 format.
+endCreationDate :: Lens' EndpointResponse (Maybe Text)
+endCreationDate = lens _endCreationDate (\ s a -> s{_endCreationDate = a})
 
 -- | The channel type. Valid values: GCM | APNS | APNS_SANDBOX | APNS_VOIP | APNS_VOIP_SANDBOX | ADM | SMS | EMAIL | BAIDU
-eChannelType :: Lens' EndpointResponse (Maybe ChannelType)
-eChannelType = lens _eChannelType (\ s a -> s{_eChannelType = a})
+endChannelType :: Lens' EndpointResponse (Maybe ChannelType)
+endChannelType = lens _endChannelType (\ s a -> s{_endChannelType = a})
 
 instance FromJSON EndpointResponse where
         parseJSON
@@ -4034,7 +4527,7 @@ data EndpointUser = EndpointUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'euUserAttributes' - Custom attributes that describe an end user by associating a name with an array of values. For example, an attribute named "interests" might have the values ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create a segment of users to engage with a messaging campaign. The following characters are not recommended in attribute names: # : ? \ /. The Amazon Pinpoint console does not display attributes that include these characters in the name. This limitation does not apply to attribute values.
+-- * 'euUserAttributes' - Custom attributes that describe the user by associating a name with an array of values. For example, an attribute named "interests" might have the following values: ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can't display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
 --
 -- * 'euUserId' - The unique ID of the user.
 endpointUser
@@ -4042,7 +4535,7 @@ endpointUser
 endpointUser = EndpointUser' {_euUserAttributes = Nothing, _euUserId = Nothing}
 
 
--- | Custom attributes that describe an end user by associating a name with an array of values. For example, an attribute named "interests" might have the values ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create a segment of users to engage with a messaging campaign. The following characters are not recommended in attribute names: # : ? \ /. The Amazon Pinpoint console does not display attributes that include these characters in the name. This limitation does not apply to attribute values.
+-- | Custom attributes that describe the user by associating a name with an array of values. For example, an attribute named "interests" might have the following values: ["science", "politics", "travel"]. You can use these attributes as selection criteria when you create segments. The Amazon Pinpoint console can't display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (\), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.
 euUserAttributes :: Lens' EndpointUser (HashMap Text [Text])
 euUserAttributes = lens _euUserAttributes (\ s a -> s{_euUserAttributes = a}) . _Default . _Map
 
@@ -4069,6 +4562,253 @@ instance ToJSON EndpointUser where
                  [("UserAttributes" .=) <$> _euUserAttributes,
                   ("UserId" .=) <$> _euUserId])
 
+-- | List of endpoints
+--
+-- /See:/ 'endpointsResponse' smart constructor.
+newtype EndpointsResponse = EndpointsResponse'
+  { _eItem :: Maybe [EndpointResponse]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'EndpointsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eItem' - The list of endpoints.
+endpointsResponse
+    :: EndpointsResponse
+endpointsResponse = EndpointsResponse' {_eItem = Nothing}
+
+
+-- | The list of endpoints.
+eItem :: Lens' EndpointsResponse [EndpointResponse]
+eItem = lens _eItem (\ s a -> s{_eItem = a}) . _Default . _Coerce
+
+instance FromJSON EndpointsResponse where
+        parseJSON
+          = withObject "EndpointsResponse"
+              (\ x ->
+                 EndpointsResponse' <$> (x .:? "Item" .!= mempty))
+
+instance Hashable EndpointsResponse where
+
+instance NFData EndpointsResponse where
+
+-- | Model for creating or updating events.
+--
+-- /See:/ 'event' smart constructor.
+data Event = Event'
+  { _eClientSDKVersion :: !(Maybe Text)
+  , _eMetrics          :: !(Maybe (Map Text Double))
+  , _eAppVersionCode   :: !(Maybe Text)
+  , _eAppTitle         :: !(Maybe Text)
+  , _eEventType        :: !(Maybe Text)
+  , _eAppPackageName   :: !(Maybe Text)
+  , _eAttributes       :: !(Maybe (Map Text Text))
+  , _eSDKName          :: !(Maybe Text)
+  , _eTimestamp        :: !(Maybe Text)
+  , _eSession          :: !(Maybe Session)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Event' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eClientSDKVersion' - The version of the SDK that's running on the client device.
+--
+-- * 'eMetrics' - Custom metrics related to the event.
+--
+-- * 'eAppVersionCode' - The version number of the app that's recording the event.
+--
+-- * 'eAppTitle' - The title of the app that's recording the event.
+--
+-- * 'eEventType' - The name of the custom event that you're recording.
+--
+-- * 'eAppPackageName' - The package name associated with the app that's recording the event.
+--
+-- * 'eAttributes' - Custom attributes that are associated with the event you're adding or updating.
+--
+-- * 'eSDKName' - The name of the SDK that's being used to record the event.
+--
+-- * 'eTimestamp' - The date and time when the event occurred, in ISO 8601 format.
+--
+-- * 'eSession' - Information about the session in which the event occurred.
+event
+    :: Event
+event =
+  Event'
+    { _eClientSDKVersion = Nothing
+    , _eMetrics = Nothing
+    , _eAppVersionCode = Nothing
+    , _eAppTitle = Nothing
+    , _eEventType = Nothing
+    , _eAppPackageName = Nothing
+    , _eAttributes = Nothing
+    , _eSDKName = Nothing
+    , _eTimestamp = Nothing
+    , _eSession = Nothing
+    }
+
+
+-- | The version of the SDK that's running on the client device.
+eClientSDKVersion :: Lens' Event (Maybe Text)
+eClientSDKVersion = lens _eClientSDKVersion (\ s a -> s{_eClientSDKVersion = a})
+
+-- | Custom metrics related to the event.
+eMetrics :: Lens' Event (HashMap Text Double)
+eMetrics = lens _eMetrics (\ s a -> s{_eMetrics = a}) . _Default . _Map
+
+-- | The version number of the app that's recording the event.
+eAppVersionCode :: Lens' Event (Maybe Text)
+eAppVersionCode = lens _eAppVersionCode (\ s a -> s{_eAppVersionCode = a})
+
+-- | The title of the app that's recording the event.
+eAppTitle :: Lens' Event (Maybe Text)
+eAppTitle = lens _eAppTitle (\ s a -> s{_eAppTitle = a})
+
+-- | The name of the custom event that you're recording.
+eEventType :: Lens' Event (Maybe Text)
+eEventType = lens _eEventType (\ s a -> s{_eEventType = a})
+
+-- | The package name associated with the app that's recording the event.
+eAppPackageName :: Lens' Event (Maybe Text)
+eAppPackageName = lens _eAppPackageName (\ s a -> s{_eAppPackageName = a})
+
+-- | Custom attributes that are associated with the event you're adding or updating.
+eAttributes :: Lens' Event (HashMap Text Text)
+eAttributes = lens _eAttributes (\ s a -> s{_eAttributes = a}) . _Default . _Map
+
+-- | The name of the SDK that's being used to record the event.
+eSDKName :: Lens' Event (Maybe Text)
+eSDKName = lens _eSDKName (\ s a -> s{_eSDKName = a})
+
+-- | The date and time when the event occurred, in ISO 8601 format.
+eTimestamp :: Lens' Event (Maybe Text)
+eTimestamp = lens _eTimestamp (\ s a -> s{_eTimestamp = a})
+
+-- | Information about the session in which the event occurred.
+eSession :: Lens' Event (Maybe Session)
+eSession = lens _eSession (\ s a -> s{_eSession = a})
+
+instance Hashable Event where
+
+instance NFData Event where
+
+instance ToJSON Event where
+        toJSON Event'{..}
+          = object
+              (catMaybes
+                 [("ClientSdkVersion" .=) <$> _eClientSDKVersion,
+                  ("Metrics" .=) <$> _eMetrics,
+                  ("AppVersionCode" .=) <$> _eAppVersionCode,
+                  ("AppTitle" .=) <$> _eAppTitle,
+                  ("EventType" .=) <$> _eEventType,
+                  ("AppPackageName" .=) <$> _eAppPackageName,
+                  ("Attributes" .=) <$> _eAttributes,
+                  ("SdkName" .=) <$> _eSDKName,
+                  ("Timestamp" .=) <$> _eTimestamp,
+                  ("Session" .=) <$> _eSession])
+
+-- | Event dimensions.
+--
+-- /See:/ 'eventDimensions' smart constructor.
+data EventDimensions = EventDimensions'
+  { _edMetrics    :: !(Maybe (Map Text MetricDimension))
+  , _edEventType  :: !(Maybe SetDimension)
+  , _edAttributes :: !(Maybe (Map Text AttributeDimension))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'EventDimensions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'edMetrics' - Custom metrics that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create an event filter.
+--
+-- * 'edEventType' - The name of the event that causes the campaign to be sent. This can be a standard event type that Amazon Pinpoint generates, such as _session.start, or a custom event that's specific to your app.
+--
+-- * 'edAttributes' - Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create an event filter.
+eventDimensions
+    :: EventDimensions
+eventDimensions =
+  EventDimensions'
+    {_edMetrics = Nothing, _edEventType = Nothing, _edAttributes = Nothing}
+
+
+-- | Custom metrics that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create an event filter.
+edMetrics :: Lens' EventDimensions (HashMap Text MetricDimension)
+edMetrics = lens _edMetrics (\ s a -> s{_edMetrics = a}) . _Default . _Map
+
+-- | The name of the event that causes the campaign to be sent. This can be a standard event type that Amazon Pinpoint generates, such as _session.start, or a custom event that's specific to your app.
+edEventType :: Lens' EventDimensions (Maybe SetDimension)
+edEventType = lens _edEventType (\ s a -> s{_edEventType = a})
+
+-- | Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create an event filter.
+edAttributes :: Lens' EventDimensions (HashMap Text AttributeDimension)
+edAttributes = lens _edAttributes (\ s a -> s{_edAttributes = a}) . _Default . _Map
+
+instance FromJSON EventDimensions where
+        parseJSON
+          = withObject "EventDimensions"
+              (\ x ->
+                 EventDimensions' <$>
+                   (x .:? "Metrics" .!= mempty) <*> (x .:? "EventType")
+                     <*> (x .:? "Attributes" .!= mempty))
+
+instance Hashable EventDimensions where
+
+instance NFData EventDimensions where
+
+instance ToJSON EventDimensions where
+        toJSON EventDimensions'{..}
+          = object
+              (catMaybes
+                 [("Metrics" .=) <$> _edMetrics,
+                  ("EventType" .=) <$> _edEventType,
+                  ("Attributes" .=) <$> _edAttributes])
+
+-- | A complex object that holds the status code and message as a result of processing an event.
+--
+-- /See:/ 'eventItemResponse' smart constructor.
+data EventItemResponse = EventItemResponse'
+  { _eMessage    :: !(Maybe Text)
+  , _eStatusCode :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'EventItemResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eMessage' - A custom message that is associated with the processing of an event.
+--
+-- * 'eStatusCode' - The status returned in the response as a result of processing the event. Possible values: 400 (for invalid events) and 202 (for events that were accepted).
+eventItemResponse
+    :: EventItemResponse
+eventItemResponse =
+  EventItemResponse' {_eMessage = Nothing, _eStatusCode = Nothing}
+
+
+-- | A custom message that is associated with the processing of an event.
+eMessage :: Lens' EventItemResponse (Maybe Text)
+eMessage = lens _eMessage (\ s a -> s{_eMessage = a})
+
+-- | The status returned in the response as a result of processing the event. Possible values: 400 (for invalid events) and 202 (for events that were accepted).
+eStatusCode :: Lens' EventItemResponse (Maybe Int)
+eStatusCode = lens _eStatusCode (\ s a -> s{_eStatusCode = a})
+
+instance FromJSON EventItemResponse where
+        parseJSON
+          = withObject "EventItemResponse"
+              (\ x ->
+                 EventItemResponse' <$>
+                   (x .:? "Message") <*> (x .:? "StatusCode"))
+
+instance Hashable EventItemResponse where
+
+instance NFData EventItemResponse where
+
 -- | Model for an event publishing subscription export.
 --
 -- /See:/ 'eventStream' smart constructor.
@@ -4094,7 +4834,7 @@ data EventStream = EventStream'
 --
 -- * 'esApplicationId' - The ID of the application from which events should be published.
 --
--- * 'esExternalId' - DEPRECATED. Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint.
+-- * 'esExternalId' - (Deprecated) Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint.
 --
 -- * 'esRoleARN' - The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
 eventStream
@@ -4126,7 +4866,7 @@ esDestinationStreamARN = lens _esDestinationStreamARN (\ s a -> s{_esDestination
 esApplicationId :: Lens' EventStream (Maybe Text)
 esApplicationId = lens _esApplicationId (\ s a -> s{_esApplicationId = a})
 
--- | DEPRECATED. Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint.
+-- | (Deprecated) Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint.
 esExternalId :: Lens' EventStream (Maybe Text)
 esExternalId = lens _esExternalId (\ s a -> s{_esExternalId = a})
 
@@ -4150,11 +4890,117 @@ instance Hashable EventStream where
 
 instance NFData EventStream where
 
--- | /See:/ 'exportJobRequest' smart constructor.
+-- | A batch of PublicEndpoints and Events to process.
+--
+-- /See:/ 'eventsBatch' smart constructor.
+data EventsBatch = EventsBatch'
+  { _ebEvents   :: !(Maybe (Map Text Event))
+  , _ebEndpoint :: !(Maybe PublicEndpoint)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'EventsBatch' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ebEvents' - An object that contains a set of events associated with the endpoint.
+--
+-- * 'ebEndpoint' - The PublicEndpoint attached to the EndpointId from the request.
+eventsBatch
+    :: EventsBatch
+eventsBatch = EventsBatch' {_ebEvents = Nothing, _ebEndpoint = Nothing}
+
+
+-- | An object that contains a set of events associated with the endpoint.
+ebEvents :: Lens' EventsBatch (HashMap Text Event)
+ebEvents = lens _ebEvents (\ s a -> s{_ebEvents = a}) . _Default . _Map
+
+-- | The PublicEndpoint attached to the EndpointId from the request.
+ebEndpoint :: Lens' EventsBatch (Maybe PublicEndpoint)
+ebEndpoint = lens _ebEndpoint (\ s a -> s{_ebEndpoint = a})
+
+instance Hashable EventsBatch where
+
+instance NFData EventsBatch where
+
+instance ToJSON EventsBatch where
+        toJSON EventsBatch'{..}
+          = object
+              (catMaybes
+                 [("Events" .=) <$> _ebEvents,
+                  ("Endpoint" .=) <$> _ebEndpoint])
+
+-- | A set of events to process.
+--
+-- /See:/ 'eventsRequest' smart constructor.
+newtype EventsRequest = EventsRequest'
+  { _erBatchItem :: Maybe (Map Text EventsBatch)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'EventsRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'erBatchItem' - A batch of events to process. Each BatchItem consists of an endpoint ID as the key, and an EventsBatch object as the value.
+eventsRequest
+    :: EventsRequest
+eventsRequest = EventsRequest' {_erBatchItem = Nothing}
+
+
+-- | A batch of events to process. Each BatchItem consists of an endpoint ID as the key, and an EventsBatch object as the value.
+erBatchItem :: Lens' EventsRequest (HashMap Text EventsBatch)
+erBatchItem = lens _erBatchItem (\ s a -> s{_erBatchItem = a}) . _Default . _Map
+
+instance Hashable EventsRequest where
+
+instance NFData EventsRequest where
+
+instance ToJSON EventsRequest where
+        toJSON EventsRequest'{..}
+          = object
+              (catMaybes [("BatchItem" .=) <$> _erBatchItem])
+
+-- | Custom messages associated with events.
+--
+-- /See:/ 'eventsResponse' smart constructor.
+newtype EventsResponse = EventsResponse'
+  { _eResults :: Maybe (Map Text ItemResponse)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'EventsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eResults' - A map that contains a multipart response for each endpoint. Each item in this object uses the endpoint ID as the key, and the item response as the value. If no item response exists, the value can also be one of the following: 202 (if the request was processed successfully) or 400 (if the payload was invalid, or required fields were missing).
+eventsResponse
+    :: EventsResponse
+eventsResponse = EventsResponse' {_eResults = Nothing}
+
+
+-- | A map that contains a multipart response for each endpoint. Each item in this object uses the endpoint ID as the key, and the item response as the value. If no item response exists, the value can also be one of the following: 202 (if the request was processed successfully) or 400 (if the payload was invalid, or required fields were missing).
+eResults :: Lens' EventsResponse (HashMap Text ItemResponse)
+eResults = lens _eResults (\ s a -> s{_eResults = a}) . _Default . _Map
+
+instance FromJSON EventsResponse where
+        parseJSON
+          = withObject "EventsResponse"
+              (\ x ->
+                 EventsResponse' <$> (x .:? "Results" .!= mempty))
+
+instance Hashable EventsResponse where
+
+instance NFData EventsResponse where
+
+-- | Export job request.
+--
+-- /See:/ 'exportJobRequest' smart constructor.
 data ExportJobRequest = ExportJobRequest'
-  { _eS3URLPrefix :: !(Maybe Text)
-  , _eSegmentId   :: !(Maybe Text)
-  , _eRoleARN     :: !(Maybe Text)
+  { _eS3URLPrefix    :: !(Maybe Text)
+  , _eSegmentId      :: !(Maybe Text)
+  , _eRoleARN        :: !(Maybe Text)
+  , _eSegmentVersion :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4164,27 +5010,37 @@ data ExportJobRequest = ExportJobRequest'
 --
 -- * 'eS3URLPrefix' - A URL that points to the location within an Amazon S3 bucket that will receive the export. The location is typically a folder with multiple files. The URL should follow this format: s3://bucket-name/folder-name/ Amazon Pinpoint will export endpoints to this location.
 --
--- * 'eSegmentId' - The ID of the segment to export endpoints from. If not present all endpoints will be exported.
+-- * 'eSegmentId' - The ID of the segment to export endpoints from. If not present, Amazon Pinpoint exports all of the endpoints that belong to the application.
 --
 -- * 'eRoleARN' - The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the Amazon S3 location that endpoints will be exported to.
+--
+-- * 'eSegmentVersion' - The version of the segment to export if specified.
 exportJobRequest
     :: ExportJobRequest
 exportJobRequest =
   ExportJobRequest'
-    {_eS3URLPrefix = Nothing, _eSegmentId = Nothing, _eRoleARN = Nothing}
+    { _eS3URLPrefix = Nothing
+    , _eSegmentId = Nothing
+    , _eRoleARN = Nothing
+    , _eSegmentVersion = Nothing
+    }
 
 
 -- | A URL that points to the location within an Amazon S3 bucket that will receive the export. The location is typically a folder with multiple files. The URL should follow this format: s3://bucket-name/folder-name/ Amazon Pinpoint will export endpoints to this location.
 eS3URLPrefix :: Lens' ExportJobRequest (Maybe Text)
 eS3URLPrefix = lens _eS3URLPrefix (\ s a -> s{_eS3URLPrefix = a})
 
--- | The ID of the segment to export endpoints from. If not present all endpoints will be exported.
+-- | The ID of the segment to export endpoints from. If not present, Amazon Pinpoint exports all of the endpoints that belong to the application.
 eSegmentId :: Lens' ExportJobRequest (Maybe Text)
 eSegmentId = lens _eSegmentId (\ s a -> s{_eSegmentId = a})
 
 -- | The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the Amazon S3 location that endpoints will be exported to.
 eRoleARN :: Lens' ExportJobRequest (Maybe Text)
 eRoleARN = lens _eRoleARN (\ s a -> s{_eRoleARN = a})
+
+-- | The version of the segment to export if specified.
+eSegmentVersion :: Lens' ExportJobRequest (Maybe Int)
+eSegmentVersion = lens _eSegmentVersion (\ s a -> s{_eSegmentVersion = a})
 
 instance Hashable ExportJobRequest where
 
@@ -4196,13 +5052,17 @@ instance ToJSON ExportJobRequest where
               (catMaybes
                  [("S3UrlPrefix" .=) <$> _eS3URLPrefix,
                   ("SegmentId" .=) <$> _eSegmentId,
-                  ("RoleArn" .=) <$> _eRoleARN])
+                  ("RoleArn" .=) <$> _eRoleARN,
+                  ("SegmentVersion" .=) <$> _eSegmentVersion])
 
--- | /See:/ 'exportJobResource' smart constructor.
+-- | Export job resource.
+--
+-- /See:/ 'exportJobResource' smart constructor.
 data ExportJobResource = ExportJobResource'
-  { _ejrS3URLPrefix :: !(Maybe Text)
-  , _ejrSegmentId   :: !(Maybe Text)
-  , _ejrRoleARN     :: !(Maybe Text)
+  { _ejrS3URLPrefix    :: !(Maybe Text)
+  , _ejrSegmentId      :: !(Maybe Text)
+  , _ejrRoleARN        :: !(Maybe Text)
+  , _ejrSegmentVersion :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4212,21 +5072,27 @@ data ExportJobResource = ExportJobResource'
 --
 -- * 'ejrS3URLPrefix' - A URL that points to the location within an Amazon S3 bucket that will receive the export. The location is typically a folder with multiple files. The URL should follow this format: s3://bucket-name/folder-name/ Amazon Pinpoint will export endpoints to this location.
 --
--- * 'ejrSegmentId' - The ID of the segment to export endpoints from. If not present, all endpoints are exported.
+-- * 'ejrSegmentId' - The ID of the segment to export endpoints from. If not present, Amazon Pinpoint exports all of the endpoints that belong to the application.
 --
 -- * 'ejrRoleARN' - The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the Amazon S3 location that endpoints will be exported to.
+--
+-- * 'ejrSegmentVersion' - The version of the segment to export if specified.
 exportJobResource
     :: ExportJobResource
 exportJobResource =
   ExportJobResource'
-    {_ejrS3URLPrefix = Nothing, _ejrSegmentId = Nothing, _ejrRoleARN = Nothing}
+    { _ejrS3URLPrefix = Nothing
+    , _ejrSegmentId = Nothing
+    , _ejrRoleARN = Nothing
+    , _ejrSegmentVersion = Nothing
+    }
 
 
 -- | A URL that points to the location within an Amazon S3 bucket that will receive the export. The location is typically a folder with multiple files. The URL should follow this format: s3://bucket-name/folder-name/ Amazon Pinpoint will export endpoints to this location.
 ejrS3URLPrefix :: Lens' ExportJobResource (Maybe Text)
 ejrS3URLPrefix = lens _ejrS3URLPrefix (\ s a -> s{_ejrS3URLPrefix = a})
 
--- | The ID of the segment to export endpoints from. If not present, all endpoints are exported.
+-- | The ID of the segment to export endpoints from. If not present, Amazon Pinpoint exports all of the endpoints that belong to the application.
 ejrSegmentId :: Lens' ExportJobResource (Maybe Text)
 ejrSegmentId = lens _ejrSegmentId (\ s a -> s{_ejrSegmentId = a})
 
@@ -4234,19 +5100,26 @@ ejrSegmentId = lens _ejrSegmentId (\ s a -> s{_ejrSegmentId = a})
 ejrRoleARN :: Lens' ExportJobResource (Maybe Text)
 ejrRoleARN = lens _ejrRoleARN (\ s a -> s{_ejrRoleARN = a})
 
+-- | The version of the segment to export if specified.
+ejrSegmentVersion :: Lens' ExportJobResource (Maybe Int)
+ejrSegmentVersion = lens _ejrSegmentVersion (\ s a -> s{_ejrSegmentVersion = a})
+
 instance FromJSON ExportJobResource where
         parseJSON
           = withObject "ExportJobResource"
               (\ x ->
                  ExportJobResource' <$>
                    (x .:? "S3UrlPrefix") <*> (x .:? "SegmentId") <*>
-                     (x .:? "RoleArn"))
+                     (x .:? "RoleArn")
+                     <*> (x .:? "SegmentVersion"))
 
 instance Hashable ExportJobResource where
 
 instance NFData ExportJobResource where
 
--- | /See:/ 'exportJobResponse' smart constructor.
+-- | Export job response.
+--
+-- /See:/ 'exportJobResponse' smart constructor.
 data ExportJobResponse = ExportJobResponse'
   { _ejCompletedPieces :: !(Maybe Int)
   , _ejFailedPieces    :: !(Maybe Int)
@@ -4280,7 +5153,7 @@ data ExportJobResponse = ExportJobResponse'
 --
 -- * 'ejTotalPieces' - The total number of pieces that must be processed to finish the job. Each piece is an approximately equal portion of the endpoints.
 --
--- * 'ejApplicationId' - The unique ID of the application to which the job applies.
+-- * 'ejApplicationId' - The unique ID of the application associated with the export job.
 --
 -- * 'ejId' - The unique ID of the job.
 --
@@ -4337,7 +5210,7 @@ ejFailures = lens _ejFailures (\ s a -> s{_ejFailures = a}) . _Default . _Coerce
 ejTotalPieces :: Lens' ExportJobResponse (Maybe Int)
 ejTotalPieces = lens _ejTotalPieces (\ s a -> s{_ejTotalPieces = a})
 
--- | The unique ID of the application to which the job applies.
+-- | The unique ID of the application associated with the export job.
 ejApplicationId :: Lens' ExportJobResponse (Maybe Text)
 ejApplicationId = lens _ejApplicationId (\ s a -> s{_ejApplicationId = a})
 
@@ -4511,7 +5384,7 @@ data GCMChannelResponse = GCMChannelResponse'
 --
 -- * 'gcLastModifiedBy' - Who last updated this entry
 --
--- * 'gcHasCredential' - Indicates whether the channel is configured with FCM or GCM credentials. Amazon Pinpoint uses your credentials to authenticate push notifications with FCM or GCM. Provide your credentials by setting the ApiKey attribute.
+-- * 'gcHasCredential' - Not used. Retained for backwards compatibility.
 gcmChannelResponse
     :: GCMChannelResponse
 gcmChannelResponse =
@@ -4570,7 +5443,7 @@ gcCreationDate = lens _gcCreationDate (\ s a -> s{_gcCreationDate = a})
 gcLastModifiedBy :: Lens' GCMChannelResponse (Maybe Text)
 gcLastModifiedBy = lens _gcLastModifiedBy (\ s a -> s{_gcLastModifiedBy = a})
 
--- | Indicates whether the channel is configured with FCM or GCM credentials. Amazon Pinpoint uses your credentials to authenticate push notifications with FCM or GCM. Provide your credentials by setting the ApiKey attribute.
+-- | Not used. Retained for backwards compatibility.
 gcHasCredential :: Lens' GCMChannelResponse (Maybe Bool)
 gcHasCredential = lens _gcHasCredential (\ s a -> s{_gcHasCredential = a})
 
@@ -4638,7 +5511,7 @@ data GCMMessage = GCMMessage'
 --
 -- * 'gmSmallImageIconURL' - The URL that points to an image used as the small icon for the notification which will be used to represent the notification in the status bar and content view
 --
--- * 'gmBody' - The message body of the notification, the email body or the text message.
+-- * 'gmBody' - The message body of the notification.
 --
 -- * 'gmTimeToLive' - The length of time (in seconds) that FCM or GCM stores and attempts to deliver the message. If unspecified, the value defaults to the maximum, which is 2,419,200 seconds (28 days). Amazon Pinpoint uses this value to set the FCM or GCM time_to_live parameter.
 --
@@ -4711,7 +5584,7 @@ gmRestrictedPackageName = lens _gmRestrictedPackageName (\ s a -> s{_gmRestricte
 gmSmallImageIconURL :: Lens' GCMMessage (Maybe Text)
 gmSmallImageIconURL = lens _gmSmallImageIconURL (\ s a -> s{_gmSmallImageIconURL = a})
 
--- | The message body of the notification, the email body or the text message.
+-- | The message body of the notification.
 gmBody :: Lens' GCMMessage (Maybe Text)
 gmBody = lens _gmBody (\ s a -> s{_gmBody = a})
 
@@ -4773,7 +5646,108 @@ instance ToJSON GCMMessage where
                   ("Title" .=) <$> _gmTitle,
                   ("IconReference" .=) <$> _gmIconReference])
 
--- | /See:/ 'importJobRequest' smart constructor.
+-- | GPS coordinates
+--
+-- /See:/ 'gPSCoordinates' smart constructor.
+data GPSCoordinates = GPSCoordinates'
+  { _gpscLatitude  :: !(Maybe Double)
+  , _gpscLongitude :: !(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'GPSCoordinates' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gpscLatitude' - Latitude
+--
+-- * 'gpscLongitude' - Longitude
+gPSCoordinates
+    :: GPSCoordinates
+gPSCoordinates =
+  GPSCoordinates' {_gpscLatitude = Nothing, _gpscLongitude = Nothing}
+
+
+-- | Latitude
+gpscLatitude :: Lens' GPSCoordinates (Maybe Double)
+gpscLatitude = lens _gpscLatitude (\ s a -> s{_gpscLatitude = a})
+
+-- | Longitude
+gpscLongitude :: Lens' GPSCoordinates (Maybe Double)
+gpscLongitude = lens _gpscLongitude (\ s a -> s{_gpscLongitude = a})
+
+instance FromJSON GPSCoordinates where
+        parseJSON
+          = withObject "GPSCoordinates"
+              (\ x ->
+                 GPSCoordinates' <$>
+                   (x .:? "Latitude") <*> (x .:? "Longitude"))
+
+instance Hashable GPSCoordinates where
+
+instance NFData GPSCoordinates where
+
+instance ToJSON GPSCoordinates where
+        toJSON GPSCoordinates'{..}
+          = object
+              (catMaybes
+                 [("Latitude" .=) <$> _gpscLatitude,
+                  ("Longitude" .=) <$> _gpscLongitude])
+
+-- | GPS point location dimension
+--
+-- /See:/ 'gPSPointDimension' smart constructor.
+data GPSPointDimension = GPSPointDimension'
+  { _gpspdCoordinates       :: !(Maybe GPSCoordinates)
+  , _gpspdRangeInKilometers :: !(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'GPSPointDimension' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gpspdCoordinates' - Coordinate to measure distance from.
+--
+-- * 'gpspdRangeInKilometers' - Range in kilometers from the coordinate.
+gPSPointDimension
+    :: GPSPointDimension
+gPSPointDimension =
+  GPSPointDimension'
+    {_gpspdCoordinates = Nothing, _gpspdRangeInKilometers = Nothing}
+
+
+-- | Coordinate to measure distance from.
+gpspdCoordinates :: Lens' GPSPointDimension (Maybe GPSCoordinates)
+gpspdCoordinates = lens _gpspdCoordinates (\ s a -> s{_gpspdCoordinates = a})
+
+-- | Range in kilometers from the coordinate.
+gpspdRangeInKilometers :: Lens' GPSPointDimension (Maybe Double)
+gpspdRangeInKilometers = lens _gpspdRangeInKilometers (\ s a -> s{_gpspdRangeInKilometers = a})
+
+instance FromJSON GPSPointDimension where
+        parseJSON
+          = withObject "GPSPointDimension"
+              (\ x ->
+                 GPSPointDimension' <$>
+                   (x .:? "Coordinates") <*>
+                     (x .:? "RangeInKilometers"))
+
+instance Hashable GPSPointDimension where
+
+instance NFData GPSPointDimension where
+
+instance ToJSON GPSPointDimension where
+        toJSON GPSPointDimension'{..}
+          = object
+              (catMaybes
+                 [("Coordinates" .=) <$> _gpspdCoordinates,
+                  ("RangeInKilometers" .=) <$>
+                    _gpspdRangeInKilometers])
+
+-- | Import job request.
+--
+-- /See:/ 'importJobRequest' smart constructor.
 data ImportJobRequest = ImportJobRequest'
   { _iSegmentName       :: !(Maybe Text)
   , _iFormat            :: !(Maybe DefinitionFormat)
@@ -4798,9 +5772,9 @@ data ImportJobRequest = ImportJobRequest'
 --
 -- * 'iRegisterEndpoints' - Sets whether the endpoints are registered with Amazon Pinpoint when they are imported.
 --
--- * 'iExternalId' - DEPRECATED. Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint.
+-- * 'iExternalId' - (Deprecated) Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint.
 --
--- * 'iS3URL' - A URL that points to the location within an Amazon S3 bucket that contains the endpoints to import. The location can be a folder or a single file. The URL should follow this format: s3://bucket-name/folder-name/file-name Amazon Pinpoint will import endpoints from this location and any subfolders it contains.
+-- * 'iS3URL' - The URL of the S3 bucket that contains the segment information to import. The location can be a folder or a single file. The URL should use the following format: s3://bucket-name/folder-name/file-name Amazon Pinpoint imports endpoints from this location and any subfolders it contains.
 --
 -- * 'iSegmentId' - The ID of the segment to update if the import job is meant to update an existing segment.
 --
@@ -4836,11 +5810,11 @@ iDefineSegment = lens _iDefineSegment (\ s a -> s{_iDefineSegment = a})
 iRegisterEndpoints :: Lens' ImportJobRequest (Maybe Bool)
 iRegisterEndpoints = lens _iRegisterEndpoints (\ s a -> s{_iRegisterEndpoints = a})
 
--- | DEPRECATED. Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint.
+-- | (Deprecated) Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint.
 iExternalId :: Lens' ImportJobRequest (Maybe Text)
 iExternalId = lens _iExternalId (\ s a -> s{_iExternalId = a})
 
--- | A URL that points to the location within an Amazon S3 bucket that contains the endpoints to import. The location can be a folder or a single file. The URL should follow this format: s3://bucket-name/folder-name/file-name Amazon Pinpoint will import endpoints from this location and any subfolders it contains.
+-- | The URL of the S3 bucket that contains the segment information to import. The location can be a folder or a single file. The URL should use the following format: s3://bucket-name/folder-name/file-name Amazon Pinpoint imports endpoints from this location and any subfolders it contains.
 iS3URL :: Lens' ImportJobRequest (Maybe Text)
 iS3URL = lens _iS3URL (\ s a -> s{_iS3URL = a})
 
@@ -4869,7 +5843,9 @@ instance ToJSON ImportJobRequest where
                   ("SegmentId" .=) <$> _iSegmentId,
                   ("RoleArn" .=) <$> _iRoleARN])
 
--- | /See:/ 'importJobResource' smart constructor.
+-- | Import job resource
+--
+-- /See:/ 'importJobResource' smart constructor.
 data ImportJobResource = ImportJobResource'
   { _ijrSegmentName       :: !(Maybe Text)
   , _ijrFormat            :: !(Maybe DefinitionFormat)
@@ -4894,9 +5870,9 @@ data ImportJobResource = ImportJobResource'
 --
 -- * 'ijrRegisterEndpoints' - Sets whether the endpoints are registered with Amazon Pinpoint when they are imported.
 --
--- * 'ijrExternalId' - DEPRECATED. Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint.
+-- * 'ijrExternalId' - (Deprecated) Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint.
 --
--- * 'ijrS3URL' - A URL that points to the location within an Amazon S3 bucket that contains the endpoints to import. The location can be a folder or a single file. The URL should follow this format: s3://bucket-name/folder-name/file-name Amazon Pinpoint will import endpoints from this location and any subfolders it contains.
+-- * 'ijrS3URL' - The URL of the S3 bucket that contains the segment information to import. The location can be a folder or a single file. The URL should use the following format: s3://bucket-name/folder-name/file-name Amazon Pinpoint imports endpoints from this location and any subfolders it contains.
 --
 -- * 'ijrSegmentId' - The ID of the segment to update if the import job is meant to update an existing segment.
 --
@@ -4932,11 +5908,11 @@ ijrDefineSegment = lens _ijrDefineSegment (\ s a -> s{_ijrDefineSegment = a})
 ijrRegisterEndpoints :: Lens' ImportJobResource (Maybe Bool)
 ijrRegisterEndpoints = lens _ijrRegisterEndpoints (\ s a -> s{_ijrRegisterEndpoints = a})
 
--- | DEPRECATED. Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint.
+-- | (Deprecated) Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint.
 ijrExternalId :: Lens' ImportJobResource (Maybe Text)
 ijrExternalId = lens _ijrExternalId (\ s a -> s{_ijrExternalId = a})
 
--- | A URL that points to the location within an Amazon S3 bucket that contains the endpoints to import. The location can be a folder or a single file. The URL should follow this format: s3://bucket-name/folder-name/file-name Amazon Pinpoint will import endpoints from this location and any subfolders it contains.
+-- | The URL of the S3 bucket that contains the segment information to import. The location can be a folder or a single file. The URL should use the following format: s3://bucket-name/folder-name/file-name Amazon Pinpoint imports endpoints from this location and any subfolders it contains.
 ijrS3URL :: Lens' ImportJobResource (Maybe Text)
 ijrS3URL = lens _ijrS3URL (\ s a -> s{_ijrS3URL = a})
 
@@ -4965,7 +5941,9 @@ instance Hashable ImportJobResource where
 
 instance NFData ImportJobResource where
 
--- | /See:/ 'importJobResponse' smart constructor.
+-- | Import job response.
+--
+-- /See:/ 'importJobResponse' smart constructor.
 data ImportJobResponse = ImportJobResponse'
   { _ijCompletedPieces :: !(Maybe Int)
   , _ijFailedPieces    :: !(Maybe Int)
@@ -5147,12 +6125,58 @@ instance Hashable ImportJobsResponse where
 
 instance NFData ImportJobsResponse where
 
--- | /See:/ 'message' smart constructor.
+-- | The response that's provided after registering the endpoint.
+--
+-- /See:/ 'itemResponse' smart constructor.
+data ItemResponse = ItemResponse'
+  { _iEndpointItemResponse :: !(Maybe EndpointItemResponse)
+  , _iEventsItemResponse   :: !(Maybe (Map Text EventItemResponse))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ItemResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iEndpointItemResponse' - The response received after the endpoint was accepted.
+--
+-- * 'iEventsItemResponse' - A multipart response object that contains a key and value for each event ID in the request. In each object, the event ID is the key, and an EventItemResponse object is the value.
+itemResponse
+    :: ItemResponse
+itemResponse =
+  ItemResponse'
+    {_iEndpointItemResponse = Nothing, _iEventsItemResponse = Nothing}
+
+
+-- | The response received after the endpoint was accepted.
+iEndpointItemResponse :: Lens' ItemResponse (Maybe EndpointItemResponse)
+iEndpointItemResponse = lens _iEndpointItemResponse (\ s a -> s{_iEndpointItemResponse = a})
+
+-- | A multipart response object that contains a key and value for each event ID in the request. In each object, the event ID is the key, and an EventItemResponse object is the value.
+iEventsItemResponse :: Lens' ItemResponse (HashMap Text EventItemResponse)
+iEventsItemResponse = lens _iEventsItemResponse (\ s a -> s{_iEventsItemResponse = a}) . _Default . _Map
+
+instance FromJSON ItemResponse where
+        parseJSON
+          = withObject "ItemResponse"
+              (\ x ->
+                 ItemResponse' <$>
+                   (x .:? "EndpointItemResponse") <*>
+                     (x .:? "EventsItemResponse" .!= mempty))
+
+instance Hashable ItemResponse where
+
+instance NFData ItemResponse where
+
+-- | Message to send
+--
+-- /See:/ 'message' smart constructor.
 data Message = Message'
   { _mSilentPush        :: !(Maybe Bool)
   , _mImageIconURL      :: !(Maybe Text)
   , _mRawContent        :: !(Maybe Text)
   , _mBody              :: !(Maybe Text)
+  , _mTimeToLive        :: !(Maybe Int)
   , _mImageSmallIconURL :: !(Maybe Text)
   , _mJSONBody          :: !(Maybe Text)
   , _mURL               :: !(Maybe Text)
@@ -5175,6 +6199,8 @@ data Message = Message'
 --
 -- * 'mBody' - The message body. Can include up to 140 characters.
 --
+-- * 'mTimeToLive' - This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
+--
 -- * 'mImageSmallIconURL' - The URL that points to the small icon image for the push notification icon, for example, the app icon.
 --
 -- * 'mJSONBody' - The JSON payload used for a silent push.
@@ -5185,7 +6211,7 @@ data Message = Message'
 --
 -- * 'mImageURL' - The URL that points to an image used in the push notification.
 --
--- * 'mMediaURL' - The URL that points to the media resource, for example a .mp4 or .gif file.
+-- * 'mMediaURL' - A URL that refers to the location of an image or video that you want to display in the push notification.
 --
 -- * 'mTitle' - The message title that displays above the message on the user's device.
 message
@@ -5196,6 +6222,7 @@ message =
     , _mImageIconURL = Nothing
     , _mRawContent = Nothing
     , _mBody = Nothing
+    , _mTimeToLive = Nothing
     , _mImageSmallIconURL = Nothing
     , _mJSONBody = Nothing
     , _mURL = Nothing
@@ -5222,6 +6249,10 @@ mRawContent = lens _mRawContent (\ s a -> s{_mRawContent = a})
 mBody :: Lens' Message (Maybe Text)
 mBody = lens _mBody (\ s a -> s{_mBody = a})
 
+-- | This parameter specifies how long (in seconds) the message should be kept if the service is unable to deliver the notification the first time. If the value is 0, it treats the notification as if it expires immediately and does not store the notification or attempt to redeliver it. This value is converted to the expiration field when sent to the service. It only applies to APNs and GCM
+mTimeToLive :: Lens' Message (Maybe Int)
+mTimeToLive = lens _mTimeToLive (\ s a -> s{_mTimeToLive = a})
+
 -- | The URL that points to the small icon image for the push notification icon, for example, the app icon.
 mImageSmallIconURL :: Lens' Message (Maybe Text)
 mImageSmallIconURL = lens _mImageSmallIconURL (\ s a -> s{_mImageSmallIconURL = a})
@@ -5242,7 +6273,7 @@ mAction = lens _mAction (\ s a -> s{_mAction = a})
 mImageURL :: Lens' Message (Maybe Text)
 mImageURL = lens _mImageURL (\ s a -> s{_mImageURL = a})
 
--- | The URL that points to the media resource, for example a .mp4 or .gif file.
+-- | A URL that refers to the location of an image or video that you want to display in the push notification.
 mMediaURL :: Lens' Message (Maybe Text)
 mMediaURL = lens _mMediaURL (\ s a -> s{_mMediaURL = a})
 
@@ -5258,6 +6289,7 @@ instance FromJSON Message where
                    (x .:? "SilentPush") <*> (x .:? "ImageIconUrl") <*>
                      (x .:? "RawContent")
                      <*> (x .:? "Body")
+                     <*> (x .:? "TimeToLive")
                      <*> (x .:? "ImageSmallIconUrl")
                      <*> (x .:? "JsonBody")
                      <*> (x .:? "Url")
@@ -5278,6 +6310,7 @@ instance ToJSON Message where
                   ("ImageIconUrl" .=) <$> _mImageIconURL,
                   ("RawContent" .=) <$> _mRawContent,
                   ("Body" .=) <$> _mBody,
+                  ("TimeToLive" .=) <$> _mTimeToLive,
                   ("ImageSmallIconUrl" .=) <$> _mImageSmallIconURL,
                   ("JsonBody" .=) <$> _mJSONBody, ("Url" .=) <$> _mURL,
                   ("Action" .=) <$> _mAction,
@@ -5300,7 +6333,7 @@ data MessageBody = MessageBody'
 --
 -- * 'mbRequestId' - The unique message body ID.
 --
--- * 'mbMessage' - The error message returned from the API.
+-- * 'mbMessage' - The error message that's returned from the API.
 messageBody
     :: MessageBody
 messageBody = MessageBody' {_mbRequestId = Nothing, _mbMessage = Nothing}
@@ -5310,7 +6343,7 @@ messageBody = MessageBody' {_mbRequestId = Nothing, _mbMessage = Nothing}
 mbRequestId :: Lens' MessageBody (Maybe Text)
 mbRequestId = lens _mbRequestId (\ s a -> s{_mbRequestId = a})
 
--- | The error message returned from the API.
+-- | The error message that's returned from the API.
 mbMessage :: Lens' MessageBody (Maybe Text)
 mbMessage = lens _mbMessage (\ s a -> s{_mbMessage = a})
 
@@ -5430,7 +6463,8 @@ instance ToJSON MessageConfiguration where
 --
 -- /See:/ 'messageRequest' smart constructor.
 data MessageRequest = MessageRequest'
-  { _mrContext              :: !(Maybe (Map Text Text))
+  { _mrTraceId              :: !(Maybe Text)
+  , _mrContext              :: !(Maybe (Map Text Text))
   , _mrAddresses            :: !(Maybe (Map Text AddressConfiguration))
   , _mrEndpoints            :: !(Maybe (Map Text EndpointSendConfiguration))
   , _mrMessageConfiguration :: !(Maybe DirectMessageConfiguration)
@@ -5441,33 +6475,40 @@ data MessageRequest = MessageRequest'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'mrTraceId' - A unique ID that you can use to trace a message. This ID is visible to recipients.
+--
 -- * 'mrContext' - A map of custom attributes to attributes to be attached to the message. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.
 --
--- * 'mrAddresses' - A map of destination addresses, with the address as the key(Email address, phone number or push token) and the Address Configuration as the value.
+-- * 'mrAddresses' - A map of key-value pairs, where each key is an address and each value is an AddressConfiguration object. An address can be a push notification token, a phone number, or an email address.
 --
--- * 'mrEndpoints' - A map of destination addresses, with the address as the key(Email address, phone number or push token) and the Address Configuration as the value.
+-- * 'mrEndpoints' - A map of key-value pairs, where each key is an endpoint ID and each value is an EndpointSendConfiguration object. Within an EndpointSendConfiguration object, you can tailor the message for an endpoint by specifying message overrides or substitutions.
 --
 -- * 'mrMessageConfiguration' - Message configuration.
 messageRequest
     :: MessageRequest
 messageRequest =
   MessageRequest'
-    { _mrContext = Nothing
+    { _mrTraceId = Nothing
+    , _mrContext = Nothing
     , _mrAddresses = Nothing
     , _mrEndpoints = Nothing
     , _mrMessageConfiguration = Nothing
     }
 
 
+-- | A unique ID that you can use to trace a message. This ID is visible to recipients.
+mrTraceId :: Lens' MessageRequest (Maybe Text)
+mrTraceId = lens _mrTraceId (\ s a -> s{_mrTraceId = a})
+
 -- | A map of custom attributes to attributes to be attached to the message. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.
 mrContext :: Lens' MessageRequest (HashMap Text Text)
 mrContext = lens _mrContext (\ s a -> s{_mrContext = a}) . _Default . _Map
 
--- | A map of destination addresses, with the address as the key(Email address, phone number or push token) and the Address Configuration as the value.
+-- | A map of key-value pairs, where each key is an address and each value is an AddressConfiguration object. An address can be a push notification token, a phone number, or an email address.
 mrAddresses :: Lens' MessageRequest (HashMap Text AddressConfiguration)
 mrAddresses = lens _mrAddresses (\ s a -> s{_mrAddresses = a}) . _Default . _Map
 
--- | A map of destination addresses, with the address as the key(Email address, phone number or push token) and the Address Configuration as the value.
+-- | A map of key-value pairs, where each key is an endpoint ID and each value is an EndpointSendConfiguration object. Within an EndpointSendConfiguration object, you can tailor the message for an endpoint by specifying message overrides or substitutions.
 mrEndpoints :: Lens' MessageRequest (HashMap Text EndpointSendConfiguration)
 mrEndpoints = lens _mrEndpoints (\ s a -> s{_mrEndpoints = a}) . _Default . _Map
 
@@ -5483,7 +6524,8 @@ instance ToJSON MessageRequest where
         toJSON MessageRequest'{..}
           = object
               (catMaybes
-                 [("Context" .=) <$> _mrContext,
+                 [("TraceId" .=) <$> _mrTraceId,
+                  ("Context" .=) <$> _mrContext,
                   ("Addresses" .=) <$> _mrAddresses,
                   ("Endpoints" .=) <$> _mrEndpoints,
                   ("MessageConfiguration" .=) <$>
@@ -5558,6 +6600,7 @@ data MessageResult = MessageResult'
   { _mrDeliveryStatus :: !(Maybe DeliveryStatus)
   , _mrStatusMessage  :: !(Maybe Text)
   , _mrUpdatedToken   :: !(Maybe Text)
+  , _mrMessageId      :: !(Maybe Text)
   , _mrStatusCode     :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -5566,11 +6609,13 @@ data MessageResult = MessageResult'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mrDeliveryStatus' - Delivery status of message.
+-- * 'mrDeliveryStatus' - The delivery status of the message. Possible values: SUCCESS - The message was successfully delivered to the endpoint. TRANSIENT_FAILURE - A temporary error occurred. Amazon Pinpoint will attempt to deliver the message again later. FAILURE_PERMANENT - An error occurred when delivering the message to the endpoint. Amazon Pinpoint won't attempt to send the message again. TIMEOUT - The message couldn't be sent within the timeout period. QUIET_TIME - The local time for the endpoint was within the QuietTime for the campaign or app. DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour period. HOLDOUT - The endpoint was in a hold out treatment for the campaign. THROTTLED - Amazon Pinpoint throttled sending to this endpoint. EXPIRED - The endpoint address is expired. CAMPAIGN_CAP - The endpoint received the maximum number of messages allowed by the campaign. SERVICE_FAILURE - A service-level failure prevented Amazon Pinpoint from delivering the message. UNKNOWN - An unknown error occurred.
 --
 -- * 'mrStatusMessage' - Status message for message delivery.
 --
 -- * 'mrUpdatedToken' - If token was updated as part of delivery. (This is GCM Specific)
+--
+-- * 'mrMessageId' - Unique message identifier associated with the message that was sent.
 --
 -- * 'mrStatusCode' - Downstream service status code.
 messageResult
@@ -5580,11 +6625,12 @@ messageResult =
     { _mrDeliveryStatus = Nothing
     , _mrStatusMessage = Nothing
     , _mrUpdatedToken = Nothing
+    , _mrMessageId = Nothing
     , _mrStatusCode = Nothing
     }
 
 
--- | Delivery status of message.
+-- | The delivery status of the message. Possible values: SUCCESS - The message was successfully delivered to the endpoint. TRANSIENT_FAILURE - A temporary error occurred. Amazon Pinpoint will attempt to deliver the message again later. FAILURE_PERMANENT - An error occurred when delivering the message to the endpoint. Amazon Pinpoint won't attempt to send the message again. TIMEOUT - The message couldn't be sent within the timeout period. QUIET_TIME - The local time for the endpoint was within the QuietTime for the campaign or app. DAILY_CAP - The endpoint has received the maximum number of messages it can receive within a 24-hour period. HOLDOUT - The endpoint was in a hold out treatment for the campaign. THROTTLED - Amazon Pinpoint throttled sending to this endpoint. EXPIRED - The endpoint address is expired. CAMPAIGN_CAP - The endpoint received the maximum number of messages allowed by the campaign. SERVICE_FAILURE - A service-level failure prevented Amazon Pinpoint from delivering the message. UNKNOWN - An unknown error occurred.
 mrDeliveryStatus :: Lens' MessageResult (Maybe DeliveryStatus)
 mrDeliveryStatus = lens _mrDeliveryStatus (\ s a -> s{_mrDeliveryStatus = a})
 
@@ -5595,6 +6641,10 @@ mrStatusMessage = lens _mrStatusMessage (\ s a -> s{_mrStatusMessage = a})
 -- | If token was updated as part of delivery. (This is GCM Specific)
 mrUpdatedToken :: Lens' MessageResult (Maybe Text)
 mrUpdatedToken = lens _mrUpdatedToken (\ s a -> s{_mrUpdatedToken = a})
+
+-- | Unique message identifier associated with the message that was sent.
+mrMessageId :: Lens' MessageResult (Maybe Text)
+mrMessageId = lens _mrMessageId (\ s a -> s{_mrMessageId = a})
 
 -- | Downstream service status code.
 mrStatusCode :: Lens' MessageResult (Maybe Int)
@@ -5607,11 +6657,379 @@ instance FromJSON MessageResult where
                  MessageResult' <$>
                    (x .:? "DeliveryStatus") <*> (x .:? "StatusMessage")
                      <*> (x .:? "UpdatedToken")
+                     <*> (x .:? "MessageId")
                      <*> (x .:? "StatusCode"))
 
 instance Hashable MessageResult where
 
 instance NFData MessageResult where
+
+-- | Custom metric dimension
+--
+-- /See:/ 'metricDimension' smart constructor.
+data MetricDimension = MetricDimension'
+  { _mdValue              :: !(Maybe Double)
+  , _mdComparisonOperator :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'MetricDimension' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mdValue' - The value to be compared.
+--
+-- * 'mdComparisonOperator' - The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+metricDimension
+    :: MetricDimension
+metricDimension =
+  MetricDimension' {_mdValue = Nothing, _mdComparisonOperator = Nothing}
+
+
+-- | The value to be compared.
+mdValue :: Lens' MetricDimension (Maybe Double)
+mdValue = lens _mdValue (\ s a -> s{_mdValue = a})
+
+-- | The operator that you're using to compare metric values. Possible values: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, or EQUAL
+mdComparisonOperator :: Lens' MetricDimension (Maybe Text)
+mdComparisonOperator = lens _mdComparisonOperator (\ s a -> s{_mdComparisonOperator = a})
+
+instance FromJSON MetricDimension where
+        parseJSON
+          = withObject "MetricDimension"
+              (\ x ->
+                 MetricDimension' <$>
+                   (x .:? "Value") <*> (x .:? "ComparisonOperator"))
+
+instance Hashable MetricDimension where
+
+instance NFData MetricDimension where
+
+instance ToJSON MetricDimension where
+        toJSON MetricDimension'{..}
+          = object
+              (catMaybes
+                 [("Value" .=) <$> _mdValue,
+                  ("ComparisonOperator" .=) <$> _mdComparisonOperator])
+
+-- | Phone Number Validate request.
+--
+-- /See:/ 'numberValidateRequest' smart constructor.
+data NumberValidateRequest = NumberValidateRequest'
+  { _nvrIsoCountryCode :: !(Maybe Text)
+  , _nvrPhoneNumber    :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'NumberValidateRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'nvrIsoCountryCode' - (Optional) The two-character ISO country code for the country or region where the phone number was originally registered.
+--
+-- * 'nvrPhoneNumber' - The phone number to get information about. The phone number that you provide should include a country code. If the number doesn't include a valid country code, the operation might result in an error.
+numberValidateRequest
+    :: NumberValidateRequest
+numberValidateRequest =
+  NumberValidateRequest'
+    {_nvrIsoCountryCode = Nothing, _nvrPhoneNumber = Nothing}
+
+
+-- | (Optional) The two-character ISO country code for the country or region where the phone number was originally registered.
+nvrIsoCountryCode :: Lens' NumberValidateRequest (Maybe Text)
+nvrIsoCountryCode = lens _nvrIsoCountryCode (\ s a -> s{_nvrIsoCountryCode = a})
+
+-- | The phone number to get information about. The phone number that you provide should include a country code. If the number doesn't include a valid country code, the operation might result in an error.
+nvrPhoneNumber :: Lens' NumberValidateRequest (Maybe Text)
+nvrPhoneNumber = lens _nvrPhoneNumber (\ s a -> s{_nvrPhoneNumber = a})
+
+instance Hashable NumberValidateRequest where
+
+instance NFData NumberValidateRequest where
+
+instance ToJSON NumberValidateRequest where
+        toJSON NumberValidateRequest'{..}
+          = object
+              (catMaybes
+                 [("IsoCountryCode" .=) <$> _nvrIsoCountryCode,
+                  ("PhoneNumber" .=) <$> _nvrPhoneNumber])
+
+-- | Phone Number Validate response.
+--
+-- /See:/ 'numberValidateResponse' smart constructor.
+data NumberValidateResponse = NumberValidateResponse'
+  { _nvCarrier                     :: !(Maybe Text)
+  , _nvCounty                      :: !(Maybe Text)
+  , _nvCountry                     :: !(Maybe Text)
+  , _nvCountryCodeNumeric          :: !(Maybe Text)
+  , _nvZipCode                     :: !(Maybe Text)
+  , _nvOriginalPhoneNumber         :: !(Maybe Text)
+  , _nvPhoneTypeCode               :: !(Maybe Int)
+  , _nvPhoneType                   :: !(Maybe Text)
+  , _nvCity                        :: !(Maybe Text)
+  , _nvCountryCodeIso2             :: !(Maybe Text)
+  , _nvTimezone                    :: !(Maybe Text)
+  , _nvOriginalCountryCodeIso2     :: !(Maybe Text)
+  , _nvCleansedPhoneNumberNational :: !(Maybe Text)
+  , _nvCleansedPhoneNumberE164     :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'NumberValidateResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'nvCarrier' - The carrier or servive provider that the phone number is currently registered with.
+--
+-- * 'nvCounty' - The county where the phone number was originally registered.
+--
+-- * 'nvCountry' - The country or region where the phone number was originally registered.
+--
+-- * 'nvCountryCodeNumeric' - The numeric code for the country or region where the phone number was originally registered.
+--
+-- * 'nvZipCode' - The postal code for the location where the phone number was originally registered.
+--
+-- * 'nvOriginalPhoneNumber' - The phone number that you included in the request body.
+--
+-- * 'nvPhoneTypeCode' - The phone type, represented by an integer. Possible values include 0 (MOBILE), 1 (LANDLINE), 2 (VOIP), 3 (INVALID), 4 (OTHER), and 5 (PREPAID).
+--
+-- * 'nvPhoneType' - A description of the phone type. Possible values are MOBILE, LANDLINE, VOIP, INVALID, PREPAID, and OTHER.
+--
+-- * 'nvCity' - The city where the phone number was originally registered.
+--
+-- * 'nvCountryCodeIso2' - The two-character ISO code for the country or region where the phone number was originally registered.
+--
+-- * 'nvTimezone' - The time zone for the location where the phone number was originally registered.
+--
+-- * 'nvOriginalCountryCodeIso2' - The two-character code (in ISO 3166-1 alpha-2 format) for the country or region in the request body.
+--
+-- * 'nvCleansedPhoneNumberNational' - The cleansed phone number, shown in the local phone number format.
+--
+-- * 'nvCleansedPhoneNumberE164' - The cleansed phone number, shown in E.164 format.
+numberValidateResponse
+    :: NumberValidateResponse
+numberValidateResponse =
+  NumberValidateResponse'
+    { _nvCarrier = Nothing
+    , _nvCounty = Nothing
+    , _nvCountry = Nothing
+    , _nvCountryCodeNumeric = Nothing
+    , _nvZipCode = Nothing
+    , _nvOriginalPhoneNumber = Nothing
+    , _nvPhoneTypeCode = Nothing
+    , _nvPhoneType = Nothing
+    , _nvCity = Nothing
+    , _nvCountryCodeIso2 = Nothing
+    , _nvTimezone = Nothing
+    , _nvOriginalCountryCodeIso2 = Nothing
+    , _nvCleansedPhoneNumberNational = Nothing
+    , _nvCleansedPhoneNumberE164 = Nothing
+    }
+
+
+-- | The carrier or servive provider that the phone number is currently registered with.
+nvCarrier :: Lens' NumberValidateResponse (Maybe Text)
+nvCarrier = lens _nvCarrier (\ s a -> s{_nvCarrier = a})
+
+-- | The county where the phone number was originally registered.
+nvCounty :: Lens' NumberValidateResponse (Maybe Text)
+nvCounty = lens _nvCounty (\ s a -> s{_nvCounty = a})
+
+-- | The country or region where the phone number was originally registered.
+nvCountry :: Lens' NumberValidateResponse (Maybe Text)
+nvCountry = lens _nvCountry (\ s a -> s{_nvCountry = a})
+
+-- | The numeric code for the country or region where the phone number was originally registered.
+nvCountryCodeNumeric :: Lens' NumberValidateResponse (Maybe Text)
+nvCountryCodeNumeric = lens _nvCountryCodeNumeric (\ s a -> s{_nvCountryCodeNumeric = a})
+
+-- | The postal code for the location where the phone number was originally registered.
+nvZipCode :: Lens' NumberValidateResponse (Maybe Text)
+nvZipCode = lens _nvZipCode (\ s a -> s{_nvZipCode = a})
+
+-- | The phone number that you included in the request body.
+nvOriginalPhoneNumber :: Lens' NumberValidateResponse (Maybe Text)
+nvOriginalPhoneNumber = lens _nvOriginalPhoneNumber (\ s a -> s{_nvOriginalPhoneNumber = a})
+
+-- | The phone type, represented by an integer. Possible values include 0 (MOBILE), 1 (LANDLINE), 2 (VOIP), 3 (INVALID), 4 (OTHER), and 5 (PREPAID).
+nvPhoneTypeCode :: Lens' NumberValidateResponse (Maybe Int)
+nvPhoneTypeCode = lens _nvPhoneTypeCode (\ s a -> s{_nvPhoneTypeCode = a})
+
+-- | A description of the phone type. Possible values are MOBILE, LANDLINE, VOIP, INVALID, PREPAID, and OTHER.
+nvPhoneType :: Lens' NumberValidateResponse (Maybe Text)
+nvPhoneType = lens _nvPhoneType (\ s a -> s{_nvPhoneType = a})
+
+-- | The city where the phone number was originally registered.
+nvCity :: Lens' NumberValidateResponse (Maybe Text)
+nvCity = lens _nvCity (\ s a -> s{_nvCity = a})
+
+-- | The two-character ISO code for the country or region where the phone number was originally registered.
+nvCountryCodeIso2 :: Lens' NumberValidateResponse (Maybe Text)
+nvCountryCodeIso2 = lens _nvCountryCodeIso2 (\ s a -> s{_nvCountryCodeIso2 = a})
+
+-- | The time zone for the location where the phone number was originally registered.
+nvTimezone :: Lens' NumberValidateResponse (Maybe Text)
+nvTimezone = lens _nvTimezone (\ s a -> s{_nvTimezone = a})
+
+-- | The two-character code (in ISO 3166-1 alpha-2 format) for the country or region in the request body.
+nvOriginalCountryCodeIso2 :: Lens' NumberValidateResponse (Maybe Text)
+nvOriginalCountryCodeIso2 = lens _nvOriginalCountryCodeIso2 (\ s a -> s{_nvOriginalCountryCodeIso2 = a})
+
+-- | The cleansed phone number, shown in the local phone number format.
+nvCleansedPhoneNumberNational :: Lens' NumberValidateResponse (Maybe Text)
+nvCleansedPhoneNumberNational = lens _nvCleansedPhoneNumberNational (\ s a -> s{_nvCleansedPhoneNumberNational = a})
+
+-- | The cleansed phone number, shown in E.164 format.
+nvCleansedPhoneNumberE164 :: Lens' NumberValidateResponse (Maybe Text)
+nvCleansedPhoneNumberE164 = lens _nvCleansedPhoneNumberE164 (\ s a -> s{_nvCleansedPhoneNumberE164 = a})
+
+instance FromJSON NumberValidateResponse where
+        parseJSON
+          = withObject "NumberValidateResponse"
+              (\ x ->
+                 NumberValidateResponse' <$>
+                   (x .:? "Carrier") <*> (x .:? "County") <*>
+                     (x .:? "Country")
+                     <*> (x .:? "CountryCodeNumeric")
+                     <*> (x .:? "ZipCode")
+                     <*> (x .:? "OriginalPhoneNumber")
+                     <*> (x .:? "PhoneTypeCode")
+                     <*> (x .:? "PhoneType")
+                     <*> (x .:? "City")
+                     <*> (x .:? "CountryCodeIso2")
+                     <*> (x .:? "Timezone")
+                     <*> (x .:? "OriginalCountryCodeIso2")
+                     <*> (x .:? "CleansedPhoneNumberNational")
+                     <*> (x .:? "CleansedPhoneNumberE164"))
+
+instance Hashable NumberValidateResponse where
+
+instance NFData NumberValidateResponse where
+
+-- | Public endpoint attributes.
+--
+-- /See:/ 'publicEndpoint' smart constructor.
+data PublicEndpoint = PublicEndpoint'
+  { _peRequestId      :: !(Maybe Text)
+  , _peMetrics        :: !(Maybe (Map Text Double))
+  , _peLocation       :: !(Maybe EndpointLocation)
+  , _peDemographic    :: !(Maybe EndpointDemographic)
+  , _peAddress        :: !(Maybe Text)
+  , _peEffectiveDate  :: !(Maybe Text)
+  , _peUser           :: !(Maybe EndpointUser)
+  , _peAttributes     :: !(Maybe (Map Text [Text]))
+  , _peEndpointStatus :: !(Maybe Text)
+  , _peOptOut         :: !(Maybe Text)
+  , _peChannelType    :: !(Maybe ChannelType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'PublicEndpoint' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'peRequestId' - A unique identifier that is generated each time the endpoint is updated.
+--
+-- * 'peMetrics' - Custom metrics that your app reports to Amazon Pinpoint.
+--
+-- * 'peLocation' - The endpoint location attributes.
+--
+-- * 'peDemographic' - The endpoint demographic attributes.
+--
+-- * 'peAddress' - The unique identifier for the recipient. For example, an address could be a device token, email address, or mobile phone number.
+--
+-- * 'peEffectiveDate' - The date and time when the endpoint was last updated, in  ISO 8601 format.
+--
+-- * 'peUser' - Custom user-specific attributes that your app reports to Amazon Pinpoint.
+--
+-- * 'peAttributes' - Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create a segment.
+--
+-- * 'peEndpointStatus' - The status of the endpoint. If the update fails, the value is INACTIVE. If the endpoint is updated successfully, the value is ACTIVE.
+--
+-- * 'peOptOut' - Indicates whether a user has opted out of receiving messages with one of the following values: ALL - User has opted out of all messages. NONE - Users has not opted out and receives all messages.
+--
+-- * 'peChannelType' - The channel type. Valid values: APNS, GCM
+publicEndpoint
+    :: PublicEndpoint
+publicEndpoint =
+  PublicEndpoint'
+    { _peRequestId = Nothing
+    , _peMetrics = Nothing
+    , _peLocation = Nothing
+    , _peDemographic = Nothing
+    , _peAddress = Nothing
+    , _peEffectiveDate = Nothing
+    , _peUser = Nothing
+    , _peAttributes = Nothing
+    , _peEndpointStatus = Nothing
+    , _peOptOut = Nothing
+    , _peChannelType = Nothing
+    }
+
+
+-- | A unique identifier that is generated each time the endpoint is updated.
+peRequestId :: Lens' PublicEndpoint (Maybe Text)
+peRequestId = lens _peRequestId (\ s a -> s{_peRequestId = a})
+
+-- | Custom metrics that your app reports to Amazon Pinpoint.
+peMetrics :: Lens' PublicEndpoint (HashMap Text Double)
+peMetrics = lens _peMetrics (\ s a -> s{_peMetrics = a}) . _Default . _Map
+
+-- | The endpoint location attributes.
+peLocation :: Lens' PublicEndpoint (Maybe EndpointLocation)
+peLocation = lens _peLocation (\ s a -> s{_peLocation = a})
+
+-- | The endpoint demographic attributes.
+peDemographic :: Lens' PublicEndpoint (Maybe EndpointDemographic)
+peDemographic = lens _peDemographic (\ s a -> s{_peDemographic = a})
+
+-- | The unique identifier for the recipient. For example, an address could be a device token, email address, or mobile phone number.
+peAddress :: Lens' PublicEndpoint (Maybe Text)
+peAddress = lens _peAddress (\ s a -> s{_peAddress = a})
+
+-- | The date and time when the endpoint was last updated, in  ISO 8601 format.
+peEffectiveDate :: Lens' PublicEndpoint (Maybe Text)
+peEffectiveDate = lens _peEffectiveDate (\ s a -> s{_peEffectiveDate = a})
+
+-- | Custom user-specific attributes that your app reports to Amazon Pinpoint.
+peUser :: Lens' PublicEndpoint (Maybe EndpointUser)
+peUser = lens _peUser (\ s a -> s{_peUser = a})
+
+-- | Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create a segment.
+peAttributes :: Lens' PublicEndpoint (HashMap Text [Text])
+peAttributes = lens _peAttributes (\ s a -> s{_peAttributes = a}) . _Default . _Map
+
+-- | The status of the endpoint. If the update fails, the value is INACTIVE. If the endpoint is updated successfully, the value is ACTIVE.
+peEndpointStatus :: Lens' PublicEndpoint (Maybe Text)
+peEndpointStatus = lens _peEndpointStatus (\ s a -> s{_peEndpointStatus = a})
+
+-- | Indicates whether a user has opted out of receiving messages with one of the following values: ALL - User has opted out of all messages. NONE - Users has not opted out and receives all messages.
+peOptOut :: Lens' PublicEndpoint (Maybe Text)
+peOptOut = lens _peOptOut (\ s a -> s{_peOptOut = a})
+
+-- | The channel type. Valid values: APNS, GCM
+peChannelType :: Lens' PublicEndpoint (Maybe ChannelType)
+peChannelType = lens _peChannelType (\ s a -> s{_peChannelType = a})
+
+instance Hashable PublicEndpoint where
+
+instance NFData PublicEndpoint where
+
+instance ToJSON PublicEndpoint where
+        toJSON PublicEndpoint'{..}
+          = object
+              (catMaybes
+                 [("RequestId" .=) <$> _peRequestId,
+                  ("Metrics" .=) <$> _peMetrics,
+                  ("Location" .=) <$> _peLocation,
+                  ("Demographic" .=) <$> _peDemographic,
+                  ("Address" .=) <$> _peAddress,
+                  ("EffectiveDate" .=) <$> _peEffectiveDate,
+                  ("User" .=) <$> _peUser,
+                  ("Attributes" .=) <$> _peAttributes,
+                  ("EndpointStatus" .=) <$> _peEndpointStatus,
+                  ("OptOut" .=) <$> _peOptOut,
+                  ("ChannelType" .=) <$> _peChannelType])
 
 -- | Quiet Time
 --
@@ -5626,19 +7044,19 @@ data QuietTime = QuietTime'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'qtStart' - The default start time for quiet time in ISO 8601 format.
+-- * 'qtStart' - The time at which quiet time should begin. The value that you specify has to be in HH:mm format, where HH is the hour in 24-hour format (with a leading zero, if applicable), and mm is the minutes. For example, use 02:30 to represent 2:30 AM, or 14:30 to represent 2:30 PM.
 --
--- * 'qtEnd' - The default end time for quiet time in ISO 8601 format.
+-- * 'qtEnd' - The time at which quiet time should end. The value that you specify has to be in HH:mm format, where HH is the hour in 24-hour format (with a leading zero, if applicable), and mm is the minutes. For example, use 02:30 to represent 2:30 AM, or 14:30 to represent 2:30 PM.
 quietTime
     :: QuietTime
 quietTime = QuietTime' {_qtStart = Nothing, _qtEnd = Nothing}
 
 
--- | The default start time for quiet time in ISO 8601 format.
+-- | The time at which quiet time should begin. The value that you specify has to be in HH:mm format, where HH is the hour in 24-hour format (with a leading zero, if applicable), and mm is the minutes. For example, use 02:30 to represent 2:30 AM, or 14:30 to represent 2:30 PM.
 qtStart :: Lens' QuietTime (Maybe Text)
 qtStart = lens _qtStart (\ s a -> s{_qtStart = a})
 
--- | The default end time for quiet time in ISO 8601 format.
+-- | The time at which quiet time should end. The value that you specify has to be in HH:mm format, where HH is the hour in 24-hour format (with a leading zero, if applicable), and mm is the minutes. For example, use 02:30 to represent 2:30 AM, or 14:30 to represent 2:30 PM.
 qtEnd :: Lens' QuietTime (Maybe Text)
 qtEnd = lens _qtEnd (\ s a -> s{_qtEnd = a})
 
@@ -5657,6 +7075,36 @@ instance ToJSON QuietTime where
           = object
               (catMaybes
                  [("Start" .=) <$> _qtStart, ("End" .=) <$> _qtEnd])
+
+-- | An email represented as a raw MIME message.
+--
+-- /See:/ 'rawEmail' smart constructor.
+newtype RawEmail = RawEmail'
+  { _reData :: Maybe Base64
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RawEmail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'reData' - The raw email message itself. Then entire message must be base64-encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+rawEmail
+    :: RawEmail
+rawEmail = RawEmail' {_reData = Nothing}
+
+
+-- | The raw email message itself. Then entire message must be base64-encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+reData :: Lens' RawEmail (Maybe ByteString)
+reData = lens _reData (\ s a -> s{_reData = a}) . mapping _Base64
+
+instance Hashable RawEmail where
+
+instance NFData RawEmail where
+
+instance ToJSON RawEmail where
+        toJSON RawEmail'{..}
+          = object (catMaybes [("Data" .=) <$> _reData])
 
 -- | Define how a segment based on recency of use.
 --
@@ -5763,18 +7211,20 @@ instance ToJSON SMSChannelRequest where
 --
 -- /See:/ 'sMSChannelResponse' smart constructor.
 data SMSChannelResponse = SMSChannelResponse'
-  { _smscPlatform         :: !(Maybe Text)
-  , _smscShortCode        :: !(Maybe Text)
-  , _smscLastModifiedDate :: !(Maybe Text)
-  , _smscEnabled          :: !(Maybe Bool)
-  , _smscSenderId         :: !(Maybe Text)
-  , _smscIsArchived       :: !(Maybe Bool)
-  , _smscApplicationId    :: !(Maybe Text)
-  , _smscVersion          :: !(Maybe Int)
-  , _smscId               :: !(Maybe Text)
-  , _smscCreationDate     :: !(Maybe Text)
-  , _smscLastModifiedBy   :: !(Maybe Text)
-  , _smscHasCredential    :: !(Maybe Bool)
+  { _smscPlatform                       :: !(Maybe Text)
+  , _smscShortCode                      :: !(Maybe Text)
+  , _smscLastModifiedDate               :: !(Maybe Text)
+  , _smscEnabled                        :: !(Maybe Bool)
+  , _smscSenderId                       :: !(Maybe Text)
+  , _smscTransactionalMessagesPerSecond :: !(Maybe Int)
+  , _smscPromotionalMessagesPerSecond   :: !(Maybe Int)
+  , _smscIsArchived                     :: !(Maybe Bool)
+  , _smscApplicationId                  :: !(Maybe Text)
+  , _smscVersion                        :: !(Maybe Int)
+  , _smscId                             :: !(Maybe Text)
+  , _smscCreationDate                   :: !(Maybe Text)
+  , _smscLastModifiedBy                 :: !(Maybe Text)
+  , _smscHasCredential                  :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5792,6 +7242,10 @@ data SMSChannelResponse = SMSChannelResponse'
 --
 -- * 'smscSenderId' - Sender identifier of your messages.
 --
+-- * 'smscTransactionalMessagesPerSecond' - Transactional messages per second that can be sent
+--
+-- * 'smscPromotionalMessagesPerSecond' - Promotional messages per second that can be sent
+--
 -- * 'smscIsArchived' - Is this channel archived
 --
 -- * 'smscApplicationId' - The unique ID of the application to which the SMS channel belongs.
@@ -5804,7 +7258,7 @@ data SMSChannelResponse = SMSChannelResponse'
 --
 -- * 'smscLastModifiedBy' - Who last updated this entry
 --
--- * 'smscHasCredential' - If the channel is registered with a credential for authentication.
+-- * 'smscHasCredential' - Not used. Retained for backwards compatibility.
 sMSChannelResponse
     :: SMSChannelResponse
 sMSChannelResponse =
@@ -5814,6 +7268,8 @@ sMSChannelResponse =
     , _smscLastModifiedDate = Nothing
     , _smscEnabled = Nothing
     , _smscSenderId = Nothing
+    , _smscTransactionalMessagesPerSecond = Nothing
+    , _smscPromotionalMessagesPerSecond = Nothing
     , _smscIsArchived = Nothing
     , _smscApplicationId = Nothing
     , _smscVersion = Nothing
@@ -5844,6 +7300,14 @@ smscEnabled = lens _smscEnabled (\ s a -> s{_smscEnabled = a})
 smscSenderId :: Lens' SMSChannelResponse (Maybe Text)
 smscSenderId = lens _smscSenderId (\ s a -> s{_smscSenderId = a})
 
+-- | Transactional messages per second that can be sent
+smscTransactionalMessagesPerSecond :: Lens' SMSChannelResponse (Maybe Int)
+smscTransactionalMessagesPerSecond = lens _smscTransactionalMessagesPerSecond (\ s a -> s{_smscTransactionalMessagesPerSecond = a})
+
+-- | Promotional messages per second that can be sent
+smscPromotionalMessagesPerSecond :: Lens' SMSChannelResponse (Maybe Int)
+smscPromotionalMessagesPerSecond = lens _smscPromotionalMessagesPerSecond (\ s a -> s{_smscPromotionalMessagesPerSecond = a})
+
 -- | Is this channel archived
 smscIsArchived :: Lens' SMSChannelResponse (Maybe Bool)
 smscIsArchived = lens _smscIsArchived (\ s a -> s{_smscIsArchived = a})
@@ -5868,7 +7332,7 @@ smscCreationDate = lens _smscCreationDate (\ s a -> s{_smscCreationDate = a})
 smscLastModifiedBy :: Lens' SMSChannelResponse (Maybe Text)
 smscLastModifiedBy = lens _smscLastModifiedBy (\ s a -> s{_smscLastModifiedBy = a})
 
--- | If the channel is registered with a credential for authentication.
+-- | Not used. Retained for backwards compatibility.
 smscHasCredential :: Lens' SMSChannelResponse (Maybe Bool)
 smscHasCredential = lens _smscHasCredential (\ s a -> s{_smscHasCredential = a})
 
@@ -5881,6 +7345,8 @@ instance FromJSON SMSChannelResponse where
                      (x .:? "LastModifiedDate")
                      <*> (x .:? "Enabled")
                      <*> (x .:? "SenderId")
+                     <*> (x .:? "TransactionalMessagesPerSecond")
+                     <*> (x .:? "PromotionalMessagesPerSecond")
                      <*> (x .:? "IsArchived")
                      <*> (x .:? "ApplicationId")
                      <*> (x .:? "Version")
@@ -5902,6 +7368,7 @@ data SMSMessage = SMSMessage'
   , _smsmBody              :: !(Maybe Text)
   , _smsmMessageType       :: !(Maybe MessageType)
   , _smsmSenderId          :: !(Maybe Text)
+  , _smsmKeyword           :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5913,11 +7380,13 @@ data SMSMessage = SMSMessage'
 --
 -- * 'smsmOriginationNumber' - The phone number that the SMS message originates from. Specify one of the dedicated long codes or short codes that you requested from AWS Support and that is assigned to your account. If this attribute is not specified, Amazon Pinpoint randomly assigns a long code.
 --
--- * 'smsmBody' - The message body of the notification, the email body or the text message.
+-- * 'smsmBody' - The body of the SMS message.
 --
 -- * 'smsmMessageType' - Is this a transaction priority message or lower priority.
 --
 -- * 'smsmSenderId' - The sender ID that is shown as the message sender on the recipient's device. Support for sender IDs varies by country or region.
+--
+-- * 'smsmKeyword' - The SMS program name that you provided to AWS Support when you requested your dedicated number.
 sMSMessage
     :: SMSMessage
 sMSMessage =
@@ -5927,6 +7396,7 @@ sMSMessage =
     , _smsmBody = Nothing
     , _smsmMessageType = Nothing
     , _smsmSenderId = Nothing
+    , _smsmKeyword = Nothing
     }
 
 
@@ -5938,7 +7408,7 @@ smsmSubstitutions = lens _smsmSubstitutions (\ s a -> s{_smsmSubstitutions = a})
 smsmOriginationNumber :: Lens' SMSMessage (Maybe Text)
 smsmOriginationNumber = lens _smsmOriginationNumber (\ s a -> s{_smsmOriginationNumber = a})
 
--- | The message body of the notification, the email body or the text message.
+-- | The body of the SMS message.
 smsmBody :: Lens' SMSMessage (Maybe Text)
 smsmBody = lens _smsmBody (\ s a -> s{_smsmBody = a})
 
@@ -5949,6 +7419,10 @@ smsmMessageType = lens _smsmMessageType (\ s a -> s{_smsmMessageType = a})
 -- | The sender ID that is shown as the message sender on the recipient's device. Support for sender IDs varies by country or region.
 smsmSenderId :: Lens' SMSMessage (Maybe Text)
 smsmSenderId = lens _smsmSenderId (\ s a -> s{_smsmSenderId = a})
+
+-- | The SMS program name that you provided to AWS Support when you requested your dedicated number.
+smsmKeyword :: Lens' SMSMessage (Maybe Text)
+smsmKeyword = lens _smsmKeyword (\ s a -> s{_smsmKeyword = a})
 
 instance Hashable SMSMessage where
 
@@ -5962,7 +7436,8 @@ instance ToJSON SMSMessage where
                   ("OriginationNumber" .=) <$> _smsmOriginationNumber,
                   ("Body" .=) <$> _smsmBody,
                   ("MessageType" .=) <$> _smsmMessageType,
-                  ("SenderId" .=) <$> _smsmSenderId])
+                  ("SenderId" .=) <$> _smsmSenderId,
+                  ("Keyword" .=) <$> _smsmKeyword])
 
 -- | Shcedule that defines when a campaign is run.
 --
@@ -5971,6 +7446,7 @@ data Schedule = Schedule'
   { _sFrequency   :: !(Maybe Frequency)
   , _sStartTime   :: !(Maybe Text)
   , _sQuietTime   :: !(Maybe QuietTime)
+  , _sEventFilter :: !(Maybe CampaignEventFilter)
   , _sIsLocalTime :: !(Maybe Bool)
   , _sEndTime     :: !(Maybe Text)
   , _sTimezone    :: !(Maybe Text)
@@ -5981,11 +7457,13 @@ data Schedule = Schedule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sFrequency' - How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
+-- * 'sFrequency' - How often the campaign delivers messages. Valid values: ONCE HOURLY DAILY WEEKLY MONTHLY EVENT
 --
 -- * 'sStartTime' - The scheduled time that the campaign begins in ISO 8601 format.
 --
--- * 'sQuietTime' - The time during which the campaign sends no messages.
+-- * 'sQuietTime' - The default quiet time for the campaign. The campaign doesn't send messages to endpoints during the quiet time. Note: Make sure that your endpoints include the Demographics.Timezone attribute if you plan to enable a quiet time for your campaign. If your endpoints don't include this attribute, they'll receive the messages that you send them, even if quiet time is enabled. When you set up a campaign to use quiet time, the campaign doesn't send messages during the time range you specified, as long as all of the following are true: - The endpoint includes a valid Demographic.Timezone attribute. - The current time in the endpoint's time zone is later than or equal to the time specified in the QuietTime.Start attribute for the campaign. - The current time in the endpoint's time zone is earlier than or equal to the time specified in the QuietTime.End attribute for the campaign.
+--
+-- * 'sEventFilter' - Defines the type of events that can trigger the campaign. Used when the Frequency is set to EVENT.
 --
 -- * 'sIsLocalTime' - Indicates whether the campaign schedule takes effect according to each user's local time.
 --
@@ -5999,13 +7477,14 @@ schedule =
     { _sFrequency = Nothing
     , _sStartTime = Nothing
     , _sQuietTime = Nothing
+    , _sEventFilter = Nothing
     , _sIsLocalTime = Nothing
     , _sEndTime = Nothing
     , _sTimezone = Nothing
     }
 
 
--- | How often the campaign delivers messages. Valid values: ONCE, HOURLY, DAILY, WEEKLY, MONTHLY
+-- | How often the campaign delivers messages. Valid values: ONCE HOURLY DAILY WEEKLY MONTHLY EVENT
 sFrequency :: Lens' Schedule (Maybe Frequency)
 sFrequency = lens _sFrequency (\ s a -> s{_sFrequency = a})
 
@@ -6013,9 +7492,13 @@ sFrequency = lens _sFrequency (\ s a -> s{_sFrequency = a})
 sStartTime :: Lens' Schedule (Maybe Text)
 sStartTime = lens _sStartTime (\ s a -> s{_sStartTime = a})
 
--- | The time during which the campaign sends no messages.
+-- | The default quiet time for the campaign. The campaign doesn't send messages to endpoints during the quiet time. Note: Make sure that your endpoints include the Demographics.Timezone attribute if you plan to enable a quiet time for your campaign. If your endpoints don't include this attribute, they'll receive the messages that you send them, even if quiet time is enabled. When you set up a campaign to use quiet time, the campaign doesn't send messages during the time range you specified, as long as all of the following are true: - The endpoint includes a valid Demographic.Timezone attribute. - The current time in the endpoint's time zone is later than or equal to the time specified in the QuietTime.Start attribute for the campaign. - The current time in the endpoint's time zone is earlier than or equal to the time specified in the QuietTime.End attribute for the campaign.
 sQuietTime :: Lens' Schedule (Maybe QuietTime)
 sQuietTime = lens _sQuietTime (\ s a -> s{_sQuietTime = a})
+
+-- | Defines the type of events that can trigger the campaign. Used when the Frequency is set to EVENT.
+sEventFilter :: Lens' Schedule (Maybe CampaignEventFilter)
+sEventFilter = lens _sEventFilter (\ s a -> s{_sEventFilter = a})
 
 -- | Indicates whether the campaign schedule takes effect according to each user's local time.
 sIsLocalTime :: Lens' Schedule (Maybe Bool)
@@ -6036,6 +7519,7 @@ instance FromJSON Schedule where
                  Schedule' <$>
                    (x .:? "Frequency") <*> (x .:? "StartTime") <*>
                      (x .:? "QuietTime")
+                     <*> (x .:? "EventFilter")
                      <*> (x .:? "IsLocalTime")
                      <*> (x .:? "EndTime")
                      <*> (x .:? "Timezone"))
@@ -6051,6 +7535,7 @@ instance ToJSON Schedule where
                  [("Frequency" .=) <$> _sFrequency,
                   ("StartTime" .=) <$> _sStartTime,
                   ("QuietTime" .=) <$> _sQuietTime,
+                  ("EventFilter" .=) <$> _sEventFilter,
                   ("IsLocalTime" .=) <$> _sIsLocalTime,
                   ("EndTime" .=) <$> _sEndTime,
                   ("Timezone" .=) <$> _sTimezone])
@@ -6184,7 +7669,8 @@ instance ToJSON SegmentDemographics where
 --
 -- /See:/ 'segmentDimensions' smart constructor.
 data SegmentDimensions = SegmentDimensions'
-  { _sdLocation       :: !(Maybe SegmentLocation)
+  { _sdMetrics        :: !(Maybe (Map Text MetricDimension))
+  , _sdLocation       :: !(Maybe SegmentLocation)
   , _sdDemographic    :: !(Maybe SegmentDemographics)
   , _sdUserAttributes :: !(Maybe (Map Text AttributeDimension))
   , _sdBehavior       :: !(Maybe SegmentBehaviors)
@@ -6195,6 +7681,8 @@ data SegmentDimensions = SegmentDimensions'
 -- | Creates a value of 'SegmentDimensions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sdMetrics' - Custom segment metrics.
 --
 -- * 'sdLocation' - The segment location attributes.
 --
@@ -6209,13 +7697,18 @@ segmentDimensions
     :: SegmentDimensions
 segmentDimensions =
   SegmentDimensions'
-    { _sdLocation = Nothing
+    { _sdMetrics = Nothing
+    , _sdLocation = Nothing
     , _sdDemographic = Nothing
     , _sdUserAttributes = Nothing
     , _sdBehavior = Nothing
     , _sdAttributes = Nothing
     }
 
+
+-- | Custom segment metrics.
+sdMetrics :: Lens' SegmentDimensions (HashMap Text MetricDimension)
+sdMetrics = lens _sdMetrics (\ s a -> s{_sdMetrics = a}) . _Default . _Map
 
 -- | The segment location attributes.
 sdLocation :: Lens' SegmentDimensions (Maybe SegmentLocation)
@@ -6242,8 +7735,9 @@ instance FromJSON SegmentDimensions where
           = withObject "SegmentDimensions"
               (\ x ->
                  SegmentDimensions' <$>
-                   (x .:? "Location") <*> (x .:? "Demographic") <*>
-                     (x .:? "UserAttributes" .!= mempty)
+                   (x .:? "Metrics" .!= mempty) <*> (x .:? "Location")
+                     <*> (x .:? "Demographic")
+                     <*> (x .:? "UserAttributes" .!= mempty)
                      <*> (x .:? "Behavior")
                      <*> (x .:? "Attributes" .!= mempty))
 
@@ -6255,11 +7749,132 @@ instance ToJSON SegmentDimensions where
         toJSON SegmentDimensions'{..}
           = object
               (catMaybes
-                 [("Location" .=) <$> _sdLocation,
+                 [("Metrics" .=) <$> _sdMetrics,
+                  ("Location" .=) <$> _sdLocation,
                   ("Demographic" .=) <$> _sdDemographic,
                   ("UserAttributes" .=) <$> _sdUserAttributes,
                   ("Behavior" .=) <$> _sdBehavior,
                   ("Attributes" .=) <$> _sdAttributes])
+
+-- | Segment group definition.
+--
+-- /See:/ 'segmentGroup' smart constructor.
+data SegmentGroup = SegmentGroup'
+  { _sgSourceSegments :: !(Maybe [SegmentReference])
+  , _sgSourceType     :: !(Maybe SourceType)
+  , _sgType           :: !(Maybe Type)
+  , _sgDimensions     :: !(Maybe [SegmentDimensions])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SegmentGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sgSourceSegments' - The base segment that you build your segment on. The source segment defines the starting "universe" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
+--
+-- * 'sgSourceType' - Specify how to handle multiple source segments. For example, if you specify three source segments, should the resulting segment be based on any or all of the segments? Acceptable values: ANY or ALL.
+--
+-- * 'sgType' - Specify how to handle multiple segment dimensions. For example, if you specify three dimensions, should the resulting segment include endpoints that are matched by all, any, or none of the dimensions? Acceptable values: ALL, ANY, or NONE.
+--
+-- * 'sgDimensions' - List of dimensions to include or exclude.
+segmentGroup
+    :: SegmentGroup
+segmentGroup =
+  SegmentGroup'
+    { _sgSourceSegments = Nothing
+    , _sgSourceType = Nothing
+    , _sgType = Nothing
+    , _sgDimensions = Nothing
+    }
+
+
+-- | The base segment that you build your segment on. The source segment defines the starting "universe" of endpoints. When you add dimensions to the segment, it filters the source segment based on the dimensions that you specify. You can specify more than one dimensional segment. You can only specify one imported segment. NOTE: If you specify an imported segment for this attribute, the segment size estimate that appears in the Amazon Pinpoint console shows the size of the imported segment, without any filters applied to it.
+sgSourceSegments :: Lens' SegmentGroup [SegmentReference]
+sgSourceSegments = lens _sgSourceSegments (\ s a -> s{_sgSourceSegments = a}) . _Default . _Coerce
+
+-- | Specify how to handle multiple source segments. For example, if you specify three source segments, should the resulting segment be based on any or all of the segments? Acceptable values: ANY or ALL.
+sgSourceType :: Lens' SegmentGroup (Maybe SourceType)
+sgSourceType = lens _sgSourceType (\ s a -> s{_sgSourceType = a})
+
+-- | Specify how to handle multiple segment dimensions. For example, if you specify three dimensions, should the resulting segment include endpoints that are matched by all, any, or none of the dimensions? Acceptable values: ALL, ANY, or NONE.
+sgType :: Lens' SegmentGroup (Maybe Type)
+sgType = lens _sgType (\ s a -> s{_sgType = a})
+
+-- | List of dimensions to include or exclude.
+sgDimensions :: Lens' SegmentGroup [SegmentDimensions]
+sgDimensions = lens _sgDimensions (\ s a -> s{_sgDimensions = a}) . _Default . _Coerce
+
+instance FromJSON SegmentGroup where
+        parseJSON
+          = withObject "SegmentGroup"
+              (\ x ->
+                 SegmentGroup' <$>
+                   (x .:? "SourceSegments" .!= mempty) <*>
+                     (x .:? "SourceType")
+                     <*> (x .:? "Type")
+                     <*> (x .:? "Dimensions" .!= mempty))
+
+instance Hashable SegmentGroup where
+
+instance NFData SegmentGroup where
+
+instance ToJSON SegmentGroup where
+        toJSON SegmentGroup'{..}
+          = object
+              (catMaybes
+                 [("SourceSegments" .=) <$> _sgSourceSegments,
+                  ("SourceType" .=) <$> _sgSourceType,
+                  ("Type" .=) <$> _sgType,
+                  ("Dimensions" .=) <$> _sgDimensions])
+
+-- | Segment group definition.
+--
+-- /See:/ 'segmentGroupList' smart constructor.
+data SegmentGroupList = SegmentGroupList'
+  { _sglInclude :: !(Maybe Include)
+  , _sglGroups  :: !(Maybe [SegmentGroup])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SegmentGroupList' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sglInclude' - Specify how to handle multiple segment groups. For example, if the segment includes three segment groups, should the resulting segment include endpoints that are matched by all, any, or none of the segment groups you created. Acceptable values: ALL, ANY, or NONE.
+--
+-- * 'sglGroups' - A set of segment criteria to evaluate.
+segmentGroupList
+    :: SegmentGroupList
+segmentGroupList =
+  SegmentGroupList' {_sglInclude = Nothing, _sglGroups = Nothing}
+
+
+-- | Specify how to handle multiple segment groups. For example, if the segment includes three segment groups, should the resulting segment include endpoints that are matched by all, any, or none of the segment groups you created. Acceptable values: ALL, ANY, or NONE.
+sglInclude :: Lens' SegmentGroupList (Maybe Include)
+sglInclude = lens _sglInclude (\ s a -> s{_sglInclude = a})
+
+-- | A set of segment criteria to evaluate.
+sglGroups :: Lens' SegmentGroupList [SegmentGroup]
+sglGroups = lens _sglGroups (\ s a -> s{_sglGroups = a}) . _Default . _Coerce
+
+instance FromJSON SegmentGroupList where
+        parseJSON
+          = withObject "SegmentGroupList"
+              (\ x ->
+                 SegmentGroupList' <$>
+                   (x .:? "Include") <*> (x .:? "Groups" .!= mempty))
+
+instance Hashable SegmentGroupList where
+
+instance NFData SegmentGroupList where
+
+instance ToJSON SegmentGroupList where
+        toJSON SegmentGroupList'{..}
+          = object
+              (catMaybes
+                 [("Include" .=) <$> _sglInclude,
+                  ("Groups" .=) <$> _sglGroups])
 
 -- | Segment import definition.
 --
@@ -6282,11 +7897,11 @@ data SegmentImportResource = SegmentImportResource'
 --
 -- * 'sirFormat' - The format of the endpoint files that were imported to create this segment. Valid values: CSV, JSON
 --
--- * 'sirChannelCounts' - Channel type counts
+-- * 'sirChannelCounts' - The number of channel types in the imported segment.
 --
--- * 'sirExternalId' - DEPRECATED. Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint.
+-- * 'sirExternalId' - (Deprecated) Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint.
 --
--- * 'sirS3URL' - A URL that points to the Amazon S3 location from which the endpoints for this segment were imported.
+-- * 'sirS3URL' - The URL of the S3 bucket that the segment was imported from.
 --
 -- * 'sirRoleARN' - The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the endpoints in Amazon S3.
 segmentImportResource
@@ -6310,15 +7925,15 @@ sirSize = lens _sirSize (\ s a -> s{_sirSize = a})
 sirFormat :: Lens' SegmentImportResource (Maybe DefinitionFormat)
 sirFormat = lens _sirFormat (\ s a -> s{_sirFormat = a})
 
--- | Channel type counts
+-- | The number of channel types in the imported segment.
 sirChannelCounts :: Lens' SegmentImportResource (HashMap Text Int)
 sirChannelCounts = lens _sirChannelCounts (\ s a -> s{_sirChannelCounts = a}) . _Default . _Map
 
--- | DEPRECATED. Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint.
+-- | (Deprecated) Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint.
 sirExternalId :: Lens' SegmentImportResource (Maybe Text)
 sirExternalId = lens _sirExternalId (\ s a -> s{_sirExternalId = a})
 
--- | A URL that points to the Amazon S3 location from which the endpoints for this segment were imported.
+-- | The URL of the S3 bucket that the segment was imported from.
 sirS3URL :: Lens' SegmentImportResource (Maybe Text)
 sirS3URL = lens _sirS3URL (\ s a -> s{_sirS3URL = a})
 
@@ -6344,8 +7959,9 @@ instance NFData SegmentImportResource where
 -- | Segment location dimensions
 --
 -- /See:/ 'segmentLocation' smart constructor.
-newtype SegmentLocation = SegmentLocation'
-  { _slCountry :: Maybe SetDimension
+data SegmentLocation = SegmentLocation'
+  { _slCountry  :: !(Maybe SetDimension)
+  , _slGPSPoint :: !(Maybe GPSPointDimension)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6353,20 +7969,28 @@ newtype SegmentLocation = SegmentLocation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slCountry' - The country filter according to ISO 3166-1 Alpha-2 codes.
+-- * 'slCountry' - The country or region, in ISO 3166-1 alpha-2 format.
+--
+-- * 'slGPSPoint' - The GPS Point dimension.
 segmentLocation
     :: SegmentLocation
-segmentLocation = SegmentLocation' {_slCountry = Nothing}
+segmentLocation = SegmentLocation' {_slCountry = Nothing, _slGPSPoint = Nothing}
 
 
--- | The country filter according to ISO 3166-1 Alpha-2 codes.
+-- | The country or region, in ISO 3166-1 alpha-2 format.
 slCountry :: Lens' SegmentLocation (Maybe SetDimension)
 slCountry = lens _slCountry (\ s a -> s{_slCountry = a})
+
+-- | The GPS Point dimension.
+slGPSPoint :: Lens' SegmentLocation (Maybe GPSPointDimension)
+slGPSPoint = lens _slGPSPoint (\ s a -> s{_slGPSPoint = a})
 
 instance FromJSON SegmentLocation where
         parseJSON
           = withObject "SegmentLocation"
-              (\ x -> SegmentLocation' <$> (x .:? "Country"))
+              (\ x ->
+                 SegmentLocation' <$>
+                   (x .:? "Country") <*> (x .:? "GPSPoint"))
 
 instance Hashable SegmentLocation where
 
@@ -6374,14 +7998,65 @@ instance NFData SegmentLocation where
 
 instance ToJSON SegmentLocation where
         toJSON SegmentLocation'{..}
-          = object (catMaybes [("Country" .=) <$> _slCountry])
+          = object
+              (catMaybes
+                 [("Country" .=) <$> _slCountry,
+                  ("GPSPoint" .=) <$> _slGPSPoint])
+
+-- | Segment reference.
+--
+-- /See:/ 'segmentReference' smart constructor.
+data SegmentReference = SegmentReference'
+  { _srVersion :: !(Maybe Int)
+  , _srId      :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SegmentReference' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'srVersion' - If specified contains a specific version of the segment included.
+--
+-- * 'srId' - A unique identifier for the segment.
+segmentReference
+    :: SegmentReference
+segmentReference = SegmentReference' {_srVersion = Nothing, _srId = Nothing}
+
+
+-- | If specified contains a specific version of the segment included.
+srVersion :: Lens' SegmentReference (Maybe Int)
+srVersion = lens _srVersion (\ s a -> s{_srVersion = a})
+
+-- | A unique identifier for the segment.
+srId :: Lens' SegmentReference (Maybe Text)
+srId = lens _srId (\ s a -> s{_srId = a})
+
+instance FromJSON SegmentReference where
+        parseJSON
+          = withObject "SegmentReference"
+              (\ x ->
+                 SegmentReference' <$>
+                   (x .:? "Version") <*> (x .:? "Id"))
+
+instance Hashable SegmentReference where
+
+instance NFData SegmentReference where
+
+instance ToJSON SegmentReference where
+        toJSON SegmentReference'{..}
+          = object
+              (catMaybes
+                 [("Version" .=) <$> _srVersion, ("Id" .=) <$> _srId])
 
 -- | Segment definition.
 --
 -- /See:/ 'segmentResponse' smart constructor.
 data SegmentResponse = SegmentResponse'
   { _sLastModifiedDate :: !(Maybe Text)
+  , _sARN              :: !(Maybe Text)
   , _sSegmentType      :: !(Maybe SegmentType)
+  , _sSegmentGroups    :: !(Maybe SegmentGroupList)
   , _sApplicationId    :: !(Maybe Text)
   , _sName             :: !(Maybe Text)
   , _sVersion          :: !(Maybe Int)
@@ -6389,6 +8064,7 @@ data SegmentResponse = SegmentResponse'
   , _sCreationDate     :: !(Maybe Text)
   , _sImportDefinition :: !(Maybe SegmentImportResource)
   , _sDimensions       :: !(Maybe SegmentDimensions)
+  , _sTags             :: !(Maybe (Map Text Text))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6396,29 +8072,37 @@ data SegmentResponse = SegmentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sLastModifiedDate' - The date the segment was last updated in ISO 8601 format.
+-- * 'sLastModifiedDate' - The date and time when the segment was last modified.
+--
+-- * 'sARN' - The arn for the segment.
 --
 -- * 'sSegmentType' - The segment type: DIMENSIONAL - A dynamic segment built from selection criteria based on endpoint data reported by your app. You create this type of segment by using the segment builder in the Amazon Pinpoint console or by making a POST request to the segments resource. IMPORT - A static segment built from an imported set of endpoint definitions. You create this type of segment by importing a segment in the Amazon Pinpoint console or by making a POST request to the jobs/import resource.
 --
--- * 'sApplicationId' - The ID of the application to which the segment applies.
+-- * 'sSegmentGroups' - A segment group, which consists of zero or more source segments, plus dimensions that are applied to those source segments.
 --
--- * 'sName' - The name of segment
+-- * 'sApplicationId' - The ID of the application that the segment applies to.
+--
+-- * 'sName' - The name of the segment.
 --
 -- * 'sVersion' - The segment version number.
 --
 -- * 'sId' - The unique segment ID.
 --
--- * 'sCreationDate' - The date the segment was created in ISO 8601 format.
+-- * 'sCreationDate' - The date and time when the segment was created.
 --
 -- * 'sImportDefinition' - The import job settings.
 --
 -- * 'sDimensions' - The segment dimensions attributes.
+--
+-- * 'sTags' - The Tags for the segment.
 segmentResponse
     :: SegmentResponse
 segmentResponse =
   SegmentResponse'
     { _sLastModifiedDate = Nothing
+    , _sARN = Nothing
     , _sSegmentType = Nothing
+    , _sSegmentGroups = Nothing
     , _sApplicationId = Nothing
     , _sName = Nothing
     , _sVersion = Nothing
@@ -6426,22 +8110,31 @@ segmentResponse =
     , _sCreationDate = Nothing
     , _sImportDefinition = Nothing
     , _sDimensions = Nothing
+    , _sTags = Nothing
     }
 
 
--- | The date the segment was last updated in ISO 8601 format.
+-- | The date and time when the segment was last modified.
 sLastModifiedDate :: Lens' SegmentResponse (Maybe Text)
 sLastModifiedDate = lens _sLastModifiedDate (\ s a -> s{_sLastModifiedDate = a})
+
+-- | The arn for the segment.
+sARN :: Lens' SegmentResponse (Maybe Text)
+sARN = lens _sARN (\ s a -> s{_sARN = a})
 
 -- | The segment type: DIMENSIONAL - A dynamic segment built from selection criteria based on endpoint data reported by your app. You create this type of segment by using the segment builder in the Amazon Pinpoint console or by making a POST request to the segments resource. IMPORT - A static segment built from an imported set of endpoint definitions. You create this type of segment by importing a segment in the Amazon Pinpoint console or by making a POST request to the jobs/import resource.
 sSegmentType :: Lens' SegmentResponse (Maybe SegmentType)
 sSegmentType = lens _sSegmentType (\ s a -> s{_sSegmentType = a})
 
--- | The ID of the application to which the segment applies.
+-- | A segment group, which consists of zero or more source segments, plus dimensions that are applied to those source segments.
+sSegmentGroups :: Lens' SegmentResponse (Maybe SegmentGroupList)
+sSegmentGroups = lens _sSegmentGroups (\ s a -> s{_sSegmentGroups = a})
+
+-- | The ID of the application that the segment applies to.
 sApplicationId :: Lens' SegmentResponse (Maybe Text)
 sApplicationId = lens _sApplicationId (\ s a -> s{_sApplicationId = a})
 
--- | The name of segment
+-- | The name of the segment.
 sName :: Lens' SegmentResponse (Maybe Text)
 sName = lens _sName (\ s a -> s{_sName = a})
 
@@ -6453,7 +8146,7 @@ sVersion = lens _sVersion (\ s a -> s{_sVersion = a})
 sId :: Lens' SegmentResponse (Maybe Text)
 sId = lens _sId (\ s a -> s{_sId = a})
 
--- | The date the segment was created in ISO 8601 format.
+-- | The date and time when the segment was created.
 sCreationDate :: Lens' SegmentResponse (Maybe Text)
 sCreationDate = lens _sCreationDate (\ s a -> s{_sCreationDate = a})
 
@@ -6465,19 +8158,26 @@ sImportDefinition = lens _sImportDefinition (\ s a -> s{_sImportDefinition = a})
 sDimensions :: Lens' SegmentResponse (Maybe SegmentDimensions)
 sDimensions = lens _sDimensions (\ s a -> s{_sDimensions = a})
 
+-- | The Tags for the segment.
+sTags :: Lens' SegmentResponse (HashMap Text Text)
+sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default . _Map
+
 instance FromJSON SegmentResponse where
         parseJSON
           = withObject "SegmentResponse"
               (\ x ->
                  SegmentResponse' <$>
-                   (x .:? "LastModifiedDate") <*> (x .:? "SegmentType")
+                   (x .:? "LastModifiedDate") <*> (x .:? "Arn") <*>
+                     (x .:? "SegmentType")
+                     <*> (x .:? "SegmentGroups")
                      <*> (x .:? "ApplicationId")
                      <*> (x .:? "Name")
                      <*> (x .:? "Version")
                      <*> (x .:? "Id")
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "ImportDefinition")
-                     <*> (x .:? "Dimensions"))
+                     <*> (x .:? "Dimensions")
+                     <*> (x .:? "tags" .!= mempty))
 
 instance Hashable SegmentResponse where
 
@@ -6527,7 +8227,8 @@ instance NFData SegmentsResponse where
 --
 -- /See:/ 'sendUsersMessageRequest' smart constructor.
 data SendUsersMessageRequest = SendUsersMessageRequest'
-  { _sumrContext              :: !(Maybe (Map Text Text))
+  { _sumrTraceId              :: !(Maybe Text)
+  , _sumrContext              :: !(Maybe (Map Text Text))
   , _sumrUsers                :: !(Maybe (Map Text EndpointSendConfiguration))
   , _sumrMessageConfiguration :: !(Maybe DirectMessageConfiguration)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -6537,30 +8238,37 @@ data SendUsersMessageRequest = SendUsersMessageRequest'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sumrContext' - A map of custom attributes to attributes to be attached to the message. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.
+-- * 'sumrTraceId' - A unique ID that you can use to trace a message. This ID is visible to recipients.
 --
--- * 'sumrUsers' - A map of destination endpoints, with the EndpointId as the key Endpoint Message Configuration as the value.
+-- * 'sumrContext' - A map of custom attribute-value pairs. Amazon Pinpoint adds these attributes to the data.pinpoint object in the body of the push notification payload. Amazon Pinpoint also provides these attributes in the events that it generates for users-messages deliveries.
 --
--- * 'sumrMessageConfiguration' - Message configuration.
+-- * 'sumrUsers' - A map that associates user IDs with EndpointSendConfiguration objects. Within an EndpointSendConfiguration object, you can tailor the message for a user by specifying message overrides or substitutions.
+--
+-- * 'sumrMessageConfiguration' - Message definitions for the default message and any messages that are tailored for specific channels.
 sendUsersMessageRequest
     :: SendUsersMessageRequest
 sendUsersMessageRequest =
   SendUsersMessageRequest'
-    { _sumrContext = Nothing
+    { _sumrTraceId = Nothing
+    , _sumrContext = Nothing
     , _sumrUsers = Nothing
     , _sumrMessageConfiguration = Nothing
     }
 
 
--- | A map of custom attributes to attributes to be attached to the message. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.
+-- | A unique ID that you can use to trace a message. This ID is visible to recipients.
+sumrTraceId :: Lens' SendUsersMessageRequest (Maybe Text)
+sumrTraceId = lens _sumrTraceId (\ s a -> s{_sumrTraceId = a})
+
+-- | A map of custom attribute-value pairs. Amazon Pinpoint adds these attributes to the data.pinpoint object in the body of the push notification payload. Amazon Pinpoint also provides these attributes in the events that it generates for users-messages deliveries.
 sumrContext :: Lens' SendUsersMessageRequest (HashMap Text Text)
 sumrContext = lens _sumrContext (\ s a -> s{_sumrContext = a}) . _Default . _Map
 
--- | A map of destination endpoints, with the EndpointId as the key Endpoint Message Configuration as the value.
+-- | A map that associates user IDs with EndpointSendConfiguration objects. Within an EndpointSendConfiguration object, you can tailor the message for a user by specifying message overrides or substitutions.
 sumrUsers :: Lens' SendUsersMessageRequest (HashMap Text EndpointSendConfiguration)
 sumrUsers = lens _sumrUsers (\ s a -> s{_sumrUsers = a}) . _Default . _Map
 
--- | Message configuration.
+-- | Message definitions for the default message and any messages that are tailored for specific channels.
 sumrMessageConfiguration :: Lens' SendUsersMessageRequest (Maybe DirectMessageConfiguration)
 sumrMessageConfiguration = lens _sumrMessageConfiguration (\ s a -> s{_sumrMessageConfiguration = a})
 
@@ -6572,7 +8280,8 @@ instance ToJSON SendUsersMessageRequest where
         toJSON SendUsersMessageRequest'{..}
           = object
               (catMaybes
-                 [("Context" .=) <$> _sumrContext,
+                 [("TraceId" .=) <$> _sumrTraceId,
+                  ("Context" .=) <$> _sumrContext,
                   ("Users" .=) <$> _sumrUsers,
                   ("MessageConfiguration" .=) <$>
                     _sumrMessageConfiguration])
@@ -6591,11 +8300,11 @@ data SendUsersMessageResponse = SendUsersMessageResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sumRequestId' - Original request Id for which this message was delivered.
+-- * 'sumRequestId' - The unique ID assigned to the users-messages request.
 --
--- * 'sumResult' - A map containing of UserId to Map of EndpointId to Endpoint Message Result.
+-- * 'sumResult' - An object that shows the endpoints that were messaged for each user. The object provides a list of user IDs. For each user ID, it provides the endpoint IDs that were messaged. For each endpoint ID, it provides an EndpointMessageResult object.
 --
--- * 'sumApplicationId' - Application id of the message.
+-- * 'sumApplicationId' - The unique ID of the Amazon Pinpoint project used to send the message.
 sendUsersMessageResponse
     :: SendUsersMessageResponse
 sendUsersMessageResponse =
@@ -6603,15 +8312,15 @@ sendUsersMessageResponse =
     {_sumRequestId = Nothing, _sumResult = Nothing, _sumApplicationId = Nothing}
 
 
--- | Original request Id for which this message was delivered.
+-- | The unique ID assigned to the users-messages request.
 sumRequestId :: Lens' SendUsersMessageResponse (Maybe Text)
 sumRequestId = lens _sumRequestId (\ s a -> s{_sumRequestId = a})
 
--- | A map containing of UserId to Map of EndpointId to Endpoint Message Result.
+-- | An object that shows the endpoints that were messaged for each user. The object provides a list of user IDs. For each user ID, it provides the endpoint IDs that were messaged. For each endpoint ID, it provides an EndpointMessageResult object.
 sumResult :: Lens' SendUsersMessageResponse (HashMap Text (HashMap Text EndpointMessageResult))
 sumResult = lens _sumResult (\ s a -> s{_sumResult = a}) . _Default . _Map
 
--- | Application id of the message.
+-- | The unique ID of the Amazon Pinpoint project used to send the message.
 sumApplicationId :: Lens' SendUsersMessageResponse (Maybe Text)
 sumApplicationId = lens _sumApplicationId (\ s a -> s{_sumApplicationId = a})
 
@@ -6626,6 +8335,68 @@ instance FromJSON SendUsersMessageResponse where
 instance Hashable SendUsersMessageResponse where
 
 instance NFData SendUsersMessageResponse where
+
+-- | Information about a session.
+--
+-- /See:/ 'session' smart constructor.
+data Session = Session'
+  { _sesStopTimestamp  :: !(Maybe Text)
+  , _sesId             :: !(Maybe Text)
+  , _sesStartTimestamp :: !(Maybe Text)
+  , _sesDuration       :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Session' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sesStopTimestamp' - The date and time when the session ended.
+--
+-- * 'sesId' - A unique identifier for the session.
+--
+-- * 'sesStartTimestamp' - The date and time when the session began.
+--
+-- * 'sesDuration' - The duration of the session, in milliseconds.
+session
+    :: Session
+session =
+  Session'
+    { _sesStopTimestamp = Nothing
+    , _sesId = Nothing
+    , _sesStartTimestamp = Nothing
+    , _sesDuration = Nothing
+    }
+
+
+-- | The date and time when the session ended.
+sesStopTimestamp :: Lens' Session (Maybe Text)
+sesStopTimestamp = lens _sesStopTimestamp (\ s a -> s{_sesStopTimestamp = a})
+
+-- | A unique identifier for the session.
+sesId :: Lens' Session (Maybe Text)
+sesId = lens _sesId (\ s a -> s{_sesId = a})
+
+-- | The date and time when the session began.
+sesStartTimestamp :: Lens' Session (Maybe Text)
+sesStartTimestamp = lens _sesStartTimestamp (\ s a -> s{_sesStartTimestamp = a})
+
+-- | The duration of the session, in milliseconds.
+sesDuration :: Lens' Session (Maybe Int)
+sesDuration = lens _sesDuration (\ s a -> s{_sesDuration = a})
+
+instance Hashable Session where
+
+instance NFData Session where
+
+instance ToJSON Session where
+        toJSON Session'{..}
+          = object
+              (catMaybes
+                 [("StopTimestamp" .=) <$> _sesStopTimestamp,
+                  ("Id" .=) <$> _sesId,
+                  ("StartTimestamp" .=) <$> _sesStartTimestamp,
+                  ("Duration" .=) <$> _sesDuration])
 
 -- | Dimension specification of a segment.
 --
@@ -6674,6 +8445,129 @@ instance ToJSON SetDimension where
               (catMaybes
                  [("Values" .=) <$> _sdValues,
                   ("DimensionType" .=) <$> _sdDimensionType])
+
+-- | An email composed of a subject, a text part and a html part.
+--
+-- /See:/ 'simpleEmail' smart constructor.
+data SimpleEmail = SimpleEmail'
+  { _seSubject  :: !(Maybe SimpleEmailPart)
+  , _seTextPart :: !(Maybe SimpleEmailPart)
+  , _seHTMLPart :: !(Maybe SimpleEmailPart)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SimpleEmail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'seSubject' - The subject of the message: A short summary of the content, which will appear in the recipient's inbox.
+--
+-- * 'seTextPart' - The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices).
+--
+-- * 'seHTMLPart' - The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message.
+simpleEmail
+    :: SimpleEmail
+simpleEmail =
+  SimpleEmail'
+    {_seSubject = Nothing, _seTextPart = Nothing, _seHTMLPart = Nothing}
+
+
+-- | The subject of the message: A short summary of the content, which will appear in the recipient's inbox.
+seSubject :: Lens' SimpleEmail (Maybe SimpleEmailPart)
+seSubject = lens _seSubject (\ s a -> s{_seSubject = a})
+
+-- | The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices).
+seTextPart :: Lens' SimpleEmail (Maybe SimpleEmailPart)
+seTextPart = lens _seTextPart (\ s a -> s{_seTextPart = a})
+
+-- | The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message.
+seHTMLPart :: Lens' SimpleEmail (Maybe SimpleEmailPart)
+seHTMLPart = lens _seHTMLPart (\ s a -> s{_seHTMLPart = a})
+
+instance Hashable SimpleEmail where
+
+instance NFData SimpleEmail where
+
+instance ToJSON SimpleEmail where
+        toJSON SimpleEmail'{..}
+          = object
+              (catMaybes
+                 [("Subject" .=) <$> _seSubject,
+                  ("TextPart" .=) <$> _seTextPart,
+                  ("HtmlPart" .=) <$> _seHTMLPart])
+
+-- | Textual email data, plus an optional character set specification.
+--
+-- /See:/ 'simpleEmailPart' smart constructor.
+data SimpleEmailPart = SimpleEmailPart'
+  { _sepData    :: !(Maybe Text)
+  , _sepCharset :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SimpleEmailPart' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sepData' - The textual data of the content.
+--
+-- * 'sepCharset' - The character set of the content.
+simpleEmailPart
+    :: SimpleEmailPart
+simpleEmailPart = SimpleEmailPart' {_sepData = Nothing, _sepCharset = Nothing}
+
+
+-- | The textual data of the content.
+sepData :: Lens' SimpleEmailPart (Maybe Text)
+sepData = lens _sepData (\ s a -> s{_sepData = a})
+
+-- | The character set of the content.
+sepCharset :: Lens' SimpleEmailPart (Maybe Text)
+sepCharset = lens _sepCharset (\ s a -> s{_sepCharset = a})
+
+instance Hashable SimpleEmailPart where
+
+instance NFData SimpleEmailPart where
+
+instance ToJSON SimpleEmailPart where
+        toJSON SimpleEmailPart'{..}
+          = object
+              (catMaybes
+                 [("Data" .=) <$> _sepData,
+                  ("Charset" .=) <$> _sepCharset])
+
+-- | /See:/ 'tagsModel' smart constructor.
+newtype TagsModel = TagsModel'
+  { _tmTags :: Map Text Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TagsModel' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tmTags' - Undocumented member.
+tagsModel
+    :: TagsModel
+tagsModel = TagsModel' {_tmTags = mempty}
+
+
+-- | Undocumented member.
+tmTags :: Lens' TagsModel (HashMap Text Text)
+tmTags = lens _tmTags (\ s a -> s{_tmTags = a}) . _Map
+
+instance FromJSON TagsModel where
+        parseJSON
+          = withObject "TagsModel"
+              (\ x -> TagsModel' <$> (x .:? "tags" .!= mempty))
+
+instance Hashable TagsModel where
+
+instance NFData TagsModel where
+
+instance ToJSON TagsModel where
+        toJSON TagsModel'{..}
+          = object (catMaybes [Just ("tags" .= _tmTags)])
 
 -- | Treatment resource
 --
@@ -6764,13 +8658,262 @@ instance Hashable TreatmentResource where
 
 instance NFData TreatmentResource where
 
+-- | Update attributes request
+--
+-- /See:/ 'updateAttributesRequest' smart constructor.
+newtype UpdateAttributesRequest = UpdateAttributesRequest'
+  { _uarBlacklist :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'UpdateAttributesRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uarBlacklist' - The GLOB wildcard for removing the attributes in the application
+updateAttributesRequest
+    :: UpdateAttributesRequest
+updateAttributesRequest = UpdateAttributesRequest' {_uarBlacklist = Nothing}
+
+
+-- | The GLOB wildcard for removing the attributes in the application
+uarBlacklist :: Lens' UpdateAttributesRequest [Text]
+uarBlacklist = lens _uarBlacklist (\ s a -> s{_uarBlacklist = a}) . _Default . _Coerce
+
+instance Hashable UpdateAttributesRequest where
+
+instance NFData UpdateAttributesRequest where
+
+instance ToJSON UpdateAttributesRequest where
+        toJSON UpdateAttributesRequest'{..}
+          = object
+              (catMaybes [("Blacklist" .=) <$> _uarBlacklist])
+
+-- | Voice Channel Request
+--
+-- /See:/ 'voiceChannelRequest' smart constructor.
+newtype VoiceChannelRequest = VoiceChannelRequest'
+  { _vcrEnabled :: Maybe Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'VoiceChannelRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vcrEnabled' - If the channel is enabled for sending messages.
+voiceChannelRequest
+    :: VoiceChannelRequest
+voiceChannelRequest = VoiceChannelRequest' {_vcrEnabled = Nothing}
+
+
+-- | If the channel is enabled for sending messages.
+vcrEnabled :: Lens' VoiceChannelRequest (Maybe Bool)
+vcrEnabled = lens _vcrEnabled (\ s a -> s{_vcrEnabled = a})
+
+instance Hashable VoiceChannelRequest where
+
+instance NFData VoiceChannelRequest where
+
+instance ToJSON VoiceChannelRequest where
+        toJSON VoiceChannelRequest'{..}
+          = object (catMaybes [("Enabled" .=) <$> _vcrEnabled])
+
+-- | Voice Channel Response.
+--
+-- /See:/ 'voiceChannelResponse' smart constructor.
+data VoiceChannelResponse = VoiceChannelResponse'
+  { _vcPlatform         :: !(Maybe Text)
+  , _vcLastModifiedDate :: !(Maybe Text)
+  , _vcEnabled          :: !(Maybe Bool)
+  , _vcIsArchived       :: !(Maybe Bool)
+  , _vcApplicationId    :: !(Maybe Text)
+  , _vcVersion          :: !(Maybe Int)
+  , _vcId               :: !(Maybe Text)
+  , _vcCreationDate     :: !(Maybe Text)
+  , _vcLastModifiedBy   :: !(Maybe Text)
+  , _vcHasCredential    :: !(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'VoiceChannelResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vcPlatform' - Platform type. Will be "Voice"
+--
+-- * 'vcLastModifiedDate' - Last date this was updated
+--
+-- * 'vcEnabled' - If the channel is enabled for sending messages.
+--
+-- * 'vcIsArchived' - Is this channel archived
+--
+-- * 'vcApplicationId' - Application id
+--
+-- * 'vcVersion' - Version of channel
+--
+-- * 'vcId' - Channel ID. Not used, only for backwards compatibility.
+--
+-- * 'vcCreationDate' - The date that the settings were last updated in ISO 8601 format.
+--
+-- * 'vcLastModifiedBy' - Who made the last change
+--
+-- * 'vcHasCredential' - Undocumented member.
+voiceChannelResponse
+    :: VoiceChannelResponse
+voiceChannelResponse =
+  VoiceChannelResponse'
+    { _vcPlatform = Nothing
+    , _vcLastModifiedDate = Nothing
+    , _vcEnabled = Nothing
+    , _vcIsArchived = Nothing
+    , _vcApplicationId = Nothing
+    , _vcVersion = Nothing
+    , _vcId = Nothing
+    , _vcCreationDate = Nothing
+    , _vcLastModifiedBy = Nothing
+    , _vcHasCredential = Nothing
+    }
+
+
+-- | Platform type. Will be "Voice"
+vcPlatform :: Lens' VoiceChannelResponse (Maybe Text)
+vcPlatform = lens _vcPlatform (\ s a -> s{_vcPlatform = a})
+
+-- | Last date this was updated
+vcLastModifiedDate :: Lens' VoiceChannelResponse (Maybe Text)
+vcLastModifiedDate = lens _vcLastModifiedDate (\ s a -> s{_vcLastModifiedDate = a})
+
+-- | If the channel is enabled for sending messages.
+vcEnabled :: Lens' VoiceChannelResponse (Maybe Bool)
+vcEnabled = lens _vcEnabled (\ s a -> s{_vcEnabled = a})
+
+-- | Is this channel archived
+vcIsArchived :: Lens' VoiceChannelResponse (Maybe Bool)
+vcIsArchived = lens _vcIsArchived (\ s a -> s{_vcIsArchived = a})
+
+-- | Application id
+vcApplicationId :: Lens' VoiceChannelResponse (Maybe Text)
+vcApplicationId = lens _vcApplicationId (\ s a -> s{_vcApplicationId = a})
+
+-- | Version of channel
+vcVersion :: Lens' VoiceChannelResponse (Maybe Int)
+vcVersion = lens _vcVersion (\ s a -> s{_vcVersion = a})
+
+-- | Channel ID. Not used, only for backwards compatibility.
+vcId :: Lens' VoiceChannelResponse (Maybe Text)
+vcId = lens _vcId (\ s a -> s{_vcId = a})
+
+-- | The date that the settings were last updated in ISO 8601 format.
+vcCreationDate :: Lens' VoiceChannelResponse (Maybe Text)
+vcCreationDate = lens _vcCreationDate (\ s a -> s{_vcCreationDate = a})
+
+-- | Who made the last change
+vcLastModifiedBy :: Lens' VoiceChannelResponse (Maybe Text)
+vcLastModifiedBy = lens _vcLastModifiedBy (\ s a -> s{_vcLastModifiedBy = a})
+
+-- | Undocumented member.
+vcHasCredential :: Lens' VoiceChannelResponse (Maybe Bool)
+vcHasCredential = lens _vcHasCredential (\ s a -> s{_vcHasCredential = a})
+
+instance FromJSON VoiceChannelResponse where
+        parseJSON
+          = withObject "VoiceChannelResponse"
+              (\ x ->
+                 VoiceChannelResponse' <$>
+                   (x .:? "Platform") <*> (x .:? "LastModifiedDate") <*>
+                     (x .:? "Enabled")
+                     <*> (x .:? "IsArchived")
+                     <*> (x .:? "ApplicationId")
+                     <*> (x .:? "Version")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "CreationDate")
+                     <*> (x .:? "LastModifiedBy")
+                     <*> (x .:? "HasCredential"))
+
+instance Hashable VoiceChannelResponse where
+
+instance NFData VoiceChannelResponse where
+
+-- | Voice Message.
+--
+-- /See:/ 'voiceMessage' smart constructor.
+data VoiceMessage = VoiceMessage'
+  { _vmSubstitutions     :: !(Maybe (Map Text [Text]))
+  , _vmLanguageCode      :: !(Maybe Text)
+  , _vmOriginationNumber :: !(Maybe Text)
+  , _vmBody              :: !(Maybe Text)
+  , _vmVoiceId           :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'VoiceMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vmSubstitutions' - Default message substitutions. Can be overridden by individual address substitutions.
+--
+-- * 'vmLanguageCode' - Language of sent message
+--
+-- * 'vmOriginationNumber' - Is the number from the pool or messaging service to send from.
+--
+-- * 'vmBody' - The message body of the notification, the email body or the text message.
+--
+-- * 'vmVoiceId' - Voice ID of sent message.
+voiceMessage
+    :: VoiceMessage
+voiceMessage =
+  VoiceMessage'
+    { _vmSubstitutions = Nothing
+    , _vmLanguageCode = Nothing
+    , _vmOriginationNumber = Nothing
+    , _vmBody = Nothing
+    , _vmVoiceId = Nothing
+    }
+
+
+-- | Default message substitutions. Can be overridden by individual address substitutions.
+vmSubstitutions :: Lens' VoiceMessage (HashMap Text [Text])
+vmSubstitutions = lens _vmSubstitutions (\ s a -> s{_vmSubstitutions = a}) . _Default . _Map
+
+-- | Language of sent message
+vmLanguageCode :: Lens' VoiceMessage (Maybe Text)
+vmLanguageCode = lens _vmLanguageCode (\ s a -> s{_vmLanguageCode = a})
+
+-- | Is the number from the pool or messaging service to send from.
+vmOriginationNumber :: Lens' VoiceMessage (Maybe Text)
+vmOriginationNumber = lens _vmOriginationNumber (\ s a -> s{_vmOriginationNumber = a})
+
+-- | The message body of the notification, the email body or the text message.
+vmBody :: Lens' VoiceMessage (Maybe Text)
+vmBody = lens _vmBody (\ s a -> s{_vmBody = a})
+
+-- | Voice ID of sent message.
+vmVoiceId :: Lens' VoiceMessage (Maybe Text)
+vmVoiceId = lens _vmVoiceId (\ s a -> s{_vmVoiceId = a})
+
+instance Hashable VoiceMessage where
+
+instance NFData VoiceMessage where
+
+instance ToJSON VoiceMessage where
+        toJSON VoiceMessage'{..}
+          = object
+              (catMaybes
+                 [("Substitutions" .=) <$> _vmSubstitutions,
+                  ("LanguageCode" .=) <$> _vmLanguageCode,
+                  ("OriginationNumber" .=) <$> _vmOriginationNumber,
+                  ("Body" .=) <$> _vmBody,
+                  ("VoiceId" .=) <$> _vmVoiceId])
+
 -- | Creating application setting request
 --
 -- /See:/ 'writeApplicationSettingsRequest' smart constructor.
 data WriteApplicationSettingsRequest = WriteApplicationSettingsRequest'
-  { _wasrLimits       :: !(Maybe CampaignLimits)
-  , _wasrQuietTime    :: !(Maybe QuietTime)
-  , _wasrCampaignHook :: !(Maybe CampaignHook)
+  { _wasrCloudWatchMetricsEnabled :: !(Maybe Bool)
+  , _wasrLimits                   :: !(Maybe CampaignLimits)
+  , _wasrQuietTime                :: !(Maybe QuietTime)
+  , _wasrCampaignHook             :: !(Maybe CampaignHook)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -6778,26 +8921,33 @@ data WriteApplicationSettingsRequest = WriteApplicationSettingsRequest'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wasrLimits' - The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own.
+-- * 'wasrCloudWatchMetricsEnabled' - The CloudWatchMetrics settings for the app.
 --
--- * 'wasrQuietTime' - The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own.
+-- * 'wasrLimits' - The limits that apply to each campaign in the project by default. Campaigns can also have their own limits, which override the settings at the project level.
+--
+-- * 'wasrQuietTime' - The default quiet time for the app. Campaigns in the app don't send messages to endpoints during the quiet time. Note: Make sure that your endpoints include the Demographics.Timezone attribute if you plan to enable a quiet time for your app. If your endpoints don't include this attribute, they'll receive the messages that you send them, even if quiet time is enabled. When you set up an app to use quiet time, campaigns in that app don't send messages during the time range you specified, as long as all of the following are true: - The endpoint includes a valid Demographic.Timezone attribute. - The current time in the endpoint's time zone is later than or equal to the time specified in the QuietTime.Start attribute for the app (or campaign, if applicable). - The current time in the endpoint's time zone is earlier than or equal to the time specified in the QuietTime.End attribute for the app (or campaign, if applicable). Individual campaigns within the app can have their own quiet time settings, which override the quiet time settings at the app level.
 --
 -- * 'wasrCampaignHook' - Default campaign hook information.
 writeApplicationSettingsRequest
     :: WriteApplicationSettingsRequest
 writeApplicationSettingsRequest =
   WriteApplicationSettingsRequest'
-    { _wasrLimits = Nothing
+    { _wasrCloudWatchMetricsEnabled = Nothing
+    , _wasrLimits = Nothing
     , _wasrQuietTime = Nothing
     , _wasrCampaignHook = Nothing
     }
 
 
--- | The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own.
+-- | The CloudWatchMetrics settings for the app.
+wasrCloudWatchMetricsEnabled :: Lens' WriteApplicationSettingsRequest (Maybe Bool)
+wasrCloudWatchMetricsEnabled = lens _wasrCloudWatchMetricsEnabled (\ s a -> s{_wasrCloudWatchMetricsEnabled = a})
+
+-- | The limits that apply to each campaign in the project by default. Campaigns can also have their own limits, which override the settings at the project level.
 wasrLimits :: Lens' WriteApplicationSettingsRequest (Maybe CampaignLimits)
 wasrLimits = lens _wasrLimits (\ s a -> s{_wasrLimits = a})
 
--- | The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own.
+-- | The default quiet time for the app. Campaigns in the app don't send messages to endpoints during the quiet time. Note: Make sure that your endpoints include the Demographics.Timezone attribute if you plan to enable a quiet time for your app. If your endpoints don't include this attribute, they'll receive the messages that you send them, even if quiet time is enabled. When you set up an app to use quiet time, campaigns in that app don't send messages during the time range you specified, as long as all of the following are true: - The endpoint includes a valid Demographic.Timezone attribute. - The current time in the endpoint's time zone is later than or equal to the time specified in the QuietTime.Start attribute for the app (or campaign, if applicable). - The current time in the endpoint's time zone is earlier than or equal to the time specified in the QuietTime.End attribute for the app (or campaign, if applicable). Individual campaigns within the app can have their own quiet time settings, which override the quiet time settings at the app level.
 wasrQuietTime :: Lens' WriteApplicationSettingsRequest (Maybe QuietTime)
 wasrQuietTime = lens _wasrQuietTime (\ s a -> s{_wasrQuietTime = a})
 
@@ -6814,7 +8964,9 @@ instance ToJSON WriteApplicationSettingsRequest where
         toJSON WriteApplicationSettingsRequest'{..}
           = object
               (catMaybes
-                 [("Limits" .=) <$> _wasrLimits,
+                 [("CloudWatchMetricsEnabled" .=) <$>
+                    _wasrCloudWatchMetricsEnabled,
+                  ("Limits" .=) <$> _wasrLimits,
                   ("QuietTime" .=) <$> _wasrQuietTime,
                   ("CampaignHook" .=) <$> _wasrCampaignHook])
 
@@ -6834,6 +8986,7 @@ data WriteCampaignRequest = WriteCampaignRequest'
   , _wcrDescription          :: !(Maybe Text)
   , _wcrSegmentId            :: !(Maybe Text)
   , _wcrAdditionalTreatments :: !(Maybe [WriteTreatmentResource])
+  , _wcrTags                 :: !(Maybe (Map Text Text))
   , _wcrSegmentVersion       :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -6866,6 +9019,8 @@ data WriteCampaignRequest = WriteCampaignRequest'
 --
 -- * 'wcrAdditionalTreatments' - Treatments that are defined in addition to the default treatment.
 --
+-- * 'wcrTags' - The Tags for the campaign.
+--
 -- * 'wcrSegmentVersion' - The version of the segment to which the campaign sends messages.
 writeCampaignRequest
     :: WriteCampaignRequest
@@ -6883,6 +9038,7 @@ writeCampaignRequest =
     , _wcrDescription = Nothing
     , _wcrSegmentId = Nothing
     , _wcrAdditionalTreatments = Nothing
+    , _wcrTags = Nothing
     , _wcrSegmentVersion = Nothing
     }
 
@@ -6935,6 +9091,10 @@ wcrSegmentId = lens _wcrSegmentId (\ s a -> s{_wcrSegmentId = a})
 wcrAdditionalTreatments :: Lens' WriteCampaignRequest [WriteTreatmentResource]
 wcrAdditionalTreatments = lens _wcrAdditionalTreatments (\ s a -> s{_wcrAdditionalTreatments = a}) . _Default . _Coerce
 
+-- | The Tags for the campaign.
+wcrTags :: Lens' WriteCampaignRequest (HashMap Text Text)
+wcrTags = lens _wcrTags (\ s a -> s{_wcrTags = a}) . _Default . _Map
+
 -- | The version of the segment to which the campaign sends messages.
 wcrSegmentVersion :: Lens' WriteCampaignRequest (Maybe Int)
 wcrSegmentVersion = lens _wcrSegmentVersion (\ s a -> s{_wcrSegmentVersion = a})
@@ -6962,6 +9122,7 @@ instance ToJSON WriteCampaignRequest where
                   ("SegmentId" .=) <$> _wcrSegmentId,
                   ("AdditionalTreatments" .=) <$>
                     _wcrAdditionalTreatments,
+                  ("tags" .=) <$> _wcrTags,
                   ("SegmentVersion" .=) <$> _wcrSegmentVersion])
 
 -- | Request to save an EventStream.
@@ -7010,8 +9171,10 @@ instance ToJSON WriteEventStream where
 --
 -- /See:/ 'writeSegmentRequest' smart constructor.
 data WriteSegmentRequest = WriteSegmentRequest'
-  { _wsrName       :: !(Maybe Text)
-  , _wsrDimensions :: !(Maybe SegmentDimensions)
+  { _wsrSegmentGroups :: !(Maybe SegmentGroupList)
+  , _wsrName          :: !(Maybe Text)
+  , _wsrDimensions    :: !(Maybe SegmentDimensions)
+  , _wsrTags          :: !(Maybe (Map Text Text))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -7019,14 +9182,27 @@ data WriteSegmentRequest = WriteSegmentRequest'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'wsrSegmentGroups' - A segment group, which consists of zero or more source segments, plus dimensions that are applied to those source segments. Your request can only include one segment group. Your request can include either a SegmentGroups object or a Dimensions object, but not both.
+--
 -- * 'wsrName' - The name of segment
 --
 -- * 'wsrDimensions' - The segment dimensions attributes.
+--
+-- * 'wsrTags' - The Tags for the segments.
 writeSegmentRequest
     :: WriteSegmentRequest
 writeSegmentRequest =
-  WriteSegmentRequest' {_wsrName = Nothing, _wsrDimensions = Nothing}
+  WriteSegmentRequest'
+    { _wsrSegmentGroups = Nothing
+    , _wsrName = Nothing
+    , _wsrDimensions = Nothing
+    , _wsrTags = Nothing
+    }
 
+
+-- | A segment group, which consists of zero or more source segments, plus dimensions that are applied to those source segments. Your request can only include one segment group. Your request can include either a SegmentGroups object or a Dimensions object, but not both.
+wsrSegmentGroups :: Lens' WriteSegmentRequest (Maybe SegmentGroupList)
+wsrSegmentGroups = lens _wsrSegmentGroups (\ s a -> s{_wsrSegmentGroups = a})
 
 -- | The name of segment
 wsrName :: Lens' WriteSegmentRequest (Maybe Text)
@@ -7036,6 +9212,10 @@ wsrName = lens _wsrName (\ s a -> s{_wsrName = a})
 wsrDimensions :: Lens' WriteSegmentRequest (Maybe SegmentDimensions)
 wsrDimensions = lens _wsrDimensions (\ s a -> s{_wsrDimensions = a})
 
+-- | The Tags for the segments.
+wsrTags :: Lens' WriteSegmentRequest (HashMap Text Text)
+wsrTags = lens _wsrTags (\ s a -> s{_wsrTags = a}) . _Default . _Map
+
 instance Hashable WriteSegmentRequest where
 
 instance NFData WriteSegmentRequest where
@@ -7044,8 +9224,10 @@ instance ToJSON WriteSegmentRequest where
         toJSON WriteSegmentRequest'{..}
           = object
               (catMaybes
-                 [("Name" .=) <$> _wsrName,
-                  ("Dimensions" .=) <$> _wsrDimensions])
+                 [("SegmentGroups" .=) <$> _wsrSegmentGroups,
+                  ("Name" .=) <$> _wsrName,
+                  ("Dimensions" .=) <$> _wsrDimensions,
+                  ("tags" .=) <$> _wsrTags])
 
 -- | Used to create a campaign treatment.
 --

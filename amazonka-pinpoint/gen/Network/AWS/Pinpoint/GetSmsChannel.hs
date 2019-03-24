@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get an SMS channel
+-- Get an SMS channel.
 module Network.AWS.Pinpoint.GetSmsChannel
     (
     -- * Creating a Request
@@ -52,7 +52,7 @@ newtype GetSmsChannel = GetSmsChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gscApplicationId' - Undocumented member.
+-- * 'gscApplicationId' - The unique ID of your Amazon Pinpoint application.
 getSmsChannel
     :: Text -- ^ 'gscApplicationId'
     -> GetSmsChannel
@@ -60,7 +60,7 @@ getSmsChannel pApplicationId_ =
   GetSmsChannel' {_gscApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gscApplicationId :: Lens' GetSmsChannel Text
 gscApplicationId = lens _gscApplicationId (\ s a -> s{_gscApplicationId = a})
 

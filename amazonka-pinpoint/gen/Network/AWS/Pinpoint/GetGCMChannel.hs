@@ -52,7 +52,7 @@ newtype GetGCMChannel = GetGCMChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggcApplicationId' - Undocumented member.
+-- * 'ggcApplicationId' - The unique ID of your Amazon Pinpoint application.
 getGCMChannel
     :: Text -- ^ 'ggcApplicationId'
     -> GetGCMChannel
@@ -60,7 +60,7 @@ getGCMChannel pApplicationId_ =
   GetGCMChannel' {_ggcApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 ggcApplicationId :: Lens' GetGCMChannel Text
 ggcApplicationId = lens _ggcApplicationId (\ s a -> s{_ggcApplicationId = a})
 

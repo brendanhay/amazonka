@@ -54,19 +54,19 @@ data GetApps = GetApps'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaToken' - Undocumented member.
+-- * 'gaToken' - The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 --
--- * 'gaPageSize' - Undocumented member.
+-- * 'gaPageSize' - The number of entries you want on each page in the response.
 getApps
     :: GetApps
 getApps = GetApps' {_gaToken = Nothing, _gaPageSize = Nothing}
 
 
--- | Undocumented member.
+-- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gaToken :: Lens' GetApps (Maybe Text)
 gaToken = lens _gaToken (\ s a -> s{_gaToken = a})
 
--- | Undocumented member.
+-- | The number of entries you want on each page in the response.
 gaPageSize :: Lens' GetApps (Maybe Text)
 gaPageSize = lens _gaPageSize (\ s a -> s{_gaPageSize = a})
 

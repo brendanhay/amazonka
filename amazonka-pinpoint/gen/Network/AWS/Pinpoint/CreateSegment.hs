@@ -54,7 +54,7 @@ data CreateSegment = CreateSegment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csApplicationId' - Undocumented member.
+-- * 'csApplicationId' - The unique ID of your Amazon Pinpoint application.
 --
 -- * 'csWriteSegmentRequest' - Undocumented member.
 createSegment
@@ -68,7 +68,7 @@ createSegment pApplicationId_ pWriteSegmentRequest_ =
     }
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 csApplicationId :: Lens' CreateSegment Text
 csApplicationId = lens _csApplicationId (\ s a -> s{_csApplicationId = a})
 

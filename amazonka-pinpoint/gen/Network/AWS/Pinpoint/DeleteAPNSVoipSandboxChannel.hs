@@ -52,7 +52,7 @@ newtype DeleteAPNSVoipSandboxChannel = DeleteAPNSVoipSandboxChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'davscApplicationId' - Undocumented member.
+-- * 'davscApplicationId' - The unique ID of your Amazon Pinpoint application.
 deleteAPNSVoipSandboxChannel
     :: Text -- ^ 'davscApplicationId'
     -> DeleteAPNSVoipSandboxChannel
@@ -60,7 +60,7 @@ deleteAPNSVoipSandboxChannel pApplicationId_ =
   DeleteAPNSVoipSandboxChannel' {_davscApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 davscApplicationId :: Lens' DeleteAPNSVoipSandboxChannel Text
 davscApplicationId = lens _davscApplicationId (\ s a -> s{_davscApplicationId = a})
 

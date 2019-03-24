@@ -56,11 +56,11 @@ data GetSegmentVersion = GetSegmentVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gSegmentId' - Undocumented member.
+-- * 'gSegmentId' - The unique ID of the segment.
 --
--- * 'gVersion' - Undocumented member.
+-- * 'gVersion' - The segment version.
 --
--- * 'gApplicationId' - Undocumented member.
+-- * 'gApplicationId' - The unique ID of your Amazon Pinpoint application.
 getSegmentVersion
     :: Text -- ^ 'gSegmentId'
     -> Text -- ^ 'gVersion'
@@ -74,15 +74,15 @@ getSegmentVersion pSegmentId_ pVersion_ pApplicationId_ =
     }
 
 
--- | Undocumented member.
+-- | The unique ID of the segment.
 gSegmentId :: Lens' GetSegmentVersion Text
 gSegmentId = lens _gSegmentId (\ s a -> s{_gSegmentId = a})
 
--- | Undocumented member.
+-- | The segment version.
 gVersion :: Lens' GetSegmentVersion Text
 gVersion = lens _gVersion (\ s a -> s{_gVersion = a})
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gApplicationId :: Lens' GetSegmentVersion Text
 gApplicationId = lens _gApplicationId (\ s a -> s{_gApplicationId = a})
 

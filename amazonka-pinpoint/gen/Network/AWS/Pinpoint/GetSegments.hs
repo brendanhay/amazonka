@@ -60,7 +60,7 @@ data GetSegments = GetSegments'
 --
 -- * 'gssPageSize' - The number of entries you want on each page in the response.
 --
--- * 'gssApplicationId' - Undocumented member.
+-- * 'gssApplicationId' - The unique ID of your Amazon Pinpoint application.
 getSegments
     :: Text -- ^ 'gssApplicationId'
     -> GetSegments
@@ -80,7 +80,7 @@ gssToken = lens _gssToken (\ s a -> s{_gssToken = a})
 gssPageSize :: Lens' GetSegments (Maybe Text)
 gssPageSize = lens _gssPageSize (\ s a -> s{_gssPageSize = a})
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gssApplicationId :: Lens' GetSegments Text
 gssApplicationId = lens _gssApplicationId (\ s a -> s{_gssApplicationId = a})
 

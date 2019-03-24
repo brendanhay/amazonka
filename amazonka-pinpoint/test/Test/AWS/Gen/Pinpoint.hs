@@ -73,6 +73,9 @@ import Test.Tasty
 --         , requestUpdateEndpoint $
 --             updateEndpoint
 --
+--         , requestListTagsForResource $
+--             listTagsForResource
+--
 --         , requestCreateCampaign $
 --             createCampaign
 --
@@ -93,6 +96,9 @@ import Test.Tasty
 --
 --         , requestGetCampaign $
 --             getCampaign
+--
+--         , requestDeleteUserEndpoints $
+--             deleteUserEndpoints
 --
 --         , requestDeleteApp $
 --             deleteApp
@@ -115,6 +121,9 @@ import Test.Tasty
 --         , requestGetEventStream $
 --             getEventStream
 --
+--         , requestGetChannels $
+--             getChannels
+--
 --         , requestDeleteEmailChannel $
 --             deleteEmailChannel
 --
@@ -130,6 +139,9 @@ import Test.Tasty
 --         , requestUpdateAPNSChannel $
 --             updateAPNSChannel
 --
+--         , requestRemoveAttributes $
+--             removeAttributes
+--
 --         , requestPutEventStream $
 --             putEventStream
 --
@@ -142,11 +154,20 @@ import Test.Tasty
 --         , requestGetAPNSChannel $
 --             getAPNSChannel
 --
+--         , requestUpdateVoiceChannel $
+--             updateVoiceChannel
+--
+--         , requestDeleteVoiceChannel $
+--             deleteVoiceChannel
+--
 --         , requestGetApps $
 --             getApps
 --
 --         , requestGetAPNSSandboxChannel $
 --             getAPNSSandboxChannel
+--
+--         , requestGetUserEndpoints $
+--             getUserEndpoints
 --
 --         , requestGetImportJobs $
 --             getImportJobs
@@ -178,6 +199,9 @@ import Test.Tasty
 --         , requestGetSmsChannel $
 --             getSmsChannel
 --
+--         , requestTagResource $
+--             tagResource
+--
 --         , requestDeleteAPNSSandboxChannel $
 --             deleteAPNSSandboxChannel
 --
@@ -186,6 +210,15 @@ import Test.Tasty
 --
 --         , requestGetCampaigns $
 --             getCampaigns
+--
+--         , requestGetVoiceChannel $
+--             getVoiceChannel
+--
+--         , requestUntagResource $
+--             untagResource
+--
+--         , requestPutEvents $
+--             putEvents
 --
 --         , requestUpdateApplicationSettings $
 --             updateApplicationSettings
@@ -216,6 +249,9 @@ import Test.Tasty
 --
 --         , requestUpdateBaiduChannel $
 --             updateBaiduChannel
+--
+--         , requestPhoneNumberValidate $
+--             phoneNumberValidate
 --
 --         , requestGetAPNSVoipChannel $
 --             getAPNSVoipChannel
@@ -271,6 +307,9 @@ import Test.Tasty
 --         , responseUpdateEndpoint $
 --             updateEndpointResponse
 --
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
+--
 --         , responseCreateCampaign $
 --             createCampaignResponse
 --
@@ -291,6 +330,9 @@ import Test.Tasty
 --
 --         , responseGetCampaign $
 --             getCampaignResponse
+--
+--         , responseDeleteUserEndpoints $
+--             deleteUserEndpointsResponse
 --
 --         , responseDeleteApp $
 --             deleteAppResponse
@@ -313,6 +355,9 @@ import Test.Tasty
 --         , responseGetEventStream $
 --             getEventStreamResponse
 --
+--         , responseGetChannels $
+--             getChannelsResponse
+--
 --         , responseDeleteEmailChannel $
 --             deleteEmailChannelResponse
 --
@@ -328,6 +373,9 @@ import Test.Tasty
 --         , responseUpdateAPNSChannel $
 --             updateAPNSChannelResponse
 --
+--         , responseRemoveAttributes $
+--             removeAttributesResponse
+--
 --         , responsePutEventStream $
 --             putEventStreamResponse
 --
@@ -340,11 +388,20 @@ import Test.Tasty
 --         , responseGetAPNSChannel $
 --             getAPNSChannelResponse
 --
+--         , responseUpdateVoiceChannel $
+--             updateVoiceChannelResponse
+--
+--         , responseDeleteVoiceChannel $
+--             deleteVoiceChannelResponse
+--
 --         , responseGetApps $
 --             getAppsResponse
 --
 --         , responseGetAPNSSandboxChannel $
 --             getAPNSSandboxChannelResponse
+--
+--         , responseGetUserEndpoints $
+--             getUserEndpointsResponse
 --
 --         , responseGetImportJobs $
 --             getImportJobsResponse
@@ -376,6 +433,9 @@ import Test.Tasty
 --         , responseGetSmsChannel $
 --             getSmsChannelResponse
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
 --         , responseDeleteAPNSSandboxChannel $
 --             deleteAPNSSandboxChannelResponse
 --
@@ -384,6 +444,15 @@ import Test.Tasty
 --
 --         , responseGetCampaigns $
 --             getCampaignsResponse
+--
+--         , responseGetVoiceChannel $
+--             getVoiceChannelResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
+--
+--         , responsePutEvents $
+--             putEventsResponse
 --
 --         , responseUpdateApplicationSettings $
 --             updateApplicationSettingsResponse
@@ -414,6 +483,9 @@ import Test.Tasty
 --
 --         , responseUpdateBaiduChannel $
 --             updateBaiduChannelResponse
+--
+--         , responsePhoneNumberValidate $
+--             phoneNumberValidateResponse
 --
 --         , responseGetAPNSVoipChannel $
 --             getAPNSVoipChannelResponse
@@ -501,6 +573,11 @@ requestUpdateEndpoint = req
     "UpdateEndpoint"
     "fixture/UpdateEndpoint.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource = req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestCreateCampaign :: CreateCampaign -> TestTree
 requestCreateCampaign = req
     "CreateCampaign"
@@ -535,6 +612,11 @@ requestGetCampaign :: GetCampaign -> TestTree
 requestGetCampaign = req
     "GetCampaign"
     "fixture/GetCampaign.yaml"
+
+requestDeleteUserEndpoints :: DeleteUserEndpoints -> TestTree
+requestDeleteUserEndpoints = req
+    "DeleteUserEndpoints"
+    "fixture/DeleteUserEndpoints.yaml"
 
 requestDeleteApp :: DeleteApp -> TestTree
 requestDeleteApp = req
@@ -571,6 +653,11 @@ requestGetEventStream = req
     "GetEventStream"
     "fixture/GetEventStream.yaml"
 
+requestGetChannels :: GetChannels -> TestTree
+requestGetChannels = req
+    "GetChannels"
+    "fixture/GetChannels.yaml"
+
 requestDeleteEmailChannel :: DeleteEmailChannel -> TestTree
 requestDeleteEmailChannel = req
     "DeleteEmailChannel"
@@ -596,6 +683,11 @@ requestUpdateAPNSChannel = req
     "UpdateAPNSChannel"
     "fixture/UpdateAPNSChannel.yaml"
 
+requestRemoveAttributes :: RemoveAttributes -> TestTree
+requestRemoveAttributes = req
+    "RemoveAttributes"
+    "fixture/RemoveAttributes.yaml"
+
 requestPutEventStream :: PutEventStream -> TestTree
 requestPutEventStream = req
     "PutEventStream"
@@ -616,6 +708,16 @@ requestGetAPNSChannel = req
     "GetAPNSChannel"
     "fixture/GetAPNSChannel.yaml"
 
+requestUpdateVoiceChannel :: UpdateVoiceChannel -> TestTree
+requestUpdateVoiceChannel = req
+    "UpdateVoiceChannel"
+    "fixture/UpdateVoiceChannel.yaml"
+
+requestDeleteVoiceChannel :: DeleteVoiceChannel -> TestTree
+requestDeleteVoiceChannel = req
+    "DeleteVoiceChannel"
+    "fixture/DeleteVoiceChannel.yaml"
+
 requestGetApps :: GetApps -> TestTree
 requestGetApps = req
     "GetApps"
@@ -625,6 +727,11 @@ requestGetAPNSSandboxChannel :: GetAPNSSandboxChannel -> TestTree
 requestGetAPNSSandboxChannel = req
     "GetAPNSSandboxChannel"
     "fixture/GetAPNSSandboxChannel.yaml"
+
+requestGetUserEndpoints :: GetUserEndpoints -> TestTree
+requestGetUserEndpoints = req
+    "GetUserEndpoints"
+    "fixture/GetUserEndpoints.yaml"
 
 requestGetImportJobs :: GetImportJobs -> TestTree
 requestGetImportJobs = req
@@ -676,6 +783,11 @@ requestGetSmsChannel = req
     "GetSmsChannel"
     "fixture/GetSmsChannel.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestDeleteAPNSSandboxChannel :: DeleteAPNSSandboxChannel -> TestTree
 requestDeleteAPNSSandboxChannel = req
     "DeleteAPNSSandboxChannel"
@@ -690,6 +802,21 @@ requestGetCampaigns :: GetCampaigns -> TestTree
 requestGetCampaigns = req
     "GetCampaigns"
     "fixture/GetCampaigns.yaml"
+
+requestGetVoiceChannel :: GetVoiceChannel -> TestTree
+requestGetVoiceChannel = req
+    "GetVoiceChannel"
+    "fixture/GetVoiceChannel.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestPutEvents :: PutEvents -> TestTree
+requestPutEvents = req
+    "PutEvents"
+    "fixture/PutEvents.yaml"
 
 requestUpdateApplicationSettings :: UpdateApplicationSettings -> TestTree
 requestUpdateApplicationSettings = req
@@ -740,6 +867,11 @@ requestUpdateBaiduChannel :: UpdateBaiduChannel -> TestTree
 requestUpdateBaiduChannel = req
     "UpdateBaiduChannel"
     "fixture/UpdateBaiduChannel.yaml"
+
+requestPhoneNumberValidate :: PhoneNumberValidate -> TestTree
+requestPhoneNumberValidate = req
+    "PhoneNumberValidate"
+    "fixture/PhoneNumberValidate.yaml"
 
 requestGetAPNSVoipChannel :: GetAPNSVoipChannel -> TestTree
 requestGetAPNSVoipChannel = req
@@ -858,6 +990,13 @@ responseUpdateEndpoint = res
     pinpoint
     (Proxy :: Proxy UpdateEndpoint)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource = res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    pinpoint
+    (Proxy :: Proxy ListTagsForResource)
+
 responseCreateCampaign :: CreateCampaignResponse -> TestTree
 responseCreateCampaign = res
     "CreateCampaignResponse"
@@ -906,6 +1045,13 @@ responseGetCampaign = res
     "fixture/GetCampaignResponse.proto"
     pinpoint
     (Proxy :: Proxy GetCampaign)
+
+responseDeleteUserEndpoints :: DeleteUserEndpointsResponse -> TestTree
+responseDeleteUserEndpoints = res
+    "DeleteUserEndpointsResponse"
+    "fixture/DeleteUserEndpointsResponse.proto"
+    pinpoint
+    (Proxy :: Proxy DeleteUserEndpoints)
 
 responseDeleteApp :: DeleteAppResponse -> TestTree
 responseDeleteApp = res
@@ -956,6 +1102,13 @@ responseGetEventStream = res
     pinpoint
     (Proxy :: Proxy GetEventStream)
 
+responseGetChannels :: GetChannelsResponse -> TestTree
+responseGetChannels = res
+    "GetChannelsResponse"
+    "fixture/GetChannelsResponse.proto"
+    pinpoint
+    (Proxy :: Proxy GetChannels)
+
 responseDeleteEmailChannel :: DeleteEmailChannelResponse -> TestTree
 responseDeleteEmailChannel = res
     "DeleteEmailChannelResponse"
@@ -991,6 +1144,13 @@ responseUpdateAPNSChannel = res
     pinpoint
     (Proxy :: Proxy UpdateAPNSChannel)
 
+responseRemoveAttributes :: RemoveAttributesResponse -> TestTree
+responseRemoveAttributes = res
+    "RemoveAttributesResponse"
+    "fixture/RemoveAttributesResponse.proto"
+    pinpoint
+    (Proxy :: Proxy RemoveAttributes)
+
 responsePutEventStream :: PutEventStreamResponse -> TestTree
 responsePutEventStream = res
     "PutEventStreamResponse"
@@ -1019,6 +1179,20 @@ responseGetAPNSChannel = res
     pinpoint
     (Proxy :: Proxy GetAPNSChannel)
 
+responseUpdateVoiceChannel :: UpdateVoiceChannelResponse -> TestTree
+responseUpdateVoiceChannel = res
+    "UpdateVoiceChannelResponse"
+    "fixture/UpdateVoiceChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy UpdateVoiceChannel)
+
+responseDeleteVoiceChannel :: DeleteVoiceChannelResponse -> TestTree
+responseDeleteVoiceChannel = res
+    "DeleteVoiceChannelResponse"
+    "fixture/DeleteVoiceChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy DeleteVoiceChannel)
+
 responseGetApps :: GetAppsResponse -> TestTree
 responseGetApps = res
     "GetAppsResponse"
@@ -1032,6 +1206,13 @@ responseGetAPNSSandboxChannel = res
     "fixture/GetAPNSSandboxChannelResponse.proto"
     pinpoint
     (Proxy :: Proxy GetAPNSSandboxChannel)
+
+responseGetUserEndpoints :: GetUserEndpointsResponse -> TestTree
+responseGetUserEndpoints = res
+    "GetUserEndpointsResponse"
+    "fixture/GetUserEndpointsResponse.proto"
+    pinpoint
+    (Proxy :: Proxy GetUserEndpoints)
 
 responseGetImportJobs :: GetImportJobsResponse -> TestTree
 responseGetImportJobs = res
@@ -1103,6 +1284,13 @@ responseGetSmsChannel = res
     pinpoint
     (Proxy :: Proxy GetSmsChannel)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    pinpoint
+    (Proxy :: Proxy TagResource)
+
 responseDeleteAPNSSandboxChannel :: DeleteAPNSSandboxChannelResponse -> TestTree
 responseDeleteAPNSSandboxChannel = res
     "DeleteAPNSSandboxChannelResponse"
@@ -1123,6 +1311,27 @@ responseGetCampaigns = res
     "fixture/GetCampaignsResponse.proto"
     pinpoint
     (Proxy :: Proxy GetCampaigns)
+
+responseGetVoiceChannel :: GetVoiceChannelResponse -> TestTree
+responseGetVoiceChannel = res
+    "GetVoiceChannelResponse"
+    "fixture/GetVoiceChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy GetVoiceChannel)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    pinpoint
+    (Proxy :: Proxy UntagResource)
+
+responsePutEvents :: PutEventsResponse -> TestTree
+responsePutEvents = res
+    "PutEventsResponse"
+    "fixture/PutEventsResponse.proto"
+    pinpoint
+    (Proxy :: Proxy PutEvents)
 
 responseUpdateApplicationSettings :: UpdateApplicationSettingsResponse -> TestTree
 responseUpdateApplicationSettings = res
@@ -1193,6 +1402,13 @@ responseUpdateBaiduChannel = res
     "fixture/UpdateBaiduChannelResponse.proto"
     pinpoint
     (Proxy :: Proxy UpdateBaiduChannel)
+
+responsePhoneNumberValidate :: PhoneNumberValidateResponse -> TestTree
+responsePhoneNumberValidate = res
+    "PhoneNumberValidateResponse"
+    "fixture/PhoneNumberValidateResponse.proto"
+    pinpoint
+    (Proxy :: Proxy PhoneNumberValidate)
 
 responseGetAPNSVoipChannel :: GetAPNSVoipChannelResponse -> TestTree
 responseGetAPNSVoipChannel = res

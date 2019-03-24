@@ -52,7 +52,7 @@ newtype DeleteBaiduChannel = DeleteBaiduChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbcApplicationId' - Undocumented member.
+-- * 'dbcApplicationId' - The unique ID of your Amazon Pinpoint application.
 deleteBaiduChannel
     :: Text -- ^ 'dbcApplicationId'
     -> DeleteBaiduChannel
@@ -60,7 +60,7 @@ deleteBaiduChannel pApplicationId_ =
   DeleteBaiduChannel' {_dbcApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 dbcApplicationId :: Lens' DeleteBaiduChannel Text
 dbcApplicationId = lens _dbcApplicationId (\ s a -> s{_dbcApplicationId = a})
 

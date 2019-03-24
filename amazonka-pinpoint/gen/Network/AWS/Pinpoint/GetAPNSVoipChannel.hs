@@ -52,7 +52,7 @@ newtype GetAPNSVoipChannel = GetAPNSVoipChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gavcApplicationId' - Undocumented member.
+-- * 'gavcApplicationId' - The unique ID of your Amazon Pinpoint application.
 getAPNSVoipChannel
     :: Text -- ^ 'gavcApplicationId'
     -> GetAPNSVoipChannel
@@ -60,7 +60,7 @@ getAPNSVoipChannel pApplicationId_ =
   GetAPNSVoipChannel' {_gavcApplicationId = pApplicationId_}
 
 
--- | Undocumented member.
+-- | The unique ID of your Amazon Pinpoint application.
 gavcApplicationId :: Lens' GetAPNSVoipChannel Text
 gavcApplicationId = lens _gavcApplicationId (\ s a -> s{_gavcApplicationId = a})
 

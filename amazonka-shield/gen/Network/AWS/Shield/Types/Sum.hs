@@ -85,6 +85,36 @@ instance ToHeader     AttackPropertyIdentifier
 instance FromJSON AttackPropertyIdentifier where
     parseJSON = parseJSONText "AttackPropertyIdentifier"
 
+data AutoRenew
+  = Disabled
+  | Enabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AutoRenew where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure Disabled
+        "enabled" -> pure Enabled
+        e -> fromTextError $ "Failure parsing AutoRenew from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText AutoRenew where
+    toText = \case
+        Disabled -> "DISABLED"
+        Enabled -> "ENABLED"
+
+instance Hashable     AutoRenew
+instance NFData       AutoRenew
+instance ToByteString AutoRenew
+instance ToQuery      AutoRenew
+instance ToHeader     AutoRenew
+
+instance ToJSON AutoRenew where
+    toJSON = toJSONText
+
+instance FromJSON AutoRenew where
+    parseJSON = parseJSONText "AutoRenew"
+
 data SubResourceType
   = IP
   | URL

@@ -17,20 +17,27 @@ module Network.AWS.Shield.Types
 
     -- * Errors
     , _InvalidResourceException
+    , _AccessDeniedException
     , _InvalidParameterException
     , _LimitsExceededException
     , _InternalErrorException
     , _ResourceAlreadyExistsException
     , _OptimisticLockException
+    , _NoAssociatedRoleException
+    , _AccessDeniedForDependencyException
     , _InvalidOperationException
     , _LockedSubscriptionException
     , _ResourceNotFoundException
+    , _InvalidPaginationTokenException
 
     -- * AttackLayer
     , AttackLayer (..)
 
     -- * AttackPropertyIdentifier
     , AttackPropertyIdentifier (..)
+
+    -- * AutoRenew
+    , AutoRenew (..)
 
     -- * SubResourceType
     , SubResourceType (..)
@@ -82,6 +89,17 @@ module Network.AWS.Shield.Types
     , cValue
     , cName
 
+    -- * EmergencyContact
+    , EmergencyContact
+    , emergencyContact
+    , ecEmailAddress
+
+    -- * Limit
+    , Limit
+    , limit
+    , lMax
+    , lType
+
     -- * Mitigation
     , Mitigation
     , mitigation
@@ -107,6 +125,9 @@ module Network.AWS.Shield.Types
     , subscription
     , sTimeCommitmentInSeconds
     , sStartTime
+    , sLimits
+    , sAutoRenew
+    , sEndTime
 
     -- * SummarizedAttackVector
     , SummarizedAttackVector
@@ -183,6 +204,13 @@ _InvalidResourceException :: AsError a => Getting (First ServiceError) a Service
 _InvalidResourceException = _MatchServiceError shield "InvalidResourceException"
 
 
+-- | Exception that indicates the specified @AttackId@ does not exist, or the requester does not have the appropriate permissions to access the @AttackId@ .
+--
+--
+_AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
+_AccessDeniedException = _MatchServiceError shield "AccessDeniedException"
+
+
 -- | Exception that indicates that the parameters passed to the API are invalid.
 --
 --
@@ -224,6 +252,22 @@ _OptimisticLockException :: AsError a => Getting (First ServiceError) a ServiceE
 _OptimisticLockException = _MatchServiceError shield "OptimisticLockException"
 
 
+-- | The ARN of the role that you specifed does not exist.
+--
+--
+_NoAssociatedRoleException :: AsError a => Getting (First ServiceError) a ServiceError
+_NoAssociatedRoleException =
+  _MatchServiceError shield "NoAssociatedRoleException"
+
+
+-- | In order to grant the necessary access to the DDoS Response Team, the user submitting @AssociateDRTRole@ must have the @iam:PassRole@ permission. This error indicates the user did not have the appropriate permissions. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html Granting a User Permissions to Pass a Role to an AWS Service> .
+--
+--
+_AccessDeniedForDependencyException :: AsError a => Getting (First ServiceError) a ServiceError
+_AccessDeniedForDependencyException =
+  _MatchServiceError shield "AccessDeniedForDependencyException"
+
+
 -- | Exception that indicates that the operation would not cause any change to occur.
 --
 --
@@ -232,7 +276,7 @@ _InvalidOperationException =
   _MatchServiceError shield "InvalidOperationException"
 
 
--- | Exception that indicates that the subscription you are trying to delete has not yet completed the 1-year commitment. You cannot delete this subscription.
+-- | You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the @AutoRenew@ parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change @AutoRenew@ prior to that period.
 --
 --
 _LockedSubscriptionException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -246,4 +290,12 @@ _LockedSubscriptionException =
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
   _MatchServiceError shield "ResourceNotFoundException"
+
+
+-- | Exception that indicates that the NextToken specified in the request is invalid. Submit the request using the NextToken value that was returned in the response.
+--
+--
+_InvalidPaginationTokenException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidPaginationTokenException =
+  _MatchServiceError shield "InvalidPaginationTokenException"
 

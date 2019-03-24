@@ -45,17 +45,24 @@ library
 
     exposed-modules:
           Network.AWS.Shield
+        , Network.AWS.Shield.AssociateDRTLogBucket
+        , Network.AWS.Shield.AssociateDRTRole
         , Network.AWS.Shield.CreateProtection
         , Network.AWS.Shield.CreateSubscription
         , Network.AWS.Shield.DeleteProtection
-        , Network.AWS.Shield.DeleteSubscription
         , Network.AWS.Shield.DescribeAttack
+        , Network.AWS.Shield.DescribeDRTAccess
+        , Network.AWS.Shield.DescribeEmergencyContactSettings
         , Network.AWS.Shield.DescribeProtection
         , Network.AWS.Shield.DescribeSubscription
+        , Network.AWS.Shield.DisassociateDRTLogBucket
+        , Network.AWS.Shield.DisassociateDRTRole
         , Network.AWS.Shield.GetSubscriptionState
         , Network.AWS.Shield.ListAttacks
         , Network.AWS.Shield.ListProtections
         , Network.AWS.Shield.Types
+        , Network.AWS.Shield.UpdateEmergencyContactSettings
+        , Network.AWS.Shield.UpdateSubscription
         , Network.AWS.Shield.Waiters
 
     other-modules:

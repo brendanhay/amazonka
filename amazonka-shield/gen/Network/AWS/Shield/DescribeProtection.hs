@@ -28,6 +28,7 @@ module Network.AWS.Shield.DescribeProtection
     , DescribeProtection
     -- * Request Lenses
     , dpProtectionId
+    , dpResourceARN
 
     -- * Destructuring the Response
     , describeProtectionResponse
@@ -45,8 +46,9 @@ import Network.AWS.Shield.Types
 import Network.AWS.Shield.Types.Product
 
 -- | /See:/ 'describeProtection' smart constructor.
-newtype DescribeProtection = DescribeProtection'
-  { _dpProtectionId :: Text
+data DescribeProtection = DescribeProtection'
+  { _dpProtectionId :: !(Maybe Text)
+  , _dpResourceARN  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -54,17 +56,22 @@ newtype DescribeProtection = DescribeProtection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpProtectionId' - The unique identifier (ID) for the 'Protection' object that is described.
+-- * 'dpProtectionId' - The unique identifier (ID) for the 'Protection' object that is described. When submitting the @DescribeProtection@ request you must provide either the @ResourceArn@ or the @ProtectionID@ , but not both.
+--
+-- * 'dpResourceARN' - The ARN (Amazon Resource Name) of the AWS resource for the 'Protection' object that is described. When submitting the @DescribeProtection@ request you must provide either the @ResourceArn@ or the @ProtectionID@ , but not both.
 describeProtection
-    :: Text -- ^ 'dpProtectionId'
-    -> DescribeProtection
-describeProtection pProtectionId_ =
-  DescribeProtection' {_dpProtectionId = pProtectionId_}
+    :: DescribeProtection
+describeProtection =
+  DescribeProtection' {_dpProtectionId = Nothing, _dpResourceARN = Nothing}
 
 
--- | The unique identifier (ID) for the 'Protection' object that is described.
-dpProtectionId :: Lens' DescribeProtection Text
+-- | The unique identifier (ID) for the 'Protection' object that is described. When submitting the @DescribeProtection@ request you must provide either the @ResourceArn@ or the @ProtectionID@ , but not both.
+dpProtectionId :: Lens' DescribeProtection (Maybe Text)
 dpProtectionId = lens _dpProtectionId (\ s a -> s{_dpProtectionId = a})
+
+-- | The ARN (Amazon Resource Name) of the AWS resource for the 'Protection' object that is described. When submitting the @DescribeProtection@ request you must provide either the @ResourceArn@ or the @ProtectionID@ , but not both.
+dpResourceARN :: Lens' DescribeProtection (Maybe Text)
+dpResourceARN = lens _dpResourceARN (\ s a -> s{_dpResourceARN = a})
 
 instance AWSRequest DescribeProtection where
         type Rs DescribeProtection =
@@ -94,7 +101,8 @@ instance ToJSON DescribeProtection where
         toJSON DescribeProtection'{..}
           = object
               (catMaybes
-                 [Just ("ProtectionId" .= _dpProtectionId)])
+                 [("ProtectionId" .=) <$> _dpProtectionId,
+                  ("ResourceArn" .=) <$> _dpResourceARN])
 
 instance ToPath DescribeProtection where
         toPath = const "/"

@@ -21,6 +21,8 @@
 -- Returns all ongoing DDoS attacks or all DDoS attacks during a specified time period.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Shield.ListAttacks
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.Shield.ListAttacks
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -71,7 +74,7 @@ data ListAttacks = ListAttacks'
 --
 -- * 'laEndTime' - The end of the time period for the attacks. This is a @timestamp@ type. The sample request above indicates a @number@ type because the default used by WAF is Unix time in seconds. However any valid <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format> is allowed.
 --
--- * 'laMaxResults' - The maximum number of 'AttackSummary' objects to be returned. If this is left blank, the first 20 results will be returned.
+-- * 'laMaxResults' - The maximum number of 'AttackSummary' objects to be returned. If this is left blank, the first 20 results will be returned. This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of 'AttackSummary' objects returned could be less than @MaxResults@ , even if there are still more 'AttackSummary' objects yet to return. If there are more 'AttackSummary' objects to return, AWS WAF will always also return a @NextToken@ .
 listAttacks
     :: ListAttacks
 listAttacks =
@@ -100,9 +103,16 @@ laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a})
 laEndTime :: Lens' ListAttacks (Maybe TimeRange)
 laEndTime = lens _laEndTime (\ s a -> s{_laEndTime = a})
 
--- | The maximum number of 'AttackSummary' objects to be returned. If this is left blank, the first 20 results will be returned.
+-- | The maximum number of 'AttackSummary' objects to be returned. If this is left blank, the first 20 results will be returned. This is a maximum value; it is possible that AWS WAF will return the results in smaller batches. That is, the number of 'AttackSummary' objects returned could be less than @MaxResults@ , even if there are still more 'AttackSummary' objects yet to return. If there are more 'AttackSummary' objects to return, AWS WAF will always also return a @NextToken@ .
 laMaxResults :: Lens' ListAttacks (Maybe Natural)
 laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListAttacks where
+        page rq rs
+          | stop (rs ^. larsNextToken) = Nothing
+          | stop (rs ^. larsAttackSummaries) = Nothing
+          | otherwise =
+            Just $ rq & laNextToken .~ rs ^. larsNextToken
 
 instance AWSRequest ListAttacks where
         type Rs ListAttacks = ListAttacksResponse
@@ -158,7 +168,7 @@ data ListAttacksResponse = ListAttacksResponse'
 --
 -- * 'larsAttackSummaries' - The attack information for the specified time range.
 --
--- * 'larsNextToken' - The token returned by a previous call to indicate that there is more data available. If not null, more results are available. Pass this value for the @NextMarker@ parameter in a subsequent call to @ListAttacks@ to retrieve the next set of items.
+-- * 'larsNextToken' - The token returned by a previous call to indicate that there is more data available. If not null, more results are available. Pass this value for the @NextMarker@ parameter in a subsequent call to @ListAttacks@ to retrieve the next set of items. AWS WAF might return the list of 'AttackSummary' objects in batches smaller than the number specified by MaxResults. If there are more 'AttackSummary' objects to return, AWS WAF will always also return a @NextToken@ .
 --
 -- * 'larsResponseStatus' - -- | The response status code.
 listAttacksResponse
@@ -176,7 +186,7 @@ listAttacksResponse pResponseStatus_ =
 larsAttackSummaries :: Lens' ListAttacksResponse [AttackSummary]
 larsAttackSummaries = lens _larsAttackSummaries (\ s a -> s{_larsAttackSummaries = a}) . _Default . _Coerce
 
--- | The token returned by a previous call to indicate that there is more data available. If not null, more results are available. Pass this value for the @NextMarker@ parameter in a subsequent call to @ListAttacks@ to retrieve the next set of items.
+-- | The token returned by a previous call to indicate that there is more data available. If not null, more results are available. Pass this value for the @NextMarker@ parameter in a subsequent call to @ListAttacks@ to retrieve the next set of items. AWS WAF might return the list of 'AttackSummary' objects in batches smaller than the number specified by MaxResults. If there are more 'AttackSummary' objects to return, AWS WAF will always also return a @NextToken@ .
 larsNextToken :: Lens' ListAttacksResponse (Maybe Text)
 larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a})
 

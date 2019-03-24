@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Uploads an object to the specified path. Object sizes are limited to 10 MB.
+-- Uploads an object to the specified path. Object sizes are limited to 25 MB.
 --
 --
 module Network.AWS.MediaStoreData.PutObject
@@ -149,37 +149,4 @@ data PutObjectResponse = PutObjectResponse'
 --
 -- * 'porsETag' - Unique identifier of the object in the container.
 --
--- * 'porsStorageClass' - The storage class where the object was persisted. Should be “Temporal”.
---
--- * 'porsContentSHA256' - The SHA256 digest of the object that is persisted.
---
--- * 'porsResponseStatus' - -- | The response status code.
-putObjectResponse
-    :: Int -- ^ 'porsResponseStatus'
-    -> PutObjectResponse
-putObjectResponse pResponseStatus_ =
-  PutObjectResponse'
-    { _porsETag = Nothing
-    , _porsStorageClass = Nothing
-    , _porsContentSHA256 = Nothing
-    , _porsResponseStatus = pResponseStatus_
-    }
-
-
--- | Unique identifier of the object in the container.
-porsETag :: Lens' PutObjectResponse (Maybe Text)
-porsETag = lens _porsETag (\ s a -> s{_porsETag = a})
-
--- | The storage class where the object was persisted. Should be “Temporal”.
-porsStorageClass :: Lens' PutObjectResponse (Maybe StorageClass)
-porsStorageClass = lens _porsStorageClass (\ s a -> s{_porsStorageClass = a})
-
--- | The SHA256 digest of the object that is persisted.
-porsContentSHA256 :: Lens' PutObjectResponse (Maybe Text)
-porsContentSHA256 = lens _porsContentSHA256 (\ s a -> s{_porsContentSHA256 = a})
-
--- | -- | The response status code.
-porsResponseStatus :: Lens' PutObjectResponse Int
-porsResponseStatus = lens _porsResponseStatus (\ s a -> s{_porsResponseStatus = a})
-
-instance NFData PutObjectResponse where
+-- * 'porsStorageClass' - The storage class where the object was persisted. The class should be

@@ -52,7 +52,7 @@ module Network.AWS.MediaStoreData
     -- ** GetObject
     , module Network.AWS.MediaStoreData.GetObject
 
-    -- ** ListItems
+    -- ** ListItems (Paginated)
     , module Network.AWS.MediaStoreData.ListItems
 
     -- * Types

@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.MediaStoreData
 import Test.AWS.MediaStoreData.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "MediaStoreData"

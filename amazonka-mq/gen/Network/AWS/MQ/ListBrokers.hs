@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of all brokers.
+--
+-- This operation returns paginated results.
 module Network.AWS.MQ.ListBrokers
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.MQ.ListBrokers
 import Network.AWS.Lens
 import Network.AWS.MQ.Types
 import Network.AWS.MQ.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -70,6 +73,13 @@ lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a})
 -- | The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
 lbMaxResults :: Lens' ListBrokers (Maybe Natural)
 lbMaxResults = lens _lbMaxResults (\ s a -> s{_lbMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListBrokers where
+        page rq rs
+          | stop (rs ^. lbrsNextToken) = Nothing
+          | stop (rs ^. lbrsBrokerSummaries) = Nothing
+          | otherwise =
+            Just $ rq & lbNextToken .~ rs ^. lbrsNextToken
 
 instance AWSRequest ListBrokers where
         type Rs ListBrokers = ListBrokersResponse

@@ -39,12 +39,16 @@ module Network.AWS.MQ.DescribeBroker
     , dbrsSecurityGroups
     , dbrsUsers
     , dbrsSubnetIds
+    , dbrsCreated
     , dbrsConfigurations
     , dbrsMaintenanceWindowStartTime
+    , dbrsLogs
     , dbrsDeploymentMode
+    , dbrsPendingEngineVersion
     , dbrsBrokerId
     , dbrsEngineType
     , dbrsBrokerARN
+    , dbrsTags
     , dbrsBrokerInstances
     , dbrsHostInstanceType
     , dbrsResponseStatus
@@ -92,12 +96,16 @@ instance AWSRequest DescribeBroker where
                      <*> (x .?> "securityGroups" .!@ mempty)
                      <*> (x .?> "users" .!@ mempty)
                      <*> (x .?> "subnetIds" .!@ mempty)
+                     <*> (x .?> "created")
                      <*> (x .?> "configurations")
                      <*> (x .?> "maintenanceWindowStartTime")
+                     <*> (x .?> "logs")
                      <*> (x .?> "deploymentMode")
+                     <*> (x .?> "pendingEngineVersion")
                      <*> (x .?> "brokerId")
                      <*> (x .?> "engineType")
                      <*> (x .?> "brokerArn")
+                     <*> (x .?> "tags" .!@ mempty)
                      <*> (x .?> "brokerInstances" .!@ mempty)
                      <*> (x .?> "hostInstanceType")
                      <*> (pure (fromEnum s)))
@@ -130,12 +138,16 @@ data DescribeBrokerResponse = DescribeBrokerResponse'
   , _dbrsSecurityGroups             :: !(Maybe [Text])
   , _dbrsUsers                      :: !(Maybe [UserSummary])
   , _dbrsSubnetIds                  :: !(Maybe [Text])
+  , _dbrsCreated                    :: !(Maybe POSIX)
   , _dbrsConfigurations             :: !(Maybe Configurations)
   , _dbrsMaintenanceWindowStartTime :: !(Maybe WeeklyStartTime)
+  , _dbrsLogs                       :: !(Maybe LogsSummary)
   , _dbrsDeploymentMode             :: !(Maybe DeploymentMode)
+  , _dbrsPendingEngineVersion       :: !(Maybe Text)
   , _dbrsBrokerId                   :: !(Maybe Text)
   , _dbrsEngineType                 :: !(Maybe EngineType)
   , _dbrsBrokerARN                  :: !(Maybe Text)
+  , _dbrsTags                       :: !(Maybe (Map Text Text))
   , _dbrsBrokerInstances            :: !(Maybe [BrokerInstance])
   , _dbrsHostInstanceType           :: !(Maybe Text)
   , _dbrsResponseStatus             :: !Int
@@ -148,9 +160,9 @@ data DescribeBrokerResponse = DescribeBrokerResponse'
 --
 -- * 'dbrsBrokerName' - The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
 --
--- * 'dbrsEngineVersion' - The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0.
+-- * 'dbrsEngineVersion' - The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
 --
--- * 'dbrsBrokerState' - The status of the broker. Possible values: CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS, RUNNING, REBOOT_IN_PROGRESS
+-- * 'dbrsBrokerState' - The status of the broker.
 --
 -- * 'dbrsPubliclyAccessible' - Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
 --
@@ -162,11 +174,17 @@ data DescribeBrokerResponse = DescribeBrokerResponse'
 --
 -- * 'dbrsSubnetIds' - The list of groups (2 maximum) that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
 --
+-- * 'dbrsCreated' - The time when the broker was created.
+--
 -- * 'dbrsConfigurations' - The list of all revisions for the specified configuration.
 --
 -- * 'dbrsMaintenanceWindowStartTime' - The parameters that determine the WeeklyStartTime.
 --
--- * 'dbrsDeploymentMode' - Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates an active/standby broker for high availability.
+-- * 'dbrsLogs' - The list of information about logs currently enabled and pending to be deployed for the specified broker.
+--
+-- * 'dbrsDeploymentMode' - Required. The deployment mode of the broker.
+--
+-- * 'dbrsPendingEngineVersion' - The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
 --
 -- * 'dbrsBrokerId' - The unique ID that Amazon MQ generates for the broker.
 --
@@ -174,9 +192,11 @@ data DescribeBrokerResponse = DescribeBrokerResponse'
 --
 -- * 'dbrsBrokerARN' - The Amazon Resource Name (ARN) of the broker.
 --
+-- * 'dbrsTags' - The list of all tags associated with this broker.
+--
 -- * 'dbrsBrokerInstances' - A list of information about allocated brokers.
 --
--- * 'dbrsHostInstanceType' - The broker's instance type. Possible values: mq.t2.micro, mq.m4.large
+-- * 'dbrsHostInstanceType' - The broker's instance type.
 --
 -- * 'dbrsResponseStatus' - -- | The response status code.
 describeBrokerResponse
@@ -192,12 +212,16 @@ describeBrokerResponse pResponseStatus_ =
     , _dbrsSecurityGroups = Nothing
     , _dbrsUsers = Nothing
     , _dbrsSubnetIds = Nothing
+    , _dbrsCreated = Nothing
     , _dbrsConfigurations = Nothing
     , _dbrsMaintenanceWindowStartTime = Nothing
+    , _dbrsLogs = Nothing
     , _dbrsDeploymentMode = Nothing
+    , _dbrsPendingEngineVersion = Nothing
     , _dbrsBrokerId = Nothing
     , _dbrsEngineType = Nothing
     , _dbrsBrokerARN = Nothing
+    , _dbrsTags = Nothing
     , _dbrsBrokerInstances = Nothing
     , _dbrsHostInstanceType = Nothing
     , _dbrsResponseStatus = pResponseStatus_
@@ -208,11 +232,11 @@ describeBrokerResponse pResponseStatus_ =
 dbrsBrokerName :: Lens' DescribeBrokerResponse (Maybe Text)
 dbrsBrokerName = lens _dbrsBrokerName (\ s a -> s{_dbrsBrokerName = a})
 
--- | The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0.
+-- | The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
 dbrsEngineVersion :: Lens' DescribeBrokerResponse (Maybe Text)
 dbrsEngineVersion = lens _dbrsEngineVersion (\ s a -> s{_dbrsEngineVersion = a})
 
--- | The status of the broker. Possible values: CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS, RUNNING, REBOOT_IN_PROGRESS
+-- | The status of the broker.
 dbrsBrokerState :: Lens' DescribeBrokerResponse (Maybe BrokerState)
 dbrsBrokerState = lens _dbrsBrokerState (\ s a -> s{_dbrsBrokerState = a})
 
@@ -236,6 +260,10 @@ dbrsUsers = lens _dbrsUsers (\ s a -> s{_dbrsUsers = a}) . _Default . _Coerce
 dbrsSubnetIds :: Lens' DescribeBrokerResponse [Text]
 dbrsSubnetIds = lens _dbrsSubnetIds (\ s a -> s{_dbrsSubnetIds = a}) . _Default . _Coerce
 
+-- | The time when the broker was created.
+dbrsCreated :: Lens' DescribeBrokerResponse (Maybe UTCTime)
+dbrsCreated = lens _dbrsCreated (\ s a -> s{_dbrsCreated = a}) . mapping _Time
+
 -- | The list of all revisions for the specified configuration.
 dbrsConfigurations :: Lens' DescribeBrokerResponse (Maybe Configurations)
 dbrsConfigurations = lens _dbrsConfigurations (\ s a -> s{_dbrsConfigurations = a})
@@ -244,9 +272,17 @@ dbrsConfigurations = lens _dbrsConfigurations (\ s a -> s{_dbrsConfigurations = 
 dbrsMaintenanceWindowStartTime :: Lens' DescribeBrokerResponse (Maybe WeeklyStartTime)
 dbrsMaintenanceWindowStartTime = lens _dbrsMaintenanceWindowStartTime (\ s a -> s{_dbrsMaintenanceWindowStartTime = a})
 
--- | Required. The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates an active/standby broker for high availability.
+-- | The list of information about logs currently enabled and pending to be deployed for the specified broker.
+dbrsLogs :: Lens' DescribeBrokerResponse (Maybe LogsSummary)
+dbrsLogs = lens _dbrsLogs (\ s a -> s{_dbrsLogs = a})
+
+-- | Required. The deployment mode of the broker.
 dbrsDeploymentMode :: Lens' DescribeBrokerResponse (Maybe DeploymentMode)
 dbrsDeploymentMode = lens _dbrsDeploymentMode (\ s a -> s{_dbrsDeploymentMode = a})
+
+-- | The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+dbrsPendingEngineVersion :: Lens' DescribeBrokerResponse (Maybe Text)
+dbrsPendingEngineVersion = lens _dbrsPendingEngineVersion (\ s a -> s{_dbrsPendingEngineVersion = a})
 
 -- | The unique ID that Amazon MQ generates for the broker.
 dbrsBrokerId :: Lens' DescribeBrokerResponse (Maybe Text)
@@ -260,11 +296,15 @@ dbrsEngineType = lens _dbrsEngineType (\ s a -> s{_dbrsEngineType = a})
 dbrsBrokerARN :: Lens' DescribeBrokerResponse (Maybe Text)
 dbrsBrokerARN = lens _dbrsBrokerARN (\ s a -> s{_dbrsBrokerARN = a})
 
+-- | The list of all tags associated with this broker.
+dbrsTags :: Lens' DescribeBrokerResponse (HashMap Text Text)
+dbrsTags = lens _dbrsTags (\ s a -> s{_dbrsTags = a}) . _Default . _Map
+
 -- | A list of information about allocated brokers.
 dbrsBrokerInstances :: Lens' DescribeBrokerResponse [BrokerInstance]
 dbrsBrokerInstances = lens _dbrsBrokerInstances (\ s a -> s{_dbrsBrokerInstances = a}) . _Default . _Coerce
 
--- | The broker's instance type. Possible values: mq.t2.micro, mq.m4.large
+-- | The broker's instance type.
 dbrsHostInstanceType :: Lens' DescribeBrokerResponse (Maybe Text)
 dbrsHostInstanceType = lens _dbrsHostInstanceType (\ s a -> s{_dbrsHostInstanceType = a})
 

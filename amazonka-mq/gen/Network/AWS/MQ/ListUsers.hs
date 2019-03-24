@@ -123,7 +123,7 @@ data ListUsersResponse = ListUsersResponse'
   { _lursUsers          :: !(Maybe [UserSummary])
   , _lursNextToken      :: !(Maybe Text)
   , _lursBrokerId       :: !(Maybe Text)
-  , _lursMaxResults     :: !(Maybe Int)
+  , _lursMaxResults     :: !(Maybe Nat)
   , _lursResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -167,8 +167,8 @@ lursBrokerId :: Lens' ListUsersResponse (Maybe Text)
 lursBrokerId = lens _lursBrokerId (\ s a -> s{_lursBrokerId = a})
 
 -- | Required. The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.
-lursMaxResults :: Lens' ListUsersResponse (Maybe Int)
-lursMaxResults = lens _lursMaxResults (\ s a -> s{_lursMaxResults = a})
+lursMaxResults :: Lens' ListUsersResponse (Maybe Natural)
+lursMaxResults = lens _lursMaxResults (\ s a -> s{_lursMaxResults = a}) . mapping _Nat
 
 -- | -- | The response status code.
 lursResponseStatus :: Lens' ListUsersResponse Int

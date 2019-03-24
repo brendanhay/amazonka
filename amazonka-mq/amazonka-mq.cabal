@@ -47,8 +47,10 @@ library
           Network.AWS.MQ
         , Network.AWS.MQ.CreateBroker
         , Network.AWS.MQ.CreateConfiguration
+        , Network.AWS.MQ.CreateTags
         , Network.AWS.MQ.CreateUser
         , Network.AWS.MQ.DeleteBroker
+        , Network.AWS.MQ.DeleteTags
         , Network.AWS.MQ.DeleteUser
         , Network.AWS.MQ.DescribeBroker
         , Network.AWS.MQ.DescribeConfiguration
@@ -57,6 +59,7 @@ library
         , Network.AWS.MQ.ListBrokers
         , Network.AWS.MQ.ListConfigurationRevisions
         , Network.AWS.MQ.ListConfigurations
+        , Network.AWS.MQ.ListTags
         , Network.AWS.MQ.ListUsers
         , Network.AWS.MQ.RebootBroker
         , Network.AWS.MQ.Types

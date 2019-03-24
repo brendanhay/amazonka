@@ -46,8 +46,14 @@ import Test.Tasty
 --         , requestListConfigurationRevisions $
 --             listConfigurationRevisions
 --
+--         , requestCreateTags $
+--             createTags
+--
 --         , requestListUsers $
 --             listUsers
+--
+--         , requestDeleteTags $
+--             deleteTags
 --
 --         , requestListConfigurations $
 --             listConfigurations
@@ -69,6 +75,9 @@ import Test.Tasty
 --
 --         , requestDeleteUser $
 --             deleteUser
+--
+--         , requestListTags $
+--             listTags
 --
 --         , requestDescribeConfigurationRevision $
 --             describeConfigurationRevision
@@ -100,8 +109,14 @@ import Test.Tasty
 --         , responseListConfigurationRevisions $
 --             listConfigurationRevisionsResponse
 --
+--         , responseCreateTags $
+--             createTagsResponse
+--
 --         , responseListUsers $
 --             listUsersResponse
+--
+--         , responseDeleteTags $
+--             deleteTagsResponse
 --
 --         , responseListConfigurations $
 --             listConfigurationsResponse
@@ -123,6 +138,9 @@ import Test.Tasty
 --
 --         , responseDeleteUser $
 --             deleteUserResponse
+--
+--         , responseListTags $
+--             listTagsResponse
 --
 --         , responseDescribeConfigurationRevision $
 --             describeConfigurationRevisionResponse
@@ -168,10 +186,20 @@ requestListConfigurationRevisions = req
     "ListConfigurationRevisions"
     "fixture/ListConfigurationRevisions.yaml"
 
+requestCreateTags :: CreateTags -> TestTree
+requestCreateTags = req
+    "CreateTags"
+    "fixture/CreateTags.yaml"
+
 requestListUsers :: ListUsers -> TestTree
 requestListUsers = req
     "ListUsers"
     "fixture/ListUsers.yaml"
+
+requestDeleteTags :: DeleteTags -> TestTree
+requestDeleteTags = req
+    "DeleteTags"
+    "fixture/DeleteTags.yaml"
 
 requestListConfigurations :: ListConfigurations -> TestTree
 requestListConfigurations = req
@@ -207,6 +235,11 @@ requestDeleteUser :: DeleteUser -> TestTree
 requestDeleteUser = req
     "DeleteUser"
     "fixture/DeleteUser.yaml"
+
+requestListTags :: ListTags -> TestTree
+requestListTags = req
+    "ListTags"
+    "fixture/ListTags.yaml"
 
 requestDescribeConfigurationRevision :: DescribeConfigurationRevision -> TestTree
 requestDescribeConfigurationRevision = req
@@ -267,12 +300,26 @@ responseListConfigurationRevisions = res
     mq
     (Proxy :: Proxy ListConfigurationRevisions)
 
+responseCreateTags :: CreateTagsResponse -> TestTree
+responseCreateTags = res
+    "CreateTagsResponse"
+    "fixture/CreateTagsResponse.proto"
+    mq
+    (Proxy :: Proxy CreateTags)
+
 responseListUsers :: ListUsersResponse -> TestTree
 responseListUsers = res
     "ListUsersResponse"
     "fixture/ListUsersResponse.proto"
     mq
     (Proxy :: Proxy ListUsers)
+
+responseDeleteTags :: DeleteTagsResponse -> TestTree
+responseDeleteTags = res
+    "DeleteTagsResponse"
+    "fixture/DeleteTagsResponse.proto"
+    mq
+    (Proxy :: Proxy DeleteTags)
 
 responseListConfigurations :: ListConfigurationsResponse -> TestTree
 responseListConfigurations = res
@@ -322,6 +369,13 @@ responseDeleteUser = res
     "fixture/DeleteUserResponse.proto"
     mq
     (Proxy :: Proxy DeleteUser)
+
+responseListTags :: ListTagsResponse -> TestTree
+responseListTags = res
+    "ListTagsResponse"
+    "fixture/ListTagsResponse.proto"
+    mq
+    (Proxy :: Proxy ListTags)
 
 responseDescribeConfigurationRevision :: DescribeConfigurationRevisionResponse -> TestTree
 responseDescribeConfigurationRevision = res

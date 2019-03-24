@@ -25,6 +25,9 @@ module Network.AWS.MQ.UpdateBroker
       updateBroker
     , UpdateBroker
     -- * Request Lenses
+    , ubEngineVersion
+    , ubAutoMinorVersionUpgrade
+    , ubLogs
     , ubConfiguration
     , ubBrokerId
 
@@ -32,6 +35,9 @@ module Network.AWS.MQ.UpdateBroker
     , updateBrokerResponse
     , UpdateBrokerResponse
     -- * Response Lenses
+    , ubrsEngineVersion
+    , ubrsAutoMinorVersionUpgrade
+    , ubrsLogs
     , ubrsConfiguration
     , ubrsBrokerId
     , ubrsResponseStatus
@@ -48,14 +54,23 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateBroker' smart constructor.
 data UpdateBroker = UpdateBroker'
-  { _ubConfiguration :: !(Maybe ConfigurationId)
-  , _ubBrokerId      :: !Text
+  { _ubEngineVersion           :: !(Maybe Text)
+  , _ubAutoMinorVersionUpgrade :: !(Maybe Bool)
+  , _ubLogs                    :: !(Maybe Logs)
+  , _ubConfiguration           :: !(Maybe ConfigurationId)
+  , _ubBrokerId                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'UpdateBroker' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ubEngineVersion' - The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+--
+-- * 'ubAutoMinorVersionUpgrade' - Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
+--
+-- * 'ubLogs' - Enables Amazon CloudWatch logging for brokers.
 --
 -- * 'ubConfiguration' - A list of information about the configuration.
 --
@@ -64,8 +79,26 @@ updateBroker
     :: Text -- ^ 'ubBrokerId'
     -> UpdateBroker
 updateBroker pBrokerId_ =
-  UpdateBroker' {_ubConfiguration = Nothing, _ubBrokerId = pBrokerId_}
+  UpdateBroker'
+    { _ubEngineVersion = Nothing
+    , _ubAutoMinorVersionUpgrade = Nothing
+    , _ubLogs = Nothing
+    , _ubConfiguration = Nothing
+    , _ubBrokerId = pBrokerId_
+    }
 
+
+-- | The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+ubEngineVersion :: Lens' UpdateBroker (Maybe Text)
+ubEngineVersion = lens _ubEngineVersion (\ s a -> s{_ubEngineVersion = a})
+
+-- | Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
+ubAutoMinorVersionUpgrade :: Lens' UpdateBroker (Maybe Bool)
+ubAutoMinorVersionUpgrade = lens _ubAutoMinorVersionUpgrade (\ s a -> s{_ubAutoMinorVersionUpgrade = a})
+
+-- | Enables Amazon CloudWatch logging for brokers.
+ubLogs :: Lens' UpdateBroker (Maybe Logs)
+ubLogs = lens _ubLogs (\ s a -> s{_ubLogs = a})
 
 -- | A list of information about the configuration.
 ubConfiguration :: Lens' UpdateBroker (Maybe ConfigurationId)
@@ -82,8 +115,12 @@ instance AWSRequest UpdateBroker where
           = receiveJSON
               (\ s h x ->
                  UpdateBrokerResponse' <$>
-                   (x .?> "configuration") <*> (x .?> "brokerId") <*>
-                     (pure (fromEnum s)))
+                   (x .?> "engineVersion") <*>
+                     (x .?> "autoMinorVersionUpgrade")
+                     <*> (x .?> "logs")
+                     <*> (x .?> "configuration")
+                     <*> (x .?> "brokerId")
+                     <*> (pure (fromEnum s)))
 
 instance Hashable UpdateBroker where
 
@@ -100,7 +137,11 @@ instance ToJSON UpdateBroker where
         toJSON UpdateBroker'{..}
           = object
               (catMaybes
-                 [("configuration" .=) <$> _ubConfiguration])
+                 [("engineVersion" .=) <$> _ubEngineVersion,
+                  ("autoMinorVersionUpgrade" .=) <$>
+                    _ubAutoMinorVersionUpgrade,
+                  ("logs" .=) <$> _ubLogs,
+                  ("configuration" .=) <$> _ubConfiguration])
 
 instance ToPath UpdateBroker where
         toPath UpdateBroker'{..}
@@ -111,15 +152,24 @@ instance ToQuery UpdateBroker where
 
 -- | /See:/ 'updateBrokerResponse' smart constructor.
 data UpdateBrokerResponse = UpdateBrokerResponse'
-  { _ubrsConfiguration  :: !(Maybe ConfigurationId)
-  , _ubrsBrokerId       :: !(Maybe Text)
-  , _ubrsResponseStatus :: !Int
+  { _ubrsEngineVersion           :: !(Maybe Text)
+  , _ubrsAutoMinorVersionUpgrade :: !(Maybe Bool)
+  , _ubrsLogs                    :: !(Maybe Logs)
+  , _ubrsConfiguration           :: !(Maybe ConfigurationId)
+  , _ubrsBrokerId                :: !(Maybe Text)
+  , _ubrsResponseStatus          :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'UpdateBrokerResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ubrsEngineVersion' - The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+--
+-- * 'ubrsAutoMinorVersionUpgrade' - The new value of automatic upgrades to new minor version for brokers.
+--
+-- * 'ubrsLogs' - The list of information about logs to be enabled for the specified broker.
 --
 -- * 'ubrsConfiguration' - The ID of the updated configuration.
 --
@@ -131,11 +181,26 @@ updateBrokerResponse
     -> UpdateBrokerResponse
 updateBrokerResponse pResponseStatus_ =
   UpdateBrokerResponse'
-    { _ubrsConfiguration = Nothing
+    { _ubrsEngineVersion = Nothing
+    , _ubrsAutoMinorVersionUpgrade = Nothing
+    , _ubrsLogs = Nothing
+    , _ubrsConfiguration = Nothing
     , _ubrsBrokerId = Nothing
     , _ubrsResponseStatus = pResponseStatus_
     }
 
+
+-- | The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+ubrsEngineVersion :: Lens' UpdateBrokerResponse (Maybe Text)
+ubrsEngineVersion = lens _ubrsEngineVersion (\ s a -> s{_ubrsEngineVersion = a})
+
+-- | The new value of automatic upgrades to new minor version for brokers.
+ubrsAutoMinorVersionUpgrade :: Lens' UpdateBrokerResponse (Maybe Bool)
+ubrsAutoMinorVersionUpgrade = lens _ubrsAutoMinorVersionUpgrade (\ s a -> s{_ubrsAutoMinorVersionUpgrade = a})
+
+-- | The list of information about logs to be enabled for the specified broker.
+ubrsLogs :: Lens' UpdateBrokerResponse (Maybe Logs)
+ubrsLogs = lens _ubrsLogs (\ s a -> s{_ubrsLogs = a})
 
 -- | The ID of the updated configuration.
 ubrsConfiguration :: Lens' UpdateBrokerResponse (Maybe ConfigurationId)

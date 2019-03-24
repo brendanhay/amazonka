@@ -44,6 +44,7 @@ module Network.AWS.MQ.Types
     -- * BrokerInstance
     , BrokerInstance
     , brokerInstance
+    , biIPAddress
     , biConsoleURL
     , biEndpoints
 
@@ -52,6 +53,7 @@ module Network.AWS.MQ.Types
     , brokerSummary
     , bsBrokerName
     , bsBrokerState
+    , bsCreated
     , bsDeploymentMode
     , bsBrokerId
     , bsBrokerARN
@@ -63,10 +65,12 @@ module Network.AWS.MQ.Types
     , cEngineVersion
     , cARN
     , cLatestRevision
+    , cCreated
     , cName
     , cId
     , cDescription
     , cEngineType
+    , cTags
 
     -- * ConfigurationId
     , ConfigurationId
@@ -77,6 +81,7 @@ module Network.AWS.MQ.Types
     -- * ConfigurationRevision
     , ConfigurationRevision
     , configurationRevision
+    , crCreated
     , crRevision
     , crDescription
 
@@ -86,6 +91,27 @@ module Network.AWS.MQ.Types
     , cPending
     , cHistory
     , cCurrent
+
+    -- * Logs
+    , Logs
+    , logs
+    , lAudit
+    , lGeneral
+
+    -- * LogsSummary
+    , LogsSummary
+    , logsSummary
+    , lsPending
+    , lsAudit
+    , lsGeneral
+    , lsGeneralLogGroup
+    , lsAuditLogGroup
+
+    -- * PendingLogs
+    , PendingLogs
+    , pendingLogs
+    , plAudit
+    , plGeneral
 
     -- * SanitizationWarning
     , SanitizationWarning

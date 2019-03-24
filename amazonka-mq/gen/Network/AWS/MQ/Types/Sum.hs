@@ -19,7 +19,7 @@ module Network.AWS.MQ.Types.Sum where
 
 import Network.AWS.Prelude
 
--- | The status of the broker. Possible values: CREATION_IN_PROGRESS, CREATION_FAILED, DELETION_IN_PROGRESS, RUNNING, REBOOT_IN_PROGRESS
+-- | The status of the broker.
 data BrokerState
   = CreationFailed
   | CreationInProgress
@@ -56,7 +56,7 @@ instance ToHeader     BrokerState
 instance FromJSON BrokerState where
     parseJSON = parseJSONText "BrokerState"
 
--- | The type of change pending for the ActiveMQ user. Possible values: CREATE, UPDATE, DELETE
+-- | The type of change pending for the ActiveMQ user.
 data ChangeType
   = Create
   | Delete
@@ -132,7 +132,7 @@ instance ToJSON DayOfWeek where
 instance FromJSON DayOfWeek where
     parseJSON = parseJSONText "DayOfWeek"
 
--- | The deployment mode of the broker. Possible values: SINGLE_INSTANCE, ACTIVE_STANDBY_MULTI_AZ SINGLE_INSTANCE creates a single-instance broker in a single Availability Zone. ACTIVE_STANDBY_MULTI_AZ creates an active/standby broker for high availability.
+-- | The deployment mode of the broker.
 data DeploymentMode
   = ActiveStandbyMultiAz
   | SingleInstance
@@ -191,7 +191,7 @@ instance ToJSON EngineType where
 instance FromJSON EngineType where
     parseJSON = parseJSONText "EngineType"
 
--- | The reason for which the XML elements or attributes were sanitized. Possible values: DISALLOWED_ELEMENT_REMOVED, DISALLOWED_ATTRIBUTE_REMOVED, INVALID_ATTRIBUTE_VALUE_REMOVED DISALLOWED_ELEMENT_REMOVED shows that the provided element isn't allowed and has been removed. DISALLOWED_ATTRIBUTE_REMOVED shows that the provided attribute isn't allowed and has been removed. INVALID_ATTRIBUTE_VALUE_REMOVED shows that the provided value for the attribute isn't allowed and has been removed.
+-- | The reason for which the XML elements or attributes were sanitized.
 data SanitizationWarningReason
   = DisallowedAttributeRemoved
   | DisallowedElementRemoved

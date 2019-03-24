@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version). Note: If the configuration name already exists, Amazon MQ doesn't create a configuration.
+-- Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).
 module Network.AWS.MQ.CreateConfiguration
     (
     -- * Creating a Request
@@ -28,6 +28,7 @@ module Network.AWS.MQ.CreateConfiguration
     , ccEngineVersion
     , ccName
     , ccEngineType
+    , ccTags
 
     -- * Destructuring the Response
     , createConfigurationResponse
@@ -35,6 +36,7 @@ module Network.AWS.MQ.CreateConfiguration
     -- * Response Lenses
     , ccrsARN
     , ccrsLatestRevision
+    , ccrsCreated
     , ccrsName
     , ccrsId
     , ccrsResponseStatus
@@ -47,13 +49,14 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version). Note: If the configuration name already exists, Amazon MQ doesn't create a configuration.
+-- | Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).
 --
 -- /See:/ 'createConfiguration' smart constructor.
 data CreateConfiguration = CreateConfiguration'
   { _ccEngineVersion :: !(Maybe Text)
   , _ccName          :: !(Maybe Text)
   , _ccEngineType    :: !(Maybe EngineType)
+  , _ccTags          :: !(Maybe (Map Text Text))
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -61,19 +64,25 @@ data CreateConfiguration = CreateConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccEngineVersion' - Required. The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0.
+-- * 'ccEngineVersion' - Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
 --
 -- * 'ccName' - Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
 --
 -- * 'ccEngineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports only ACTIVEMQ.
+--
+-- * 'ccTags' - Create tags when creating the configuration.
 createConfiguration
     :: CreateConfiguration
 createConfiguration =
   CreateConfiguration'
-    {_ccEngineVersion = Nothing, _ccName = Nothing, _ccEngineType = Nothing}
+    { _ccEngineVersion = Nothing
+    , _ccName = Nothing
+    , _ccEngineType = Nothing
+    , _ccTags = Nothing
+    }
 
 
--- | Required. The version of the broker engine. Note: Currently, Amazon MQ supports only 5.15.0.
+-- | Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
 ccEngineVersion :: Lens' CreateConfiguration (Maybe Text)
 ccEngineVersion = lens _ccEngineVersion (\ s a -> s{_ccEngineVersion = a})
 
@@ -85,6 +94,10 @@ ccName = lens _ccName (\ s a -> s{_ccName = a})
 ccEngineType :: Lens' CreateConfiguration (Maybe EngineType)
 ccEngineType = lens _ccEngineType (\ s a -> s{_ccEngineType = a})
 
+-- | Create tags when creating the configuration.
+ccTags :: Lens' CreateConfiguration (HashMap Text Text)
+ccTags = lens _ccTags (\ s a -> s{_ccTags = a}) . _Default . _Map
+
 instance AWSRequest CreateConfiguration where
         type Rs CreateConfiguration =
              CreateConfigurationResponse
@@ -94,7 +107,8 @@ instance AWSRequest CreateConfiguration where
               (\ s h x ->
                  CreateConfigurationResponse' <$>
                    (x .?> "arn") <*> (x .?> "latestRevision") <*>
-                     (x .?> "name")
+                     (x .?> "created")
+                     <*> (x .?> "name")
                      <*> (x .?> "id")
                      <*> (pure (fromEnum s)))
 
@@ -115,7 +129,8 @@ instance ToJSON CreateConfiguration where
               (catMaybes
                  [("engineVersion" .=) <$> _ccEngineVersion,
                   ("name" .=) <$> _ccName,
-                  ("engineType" .=) <$> _ccEngineType])
+                  ("engineType" .=) <$> _ccEngineType,
+                  ("tags" .=) <$> _ccTags])
 
 instance ToPath CreateConfiguration where
         toPath = const "/v1/configurations"
@@ -127,6 +142,7 @@ instance ToQuery CreateConfiguration where
 data CreateConfigurationResponse = CreateConfigurationResponse'
   { _ccrsARN            :: !(Maybe Text)
   , _ccrsLatestRevision :: !(Maybe ConfigurationRevision)
+  , _ccrsCreated        :: !(Maybe POSIX)
   , _ccrsName           :: !(Maybe Text)
   , _ccrsId             :: !(Maybe Text)
   , _ccrsResponseStatus :: !Int
@@ -141,6 +157,8 @@ data CreateConfigurationResponse = CreateConfigurationResponse'
 --
 -- * 'ccrsLatestRevision' - The latest revision of the configuration.
 --
+-- * 'ccrsCreated' - Required. The date and time of the configuration.
+--
 -- * 'ccrsName' - Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
 --
 -- * 'ccrsId' - Required. The unique ID that Amazon MQ generates for the configuration.
@@ -153,6 +171,7 @@ createConfigurationResponse pResponseStatus_ =
   CreateConfigurationResponse'
     { _ccrsARN = Nothing
     , _ccrsLatestRevision = Nothing
+    , _ccrsCreated = Nothing
     , _ccrsName = Nothing
     , _ccrsId = Nothing
     , _ccrsResponseStatus = pResponseStatus_
@@ -166,6 +185,10 @@ ccrsARN = lens _ccrsARN (\ s a -> s{_ccrsARN = a})
 -- | The latest revision of the configuration.
 ccrsLatestRevision :: Lens' CreateConfigurationResponse (Maybe ConfigurationRevision)
 ccrsLatestRevision = lens _ccrsLatestRevision (\ s a -> s{_ccrsLatestRevision = a})
+
+-- | Required. The date and time of the configuration.
+ccrsCreated :: Lens' CreateConfigurationResponse (Maybe UTCTime)
+ccrsCreated = lens _ccrsCreated (\ s a -> s{_ccrsCreated = a}) . mapping _Time
 
 -- | Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
 ccrsName :: Lens' CreateConfigurationResponse (Maybe Text)

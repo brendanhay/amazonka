@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.MarketplaceMetering
 import Test.AWS.MarketplaceMetering.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "MarketplaceMetering"

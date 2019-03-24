@@ -47,6 +47,7 @@ library
           Network.AWS.MarketplaceMetering
         , Network.AWS.MarketplaceMetering.BatchMeterUsage
         , Network.AWS.MarketplaceMetering.MeterUsage
+        , Network.AWS.MarketplaceMetering.RegisterUsage
         , Network.AWS.MarketplaceMetering.ResolveCustomer
         , Network.AWS.MarketplaceMetering.Types
         , Network.AWS.MarketplaceMetering.Waiters

@@ -23,7 +23,7 @@
 --
 -- The List Jobs operation supports pagination. You should always check the response @Marker@ field. If there are no more jobs to list, the @Marker@ field is set to @null@ . If there are more jobs to list, the @Marker@ field is set to a non-null value, which you can use to continue the pagination of the list. To return a list of jobs that begins at a specific job, set the marker request parameter to the @Marker@ value for that job that you obtained from a previous List Jobs request.
 --
--- You can set a maximum limit for the number of jobs returned in the response by specifying the @limit@ parameter in the request. The default limit is 1000. The number of jobs returned might be fewer than the limit, but the number of returned jobs never exceeds the limit.
+-- You can set a maximum limit for the number of jobs returned in the response by specifying the @limit@ parameter in the request. The default limit is 50. The number of jobs returned might be fewer than the limit, but the number of returned jobs never exceeds the limit.
 --
 -- Additionally, you can filter the jobs list returned by specifying the optional @statuscode@ parameter or @completed@ parameter, or both. Using the @statuscode@ parameter, you can specify to return only jobs that match either the @InProgress@ , @Succeeded@ , or @Failed@ status. Using the @completed@ parameter, you can specify to return only jobs that were completed (@true@ ) or jobs that were not completed (@false@ ).
 --
@@ -84,7 +84,7 @@ data ListJobs = ListJobs'
 --
 -- * 'ljCompleted' - The state of the jobs to return. You can specify @true@ or @false@ .
 --
--- * 'ljLimit' - The maximum number of jobs to be returned. The default limit is 1000. The number of jobs returned might be fewer than the specified limit, but the number of returned jobs never exceeds the limit.
+-- * 'ljLimit' - The maximum number of jobs to be returned. The default limit is 50. The number of jobs returned might be fewer than the specified limit, but the number of returned jobs never exceeds the limit.
 --
 -- * 'ljStatuscode' - The type of job status to return. You can specify the following values: @InProgress@ , @Succeeded@ , or @Failed@ .
 --
@@ -114,7 +114,7 @@ ljMarker = lens _ljMarker (\ s a -> s{_ljMarker = a})
 ljCompleted :: Lens' ListJobs (Maybe Text)
 ljCompleted = lens _ljCompleted (\ s a -> s{_ljCompleted = a})
 
--- | The maximum number of jobs to be returned. The default limit is 1000. The number of jobs returned might be fewer than the specified limit, but the number of returned jobs never exceeds the limit.
+-- | The maximum number of jobs to be returned. The default limit is 50. The number of jobs returned might be fewer than the specified limit, but the number of returned jobs never exceeds the limit.
 ljLimit :: Lens' ListJobs (Maybe Text)
 ljLimit = lens _ljLimit (\ s a -> s{_ljLimit = a})
 

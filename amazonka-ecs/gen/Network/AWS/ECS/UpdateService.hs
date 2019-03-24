@@ -18,8 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the desired count, deployment configuration, network configuration, or task definition used in a service.
+-- Modifies the parameters of a service.
 --
+--
+-- For services using the rolling update (@ECS@ ) deployment controller, the desired count, deployment configuration, network configuration, or task definition used can be updated.
+--
+-- For services using the blue/green (@CODE_DEPLOY@ ) deployment controller, only the desired count, deployment configuration, and health check grace period can be updated using this API. If the network configuration, platform version, or task definition need to be updated, a new AWS CodeDeploy deployment should be created. For more information, see <https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html CreateDeployment> in the /AWS CodeDeploy API Reference/ .
 --
 -- You can add to or subtract from the number of instantiations of a task definition in a service by specifying the cluster that the service is running in and a new @desiredCount@ parameter.
 --
@@ -108,7 +112,7 @@ data UpdateService = UpdateService'
 --
 -- * 'usCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'usPlatformVersion' - The platform version you want to update your service to run.
+-- * 'usPlatformVersion' - The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 -- * 'usDesiredCount' - The number of instantiations of the task to place and keep running in your service.
 --
@@ -116,7 +120,7 @@ data UpdateService = UpdateService'
 --
 -- * 'usTaskDefinition' - The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used. If you modify the task definition with @UpdateService@ , Amazon ECS spawns a task with the new version of the task definition and then stops an old task after the new version is running.
 --
--- * 'usHealthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 1,800 seconds during which the ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
+-- * 'usHealthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 1,800 seconds. During that time, the ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
 --
 -- * 'usNetworkConfiguration' - The network configuration for the service. This parameter is required for task definitions that use the @awsvpc@ network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task Networking> in the /Amazon Elastic Container Service Developer Guide/ .
 --
@@ -144,7 +148,7 @@ updateService pService_ =
 usCluster :: Lens' UpdateService (Maybe Text)
 usCluster = lens _usCluster (\ s a -> s{_usCluster = a})
 
--- | The platform version you want to update your service to run.
+-- | The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
 usPlatformVersion :: Lens' UpdateService (Maybe Text)
 usPlatformVersion = lens _usPlatformVersion (\ s a -> s{_usPlatformVersion = a})
 
@@ -160,7 +164,7 @@ usForceNewDeployment = lens _usForceNewDeployment (\ s a -> s{_usForceNewDeploym
 usTaskDefinition :: Lens' UpdateService (Maybe Text)
 usTaskDefinition = lens _usTaskDefinition (\ s a -> s{_usTaskDefinition = a})
 
--- | The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 1,800 seconds during which the ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
+-- | The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 1,800 seconds. During that time, the ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
 usHealthCheckGracePeriodSeconds :: Lens' UpdateService (Maybe Int)
 usHealthCheckGracePeriodSeconds = lens _usHealthCheckGracePeriodSeconds (\ s a -> s{_usHealthCheckGracePeriodSeconds = a})
 

@@ -47,6 +47,7 @@ library
           Network.AWS.ECS
         , Network.AWS.ECS.CreateCluster
         , Network.AWS.ECS.CreateService
+        , Network.AWS.ECS.DeleteAccountSetting
         , Network.AWS.ECS.DeleteAttributes
         , Network.AWS.ECS.DeleteCluster
         , Network.AWS.ECS.DeleteService
@@ -58,13 +59,17 @@ library
         , Network.AWS.ECS.DescribeTaskDefinition
         , Network.AWS.ECS.DescribeTasks
         , Network.AWS.ECS.DiscoverPollEndpoint
+        , Network.AWS.ECS.ListAccountSettings
         , Network.AWS.ECS.ListAttributes
         , Network.AWS.ECS.ListClusters
         , Network.AWS.ECS.ListContainerInstances
         , Network.AWS.ECS.ListServices
+        , Network.AWS.ECS.ListTagsForResource
         , Network.AWS.ECS.ListTaskDefinitionFamilies
         , Network.AWS.ECS.ListTaskDefinitions
         , Network.AWS.ECS.ListTasks
+        , Network.AWS.ECS.PutAccountSetting
+        , Network.AWS.ECS.PutAccountSettingDefault
         , Network.AWS.ECS.PutAttributes
         , Network.AWS.ECS.RegisterContainerInstance
         , Network.AWS.ECS.RegisterTaskDefinition
@@ -73,7 +78,9 @@ library
         , Network.AWS.ECS.StopTask
         , Network.AWS.ECS.SubmitContainerStateChange
         , Network.AWS.ECS.SubmitTaskStateChange
+        , Network.AWS.ECS.TagResource
         , Network.AWS.ECS.Types
+        , Network.AWS.ECS.UntagResource
         , Network.AWS.ECS.UpdateContainerAgent
         , Network.AWS.ECS.UpdateContainerInstancesState
         , Network.AWS.ECS.UpdateService

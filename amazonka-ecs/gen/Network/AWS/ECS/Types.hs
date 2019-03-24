@@ -35,6 +35,7 @@ module Network.AWS.ECS.Types
     , _TargetNotFoundException
     , _AttributeLimitExceededException
     , _ClientException
+    , _ResourceNotFoundException
 
     -- * AgentUpdateStatus
     , AgentUpdateStatus (..)
@@ -51,8 +52,17 @@ module Network.AWS.ECS.Types
     -- * Connectivity
     , Connectivity (..)
 
+    -- * ContainerCondition
+    , ContainerCondition (..)
+
+    -- * ContainerInstanceField
+    , ContainerInstanceField (..)
+
     -- * ContainerInstanceStatus
     , ContainerInstanceStatus (..)
+
+    -- * DeploymentControllerType
+    , DeploymentControllerType (..)
 
     -- * DesiredStatus
     , DesiredStatus (..)
@@ -63,6 +73,9 @@ module Network.AWS.ECS.Types
     -- * HealthStatus
     , HealthStatus (..)
 
+    -- * IPcMode
+    , IPcMode (..)
+
     -- * LaunchType
     , LaunchType (..)
 
@@ -72,14 +85,47 @@ module Network.AWS.ECS.Types
     -- * NetworkMode
     , NetworkMode (..)
 
+    -- * PidMode
+    , PidMode (..)
+
     -- * PlacementConstraintType
     , PlacementConstraintType (..)
 
     -- * PlacementStrategyType
     , PlacementStrategyType (..)
 
+    -- * PlatformDeviceType
+    , PlatformDeviceType (..)
+
+    -- * PropagateTags
+    , PropagateTags (..)
+
+    -- * ProxyConfigurationType
+    , ProxyConfigurationType (..)
+
+    -- * ResourceType
+    , ResourceType (..)
+
+    -- * ScaleUnit
+    , ScaleUnit (..)
+
+    -- * SchedulingStrategy
+    , SchedulingStrategy (..)
+
+    -- * Scope
+    , Scope (..)
+
+    -- * ServiceField
+    , ServiceField (..)
+
+    -- * SettingName
+    , SettingName (..)
+
     -- * SortOrder
     , SortOrder (..)
+
+    -- * StabilityStatus
+    , StabilityStatus (..)
 
     -- * TargetType
     , TargetType (..)
@@ -87,11 +133,20 @@ module Network.AWS.ECS.Types
     -- * TaskDefinitionFamilyStatus
     , TaskDefinitionFamilyStatus (..)
 
+    -- * TaskDefinitionField
+    , TaskDefinitionField (..)
+
     -- * TaskDefinitionPlacementConstraintType
     , TaskDefinitionPlacementConstraintType (..)
 
     -- * TaskDefinitionStatus
     , TaskDefinitionStatus (..)
+
+    -- * TaskField
+    , TaskField (..)
+
+    -- * TaskStopCode
+    , TaskStopCode (..)
 
     -- * TransportProtocol
     , TransportProtocol (..)
@@ -139,19 +194,24 @@ module Network.AWS.ECS.Types
     , cClusterName
     , cStatistics
     , cActiveServicesCount
+    , cTags
 
     -- * Container
     , Container
     , container
+    , cGpuIds
     , cNetworkBindings
     , cContainerARN
     , cNetworkInterfaces
     , cTaskARN
     , cLastStatus
+    , cMemory
     , cReason
     , cName
     , cExitCode
     , cHealthStatus
+    , cCpu
+    , cMemoryReservation
 
     -- * ContainerDefinition
     , ContainerDefinition
@@ -159,31 +219,46 @@ module Network.AWS.ECS.Types
     , cdImage
     , cdCommand
     , cdHostname
+    , cdRepositoryCredentials
     , cdDockerSecurityOptions
     , cdHealthCheck
     , cdDisableNetworking
+    , cdSecrets
     , cdVolumesFrom
     , cdEnvironment
     , cdEntryPoint
     , cdWorkingDirectory
     , cdUlimits
+    , cdStopTimeout
     , cdPrivileged
     , cdPortMappings
+    , cdResourceRequirements
     , cdDockerLabels
     , cdExtraHosts
     , cdMemory
+    , cdSystemControls
     , cdUser
     , cdDnsSearchDomains
     , cdLogConfiguration
     , cdLinuxParameters
+    , cdPseudoTerminal
+    , cdDependsOn
     , cdName
     , cdDnsServers
     , cdMountPoints
+    , cdInteractive
+    , cdStartTimeout
     , cdLinks
     , cdReadonlyRootFilesystem
     , cdEssential
     , cdCpu
     , cdMemoryReservation
+
+    -- * ContainerDependency
+    , ContainerDependency
+    , containerDependency
+    , cdContainerName
+    , cdCondition
 
     -- * ContainerInstance
     , ContainerInstance
@@ -201,6 +276,7 @@ module Network.AWS.ECS.Types
     , ciVersion
     , ciPendingTasksCount
     , ciRegisteredAt
+    , ciTags
     , ciRegisteredResources
 
     -- * ContainerOverride
@@ -208,6 +284,7 @@ module Network.AWS.ECS.Types
     , containerOverride
     , coCommand
     , coEnvironment
+    , coResourceRequirements
     , coMemory
     , coName
     , coCpu
@@ -216,11 +293,15 @@ module Network.AWS.ECS.Types
     -- * ContainerService
     , ContainerService
     , containerService
+    , csTaskSets
     , csRunningCount
     , csStatus
     , csClusterARN
+    , csPropagateTags
     , csCreatedAt
     , csPlatformVersion
+    , csEnableECSManagedTags
+    , csCreatedBy
     , csDesiredCount
     , csLoadBalancers
     , csPendingCount
@@ -229,12 +310,15 @@ module Network.AWS.ECS.Types
     , csPlacementStrategy
     , csDeployments
     , csServiceName
+    , csDeploymentController
     , csLaunchType
     , csServiceARN
     , csTaskDefinition
+    , csSchedulingStrategy
     , csHealthCheckGracePeriodSeconds
     , csNetworkConfiguration
     , csServiceRegistries
+    , csTags
     , csRoleARN
     , csDeploymentConfiguration
 
@@ -268,12 +352,26 @@ module Network.AWS.ECS.Types
     , dcMinimumHealthyPercent
     , dcMaximumPercent
 
+    -- * DeploymentController
+    , DeploymentController
+    , deploymentController
+    , dcType
+
     -- * Device
     , Device
     , device
     , dContainerPath
     , dPermissions
     , dHostPath
+
+    -- * DockerVolumeConfiguration
+    , DockerVolumeConfiguration
+    , dockerVolumeConfiguration
+    , dvcDriverOpts
+    , dvcDriver
+    , dvcScope
+    , dvcLabels
+    , dvcAutoprovision
 
     -- * Failure
     , Failure
@@ -375,12 +473,30 @@ module Network.AWS.ECS.Types
     , psField
     , psType
 
+    -- * PlatformDevice
+    , PlatformDevice
+    , platformDevice
+    , pdId
+    , pdType
+
     -- * PortMapping
     , PortMapping
     , portMapping
     , pmProtocol
     , pmHostPort
     , pmContainerPort
+
+    -- * ProxyConfiguration
+    , ProxyConfiguration
+    , proxyConfiguration
+    , pType
+    , pProperties
+    , pContainerName
+
+    -- * RepositoryCredentials
+    , RepositoryCredentials
+    , repositoryCredentials
+    , rcCredentialsParameter
 
     -- * Resource
     , Resource
@@ -391,6 +507,24 @@ module Network.AWS.ECS.Types
     , rLongValue
     , rName
     , rType
+
+    -- * ResourceRequirement
+    , ResourceRequirement
+    , resourceRequirement
+    , rrValue
+    , rrType
+
+    -- * Scale
+    , Scale
+    , scale
+    , sValue
+    , sUnit
+
+    -- * Secret
+    , Secret
+    , secret
+    , sName
+    , sValueFrom
 
     -- * ServiceEvent
     , ServiceEvent
@@ -403,7 +537,28 @@ module Network.AWS.ECS.Types
     , ServiceRegistry
     , serviceRegistry
     , srRegistryARN
+    , srContainerName
+    , srContainerPort
     , srPort
+
+    -- * Setting
+    , Setting
+    , setting
+    , setValue
+    , setName
+    , setPrincipalARN
+
+    -- * SystemControl
+    , SystemControl
+    , systemControl
+    , scValue
+    , scNamespace
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
 
     -- * Task
     , Task
@@ -415,6 +570,7 @@ module Network.AWS.ECS.Types
     , tGroup
     , tAttachments
     , tCreatedAt
+    , tStopCode
     , tPlatformVersion
     , tTaskARN
     , tContainerInstanceARN
@@ -435,6 +591,7 @@ module Network.AWS.ECS.Types
     , tConnectivityAt
     , tCpu
     , tPullStartedAt
+    , tTags
 
     -- * TaskDefinition
     , TaskDefinition
@@ -442,9 +599,12 @@ module Network.AWS.ECS.Types
     , tdStatus
     , tdExecutionRoleARN
     , tdRequiresCompatibilities
+    , tdPidMode
     , tdFamily
+    , tdIpcMode
     , tdContainerDefinitions
     , tdMemory
+    , tdProxyConfiguration
     , tdTaskRoleARN
     , tdPlacementConstraints
     , tdNetworkMode
@@ -467,6 +627,28 @@ module Network.AWS.ECS.Types
     , toContainerOverrides
     , toExecutionRoleARN
     , toTaskRoleARN
+
+    -- * TaskSet
+    , TaskSet
+    , taskSet
+    , tsRunningCount
+    , tsStatus
+    , tsComputedDesiredCount
+    , tsCreatedAt
+    , tsPlatformVersion
+    , tsScale
+    , tsLoadBalancers
+    , tsStabilityStatusAt
+    , tsPendingCount
+    , tsTaskSetARN
+    , tsStartedBy
+    , tsId
+    , tsLaunchType
+    , tsUpdatedAt
+    , tsTaskDefinition
+    , tsExternalId
+    , tsNetworkConfiguration
+    , tsStabilityStatus
 
     -- * Tmpfs
     , Tmpfs
@@ -492,6 +674,7 @@ module Network.AWS.ECS.Types
     -- * Volume
     , Volume
     , volume
+    , vDockerVolumeConfiguration
     , vName
     , vHost
 
@@ -583,7 +766,7 @@ _PlatformUnknownException :: AsError a => Getting (First ServiceError) a Service
 _PlatformUnknownException = _MatchServiceError ecs "PlatformUnknownException"
 
 
--- | You cannot delete a cluster that contains services. You must first update the service to reduce its desired task count to 0 and then delete the service. For more information, see 'UpdateService' and 'DeleteService' .
+-- | You cannot delete a cluster that contains services. First, update the service to reduce its desired task count to 0 and then delete the service. For more information, see 'UpdateService' and 'DeleteService' .
 --
 --
 _ClusterContainsServicesException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -591,7 +774,7 @@ _ClusterContainsServicesException =
   _MatchServiceError ecs "ClusterContainsServicesException"
 
 
--- | You cannot delete a cluster that has registered container instances. You must first deregister the container instances before you can delete the cluster. For more information, see 'DeregisterContainerInstance' .
+-- | You cannot delete a cluster that has registered container instances. First, deregister the container instances before you can delete the cluster. For more information, see 'DeregisterContainerInstance' .
 --
 --
 _ClusterContainsContainerInstancesException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -606,7 +789,7 @@ _ServiceNotActiveException :: AsError a => Getting (First ServiceError) a Servic
 _ServiceNotActiveException = _MatchServiceError ecs "ServiceNotActiveException"
 
 
--- | The specified cluster could not be found. You can view your available clusters with 'ListClusters' . Amazon ECS clusters are region-specific.
+-- | The specified cluster could not be found. You can view your available clusters with 'ListClusters' . Amazon ECS clusters are Region-specific.
 --
 --
 _ClusterNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -621,7 +804,7 @@ _NoUpdateAvailableException =
   _MatchServiceError ecs "NoUpdateAvailableException"
 
 
--- | The specified task is not supported in this region.
+-- | The specified task is not supported in this Region.
 --
 --
 _UnsupportedFeatureException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -629,14 +812,14 @@ _UnsupportedFeatureException =
   _MatchServiceError ecs "UnsupportedFeatureException"
 
 
--- | The specified service could not be found. You can view your available services with 'ListServices' . Amazon ECS services are cluster-specific and region-specific.
+-- | The specified service could not be found. You can view your available services with 'ListServices' . Amazon ECS services are cluster-specific and Region-specific.
 --
 --
 _ServiceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceNotFoundException = _MatchServiceError ecs "ServiceNotFoundException"
 
 
--- | The specified platform version does not satisfy the task definition’s required capabilities.
+-- | The specified platform version does not satisfy the task definition's required capabilities.
 --
 --
 _PlatformTaskDefinitionIncompatibilityException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -658,14 +841,14 @@ _UpdateInProgressException :: AsError a => Getting (First ServiceError) a Servic
 _UpdateInProgressException = _MatchServiceError ecs "UpdateInProgressException"
 
 
--- | Your AWS account has been blocked. <http://aws.amazon.com/contact-us/ Contact AWS Support> for more information.
+-- | Your AWS account has been blocked. For more information, contact <http://aws.amazon.com/contact-us/ AWS Support> .
 --
 --
 _BlockedException :: AsError a => Getting (First ServiceError) a ServiceError
 _BlockedException = _MatchServiceError ecs "BlockedException"
 
 
--- | The specified target could not be found. You can view your available container instances with 'ListContainerInstances' . Amazon ECS container instances are cluster-specific and region-specific.
+-- | The specified target could not be found. You can view your available container instances with 'ListContainerInstances' . Amazon ECS container instances are cluster-specific and Region-specific.
 --
 --
 _TargetNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -685,4 +868,11 @@ _AttributeLimitExceededException =
 --
 _ClientException :: AsError a => Getting (First ServiceError) a ServiceError
 _ClientException = _MatchServiceError ecs "ClientException"
+
+
+-- | The specified resource could not be found.
+--
+--
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException = _MatchServiceError ecs "ResourceNotFoundException"
 

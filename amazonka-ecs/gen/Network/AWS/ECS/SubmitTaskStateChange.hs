@@ -76,9 +76,9 @@ data SubmitTaskStateChange = SubmitTaskStateChange'
 --
 -- * 'stscAttachments' - Any attachments associated with the state change request.
 --
--- * 'stscExecutionStoppedAt' - The Unix time stamp for when the task execution stopped.
+-- * 'stscExecutionStoppedAt' - The Unix timestamp for when the task execution stopped.
 --
--- * 'stscPullStoppedAt' - The Unix time stamp for when the container image pull completed.
+-- * 'stscPullStoppedAt' - The Unix timestamp for when the container image pull completed.
 --
 -- * 'stscContainers' - Any containers associated with the state change request.
 --
@@ -86,7 +86,7 @@ data SubmitTaskStateChange = SubmitTaskStateChange'
 --
 -- * 'stscTask' - The task ID or full ARN of the task in the state change request.
 --
--- * 'stscPullStartedAt' - The Unix time stamp for when the container image pull began.
+-- * 'stscPullStartedAt' - The Unix timestamp for when the container image pull began.
 submitTaskStateChange
     :: SubmitTaskStateChange
 submitTaskStateChange =
@@ -115,11 +115,11 @@ stscCluster = lens _stscCluster (\ s a -> s{_stscCluster = a})
 stscAttachments :: Lens' SubmitTaskStateChange [AttachmentStateChange]
 stscAttachments = lens _stscAttachments (\ s a -> s{_stscAttachments = a}) . _Default . _Coerce
 
--- | The Unix time stamp for when the task execution stopped.
+-- | The Unix timestamp for when the task execution stopped.
 stscExecutionStoppedAt :: Lens' SubmitTaskStateChange (Maybe UTCTime)
 stscExecutionStoppedAt = lens _stscExecutionStoppedAt (\ s a -> s{_stscExecutionStoppedAt = a}) . mapping _Time
 
--- | The Unix time stamp for when the container image pull completed.
+-- | The Unix timestamp for when the container image pull completed.
 stscPullStoppedAt :: Lens' SubmitTaskStateChange (Maybe UTCTime)
 stscPullStoppedAt = lens _stscPullStoppedAt (\ s a -> s{_stscPullStoppedAt = a}) . mapping _Time
 
@@ -135,7 +135,7 @@ stscReason = lens _stscReason (\ s a -> s{_stscReason = a})
 stscTask :: Lens' SubmitTaskStateChange (Maybe Text)
 stscTask = lens _stscTask (\ s a -> s{_stscTask = a})
 
--- | The Unix time stamp for when the container image pull began.
+-- | The Unix timestamp for when the container image pull began.
 stscPullStartedAt :: Lens' SubmitTaskStateChange (Maybe UTCTime)
 stscPullStartedAt = lens _stscPullStartedAt (\ s a -> s{_stscPullStartedAt = a}) . mapping _Time
 

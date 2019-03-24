@@ -11,8 +11,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, container management service that makes it easy to run, stop, and manage Docker containers on a cluster. You can host your cluster on a serverless infrastructure that is managed by Amazon ECS by launching your services or tasks using the Fargate launch type. For more control, you can host your tasks on a cluster of Amazon Elastic Compute Cloud (Amazon EC2) instances that you manage by using the EC2 launch type. For more information about launch types, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> .
+-- __Amazon Elastic Container Service__
 --
+-- Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, container management service that makes it easy to run, stop, and manage Docker containers on a cluster. You can host your cluster on a serverless infrastructure that is managed by Amazon ECS by launching your services or tasks using the Fargate launch type. For more control, you can host your tasks on a cluster of Amazon Elastic Compute Cloud (Amazon EC2) instances that you manage by using the EC2 launch type. For more information about launch types, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> .
 --
 -- Amazon ECS lets you launch and stop container-based applications with simple API calls, allows you to get the state of your cluster from a centralized service, and gives you access to many familiar Amazon EC2 features.
 --
@@ -83,6 +84,9 @@ module Network.AWS.ECS
     -- ** ClientException
     , _ClientException
 
+    -- ** ResourceNotFoundException
+    , _ResourceNotFoundException
+
     -- * Waiters
     -- $waiters
 
@@ -116,6 +120,9 @@ module Network.AWS.ECS
     -- ** SubmitContainerStateChange
     , module Network.AWS.ECS.SubmitContainerStateChange
 
+    -- ** ListTagsForResource
+    , module Network.AWS.ECS.ListTagsForResource
+
     -- ** StopTask
     , module Network.AWS.ECS.StopTask
 
@@ -136,6 +143,12 @@ module Network.AWS.ECS
 
     -- ** CreateCluster
     , module Network.AWS.ECS.CreateCluster
+
+    -- ** PutAccountSetting
+    , module Network.AWS.ECS.PutAccountSetting
+
+    -- ** DeleteAccountSetting
+    , module Network.AWS.ECS.DeleteAccountSetting
 
     -- ** ListTaskDefinitions (Paginated)
     , module Network.AWS.ECS.ListTaskDefinitions
@@ -161,17 +174,26 @@ module Network.AWS.ECS
     -- ** StartTask
     , module Network.AWS.ECS.StartTask
 
-    -- ** ListAttributes
+    -- ** PutAccountSettingDefault
+    , module Network.AWS.ECS.PutAccountSettingDefault
+
+    -- ** ListAttributes (Paginated)
     , module Network.AWS.ECS.ListAttributes
 
     -- ** DeregisterTaskDefinition
     , module Network.AWS.ECS.DeregisterTaskDefinition
+
+    -- ** TagResource
+    , module Network.AWS.ECS.TagResource
 
     -- ** DescribeTasks
     , module Network.AWS.ECS.DescribeTasks
 
     -- ** ListClusters (Paginated)
     , module Network.AWS.ECS.ListClusters
+
+    -- ** UntagResource
+    , module Network.AWS.ECS.UntagResource
 
     -- ** DescribeServices
     , module Network.AWS.ECS.DescribeServices
@@ -184,6 +206,9 @@ module Network.AWS.ECS
 
     -- ** PutAttributes
     , module Network.AWS.ECS.PutAttributes
+
+    -- ** ListAccountSettings (Paginated)
+    , module Network.AWS.ECS.ListAccountSettings
 
     -- ** RegisterTaskDefinition
     , module Network.AWS.ECS.RegisterTaskDefinition
@@ -208,8 +233,17 @@ module Network.AWS.ECS
     -- ** Connectivity
     , Connectivity (..)
 
+    -- ** ContainerCondition
+    , ContainerCondition (..)
+
+    -- ** ContainerInstanceField
+    , ContainerInstanceField (..)
+
     -- ** ContainerInstanceStatus
     , ContainerInstanceStatus (..)
+
+    -- ** DeploymentControllerType
+    , DeploymentControllerType (..)
 
     -- ** DesiredStatus
     , DesiredStatus (..)
@@ -220,6 +254,9 @@ module Network.AWS.ECS
     -- ** HealthStatus
     , HealthStatus (..)
 
+    -- ** IPcMode
+    , IPcMode (..)
+
     -- ** LaunchType
     , LaunchType (..)
 
@@ -229,14 +266,47 @@ module Network.AWS.ECS
     -- ** NetworkMode
     , NetworkMode (..)
 
+    -- ** PidMode
+    , PidMode (..)
+
     -- ** PlacementConstraintType
     , PlacementConstraintType (..)
 
     -- ** PlacementStrategyType
     , PlacementStrategyType (..)
 
+    -- ** PlatformDeviceType
+    , PlatformDeviceType (..)
+
+    -- ** PropagateTags
+    , PropagateTags (..)
+
+    -- ** ProxyConfigurationType
+    , ProxyConfigurationType (..)
+
+    -- ** ResourceType
+    , ResourceType (..)
+
+    -- ** ScaleUnit
+    , ScaleUnit (..)
+
+    -- ** SchedulingStrategy
+    , SchedulingStrategy (..)
+
+    -- ** Scope
+    , Scope (..)
+
+    -- ** ServiceField
+    , ServiceField (..)
+
+    -- ** SettingName
+    , SettingName (..)
+
     -- ** SortOrder
     , SortOrder (..)
+
+    -- ** StabilityStatus
+    , StabilityStatus (..)
 
     -- ** TargetType
     , TargetType (..)
@@ -244,11 +314,20 @@ module Network.AWS.ECS
     -- ** TaskDefinitionFamilyStatus
     , TaskDefinitionFamilyStatus (..)
 
+    -- ** TaskDefinitionField
+    , TaskDefinitionField (..)
+
     -- ** TaskDefinitionPlacementConstraintType
     , TaskDefinitionPlacementConstraintType (..)
 
     -- ** TaskDefinitionStatus
     , TaskDefinitionStatus (..)
+
+    -- ** TaskField
+    , TaskField (..)
+
+    -- ** TaskStopCode
+    , TaskStopCode (..)
 
     -- ** TransportProtocol
     , TransportProtocol (..)
@@ -296,19 +375,24 @@ module Network.AWS.ECS
     , cClusterName
     , cStatistics
     , cActiveServicesCount
+    , cTags
 
     -- ** Container
     , Container
     , container
+    , cGpuIds
     , cNetworkBindings
     , cContainerARN
     , cNetworkInterfaces
     , cTaskARN
     , cLastStatus
+    , cMemory
     , cReason
     , cName
     , cExitCode
     , cHealthStatus
+    , cCpu
+    , cMemoryReservation
 
     -- ** ContainerDefinition
     , ContainerDefinition
@@ -316,31 +400,46 @@ module Network.AWS.ECS
     , cdImage
     , cdCommand
     , cdHostname
+    , cdRepositoryCredentials
     , cdDockerSecurityOptions
     , cdHealthCheck
     , cdDisableNetworking
+    , cdSecrets
     , cdVolumesFrom
     , cdEnvironment
     , cdEntryPoint
     , cdWorkingDirectory
     , cdUlimits
+    , cdStopTimeout
     , cdPrivileged
     , cdPortMappings
+    , cdResourceRequirements
     , cdDockerLabels
     , cdExtraHosts
     , cdMemory
+    , cdSystemControls
     , cdUser
     , cdDnsSearchDomains
     , cdLogConfiguration
     , cdLinuxParameters
+    , cdPseudoTerminal
+    , cdDependsOn
     , cdName
     , cdDnsServers
     , cdMountPoints
+    , cdInteractive
+    , cdStartTimeout
     , cdLinks
     , cdReadonlyRootFilesystem
     , cdEssential
     , cdCpu
     , cdMemoryReservation
+
+    -- ** ContainerDependency
+    , ContainerDependency
+    , containerDependency
+    , cdContainerName
+    , cdCondition
 
     -- ** ContainerInstance
     , ContainerInstance
@@ -358,6 +457,7 @@ module Network.AWS.ECS
     , ciVersion
     , ciPendingTasksCount
     , ciRegisteredAt
+    , ciTags
     , ciRegisteredResources
 
     -- ** ContainerOverride
@@ -365,6 +465,7 @@ module Network.AWS.ECS
     , containerOverride
     , coCommand
     , coEnvironment
+    , coResourceRequirements
     , coMemory
     , coName
     , coCpu
@@ -373,11 +474,15 @@ module Network.AWS.ECS
     -- ** ContainerService
     , ContainerService
     , containerService
+    , csTaskSets
     , csRunningCount
     , csStatus
     , csClusterARN
+    , csPropagateTags
     , csCreatedAt
     , csPlatformVersion
+    , csEnableECSManagedTags
+    , csCreatedBy
     , csDesiredCount
     , csLoadBalancers
     , csPendingCount
@@ -386,12 +491,15 @@ module Network.AWS.ECS
     , csPlacementStrategy
     , csDeployments
     , csServiceName
+    , csDeploymentController
     , csLaunchType
     , csServiceARN
     , csTaskDefinition
+    , csSchedulingStrategy
     , csHealthCheckGracePeriodSeconds
     , csNetworkConfiguration
     , csServiceRegistries
+    , csTags
     , csRoleARN
     , csDeploymentConfiguration
 
@@ -425,12 +533,26 @@ module Network.AWS.ECS
     , dcMinimumHealthyPercent
     , dcMaximumPercent
 
+    -- ** DeploymentController
+    , DeploymentController
+    , deploymentController
+    , dcType
+
     -- ** Device
     , Device
     , device
     , dContainerPath
     , dPermissions
     , dHostPath
+
+    -- ** DockerVolumeConfiguration
+    , DockerVolumeConfiguration
+    , dockerVolumeConfiguration
+    , dvcDriverOpts
+    , dvcDriver
+    , dvcScope
+    , dvcLabels
+    , dvcAutoprovision
 
     -- ** Failure
     , Failure
@@ -532,12 +654,30 @@ module Network.AWS.ECS
     , psField
     , psType
 
+    -- ** PlatformDevice
+    , PlatformDevice
+    , platformDevice
+    , pdId
+    , pdType
+
     -- ** PortMapping
     , PortMapping
     , portMapping
     , pmProtocol
     , pmHostPort
     , pmContainerPort
+
+    -- ** ProxyConfiguration
+    , ProxyConfiguration
+    , proxyConfiguration
+    , pType
+    , pProperties
+    , pContainerName
+
+    -- ** RepositoryCredentials
+    , RepositoryCredentials
+    , repositoryCredentials
+    , rcCredentialsParameter
 
     -- ** Resource
     , Resource
@@ -548,6 +688,24 @@ module Network.AWS.ECS
     , rLongValue
     , rName
     , rType
+
+    -- ** ResourceRequirement
+    , ResourceRequirement
+    , resourceRequirement
+    , rrValue
+    , rrType
+
+    -- ** Scale
+    , Scale
+    , scale
+    , sValue
+    , sUnit
+
+    -- ** Secret
+    , Secret
+    , secret
+    , sName
+    , sValueFrom
 
     -- ** ServiceEvent
     , ServiceEvent
@@ -560,7 +718,28 @@ module Network.AWS.ECS
     , ServiceRegistry
     , serviceRegistry
     , srRegistryARN
+    , srContainerName
+    , srContainerPort
     , srPort
+
+    -- ** Setting
+    , Setting
+    , setting
+    , setValue
+    , setName
+    , setPrincipalARN
+
+    -- ** SystemControl
+    , SystemControl
+    , systemControl
+    , scValue
+    , scNamespace
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
 
     -- ** Task
     , Task
@@ -572,6 +751,7 @@ module Network.AWS.ECS
     , tGroup
     , tAttachments
     , tCreatedAt
+    , tStopCode
     , tPlatformVersion
     , tTaskARN
     , tContainerInstanceARN
@@ -592,6 +772,7 @@ module Network.AWS.ECS
     , tConnectivityAt
     , tCpu
     , tPullStartedAt
+    , tTags
 
     -- ** TaskDefinition
     , TaskDefinition
@@ -599,9 +780,12 @@ module Network.AWS.ECS
     , tdStatus
     , tdExecutionRoleARN
     , tdRequiresCompatibilities
+    , tdPidMode
     , tdFamily
+    , tdIpcMode
     , tdContainerDefinitions
     , tdMemory
+    , tdProxyConfiguration
     , tdTaskRoleARN
     , tdPlacementConstraints
     , tdNetworkMode
@@ -624,6 +808,28 @@ module Network.AWS.ECS
     , toContainerOverrides
     , toExecutionRoleARN
     , toTaskRoleARN
+
+    -- ** TaskSet
+    , TaskSet
+    , taskSet
+    , tsRunningCount
+    , tsStatus
+    , tsComputedDesiredCount
+    , tsCreatedAt
+    , tsPlatformVersion
+    , tsScale
+    , tsLoadBalancers
+    , tsStabilityStatusAt
+    , tsPendingCount
+    , tsTaskSetARN
+    , tsStartedBy
+    , tsId
+    , tsLaunchType
+    , tsUpdatedAt
+    , tsTaskDefinition
+    , tsExternalId
+    , tsNetworkConfiguration
+    , tsStabilityStatus
 
     -- ** Tmpfs
     , Tmpfs
@@ -649,6 +855,7 @@ module Network.AWS.ECS
     -- ** Volume
     , Volume
     , volume
+    , vDockerVolumeConfiguration
     , vName
     , vHost
 
@@ -661,6 +868,7 @@ module Network.AWS.ECS
 
 import Network.AWS.ECS.CreateCluster
 import Network.AWS.ECS.CreateService
+import Network.AWS.ECS.DeleteAccountSetting
 import Network.AWS.ECS.DeleteAttributes
 import Network.AWS.ECS.DeleteCluster
 import Network.AWS.ECS.DeleteService
@@ -672,13 +880,17 @@ import Network.AWS.ECS.DescribeServices
 import Network.AWS.ECS.DescribeTaskDefinition
 import Network.AWS.ECS.DescribeTasks
 import Network.AWS.ECS.DiscoverPollEndpoint
+import Network.AWS.ECS.ListAccountSettings
 import Network.AWS.ECS.ListAttributes
 import Network.AWS.ECS.ListClusters
 import Network.AWS.ECS.ListContainerInstances
 import Network.AWS.ECS.ListServices
+import Network.AWS.ECS.ListTagsForResource
 import Network.AWS.ECS.ListTaskDefinitionFamilies
 import Network.AWS.ECS.ListTaskDefinitions
 import Network.AWS.ECS.ListTasks
+import Network.AWS.ECS.PutAccountSetting
+import Network.AWS.ECS.PutAccountSettingDefault
 import Network.AWS.ECS.PutAttributes
 import Network.AWS.ECS.RegisterContainerInstance
 import Network.AWS.ECS.RegisterTaskDefinition
@@ -687,7 +899,9 @@ import Network.AWS.ECS.StartTask
 import Network.AWS.ECS.StopTask
 import Network.AWS.ECS.SubmitContainerStateChange
 import Network.AWS.ECS.SubmitTaskStateChange
+import Network.AWS.ECS.TagResource
 import Network.AWS.ECS.Types
+import Network.AWS.ECS.UntagResource
 import Network.AWS.ECS.UpdateContainerAgent
 import Network.AWS.ECS.UpdateContainerInstancesState
 import Network.AWS.ECS.UpdateService

@@ -46,6 +46,9 @@ import Test.Tasty
 --         , requestSubmitContainerStateChange $
 --             submitContainerStateChange
 --
+--         , requestListTagsForResource $
+--             listTagsForResource
+--
 --         , requestStopTask $
 --             stopTask
 --
@@ -66,6 +69,12 @@ import Test.Tasty
 --
 --         , requestCreateCluster $
 --             createCluster
+--
+--         , requestPutAccountSetting $
+--             putAccountSetting
+--
+--         , requestDeleteAccountSetting $
+--             deleteAccountSetting
 --
 --         , requestListTaskDefinitions $
 --             listTaskDefinitions
@@ -91,17 +100,26 @@ import Test.Tasty
 --         , requestStartTask $
 --             startTask
 --
+--         , requestPutAccountSettingDefault $
+--             putAccountSettingDefault
+--
 --         , requestListAttributes $
 --             listAttributes
 --
 --         , requestDeregisterTaskDefinition $
 --             deregisterTaskDefinition
 --
+--         , requestTagResource $
+--             tagResource
+--
 --         , requestDescribeTasks $
 --             describeTasks
 --
 --         , requestListClusters $
 --             listClusters
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestDescribeServices $
 --             describeServices
@@ -114,6 +132,9 @@ import Test.Tasty
 --
 --         , requestPutAttributes $
 --             putAttributes
+--
+--         , requestListAccountSettings $
+--             listAccountSettings
 --
 --         , requestRegisterTaskDefinition $
 --             registerTaskDefinition
@@ -142,6 +163,9 @@ import Test.Tasty
 --         , responseSubmitContainerStateChange $
 --             submitContainerStateChangeResponse
 --
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
+--
 --         , responseStopTask $
 --             stopTaskResponse
 --
@@ -162,6 +186,12 @@ import Test.Tasty
 --
 --         , responseCreateCluster $
 --             createClusterResponse
+--
+--         , responsePutAccountSetting $
+--             putAccountSettingResponse
+--
+--         , responseDeleteAccountSetting $
+--             deleteAccountSettingResponse
 --
 --         , responseListTaskDefinitions $
 --             listTaskDefinitionsResponse
@@ -187,17 +217,26 @@ import Test.Tasty
 --         , responseStartTask $
 --             startTaskResponse
 --
+--         , responsePutAccountSettingDefault $
+--             putAccountSettingDefaultResponse
+--
 --         , responseListAttributes $
 --             listAttributesResponse
 --
 --         , responseDeregisterTaskDefinition $
 --             deregisterTaskDefinitionResponse
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
 --         , responseDescribeTasks $
 --             describeTasksResponse
 --
 --         , responseListClusters $
 --             listClustersResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responseDescribeServices $
 --             describeServicesResponse
@@ -210,6 +249,9 @@ import Test.Tasty
 --
 --         , responsePutAttributes $
 --             putAttributesResponse
+--
+--         , responseListAccountSettings $
+--             listAccountSettingsResponse
 --
 --         , responseRegisterTaskDefinition $
 --             registerTaskDefinitionResponse
@@ -252,6 +294,11 @@ requestSubmitContainerStateChange = req
     "SubmitContainerStateChange"
     "fixture/SubmitContainerStateChange.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource = req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestStopTask :: StopTask -> TestTree
 requestStopTask = req
     "StopTask"
@@ -286,6 +333,16 @@ requestCreateCluster :: CreateCluster -> TestTree
 requestCreateCluster = req
     "CreateCluster"
     "fixture/CreateCluster.yaml"
+
+requestPutAccountSetting :: PutAccountSetting -> TestTree
+requestPutAccountSetting = req
+    "PutAccountSetting"
+    "fixture/PutAccountSetting.yaml"
+
+requestDeleteAccountSetting :: DeleteAccountSetting -> TestTree
+requestDeleteAccountSetting = req
+    "DeleteAccountSetting"
+    "fixture/DeleteAccountSetting.yaml"
 
 requestListTaskDefinitions :: ListTaskDefinitions -> TestTree
 requestListTaskDefinitions = req
@@ -327,6 +384,11 @@ requestStartTask = req
     "StartTask"
     "fixture/StartTask.yaml"
 
+requestPutAccountSettingDefault :: PutAccountSettingDefault -> TestTree
+requestPutAccountSettingDefault = req
+    "PutAccountSettingDefault"
+    "fixture/PutAccountSettingDefault.yaml"
+
 requestListAttributes :: ListAttributes -> TestTree
 requestListAttributes = req
     "ListAttributes"
@@ -337,6 +399,11 @@ requestDeregisterTaskDefinition = req
     "DeregisterTaskDefinition"
     "fixture/DeregisterTaskDefinition.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestDescribeTasks :: DescribeTasks -> TestTree
 requestDescribeTasks = req
     "DescribeTasks"
@@ -346,6 +413,11 @@ requestListClusters :: ListClusters -> TestTree
 requestListClusters = req
     "ListClusters"
     "fixture/ListClusters.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestDescribeServices :: DescribeServices -> TestTree
 requestDescribeServices = req
@@ -366,6 +438,11 @@ requestPutAttributes :: PutAttributes -> TestTree
 requestPutAttributes = req
     "PutAttributes"
     "fixture/PutAttributes.yaml"
+
+requestListAccountSettings :: ListAccountSettings -> TestTree
+requestListAccountSettings = req
+    "ListAccountSettings"
+    "fixture/ListAccountSettings.yaml"
 
 requestRegisterTaskDefinition :: RegisterTaskDefinition -> TestTree
 requestRegisterTaskDefinition = req
@@ -421,6 +498,13 @@ responseSubmitContainerStateChange = res
     ecs
     (Proxy :: Proxy SubmitContainerStateChange)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource = res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    ecs
+    (Proxy :: Proxy ListTagsForResource)
+
 responseStopTask :: StopTaskResponse -> TestTree
 responseStopTask = res
     "StopTaskResponse"
@@ -469,6 +553,20 @@ responseCreateCluster = res
     "fixture/CreateClusterResponse.proto"
     ecs
     (Proxy :: Proxy CreateCluster)
+
+responsePutAccountSetting :: PutAccountSettingResponse -> TestTree
+responsePutAccountSetting = res
+    "PutAccountSettingResponse"
+    "fixture/PutAccountSettingResponse.proto"
+    ecs
+    (Proxy :: Proxy PutAccountSetting)
+
+responseDeleteAccountSetting :: DeleteAccountSettingResponse -> TestTree
+responseDeleteAccountSetting = res
+    "DeleteAccountSettingResponse"
+    "fixture/DeleteAccountSettingResponse.proto"
+    ecs
+    (Proxy :: Proxy DeleteAccountSetting)
 
 responseListTaskDefinitions :: ListTaskDefinitionsResponse -> TestTree
 responseListTaskDefinitions = res
@@ -526,6 +624,13 @@ responseStartTask = res
     ecs
     (Proxy :: Proxy StartTask)
 
+responsePutAccountSettingDefault :: PutAccountSettingDefaultResponse -> TestTree
+responsePutAccountSettingDefault = res
+    "PutAccountSettingDefaultResponse"
+    "fixture/PutAccountSettingDefaultResponse.proto"
+    ecs
+    (Proxy :: Proxy PutAccountSettingDefault)
+
 responseListAttributes :: ListAttributesResponse -> TestTree
 responseListAttributes = res
     "ListAttributesResponse"
@@ -540,6 +645,13 @@ responseDeregisterTaskDefinition = res
     ecs
     (Proxy :: Proxy DeregisterTaskDefinition)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    ecs
+    (Proxy :: Proxy TagResource)
+
 responseDescribeTasks :: DescribeTasksResponse -> TestTree
 responseDescribeTasks = res
     "DescribeTasksResponse"
@@ -553,6 +665,13 @@ responseListClusters = res
     "fixture/ListClustersResponse.proto"
     ecs
     (Proxy :: Proxy ListClusters)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    ecs
+    (Proxy :: Proxy UntagResource)
 
 responseDescribeServices :: DescribeServicesResponse -> TestTree
 responseDescribeServices = res
@@ -581,6 +700,13 @@ responsePutAttributes = res
     "fixture/PutAttributesResponse.proto"
     ecs
     (Proxy :: Proxy PutAttributes)
+
+responseListAccountSettings :: ListAccountSettingsResponse -> TestTree
+responseListAccountSettings = res
+    "ListAccountSettingsResponse"
+    "fixture/ListAccountSettingsResponse.proto"
+    ecs
+    (Proxy :: Proxy ListAccountSettings)
 
 responseRegisterTaskDefinition :: RegisterTaskDefinitionResponse -> TestTree
 responseRegisterTaskDefinition = res

@@ -27,6 +27,7 @@ module Network.AWS.ECS.RegisterContainerInstance
       registerContainerInstance
     , RegisterContainerInstance
     -- * Request Lenses
+    , rciPlatformDevices
     , rciInstanceIdentityDocumentSignature
     , rciCluster
     , rciInstanceIdentityDocument
@@ -34,6 +35,7 @@ module Network.AWS.ECS.RegisterContainerInstance
     , rciVersionInfo
     , rciAttributes
     , rciTotalResources
+    , rciTags
 
     -- * Destructuring the Response
     , registerContainerInstanceResponse
@@ -52,19 +54,23 @@ import Network.AWS.Response
 
 -- | /See:/ 'registerContainerInstance' smart constructor.
 data RegisterContainerInstance = RegisterContainerInstance'
-  { _rciInstanceIdentityDocumentSignature :: !(Maybe Text)
+  { _rciPlatformDevices                   :: !(Maybe [PlatformDevice])
+  , _rciInstanceIdentityDocumentSignature :: !(Maybe Text)
   , _rciCluster                           :: !(Maybe Text)
   , _rciInstanceIdentityDocument          :: !(Maybe Text)
   , _rciContainerInstanceARN              :: !(Maybe Text)
   , _rciVersionInfo                       :: !(Maybe VersionInfo)
   , _rciAttributes                        :: !(Maybe [Attribute])
   , _rciTotalResources                    :: !(Maybe [Resource])
+  , _rciTags                              :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'RegisterContainerInstance' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rciPlatformDevices' - The devices that are available on the container instance. The only supported device type is a GPU.
 --
 -- * 'rciInstanceIdentityDocumentSignature' - The instance identity document signature for the EC2 instance to register. This signature can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/signature/@
 --
@@ -79,19 +85,27 @@ data RegisterContainerInstance = RegisterContainerInstance'
 -- * 'rciAttributes' - The container instance attributes that this container instance supports.
 --
 -- * 'rciTotalResources' - The resources available on the instance.
+--
+-- * 'rciTags' - The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 registerContainerInstance
     :: RegisterContainerInstance
 registerContainerInstance =
   RegisterContainerInstance'
-    { _rciInstanceIdentityDocumentSignature = Nothing
+    { _rciPlatformDevices = Nothing
+    , _rciInstanceIdentityDocumentSignature = Nothing
     , _rciCluster = Nothing
     , _rciInstanceIdentityDocument = Nothing
     , _rciContainerInstanceARN = Nothing
     , _rciVersionInfo = Nothing
     , _rciAttributes = Nothing
     , _rciTotalResources = Nothing
+    , _rciTags = Nothing
     }
 
+
+-- | The devices that are available on the container instance. The only supported device type is a GPU.
+rciPlatformDevices :: Lens' RegisterContainerInstance [PlatformDevice]
+rciPlatformDevices = lens _rciPlatformDevices (\ s a -> s{_rciPlatformDevices = a}) . _Default . _Coerce
 
 -- | The instance identity document signature for the EC2 instance to register. This signature can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/signature/@
 rciInstanceIdentityDocumentSignature :: Lens' RegisterContainerInstance (Maybe Text)
@@ -121,6 +135,10 @@ rciAttributes = lens _rciAttributes (\ s a -> s{_rciAttributes = a}) . _Default 
 rciTotalResources :: Lens' RegisterContainerInstance [Resource]
 rciTotalResources = lens _rciTotalResources (\ s a -> s{_rciTotalResources = a}) . _Default . _Coerce
 
+-- | The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+rciTags :: Lens' RegisterContainerInstance [Tag]
+rciTags = lens _rciTags (\ s a -> s{_rciTags = a}) . _Default . _Coerce
+
 instance AWSRequest RegisterContainerInstance where
         type Rs RegisterContainerInstance =
              RegisterContainerInstanceResponse
@@ -149,7 +167,8 @@ instance ToJSON RegisterContainerInstance where
         toJSON RegisterContainerInstance'{..}
           = object
               (catMaybes
-                 [("instanceIdentityDocumentSignature" .=) <$>
+                 [("platformDevices" .=) <$> _rciPlatformDevices,
+                  ("instanceIdentityDocumentSignature" .=) <$>
                     _rciInstanceIdentityDocumentSignature,
                   ("cluster" .=) <$> _rciCluster,
                   ("instanceIdentityDocument" .=) <$>
@@ -158,7 +177,8 @@ instance ToJSON RegisterContainerInstance where
                     _rciContainerInstanceARN,
                   ("versionInfo" .=) <$> _rciVersionInfo,
                   ("attributes" .=) <$> _rciAttributes,
-                  ("totalResources" .=) <$> _rciTotalResources])
+                  ("totalResources" .=) <$> _rciTotalResources,
+                  ("tags" .=) <$> _rciTags])
 
 instance ToPath RegisterContainerInstance where
         toPath = const "/"

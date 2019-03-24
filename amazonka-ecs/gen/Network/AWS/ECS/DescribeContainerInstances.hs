@@ -27,6 +27,7 @@ module Network.AWS.ECS.DescribeContainerInstances
       describeContainerInstances
     , DescribeContainerInstances
     -- * Request Lenses
+    , dciInclude
     , dciCluster
     , dciContainerInstances
 
@@ -48,7 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeContainerInstances' smart constructor.
 data DescribeContainerInstances = DescribeContainerInstances'
-  { _dciCluster            :: !(Maybe Text)
+  { _dciInclude            :: !(Maybe [ContainerInstanceField])
+  , _dciCluster            :: !(Maybe Text)
   , _dciContainerInstances :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -57,21 +59,30 @@ data DescribeContainerInstances = DescribeContainerInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dciInclude' - Specifies whether you want to see the resource tags for the container instance. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
+--
 -- * 'dciCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to describe. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'dciContainerInstances' - A list of container instance IDs or full ARN entries.
+-- * 'dciContainerInstances' - A list of up to 100 container instance IDs or full Amazon Resource Name (ARN) entries.
 describeContainerInstances
     :: DescribeContainerInstances
 describeContainerInstances =
   DescribeContainerInstances'
-    {_dciCluster = Nothing, _dciContainerInstances = mempty}
+    { _dciInclude = Nothing
+    , _dciCluster = Nothing
+    , _dciContainerInstances = mempty
+    }
 
+
+-- | Specifies whether you want to see the resource tags for the container instance. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
+dciInclude :: Lens' DescribeContainerInstances [ContainerInstanceField]
+dciInclude = lens _dciInclude (\ s a -> s{_dciInclude = a}) . _Default . _Coerce
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to describe. If you do not specify a cluster, the default cluster is assumed.
 dciCluster :: Lens' DescribeContainerInstances (Maybe Text)
 dciCluster = lens _dciCluster (\ s a -> s{_dciCluster = a})
 
--- | A list of container instance IDs or full ARN entries.
+-- | A list of up to 100 container instance IDs or full Amazon Resource Name (ARN) entries.
 dciContainerInstances :: Lens' DescribeContainerInstances [Text]
 dciContainerInstances = lens _dciContainerInstances (\ s a -> s{_dciContainerInstances = a}) . _Coerce
 
@@ -105,7 +116,8 @@ instance ToJSON DescribeContainerInstances where
         toJSON DescribeContainerInstances'{..}
           = object
               (catMaybes
-                 [("cluster" .=) <$> _dciCluster,
+                 [("include" .=) <$> _dciInclude,
+                  ("cluster" .=) <$> _dciCluster,
                   Just
                     ("containerInstances" .= _dciContainerInstances)])
 

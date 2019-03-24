@@ -76,7 +76,7 @@ data ListTasks = ListTasks'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltDesiredStatus' - The task desired status with which to filter the @ListTasks@ results. Specifying a @desiredStatus@ of @STOPPED@ limits the results to tasks that Amazon ECS has set the desired status to @STOPPED@ , which can be useful for debugging tasks that are not starting properly or have died or finished. The default status filter is @RUNNING@ , which shows tasks that Amazon ECS has set the desired status to @RUNNING@ .
+-- * 'ltDesiredStatus' - The task desired status with which to filter the @ListTasks@ results. Specifying a @desiredStatus@ of @STOPPED@ limits the results to tasks that Amazon ECS has set the desired status to @STOPPED@ . This can be useful for debugging tasks that are not starting properly or have died or finished. The default status filter is @RUNNING@ , which shows tasks that Amazon ECS has set the desired status to @RUNNING@ .
 --
 -- * 'ltCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the tasks to list. If you do not specify a cluster, the default cluster is assumed.
 --
@@ -88,7 +88,7 @@ data ListTasks = ListTasks'
 --
 -- * 'ltServiceName' - The name of the service with which to filter the @ListTasks@ results. Specifying a @serviceName@ limits the results to tasks that belong to that service.
 --
--- * 'ltLaunchType' - The launch type for services you want to list.
+-- * 'ltLaunchType' - The launch type for services to list.
 --
 -- * 'ltContainerInstance' - The container instance ID or full ARN of the container instance with which to filter the @ListTasks@ results. Specifying a @containerInstance@ limits the results to tasks that belong to that container instance.
 --
@@ -109,7 +109,7 @@ listTasks =
     }
 
 
--- | The task desired status with which to filter the @ListTasks@ results. Specifying a @desiredStatus@ of @STOPPED@ limits the results to tasks that Amazon ECS has set the desired status to @STOPPED@ , which can be useful for debugging tasks that are not starting properly or have died or finished. The default status filter is @RUNNING@ , which shows tasks that Amazon ECS has set the desired status to @RUNNING@ .
+-- | The task desired status with which to filter the @ListTasks@ results. Specifying a @desiredStatus@ of @STOPPED@ limits the results to tasks that Amazon ECS has set the desired status to @STOPPED@ . This can be useful for debugging tasks that are not starting properly or have died or finished. The default status filter is @RUNNING@ , which shows tasks that Amazon ECS has set the desired status to @RUNNING@ .
 ltDesiredStatus :: Lens' ListTasks (Maybe DesiredStatus)
 ltDesiredStatus = lens _ltDesiredStatus (\ s a -> s{_ltDesiredStatus = a})
 
@@ -133,7 +133,7 @@ ltStartedBy = lens _ltStartedBy (\ s a -> s{_ltStartedBy = a})
 ltServiceName :: Lens' ListTasks (Maybe Text)
 ltServiceName = lens _ltServiceName (\ s a -> s{_ltServiceName = a})
 
--- | The launch type for services you want to list.
+-- | The launch type for services to list.
 ltLaunchType :: Lens' ListTasks (Maybe LaunchType)
 ltLaunchType = lens _ltLaunchType (\ s a -> s{_ltLaunchType = a})
 

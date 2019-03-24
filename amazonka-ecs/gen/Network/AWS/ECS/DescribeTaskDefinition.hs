@@ -27,6 +27,7 @@ module Network.AWS.ECS.DescribeTaskDefinition
       describeTaskDefinition
     , DescribeTaskDefinition
     -- * Request Lenses
+    , dtdInclude
     , dtdTaskDefinition
 
     -- * Destructuring the Response
@@ -34,6 +35,7 @@ module Network.AWS.ECS.DescribeTaskDefinition
     , DescribeTaskDefinitionResponse
     -- * Response Lenses
     , desrsTaskDefinition
+    , desrsTags
     , desrsResponseStatus
     ) where
 
@@ -45,8 +47,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'describeTaskDefinition' smart constructor.
-newtype DescribeTaskDefinition = DescribeTaskDefinition'
-  { _dtdTaskDefinition :: Text
+data DescribeTaskDefinition = DescribeTaskDefinition'
+  { _dtdInclude        :: !(Maybe [TaskDefinitionField])
+  , _dtdTaskDefinition :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -54,13 +57,20 @@ newtype DescribeTaskDefinition = DescribeTaskDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dtdInclude' - Specifies whether to see the resource tags for the task definition. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
+--
 -- * 'dtdTaskDefinition' - The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@ (@family:revision@ ) for a specific revision in the family, or full Amazon Resource Name (ARN) of the task definition to describe.
 describeTaskDefinition
     :: Text -- ^ 'dtdTaskDefinition'
     -> DescribeTaskDefinition
 describeTaskDefinition pTaskDefinition_ =
-  DescribeTaskDefinition' {_dtdTaskDefinition = pTaskDefinition_}
+  DescribeTaskDefinition'
+    {_dtdInclude = Nothing, _dtdTaskDefinition = pTaskDefinition_}
 
+
+-- | Specifies whether to see the resource tags for the task definition. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
+dtdInclude :: Lens' DescribeTaskDefinition [TaskDefinitionField]
+dtdInclude = lens _dtdInclude (\ s a -> s{_dtdInclude = a}) . _Default . _Coerce
 
 -- | The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@ (@family:revision@ ) for a specific revision in the family, or full Amazon Resource Name (ARN) of the task definition to describe.
 dtdTaskDefinition :: Lens' DescribeTaskDefinition Text
@@ -74,7 +84,9 @@ instance AWSRequest DescribeTaskDefinition where
           = receiveJSON
               (\ s h x ->
                  DescribeTaskDefinitionResponse' <$>
-                   (x .?> "taskDefinition") <*> (pure (fromEnum s)))
+                   (x .?> "taskDefinition") <*>
+                     (x .?> "tags" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance Hashable DescribeTaskDefinition where
 
@@ -94,7 +106,8 @@ instance ToJSON DescribeTaskDefinition where
         toJSON DescribeTaskDefinition'{..}
           = object
               (catMaybes
-                 [Just ("taskDefinition" .= _dtdTaskDefinition)])
+                 [("include" .=) <$> _dtdInclude,
+                  Just ("taskDefinition" .= _dtdTaskDefinition)])
 
 instance ToPath DescribeTaskDefinition where
         toPath = const "/"
@@ -105,6 +118,7 @@ instance ToQuery DescribeTaskDefinition where
 -- | /See:/ 'describeTaskDefinitionResponse' smart constructor.
 data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
   { _desrsTaskDefinition :: !(Maybe TaskDefinition)
+  , _desrsTags           :: !(Maybe [Tag])
   , _desrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -115,18 +129,27 @@ data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
 --
 -- * 'desrsTaskDefinition' - The full task definition description.
 --
+-- * 'desrsTags' - The metadata that is applied to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+--
 -- * 'desrsResponseStatus' - -- | The response status code.
 describeTaskDefinitionResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeTaskDefinitionResponse
 describeTaskDefinitionResponse pResponseStatus_ =
   DescribeTaskDefinitionResponse'
-    {_desrsTaskDefinition = Nothing, _desrsResponseStatus = pResponseStatus_}
+    { _desrsTaskDefinition = Nothing
+    , _desrsTags = Nothing
+    , _desrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The full task definition description.
 desrsTaskDefinition :: Lens' DescribeTaskDefinitionResponse (Maybe TaskDefinition)
 desrsTaskDefinition = lens _desrsTaskDefinition (\ s a -> s{_desrsTaskDefinition = a})
+
+-- | The metadata that is applied to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+desrsTags :: Lens' DescribeTaskDefinitionResponse [Tag]
+desrsTags = lens _desrsTags (\ s a -> s{_desrsTags = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeTaskDefinitionResponse Int

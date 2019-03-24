@@ -21,6 +21,8 @@
 -- Lists the attributes for Amazon ECS resources within a specified target type and cluster. When you specify a target type and cluster, @ListAttributes@ returns a list of attribute objects, one for each attribute on each resource. You can filter the list of results to a single attribute name to only return results that have that name. You can also filter the results by attribute name and value, for example, to see which container instances in a cluster are running a Linux AMI (@ecs.os-type=linux@ ).
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ECS.ListAttributes
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.ECS.ListAttributes
 import Network.AWS.ECS.Types
 import Network.AWS.ECS.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -113,6 +116,13 @@ laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a})
 -- | The type of the target with which to list attributes.
 laTargetType :: Lens' ListAttributes TargetType
 laTargetType = lens _laTargetType (\ s a -> s{_laTargetType = a})
+
+instance AWSPager ListAttributes where
+        page rq rs
+          | stop (rs ^. larsNextToken) = Nothing
+          | stop (rs ^. larsAttributes) = Nothing
+          | otherwise =
+            Just $ rq & laNextToken .~ rs ^. larsNextToken
 
 instance AWSRequest ListAttributes where
         type Rs ListAttributes = ListAttributesResponse

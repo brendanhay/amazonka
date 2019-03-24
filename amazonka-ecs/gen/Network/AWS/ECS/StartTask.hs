@@ -21,7 +21,7 @@
 -- Starts a new task from the specified task definition on the specified container instance or instances.
 --
 --
--- Alternatively, you can use 'RunTask' to place tasks for you. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html Scheduling Tasks> in the /Amazon Elastic Container Service Developer Guide/ .
+-- Alternatively, you can use 'RunTask' to place tasks for you. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html Scheduling Tasks> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 module Network.AWS.ECS.StartTask
     (
@@ -32,8 +32,11 @@ module Network.AWS.ECS.StartTask
     , sOverrides
     , sGroup
     , sCluster
+    , sPropagateTags
+    , sEnableECSManagedTags
     , sStartedBy
     , sNetworkConfiguration
+    , sTags
     , sTaskDefinition
     , sContainerInstances
 
@@ -58,8 +61,11 @@ data StartTask = StartTask'
   { _sOverrides            :: !(Maybe TaskOverride)
   , _sGroup                :: !(Maybe Text)
   , _sCluster              :: !(Maybe Text)
+  , _sPropagateTags        :: !(Maybe PropagateTags)
+  , _sEnableECSManagedTags :: !(Maybe Bool)
   , _sStartedBy            :: !(Maybe Text)
   , _sNetworkConfiguration :: !(Maybe NetworkConfiguration)
+  , _sTags                 :: !(Maybe [Tag])
   , _sTaskDefinition       :: !Text
   , _sContainerInstances   :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -75,9 +81,15 @@ data StartTask = StartTask'
 --
 -- * 'sCluster' - The short name or full Amazon Resource Name (ARN) of the cluster on which to start your task. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'sStartedBy' - An optional tag specified when a task is started. For example if you automatically trigger a task to run a batch process job, you could apply a unique identifier for that job to your task with the @startedBy@ parameter. You can then identify which tasks belong to that job by filtering the results of a 'ListTasks' call with the @startedBy@ value. Up to 36 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. If a task is started by an Amazon ECS service, then the @startedBy@ parameter contains the deployment ID of the service that starts it.
+-- * 'sPropagateTags' - Specifies whether to propagate the tags from the task definition or the service to the task. If no value is specified, the tags are not propagated.
 --
--- * 'sNetworkConfiguration' - The VPC subnet and security group configuration for tasks that receive their own Elastic Network Interface by using the @awsvpc@ networking mode.
+-- * 'sEnableECSManagedTags' - Specifies whether to enable Amazon ECS managed tags for the task. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources> in the /Amazon Elastic Container Service Developer Guide/ .
+--
+-- * 'sStartedBy' - An optional tag specified when a task is started. For example, if you automatically trigger a task to run a batch process job, you could apply a unique identifier for that job to your task with the @startedBy@ parameter. You can then identify which tasks belong to that job by filtering the results of a 'ListTasks' call with the @startedBy@ value. Up to 36 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. If a task is started by an Amazon ECS service, then the @startedBy@ parameter contains the deployment ID of the service that starts it.
+--
+-- * 'sNetworkConfiguration' - The VPC subnet and security group configuration for tasks that receive their own elastic network interface by using the @awsvpc@ networking mode.
+--
+-- * 'sTags' - The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 --
 -- * 'sTaskDefinition' - The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to start. If a @revision@ is not specified, the latest @ACTIVE@ revision is used.
 --
@@ -90,8 +102,11 @@ startTask pTaskDefinition_ =
     { _sOverrides = Nothing
     , _sGroup = Nothing
     , _sCluster = Nothing
+    , _sPropagateTags = Nothing
+    , _sEnableECSManagedTags = Nothing
     , _sStartedBy = Nothing
     , _sNetworkConfiguration = Nothing
+    , _sTags = Nothing
     , _sTaskDefinition = pTaskDefinition_
     , _sContainerInstances = mempty
     }
@@ -109,13 +124,25 @@ sGroup = lens _sGroup (\ s a -> s{_sGroup = a})
 sCluster :: Lens' StartTask (Maybe Text)
 sCluster = lens _sCluster (\ s a -> s{_sCluster = a})
 
--- | An optional tag specified when a task is started. For example if you automatically trigger a task to run a batch process job, you could apply a unique identifier for that job to your task with the @startedBy@ parameter. You can then identify which tasks belong to that job by filtering the results of a 'ListTasks' call with the @startedBy@ value. Up to 36 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. If a task is started by an Amazon ECS service, then the @startedBy@ parameter contains the deployment ID of the service that starts it.
+-- | Specifies whether to propagate the tags from the task definition or the service to the task. If no value is specified, the tags are not propagated.
+sPropagateTags :: Lens' StartTask (Maybe PropagateTags)
+sPropagateTags = lens _sPropagateTags (\ s a -> s{_sPropagateTags = a})
+
+-- | Specifies whether to enable Amazon ECS managed tags for the task. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources> in the /Amazon Elastic Container Service Developer Guide/ .
+sEnableECSManagedTags :: Lens' StartTask (Maybe Bool)
+sEnableECSManagedTags = lens _sEnableECSManagedTags (\ s a -> s{_sEnableECSManagedTags = a})
+
+-- | An optional tag specified when a task is started. For example, if you automatically trigger a task to run a batch process job, you could apply a unique identifier for that job to your task with the @startedBy@ parameter. You can then identify which tasks belong to that job by filtering the results of a 'ListTasks' call with the @startedBy@ value. Up to 36 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. If a task is started by an Amazon ECS service, then the @startedBy@ parameter contains the deployment ID of the service that starts it.
 sStartedBy :: Lens' StartTask (Maybe Text)
 sStartedBy = lens _sStartedBy (\ s a -> s{_sStartedBy = a})
 
--- | The VPC subnet and security group configuration for tasks that receive their own Elastic Network Interface by using the @awsvpc@ networking mode.
+-- | The VPC subnet and security group configuration for tasks that receive their own elastic network interface by using the @awsvpc@ networking mode.
 sNetworkConfiguration :: Lens' StartTask (Maybe NetworkConfiguration)
 sNetworkConfiguration = lens _sNetworkConfiguration (\ s a -> s{_sNetworkConfiguration = a})
+
+-- | The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+sTags :: Lens' StartTask [Tag]
+sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default . _Coerce
 
 -- | The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to start. If a @revision@ is not specified, the latest @ACTIVE@ revision is used.
 sTaskDefinition :: Lens' StartTask Text
@@ -157,9 +184,13 @@ instance ToJSON StartTask where
                  [("overrides" .=) <$> _sOverrides,
                   ("group" .=) <$> _sGroup,
                   ("cluster" .=) <$> _sCluster,
+                  ("propagateTags" .=) <$> _sPropagateTags,
+                  ("enableECSManagedTags" .=) <$>
+                    _sEnableECSManagedTags,
                   ("startedBy" .=) <$> _sStartedBy,
                   ("networkConfiguration" .=) <$>
                     _sNetworkConfiguration,
+                  ("tags" .=) <$> _sTags,
                   Just ("taskDefinition" .= _sTaskDefinition),
                   Just ("containerInstances" .= _sContainerInstances)])
 

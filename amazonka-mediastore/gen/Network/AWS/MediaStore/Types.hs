@@ -34,15 +34,16 @@ module Network.AWS.MediaStore.Types
     , corsRule
     , crAllowedMethods
     , crMaxAgeSeconds
-    , crAllowedHeaders
-    , crAllowedOrigins
     , crExposeHeaders
+    , crAllowedOrigins
+    , crAllowedHeaders
 
     -- * Container
     , Container
     , container
     , cCreationTime
     , cStatus
+    , cAccessLoggingEnabled
     , cARN
     , cName
     , cEndpoint
@@ -93,7 +94,7 @@ mediaStore =
       | otherwise = Nothing
 
 
--- | Could not perform an operation on a policy that does not exist.
+-- | The policy that you specified in the request does not exist.
 --
 --
 _PolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -101,7 +102,7 @@ _PolicyNotFoundException =
   _MatchServiceError mediaStore "PolicyNotFoundException"
 
 
--- | Could not perform an operation on a policy that does not exist.
+-- | The CORS policy that you specified in the request does not exist.
 --
 --
 _CORSPolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -109,7 +110,7 @@ _CORSPolicyNotFoundException =
   _MatchServiceError mediaStore "CorsPolicyNotFoundException"
 
 
--- | Resource already exists or is being updated.
+-- | The container that you specified in the request already exists or is being updated.
 --
 --
 _ContainerInUseException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -124,7 +125,7 @@ _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError = _MatchServiceError mediaStore "InternalServerError"
 
 
--- | Could not perform an operation on a container that does not exist.
+-- | The container that you specified in the request does not exist.
 --
 --
 _ContainerNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError

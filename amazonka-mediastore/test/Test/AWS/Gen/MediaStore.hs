@@ -28,7 +28,16 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateContainer $
+--         [ requestStopAccessLogging $
+--             stopAccessLogging
+--
+--         , requestPutLifecyclePolicy $
+--             putLifecyclePolicy
+--
+--         , requestDeleteLifecyclePolicy $
+--             deleteLifecyclePolicy
+--
+--         , requestCreateContainer $
 --             createContainer
 --
 --         , requestListContainers $
@@ -43,8 +52,14 @@ import Test.Tasty
 --         , requestDeleteCORSPolicy $
 --             deleteCORSPolicy
 --
+--         , requestStartAccessLogging $
+--             startAccessLogging
+--
 --         , requestDescribeContainer $
 --             describeContainer
+--
+--         , requestGetLifecyclePolicy $
+--             getLifecyclePolicy
 --
 --         , requestGetCORSPolicy $
 --             getCORSPolicy
@@ -61,7 +76,16 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateContainer $
+--         [ responseStopAccessLogging $
+--             stopAccessLoggingResponse
+--
+--         , responsePutLifecyclePolicy $
+--             putLifecyclePolicyResponse
+--
+--         , responseDeleteLifecyclePolicy $
+--             deleteLifecyclePolicyResponse
+--
+--         , responseCreateContainer $
 --             createContainerResponse
 --
 --         , responseListContainers $
@@ -76,8 +100,14 @@ import Test.Tasty
 --         , responseDeleteCORSPolicy $
 --             deleteCORSPolicyResponse
 --
+--         , responseStartAccessLogging $
+--             startAccessLoggingResponse
+--
 --         , responseDescribeContainer $
 --             describeContainerResponse
+--
+--         , responseGetLifecyclePolicy $
+--             getLifecyclePolicyResponse
 --
 --         , responseGetCORSPolicy $
 --             getCORSPolicyResponse
@@ -95,6 +125,21 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestStopAccessLogging :: StopAccessLogging -> TestTree
+requestStopAccessLogging = req
+    "StopAccessLogging"
+    "fixture/StopAccessLogging.yaml"
+
+requestPutLifecyclePolicy :: PutLifecyclePolicy -> TestTree
+requestPutLifecyclePolicy = req
+    "PutLifecyclePolicy"
+    "fixture/PutLifecyclePolicy.yaml"
+
+requestDeleteLifecyclePolicy :: DeleteLifecyclePolicy -> TestTree
+requestDeleteLifecyclePolicy = req
+    "DeleteLifecyclePolicy"
+    "fixture/DeleteLifecyclePolicy.yaml"
 
 requestCreateContainer :: CreateContainer -> TestTree
 requestCreateContainer = req
@@ -121,10 +166,20 @@ requestDeleteCORSPolicy = req
     "DeleteCORSPolicy"
     "fixture/DeleteCORSPolicy.yaml"
 
+requestStartAccessLogging :: StartAccessLogging -> TestTree
+requestStartAccessLogging = req
+    "StartAccessLogging"
+    "fixture/StartAccessLogging.yaml"
+
 requestDescribeContainer :: DescribeContainer -> TestTree
 requestDescribeContainer = req
     "DescribeContainer"
     "fixture/DescribeContainer.yaml"
+
+requestGetLifecyclePolicy :: GetLifecyclePolicy -> TestTree
+requestGetLifecyclePolicy = req
+    "GetLifecyclePolicy"
+    "fixture/GetLifecyclePolicy.yaml"
 
 requestGetCORSPolicy :: GetCORSPolicy -> TestTree
 requestGetCORSPolicy = req
@@ -147,6 +202,27 @@ requestGetContainerPolicy = req
     "fixture/GetContainerPolicy.yaml"
 
 -- Responses
+
+responseStopAccessLogging :: StopAccessLoggingResponse -> TestTree
+responseStopAccessLogging = res
+    "StopAccessLoggingResponse"
+    "fixture/StopAccessLoggingResponse.proto"
+    mediaStore
+    (Proxy :: Proxy StopAccessLogging)
+
+responsePutLifecyclePolicy :: PutLifecyclePolicyResponse -> TestTree
+responsePutLifecyclePolicy = res
+    "PutLifecyclePolicyResponse"
+    "fixture/PutLifecyclePolicyResponse.proto"
+    mediaStore
+    (Proxy :: Proxy PutLifecyclePolicy)
+
+responseDeleteLifecyclePolicy :: DeleteLifecyclePolicyResponse -> TestTree
+responseDeleteLifecyclePolicy = res
+    "DeleteLifecyclePolicyResponse"
+    "fixture/DeleteLifecyclePolicyResponse.proto"
+    mediaStore
+    (Proxy :: Proxy DeleteLifecyclePolicy)
 
 responseCreateContainer :: CreateContainerResponse -> TestTree
 responseCreateContainer = res
@@ -183,12 +259,26 @@ responseDeleteCORSPolicy = res
     mediaStore
     (Proxy :: Proxy DeleteCORSPolicy)
 
+responseStartAccessLogging :: StartAccessLoggingResponse -> TestTree
+responseStartAccessLogging = res
+    "StartAccessLoggingResponse"
+    "fixture/StartAccessLoggingResponse.proto"
+    mediaStore
+    (Proxy :: Proxy StartAccessLogging)
+
 responseDescribeContainer :: DescribeContainerResponse -> TestTree
 responseDescribeContainer = res
     "DescribeContainerResponse"
     "fixture/DescribeContainerResponse.proto"
     mediaStore
     (Proxy :: Proxy DescribeContainer)
+
+responseGetLifecyclePolicy :: GetLifecyclePolicyResponse -> TestTree
+responseGetLifecyclePolicy = res
+    "GetLifecyclePolicyResponse"
+    "fixture/GetLifecyclePolicyResponse.proto"
+    mediaStore
+    (Proxy :: Proxy GetLifecyclePolicy)
 
 responseGetCORSPolicy :: GetCORSPolicyResponse -> TestTree
 responseGetCORSPolicy = res

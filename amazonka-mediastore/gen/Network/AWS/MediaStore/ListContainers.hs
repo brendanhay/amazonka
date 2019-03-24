@@ -25,6 +25,8 @@
 --
 -- See also 'DescribeContainer' , which gets the properties of one container.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.MediaStore.ListContainers
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.MediaStore.ListContainers
 import Network.AWS.Lens
 import Network.AWS.MediaStore.Types
 import Network.AWS.MediaStore.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -77,6 +80,13 @@ lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a})
 -- | Enter the maximum number of containers in the response. Use from 1 to 255 characters.
 lcMaxResults :: Lens' ListContainers (Maybe Natural)
 lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListContainers where
+        page rq rs
+          | stop (rs ^. lcrsNextToken) = Nothing
+          | stop (rs ^. lcrsContainers) = Nothing
+          | otherwise =
+            Just $ rq & lcNextToken .~ rs ^. lcrsNextToken
 
 instance AWSRequest ListContainers where
         type Rs ListContainers = ListContainersResponse

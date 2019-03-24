@@ -49,12 +49,17 @@ library
         , Network.AWS.MediaStore.DeleteCORSPolicy
         , Network.AWS.MediaStore.DeleteContainer
         , Network.AWS.MediaStore.DeleteContainerPolicy
+        , Network.AWS.MediaStore.DeleteLifecyclePolicy
         , Network.AWS.MediaStore.DescribeContainer
         , Network.AWS.MediaStore.GetCORSPolicy
         , Network.AWS.MediaStore.GetContainerPolicy
+        , Network.AWS.MediaStore.GetLifecyclePolicy
         , Network.AWS.MediaStore.ListContainers
         , Network.AWS.MediaStore.PutCORSPolicy
         , Network.AWS.MediaStore.PutContainerPolicy
+        , Network.AWS.MediaStore.PutLifecyclePolicy
+        , Network.AWS.MediaStore.StartAccessLogging
+        , Network.AWS.MediaStore.StopAccessLogging
         , Network.AWS.MediaStore.Types
         , Network.AWS.MediaStore.Waiters
 

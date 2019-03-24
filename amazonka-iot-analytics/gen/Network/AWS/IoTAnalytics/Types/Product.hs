@@ -279,6 +279,39 @@ instance ToJSON ChannelActivity where
                  [("next" .=) <$> _caNext, Just ("name" .= _caName),
                   Just ("channelName" .= _caChannelName)])
 
+-- | Statistics information about the channel.
+--
+--
+--
+-- /See:/ 'channelStatistics' smart constructor.
+newtype ChannelStatistics = ChannelStatistics'
+  { _csSize :: Maybe EstimatedResourceSize
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ChannelStatistics' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csSize' - The estimated size of the channel.
+channelStatistics
+    :: ChannelStatistics
+channelStatistics = ChannelStatistics' {_csSize = Nothing}
+
+
+-- | The estimated size of the channel.
+csSize :: Lens' ChannelStatistics (Maybe EstimatedResourceSize)
+csSize = lens _csSize (\ s a -> s{_csSize = a})
+
+instance FromJSON ChannelStatistics where
+        parseJSON
+          = withObject "ChannelStatistics"
+              (\ x -> ChannelStatistics' <$> (x .:? "size"))
+
+instance Hashable ChannelStatistics where
+
+instance NFData ChannelStatistics where
+
 -- | A summary of information about a channel.
 --
 --
@@ -343,19 +376,99 @@ instance Hashable ChannelSummary where
 
 instance NFData ChannelSummary where
 
+-- | Information needed to run the "containerAction" to produce data set contents.
+--
+--
+--
+-- /See:/ 'containerDatasetAction' smart constructor.
+data ContainerDatasetAction = ContainerDatasetAction'
+  { _cdaVariables             :: !(Maybe [Variable])
+  , _cdaImage                 :: !Text
+  , _cdaExecutionRoleARN      :: !Text
+  , _cdaResourceConfiguration :: !ResourceConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ContainerDatasetAction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdaVariables' - The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
+--
+-- * 'cdaImage' - The ARN of the Docker container stored in your account. The Docker container contains an application and needed support libraries and is used to generate data set contents.
+--
+-- * 'cdaExecutionRoleARN' - The ARN of the role which gives permission to the system to access needed resources in order to run the "containerAction". This includes, at minimum, permission to retrieve the data set contents which are the input to the containerized application.
+--
+-- * 'cdaResourceConfiguration' - Configuration of the resource which executes the "containerAction".
+containerDatasetAction
+    :: Text -- ^ 'cdaImage'
+    -> Text -- ^ 'cdaExecutionRoleARN'
+    -> ResourceConfiguration -- ^ 'cdaResourceConfiguration'
+    -> ContainerDatasetAction
+containerDatasetAction pImage_ pExecutionRoleARN_ pResourceConfiguration_ =
+  ContainerDatasetAction'
+    { _cdaVariables = Nothing
+    , _cdaImage = pImage_
+    , _cdaExecutionRoleARN = pExecutionRoleARN_
+    , _cdaResourceConfiguration = pResourceConfiguration_
+    }
+
+
+-- | The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
+cdaVariables :: Lens' ContainerDatasetAction [Variable]
+cdaVariables = lens _cdaVariables (\ s a -> s{_cdaVariables = a}) . _Default . _Coerce
+
+-- | The ARN of the Docker container stored in your account. The Docker container contains an application and needed support libraries and is used to generate data set contents.
+cdaImage :: Lens' ContainerDatasetAction Text
+cdaImage = lens _cdaImage (\ s a -> s{_cdaImage = a})
+
+-- | The ARN of the role which gives permission to the system to access needed resources in order to run the "containerAction". This includes, at minimum, permission to retrieve the data set contents which are the input to the containerized application.
+cdaExecutionRoleARN :: Lens' ContainerDatasetAction Text
+cdaExecutionRoleARN = lens _cdaExecutionRoleARN (\ s a -> s{_cdaExecutionRoleARN = a})
+
+-- | Configuration of the resource which executes the "containerAction".
+cdaResourceConfiguration :: Lens' ContainerDatasetAction ResourceConfiguration
+cdaResourceConfiguration = lens _cdaResourceConfiguration (\ s a -> s{_cdaResourceConfiguration = a})
+
+instance FromJSON ContainerDatasetAction where
+        parseJSON
+          = withObject "ContainerDatasetAction"
+              (\ x ->
+                 ContainerDatasetAction' <$>
+                   (x .:? "variables" .!= mempty) <*> (x .: "image") <*>
+                     (x .: "executionRoleArn")
+                     <*> (x .: "resourceConfiguration"))
+
+instance Hashable ContainerDatasetAction where
+
+instance NFData ContainerDatasetAction where
+
+instance ToJSON ContainerDatasetAction where
+        toJSON ContainerDatasetAction'{..}
+          = object
+              (catMaybes
+                 [("variables" .=) <$> _cdaVariables,
+                  Just ("image" .= _cdaImage),
+                  Just ("executionRoleArn" .= _cdaExecutionRoleARN),
+                  Just
+                    ("resourceConfiguration" .=
+                       _cdaResourceConfiguration)])
+
 -- | Information about a data set.
 --
 --
 --
 -- /See:/ 'dataset' smart constructor.
 data Dataset = Dataset'
-  { _dCreationTime   :: !(Maybe POSIX)
-  , _dStatus         :: !(Maybe DatasetStatus)
-  , _dArn            :: !(Maybe Text)
-  , _dActions        :: !(Maybe (List1 DatasetAction))
-  , _dTriggers       :: !(Maybe [DatasetTrigger])
-  , _dName           :: !(Maybe Text)
-  , _dLastUpdateTime :: !(Maybe POSIX)
+  { _dCreationTime         :: !(Maybe POSIX)
+  , _dStatus               :: !(Maybe DatasetStatus)
+  , _dArn                  :: !(Maybe Text)
+  , _dActions              :: !(Maybe (List1 DatasetAction))
+  , _dTriggers             :: !(Maybe [DatasetTrigger])
+  , _dRetentionPeriod      :: !(Maybe RetentionPeriod)
+  , _dName                 :: !(Maybe Text)
+  , _dContentDeliveryRules :: !(Maybe [DatasetContentDeliveryRule])
+  , _dLastUpdateTime       :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -369,11 +482,15 @@ data Dataset = Dataset'
 --
 -- * 'dArn' - The ARN of the data set.
 --
--- * 'dActions' - The "DatasetAction" objects that create the data set.
+-- * 'dActions' - The "DatasetAction" objects that automatically create the data set contents.
 --
 -- * 'dTriggers' - The "DatasetTrigger" objects that specify when the data set is automatically updated.
 --
+-- * 'dRetentionPeriod' - [Optional] How long, in days, message data is kept for the data set.
+--
 -- * 'dName' - The name of the data set.
+--
+-- * 'dContentDeliveryRules' - When data set contents are created they are delivered to destinations specified here.
 --
 -- * 'dLastUpdateTime' - The last time the data set was updated.
 dataset
@@ -385,7 +502,9 @@ dataset =
     , _dArn = Nothing
     , _dActions = Nothing
     , _dTriggers = Nothing
+    , _dRetentionPeriod = Nothing
     , _dName = Nothing
+    , _dContentDeliveryRules = Nothing
     , _dLastUpdateTime = Nothing
     }
 
@@ -402,7 +521,7 @@ dStatus = lens _dStatus (\ s a -> s{_dStatus = a})
 dArn :: Lens' Dataset (Maybe Text)
 dArn = lens _dArn (\ s a -> s{_dArn = a})
 
--- | The "DatasetAction" objects that create the data set.
+-- | The "DatasetAction" objects that automatically create the data set contents.
 dActions :: Lens' Dataset (Maybe (NonEmpty DatasetAction))
 dActions = lens _dActions (\ s a -> s{_dActions = a}) . mapping _List1
 
@@ -410,9 +529,17 @@ dActions = lens _dActions (\ s a -> s{_dActions = a}) . mapping _List1
 dTriggers :: Lens' Dataset [DatasetTrigger]
 dTriggers = lens _dTriggers (\ s a -> s{_dTriggers = a}) . _Default . _Coerce
 
+-- | [Optional] How long, in days, message data is kept for the data set.
+dRetentionPeriod :: Lens' Dataset (Maybe RetentionPeriod)
+dRetentionPeriod = lens _dRetentionPeriod (\ s a -> s{_dRetentionPeriod = a})
+
 -- | The name of the data set.
 dName :: Lens' Dataset (Maybe Text)
 dName = lens _dName (\ s a -> s{_dName = a})
+
+-- | When data set contents are created they are delivered to destinations specified here.
+dContentDeliveryRules :: Lens' Dataset [DatasetContentDeliveryRule]
+dContentDeliveryRules = lens _dContentDeliveryRules (\ s a -> s{_dContentDeliveryRules = a}) . _Default . _Coerce
 
 -- | The last time the data set was updated.
 dLastUpdateTime :: Lens' Dataset (Maybe UTCTime)
@@ -427,21 +554,24 @@ instance FromJSON Dataset where
                      (x .:? "arn")
                      <*> (x .:? "actions")
                      <*> (x .:? "triggers" .!= mempty)
+                     <*> (x .:? "retentionPeriod")
                      <*> (x .:? "name")
+                     <*> (x .:? "contentDeliveryRules" .!= mempty)
                      <*> (x .:? "lastUpdateTime"))
 
 instance Hashable Dataset where
 
 instance NFData Dataset where
 
--- | A "DatasetAction" object specifying the query that creates the data set content.
+-- | A "DatasetAction" object that specifies how data set contents are automatically created.
 --
 --
 --
 -- /See:/ 'datasetAction' smart constructor.
 data DatasetAction = DatasetAction'
-  { _daQueryAction :: !(Maybe SqlQueryDatasetAction)
-  , _daActionName  :: !(Maybe Text)
+  { _daQueryAction     :: !(Maybe SqlQueryDatasetAction)
+  , _daActionName      :: !(Maybe Text)
+  , _daContainerAction :: !(Maybe ContainerDatasetAction)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -449,29 +579,40 @@ data DatasetAction = DatasetAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daQueryAction' - An "SqlQueryDatasetAction" object that contains the SQL query to modify the message.
+-- * 'daQueryAction' - An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
 --
--- * 'daActionName' - The name of the data set action.
+-- * 'daActionName' - The name of the data set action by which data set contents are automatically created.
+--
+-- * 'daContainerAction' - Information which allows the system to run a containerized application in order to create the data set contents. The application must be in a Docker container along with any needed support libraries.
 datasetAction
     :: DatasetAction
 datasetAction =
-  DatasetAction' {_daQueryAction = Nothing, _daActionName = Nothing}
+  DatasetAction'
+    { _daQueryAction = Nothing
+    , _daActionName = Nothing
+    , _daContainerAction = Nothing
+    }
 
 
--- | An "SqlQueryDatasetAction" object that contains the SQL query to modify the message.
+-- | An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
 daQueryAction :: Lens' DatasetAction (Maybe SqlQueryDatasetAction)
 daQueryAction = lens _daQueryAction (\ s a -> s{_daQueryAction = a})
 
--- | The name of the data set action.
+-- | The name of the data set action by which data set contents are automatically created.
 daActionName :: Lens' DatasetAction (Maybe Text)
 daActionName = lens _daActionName (\ s a -> s{_daActionName = a})
+
+-- | Information which allows the system to run a containerized application in order to create the data set contents. The application must be in a Docker container along with any needed support libraries.
+daContainerAction :: Lens' DatasetAction (Maybe ContainerDatasetAction)
+daContainerAction = lens _daContainerAction (\ s a -> s{_daContainerAction = a})
 
 instance FromJSON DatasetAction where
         parseJSON
           = withObject "DatasetAction"
               (\ x ->
                  DatasetAction' <$>
-                   (x .:? "queryAction") <*> (x .:? "actionName"))
+                   (x .:? "queryAction") <*> (x .:? "actionName") <*>
+                     (x .:? "containerAction"))
 
 instance Hashable DatasetAction where
 
@@ -482,9 +623,153 @@ instance ToJSON DatasetAction where
           = object
               (catMaybes
                  [("queryAction" .=) <$> _daQueryAction,
-                  ("actionName" .=) <$> _daActionName])
+                  ("actionName" .=) <$> _daActionName,
+                  ("containerAction" .=) <$> _daContainerAction])
 
--- | The state of the data set and the reason it is in this state.
+-- |
+--
+--
+--
+-- /See:/ 'datasetActionSummary' smart constructor.
+data DatasetActionSummary = DatasetActionSummary'
+  { _dasActionName :: !(Maybe Text)
+  , _dasActionType :: !(Maybe DatasetActionType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DatasetActionSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dasActionName' - The name of the action which automatically creates the data set's contents.
+--
+-- * 'dasActionType' - The type of action by which the data set's contents are automatically created.
+datasetActionSummary
+    :: DatasetActionSummary
+datasetActionSummary =
+  DatasetActionSummary' {_dasActionName = Nothing, _dasActionType = Nothing}
+
+
+-- | The name of the action which automatically creates the data set's contents.
+dasActionName :: Lens' DatasetActionSummary (Maybe Text)
+dasActionName = lens _dasActionName (\ s a -> s{_dasActionName = a})
+
+-- | The type of action by which the data set's contents are automatically created.
+dasActionType :: Lens' DatasetActionSummary (Maybe DatasetActionType)
+dasActionType = lens _dasActionType (\ s a -> s{_dasActionType = a})
+
+instance FromJSON DatasetActionSummary where
+        parseJSON
+          = withObject "DatasetActionSummary"
+              (\ x ->
+                 DatasetActionSummary' <$>
+                   (x .:? "actionName") <*> (x .:? "actionType"))
+
+instance Hashable DatasetActionSummary where
+
+instance NFData DatasetActionSummary where
+
+-- | The destination to which data set contents are delivered.
+--
+--
+--
+-- /See:/ 'datasetContentDeliveryDestination' smart constructor.
+newtype DatasetContentDeliveryDestination = DatasetContentDeliveryDestination'
+  { _dcddIotEventsDestinationConfiguration :: Maybe IotEventsDestinationConfiguration
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DatasetContentDeliveryDestination' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcddIotEventsDestinationConfiguration' - Configuration information for delivery of data set contents to AWS IoT Events.
+datasetContentDeliveryDestination
+    :: DatasetContentDeliveryDestination
+datasetContentDeliveryDestination =
+  DatasetContentDeliveryDestination'
+    {_dcddIotEventsDestinationConfiguration = Nothing}
+
+
+-- | Configuration information for delivery of data set contents to AWS IoT Events.
+dcddIotEventsDestinationConfiguration :: Lens' DatasetContentDeliveryDestination (Maybe IotEventsDestinationConfiguration)
+dcddIotEventsDestinationConfiguration = lens _dcddIotEventsDestinationConfiguration (\ s a -> s{_dcddIotEventsDestinationConfiguration = a})
+
+instance FromJSON DatasetContentDeliveryDestination
+         where
+        parseJSON
+          = withObject "DatasetContentDeliveryDestination"
+              (\ x ->
+                 DatasetContentDeliveryDestination' <$>
+                   (x .:? "iotEventsDestinationConfiguration"))
+
+instance Hashable DatasetContentDeliveryDestination
+         where
+
+instance NFData DatasetContentDeliveryDestination
+         where
+
+instance ToJSON DatasetContentDeliveryDestination
+         where
+        toJSON DatasetContentDeliveryDestination'{..}
+          = object
+              (catMaybes
+                 [("iotEventsDestinationConfiguration" .=) <$>
+                    _dcddIotEventsDestinationConfiguration])
+
+-- | When data set contents are created they are delivered to destination specified here.
+--
+--
+--
+-- /See:/ 'datasetContentDeliveryRule' smart constructor.
+data DatasetContentDeliveryRule = DatasetContentDeliveryRule'
+  { _dcdrEntryName   :: !(Maybe Text)
+  , _dcdrDestination :: !DatasetContentDeliveryDestination
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DatasetContentDeliveryRule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcdrEntryName' - The name of the data set content delivery rules entry.
+--
+-- * 'dcdrDestination' - The destination to which data set contents are delivered.
+datasetContentDeliveryRule
+    :: DatasetContentDeliveryDestination -- ^ 'dcdrDestination'
+    -> DatasetContentDeliveryRule
+datasetContentDeliveryRule pDestination_ =
+  DatasetContentDeliveryRule'
+    {_dcdrEntryName = Nothing, _dcdrDestination = pDestination_}
+
+
+-- | The name of the data set content delivery rules entry.
+dcdrEntryName :: Lens' DatasetContentDeliveryRule (Maybe Text)
+dcdrEntryName = lens _dcdrEntryName (\ s a -> s{_dcdrEntryName = a})
+
+-- | The destination to which data set contents are delivered.
+dcdrDestination :: Lens' DatasetContentDeliveryRule DatasetContentDeliveryDestination
+dcdrDestination = lens _dcdrDestination (\ s a -> s{_dcdrDestination = a})
+
+instance FromJSON DatasetContentDeliveryRule where
+        parseJSON
+          = withObject "DatasetContentDeliveryRule"
+              (\ x ->
+                 DatasetContentDeliveryRule' <$>
+                   (x .:? "entryName") <*> (x .: "destination"))
+
+instance Hashable DatasetContentDeliveryRule where
+
+instance NFData DatasetContentDeliveryRule where
+
+instance ToJSON DatasetContentDeliveryRule where
+        toJSON DatasetContentDeliveryRule'{..}
+          = object
+              (catMaybes
+                 [("entryName" .=) <$> _dcdrEntryName,
+                  Just ("destination" .= _dcdrDestination)])
+
+-- | The state of the data set contents and the reason they are in this state.
 --
 --
 --
@@ -499,20 +784,20 @@ data DatasetContentStatus = DatasetContentStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcsState' - The state of the data set. Can be one of "CREATING", "SUCCEEDED" or "FAILED".
+-- * 'dcsState' - The state of the data set contents. Can be one of "READY", "CREATING", "SUCCEEDED" or "FAILED".
 --
--- * 'dcsReason' - The reason the data set is in this state.
+-- * 'dcsReason' - The reason the data set contents are in this state.
 datasetContentStatus
     :: DatasetContentStatus
 datasetContentStatus =
   DatasetContentStatus' {_dcsState = Nothing, _dcsReason = Nothing}
 
 
--- | The state of the data set. Can be one of "CREATING", "SUCCEEDED" or "FAILED".
+-- | The state of the data set contents. Can be one of "READY", "CREATING", "SUCCEEDED" or "FAILED".
 dcsState :: Lens' DatasetContentStatus (Maybe DatasetContentState)
 dcsState = lens _dcsState (\ s a -> s{_dcsState = a})
 
--- | The reason the data set is in this state.
+-- | The reason the data set contents are in this state.
 dcsReason :: Lens' DatasetContentStatus (Maybe Text)
 dcsReason = lens _dcsReason (\ s a -> s{_dcsReason = a})
 
@@ -526,6 +811,112 @@ instance FromJSON DatasetContentStatus where
 instance Hashable DatasetContentStatus where
 
 instance NFData DatasetContentStatus where
+
+-- | Summary information about data set contents.
+--
+--
+--
+-- /See:/ 'datasetContentSummary' smart constructor.
+data DatasetContentSummary = DatasetContentSummary'
+  { _dcsCreationTime :: !(Maybe POSIX)
+  , _dcsStatus       :: !(Maybe DatasetContentStatus)
+  , _dcsScheduleTime :: !(Maybe POSIX)
+  , _dcsVersion      :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DatasetContentSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsCreationTime' - The actual time the creation of the data set contents was started.
+--
+-- * 'dcsStatus' - The status of the data set contents.
+--
+-- * 'dcsScheduleTime' - The time the creation of the data set contents was scheduled to start.
+--
+-- * 'dcsVersion' - The version of the data set contents.
+datasetContentSummary
+    :: DatasetContentSummary
+datasetContentSummary =
+  DatasetContentSummary'
+    { _dcsCreationTime = Nothing
+    , _dcsStatus = Nothing
+    , _dcsScheduleTime = Nothing
+    , _dcsVersion = Nothing
+    }
+
+
+-- | The actual time the creation of the data set contents was started.
+dcsCreationTime :: Lens' DatasetContentSummary (Maybe UTCTime)
+dcsCreationTime = lens _dcsCreationTime (\ s a -> s{_dcsCreationTime = a}) . mapping _Time
+
+-- | The status of the data set contents.
+dcsStatus :: Lens' DatasetContentSummary (Maybe DatasetContentStatus)
+dcsStatus = lens _dcsStatus (\ s a -> s{_dcsStatus = a})
+
+-- | The time the creation of the data set contents was scheduled to start.
+dcsScheduleTime :: Lens' DatasetContentSummary (Maybe UTCTime)
+dcsScheduleTime = lens _dcsScheduleTime (\ s a -> s{_dcsScheduleTime = a}) . mapping _Time
+
+-- | The version of the data set contents.
+dcsVersion :: Lens' DatasetContentSummary (Maybe Text)
+dcsVersion = lens _dcsVersion (\ s a -> s{_dcsVersion = a})
+
+instance FromJSON DatasetContentSummary where
+        parseJSON
+          = withObject "DatasetContentSummary"
+              (\ x ->
+                 DatasetContentSummary' <$>
+                   (x .:? "creationTime") <*> (x .:? "status") <*>
+                     (x .:? "scheduleTime")
+                     <*> (x .:? "version"))
+
+instance Hashable DatasetContentSummary where
+
+instance NFData DatasetContentSummary where
+
+-- | The data set whose latest contents are used as input to the notebook or application.
+--
+--
+--
+-- /See:/ 'datasetContentVersionValue' smart constructor.
+newtype DatasetContentVersionValue = DatasetContentVersionValue'
+  { _dcvvDatasetName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DatasetContentVersionValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcvvDatasetName' - The name of the data set whose latest contents are used as input to the notebook or application.
+datasetContentVersionValue
+    :: Text -- ^ 'dcvvDatasetName'
+    -> DatasetContentVersionValue
+datasetContentVersionValue pDatasetName_ =
+  DatasetContentVersionValue' {_dcvvDatasetName = pDatasetName_}
+
+
+-- | The name of the data set whose latest contents are used as input to the notebook or application.
+dcvvDatasetName :: Lens' DatasetContentVersionValue Text
+dcvvDatasetName = lens _dcvvDatasetName (\ s a -> s{_dcvvDatasetName = a})
+
+instance FromJSON DatasetContentVersionValue where
+        parseJSON
+          = withObject "DatasetContentVersionValue"
+              (\ x ->
+                 DatasetContentVersionValue' <$> (x .: "datasetName"))
+
+instance Hashable DatasetContentVersionValue where
+
+instance NFData DatasetContentVersionValue where
+
+instance ToJSON DatasetContentVersionValue where
+        toJSON DatasetContentVersionValue'{..}
+          = object
+              (catMaybes
+                 [Just ("datasetName" .= _dcvvDatasetName)])
 
 -- | The reference to a data set entry.
 --
@@ -577,6 +968,8 @@ instance NFData DatasetEntry where
 data DatasetSummary = DatasetSummary'
   { _dssCreationTime   :: !(Maybe POSIX)
   , _dssStatus         :: !(Maybe DatasetStatus)
+  , _dssActions        :: !(Maybe (List1 DatasetActionSummary))
+  , _dssTriggers       :: !(Maybe [DatasetTrigger])
   , _dssDatasetName    :: !(Maybe Text)
   , _dssLastUpdateTime :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -590,6 +983,10 @@ data DatasetSummary = DatasetSummary'
 --
 -- * 'dssStatus' - The status of the data set.
 --
+-- * 'dssActions' - A list of "DataActionSummary" objects.
+--
+-- * 'dssTriggers' - A list of triggers. A trigger causes data set content to be populated at a specified time interval or when another data set is populated. The list of triggers can be empty or contain up to five DataSetTrigger objects
+--
 -- * 'dssDatasetName' - The name of the data set.
 --
 -- * 'dssLastUpdateTime' - The last time the data set was updated.
@@ -599,6 +996,8 @@ datasetSummary =
   DatasetSummary'
     { _dssCreationTime = Nothing
     , _dssStatus = Nothing
+    , _dssActions = Nothing
+    , _dssTriggers = Nothing
     , _dssDatasetName = Nothing
     , _dssLastUpdateTime = Nothing
     }
@@ -611,6 +1010,14 @@ dssCreationTime = lens _dssCreationTime (\ s a -> s{_dssCreationTime = a}) . map
 -- | The status of the data set.
 dssStatus :: Lens' DatasetSummary (Maybe DatasetStatus)
 dssStatus = lens _dssStatus (\ s a -> s{_dssStatus = a})
+
+-- | A list of "DataActionSummary" objects.
+dssActions :: Lens' DatasetSummary (Maybe (NonEmpty DatasetActionSummary))
+dssActions = lens _dssActions (\ s a -> s{_dssActions = a}) . mapping _List1
+
+-- | A list of triggers. A trigger causes data set content to be populated at a specified time interval or when another data set is populated. The list of triggers can be empty or contain up to five DataSetTrigger objects
+dssTriggers :: Lens' DatasetSummary [DatasetTrigger]
+dssTriggers = lens _dssTriggers (\ s a -> s{_dssTriggers = a}) . _Default . _Coerce
 
 -- | The name of the data set.
 dssDatasetName :: Lens' DatasetSummary (Maybe Text)
@@ -626,7 +1033,9 @@ instance FromJSON DatasetSummary where
               (\ x ->
                  DatasetSummary' <$>
                    (x .:? "creationTime") <*> (x .:? "status") <*>
-                     (x .:? "datasetName")
+                     (x .:? "actions")
+                     <*> (x .:? "triggers" .!= mempty)
+                     <*> (x .:? "datasetName")
                      <*> (x .:? "lastUpdateTime"))
 
 instance Hashable DatasetSummary where
@@ -638,8 +1047,9 @@ instance NFData DatasetSummary where
 --
 --
 -- /See:/ 'datasetTrigger' smart constructor.
-newtype DatasetTrigger = DatasetTrigger'
-  { _dtSchedule :: Maybe Schedule
+data DatasetTrigger = DatasetTrigger'
+  { _dtDataset  :: !(Maybe TriggeringDataset)
+  , _dtSchedule :: !(Maybe Schedule)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -647,11 +1057,17 @@ newtype DatasetTrigger = DatasetTrigger'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dtDataset' - The data set whose content creation triggers the creation of this data set's contents.
+--
 -- * 'dtSchedule' - The "Schedule" when the trigger is initiated.
 datasetTrigger
     :: DatasetTrigger
-datasetTrigger = DatasetTrigger' {_dtSchedule = Nothing}
+datasetTrigger = DatasetTrigger' {_dtDataset = Nothing, _dtSchedule = Nothing}
 
+
+-- | The data set whose content creation triggers the creation of this data set's contents.
+dtDataset :: Lens' DatasetTrigger (Maybe TriggeringDataset)
+dtDataset = lens _dtDataset (\ s a -> s{_dtDataset = a})
 
 -- | The "Schedule" when the trigger is initiated.
 dtSchedule :: Lens' DatasetTrigger (Maybe Schedule)
@@ -660,7 +1076,9 @@ dtSchedule = lens _dtSchedule (\ s a -> s{_dtSchedule = a})
 instance FromJSON DatasetTrigger where
         parseJSON
           = withObject "DatasetTrigger"
-              (\ x -> DatasetTrigger' <$> (x .:? "schedule"))
+              (\ x ->
+                 DatasetTrigger' <$>
+                   (x .:? "dataset") <*> (x .:? "schedule"))
 
 instance Hashable DatasetTrigger where
 
@@ -669,7 +1087,9 @@ instance NFData DatasetTrigger where
 instance ToJSON DatasetTrigger where
         toJSON DatasetTrigger'{..}
           = object
-              (catMaybes [("schedule" .=) <$> _dtSchedule])
+              (catMaybes
+                 [("dataset" .=) <$> _dtDataset,
+                  ("schedule" .=) <$> _dtSchedule])
 
 -- | Information about a data store.
 --
@@ -805,6 +1225,39 @@ instance ToJSON DatastoreActivity where
                  [Just ("name" .= _daName),
                   Just ("datastoreName" .= _daDatastoreName)])
 
+-- | Statistical information about the data store.
+--
+--
+--
+-- /See:/ 'datastoreStatistics' smart constructor.
+newtype DatastoreStatistics = DatastoreStatistics'
+  { _dsSize :: Maybe EstimatedResourceSize
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DatastoreStatistics' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsSize' - The estimated size of the data store.
+datastoreStatistics
+    :: DatastoreStatistics
+datastoreStatistics = DatastoreStatistics' {_dsSize = Nothing}
+
+
+-- | The estimated size of the data store.
+dsSize :: Lens' DatastoreStatistics (Maybe EstimatedResourceSize)
+dsSize = lens _dsSize (\ s a -> s{_dsSize = a})
+
+instance FromJSON DatastoreStatistics where
+        parseJSON
+          = withObject "DatastoreStatistics"
+              (\ x -> DatastoreStatistics' <$> (x .:? "size"))
+
+instance Hashable DatastoreStatistics where
+
+instance NFData DatastoreStatistics where
+
 -- | A summary of information about a data store.
 --
 --
@@ -868,6 +1321,59 @@ instance FromJSON DatastoreSummary where
 instance Hashable DatastoreSummary where
 
 instance NFData DatastoreSummary where
+
+-- | Used to limit data to that which has arrived since the last execution of the action.
+--
+--
+--
+-- /See:/ 'deltaTime' smart constructor.
+data DeltaTime = DeltaTime'
+  { _dtOffsetSeconds  :: !Int
+  , _dtTimeExpression :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DeltaTime' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtOffsetSeconds' - The number of seconds of estimated "in flight" lag time of message data. When you create data set contents using message data from a specified time frame, some message data may still be "in flight" when processing begins, and so will not arrive in time to be processed. Use this field to make allowances for the "in flight" time of your message data, so that data not processed from a previous time frame will be included with the next time frame. Without this, missed message data would be excluded from processing during the next time frame as well, because its timestamp places it within the previous time frame.
+--
+-- * 'dtTimeExpression' - An expression by which the time of the message data may be determined. This may be the name of a timestamp field, or a SQL expression which is used to derive the time the message data was generated.
+deltaTime
+    :: Int -- ^ 'dtOffsetSeconds'
+    -> Text -- ^ 'dtTimeExpression'
+    -> DeltaTime
+deltaTime pOffsetSeconds_ pTimeExpression_ =
+  DeltaTime'
+    {_dtOffsetSeconds = pOffsetSeconds_, _dtTimeExpression = pTimeExpression_}
+
+
+-- | The number of seconds of estimated "in flight" lag time of message data. When you create data set contents using message data from a specified time frame, some message data may still be "in flight" when processing begins, and so will not arrive in time to be processed. Use this field to make allowances for the "in flight" time of your message data, so that data not processed from a previous time frame will be included with the next time frame. Without this, missed message data would be excluded from processing during the next time frame as well, because its timestamp places it within the previous time frame.
+dtOffsetSeconds :: Lens' DeltaTime Int
+dtOffsetSeconds = lens _dtOffsetSeconds (\ s a -> s{_dtOffsetSeconds = a})
+
+-- | An expression by which the time of the message data may be determined. This may be the name of a timestamp field, or a SQL expression which is used to derive the time the message data was generated.
+dtTimeExpression :: Lens' DeltaTime Text
+dtTimeExpression = lens _dtTimeExpression (\ s a -> s{_dtTimeExpression = a})
+
+instance FromJSON DeltaTime where
+        parseJSON
+          = withObject "DeltaTime"
+              (\ x ->
+                 DeltaTime' <$>
+                   (x .: "offsetSeconds") <*> (x .: "timeExpression"))
+
+instance Hashable DeltaTime where
+
+instance NFData DeltaTime where
+
+instance ToJSON DeltaTime where
+        toJSON DeltaTime'{..}
+          = object
+              (catMaybes
+                 [Just ("offsetSeconds" .= _dtOffsetSeconds),
+                  Just ("timeExpression" .= _dtTimeExpression)])
 
 -- | An activity that adds data from the AWS IoT device registry to your message.
 --
@@ -1043,6 +1549,51 @@ instance ToJSON DeviceShadowEnrichActivity where
                   Just ("thingName" .= _dseaThingName),
                   Just ("roleArn" .= _dseaRoleARN)])
 
+-- | The estimated size of the resource.
+--
+--
+--
+-- /See:/ 'estimatedResourceSize' smart constructor.
+data EstimatedResourceSize = EstimatedResourceSize'
+  { _ersEstimatedOn          :: !(Maybe POSIX)
+  , _ersEstimatedSizeInBytes :: !(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'EstimatedResourceSize' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ersEstimatedOn' - The time when the estimate of the size of the resource was made.
+--
+-- * 'ersEstimatedSizeInBytes' - The estimated size of the resource in bytes.
+estimatedResourceSize
+    :: EstimatedResourceSize
+estimatedResourceSize =
+  EstimatedResourceSize'
+    {_ersEstimatedOn = Nothing, _ersEstimatedSizeInBytes = Nothing}
+
+
+-- | The time when the estimate of the size of the resource was made.
+ersEstimatedOn :: Lens' EstimatedResourceSize (Maybe UTCTime)
+ersEstimatedOn = lens _ersEstimatedOn (\ s a -> s{_ersEstimatedOn = a}) . mapping _Time
+
+-- | The estimated size of the resource in bytes.
+ersEstimatedSizeInBytes :: Lens' EstimatedResourceSize (Maybe Double)
+ersEstimatedSizeInBytes = lens _ersEstimatedSizeInBytes (\ s a -> s{_ersEstimatedSizeInBytes = a})
+
+instance FromJSON EstimatedResourceSize where
+        parseJSON
+          = withObject "EstimatedResourceSize"
+              (\ x ->
+                 EstimatedResourceSize' <$>
+                   (x .:? "estimatedOn") <*>
+                     (x .:? "estimatedSizeInBytes"))
+
+instance Hashable EstimatedResourceSize where
+
+instance NFData EstimatedResourceSize where
+
 -- | An activity that filters a message based on its attributes.
 --
 --
@@ -1063,7 +1614,7 @@ data FilterActivity = FilterActivity'
 --
 -- * 'faName' - The name of the 'filter' activity.
 --
--- * 'faFilter' - An expression that looks like an SQL WHERE clause that must return a Boolean value.
+-- * 'faFilter' - An expression that looks like a SQL WHERE clause that must return a Boolean value.
 filterActivity
     :: Text -- ^ 'faName'
     -> Text -- ^ 'faFilter'
@@ -1080,7 +1631,7 @@ faNext = lens _faNext (\ s a -> s{_faNext = a})
 faName :: Lens' FilterActivity Text
 faName = lens _faName (\ s a -> s{_faName = a})
 
--- | An expression that looks like an SQL WHERE clause that must return a Boolean value.
+-- | An expression that looks like a SQL WHERE clause that must return a Boolean value.
 faFilter :: Lens' FilterActivity Text
 faFilter = lens _faFilter (\ s a -> s{_faFilter = a})
 
@@ -1101,6 +1652,63 @@ instance ToJSON FilterActivity where
               (catMaybes
                  [("next" .=) <$> _faNext, Just ("name" .= _faName),
                   Just ("filter" .= _faFilter)])
+
+-- | Configuration information for delivery of data set contents to AWS IoT Events.
+--
+--
+--
+-- /See:/ 'iotEventsDestinationConfiguration' smart constructor.
+data IotEventsDestinationConfiguration = IotEventsDestinationConfiguration'
+  { _iedcInputName :: !Text
+  , _iedcRoleARN   :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'IotEventsDestinationConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iedcInputName' - The name of the AWS IoT Events input to which data set contents are delivered.
+--
+-- * 'iedcRoleARN' - The ARN of the role which grants AWS IoT Analytics permission to deliver data set contents to an AWS IoT Events input.
+iotEventsDestinationConfiguration
+    :: Text -- ^ 'iedcInputName'
+    -> Text -- ^ 'iedcRoleARN'
+    -> IotEventsDestinationConfiguration
+iotEventsDestinationConfiguration pInputName_ pRoleARN_ =
+  IotEventsDestinationConfiguration'
+    {_iedcInputName = pInputName_, _iedcRoleARN = pRoleARN_}
+
+
+-- | The name of the AWS IoT Events input to which data set contents are delivered.
+iedcInputName :: Lens' IotEventsDestinationConfiguration Text
+iedcInputName = lens _iedcInputName (\ s a -> s{_iedcInputName = a})
+
+-- | The ARN of the role which grants AWS IoT Analytics permission to deliver data set contents to an AWS IoT Events input.
+iedcRoleARN :: Lens' IotEventsDestinationConfiguration Text
+iedcRoleARN = lens _iedcRoleARN (\ s a -> s{_iedcRoleARN = a})
+
+instance FromJSON IotEventsDestinationConfiguration
+         where
+        parseJSON
+          = withObject "IotEventsDestinationConfiguration"
+              (\ x ->
+                 IotEventsDestinationConfiguration' <$>
+                   (x .: "inputName") <*> (x .: "roleArn"))
+
+instance Hashable IotEventsDestinationConfiguration
+         where
+
+instance NFData IotEventsDestinationConfiguration
+         where
+
+instance ToJSON IotEventsDestinationConfiguration
+         where
+        toJSON IotEventsDestinationConfiguration'{..}
+          = object
+              (catMaybes
+                 [Just ("inputName" .= _iedcInputName),
+                  Just ("roleArn" .= _iedcRoleARN)])
 
 -- | An activity that runs a Lambda function to modify the message.
 --
@@ -1261,7 +1869,7 @@ data MathActivity = MathActivity'
 --
 -- * 'maName' - The name of the 'math' activity.
 --
--- * 'maAttribute' - The name of the attribute that will contain the result of the math operation.
+-- * 'maAttribute' - The name of the attribute that contains the result of the math operation.
 --
 -- * 'maMath' - An expression that uses one or more existing attributes and must return an integer value.
 mathActivity
@@ -1286,7 +1894,7 @@ maNext = lens _maNext (\ s a -> s{_maNext = a})
 maName :: Lens' MathActivity Text
 maName = lens _maName (\ s a -> s{_maName = a})
 
--- | The name of the attribute that will contain the result of the math operation.
+-- | The name of the attribute that contains the result of the math operation.
 maAttribute :: Lens' MathActivity Text
 maAttribute = lens _maAttribute (\ s a -> s{_maAttribute = a})
 
@@ -1330,9 +1938,9 @@ data Message = Message'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mMessageId' - The ID you wish to assign to the message.
+-- * 'mMessageId' - The ID you wish to assign to the message. Each "messageId" must be unique within each batch sent.
 --
--- * 'mPayload' - The payload of the message.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'mPayload' - The payload of the message. This may be a JSON string or a Base64-encoded string representing binary data (in which case you must decode it by means of a pipeline activity).-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 message
     :: Text -- ^ 'mMessageId'
     -> ByteString -- ^ 'mPayload'
@@ -1341,11 +1949,11 @@ message pMessageId_ pPayload_ =
   Message' {_mMessageId = pMessageId_, _mPayload = _Base64 # pPayload_}
 
 
--- | The ID you wish to assign to the message.
+-- | The ID you wish to assign to the message. Each "messageId" must be unique within each batch sent.
 mMessageId :: Lens' Message Text
 mMessageId = lens _mMessageId (\ s a -> s{_mMessageId = a})
 
--- | The payload of the message.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | The payload of the message. This may be a JSON string or a Base64-encoded string representing binary data (in which case you must decode it by means of a pipeline activity).-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 mPayload :: Lens' Message ByteString
 mPayload = lens _mPayload (\ s a -> s{_mPayload = a}) . _Base64
 
@@ -1359,6 +1967,45 @@ instance ToJSON Message where
               (catMaybes
                  [Just ("messageId" .= _mMessageId),
                   Just ("payload" .= _mPayload)])
+
+-- | The value of the variable as a structure that specifies an output file URI.
+--
+--
+--
+-- /See:/ 'outputFileURIValue' smart constructor.
+newtype OutputFileURIValue = OutputFileURIValue'
+  { _ofuvFileName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'OutputFileURIValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ofuvFileName' - The URI of the location where data set contents are stored, usually the URI of a file in an S3 bucket.
+outputFileURIValue
+    :: Text -- ^ 'ofuvFileName'
+    -> OutputFileURIValue
+outputFileURIValue pFileName_ = OutputFileURIValue' {_ofuvFileName = pFileName_}
+
+
+-- | The URI of the location where data set contents are stored, usually the URI of a file in an S3 bucket.
+ofuvFileName :: Lens' OutputFileURIValue Text
+ofuvFileName = lens _ofuvFileName (\ s a -> s{_ofuvFileName = a})
+
+instance FromJSON OutputFileURIValue where
+        parseJSON
+          = withObject "OutputFileURIValue"
+              (\ x -> OutputFileURIValue' <$> (x .: "fileName"))
+
+instance Hashable OutputFileURIValue where
+
+instance NFData OutputFileURIValue where
+
+instance ToJSON OutputFileURIValue where
+        toJSON OutputFileURIValue'{..}
+          = object
+              (catMaybes [Just ("fileName" .= _ofuvFileName)])
 
 -- | Contains information about a pipeline.
 --
@@ -1640,6 +2287,44 @@ instance Hashable PipelineSummary where
 
 instance NFData PipelineSummary where
 
+-- | Information which is used to filter message data, to segregate it according to the time frame in which it arrives.
+--
+--
+--
+-- /See:/ 'queryFilter' smart constructor.
+newtype QueryFilter = QueryFilter'
+  { _qfDeltaTime :: Maybe DeltaTime
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'QueryFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'qfDeltaTime' - Used to limit data to that which has arrived since the last execution of the action.
+queryFilter
+    :: QueryFilter
+queryFilter = QueryFilter' {_qfDeltaTime = Nothing}
+
+
+-- | Used to limit data to that which has arrived since the last execution of the action.
+qfDeltaTime :: Lens' QueryFilter (Maybe DeltaTime)
+qfDeltaTime = lens _qfDeltaTime (\ s a -> s{_qfDeltaTime = a})
+
+instance FromJSON QueryFilter where
+        parseJSON
+          = withObject "QueryFilter"
+              (\ x -> QueryFilter' <$> (x .:? "deltaTime"))
+
+instance Hashable QueryFilter where
+
+instance NFData QueryFilter where
+
+instance ToJSON QueryFilter where
+        toJSON QueryFilter'{..}
+          = object
+              (catMaybes [("deltaTime" .=) <$> _qfDeltaTime])
+
 -- | An activity that removes attributes from a message.
 --
 --
@@ -1755,6 +2440,61 @@ instance FromJSON ReprocessingSummary where
 instance Hashable ReprocessingSummary where
 
 instance NFData ReprocessingSummary where
+
+-- | The configuration of the resource used to execute the "containerAction".
+--
+--
+--
+-- /See:/ 'resourceConfiguration' smart constructor.
+data ResourceConfiguration = ResourceConfiguration'
+  { _rcComputeType    :: !ComputeType
+  , _rcVolumeSizeInGB :: !Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ResourceConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcComputeType' - The type of the compute resource used to execute the "containerAction". Possible values are: ACU_1 (vCPU=4, memory=16GiB) or ACU_2 (vCPU=8, memory=32GiB).
+--
+-- * 'rcVolumeSizeInGB' - The size (in GB) of the persistent storage available to the resource instance used to execute the "containerAction" (min: 1, max: 50).
+resourceConfiguration
+    :: ComputeType -- ^ 'rcComputeType'
+    -> Natural -- ^ 'rcVolumeSizeInGB'
+    -> ResourceConfiguration
+resourceConfiguration pComputeType_ pVolumeSizeInGB_ =
+  ResourceConfiguration'
+    { _rcComputeType = pComputeType_
+    , _rcVolumeSizeInGB = _Nat # pVolumeSizeInGB_
+    }
+
+
+-- | The type of the compute resource used to execute the "containerAction". Possible values are: ACU_1 (vCPU=4, memory=16GiB) or ACU_2 (vCPU=8, memory=32GiB).
+rcComputeType :: Lens' ResourceConfiguration ComputeType
+rcComputeType = lens _rcComputeType (\ s a -> s{_rcComputeType = a})
+
+-- | The size (in GB) of the persistent storage available to the resource instance used to execute the "containerAction" (min: 1, max: 50).
+rcVolumeSizeInGB :: Lens' ResourceConfiguration Natural
+rcVolumeSizeInGB = lens _rcVolumeSizeInGB (\ s a -> s{_rcVolumeSizeInGB = a}) . _Nat
+
+instance FromJSON ResourceConfiguration where
+        parseJSON
+          = withObject "ResourceConfiguration"
+              (\ x ->
+                 ResourceConfiguration' <$>
+                   (x .: "computeType") <*> (x .: "volumeSizeInGB"))
+
+instance Hashable ResourceConfiguration where
+
+instance NFData ResourceConfiguration where
+
+instance ToJSON ResourceConfiguration where
+        toJSON ResourceConfiguration'{..}
+          = object
+              (catMaybes
+                 [Just ("computeType" .= _rcComputeType),
+                  Just ("volumeSizeInGB" .= _rcVolumeSizeInGB)])
 
 -- | How long, in days, message data is kept.
 --
@@ -1913,8 +2653,9 @@ instance ToJSON SelectAttributesActivity where
 --
 --
 -- /See:/ 'sqlQueryDatasetAction' smart constructor.
-newtype SqlQueryDatasetAction = SqlQueryDatasetAction'
-  { _sqdaSqlQuery :: Text
+data SqlQueryDatasetAction = SqlQueryDatasetAction'
+  { _sqdaFilters  :: !(Maybe [QueryFilter])
+  , _sqdaSqlQuery :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1922,22 +2663,30 @@ newtype SqlQueryDatasetAction = SqlQueryDatasetAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sqdaSqlQuery' - An SQL query string.
+-- * 'sqdaFilters' - Pre-filters applied to message data.
+--
+-- * 'sqdaSqlQuery' - A SQL query string.
 sqlQueryDatasetAction
     :: Text -- ^ 'sqdaSqlQuery'
     -> SqlQueryDatasetAction
 sqlQueryDatasetAction pSqlQuery_ =
-  SqlQueryDatasetAction' {_sqdaSqlQuery = pSqlQuery_}
+  SqlQueryDatasetAction' {_sqdaFilters = Nothing, _sqdaSqlQuery = pSqlQuery_}
 
 
--- | An SQL query string.
+-- | Pre-filters applied to message data.
+sqdaFilters :: Lens' SqlQueryDatasetAction [QueryFilter]
+sqdaFilters = lens _sqdaFilters (\ s a -> s{_sqdaFilters = a}) . _Default . _Coerce
+
+-- | A SQL query string.
 sqdaSqlQuery :: Lens' SqlQueryDatasetAction Text
 sqdaSqlQuery = lens _sqdaSqlQuery (\ s a -> s{_sqdaSqlQuery = a})
 
 instance FromJSON SqlQueryDatasetAction where
         parseJSON
           = withObject "SqlQueryDatasetAction"
-              (\ x -> SqlQueryDatasetAction' <$> (x .: "sqlQuery"))
+              (\ x ->
+                 SqlQueryDatasetAction' <$>
+                   (x .:? "filters" .!= mempty) <*> (x .: "sqlQuery"))
 
 instance Hashable SqlQueryDatasetAction where
 
@@ -1946,4 +2695,179 @@ instance NFData SqlQueryDatasetAction where
 instance ToJSON SqlQueryDatasetAction where
         toJSON SqlQueryDatasetAction'{..}
           = object
-              (catMaybes [Just ("sqlQuery" .= _sqdaSqlQuery)])
+              (catMaybes
+                 [("filters" .=) <$> _sqdaFilters,
+                  Just ("sqlQuery" .= _sqdaSqlQuery)])
+
+-- | A set of key/value pairs which are used to manage the resource.
+--
+--
+--
+-- /See:/ 'tag' smart constructor.
+data Tag = Tag'
+  { _tagKey   :: !Text
+  , _tagValue :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagKey' - The tag's key.
+--
+-- * 'tagValue' - The tag's value.
+tag
+    :: Text -- ^ 'tagKey'
+    -> Text -- ^ 'tagValue'
+    -> Tag
+tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
+
+
+-- | The tag's key.
+tagKey :: Lens' Tag Text
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
+
+-- | The tag's value.
+tagValue :: Lens' Tag Text
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
+
+instance FromJSON Tag where
+        parseJSON
+          = withObject "Tag"
+              (\ x -> Tag' <$> (x .: "key") <*> (x .: "value"))
+
+instance Hashable Tag where
+
+instance NFData Tag where
+
+instance ToJSON Tag where
+        toJSON Tag'{..}
+          = object
+              (catMaybes
+                 [Just ("key" .= _tagKey),
+                  Just ("value" .= _tagValue)])
+
+-- | Information about the data set whose content generation triggers the new data set content generation.
+--
+--
+--
+-- /See:/ 'triggeringDataset' smart constructor.
+newtype TriggeringDataset = TriggeringDataset'
+  { _tdName :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TriggeringDataset' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tdName' - The name of the data set whose content generation triggers the new data set content generation.
+triggeringDataset
+    :: Text -- ^ 'tdName'
+    -> TriggeringDataset
+triggeringDataset pName_ = TriggeringDataset' {_tdName = pName_}
+
+
+-- | The name of the data set whose content generation triggers the new data set content generation.
+tdName :: Lens' TriggeringDataset Text
+tdName = lens _tdName (\ s a -> s{_tdName = a})
+
+instance FromJSON TriggeringDataset where
+        parseJSON
+          = withObject "TriggeringDataset"
+              (\ x -> TriggeringDataset' <$> (x .: "name"))
+
+instance Hashable TriggeringDataset where
+
+instance NFData TriggeringDataset where
+
+instance ToJSON TriggeringDataset where
+        toJSON TriggeringDataset'{..}
+          = object (catMaybes [Just ("name" .= _tdName)])
+
+-- | An instance of a variable to be passed to the "containerAction" execution. Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
+--
+--
+--
+-- /See:/ 'variable' smart constructor.
+data Variable = Variable'
+  { _vOutputFileURIValue         :: !(Maybe OutputFileURIValue)
+  , _vDoubleValue                :: !(Maybe Double)
+  , _vStringValue                :: !(Maybe Text)
+  , _vDatasetContentVersionValue :: !(Maybe DatasetContentVersionValue)
+  , _vName                       :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Variable' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vOutputFileURIValue' - The value of the variable as a structure that specifies an output file URI.
+--
+-- * 'vDoubleValue' - The value of the variable as a double (numeric).
+--
+-- * 'vStringValue' - The value of the variable as a string.
+--
+-- * 'vDatasetContentVersionValue' - The value of the variable as a structure that specifies a data set content version.
+--
+-- * 'vName' - The name of the variable.
+variable
+    :: Text -- ^ 'vName'
+    -> Variable
+variable pName_ =
+  Variable'
+    { _vOutputFileURIValue = Nothing
+    , _vDoubleValue = Nothing
+    , _vStringValue = Nothing
+    , _vDatasetContentVersionValue = Nothing
+    , _vName = pName_
+    }
+
+
+-- | The value of the variable as a structure that specifies an output file URI.
+vOutputFileURIValue :: Lens' Variable (Maybe OutputFileURIValue)
+vOutputFileURIValue = lens _vOutputFileURIValue (\ s a -> s{_vOutputFileURIValue = a})
+
+-- | The value of the variable as a double (numeric).
+vDoubleValue :: Lens' Variable (Maybe Double)
+vDoubleValue = lens _vDoubleValue (\ s a -> s{_vDoubleValue = a})
+
+-- | The value of the variable as a string.
+vStringValue :: Lens' Variable (Maybe Text)
+vStringValue = lens _vStringValue (\ s a -> s{_vStringValue = a})
+
+-- | The value of the variable as a structure that specifies a data set content version.
+vDatasetContentVersionValue :: Lens' Variable (Maybe DatasetContentVersionValue)
+vDatasetContentVersionValue = lens _vDatasetContentVersionValue (\ s a -> s{_vDatasetContentVersionValue = a})
+
+-- | The name of the variable.
+vName :: Lens' Variable Text
+vName = lens _vName (\ s a -> s{_vName = a})
+
+instance FromJSON Variable where
+        parseJSON
+          = withObject "Variable"
+              (\ x ->
+                 Variable' <$>
+                   (x .:? "outputFileUriValue") <*>
+                     (x .:? "doubleValue")
+                     <*> (x .:? "stringValue")
+                     <*> (x .:? "datasetContentVersionValue")
+                     <*> (x .: "name"))
+
+instance Hashable Variable where
+
+instance NFData Variable where
+
+instance ToJSON Variable where
+        toJSON Variable'{..}
+          = object
+              (catMaybes
+                 [("outputFileUriValue" .=) <$> _vOutputFileURIValue,
+                  ("doubleValue" .=) <$> _vDoubleValue,
+                  ("stringValue" .=) <$> _vStringValue,
+                  ("datasetContentVersionValue" .=) <$>
+                    _vDatasetContentVersionValue,
+                  Just ("name" .= _vName)])

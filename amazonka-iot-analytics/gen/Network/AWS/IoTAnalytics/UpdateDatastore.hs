@@ -27,8 +27,8 @@ module Network.AWS.IoTAnalytics.UpdateDatastore
       updateDatastore
     , UpdateDatastore
     -- * Request Lenses
-    , udRetentionPeriod
-    , udDatastoreName
+    , uRetentionPeriod
+    , uDatastoreName
 
     -- * Destructuring the Response
     , updateDatastoreResponse
@@ -44,8 +44,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateDatastore' smart constructor.
 data UpdateDatastore = UpdateDatastore'
-  { _udRetentionPeriod :: !(Maybe RetentionPeriod)
-  , _udDatastoreName   :: !Text
+  { _uRetentionPeriod :: !(Maybe RetentionPeriod)
+  , _uDatastoreName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -53,24 +53,24 @@ data UpdateDatastore = UpdateDatastore'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udRetentionPeriod' - How long, in days, message data is kept for the data store.
+-- * 'uRetentionPeriod' - How long, in days, message data is kept for the data store.
 --
--- * 'udDatastoreName' - The name of the data store to be updated.
+-- * 'uDatastoreName' - The name of the data store to be updated.
 updateDatastore
-    :: Text -- ^ 'udDatastoreName'
+    :: Text -- ^ 'uDatastoreName'
     -> UpdateDatastore
 updateDatastore pDatastoreName_ =
   UpdateDatastore'
-    {_udRetentionPeriod = Nothing, _udDatastoreName = pDatastoreName_}
+    {_uRetentionPeriod = Nothing, _uDatastoreName = pDatastoreName_}
 
 
 -- | How long, in days, message data is kept for the data store.
-udRetentionPeriod :: Lens' UpdateDatastore (Maybe RetentionPeriod)
-udRetentionPeriod = lens _udRetentionPeriod (\ s a -> s{_udRetentionPeriod = a})
+uRetentionPeriod :: Lens' UpdateDatastore (Maybe RetentionPeriod)
+uRetentionPeriod = lens _uRetentionPeriod (\ s a -> s{_uRetentionPeriod = a})
 
 -- | The name of the data store to be updated.
-udDatastoreName :: Lens' UpdateDatastore Text
-udDatastoreName = lens _udDatastoreName (\ s a -> s{_udDatastoreName = a})
+uDatastoreName :: Lens' UpdateDatastore Text
+uDatastoreName = lens _uDatastoreName (\ s a -> s{_uDatastoreName = a})
 
 instance AWSRequest UpdateDatastore where
         type Rs UpdateDatastore = UpdateDatastoreResponse
@@ -88,11 +88,11 @@ instance ToJSON UpdateDatastore where
         toJSON UpdateDatastore'{..}
           = object
               (catMaybes
-                 [("retentionPeriod" .=) <$> _udRetentionPeriod])
+                 [("retentionPeriod" .=) <$> _uRetentionPeriod])
 
 instance ToPath UpdateDatastore where
         toPath UpdateDatastore'{..}
-          = mconcat ["/datastores/", toBS _udDatastoreName]
+          = mconcat ["/datastores/", toBS _uDatastoreName]
 
 instance ToQuery UpdateDatastore where
         toQuery = const mempty

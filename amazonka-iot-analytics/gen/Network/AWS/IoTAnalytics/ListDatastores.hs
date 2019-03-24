@@ -21,6 +21,8 @@
 -- Retrieves a list of data stores.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.IoTAnalytics.ListDatastores
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.IoTAnalytics.ListDatastores
 import Network.AWS.IoTAnalytics.Types
 import Network.AWS.IoTAnalytics.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -73,6 +76,13 @@ ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a})
 -- | The maximum number of results to return in this request. The default value is 100.
 ldMaxResults :: Lens' ListDatastores (Maybe Natural)
 ldMaxResults = lens _ldMaxResults (\ s a -> s{_ldMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListDatastores where
+        page rq rs
+          | stop (rs ^. ldrsNextToken) = Nothing
+          | stop (rs ^. ldrsDatastoreSummaries) = Nothing
+          | otherwise =
+            Just $ rq & ldNextToken .~ rs ^. ldrsNextToken
 
 instance AWSRequest ListDatastores where
         type Rs ListDatastores = ListDatastoresResponse

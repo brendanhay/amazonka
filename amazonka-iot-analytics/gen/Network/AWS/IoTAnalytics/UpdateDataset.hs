@@ -28,6 +28,8 @@ module Network.AWS.IoTAnalytics.UpdateDataset
     , UpdateDataset
     -- * Request Lenses
     , udTriggers
+    , udRetentionPeriod
+    , udContentDeliveryRules
     , udDatasetName
     , udActions
 
@@ -45,9 +47,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateDataset' smart constructor.
 data UpdateDataset = UpdateDataset'
-  { _udTriggers    :: !(Maybe [DatasetTrigger])
-  , _udDatasetName :: !Text
-  , _udActions     :: !(List1 DatasetAction)
+  { _udTriggers             :: !(Maybe [DatasetTrigger])
+  , _udRetentionPeriod      :: !(Maybe RetentionPeriod)
+  , _udContentDeliveryRules :: !(Maybe [DatasetContentDeliveryRule])
+  , _udDatasetName          :: !Text
+  , _udActions              :: !(List1 DatasetAction)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -57,9 +61,13 @@ data UpdateDataset = UpdateDataset'
 --
 -- * 'udTriggers' - A list of "DatasetTrigger" objects. The list can be empty or can contain up to five __DataSetTrigger__ objects.
 --
+-- * 'udRetentionPeriod' - How long, in days, message data is kept for the data set.
+--
+-- * 'udContentDeliveryRules' - When data set contents are created they are delivered to destinations specified here.
+--
 -- * 'udDatasetName' - The name of the data set to update.
 --
--- * 'udActions' - A list of "DatasetAction" objects. Only one action is supported at this time.
+-- * 'udActions' - A list of "DatasetAction" objects.
 updateDataset
     :: Text -- ^ 'udDatasetName'
     -> NonEmpty DatasetAction -- ^ 'udActions'
@@ -67,6 +75,8 @@ updateDataset
 updateDataset pDatasetName_ pActions_ =
   UpdateDataset'
     { _udTriggers = Nothing
+    , _udRetentionPeriod = Nothing
+    , _udContentDeliveryRules = Nothing
     , _udDatasetName = pDatasetName_
     , _udActions = _List1 # pActions_
     }
@@ -76,11 +86,19 @@ updateDataset pDatasetName_ pActions_ =
 udTriggers :: Lens' UpdateDataset [DatasetTrigger]
 udTriggers = lens _udTriggers (\ s a -> s{_udTriggers = a}) . _Default . _Coerce
 
+-- | How long, in days, message data is kept for the data set.
+udRetentionPeriod :: Lens' UpdateDataset (Maybe RetentionPeriod)
+udRetentionPeriod = lens _udRetentionPeriod (\ s a -> s{_udRetentionPeriod = a})
+
+-- | When data set contents are created they are delivered to destinations specified here.
+udContentDeliveryRules :: Lens' UpdateDataset [DatasetContentDeliveryRule]
+udContentDeliveryRules = lens _udContentDeliveryRules (\ s a -> s{_udContentDeliveryRules = a}) . _Default . _Coerce
+
 -- | The name of the data set to update.
 udDatasetName :: Lens' UpdateDataset Text
 udDatasetName = lens _udDatasetName (\ s a -> s{_udDatasetName = a})
 
--- | A list of "DatasetAction" objects. Only one action is supported at this time.
+-- | A list of "DatasetAction" objects.
 udActions :: Lens' UpdateDataset (NonEmpty DatasetAction)
 udActions = lens _udActions (\ s a -> s{_udActions = a}) . _List1
 
@@ -101,6 +119,9 @@ instance ToJSON UpdateDataset where
           = object
               (catMaybes
                  [("triggers" .=) <$> _udTriggers,
+                  ("retentionPeriod" .=) <$> _udRetentionPeriod,
+                  ("contentDeliveryRules" .=) <$>
+                    _udContentDeliveryRules,
                   Just ("actions" .= _udActions)])
 
 instance ToPath UpdateDataset where

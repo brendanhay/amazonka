@@ -64,14 +64,18 @@ library
         , Network.AWS.IoTAnalytics.DescribePipeline
         , Network.AWS.IoTAnalytics.GetDatasetContent
         , Network.AWS.IoTAnalytics.ListChannels
+        , Network.AWS.IoTAnalytics.ListDatasetContents
         , Network.AWS.IoTAnalytics.ListDatasets
         , Network.AWS.IoTAnalytics.ListDatastores
         , Network.AWS.IoTAnalytics.ListPipelines
+        , Network.AWS.IoTAnalytics.ListTagsForResource
         , Network.AWS.IoTAnalytics.PutLoggingOptions
         , Network.AWS.IoTAnalytics.RunPipelineActivity
         , Network.AWS.IoTAnalytics.SampleChannelData
         , Network.AWS.IoTAnalytics.StartPipelineReprocessing
+        , Network.AWS.IoTAnalytics.TagResource
         , Network.AWS.IoTAnalytics.Types
+        , Network.AWS.IoTAnalytics.UntagResource
         , Network.AWS.IoTAnalytics.UpdateChannel
         , Network.AWS.IoTAnalytics.UpdateDataset
         , Network.AWS.IoTAnalytics.UpdateDatastore

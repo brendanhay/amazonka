@@ -28,6 +28,7 @@ module Network.AWS.IoTAnalytics.CreateChannel
     , CreateChannel
     -- * Request Lenses
     , ccRetentionPeriod
+    , ccTags
     , ccChannelName
 
     -- * Destructuring the Response
@@ -50,6 +51,7 @@ import Network.AWS.Response
 -- | /See:/ 'createChannel' smart constructor.
 data CreateChannel = CreateChannel'
   { _ccRetentionPeriod :: !(Maybe RetentionPeriod)
+  , _ccTags            :: !(Maybe (List1 Tag))
   , _ccChannelName     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -60,17 +62,27 @@ data CreateChannel = CreateChannel'
 --
 -- * 'ccRetentionPeriod' - How long, in days, message data is kept for the channel.
 --
+-- * 'ccTags' - Metadata which can be used to manage the channel.
+--
 -- * 'ccChannelName' - The name of the channel.
 createChannel
     :: Text -- ^ 'ccChannelName'
     -> CreateChannel
 createChannel pChannelName_ =
-  CreateChannel' {_ccRetentionPeriod = Nothing, _ccChannelName = pChannelName_}
+  CreateChannel'
+    { _ccRetentionPeriod = Nothing
+    , _ccTags = Nothing
+    , _ccChannelName = pChannelName_
+    }
 
 
 -- | How long, in days, message data is kept for the channel.
 ccRetentionPeriod :: Lens' CreateChannel (Maybe RetentionPeriod)
 ccRetentionPeriod = lens _ccRetentionPeriod (\ s a -> s{_ccRetentionPeriod = a})
+
+-- | Metadata which can be used to manage the channel.
+ccTags :: Lens' CreateChannel (Maybe (NonEmpty Tag))
+ccTags = lens _ccTags (\ s a -> s{_ccTags = a}) . mapping _List1
 
 -- | The name of the channel.
 ccChannelName :: Lens' CreateChannel Text
@@ -99,6 +111,7 @@ instance ToJSON CreateChannel where
           = object
               (catMaybes
                  [("retentionPeriod" .=) <$> _ccRetentionPeriod,
+                  ("tags" .=) <$> _ccTags,
                   Just ("channelName" .= _ccChannelName)])
 
 instance ToPath CreateChannel where

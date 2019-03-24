@@ -27,13 +27,15 @@ module Network.AWS.IoTAnalytics.DescribeChannel
       describeChannel
     , DescribeChannel
     -- * Request Lenses
-    , dChannelName
+    , desIncludeStatistics
+    , desChannelName
 
     -- * Destructuring the Response
     , describeChannelResponse
     , DescribeChannelResponse
     -- * Response Lenses
     , dcrsChannel
+    , dcrsStatistics
     , dcrsResponseStatus
     ) where
 
@@ -45,8 +47,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'describeChannel' smart constructor.
-newtype DescribeChannel = DescribeChannel'
-  { _dChannelName :: Text
+data DescribeChannel = DescribeChannel'
+  { _desIncludeStatistics :: !(Maybe Bool)
+  , _desChannelName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -54,16 +57,24 @@ newtype DescribeChannel = DescribeChannel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dChannelName' - The name of the channel whose information is retrieved.
+-- * 'desIncludeStatistics' - If true, additional statistical information about the channel is included in the response.
+--
+-- * 'desChannelName' - The name of the channel whose information is retrieved.
 describeChannel
-    :: Text -- ^ 'dChannelName'
+    :: Text -- ^ 'desChannelName'
     -> DescribeChannel
-describeChannel pChannelName_ = DescribeChannel' {_dChannelName = pChannelName_}
+describeChannel pChannelName_ =
+  DescribeChannel'
+    {_desIncludeStatistics = Nothing, _desChannelName = pChannelName_}
 
+
+-- | If true, additional statistical information about the channel is included in the response.
+desIncludeStatistics :: Lens' DescribeChannel (Maybe Bool)
+desIncludeStatistics = lens _desIncludeStatistics (\ s a -> s{_desIncludeStatistics = a})
 
 -- | The name of the channel whose information is retrieved.
-dChannelName :: Lens' DescribeChannel Text
-dChannelName = lens _dChannelName (\ s a -> s{_dChannelName = a})
+desChannelName :: Lens' DescribeChannel Text
+desChannelName = lens _desChannelName (\ s a -> s{_desChannelName = a})
 
 instance AWSRequest DescribeChannel where
         type Rs DescribeChannel = DescribeChannelResponse
@@ -72,7 +83,8 @@ instance AWSRequest DescribeChannel where
           = receiveJSON
               (\ s h x ->
                  DescribeChannelResponse' <$>
-                   (x .?> "channel") <*> (pure (fromEnum s)))
+                   (x .?> "channel") <*> (x .?> "statistics") <*>
+                     (pure (fromEnum s)))
 
 instance Hashable DescribeChannel where
 
@@ -83,14 +95,17 @@ instance ToHeaders DescribeChannel where
 
 instance ToPath DescribeChannel where
         toPath DescribeChannel'{..}
-          = mconcat ["/channels/", toBS _dChannelName]
+          = mconcat ["/channels/", toBS _desChannelName]
 
 instance ToQuery DescribeChannel where
-        toQuery = const mempty
+        toQuery DescribeChannel'{..}
+          = mconcat
+              ["includeStatistics" =: _desIncludeStatistics]
 
 -- | /See:/ 'describeChannelResponse' smart constructor.
 data DescribeChannelResponse = DescribeChannelResponse'
   { _dcrsChannel        :: !(Maybe Channel)
+  , _dcrsStatistics     :: !(Maybe ChannelStatistics)
   , _dcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -101,18 +116,27 @@ data DescribeChannelResponse = DescribeChannelResponse'
 --
 -- * 'dcrsChannel' - An object that contains information about the channel.
 --
+-- * 'dcrsStatistics' - Statistics about the channel. Included if the 'includeStatistics' parameter is set to true in the request.
+--
 -- * 'dcrsResponseStatus' - -- | The response status code.
 describeChannelResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeChannelResponse
 describeChannelResponse pResponseStatus_ =
   DescribeChannelResponse'
-    {_dcrsChannel = Nothing, _dcrsResponseStatus = pResponseStatus_}
+    { _dcrsChannel = Nothing
+    , _dcrsStatistics = Nothing
+    , _dcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | An object that contains information about the channel.
 dcrsChannel :: Lens' DescribeChannelResponse (Maybe Channel)
 dcrsChannel = lens _dcrsChannel (\ s a -> s{_dcrsChannel = a})
+
+-- | Statistics about the channel. Included if the 'includeStatistics' parameter is set to true in the request.
+dcrsStatistics :: Lens' DescribeChannelResponse (Maybe ChannelStatistics)
+dcrsStatistics = lens _dcrsStatistics (\ s a -> s{_dcrsStatistics = a})
 
 -- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeChannelResponse Int

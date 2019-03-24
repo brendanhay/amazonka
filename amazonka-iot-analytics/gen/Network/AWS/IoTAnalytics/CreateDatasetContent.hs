@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates the content of a data set by applying an SQL action.
+-- Creates the content of a data set by applying a "queryAction" (a SQL query) or a "containerAction" (executing a containerized application).
 --
 --
 module Network.AWS.IoTAnalytics.CreateDatasetContent
@@ -32,6 +32,9 @@ module Network.AWS.IoTAnalytics.CreateDatasetContent
     -- * Destructuring the Response
     , createDatasetContentResponse
     , CreateDatasetContentResponse
+    -- * Response Lenses
+    , cdcrsVersionId
+    , cdcrsResponseStatus
     ) where
 
 import Network.AWS.IoTAnalytics.Types
@@ -67,7 +70,11 @@ instance AWSRequest CreateDatasetContent where
         type Rs CreateDatasetContent =
              CreateDatasetContentResponse
         request = postJSON ioTAnalytics
-        response = receiveNull CreateDatasetContentResponse'
+        response
+          = receiveJSON
+              (\ s h x ->
+                 CreateDatasetContentResponse' <$>
+                   (x .?> "versionId") <*> (pure (fromEnum s)))
 
 instance Hashable CreateDatasetContent where
 
@@ -88,16 +95,33 @@ instance ToQuery CreateDatasetContent where
         toQuery = const mempty
 
 -- | /See:/ 'createDatasetContentResponse' smart constructor.
-data CreateDatasetContentResponse =
-  CreateDatasetContentResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+data CreateDatasetContentResponse = CreateDatasetContentResponse'
+  { _cdcrsVersionId      :: !(Maybe Text)
+  , _cdcrsResponseStatus :: !Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'CreateDatasetContentResponse' with the minimum fields required to make a request.
 --
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdcrsVersionId' - The version ID of the data set contents which are being created.
+--
+-- * 'cdcrsResponseStatus' - -- | The response status code.
 createDatasetContentResponse
-    :: CreateDatasetContentResponse
-createDatasetContentResponse = CreateDatasetContentResponse'
+    :: Int -- ^ 'cdcrsResponseStatus'
+    -> CreateDatasetContentResponse
+createDatasetContentResponse pResponseStatus_ =
+  CreateDatasetContentResponse'
+    {_cdcrsVersionId = Nothing, _cdcrsResponseStatus = pResponseStatus_}
 
+
+-- | The version ID of the data set contents which are being created.
+cdcrsVersionId :: Lens' CreateDatasetContentResponse (Maybe Text)
+cdcrsVersionId = lens _cdcrsVersionId (\ s a -> s{_cdcrsVersionId = a})
+
+-- | -- | The response status code.
+cdcrsResponseStatus :: Lens' CreateDatasetContentResponse Int
+cdcrsResponseStatus = lens _cdcrsResponseStatus (\ s a -> s{_cdcrsResponseStatus = a})
 
 instance NFData CreateDatasetContentResponse where

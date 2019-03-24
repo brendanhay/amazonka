@@ -21,6 +21,8 @@
 -- Sets or updates the AWS IoT Analytics logging options.
 --
 --
+-- Note that if you update the value of any @loggingOptions@ field, it takes up to one minute for the change to take effect. Also, if you change the policy attached to the role you specified in the roleArn field (for example, to correct an invalid policy) it takes up to 5 minutes for that change to take effect.
+--
 module Network.AWS.IoTAnalytics.PutLoggingOptions
     (
     -- * Creating a Request

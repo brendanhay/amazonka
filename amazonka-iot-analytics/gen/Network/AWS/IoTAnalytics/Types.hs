@@ -27,6 +27,12 @@ module Network.AWS.IoTAnalytics.Types
     -- * ChannelStatus
     , ChannelStatus (..)
 
+    -- * ComputeType
+    , ComputeType (..)
+
+    -- * DatasetActionType
+    , DatasetActionType (..)
+
     -- * DatasetContentState
     , DatasetContentState (..)
 
@@ -73,6 +79,11 @@ module Network.AWS.IoTAnalytics.Types
     , caName
     , caChannelName
 
+    -- * ChannelStatistics
+    , ChannelStatistics
+    , channelStatistics
+    , csSize
+
     -- * ChannelSummary
     , ChannelSummary
     , channelSummary
@@ -80,6 +91,14 @@ module Network.AWS.IoTAnalytics.Types
     , csStatus
     , csChannelName
     , csLastUpdateTime
+
+    -- * ContainerDatasetAction
+    , ContainerDatasetAction
+    , containerDatasetAction
+    , cdaVariables
+    , cdaImage
+    , cdaExecutionRoleARN
+    , cdaResourceConfiguration
 
     -- * Dataset
     , Dataset
@@ -89,7 +108,9 @@ module Network.AWS.IoTAnalytics.Types
     , dArn
     , dActions
     , dTriggers
+    , dRetentionPeriod
     , dName
+    , dContentDeliveryRules
     , dLastUpdateTime
 
     -- * DatasetAction
@@ -97,12 +118,43 @@ module Network.AWS.IoTAnalytics.Types
     , datasetAction
     , daQueryAction
     , daActionName
+    , daContainerAction
+
+    -- * DatasetActionSummary
+    , DatasetActionSummary
+    , datasetActionSummary
+    , dasActionName
+    , dasActionType
+
+    -- * DatasetContentDeliveryDestination
+    , DatasetContentDeliveryDestination
+    , datasetContentDeliveryDestination
+    , dcddIotEventsDestinationConfiguration
+
+    -- * DatasetContentDeliveryRule
+    , DatasetContentDeliveryRule
+    , datasetContentDeliveryRule
+    , dcdrEntryName
+    , dcdrDestination
 
     -- * DatasetContentStatus
     , DatasetContentStatus
     , datasetContentStatus
     , dcsState
     , dcsReason
+
+    -- * DatasetContentSummary
+    , DatasetContentSummary
+    , datasetContentSummary
+    , dcsCreationTime
+    , dcsStatus
+    , dcsScheduleTime
+    , dcsVersion
+
+    -- * DatasetContentVersionValue
+    , DatasetContentVersionValue
+    , datasetContentVersionValue
+    , dcvvDatasetName
 
     -- * DatasetEntry
     , DatasetEntry
@@ -115,12 +167,15 @@ module Network.AWS.IoTAnalytics.Types
     , datasetSummary
     , dssCreationTime
     , dssStatus
+    , dssActions
+    , dssTriggers
     , dssDatasetName
     , dssLastUpdateTime
 
     -- * DatasetTrigger
     , DatasetTrigger
     , datasetTrigger
+    , dtDataset
     , dtSchedule
 
     -- * Datastore
@@ -139,6 +194,11 @@ module Network.AWS.IoTAnalytics.Types
     , daName
     , daDatastoreName
 
+    -- * DatastoreStatistics
+    , DatastoreStatistics
+    , datastoreStatistics
+    , dsSize
+
     -- * DatastoreSummary
     , DatastoreSummary
     , datastoreSummary
@@ -146,6 +206,12 @@ module Network.AWS.IoTAnalytics.Types
     , dsStatus
     , dsDatastoreName
     , dsLastUpdateTime
+
+    -- * DeltaTime
+    , DeltaTime
+    , deltaTime
+    , dtOffsetSeconds
+    , dtTimeExpression
 
     -- * DeviceRegistryEnrichActivity
     , DeviceRegistryEnrichActivity
@@ -165,12 +231,24 @@ module Network.AWS.IoTAnalytics.Types
     , dseaThingName
     , dseaRoleARN
 
+    -- * EstimatedResourceSize
+    , EstimatedResourceSize
+    , estimatedResourceSize
+    , ersEstimatedOn
+    , ersEstimatedSizeInBytes
+
     -- * FilterActivity
     , FilterActivity
     , filterActivity
     , faNext
     , faName
     , faFilter
+
+    -- * IotEventsDestinationConfiguration
+    , IotEventsDestinationConfiguration
+    , iotEventsDestinationConfiguration
+    , iedcInputName
+    , iedcRoleARN
 
     -- * LambdaActivity
     , LambdaActivity
@@ -200,6 +278,11 @@ module Network.AWS.IoTAnalytics.Types
     , message
     , mMessageId
     , mPayload
+
+    -- * OutputFileURIValue
+    , OutputFileURIValue
+    , outputFileURIValue
+    , ofuvFileName
 
     -- * Pipeline
     , Pipeline
@@ -233,6 +316,11 @@ module Network.AWS.IoTAnalytics.Types
     , psReprocessingSummaries
     , psLastUpdateTime
 
+    -- * QueryFilter
+    , QueryFilter
+    , queryFilter
+    , qfDeltaTime
+
     -- * RemoveAttributesActivity
     , RemoveAttributesActivity
     , removeAttributesActivity
@@ -246,6 +334,12 @@ module Network.AWS.IoTAnalytics.Types
     , rsCreationTime
     , rsStatus
     , rsId
+
+    -- * ResourceConfiguration
+    , ResourceConfiguration
+    , resourceConfiguration
+    , rcComputeType
+    , rcVolumeSizeInGB
 
     -- * RetentionPeriod
     , RetentionPeriod
@@ -268,7 +362,28 @@ module Network.AWS.IoTAnalytics.Types
     -- * SqlQueryDatasetAction
     , SqlQueryDatasetAction
     , sqlQueryDatasetAction
+    , sqdaFilters
     , sqdaSqlQuery
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
+
+    -- * TriggeringDataset
+    , TriggeringDataset
+    , triggeringDataset
+    , tdName
+
+    -- * Variable
+    , Variable
+    , variable
+    , vOutputFileURIValue
+    , vDoubleValue
+    , vStringValue
+    , vDatasetContentVersionValue
+    , vName
     ) where
 
 import Network.AWS.IoTAnalytics.Types.Product

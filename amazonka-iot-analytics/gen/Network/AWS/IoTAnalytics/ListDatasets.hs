@@ -21,6 +21,8 @@
 -- Retrieves information about data sets.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.IoTAnalytics.ListDatasets
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.IoTAnalytics.ListDatasets
 import Network.AWS.IoTAnalytics.Types
 import Network.AWS.IoTAnalytics.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,6 +75,13 @@ lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a})
 -- | The maximum number of results to return in this request. The default value is 100.
 lMaxResults :: Lens' ListDatasets (Maybe Natural)
 lMaxResults = lens _lMaxResults (\ s a -> s{_lMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListDatasets where
+        page rq rs
+          | stop (rs ^. lrsNextToken) = Nothing
+          | stop (rs ^. lrsDatasetSummaries) = Nothing
+          | otherwise =
+            Just $ rq & lNextToken .~ rs ^. lrsNextToken
 
 instance AWSRequest ListDatasets where
         type Rs ListDatasets = ListDatasetsResponse

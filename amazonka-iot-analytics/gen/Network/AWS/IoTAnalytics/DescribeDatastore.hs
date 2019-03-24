@@ -27,6 +27,7 @@ module Network.AWS.IoTAnalytics.DescribeDatastore
       describeDatastore
     , DescribeDatastore
     -- * Request Lenses
+    , dIncludeStatistics
     , dDatastoreName
 
     -- * Destructuring the Response
@@ -34,6 +35,7 @@ module Network.AWS.IoTAnalytics.DescribeDatastore
     , DescribeDatastoreResponse
     -- * Response Lenses
     , drsDatastore
+    , drsStatistics
     , drsResponseStatus
     ) where
 
@@ -45,8 +47,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'describeDatastore' smart constructor.
-newtype DescribeDatastore = DescribeDatastore'
-  { _dDatastoreName :: Text
+data DescribeDatastore = DescribeDatastore'
+  { _dIncludeStatistics :: !(Maybe Bool)
+  , _dDatastoreName     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -54,13 +57,20 @@ newtype DescribeDatastore = DescribeDatastore'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dIncludeStatistics' - If true, additional statistical information about the datastore is included in the response.
+--
 -- * 'dDatastoreName' - The name of the data store
 describeDatastore
     :: Text -- ^ 'dDatastoreName'
     -> DescribeDatastore
 describeDatastore pDatastoreName_ =
-  DescribeDatastore' {_dDatastoreName = pDatastoreName_}
+  DescribeDatastore'
+    {_dIncludeStatistics = Nothing, _dDatastoreName = pDatastoreName_}
 
+
+-- | If true, additional statistical information about the datastore is included in the response.
+dIncludeStatistics :: Lens' DescribeDatastore (Maybe Bool)
+dIncludeStatistics = lens _dIncludeStatistics (\ s a -> s{_dIncludeStatistics = a})
 
 -- | The name of the data store
 dDatastoreName :: Lens' DescribeDatastore Text
@@ -73,7 +83,8 @@ instance AWSRequest DescribeDatastore where
           = receiveJSON
               (\ s h x ->
                  DescribeDatastoreResponse' <$>
-                   (x .?> "datastore") <*> (pure (fromEnum s)))
+                   (x .?> "datastore") <*> (x .?> "statistics") <*>
+                     (pure (fromEnum s)))
 
 instance Hashable DescribeDatastore where
 
@@ -87,11 +98,14 @@ instance ToPath DescribeDatastore where
           = mconcat ["/datastores/", toBS _dDatastoreName]
 
 instance ToQuery DescribeDatastore where
-        toQuery = const mempty
+        toQuery DescribeDatastore'{..}
+          = mconcat
+              ["includeStatistics" =: _dIncludeStatistics]
 
 -- | /See:/ 'describeDatastoreResponse' smart constructor.
 data DescribeDatastoreResponse = DescribeDatastoreResponse'
   { _drsDatastore      :: !(Maybe Datastore)
+  , _drsStatistics     :: !(Maybe DatastoreStatistics)
   , _drsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -102,18 +116,27 @@ data DescribeDatastoreResponse = DescribeDatastoreResponse'
 --
 -- * 'drsDatastore' - Information about the data store.
 --
+-- * 'drsStatistics' - Additional statistical information about the data store. Included if the 'includeStatistics' parameter is set to true in the request.
+--
 -- * 'drsResponseStatus' - -- | The response status code.
 describeDatastoreResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeDatastoreResponse
 describeDatastoreResponse pResponseStatus_ =
   DescribeDatastoreResponse'
-    {_drsDatastore = Nothing, _drsResponseStatus = pResponseStatus_}
+    { _drsDatastore = Nothing
+    , _drsStatistics = Nothing
+    , _drsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Information about the data store.
 drsDatastore :: Lens' DescribeDatastoreResponse (Maybe Datastore)
 drsDatastore = lens _drsDatastore (\ s a -> s{_drsDatastore = a})
+
+-- | Additional statistical information about the data store. Included if the 'includeStatistics' parameter is set to true in the request.
+drsStatistics :: Lens' DescribeDatastoreResponse (Maybe DatastoreStatistics)
+drsStatistics = lens _drsStatistics (\ s a -> s{_drsStatistics = a})
 
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeDatastoreResponse Int

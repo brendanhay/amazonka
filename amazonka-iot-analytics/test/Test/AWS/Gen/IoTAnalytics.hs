@@ -37,8 +37,14 @@ import Test.Tasty
 --         , requestListChannels $
 --             listChannels
 --
+--         , requestListDatasetContents $
+--             listDatasetContents
+--
 --         , requestPutLoggingOptions $
 --             putLoggingOptions
+--
+--         , requestListTagsForResource $
+--             listTagsForResource
 --
 --         , requestDeleteChannel $
 --             deleteChannel
@@ -100,8 +106,14 @@ import Test.Tasty
 --         , requestGetDatasetContent $
 --             getDatasetContent
 --
+--         , requestTagResource $
+--             tagResource
+--
 --         , requestListDatasets $
 --             listDatasets
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestRunPipelineActivity $
 --             runPipelineActivity
@@ -130,8 +142,14 @@ import Test.Tasty
 --         , responseListChannels $
 --             listChannelsResponse
 --
+--         , responseListDatasetContents $
+--             listDatasetContentsResponse
+--
 --         , responsePutLoggingOptions $
 --             putLoggingOptionsResponse
+--
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
 --
 --         , responseDeleteChannel $
 --             deleteChannelResponse
@@ -193,8 +211,14 @@ import Test.Tasty
 --         , responseGetDatasetContent $
 --             getDatasetContentResponse
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
 --         , responseListDatasets $
 --             listDatasetsResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responseRunPipelineActivity $
 --             runPipelineActivityResponse
@@ -231,10 +255,20 @@ requestListChannels = req
     "ListChannels"
     "fixture/ListChannels.yaml"
 
+requestListDatasetContents :: ListDatasetContents -> TestTree
+requestListDatasetContents = req
+    "ListDatasetContents"
+    "fixture/ListDatasetContents.yaml"
+
 requestPutLoggingOptions :: PutLoggingOptions -> TestTree
 requestPutLoggingOptions = req
     "PutLoggingOptions"
     "fixture/PutLoggingOptions.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource = req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestDeleteChannel :: DeleteChannel -> TestTree
 requestDeleteChannel = req
@@ -336,10 +370,20 @@ requestGetDatasetContent = req
     "GetDatasetContent"
     "fixture/GetDatasetContent.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestListDatasets :: ListDatasets -> TestTree
 requestListDatasets = req
     "ListDatasets"
     "fixture/ListDatasets.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestRunPipelineActivity :: RunPipelineActivity -> TestTree
 requestRunPipelineActivity = req
@@ -389,12 +433,26 @@ responseListChannels = res
     ioTAnalytics
     (Proxy :: Proxy ListChannels)
 
+responseListDatasetContents :: ListDatasetContentsResponse -> TestTree
+responseListDatasetContents = res
+    "ListDatasetContentsResponse"
+    "fixture/ListDatasetContentsResponse.proto"
+    ioTAnalytics
+    (Proxy :: Proxy ListDatasetContents)
+
 responsePutLoggingOptions :: PutLoggingOptionsResponse -> TestTree
 responsePutLoggingOptions = res
     "PutLoggingOptionsResponse"
     "fixture/PutLoggingOptionsResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy PutLoggingOptions)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource = res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    ioTAnalytics
+    (Proxy :: Proxy ListTagsForResource)
 
 responseDeleteChannel :: DeleteChannelResponse -> TestTree
 responseDeleteChannel = res
@@ -536,12 +594,26 @@ responseGetDatasetContent = res
     ioTAnalytics
     (Proxy :: Proxy GetDatasetContent)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    ioTAnalytics
+    (Proxy :: Proxy TagResource)
+
 responseListDatasets :: ListDatasetsResponse -> TestTree
 responseListDatasets = res
     "ListDatasetsResponse"
     "fixture/ListDatasetsResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy ListDatasets)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    ioTAnalytics
+    (Proxy :: Proxy UntagResource)
 
 responseRunPipelineActivity :: RunPipelineActivityResponse -> TestTree
 responseRunPipelineActivity = res

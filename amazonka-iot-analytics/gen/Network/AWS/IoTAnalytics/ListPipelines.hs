@@ -21,6 +21,8 @@
 -- Retrieves a list of pipelines.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.IoTAnalytics.ListPipelines
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.IoTAnalytics.ListPipelines
 import Network.AWS.IoTAnalytics.Types
 import Network.AWS.IoTAnalytics.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,6 +75,13 @@ lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a})
 -- | The maximum number of results to return in this request. The default value is 100.
 lpMaxResults :: Lens' ListPipelines (Maybe Natural)
 lpMaxResults = lens _lpMaxResults (\ s a -> s{_lpMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListPipelines where
+        page rq rs
+          | stop (rs ^. lprsNextToken) = Nothing
+          | stop (rs ^. lprsPipelineSummaries) = Nothing
+          | otherwise =
+            Just $ rq & lpNextToken .~ rs ^. lprsNextToken
 
 instance AWSRequest ListPipelines where
         type Rs ListPipelines = ListPipelinesResponse

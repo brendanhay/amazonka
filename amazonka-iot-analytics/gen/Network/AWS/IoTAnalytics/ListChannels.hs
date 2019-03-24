@@ -21,6 +21,8 @@
 -- Retrieves a list of channels.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.IoTAnalytics.ListChannels
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.IoTAnalytics.ListChannels
 import Network.AWS.IoTAnalytics.Types
 import Network.AWS.IoTAnalytics.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,6 +75,13 @@ lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a})
 -- | The maximum number of results to return in this request. The default value is 100.
 lcMaxResults :: Lens' ListChannels (Maybe Natural)
 lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListChannels where
+        page rq rs
+          | stop (rs ^. lcrsNextToken) = Nothing
+          | stop (rs ^. lcrsChannelSummaries) = Nothing
+          | otherwise =
+            Just $ rq & lcNextToken .~ rs ^. lcrsNextToken
 
 instance AWSRequest ListChannels where
         type Rs ListChannels = ListChannelsResponse

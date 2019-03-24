@@ -28,6 +28,7 @@ module Network.AWS.IoTAnalytics.CreateDatastore
     , CreateDatastore
     -- * Request Lenses
     , cdRetentionPeriod
+    , cdTags
     , cdDatastoreName
 
     -- * Destructuring the Response
@@ -50,6 +51,7 @@ import Network.AWS.Response
 -- | /See:/ 'createDatastore' smart constructor.
 data CreateDatastore = CreateDatastore'
   { _cdRetentionPeriod :: !(Maybe RetentionPeriod)
+  , _cdTags            :: !(Maybe (List1 Tag))
   , _cdDatastoreName   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -60,18 +62,27 @@ data CreateDatastore = CreateDatastore'
 --
 -- * 'cdRetentionPeriod' - How long, in days, message data is kept for the data store.
 --
+-- * 'cdTags' - Metadata which can be used to manage the data store.
+--
 -- * 'cdDatastoreName' - The name of the data store.
 createDatastore
     :: Text -- ^ 'cdDatastoreName'
     -> CreateDatastore
 createDatastore pDatastoreName_ =
   CreateDatastore'
-    {_cdRetentionPeriod = Nothing, _cdDatastoreName = pDatastoreName_}
+    { _cdRetentionPeriod = Nothing
+    , _cdTags = Nothing
+    , _cdDatastoreName = pDatastoreName_
+    }
 
 
 -- | How long, in days, message data is kept for the data store.
 cdRetentionPeriod :: Lens' CreateDatastore (Maybe RetentionPeriod)
 cdRetentionPeriod = lens _cdRetentionPeriod (\ s a -> s{_cdRetentionPeriod = a})
+
+-- | Metadata which can be used to manage the data store.
+cdTags :: Lens' CreateDatastore (Maybe (NonEmpty Tag))
+cdTags = lens _cdTags (\ s a -> s{_cdTags = a}) . mapping _List1
 
 -- | The name of the data store.
 cdDatastoreName :: Lens' CreateDatastore Text
@@ -100,6 +111,7 @@ instance ToJSON CreateDatastore where
           = object
               (catMaybes
                  [("retentionPeriod" .=) <$> _cdRetentionPeriod,
+                  ("tags" .=) <$> _cdTags,
                   Just ("datastoreName" .= _cdDatastoreName)])
 
 instance ToPath CreateDatastore where

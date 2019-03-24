@@ -27,6 +27,7 @@ module Network.AWS.IoTAnalytics.CreatePipeline
       createPipeline
     , CreatePipeline
     -- * Request Lenses
+    , cpTags
     , cpPipelineName
     , cpPipelineActivities
 
@@ -48,7 +49,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createPipeline' smart constructor.
 data CreatePipeline = CreatePipeline'
-  { _cpPipelineName       :: !Text
+  { _cpTags               :: !(Maybe (List1 Tag))
+  , _cpPipelineName       :: !Text
   , _cpPipelineActivities :: !(List1 PipelineActivity)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -56,6 +58,8 @@ data CreatePipeline = CreatePipeline'
 -- | Creates a value of 'CreatePipeline' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpTags' - Metadata which can be used to manage the pipeline.
 --
 -- * 'cpPipelineName' - The name of the pipeline.
 --
@@ -66,10 +70,15 @@ createPipeline
     -> CreatePipeline
 createPipeline pPipelineName_ pPipelineActivities_ =
   CreatePipeline'
-    { _cpPipelineName = pPipelineName_
+    { _cpTags = Nothing
+    , _cpPipelineName = pPipelineName_
     , _cpPipelineActivities = _List1 # pPipelineActivities_
     }
 
+
+-- | Metadata which can be used to manage the pipeline.
+cpTags :: Lens' CreatePipeline (Maybe (NonEmpty Tag))
+cpTags = lens _cpTags (\ s a -> s{_cpTags = a}) . mapping _List1
 
 -- | The name of the pipeline.
 cpPipelineName :: Lens' CreatePipeline Text
@@ -100,7 +109,8 @@ instance ToJSON CreatePipeline where
         toJSON CreatePipeline'{..}
           = object
               (catMaybes
-                 [Just ("pipelineName" .= _cpPipelineName),
+                 [("tags" .=) <$> _cpTags,
+                  Just ("pipelineName" .= _cpPipelineName),
                   Just
                     ("pipelineActivities" .= _cpPipelineActivities)])
 

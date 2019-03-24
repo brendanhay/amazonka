@@ -57,7 +57,7 @@ data AttachElasticLoadBalancer = AttachElasticLoadBalancer'
 --
 -- * 'aelbElasticLoadBalancerName' - The Elastic Load Balancing instance's name.
 --
--- * 'aelbLayerId' - The ID of the layer that the Elastic Load Balancing instance is to be attached to.
+-- * 'aelbLayerId' - The ID of the layer to which the Elastic Load Balancing instance is to be attached.
 attachElasticLoadBalancer
     :: Text -- ^ 'aelbElasticLoadBalancerName'
     -> Text -- ^ 'aelbLayerId'
@@ -73,7 +73,7 @@ attachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
 aelbElasticLoadBalancerName :: Lens' AttachElasticLoadBalancer Text
 aelbElasticLoadBalancerName = lens _aelbElasticLoadBalancerName (\ s a -> s{_aelbElasticLoadBalancerName = a})
 
--- | The ID of the layer that the Elastic Load Balancing instance is to be attached to.
+-- | The ID of the layer to which the Elastic Load Balancing instance is to be attached.
 aelbLayerId :: Lens' AttachElasticLoadBalancer Text
 aelbLayerId = lens _aelbLayerId (\ s a -> s{_aelbLayerId = a})
 

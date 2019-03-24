@@ -55,7 +55,7 @@ data StopInstance = StopInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'siForce' - Undocumented member.
+-- * 'siForce' - Specifies whether to force an instance to stop.
 --
 -- * 'siInstanceId' - The instance ID.
 stopInstance
@@ -65,7 +65,7 @@ stopInstance pInstanceId_ =
   StopInstance' {_siForce = Nothing, _siInstanceId = pInstanceId_}
 
 
--- | Undocumented member.
+-- | Specifies whether to force an instance to stop.
 siForce :: Lens' StopInstance (Maybe Bool)
 siForce = lens _siForce (\ s a -> s{_siForce = a})
 

@@ -21,7 +21,7 @@
 -- Requests a description of a stack's provisioning parameters.
 --
 --
--- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+-- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information about user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 --
 module Network.AWS.OpsWorks.DescribeStackProvisioningParameters
     (
@@ -57,7 +57,7 @@ newtype DescribeStackProvisioningParameters = DescribeStackProvisioningParameter
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsppStackId' - The stack ID
+-- * 'dsppStackId' - The stack ID.
 describeStackProvisioningParameters
     :: Text -- ^ 'dsppStackId'
     -> DescribeStackProvisioningParameters
@@ -65,7 +65,7 @@ describeStackProvisioningParameters pStackId_ =
   DescribeStackProvisioningParameters' {_dsppStackId = pStackId_}
 
 
--- | The stack ID
+-- | The stack ID.
 dsppStackId :: Lens' DescribeStackProvisioningParameters Text
 dsppStackId = lens _dsppStackId (\ s a -> s{_dsppStackId = a})
 

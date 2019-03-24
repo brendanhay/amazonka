@@ -15,9 +15,9 @@ module Test.AWS.OpsWorks
     , fixtures
     ) where
 
-import           Network.AWS.OpsWorks
-import           Test.AWS.Gen.OpsWorks
-import           Test.Tasty
+import Network.AWS.OpsWorks
+import Test.AWS.Gen.OpsWorks
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

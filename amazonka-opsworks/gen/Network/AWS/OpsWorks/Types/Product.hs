@@ -1479,7 +1479,7 @@ data Instance = Instance'
 --
 -- * 'iEcsClusterARN' - For container instances, the Amazon ECS cluster's ARN.
 --
--- * 'iARN' - Undocumented member.
+-- * 'iARN' - The instance's Amazon Resource Number (ARN).
 --
 -- * 'iCreatedAt' - The time that the instance was created.
 --
@@ -1634,7 +1634,7 @@ iSecurityGroupIds = lens _iSecurityGroupIds (\ s a -> s{_iSecurityGroupIds = a})
 iEcsClusterARN :: Lens' Instance (Maybe Text)
 iEcsClusterARN = lens _iEcsClusterARN (\ s a -> s{_iEcsClusterARN = a})
 
--- | Undocumented member.
+-- | The instance's Amazon Resource Number (ARN).
 iARN :: Lens' Instance (Maybe Text)
 iARN = lens _iARN (\ s a -> s{_iARN = a})
 
@@ -1887,7 +1887,7 @@ data InstancesCount = InstancesCount'
 --
 -- * 'icRequested' - The number of instances with @requested@ status.
 --
--- * 'icStopFailed' - Undocumented member.
+-- * 'icStopFailed' - The number of instances with @stop_failed@ status.
 --
 -- * 'icBooting' - The number of instances with @booting@ status.
 --
@@ -1967,7 +1967,7 @@ icRunningSetup = lens _icRunningSetup (\ s a -> s{_icRunningSetup = a})
 icRequested :: Lens' InstancesCount (Maybe Int)
 icRequested = lens _icRequested (\ s a -> s{_icRequested = a})
 
--- | Undocumented member.
+-- | The number of instances with @stop_failed@ status.
 icStopFailed :: Lens' InstancesCount (Maybe Int)
 icStopFailed = lens _icStopFailed (\ s a -> s{_icStopFailed = a})
 
@@ -2094,7 +2094,7 @@ data Layer = Layer'
 --
 -- * 'lLifecycleEventConfiguration' - A @LifeCycleEventConfiguration@ object that specifies the Shutdown event configuration.
 --
--- * 'lARN' - Undocumented member.
+-- * 'lARN' - The Amazon Resource Number (ARN) of a layer.
 --
 -- * 'lCreatedAt' - Date when the layer was created.
 --
@@ -2179,7 +2179,7 @@ lCloudWatchLogsConfiguration = lens _lCloudWatchLogsConfiguration (\ s a -> s{_l
 lLifecycleEventConfiguration :: Lens' Layer (Maybe LifecycleEventConfiguration)
 lLifecycleEventConfiguration = lens _lLifecycleEventConfiguration (\ s a -> s{_lLifecycleEventConfiguration = a})
 
--- | Undocumented member.
+-- | The Amazon Resource Number (ARN) of a layer.
 lARN :: Lens' Layer (Maybe Text)
 lARN = lens _lARN (\ s a -> s{_lARN = a})
 
@@ -3929,7 +3929,7 @@ data Volume = Volume'
 --
 -- * 'vDevice' - The device name.
 --
--- * 'vEncrypted' - Undocumented member.
+-- * 'vEncrypted' - Specifies whether an Amazon EBS volume is encrypted. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> .
 --
 -- * 'vAvailabilityZone' - The volume Availability Zone. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 --
@@ -3941,7 +3941,7 @@ data Volume = Volume'
 --
 -- * 'vRegion' - The AWS region. For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 --
--- * 'vVolumeType' - The volume type, standard or PIOPS.
+-- * 'vVolumeType' - The volume type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .     * @standard@ - Magnetic. Magnetic volumes must have a minimum size of 1 GiB and a maximum size of 1024 GiB.     * @io1@ - Provisioned IOPS (SSD). PIOPS volumes must have a minimum size of 4 GiB and a maximum size of 16384 GiB.     * @gp2@ - General Purpose (SSD). General purpose volumes must have a minimum size of 1 GiB and a maximum size of 16384 GiB.     * @st1@ - Throughput Optimized hard disk drive (HDD). Throughput optimized HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.     * @sc1@ - Cold HDD. Cold HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.
 --
 -- * 'vEC2VolumeId' - The Amazon EC2 volume ID.
 --
@@ -3987,7 +3987,7 @@ vIOPS = lens _vIOPS (\ s a -> s{_vIOPS = a})
 vDevice :: Lens' Volume (Maybe Text)
 vDevice = lens _vDevice (\ s a -> s{_vDevice = a})
 
--- | Undocumented member.
+-- | Specifies whether an Amazon EBS volume is encrypted. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> .
 vEncrypted :: Lens' Volume (Maybe Bool)
 vEncrypted = lens _vEncrypted (\ s a -> s{_vEncrypted = a})
 
@@ -4011,7 +4011,7 @@ vVolumeId = lens _vVolumeId (\ s a -> s{_vVolumeId = a})
 vRegion :: Lens' Volume (Maybe Text)
 vRegion = lens _vRegion (\ s a -> s{_vRegion = a})
 
--- | The volume type, standard or PIOPS.
+-- | The volume type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .     * @standard@ - Magnetic. Magnetic volumes must have a minimum size of 1 GiB and a maximum size of 1024 GiB.     * @io1@ - Provisioned IOPS (SSD). PIOPS volumes must have a minimum size of 4 GiB and a maximum size of 16384 GiB.     * @gp2@ - General Purpose (SSD). General purpose volumes must have a minimum size of 1 GiB and a maximum size of 16384 GiB.     * @st1@ - Throughput Optimized hard disk drive (HDD). Throughput optimized HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.     * @sc1@ - Cold HDD. Cold HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.
 vVolumeType :: Lens' Volume (Maybe Text)
 vVolumeType = lens _vVolumeType (\ s a -> s{_vVolumeType = a})
 
@@ -4072,7 +4072,7 @@ data VolumeConfiguration = VolumeConfiguration'
 --
 -- * 'vcEncrypted' - Specifies whether an Amazon EBS volume is encrypted. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> .
 --
--- * 'vcVolumeType' - The volume type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .     * @standard@ - Magnetic     * @io1@ - Provisioned IOPS (SSD)     * @gp2@ - General Purpose (SSD)     * @st1@ - Throughput Optimized hard disk drive (HDD)     * @sc1@ - Cold HDD
+-- * 'vcVolumeType' - The volume type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .     * @standard@ - Magnetic. Magnetic volumes must have a minimum size of 1 GiB and a maximum size of 1024 GiB.     * @io1@ - Provisioned IOPS (SSD). PIOPS volumes must have a minimum size of 4 GiB and a maximum size of 16384 GiB.     * @gp2@ - General Purpose (SSD). General purpose volumes must have a minimum size of 1 GiB and a maximum size of 16384 GiB.     * @st1@ - Throughput Optimized hard disk drive (HDD). Throughput optimized HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.     * @sc1@ - Cold HDD. Cold HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.
 --
 -- * 'vcMountPoint' - The volume mount point. For example "/dev/sdh".
 --
@@ -4108,7 +4108,7 @@ vcRAIdLevel = lens _vcRAIdLevel (\ s a -> s{_vcRAIdLevel = a})
 vcEncrypted :: Lens' VolumeConfiguration (Maybe Bool)
 vcEncrypted = lens _vcEncrypted (\ s a -> s{_vcEncrypted = a})
 
--- | The volume type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .     * @standard@ - Magnetic     * @io1@ - Provisioned IOPS (SSD)     * @gp2@ - General Purpose (SSD)     * @st1@ - Throughput Optimized hard disk drive (HDD)     * @sc1@ - Cold HDD
+-- | The volume type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .     * @standard@ - Magnetic. Magnetic volumes must have a minimum size of 1 GiB and a maximum size of 1024 GiB.     * @io1@ - Provisioned IOPS (SSD). PIOPS volumes must have a minimum size of 4 GiB and a maximum size of 16384 GiB.     * @gp2@ - General Purpose (SSD). General purpose volumes must have a minimum size of 1 GiB and a maximum size of 16384 GiB.     * @st1@ - Throughput Optimized hard disk drive (HDD). Throughput optimized HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.     * @sc1@ - Cold HDD. Cold HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.
 vcVolumeType :: Lens' VolumeConfiguration (Maybe Text)
 vcVolumeType = lens _vcVolumeType (\ s a -> s{_vcVolumeType = a})
 

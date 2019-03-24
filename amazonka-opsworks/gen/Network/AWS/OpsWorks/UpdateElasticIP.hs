@@ -57,7 +57,7 @@ data UpdateElasticIP = UpdateElasticIP'
 --
 -- * 'ueiName' - The new name.
 --
--- * 'ueiElasticIP' - The address.
+-- * 'ueiElasticIP' - The IP address for which you want to update the name.
 updateElasticIP
     :: Text -- ^ 'ueiElasticIP'
     -> UpdateElasticIP
@@ -69,7 +69,7 @@ updateElasticIP pElasticIP_ =
 ueiName :: Lens' UpdateElasticIP (Maybe Text)
 ueiName = lens _ueiName (\ s a -> s{_ueiName = a})
 
--- | The address.
+-- | The IP address for which you want to update the name.
 ueiElasticIP :: Lens' UpdateElasticIP Text
 ueiElasticIP = lens _ueiElasticIP (\ s a -> s{_ueiElasticIP = a})
 

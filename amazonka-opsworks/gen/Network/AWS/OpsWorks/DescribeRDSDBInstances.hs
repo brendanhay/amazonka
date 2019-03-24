@@ -21,7 +21,7 @@
 -- Describes Amazon RDS instances.
 --
 --
--- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+-- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 --
 -- This call accepts only one resource-identifying parameter.
 --
@@ -62,7 +62,7 @@ data DescribeRDSDBInstances = DescribeRDSDBInstances'
 --
 -- * 'drdiRDSDBInstanceARNs' - An array containing the ARNs of the instances to be described.
 --
--- * 'drdiStackId' - The stack ID that the instances are registered with. The operation returns descriptions of all registered Amazon RDS instances.
+-- * 'drdiStackId' - The ID of the stack with which the instances are registered. The operation returns descriptions of all registered Amazon RDS instances.
 describeRDSDBInstances
     :: Text -- ^ 'drdiStackId'
     -> DescribeRDSDBInstances
@@ -75,7 +75,7 @@ describeRDSDBInstances pStackId_ =
 drdiRDSDBInstanceARNs :: Lens' DescribeRDSDBInstances [Text]
 drdiRDSDBInstanceARNs = lens _drdiRDSDBInstanceARNs (\ s a -> s{_drdiRDSDBInstanceARNs = a}) . _Default . _Coerce
 
--- | The stack ID that the instances are registered with. The operation returns descriptions of all registered Amazon RDS instances.
+-- | The ID of the stack with which the instances are registered. The operation returns descriptions of all registered Amazon RDS instances.
 drdiStackId :: Lens' DescribeRDSDBInstances Text
 drdiStackId = lens _drdiStackId (\ s a -> s{_drdiStackId = a})
 

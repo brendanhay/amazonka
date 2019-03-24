@@ -53,7 +53,7 @@ newtype DeregisterEcsCluster = DeregisterEcsCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decEcsClusterARN' - The cluster's ARN.
+-- * 'decEcsClusterARN' - The cluster's Amazon Resource Number (ARN).
 deregisterEcsCluster
     :: Text -- ^ 'decEcsClusterARN'
     -> DeregisterEcsCluster
@@ -61,7 +61,7 @@ deregisterEcsCluster pEcsClusterARN_ =
   DeregisterEcsCluster' {_decEcsClusterARN = pEcsClusterARN_}
 
 
--- | The cluster's ARN.
+-- | The cluster's Amazon Resource Number (ARN).
 decEcsClusterARN :: Lens' DeregisterEcsCluster Text
 decEcsClusterARN = lens _decEcsClusterARN (\ s a -> s{_decEcsClusterARN = a})
 

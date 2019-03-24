@@ -63,7 +63,7 @@ data SetPermission = SetPermission'
 --
 -- * 'spAllowSudo' - The user is allowed to use __sudo__ to elevate privileges.
 --
--- * 'spLevel' - The user's permission level, which must be set to one of the following strings. You cannot set your own permissions level.     * @deny@      * @show@      * @deploy@      * @manage@      * @iam_only@  For more information on the permissions associated with these levels, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+-- * 'spLevel' - The user's permission level, which must be set to one of the following strings. You cannot set your own permissions level.     * @deny@      * @show@      * @deploy@      * @manage@      * @iam_only@  For more information about the permissions associated with these levels, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 --
 -- * 'spAllowSSH' - The user is allowed to use SSH to communicate with the instance.
 --
@@ -88,7 +88,7 @@ setPermission pStackId_ pIAMUserARN_ =
 spAllowSudo :: Lens' SetPermission (Maybe Bool)
 spAllowSudo = lens _spAllowSudo (\ s a -> s{_spAllowSudo = a})
 
--- | The user's permission level, which must be set to one of the following strings. You cannot set your own permissions level.     * @deny@      * @show@      * @deploy@      * @manage@      * @iam_only@  For more information on the permissions associated with these levels, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+-- | The user's permission level, which must be set to one of the following strings. You cannot set your own permissions level.     * @deny@      * @show@      * @deploy@      * @manage@      * @iam_only@  For more information about the permissions associated with these levels, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 spLevel :: Lens' SetPermission (Maybe Text)
 spLevel = lens _spLevel (\ s a -> s{_spLevel = a})
 

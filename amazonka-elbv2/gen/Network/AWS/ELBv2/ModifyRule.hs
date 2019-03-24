@@ -23,7 +23,7 @@
 --
 -- Any existing properties that you do not modify retain their current values.
 --
--- To modify the default action, use 'ModifyListener' .
+-- To modify the actions for the default rule, use 'ModifyListener' .
 --
 module Network.AWS.ELBv2.ModifyRule
     (
@@ -62,9 +62,9 @@ data ModifyRule = ModifyRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mrActions' - The actions. The target group must use the HTTP or HTTPS protocol.
+-- * 'mrActions' - The actions. If the action type is @forward@ , you specify a target group. The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or TLS for a Network Load Balancer. [HTTPS listeners] If the action type is @authenticate-oidc@ , you authenticate users through an identity provider that is OpenID Connect (OIDC) compliant. [HTTPS listeners] If the action type is @authenticate-cognito@ , you authenticate users through the user pools supported by Amazon Cognito. [Application Load Balancer] If the action type is @redirect@ , you redirect specified client requests from one URL to another. [Application Load Balancer] If the action type is @fixed-response@ , you drop specified client requests and return a custom HTTP response.
 --
--- * 'mrConditions' - The conditions.
+-- * 'mrConditions' - The conditions. Each condition specifies a field name and a single value. If the field name is @host-header@ , you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters. You can include up to three wildcard characters.     * A-Z, a-z, 0-9     * - .     * * (matches 0 or more characters)     * ? (matches exactly 1 character) If the field name is @path-pattern@ , you can specify a single path pattern. A path pattern is case-sensitive, can be up to 128 characters in length, and can contain any of the following characters. You can include up to three wildcard characters.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 --
 -- * 'mrRuleARN' - The Amazon Resource Name (ARN) of the rule.
 modifyRule
@@ -75,11 +75,11 @@ modifyRule pRuleARN_ =
     {_mrActions = Nothing, _mrConditions = Nothing, _mrRuleARN = pRuleARN_}
 
 
--- | The actions. The target group must use the HTTP or HTTPS protocol.
+-- | The actions. If the action type is @forward@ , you specify a target group. The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or TLS for a Network Load Balancer. [HTTPS listeners] If the action type is @authenticate-oidc@ , you authenticate users through an identity provider that is OpenID Connect (OIDC) compliant. [HTTPS listeners] If the action type is @authenticate-cognito@ , you authenticate users through the user pools supported by Amazon Cognito. [Application Load Balancer] If the action type is @redirect@ , you redirect specified client requests from one URL to another. [Application Load Balancer] If the action type is @fixed-response@ , you drop specified client requests and return a custom HTTP response.
 mrActions :: Lens' ModifyRule [Action]
 mrActions = lens _mrActions (\ s a -> s{_mrActions = a}) . _Default . _Coerce
 
--- | The conditions.
+-- | The conditions. Each condition specifies a field name and a single value. If the field name is @host-header@ , you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters. You can include up to three wildcard characters.     * A-Z, a-z, 0-9     * - .     * * (matches 0 or more characters)     * ? (matches exactly 1 character) If the field name is @path-pattern@ , you can specify a single path pattern. A path pattern is case-sensitive, can be up to 128 characters in length, and can contain any of the following characters. You can include up to three wildcard characters.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 mrConditions :: Lens' ModifyRule [RuleCondition]
 mrConditions = lens _mrConditions (\ s a -> s{_mrConditions = a}) . _Default . _Coerce
 
@@ -130,7 +130,7 @@ data ModifyRuleResponse = ModifyRuleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mrrsRules' - Information about the rule.
+-- * 'mrrsRules' - Information about the modified rule.
 --
 -- * 'mrrsResponseStatus' - -- | The response status code.
 modifyRuleResponse
@@ -141,7 +141,7 @@ modifyRuleResponse pResponseStatus_ =
     {_mrrsRules = Nothing, _mrrsResponseStatus = pResponseStatus_}
 
 
--- | Information about the rule.
+-- | Information about the modified rule.
 mrrsRules :: Lens' ModifyRuleResponse [Rule]
 mrrsRules = lens _mrrsRules (\ s a -> s{_mrrsRules = a}) . _Default . _Coerce
 

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the certificates for the specified secure listener.
+-- Describes the certificates for the specified HTTPS listener.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ELBv2.DescribeListenerCertificates
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.ELBv2.DescribeListenerCertificates
 import Network.AWS.ELBv2.Types
 import Network.AWS.ELBv2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -86,6 +89,13 @@ dlcPageSize = lens _dlcPageSize (\ s a -> s{_dlcPageSize = a}) . mapping _Nat
 -- | The Amazon Resource Names (ARN) of the listener.
 dlcListenerARN :: Lens' DescribeListenerCertificates Text
 dlcListenerARN = lens _dlcListenerARN (\ s a -> s{_dlcListenerARN = a})
+
+instance AWSPager DescribeListenerCertificates where
+        page rq rs
+          | stop (rs ^. dlcrsNextMarker) = Nothing
+          | stop (rs ^. dlcrsCertificates) = Nothing
+          | otherwise =
+            Just $ rq & dlcMarker .~ rs ^. dlcrsNextMarker
 
 instance AWSRequest DescribeListenerCertificates
          where

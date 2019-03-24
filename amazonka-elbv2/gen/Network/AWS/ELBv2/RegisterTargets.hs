@@ -21,7 +21,7 @@
 -- Registers the specified targets with the specified target group.
 --
 --
--- You can register targets by instance ID or by IP address. If the target is an EC2 instance, it must be in the @running@ state when you register it.
+-- If the target is an EC2 instance, it must be in the @running@ state when you register it.
 --
 -- By default, the load balancer routes requests to registered targets using the protocol and port for the target group. Alternatively, you can override the port for a target when you register it. You can register each EC2 instance or IP address with the same target group multiple times using different ports.
 --
@@ -65,7 +65,7 @@ data RegisterTargets = RegisterTargets'
 --
 -- * 'rtTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 --
--- * 'rtTargets' - The targets.
+-- * 'rtTargets' - The targets. To register a target by instance ID, specify the instance ID. To register a target by IP address, specify the IP address. To register a Lambda function, specify the ARN of the Lambda function.
 registerTargets
     :: Text -- ^ 'rtTargetGroupARN'
     -> RegisterTargets
@@ -77,7 +77,7 @@ registerTargets pTargetGroupARN_ =
 rtTargetGroupARN :: Lens' RegisterTargets Text
 rtTargetGroupARN = lens _rtTargetGroupARN (\ s a -> s{_rtTargetGroupARN = a})
 
--- | The targets.
+-- | The targets. To register a target by instance ID, specify the instance ID. To register a target by IP address, specify the IP address. To register a Lambda function, specify the ARN of the Lambda function.
 rtTargets :: Lens' RegisterTargets [TargetDescription]
 rtTargets = lens _rtTargets (\ s a -> s{_rtTargets = a}) . _Coerce
 

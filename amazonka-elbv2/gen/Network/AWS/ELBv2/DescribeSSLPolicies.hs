@@ -21,8 +21,10 @@
 -- Describes the specified policies or all policies used for SSL negotiation.
 --
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security Policies> in the /Application Load Balancers Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security Policies> in the /Application Load Balancers Guide/ .
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ELBv2.DescribeSSLPolicies
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.ELBv2.DescribeSSLPolicies
 import Network.AWS.ELBv2.Types
 import Network.AWS.ELBv2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -84,6 +87,13 @@ dspMarker = lens _dspMarker (\ s a -> s{_dspMarker = a})
 -- | The maximum number of results to return with this call.
 dspPageSize :: Lens' DescribeSSLPolicies (Maybe Natural)
 dspPageSize = lens _dspPageSize (\ s a -> s{_dspPageSize = a}) . mapping _Nat
+
+instance AWSPager DescribeSSLPolicies where
+        page rq rs
+          | stop (rs ^. dsprsNextMarker) = Nothing
+          | stop (rs ^. dsprsSSLPolicies) = Nothing
+          | otherwise =
+            Just $ rq & dspMarker .~ rs ^. dsprsNextMarker
 
 instance AWSRequest DescribeSSLPolicies where
         type Rs DescribeSSLPolicies =

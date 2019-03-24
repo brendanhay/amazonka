@@ -21,6 +21,8 @@
 -- Describes the attributes for the specified Application Load Balancer or Network Load Balancer.
 --
 --
+-- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes Load Balancer Attributes> in the /Application Load Balancers Guide/ or <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#load-balancer-attributes Load Balancer Attributes> in the /Network Load Balancers Guide/ .
+--
 module Network.AWS.ELBv2.DescribeLoadBalancerAttributes
     (
     -- * Creating a Request

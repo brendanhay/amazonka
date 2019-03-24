@@ -21,7 +21,7 @@
 -- Creates a rule for the specified listener. The listener must be associated with an Application Load Balancer.
 --
 --
--- Rules are evaluated in priority order, from the lowest value to the highest value. When the condition for a rule is met, the specified action is taken. If no conditions are met, the action for the default rule is taken. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules Listener Rules> in the /Application Load Balancers Guide/ .
+-- Rules are evaluated in priority order, from the lowest value to the highest value. When the conditions for a rule are met, its actions are performed. If the conditions for no rules are met, the actions for the default rule are performed. For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules Listener Rules> in the /Application Load Balancers Guide/ .
 --
 -- To view your current rules, use 'DescribeRules' . To update a rule, use 'ModifyRule' . To set the priorities of your rules, use 'SetRulePriorities' . To delete a rule, use 'DeleteRule' .
 --
@@ -66,11 +66,11 @@ data CreateRule = CreateRule'
 --
 -- * 'crListenerARN' - The Amazon Resource Name (ARN) of the listener.
 --
--- * 'crConditions' - The conditions. Each condition specifies a field name and a single value. If the field name is @host-header@ , you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.     * A-Z, a-z, 0-9     * - .     * * (matches 0 or more characters)     * ? (matches exactly 1 character) If the field name is @path-pattern@ , you can specify a single path pattern. A path pattern is case sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
+-- * 'crConditions' - The conditions. Each condition specifies a field name and a single value. If the field name is @host-header@ , you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters. You can include up to three wildcard characters.     * A-Z, a-z, 0-9     * - .     * * (matches 0 or more characters)     * ? (matches exactly 1 character) If the field name is @path-pattern@ , you can specify a single path pattern. A path pattern is case-sensitive, can be up to 128 characters in length, and can contain any of the following characters. You can include up to three wildcard characters.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 --
--- * 'crPriority' - The priority for the rule. A listener can't have multiple rules with the same priority.
+-- * 'crPriority' - The rule priority. A listener can't have multiple rules with the same priority.
 --
--- * 'crActions' - An action. Each action has the type @forward@ and specifies a target group.
+-- * 'crActions' - The actions. Each rule must include exactly one of the following types of actions: @forward@ , @fixed-response@ , or @redirect@ . If the action type is @forward@ , you specify a target group. The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or TLS for a Network Load Balancer. [HTTPS listeners] If the action type is @authenticate-oidc@ , you authenticate users through an identity provider that is OpenID Connect (OIDC) compliant. [HTTPS listeners] If the action type is @authenticate-cognito@ , you authenticate users through the user pools supported by Amazon Cognito. [Application Load Balancer] If the action type is @redirect@ , you redirect specified client requests from one URL to another. [Application Load Balancer] If the action type is @fixed-response@ , you drop specified client requests and return a custom HTTP response.
 createRule
     :: Text -- ^ 'crListenerARN'
     -> Natural -- ^ 'crPriority'
@@ -88,15 +88,15 @@ createRule pListenerARN_ pPriority_ =
 crListenerARN :: Lens' CreateRule Text
 crListenerARN = lens _crListenerARN (\ s a -> s{_crListenerARN = a})
 
--- | The conditions. Each condition specifies a field name and a single value. If the field name is @host-header@ , you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.     * A-Z, a-z, 0-9     * - .     * * (matches 0 or more characters)     * ? (matches exactly 1 character) If the field name is @path-pattern@ , you can specify a single path pattern. A path pattern is case sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
+-- | The conditions. Each condition specifies a field name and a single value. If the field name is @host-header@ , you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters. You can include up to three wildcard characters.     * A-Z, a-z, 0-9     * - .     * * (matches 0 or more characters)     * ? (matches exactly 1 character) If the field name is @path-pattern@ , you can specify a single path pattern. A path pattern is case-sensitive, can be up to 128 characters in length, and can contain any of the following characters. You can include up to three wildcard characters.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 crConditions :: Lens' CreateRule [RuleCondition]
 crConditions = lens _crConditions (\ s a -> s{_crConditions = a}) . _Coerce
 
--- | The priority for the rule. A listener can't have multiple rules with the same priority.
+-- | The rule priority. A listener can't have multiple rules with the same priority.
 crPriority :: Lens' CreateRule Natural
 crPriority = lens _crPriority (\ s a -> s{_crPriority = a}) . _Nat
 
--- | An action. Each action has the type @forward@ and specifies a target group.
+-- | The actions. Each rule must include exactly one of the following types of actions: @forward@ , @fixed-response@ , or @redirect@ . If the action type is @forward@ , you specify a target group. The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or TLS for a Network Load Balancer. [HTTPS listeners] If the action type is @authenticate-oidc@ , you authenticate users through an identity provider that is OpenID Connect (OIDC) compliant. [HTTPS listeners] If the action type is @authenticate-cognito@ , you authenticate users through the user pools supported by Amazon Cognito. [Application Load Balancer] If the action type is @redirect@ , you redirect specified client requests from one URL to another. [Application Load Balancer] If the action type is @fixed-response@ , you drop specified client requests and return a custom HTTP response.
 crActions :: Lens' CreateRule [Action]
 crActions = lens _crActions (\ s a -> s{_crActions = a}) . _Coerce
 

@@ -15,9 +15,9 @@ module Test.AWS.ELBv2
     , fixtures
     ) where
 
-import           Network.AWS.ELBv2
-import           Test.AWS.Gen.ELBv2
-import           Test.Tasty
+import Network.AWS.ELBv2
+import Test.AWS.Gen.ELBv2
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

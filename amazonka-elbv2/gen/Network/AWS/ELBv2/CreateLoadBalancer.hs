@@ -25,11 +25,11 @@
 --
 -- To create listeners for your load balancer, use 'CreateListener' . To describe your current load balancers, see 'DescribeLoadBalancers' . When you are finished with a load balancer, you can delete it using 'DeleteLoadBalancer' .
 --
--- For limit information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html Limits for Your Application Load Balancer> in the /Application Load Balancers Guide/ and <http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html Limits for Your Network Load Balancer> in the /Network Load Balancers Guide/ .
+-- For limit information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html Limits for Your Application Load Balancer> in the /Application Load Balancers Guide/ and <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html Limits for Your Network Load Balancer> in the /Network Load Balancers Guide/ .
 --
 -- This operation is idempotent, which means that it completes at most one time. If you attempt to create multiple load balancers with the same settings, each call succeeds.
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html Application Load Balancers> in the /Application Load Balancers Guide/ and <http://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html Network Load Balancers> in the /Network Load Balancers Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html Application Load Balancers> in the /Application Load Balancers Guide/ and <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html Network Load Balancers> in the /Network Load Balancers Guide/ .
 --
 module Network.AWS.ELBv2.CreateLoadBalancer
     (
@@ -86,13 +86,13 @@ data CreateLoadBalancer = CreateLoadBalancer'
 --
 -- * 'clbIPAddressType' - [Application Load Balancers] The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses). Internal load balancers must use @ipv4@ .
 --
--- * 'clbScheme' - The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the Internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can only route requests from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
+-- * 'clbScheme' - The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can only route requests from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
 --
 -- * 'clbType' - The type of load balancer. The default is @application@ .
 --
 -- * 'clbTags' - One or more tags to assign to the load balancer.
 --
--- * 'clbName' - The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
+-- * 'clbName' - The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
 createLoadBalancer
     :: Text -- ^ 'clbName'
     -> CreateLoadBalancer
@@ -125,7 +125,7 @@ clbSubnets = lens _clbSubnets (\ s a -> s{_clbSubnets = a}) . _Default . _Coerce
 clbIPAddressType :: Lens' CreateLoadBalancer (Maybe IPAddressType)
 clbIPAddressType = lens _clbIPAddressType (\ s a -> s{_clbIPAddressType = a})
 
--- | The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the Internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can only route requests from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
+-- | The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can only route requests from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
 clbScheme :: Lens' CreateLoadBalancer (Maybe LoadBalancerSchemeEnum)
 clbScheme = lens _clbScheme (\ s a -> s{_clbScheme = a})
 
@@ -137,7 +137,7 @@ clbType = lens _clbType (\ s a -> s{_clbType = a})
 clbTags :: Lens' CreateLoadBalancer (Maybe (NonEmpty Tag))
 clbTags = lens _clbTags (\ s a -> s{_clbTags = a}) . mapping _List1
 
--- | The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
+-- | The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
 clbName :: Lens' CreateLoadBalancer Text
 clbName = lens _clbName (\ s a -> s{_clbName = a})
 

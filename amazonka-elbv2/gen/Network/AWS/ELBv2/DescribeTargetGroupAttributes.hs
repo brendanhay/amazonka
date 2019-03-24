@@ -21,6 +21,8 @@
 -- Describes the attributes for the specified target group.
 --
 --
+-- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes Target Group Attributes> in the /Application Load Balancers Guide/ or <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#target-group-attributes Target Group Attributes> in the /Network Load Balancers Guide/ .
+--
 module Network.AWS.ELBv2.DescribeTargetGroupAttributes
     (
     -- * Creating a Request

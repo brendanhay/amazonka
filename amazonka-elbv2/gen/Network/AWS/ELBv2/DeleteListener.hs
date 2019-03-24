@@ -21,7 +21,7 @@
 -- Deletes the specified listener.
 --
 --
--- Alternatively, your listener is deleted when you delete the load balancer it is attached to using 'DeleteLoadBalancer' .
+-- Alternatively, your listener is deleted when you delete the load balancer to which it is attached, using 'DeleteLoadBalancer' .
 --
 module Network.AWS.ELBv2.DeleteListener
     (

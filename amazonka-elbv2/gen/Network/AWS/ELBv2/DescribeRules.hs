@@ -21,6 +21,8 @@
 -- Describes the specified rules or the rules for the specified listener. You must specify either a listener or one or more rules.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ELBv2.DescribeRules
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.ELBv2.DescribeRules
 import Network.AWS.ELBv2.Types
 import Network.AWS.ELBv2.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -94,6 +97,13 @@ drRuleARNs = lens _drRuleARNs (\ s a -> s{_drRuleARNs = a}) . _Default . _Coerce
 -- | The maximum number of results to return with this call.
 drPageSize :: Lens' DescribeRules (Maybe Natural)
 drPageSize = lens _drPageSize (\ s a -> s{_drPageSize = a}) . mapping _Nat
+
+instance AWSPager DescribeRules where
+        page rq rs
+          | stop (rs ^. drsrsNextMarker) = Nothing
+          | stop (rs ^. drsrsRules) = Nothing
+          | otherwise =
+            Just $ rq & drMarker .~ rs ^. drsrsNextMarker
 
 instance AWSRequest DescribeRules where
         type Rs DescribeRules = DescribeRulesResponse

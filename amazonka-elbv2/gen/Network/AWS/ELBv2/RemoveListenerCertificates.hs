@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the specified certificate from the specified secure listener.
+-- Removes the specified certificate from the specified HTTPS listener.
 --
 --
 -- You can't remove the default certificate for a listener. To replace the default certificate, call 'ModifyListener' .
@@ -61,7 +61,7 @@ data RemoveListenerCertificates = RemoveListenerCertificates'
 --
 -- * 'rlcListenerARN' - The Amazon Resource Name (ARN) of the listener.
 --
--- * 'rlcCertificates' - The certificate to remove. You can specify one certificate per call.
+-- * 'rlcCertificates' - The certificate to remove. You can specify one certificate per call. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ .
 removeListenerCertificates
     :: Text -- ^ 'rlcListenerARN'
     -> RemoveListenerCertificates
@@ -74,7 +74,7 @@ removeListenerCertificates pListenerARN_ =
 rlcListenerARN :: Lens' RemoveListenerCertificates Text
 rlcListenerARN = lens _rlcListenerARN (\ s a -> s{_rlcListenerARN = a})
 
--- | The certificate to remove. You can specify one certificate per call.
+-- | The certificate to remove. You can specify one certificate per call. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ .
 rlcCertificates :: Lens' RemoveListenerCertificates [Certificate]
 rlcCertificates = lens _rlcCertificates (\ s a -> s{_rlcCertificates = a}) . _Coerce
 

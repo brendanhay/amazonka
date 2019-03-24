@@ -23,6 +23,7 @@ module Network.AWS.ELBv2.Types
     , _InvalidSubnetException
     , _TooManyRulesException
     , _TooManyTargetGroupsException
+    , _TooManyActionsException
     , _DuplicateLoadBalancerNameException
     , _IncompatibleProtocolsException
     , _TooManyCertificatesException
@@ -39,6 +40,7 @@ module Network.AWS.ELBv2.Types
     , _InvalidSecurityGroupException
     , _TargetGroupNotFoundException
     , _ListenerNotFoundException
+    , _InvalidLoadBalancerActionException
     , _TooManyRegistrationsForTargetIdException
     , _TooManyListenersException
     , _TargetGroupAssociationLimitException
@@ -52,6 +54,12 @@ module Network.AWS.ELBv2.Types
 
     -- * ActionTypeEnum
     , ActionTypeEnum (..)
+
+    -- * AuthenticateCognitoActionConditionalBehaviorEnum
+    , AuthenticateCognitoActionConditionalBehaviorEnum (..)
+
+    -- * AuthenticateOidcActionConditionalBehaviorEnum
+    , AuthenticateOidcActionConditionalBehaviorEnum (..)
 
     -- * IPAddressType
     , IPAddressType (..)
@@ -68,6 +76,9 @@ module Network.AWS.ELBv2.Types
     -- * ProtocolEnum
     , ProtocolEnum (..)
 
+    -- * RedirectActionStatusCodeEnum
+    , RedirectActionStatusCodeEnum (..)
+
     -- * TargetHealthReasonEnum
     , TargetHealthReasonEnum (..)
 
@@ -80,8 +91,41 @@ module Network.AWS.ELBv2.Types
     -- * Action
     , Action
     , action
-    , aType
+    , aFixedResponseConfig
     , aTargetGroupARN
+    , aRedirectConfig
+    , aAuthenticateCognitoConfig
+    , aOrder
+    , aAuthenticateOidcConfig
+    , aType
+
+    -- * AuthenticateCognitoActionConfig
+    , AuthenticateCognitoActionConfig
+    , authenticateCognitoActionConfig
+    , acacAuthenticationRequestExtraParams
+    , acacScope
+    , acacOnUnauthenticatedRequest
+    , acacSessionCookieName
+    , acacSessionTimeout
+    , acacUserPoolARN
+    , acacUserPoolClientId
+    , acacUserPoolDomain
+
+    -- * AuthenticateOidcActionConfig
+    , AuthenticateOidcActionConfig
+    , authenticateOidcActionConfig
+    , aoacClientSecret
+    , aoacUseExistingClientSecret
+    , aoacAuthenticationRequestExtraParams
+    , aoacScope
+    , aoacOnUnauthenticatedRequest
+    , aoacSessionCookieName
+    , aoacSessionTimeout
+    , aoacIssuer
+    , aoacAuthorizationEndpoint
+    , aoacTokenEndpoint
+    , aoacUserInfoEndpoint
+    , aoacClientId
 
     -- * AvailabilityZone
     , AvailabilityZone
@@ -101,6 +145,13 @@ module Network.AWS.ELBv2.Types
     , cipher
     , cPriority
     , cName
+
+    -- * FixedResponseActionConfig
+    , FixedResponseActionConfig
+    , fixedResponseActionConfig
+    , fracMessageBody
+    , fracContentType
+    , fracStatusCode
 
     -- * Limit
     , Limit
@@ -157,6 +208,16 @@ module Network.AWS.ELBv2.Types
     , Matcher
     , matcher
     , mHTTPCode
+
+    -- * RedirectActionConfig
+    , RedirectActionConfig
+    , redirectActionConfig
+    , racPath
+    , racProtocol
+    , racQuery
+    , racHost
+    , racPort
+    , racStatusCode
 
     -- * Rule
     , Rule
@@ -216,6 +277,7 @@ module Network.AWS.ELBv2.Types
     , targetGroup
     , tgMatcher
     , tgHealthCheckPath
+    , tgHealthCheckEnabled
     , tgUnhealthyThresholdCount
     , tgVPCId
     , tgTargetGroupARN
@@ -350,6 +412,14 @@ _TooManyTargetGroupsException =
   _MatchServiceError eLBv2 "TooManyTargetGroups" . hasStatus 400
 
 
+-- | You've reached the limit on the number of actions per rule.
+--
+--
+_TooManyActionsException :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyActionsException =
+  _MatchServiceError eLBv2 "TooManyActions" . hasStatus 400
+
+
 -- | A load balancer with the specified name already exists.
 --
 --
@@ -475,6 +545,14 @@ _TargetGroupNotFoundException =
 _ListenerNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ListenerNotFoundException =
   _MatchServiceError eLBv2 "ListenerNotFound" . hasStatus 400
+
+
+-- | The requested action is not valid.
+--
+--
+_InvalidLoadBalancerActionException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidLoadBalancerActionException =
+  _MatchServiceError eLBv2 "InvalidLoadBalancerAction" . hasStatus 400
 
 
 -- | You've reached the limit on the number of times a target can be registered with a load balancer.

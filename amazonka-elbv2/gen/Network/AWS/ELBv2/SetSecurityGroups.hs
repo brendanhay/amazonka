@@ -21,7 +21,7 @@
 -- Associates the specified security groups with the specified Application Load Balancer. The specified security groups override the previously associated security groups.
 --
 --
--- Note that you can't specify a security group for a Network Load Balancer.
+-- You can't specify a security group for a Network Load Balancer.
 --
 module Network.AWS.ELBv2.SetSecurityGroups
     (

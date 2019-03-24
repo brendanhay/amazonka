@@ -25,7 +25,7 @@
 --
 -- This operation is idempotent, which means that it completes at most one time. If you attempt to create multiple listeners with the same settings, each call succeeds.
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html Listeners for Your Application Load Balancers> in the /Application Load Balancers Guide/ and <http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html Listeners for Your Network Load Balancers> in the /Network Load Balancers Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html Listeners for Your Application Load Balancers> in the /Application Load Balancers Guide/ and <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html Listeners for Your Network Load Balancers> in the /Network Load Balancers Guide/ .
 --
 module Network.AWS.ELBv2.CreateListener
     (
@@ -70,17 +70,17 @@ data CreateListener = CreateListener'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clSSLPolicy' - [HTTPS listeners] The security policy that defines which ciphers and protocols are supported. The default is the current predefined security policy.
+-- * 'clSSLPolicy' - [HTTPS and TLS listeners] The security policy that defines which ciphers and protocols are supported. The default is the current predefined security policy.
 --
--- * 'clCertificates' - [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
+-- * 'clCertificates' - [HTTPS and TLS listeners] The default SSL server certificate. You must provide exactly one certificate. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ . To create a certificate list, use 'AddListenerCertificates' .
 --
 -- * 'clLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 --
--- * 'clProtocol' - The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocol is TCP.
+-- * 'clProtocol' - The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP and TLS.
 --
 -- * 'clPort' - The port on which the load balancer is listening.
 --
--- * 'clDefaultActions' - The default action for the listener. For Application Load Balancers, the protocol of the specified target group must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must be TCP.
+-- * 'clDefaultActions' - The actions for the default rule. The rule must include one forward action or one or more fixed-response actions. If the action type is @forward@ , you specify a target group. The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or TLS for a Network Load Balancer. [HTTPS listeners] If the action type is @authenticate-oidc@ , you authenticate users through an identity provider that is OpenID Connect (OIDC) compliant. [HTTPS listeners] If the action type is @authenticate-cognito@ , you authenticate users through the user pools supported by Amazon Cognito. [Application Load Balancer] If the action type is @redirect@ , you redirect specified client requests from one URL to another. [Application Load Balancer] If the action type is @fixed-response@ , you drop specified client requests and return a custom HTTP response.
 createListener
     :: Text -- ^ 'clLoadBalancerARN'
     -> ProtocolEnum -- ^ 'clProtocol'
@@ -97,11 +97,11 @@ createListener pLoadBalancerARN_ pProtocol_ pPort_ =
     }
 
 
--- | [HTTPS listeners] The security policy that defines which ciphers and protocols are supported. The default is the current predefined security policy.
+-- | [HTTPS and TLS listeners] The security policy that defines which ciphers and protocols are supported. The default is the current predefined security policy.
 clSSLPolicy :: Lens' CreateListener (Maybe Text)
 clSSLPolicy = lens _clSSLPolicy (\ s a -> s{_clSSLPolicy = a})
 
--- | [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
+-- | [HTTPS and TLS listeners] The default SSL server certificate. You must provide exactly one certificate. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ . To create a certificate list, use 'AddListenerCertificates' .
 clCertificates :: Lens' CreateListener [Certificate]
 clCertificates = lens _clCertificates (\ s a -> s{_clCertificates = a}) . _Default . _Coerce
 
@@ -109,7 +109,7 @@ clCertificates = lens _clCertificates (\ s a -> s{_clCertificates = a}) . _Defau
 clLoadBalancerARN :: Lens' CreateListener Text
 clLoadBalancerARN = lens _clLoadBalancerARN (\ s a -> s{_clLoadBalancerARN = a})
 
--- | The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocol is TCP.
+-- | The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP and TLS.
 clProtocol :: Lens' CreateListener ProtocolEnum
 clProtocol = lens _clProtocol (\ s a -> s{_clProtocol = a})
 
@@ -117,7 +117,7 @@ clProtocol = lens _clProtocol (\ s a -> s{_clProtocol = a})
 clPort :: Lens' CreateListener Natural
 clPort = lens _clPort (\ s a -> s{_clPort = a}) . _Nat
 
--- | The default action for the listener. For Application Load Balancers, the protocol of the specified target group must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must be TCP.
+-- | The actions for the default rule. The rule must include one forward action or one or more fixed-response actions. If the action type is @forward@ , you specify a target group. The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or TLS for a Network Load Balancer. [HTTPS listeners] If the action type is @authenticate-oidc@ , you authenticate users through an identity provider that is OpenID Connect (OIDC) compliant. [HTTPS listeners] If the action type is @authenticate-cognito@ , you authenticate users through the user pools supported by Amazon Cognito. [Application Load Balancer] If the action type is @redirect@ , you redirect specified client requests from one URL to another. [Application Load Balancer] If the action type is @fixed-response@ , you drop specified client requests and return a custom HTTP response.
 clDefaultActions :: Lens' CreateListener [Action]
 clDefaultActions = lens _clDefaultActions (\ s a -> s{_clDefaultActions = a}) . _Coerce
 

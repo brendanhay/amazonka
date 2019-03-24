@@ -21,7 +21,7 @@
 -- Modifies the specified properties of the specified listener.
 --
 --
--- Any properties that you do not specify retain their current values. However, changing the protocol from HTTPS to HTTP removes the security policy and SSL certificate properties. If you change the protocol from HTTP to HTTPS, you must add the security policy and server certificate.
+-- Any properties that you do not specify retain their current values. However, changing the protocol from HTTPS to HTTP, or from TLS to TCP, removes the security policy and server certificate properties. If you change the protocol from HTTP to HTTPS, or from TCP to TLS, you must add the security policy and server certificate properties.
 --
 module Network.AWS.ELBv2.ModifyListener
     (
@@ -66,13 +66,13 @@ data ModifyListener = ModifyListener'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mlSSLPolicy' - The security policy that defines which protocols and ciphers are supported. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security Policies> in the /Application Load Balancers Guide/ .
+-- * 'mlSSLPolicy' - [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security Policies> in the /Application Load Balancers Guide/ .
 --
--- * 'mlProtocol' - The protocol for connections from clients to the load balancer. Application Load Balancers support HTTP and HTTPS and Network Load Balancers support TCP.
+-- * 'mlProtocol' - The protocol for connections from clients to the load balancer. Application Load Balancers support the HTTP and HTTPS protocols. Network Load Balancers support the TCP and TLS protocols.
 --
--- * 'mlDefaultActions' - The default action. For Application Load Balancers, the protocol of the specified target group must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must be TCP.
+-- * 'mlDefaultActions' - The actions for the default rule. The rule must include one forward action or one or more fixed-response actions. If the action type is @forward@ , you specify a target group. The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or TLS for a Network Load Balancer. [HTTPS listeners] If the action type is @authenticate-oidc@ , you authenticate users through an identity provider that is OpenID Connect (OIDC) compliant. [HTTPS listeners] If the action type is @authenticate-cognito@ , you authenticate users through the user pools supported by Amazon Cognito. [Application Load Balancer] If the action type is @redirect@ , you redirect specified client requests from one URL to another. [Application Load Balancer] If the action type is @fixed-response@ , you drop specified client requests and return a custom HTTP response.
 --
--- * 'mlCertificates' - The default SSL server certificate.
+-- * 'mlCertificates' - [HTTPS and TLS listeners] The default SSL server certificate. You must provide exactly one certificate. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ . To create a certificate list, use 'AddListenerCertificates' .
 --
 -- * 'mlPort' - The port for connections from clients to the load balancer.
 --
@@ -91,19 +91,19 @@ modifyListener pListenerARN_ =
     }
 
 
--- | The security policy that defines which protocols and ciphers are supported. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security Policies> in the /Application Load Balancers Guide/ .
+-- | [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security Policies> in the /Application Load Balancers Guide/ .
 mlSSLPolicy :: Lens' ModifyListener (Maybe Text)
 mlSSLPolicy = lens _mlSSLPolicy (\ s a -> s{_mlSSLPolicy = a})
 
--- | The protocol for connections from clients to the load balancer. Application Load Balancers support HTTP and HTTPS and Network Load Balancers support TCP.
+-- | The protocol for connections from clients to the load balancer. Application Load Balancers support the HTTP and HTTPS protocols. Network Load Balancers support the TCP and TLS protocols.
 mlProtocol :: Lens' ModifyListener (Maybe ProtocolEnum)
 mlProtocol = lens _mlProtocol (\ s a -> s{_mlProtocol = a})
 
--- | The default action. For Application Load Balancers, the protocol of the specified target group must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must be TCP.
+-- | The actions for the default rule. The rule must include one forward action or one or more fixed-response actions. If the action type is @forward@ , you specify a target group. The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP or TLS for a Network Load Balancer. [HTTPS listeners] If the action type is @authenticate-oidc@ , you authenticate users through an identity provider that is OpenID Connect (OIDC) compliant. [HTTPS listeners] If the action type is @authenticate-cognito@ , you authenticate users through the user pools supported by Amazon Cognito. [Application Load Balancer] If the action type is @redirect@ , you redirect specified client requests from one URL to another. [Application Load Balancer] If the action type is @fixed-response@ , you drop specified client requests and return a custom HTTP response.
 mlDefaultActions :: Lens' ModifyListener [Action]
 mlDefaultActions = lens _mlDefaultActions (\ s a -> s{_mlDefaultActions = a}) . _Default . _Coerce
 
--- | The default SSL server certificate.
+-- | [HTTPS and TLS listeners] The default SSL server certificate. You must provide exactly one certificate. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ . To create a certificate list, use 'AddListenerCertificates' .
 mlCertificates :: Lens' ModifyListener [Certificate]
 mlCertificates = lens _mlCertificates (\ s a -> s{_mlCertificates = a}) . _Default . _Coerce
 
@@ -160,7 +160,7 @@ data ModifyListenerResponse = ModifyListenerResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mlrsListeners' - Information about the modified listeners.
+-- * 'mlrsListeners' - Information about the modified listener.
 --
 -- * 'mlrsResponseStatus' - -- | The response status code.
 modifyListenerResponse
@@ -171,7 +171,7 @@ modifyListenerResponse pResponseStatus_ =
     {_mlrsListeners = Nothing, _mlrsResponseStatus = pResponseStatus_}
 
 
--- | Information about the modified listeners.
+-- | Information about the modified listener.
 mlrsListeners :: Lens' ModifyListenerResponse [Listener]
 mlrsListeners = lens _mlrsListeners (\ s a -> s{_mlrsListeners = a}) . _Default . _Coerce
 

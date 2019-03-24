@@ -19,20 +19,32 @@ module Network.AWS.ELBv2.Types.Sum where
 
 import Network.AWS.Prelude
 
-data ActionTypeEnum =
-  Forward
+data ActionTypeEnum
+  = AuthenticateCognito
+  | AuthenticateOidc
+  | FixedResponse
+  | Forward
+  | Redirect
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ActionTypeEnum where
     parser = takeLowerText >>= \case
+        "authenticate-cognito" -> pure AuthenticateCognito
+        "authenticate-oidc" -> pure AuthenticateOidc
+        "fixed-response" -> pure FixedResponse
         "forward" -> pure Forward
+        "redirect" -> pure Redirect
         e -> fromTextError $ "Failure parsing ActionTypeEnum from value: '" <> e
-           <> "'. Accepted values: forward"
+           <> "'. Accepted values: authenticate-cognito, authenticate-oidc, fixed-response, forward, redirect"
 
 instance ToText ActionTypeEnum where
     toText = \case
+        AuthenticateCognito -> "authenticate-cognito"
+        AuthenticateOidc -> "authenticate-oidc"
+        FixedResponse -> "fixed-response"
         Forward -> "forward"
+        Redirect -> "redirect"
 
 instance Hashable     ActionTypeEnum
 instance NFData       ActionTypeEnum
@@ -42,6 +54,66 @@ instance ToHeader     ActionTypeEnum
 
 instance FromXML ActionTypeEnum where
     parseXML = parseXMLText "ActionTypeEnum"
+
+data AuthenticateCognitoActionConditionalBehaviorEnum
+  = Allow
+  | Authenticate
+  | Deny
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AuthenticateCognitoActionConditionalBehaviorEnum where
+    parser = takeLowerText >>= \case
+        "allow" -> pure Allow
+        "authenticate" -> pure Authenticate
+        "deny" -> pure Deny
+        e -> fromTextError $ "Failure parsing AuthenticateCognitoActionConditionalBehaviorEnum from value: '" <> e
+           <> "'. Accepted values: allow, authenticate, deny"
+
+instance ToText AuthenticateCognitoActionConditionalBehaviorEnum where
+    toText = \case
+        Allow -> "allow"
+        Authenticate -> "authenticate"
+        Deny -> "deny"
+
+instance Hashable     AuthenticateCognitoActionConditionalBehaviorEnum
+instance NFData       AuthenticateCognitoActionConditionalBehaviorEnum
+instance ToByteString AuthenticateCognitoActionConditionalBehaviorEnum
+instance ToQuery      AuthenticateCognitoActionConditionalBehaviorEnum
+instance ToHeader     AuthenticateCognitoActionConditionalBehaviorEnum
+
+instance FromXML AuthenticateCognitoActionConditionalBehaviorEnum where
+    parseXML = parseXMLText "AuthenticateCognitoActionConditionalBehaviorEnum"
+
+data AuthenticateOidcActionConditionalBehaviorEnum
+  = AOACBEAllow
+  | AOACBEAuthenticate
+  | AOACBEDeny
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AuthenticateOidcActionConditionalBehaviorEnum where
+    parser = takeLowerText >>= \case
+        "allow" -> pure AOACBEAllow
+        "authenticate" -> pure AOACBEAuthenticate
+        "deny" -> pure AOACBEDeny
+        e -> fromTextError $ "Failure parsing AuthenticateOidcActionConditionalBehaviorEnum from value: '" <> e
+           <> "'. Accepted values: allow, authenticate, deny"
+
+instance ToText AuthenticateOidcActionConditionalBehaviorEnum where
+    toText = \case
+        AOACBEAllow -> "allow"
+        AOACBEAuthenticate -> "authenticate"
+        AOACBEDeny -> "deny"
+
+instance Hashable     AuthenticateOidcActionConditionalBehaviorEnum
+instance NFData       AuthenticateOidcActionConditionalBehaviorEnum
+instance ToByteString AuthenticateOidcActionConditionalBehaviorEnum
+instance ToQuery      AuthenticateOidcActionConditionalBehaviorEnum
+instance ToHeader     AuthenticateOidcActionConditionalBehaviorEnum
+
+instance FromXML AuthenticateOidcActionConditionalBehaviorEnum where
+    parseXML = parseXMLText "AuthenticateOidcActionConditionalBehaviorEnum"
 
 data IPAddressType
   = Dualstack
@@ -161,6 +233,7 @@ data ProtocolEnum
   = HTTP
   | HTTPS
   | TCP
+  | TLS
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -169,14 +242,16 @@ instance FromText ProtocolEnum where
         "http" -> pure HTTP
         "https" -> pure HTTPS
         "tcp" -> pure TCP
+        "tls" -> pure TLS
         e -> fromTextError $ "Failure parsing ProtocolEnum from value: '" <> e
-           <> "'. Accepted values: http, https, tcp"
+           <> "'. Accepted values: http, https, tcp, tls"
 
 instance ToText ProtocolEnum where
     toText = \case
         HTTP -> "HTTP"
         HTTPS -> "HTTPS"
         TCP -> "TCP"
+        TLS -> "TLS"
 
 instance Hashable     ProtocolEnum
 instance NFData       ProtocolEnum
@@ -187,12 +262,40 @@ instance ToHeader     ProtocolEnum
 instance FromXML ProtocolEnum where
     parseXML = parseXMLText "ProtocolEnum"
 
+data RedirectActionStatusCodeEnum
+  = HTTP301
+  | HTTP302
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText RedirectActionStatusCodeEnum where
+    parser = takeLowerText >>= \case
+        "http_301" -> pure HTTP301
+        "http_302" -> pure HTTP302
+        e -> fromTextError $ "Failure parsing RedirectActionStatusCodeEnum from value: '" <> e
+           <> "'. Accepted values: http_301, http_302"
+
+instance ToText RedirectActionStatusCodeEnum where
+    toText = \case
+        HTTP301 -> "HTTP_301"
+        HTTP302 -> "HTTP_302"
+
+instance Hashable     RedirectActionStatusCodeEnum
+instance NFData       RedirectActionStatusCodeEnum
+instance ToByteString RedirectActionStatusCodeEnum
+instance ToQuery      RedirectActionStatusCodeEnum
+instance ToHeader     RedirectActionStatusCodeEnum
+
+instance FromXML RedirectActionStatusCodeEnum where
+    parseXML = parseXMLText "RedirectActionStatusCodeEnum"
+
 data TargetHealthReasonEnum
   = Elb_InitialHealthChecking
   | Elb_InternalError
   | Elb_RegistrationInProgress
   | Target_DeregistrationInProgress
   | Target_FailedHealthChecks
+  | Target_HealthCheckDisabled
   | Target_IPUnusable
   | Target_InvalidState
   | Target_NotInUse
@@ -209,6 +312,7 @@ instance FromText TargetHealthReasonEnum where
         "elb.registrationinprogress" -> pure Elb_RegistrationInProgress
         "target.deregistrationinprogress" -> pure Target_DeregistrationInProgress
         "target.failedhealthchecks" -> pure Target_FailedHealthChecks
+        "target.healthcheckdisabled" -> pure Target_HealthCheckDisabled
         "target.ipunusable" -> pure Target_IPUnusable
         "target.invalidstate" -> pure Target_InvalidState
         "target.notinuse" -> pure Target_NotInUse
@@ -216,7 +320,7 @@ instance FromText TargetHealthReasonEnum where
         "target.responsecodemismatch" -> pure Target_ResponseCodeMismatch
         "target.timeout" -> pure Target_Timeout
         e -> fromTextError $ "Failure parsing TargetHealthReasonEnum from value: '" <> e
-           <> "'. Accepted values: elb.initialhealthchecking, elb.internalerror, elb.registrationinprogress, target.deregistrationinprogress, target.failedhealthchecks, target.ipunusable, target.invalidstate, target.notinuse, target.notregistered, target.responsecodemismatch, target.timeout"
+           <> "'. Accepted values: elb.initialhealthchecking, elb.internalerror, elb.registrationinprogress, target.deregistrationinprogress, target.failedhealthchecks, target.healthcheckdisabled, target.ipunusable, target.invalidstate, target.notinuse, target.notregistered, target.responsecodemismatch, target.timeout"
 
 instance ToText TargetHealthReasonEnum where
     toText = \case
@@ -225,6 +329,7 @@ instance ToText TargetHealthReasonEnum where
         Elb_RegistrationInProgress -> "Elb.RegistrationInProgress"
         Target_DeregistrationInProgress -> "Target.DeregistrationInProgress"
         Target_FailedHealthChecks -> "Target.FailedHealthChecks"
+        Target_HealthCheckDisabled -> "Target.HealthCheckDisabled"
         Target_IPUnusable -> "Target.IpUnusable"
         Target_InvalidState -> "Target.InvalidState"
         Target_NotInUse -> "Target.NotInUse"
@@ -283,6 +388,7 @@ instance FromXML TargetHealthStateEnum where
 data TargetTypeEnum
   = IP
   | Instance
+  | Lambda
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -290,13 +396,15 @@ instance FromText TargetTypeEnum where
     parser = takeLowerText >>= \case
         "ip" -> pure IP
         "instance" -> pure Instance
+        "lambda" -> pure Lambda
         e -> fromTextError $ "Failure parsing TargetTypeEnum from value: '" <> e
-           <> "'. Accepted values: ip, instance"
+           <> "'. Accepted values: ip, instance, lambda"
 
 instance ToText TargetTypeEnum where
     toText = \case
         IP -> "ip"
         Instance -> "instance"
+        Lambda -> "lambda"
 
 instance Hashable     TargetTypeEnum
 instance NFData       TargetTypeEnum

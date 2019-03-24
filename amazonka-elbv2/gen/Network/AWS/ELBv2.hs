@@ -17,9 +17,9 @@
 --
 -- Elastic Load Balancing supports the following types of load balancers: Application Load Balancers, Network Load Balancers, and Classic Load Balancers.
 --
--- An Application Load Balancer makes routing and load balancing decisions at the application layer (HTTP/HTTPS). A Network Load Balancer makes routing and load balancing decisions at the transport layer (TCP). Both Application Load Balancers and Network Load Balancers can route requests to one or more ports on each EC2 instance or container instance in your virtual private cloud (VPC).
+-- An Application Load Balancer makes routing and load balancing decisions at the application layer (HTTP/HTTPS). A Network Load Balancer makes routing and load balancing decisions at the transport layer (TCP/TLS). Both Application Load Balancers and Network Load Balancers can route requests to one or more ports on each EC2 instance or container instance in your virtual private cloud (VPC).
 --
--- A Classic Load Balancer makes routing and load balancing decisions either at the transport layer (TCP/SSL) or the application layer (HTTP/HTTPS), and supports either EC2-Classic or a VPC. For more information, see the <http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/ Elastic Load Balancing User Guide> .
+-- A Classic Load Balancer makes routing and load balancing decisions either at the transport layer (TCP/SSL) or the application layer (HTTP/HTTPS), and supports either EC2-Classic or a VPC. For more information, see the <https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/ Elastic Load Balancing User Guide> .
 --
 -- This reference covers the 2015-12-01 API, which supports Application Load Balancers and Network Load Balancers. The 2012-06-01 API supports Classic Load Balancers.
 --
@@ -74,6 +74,9 @@ module Network.AWS.ELBv2
     -- ** TooManyTargetGroupsException
     , _TooManyTargetGroupsException
 
+    -- ** TooManyActionsException
+    , _TooManyActionsException
+
     -- ** DuplicateLoadBalancerNameException
     , _DuplicateLoadBalancerNameException
 
@@ -121,6 +124,9 @@ module Network.AWS.ELBv2
 
     -- ** ListenerNotFoundException
     , _ListenerNotFoundException
+
+    -- ** InvalidLoadBalancerActionException
+    , _InvalidLoadBalancerActionException
 
     -- ** TooManyRegistrationsForTargetIdException
     , _TooManyRegistrationsForTargetIdException
@@ -194,7 +200,7 @@ module Network.AWS.ELBv2
     -- ** CreateRule
     , module Network.AWS.ELBv2.CreateRule
 
-    -- ** DescribeListenerCertificates
+    -- ** DescribeListenerCertificates (Paginated)
     , module Network.AWS.ELBv2.DescribeListenerCertificates
 
     -- ** SetSecurityGroups
@@ -206,7 +212,7 @@ module Network.AWS.ELBv2
     -- ** DescribeTargetGroups (Paginated)
     , module Network.AWS.ELBv2.DescribeTargetGroups
 
-    -- ** DescribeRules
+    -- ** DescribeRules (Paginated)
     , module Network.AWS.ELBv2.DescribeRules
 
     -- ** DeleteLoadBalancer
@@ -230,10 +236,10 @@ module Network.AWS.ELBv2
     -- ** DeleteListener
     , module Network.AWS.ELBv2.DeleteListener
 
-    -- ** DescribeSSLPolicies
+    -- ** DescribeSSLPolicies (Paginated)
     , module Network.AWS.ELBv2.DescribeSSLPolicies
 
-    -- ** DescribeAccountLimits
+    -- ** DescribeAccountLimits (Paginated)
     , module Network.AWS.ELBv2.DescribeAccountLimits
 
     -- ** DeregisterTargets
@@ -280,6 +286,12 @@ module Network.AWS.ELBv2
     -- ** ActionTypeEnum
     , ActionTypeEnum (..)
 
+    -- ** AuthenticateCognitoActionConditionalBehaviorEnum
+    , AuthenticateCognitoActionConditionalBehaviorEnum (..)
+
+    -- ** AuthenticateOidcActionConditionalBehaviorEnum
+    , AuthenticateOidcActionConditionalBehaviorEnum (..)
+
     -- ** IPAddressType
     , IPAddressType (..)
 
@@ -295,6 +307,9 @@ module Network.AWS.ELBv2
     -- ** ProtocolEnum
     , ProtocolEnum (..)
 
+    -- ** RedirectActionStatusCodeEnum
+    , RedirectActionStatusCodeEnum (..)
+
     -- ** TargetHealthReasonEnum
     , TargetHealthReasonEnum (..)
 
@@ -307,8 +322,41 @@ module Network.AWS.ELBv2
     -- ** Action
     , Action
     , action
-    , aType
+    , aFixedResponseConfig
     , aTargetGroupARN
+    , aRedirectConfig
+    , aAuthenticateCognitoConfig
+    , aOrder
+    , aAuthenticateOidcConfig
+    , aType
+
+    -- ** AuthenticateCognitoActionConfig
+    , AuthenticateCognitoActionConfig
+    , authenticateCognitoActionConfig
+    , acacAuthenticationRequestExtraParams
+    , acacScope
+    , acacOnUnauthenticatedRequest
+    , acacSessionCookieName
+    , acacSessionTimeout
+    , acacUserPoolARN
+    , acacUserPoolClientId
+    , acacUserPoolDomain
+
+    -- ** AuthenticateOidcActionConfig
+    , AuthenticateOidcActionConfig
+    , authenticateOidcActionConfig
+    , aoacClientSecret
+    , aoacUseExistingClientSecret
+    , aoacAuthenticationRequestExtraParams
+    , aoacScope
+    , aoacOnUnauthenticatedRequest
+    , aoacSessionCookieName
+    , aoacSessionTimeout
+    , aoacIssuer
+    , aoacAuthorizationEndpoint
+    , aoacTokenEndpoint
+    , aoacUserInfoEndpoint
+    , aoacClientId
 
     -- ** AvailabilityZone
     , AvailabilityZone
@@ -328,6 +376,13 @@ module Network.AWS.ELBv2
     , cipher
     , cPriority
     , cName
+
+    -- ** FixedResponseActionConfig
+    , FixedResponseActionConfig
+    , fixedResponseActionConfig
+    , fracMessageBody
+    , fracContentType
+    , fracStatusCode
 
     -- ** Limit
     , Limit
@@ -384,6 +439,16 @@ module Network.AWS.ELBv2
     , Matcher
     , matcher
     , mHTTPCode
+
+    -- ** RedirectActionConfig
+    , RedirectActionConfig
+    , redirectActionConfig
+    , racPath
+    , racProtocol
+    , racQuery
+    , racHost
+    , racPort
+    , racStatusCode
 
     -- ** Rule
     , Rule
@@ -443,6 +508,7 @@ module Network.AWS.ELBv2
     , targetGroup
     , tgMatcher
     , tgHealthCheckPath
+    , tgHealthCheckEnabled
     , tgUnhealthyThresholdCount
     , tgVPCId
     , tgTargetGroupARN

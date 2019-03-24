@@ -25,6 +25,9 @@ module Network.AWS.ElasticSearch.Types
     , _ResourceNotFoundException
     , _LimitExceededException
 
+    -- * DeploymentStatus
+    , DeploymentStatus (..)
+
     -- * ESPartitionInstanceType
     , ESPartitionInstanceType (..)
 
@@ -36,6 +39,12 @@ module Network.AWS.ElasticSearch.Types
 
     -- * ReservedElasticsearchInstancePaymentOption
     , ReservedElasticsearchInstancePaymentOption (..)
+
+    -- * UpgradeStatus
+    , UpgradeStatus (..)
+
+    -- * UpgradeStep
+    , UpgradeStep (..)
 
     -- * VolumeType
     , VolumeType (..)
@@ -72,6 +81,12 @@ module Network.AWS.ElasticSearch.Types
     , cosOptions
     , cosStatus
 
+    -- * CompatibleVersionsMap
+    , CompatibleVersionsMap
+    , compatibleVersionsMap
+    , cvmSourceVersion
+    , cvmTargetVersions
+
     -- * DomainInfo
     , DomainInfo
     , domainInfo
@@ -100,6 +115,7 @@ module Network.AWS.ElasticSearch.Types
     , eccInstanceCount
     , eccZoneAwarenessEnabled
     , eccInstanceType
+    , eccZoneAwarenessConfig
 
     -- * ElasticsearchClusterConfigStatus
     , ElasticsearchClusterConfigStatus
@@ -111,6 +127,7 @@ module Network.AWS.ElasticSearch.Types
     , ElasticsearchDomainConfig
     , elasticsearchDomainConfig
     , edcEBSOptions
+    , edcNodeToNodeEncryptionOptions
     , edcAccessPolicies
     , edcLogPublishingOptions
     , edcElasticsearchClusterConfig
@@ -125,7 +142,9 @@ module Network.AWS.ElasticSearch.Types
     , ElasticsearchDomainStatus
     , elasticsearchDomainStatus
     , edsEBSOptions
+    , edsNodeToNodeEncryptionOptions
     , edsAccessPolicies
+    , edsServiceSoftwareOptions
     , edsLogPublishingOptions
     , edsCreated
     , edsSnapshotOptions
@@ -136,6 +155,7 @@ module Network.AWS.ElasticSearch.Types
     , edsEndpoints
     , edsProcessing
     , edsEndpoint
+    , edsUpgradeProcessing
     , edsAdvancedOptions
     , edsElasticsearchVersion
     , edsDomainId
@@ -191,6 +211,17 @@ module Network.AWS.ElasticSearch.Types
     , lposStatus
     , lposOptions
 
+    -- * NodeToNodeEncryptionOptions
+    , NodeToNodeEncryptionOptions
+    , nodeToNodeEncryptionOptions
+    , ntneoEnabled
+
+    -- * NodeToNodeEncryptionOptionsStatus
+    , NodeToNodeEncryptionOptionsStatus
+    , nodeToNodeEncryptionOptionsStatus
+    , ntneosOptions
+    , ntneosStatus
+
     -- * OptionStatus
     , OptionStatus
     , optionStatus
@@ -235,6 +266,17 @@ module Network.AWS.ElasticSearch.Types
     , reioDuration
     , reioPaymentOption
 
+    -- * ServiceSoftwareOptions
+    , ServiceSoftwareOptions
+    , serviceSoftwareOptions
+    , ssoAutomatedUpdateDate
+    , ssoCurrentVersion
+    , ssoUpdateStatus
+    , ssoCancellable
+    , ssoUpdateAvailable
+    , ssoDescription
+    , ssoNewVersion
+
     -- * SnapshotOptions
     , SnapshotOptions
     , snapshotOptions
@@ -265,6 +307,22 @@ module Network.AWS.ElasticSearch.Types
     , tagKey
     , tagValue
 
+    -- * UpgradeHistory
+    , UpgradeHistory
+    , upgradeHistory
+    , uhUpgradeStatus
+    , uhStepsList
+    , uhUpgradeName
+    , uhStartTimestamp
+
+    -- * UpgradeStepItem
+    , UpgradeStepItem
+    , upgradeStepItem
+    , usiUpgradeStepStatus
+    , usiProgressPercent
+    , usiIssues
+    , usiUpgradeStep
+
     -- * VPCDerivedInfo
     , VPCDerivedInfo
     , vpcDerivedInfo
@@ -284,6 +342,11 @@ module Network.AWS.ElasticSearch.Types
     , vpcOptions
     , voSecurityGroupIds
     , voSubnetIds
+
+    -- * ZoneAwarenessConfig
+    , ZoneAwarenessConfig
+    , zoneAwarenessConfig
+    , zacAvailabilityZoneCount
     ) where
 
 import Network.AWS.ElasticSearch.Types.Product

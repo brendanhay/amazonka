@@ -61,8 +61,14 @@ module Network.AWS.ElasticSearch
     -- ** RemoveTags
     , module Network.AWS.ElasticSearch.RemoveTags
 
+    -- ** GetCompatibleElasticsearchVersions
+    , module Network.AWS.ElasticSearch.GetCompatibleElasticsearchVersions
+
     -- ** DescribeElasticsearchDomains
     , module Network.AWS.ElasticSearch.DescribeElasticsearchDomains
+
+    -- ** StartElasticsearchServiceSoftwareUpdate
+    , module Network.AWS.ElasticSearch.StartElasticsearchServiceSoftwareUpdate
 
     -- ** ListElasticsearchInstanceTypes (Paginated)
     , module Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
@@ -79,8 +85,14 @@ module Network.AWS.ElasticSearch
     -- ** DescribeElasticsearchInstanceTypeLimits
     , module Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
 
+    -- ** GetUpgradeHistory (Paginated)
+    , module Network.AWS.ElasticSearch.GetUpgradeHistory
+
     -- ** DescribeElasticsearchDomainConfig
     , module Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
+
+    -- ** GetUpgradeStatus
+    , module Network.AWS.ElasticSearch.GetUpgradeStatus
 
     -- ** DeleteElasticsearchDomain
     , module Network.AWS.ElasticSearch.DeleteElasticsearchDomain
@@ -88,7 +100,7 @@ module Network.AWS.ElasticSearch
     -- ** PurchaseReservedElasticsearchInstanceOffering
     , module Network.AWS.ElasticSearch.PurchaseReservedElasticsearchInstanceOffering
 
-    -- ** DescribeReservedElasticsearchInstances
+    -- ** DescribeReservedElasticsearchInstances (Paginated)
     , module Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstances
 
     -- ** UpdateElasticsearchDomainConfig
@@ -100,13 +112,22 @@ module Network.AWS.ElasticSearch
     -- ** AddTags
     , module Network.AWS.ElasticSearch.AddTags
 
-    -- ** DescribeReservedElasticsearchInstanceOfferings
+    -- ** DescribeReservedElasticsearchInstanceOfferings (Paginated)
     , module Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
+
+    -- ** UpgradeElasticsearchDomain
+    , module Network.AWS.ElasticSearch.UpgradeElasticsearchDomain
 
     -- ** ListTags
     , module Network.AWS.ElasticSearch.ListTags
 
+    -- ** CancelElasticsearchServiceSoftwareUpdate
+    , module Network.AWS.ElasticSearch.CancelElasticsearchServiceSoftwareUpdate
+
     -- * Types
+
+    -- ** DeploymentStatus
+    , DeploymentStatus (..)
 
     -- ** ESPartitionInstanceType
     , ESPartitionInstanceType (..)
@@ -119,6 +140,12 @@ module Network.AWS.ElasticSearch
 
     -- ** ReservedElasticsearchInstancePaymentOption
     , ReservedElasticsearchInstancePaymentOption (..)
+
+    -- ** UpgradeStatus
+    , UpgradeStatus (..)
+
+    -- ** UpgradeStep
+    , UpgradeStep (..)
 
     -- ** VolumeType
     , VolumeType (..)
@@ -155,6 +182,12 @@ module Network.AWS.ElasticSearch
     , cosOptions
     , cosStatus
 
+    -- ** CompatibleVersionsMap
+    , CompatibleVersionsMap
+    , compatibleVersionsMap
+    , cvmSourceVersion
+    , cvmTargetVersions
+
     -- ** DomainInfo
     , DomainInfo
     , domainInfo
@@ -183,6 +216,7 @@ module Network.AWS.ElasticSearch
     , eccInstanceCount
     , eccZoneAwarenessEnabled
     , eccInstanceType
+    , eccZoneAwarenessConfig
 
     -- ** ElasticsearchClusterConfigStatus
     , ElasticsearchClusterConfigStatus
@@ -194,6 +228,7 @@ module Network.AWS.ElasticSearch
     , ElasticsearchDomainConfig
     , elasticsearchDomainConfig
     , edcEBSOptions
+    , edcNodeToNodeEncryptionOptions
     , edcAccessPolicies
     , edcLogPublishingOptions
     , edcElasticsearchClusterConfig
@@ -208,7 +243,9 @@ module Network.AWS.ElasticSearch
     , ElasticsearchDomainStatus
     , elasticsearchDomainStatus
     , edsEBSOptions
+    , edsNodeToNodeEncryptionOptions
     , edsAccessPolicies
+    , edsServiceSoftwareOptions
     , edsLogPublishingOptions
     , edsCreated
     , edsSnapshotOptions
@@ -219,6 +256,7 @@ module Network.AWS.ElasticSearch
     , edsEndpoints
     , edsProcessing
     , edsEndpoint
+    , edsUpgradeProcessing
     , edsAdvancedOptions
     , edsElasticsearchVersion
     , edsDomainId
@@ -274,6 +312,17 @@ module Network.AWS.ElasticSearch
     , lposStatus
     , lposOptions
 
+    -- ** NodeToNodeEncryptionOptions
+    , NodeToNodeEncryptionOptions
+    , nodeToNodeEncryptionOptions
+    , ntneoEnabled
+
+    -- ** NodeToNodeEncryptionOptionsStatus
+    , NodeToNodeEncryptionOptionsStatus
+    , nodeToNodeEncryptionOptionsStatus
+    , ntneosOptions
+    , ntneosStatus
+
     -- ** OptionStatus
     , OptionStatus
     , optionStatus
@@ -318,6 +367,17 @@ module Network.AWS.ElasticSearch
     , reioDuration
     , reioPaymentOption
 
+    -- ** ServiceSoftwareOptions
+    , ServiceSoftwareOptions
+    , serviceSoftwareOptions
+    , ssoAutomatedUpdateDate
+    , ssoCurrentVersion
+    , ssoUpdateStatus
+    , ssoCancellable
+    , ssoUpdateAvailable
+    , ssoDescription
+    , ssoNewVersion
+
     -- ** SnapshotOptions
     , SnapshotOptions
     , snapshotOptions
@@ -348,6 +408,22 @@ module Network.AWS.ElasticSearch
     , tagKey
     , tagValue
 
+    -- ** UpgradeHistory
+    , UpgradeHistory
+    , upgradeHistory
+    , uhUpgradeStatus
+    , uhStepsList
+    , uhUpgradeName
+    , uhStartTimestamp
+
+    -- ** UpgradeStepItem
+    , UpgradeStepItem
+    , upgradeStepItem
+    , usiUpgradeStepStatus
+    , usiProgressPercent
+    , usiIssues
+    , usiUpgradeStep
+
     -- ** VPCDerivedInfo
     , VPCDerivedInfo
     , vpcDerivedInfo
@@ -367,9 +443,15 @@ module Network.AWS.ElasticSearch
     , vpcOptions
     , voSecurityGroupIds
     , voSubnetIds
+
+    -- ** ZoneAwarenessConfig
+    , ZoneAwarenessConfig
+    , zoneAwarenessConfig
+    , zacAvailabilityZoneCount
     ) where
 
 import Network.AWS.ElasticSearch.AddTags
+import Network.AWS.ElasticSearch.CancelElasticsearchServiceSoftwareUpdate
 import Network.AWS.ElasticSearch.CreateElasticsearchDomain
 import Network.AWS.ElasticSearch.DeleteElasticsearchDomain
 import Network.AWS.ElasticSearch.DeleteElasticsearchServiceRole
@@ -379,14 +461,19 @@ import Network.AWS.ElasticSearch.DescribeElasticsearchDomains
 import Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
 import Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
 import Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstances
+import Network.AWS.ElasticSearch.GetCompatibleElasticsearchVersions
+import Network.AWS.ElasticSearch.GetUpgradeHistory
+import Network.AWS.ElasticSearch.GetUpgradeStatus
 import Network.AWS.ElasticSearch.ListDomainNames
 import Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
 import Network.AWS.ElasticSearch.ListElasticsearchVersions
 import Network.AWS.ElasticSearch.ListTags
 import Network.AWS.ElasticSearch.PurchaseReservedElasticsearchInstanceOffering
 import Network.AWS.ElasticSearch.RemoveTags
+import Network.AWS.ElasticSearch.StartElasticsearchServiceSoftwareUpdate
 import Network.AWS.ElasticSearch.Types
 import Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
+import Network.AWS.ElasticSearch.UpgradeElasticsearchDomain
 import Network.AWS.ElasticSearch.Waiters
 
 {- $errors

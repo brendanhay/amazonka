@@ -19,6 +19,42 @@ module Network.AWS.ElasticSearch.Types.Sum where
 
 import Network.AWS.Prelude
 
+data DeploymentStatus
+  = Completed
+  | Eligible
+  | InProgress
+  | NotEligible
+  | PendingUpdate
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DeploymentStatus where
+    parser = takeLowerText >>= \case
+        "completed" -> pure Completed
+        "eligible" -> pure Eligible
+        "in_progress" -> pure InProgress
+        "not_eligible" -> pure NotEligible
+        "pending_update" -> pure PendingUpdate
+        e -> fromTextError $ "Failure parsing DeploymentStatus from value: '" <> e
+           <> "'. Accepted values: completed, eligible, in_progress, not_eligible, pending_update"
+
+instance ToText DeploymentStatus where
+    toText = \case
+        Completed -> "COMPLETED"
+        Eligible -> "ELIGIBLE"
+        InProgress -> "IN_PROGRESS"
+        NotEligible -> "NOT_ELIGIBLE"
+        PendingUpdate -> "PENDING_UPDATE"
+
+instance Hashable     DeploymentStatus
+instance NFData       DeploymentStatus
+instance ToByteString DeploymentStatus
+instance ToQuery      DeploymentStatus
+instance ToHeader     DeploymentStatus
+
+instance FromJSON DeploymentStatus where
+    parseJSON = parseJSONText "DeploymentStatus"
+
 data ESPartitionInstanceType
   = C4_2XLarge_Elasticsearch
   | C4_4XLarge_Elasticsearch
@@ -163,26 +199,29 @@ instance ToJSON ESPartitionInstanceType where
 instance FromJSON ESPartitionInstanceType where
     parseJSON = parseJSONText "ESPartitionInstanceType"
 
--- | Type of Log File, it can be one of the following:     * INDEX_SLOW_LOGS: Index slow logs contains insert requests that took more time than configured index query log threshold to execute.    * SEARCH_SLOW_LOGS: Search slow logs contains search queries that took more time than configured search query log threshold to execute.
+-- | Type of Log File, it can be one of the following:     * INDEX_SLOW_LOGS: Index slow logs contain insert requests that took more time than configured index query log threshold to execute.    * SEARCH_SLOW_LOGS: Search slow logs contain search queries that took more time than configured search query log threshold to execute.    * ES_APPLICATION_LOGS: Elasticsearch application logs contain information about errors and warnings raised during the operation of the service and can be useful for troubleshooting.
 --
 --
 --
 --
 data LogType
-  = IndexSlowLogs
+  = EsApplicationLogs
+  | IndexSlowLogs
   | SearchSlowLogs
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText LogType where
     parser = takeLowerText >>= \case
+        "es_application_logs" -> pure EsApplicationLogs
         "index_slow_logs" -> pure IndexSlowLogs
         "search_slow_logs" -> pure SearchSlowLogs
         e -> fromTextError $ "Failure parsing LogType from value: '" <> e
-           <> "'. Accepted values: index_slow_logs, search_slow_logs"
+           <> "'. Accepted values: es_application_logs, index_slow_logs, search_slow_logs"
 
 instance ToText LogType where
     toText = \case
+        EsApplicationLogs -> "ES_APPLICATION_LOGS"
         IndexSlowLogs -> "INDEX_SLOW_LOGS"
         SearchSlowLogs -> "SEARCH_SLOW_LOGS"
 
@@ -262,6 +301,69 @@ instance ToHeader     ReservedElasticsearchInstancePaymentOption
 
 instance FromJSON ReservedElasticsearchInstancePaymentOption where
     parseJSON = parseJSONText "ReservedElasticsearchInstancePaymentOption"
+
+data UpgradeStatus
+  = USFailed
+  | USInProgress
+  | USSucceeded
+  | USSucceededWithIssues
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText UpgradeStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure USFailed
+        "in_progress" -> pure USInProgress
+        "succeeded" -> pure USSucceeded
+        "succeeded_with_issues" -> pure USSucceededWithIssues
+        e -> fromTextError $ "Failure parsing UpgradeStatus from value: '" <> e
+           <> "'. Accepted values: failed, in_progress, succeeded, succeeded_with_issues"
+
+instance ToText UpgradeStatus where
+    toText = \case
+        USFailed -> "FAILED"
+        USInProgress -> "IN_PROGRESS"
+        USSucceeded -> "SUCCEEDED"
+        USSucceededWithIssues -> "SUCCEEDED_WITH_ISSUES"
+
+instance Hashable     UpgradeStatus
+instance NFData       UpgradeStatus
+instance ToByteString UpgradeStatus
+instance ToQuery      UpgradeStatus
+instance ToHeader     UpgradeStatus
+
+instance FromJSON UpgradeStatus where
+    parseJSON = parseJSONText "UpgradeStatus"
+
+data UpgradeStep
+  = PreUpgradeCheck
+  | Snapshot
+  | Upgrade
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText UpgradeStep where
+    parser = takeLowerText >>= \case
+        "pre_upgrade_check" -> pure PreUpgradeCheck
+        "snapshot" -> pure Snapshot
+        "upgrade" -> pure Upgrade
+        e -> fromTextError $ "Failure parsing UpgradeStep from value: '" <> e
+           <> "'. Accepted values: pre_upgrade_check, snapshot, upgrade"
+
+instance ToText UpgradeStep where
+    toText = \case
+        PreUpgradeCheck -> "PRE_UPGRADE_CHECK"
+        Snapshot -> "SNAPSHOT"
+        Upgrade -> "UPGRADE"
+
+instance Hashable     UpgradeStep
+instance NFData       UpgradeStep
+instance ToByteString UpgradeStep
+instance ToQuery      UpgradeStep
+instance ToHeader     UpgradeStep
+
+instance FromJSON UpgradeStep where
+    parseJSON = parseJSONText "UpgradeStep"
 
 -- | The type of EBS volume, standard, gp2, or io1. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs Configuring EBS-based Storage> for more information.
 --

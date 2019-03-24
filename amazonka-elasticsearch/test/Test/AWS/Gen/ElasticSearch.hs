@@ -34,8 +34,14 @@ import Test.Tasty
 --         , requestRemoveTags $
 --             removeTags
 --
+--         , requestGetCompatibleElasticsearchVersions $
+--             getCompatibleElasticsearchVersions
+--
 --         , requestDescribeElasticsearchDomains $
 --             describeElasticsearchDomains
+--
+--         , requestStartElasticsearchServiceSoftwareUpdate $
+--             startElasticsearchServiceSoftwareUpdate
 --
 --         , requestListElasticsearchInstanceTypes $
 --             listElasticsearchInstanceTypes
@@ -52,8 +58,14 @@ import Test.Tasty
 --         , requestDescribeElasticsearchInstanceTypeLimits $
 --             describeElasticsearchInstanceTypeLimits
 --
+--         , requestGetUpgradeHistory $
+--             getUpgradeHistory
+--
 --         , requestDescribeElasticsearchDomainConfig $
 --             describeElasticsearchDomainConfig
+--
+--         , requestGetUpgradeStatus $
+--             getUpgradeStatus
 --
 --         , requestDeleteElasticsearchDomain $
 --             deleteElasticsearchDomain
@@ -76,8 +88,14 @@ import Test.Tasty
 --         , requestDescribeReservedElasticsearchInstanceOfferings $
 --             describeReservedElasticsearchInstanceOfferings
 --
+--         , requestUpgradeElasticsearchDomain $
+--             upgradeElasticsearchDomain
+--
 --         , requestListTags $
 --             listTags
+--
+--         , requestCancelElasticsearchServiceSoftwareUpdate $
+--             cancelElasticsearchServiceSoftwareUpdate
 --
 --           ]
 
@@ -88,8 +106,14 @@ import Test.Tasty
 --         , responseRemoveTags $
 --             removeTagsResponse
 --
+--         , responseGetCompatibleElasticsearchVersions $
+--             getCompatibleElasticsearchVersionsResponse
+--
 --         , responseDescribeElasticsearchDomains $
 --             describeElasticsearchDomainsResponse
+--
+--         , responseStartElasticsearchServiceSoftwareUpdate $
+--             startElasticsearchServiceSoftwareUpdateResponse
 --
 --         , responseListElasticsearchInstanceTypes $
 --             listElasticsearchInstanceTypesResponse
@@ -106,8 +130,14 @@ import Test.Tasty
 --         , responseDescribeElasticsearchInstanceTypeLimits $
 --             describeElasticsearchInstanceTypeLimitsResponse
 --
+--         , responseGetUpgradeHistory $
+--             getUpgradeHistoryResponse
+--
 --         , responseDescribeElasticsearchDomainConfig $
 --             describeElasticsearchDomainConfigResponse
+--
+--         , responseGetUpgradeStatus $
+--             getUpgradeStatusResponse
 --
 --         , responseDeleteElasticsearchDomain $
 --             deleteElasticsearchDomainResponse
@@ -130,8 +160,14 @@ import Test.Tasty
 --         , responseDescribeReservedElasticsearchInstanceOfferings $
 --             describeReservedElasticsearchInstanceOfferingsResponse
 --
+--         , responseUpgradeElasticsearchDomain $
+--             upgradeElasticsearchDomainResponse
+--
 --         , responseListTags $
 --             listTagsResponse
+--
+--         , responseCancelElasticsearchServiceSoftwareUpdate $
+--             cancelElasticsearchServiceSoftwareUpdateResponse
 --
 --           ]
 --     ]
@@ -148,10 +184,20 @@ requestRemoveTags = req
     "RemoveTags"
     "fixture/RemoveTags.yaml"
 
+requestGetCompatibleElasticsearchVersions :: GetCompatibleElasticsearchVersions -> TestTree
+requestGetCompatibleElasticsearchVersions = req
+    "GetCompatibleElasticsearchVersions"
+    "fixture/GetCompatibleElasticsearchVersions.yaml"
+
 requestDescribeElasticsearchDomains :: DescribeElasticsearchDomains -> TestTree
 requestDescribeElasticsearchDomains = req
     "DescribeElasticsearchDomains"
     "fixture/DescribeElasticsearchDomains.yaml"
+
+requestStartElasticsearchServiceSoftwareUpdate :: StartElasticsearchServiceSoftwareUpdate -> TestTree
+requestStartElasticsearchServiceSoftwareUpdate = req
+    "StartElasticsearchServiceSoftwareUpdate"
+    "fixture/StartElasticsearchServiceSoftwareUpdate.yaml"
 
 requestListElasticsearchInstanceTypes :: ListElasticsearchInstanceTypes -> TestTree
 requestListElasticsearchInstanceTypes = req
@@ -178,10 +224,20 @@ requestDescribeElasticsearchInstanceTypeLimits = req
     "DescribeElasticsearchInstanceTypeLimits"
     "fixture/DescribeElasticsearchInstanceTypeLimits.yaml"
 
+requestGetUpgradeHistory :: GetUpgradeHistory -> TestTree
+requestGetUpgradeHistory = req
+    "GetUpgradeHistory"
+    "fixture/GetUpgradeHistory.yaml"
+
 requestDescribeElasticsearchDomainConfig :: DescribeElasticsearchDomainConfig -> TestTree
 requestDescribeElasticsearchDomainConfig = req
     "DescribeElasticsearchDomainConfig"
     "fixture/DescribeElasticsearchDomainConfig.yaml"
+
+requestGetUpgradeStatus :: GetUpgradeStatus -> TestTree
+requestGetUpgradeStatus = req
+    "GetUpgradeStatus"
+    "fixture/GetUpgradeStatus.yaml"
 
 requestDeleteElasticsearchDomain :: DeleteElasticsearchDomain -> TestTree
 requestDeleteElasticsearchDomain = req
@@ -218,10 +274,20 @@ requestDescribeReservedElasticsearchInstanceOfferings = req
     "DescribeReservedElasticsearchInstanceOfferings"
     "fixture/DescribeReservedElasticsearchInstanceOfferings.yaml"
 
+requestUpgradeElasticsearchDomain :: UpgradeElasticsearchDomain -> TestTree
+requestUpgradeElasticsearchDomain = req
+    "UpgradeElasticsearchDomain"
+    "fixture/UpgradeElasticsearchDomain.yaml"
+
 requestListTags :: ListTags -> TestTree
 requestListTags = req
     "ListTags"
     "fixture/ListTags.yaml"
+
+requestCancelElasticsearchServiceSoftwareUpdate :: CancelElasticsearchServiceSoftwareUpdate -> TestTree
+requestCancelElasticsearchServiceSoftwareUpdate = req
+    "CancelElasticsearchServiceSoftwareUpdate"
+    "fixture/CancelElasticsearchServiceSoftwareUpdate.yaml"
 
 -- Responses
 
@@ -239,12 +305,26 @@ responseRemoveTags = res
     elasticSearch
     (Proxy :: Proxy RemoveTags)
 
+responseGetCompatibleElasticsearchVersions :: GetCompatibleElasticsearchVersionsResponse -> TestTree
+responseGetCompatibleElasticsearchVersions = res
+    "GetCompatibleElasticsearchVersionsResponse"
+    "fixture/GetCompatibleElasticsearchVersionsResponse.proto"
+    elasticSearch
+    (Proxy :: Proxy GetCompatibleElasticsearchVersions)
+
 responseDescribeElasticsearchDomains :: DescribeElasticsearchDomainsResponse -> TestTree
 responseDescribeElasticsearchDomains = res
     "DescribeElasticsearchDomainsResponse"
     "fixture/DescribeElasticsearchDomainsResponse.proto"
     elasticSearch
     (Proxy :: Proxy DescribeElasticsearchDomains)
+
+responseStartElasticsearchServiceSoftwareUpdate :: StartElasticsearchServiceSoftwareUpdateResponse -> TestTree
+responseStartElasticsearchServiceSoftwareUpdate = res
+    "StartElasticsearchServiceSoftwareUpdateResponse"
+    "fixture/StartElasticsearchServiceSoftwareUpdateResponse.proto"
+    elasticSearch
+    (Proxy :: Proxy StartElasticsearchServiceSoftwareUpdate)
 
 responseListElasticsearchInstanceTypes :: ListElasticsearchInstanceTypesResponse -> TestTree
 responseListElasticsearchInstanceTypes = res
@@ -281,12 +361,26 @@ responseDescribeElasticsearchInstanceTypeLimits = res
     elasticSearch
     (Proxy :: Proxy DescribeElasticsearchInstanceTypeLimits)
 
+responseGetUpgradeHistory :: GetUpgradeHistoryResponse -> TestTree
+responseGetUpgradeHistory = res
+    "GetUpgradeHistoryResponse"
+    "fixture/GetUpgradeHistoryResponse.proto"
+    elasticSearch
+    (Proxy :: Proxy GetUpgradeHistory)
+
 responseDescribeElasticsearchDomainConfig :: DescribeElasticsearchDomainConfigResponse -> TestTree
 responseDescribeElasticsearchDomainConfig = res
     "DescribeElasticsearchDomainConfigResponse"
     "fixture/DescribeElasticsearchDomainConfigResponse.proto"
     elasticSearch
     (Proxy :: Proxy DescribeElasticsearchDomainConfig)
+
+responseGetUpgradeStatus :: GetUpgradeStatusResponse -> TestTree
+responseGetUpgradeStatus = res
+    "GetUpgradeStatusResponse"
+    "fixture/GetUpgradeStatusResponse.proto"
+    elasticSearch
+    (Proxy :: Proxy GetUpgradeStatus)
 
 responseDeleteElasticsearchDomain :: DeleteElasticsearchDomainResponse -> TestTree
 responseDeleteElasticsearchDomain = res
@@ -337,9 +431,23 @@ responseDescribeReservedElasticsearchInstanceOfferings = res
     elasticSearch
     (Proxy :: Proxy DescribeReservedElasticsearchInstanceOfferings)
 
+responseUpgradeElasticsearchDomain :: UpgradeElasticsearchDomainResponse -> TestTree
+responseUpgradeElasticsearchDomain = res
+    "UpgradeElasticsearchDomainResponse"
+    "fixture/UpgradeElasticsearchDomainResponse.proto"
+    elasticSearch
+    (Proxy :: Proxy UpgradeElasticsearchDomain)
+
 responseListTags :: ListTagsResponse -> TestTree
 responseListTags = res
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
     elasticSearch
     (Proxy :: Proxy ListTags)
+
+responseCancelElasticsearchServiceSoftwareUpdate :: CancelElasticsearchServiceSoftwareUpdateResponse -> TestTree
+responseCancelElasticsearchServiceSoftwareUpdate = res
+    "CancelElasticsearchServiceSoftwareUpdateResponse"
+    "fixture/CancelElasticsearchServiceSoftwareUpdateResponse.proto"
+    elasticSearch
+    (Proxy :: Proxy CancelElasticsearchServiceSoftwareUpdate)

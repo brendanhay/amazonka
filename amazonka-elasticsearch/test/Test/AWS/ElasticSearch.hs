@@ -14,7 +14,7 @@
 
 module Test.AWS.ElasticSearch where
 
-import           Test.AWS.Prelude
+import Test.AWS.Prelude
 
 tests :: [TestTree]
 tests = []

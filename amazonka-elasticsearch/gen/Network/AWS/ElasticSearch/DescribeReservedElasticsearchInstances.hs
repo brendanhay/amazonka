@@ -21,6 +21,8 @@
 -- Returns information about reserved Elasticsearch instances for this account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstances
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstances
 import Network.AWS.ElasticSearch.Types
 import Network.AWS.ElasticSearch.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -89,6 +92,16 @@ dreiNextToken = lens _dreiNextToken (\ s a -> s{_dreiNextToken = a})
 -- | Set this value to limit the number of results returned. If not specified, defaults to 100.
 dreiMaxResults :: Lens' DescribeReservedElasticsearchInstances (Maybe Int)
 dreiMaxResults = lens _dreiMaxResults (\ s a -> s{_dreiMaxResults = a})
+
+instance AWSPager
+           DescribeReservedElasticsearchInstances
+         where
+        page rq rs
+          | stop (rs ^. dreirsNextToken) = Nothing
+          | stop (rs ^. dreirsReservedElasticsearchInstances) =
+            Nothing
+          | otherwise =
+            Just $ rq & dreiNextToken .~ rs ^. dreirsNextToken
 
 instance AWSRequest
            DescribeReservedElasticsearchInstances

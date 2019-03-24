@@ -28,6 +28,7 @@ module Network.AWS.ElasticSearch.CreateElasticsearchDomain
     , CreateElasticsearchDomain
     -- * Request Lenses
     , cedEBSOptions
+    , cedNodeToNodeEncryptionOptions
     , cedAccessPolicies
     , cedLogPublishingOptions
     , cedElasticsearchClusterConfig
@@ -56,17 +57,18 @@ import Network.AWS.Response
 
 -- | /See:/ 'createElasticsearchDomain' smart constructor.
 data CreateElasticsearchDomain = CreateElasticsearchDomain'
-  { _cedEBSOptions                 :: !(Maybe EBSOptions)
-  , _cedAccessPolicies             :: !(Maybe Text)
-  , _cedLogPublishingOptions       :: !(Maybe (Map LogType LogPublishingOption))
+  { _cedEBSOptions :: !(Maybe EBSOptions)
+  , _cedNodeToNodeEncryptionOptions :: !(Maybe NodeToNodeEncryptionOptions)
+  , _cedAccessPolicies :: !(Maybe Text)
+  , _cedLogPublishingOptions :: !(Maybe (Map LogType LogPublishingOption))
   , _cedElasticsearchClusterConfig :: !(Maybe ElasticsearchClusterConfig)
-  , _cedSnapshotOptions            :: !(Maybe SnapshotOptions)
-  , _cedCognitoOptions             :: !(Maybe CognitoOptions)
-  , _cedEncryptionAtRestOptions    :: !(Maybe EncryptionAtRestOptions)
-  , _cedVPCOptions                 :: !(Maybe VPCOptions)
-  , _cedAdvancedOptions            :: !(Maybe (Map Text Text))
-  , _cedElasticsearchVersion       :: !(Maybe Text)
-  , _cedDomainName                 :: !Text
+  , _cedSnapshotOptions :: !(Maybe SnapshotOptions)
+  , _cedCognitoOptions :: !(Maybe CognitoOptions)
+  , _cedEncryptionAtRestOptions :: !(Maybe EncryptionAtRestOptions)
+  , _cedVPCOptions :: !(Maybe VPCOptions)
+  , _cedAdvancedOptions :: !(Maybe (Map Text Text))
+  , _cedElasticsearchVersion :: !(Maybe Text)
+  , _cedDomainName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -75,6 +77,8 @@ data CreateElasticsearchDomain = CreateElasticsearchDomain'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cedEBSOptions' - Options to enable, disable and specify the type and size of EBS storage volumes.
+--
+-- * 'cedNodeToNodeEncryptionOptions' - Specifies the NodeToNodeEncryptionOptions.
 --
 -- * 'cedAccessPolicies' - IAM access policy as a JSON-formatted string.
 --
@@ -101,6 +105,7 @@ createElasticsearchDomain
 createElasticsearchDomain pDomainName_ =
   CreateElasticsearchDomain'
     { _cedEBSOptions = Nothing
+    , _cedNodeToNodeEncryptionOptions = Nothing
     , _cedAccessPolicies = Nothing
     , _cedLogPublishingOptions = Nothing
     , _cedElasticsearchClusterConfig = Nothing
@@ -117,6 +122,10 @@ createElasticsearchDomain pDomainName_ =
 -- | Options to enable, disable and specify the type and size of EBS storage volumes.
 cedEBSOptions :: Lens' CreateElasticsearchDomain (Maybe EBSOptions)
 cedEBSOptions = lens _cedEBSOptions (\ s a -> s{_cedEBSOptions = a})
+
+-- | Specifies the NodeToNodeEncryptionOptions.
+cedNodeToNodeEncryptionOptions :: Lens' CreateElasticsearchDomain (Maybe NodeToNodeEncryptionOptions)
+cedNodeToNodeEncryptionOptions = lens _cedNodeToNodeEncryptionOptions (\ s a -> s{_cedNodeToNodeEncryptionOptions = a})
 
 -- | IAM access policy as a JSON-formatted string.
 cedAccessPolicies :: Lens' CreateElasticsearchDomain (Maybe Text)
@@ -180,6 +189,8 @@ instance ToJSON CreateElasticsearchDomain where
           = object
               (catMaybes
                  [("EBSOptions" .=) <$> _cedEBSOptions,
+                  ("NodeToNodeEncryptionOptions" .=) <$>
+                    _cedNodeToNodeEncryptionOptions,
                   ("AccessPolicies" .=) <$> _cedAccessPolicies,
                   ("LogPublishingOptions" .=) <$>
                     _cedLogPublishingOptions,

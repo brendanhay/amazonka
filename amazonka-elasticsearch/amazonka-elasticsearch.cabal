@@ -46,6 +46,7 @@ library
     exposed-modules:
           Network.AWS.ElasticSearch
         , Network.AWS.ElasticSearch.AddTags
+        , Network.AWS.ElasticSearch.CancelElasticsearchServiceSoftwareUpdate
         , Network.AWS.ElasticSearch.CreateElasticsearchDomain
         , Network.AWS.ElasticSearch.DeleteElasticsearchDomain
         , Network.AWS.ElasticSearch.DeleteElasticsearchServiceRole
@@ -55,14 +56,19 @@ library
         , Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
         , Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
         , Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstances
+        , Network.AWS.ElasticSearch.GetCompatibleElasticsearchVersions
+        , Network.AWS.ElasticSearch.GetUpgradeHistory
+        , Network.AWS.ElasticSearch.GetUpgradeStatus
         , Network.AWS.ElasticSearch.ListDomainNames
         , Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
         , Network.AWS.ElasticSearch.ListElasticsearchVersions
         , Network.AWS.ElasticSearch.ListTags
         , Network.AWS.ElasticSearch.PurchaseReservedElasticsearchInstanceOffering
         , Network.AWS.ElasticSearch.RemoveTags
+        , Network.AWS.ElasticSearch.StartElasticsearchServiceSoftwareUpdate
         , Network.AWS.ElasticSearch.Types
         , Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
+        , Network.AWS.ElasticSearch.UpgradeElasticsearchDomain
         , Network.AWS.ElasticSearch.Waiters
 
     other-modules:

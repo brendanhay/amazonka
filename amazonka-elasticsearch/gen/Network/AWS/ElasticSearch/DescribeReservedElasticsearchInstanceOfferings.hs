@@ -21,6 +21,8 @@
 -- Lists available reserved Elasticsearch instance offerings.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
 import Network.AWS.ElasticSearch.Types
 import Network.AWS.ElasticSearch.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -89,6 +92,17 @@ dreioNextToken = lens _dreioNextToken (\ s a -> s{_dreioNextToken = a})
 -- | Set this value to limit the number of results returned. If not specified, defaults to 100.
 dreioMaxResults :: Lens' DescribeReservedElasticsearchInstanceOfferings (Maybe Int)
 dreioMaxResults = lens _dreioMaxResults (\ s a -> s{_dreioMaxResults = a})
+
+instance AWSPager
+           DescribeReservedElasticsearchInstanceOfferings
+         where
+        page rq rs
+          | stop (rs ^. dreiorsNextToken) = Nothing
+          | stop
+              (rs ^. dreiorsReservedElasticsearchInstanceOfferings)
+            = Nothing
+          | otherwise =
+            Just $ rq & dreioNextToken .~ rs ^. dreiorsNextToken
 
 instance AWSRequest
            DescribeReservedElasticsearchInstanceOfferings

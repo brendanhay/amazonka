@@ -14,4 +14,4 @@
 
 module Test.AWS.ElasticSearch.Internal where
 
-import           Test.AWS.Prelude
+import Test.AWS.Prelude

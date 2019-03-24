@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.ElasticSearch
 import Test.AWS.ElasticSearch.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "ElasticSearch"

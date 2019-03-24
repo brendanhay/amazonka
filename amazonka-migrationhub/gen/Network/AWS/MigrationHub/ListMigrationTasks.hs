@@ -29,6 +29,8 @@
 --
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.MigrationHub.ListMigrationTasks
     (
     -- * Creating a Request
@@ -51,6 +53,7 @@ module Network.AWS.MigrationHub.ListMigrationTasks
 import Network.AWS.Lens
 import Network.AWS.MigrationHub.Types
 import Network.AWS.MigrationHub.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -93,6 +96,14 @@ lmtNextToken = lens _lmtNextToken (\ s a -> s{_lmtNextToken = a})
 -- | Value to specify how many results are returned per page.
 lmtMaxResults :: Lens' ListMigrationTasks (Maybe Natural)
 lmtMaxResults = lens _lmtMaxResults (\ s a -> s{_lmtMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListMigrationTasks where
+        page rq rs
+          | stop (rs ^. lmtrsNextToken) = Nothing
+          | stop (rs ^. lmtrsMigrationTaskSummaryList) =
+            Nothing
+          | otherwise =
+            Just $ rq & lmtNextToken .~ rs ^. lmtrsNextToken
 
 instance AWSRequest ListMigrationTasks where
         type Rs ListMigrationTasks =

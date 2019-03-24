@@ -21,6 +21,8 @@
 -- Lists progress update streams associated with the user account making this call.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.MigrationHub.ListProgressUpdateStreams
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.MigrationHub.ListProgressUpdateStreams
 import Network.AWS.Lens
 import Network.AWS.MigrationHub.Types
 import Network.AWS.MigrationHub.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -74,6 +77,14 @@ lpusNextToken = lens _lpusNextToken (\ s a -> s{_lpusNextToken = a})
 -- | Filter to limit the maximum number of results to list per page.
 lpusMaxResults :: Lens' ListProgressUpdateStreams (Maybe Natural)
 lpusMaxResults = lens _lpusMaxResults (\ s a -> s{_lpusMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListProgressUpdateStreams where
+        page rq rs
+          | stop (rs ^. lpusrsNextToken) = Nothing
+          | stop (rs ^. lpusrsProgressUpdateStreamSummaryList)
+            = Nothing
+          | otherwise =
+            Just $ rq & lpusNextToken .~ rs ^. lpusrsNextToken
 
 instance AWSRequest ListProgressUpdateStreams where
         type Rs ListProgressUpdateStreams =

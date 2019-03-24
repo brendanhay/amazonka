@@ -21,6 +21,8 @@
 -- Lists discovered resources associated with the given @MigrationTask@ .
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.MigrationHub.ListDiscoveredResources
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.MigrationHub.ListDiscoveredResources
 import Network.AWS.Lens
 import Network.AWS.MigrationHub.Types
 import Network.AWS.MigrationHub.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -96,6 +99,13 @@ ldrProgressUpdateStream = lens _ldrProgressUpdateStream (\ s a -> s{_ldrProgress
 -- | The name of the MigrationTask.
 ldrMigrationTaskName :: Lens' ListDiscoveredResources Text
 ldrMigrationTaskName = lens _ldrMigrationTaskName (\ s a -> s{_ldrMigrationTaskName = a})
+
+instance AWSPager ListDiscoveredResources where
+        page rq rs
+          | stop (rs ^. ldrrsNextToken) = Nothing
+          | stop (rs ^. ldrrsDiscoveredResourceList) = Nothing
+          | otherwise =
+            Just $ rq & ldrNextToken .~ rs ^. ldrrsNextToken
 
 instance AWSRequest ListDiscoveredResources where
         type Rs ListDiscoveredResources =

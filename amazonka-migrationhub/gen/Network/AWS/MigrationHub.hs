@@ -58,7 +58,7 @@ module Network.AWS.MigrationHub
     -- ** CreateProgressUpdateStream
     , module Network.AWS.MigrationHub.CreateProgressUpdateStream
 
-    -- ** ListCreatedArtifacts
+    -- ** ListCreatedArtifacts (Paginated)
     , module Network.AWS.MigrationHub.ListCreatedArtifacts
 
     -- ** DisassociateDiscoveredResource
@@ -70,7 +70,7 @@ module Network.AWS.MigrationHub
     -- ** DeleteProgressUpdateStream
     , module Network.AWS.MigrationHub.DeleteProgressUpdateStream
 
-    -- ** ListProgressUpdateStreams
+    -- ** ListProgressUpdateStreams (Paginated)
     , module Network.AWS.MigrationHub.ListProgressUpdateStreams
 
     -- ** DisassociateCreatedArtifact
@@ -94,10 +94,10 @@ module Network.AWS.MigrationHub
     -- ** DescribeApplicationState
     , module Network.AWS.MigrationHub.DescribeApplicationState
 
-    -- ** ListMigrationTasks
+    -- ** ListMigrationTasks (Paginated)
     , module Network.AWS.MigrationHub.ListMigrationTasks
 
-    -- ** ListDiscoveredResources
+    -- ** ListDiscoveredResources (Paginated)
     , module Network.AWS.MigrationHub.ListDiscoveredResources
 
     -- * Types

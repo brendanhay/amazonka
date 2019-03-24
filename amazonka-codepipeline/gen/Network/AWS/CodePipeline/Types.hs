@@ -124,6 +124,7 @@ module Network.AWS.CodePipeline.Types
     , actionDeclaration
     , adOutputArtifacts
     , adRunOrder
+    , adRegion
     , adConfiguration
     , adInputArtifacts
     , adRoleARN
@@ -142,6 +143,47 @@ module Network.AWS.CodePipeline.Types
     , aeExternalExecutionId
     , aeErrorDetails
     , aePercentComplete
+
+    -- * ActionExecutionDetail
+    , ActionExecutionDetail
+    , actionExecutionDetail
+    , aedStatus
+    , aedStartTime
+    , aedPipelineVersion
+    , aedInput
+    , aedActionName
+    , aedOutput
+    , aedPipelineExecutionId
+    , aedStageName
+    , aedLastUpdateTime
+    , aedActionExecutionId
+
+    -- * ActionExecutionFilter
+    , ActionExecutionFilter
+    , actionExecutionFilter
+    , aefPipelineExecutionId
+
+    -- * ActionExecutionInput
+    , ActionExecutionInput
+    , actionExecutionInput
+    , aeiRegion
+    , aeiConfiguration
+    , aeiActionTypeId
+    , aeiInputArtifacts
+    , aeiRoleARN
+
+    -- * ActionExecutionOutput
+    , ActionExecutionOutput
+    , actionExecutionOutput
+    , aeoOutputArtifacts
+    , aeoExecutionResult
+
+    -- * ActionExecutionResult
+    , ActionExecutionResult
+    , actionExecutionResult
+    , aerExternalExecutionURL
+    , aerExternalExecutionId
+    , aerExternalExecutionSummary
 
     -- * ActionRevision
     , ActionRevision
@@ -193,9 +235,15 @@ module Network.AWS.CodePipeline.Types
     -- * Artifact
     , Artifact
     , artifact
-    , aLocation
+    , artLocation
+    , artName
+    , artRevision
+
+    -- * ArtifactDetail
+    , ArtifactDetail
+    , artifactDetail
     , aName
-    , aRevision
+    , aS3location
 
     -- * ArtifactDetails
     , ArtifactDetails
@@ -323,10 +371,11 @@ module Network.AWS.CodePipeline.Types
     -- * PipelineDeclaration
     , PipelineDeclaration
     , pipelineDeclaration
+    , pdArtifactStores
+    , pdArtifactStore
     , pdVersion
     , pdName
     , pdRoleARN
-    , pdArtifactStore
     , pdStages
 
     -- * PipelineExecution
@@ -367,6 +416,12 @@ module Network.AWS.CodePipeline.Types
     , s3ArtifactLocation
     , salBucketName
     , salObjectKey
+
+    -- * S3Location
+    , S3Location
+    , s3Location
+    , slBucket
+    , slKey
 
     -- * SourceRevision
     , SourceRevision

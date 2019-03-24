@@ -21,6 +21,8 @@
 -- Gets a summary of the most recent executions for a pipeline.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CodePipeline.ListPipelineExecutions
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.CodePipeline.ListPipelineExecutions
 import Network.AWS.CodePipeline.Types
 import Network.AWS.CodePipeline.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -90,6 +93,14 @@ lpeMaxResults = lens _lpeMaxResults (\ s a -> s{_lpeMaxResults = a}) . mapping _
 -- | The name of the pipeline for which you want to get execution summary information.
 lpePipelineName :: Lens' ListPipelineExecutions Text
 lpePipelineName = lens _lpePipelineName (\ s a -> s{_lpePipelineName = a})
+
+instance AWSPager ListPipelineExecutions where
+        page rq rs
+          | stop (rs ^. lpersNextToken) = Nothing
+          | stop (rs ^. lpersPipelineExecutionSummaries) =
+            Nothing
+          | otherwise =
+            Just $ rq & lpeNextToken .~ rs ^. lpersNextToken
 
 instance AWSRequest ListPipelineExecutions where
         type Rs ListPipelineExecutions =

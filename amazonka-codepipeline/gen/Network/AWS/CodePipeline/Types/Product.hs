@@ -262,6 +262,7 @@ instance NFData ActionContext where
 data ActionDeclaration = ActionDeclaration'
   { _adOutputArtifacts :: !(Maybe [OutputArtifact])
   , _adRunOrder        :: !(Maybe Nat)
+  , _adRegion          :: !(Maybe Text)
   , _adConfiguration   :: !(Maybe (Map Text Text))
   , _adInputArtifacts  :: !(Maybe [InputArtifact])
   , _adRoleARN         :: !(Maybe Text)
@@ -277,6 +278,8 @@ data ActionDeclaration = ActionDeclaration'
 -- * 'adOutputArtifacts' - The name or ID of the result of the action declaration, such as a test or build artifact.
 --
 -- * 'adRunOrder' - The order in which actions are run.
+--
+-- * 'adRegion' - The action declaration's AWS Region, such as us-east-1.
 --
 -- * 'adConfiguration' - The action declaration's configuration.
 --
@@ -295,6 +298,7 @@ actionDeclaration pName_ pActionTypeId_ =
   ActionDeclaration'
     { _adOutputArtifacts = Nothing
     , _adRunOrder = Nothing
+    , _adRegion = Nothing
     , _adConfiguration = Nothing
     , _adInputArtifacts = Nothing
     , _adRoleARN = Nothing
@@ -310,6 +314,10 @@ adOutputArtifacts = lens _adOutputArtifacts (\ s a -> s{_adOutputArtifacts = a})
 -- | The order in which actions are run.
 adRunOrder :: Lens' ActionDeclaration (Maybe Natural)
 adRunOrder = lens _adRunOrder (\ s a -> s{_adRunOrder = a}) . mapping _Nat
+
+-- | The action declaration's AWS Region, such as us-east-1.
+adRegion :: Lens' ActionDeclaration (Maybe Text)
+adRegion = lens _adRegion (\ s a -> s{_adRegion = a})
 
 -- | The action declaration's configuration.
 adConfiguration :: Lens' ActionDeclaration (HashMap Text Text)
@@ -338,6 +346,7 @@ instance FromJSON ActionDeclaration where
                  ActionDeclaration' <$>
                    (x .:? "outputArtifacts" .!= mempty) <*>
                      (x .:? "runOrder")
+                     <*> (x .:? "region")
                      <*> (x .:? "configuration" .!= mempty)
                      <*> (x .:? "inputArtifacts" .!= mempty)
                      <*> (x .:? "roleArn")
@@ -354,6 +363,7 @@ instance ToJSON ActionDeclaration where
               (catMaybes
                  [("outputArtifacts" .=) <$> _adOutputArtifacts,
                   ("runOrder" .=) <$> _adRunOrder,
+                  ("region" .=) <$> _adRegion,
                   ("configuration" .=) <$> _adConfiguration,
                   ("inputArtifacts" .=) <$> _adInputArtifacts,
                   ("roleArn" .=) <$> _adRoleARN,
@@ -468,6 +478,335 @@ instance FromJSON ActionExecution where
 instance Hashable ActionExecution where
 
 instance NFData ActionExecution where
+
+-- | Returns information about an execution of an action, including the action execution ID, and the name, version, and timing of the action.
+--
+--
+--
+-- /See:/ 'actionExecutionDetail' smart constructor.
+data ActionExecutionDetail = ActionExecutionDetail'
+  { _aedStatus              :: !(Maybe ActionExecutionStatus)
+  , _aedStartTime           :: !(Maybe POSIX)
+  , _aedPipelineVersion     :: !(Maybe Nat)
+  , _aedInput               :: !(Maybe ActionExecutionInput)
+  , _aedActionName          :: !(Maybe Text)
+  , _aedOutput              :: !(Maybe ActionExecutionOutput)
+  , _aedPipelineExecutionId :: !(Maybe Text)
+  , _aedStageName           :: !(Maybe Text)
+  , _aedLastUpdateTime      :: !(Maybe POSIX)
+  , _aedActionExecutionId   :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ActionExecutionDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aedStatus' - The status of the action execution. Status categories are InProgress, Succeeded, and Failed.
+--
+-- * 'aedStartTime' - The start time of the action execution.
+--
+-- * 'aedPipelineVersion' - The version of the pipeline where the action was run.
+--
+-- * 'aedInput' - Input details for the action execution, such as role ARN, Region, and input artifacts.
+--
+-- * 'aedActionName' - The name of the action.
+--
+-- * 'aedOutput' - Output details for the action execution, such as the action execution result.
+--
+-- * 'aedPipelineExecutionId' - The pipeline execution ID for the action execution.
+--
+-- * 'aedStageName' - The name of the stage that contains the action.
+--
+-- * 'aedLastUpdateTime' - The last update time of the action execution.
+--
+-- * 'aedActionExecutionId' - The action execution ID.
+actionExecutionDetail
+    :: ActionExecutionDetail
+actionExecutionDetail =
+  ActionExecutionDetail'
+    { _aedStatus = Nothing
+    , _aedStartTime = Nothing
+    , _aedPipelineVersion = Nothing
+    , _aedInput = Nothing
+    , _aedActionName = Nothing
+    , _aedOutput = Nothing
+    , _aedPipelineExecutionId = Nothing
+    , _aedStageName = Nothing
+    , _aedLastUpdateTime = Nothing
+    , _aedActionExecutionId = Nothing
+    }
+
+
+-- | The status of the action execution. Status categories are InProgress, Succeeded, and Failed.
+aedStatus :: Lens' ActionExecutionDetail (Maybe ActionExecutionStatus)
+aedStatus = lens _aedStatus (\ s a -> s{_aedStatus = a})
+
+-- | The start time of the action execution.
+aedStartTime :: Lens' ActionExecutionDetail (Maybe UTCTime)
+aedStartTime = lens _aedStartTime (\ s a -> s{_aedStartTime = a}) . mapping _Time
+
+-- | The version of the pipeline where the action was run.
+aedPipelineVersion :: Lens' ActionExecutionDetail (Maybe Natural)
+aedPipelineVersion = lens _aedPipelineVersion (\ s a -> s{_aedPipelineVersion = a}) . mapping _Nat
+
+-- | Input details for the action execution, such as role ARN, Region, and input artifacts.
+aedInput :: Lens' ActionExecutionDetail (Maybe ActionExecutionInput)
+aedInput = lens _aedInput (\ s a -> s{_aedInput = a})
+
+-- | The name of the action.
+aedActionName :: Lens' ActionExecutionDetail (Maybe Text)
+aedActionName = lens _aedActionName (\ s a -> s{_aedActionName = a})
+
+-- | Output details for the action execution, such as the action execution result.
+aedOutput :: Lens' ActionExecutionDetail (Maybe ActionExecutionOutput)
+aedOutput = lens _aedOutput (\ s a -> s{_aedOutput = a})
+
+-- | The pipeline execution ID for the action execution.
+aedPipelineExecutionId :: Lens' ActionExecutionDetail (Maybe Text)
+aedPipelineExecutionId = lens _aedPipelineExecutionId (\ s a -> s{_aedPipelineExecutionId = a})
+
+-- | The name of the stage that contains the action.
+aedStageName :: Lens' ActionExecutionDetail (Maybe Text)
+aedStageName = lens _aedStageName (\ s a -> s{_aedStageName = a})
+
+-- | The last update time of the action execution.
+aedLastUpdateTime :: Lens' ActionExecutionDetail (Maybe UTCTime)
+aedLastUpdateTime = lens _aedLastUpdateTime (\ s a -> s{_aedLastUpdateTime = a}) . mapping _Time
+
+-- | The action execution ID.
+aedActionExecutionId :: Lens' ActionExecutionDetail (Maybe Text)
+aedActionExecutionId = lens _aedActionExecutionId (\ s a -> s{_aedActionExecutionId = a})
+
+instance FromJSON ActionExecutionDetail where
+        parseJSON
+          = withObject "ActionExecutionDetail"
+              (\ x ->
+                 ActionExecutionDetail' <$>
+                   (x .:? "status") <*> (x .:? "startTime") <*>
+                     (x .:? "pipelineVersion")
+                     <*> (x .:? "input")
+                     <*> (x .:? "actionName")
+                     <*> (x .:? "output")
+                     <*> (x .:? "pipelineExecutionId")
+                     <*> (x .:? "stageName")
+                     <*> (x .:? "lastUpdateTime")
+                     <*> (x .:? "actionExecutionId"))
+
+instance Hashable ActionExecutionDetail where
+
+instance NFData ActionExecutionDetail where
+
+-- | Filter values for the action execution.
+--
+--
+--
+-- /See:/ 'actionExecutionFilter' smart constructor.
+newtype ActionExecutionFilter = ActionExecutionFilter'
+  { _aefPipelineExecutionId :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ActionExecutionFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aefPipelineExecutionId' - The pipeline execution ID used to filter action execution history.
+actionExecutionFilter
+    :: ActionExecutionFilter
+actionExecutionFilter =
+  ActionExecutionFilter' {_aefPipelineExecutionId = Nothing}
+
+
+-- | The pipeline execution ID used to filter action execution history.
+aefPipelineExecutionId :: Lens' ActionExecutionFilter (Maybe Text)
+aefPipelineExecutionId = lens _aefPipelineExecutionId (\ s a -> s{_aefPipelineExecutionId = a})
+
+instance Hashable ActionExecutionFilter where
+
+instance NFData ActionExecutionFilter where
+
+instance ToJSON ActionExecutionFilter where
+        toJSON ActionExecutionFilter'{..}
+          = object
+              (catMaybes
+                 [("pipelineExecutionId" .=) <$>
+                    _aefPipelineExecutionId])
+
+-- | Input information used for an action execution.
+--
+--
+--
+-- /See:/ 'actionExecutionInput' smart constructor.
+data ActionExecutionInput = ActionExecutionInput'
+  { _aeiRegion         :: !(Maybe Text)
+  , _aeiConfiguration  :: !(Maybe (Map Text Text))
+  , _aeiActionTypeId   :: !(Maybe ActionTypeId)
+  , _aeiInputArtifacts :: !(Maybe [ArtifactDetail])
+  , _aeiRoleARN        :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ActionExecutionInput' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aeiRegion' - The AWS Region for the action, such as us-east-1.
+--
+-- * 'aeiConfiguration' - Configuration data for an action execution.
+--
+-- * 'aeiActionTypeId' - Undocumented member.
+--
+-- * 'aeiInputArtifacts' - Details of input artifacts of the action that correspond to the action execution.
+--
+-- * 'aeiRoleARN' - The ARN of the IAM service role that performs the declared action. This is assumed through the roleArn for the pipeline.
+actionExecutionInput
+    :: ActionExecutionInput
+actionExecutionInput =
+  ActionExecutionInput'
+    { _aeiRegion = Nothing
+    , _aeiConfiguration = Nothing
+    , _aeiActionTypeId = Nothing
+    , _aeiInputArtifacts = Nothing
+    , _aeiRoleARN = Nothing
+    }
+
+
+-- | The AWS Region for the action, such as us-east-1.
+aeiRegion :: Lens' ActionExecutionInput (Maybe Text)
+aeiRegion = lens _aeiRegion (\ s a -> s{_aeiRegion = a})
+
+-- | Configuration data for an action execution.
+aeiConfiguration :: Lens' ActionExecutionInput (HashMap Text Text)
+aeiConfiguration = lens _aeiConfiguration (\ s a -> s{_aeiConfiguration = a}) . _Default . _Map
+
+-- | Undocumented member.
+aeiActionTypeId :: Lens' ActionExecutionInput (Maybe ActionTypeId)
+aeiActionTypeId = lens _aeiActionTypeId (\ s a -> s{_aeiActionTypeId = a})
+
+-- | Details of input artifacts of the action that correspond to the action execution.
+aeiInputArtifacts :: Lens' ActionExecutionInput [ArtifactDetail]
+aeiInputArtifacts = lens _aeiInputArtifacts (\ s a -> s{_aeiInputArtifacts = a}) . _Default . _Coerce
+
+-- | The ARN of the IAM service role that performs the declared action. This is assumed through the roleArn for the pipeline.
+aeiRoleARN :: Lens' ActionExecutionInput (Maybe Text)
+aeiRoleARN = lens _aeiRoleARN (\ s a -> s{_aeiRoleARN = a})
+
+instance FromJSON ActionExecutionInput where
+        parseJSON
+          = withObject "ActionExecutionInput"
+              (\ x ->
+                 ActionExecutionInput' <$>
+                   (x .:? "region") <*>
+                     (x .:? "configuration" .!= mempty)
+                     <*> (x .:? "actionTypeId")
+                     <*> (x .:? "inputArtifacts" .!= mempty)
+                     <*> (x .:? "roleArn"))
+
+instance Hashable ActionExecutionInput where
+
+instance NFData ActionExecutionInput where
+
+-- | Output details listed for an action execution, such as the action execution result.
+--
+--
+--
+-- /See:/ 'actionExecutionOutput' smart constructor.
+data ActionExecutionOutput = ActionExecutionOutput'
+  { _aeoOutputArtifacts :: !(Maybe [ArtifactDetail])
+  , _aeoExecutionResult :: !(Maybe ActionExecutionResult)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ActionExecutionOutput' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aeoOutputArtifacts' - Details of output artifacts of the action that correspond to the action execution.
+--
+-- * 'aeoExecutionResult' - Execution result information listed in the output details for an action execution.
+actionExecutionOutput
+    :: ActionExecutionOutput
+actionExecutionOutput =
+  ActionExecutionOutput'
+    {_aeoOutputArtifacts = Nothing, _aeoExecutionResult = Nothing}
+
+
+-- | Details of output artifacts of the action that correspond to the action execution.
+aeoOutputArtifacts :: Lens' ActionExecutionOutput [ArtifactDetail]
+aeoOutputArtifacts = lens _aeoOutputArtifacts (\ s a -> s{_aeoOutputArtifacts = a}) . _Default . _Coerce
+
+-- | Execution result information listed in the output details for an action execution.
+aeoExecutionResult :: Lens' ActionExecutionOutput (Maybe ActionExecutionResult)
+aeoExecutionResult = lens _aeoExecutionResult (\ s a -> s{_aeoExecutionResult = a})
+
+instance FromJSON ActionExecutionOutput where
+        parseJSON
+          = withObject "ActionExecutionOutput"
+              (\ x ->
+                 ActionExecutionOutput' <$>
+                   (x .:? "outputArtifacts" .!= mempty) <*>
+                     (x .:? "executionResult"))
+
+instance Hashable ActionExecutionOutput where
+
+instance NFData ActionExecutionOutput where
+
+-- | Execution result information, such as the external execution ID.
+--
+--
+--
+-- /See:/ 'actionExecutionResult' smart constructor.
+data ActionExecutionResult = ActionExecutionResult'
+  { _aerExternalExecutionURL     :: !(Maybe Text)
+  , _aerExternalExecutionId      :: !(Maybe Text)
+  , _aerExternalExecutionSummary :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ActionExecutionResult' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aerExternalExecutionURL' - The deepest external link to the external resource (for example, a repository URL or deployment endpoint) that is used when running the action.
+--
+-- * 'aerExternalExecutionId' - The action provider's external ID for the action execution.
+--
+-- * 'aerExternalExecutionSummary' - The action provider's summary for the action execution.
+actionExecutionResult
+    :: ActionExecutionResult
+actionExecutionResult =
+  ActionExecutionResult'
+    { _aerExternalExecutionURL = Nothing
+    , _aerExternalExecutionId = Nothing
+    , _aerExternalExecutionSummary = Nothing
+    }
+
+
+-- | The deepest external link to the external resource (for example, a repository URL or deployment endpoint) that is used when running the action.
+aerExternalExecutionURL :: Lens' ActionExecutionResult (Maybe Text)
+aerExternalExecutionURL = lens _aerExternalExecutionURL (\ s a -> s{_aerExternalExecutionURL = a})
+
+-- | The action provider's external ID for the action execution.
+aerExternalExecutionId :: Lens' ActionExecutionResult (Maybe Text)
+aerExternalExecutionId = lens _aerExternalExecutionId (\ s a -> s{_aerExternalExecutionId = a})
+
+-- | The action provider's summary for the action execution.
+aerExternalExecutionSummary :: Lens' ActionExecutionResult (Maybe Text)
+aerExternalExecutionSummary = lens _aerExternalExecutionSummary (\ s a -> s{_aerExternalExecutionSummary = a})
+
+instance FromJSON ActionExecutionResult where
+        parseJSON
+          = withObject "ActionExecutionResult"
+              (\ x ->
+                 ActionExecutionResult' <$>
+                   (x .:? "externalExecutionUrl") <*>
+                     (x .:? "externalExecutionId")
+                     <*> (x .:? "externalExecutionSummary"))
+
+instance Hashable ActionExecutionResult where
+
+instance NFData ActionExecutionResult where
 
 -- | Represents information about the version (or revision) of an action.
 --
@@ -706,7 +1045,7 @@ data ActionTypeId = ActionTypeId'
 --
 -- * 'atiOwner' - The creator of the action being called.
 --
--- * 'atiProvider' - The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+-- * 'atiProvider' - The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. To reference a list of action providers by action type, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers Valid Action Types and Providers in CodePipeline> .
 --
 -- * 'atiVersion' - A string that describes the action version.
 actionTypeId
@@ -732,7 +1071,7 @@ atiCategory = lens _atiCategory (\ s a -> s{_atiCategory = a})
 atiOwner :: Lens' ActionTypeId ActionOwner
 atiOwner = lens _atiOwner (\ s a -> s{_atiOwner = a})
 
--- | The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
+-- | The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. To reference a list of action providers by action type, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers Valid Action Types and Providers in CodePipeline> .
 atiProvider :: Lens' ActionTypeId Text
 atiProvider = lens _atiProvider (\ s a -> s{_atiProvider = a})
 
@@ -890,9 +1229,9 @@ instance ToJSON ApprovalResult where
 --
 -- /See:/ 'artifact' smart constructor.
 data Artifact = Artifact'
-  { _aLocation :: !(Maybe ArtifactLocation)
-  , _aName     :: !(Maybe Text)
-  , _aRevision :: !(Maybe Text)
+  { _artLocation :: !(Maybe ArtifactLocation)
+  , _artName     :: !(Maybe Text)
+  , _artRevision :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -900,28 +1239,28 @@ data Artifact = Artifact'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aLocation' - The location of an artifact.
+-- * 'artLocation' - The location of an artifact.
 --
--- * 'aName' - The artifact's name.
+-- * 'artName' - The artifact's name.
 --
--- * 'aRevision' - The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
+-- * 'artRevision' - The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
 artifact
     :: Artifact
 artifact =
-  Artifact' {_aLocation = Nothing, _aName = Nothing, _aRevision = Nothing}
+  Artifact' {_artLocation = Nothing, _artName = Nothing, _artRevision = Nothing}
 
 
 -- | The location of an artifact.
-aLocation :: Lens' Artifact (Maybe ArtifactLocation)
-aLocation = lens _aLocation (\ s a -> s{_aLocation = a})
+artLocation :: Lens' Artifact (Maybe ArtifactLocation)
+artLocation = lens _artLocation (\ s a -> s{_artLocation = a})
 
 -- | The artifact's name.
-aName :: Lens' Artifact (Maybe Text)
-aName = lens _aName (\ s a -> s{_aName = a})
+artName :: Lens' Artifact (Maybe Text)
+artName = lens _artName (\ s a -> s{_artName = a})
 
 -- | The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
-aRevision :: Lens' Artifact (Maybe Text)
-aRevision = lens _aRevision (\ s a -> s{_aRevision = a})
+artRevision :: Lens' Artifact (Maybe Text)
+artRevision = lens _artRevision (\ s a -> s{_artRevision = a})
 
 instance FromJSON Artifact where
         parseJSON
@@ -934,6 +1273,48 @@ instance FromJSON Artifact where
 instance Hashable Artifact where
 
 instance NFData Artifact where
+
+-- | Artifact details for the action execution, such as the artifact location.
+--
+--
+--
+-- /See:/ 'artifactDetail' smart constructor.
+data ArtifactDetail = ArtifactDetail'
+  { _aName       :: !(Maybe Text)
+  , _aS3location :: !(Maybe S3Location)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ArtifactDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aName' - The artifact object name for the action execution.
+--
+-- * 'aS3location' - The Amazon S3 artifact location for the action execution.
+artifactDetail
+    :: ArtifactDetail
+artifactDetail = ArtifactDetail' {_aName = Nothing, _aS3location = Nothing}
+
+
+-- | The artifact object name for the action execution.
+aName :: Lens' ArtifactDetail (Maybe Text)
+aName = lens _aName (\ s a -> s{_aName = a})
+
+-- | The Amazon S3 artifact location for the action execution.
+aS3location :: Lens' ArtifactDetail (Maybe S3Location)
+aS3location = lens _aS3location (\ s a -> s{_aS3location = a})
+
+instance FromJSON ArtifactDetail where
+        parseJSON
+          = withObject "ArtifactDetail"
+              (\ x ->
+                 ArtifactDetail' <$>
+                   (x .:? "name") <*> (x .:? "s3location"))
+
+instance Hashable ArtifactDetail where
+
+instance NFData ArtifactDetail where
 
 -- | Returns information about the details of an artifact.
 --
@@ -1926,11 +2307,12 @@ instance NFData PipelineContext where
 --
 -- /See:/ 'pipelineDeclaration' smart constructor.
 data PipelineDeclaration = PipelineDeclaration'
-  { _pdVersion       :: !(Maybe Nat)
-  , _pdName          :: !Text
-  , _pdRoleARN       :: !Text
-  , _pdArtifactStore :: !ArtifactStore
-  , _pdStages        :: ![StageDeclaration]
+  { _pdArtifactStores :: !(Maybe (Map Text ArtifactStore))
+  , _pdArtifactStore  :: !(Maybe ArtifactStore)
+  , _pdVersion        :: !(Maybe Nat)
+  , _pdName           :: !Text
+  , _pdRoleARN        :: !Text
+  , _pdStages         :: ![StageDeclaration]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1938,29 +2320,39 @@ data PipelineDeclaration = PipelineDeclaration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'pdArtifactStores' - A mapping of artifactStore objects and their corresponding regions. There must be an artifact store for the pipeline region and for each cross-region action within the pipeline. You can only use either artifactStore or artifactStores, not both. If you create a cross-region action in your pipeline, you must use artifactStores.
+--
+-- * 'pdArtifactStore' - Represents information about the Amazon S3 bucket where artifacts are stored for the pipeline.
+--
 -- * 'pdVersion' - The version number of the pipeline. A new pipeline always has a version number of 1. This number is automatically incremented when a pipeline is updated.
 --
 -- * 'pdName' - The name of the action to be performed.
 --
 -- * 'pdRoleARN' - The Amazon Resource Name (ARN) for AWS CodePipeline to use to either perform actions with no actionRoleArn, or to use to assume roles for actions with an actionRoleArn.
 --
--- * 'pdArtifactStore' - Represents information about the Amazon S3 bucket where artifacts are stored for the pipeline.
---
 -- * 'pdStages' - The stage in which to perform the action.
 pipelineDeclaration
     :: Text -- ^ 'pdName'
     -> Text -- ^ 'pdRoleARN'
-    -> ArtifactStore -- ^ 'pdArtifactStore'
     -> PipelineDeclaration
-pipelineDeclaration pName_ pRoleARN_ pArtifactStore_ =
+pipelineDeclaration pName_ pRoleARN_ =
   PipelineDeclaration'
-    { _pdVersion = Nothing
+    { _pdArtifactStores = Nothing
+    , _pdArtifactStore = Nothing
+    , _pdVersion = Nothing
     , _pdName = pName_
     , _pdRoleARN = pRoleARN_
-    , _pdArtifactStore = pArtifactStore_
     , _pdStages = mempty
     }
 
+
+-- | A mapping of artifactStore objects and their corresponding regions. There must be an artifact store for the pipeline region and for each cross-region action within the pipeline. You can only use either artifactStore or artifactStores, not both. If you create a cross-region action in your pipeline, you must use artifactStores.
+pdArtifactStores :: Lens' PipelineDeclaration (HashMap Text ArtifactStore)
+pdArtifactStores = lens _pdArtifactStores (\ s a -> s{_pdArtifactStores = a}) . _Default . _Map
+
+-- | Represents information about the Amazon S3 bucket where artifacts are stored for the pipeline.
+pdArtifactStore :: Lens' PipelineDeclaration (Maybe ArtifactStore)
+pdArtifactStore = lens _pdArtifactStore (\ s a -> s{_pdArtifactStore = a})
 
 -- | The version number of the pipeline. A new pipeline always has a version number of 1. This number is automatically incremented when a pipeline is updated.
 pdVersion :: Lens' PipelineDeclaration (Maybe Natural)
@@ -1974,10 +2366,6 @@ pdName = lens _pdName (\ s a -> s{_pdName = a})
 pdRoleARN :: Lens' PipelineDeclaration Text
 pdRoleARN = lens _pdRoleARN (\ s a -> s{_pdRoleARN = a})
 
--- | Represents information about the Amazon S3 bucket where artifacts are stored for the pipeline.
-pdArtifactStore :: Lens' PipelineDeclaration ArtifactStore
-pdArtifactStore = lens _pdArtifactStore (\ s a -> s{_pdArtifactStore = a})
-
 -- | The stage in which to perform the action.
 pdStages :: Lens' PipelineDeclaration [StageDeclaration]
 pdStages = lens _pdStages (\ s a -> s{_pdStages = a}) . _Coerce
@@ -1987,9 +2375,11 @@ instance FromJSON PipelineDeclaration where
           = withObject "PipelineDeclaration"
               (\ x ->
                  PipelineDeclaration' <$>
-                   (x .:? "version") <*> (x .: "name") <*>
-                     (x .: "roleArn")
-                     <*> (x .: "artifactStore")
+                   (x .:? "artifactStores" .!= mempty) <*>
+                     (x .:? "artifactStore")
+                     <*> (x .:? "version")
+                     <*> (x .: "name")
+                     <*> (x .: "roleArn")
                      <*> (x .:? "stages" .!= mempty))
 
 instance Hashable PipelineDeclaration where
@@ -2000,10 +2390,11 @@ instance ToJSON PipelineDeclaration where
         toJSON PipelineDeclaration'{..}
           = object
               (catMaybes
-                 [("version" .=) <$> _pdVersion,
+                 [("artifactStores" .=) <$> _pdArtifactStores,
+                  ("artifactStore" .=) <$> _pdArtifactStore,
+                  ("version" .=) <$> _pdVersion,
                   Just ("name" .= _pdName),
                   Just ("roleArn" .= _pdRoleARN),
-                  Just ("artifactStore" .= _pdArtifactStore),
                   Just ("stages" .= _pdStages)])
 
 -- | Represents information about an execution of a pipeline.
@@ -2103,7 +2494,7 @@ data PipelineExecutionSummary = PipelineExecutionSummary'
 --
 -- * 'pesPipelineExecutionId' - The ID of the pipeline execution.
 --
--- * 'pesSourceRevisions' - Undocumented member.
+-- * 'pesSourceRevisions' - A list of the source artifact revisions that initiated a pipeline execution.
 --
 -- * 'pesLastUpdateTime' - The date and time of the last change to the pipeline execution, in timestamp format.
 pipelineExecutionSummary
@@ -2130,7 +2521,7 @@ pesStartTime = lens _pesStartTime (\ s a -> s{_pesStartTime = a}) . mapping _Tim
 pesPipelineExecutionId :: Lens' PipelineExecutionSummary (Maybe Text)
 pesPipelineExecutionId = lens _pesPipelineExecutionId (\ s a -> s{_pesPipelineExecutionId = a})
 
--- | Undocumented member.
+-- | A list of the source artifact revisions that initiated a pipeline execution.
 pesSourceRevisions :: Lens' PipelineExecutionSummary [SourceRevision]
 pesSourceRevisions = lens _pesSourceRevisions (\ s a -> s{_pesSourceRevisions = a}) . _Default . _Coerce
 
@@ -2314,7 +2705,52 @@ instance Hashable S3ArtifactLocation where
 
 instance NFData S3ArtifactLocation where
 
--- | /See:/ 'sourceRevision' smart constructor.
+-- | The Amazon S3 artifact location for an action's artifacts.
+--
+--
+--
+-- /See:/ 's3Location' smart constructor.
+data S3Location = S3Location'
+  { _slBucket :: !(Maybe Text)
+  , _slKey    :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'S3Location' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slBucket' - The Amazon S3 artifact bucket for an action's artifacts.
+--
+-- * 'slKey' - The artifact name.
+s3Location
+    :: S3Location
+s3Location = S3Location' {_slBucket = Nothing, _slKey = Nothing}
+
+
+-- | The Amazon S3 artifact bucket for an action's artifacts.
+slBucket :: Lens' S3Location (Maybe Text)
+slBucket = lens _slBucket (\ s a -> s{_slBucket = a})
+
+-- | The artifact name.
+slKey :: Lens' S3Location (Maybe Text)
+slKey = lens _slKey (\ s a -> s{_slKey = a})
+
+instance FromJSON S3Location where
+        parseJSON
+          = withObject "S3Location"
+              (\ x ->
+                 S3Location' <$> (x .:? "bucket") <*> (x .:? "key"))
+
+instance Hashable S3Location where
+
+instance NFData S3Location where
+
+-- | Information about the version (or revision) of a source artifact that initiated a pipeline execution.
+--
+--
+--
+-- /See:/ 'sourceRevision' smart constructor.
 data SourceRevision = SourceRevision'
   { _srRevisionSummary :: !(Maybe Text)
   , _srRevisionURL     :: !(Maybe Text)
@@ -2327,13 +2763,13 @@ data SourceRevision = SourceRevision'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srRevisionSummary' - Undocumented member.
+-- * 'srRevisionSummary' - Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a @codepipeline-artifact-revision-summary@ key specified in the object metadata.
 --
--- * 'srRevisionURL' - Undocumented member.
+-- * 'srRevisionURL' - The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page.
 --
--- * 'srRevisionId' - Undocumented member.
+-- * 'srRevisionId' - The system-generated unique ID that identifies the revision number of the artifact.
 --
--- * 'srActionName' - Undocumented member.
+-- * 'srActionName' - The name of the action that processed the revision to the source artifact.
 sourceRevision
     :: Text -- ^ 'srActionName'
     -> SourceRevision
@@ -2346,19 +2782,19 @@ sourceRevision pActionName_ =
     }
 
 
--- | Undocumented member.
+-- | Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a @codepipeline-artifact-revision-summary@ key specified in the object metadata.
 srRevisionSummary :: Lens' SourceRevision (Maybe Text)
 srRevisionSummary = lens _srRevisionSummary (\ s a -> s{_srRevisionSummary = a})
 
--- | Undocumented member.
+-- | The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page.
 srRevisionURL :: Lens' SourceRevision (Maybe Text)
 srRevisionURL = lens _srRevisionURL (\ s a -> s{_srRevisionURL = a})
 
--- | Undocumented member.
+-- | The system-generated unique ID that identifies the revision number of the artifact.
 srRevisionId :: Lens' SourceRevision (Maybe Text)
 srRevisionId = lens _srRevisionId (\ s a -> s{_srRevisionId = a})
 
--- | Undocumented member.
+-- | The name of the action that processed the revision to the source artifact.
 srActionName :: Lens' SourceRevision Text
 srActionName = lens _srActionName (\ s a -> s{_srActionName = a})
 
@@ -2838,7 +3274,11 @@ instance Hashable TransitionState where
 
 instance NFData TransitionState where
 
--- | /See:/ 'webhookAuthConfiguration' smart constructor.
+-- | The authentication applied to incoming webhook trigger requests.
+--
+--
+--
+-- /See:/ 'webhookAuthConfiguration' smart constructor.
 data WebhookAuthConfiguration = WebhookAuthConfiguration'
   { _wacAllowedIPRange :: !(Maybe Text)
   , _wacSecretToken    :: !(Maybe Text)
@@ -2849,9 +3289,9 @@ data WebhookAuthConfiguration = WebhookAuthConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wacAllowedIPRange' - Undocumented member.
+-- * 'wacAllowedIPRange' - The property used to configure acceptance of webhooks within a specific IP range. For IP, only the AllowedIPRange property must be set, and this property must be set to a valid CIDR range.
 --
--- * 'wacSecretToken' - Undocumented member.
+-- * 'wacSecretToken' - The property used to configure GitHub authentication. For GITHUB_HMAC, only the SecretToken property must be set.
 webhookAuthConfiguration
     :: WebhookAuthConfiguration
 webhookAuthConfiguration =
@@ -2859,11 +3299,11 @@ webhookAuthConfiguration =
     {_wacAllowedIPRange = Nothing, _wacSecretToken = Nothing}
 
 
--- | Undocumented member.
+-- | The property used to configure acceptance of webhooks within a specific IP range. For IP, only the AllowedIPRange property must be set, and this property must be set to a valid CIDR range.
 wacAllowedIPRange :: Lens' WebhookAuthConfiguration (Maybe Text)
 wacAllowedIPRange = lens _wacAllowedIPRange (\ s a -> s{_wacAllowedIPRange = a})
 
--- | Undocumented member.
+-- | The property used to configure GitHub authentication. For GITHUB_HMAC, only the SecretToken property must be set.
 wacSecretToken :: Lens' WebhookAuthConfiguration (Maybe Text)
 wacSecretToken = lens _wacSecretToken (\ s a -> s{_wacSecretToken = a})
 
@@ -3000,7 +3440,7 @@ data WebhookFilterRule = WebhookFilterRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wfrMatchEquals' - The value selected by the JsonPath expression must match what is supplied in the MatchEquals field, otherwise the request will be ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly braces. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "master", the MatchEquals value will be evaluated as "refs/heads/master". A list of action configuration properties for built-in action types can be found here: <http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements> .
+-- * 'wfrMatchEquals' - The value selected by the JsonPath expression must match what is supplied in the MatchEquals field, otherwise the request will be ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly braces. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "master", the MatchEquals value will be evaluated as "refs/heads/master". A list of action configuration properties for built-in action types can be found here: <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements> .
 --
 -- * 'wfrJsonPath' - A JsonPath expression that will be applied to the body/payload of the webhook. The value selected by JsonPath expression must match the value specified in the matchEquals field, otherwise the request will be ignored. More information on JsonPath expressions can be found here: https://github.com/json-path/JsonPath.
 webhookFilterRule
@@ -3010,7 +3450,7 @@ webhookFilterRule pJsonPath_ =
   WebhookFilterRule' {_wfrMatchEquals = Nothing, _wfrJsonPath = pJsonPath_}
 
 
--- | The value selected by the JsonPath expression must match what is supplied in the MatchEquals field, otherwise the request will be ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly braces. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "master", the MatchEquals value will be evaluated as "refs/heads/master". A list of action configuration properties for built-in action types can be found here: <http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements> .
+-- | The value selected by the JsonPath expression must match what is supplied in the MatchEquals field, otherwise the request will be ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly braces. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "master", the MatchEquals value will be evaluated as "refs/heads/master". A list of action configuration properties for built-in action types can be found here: <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements> .
 wfrMatchEquals :: Lens' WebhookFilterRule (Maybe Text)
 wfrMatchEquals = lens _wfrMatchEquals (\ s a -> s{_wfrMatchEquals = a})
 

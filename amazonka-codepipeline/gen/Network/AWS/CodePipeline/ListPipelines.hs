@@ -21,6 +21,8 @@
 -- Gets a summary of all of the pipelines associated with your account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CodePipeline.ListPipelines
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.CodePipeline.ListPipelines
 import Network.AWS.CodePipeline.Types
 import Network.AWS.CodePipeline.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -68,6 +71,13 @@ listPipelines = ListPipelines' {_lpNextToken = Nothing}
 -- | An identifier that was returned from the previous list pipelines call, which can be used to return the next set of pipelines in the list.
 lpNextToken :: Lens' ListPipelines (Maybe Text)
 lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a})
+
+instance AWSPager ListPipelines where
+        page rq rs
+          | stop (rs ^. lprsNextToken) = Nothing
+          | stop (rs ^. lprsPipelines) = Nothing
+          | otherwise =
+            Just $ rq & lpNextToken .~ rs ^. lprsNextToken
 
 instance AWSRequest ListPipelines where
         type Rs ListPipelines = ListPipelinesResponse

@@ -21,6 +21,8 @@
 -- Gets a summary of all AWS CodePipeline action types associated with your account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CodePipeline.ListActionTypes
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.CodePipeline.ListActionTypes
 import Network.AWS.CodePipeline.Types
 import Network.AWS.CodePipeline.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -77,6 +80,13 @@ latActionOwnerFilter = lens _latActionOwnerFilter (\ s a -> s{_latActionOwnerFil
 -- | An identifier that was returned from the previous list action types call, which can be used to return the next set of action types in the list.
 latNextToken :: Lens' ListActionTypes (Maybe Text)
 latNextToken = lens _latNextToken (\ s a -> s{_latNextToken = a})
+
+instance AWSPager ListActionTypes where
+        page rq rs
+          | stop (rs ^. latrsNextToken) = Nothing
+          | stop (rs ^. latrsActionTypes) = Nothing
+          | otherwise =
+            Just $ rq & latNextToken .~ rs ^. latrsNextToken
 
 instance AWSRequest ListActionTypes where
         type Rs ListActionTypes = ListActionTypesResponse

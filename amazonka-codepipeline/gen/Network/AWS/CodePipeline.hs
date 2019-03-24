@@ -15,7 +15,7 @@
 --
 -- __Overview__
 --
--- This is the AWS CodePipeline API Reference. This guide provides descriptions of the actions and data types for AWS CodePipeline. Some functionality for your pipeline is only configurable through the API. For additional information, see the <http://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html AWS CodePipeline User Guide> .
+-- This is the AWS CodePipeline API Reference. This guide provides descriptions of the actions and data types for AWS CodePipeline. Some functionality for your pipeline is only configurable through the API. For additional information, see the <https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html AWS CodePipeline User Guide> .
 --
 -- You can use the AWS CodePipeline API to work with pipelines, stages, actions, and transitions, as described below.
 --
@@ -43,7 +43,7 @@
 --
 --
 --
--- Pipelines include /stages/ . Each stage contains one or more actions that must complete before the next stage begins. A stage will result in success or failure. If a stage fails, then the pipeline stops at that stage and will remain stopped until either a new version of an artifact appears in the source location, or a user takes action to re-run the most recent artifact through the pipeline. You can call 'GetPipelineState' , which displays the status of a pipeline, including the status of stages in the pipeline, or 'GetPipeline' , which returns the entire structure of the pipeline, including the stages of that pipeline. For more information about the structure of stages and actions, also refer to the <http://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html AWS CodePipeline Pipeline Structure Reference> .
+-- Pipelines include /stages/ . Each stage contains one or more actions that must complete before the next stage begins. A stage will result in success or failure. If a stage fails, then the pipeline stops at that stage and will remain stopped until either a new version of an artifact appears in the source location, or a user takes action to re-run the most recent artifact through the pipeline. You can call 'GetPipelineState' , which displays the status of a pipeline, including the status of stages in the pipeline, or 'GetPipeline' , which returns the entire structure of the pipeline, including the stages of that pipeline. For more information about the structure of stages and actions, also refer to the <https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-structure.html AWS CodePipeline Pipeline Structure Reference> .
 --
 -- Pipeline stages include /actions/ , which are categorized into categories such as source or build actions performed within a stage of a pipeline. For example, you can use a source action to import artifacts into a pipeline from a source such as Amazon S3. Like stages, you do not work with actions directly in most cases, but you do define and interact with actions when working with pipeline operations such as 'CreatePipeline' and 'GetPipelineState' . Valid action categories are:
 --
@@ -238,7 +238,7 @@ module Network.AWS.CodePipeline
     -- ** GetJobDetails
     , module Network.AWS.CodePipeline.GetJobDetails
 
-    -- ** ListPipelines
+    -- ** ListPipelines (Paginated)
     , module Network.AWS.CodePipeline.ListPipelines
 
     -- ** RetryStageExecution
@@ -262,7 +262,7 @@ module Network.AWS.CodePipeline
     -- ** DisableStageTransition
     , module Network.AWS.CodePipeline.DisableStageTransition
 
-    -- ** ListActionTypes
+    -- ** ListActionTypes (Paginated)
     , module Network.AWS.CodePipeline.ListActionTypes
 
     -- ** AcknowledgeJob
@@ -277,8 +277,11 @@ module Network.AWS.CodePipeline
     -- ** PutWebhook
     , module Network.AWS.CodePipeline.PutWebhook
 
-    -- ** ListWebhooks
+    -- ** ListWebhooks (Paginated)
     , module Network.AWS.CodePipeline.ListWebhooks
+
+    -- ** ListActionExecutions
+    , module Network.AWS.CodePipeline.ListActionExecutions
 
     -- ** CreatePipeline
     , module Network.AWS.CodePipeline.CreatePipeline
@@ -292,7 +295,7 @@ module Network.AWS.CodePipeline
     -- ** CreateCustomActionType
     , module Network.AWS.CodePipeline.CreateCustomActionType
 
-    -- ** ListPipelineExecutions
+    -- ** ListPipelineExecutions (Paginated)
     , module Network.AWS.CodePipeline.ListPipelineExecutions
 
     -- * Types
@@ -378,6 +381,7 @@ module Network.AWS.CodePipeline
     , actionDeclaration
     , adOutputArtifacts
     , adRunOrder
+    , adRegion
     , adConfiguration
     , adInputArtifacts
     , adRoleARN
@@ -396,6 +400,47 @@ module Network.AWS.CodePipeline
     , aeExternalExecutionId
     , aeErrorDetails
     , aePercentComplete
+
+    -- ** ActionExecutionDetail
+    , ActionExecutionDetail
+    , actionExecutionDetail
+    , aedStatus
+    , aedStartTime
+    , aedPipelineVersion
+    , aedInput
+    , aedActionName
+    , aedOutput
+    , aedPipelineExecutionId
+    , aedStageName
+    , aedLastUpdateTime
+    , aedActionExecutionId
+
+    -- ** ActionExecutionFilter
+    , ActionExecutionFilter
+    , actionExecutionFilter
+    , aefPipelineExecutionId
+
+    -- ** ActionExecutionInput
+    , ActionExecutionInput
+    , actionExecutionInput
+    , aeiRegion
+    , aeiConfiguration
+    , aeiActionTypeId
+    , aeiInputArtifacts
+    , aeiRoleARN
+
+    -- ** ActionExecutionOutput
+    , ActionExecutionOutput
+    , actionExecutionOutput
+    , aeoOutputArtifacts
+    , aeoExecutionResult
+
+    -- ** ActionExecutionResult
+    , ActionExecutionResult
+    , actionExecutionResult
+    , aerExternalExecutionURL
+    , aerExternalExecutionId
+    , aerExternalExecutionSummary
 
     -- ** ActionRevision
     , ActionRevision
@@ -447,9 +492,15 @@ module Network.AWS.CodePipeline
     -- ** Artifact
     , Artifact
     , artifact
-    , aLocation
+    , artLocation
+    , artName
+    , artRevision
+
+    -- ** ArtifactDetail
+    , ArtifactDetail
+    , artifactDetail
     , aName
-    , aRevision
+    , aS3location
 
     -- ** ArtifactDetails
     , ArtifactDetails
@@ -577,10 +628,11 @@ module Network.AWS.CodePipeline
     -- ** PipelineDeclaration
     , PipelineDeclaration
     , pipelineDeclaration
+    , pdArtifactStores
+    , pdArtifactStore
     , pdVersion
     , pdName
     , pdRoleARN
-    , pdArtifactStore
     , pdStages
 
     -- ** PipelineExecution
@@ -621,6 +673,12 @@ module Network.AWS.CodePipeline
     , s3ArtifactLocation
     , salBucketName
     , salObjectKey
+
+    -- ** S3Location
+    , S3Location
+    , s3Location
+    , slBucket
+    , slKey
 
     -- ** SourceRevision
     , SourceRevision
@@ -727,6 +785,7 @@ import Network.AWS.CodePipeline.GetPipeline
 import Network.AWS.CodePipeline.GetPipelineExecution
 import Network.AWS.CodePipeline.GetPipelineState
 import Network.AWS.CodePipeline.GetThirdPartyJobDetails
+import Network.AWS.CodePipeline.ListActionExecutions
 import Network.AWS.CodePipeline.ListActionTypes
 import Network.AWS.CodePipeline.ListPipelineExecutions
 import Network.AWS.CodePipeline.ListPipelines

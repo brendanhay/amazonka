@@ -109,6 +109,9 @@ import Test.Tasty
 --         , requestListWebhooks $
 --             listWebhooks
 --
+--         , requestListActionExecutions $
+--             listActionExecutions
+--
 --         , requestCreatePipeline $
 --             createPipeline
 --
@@ -207,6 +210,9 @@ import Test.Tasty
 --
 --         , responseListWebhooks $
 --             listWebhooksResponse
+--
+--         , responseListActionExecutions $
+--             listActionExecutionsResponse
 --
 --         , responseCreatePipeline $
 --             createPipelineResponse
@@ -362,6 +368,11 @@ requestListWebhooks :: ListWebhooks -> TestTree
 requestListWebhooks = req
     "ListWebhooks"
     "fixture/ListWebhooks.yaml"
+
+requestListActionExecutions :: ListActionExecutions -> TestTree
+requestListActionExecutions = req
+    "ListActionExecutions"
+    "fixture/ListActionExecutions.yaml"
 
 requestCreatePipeline :: CreatePipeline -> TestTree
 requestCreatePipeline = req
@@ -578,6 +589,13 @@ responseListWebhooks = res
     "fixture/ListWebhooksResponse.proto"
     codePipeline
     (Proxy :: Proxy ListWebhooks)
+
+responseListActionExecutions :: ListActionExecutionsResponse -> TestTree
+responseListActionExecutions = res
+    "ListActionExecutionsResponse"
+    "fixture/ListActionExecutionsResponse.proto"
+    codePipeline
+    (Proxy :: Proxy ListActionExecutions)
 
 responseCreatePipeline :: CreatePipelineResponse -> TestTree
 responseCreatePipeline = res

@@ -60,6 +60,7 @@ library
         , Network.AWS.CodePipeline.GetPipelineExecution
         , Network.AWS.CodePipeline.GetPipelineState
         , Network.AWS.CodePipeline.GetThirdPartyJobDetails
+        , Network.AWS.CodePipeline.ListActionExecutions
         , Network.AWS.CodePipeline.ListActionTypes
         , Network.AWS.CodePipeline.ListPipelineExecutions
         , Network.AWS.CodePipeline.ListPipelines

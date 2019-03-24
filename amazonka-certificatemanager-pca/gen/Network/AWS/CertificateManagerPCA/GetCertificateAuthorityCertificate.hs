@@ -55,7 +55,7 @@ newtype GetCertificateAuthorityCertificate = GetCertificateAuthorityCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcacCertificateAuthorityARN' - The Amazon Resource Name (ARN) of your private CA. This is of the form: @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
+-- * 'gcacCertificateAuthorityARN' - The Amazon Resource Name (ARN) of your private CA. This is of the form: @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
 getCertificateAuthorityCertificate
     :: Text -- ^ 'gcacCertificateAuthorityARN'
     -> GetCertificateAuthorityCertificate
@@ -64,7 +64,7 @@ getCertificateAuthorityCertificate pCertificateAuthorityARN_ =
     {_gcacCertificateAuthorityARN = pCertificateAuthorityARN_}
 
 
--- | The Amazon Resource Name (ARN) of your private CA. This is of the form: @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
+-- | The Amazon Resource Name (ARN) of your private CA. This is of the form: @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
 gcacCertificateAuthorityARN :: Lens' GetCertificateAuthorityCertificate Text
 gcacCertificateAuthorityARN = lens _gcacCertificateAuthorityARN (\ s a -> s{_gcacCertificateAuthorityARN = a})
 

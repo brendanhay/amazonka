@@ -19,6 +19,39 @@ module Network.AWS.CertificateManagerPCA.Types.Sum where
 
 import Network.AWS.Prelude
 
+data ActionType
+  = GetCertificate
+  | IssueCertificate
+  | ListPermissions
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ActionType where
+    parser = takeLowerText >>= \case
+        "getcertificate" -> pure GetCertificate
+        "issuecertificate" -> pure IssueCertificate
+        "listpermissions" -> pure ListPermissions
+        e -> fromTextError $ "Failure parsing ActionType from value: '" <> e
+           <> "'. Accepted values: getcertificate, issuecertificate, listpermissions"
+
+instance ToText ActionType where
+    toText = \case
+        GetCertificate -> "GetCertificate"
+        IssueCertificate -> "IssueCertificate"
+        ListPermissions -> "ListPermissions"
+
+instance Hashable     ActionType
+instance NFData       ActionType
+instance ToByteString ActionType
+instance ToQuery      ActionType
+instance ToHeader     ActionType
+
+instance ToJSON ActionType where
+    toJSON = toJSONText
+
+instance FromJSON ActionType where
+    parseJSON = parseJSONText "ActionType"
+
 data AuditReportResponseFormat
   = CSV
   | JSON
@@ -79,6 +112,7 @@ instance FromJSON AuditReportStatus where
 data CertificateAuthorityStatus
   = Active
   | Creating
+  | Deleted
   | Disabled
   | Expired
   | Failed
@@ -90,17 +124,19 @@ instance FromText CertificateAuthorityStatus where
     parser = takeLowerText >>= \case
         "active" -> pure Active
         "creating" -> pure Creating
+        "deleted" -> pure Deleted
         "disabled" -> pure Disabled
         "expired" -> pure Expired
         "failed" -> pure Failed
         "pending_certificate" -> pure PendingCertificate
         e -> fromTextError $ "Failure parsing CertificateAuthorityStatus from value: '" <> e
-           <> "'. Accepted values: active, creating, disabled, expired, failed, pending_certificate"
+           <> "'. Accepted values: active, creating, deleted, disabled, expired, failed, pending_certificate"
 
 instance ToText CertificateAuthorityStatus where
     toText = \case
         Active -> "ACTIVE"
         Creating -> "CREATING"
+        Deleted -> "DELETED"
         Disabled -> "DISABLED"
         Expired -> "EXPIRED"
         Failed -> "FAILED"

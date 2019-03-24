@@ -18,8 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the private certificate authority (CA) that you created or started to create by calling the 'CreateCertificateAuthority' function. This action requires that you enter an ARN (Amazon Resource Name) for the private CA that you want to delete. You can find the ARN by calling the 'ListCertificateAuthorities' function. You can delete the CA if you are waiting for it to be created (the __Status__ field of the 'CertificateAuthority' is @CREATING@ ) or if the CA has been created but you haven't yet imported the signed certificate (the __Status__ is @PENDING_CERTIFICATE@ ) into ACM PCA. If you've already imported the certificate, you cannot delete the CA unless it has been disabled for more than 30 days. To disable a CA, call the 'UpdateCertificateAuthority' function and set the __CertificateAuthorityStatus__ argument to @DISABLED@ .
+-- Deletes a private certificate authority (CA). You must provide the ARN (Amazon Resource Name) of the private CA that you want to delete. You can find the ARN by calling the 'ListCertificateAuthorities' operation. Before you can delete a CA, you must disable it. Call the 'UpdateCertificateAuthority' operation and set the __CertificateAuthorityStatus__ parameter to @DISABLED@ .
 --
+--
+-- Additionally, you can delete a CA if you are waiting for it to be created (the __Status__ field of the 'CertificateAuthority' is @CREATING@ ). You can also delete it if the CA has been created but you haven't yet imported the signed certificate (the __Status__ is @PENDING_CERTIFICATE@ ) into ACM PCA.
+--
+-- If the CA is in one of the previously mentioned states and you call 'DeleteCertificateAuthority' , the CA's status changes to @DELETED@ . However, the CA won't be permanently deleted until the restoration period has passed. By default, if you do not set the @PermanentDeletionTimeInDays@ parameter, the CA remains restorable for 30 days. You can set the parameter from 7 to 30 days. The 'DescribeCertificateAuthority' operation returns the time remaining in the restoration window of a Private CA in the @DELETED@ state. To restore an eligible CA, call the 'RestoreCertificateAuthority' operation.
 --
 module Network.AWS.CertificateManagerPCA.DeleteCertificateAuthority
     (
@@ -27,6 +31,7 @@ module Network.AWS.CertificateManagerPCA.DeleteCertificateAuthority
       deleteCertificateAuthority
     , DeleteCertificateAuthority
     -- * Request Lenses
+    , dcaPermanentDeletionTimeInDays
     , dcaCertificateAuthorityARN
 
     -- * Destructuring the Response
@@ -42,8 +47,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'deleteCertificateAuthority' smart constructor.
-newtype DeleteCertificateAuthority = DeleteCertificateAuthority'
-  { _dcaCertificateAuthorityARN :: Text
+data DeleteCertificateAuthority = DeleteCertificateAuthority'
+  { _dcaPermanentDeletionTimeInDays :: !(Maybe Nat)
+  , _dcaCertificateAuthorityARN     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -51,16 +57,24 @@ newtype DeleteCertificateAuthority = DeleteCertificateAuthority'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcaCertificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called 'CreateCertificateAuthority' . This must be of the form:  @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
+-- * 'dcaPermanentDeletionTimeInDays' - The number of days to make a CA restorable after it has been deleted. This can be anywhere from 7 to 30 days, with 30 being the default.
+--
+-- * 'dcaCertificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called 'CreateCertificateAuthority' . This must have the following form:  @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
 deleteCertificateAuthority
     :: Text -- ^ 'dcaCertificateAuthorityARN'
     -> DeleteCertificateAuthority
 deleteCertificateAuthority pCertificateAuthorityARN_ =
   DeleteCertificateAuthority'
-    {_dcaCertificateAuthorityARN = pCertificateAuthorityARN_}
+    { _dcaPermanentDeletionTimeInDays = Nothing
+    , _dcaCertificateAuthorityARN = pCertificateAuthorityARN_
+    }
 
 
--- | The Amazon Resource Name (ARN) that was returned when you called 'CreateCertificateAuthority' . This must be of the form:  @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
+-- | The number of days to make a CA restorable after it has been deleted. This can be anywhere from 7 to 30 days, with 30 being the default.
+dcaPermanentDeletionTimeInDays :: Lens' DeleteCertificateAuthority (Maybe Natural)
+dcaPermanentDeletionTimeInDays = lens _dcaPermanentDeletionTimeInDays (\ s a -> s{_dcaPermanentDeletionTimeInDays = a}) . mapping _Nat
+
+-- | The Amazon Resource Name (ARN) that was returned when you called 'CreateCertificateAuthority' . This must have the following form:  @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
 dcaCertificateAuthorityARN :: Lens' DeleteCertificateAuthority Text
 dcaCertificateAuthorityARN = lens _dcaCertificateAuthorityARN (\ s a -> s{_dcaCertificateAuthorityARN = a})
 
@@ -89,7 +103,9 @@ instance ToJSON DeleteCertificateAuthority where
         toJSON DeleteCertificateAuthority'{..}
           = object
               (catMaybes
-                 [Just
+                 [("PermanentDeletionTimeInDays" .=) <$>
+                    _dcaPermanentDeletionTimeInDays,
+                  Just
                     ("CertificateAuthorityArn" .=
                        _dcaCertificateAuthorityARN)])
 

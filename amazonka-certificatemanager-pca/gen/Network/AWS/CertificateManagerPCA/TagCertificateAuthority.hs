@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds one or more tags to your private CA. Tags are labels that you can use to identify and organize your AWS resources. Each tag consists of a key and an optional value. You specify the private CA on input by its Amazon Resource Name (ARN). You specify the tag by using a key-value pair. You can apply a tag to just one private CA if you want to identify a specific characteristic of that CA, or you can apply the same tag to multiple private CAs if you want to filter for a common relationship among those CAs. To remove one or more tags, use the 'UntagCertificateAuthority' function. Call the 'ListTags' function to see what tags are associated with your CA.
+-- Adds one or more tags to your private CA. Tags are labels that you can use to identify and organize your AWS resources. Each tag consists of a key and an optional value. You specify the private CA on input by its Amazon Resource Name (ARN). You specify the tag by using a key-value pair. You can apply a tag to just one private CA if you want to identify a specific characteristic of that CA, or you can apply the same tag to multiple private CAs if you want to filter for a common relationship among those CAs. To remove one or more tags, use the 'UntagCertificateAuthority' operation. Call the 'ListTags' operation to see what tags are associated with your CA.
 --
 --
 module Network.AWS.CertificateManagerPCA.TagCertificateAuthority
@@ -53,7 +53,7 @@ data TagCertificateAuthority = TagCertificateAuthority'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tcaCertificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called 'CreateCertificateAuthority' . This must be of the form:  @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- * 'tcaCertificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called 'CreateCertificateAuthority' . This must be of the form:  @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
 --
 -- * 'tcaTags' - List of tags to be associated with the CA.
 tagCertificateAuthority
@@ -67,7 +67,7 @@ tagCertificateAuthority pCertificateAuthorityARN_ pTags_ =
     }
 
 
--- | The Amazon Resource Name (ARN) that was returned when you called 'CreateCertificateAuthority' . This must be of the form:  @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- | The Amazon Resource Name (ARN) that was returned when you called 'CreateCertificateAuthority' . This must be of the form:  @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
 tcaCertificateAuthorityARN :: Lens' TagCertificateAuthority Text
 tcaCertificateAuthorityARN = lens _tcaCertificateAuthorityARN (\ s a -> s{_tcaCertificateAuthorityARN = a})
 

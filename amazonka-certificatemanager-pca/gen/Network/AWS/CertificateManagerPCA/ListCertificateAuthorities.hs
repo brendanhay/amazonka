@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the private certificate authorities that you created by using the 'CreateCertificateAuthority' function.
+-- Lists the private certificate authorities that you created by using the 'CreateCertificateAuthority' operation.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CertificateManagerPCA.ListCertificateAuthorities
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.CertificateManagerPCA.ListCertificateAuthorities
 import Network.AWS.CertificateManagerPCA.Types
 import Network.AWS.CertificateManagerPCA.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -74,6 +77,13 @@ lcaNextToken = lens _lcaNextToken (\ s a -> s{_lcaNextToken = a})
 -- | Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
 lcaMaxResults :: Lens' ListCertificateAuthorities (Maybe Natural)
 lcaMaxResults = lens _lcaMaxResults (\ s a -> s{_lcaMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListCertificateAuthorities where
+        page rq rs
+          | stop (rs ^. lcarsNextToken) = Nothing
+          | stop (rs ^. lcarsCertificateAuthorities) = Nothing
+          | otherwise =
+            Just $ rq & lcaNextToken .~ rs ^. lcarsNextToken
 
 instance AWSRequest ListCertificateAuthorities where
         type Rs ListCertificateAuthorities =

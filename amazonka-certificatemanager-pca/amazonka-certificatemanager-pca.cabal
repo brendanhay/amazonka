@@ -47,7 +47,9 @@ library
           Network.AWS.CertificateManagerPCA
         , Network.AWS.CertificateManagerPCA.CreateCertificateAuthority
         , Network.AWS.CertificateManagerPCA.CreateCertificateAuthorityAuditReport
+        , Network.AWS.CertificateManagerPCA.CreatePermission
         , Network.AWS.CertificateManagerPCA.DeleteCertificateAuthority
+        , Network.AWS.CertificateManagerPCA.DeletePermission
         , Network.AWS.CertificateManagerPCA.DescribeCertificateAuthority
         , Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport
         , Network.AWS.CertificateManagerPCA.GetCertificate
@@ -56,7 +58,9 @@ library
         , Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate
         , Network.AWS.CertificateManagerPCA.IssueCertificate
         , Network.AWS.CertificateManagerPCA.ListCertificateAuthorities
+        , Network.AWS.CertificateManagerPCA.ListPermissions
         , Network.AWS.CertificateManagerPCA.ListTags
+        , Network.AWS.CertificateManagerPCA.RestoreCertificateAuthority
         , Network.AWS.CertificateManagerPCA.RevokeCertificate
         , Network.AWS.CertificateManagerPCA.TagCertificateAuthority
         , Network.AWS.CertificateManagerPCA.Types

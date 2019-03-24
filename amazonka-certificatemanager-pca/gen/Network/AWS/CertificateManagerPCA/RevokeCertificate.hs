@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Revokes a certificate that you issued by calling the 'IssueCertificate' function. If you enable a certificate revocation list (CRL) when you create or update your private CA, information about the revoked certificates will be included in the CRL. ACM PCA writes the CRL to an S3 bucket that you specify. For more information about revocation, see the 'CrlConfiguration' structure. ACM PCA also writes revocation information to the audit report. For more information, see 'CreateCertificateAuthorityAuditReport' .
+-- Revokes a certificate that you issued by calling the 'IssueCertificate' operation. If you enable a certificate revocation list (CRL) when you create or update your private CA, information about the revoked certificates will be included in the CRL. ACM PCA writes the CRL to an S3 bucket that you specify. For more information about revocation, see the 'CrlConfiguration' structure. ACM PCA also writes revocation information to the audit report. For more information, see 'CreateCertificateAuthorityAuditReport' .
 --
 --
 module Network.AWS.CertificateManagerPCA.RevokeCertificate
@@ -55,9 +55,9 @@ data RevokeCertificate = RevokeCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcCertificateAuthorityARN' - Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form: @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- * 'rcCertificateAuthorityARN' - Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form: @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
 --
--- * 'rcCertificateSerial' - Serial number of the certificate to be revoked. This must be in hexadecimal format. You can retrieve the serial number by calling 'GetCertificate' with the Amazon Resource Name (ARN) of the certificate you want and the ARN of your private CA. The __GetCertificate__ function retrieves the certificate in the PEM format. You can use the following OpenSSL command to list the certificate in text format and copy the hexadecimal serial number.  @openssl x509 -in /file_path/ -text -noout@  You can also copy the serial number from the console or use the <http://docs.aws.amazon.comacm/latest/APIReferenceAPI_DescribeCertificate.html DescribeCertificate> function in the /AWS Certificate Manager API Reference/ .
+-- * 'rcCertificateSerial' - Serial number of the certificate to be revoked. This must be in hexadecimal format. You can retrieve the serial number by calling 'GetCertificate' with the Amazon Resource Name (ARN) of the certificate you want and the ARN of your private CA. The __GetCertificate__ operation retrieves the certificate in the PEM format. You can use the following OpenSSL command to list the certificate in text format and copy the hexadecimal serial number.  @openssl x509 -in /file_path/ -text -noout@  You can also copy the serial number from the console or use the <https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html DescribeCertificate> operation in the /AWS Certificate Manager API Reference/ .
 --
 -- * 'rcRevocationReason' - Specifies why you revoked the certificate.
 revokeCertificate
@@ -73,11 +73,11 @@ revokeCertificate pCertificateAuthorityARN_ pCertificateSerial_ pRevocationReaso
     }
 
 
--- | Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form: @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- | Amazon Resource Name (ARN) of the private CA that issued the certificate to be revoked. This must be of the form: @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
 rcCertificateAuthorityARN :: Lens' RevokeCertificate Text
 rcCertificateAuthorityARN = lens _rcCertificateAuthorityARN (\ s a -> s{_rcCertificateAuthorityARN = a})
 
--- | Serial number of the certificate to be revoked. This must be in hexadecimal format. You can retrieve the serial number by calling 'GetCertificate' with the Amazon Resource Name (ARN) of the certificate you want and the ARN of your private CA. The __GetCertificate__ function retrieves the certificate in the PEM format. You can use the following OpenSSL command to list the certificate in text format and copy the hexadecimal serial number.  @openssl x509 -in /file_path/ -text -noout@  You can also copy the serial number from the console or use the <http://docs.aws.amazon.comacm/latest/APIReferenceAPI_DescribeCertificate.html DescribeCertificate> function in the /AWS Certificate Manager API Reference/ .
+-- | Serial number of the certificate to be revoked. This must be in hexadecimal format. You can retrieve the serial number by calling 'GetCertificate' with the Amazon Resource Name (ARN) of the certificate you want and the ARN of your private CA. The __GetCertificate__ operation retrieves the certificate in the PEM format. You can use the following OpenSSL command to list the certificate in text format and copy the hexadecimal serial number.  @openssl x509 -in /file_path/ -text -noout@  You can also copy the serial number from the console or use the <https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html DescribeCertificate> operation in the /AWS Certificate Manager API Reference/ .
 rcCertificateSerial :: Lens' RevokeCertificate Text
 rcCertificateSerial = lens _rcCertificateSerial (\ s a -> s{_rcCertificateSerial = a})
 

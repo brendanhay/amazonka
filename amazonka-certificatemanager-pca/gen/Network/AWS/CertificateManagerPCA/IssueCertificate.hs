@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Uses your private certificate authority (CA) to issue a client certificate. This function returns the Amazon Resource Name (ARN) of the certificate. You can retrieve the certificate by calling the 'GetCertificate' function and specifying the ARN.
+-- Uses your private certificate authority (CA) to issue a client certificate. This operation returns the Amazon Resource Name (ARN) of the certificate. You can retrieve the certificate by calling the 'GetCertificate' operation and specifying the ARN.
 --
 --
 module Network.AWS.CertificateManagerPCA.IssueCertificate
@@ -62,9 +62,9 @@ data IssueCertificate = IssueCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'icIdempotencyToken' - Custom string that can be used to distinguish between calls to the __IssueCertificate__ function. Idempotency tokens time out after one hour. Therefore, if you call __IssueCertificate__ multiple times with the same idempotency token within 5 minutes, ACM PCA recognizes that you are requesting only one certificate and will issue only one. If you change the idempotency token for each call, PCA recognizes that you are requesting multiple certificates.
+-- * 'icIdempotencyToken' - Custom string that can be used to distinguish between calls to the __IssueCertificate__ operation. Idempotency tokens time out after one hour. Therefore, if you call __IssueCertificate__ multiple times with the same idempotency token within 5 minutes, ACM PCA recognizes that you are requesting only one certificate and will issue only one. If you change the idempotency token for each call, PCA recognizes that you are requesting multiple certificates.
 --
--- * 'icCertificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called 'CreateCertificateAuthority' . This must be of the form: @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- * 'icCertificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called 'CreateCertificateAuthority' . This must be of the form: @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
 --
 -- * 'icCSR' - The certificate signing request (CSR) for the certificate you want to issue. You can use the following OpenSSL command to create the CSR and a 2048 bit RSA private key.  @openssl req -new -newkey rsa:2048 -days 365 -keyout private/test_cert_priv_key.pem -out csr/test_cert_.csr@  If you have a configuration file, you can use the following OpenSSL command. The @usr_cert@ block in the configuration file contains your X509 version 3 extensions.  @openssl req -new -config openssl_rsa.cnf -extensions usr_cert -newkey rsa:2048 -days -365 -keyout private/test_cert_priv_key.pem -out csr/test_cert_.csr@ -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
@@ -87,11 +87,11 @@ issueCertificate pCertificateAuthorityARN_ pCSR_ pSigningAlgorithm_ pValidity_ =
     }
 
 
--- | Custom string that can be used to distinguish between calls to the __IssueCertificate__ function. Idempotency tokens time out after one hour. Therefore, if you call __IssueCertificate__ multiple times with the same idempotency token within 5 minutes, ACM PCA recognizes that you are requesting only one certificate and will issue only one. If you change the idempotency token for each call, PCA recognizes that you are requesting multiple certificates.
+-- | Custom string that can be used to distinguish between calls to the __IssueCertificate__ operation. Idempotency tokens time out after one hour. Therefore, if you call __IssueCertificate__ multiple times with the same idempotency token within 5 minutes, ACM PCA recognizes that you are requesting only one certificate and will issue only one. If you change the idempotency token for each call, PCA recognizes that you are requesting multiple certificates.
 icIdempotencyToken :: Lens' IssueCertificate (Maybe Text)
 icIdempotencyToken = lens _icIdempotencyToken (\ s a -> s{_icIdempotencyToken = a})
 
--- | The Amazon Resource Name (ARN) that was returned when you called 'CreateCertificateAuthority' . This must be of the form: @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- | The Amazon Resource Name (ARN) that was returned when you called 'CreateCertificateAuthority' . This must be of the form: @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
 icCertificateAuthorityARN :: Lens' IssueCertificate Text
 icCertificateAuthorityARN = lens _icCertificateAuthorityARN (\ s a -> s{_icCertificateAuthorityARN = a})
 
@@ -158,7 +158,7 @@ data IssueCertificateResponse = IssueCertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'icrsCertificateARN' - The Amazon Resource Name (ARN) of the issued certificate and the certificate serial number. This is of the form: @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ /certificate//286535153982981100925020015808220737245/ @
+-- * 'icrsCertificateARN' - The Amazon Resource Name (ARN) of the issued certificate and the certificate serial number. This is of the form: @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ /certificate//286535153982981100925020015808220737245/ @
 --
 -- * 'icrsResponseStatus' - -- | The response status code.
 issueCertificateResponse
@@ -169,7 +169,7 @@ issueCertificateResponse pResponseStatus_ =
     {_icrsCertificateARN = Nothing, _icrsResponseStatus = pResponseStatus_}
 
 
--- | The Amazon Resource Name (ARN) of the issued certificate and the certificate serial number. This is of the form: @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ /certificate//286535153982981100925020015808220737245/ @
+-- | The Amazon Resource Name (ARN) of the issued certificate and the certificate serial number. This is of the form: @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ /certificate//286535153982981100925020015808220737245/ @
 icrsCertificateARN :: Lens' IssueCertificateResponse (Maybe Text)
 icrsCertificateARN = lens _icrsCertificateARN (\ s a -> s{_icrsCertificateARN = a})
 

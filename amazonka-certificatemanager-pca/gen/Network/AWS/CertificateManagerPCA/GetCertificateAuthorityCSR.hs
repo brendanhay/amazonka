@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the certificate signing request (CSR) for your private certificate authority (CA). The CSR is created when you call the 'CreateCertificateAuthority' function. Take the CSR to your on-premises X.509 infrastructure and sign it by using your root or a subordinate CA. Then import the signed certificate back into ACM PCA by calling the 'ImportCertificateAuthorityCertificate' function. The CSR is returned as a base64 PEM-encoded string.
+-- Retrieves the certificate signing request (CSR) for your private certificate authority (CA). The CSR is created when you call the 'CreateCertificateAuthority' operation. Take the CSR to your on-premises X.509 infrastructure and sign it by using your root or a subordinate CA. Then import the signed certificate back into ACM PCA by calling the 'ImportCertificateAuthorityCertificate' operation. The CSR is returned as a base64 PEM-encoded string.
 --
 --
 module Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCSR
@@ -54,7 +54,7 @@ newtype GetCertificateAuthorityCSR = GetCertificateAuthorityCSR'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcacsrCertificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called the 'CreateCertificateAuthority' function. This must be of the form:  @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- * 'gcacsrCertificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called the 'CreateCertificateAuthority' operation. This must be of the form:  @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
 getCertificateAuthorityCSR
     :: Text -- ^ 'gcacsrCertificateAuthorityARN'
     -> GetCertificateAuthorityCSR
@@ -63,7 +63,7 @@ getCertificateAuthorityCSR pCertificateAuthorityARN_ =
     {_gcacsrCertificateAuthorityARN = pCertificateAuthorityARN_}
 
 
--- | The Amazon Resource Name (ARN) that was returned when you called the 'CreateCertificateAuthority' function. This must be of the form:  @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- | The Amazon Resource Name (ARN) that was returned when you called the 'CreateCertificateAuthority' operation. This must be of the form:  @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
 gcacsrCertificateAuthorityARN :: Lens' GetCertificateAuthorityCSR Text
 gcacsrCertificateAuthorityARN = lens _gcacsrCertificateAuthorityARN (\ s a -> s{_gcacsrCertificateAuthorityARN = a})
 

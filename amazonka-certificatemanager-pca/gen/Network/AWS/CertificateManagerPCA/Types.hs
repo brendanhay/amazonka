@@ -17,6 +17,7 @@ module Network.AWS.CertificateManagerPCA.Types
 
     -- * Errors
     , _InvalidTagException
+    , _PermissionAlreadyExistsException
     , _MalformedCSRException
     , _RequestAlreadyProcessedException
     , _MalformedCertificateException
@@ -32,6 +33,9 @@ module Network.AWS.CertificateManagerPCA.Types
     , _ResourceNotFoundException
     , _InvalidStateException
     , _LimitExceededException
+
+    -- * ActionType
+    , ActionType (..)
 
     -- * AuditReportResponseFormat
     , AuditReportResponseFormat (..)
@@ -88,6 +92,7 @@ module Network.AWS.CertificateManagerPCA.Types
     , caCreatedAt
     , caSerial
     , caNotBefore
+    , caRestorableUntil
     , caType
     , caRevocationConfiguration
     , caLastStateChangeAt
@@ -107,6 +112,16 @@ module Network.AWS.CertificateManagerPCA.Types
     , ccExpirationInDays
     , ccS3BucketName
     , ccEnabled
+
+    -- * Permission
+    , Permission
+    , permission
+    , pSourceAccount
+    , pActions
+    , pCreatedAt
+    , pPrincipal
+    , pPolicy
+    , pCertificateAuthorityARN
 
     -- * RevocationConfiguration
     , RevocationConfiguration
@@ -177,6 +192,14 @@ certificateManagerPCA =
 _InvalidTagException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTagException =
   _MatchServiceError certificateManagerPCA "InvalidTagException"
+
+
+-- | The designated permission has already been given to the user.
+--
+--
+_PermissionAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+_PermissionAlreadyExistsException =
+  _MatchServiceError certificateManagerPCA "PermissionAlreadyExistsException"
 
 
 -- | The certificate signing request is invalid.
@@ -283,7 +306,7 @@ _ResourceNotFoundException =
   _MatchServiceError certificateManagerPCA "ResourceNotFoundException"
 
 
--- | The private CA is in a state during which a report cannot be generated.
+-- | The private CA is in a state during which a report or certificate cannot be generated.
 --
 --
 _InvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError

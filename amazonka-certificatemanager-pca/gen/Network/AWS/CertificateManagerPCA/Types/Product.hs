@@ -21,7 +21,7 @@ import Network.AWS.CertificateManagerPCA.Types.Sum
 import Network.AWS.Lens
 import Network.AWS.Prelude
 
--- | Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The __Subject__ field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The __Subject__ must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
+-- | Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The __Subject__ field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The __Subject__ must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
 --
 --
 --
@@ -56,7 +56,7 @@ data ASN1Subject = ASN1Subject'
 --
 -- * 'asOrganizationalUnit' - A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
 --
--- * 'asCountry' - Two digit code that specifies the country in which the certificate subject located.
+-- * 'asCountry' - Two-digit code that specifies the country in which the certificate subject located.
 --
 -- * 'asGenerationQualifier' - Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
 --
@@ -66,13 +66,13 @@ data ASN1Subject = ASN1Subject'
 --
 -- * 'asInitials' - Concatenation that typically contains the first letter of the __GivenName__ , the first letter of the middle name if one exists, and the first letter of the __SurName__ .
 --
--- * 'asTitle' - A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.
+-- * 'asTitle' - A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the certificate subject.
 --
 -- * 'asOrganization' - Legal name of the organization with which the certificate subject is affiliated.
 --
 -- * 'asSerialNumber' - The certificate serial number.
 --
--- * 'asSurname' - Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
+-- * 'asSurname' - Family name. In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
 --
 -- * 'asDistinguishedNameQualifier' - Disambiguating information for the certificate subject.
 asn1Subject
@@ -112,7 +112,7 @@ asCommonName = lens _asCommonName (\ s a -> s{_asCommonName = a})
 asOrganizationalUnit :: Lens' ASN1Subject (Maybe Text)
 asOrganizationalUnit = lens _asOrganizationalUnit (\ s a -> s{_asOrganizationalUnit = a})
 
--- | Two digit code that specifies the country in which the certificate subject located.
+-- | Two-digit code that specifies the country in which the certificate subject located.
 asCountry :: Lens' ASN1Subject (Maybe Text)
 asCountry = lens _asCountry (\ s a -> s{_asCountry = a})
 
@@ -132,7 +132,7 @@ asPseudonym = lens _asPseudonym (\ s a -> s{_asPseudonym = a})
 asInitials :: Lens' ASN1Subject (Maybe Text)
 asInitials = lens _asInitials (\ s a -> s{_asInitials = a})
 
--- | A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.
+-- | A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the certificate subject.
 asTitle :: Lens' ASN1Subject (Maybe Text)
 asTitle = lens _asTitle (\ s a -> s{_asTitle = a})
 
@@ -144,7 +144,7 @@ asOrganization = lens _asOrganization (\ s a -> s{_asOrganization = a})
 asSerialNumber :: Lens' ASN1Subject (Maybe Text)
 asSerialNumber = lens _asSerialNumber (\ s a -> s{_asSerialNumber = a})
 
--- | Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
+-- | Family name. In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
 asSurname :: Lens' ASN1Subject (Maybe Text)
 asSurname = lens _asSurname (\ s a -> s{_asSurname = a})
 
@@ -196,7 +196,7 @@ instance ToJSON ASN1Subject where
                   ("DistinguishedNameQualifier" .=) <$>
                     _asDistinguishedNameQualifier])
 
--- | Contains information about your private certificate authority (CA). Your private CA can issue and revoke X.509 digital certificates. Digital certificates verify that the entity named in the certificate __Subject__ field owns or controls the public key contained in the __Subject Public Key Info__ field. Call the 'CreateCertificateAuthority' function to create your private CA. You must then call the 'GetCertificateAuthorityCertificate' function to retrieve a private CA certificate signing request (CSR). Take the CSR to your on-premises CA and sign it with the root CA certificate or a subordinate certificate. Call the 'ImportCertificateAuthorityCertificate' function to import the signed certificate into AWS Certificate Manager (ACM).
+-- | Contains information about your private certificate authority (CA). Your private CA can issue and revoke X.509 digital certificates. Digital certificates verify that the entity named in the certificate __Subject__ field owns or controls the public key contained in the __Subject Public Key Info__ field. Call the 'CreateCertificateAuthority' operation to create your private CA. You must then call the 'GetCertificateAuthorityCertificate' operation to retrieve a private CA certificate signing request (CSR). Take the CSR to your on-premises CA and sign it with the root CA certificate or a subordinate certificate. Call the 'ImportCertificateAuthorityCertificate' operation to import the signed certificate into AWS Certificate Manager (ACM).
 --
 --
 --
@@ -209,6 +209,7 @@ data CertificateAuthority = CertificateAuthority'
   , _caCreatedAt :: !(Maybe POSIX)
   , _caSerial :: !(Maybe Text)
   , _caNotBefore :: !(Maybe POSIX)
+  , _caRestorableUntil :: !(Maybe POSIX)
   , _caType :: !(Maybe CertificateAuthorityType)
   , _caRevocationConfiguration :: !(Maybe RevocationConfiguration)
   , _caLastStateChangeAt :: !(Maybe POSIX)
@@ -234,6 +235,8 @@ data CertificateAuthority = CertificateAuthority'
 --
 -- * 'caNotBefore' - Date and time before which your private CA certificate is not valid.
 --
+-- * 'caRestorableUntil' - The period during which a deleted CA can be restored. For more information, see the @PermanentDeletionTimeInDays@ parameter of the 'DeleteCertificateAuthorityRequest' operation.
+--
 -- * 'caType' - Type of your private CA.
 --
 -- * 'caRevocationConfiguration' - Information about the certificate revocation list (CRL) created and maintained by your private CA.
@@ -252,6 +255,7 @@ certificateAuthority =
     , _caCreatedAt = Nothing
     , _caSerial = Nothing
     , _caNotBefore = Nothing
+    , _caRestorableUntil = Nothing
     , _caType = Nothing
     , _caRevocationConfiguration = Nothing
     , _caLastStateChangeAt = Nothing
@@ -287,6 +291,10 @@ caSerial = lens _caSerial (\ s a -> s{_caSerial = a})
 caNotBefore :: Lens' CertificateAuthority (Maybe UTCTime)
 caNotBefore = lens _caNotBefore (\ s a -> s{_caNotBefore = a}) . mapping _Time
 
+-- | The period during which a deleted CA can be restored. For more information, see the @PermanentDeletionTimeInDays@ parameter of the 'DeleteCertificateAuthorityRequest' operation.
+caRestorableUntil :: Lens' CertificateAuthority (Maybe UTCTime)
+caRestorableUntil = lens _caRestorableUntil (\ s a -> s{_caRestorableUntil = a}) . mapping _Time
+
 -- | Type of your private CA.
 caType :: Lens' CertificateAuthority (Maybe CertificateAuthorityType)
 caType = lens _caType (\ s a -> s{_caType = a})
@@ -314,6 +322,7 @@ instance FromJSON CertificateAuthority where
                      <*> (x .:? "CreatedAt")
                      <*> (x .:? "Serial")
                      <*> (x .:? "NotBefore")
+                     <*> (x .:? "RestorableUntil")
                      <*> (x .:? "Type")
                      <*> (x .:? "RevocationConfiguration")
                      <*> (x .:? "LastStateChangeAt")
@@ -323,7 +332,7 @@ instance Hashable CertificateAuthority where
 
 instance NFData CertificateAuthority where
 
--- | Contains configuration information for your private certificate authority (CA). This includes information about the class of public key algorithm and the key pair that your private CA creates when it issues a certificate, the signature algorithm it uses used when issuing certificates, and its X.500 distinguished name. You must specify this information when you call the 'CreateCertificateAuthority' function.
+-- | Contains configuration information for your private certificate authority (CA). This includes information about the class of public key algorithm and the key pair that your private CA creates when it issues a certificate. It also includes the signature algorithm that it uses when issuing certificates, and its X.500 distinguished name. You must specify this information when you call the 'CreateCertificateAuthority' operation.
 --
 --
 --
@@ -460,9 +469,9 @@ data CrlConfiguration = CrlConfiguration'
 --
 -- * 'ccExpirationInDays' - Number of days until a certificate expires.
 --
--- * 'ccS3BucketName' - Name of the S3 bucket that contains the CRL. If you do not provide a value for the __CustomCname__ argument, the name of your S3 bucket is placed into the __CRL Distribution Points__ extension of the issued certificate. You can change the name of your bucket by calling the 'UpdateCertificateAuthority' function. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
+-- * 'ccS3BucketName' - Name of the S3 bucket that contains the CRL. If you do not provide a value for the __CustomCname__ argument, the name of your S3 bucket is placed into the __CRL Distribution Points__ extension of the issued certificate. You can change the name of your bucket by calling the 'UpdateCertificateAuthority' operation. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
 --
--- * 'ccEnabled' - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the 'CreateCertificateAuthority' function or for an existing CA when you call the 'UpdateCertificateAuthority' function.
+-- * 'ccEnabled' - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the 'CreateCertificateAuthority' operation or for an existing CA when you call the 'UpdateCertificateAuthority' operation.
 crlConfiguration
     :: Bool -- ^ 'ccEnabled'
     -> CrlConfiguration
@@ -483,11 +492,11 @@ ccCustomCname = lens _ccCustomCname (\ s a -> s{_ccCustomCname = a})
 ccExpirationInDays :: Lens' CrlConfiguration (Maybe Natural)
 ccExpirationInDays = lens _ccExpirationInDays (\ s a -> s{_ccExpirationInDays = a}) . mapping _Nat
 
--- | Name of the S3 bucket that contains the CRL. If you do not provide a value for the __CustomCname__ argument, the name of your S3 bucket is placed into the __CRL Distribution Points__ extension of the issued certificate. You can change the name of your bucket by calling the 'UpdateCertificateAuthority' function. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
+-- | Name of the S3 bucket that contains the CRL. If you do not provide a value for the __CustomCname__ argument, the name of your S3 bucket is placed into the __CRL Distribution Points__ extension of the issued certificate. You can change the name of your bucket by calling the 'UpdateCertificateAuthority' operation. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.
 ccS3BucketName :: Lens' CrlConfiguration (Maybe Text)
 ccS3BucketName = lens _ccS3BucketName (\ s a -> s{_ccS3BucketName = a})
 
--- | Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the 'CreateCertificateAuthority' function or for an existing CA when you call the 'UpdateCertificateAuthority' function.
+-- | Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the 'CreateCertificateAuthority' operation or for an existing CA when you call the 'UpdateCertificateAuthority' operation.
 ccEnabled :: Lens' CrlConfiguration Bool
 ccEnabled = lens _ccEnabled (\ s a -> s{_ccEnabled = a})
 
@@ -513,7 +522,89 @@ instance ToJSON CrlConfiguration where
                   ("S3BucketName" .=) <$> _ccS3BucketName,
                   Just ("Enabled" .= _ccEnabled)])
 
--- | Certificate revocation information used by the 'CreateCertificateAuthority' and 'UpdateCertificateAuthority' functions. Your private certificate authority (CA) can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates revoked by your CA. For more information, see 'RevokeCertificate' .
+-- | Permissions designate which private CA operations can be performed by an AWS service or entity. In order for ACM to automatically renew private certificates, you must give the ACM service principal all available permissions (@IssueCertificate@ , @GetCertificate@ , and @ListPermissions@ ). Permissions can be assigned with the 'CreatePermission' operation, removed with the 'DeletePermission' operation, and listed with the 'ListPermissions' operation.
+--
+--
+--
+-- /See:/ 'permission' smart constructor.
+data Permission = Permission'
+  { _pSourceAccount           :: !(Maybe Text)
+  , _pActions                 :: !(Maybe (List1 ActionType))
+  , _pCreatedAt               :: !(Maybe POSIX)
+  , _pPrincipal               :: !(Maybe Text)
+  , _pPolicy                  :: !(Maybe Text)
+  , _pCertificateAuthorityARN :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Permission' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pSourceAccount' - The ID of the account that assigned the permission.
+--
+-- * 'pActions' - The private CA operations that can be performed by the designated AWS service.
+--
+-- * 'pCreatedAt' - The time at which the permission was created.
+--
+-- * 'pPrincipal' - The AWS service or entity that holds the permission. At this time, the only valid principal is @acm.amazonaws.com@ .
+--
+-- * 'pPolicy' - The name of the policy that is associated with the permission.
+--
+-- * 'pCertificateAuthorityARN' - The Amazon Resource Number (ARN) of the private CA from which the permission was issued.
+permission
+    :: Permission
+permission =
+  Permission'
+    { _pSourceAccount = Nothing
+    , _pActions = Nothing
+    , _pCreatedAt = Nothing
+    , _pPrincipal = Nothing
+    , _pPolicy = Nothing
+    , _pCertificateAuthorityARN = Nothing
+    }
+
+
+-- | The ID of the account that assigned the permission.
+pSourceAccount :: Lens' Permission (Maybe Text)
+pSourceAccount = lens _pSourceAccount (\ s a -> s{_pSourceAccount = a})
+
+-- | The private CA operations that can be performed by the designated AWS service.
+pActions :: Lens' Permission (Maybe (NonEmpty ActionType))
+pActions = lens _pActions (\ s a -> s{_pActions = a}) . mapping _List1
+
+-- | The time at which the permission was created.
+pCreatedAt :: Lens' Permission (Maybe UTCTime)
+pCreatedAt = lens _pCreatedAt (\ s a -> s{_pCreatedAt = a}) . mapping _Time
+
+-- | The AWS service or entity that holds the permission. At this time, the only valid principal is @acm.amazonaws.com@ .
+pPrincipal :: Lens' Permission (Maybe Text)
+pPrincipal = lens _pPrincipal (\ s a -> s{_pPrincipal = a})
+
+-- | The name of the policy that is associated with the permission.
+pPolicy :: Lens' Permission (Maybe Text)
+pPolicy = lens _pPolicy (\ s a -> s{_pPolicy = a})
+
+-- | The Amazon Resource Number (ARN) of the private CA from which the permission was issued.
+pCertificateAuthorityARN :: Lens' Permission (Maybe Text)
+pCertificateAuthorityARN = lens _pCertificateAuthorityARN (\ s a -> s{_pCertificateAuthorityARN = a})
+
+instance FromJSON Permission where
+        parseJSON
+          = withObject "Permission"
+              (\ x ->
+                 Permission' <$>
+                   (x .:? "SourceAccount") <*> (x .:? "Actions") <*>
+                     (x .:? "CreatedAt")
+                     <*> (x .:? "Principal")
+                     <*> (x .:? "Policy")
+                     <*> (x .:? "CertificateAuthorityArn"))
+
+instance Hashable Permission where
+
+instance NFData Permission where
+
+-- | Certificate revocation information used by the 'CreateCertificateAuthority' and 'UpdateCertificateAuthority' operations. Your private certificate authority (CA) can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates revoked by your CA. For more information, see 'RevokeCertificate' .
 --
 --
 --
@@ -555,7 +646,7 @@ instance ToJSON RevocationConfiguration where
               (catMaybes
                  [("CrlConfiguration" .=) <$> _rcCrlConfiguration])
 
--- | Tags are labels that you can use to identify and organize your private CAs. Each tag consists of a key and an optional value. You can associate up to 50 tags with a private CA. To add one or more tags to a private CA, call the 'TagCertificateAuthority' function. To remove a tag, call the 'UntagCertificateAuthority' function.
+-- | Tags are labels that you can use to identify and organize your private CAs. Each tag consists of a key and an optional value. You can associate up to 50 tags with a private CA. To add one or more tags to a private CA, call the 'TagCertificateAuthority' operation. To remove a tag, call the 'UntagCertificateAuthority' operation.
 --
 --
 --
@@ -603,7 +694,7 @@ instance ToJSON Tag where
                  [("Value" .=) <$> _tagValue,
                   Just ("Key" .= _tagKey)])
 
--- | Length of time for which the certificate issued by your private certificate authority (CA), or by the private CA itself, is valid in days, months, or years. You can issue a certificate by calling the 'IssueCertificate' function.
+-- | Length of time for which the certificate issued by your private certificate authority (CA), or by the private CA itself, is valid in days, months, or years. You can issue a certificate by calling the 'IssueCertificate' operation.
 --
 --
 --

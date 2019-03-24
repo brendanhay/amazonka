@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Imports your signed private CA certificate into ACM PCA. Before you can call this function, you must create the private certificate authority by calling the 'CreateCertificateAuthority' function. You must then generate a certificate signing request (CSR) by calling the 'GetCertificateAuthorityCsr' function. Take the CSR to your on-premises CA and use the root certificate or a subordinate certificate to sign it. Create a certificate chain and copy the signed certificate and the certificate chain to your working directory.
+-- Imports your signed private CA certificate into ACM PCA. Before you can call this operation, you must create the private certificate authority by calling the 'CreateCertificateAuthority' operation. You must then generate a certificate signing request (CSR) by calling the 'GetCertificateAuthorityCsr' operation. Take the CSR to your on-premises CA and use the root certificate or a subordinate certificate to sign it. Create a certificate chain and copy the signed certificate and the certificate chain to your working directory.
 --
 --
 module Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate
@@ -55,7 +55,7 @@ data ImportCertificateAuthorityCertificate = ImportCertificateAuthorityCertifica
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'icacCertificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called 'CreateCertificateAuthority' . This must be of the form:  @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- * 'icacCertificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called 'CreateCertificateAuthority' . This must be of the form:  @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
 --
 -- * 'icacCertificate' - The PEM-encoded certificate for your private CA. This must be signed by using your on-premises CA.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
@@ -73,7 +73,7 @@ importCertificateAuthorityCertificate pCertificateAuthorityARN_ pCertificate_ pC
     }
 
 
--- | The Amazon Resource Name (ARN) that was returned when you called 'CreateCertificateAuthority' . This must be of the form:  @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- | The Amazon Resource Name (ARN) that was returned when you called 'CreateCertificateAuthority' . This must be of the form:  @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
 icacCertificateAuthorityARN :: Lens' ImportCertificateAuthorityCertificate Text
 icacCertificateAuthorityARN = lens _icacCertificateAuthorityARN (\ s a -> s{_icacCertificateAuthorityARN = a})
 

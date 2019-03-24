@@ -31,8 +31,14 @@ import Test.Tasty
 --         [ requestImportCertificateAuthorityCertificate $
 --             importCertificateAuthorityCertificate
 --
+--         , requestCreatePermission $
+--             createPermission
+--
 --         , requestDescribeCertificateAuthorityAuditReport $
 --             describeCertificateAuthorityAuditReport
+--
+--         , requestDeletePermission $
+--             deletePermission
 --
 --         , requestRevokeCertificate $
 --             revokeCertificate
@@ -61,11 +67,17 @@ import Test.Tasty
 --         , requestDescribeCertificateAuthority $
 --             describeCertificateAuthority
 --
+--         , requestRestoreCertificateAuthority $
+--             restoreCertificateAuthority
+--
 --         , requestIssueCertificate $
 --             issueCertificate
 --
 --         , requestGetCertificateAuthorityCertificate $
 --             getCertificateAuthorityCertificate
+--
+--         , requestListPermissions $
+--             listPermissions
 --
 --         , requestUntagCertificateAuthority $
 --             untagCertificateAuthority
@@ -82,8 +94,14 @@ import Test.Tasty
 --         [ responseImportCertificateAuthorityCertificate $
 --             importCertificateAuthorityCertificateResponse
 --
+--         , responseCreatePermission $
+--             createPermissionResponse
+--
 --         , responseDescribeCertificateAuthorityAuditReport $
 --             describeCertificateAuthorityAuditReportResponse
+--
+--         , responseDeletePermission $
+--             deletePermissionResponse
 --
 --         , responseRevokeCertificate $
 --             revokeCertificateResponse
@@ -112,11 +130,17 @@ import Test.Tasty
 --         , responseDescribeCertificateAuthority $
 --             describeCertificateAuthorityResponse
 --
+--         , responseRestoreCertificateAuthority $
+--             restoreCertificateAuthorityResponse
+--
 --         , responseIssueCertificate $
 --             issueCertificateResponse
 --
 --         , responseGetCertificateAuthorityCertificate $
 --             getCertificateAuthorityCertificateResponse
+--
+--         , responseListPermissions $
+--             listPermissionsResponse
 --
 --         , responseUntagCertificateAuthority $
 --             untagCertificateAuthorityResponse
@@ -137,10 +161,20 @@ requestImportCertificateAuthorityCertificate = req
     "ImportCertificateAuthorityCertificate"
     "fixture/ImportCertificateAuthorityCertificate.yaml"
 
+requestCreatePermission :: CreatePermission -> TestTree
+requestCreatePermission = req
+    "CreatePermission"
+    "fixture/CreatePermission.yaml"
+
 requestDescribeCertificateAuthorityAuditReport :: DescribeCertificateAuthorityAuditReport -> TestTree
 requestDescribeCertificateAuthorityAuditReport = req
     "DescribeCertificateAuthorityAuditReport"
     "fixture/DescribeCertificateAuthorityAuditReport.yaml"
+
+requestDeletePermission :: DeletePermission -> TestTree
+requestDeletePermission = req
+    "DeletePermission"
+    "fixture/DeletePermission.yaml"
 
 requestRevokeCertificate :: RevokeCertificate -> TestTree
 requestRevokeCertificate = req
@@ -187,6 +221,11 @@ requestDescribeCertificateAuthority = req
     "DescribeCertificateAuthority"
     "fixture/DescribeCertificateAuthority.yaml"
 
+requestRestoreCertificateAuthority :: RestoreCertificateAuthority -> TestTree
+requestRestoreCertificateAuthority = req
+    "RestoreCertificateAuthority"
+    "fixture/RestoreCertificateAuthority.yaml"
+
 requestIssueCertificate :: IssueCertificate -> TestTree
 requestIssueCertificate = req
     "IssueCertificate"
@@ -196,6 +235,11 @@ requestGetCertificateAuthorityCertificate :: GetCertificateAuthorityCertificate 
 requestGetCertificateAuthorityCertificate = req
     "GetCertificateAuthorityCertificate"
     "fixture/GetCertificateAuthorityCertificate.yaml"
+
+requestListPermissions :: ListPermissions -> TestTree
+requestListPermissions = req
+    "ListPermissions"
+    "fixture/ListPermissions.yaml"
 
 requestUntagCertificateAuthority :: UntagCertificateAuthority -> TestTree
 requestUntagCertificateAuthority = req
@@ -221,12 +265,26 @@ responseImportCertificateAuthorityCertificate = res
     certificateManagerPCA
     (Proxy :: Proxy ImportCertificateAuthorityCertificate)
 
+responseCreatePermission :: CreatePermissionResponse -> TestTree
+responseCreatePermission = res
+    "CreatePermissionResponse"
+    "fixture/CreatePermissionResponse.proto"
+    certificateManagerPCA
+    (Proxy :: Proxy CreatePermission)
+
 responseDescribeCertificateAuthorityAuditReport :: DescribeCertificateAuthorityAuditReportResponse -> TestTree
 responseDescribeCertificateAuthorityAuditReport = res
     "DescribeCertificateAuthorityAuditReportResponse"
     "fixture/DescribeCertificateAuthorityAuditReportResponse.proto"
     certificateManagerPCA
     (Proxy :: Proxy DescribeCertificateAuthorityAuditReport)
+
+responseDeletePermission :: DeletePermissionResponse -> TestTree
+responseDeletePermission = res
+    "DeletePermissionResponse"
+    "fixture/DeletePermissionResponse.proto"
+    certificateManagerPCA
+    (Proxy :: Proxy DeletePermission)
 
 responseRevokeCertificate :: RevokeCertificateResponse -> TestTree
 responseRevokeCertificate = res
@@ -291,6 +349,13 @@ responseDescribeCertificateAuthority = res
     certificateManagerPCA
     (Proxy :: Proxy DescribeCertificateAuthority)
 
+responseRestoreCertificateAuthority :: RestoreCertificateAuthorityResponse -> TestTree
+responseRestoreCertificateAuthority = res
+    "RestoreCertificateAuthorityResponse"
+    "fixture/RestoreCertificateAuthorityResponse.proto"
+    certificateManagerPCA
+    (Proxy :: Proxy RestoreCertificateAuthority)
+
 responseIssueCertificate :: IssueCertificateResponse -> TestTree
 responseIssueCertificate = res
     "IssueCertificateResponse"
@@ -304,6 +369,13 @@ responseGetCertificateAuthorityCertificate = res
     "fixture/GetCertificateAuthorityCertificateResponse.proto"
     certificateManagerPCA
     (Proxy :: Proxy GetCertificateAuthorityCertificate)
+
+responseListPermissions :: ListPermissionsResponse -> TestTree
+responseListPermissions = res
+    "ListPermissionsResponse"
+    "fixture/ListPermissionsResponse.proto"
+    certificateManagerPCA
+    (Proxy :: Proxy ListPermissions)
 
 responseUntagCertificateAuthority :: UntagCertificateAuthorityResponse -> TestTree
 responseUntagCertificateAuthority = res

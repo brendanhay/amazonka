@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the tags, if any, that are associated with your private CA. Tags are labels that you can use to identify and organize your CAs. Each tag consists of a key and an optional value. Call the 'TagCertificateAuthority' function to add one or more tags to your CA. Call the 'UntagCertificateAuthority' function to remove tags.
+-- Lists the tags, if any, that are associated with your private CA. Tags are labels that you can use to identify and organize your CAs. Each tag consists of a key and an optional value. Call the 'TagCertificateAuthority' operation to add one or more tags to your CA. Call the 'UntagCertificateAuthority' operation to remove tags.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CertificateManagerPCA.ListTags
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.CertificateManagerPCA.ListTags
 import Network.AWS.CertificateManagerPCA.Types
 import Network.AWS.CertificateManagerPCA.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -63,7 +66,7 @@ data ListTags = ListTags'
 --
 -- * 'ltMaxResults' - Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the __NextToken__ element is sent in the response. Use this __NextToken__ value in a subsequent request to retrieve additional items.
 --
--- * 'ltCertificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called the 'CreateCertificateAuthority' function. This must be of the form:  @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- * 'ltCertificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called the 'CreateCertificateAuthority' operation. This must be of the form:  @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
 listTags
     :: Text -- ^ 'ltCertificateAuthorityARN'
     -> ListTags
@@ -83,9 +86,16 @@ ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a})
 ltMaxResults :: Lens' ListTags (Maybe Natural)
 ltMaxResults = lens _ltMaxResults (\ s a -> s{_ltMaxResults = a}) . mapping _Nat
 
--- | The Amazon Resource Name (ARN) that was returned when you called the 'CreateCertificateAuthority' function. This must be of the form:  @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- | The Amazon Resource Name (ARN) that was returned when you called the 'CreateCertificateAuthority' operation. This must be of the form:  @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
 ltCertificateAuthorityARN :: Lens' ListTags Text
 ltCertificateAuthorityARN = lens _ltCertificateAuthorityARN (\ s a -> s{_ltCertificateAuthorityARN = a})
+
+instance AWSPager ListTags where
+        page rq rs
+          | stop (rs ^. ltrsNextToken) = Nothing
+          | stop (rs ^. ltrsTags) = Nothing
+          | otherwise =
+            Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
 
 instance AWSRequest ListTags where
         type Rs ListTags = ListTagsResponse

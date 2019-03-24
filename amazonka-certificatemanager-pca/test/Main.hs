@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.CertificateManagerPCA
 import Test.AWS.CertificateManagerPCA.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "CertificateManagerPCA"

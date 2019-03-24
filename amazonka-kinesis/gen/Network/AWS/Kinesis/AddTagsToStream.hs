@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or updates tags for the specified Kinesis data stream. Each stream can have up to 10 tags.
+-- Adds or updates tags for the specified Kinesis data stream. Each time you invoke this operation, you can specify up to 10 tags. If you want to add more than 10 tags to your stream, you can invoke this operation multiple times. In total, each stream can have up to 50 tags.
 --
 --
 -- If tags have already been assigned to the stream, @AddTagsToStream@ overwrites any existing tags that correspond to the specified tag keys.
@@ -63,7 +63,7 @@ data AddTagsToStream = AddTagsToStream'
 --
 -- * 'attsStreamName' - The name of the stream.
 --
--- * 'attsTags' - The set of key-value pairs to use to create the tags.
+-- * 'attsTags' - A set of up to 10 key-value pairs to use to create the tags.
 addTagsToStream
     :: Text -- ^ 'attsStreamName'
     -> AddTagsToStream
@@ -75,7 +75,7 @@ addTagsToStream pStreamName_ =
 attsStreamName :: Lens' AddTagsToStream Text
 attsStreamName = lens _attsStreamName (\ s a -> s{_attsStreamName = a})
 
--- | The set of key-value pairs to use to create the tags.
+-- | A set of up to 10 key-value pairs to use to create the tags.
 attsTags :: Lens' AddTagsToStream (HashMap Text Text)
 attsTags = lens _attsTags (\ s a -> s{_attsTags = a}) . _Map
 

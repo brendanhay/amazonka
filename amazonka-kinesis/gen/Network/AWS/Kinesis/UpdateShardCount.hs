@@ -25,7 +25,7 @@
 --
 -- To update the shard count, Kinesis Data Streams performs splits or merges on individual shards. This can cause short-lived shards to be created, in addition to the final shards. We recommend that you double or halve the shard count, as this results in the fewest number of splits or merges.
 --
--- This operation has the following limits. You cannot do the following:
+-- This operation has the following default limits. By default, you cannot do the following:
 --
 --     * Scale more than twice per rolling 24-hour period per stream
 --

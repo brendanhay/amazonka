@@ -19,6 +19,36 @@ module Network.AWS.Kinesis.Types.Sum where
 
 import Network.AWS.Prelude
 
+data ConsumerStatus
+  = Active
+  | Creating
+  | Deleting
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ConsumerStatus where
+    parser = takeLowerText >>= \case
+        "active" -> pure Active
+        "creating" -> pure Creating
+        "deleting" -> pure Deleting
+        e -> fromTextError $ "Failure parsing ConsumerStatus from value: '" <> e
+           <> "'. Accepted values: active, creating, deleting"
+
+instance ToText ConsumerStatus where
+    toText = \case
+        Active -> "ACTIVE"
+        Creating -> "CREATING"
+        Deleting -> "DELETING"
+
+instance Hashable     ConsumerStatus
+instance NFData       ConsumerStatus
+instance ToByteString ConsumerStatus
+instance ToQuery      ConsumerStatus
+instance ToHeader     ConsumerStatus
+
+instance FromJSON ConsumerStatus where
+    parseJSON = parseJSONText "ConsumerStatus"
+
 data EncryptionType
   = KMS
   | None
@@ -158,28 +188,28 @@ instance ToJSON ShardIteratorType where
     toJSON = toJSONText
 
 data StreamStatus
-  = Active
-  | Creating
-  | Deleting
-  | Updating
+  = SSActive
+  | SSCreating
+  | SSDeleting
+  | SSUpdating
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText StreamStatus where
     parser = takeLowerText >>= \case
-        "active" -> pure Active
-        "creating" -> pure Creating
-        "deleting" -> pure Deleting
-        "updating" -> pure Updating
+        "active" -> pure SSActive
+        "creating" -> pure SSCreating
+        "deleting" -> pure SSDeleting
+        "updating" -> pure SSUpdating
         e -> fromTextError $ "Failure parsing StreamStatus from value: '" <> e
            <> "'. Accepted values: active, creating, deleting, updating"
 
 instance ToText StreamStatus where
     toText = \case
-        Active -> "ACTIVE"
-        Creating -> "CREATING"
-        Deleting -> "DELETING"
-        Updating -> "UPDATING"
+        SSActive -> "ACTIVE"
+        SSCreating -> "CREATING"
+        SSDeleting -> "DELETING"
+        SSUpdating -> "UPDATING"
 
 instance Hashable     StreamStatus
 instance NFData       StreamStatus

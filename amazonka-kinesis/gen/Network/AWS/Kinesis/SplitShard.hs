@@ -33,7 +33,7 @@
 --
 -- If the specified stream does not exist, @DescribeStream@ returns a @ResourceNotFoundException@ . If you try to create more shards than are authorized for your account, you receive a @LimitExceededException@ .
 --
--- For the default shard limit for an AWS account, see <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Streams Limits> in the /Amazon Kinesis Data Streams Developer Guide/ . To increase this limit, <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support> .
+-- For the default shard limit for an AWS account, see <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Kinesis Data Streams Limits> in the /Amazon Kinesis Data Streams Developer Guide/ . To increase this limit, <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support> .
 --
 -- If you try to operate on too many streams simultaneously using 'CreateStream' , 'DeleteStream' , 'MergeShards' , and/or 'SplitShard' , you receive a @LimitExceededException@ .
 --

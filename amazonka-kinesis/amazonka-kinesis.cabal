@@ -49,8 +49,10 @@ library
         , Network.AWS.Kinesis.CreateStream
         , Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
         , Network.AWS.Kinesis.DeleteStream
+        , Network.AWS.Kinesis.DeregisterStreamConsumer
         , Network.AWS.Kinesis.DescribeLimits
         , Network.AWS.Kinesis.DescribeStream
+        , Network.AWS.Kinesis.DescribeStreamConsumer
         , Network.AWS.Kinesis.DescribeStreamSummary
         , Network.AWS.Kinesis.DisableEnhancedMonitoring
         , Network.AWS.Kinesis.EnableEnhancedMonitoring
@@ -58,15 +60,18 @@ library
         , Network.AWS.Kinesis.GetShardIterator
         , Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
         , Network.AWS.Kinesis.ListShards
+        , Network.AWS.Kinesis.ListStreamConsumers
         , Network.AWS.Kinesis.ListStreams
         , Network.AWS.Kinesis.ListTagsForStream
         , Network.AWS.Kinesis.MergeShards
         , Network.AWS.Kinesis.PutRecord
         , Network.AWS.Kinesis.PutRecords
+        , Network.AWS.Kinesis.RegisterStreamConsumer
         , Network.AWS.Kinesis.RemoveTagsFromStream
         , Network.AWS.Kinesis.SplitShard
         , Network.AWS.Kinesis.StartStreamEncryption
         , Network.AWS.Kinesis.StopStreamEncryption
+        , Network.AWS.Kinesis.SubscribeToShard
         , Network.AWS.Kinesis.Types
         , Network.AWS.Kinesis.UpdateShardCount
         , Network.AWS.Kinesis.Waiters

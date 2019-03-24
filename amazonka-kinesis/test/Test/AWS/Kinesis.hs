@@ -15,9 +15,9 @@ module Test.AWS.Kinesis
     , fixtures
     ) where
 
-import           Network.AWS.Kinesis
-import           Test.AWS.Gen.Kinesis
-import           Test.Tasty
+import Network.AWS.Kinesis
+import Test.AWS.Gen.Kinesis
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

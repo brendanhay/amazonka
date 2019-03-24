@@ -25,10 +25,14 @@ module Network.AWS.Kinesis.Types
     , _KMSNotFoundException
     , _ExpiredNextTokenException
     , _KMSDisabledException
+    , _InternalFailureException
     , _ResourceNotFoundException
     , _KMSAccessDeniedException
     , _LimitExceededException
     , _ResourceInUseException
+
+    -- * ConsumerStatus
+    , ConsumerStatus (..)
 
     -- * EncryptionType
     , EncryptionType (..)
@@ -44,6 +48,23 @@ module Network.AWS.Kinesis.Types
 
     -- * StreamStatus
     , StreamStatus (..)
+
+    -- * Consumer
+    , Consumer
+    , consumer
+    , cConsumerName
+    , cConsumerARN
+    , cConsumerStatus
+    , cConsumerCreationTimestamp
+
+    -- * ConsumerDescription
+    , ConsumerDescription
+    , consumerDescription
+    , cdConsumerName
+    , cdConsumerARN
+    , cdConsumerStatus
+    , cdConsumerCreationTimestamp
+    , cdStreamARN
 
     -- * EnhancedMetrics
     , EnhancedMetrics
@@ -102,6 +123,13 @@ module Network.AWS.Kinesis.Types
     , sHashKeyRange
     , sSequenceNumberRange
 
+    -- * StartingPosition
+    , StartingPosition
+    , startingPosition
+    , spSequenceNumber
+    , spTimestamp
+    , spType
+
     -- * StreamDescription
     , StreamDescription
     , streamDescription
@@ -121,6 +149,7 @@ module Network.AWS.Kinesis.Types
     , streamDescriptionSummary
     , sdsEncryptionType
     , sdsKeyId
+    , sdsConsumerCount
     , sdsStreamName
     , sdsStreamARN
     , sdsStreamStatus
@@ -128,6 +157,27 @@ module Network.AWS.Kinesis.Types
     , sdsStreamCreationTimestamp
     , sdsEnhancedMonitoring
     , sdsOpenShardCount
+
+    -- * SubscribeToShardEvent
+    , SubscribeToShardEvent
+    , subscribeToShardEvent
+    , stseRecords
+    , stseContinuationSequenceNumber
+    , stseMillisBehindLatest
+
+    -- * SubscribeToShardEventStream
+    , SubscribeToShardEventStream
+    , subscribeToShardEventStream
+    , stsesKMSInvalidStateException
+    , stsesKMSThrottlingException
+    , stsesKMSOptInRequired
+    , stsesKMSNotFoundException
+    , stsesKMSDisabledException
+    , stsesInternalFailureException
+    , stsesResourceNotFoundException
+    , stsesKMSAccessDeniedException
+    , stsesResourceInUseException
+    , stsesSubscribeToShardEvent
 
     -- * Tag
     , Tag
@@ -234,7 +284,7 @@ _KMSNotFoundException :: AsError a => Getting (First ServiceError) a ServiceErro
 _KMSNotFoundException = _MatchServiceError kinesis "KMSNotFoundException"
 
 
--- | The pagination token passed to the @ListShards@ operation is expired. For more information, see 'ListShardsInput$NextToken' .
+-- | The pagination token passed to the operation is expired.
 --
 --
 _ExpiredNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -247,6 +297,12 @@ _ExpiredNextTokenException =
 --
 _KMSDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSDisabledException = _MatchServiceError kinesis "KMSDisabledException"
+
+
+-- | Prism for InternalFailureException' errors.
+_InternalFailureException :: AsError a => Getting (First ServiceError) a ServiceError
+_InternalFailureException =
+  _MatchServiceError kinesis "InternalFailureException"
 
 
 -- | The requested resource could not be found. The stream might not be specified correctly.

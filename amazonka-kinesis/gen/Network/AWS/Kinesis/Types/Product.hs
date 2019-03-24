@@ -21,6 +21,152 @@ import Network.AWS.Kinesis.Types.Sum
 import Network.AWS.Lens
 import Network.AWS.Prelude
 
+-- | An object that represents the details of the consumer you registered.
+--
+--
+--
+-- /See:/ 'consumer' smart constructor.
+data Consumer = Consumer'
+  { _cConsumerName              :: !Text
+  , _cConsumerARN               :: !Text
+  , _cConsumerStatus            :: !ConsumerStatus
+  , _cConsumerCreationTimestamp :: !POSIX
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Consumer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cConsumerName' - The name of the consumer is something you choose when you register the consumer.
+--
+-- * 'cConsumerARN' - When you register a consumer, Kinesis Data Streams generates an ARN for it. You need this ARN to be able to call 'SubscribeToShard' . If you delete a consumer and then create a new one with the same name, it won't have the same ARN. That's because consumer ARNs contain the creation timestamp. This is important to keep in mind if you have IAM policies that reference consumer ARNs.
+--
+-- * 'cConsumerStatus' - A consumer can't read data while in the @CREATING@ or @DELETING@ states.
+--
+-- * 'cConsumerCreationTimestamp' -
+consumer
+    :: Text -- ^ 'cConsumerName'
+    -> Text -- ^ 'cConsumerARN'
+    -> ConsumerStatus -- ^ 'cConsumerStatus'
+    -> UTCTime -- ^ 'cConsumerCreationTimestamp'
+    -> Consumer
+consumer pConsumerName_ pConsumerARN_ pConsumerStatus_ pConsumerCreationTimestamp_ =
+  Consumer'
+    { _cConsumerName = pConsumerName_
+    , _cConsumerARN = pConsumerARN_
+    , _cConsumerStatus = pConsumerStatus_
+    , _cConsumerCreationTimestamp = _Time # pConsumerCreationTimestamp_
+    }
+
+
+-- | The name of the consumer is something you choose when you register the consumer.
+cConsumerName :: Lens' Consumer Text
+cConsumerName = lens _cConsumerName (\ s a -> s{_cConsumerName = a})
+
+-- | When you register a consumer, Kinesis Data Streams generates an ARN for it. You need this ARN to be able to call 'SubscribeToShard' . If you delete a consumer and then create a new one with the same name, it won't have the same ARN. That's because consumer ARNs contain the creation timestamp. This is important to keep in mind if you have IAM policies that reference consumer ARNs.
+cConsumerARN :: Lens' Consumer Text
+cConsumerARN = lens _cConsumerARN (\ s a -> s{_cConsumerARN = a})
+
+-- | A consumer can't read data while in the @CREATING@ or @DELETING@ states.
+cConsumerStatus :: Lens' Consumer ConsumerStatus
+cConsumerStatus = lens _cConsumerStatus (\ s a -> s{_cConsumerStatus = a})
+
+-- |
+cConsumerCreationTimestamp :: Lens' Consumer UTCTime
+cConsumerCreationTimestamp = lens _cConsumerCreationTimestamp (\ s a -> s{_cConsumerCreationTimestamp = a}) . _Time
+
+instance FromJSON Consumer where
+        parseJSON
+          = withObject "Consumer"
+              (\ x ->
+                 Consumer' <$>
+                   (x .: "ConsumerName") <*> (x .: "ConsumerARN") <*>
+                     (x .: "ConsumerStatus")
+                     <*> (x .: "ConsumerCreationTimestamp"))
+
+instance Hashable Consumer where
+
+instance NFData Consumer where
+
+-- | An object that represents the details of a registered consumer.
+--
+--
+--
+-- /See:/ 'consumerDescription' smart constructor.
+data ConsumerDescription = ConsumerDescription'
+  { _cdConsumerName              :: !Text
+  , _cdConsumerARN               :: !Text
+  , _cdConsumerStatus            :: !ConsumerStatus
+  , _cdConsumerCreationTimestamp :: !POSIX
+  , _cdStreamARN                 :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ConsumerDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdConsumerName' - The name of the consumer is something you choose when you register the consumer.
+--
+-- * 'cdConsumerARN' - When you register a consumer, Kinesis Data Streams generates an ARN for it. You need this ARN to be able to call 'SubscribeToShard' . If you delete a consumer and then create a new one with the same name, it won't have the same ARN. That's because consumer ARNs contain the creation timestamp. This is important to keep in mind if you have IAM policies that reference consumer ARNs.
+--
+-- * 'cdConsumerStatus' - A consumer can't read data while in the @CREATING@ or @DELETING@ states.
+--
+-- * 'cdConsumerCreationTimestamp' -
+--
+-- * 'cdStreamARN' - The ARN of the stream with which you registered the consumer.
+consumerDescription
+    :: Text -- ^ 'cdConsumerName'
+    -> Text -- ^ 'cdConsumerARN'
+    -> ConsumerStatus -- ^ 'cdConsumerStatus'
+    -> UTCTime -- ^ 'cdConsumerCreationTimestamp'
+    -> Text -- ^ 'cdStreamARN'
+    -> ConsumerDescription
+consumerDescription pConsumerName_ pConsumerARN_ pConsumerStatus_ pConsumerCreationTimestamp_ pStreamARN_ =
+  ConsumerDescription'
+    { _cdConsumerName = pConsumerName_
+    , _cdConsumerARN = pConsumerARN_
+    , _cdConsumerStatus = pConsumerStatus_
+    , _cdConsumerCreationTimestamp = _Time # pConsumerCreationTimestamp_
+    , _cdStreamARN = pStreamARN_
+    }
+
+
+-- | The name of the consumer is something you choose when you register the consumer.
+cdConsumerName :: Lens' ConsumerDescription Text
+cdConsumerName = lens _cdConsumerName (\ s a -> s{_cdConsumerName = a})
+
+-- | When you register a consumer, Kinesis Data Streams generates an ARN for it. You need this ARN to be able to call 'SubscribeToShard' . If you delete a consumer and then create a new one with the same name, it won't have the same ARN. That's because consumer ARNs contain the creation timestamp. This is important to keep in mind if you have IAM policies that reference consumer ARNs.
+cdConsumerARN :: Lens' ConsumerDescription Text
+cdConsumerARN = lens _cdConsumerARN (\ s a -> s{_cdConsumerARN = a})
+
+-- | A consumer can't read data while in the @CREATING@ or @DELETING@ states.
+cdConsumerStatus :: Lens' ConsumerDescription ConsumerStatus
+cdConsumerStatus = lens _cdConsumerStatus (\ s a -> s{_cdConsumerStatus = a})
+
+-- |
+cdConsumerCreationTimestamp :: Lens' ConsumerDescription UTCTime
+cdConsumerCreationTimestamp = lens _cdConsumerCreationTimestamp (\ s a -> s{_cdConsumerCreationTimestamp = a}) . _Time
+
+-- | The ARN of the stream with which you registered the consumer.
+cdStreamARN :: Lens' ConsumerDescription Text
+cdStreamARN = lens _cdStreamARN (\ s a -> s{_cdStreamARN = a})
+
+instance FromJSON ConsumerDescription where
+        parseJSON
+          = withObject "ConsumerDescription"
+              (\ x ->
+                 ConsumerDescription' <$>
+                   (x .: "ConsumerName") <*> (x .: "ConsumerARN") <*>
+                     (x .: "ConsumerStatus")
+                     <*> (x .: "ConsumerCreationTimestamp")
+                     <*> (x .: "StreamARN"))
+
+instance Hashable ConsumerDescription where
+
+instance NFData ConsumerDescription where
+
 -- | Represents enhanced metrics types.
 --
 --
@@ -483,6 +629,55 @@ instance Hashable Shard where
 
 instance NFData Shard where
 
+-- | /See:/ 'startingPosition' smart constructor.
+data StartingPosition = StartingPosition'
+  { _spSequenceNumber :: !(Maybe Text)
+  , _spTimestamp      :: !(Maybe POSIX)
+  , _spType           :: !ShardIteratorType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'StartingPosition' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'spSequenceNumber' - Undocumented member.
+--
+-- * 'spTimestamp' - Undocumented member.
+--
+-- * 'spType' - Undocumented member.
+startingPosition
+    :: ShardIteratorType -- ^ 'spType'
+    -> StartingPosition
+startingPosition pType_ =
+  StartingPosition'
+    {_spSequenceNumber = Nothing, _spTimestamp = Nothing, _spType = pType_}
+
+
+-- | Undocumented member.
+spSequenceNumber :: Lens' StartingPosition (Maybe Text)
+spSequenceNumber = lens _spSequenceNumber (\ s a -> s{_spSequenceNumber = a})
+
+-- | Undocumented member.
+spTimestamp :: Lens' StartingPosition (Maybe UTCTime)
+spTimestamp = lens _spTimestamp (\ s a -> s{_spTimestamp = a}) . mapping _Time
+
+-- | Undocumented member.
+spType :: Lens' StartingPosition ShardIteratorType
+spType = lens _spType (\ s a -> s{_spType = a})
+
+instance Hashable StartingPosition where
+
+instance NFData StartingPosition where
+
+instance ToJSON StartingPosition where
+        toJSON StartingPosition'{..}
+          = object
+              (catMaybes
+                 [("SequenceNumber" .=) <$> _spSequenceNumber,
+                  ("Timestamp" .=) <$> _spTimestamp,
+                  Just ("Type" .= _spType)])
+
 -- | Represents the output for 'DescribeStream' .
 --
 --
@@ -615,6 +810,7 @@ instance NFData StreamDescription where
 data StreamDescriptionSummary = StreamDescriptionSummary'
   { _sdsEncryptionType          :: !(Maybe EncryptionType)
   , _sdsKeyId                   :: !(Maybe Text)
+  , _sdsConsumerCount           :: !(Maybe Nat)
   , _sdsStreamName              :: !Text
   , _sdsStreamARN               :: !Text
   , _sdsStreamStatus            :: !StreamStatus
@@ -632,6 +828,8 @@ data StreamDescriptionSummary = StreamDescriptionSummary'
 -- * 'sdsEncryptionType' - The encryption type used. This value is one of the following:     * @KMS@      * @NONE@
 --
 -- * 'sdsKeyId' - The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias @aws/kinesis@ .     * Key ARN example: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@      * Alias ARN example: @arn:aws:kms:us-east-1:123456789012:alias/MyAliasName@      * Globally unique key ID example: @12345678-1234-1234-1234-123456789012@      * Alias name example: @alias/MyAliasName@      * Master key owned by Kinesis Data Streams: @alias/aws/kinesis@
+--
+-- * 'sdsConsumerCount' - The number of enhanced fan-out consumers registered with the stream.
 --
 -- * 'sdsStreamName' - The name of the stream being described.
 --
@@ -658,6 +856,7 @@ streamDescriptionSummary pStreamName_ pStreamARN_ pStreamStatus_ pRetentionPerio
   StreamDescriptionSummary'
     { _sdsEncryptionType = Nothing
     , _sdsKeyId = Nothing
+    , _sdsConsumerCount = Nothing
     , _sdsStreamName = pStreamName_
     , _sdsStreamARN = pStreamARN_
     , _sdsStreamStatus = pStreamStatus_
@@ -675,6 +874,10 @@ sdsEncryptionType = lens _sdsEncryptionType (\ s a -> s{_sdsEncryptionType = a})
 -- | The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias @aws/kinesis@ .     * Key ARN example: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@      * Alias ARN example: @arn:aws:kms:us-east-1:123456789012:alias/MyAliasName@      * Globally unique key ID example: @12345678-1234-1234-1234-123456789012@      * Alias name example: @alias/MyAliasName@      * Master key owned by Kinesis Data Streams: @alias/aws/kinesis@
 sdsKeyId :: Lens' StreamDescriptionSummary (Maybe Text)
 sdsKeyId = lens _sdsKeyId (\ s a -> s{_sdsKeyId = a})
+
+-- | The number of enhanced fan-out consumers registered with the stream.
+sdsConsumerCount :: Lens' StreamDescriptionSummary (Maybe Natural)
+sdsConsumerCount = lens _sdsConsumerCount (\ s a -> s{_sdsConsumerCount = a}) . mapping _Nat
 
 -- | The name of the stream being described.
 sdsStreamName :: Lens' StreamDescriptionSummary Text
@@ -710,7 +913,8 @@ instance FromJSON StreamDescriptionSummary where
               (\ x ->
                  StreamDescriptionSummary' <$>
                    (x .:? "EncryptionType") <*> (x .:? "KeyId") <*>
-                     (x .: "StreamName")
+                     (x .:? "ConsumerCount")
+                     <*> (x .: "StreamName")
                      <*> (x .: "StreamARN")
                      <*> (x .: "StreamStatus")
                      <*> (x .: "RetentionPeriodHours")
@@ -721,6 +925,180 @@ instance FromJSON StreamDescriptionSummary where
 instance Hashable StreamDescriptionSummary where
 
 instance NFData StreamDescriptionSummary where
+
+-- | After you call 'SubscribeToShard' , Kinesis Data Streams sends events of this type to your consumer.
+--
+--
+--
+-- /See:/ 'subscribeToShardEvent' smart constructor.
+data SubscribeToShardEvent = SubscribeToShardEvent'
+  { _stseRecords                    :: ![Record]
+  , _stseContinuationSequenceNumber :: !Text
+  , _stseMillisBehindLatest         :: !Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SubscribeToShardEvent' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'stseRecords' -
+--
+-- * 'stseContinuationSequenceNumber' - Use this as @StartingSequenceNumber@ in the next call to 'SubscribeToShard' .
+--
+-- * 'stseMillisBehindLatest' - The number of milliseconds the read records are from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.
+subscribeToShardEvent
+    :: Text -- ^ 'stseContinuationSequenceNumber'
+    -> Natural -- ^ 'stseMillisBehindLatest'
+    -> SubscribeToShardEvent
+subscribeToShardEvent pContinuationSequenceNumber_ pMillisBehindLatest_ =
+  SubscribeToShardEvent'
+    { _stseRecords = mempty
+    , _stseContinuationSequenceNumber = pContinuationSequenceNumber_
+    , _stseMillisBehindLatest = _Nat # pMillisBehindLatest_
+    }
+
+
+-- |
+stseRecords :: Lens' SubscribeToShardEvent [Record]
+stseRecords = lens _stseRecords (\ s a -> s{_stseRecords = a}) . _Coerce
+
+-- | Use this as @StartingSequenceNumber@ in the next call to 'SubscribeToShard' .
+stseContinuationSequenceNumber :: Lens' SubscribeToShardEvent Text
+stseContinuationSequenceNumber = lens _stseContinuationSequenceNumber (\ s a -> s{_stseContinuationSequenceNumber = a})
+
+-- | The number of milliseconds the read records are from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.
+stseMillisBehindLatest :: Lens' SubscribeToShardEvent Natural
+stseMillisBehindLatest = lens _stseMillisBehindLatest (\ s a -> s{_stseMillisBehindLatest = a}) . _Nat
+
+instance FromJSON SubscribeToShardEvent where
+        parseJSON
+          = withObject "SubscribeToShardEvent"
+              (\ x ->
+                 SubscribeToShardEvent' <$>
+                   (x .:? "Records" .!= mempty) <*>
+                     (x .: "ContinuationSequenceNumber")
+                     <*> (x .: "MillisBehindLatest"))
+
+instance Hashable SubscribeToShardEvent where
+
+instance NFData SubscribeToShardEvent where
+
+-- | /See:/ 'subscribeToShardEventStream' smart constructor.
+data SubscribeToShardEventStream = SubscribeToShardEventStream'
+  { _stsesKMSInvalidStateException  :: !(Maybe KMSInvalidStateException)
+  , _stsesKMSThrottlingException    :: !(Maybe KMSThrottlingException)
+  , _stsesKMSOptInRequired          :: !(Maybe KMSOptInRequired)
+  , _stsesKMSNotFoundException      :: !(Maybe KMSNotFoundException)
+  , _stsesKMSDisabledException      :: !(Maybe KMSDisabledException)
+  , _stsesInternalFailureException  :: !(Maybe InternalFailureException)
+  , _stsesResourceNotFoundException :: !(Maybe ResourceNotFoundException)
+  , _stsesKMSAccessDeniedException  :: !(Maybe KMSAccessDeniedException)
+  , _stsesResourceInUseException    :: !(Maybe ResourceInUseException)
+  , _stsesSubscribeToShardEvent     :: !SubscribeToShardEvent
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SubscribeToShardEventStream' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'stsesKMSInvalidStateException' - Undocumented member.
+--
+-- * 'stsesKMSThrottlingException' - Undocumented member.
+--
+-- * 'stsesKMSOptInRequired' - Undocumented member.
+--
+-- * 'stsesKMSNotFoundException' - Undocumented member.
+--
+-- * 'stsesKMSDisabledException' - Undocumented member.
+--
+-- * 'stsesInternalFailureException' - Undocumented member.
+--
+-- * 'stsesResourceNotFoundException' - Undocumented member.
+--
+-- * 'stsesKMSAccessDeniedException' - Undocumented member.
+--
+-- * 'stsesResourceInUseException' - Undocumented member.
+--
+-- * 'stsesSubscribeToShardEvent' - Undocumented member.
+subscribeToShardEventStream
+    :: SubscribeToShardEvent -- ^ 'stsesSubscribeToShardEvent'
+    -> SubscribeToShardEventStream
+subscribeToShardEventStream pSubscribeToShardEvent_ =
+  SubscribeToShardEventStream'
+    { _stsesKMSInvalidStateException = Nothing
+    , _stsesKMSThrottlingException = Nothing
+    , _stsesKMSOptInRequired = Nothing
+    , _stsesKMSNotFoundException = Nothing
+    , _stsesKMSDisabledException = Nothing
+    , _stsesInternalFailureException = Nothing
+    , _stsesResourceNotFoundException = Nothing
+    , _stsesKMSAccessDeniedException = Nothing
+    , _stsesResourceInUseException = Nothing
+    , _stsesSubscribeToShardEvent = pSubscribeToShardEvent_
+    }
+
+
+-- | Undocumented member.
+stsesKMSInvalidStateException :: Lens' SubscribeToShardEventStream (Maybe KMSInvalidStateException)
+stsesKMSInvalidStateException = lens _stsesKMSInvalidStateException (\ s a -> s{_stsesKMSInvalidStateException = a})
+
+-- | Undocumented member.
+stsesKMSThrottlingException :: Lens' SubscribeToShardEventStream (Maybe KMSThrottlingException)
+stsesKMSThrottlingException = lens _stsesKMSThrottlingException (\ s a -> s{_stsesKMSThrottlingException = a})
+
+-- | Undocumented member.
+stsesKMSOptInRequired :: Lens' SubscribeToShardEventStream (Maybe KMSOptInRequired)
+stsesKMSOptInRequired = lens _stsesKMSOptInRequired (\ s a -> s{_stsesKMSOptInRequired = a})
+
+-- | Undocumented member.
+stsesKMSNotFoundException :: Lens' SubscribeToShardEventStream (Maybe KMSNotFoundException)
+stsesKMSNotFoundException = lens _stsesKMSNotFoundException (\ s a -> s{_stsesKMSNotFoundException = a})
+
+-- | Undocumented member.
+stsesKMSDisabledException :: Lens' SubscribeToShardEventStream (Maybe KMSDisabledException)
+stsesKMSDisabledException = lens _stsesKMSDisabledException (\ s a -> s{_stsesKMSDisabledException = a})
+
+-- | Undocumented member.
+stsesInternalFailureException :: Lens' SubscribeToShardEventStream (Maybe InternalFailureException)
+stsesInternalFailureException = lens _stsesInternalFailureException (\ s a -> s{_stsesInternalFailureException = a})
+
+-- | Undocumented member.
+stsesResourceNotFoundException :: Lens' SubscribeToShardEventStream (Maybe ResourceNotFoundException)
+stsesResourceNotFoundException = lens _stsesResourceNotFoundException (\ s a -> s{_stsesResourceNotFoundException = a})
+
+-- | Undocumented member.
+stsesKMSAccessDeniedException :: Lens' SubscribeToShardEventStream (Maybe KMSAccessDeniedException)
+stsesKMSAccessDeniedException = lens _stsesKMSAccessDeniedException (\ s a -> s{_stsesKMSAccessDeniedException = a})
+
+-- | Undocumented member.
+stsesResourceInUseException :: Lens' SubscribeToShardEventStream (Maybe ResourceInUseException)
+stsesResourceInUseException = lens _stsesResourceInUseException (\ s a -> s{_stsesResourceInUseException = a})
+
+-- | Undocumented member.
+stsesSubscribeToShardEvent :: Lens' SubscribeToShardEventStream SubscribeToShardEvent
+stsesSubscribeToShardEvent = lens _stsesSubscribeToShardEvent (\ s a -> s{_stsesSubscribeToShardEvent = a})
+
+instance FromJSON SubscribeToShardEventStream where
+        parseJSON
+          = withObject "SubscribeToShardEventStream"
+              (\ x ->
+                 SubscribeToShardEventStream' <$>
+                   (x .:? "KMSInvalidStateException") <*>
+                     (x .:? "KMSThrottlingException")
+                     <*> (x .:? "KMSOptInRequired")
+                     <*> (x .:? "KMSNotFoundException")
+                     <*> (x .:? "KMSDisabledException")
+                     <*> (x .:? "InternalFailureException")
+                     <*> (x .:? "ResourceNotFoundException")
+                     <*> (x .:? "KMSAccessDeniedException")
+                     <*> (x .:? "ResourceInUseException")
+                     <*> (x .: "SubscribeToShardEvent"))
+
+instance Hashable SubscribeToShardEventStream where
+
+instance NFData SubscribeToShardEventStream where
 
 -- | Metadata assigned to the stream, consisting of a key-value pair.
 --

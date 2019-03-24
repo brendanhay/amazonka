@@ -25,7 +25,7 @@
 --
 -- API Limits: You can successfully disable server-side encryption 25 times in a rolling 24-hour period.
 --
--- Note: It can take up to five seconds after the stream is in an @ACTIVE@ status before all records written to the stream are no longer subject to encryption. After you disabled encryption, you can verify that encryption is not applied by inspecting the API response from @PutRecord@ or @PutRecords@ .
+-- Note: It can take up to 5 seconds after the stream is in an @ACTIVE@ status before all records written to the stream are no longer subject to encryption. After you disabled encryption, you can verify that encryption is not applied by inspecting the API response from @PutRecord@ or @PutRecords@ .
 --
 module Network.AWS.Kinesis.StopStreamEncryption
     (

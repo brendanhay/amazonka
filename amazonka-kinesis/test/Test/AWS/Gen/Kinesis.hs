@@ -31,11 +31,17 @@ import Test.Tasty
 --         [ requestPutRecord $
 --             putRecord
 --
+--         , requestSubscribeToShard $
+--             subscribeToShard
+--
 --         , requestDecreaseStreamRetentionPeriod $
 --             decreaseStreamRetentionPeriod
 --
 --         , requestMergeShards $
 --             mergeShards
+--
+--         , requestDeregisterStreamConsumer $
+--             deregisterStreamConsumer
 --
 --         , requestDescribeStreamSummary $
 --             describeStreamSummary
@@ -55,6 +61,9 @@ import Test.Tasty
 --         , requestDescribeLimits $
 --             describeLimits
 --
+--         , requestRegisterStreamConsumer $
+--             registerStreamConsumer
+--
 --         , requestDisableEnhancedMonitoring $
 --             disableEnhancedMonitoring
 --
@@ -63,6 +72,9 @@ import Test.Tasty
 --
 --         , requestListTagsForStream $
 --             listTagsForStream
+--
+--         , requestDescribeStreamConsumer $
+--             describeStreamConsumer
 --
 --         , requestAddTagsToStream $
 --             addTagsToStream
@@ -88,6 +100,9 @@ import Test.Tasty
 --         , requestStartStreamEncryption $
 --             startStreamEncryption
 --
+--         , requestListStreamConsumers $
+--             listStreamConsumers
+--
 --         , requestSplitShard $
 --             splitShard
 --
@@ -103,11 +118,17 @@ import Test.Tasty
 --         [ responsePutRecord $
 --             putRecordResponse
 --
+--         , responseSubscribeToShard $
+--             subscribeToShardResponse
+--
 --         , responseDecreaseStreamRetentionPeriod $
 --             decreaseStreamRetentionPeriodResponse
 --
 --         , responseMergeShards $
 --             mergeShardsResponse
+--
+--         , responseDeregisterStreamConsumer $
+--             deregisterStreamConsumerResponse
 --
 --         , responseDescribeStreamSummary $
 --             describeStreamSummaryResponse
@@ -127,6 +148,9 @@ import Test.Tasty
 --         , responseDescribeLimits $
 --             describeLimitsResponse
 --
+--         , responseRegisterStreamConsumer $
+--             registerStreamConsumerResponse
+--
 --         , responseDisableEnhancedMonitoring $
 --             enhancedMonitoringOutput
 --
@@ -135,6 +159,9 @@ import Test.Tasty
 --
 --         , responseListTagsForStream $
 --             listTagsForStreamResponse
+--
+--         , responseDescribeStreamConsumer $
+--             describeStreamConsumerResponse
 --
 --         , responseAddTagsToStream $
 --             addTagsToStreamResponse
@@ -160,6 +187,9 @@ import Test.Tasty
 --         , responseStartStreamEncryption $
 --             startStreamEncryptionResponse
 --
+--         , responseListStreamConsumers $
+--             listStreamConsumersResponse
+--
 --         , responseSplitShard $
 --             splitShardResponse
 --
@@ -179,6 +209,11 @@ requestPutRecord = req
     "PutRecord"
     "fixture/PutRecord.yaml"
 
+requestSubscribeToShard :: SubscribeToShard -> TestTree
+requestSubscribeToShard = req
+    "SubscribeToShard"
+    "fixture/SubscribeToShard.yaml"
+
 requestDecreaseStreamRetentionPeriod :: DecreaseStreamRetentionPeriod -> TestTree
 requestDecreaseStreamRetentionPeriod = req
     "DecreaseStreamRetentionPeriod"
@@ -188,6 +223,11 @@ requestMergeShards :: MergeShards -> TestTree
 requestMergeShards = req
     "MergeShards"
     "fixture/MergeShards.yaml"
+
+requestDeregisterStreamConsumer :: DeregisterStreamConsumer -> TestTree
+requestDeregisterStreamConsumer = req
+    "DeregisterStreamConsumer"
+    "fixture/DeregisterStreamConsumer.yaml"
 
 requestDescribeStreamSummary :: DescribeStreamSummary -> TestTree
 requestDescribeStreamSummary = req
@@ -219,6 +259,11 @@ requestDescribeLimits = req
     "DescribeLimits"
     "fixture/DescribeLimits.yaml"
 
+requestRegisterStreamConsumer :: RegisterStreamConsumer -> TestTree
+requestRegisterStreamConsumer = req
+    "RegisterStreamConsumer"
+    "fixture/RegisterStreamConsumer.yaml"
+
 requestDisableEnhancedMonitoring :: DisableEnhancedMonitoring -> TestTree
 requestDisableEnhancedMonitoring = req
     "DisableEnhancedMonitoring"
@@ -233,6 +278,11 @@ requestListTagsForStream :: ListTagsForStream -> TestTree
 requestListTagsForStream = req
     "ListTagsForStream"
     "fixture/ListTagsForStream.yaml"
+
+requestDescribeStreamConsumer :: DescribeStreamConsumer -> TestTree
+requestDescribeStreamConsumer = req
+    "DescribeStreamConsumer"
+    "fixture/DescribeStreamConsumer.yaml"
 
 requestAddTagsToStream :: AddTagsToStream -> TestTree
 requestAddTagsToStream = req
@@ -274,6 +324,11 @@ requestStartStreamEncryption = req
     "StartStreamEncryption"
     "fixture/StartStreamEncryption.yaml"
 
+requestListStreamConsumers :: ListStreamConsumers -> TestTree
+requestListStreamConsumers = req
+    "ListStreamConsumers"
+    "fixture/ListStreamConsumers.yaml"
+
 requestSplitShard :: SplitShard -> TestTree
 requestSplitShard = req
     "SplitShard"
@@ -298,6 +353,13 @@ responsePutRecord = res
     kinesis
     (Proxy :: Proxy PutRecord)
 
+responseSubscribeToShard :: SubscribeToShardResponse -> TestTree
+responseSubscribeToShard = res
+    "SubscribeToShardResponse"
+    "fixture/SubscribeToShardResponse.proto"
+    kinesis
+    (Proxy :: Proxy SubscribeToShard)
+
 responseDecreaseStreamRetentionPeriod :: DecreaseStreamRetentionPeriodResponse -> TestTree
 responseDecreaseStreamRetentionPeriod = res
     "DecreaseStreamRetentionPeriodResponse"
@@ -311,6 +373,13 @@ responseMergeShards = res
     "fixture/MergeShardsResponse.proto"
     kinesis
     (Proxy :: Proxy MergeShards)
+
+responseDeregisterStreamConsumer :: DeregisterStreamConsumerResponse -> TestTree
+responseDeregisterStreamConsumer = res
+    "DeregisterStreamConsumerResponse"
+    "fixture/DeregisterStreamConsumerResponse.proto"
+    kinesis
+    (Proxy :: Proxy DeregisterStreamConsumer)
 
 responseDescribeStreamSummary :: DescribeStreamSummaryResponse -> TestTree
 responseDescribeStreamSummary = res
@@ -354,6 +423,13 @@ responseDescribeLimits = res
     kinesis
     (Proxy :: Proxy DescribeLimits)
 
+responseRegisterStreamConsumer :: RegisterStreamConsumerResponse -> TestTree
+responseRegisterStreamConsumer = res
+    "RegisterStreamConsumerResponse"
+    "fixture/RegisterStreamConsumerResponse.proto"
+    kinesis
+    (Proxy :: Proxy RegisterStreamConsumer)
+
 responseDisableEnhancedMonitoring :: EnhancedMonitoringOutput -> TestTree
 responseDisableEnhancedMonitoring = res
     "DisableEnhancedMonitoringResponse"
@@ -374,6 +450,13 @@ responseListTagsForStream = res
     "fixture/ListTagsForStreamResponse.proto"
     kinesis
     (Proxy :: Proxy ListTagsForStream)
+
+responseDescribeStreamConsumer :: DescribeStreamConsumerResponse -> TestTree
+responseDescribeStreamConsumer = res
+    "DescribeStreamConsumerResponse"
+    "fixture/DescribeStreamConsumerResponse.proto"
+    kinesis
+    (Proxy :: Proxy DescribeStreamConsumer)
 
 responseAddTagsToStream :: AddTagsToStreamResponse -> TestTree
 responseAddTagsToStream = res
@@ -430,6 +513,13 @@ responseStartStreamEncryption = res
     "fixture/StartStreamEncryptionResponse.proto"
     kinesis
     (Proxy :: Proxy StartStreamEncryption)
+
+responseListStreamConsumers :: ListStreamConsumersResponse -> TestTree
+responseListStreamConsumers = res
+    "ListStreamConsumersResponse"
+    "fixture/ListStreamConsumersResponse.proto"
+    kinesis
+    (Proxy :: Proxy ListStreamConsumers)
 
 responseSplitShard :: SplitShardResponse -> TestTree
 responseSplitShard = res

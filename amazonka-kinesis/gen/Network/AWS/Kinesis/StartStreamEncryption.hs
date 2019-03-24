@@ -25,7 +25,7 @@
 --
 -- API Limits: You can successfully apply a new AWS KMS key for server-side encryption 25 times in a rolling 24-hour period.
 --
--- Note: It can take up to five seconds after the stream is in an @ACTIVE@ status before all records written to the stream are encrypted. After you enable encryption, you can verify that encryption is applied by inspecting the API response from @PutRecord@ or @PutRecords@ .
+-- Note: It can take up to 5 seconds after the stream is in an @ACTIVE@ status before all records written to the stream are encrypted. After you enable encryption, you can verify that encryption is applied by inspecting the API response from @PutRecord@ or @PutRecords@ .
 --
 module Network.AWS.Kinesis.StartStreamEncryption
     (

@@ -95,20 +95,20 @@ module Network.AWS.S3.Encryption
     , AsEncryptionError (..)
     ) where
 
-import           Control.Lens
-import           Control.Monad.Catch
-import           Control.Monad.Reader
-import           Control.Monad.Trans.AWS                as AWST
-import           Crypto.PubKey.RSA.Types                as RSA
-import           Crypto.Random
-import           Data.ByteString                        (ByteString)
-import           Data.Text                              (Text)
-import           Network.AWS.S3
-import           Network.AWS.S3.Encryption.Decrypt
-import           Network.AWS.S3.Encryption.Encrypt
-import           Network.AWS.S3.Encryption.Envelope
-import           Network.AWS.S3.Encryption.Instructions
-import           Network.AWS.S3.Encryption.Types
+import Control.Lens
+import Control.Monad.Catch
+import Control.Monad.Reader
+import Control.Monad.Trans.AWS                as AWST
+import Crypto.PubKey.RSA.Types                as RSA
+import Crypto.Random
+import Data.ByteString                        (ByteString)
+import Data.Text                              (Text)
+import Network.AWS.S3
+import Network.AWS.S3.Encryption.Decrypt
+import Network.AWS.S3.Encryption.Encrypt
+import Network.AWS.S3.Encryption.Envelope
+import Network.AWS.S3.Encryption.Instructions
+import Network.AWS.S3.Encryption.Types
 
 -- | Set (using 'local') the client-side master key used to encrypt/decrypt
 -- a block of actions.

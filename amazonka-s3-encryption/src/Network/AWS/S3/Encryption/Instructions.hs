@@ -14,17 +14,17 @@
 --
 module Network.AWS.S3.Encryption.Instructions where
 
-import           Control.Arrow
-import           Control.Lens (Lens', lens, view, (&), (%~))
-import           Control.Monad.Trans.AWS
-import           Data.Aeson.Types                   (parseEither)
-import           Data.Coerce
-import           Data.Proxy
-import           Network.AWS.Prelude
-import           Network.AWS.Response
-import           Network.AWS.S3
-import           Network.AWS.S3.Encryption.Envelope
-import           Network.AWS.S3.Encryption.Types
+import Control.Arrow
+import Control.Lens                       (Lens', lens, view, (%~), (&))
+import Control.Monad.Trans.AWS
+import Data.Aeson.Types                   (parseEither)
+import Data.Coerce
+import Data.Proxy
+import Network.AWS.Prelude
+import Network.AWS.Response
+import Network.AWS.S3
+import Network.AWS.S3.Encryption.Envelope
+import Network.AWS.S3.Encryption.Types
 
 newtype Instructions = Instructions
     (forall m r. (AWSConstraint r m, HasKeyEnv r) => m Envelope)

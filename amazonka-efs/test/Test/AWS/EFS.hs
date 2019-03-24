@@ -15,9 +15,9 @@ module Test.AWS.EFS
     , fixtures
     ) where
 
-import           Network.AWS.EFS
-import           Test.AWS.Gen.EFS
-import           Test.Tasty
+import Network.AWS.EFS
+import Test.AWS.Gen.EFS
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

@@ -59,9 +59,9 @@ data CreateTags = CreateTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctFileSystemId' - ID of the file system whose tags you want to modify (String). This operation modifies the tags only, not the file system.
+-- * 'ctFileSystemId' - The ID of the file system whose tags you want to modify (String). This operation modifies the tags only, not the file system.
 --
--- * 'ctTags' - Array of @Tag@ objects to add. Each @Tag@ object is a key-value pair.
+-- * 'ctTags' - An array of @Tag@ objects to add. Each @Tag@ object is a key-value pair.
 createTags
     :: Text -- ^ 'ctFileSystemId'
     -> CreateTags
@@ -69,11 +69,11 @@ createTags pFileSystemId_ =
   CreateTags' {_ctFileSystemId = pFileSystemId_, _ctTags = mempty}
 
 
--- | ID of the file system whose tags you want to modify (String). This operation modifies the tags only, not the file system.
+-- | The ID of the file system whose tags you want to modify (String). This operation modifies the tags only, not the file system.
 ctFileSystemId :: Lens' CreateTags Text
 ctFileSystemId = lens _ctFileSystemId (\ s a -> s{_ctFileSystemId = a})
 
--- | Array of @Tag@ objects to add. Each @Tag@ object is a key-value pair.
+-- | An array of @Tag@ objects to add. Each @Tag@ object is a key-value pair.
 ctTags :: Lens' CreateTags [Tag]
 ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Coerce
 

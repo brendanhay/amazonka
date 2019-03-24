@@ -55,11 +55,20 @@ import Test.Tasty
 --         , requestCreateFileSystem $
 --             createFileSystem
 --
+--         , requestPutLifecycleConfiguration $
+--             putLifecycleConfiguration
+--
 --         , requestDeleteFileSystem $
 --             deleteFileSystem
 --
+--         , requestUpdateFileSystem $
+--             updateFileSystem
+--
 --         , requestCreateMountTarget $
 --             createMountTarget
+--
+--         , requestDescribeLifecycleConfiguration $
+--             describeLifecycleConfiguration
 --
 --           ]
 
@@ -91,11 +100,20 @@ import Test.Tasty
 --         , responseCreateFileSystem $
 --             fileSystemDescription
 --
+--         , responsePutLifecycleConfiguration $
+--             lifecycleConfigurationDescription
+--
 --         , responseDeleteFileSystem $
 --             deleteFileSystemResponse
 --
+--         , responseUpdateFileSystem $
+--             fileSystemDescription
+--
 --         , responseCreateMountTarget $
 --             mountTargetDescription
+--
+--         , responseDescribeLifecycleConfiguration $
+--             lifecycleConfigurationDescription
 --
 --           ]
 --     ]
@@ -147,15 +165,30 @@ requestCreateFileSystem = req
     "CreateFileSystem"
     "fixture/CreateFileSystem.yaml"
 
+requestPutLifecycleConfiguration :: PutLifecycleConfiguration -> TestTree
+requestPutLifecycleConfiguration = req
+    "PutLifecycleConfiguration"
+    "fixture/PutLifecycleConfiguration.yaml"
+
 requestDeleteFileSystem :: DeleteFileSystem -> TestTree
 requestDeleteFileSystem = req
     "DeleteFileSystem"
     "fixture/DeleteFileSystem.yaml"
 
+requestUpdateFileSystem :: UpdateFileSystem -> TestTree
+requestUpdateFileSystem = req
+    "UpdateFileSystem"
+    "fixture/UpdateFileSystem.yaml"
+
 requestCreateMountTarget :: CreateMountTarget -> TestTree
 requestCreateMountTarget = req
     "CreateMountTarget"
     "fixture/CreateMountTarget.yaml"
+
+requestDescribeLifecycleConfiguration :: DescribeLifecycleConfiguration -> TestTree
+requestDescribeLifecycleConfiguration = req
+    "DescribeLifecycleConfiguration"
+    "fixture/DescribeLifecycleConfiguration.yaml"
 
 -- Responses
 
@@ -222,6 +255,13 @@ responseCreateFileSystem = res
     efs
     (Proxy :: Proxy CreateFileSystem)
 
+responsePutLifecycleConfiguration :: LifecycleConfigurationDescription -> TestTree
+responsePutLifecycleConfiguration = res
+    "PutLifecycleConfigurationResponse"
+    "fixture/PutLifecycleConfigurationResponse.proto"
+    efs
+    (Proxy :: Proxy PutLifecycleConfiguration)
+
 responseDeleteFileSystem :: DeleteFileSystemResponse -> TestTree
 responseDeleteFileSystem = res
     "DeleteFileSystemResponse"
@@ -229,9 +269,23 @@ responseDeleteFileSystem = res
     efs
     (Proxy :: Proxy DeleteFileSystem)
 
+responseUpdateFileSystem :: FileSystemDescription -> TestTree
+responseUpdateFileSystem = res
+    "UpdateFileSystemResponse"
+    "fixture/UpdateFileSystemResponse.proto"
+    efs
+    (Proxy :: Proxy UpdateFileSystem)
+
 responseCreateMountTarget :: MountTargetDescription -> TestTree
 responseCreateMountTarget = res
     "CreateMountTargetResponse"
     "fixture/CreateMountTargetResponse.proto"
     efs
     (Proxy :: Proxy CreateMountTarget)
+
+responseDescribeLifecycleConfiguration :: LifecycleConfigurationDescription -> TestTree
+responseDescribeLifecycleConfiguration = res
+    "DescribeLifecycleConfigurationResponse"
+    "fixture/DescribeLifecycleConfigurationResponse.proto"
+    efs
+    (Proxy :: Proxy DescribeLifecycleConfiguration)

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified tags from a file system. If the @DeleteTags@ request includes a tag key that does not exist, Amazon EFS ignores it and doesn't cause an error. For more information about tags and related restrictions, see <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Tag Restrictions> in the /AWS Billing and Cost Management User Guide/ .
+-- Deletes the specified tags from a file system. If the @DeleteTags@ request includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an error. For more information about tags and related restrictions, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Tag Restrictions> in the /AWS Billing and Cost Management User Guide/ .
 --
 --
 -- This operation requires permissions for the @elasticfilesystem:DeleteTags@ action.
@@ -59,9 +59,9 @@ data DeleteTags = DeleteTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dFileSystemId' - ID of the file system whose tags you want to delete (String).
+-- * 'dFileSystemId' - The ID of the file system whose tags you want to delete (String).
 --
--- * 'dTagKeys' - List of tag keys to delete.
+-- * 'dTagKeys' - A list of tag keys to delete.
 deleteTags
     :: Text -- ^ 'dFileSystemId'
     -> DeleteTags
@@ -69,11 +69,11 @@ deleteTags pFileSystemId_ =
   DeleteTags' {_dFileSystemId = pFileSystemId_, _dTagKeys = mempty}
 
 
--- | ID of the file system whose tags you want to delete (String).
+-- | The ID of the file system whose tags you want to delete (String).
 dFileSystemId :: Lens' DeleteTags Text
 dFileSystemId = lens _dFileSystemId (\ s a -> s{_dFileSystemId = a})
 
--- | List of tag keys to delete.
+-- | A list of tag keys to delete.
 dTagKeys :: Lens' DeleteTags [Text]
 dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a}) . _Coerce
 

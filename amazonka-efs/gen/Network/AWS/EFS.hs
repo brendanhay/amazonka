@@ -13,7 +13,7 @@
 --
 -- __Amazon Elastic File System__
 --
--- Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use with Amazon EC2 instances in the AWS Cloud. With Amazon EFS, storage capacity is elastic, growing and shrinking automatically as you add and remove files, so your applications have the storage they need, when they need it. For more information, see the <http://docs.aws.amazon.com/efs/latest/ug/api-reference.html User Guide> .
+-- Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use with Amazon EC2 instances in the AWS Cloud. With Amazon EFS, storage capacity is elastic, growing and shrinking automatically as you add and remove files, so your applications have the storage they need, when they need it. For more information, see the <https://docs.aws.amazon.com/efs/latest/ug/api-reference.html User Guide> .
 --
 module Network.AWS.EFS
     (
@@ -41,6 +41,9 @@ module Network.AWS.EFS
     -- ** FileSystemLimitExceeded
     , _FileSystemLimitExceeded
 
+    -- ** TooManyRequests
+    , _TooManyRequests
+
     -- ** NetworkInterfaceLimitExceeded
     , _NetworkInterfaceLimitExceeded
 
@@ -62,6 +65,9 @@ module Network.AWS.EFS
     -- ** NoFreeAddressesInSubnet
     , _NoFreeAddressesInSubnet
 
+    -- ** ThroughputLimitExceeded
+    , _ThroughputLimitExceeded
+
     -- ** DependencyTimeout
     , _DependencyTimeout
 
@@ -76,6 +82,9 @@ module Network.AWS.EFS
 
     -- ** IPAddressInUse
     , _IPAddressInUse
+
+    -- ** InsufficientThroughputCapacity
+    , _InsufficientThroughputCapacity
 
     -- * Waiters
     -- $waiters
@@ -110,11 +119,20 @@ module Network.AWS.EFS
     -- ** CreateFileSystem
     , module Network.AWS.EFS.CreateFileSystem
 
+    -- ** PutLifecycleConfiguration
+    , module Network.AWS.EFS.PutLifecycleConfiguration
+
     -- ** DeleteFileSystem
     , module Network.AWS.EFS.DeleteFileSystem
 
+    -- ** UpdateFileSystem
+    , module Network.AWS.EFS.UpdateFileSystem
+
     -- ** CreateMountTarget
     , module Network.AWS.EFS.CreateMountTarget
+
+    -- ** DescribeLifecycleConfiguration
+    , module Network.AWS.EFS.DescribeLifecycleConfiguration
 
     -- * Types
 
@@ -124,10 +142,18 @@ module Network.AWS.EFS
     -- ** PerformanceMode
     , PerformanceMode (..)
 
+    -- ** ThroughputMode
+    , ThroughputMode (..)
+
+    -- ** TransitionToIARules
+    , TransitionToIARules (..)
+
     -- ** FileSystemDescription
     , FileSystemDescription
     , fileSystemDescription
+    , fsdProvisionedThroughputInMibps
     , fsdEncrypted
+    , fsdThroughputMode
     , fsdKMSKeyId
     , fsdName
     , fsdOwnerId
@@ -138,12 +164,25 @@ module Network.AWS.EFS
     , fsdNumberOfMountTargets
     , fsdSizeInBytes
     , fsdPerformanceMode
+    , fsdTags
 
     -- ** FileSystemSize
     , FileSystemSize
     , fileSystemSize
+    , fssValueInIA
+    , fssValueInStandard
     , fssTimestamp
     , fssValue
+
+    -- ** LifecycleConfigurationDescription
+    , LifecycleConfigurationDescription
+    , lifecycleConfigurationDescription
+    , lcdLifecyclePolicies
+
+    -- ** LifecyclePolicy
+    , LifecyclePolicy
+    , lifecyclePolicy
+    , lpTransitionToIA
 
     -- ** MountTargetDescription
     , MountTargetDescription
@@ -170,11 +209,14 @@ import Network.AWS.EFS.DeleteFileSystem
 import Network.AWS.EFS.DeleteMountTarget
 import Network.AWS.EFS.DeleteTags
 import Network.AWS.EFS.DescribeFileSystems
+import Network.AWS.EFS.DescribeLifecycleConfiguration
 import Network.AWS.EFS.DescribeMountTargets
 import Network.AWS.EFS.DescribeMountTargetSecurityGroups
 import Network.AWS.EFS.DescribeTags
 import Network.AWS.EFS.ModifyMountTargetSecurityGroups
+import Network.AWS.EFS.PutLifecycleConfiguration
 import Network.AWS.EFS.Types
+import Network.AWS.EFS.UpdateFileSystem
 import Network.AWS.EFS.Waiters
 
 {- $errors

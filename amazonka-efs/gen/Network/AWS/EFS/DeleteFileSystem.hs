@@ -59,7 +59,7 @@ newtype DeleteFileSystem = DeleteFileSystem'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delFileSystemId' - ID of the file system you want to delete.
+-- * 'delFileSystemId' - The ID of the file system you want to delete.
 deleteFileSystem
     :: Text -- ^ 'delFileSystemId'
     -> DeleteFileSystem
@@ -67,7 +67,7 @@ deleteFileSystem pFileSystemId_ =
   DeleteFileSystem' {_delFileSystemId = pFileSystemId_}
 
 
--- | ID of the file system you want to delete.
+-- | The ID of the file system you want to delete.
 delFileSystemId :: Lens' DeleteFileSystem Text
 delFileSystemId = lens _delFileSystemId (\ s a -> s{_delFileSystemId = a})
 

@@ -22,6 +22,7 @@ module Network.AWS.EFS.Types
     , _MountTargetConflict
     , _UnsupportedAvailabilityZone
     , _FileSystemLimitExceeded
+    , _TooManyRequests
     , _NetworkInterfaceLimitExceeded
     , _FileSystemAlreadyExists
     , _SubnetNotFound
@@ -29,11 +30,13 @@ module Network.AWS.EFS.Types
     , _IncorrectFileSystemLifeCycleState
     , _BadRequest
     , _NoFreeAddressesInSubnet
+    , _ThroughputLimitExceeded
     , _DependencyTimeout
     , _FileSystemInUse
     , _IncorrectMountTargetState
     , _InternalServerError
     , _IPAddressInUse
+    , _InsufficientThroughputCapacity
 
     -- * LifeCycleState
     , LifeCycleState (..)
@@ -41,10 +44,18 @@ module Network.AWS.EFS.Types
     -- * PerformanceMode
     , PerformanceMode (..)
 
+    -- * ThroughputMode
+    , ThroughputMode (..)
+
+    -- * TransitionToIARules
+    , TransitionToIARules (..)
+
     -- * FileSystemDescription
     , FileSystemDescription
     , fileSystemDescription
+    , fsdProvisionedThroughputInMibps
     , fsdEncrypted
+    , fsdThroughputMode
     , fsdKMSKeyId
     , fsdName
     , fsdOwnerId
@@ -55,12 +66,25 @@ module Network.AWS.EFS.Types
     , fsdNumberOfMountTargets
     , fsdSizeInBytes
     , fsdPerformanceMode
+    , fsdTags
 
     -- * FileSystemSize
     , FileSystemSize
     , fileSystemSize
+    , fssValueInIA
+    , fssValueInStandard
     , fssTimestamp
     , fssValue
+
+    -- * LifecycleConfigurationDescription
+    , LifecycleConfigurationDescription
+    , lifecycleConfigurationDescription
+    , lcdLifecyclePolicies
+
+    -- * LifecyclePolicy
+    , LifecyclePolicy
+    , lifecyclePolicy
+    , lpTransitionToIA
 
     -- * MountTargetDescription
     , MountTargetDescription
@@ -141,7 +165,7 @@ _SecurityGroupLimitExceeded =
   _MatchServiceError efs "SecurityGroupLimitExceeded" . hasStatus 400
 
 
--- | Returned if one of the specified security groups does not exist in the subnet's VPC.
+-- | Returned if one of the specified security groups doesn't exist in the subnet's VPC.
 --
 --
 _SecurityGroupNotFound :: AsError a => Getting (First ServiceError) a ServiceError
@@ -165,7 +189,7 @@ _UnsupportedAvailabilityZone =
   _MatchServiceError efs "UnsupportedAvailabilityZone" . hasStatus 400
 
 
--- | Returned if the AWS account has already created maximum number of file systems allowed per account.
+-- | Returned if the AWS account has already created the maximum number of file systems allowed per account.
 --
 --
 _FileSystemLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
@@ -173,93 +197,4 @@ _FileSystemLimitExceeded =
   _MatchServiceError efs "FileSystemLimitExceeded" . hasStatus 403
 
 
--- | The calling account has reached the ENI limit for the specific AWS region. Client should try to delete some ENIs or get its account limit raised. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html Amazon VPC Limits> in the Amazon Virtual Private Cloud User Guide (see the Network interfaces per VPC entry in the table).
---
---
-_NetworkInterfaceLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_NetworkInterfaceLimitExceeded =
-  _MatchServiceError efs "NetworkInterfaceLimitExceeded" . hasStatus 409
-
-
--- | Returned if the file system you are trying to create already exists, with the creation token you provided.
---
---
-_FileSystemAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
-_FileSystemAlreadyExists =
-  _MatchServiceError efs "FileSystemAlreadyExists" . hasStatus 409
-
-
--- | Returned if there is no subnet with ID @SubnetId@ provided in the request.
---
---
-_SubnetNotFound :: AsError a => Getting (First ServiceError) a ServiceError
-_SubnetNotFound = _MatchServiceError efs "SubnetNotFound" . hasStatus 400
-
-
--- | Returned if the specified @FileSystemId@ does not exist in the requester's AWS account.
---
---
-_FileSystemNotFound :: AsError a => Getting (First ServiceError) a ServiceError
-_FileSystemNotFound =
-  _MatchServiceError efs "FileSystemNotFound" . hasStatus 404
-
-
--- | Returned if the file system's life cycle state is not "created".
---
---
-_IncorrectFileSystemLifeCycleState :: AsError a => Getting (First ServiceError) a ServiceError
-_IncorrectFileSystemLifeCycleState =
-  _MatchServiceError efs "IncorrectFileSystemLifeCycleState" . hasStatus 409
-
-
--- | Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
---
---
-_BadRequest :: AsError a => Getting (First ServiceError) a ServiceError
-_BadRequest = _MatchServiceError efs "BadRequest" . hasStatus 400
-
-
--- | Returned if @IpAddress@ was not specified in the request and there are no free IP addresses in the subnet.
---
---
-_NoFreeAddressesInSubnet :: AsError a => Getting (First ServiceError) a ServiceError
-_NoFreeAddressesInSubnet =
-  _MatchServiceError efs "NoFreeAddressesInSubnet" . hasStatus 409
-
-
--- | The service timed out trying to fulfill the request, and the client should try the call again.
---
---
-_DependencyTimeout :: AsError a => Getting (First ServiceError) a ServiceError
-_DependencyTimeout = _MatchServiceError efs "DependencyTimeout" . hasStatus 504
-
-
--- | Returned if a file system has mount targets.
---
---
-_FileSystemInUse :: AsError a => Getting (First ServiceError) a ServiceError
-_FileSystemInUse = _MatchServiceError efs "FileSystemInUse" . hasStatus 409
-
-
--- | Returned if the mount target is not in the correct state for the operation.
---
---
-_IncorrectMountTargetState :: AsError a => Getting (First ServiceError) a ServiceError
-_IncorrectMountTargetState =
-  _MatchServiceError efs "IncorrectMountTargetState" . hasStatus 409
-
-
--- | Returned if an error occurred on the server side.
---
---
-_InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServerError =
-  _MatchServiceError efs "InternalServerError" . hasStatus 500
-
-
--- | Returned if the request specified an @IpAddress@ that is already in use in the subnet.
---
---
-_IPAddressInUse :: AsError a => Getting (First ServiceError) a ServiceError
-_IPAddressInUse = _MatchServiceError efs "IpAddressInUse" . hasStatus 409
-
+-- | Returned if you don

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the tags associated with a file system. The order of tags returned in the response of one @DescribeTags@ call and the order of tags returned across the responses of a multi-call iteration (when using pagination) is unspecified.
+-- Returns the tags associated with a file system. The order of tags returned in the response of one @DescribeTags@ call and the order of tags returned across the responses of a multiple-call iteration (when using pagination) is unspecified.
 --
 --
 -- This operation requires permissions for the @elasticfilesystem:DescribeTags@ action.
@@ -69,11 +69,11 @@ data DescribeTags = DescribeTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtMarker' - (Optional) Opaque pagination token returned from a previous @DescribeTags@ operation (String). If present, it specifies to continue the list from where the previous call left off.
+-- * 'dtMarker' - (Optional) An opaque pagination token returned from a previous @DescribeTags@ operation (String). If present, it specifies to continue the list from where the previous call left off.
 --
--- * 'dtMaxItems' - (Optional) Maximum number of file system tags to return in the response. It must be an integer with a value greater than zero.
+-- * 'dtMaxItems' - (Optional) The maximum number of file system tags to return in the response. Currently, this number is automatically set to 10.
 --
--- * 'dtFileSystemId' - ID of the file system whose tag set you want to retrieve.
+-- * 'dtFileSystemId' - The ID of the file system whose tag set you want to retrieve.
 describeTags
     :: Text -- ^ 'dtFileSystemId'
     -> DescribeTags
@@ -85,15 +85,15 @@ describeTags pFileSystemId_ =
     }
 
 
--- | (Optional) Opaque pagination token returned from a previous @DescribeTags@ operation (String). If present, it specifies to continue the list from where the previous call left off.
+-- | (Optional) An opaque pagination token returned from a previous @DescribeTags@ operation (String). If present, it specifies to continue the list from where the previous call left off.
 dtMarker :: Lens' DescribeTags (Maybe Text)
 dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a})
 
--- | (Optional) Maximum number of file system tags to return in the response. It must be an integer with a value greater than zero.
+-- | (Optional) The maximum number of file system tags to return in the response. Currently, this number is automatically set to 10.
 dtMaxItems :: Lens' DescribeTags (Maybe Natural)
 dtMaxItems = lens _dtMaxItems (\ s a -> s{_dtMaxItems = a}) . mapping _Nat
 
--- | ID of the file system whose tag set you want to retrieve.
+-- | The ID of the file system whose tag set you want to retrieve.
 dtFileSystemId :: Lens' DescribeTags Text
 dtFileSystemId = lens _dtFileSystemId (\ s a -> s{_dtFileSystemId = a})
 

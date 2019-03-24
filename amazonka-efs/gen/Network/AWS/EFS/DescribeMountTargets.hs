@@ -75,7 +75,7 @@ data DescribeMountTargets = DescribeMountTargets'
 --
 -- * 'dmtMarker' - (Optional) Opaque pagination token returned from a previous @DescribeMountTargets@ operation (String). If present, it specifies to continue the list from where the previous returning call left off.
 --
--- * 'dmtMaxItems' - (Optional) Maximum number of mount targets to return in the response. It must be an integer with a value greater than zero.
+-- * 'dmtMaxItems' - (Optional) Maximum number of mount targets to return in the response. Currently, this number is automatically set to 10.
 --
 -- * 'dmtMountTargetId' - (Optional) ID of the mount target that you want to have described (String). It must be included in your request if @FileSystemId@ is not included.
 describeMountTargets
@@ -97,7 +97,7 @@ dmtFileSystemId = lens _dmtFileSystemId (\ s a -> s{_dmtFileSystemId = a})
 dmtMarker :: Lens' DescribeMountTargets (Maybe Text)
 dmtMarker = lens _dmtMarker (\ s a -> s{_dmtMarker = a})
 
--- | (Optional) Maximum number of mount targets to return in the response. It must be an integer with a value greater than zero.
+-- | (Optional) Maximum number of mount targets to return in the response. Currently, this number is automatically set to 10.
 dmtMaxItems :: Lens' DescribeMountTargets (Maybe Natural)
 dmtMaxItems = lens _dmtMaxItems (\ s a -> s{_dmtMaxItems = a}) . mapping _Nat
 

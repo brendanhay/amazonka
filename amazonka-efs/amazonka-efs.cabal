@@ -52,11 +52,14 @@ library
         , Network.AWS.EFS.DeleteMountTarget
         , Network.AWS.EFS.DeleteTags
         , Network.AWS.EFS.DescribeFileSystems
+        , Network.AWS.EFS.DescribeLifecycleConfiguration
         , Network.AWS.EFS.DescribeMountTargetSecurityGroups
         , Network.AWS.EFS.DescribeMountTargets
         , Network.AWS.EFS.DescribeTags
         , Network.AWS.EFS.ModifyMountTargetSecurityGroups
+        , Network.AWS.EFS.PutLifecycleConfiguration
         , Network.AWS.EFS.Types
+        , Network.AWS.EFS.UpdateFileSystem
         , Network.AWS.EFS.Waiters
 
     other-modules:

@@ -21,6 +21,8 @@
 -- Lists all schema extensions applied to a Microsoft AD Directory.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DirectoryService.ListSchemaExtensions
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.DirectoryService.ListSchemaExtensions
 import Network.AWS.DirectoryService.Types
 import Network.AWS.DirectoryService.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -86,6 +89,13 @@ lseLimit = lens _lseLimit (\ s a -> s{_lseLimit = a}) . mapping _Nat
 -- | The identifier of the directory from which to retrieve the schema extension information.
 lseDirectoryId :: Lens' ListSchemaExtensions Text
 lseDirectoryId = lens _lseDirectoryId (\ s a -> s{_lseDirectoryId = a})
+
+instance AWSPager ListSchemaExtensions where
+        page rq rs
+          | stop (rs ^. lsersNextToken) = Nothing
+          | stop (rs ^. lsersSchemaExtensionsInfo) = Nothing
+          | otherwise =
+            Just $ rq & lseNextToken .~ rs ^. lsersNextToken
 
 instance AWSRequest ListSchemaExtensions where
         type Rs ListSchemaExtensions =

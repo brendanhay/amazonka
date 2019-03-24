@@ -21,7 +21,7 @@
 -- Creates a Simple AD directory.
 --
 --
--- Before you call /CreateDirectory/ , ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the /CreateDirectory/ operation, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference> .
+-- Before you call @CreateDirectory@ , ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the @CreateDirectory@ operation, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference> .
 --
 module Network.AWS.DirectoryService.CreateDirectory
     (
@@ -32,6 +32,7 @@ module Network.AWS.DirectoryService.CreateDirectory
     , cShortName
     , cVPCSettings
     , cDescription
+    , cTags
     , cName
     , cPassword
     , cSize
@@ -60,6 +61,7 @@ data CreateDirectory = CreateDirectory'
   { _cShortName   :: !(Maybe Text)
   , _cVPCSettings :: !(Maybe DirectoryVPCSettings)
   , _cDescription :: !(Maybe Text)
+  , _cTags        :: !(Maybe [Tag])
   , _cName        :: !Text
   , _cPassword    :: !(Sensitive Text)
   , _cSize        :: !DirectorySize
@@ -76,9 +78,11 @@ data CreateDirectory = CreateDirectory'
 --
 -- * 'cDescription' - A textual description for the directory.
 --
+-- * 'cTags' - The tags to be assigned to the Simple AD directory.
+--
 -- * 'cName' - The fully qualified name for the directory, such as @corp.example.com@ .
 --
--- * 'cPassword' - The password for the directory administrator. The directory creation process creates a directory administrator account with the username @Administrator@ and this password.
+-- * 'cPassword' - The password for the directory administrator. The directory creation process creates a directory administrator account with the user name @Administrator@ and this password.
 --
 -- * 'cSize' - The size of the directory.
 createDirectory
@@ -91,6 +95,7 @@ createDirectory pName_ pPassword_ pSize_ =
     { _cShortName = Nothing
     , _cVPCSettings = Nothing
     , _cDescription = Nothing
+    , _cTags = Nothing
     , _cName = pName_
     , _cPassword = _Sensitive # pPassword_
     , _cSize = pSize_
@@ -109,11 +114,15 @@ cVPCSettings = lens _cVPCSettings (\ s a -> s{_cVPCSettings = a})
 cDescription :: Lens' CreateDirectory (Maybe Text)
 cDescription = lens _cDescription (\ s a -> s{_cDescription = a})
 
+-- | The tags to be assigned to the Simple AD directory.
+cTags :: Lens' CreateDirectory [Tag]
+cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce
+
 -- | The fully qualified name for the directory, such as @corp.example.com@ .
 cName :: Lens' CreateDirectory Text
 cName = lens _cName (\ s a -> s{_cName = a})
 
--- | The password for the directory administrator. The directory creation process creates a directory administrator account with the username @Administrator@ and this password.
+-- | The password for the directory administrator. The directory creation process creates a directory administrator account with the user name @Administrator@ and this password.
 cPassword :: Lens' CreateDirectory Text
 cPassword = lens _cPassword (\ s a -> s{_cPassword = a}) . _Sensitive
 
@@ -151,7 +160,7 @@ instance ToJSON CreateDirectory where
                  [("ShortName" .=) <$> _cShortName,
                   ("VpcSettings" .=) <$> _cVPCSettings,
                   ("Description" .=) <$> _cDescription,
-                  Just ("Name" .= _cName),
+                  ("Tags" .=) <$> _cTags, Just ("Name" .= _cName),
                   Just ("Password" .= _cPassword),
                   Just ("Size" .= _cSize)])
 

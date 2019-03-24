@@ -45,6 +45,7 @@ library
 
     exposed-modules:
           Network.AWS.DirectoryService
+        , Network.AWS.DirectoryService.AcceptSharedDirectory
         , Network.AWS.DirectoryService.AddIPRoutes
         , Network.AWS.DirectoryService.AddTagsToResource
         , Network.AWS.DirectoryService.CancelSchemaExtension
@@ -53,11 +54,13 @@ library
         , Network.AWS.DirectoryService.CreateComputer
         , Network.AWS.DirectoryService.CreateConditionalForwarder
         , Network.AWS.DirectoryService.CreateDirectory
+        , Network.AWS.DirectoryService.CreateLogSubscription
         , Network.AWS.DirectoryService.CreateMicrosoftAD
         , Network.AWS.DirectoryService.CreateSnapshot
         , Network.AWS.DirectoryService.CreateTrust
         , Network.AWS.DirectoryService.DeleteConditionalForwarder
         , Network.AWS.DirectoryService.DeleteDirectory
+        , Network.AWS.DirectoryService.DeleteLogSubscription
         , Network.AWS.DirectoryService.DeleteSnapshot
         , Network.AWS.DirectoryService.DeleteTrust
         , Network.AWS.DirectoryService.DeregisterEventTopic
@@ -65,6 +68,7 @@ library
         , Network.AWS.DirectoryService.DescribeDirectories
         , Network.AWS.DirectoryService.DescribeDomainControllers
         , Network.AWS.DirectoryService.DescribeEventTopics
+        , Network.AWS.DirectoryService.DescribeSharedDirectories
         , Network.AWS.DirectoryService.DescribeSnapshots
         , Network.AWS.DirectoryService.DescribeTrusts
         , Network.AWS.DirectoryService.DisableRadius
@@ -74,17 +78,23 @@ library
         , Network.AWS.DirectoryService.GetDirectoryLimits
         , Network.AWS.DirectoryService.GetSnapshotLimits
         , Network.AWS.DirectoryService.ListIPRoutes
+        , Network.AWS.DirectoryService.ListLogSubscriptions
         , Network.AWS.DirectoryService.ListSchemaExtensions
         , Network.AWS.DirectoryService.ListTagsForResource
         , Network.AWS.DirectoryService.RegisterEventTopic
+        , Network.AWS.DirectoryService.RejectSharedDirectory
         , Network.AWS.DirectoryService.RemoveIPRoutes
         , Network.AWS.DirectoryService.RemoveTagsFromResource
+        , Network.AWS.DirectoryService.ResetUserPassword
         , Network.AWS.DirectoryService.RestoreFromSnapshot
+        , Network.AWS.DirectoryService.ShareDirectory
         , Network.AWS.DirectoryService.StartSchemaExtension
         , Network.AWS.DirectoryService.Types
+        , Network.AWS.DirectoryService.UnshareDirectory
         , Network.AWS.DirectoryService.UpdateConditionalForwarder
         , Network.AWS.DirectoryService.UpdateNumberOfDomainControllers
         , Network.AWS.DirectoryService.UpdateRadius
+        , Network.AWS.DirectoryService.UpdateTrust
         , Network.AWS.DirectoryService.VerifyTrust
         , Network.AWS.DirectoryService.Waiters
 

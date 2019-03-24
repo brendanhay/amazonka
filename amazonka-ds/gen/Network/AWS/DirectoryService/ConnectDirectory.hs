@@ -21,7 +21,7 @@
 -- Creates an AD Connector to connect to an on-premises directory.
 --
 --
--- Before you call /ConnectDirectory/ , ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the /ConnectDirectory/ operation, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference> .
+-- Before you call @ConnectDirectory@ , ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the @ConnectDirectory@ operation, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference> .
 --
 module Network.AWS.DirectoryService.ConnectDirectory
     (
@@ -31,6 +31,7 @@ module Network.AWS.DirectoryService.ConnectDirectory
     -- * Request Lenses
     , cdShortName
     , cdDescription
+    , cdTags
     , cdName
     , cdPassword
     , cdSize
@@ -59,6 +60,7 @@ import Network.AWS.Response
 data ConnectDirectory = ConnectDirectory'
   { _cdShortName       :: !(Maybe Text)
   , _cdDescription     :: !(Maybe Text)
+  , _cdTags            :: !(Maybe [Tag])
   , _cdName            :: !Text
   , _cdPassword        :: !(Sensitive Text)
   , _cdSize            :: !DirectorySize
@@ -74,7 +76,9 @@ data ConnectDirectory = ConnectDirectory'
 --
 -- * 'cdDescription' - A textual description for the directory.
 --
--- * 'cdName' - The fully-qualified name of the on-premises directory, such as @corp.example.com@ .
+-- * 'cdTags' - The tags to be assigned to AD Connector.
+--
+-- * 'cdName' - The fully qualified name of the on-premises directory, such as @corp.example.com@ .
 --
 -- * 'cdPassword' - The password for the on-premises user account.
 --
@@ -91,6 +95,7 @@ connectDirectory pName_ pPassword_ pSize_ pConnectSettings_ =
   ConnectDirectory'
     { _cdShortName = Nothing
     , _cdDescription = Nothing
+    , _cdTags = Nothing
     , _cdName = pName_
     , _cdPassword = _Sensitive # pPassword_
     , _cdSize = pSize_
@@ -106,7 +111,11 @@ cdShortName = lens _cdShortName (\ s a -> s{_cdShortName = a})
 cdDescription :: Lens' ConnectDirectory (Maybe Text)
 cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a})
 
--- | The fully-qualified name of the on-premises directory, such as @corp.example.com@ .
+-- | The tags to be assigned to AD Connector.
+cdTags :: Lens' ConnectDirectory [Tag]
+cdTags = lens _cdTags (\ s a -> s{_cdTags = a}) . _Default . _Coerce
+
+-- | The fully qualified name of the on-premises directory, such as @corp.example.com@ .
 cdName :: Lens' ConnectDirectory Text
 cdName = lens _cdName (\ s a -> s{_cdName = a})
 
@@ -151,7 +160,7 @@ instance ToJSON ConnectDirectory where
               (catMaybes
                  [("ShortName" .=) <$> _cdShortName,
                   ("Description" .=) <$> _cdDescription,
-                  Just ("Name" .= _cdName),
+                  ("Tags" .=) <$> _cdTags, Just ("Name" .= _cdName),
                   Just ("Password" .= _cdPassword),
                   Just ("Size" .= _cdSize),
                   Just ("ConnectSettings" .= _cdConnectSettings)])

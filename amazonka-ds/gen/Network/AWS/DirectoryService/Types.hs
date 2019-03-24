@@ -16,21 +16,29 @@ module Network.AWS.DirectoryService.Types
       directoryService
 
     -- * Errors
+    , _AccessDeniedException
     , _DirectoryUnavailableException
     , _AuthenticationFailedException
     , _InvalidParameterException
     , _UnsupportedOperationException
     , _EntityAlreadyExistsException
+    , _UserDoesNotExistException
     , _DirectoryLimitExceededException
     , _IPRouteLimitExceededException
+    , _ShareLimitExceededException
     , _EntityDoesNotExistException
+    , _OrganizationsException
+    , _InvalidTargetException
     , _InsufficientPermissionsException
+    , _DirectoryNotSharedException
     , _InvalidNextTokenException
     , _ServiceException
     , _SnapshotLimitExceededException
     , _DomainControllerLimitExceededException
     , _TagLimitExceededException
     , _ClientException
+    , _DirectoryAlreadySharedException
+    , _InvalidPasswordException
 
     -- * DirectoryEdition
     , DirectoryEdition (..)
@@ -62,11 +70,23 @@ module Network.AWS.DirectoryService.Types
     -- * SchemaExtensionStatus
     , SchemaExtensionStatus (..)
 
+    -- * SelectiveAuth
+    , SelectiveAuth (..)
+
+    -- * ShareMethod
+    , ShareMethod (..)
+
+    -- * ShareStatus
+    , ShareStatus (..)
+
     -- * SnapshotStatus
     , SnapshotStatus (..)
 
     -- * SnapshotType
     , SnapshotType (..)
+
+    -- * TargetType
+    , TargetType (..)
 
     -- * TopicStatus
     , TopicStatus (..)
@@ -132,7 +152,9 @@ module Network.AWS.DirectoryService.Types
     , ddRadiusSettings
     , ddLaunchTime
     , ddAlias
+    , ddShareStatus
     , ddName
+    , ddShareMethod
     , ddStageLastUpdatedDateTime
     , ddSSOEnabled
     , ddDNSIPAddrs
@@ -140,7 +162,9 @@ module Network.AWS.DirectoryService.Types
     , ddType
     , ddStageReason
     , ddConnectSettings
+    , ddOwnerDirectoryDescription
     , ddDescription
+    , ddShareNotes
 
     -- * DirectoryLimits
     , DirectoryLimits
@@ -208,6 +232,23 @@ module Network.AWS.DirectoryService.Types
     , iriIPRouteStatusMsg
     , iriDescription
 
+    -- * LogSubscription
+    , LogSubscription
+    , logSubscription
+    , lsDirectoryId
+    , lsLogGroupName
+    , lsSubscriptionCreatedDateTime
+
+    -- * OwnerDirectoryDescription
+    , OwnerDirectoryDescription
+    , ownerDirectoryDescription
+    , oddRadiusStatus
+    , oddDirectoryId
+    , oddRadiusSettings
+    , oddAccountId
+    , oddDNSIPAddrs
+    , oddVPCSettings
+
     -- * RadiusSettings
     , RadiusSettings
     , radiusSettings
@@ -230,6 +271,25 @@ module Network.AWS.DirectoryService.Types
     , seiDescription
     , seiEndDateTime
     , seiStartDateTime
+
+    -- * ShareTarget
+    , ShareTarget
+    , shareTarget
+    , stId
+    , stType
+
+    -- * SharedDirectory
+    , SharedDirectory
+    , sharedDirectory
+    , sSharedAccountId
+    , sOwnerAccountId
+    , sLastUpdatedDateTime
+    , sShareStatus
+    , sShareMethod
+    , sOwnerDirectoryId
+    , sSharedDirectoryId
+    , sShareNotes
+    , sCreatedDateTime
 
     -- * Snapshot
     , Snapshot
@@ -264,9 +324,16 @@ module Network.AWS.DirectoryService.Types
     , tStateLastUpdatedDateTime
     , tTrustType
     , tTrustStateReason
+    , tSelectiveAuth
     , tRemoteDomainName
     , tTrustId
     , tCreatedDateTime
+
+    -- * UnshareTarget
+    , UnshareTarget
+    , unshareTarget
+    , utId
+    , utType
     ) where
 
 import Network.AWS.DirectoryService.Types.Product
@@ -314,6 +381,14 @@ directoryService =
       | otherwise = Nothing
 
 
+-- | You do not have sufficient access to perform this action.
+--
+--
+_AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
+_AccessDeniedException =
+  _MatchServiceError directoryService "AccessDeniedException"
+
+
 -- | The specified directory is unavailable or could not be found.
 --
 --
@@ -354,6 +429,14 @@ _EntityAlreadyExistsException =
   _MatchServiceError directoryService "EntityAlreadyExistsException"
 
 
+-- | The user provided a username that does not exist in your directory.
+--
+--
+_UserDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
+_UserDoesNotExistException =
+  _MatchServiceError directoryService "UserDoesNotExistException"
+
+
 -- | The maximum number of directories in the region has been reached. You can use the 'GetDirectoryLimits' operation to determine your directory limits in the region.
 --
 --
@@ -370,12 +453,36 @@ _IPRouteLimitExceededException =
   _MatchServiceError directoryService "IpRouteLimitExceededException"
 
 
+-- | The maximum number of AWS accounts that you can share with this directory has been reached.
+--
+--
+_ShareLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_ShareLimitExceededException =
+  _MatchServiceError directoryService "ShareLimitExceededException"
+
+
 -- | The specified entity could not be found.
 --
 --
 _EntityDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _EntityDoesNotExistException =
   _MatchServiceError directoryService "EntityDoesNotExistException"
+
+
+-- | Exception encountered while trying to access your AWS organization.
+--
+--
+_OrganizationsException :: AsError a => Getting (First ServiceError) a ServiceError
+_OrganizationsException =
+  _MatchServiceError directoryService "OrganizationsException"
+
+
+-- | The specified shared target is not valid.
+--
+--
+_InvalidTargetException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidTargetException =
+  _MatchServiceError directoryService "InvalidTargetException"
 
 
 -- | The account does not have sufficient permission to perform the operation.
@@ -386,7 +493,15 @@ _InsufficientPermissionsException =
   _MatchServiceError directoryService "InsufficientPermissionsException"
 
 
--- | The /NextToken/ value is not valid.
+-- | The specified directory has not been shared with this AWS account.
+--
+--
+_DirectoryNotSharedException :: AsError a => Getting (First ServiceError) a ServiceError
+_DirectoryNotSharedException =
+  _MatchServiceError directoryService "DirectoryNotSharedException"
+
+
+-- | The @NextToken@ value is not valid.
 --
 --
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -430,4 +545,20 @@ _TagLimitExceededException =
 --
 _ClientException :: AsError a => Getting (First ServiceError) a ServiceError
 _ClientException = _MatchServiceError directoryService "ClientException"
+
+
+-- | The specified directory has already been shared with this AWS account.
+--
+--
+_DirectoryAlreadySharedException :: AsError a => Getting (First ServiceError) a ServiceError
+_DirectoryAlreadySharedException =
+  _MatchServiceError directoryService "DirectoryAlreadySharedException"
+
+
+-- | The new password provided by the user does not meet the password complexity requirements defined in your directory.
+--
+--
+_InvalidPasswordException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidPasswordException =
+  _MatchServiceError directoryService "InvalidPasswordException"
 

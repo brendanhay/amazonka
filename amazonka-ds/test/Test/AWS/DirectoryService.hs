@@ -15,9 +15,9 @@ module Test.AWS.DirectoryService
     , fixtures
     ) where
 
-import           Network.AWS.DirectoryService
-import           Test.AWS.Gen.DirectoryService
-import           Test.Tasty
+import Network.AWS.DirectoryService
+import Test.AWS.Gen.DirectoryService
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

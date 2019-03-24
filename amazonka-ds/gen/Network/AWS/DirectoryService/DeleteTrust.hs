@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an existing trust relationship between your Microsoft AD in the AWS cloud and an external domain.
+-- Deletes an existing trust relationship between your AWS Managed Microsoft AD directory and an external domain.
 --
 --
 module Network.AWS.DirectoryService.DeleteTrust
@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Deletes the local side of an existing trust relationship between the Microsoft AD in the AWS cloud and the external domain.
+-- | Deletes the local side of an existing trust relationship between the AWS Managed Microsoft AD directory and the external domain.
 --
 --
 --

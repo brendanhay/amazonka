@@ -21,6 +21,8 @@
 -- Lists the address blocks that you have added to a directory.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DirectoryService.ListIPRoutes
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.DirectoryService.ListIPRoutes
 import Network.AWS.DirectoryService.Types
 import Network.AWS.DirectoryService.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -86,6 +89,13 @@ lirLimit = lens _lirLimit (\ s a -> s{_lirLimit = a}) . mapping _Nat
 -- | Identifier (ID) of the directory for which you want to retrieve the IP addresses.
 lirDirectoryId :: Lens' ListIPRoutes Text
 lirDirectoryId = lens _lirDirectoryId (\ s a -> s{_lirDirectoryId = a})
+
+instance AWSPager ListIPRoutes where
+        page rq rs
+          | stop (rs ^. lirrsNextToken) = Nothing
+          | stop (rs ^. lirrsIPRoutesInfo) = Nothing
+          | otherwise =
+            Just $ rq & lirNextToken .~ rs ^. lirrsNextToken
 
 instance AWSRequest ListIPRoutes where
         type Rs ListIPRoutes = ListIPRoutesResponse

@@ -28,7 +28,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestUpdateNumberOfDomainControllers $
+--         [ requestShareDirectory $
+--             shareDirectory
+--
+--         , requestUpdateNumberOfDomainControllers $
 --             updateNumberOfDomainControllers
 --
 --         , requestDescribeConditionalForwarders $
@@ -61,6 +64,9 @@ import Test.Tasty
 --         , requestDeleteTrust $
 --             deleteTrust
 --
+--         , requestUpdateTrust $
+--             updateTrust
+--
 --         , requestCreateMicrosoftAD $
 --             createMicrosoftAD
 --
@@ -70,11 +76,20 @@ import Test.Tasty
 --         , requestCreateDirectory $
 --             createDirectory
 --
+--         , requestAcceptSharedDirectory $
+--             acceptSharedDirectory
+--
+--         , requestCreateLogSubscription $
+--             createLogSubscription
+--
 --         , requestRemoveTagsFromResource $
 --             removeTagsFromResource
 --
 --         , requestDescribeEventTopics $
 --             describeEventTopics
+--
+--         , requestResetUserPassword $
+--             resetUserPassword
 --
 --         , requestUpdateConditionalForwarder $
 --             updateConditionalForwarder
@@ -82,11 +97,17 @@ import Test.Tasty
 --         , requestDeleteConditionalForwarder $
 --             deleteConditionalForwarder
 --
+--         , requestDeleteLogSubscription $
+--             deleteLogSubscription
+--
 --         , requestEnableSSO $
 --             enableSSO
 --
 --         , requestCancelSchemaExtension $
 --             cancelSchemaExtension
+--
+--         , requestListLogSubscriptions $
+--             listLogSubscriptions
 --
 --         , requestEnableRadius $
 --             enableRadius
@@ -102,6 +123,12 @@ import Test.Tasty
 --
 --         , requestDisableRadius $
 --             disableRadius
+--
+--         , requestRejectSharedDirectory $
+--             rejectSharedDirectory
+--
+--         , requestUnshareDirectory $
+--             unshareDirectory
 --
 --         , requestRestoreFromSnapshot $
 --             restoreFromSnapshot
@@ -133,6 +160,9 @@ import Test.Tasty
 --         , requestCreateComputer $
 --             createComputer
 --
+--         , requestDescribeSharedDirectories $
+--             describeSharedDirectories
+--
 --         , requestDisableSSO $
 --             disableSSO
 --
@@ -151,7 +181,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseUpdateNumberOfDomainControllers $
+--         [ responseShareDirectory $
+--             shareDirectoryResponse
+--
+--         , responseUpdateNumberOfDomainControllers $
 --             updateNumberOfDomainControllersResponse
 --
 --         , responseDescribeConditionalForwarders $
@@ -184,6 +217,9 @@ import Test.Tasty
 --         , responseDeleteTrust $
 --             deleteTrustResponse
 --
+--         , responseUpdateTrust $
+--             updateTrustResponse
+--
 --         , responseCreateMicrosoftAD $
 --             createMicrosoftADResponse
 --
@@ -193,11 +229,20 @@ import Test.Tasty
 --         , responseCreateDirectory $
 --             createDirectoryResponse
 --
+--         , responseAcceptSharedDirectory $
+--             acceptSharedDirectoryResponse
+--
+--         , responseCreateLogSubscription $
+--             createLogSubscriptionResponse
+--
 --         , responseRemoveTagsFromResource $
 --             removeTagsFromResourceResponse
 --
 --         , responseDescribeEventTopics $
 --             describeEventTopicsResponse
+--
+--         , responseResetUserPassword $
+--             resetUserPasswordResponse
 --
 --         , responseUpdateConditionalForwarder $
 --             updateConditionalForwarderResponse
@@ -205,11 +250,17 @@ import Test.Tasty
 --         , responseDeleteConditionalForwarder $
 --             deleteConditionalForwarderResponse
 --
+--         , responseDeleteLogSubscription $
+--             deleteLogSubscriptionResponse
+--
 --         , responseEnableSSO $
 --             enableSSOResponse
 --
 --         , responseCancelSchemaExtension $
 --             cancelSchemaExtensionResponse
+--
+--         , responseListLogSubscriptions $
+--             listLogSubscriptionsResponse
 --
 --         , responseEnableRadius $
 --             enableRadiusResponse
@@ -225,6 +276,12 @@ import Test.Tasty
 --
 --         , responseDisableRadius $
 --             disableRadiusResponse
+--
+--         , responseRejectSharedDirectory $
+--             rejectSharedDirectoryResponse
+--
+--         , responseUnshareDirectory $
+--             unshareDirectoryResponse
 --
 --         , responseRestoreFromSnapshot $
 --             restoreFromSnapshotResponse
@@ -256,6 +313,9 @@ import Test.Tasty
 --         , responseCreateComputer $
 --             createComputerResponse
 --
+--         , responseDescribeSharedDirectories $
+--             describeSharedDirectoriesResponse
+--
 --         , responseDisableSSO $
 --             disableSSOResponse
 --
@@ -275,6 +335,11 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestShareDirectory :: ShareDirectory -> TestTree
+requestShareDirectory = req
+    "ShareDirectory"
+    "fixture/ShareDirectory.yaml"
 
 requestUpdateNumberOfDomainControllers :: UpdateNumberOfDomainControllers -> TestTree
 requestUpdateNumberOfDomainControllers = req
@@ -331,6 +396,11 @@ requestDeleteTrust = req
     "DeleteTrust"
     "fixture/DeleteTrust.yaml"
 
+requestUpdateTrust :: UpdateTrust -> TestTree
+requestUpdateTrust = req
+    "UpdateTrust"
+    "fixture/UpdateTrust.yaml"
+
 requestCreateMicrosoftAD :: CreateMicrosoftAD -> TestTree
 requestCreateMicrosoftAD = req
     "CreateMicrosoftAD"
@@ -346,6 +416,16 @@ requestCreateDirectory = req
     "CreateDirectory"
     "fixture/CreateDirectory.yaml"
 
+requestAcceptSharedDirectory :: AcceptSharedDirectory -> TestTree
+requestAcceptSharedDirectory = req
+    "AcceptSharedDirectory"
+    "fixture/AcceptSharedDirectory.yaml"
+
+requestCreateLogSubscription :: CreateLogSubscription -> TestTree
+requestCreateLogSubscription = req
+    "CreateLogSubscription"
+    "fixture/CreateLogSubscription.yaml"
+
 requestRemoveTagsFromResource :: RemoveTagsFromResource -> TestTree
 requestRemoveTagsFromResource = req
     "RemoveTagsFromResource"
@@ -355,6 +435,11 @@ requestDescribeEventTopics :: DescribeEventTopics -> TestTree
 requestDescribeEventTopics = req
     "DescribeEventTopics"
     "fixture/DescribeEventTopics.yaml"
+
+requestResetUserPassword :: ResetUserPassword -> TestTree
+requestResetUserPassword = req
+    "ResetUserPassword"
+    "fixture/ResetUserPassword.yaml"
 
 requestUpdateConditionalForwarder :: UpdateConditionalForwarder -> TestTree
 requestUpdateConditionalForwarder = req
@@ -366,6 +451,11 @@ requestDeleteConditionalForwarder = req
     "DeleteConditionalForwarder"
     "fixture/DeleteConditionalForwarder.yaml"
 
+requestDeleteLogSubscription :: DeleteLogSubscription -> TestTree
+requestDeleteLogSubscription = req
+    "DeleteLogSubscription"
+    "fixture/DeleteLogSubscription.yaml"
+
 requestEnableSSO :: EnableSSO -> TestTree
 requestEnableSSO = req
     "EnableSSO"
@@ -375,6 +465,11 @@ requestCancelSchemaExtension :: CancelSchemaExtension -> TestTree
 requestCancelSchemaExtension = req
     "CancelSchemaExtension"
     "fixture/CancelSchemaExtension.yaml"
+
+requestListLogSubscriptions :: ListLogSubscriptions -> TestTree
+requestListLogSubscriptions = req
+    "ListLogSubscriptions"
+    "fixture/ListLogSubscriptions.yaml"
 
 requestEnableRadius :: EnableRadius -> TestTree
 requestEnableRadius = req
@@ -400,6 +495,16 @@ requestDisableRadius :: DisableRadius -> TestTree
 requestDisableRadius = req
     "DisableRadius"
     "fixture/DisableRadius.yaml"
+
+requestRejectSharedDirectory :: RejectSharedDirectory -> TestTree
+requestRejectSharedDirectory = req
+    "RejectSharedDirectory"
+    "fixture/RejectSharedDirectory.yaml"
+
+requestUnshareDirectory :: UnshareDirectory -> TestTree
+requestUnshareDirectory = req
+    "UnshareDirectory"
+    "fixture/UnshareDirectory.yaml"
 
 requestRestoreFromSnapshot :: RestoreFromSnapshot -> TestTree
 requestRestoreFromSnapshot = req
@@ -451,6 +556,11 @@ requestCreateComputer = req
     "CreateComputer"
     "fixture/CreateComputer.yaml"
 
+requestDescribeSharedDirectories :: DescribeSharedDirectories -> TestTree
+requestDescribeSharedDirectories = req
+    "DescribeSharedDirectories"
+    "fixture/DescribeSharedDirectories.yaml"
+
 requestDisableSSO :: DisableSSO -> TestTree
 requestDisableSSO = req
     "DisableSSO"
@@ -477,6 +587,13 @@ requestUpdateRadius = req
     "fixture/UpdateRadius.yaml"
 
 -- Responses
+
+responseShareDirectory :: ShareDirectoryResponse -> TestTree
+responseShareDirectory = res
+    "ShareDirectoryResponse"
+    "fixture/ShareDirectoryResponse.proto"
+    directoryService
+    (Proxy :: Proxy ShareDirectory)
 
 responseUpdateNumberOfDomainControllers :: UpdateNumberOfDomainControllersResponse -> TestTree
 responseUpdateNumberOfDomainControllers = res
@@ -555,6 +672,13 @@ responseDeleteTrust = res
     directoryService
     (Proxy :: Proxy DeleteTrust)
 
+responseUpdateTrust :: UpdateTrustResponse -> TestTree
+responseUpdateTrust = res
+    "UpdateTrustResponse"
+    "fixture/UpdateTrustResponse.proto"
+    directoryService
+    (Proxy :: Proxy UpdateTrust)
+
 responseCreateMicrosoftAD :: CreateMicrosoftADResponse -> TestTree
 responseCreateMicrosoftAD = res
     "CreateMicrosoftADResponse"
@@ -576,6 +700,20 @@ responseCreateDirectory = res
     directoryService
     (Proxy :: Proxy CreateDirectory)
 
+responseAcceptSharedDirectory :: AcceptSharedDirectoryResponse -> TestTree
+responseAcceptSharedDirectory = res
+    "AcceptSharedDirectoryResponse"
+    "fixture/AcceptSharedDirectoryResponse.proto"
+    directoryService
+    (Proxy :: Proxy AcceptSharedDirectory)
+
+responseCreateLogSubscription :: CreateLogSubscriptionResponse -> TestTree
+responseCreateLogSubscription = res
+    "CreateLogSubscriptionResponse"
+    "fixture/CreateLogSubscriptionResponse.proto"
+    directoryService
+    (Proxy :: Proxy CreateLogSubscription)
+
 responseRemoveTagsFromResource :: RemoveTagsFromResourceResponse -> TestTree
 responseRemoveTagsFromResource = res
     "RemoveTagsFromResourceResponse"
@@ -589,6 +727,13 @@ responseDescribeEventTopics = res
     "fixture/DescribeEventTopicsResponse.proto"
     directoryService
     (Proxy :: Proxy DescribeEventTopics)
+
+responseResetUserPassword :: ResetUserPasswordResponse -> TestTree
+responseResetUserPassword = res
+    "ResetUserPasswordResponse"
+    "fixture/ResetUserPasswordResponse.proto"
+    directoryService
+    (Proxy :: Proxy ResetUserPassword)
 
 responseUpdateConditionalForwarder :: UpdateConditionalForwarderResponse -> TestTree
 responseUpdateConditionalForwarder = res
@@ -604,6 +749,13 @@ responseDeleteConditionalForwarder = res
     directoryService
     (Proxy :: Proxy DeleteConditionalForwarder)
 
+responseDeleteLogSubscription :: DeleteLogSubscriptionResponse -> TestTree
+responseDeleteLogSubscription = res
+    "DeleteLogSubscriptionResponse"
+    "fixture/DeleteLogSubscriptionResponse.proto"
+    directoryService
+    (Proxy :: Proxy DeleteLogSubscription)
+
 responseEnableSSO :: EnableSSOResponse -> TestTree
 responseEnableSSO = res
     "EnableSSOResponse"
@@ -617,6 +769,13 @@ responseCancelSchemaExtension = res
     "fixture/CancelSchemaExtensionResponse.proto"
     directoryService
     (Proxy :: Proxy CancelSchemaExtension)
+
+responseListLogSubscriptions :: ListLogSubscriptionsResponse -> TestTree
+responseListLogSubscriptions = res
+    "ListLogSubscriptionsResponse"
+    "fixture/ListLogSubscriptionsResponse.proto"
+    directoryService
+    (Proxy :: Proxy ListLogSubscriptions)
 
 responseEnableRadius :: EnableRadiusResponse -> TestTree
 responseEnableRadius = res
@@ -652,6 +811,20 @@ responseDisableRadius = res
     "fixture/DisableRadiusResponse.proto"
     directoryService
     (Proxy :: Proxy DisableRadius)
+
+responseRejectSharedDirectory :: RejectSharedDirectoryResponse -> TestTree
+responseRejectSharedDirectory = res
+    "RejectSharedDirectoryResponse"
+    "fixture/RejectSharedDirectoryResponse.proto"
+    directoryService
+    (Proxy :: Proxy RejectSharedDirectory)
+
+responseUnshareDirectory :: UnshareDirectoryResponse -> TestTree
+responseUnshareDirectory = res
+    "UnshareDirectoryResponse"
+    "fixture/UnshareDirectoryResponse.proto"
+    directoryService
+    (Proxy :: Proxy UnshareDirectory)
 
 responseRestoreFromSnapshot :: RestoreFromSnapshotResponse -> TestTree
 responseRestoreFromSnapshot = res
@@ -722,6 +895,13 @@ responseCreateComputer = res
     "fixture/CreateComputerResponse.proto"
     directoryService
     (Proxy :: Proxy CreateComputer)
+
+responseDescribeSharedDirectories :: DescribeSharedDirectoriesResponse -> TestTree
+responseDescribeSharedDirectories = res
+    "DescribeSharedDirectoriesResponse"
+    "fixture/DescribeSharedDirectoriesResponse.proto"
+    directoryService
+    (Proxy :: Proxy DescribeSharedDirectories)
 
 responseDisableSSO :: DisableSSOResponse -> TestTree
 responseDisableSSO = res

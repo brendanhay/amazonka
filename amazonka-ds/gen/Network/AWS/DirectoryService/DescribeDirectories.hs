@@ -21,12 +21,14 @@
 -- Obtains information about the directories that belong to this account.
 --
 --
--- You can retrieve information about specific directories by passing the directory identifiers in the /DirectoryIds/ parameter. Otherwise, all directories that belong to the current account are returned.
+-- You can retrieve information about specific directories by passing the directory identifiers in the @DirectoryIds@ parameter. Otherwise, all directories that belong to the current account are returned.
 --
--- This operation supports pagination with the use of the /NextToken/ request and response parameters. If more results are available, the /DescribeDirectoriesResult.NextToken/ member contains a token that you pass in the next call to 'DescribeDirectories' to retrieve the next set of items.
+-- This operation supports pagination with the use of the @NextToken@ request and response parameters. If more results are available, the @DescribeDirectoriesResult.NextToken@ member contains a token that you pass in the next call to 'DescribeDirectories' to retrieve the next set of items.
 --
--- You can also specify a maximum number of return results with the /Limit/ parameter.
+-- You can also specify a maximum number of return results with the @Limit@ parameter.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DirectoryService.DescribeDirectories
     (
     -- * Creating a Request
@@ -49,6 +51,7 @@ module Network.AWS.DirectoryService.DescribeDirectories
 import Network.AWS.DirectoryService.Types
 import Network.AWS.DirectoryService.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -69,7 +72,7 @@ data DescribeDirectories = DescribeDirectories'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddNextToken' - The /DescribeDirectoriesResult.NextToken/ value from a previous call to 'DescribeDirectories' . Pass null if this is the first call.
+-- * 'ddNextToken' - The @DescribeDirectoriesResult.NextToken@ value from a previous call to 'DescribeDirectories' . Pass null if this is the first call.
 --
 -- * 'ddDirectoryIds' - A list of identifiers of the directories for which to obtain the information. If this member is null, all directories that belong to the current account are returned. An empty list results in an @InvalidParameterException@ being thrown.
 --
@@ -81,7 +84,7 @@ describeDirectories =
     {_ddNextToken = Nothing, _ddDirectoryIds = Nothing, _ddLimit = Nothing}
 
 
--- | The /DescribeDirectoriesResult.NextToken/ value from a previous call to 'DescribeDirectories' . Pass null if this is the first call.
+-- | The @DescribeDirectoriesResult.NextToken@ value from a previous call to 'DescribeDirectories' . Pass null if this is the first call.
 ddNextToken :: Lens' DescribeDirectories (Maybe Text)
 ddNextToken = lens _ddNextToken (\ s a -> s{_ddNextToken = a})
 
@@ -92,6 +95,13 @@ ddDirectoryIds = lens _ddDirectoryIds (\ s a -> s{_ddDirectoryIds = a}) . _Defau
 -- | The maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.
 ddLimit :: Lens' DescribeDirectories (Maybe Natural)
 ddLimit = lens _ddLimit (\ s a -> s{_ddLimit = a}) . mapping _Nat
+
+instance AWSPager DescribeDirectories where
+        page rq rs
+          | stop (rs ^. ddrsNextToken) = Nothing
+          | stop (rs ^. ddrsDirectoryDescriptions) = Nothing
+          | otherwise =
+            Just $ rq & ddNextToken .~ rs ^. ddrsNextToken
 
 instance AWSRequest DescribeDirectories where
         type Rs DescribeDirectories =
@@ -149,9 +159,9 @@ data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddrsDirectoryDescriptions' - The list of 'DirectoryDescription' objects that were retrieved. It is possible that this list contains less than the number of items specified in the /Limit/ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
+-- * 'ddrsDirectoryDescriptions' - The list of 'DirectoryDescription' objects that were retrieved. It is possible that this list contains less than the number of items specified in the @Limit@ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
 --
--- * 'ddrsNextToken' - If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to 'DescribeDirectories' to retrieve the next set of items.
+-- * 'ddrsNextToken' - If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to 'DescribeDirectories' to retrieve the next set of items.
 --
 -- * 'ddrsResponseStatus' - -- | The response status code.
 describeDirectoriesResponse
@@ -165,11 +175,11 @@ describeDirectoriesResponse pResponseStatus_ =
     }
 
 
--- | The list of 'DirectoryDescription' objects that were retrieved. It is possible that this list contains less than the number of items specified in the /Limit/ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
+-- | The list of 'DirectoryDescription' objects that were retrieved. It is possible that this list contains less than the number of items specified in the @Limit@ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
 ddrsDirectoryDescriptions :: Lens' DescribeDirectoriesResponse [DirectoryDescription]
 ddrsDirectoryDescriptions = lens _ddrsDirectoryDescriptions (\ s a -> s{_ddrsDirectoryDescriptions = a}) . _Default . _Coerce
 
--- | If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to 'DescribeDirectories' to retrieve the next set of items.
+-- | If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to 'DescribeDirectories' to retrieve the next set of items.
 ddrsNextToken :: Lens' DescribeDirectoriesResponse (Maybe Text)
 ddrsNextToken = lens _ddrsNextToken (\ s a -> s{_ddrsNextToken = a})
 

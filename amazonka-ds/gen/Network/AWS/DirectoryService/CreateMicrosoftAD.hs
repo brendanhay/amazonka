@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a Microsoft AD in the AWS cloud.
+-- Creates an AWS Managed Microsoft AD directory.
 --
 --
 -- Before you call /CreateMicrosoftAD/ , ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the /CreateMicrosoftAD/ operation, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference> .
@@ -32,6 +32,7 @@ module Network.AWS.DirectoryService.CreateMicrosoftAD
     , cmadEdition
     , cmadShortName
     , cmadDescription
+    , cmadTags
     , cmadName
     , cmadPassword
     , cmadVPCSettings
@@ -51,7 +52,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Creates a Microsoft AD in the AWS cloud.
+-- | Creates an AWS Managed Microsoft AD directory.
 --
 --
 --
@@ -60,6 +61,7 @@ data CreateMicrosoftAD = CreateMicrosoftAD'
   { _cmadEdition     :: !(Maybe DirectoryEdition)
   , _cmadShortName   :: !(Maybe Text)
   , _cmadDescription :: !(Maybe Text)
+  , _cmadTags        :: !(Maybe [Tag])
   , _cmadName        :: !Text
   , _cmadPassword    :: !(Sensitive Text)
   , _cmadVPCSettings :: !DirectoryVPCSettings
@@ -70,11 +72,13 @@ data CreateMicrosoftAD = CreateMicrosoftAD'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cmadEdition' - AWS Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
+-- * 'cmadEdition' - AWS Managed Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
 --
 -- * 'cmadShortName' - The NetBIOS name for your domain. A short identifier for your domain, such as @CORP@ . If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, @CORP@ for the directory DNS @corp.example.com@ .
 --
 -- * 'cmadDescription' - A textual description for the directory. This label will appear on the AWS console @Directory Details@ page after the directory is created.
+--
+-- * 'cmadTags' - The tags to be assigned to the AWS Managed Microsoft AD directory.
 --
 -- * 'cmadName' - The fully qualified domain name for the directory, such as @corp.example.com@ . This name will resolve inside your VPC only. It does not need to be publicly resolvable.
 --
@@ -91,13 +95,14 @@ createMicrosoftAD pName_ pPassword_ pVPCSettings_ =
     { _cmadEdition = Nothing
     , _cmadShortName = Nothing
     , _cmadDescription = Nothing
+    , _cmadTags = Nothing
     , _cmadName = pName_
     , _cmadPassword = _Sensitive # pPassword_
     , _cmadVPCSettings = pVPCSettings_
     }
 
 
--- | AWS Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
+-- | AWS Managed Microsoft AD is available in two editions: Standard and Enterprise. Enterprise is the default.
 cmadEdition :: Lens' CreateMicrosoftAD (Maybe DirectoryEdition)
 cmadEdition = lens _cmadEdition (\ s a -> s{_cmadEdition = a})
 
@@ -108,6 +113,10 @@ cmadShortName = lens _cmadShortName (\ s a -> s{_cmadShortName = a})
 -- | A textual description for the directory. This label will appear on the AWS console @Directory Details@ page after the directory is created.
 cmadDescription :: Lens' CreateMicrosoftAD (Maybe Text)
 cmadDescription = lens _cmadDescription (\ s a -> s{_cmadDescription = a})
+
+-- | The tags to be assigned to the AWS Managed Microsoft AD directory.
+cmadTags :: Lens' CreateMicrosoftAD [Tag]
+cmadTags = lens _cmadTags (\ s a -> s{_cmadTags = a}) . _Default . _Coerce
 
 -- | The fully qualified domain name for the directory, such as @corp.example.com@ . This name will resolve inside your VPC only. It does not need to be publicly resolvable.
 cmadName :: Lens' CreateMicrosoftAD Text
@@ -151,6 +160,7 @@ instance ToJSON CreateMicrosoftAD where
                  [("Edition" .=) <$> _cmadEdition,
                   ("ShortName" .=) <$> _cmadShortName,
                   ("Description" .=) <$> _cmadDescription,
+                  ("Tags" .=) <$> _cmadTags,
                   Just ("Name" .= _cmadName),
                   Just ("Password" .= _cmadPassword),
                   Just ("VpcSettings" .= _cmadVPCSettings)])

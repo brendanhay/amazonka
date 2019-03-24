@@ -203,7 +203,7 @@ data DirectoryConnectSettings = DirectoryConnectSettings'
 --
 -- * 'dcsCustomerDNSIPs' - A list of one or more IP addresses of DNS servers or domain controllers in the on-premises directory.
 --
--- * 'dcsCustomerUserName' - The username of an account in the on-premises directory that is used to connect to the directory. This account must have the following privileges:     * Read users and groups     * Create computer objects     * Join computers to the domain
+-- * 'dcsCustomerUserName' - The user name of an account in the on-premises directory that is used to connect to the directory. This account must have the following permissions:     * Read users and groups     * Create computer objects     * Join computers to the domain
 directoryConnectSettings
     :: Text -- ^ 'dcsVPCId'
     -> Text -- ^ 'dcsCustomerUserName'
@@ -229,7 +229,7 @@ dcsSubnetIds = lens _dcsSubnetIds (\ s a -> s{_dcsSubnetIds = a}) . _Coerce
 dcsCustomerDNSIPs :: Lens' DirectoryConnectSettings [Text]
 dcsCustomerDNSIPs = lens _dcsCustomerDNSIPs (\ s a -> s{_dcsCustomerDNSIPs = a}) . _Coerce
 
--- | The username of an account in the on-premises directory that is used to connect to the directory. This account must have the following privileges:     * Read users and groups     * Create computer objects     * Join computers to the domain
+-- | The user name of an account in the on-premises directory that is used to connect to the directory. This account must have the following permissions:     * Read users and groups     * Create computer objects     * Join computers to the domain
 dcsCustomerUserName :: Lens' DirectoryConnectSettings Text
 dcsCustomerUserName = lens _dcsCustomerUserName (\ s a -> s{_dcsCustomerUserName = a})
 
@@ -265,7 +265,7 @@ data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcsdCustomerUserName' - The username of the service account in the on-premises directory.
+-- * 'dcsdCustomerUserName' - The user name of the service account in the on-premises directory.
 --
 -- * 'dcsdSubnetIds' - A list of subnet identifiers in the VPC that the AD connector is in.
 --
@@ -289,7 +289,7 @@ directoryConnectSettingsDescription =
     }
 
 
--- | The username of the service account in the on-premises directory.
+-- | The user name of the service account in the on-premises directory.
 dcsdCustomerUserName :: Lens' DirectoryConnectSettingsDescription (Maybe Text)
 dcsdCustomerUserName = lens _dcsdCustomerUserName (\ s a -> s{_dcsdCustomerUserName = a})
 
@@ -349,7 +349,9 @@ data DirectoryDescription = DirectoryDescription'
   , _ddRadiusSettings :: !(Maybe RadiusSettings)
   , _ddLaunchTime :: !(Maybe POSIX)
   , _ddAlias :: !(Maybe Text)
+  , _ddShareStatus :: !(Maybe ShareStatus)
   , _ddName :: !(Maybe Text)
+  , _ddShareMethod :: !(Maybe ShareMethod)
   , _ddStageLastUpdatedDateTime :: !(Maybe POSIX)
   , _ddSSOEnabled :: !(Maybe Bool)
   , _ddDNSIPAddrs :: !(Maybe [Text])
@@ -357,7 +359,9 @@ data DirectoryDescription = DirectoryDescription'
   , _ddType :: !(Maybe DirectoryType)
   , _ddStageReason :: !(Maybe Text)
   , _ddConnectSettings :: !(Maybe DirectoryConnectSettingsDescription)
+  , _ddOwnerDirectoryDescription :: !(Maybe OwnerDirectoryDescription)
   , _ddDescription :: !(Maybe Text)
+  , _ddShareNotes :: !(Maybe (Sensitive Text))
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -387,11 +391,15 @@ data DirectoryDescription = DirectoryDescription'
 --
 -- * 'ddAlias' - The alias for the directory. If no alias has been created for the directory, the alias is the directory identifier, such as @d-XXXXXXXXXX@ .
 --
--- * 'ddName' - The fully-qualified name of the directory.
+-- * 'ddShareStatus' - Current directory status of the shared AWS Managed Microsoft AD directory.
+--
+-- * 'ddName' - The fully qualified name of the directory.
+--
+-- * 'ddShareMethod' - The method used when sharing a directory to determine whether the directory should be shared within your AWS organization (@ORGANIZATIONS@ ) or with any AWS account by sending a shared directory request (@HANDSHAKE@ ).
 --
 -- * 'ddStageLastUpdatedDateTime' - The date and time that the stage was last updated.
 --
--- * 'ddSSOEnabled' - Indicates if single-sign on is enabled for the directory. For more information, see 'EnableSso' and 'DisableSso' .
+-- * 'ddSSOEnabled' - Indicates if single sign-on is enabled for the directory. For more information, see 'EnableSso' and 'DisableSso' .
 --
 -- * 'ddDNSIPAddrs' - The IP addresses of the DNS servers for the directory. For a Simple AD or Microsoft AD directory, these are the IP addresses of the Simple AD or Microsoft AD directory servers. For an AD Connector directory, these are the IP addresses of the DNS servers or domain controllers in the on-premises directory to which the AD Connector is connected.
 --
@@ -403,7 +411,11 @@ data DirectoryDescription = DirectoryDescription'
 --
 -- * 'ddConnectSettings' - A 'DirectoryConnectSettingsDescription' object that contains additional information about an AD Connector directory. This member is only present if the directory is an AD Connector directory.
 --
+-- * 'ddOwnerDirectoryDescription' - Describes the AWS Managed Microsoft AD directory in the directory owner account.
+--
 -- * 'ddDescription' - The textual description for the directory.
+--
+-- * 'ddShareNotes' - A directory share request that is sent by the directory owner to the directory consumer. The request includes a typed message to help the directory consumer administrator determine whether to approve or reject the share invitation.
 directoryDescription
     :: DirectoryDescription
 directoryDescription =
@@ -419,7 +431,9 @@ directoryDescription =
     , _ddRadiusSettings = Nothing
     , _ddLaunchTime = Nothing
     , _ddAlias = Nothing
+    , _ddShareStatus = Nothing
     , _ddName = Nothing
+    , _ddShareMethod = Nothing
     , _ddStageLastUpdatedDateTime = Nothing
     , _ddSSOEnabled = Nothing
     , _ddDNSIPAddrs = Nothing
@@ -427,7 +441,9 @@ directoryDescription =
     , _ddType = Nothing
     , _ddStageReason = Nothing
     , _ddConnectSettings = Nothing
+    , _ddOwnerDirectoryDescription = Nothing
     , _ddDescription = Nothing
+    , _ddShareNotes = Nothing
     }
 
 
@@ -475,15 +491,23 @@ ddLaunchTime = lens _ddLaunchTime (\ s a -> s{_ddLaunchTime = a}) . mapping _Tim
 ddAlias :: Lens' DirectoryDescription (Maybe Text)
 ddAlias = lens _ddAlias (\ s a -> s{_ddAlias = a})
 
--- | The fully-qualified name of the directory.
+-- | Current directory status of the shared AWS Managed Microsoft AD directory.
+ddShareStatus :: Lens' DirectoryDescription (Maybe ShareStatus)
+ddShareStatus = lens _ddShareStatus (\ s a -> s{_ddShareStatus = a})
+
+-- | The fully qualified name of the directory.
 ddName :: Lens' DirectoryDescription (Maybe Text)
 ddName = lens _ddName (\ s a -> s{_ddName = a})
+
+-- | The method used when sharing a directory to determine whether the directory should be shared within your AWS organization (@ORGANIZATIONS@ ) or with any AWS account by sending a shared directory request (@HANDSHAKE@ ).
+ddShareMethod :: Lens' DirectoryDescription (Maybe ShareMethod)
+ddShareMethod = lens _ddShareMethod (\ s a -> s{_ddShareMethod = a})
 
 -- | The date and time that the stage was last updated.
 ddStageLastUpdatedDateTime :: Lens' DirectoryDescription (Maybe UTCTime)
 ddStageLastUpdatedDateTime = lens _ddStageLastUpdatedDateTime (\ s a -> s{_ddStageLastUpdatedDateTime = a}) . mapping _Time
 
--- | Indicates if single-sign on is enabled for the directory. For more information, see 'EnableSso' and 'DisableSso' .
+-- | Indicates if single sign-on is enabled for the directory. For more information, see 'EnableSso' and 'DisableSso' .
 ddSSOEnabled :: Lens' DirectoryDescription (Maybe Bool)
 ddSSOEnabled = lens _ddSSOEnabled (\ s a -> s{_ddSSOEnabled = a})
 
@@ -507,9 +531,17 @@ ddStageReason = lens _ddStageReason (\ s a -> s{_ddStageReason = a})
 ddConnectSettings :: Lens' DirectoryDescription (Maybe DirectoryConnectSettingsDescription)
 ddConnectSettings = lens _ddConnectSettings (\ s a -> s{_ddConnectSettings = a})
 
+-- | Describes the AWS Managed Microsoft AD directory in the directory owner account.
+ddOwnerDirectoryDescription :: Lens' DirectoryDescription (Maybe OwnerDirectoryDescription)
+ddOwnerDirectoryDescription = lens _ddOwnerDirectoryDescription (\ s a -> s{_ddOwnerDirectoryDescription = a})
+
 -- | The textual description for the directory.
 ddDescription :: Lens' DirectoryDescription (Maybe Text)
 ddDescription = lens _ddDescription (\ s a -> s{_ddDescription = a})
+
+-- | A directory share request that is sent by the directory owner to the directory consumer. The request includes a typed message to help the directory consumer administrator determine whether to approve or reject the share invitation.
+ddShareNotes :: Lens' DirectoryDescription (Maybe Text)
+ddShareNotes = lens _ddShareNotes (\ s a -> s{_ddShareNotes = a}) . mapping _Sensitive
 
 instance FromJSON DirectoryDescription where
         parseJSON
@@ -526,7 +558,9 @@ instance FromJSON DirectoryDescription where
                      <*> (x .:? "RadiusSettings")
                      <*> (x .:? "LaunchTime")
                      <*> (x .:? "Alias")
+                     <*> (x .:? "ShareStatus")
                      <*> (x .:? "Name")
+                     <*> (x .:? "ShareMethod")
                      <*> (x .:? "StageLastUpdatedDateTime")
                      <*> (x .:? "SsoEnabled")
                      <*> (x .:? "DnsIpAddrs" .!= mempty)
@@ -534,7 +568,9 @@ instance FromJSON DirectoryDescription where
                      <*> (x .:? "Type")
                      <*> (x .:? "StageReason")
                      <*> (x .:? "ConnectSettings")
-                     <*> (x .:? "Description"))
+                     <*> (x .:? "OwnerDirectoryDescription")
+                     <*> (x .:? "Description")
+                     <*> (x .:? "ShareNotes"))
 
 instance Hashable DirectoryDescription where
 
@@ -564,13 +600,13 @@ data DirectoryLimits = DirectoryLimits'
 --
 -- * 'dlConnectedDirectoriesCurrentCount' - The current number of connected directories in the region.
 --
--- * 'dlCloudOnlyMicrosoftADLimitReached' - Indicates if the Microsoft AD directory limit has been reached.
+-- * 'dlCloudOnlyMicrosoftADLimitReached' - Indicates if the AWS Managed Microsoft AD directory limit has been reached.
 --
 -- * 'dlConnectedDirectoriesLimit' - The maximum number of connected directories allowed in the region.
 --
 -- * 'dlConnectedDirectoriesLimitReached' - Indicates if the connected directory limit has been reached.
 --
--- * 'dlCloudOnlyMicrosoftADLimit' - The maximum number of Microsoft AD directories allowed in the region.
+-- * 'dlCloudOnlyMicrosoftADLimit' - The maximum number of AWS Managed Microsoft AD directories allowed in the region.
 --
 -- * 'dlCloudOnlyDirectoriesLimit' - The maximum number of cloud directories allowed in the region.
 --
@@ -578,7 +614,7 @@ data DirectoryLimits = DirectoryLimits'
 --
 -- * 'dlCloudOnlyDirectoriesLimitReached' - Indicates if the cloud directory limit has been reached.
 --
--- * 'dlCloudOnlyMicrosoftADCurrentCount' - The current number of Microsoft AD directories in the region.
+-- * 'dlCloudOnlyMicrosoftADCurrentCount' - The current number of AWS Managed Microsoft AD directories in the region.
 directoryLimits
     :: DirectoryLimits
 directoryLimits =
@@ -599,7 +635,7 @@ directoryLimits =
 dlConnectedDirectoriesCurrentCount :: Lens' DirectoryLimits (Maybe Natural)
 dlConnectedDirectoriesCurrentCount = lens _dlConnectedDirectoriesCurrentCount (\ s a -> s{_dlConnectedDirectoriesCurrentCount = a}) . mapping _Nat
 
--- | Indicates if the Microsoft AD directory limit has been reached.
+-- | Indicates if the AWS Managed Microsoft AD directory limit has been reached.
 dlCloudOnlyMicrosoftADLimitReached :: Lens' DirectoryLimits (Maybe Bool)
 dlCloudOnlyMicrosoftADLimitReached = lens _dlCloudOnlyMicrosoftADLimitReached (\ s a -> s{_dlCloudOnlyMicrosoftADLimitReached = a})
 
@@ -611,7 +647,7 @@ dlConnectedDirectoriesLimit = lens _dlConnectedDirectoriesLimit (\ s a -> s{_dlC
 dlConnectedDirectoriesLimitReached :: Lens' DirectoryLimits (Maybe Bool)
 dlConnectedDirectoriesLimitReached = lens _dlConnectedDirectoriesLimitReached (\ s a -> s{_dlConnectedDirectoriesLimitReached = a})
 
--- | The maximum number of Microsoft AD directories allowed in the region.
+-- | The maximum number of AWS Managed Microsoft AD directories allowed in the region.
 dlCloudOnlyMicrosoftADLimit :: Lens' DirectoryLimits (Maybe Natural)
 dlCloudOnlyMicrosoftADLimit = lens _dlCloudOnlyMicrosoftADLimit (\ s a -> s{_dlCloudOnlyMicrosoftADLimit = a}) . mapping _Nat
 
@@ -627,7 +663,7 @@ dlCloudOnlyDirectoriesCurrentCount = lens _dlCloudOnlyDirectoriesCurrentCount (\
 dlCloudOnlyDirectoriesLimitReached :: Lens' DirectoryLimits (Maybe Bool)
 dlCloudOnlyDirectoriesLimitReached = lens _dlCloudOnlyDirectoriesLimitReached (\ s a -> s{_dlCloudOnlyDirectoriesLimitReached = a})
 
--- | The current number of Microsoft AD directories in the region.
+-- | The current number of AWS Managed Microsoft AD directories in the region.
 dlCloudOnlyMicrosoftADCurrentCount :: Lens' DirectoryLimits (Maybe Natural)
 dlCloudOnlyMicrosoftADCurrentCount = lens _dlCloudOnlyMicrosoftADCurrentCount (\ s a -> s{_dlCloudOnlyMicrosoftADCurrentCount = a}) . mapping _Nat
 
@@ -1076,512 +1112,86 @@ instance Hashable IPRouteInfo where
 
 instance NFData IPRouteInfo where
 
--- | Contains information about a Remote Authentication Dial In User Service (RADIUS) server.
+-- | Represents a log subscription, which tracks real-time data from a chosen log group to a specified destination.
 --
 --
 --
--- /See:/ 'radiusSettings' smart constructor.
-data RadiusSettings = RadiusSettings'
-  { _rsDisplayLabel           :: !(Maybe Text)
-  , _rsRadiusRetries          :: !(Maybe Nat)
-  , _rsAuthenticationProtocol :: !(Maybe RadiusAuthenticationProtocol)
-  , _rsRadiusServers          :: !(Maybe [Text])
-  , _rsUseSameUsername        :: !(Maybe Bool)
-  , _rsSharedSecret           :: !(Maybe (Sensitive Text))
-  , _rsRadiusTimeout          :: !(Maybe Nat)
-  , _rsRadiusPort             :: !(Maybe Nat)
+-- /See:/ 'logSubscription' smart constructor.
+data LogSubscription = LogSubscription'
+  { _lsDirectoryId                 :: !(Maybe Text)
+  , _lsLogGroupName                :: !(Maybe Text)
+  , _lsSubscriptionCreatedDateTime :: !(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LogSubscription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsDirectoryId' - Identifier (ID) of the directory that you want to associate with the log subscription.
+--
+-- * 'lsLogGroupName' - The name of the log group.
+--
+-- * 'lsSubscriptionCreatedDateTime' - The date and time that the log subscription was created.
+logSubscription
+    :: LogSubscription
+logSubscription =
+  LogSubscription'
+    { _lsDirectoryId = Nothing
+    , _lsLogGroupName = Nothing
+    , _lsSubscriptionCreatedDateTime = Nothing
+    }
+
+
+-- | Identifier (ID) of the directory that you want to associate with the log subscription.
+lsDirectoryId :: Lens' LogSubscription (Maybe Text)
+lsDirectoryId = lens _lsDirectoryId (\ s a -> s{_lsDirectoryId = a})
+
+-- | The name of the log group.
+lsLogGroupName :: Lens' LogSubscription (Maybe Text)
+lsLogGroupName = lens _lsLogGroupName (\ s a -> s{_lsLogGroupName = a})
+
+-- | The date and time that the log subscription was created.
+lsSubscriptionCreatedDateTime :: Lens' LogSubscription (Maybe UTCTime)
+lsSubscriptionCreatedDateTime = lens _lsSubscriptionCreatedDateTime (\ s a -> s{_lsSubscriptionCreatedDateTime = a}) . mapping _Time
+
+instance FromJSON LogSubscription where
+        parseJSON
+          = withObject "LogSubscription"
+              (\ x ->
+                 LogSubscription' <$>
+                   (x .:? "DirectoryId") <*> (x .:? "LogGroupName") <*>
+                     (x .:? "SubscriptionCreatedDateTime"))
+
+instance Hashable LogSubscription where
+
+instance NFData LogSubscription where
+
+-- | Describes the directory owner account details that have been shared to the directory consumer account.
+--
+--
+--
+-- /See:/ 'ownerDirectoryDescription' smart constructor.
+data OwnerDirectoryDescription = OwnerDirectoryDescription'
+  { _oddRadiusStatus   :: !(Maybe RadiusStatus)
+  , _oddDirectoryId    :: !(Maybe Text)
+  , _oddRadiusSettings :: !(Maybe RadiusSettings)
+  , _oddAccountId      :: !(Maybe Text)
+  , _oddDNSIPAddrs     :: !(Maybe [Text])
+  , _oddVPCSettings    :: !(Maybe DirectoryVPCSettingsDescription)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
--- | Creates a value of 'RadiusSettings' with the minimum fields required to make a request.
+-- | Creates a value of 'OwnerDirectoryDescription' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsDisplayLabel' - Not currently used.
+-- * 'oddRadiusStatus' - Information about the status of the RADIUS server.
 --
--- * 'rsRadiusRetries' - The maximum number of times that communication with the RADIUS server is attempted.
+-- * 'oddDirectoryId' - Identifier of the AWS Managed Microsoft AD directory in the directory owner account.
 --
--- * 'rsAuthenticationProtocol' - The protocol specified for your RADIUS endpoints.
+-- * 'oddRadiusSettings' - A 'RadiusSettings' object that contains information about the RADIUS server.
 --
--- * 'rsRadiusServers' - An array of strings that contains the IP addresses of the RADIUS server endpoints, or the IP addresses of your RADIUS server load balancer.
+-- * 'oddAccountId' - Identifier of the directory owner account.
 --
--- * 'rsUseSameUsername' - Not currently used.
---
--- * 'rsSharedSecret' - Not currently used.
---
--- * 'rsRadiusTimeout' - The amount of time, in seconds, to wait for the RADIUS server to respond.
---
--- * 'rsRadiusPort' - The port that your RADIUS server is using for communications. Your on-premises network must allow inbound traffic over this port from the AWS Directory Service servers.
-radiusSettings
-    :: RadiusSettings
-radiusSettings =
-  RadiusSettings'
-    { _rsDisplayLabel = Nothing
-    , _rsRadiusRetries = Nothing
-    , _rsAuthenticationProtocol = Nothing
-    , _rsRadiusServers = Nothing
-    , _rsUseSameUsername = Nothing
-    , _rsSharedSecret = Nothing
-    , _rsRadiusTimeout = Nothing
-    , _rsRadiusPort = Nothing
-    }
-
-
--- | Not currently used.
-rsDisplayLabel :: Lens' RadiusSettings (Maybe Text)
-rsDisplayLabel = lens _rsDisplayLabel (\ s a -> s{_rsDisplayLabel = a})
-
--- | The maximum number of times that communication with the RADIUS server is attempted.
-rsRadiusRetries :: Lens' RadiusSettings (Maybe Natural)
-rsRadiusRetries = lens _rsRadiusRetries (\ s a -> s{_rsRadiusRetries = a}) . mapping _Nat
-
--- | The protocol specified for your RADIUS endpoints.
-rsAuthenticationProtocol :: Lens' RadiusSettings (Maybe RadiusAuthenticationProtocol)
-rsAuthenticationProtocol = lens _rsAuthenticationProtocol (\ s a -> s{_rsAuthenticationProtocol = a})
-
--- | An array of strings that contains the IP addresses of the RADIUS server endpoints, or the IP addresses of your RADIUS server load balancer.
-rsRadiusServers :: Lens' RadiusSettings [Text]
-rsRadiusServers = lens _rsRadiusServers (\ s a -> s{_rsRadiusServers = a}) . _Default . _Coerce
-
--- | Not currently used.
-rsUseSameUsername :: Lens' RadiusSettings (Maybe Bool)
-rsUseSameUsername = lens _rsUseSameUsername (\ s a -> s{_rsUseSameUsername = a})
-
--- | Not currently used.
-rsSharedSecret :: Lens' RadiusSettings (Maybe Text)
-rsSharedSecret = lens _rsSharedSecret (\ s a -> s{_rsSharedSecret = a}) . mapping _Sensitive
-
--- | The amount of time, in seconds, to wait for the RADIUS server to respond.
-rsRadiusTimeout :: Lens' RadiusSettings (Maybe Natural)
-rsRadiusTimeout = lens _rsRadiusTimeout (\ s a -> s{_rsRadiusTimeout = a}) . mapping _Nat
-
--- | The port that your RADIUS server is using for communications. Your on-premises network must allow inbound traffic over this port from the AWS Directory Service servers.
-rsRadiusPort :: Lens' RadiusSettings (Maybe Natural)
-rsRadiusPort = lens _rsRadiusPort (\ s a -> s{_rsRadiusPort = a}) . mapping _Nat
-
-instance FromJSON RadiusSettings where
-        parseJSON
-          = withObject "RadiusSettings"
-              (\ x ->
-                 RadiusSettings' <$>
-                   (x .:? "DisplayLabel") <*> (x .:? "RadiusRetries")
-                     <*> (x .:? "AuthenticationProtocol")
-                     <*> (x .:? "RadiusServers" .!= mempty)
-                     <*> (x .:? "UseSameUsername")
-                     <*> (x .:? "SharedSecret")
-                     <*> (x .:? "RadiusTimeout")
-                     <*> (x .:? "RadiusPort"))
-
-instance Hashable RadiusSettings where
-
-instance NFData RadiusSettings where
-
-instance ToJSON RadiusSettings where
-        toJSON RadiusSettings'{..}
-          = object
-              (catMaybes
-                 [("DisplayLabel" .=) <$> _rsDisplayLabel,
-                  ("RadiusRetries" .=) <$> _rsRadiusRetries,
-                  ("AuthenticationProtocol" .=) <$>
-                    _rsAuthenticationProtocol,
-                  ("RadiusServers" .=) <$> _rsRadiusServers,
-                  ("UseSameUsername" .=) <$> _rsUseSameUsername,
-                  ("SharedSecret" .=) <$> _rsSharedSecret,
-                  ("RadiusTimeout" .=) <$> _rsRadiusTimeout,
-                  ("RadiusPort" .=) <$> _rsRadiusPort])
-
--- | Information about a schema extension.
---
---
---
--- /See:/ 'schemaExtensionInfo' smart constructor.
-data SchemaExtensionInfo = SchemaExtensionInfo'
-  { _seiDirectoryId                 :: !(Maybe Text)
-  , _seiSchemaExtensionId           :: !(Maybe Text)
-  , _seiSchemaExtensionStatusReason :: !(Maybe Text)
-  , _seiSchemaExtensionStatus       :: !(Maybe SchemaExtensionStatus)
-  , _seiDescription                 :: !(Maybe Text)
-  , _seiEndDateTime                 :: !(Maybe POSIX)
-  , _seiStartDateTime               :: !(Maybe POSIX)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'SchemaExtensionInfo' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'seiDirectoryId' - The identifier of the directory to which the schema extension is applied.
---
--- * 'seiSchemaExtensionId' - The identifier of the schema extension.
---
--- * 'seiSchemaExtensionStatusReason' - The reason for the @SchemaExtensionStatus@ .
---
--- * 'seiSchemaExtensionStatus' - The current status of the schema extension.
---
--- * 'seiDescription' - A description of the schema extension.
---
--- * 'seiEndDateTime' - The date and time that the schema extension was completed.
---
--- * 'seiStartDateTime' - The date and time that the schema extension started being applied to the directory.
-schemaExtensionInfo
-    :: SchemaExtensionInfo
-schemaExtensionInfo =
-  SchemaExtensionInfo'
-    { _seiDirectoryId = Nothing
-    , _seiSchemaExtensionId = Nothing
-    , _seiSchemaExtensionStatusReason = Nothing
-    , _seiSchemaExtensionStatus = Nothing
-    , _seiDescription = Nothing
-    , _seiEndDateTime = Nothing
-    , _seiStartDateTime = Nothing
-    }
-
-
--- | The identifier of the directory to which the schema extension is applied.
-seiDirectoryId :: Lens' SchemaExtensionInfo (Maybe Text)
-seiDirectoryId = lens _seiDirectoryId (\ s a -> s{_seiDirectoryId = a})
-
--- | The identifier of the schema extension.
-seiSchemaExtensionId :: Lens' SchemaExtensionInfo (Maybe Text)
-seiSchemaExtensionId = lens _seiSchemaExtensionId (\ s a -> s{_seiSchemaExtensionId = a})
-
--- | The reason for the @SchemaExtensionStatus@ .
-seiSchemaExtensionStatusReason :: Lens' SchemaExtensionInfo (Maybe Text)
-seiSchemaExtensionStatusReason = lens _seiSchemaExtensionStatusReason (\ s a -> s{_seiSchemaExtensionStatusReason = a})
-
--- | The current status of the schema extension.
-seiSchemaExtensionStatus :: Lens' SchemaExtensionInfo (Maybe SchemaExtensionStatus)
-seiSchemaExtensionStatus = lens _seiSchemaExtensionStatus (\ s a -> s{_seiSchemaExtensionStatus = a})
-
--- | A description of the schema extension.
-seiDescription :: Lens' SchemaExtensionInfo (Maybe Text)
-seiDescription = lens _seiDescription (\ s a -> s{_seiDescription = a})
-
--- | The date and time that the schema extension was completed.
-seiEndDateTime :: Lens' SchemaExtensionInfo (Maybe UTCTime)
-seiEndDateTime = lens _seiEndDateTime (\ s a -> s{_seiEndDateTime = a}) . mapping _Time
-
--- | The date and time that the schema extension started being applied to the directory.
-seiStartDateTime :: Lens' SchemaExtensionInfo (Maybe UTCTime)
-seiStartDateTime = lens _seiStartDateTime (\ s a -> s{_seiStartDateTime = a}) . mapping _Time
-
-instance FromJSON SchemaExtensionInfo where
-        parseJSON
-          = withObject "SchemaExtensionInfo"
-              (\ x ->
-                 SchemaExtensionInfo' <$>
-                   (x .:? "DirectoryId") <*> (x .:? "SchemaExtensionId")
-                     <*> (x .:? "SchemaExtensionStatusReason")
-                     <*> (x .:? "SchemaExtensionStatus")
-                     <*> (x .:? "Description")
-                     <*> (x .:? "EndDateTime")
-                     <*> (x .:? "StartDateTime"))
-
-instance Hashable SchemaExtensionInfo where
-
-instance NFData SchemaExtensionInfo where
-
--- | Describes a directory snapshot.
---
---
---
--- /See:/ 'snapshot' smart constructor.
-data Snapshot = Snapshot'
-  { _sStatus      :: !(Maybe SnapshotStatus)
-  , _sDirectoryId :: !(Maybe Text)
-  , _sStartTime   :: !(Maybe POSIX)
-  , _sName        :: !(Maybe Text)
-  , _sType        :: !(Maybe SnapshotType)
-  , _sSnapshotId  :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'Snapshot' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sStatus' - The snapshot status.
---
--- * 'sDirectoryId' - The directory identifier.
---
--- * 'sStartTime' - The date and time that the snapshot was taken.
---
--- * 'sName' - The descriptive name of the snapshot.
---
--- * 'sType' - The snapshot type.
---
--- * 'sSnapshotId' - The snapshot identifier.
-snapshot
-    :: Snapshot
-snapshot =
-  Snapshot'
-    { _sStatus = Nothing
-    , _sDirectoryId = Nothing
-    , _sStartTime = Nothing
-    , _sName = Nothing
-    , _sType = Nothing
-    , _sSnapshotId = Nothing
-    }
-
-
--- | The snapshot status.
-sStatus :: Lens' Snapshot (Maybe SnapshotStatus)
-sStatus = lens _sStatus (\ s a -> s{_sStatus = a})
-
--- | The directory identifier.
-sDirectoryId :: Lens' Snapshot (Maybe Text)
-sDirectoryId = lens _sDirectoryId (\ s a -> s{_sDirectoryId = a})
-
--- | The date and time that the snapshot was taken.
-sStartTime :: Lens' Snapshot (Maybe UTCTime)
-sStartTime = lens _sStartTime (\ s a -> s{_sStartTime = a}) . mapping _Time
-
--- | The descriptive name of the snapshot.
-sName :: Lens' Snapshot (Maybe Text)
-sName = lens _sName (\ s a -> s{_sName = a})
-
--- | The snapshot type.
-sType :: Lens' Snapshot (Maybe SnapshotType)
-sType = lens _sType (\ s a -> s{_sType = a})
-
--- | The snapshot identifier.
-sSnapshotId :: Lens' Snapshot (Maybe Text)
-sSnapshotId = lens _sSnapshotId (\ s a -> s{_sSnapshotId = a})
-
-instance FromJSON Snapshot where
-        parseJSON
-          = withObject "Snapshot"
-              (\ x ->
-                 Snapshot' <$>
-                   (x .:? "Status") <*> (x .:? "DirectoryId") <*>
-                     (x .:? "StartTime")
-                     <*> (x .:? "Name")
-                     <*> (x .:? "Type")
-                     <*> (x .:? "SnapshotId"))
-
-instance Hashable Snapshot where
-
-instance NFData Snapshot where
-
--- | Contains manual snapshot limit information for a directory.
---
---
---
--- /See:/ 'snapshotLimits' smart constructor.
-data SnapshotLimits = SnapshotLimits'
-  { _slManualSnapshotsLimitReached :: !(Maybe Bool)
-  , _slManualSnapshotsCurrentCount :: !(Maybe Nat)
-  , _slManualSnapshotsLimit        :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'SnapshotLimits' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slManualSnapshotsLimitReached' - Indicates if the manual snapshot limit has been reached.
---
--- * 'slManualSnapshotsCurrentCount' - The current number of manual snapshots of the directory.
---
--- * 'slManualSnapshotsLimit' - The maximum number of manual snapshots allowed.
-snapshotLimits
-    :: SnapshotLimits
-snapshotLimits =
-  SnapshotLimits'
-    { _slManualSnapshotsLimitReached = Nothing
-    , _slManualSnapshotsCurrentCount = Nothing
-    , _slManualSnapshotsLimit = Nothing
-    }
-
-
--- | Indicates if the manual snapshot limit has been reached.
-slManualSnapshotsLimitReached :: Lens' SnapshotLimits (Maybe Bool)
-slManualSnapshotsLimitReached = lens _slManualSnapshotsLimitReached (\ s a -> s{_slManualSnapshotsLimitReached = a})
-
--- | The current number of manual snapshots of the directory.
-slManualSnapshotsCurrentCount :: Lens' SnapshotLimits (Maybe Natural)
-slManualSnapshotsCurrentCount = lens _slManualSnapshotsCurrentCount (\ s a -> s{_slManualSnapshotsCurrentCount = a}) . mapping _Nat
-
--- | The maximum number of manual snapshots allowed.
-slManualSnapshotsLimit :: Lens' SnapshotLimits (Maybe Natural)
-slManualSnapshotsLimit = lens _slManualSnapshotsLimit (\ s a -> s{_slManualSnapshotsLimit = a}) . mapping _Nat
-
-instance FromJSON SnapshotLimits where
-        parseJSON
-          = withObject "SnapshotLimits"
-              (\ x ->
-                 SnapshotLimits' <$>
-                   (x .:? "ManualSnapshotsLimitReached") <*>
-                     (x .:? "ManualSnapshotsCurrentCount")
-                     <*> (x .:? "ManualSnapshotsLimit"))
-
-instance Hashable SnapshotLimits where
-
-instance NFData SnapshotLimits where
-
--- | Metadata assigned to a directory consisting of a key-value pair.
---
---
---
--- /See:/ 'tag' smart constructor.
-data Tag = Tag'
-  { _tagKey   :: !Text
-  , _tagValue :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'Tag' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tagKey' - Required name of the tag. The string value can be Unicode characters and cannot be prefixed with "aws:". The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
---
--- * 'tagValue' - The optional value of the tag. The string value can be Unicode characters. The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
-tag
-    :: Text -- ^ 'tagKey'
-    -> Text -- ^ 'tagValue'
-    -> Tag
-tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
-
-
--- | Required name of the tag. The string value can be Unicode characters and cannot be prefixed with "aws:". The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
-tagKey :: Lens' Tag Text
-tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
-
--- | The optional value of the tag. The string value can be Unicode characters. The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
-tagValue :: Lens' Tag Text
-tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
-
-instance FromJSON Tag where
-        parseJSON
-          = withObject "Tag"
-              (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
-
-instance Hashable Tag where
-
-instance NFData Tag where
-
-instance ToJSON Tag where
-        toJSON Tag'{..}
-          = object
-              (catMaybes
-                 [Just ("Key" .= _tagKey),
-                  Just ("Value" .= _tagValue)])
-
--- | Describes a trust relationship between an Microsoft AD in the AWS cloud and an external domain.
---
---
---
--- /See:/ 'trust' smart constructor.
-data Trust = Trust'
-  { _tDirectoryId              :: !(Maybe Text)
-  , _tTrustState               :: !(Maybe TrustState)
-  , _tLastUpdatedDateTime      :: !(Maybe POSIX)
-  , _tTrustDirection           :: !(Maybe TrustDirection)
-  , _tStateLastUpdatedDateTime :: !(Maybe POSIX)
-  , _tTrustType                :: !(Maybe TrustType)
-  , _tTrustStateReason         :: !(Maybe Text)
-  , _tRemoteDomainName         :: !(Maybe Text)
-  , _tTrustId                  :: !(Maybe Text)
-  , _tCreatedDateTime          :: !(Maybe POSIX)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'Trust' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tDirectoryId' - The Directory ID of the AWS directory involved in the trust relationship.
---
--- * 'tTrustState' - The trust relationship state.
---
--- * 'tLastUpdatedDateTime' - The date and time that the trust relationship was last updated.
---
--- * 'tTrustDirection' - The trust relationship direction.
---
--- * 'tStateLastUpdatedDateTime' - The date and time that the TrustState was last updated.
---
--- * 'tTrustType' - The trust relationship type.
---
--- * 'tTrustStateReason' - The reason for the TrustState.
---
--- * 'tRemoteDomainName' - The Fully Qualified Domain Name (FQDN) of the external domain involved in the trust relationship.
---
--- * 'tTrustId' - The unique ID of the trust relationship.
---
--- * 'tCreatedDateTime' - The date and time that the trust relationship was created.
-trust
-    :: Trust
-trust =
-  Trust'
-    { _tDirectoryId = Nothing
-    , _tTrustState = Nothing
-    , _tLastUpdatedDateTime = Nothing
-    , _tTrustDirection = Nothing
-    , _tStateLastUpdatedDateTime = Nothing
-    , _tTrustType = Nothing
-    , _tTrustStateReason = Nothing
-    , _tRemoteDomainName = Nothing
-    , _tTrustId = Nothing
-    , _tCreatedDateTime = Nothing
-    }
-
-
--- | The Directory ID of the AWS directory involved in the trust relationship.
-tDirectoryId :: Lens' Trust (Maybe Text)
-tDirectoryId = lens _tDirectoryId (\ s a -> s{_tDirectoryId = a})
-
--- | The trust relationship state.
-tTrustState :: Lens' Trust (Maybe TrustState)
-tTrustState = lens _tTrustState (\ s a -> s{_tTrustState = a})
-
--- | The date and time that the trust relationship was last updated.
-tLastUpdatedDateTime :: Lens' Trust (Maybe UTCTime)
-tLastUpdatedDateTime = lens _tLastUpdatedDateTime (\ s a -> s{_tLastUpdatedDateTime = a}) . mapping _Time
-
--- | The trust relationship direction.
-tTrustDirection :: Lens' Trust (Maybe TrustDirection)
-tTrustDirection = lens _tTrustDirection (\ s a -> s{_tTrustDirection = a})
-
--- | The date and time that the TrustState was last updated.
-tStateLastUpdatedDateTime :: Lens' Trust (Maybe UTCTime)
-tStateLastUpdatedDateTime = lens _tStateLastUpdatedDateTime (\ s a -> s{_tStateLastUpdatedDateTime = a}) . mapping _Time
-
--- | The trust relationship type.
-tTrustType :: Lens' Trust (Maybe TrustType)
-tTrustType = lens _tTrustType (\ s a -> s{_tTrustType = a})
-
--- | The reason for the TrustState.
-tTrustStateReason :: Lens' Trust (Maybe Text)
-tTrustStateReason = lens _tTrustStateReason (\ s a -> s{_tTrustStateReason = a})
-
--- | The Fully Qualified Domain Name (FQDN) of the external domain involved in the trust relationship.
-tRemoteDomainName :: Lens' Trust (Maybe Text)
-tRemoteDomainName = lens _tRemoteDomainName (\ s a -> s{_tRemoteDomainName = a})
-
--- | The unique ID of the trust relationship.
-tTrustId :: Lens' Trust (Maybe Text)
-tTrustId = lens _tTrustId (\ s a -> s{_tTrustId = a})
-
--- | The date and time that the trust relationship was created.
-tCreatedDateTime :: Lens' Trust (Maybe UTCTime)
-tCreatedDateTime = lens _tCreatedDateTime (\ s a -> s{_tCreatedDateTime = a}) . mapping _Time
-
-instance FromJSON Trust where
-        parseJSON
-          = withObject "Trust"
-              (\ x ->
-                 Trust' <$>
-                   (x .:? "DirectoryId") <*> (x .:? "TrustState") <*>
-                     (x .:? "LastUpdatedDateTime")
-                     <*> (x .:? "TrustDirection")
-                     <*> (x .:? "StateLastUpdatedDateTime")
-                     <*> (x .:? "TrustType")
-                     <*> (x .:? "TrustStateReason")
-                     <*> (x .:? "RemoteDomainName")
-                     <*> (x .:? "TrustId")
-                     <*> (x .:? "CreatedDateTime"))
-
-instance Hashable Trust where
-
-instance NFData Trust where
+-- * 'oddDNSIPAddrs' - IP address of the directory

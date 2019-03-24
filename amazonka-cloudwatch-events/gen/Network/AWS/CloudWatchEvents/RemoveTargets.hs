@@ -21,7 +21,7 @@
 -- Removes the specified targets from the specified rule. When the rule is triggered, those targets are no longer be invoked.
 --
 --
--- When you remove a target, when the associated rule triggers, removed targets might continue to be invoked. Please allow a short period of time for changes to take effect.
+-- When you remove a target, when the associated rule triggers, removed targets might continue to be invoked. Allow a short period of time for changes to take effect.
 --
 -- This action can partially fail if too many requests are made at the same time. If that happens, @FailedEntryCount@ is non-zero in the response and each entry in @FailedEntries@ provides the ID of the failed target and the error code.
 --
@@ -31,6 +31,7 @@ module Network.AWS.CloudWatchEvents.RemoveTargets
       removeTargets
     , RemoveTargets
     -- * Request Lenses
+    , rtForce
     , rtRule
     , rtIds
 
@@ -52,14 +53,17 @@ import Network.AWS.Response
 
 -- | /See:/ 'removeTargets' smart constructor.
 data RemoveTargets = RemoveTargets'
-  { _rtRule :: !Text
-  , _rtIds  :: !(List1 Text)
+  { _rtForce :: !(Maybe Bool)
+  , _rtRule  :: !Text
+  , _rtIds   :: !(List1 Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'RemoveTargets' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtForce' - If this is a managed rule, created by an AWS service on your behalf, you must specify @Force@ as @True@ to remove targets. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using @DescribeRule@ or @ListRules@ and checking the @ManagedBy@ field of the response.
 --
 -- * 'rtRule' - The name of the rule.
 --
@@ -69,8 +73,12 @@ removeTargets
     -> NonEmpty Text -- ^ 'rtIds'
     -> RemoveTargets
 removeTargets pRule_ pIds_ =
-  RemoveTargets' {_rtRule = pRule_, _rtIds = _List1 # pIds_}
+  RemoveTargets' {_rtForce = Nothing, _rtRule = pRule_, _rtIds = _List1 # pIds_}
 
+
+-- | If this is a managed rule, created by an AWS service on your behalf, you must specify @Force@ as @True@ to remove targets. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using @DescribeRule@ or @ListRules@ and checking the @ManagedBy@ field of the response.
+rtForce :: Lens' RemoveTargets (Maybe Bool)
+rtForce = lens _rtForce (\ s a -> s{_rtForce = a})
 
 -- | The name of the rule.
 rtRule :: Lens' RemoveTargets Text
@@ -108,7 +116,8 @@ instance ToJSON RemoveTargets where
         toJSON RemoveTargets'{..}
           = object
               (catMaybes
-                 [Just ("Rule" .= _rtRule), Just ("Ids" .= _rtIds)])
+                 [("Force" .=) <$> _rtForce, Just ("Rule" .= _rtRule),
+                  Just ("Ids" .= _rtIds)])
 
 instance ToPath RemoveTargets where
         toPath = const "/"

@@ -21,6 +21,10 @@
 -- Lists your Amazon CloudWatch Events rules. You can either list all the rules or you can provide a prefix to match to the rule names.
 --
 --
+-- ListRules does not list the targets of a rule. To see the targets associated with a rule, use 'ListTargetsByRule' .
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatchEvents.ListRules
     (
     -- * Creating a Request
@@ -43,6 +47,7 @@ module Network.AWS.CloudWatchEvents.ListRules
 import Network.AWS.CloudWatchEvents.Types
 import Network.AWS.CloudWatchEvents.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -82,6 +87,13 @@ lrNamePrefix = lens _lrNamePrefix (\ s a -> s{_lrNamePrefix = a})
 -- | The maximum number of results to return.
 lrLimit :: Lens' ListRules (Maybe Natural)
 lrLimit = lens _lrLimit (\ s a -> s{_lrLimit = a}) . mapping _Nat
+
+instance AWSPager ListRules where
+        page rq rs
+          | stop (rs ^. lrrsNextToken) = Nothing
+          | stop (rs ^. lrrsRules) = Nothing
+          | otherwise =
+            Just $ rq & lrNextToken .~ rs ^. lrrsNextToken
 
 instance AWSRequest ListRules where
         type Rs ListRules = ListRulesResponse

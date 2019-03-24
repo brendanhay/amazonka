@@ -21,6 +21,8 @@
 -- Lists the targets assigned to the specified rule.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatchEvents.ListTargetsByRule
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.CloudWatchEvents.ListTargetsByRule
 import Network.AWS.CloudWatchEvents.Types
 import Network.AWS.CloudWatchEvents.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -83,6 +86,13 @@ ltbrLimit = lens _ltbrLimit (\ s a -> s{_ltbrLimit = a}) . mapping _Nat
 -- | The name of the rule.
 ltbrRule :: Lens' ListTargetsByRule Text
 ltbrRule = lens _ltbrRule (\ s a -> s{_ltbrRule = a})
+
+instance AWSPager ListTargetsByRule where
+        page rq rs
+          | stop (rs ^. ltbrrsNextToken) = Nothing
+          | stop (rs ^. ltbrrsTargets) = Nothing
+          | otherwise =
+            Just $ rq & ltbrNextToken .~ rs ^. ltbrrsNextToken
 
 instance AWSRequest ListTargetsByRule where
         type Rs ListTargetsByRule = ListTargetsByRuleResponse

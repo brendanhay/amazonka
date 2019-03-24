@@ -21,6 +21,8 @@
 -- Lists the rules for the specified target. You can see which of the rules in Amazon CloudWatch Events can invoke a specific target in your account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
 import Network.AWS.CloudWatchEvents.Types
 import Network.AWS.CloudWatchEvents.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -86,6 +89,13 @@ lrnbtLimit = lens _lrnbtLimit (\ s a -> s{_lrnbtLimit = a}) . mapping _Nat
 -- | The Amazon Resource Name (ARN) of the target resource.
 lrnbtTargetARN :: Lens' ListRuleNamesByTarget Text
 lrnbtTargetARN = lens _lrnbtTargetARN (\ s a -> s{_lrnbtTargetARN = a})
+
+instance AWSPager ListRuleNamesByTarget where
+        page rq rs
+          | stop (rs ^. lrnbtrsNextToken) = Nothing
+          | stop (rs ^. lrnbtrsRuleNames) = Nothing
+          | otherwise =
+            Just $ rq & lrnbtNextToken .~ rs ^. lrnbtrsNextToken
 
 instance AWSRequest ListRuleNamesByTarget where
         type Rs ListRuleNamesByTarget =

@@ -16,6 +16,7 @@ module Network.AWS.CloudWatchEvents.Types
       cloudWatchEvents
 
     -- * Errors
+    , _ManagedRuleException
     , _PolicyLengthExceededException
     , _ConcurrentModificationException
     , _InvalidEventPatternException
@@ -23,8 +24,21 @@ module Network.AWS.CloudWatchEvents.Types
     , _ResourceNotFoundException
     , _LimitExceededException
 
+    -- * AssignPublicIP
+    , AssignPublicIP (..)
+
+    -- * LaunchType
+    , LaunchType (..)
+
     -- * RuleState
     , RuleState (..)
+
+    -- * AWSVPCConfiguration
+    , AWSVPCConfiguration
+    , awsVPCConfiguration
+    , avcSecurityGroups
+    , avcAssignPublicIP
+    , avcSubnets
 
     -- * BatchArrayProperties
     , BatchArrayProperties
@@ -44,10 +58,21 @@ module Network.AWS.CloudWatchEvents.Types
     , batchRetryStrategy
     , brsAttempts
 
+    -- * Condition
+    , Condition
+    , condition
+    , cType
+    , cKey
+    , cValue
+
     -- * EcsParameters
     , EcsParameters
     , ecsParameters
+    , epGroup
+    , epPlatformVersion
+    , epLaunchType
     , epTaskCount
+    , epNetworkConfiguration
     , epTaskDefinitionARN
 
     -- * InputTransformer
@@ -60,6 +85,11 @@ module Network.AWS.CloudWatchEvents.Types
     , KinesisParameters
     , kinesisParameters
     , kpPartitionKeyPath
+
+    -- * NetworkConfiguration
+    , NetworkConfiguration
+    , networkConfiguration
+    , ncAwsvpcConfiguration
 
     -- * PutEventsRequestEntry
     , PutEventsRequestEntry
@@ -100,6 +130,7 @@ module Network.AWS.CloudWatchEvents.Types
     , rScheduleExpression
     , rName
     , rDescription
+    , rManagedBy
     , rRoleARN
 
     -- * RunCommandParameters
@@ -117,6 +148,12 @@ module Network.AWS.CloudWatchEvents.Types
     , SqsParameters
     , sqsParameters
     , spMessageGroupId
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
 
     -- * Target
     , Target
@@ -177,6 +214,14 @@ cloudWatchEvents =
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
+
+
+-- | This rule was created by an AWS service on behalf of your account. It is managed by that service. If you see this error in response to @DeleteRule@ or @RemoveTargets@ , you can use the @Force@ parameter in those calls to delete the rule or remove targets from the rule. You cannot modify these managed rules by using @DisableRule@ , @EnableRule@ , @PutTargets@ , @PutRule@ , @TagResource@ , or @UntagResource@ .
+--
+--
+_ManagedRuleException :: AsError a => Getting (First ServiceError) a ServiceError
+_ManagedRuleException =
+  _MatchServiceError cloudWatchEvents "ManagedRuleException"
 
 
 -- | The event bus policy is too long. For more information, see the limits.

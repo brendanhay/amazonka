@@ -46,6 +46,9 @@ import Test.Tasty
 --         , requestPutPermission $
 --             putPermission
 --
+--         , requestListTagsForResource $
+--             listTagsForResource
+--
 --         , requestListTargetsByRule $
 --             listTargetsByRule
 --
@@ -67,8 +70,14 @@ import Test.Tasty
 --         , requestDescribeEventBus $
 --             describeEventBus
 --
+--         , requestTagResource $
+--             tagResource
+--
 --         , requestPutTargets $
 --             putTargets
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestPutEvents $
 --             putEvents
@@ -94,6 +103,9 @@ import Test.Tasty
 --         , responsePutPermission $
 --             putPermissionResponse
 --
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
+--
 --         , responseListTargetsByRule $
 --             listTargetsByRuleResponse
 --
@@ -115,8 +127,14 @@ import Test.Tasty
 --         , responseDescribeEventBus $
 --             describeEventBusResponse
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
 --         , responsePutTargets $
 --             putTargetsResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responsePutEvents $
 --             putEventsResponse
@@ -156,6 +174,11 @@ requestPutPermission = req
     "PutPermission"
     "fixture/PutPermission.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource = req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestListTargetsByRule :: ListTargetsByRule -> TestTree
 requestListTargetsByRule = req
     "ListTargetsByRule"
@@ -191,10 +214,20 @@ requestDescribeEventBus = req
     "DescribeEventBus"
     "fixture/DescribeEventBus.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestPutTargets :: PutTargets -> TestTree
 requestPutTargets = req
     "PutTargets"
     "fixture/PutTargets.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestPutEvents :: PutEvents -> TestTree
 requestPutEvents = req
@@ -245,6 +278,13 @@ responsePutPermission = res
     cloudWatchEvents
     (Proxy :: Proxy PutPermission)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource = res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    cloudWatchEvents
+    (Proxy :: Proxy ListTagsForResource)
+
 responseListTargetsByRule :: ListTargetsByRuleResponse -> TestTree
 responseListTargetsByRule = res
     "ListTargetsByRuleResponse"
@@ -294,12 +334,26 @@ responseDescribeEventBus = res
     cloudWatchEvents
     (Proxy :: Proxy DescribeEventBus)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    cloudWatchEvents
+    (Proxy :: Proxy TagResource)
+
 responsePutTargets :: PutTargetsResponse -> TestTree
 responsePutTargets = res
     "PutTargetsResponse"
     "fixture/PutTargetsResponse.proto"
     cloudWatchEvents
     (Proxy :: Proxy PutTargets)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    cloudWatchEvents
+    (Proxy :: Proxy UntagResource)
 
 responsePutEvents :: PutEventsResponse -> TestTree
 responsePutEvents = res

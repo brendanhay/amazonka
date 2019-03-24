@@ -21,13 +21,23 @@
 -- Creates or updates the specified rule. Rules are enabled by default, or based on value of the state. You can disable a rule using 'DisableRule' .
 --
 --
--- If you are updating an existing rule, the rule is completely replaced with what you specify in this @PutRule@ command. If you omit arguments in @PutRule@ , the old values for those arguments are not kept. Instead, they are replaced with null values.
+-- If you are updating an existing rule, the rule is replaced with what you specify in this @PutRule@ command. If you omit arguments in @PutRule@ , the old values for those arguments are not kept. Instead, they are replaced with null values.
 --
--- When you create or update a rule, incoming events might not immediately start matching to new or updated rules. Please allow a short period of time for changes to take effect.
+-- When you create or update a rule, incoming events might not immediately start matching to new or updated rules. Allow a short period of time for changes to take effect.
 --
 -- A rule must contain at least an EventPattern or ScheduleExpression. Rules with EventPatterns are triggered when a matching event is observed. Rules with ScheduleExpressions self-trigger based on the given schedule. A rule can have both an EventPattern and a ScheduleExpression, in which case the rule triggers on matching events as well as on a schedule.
 --
+-- When you initially create a rule, you can optionally assign one or more tags to the rule. Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only rules with certain tag values. To use the @PutRule@ operation and assign tags, you must have both the @events:PutRule@ and @events:TagResource@ permissions.
+--
+-- If you are updating an existing rule, any tags you specify in the @PutRule@ operation are ignored. To update the tags of an existing rule, use 'TagResource' and 'UntagResource' .
+--
 -- Most services in AWS treat : or / as the same character in Amazon Resource Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.
+--
+-- In CloudWatch Events, it is possible to create rules that lead to infinite loops, where a rule is fired repeatedly. For example, a rule might detect that ACLs have changed on an S3 bucket, and trigger software to change them to the desired state. If the rule is not written carefully, the subsequent change to the ACLs fires the rule again, creating an infinite loop.
+--
+-- To prevent this, write the rules so that the triggered actions do not re-fire the same rule. For example, your rule could fire only if ACLs are found to be in a bad state, instead of after any change.
+--
+-- An infinite loop can quickly cause higher than expected charges. We recommend that you use budgeting, which alerts you when charges exceed your specified limit. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html Managing Your Costs with Budgets> .
 --
 module Network.AWS.CloudWatchEvents.PutRule
     (
@@ -39,6 +49,7 @@ module Network.AWS.CloudWatchEvents.PutRule
     , prState
     , prScheduleExpression
     , prDescription
+    , prTags
     , prRoleARN
     , prName
 
@@ -63,6 +74,7 @@ data PutRule = PutRule'
   , _prState              :: !(Maybe RuleState)
   , _prScheduleExpression :: !(Maybe Text)
   , _prDescription        :: !(Maybe Text)
+  , _prTags               :: !(Maybe [Tag])
   , _prRoleARN            :: !(Maybe Text)
   , _prName               :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -72,13 +84,15 @@ data PutRule = PutRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prEventPattern' - The event pattern. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
+-- * 'prEventPattern' - The event pattern. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
 --
 -- * 'prState' - Indicates whether the rule is enabled or disabled.
 --
 -- * 'prScheduleExpression' - The scheduling expression. For example, "cron(0 20 * * ? *)" or "rate(5 minutes)".
 --
 -- * 'prDescription' - A description of the rule.
+--
+-- * 'prTags' - The list of key-value pairs to associate with the rule.
 --
 -- * 'prRoleARN' - The Amazon Resource Name (ARN) of the IAM role associated with the rule.
 --
@@ -92,12 +106,13 @@ putRule pName_ =
     , _prState = Nothing
     , _prScheduleExpression = Nothing
     , _prDescription = Nothing
+    , _prTags = Nothing
     , _prRoleARN = Nothing
     , _prName = pName_
     }
 
 
--- | The event pattern. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
+-- | The event pattern. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
 prEventPattern :: Lens' PutRule (Maybe Text)
 prEventPattern = lens _prEventPattern (\ s a -> s{_prEventPattern = a})
 
@@ -112,6 +127,10 @@ prScheduleExpression = lens _prScheduleExpression (\ s a -> s{_prScheduleExpress
 -- | A description of the rule.
 prDescription :: Lens' PutRule (Maybe Text)
 prDescription = lens _prDescription (\ s a -> s{_prDescription = a})
+
+-- | The list of key-value pairs to associate with the rule.
+prTags :: Lens' PutRule [Tag]
+prTags = lens _prTags (\ s a -> s{_prTags = a}) . _Default . _Coerce
 
 -- | The Amazon Resource Name (ARN) of the IAM role associated with the rule.
 prRoleARN :: Lens' PutRule (Maybe Text)
@@ -151,6 +170,7 @@ instance ToJSON PutRule where
                   ("State" .=) <$> _prState,
                   ("ScheduleExpression" .=) <$> _prScheduleExpression,
                   ("Description" .=) <$> _prDescription,
+                  ("Tags" .=) <$> _prTags,
                   ("RoleArn" .=) <$> _prRoleARN,
                   Just ("Name" .= _prName)])
 

@@ -15,9 +15,9 @@ module Test.AWS.SDB
     , fixtures
     ) where
 
-import           Network.AWS.SDB
-import           Test.AWS.Gen.SDB
-import           Test.Tasty
+import Network.AWS.SDB
+import Test.AWS.Gen.SDB
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

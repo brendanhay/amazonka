@@ -15,9 +15,9 @@ module Test.AWS.DynamoDBStreams
     , fixtures
     ) where
 
-import           Network.AWS.DynamoDBStreams
-import           Test.AWS.Gen.DynamoDBStreams
-import           Test.Tasty
+import Network.AWS.DynamoDBStreams
+import Test.AWS.Gen.DynamoDBStreams
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

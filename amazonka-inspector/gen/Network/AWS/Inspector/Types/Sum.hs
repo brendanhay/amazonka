@@ -316,6 +316,33 @@ instance ToHeader     Locale
 instance ToJSON Locale where
     toJSON = toJSONText
 
+data PreviewStatus
+  = PSCompleted
+  | PSWorkInProgress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PreviewStatus where
+    parser = takeLowerText >>= \case
+        "completed" -> pure PSCompleted
+        "work_in_progress" -> pure PSWorkInProgress
+        e -> fromTextError $ "Failure parsing PreviewStatus from value: '" <> e
+           <> "'. Accepted values: completed, work_in_progress"
+
+instance ToText PreviewStatus where
+    toText = \case
+        PSCompleted -> "COMPLETED"
+        PSWorkInProgress -> "WORK_IN_PROGRESS"
+
+instance Hashable     PreviewStatus
+instance NFData       PreviewStatus
+instance ToByteString PreviewStatus
+instance ToQuery      PreviewStatus
+instance ToHeader     PreviewStatus
+
+instance FromJSON PreviewStatus where
+    parseJSON = parseJSONText "PreviewStatus"
+
 data ReportFileFormat
   = HTML
   | Pdf
@@ -399,6 +426,33 @@ instance ToHeader     ReportType
 
 instance ToJSON ReportType where
     toJSON = toJSONText
+
+data ScopeType
+  = InstanceId
+  | RulesPackageARN
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ScopeType where
+    parser = takeLowerText >>= \case
+        "instance_id" -> pure InstanceId
+        "rules_package_arn" -> pure RulesPackageARN
+        e -> fromTextError $ "Failure parsing ScopeType from value: '" <> e
+           <> "'. Accepted values: instance_id, rules_package_arn"
+
+instance ToText ScopeType where
+    toText = \case
+        InstanceId -> "INSTANCE_ID"
+        RulesPackageARN -> "RULES_PACKAGE_ARN"
+
+instance Hashable     ScopeType
+instance NFData       ScopeType
+instance ToByteString ScopeType
+instance ToQuery      ScopeType
+instance ToHeader     ScopeType
+
+instance FromJSON ScopeType where
+    parseJSON = parseJSONText "ScopeType"
 
 data Severity
   = High

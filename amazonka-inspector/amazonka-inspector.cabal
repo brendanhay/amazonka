@@ -48,6 +48,7 @@ library
         , Network.AWS.Inspector.AddAttributesToFindings
         , Network.AWS.Inspector.CreateAssessmentTarget
         , Network.AWS.Inspector.CreateAssessmentTemplate
+        , Network.AWS.Inspector.CreateExclusionsPreview
         , Network.AWS.Inspector.CreateResourceGroup
         , Network.AWS.Inspector.DeleteAssessmentRun
         , Network.AWS.Inspector.DeleteAssessmentTarget
@@ -56,16 +57,19 @@ library
         , Network.AWS.Inspector.DescribeAssessmentTargets
         , Network.AWS.Inspector.DescribeAssessmentTemplates
         , Network.AWS.Inspector.DescribeCrossAccountAccessRole
+        , Network.AWS.Inspector.DescribeExclusions
         , Network.AWS.Inspector.DescribeFindings
         , Network.AWS.Inspector.DescribeResourceGroups
         , Network.AWS.Inspector.DescribeRulesPackages
         , Network.AWS.Inspector.GetAssessmentReport
+        , Network.AWS.Inspector.GetExclusionsPreview
         , Network.AWS.Inspector.GetTelemetryMetadata
         , Network.AWS.Inspector.ListAssessmentRunAgents
         , Network.AWS.Inspector.ListAssessmentRuns
         , Network.AWS.Inspector.ListAssessmentTargets
         , Network.AWS.Inspector.ListAssessmentTemplates
         , Network.AWS.Inspector.ListEventSubscriptions
+        , Network.AWS.Inspector.ListExclusions
         , Network.AWS.Inspector.ListFindings
         , Network.AWS.Inspector.ListRulesPackages
         , Network.AWS.Inspector.ListTagsForResource

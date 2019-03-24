@@ -35,6 +35,9 @@ module Network.AWS.Inspector
     -- ** UnsupportedFeatureException
     , _UnsupportedFeatureException
 
+    -- ** PreviewGenerationInProgressException
+    , _PreviewGenerationInProgressException
+
     -- ** AgentsAlreadyRunningAssessmentException
     , _AgentsAlreadyRunningAssessmentException
 
@@ -46,6 +49,9 @@ module Network.AWS.Inspector
 
     -- ** InternalException
     , _InternalException
+
+    -- ** ServiceTemporarilyUnavailableException
+    , _ServiceTemporarilyUnavailableException
 
     -- ** LimitExceededException
     , _LimitExceededException
@@ -80,6 +86,9 @@ module Network.AWS.Inspector
     -- ** CreateAssessmentTemplate
     , module Network.AWS.Inspector.CreateAssessmentTemplate
 
+    -- ** DescribeExclusions
+    , module Network.AWS.Inspector.DescribeExclusions
+
     -- ** ListTagsForResource
     , module Network.AWS.Inspector.ListTagsForResource
 
@@ -98,6 +107,9 @@ module Network.AWS.Inspector
     -- ** CreateAssessmentTarget
     , module Network.AWS.Inspector.CreateAssessmentTarget
 
+    -- ** GetExclusionsPreview
+    , module Network.AWS.Inspector.GetExclusionsPreview
+
     -- ** ListEventSubscriptions (Paginated)
     , module Network.AWS.Inspector.ListEventSubscriptions
 
@@ -107,6 +119,9 @@ module Network.AWS.Inspector
     -- ** ListAssessmentTargets (Paginated)
     , module Network.AWS.Inspector.ListAssessmentTargets
 
+    -- ** CreateExclusionsPreview
+    , module Network.AWS.Inspector.CreateExclusionsPreview
+
     -- ** CreateResourceGroup
     , module Network.AWS.Inspector.CreateResourceGroup
 
@@ -115,6 +130,9 @@ module Network.AWS.Inspector
 
     -- ** StopAssessmentRun
     , module Network.AWS.Inspector.StopAssessmentRun
+
+    -- ** ListExclusions (Paginated)
+    , module Network.AWS.Inspector.ListExclusions
 
     -- ** PreviewAgents (Paginated)
     , module Network.AWS.Inspector.PreviewAgents
@@ -181,6 +199,9 @@ module Network.AWS.Inspector
     -- ** Locale
     , Locale (..)
 
+    -- ** PreviewStatus
+    , PreviewStatus (..)
+
     -- ** ReportFileFormat
     , ReportFileFormat (..)
 
@@ -189,6 +210,9 @@ module Network.AWS.Inspector
 
     -- ** ReportType
     , ReportType (..)
+
+    -- ** ScopeType
+    , ScopeType (..)
 
     -- ** Severity
     , Severity (..)
@@ -274,9 +298,9 @@ module Network.AWS.Inspector
     -- ** AssessmentTarget
     , AssessmentTarget
     , assessmentTarget
+    , aResourceGroupARN
     , aArn
     , aName
-    , aResourceGroupARN
     , aCreatedAt
     , aUpdatedAt
 
@@ -310,9 +334,11 @@ module Network.AWS.Inspector
     , assetAttributes
     , aaHostname
     , aaAutoScalingGroup
+    , aaNetworkInterfaces
     , aaIpv4Addresses
     , aaAgentId
     , aaAmiId
+    , aaTags
     , aaSchemaVersion
 
     -- ** Attribute
@@ -332,6 +358,25 @@ module Network.AWS.Inspector
     , eventSubscription
     , esEvent
     , esSubscribedAt
+
+    -- ** Exclusion
+    , Exclusion
+    , exclusion
+    , eAttributes
+    , eArn
+    , eTitle
+    , eDescription
+    , eRecommendation
+    , eScopes
+
+    -- ** ExclusionPreview
+    , ExclusionPreview
+    , exclusionPreview
+    , epAttributes
+    , epTitle
+    , epDescription
+    , epRecommendation
+    , epScopes
 
     -- ** FailedItemDetails
     , FailedItemDetails
@@ -380,6 +425,26 @@ module Network.AWS.Inspector
     , isaAssessmentRunARN
     , isaSchemaVersion
 
+    -- ** NetworkInterface
+    , NetworkInterface
+    , networkInterface
+    , niPrivateIPAddresses
+    , niPublicDNSName
+    , niSecurityGroups
+    , niVpcId
+    , niSubnetId
+    , niNetworkInterfaceId
+    , niPrivateIPAddress
+    , niPublicIP
+    , niPrivateDNSName
+    , niIpv6Addresses
+
+    -- ** PrivateIP
+    , PrivateIP
+    , privateIP
+    , piPrivateIPAddress
+    , piPrivateDNSName
+
     -- ** ResourceGroup
     , ResourceGroup
     , resourceGroup
@@ -401,6 +466,18 @@ module Network.AWS.Inspector
     , rpName
     , rpVersion
     , rpProvider
+
+    -- ** Scope
+    , Scope
+    , scope
+    , sValue
+    , sKey
+
+    -- ** SecurityGroup
+    , SecurityGroup
+    , securityGroup
+    , sgGroupId
+    , sgGroupName
 
     -- ** Subscription
     , Subscription
@@ -432,6 +509,7 @@ module Network.AWS.Inspector
 import Network.AWS.Inspector.AddAttributesToFindings
 import Network.AWS.Inspector.CreateAssessmentTarget
 import Network.AWS.Inspector.CreateAssessmentTemplate
+import Network.AWS.Inspector.CreateExclusionsPreview
 import Network.AWS.Inspector.CreateResourceGroup
 import Network.AWS.Inspector.DeleteAssessmentRun
 import Network.AWS.Inspector.DeleteAssessmentTarget
@@ -440,16 +518,19 @@ import Network.AWS.Inspector.DescribeAssessmentRuns
 import Network.AWS.Inspector.DescribeAssessmentTargets
 import Network.AWS.Inspector.DescribeAssessmentTemplates
 import Network.AWS.Inspector.DescribeCrossAccountAccessRole
+import Network.AWS.Inspector.DescribeExclusions
 import Network.AWS.Inspector.DescribeFindings
 import Network.AWS.Inspector.DescribeResourceGroups
 import Network.AWS.Inspector.DescribeRulesPackages
 import Network.AWS.Inspector.GetAssessmentReport
+import Network.AWS.Inspector.GetExclusionsPreview
 import Network.AWS.Inspector.GetTelemetryMetadata
 import Network.AWS.Inspector.ListAssessmentRunAgents
 import Network.AWS.Inspector.ListAssessmentRuns
 import Network.AWS.Inspector.ListAssessmentTargets
 import Network.AWS.Inspector.ListAssessmentTemplates
 import Network.AWS.Inspector.ListEventSubscriptions
+import Network.AWS.Inspector.ListExclusions
 import Network.AWS.Inspector.ListFindings
 import Network.AWS.Inspector.ListRulesPackages
 import Network.AWS.Inspector.ListTagsForResource

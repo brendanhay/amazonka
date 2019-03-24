@@ -20,10 +20,12 @@ module Network.AWS.Inspector.Types
     , _AssessmentRunInProgressException
     , _NoSuchEntityException
     , _UnsupportedFeatureException
+    , _PreviewGenerationInProgressException
     , _AgentsAlreadyRunningAssessmentException
     , _InvalidCrossAccountRoleException
     , _InvalidInputException
     , _InternalException
+    , _ServiceTemporarilyUnavailableException
     , _LimitExceededException
 
     -- * AgentHealth
@@ -50,6 +52,9 @@ module Network.AWS.Inspector.Types
     -- * Locale
     , Locale (..)
 
+    -- * PreviewStatus
+    , PreviewStatus (..)
+
     -- * ReportFileFormat
     , ReportFileFormat (..)
 
@@ -58,6 +63,9 @@ module Network.AWS.Inspector.Types
 
     -- * ReportType
     , ReportType (..)
+
+    -- * ScopeType
+    , ScopeType (..)
 
     -- * Severity
     , Severity (..)
@@ -143,9 +151,9 @@ module Network.AWS.Inspector.Types
     -- * AssessmentTarget
     , AssessmentTarget
     , assessmentTarget
+    , aResourceGroupARN
     , aArn
     , aName
-    , aResourceGroupARN
     , aCreatedAt
     , aUpdatedAt
 
@@ -179,9 +187,11 @@ module Network.AWS.Inspector.Types
     , assetAttributes
     , aaHostname
     , aaAutoScalingGroup
+    , aaNetworkInterfaces
     , aaIpv4Addresses
     , aaAgentId
     , aaAmiId
+    , aaTags
     , aaSchemaVersion
 
     -- * Attribute
@@ -201,6 +211,25 @@ module Network.AWS.Inspector.Types
     , eventSubscription
     , esEvent
     , esSubscribedAt
+
+    -- * Exclusion
+    , Exclusion
+    , exclusion
+    , eAttributes
+    , eArn
+    , eTitle
+    , eDescription
+    , eRecommendation
+    , eScopes
+
+    -- * ExclusionPreview
+    , ExclusionPreview
+    , exclusionPreview
+    , epAttributes
+    , epTitle
+    , epDescription
+    , epRecommendation
+    , epScopes
 
     -- * FailedItemDetails
     , FailedItemDetails
@@ -249,6 +278,26 @@ module Network.AWS.Inspector.Types
     , isaAssessmentRunARN
     , isaSchemaVersion
 
+    -- * NetworkInterface
+    , NetworkInterface
+    , networkInterface
+    , niPrivateIPAddresses
+    , niPublicDNSName
+    , niSecurityGroups
+    , niVpcId
+    , niSubnetId
+    , niNetworkInterfaceId
+    , niPrivateIPAddress
+    , niPublicIP
+    , niPrivateDNSName
+    , niIpv6Addresses
+
+    -- * PrivateIP
+    , PrivateIP
+    , privateIP
+    , piPrivateIPAddress
+    , piPrivateDNSName
+
     -- * ResourceGroup
     , ResourceGroup
     , resourceGroup
@@ -270,6 +319,18 @@ module Network.AWS.Inspector.Types
     , rpName
     , rpVersion
     , rpProvider
+
+    -- * Scope
+    , Scope
+    , scope
+    , sValue
+    , sKey
+
+    -- * SecurityGroup
+    , SecurityGroup
+    , securityGroup
+    , sgGroupId
+    , sgGroupName
 
     -- * Subscription
     , Subscription
@@ -373,6 +434,14 @@ _UnsupportedFeatureException =
   _MatchServiceError inspector "UnsupportedFeatureException"
 
 
+-- | The request is rejected. The specified assessment template is currently generating an exclusions preview.
+--
+--
+_PreviewGenerationInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
+_PreviewGenerationInProgressException =
+  _MatchServiceError inspector "PreviewGenerationInProgressException"
+
+
 -- | You started an assessment run, but one of the instances is already participating in another assessment run.
 --
 --
@@ -401,6 +470,14 @@ _InvalidInputException = _MatchServiceError inspector "InvalidInputException"
 --
 _InternalException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalException = _MatchServiceError inspector "InternalException"
+
+
+-- | The serice is temporary unavailable.
+--
+--
+_ServiceTemporarilyUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
+_ServiceTemporarilyUnavailableException =
+  _MatchServiceError inspector "ServiceTemporarilyUnavailableException"
 
 
 -- | The request was rejected because it attempted to create resources beyond the current AWS account limits. The error code describes the limit exceeded.

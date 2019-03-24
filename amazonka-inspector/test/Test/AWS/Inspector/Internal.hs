@@ -14,4 +14,4 @@
 
 module Test.AWS.Inspector.Internal where
 
-import           Test.AWS.Prelude
+import Test.AWS.Prelude

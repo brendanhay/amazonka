@@ -666,9 +666,9 @@ instance NFData AssessmentRunStateChange where
 --
 -- /See:/ 'assessmentTarget' smart constructor.
 data AssessmentTarget = AssessmentTarget'
-  { _aArn              :: !Text
+  { _aResourceGroupARN :: !(Maybe Text)
+  , _aArn              :: !Text
   , _aName             :: !Text
-  , _aResourceGroupARN :: !Text
   , _aCreatedAt        :: !POSIX
   , _aUpdatedAt        :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -678,11 +678,11 @@ data AssessmentTarget = AssessmentTarget'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'aResourceGroupARN' - The ARN that specifies the resource group that is associated with the assessment target.
+--
 -- * 'aArn' - The ARN that specifies the Amazon Inspector assessment target.
 --
 -- * 'aName' - The name of the Amazon Inspector assessment target.
---
--- * 'aResourceGroupARN' - The ARN that specifies the resource group that is associated with the assessment target.
 --
 -- * 'aCreatedAt' - The time at which the assessment target is created.
 --
@@ -690,19 +690,22 @@ data AssessmentTarget = AssessmentTarget'
 assessmentTarget
     :: Text -- ^ 'aArn'
     -> Text -- ^ 'aName'
-    -> Text -- ^ 'aResourceGroupARN'
     -> UTCTime -- ^ 'aCreatedAt'
     -> UTCTime -- ^ 'aUpdatedAt'
     -> AssessmentTarget
-assessmentTarget pArn_ pName_ pResourceGroupARN_ pCreatedAt_ pUpdatedAt_ =
+assessmentTarget pArn_ pName_ pCreatedAt_ pUpdatedAt_ =
   AssessmentTarget'
-    { _aArn = pArn_
+    { _aResourceGroupARN = Nothing
+    , _aArn = pArn_
     , _aName = pName_
-    , _aResourceGroupARN = pResourceGroupARN_
     , _aCreatedAt = _Time # pCreatedAt_
     , _aUpdatedAt = _Time # pUpdatedAt_
     }
 
+
+-- | The ARN that specifies the resource group that is associated with the assessment target.
+aResourceGroupARN :: Lens' AssessmentTarget (Maybe Text)
+aResourceGroupARN = lens _aResourceGroupARN (\ s a -> s{_aResourceGroupARN = a})
 
 -- | The ARN that specifies the Amazon Inspector assessment target.
 aArn :: Lens' AssessmentTarget Text
@@ -711,10 +714,6 @@ aArn = lens _aArn (\ s a -> s{_aArn = a})
 -- | The name of the Amazon Inspector assessment target.
 aName :: Lens' AssessmentTarget Text
 aName = lens _aName (\ s a -> s{_aName = a})
-
--- | The ARN that specifies the resource group that is associated with the assessment target.
-aResourceGroupARN :: Lens' AssessmentTarget Text
-aResourceGroupARN = lens _aResourceGroupARN (\ s a -> s{_aResourceGroupARN = a})
 
 -- | The time at which the assessment target is created.
 aCreatedAt :: Lens' AssessmentTarget UTCTime
@@ -729,8 +728,8 @@ instance FromJSON AssessmentTarget where
           = withObject "AssessmentTarget"
               (\ x ->
                  AssessmentTarget' <$>
-                   (x .: "arn") <*> (x .: "name") <*>
-                     (x .: "resourceGroupArn")
+                   (x .:? "resourceGroupArn") <*> (x .: "arn") <*>
+                     (x .: "name")
                      <*> (x .: "createdAt")
                      <*> (x .: "updatedAt"))
 
@@ -796,7 +795,7 @@ data AssessmentTemplate = AssessmentTemplate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atLastAssessmentRunARN' - The Amazon Resource Name (ARN) of the most recent assessment run associated with this assessment template. This value exists only when the value of assessmentRunCount is greater than zero.
+-- * 'atLastAssessmentRunARN' - The Amazon Resource Name (ARN) of the most recent assessment run associated with this assessment template. This value exists only when the value of assessmentRunCount is greaterpa than zero.
 --
 -- * 'atArn' - The ARN of the assessment template.
 --
@@ -804,7 +803,7 @@ data AssessmentTemplate = AssessmentTemplate'
 --
 -- * 'atAssessmentTargetARN' - The ARN of the assessment target that corresponds to this assessment template.
 --
--- * 'atDurationInSeconds' - The duration in seconds specified for this assessment tempate. The default value is 3600 seconds (one hour). The maximum value is 86400 seconds (one day).
+-- * 'atDurationInSeconds' - The duration in seconds specified for this assessment template. The default value is 3600 seconds (one hour). The maximum value is 86400 seconds (one day).
 --
 -- * 'atRulesPackageARNs' - The rules packages that are specified for this assessment template.
 --
@@ -835,7 +834,7 @@ assessmentTemplate pArn_ pName_ pAssessmentTargetARN_ pDurationInSeconds_ pAsses
     }
 
 
--- | The Amazon Resource Name (ARN) of the most recent assessment run associated with this assessment template. This value exists only when the value of assessmentRunCount is greater than zero.
+-- | The Amazon Resource Name (ARN) of the most recent assessment run associated with this assessment template. This value exists only when the value of assessmentRunCount is greaterpa than zero.
 atLastAssessmentRunARN :: Lens' AssessmentTemplate (Maybe Text)
 atLastAssessmentRunARN = lens _atLastAssessmentRunARN (\ s a -> s{_atLastAssessmentRunARN = a})
 
@@ -851,7 +850,7 @@ atName = lens _atName (\ s a -> s{_atName = a})
 atAssessmentTargetARN :: Lens' AssessmentTemplate Text
 atAssessmentTargetARN = lens _atAssessmentTargetARN (\ s a -> s{_atAssessmentTargetARN = a})
 
--- | The duration in seconds specified for this assessment tempate. The default value is 3600 seconds (one hour). The maximum value is 86400 seconds (one day).
+-- | The duration in seconds specified for this assessment template. The default value is 3600 seconds (one hour). The maximum value is 86400 seconds (one day).
 atDurationInSeconds :: Lens' AssessmentTemplate Natural
 atDurationInSeconds = lens _atDurationInSeconds (\ s a -> s{_atDurationInSeconds = a}) . _Nat
 
@@ -950,12 +949,14 @@ instance ToJSON AssessmentTemplateFilter where
 --
 -- /See:/ 'assetAttributes' smart constructor.
 data AssetAttributes = AssetAttributes'
-  { _aaHostname         :: !(Maybe Text)
-  , _aaAutoScalingGroup :: !(Maybe Text)
-  , _aaIpv4Addresses    :: !(Maybe [Text])
-  , _aaAgentId          :: !(Maybe Text)
-  , _aaAmiId            :: !(Maybe Text)
-  , _aaSchemaVersion    :: !Nat
+  { _aaHostname          :: !(Maybe Text)
+  , _aaAutoScalingGroup  :: !(Maybe Text)
+  , _aaNetworkInterfaces :: !(Maybe [NetworkInterface])
+  , _aaIpv4Addresses     :: !(Maybe [Text])
+  , _aaAgentId           :: !(Maybe Text)
+  , _aaAmiId             :: !(Maybe Text)
+  , _aaTags              :: !(Maybe [Tag])
+  , _aaSchemaVersion     :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -967,11 +968,15 @@ data AssetAttributes = AssetAttributes'
 --
 -- * 'aaAutoScalingGroup' - The Auto Scaling group of the EC2 instance where the finding is generated.
 --
+-- * 'aaNetworkInterfaces' - An array of the network interfaces interacting with the EC2 instance where the finding is generated.
+--
 -- * 'aaIpv4Addresses' - The list of IP v4 addresses of the EC2 instance where the finding is generated.
 --
 -- * 'aaAgentId' - The ID of the agent that is installed on the EC2 instance where the finding is generated.
 --
 -- * 'aaAmiId' - The ID of the Amazon Machine Image (AMI) that is installed on the EC2 instance where the finding is generated.
+--
+-- * 'aaTags' - The tags related to the EC2 instance where the finding is generated.
 --
 -- * 'aaSchemaVersion' - The schema version of this data type.
 assetAttributes
@@ -981,9 +986,11 @@ assetAttributes pSchemaVersion_ =
   AssetAttributes'
     { _aaHostname = Nothing
     , _aaAutoScalingGroup = Nothing
+    , _aaNetworkInterfaces = Nothing
     , _aaIpv4Addresses = Nothing
     , _aaAgentId = Nothing
     , _aaAmiId = Nothing
+    , _aaTags = Nothing
     , _aaSchemaVersion = _Nat # pSchemaVersion_
     }
 
@@ -995,6 +1002,10 @@ aaHostname = lens _aaHostname (\ s a -> s{_aaHostname = a})
 -- | The Auto Scaling group of the EC2 instance where the finding is generated.
 aaAutoScalingGroup :: Lens' AssetAttributes (Maybe Text)
 aaAutoScalingGroup = lens _aaAutoScalingGroup (\ s a -> s{_aaAutoScalingGroup = a})
+
+-- | An array of the network interfaces interacting with the EC2 instance where the finding is generated.
+aaNetworkInterfaces :: Lens' AssetAttributes [NetworkInterface]
+aaNetworkInterfaces = lens _aaNetworkInterfaces (\ s a -> s{_aaNetworkInterfaces = a}) . _Default . _Coerce
 
 -- | The list of IP v4 addresses of the EC2 instance where the finding is generated.
 aaIpv4Addresses :: Lens' AssetAttributes [Text]
@@ -1008,6 +1019,10 @@ aaAgentId = lens _aaAgentId (\ s a -> s{_aaAgentId = a})
 aaAmiId :: Lens' AssetAttributes (Maybe Text)
 aaAmiId = lens _aaAmiId (\ s a -> s{_aaAmiId = a})
 
+-- | The tags related to the EC2 instance where the finding is generated.
+aaTags :: Lens' AssetAttributes [Tag]
+aaTags = lens _aaTags (\ s a -> s{_aaTags = a}) . _Default . _Coerce
+
 -- | The schema version of this data type.
 aaSchemaVersion :: Lens' AssetAttributes Natural
 aaSchemaVersion = lens _aaSchemaVersion (\ s a -> s{_aaSchemaVersion = a}) . _Nat
@@ -1018,9 +1033,11 @@ instance FromJSON AssetAttributes where
               (\ x ->
                  AssetAttributes' <$>
                    (x .:? "hostname") <*> (x .:? "autoScalingGroup") <*>
-                     (x .:? "ipv4Addresses" .!= mempty)
+                     (x .:? "networkInterfaces" .!= mempty)
+                     <*> (x .:? "ipv4Addresses" .!= mempty)
                      <*> (x .:? "agentId")
                      <*> (x .:? "amiId")
+                     <*> (x .:? "tags" .!= mempty)
                      <*> (x .: "schemaVersion"))
 
 instance Hashable AssetAttributes where
@@ -1163,6 +1180,170 @@ instance FromJSON EventSubscription where
 instance Hashable EventSubscription where
 
 instance NFData EventSubscription where
+
+-- | Contains information about what was excluded from an assessment run.
+--
+--
+--
+-- /See:/ 'exclusion' smart constructor.
+data Exclusion = Exclusion'
+  { _eAttributes     :: !(Maybe [Attribute])
+  , _eArn            :: !Text
+  , _eTitle          :: !Text
+  , _eDescription    :: !Text
+  , _eRecommendation :: !Text
+  , _eScopes         :: !(List1 Scope)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Exclusion' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eAttributes' - The system-defined attributes for the exclusion.
+--
+-- * 'eArn' - The ARN that specifies the exclusion.
+--
+-- * 'eTitle' - The name of the exclusion.
+--
+-- * 'eDescription' - The description of the exclusion.
+--
+-- * 'eRecommendation' - The recommendation for the exclusion.
+--
+-- * 'eScopes' - The AWS resources for which the exclusion pertains.
+exclusion
+    :: Text -- ^ 'eArn'
+    -> Text -- ^ 'eTitle'
+    -> Text -- ^ 'eDescription'
+    -> Text -- ^ 'eRecommendation'
+    -> NonEmpty Scope -- ^ 'eScopes'
+    -> Exclusion
+exclusion pArn_ pTitle_ pDescription_ pRecommendation_ pScopes_ =
+  Exclusion'
+    { _eAttributes = Nothing
+    , _eArn = pArn_
+    , _eTitle = pTitle_
+    , _eDescription = pDescription_
+    , _eRecommendation = pRecommendation_
+    , _eScopes = _List1 # pScopes_
+    }
+
+
+-- | The system-defined attributes for the exclusion.
+eAttributes :: Lens' Exclusion [Attribute]
+eAttributes = lens _eAttributes (\ s a -> s{_eAttributes = a}) . _Default . _Coerce
+
+-- | The ARN that specifies the exclusion.
+eArn :: Lens' Exclusion Text
+eArn = lens _eArn (\ s a -> s{_eArn = a})
+
+-- | The name of the exclusion.
+eTitle :: Lens' Exclusion Text
+eTitle = lens _eTitle (\ s a -> s{_eTitle = a})
+
+-- | The description of the exclusion.
+eDescription :: Lens' Exclusion Text
+eDescription = lens _eDescription (\ s a -> s{_eDescription = a})
+
+-- | The recommendation for the exclusion.
+eRecommendation :: Lens' Exclusion Text
+eRecommendation = lens _eRecommendation (\ s a -> s{_eRecommendation = a})
+
+-- | The AWS resources for which the exclusion pertains.
+eScopes :: Lens' Exclusion (NonEmpty Scope)
+eScopes = lens _eScopes (\ s a -> s{_eScopes = a}) . _List1
+
+instance FromJSON Exclusion where
+        parseJSON
+          = withObject "Exclusion"
+              (\ x ->
+                 Exclusion' <$>
+                   (x .:? "attributes" .!= mempty) <*> (x .: "arn") <*>
+                     (x .: "title")
+                     <*> (x .: "description")
+                     <*> (x .: "recommendation")
+                     <*> (x .: "scopes"))
+
+instance Hashable Exclusion where
+
+instance NFData Exclusion where
+
+-- | Contains information about what is excluded from an assessment run given the current state of the assessment template.
+--
+--
+--
+-- /See:/ 'exclusionPreview' smart constructor.
+data ExclusionPreview = ExclusionPreview'
+  { _epAttributes     :: !(Maybe [Attribute])
+  , _epTitle          :: !Text
+  , _epDescription    :: !Text
+  , _epRecommendation :: !Text
+  , _epScopes         :: !(List1 Scope)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ExclusionPreview' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'epAttributes' - The system-defined attributes for the exclusion preview.
+--
+-- * 'epTitle' - The name of the exclusion preview.
+--
+-- * 'epDescription' - The description of the exclusion preview.
+--
+-- * 'epRecommendation' - The recommendation for the exclusion preview.
+--
+-- * 'epScopes' - The AWS resources for which the exclusion preview pertains.
+exclusionPreview
+    :: Text -- ^ 'epTitle'
+    -> Text -- ^ 'epDescription'
+    -> Text -- ^ 'epRecommendation'
+    -> NonEmpty Scope -- ^ 'epScopes'
+    -> ExclusionPreview
+exclusionPreview pTitle_ pDescription_ pRecommendation_ pScopes_ =
+  ExclusionPreview'
+    { _epAttributes = Nothing
+    , _epTitle = pTitle_
+    , _epDescription = pDescription_
+    , _epRecommendation = pRecommendation_
+    , _epScopes = _List1 # pScopes_
+    }
+
+
+-- | The system-defined attributes for the exclusion preview.
+epAttributes :: Lens' ExclusionPreview [Attribute]
+epAttributes = lens _epAttributes (\ s a -> s{_epAttributes = a}) . _Default . _Coerce
+
+-- | The name of the exclusion preview.
+epTitle :: Lens' ExclusionPreview Text
+epTitle = lens _epTitle (\ s a -> s{_epTitle = a})
+
+-- | The description of the exclusion preview.
+epDescription :: Lens' ExclusionPreview Text
+epDescription = lens _epDescription (\ s a -> s{_epDescription = a})
+
+-- | The recommendation for the exclusion preview.
+epRecommendation :: Lens' ExclusionPreview Text
+epRecommendation = lens _epRecommendation (\ s a -> s{_epRecommendation = a})
+
+-- | The AWS resources for which the exclusion preview pertains.
+epScopes :: Lens' ExclusionPreview (NonEmpty Scope)
+epScopes = lens _epScopes (\ s a -> s{_epScopes = a}) . _List1
+
+instance FromJSON ExclusionPreview where
+        parseJSON
+          = withObject "ExclusionPreview"
+              (\ x ->
+                 ExclusionPreview' <$>
+                   (x .:? "attributes" .!= mempty) <*> (x .: "title")
+                     <*> (x .: "description")
+                     <*> (x .: "recommendation")
+                     <*> (x .: "scopes"))
+
+instance Hashable ExclusionPreview where
+
+instance NFData ExclusionPreview where
 
 -- | Includes details about the failed items.
 --
@@ -1560,6 +1741,169 @@ instance Hashable InspectorServiceAttributes where
 
 instance NFData InspectorServiceAttributes where
 
+-- | Contains information about the network interfaces interacting with an EC2 instance. This data type is used as one of the elements of the 'AssetAttributes' data type.
+--
+--
+--
+-- /See:/ 'networkInterface' smart constructor.
+data NetworkInterface = NetworkInterface'
+  { _niPrivateIPAddresses :: !(Maybe [PrivateIP])
+  , _niPublicDNSName      :: !(Maybe Text)
+  , _niSecurityGroups     :: !(Maybe [SecurityGroup])
+  , _niVpcId              :: !(Maybe Text)
+  , _niSubnetId           :: !(Maybe Text)
+  , _niNetworkInterfaceId :: !(Maybe Text)
+  , _niPrivateIPAddress   :: !(Maybe Text)
+  , _niPublicIP           :: !(Maybe Text)
+  , _niPrivateDNSName     :: !(Maybe Text)
+  , _niIpv6Addresses      :: !(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'NetworkInterface' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'niPrivateIPAddresses' - A list of the private IP addresses associated with the network interface. Includes the privateDnsName and privateIpAddress.
+--
+-- * 'niPublicDNSName' - The name of a public DNS associated with the network interface.
+--
+-- * 'niSecurityGroups' - A list of the security groups associated with the network interface. Includes the groupId and groupName.
+--
+-- * 'niVpcId' - The ID of a VPC associated with the network interface.
+--
+-- * 'niSubnetId' - The ID of a subnet associated with the network interface.
+--
+-- * 'niNetworkInterfaceId' - The ID of the network interface.
+--
+-- * 'niPrivateIPAddress' - The private IP address associated with the network interface.
+--
+-- * 'niPublicIP' - The public IP address from which the network interface is reachable.
+--
+-- * 'niPrivateDNSName' - The name of a private DNS associated with the network interface.
+--
+-- * 'niIpv6Addresses' - The IP addresses associated with the network interface.
+networkInterface
+    :: NetworkInterface
+networkInterface =
+  NetworkInterface'
+    { _niPrivateIPAddresses = Nothing
+    , _niPublicDNSName = Nothing
+    , _niSecurityGroups = Nothing
+    , _niVpcId = Nothing
+    , _niSubnetId = Nothing
+    , _niNetworkInterfaceId = Nothing
+    , _niPrivateIPAddress = Nothing
+    , _niPublicIP = Nothing
+    , _niPrivateDNSName = Nothing
+    , _niIpv6Addresses = Nothing
+    }
+
+
+-- | A list of the private IP addresses associated with the network interface. Includes the privateDnsName and privateIpAddress.
+niPrivateIPAddresses :: Lens' NetworkInterface [PrivateIP]
+niPrivateIPAddresses = lens _niPrivateIPAddresses (\ s a -> s{_niPrivateIPAddresses = a}) . _Default . _Coerce
+
+-- | The name of a public DNS associated with the network interface.
+niPublicDNSName :: Lens' NetworkInterface (Maybe Text)
+niPublicDNSName = lens _niPublicDNSName (\ s a -> s{_niPublicDNSName = a})
+
+-- | A list of the security groups associated with the network interface. Includes the groupId and groupName.
+niSecurityGroups :: Lens' NetworkInterface [SecurityGroup]
+niSecurityGroups = lens _niSecurityGroups (\ s a -> s{_niSecurityGroups = a}) . _Default . _Coerce
+
+-- | The ID of a VPC associated with the network interface.
+niVpcId :: Lens' NetworkInterface (Maybe Text)
+niVpcId = lens _niVpcId (\ s a -> s{_niVpcId = a})
+
+-- | The ID of a subnet associated with the network interface.
+niSubnetId :: Lens' NetworkInterface (Maybe Text)
+niSubnetId = lens _niSubnetId (\ s a -> s{_niSubnetId = a})
+
+-- | The ID of the network interface.
+niNetworkInterfaceId :: Lens' NetworkInterface (Maybe Text)
+niNetworkInterfaceId = lens _niNetworkInterfaceId (\ s a -> s{_niNetworkInterfaceId = a})
+
+-- | The private IP address associated with the network interface.
+niPrivateIPAddress :: Lens' NetworkInterface (Maybe Text)
+niPrivateIPAddress = lens _niPrivateIPAddress (\ s a -> s{_niPrivateIPAddress = a})
+
+-- | The public IP address from which the network interface is reachable.
+niPublicIP :: Lens' NetworkInterface (Maybe Text)
+niPublicIP = lens _niPublicIP (\ s a -> s{_niPublicIP = a})
+
+-- | The name of a private DNS associated with the network interface.
+niPrivateDNSName :: Lens' NetworkInterface (Maybe Text)
+niPrivateDNSName = lens _niPrivateDNSName (\ s a -> s{_niPrivateDNSName = a})
+
+-- | The IP addresses associated with the network interface.
+niIpv6Addresses :: Lens' NetworkInterface [Text]
+niIpv6Addresses = lens _niIpv6Addresses (\ s a -> s{_niIpv6Addresses = a}) . _Default . _Coerce
+
+instance FromJSON NetworkInterface where
+        parseJSON
+          = withObject "NetworkInterface"
+              (\ x ->
+                 NetworkInterface' <$>
+                   (x .:? "privateIpAddresses" .!= mempty) <*>
+                     (x .:? "publicDnsName")
+                     <*> (x .:? "securityGroups" .!= mempty)
+                     <*> (x .:? "vpcId")
+                     <*> (x .:? "subnetId")
+                     <*> (x .:? "networkInterfaceId")
+                     <*> (x .:? "privateIpAddress")
+                     <*> (x .:? "publicIp")
+                     <*> (x .:? "privateDnsName")
+                     <*> (x .:? "ipv6Addresses" .!= mempty))
+
+instance Hashable NetworkInterface where
+
+instance NFData NetworkInterface where
+
+-- | Contains information about a private IP address associated with a network interface. This data type is used as a response element in the 'DescribeFindings' action.
+--
+--
+--
+-- /See:/ 'privateIP' smart constructor.
+data PrivateIP = PrivateIP'
+  { _piPrivateIPAddress :: !(Maybe Text)
+  , _piPrivateDNSName   :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'PrivateIP' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'piPrivateIPAddress' - The full IP address of the network inteface.
+--
+-- * 'piPrivateDNSName' - The DNS name of the private IP address.
+privateIP
+    :: PrivateIP
+privateIP =
+  PrivateIP' {_piPrivateIPAddress = Nothing, _piPrivateDNSName = Nothing}
+
+
+-- | The full IP address of the network inteface.
+piPrivateIPAddress :: Lens' PrivateIP (Maybe Text)
+piPrivateIPAddress = lens _piPrivateIPAddress (\ s a -> s{_piPrivateIPAddress = a})
+
+-- | The DNS name of the private IP address.
+piPrivateDNSName :: Lens' PrivateIP (Maybe Text)
+piPrivateDNSName = lens _piPrivateDNSName (\ s a -> s{_piPrivateDNSName = a})
+
+instance FromJSON PrivateIP where
+        parseJSON
+          = withObject "PrivateIP"
+              (\ x ->
+                 PrivateIP' <$>
+                   (x .:? "privateIpAddress") <*>
+                     (x .:? "privateDnsName"))
+
+instance Hashable PrivateIP where
+
+instance NFData PrivateIP where
+
 -- | Contains information about a resource group. The resource group defines a set of tags that, when queried, identify the AWS resources that make up the assessment target. This data type is used as the response element in the 'DescribeResourceGroups' action.
 --
 --
@@ -1745,6 +2089,88 @@ instance FromJSON RulesPackage where
 instance Hashable RulesPackage where
 
 instance NFData RulesPackage where
+
+-- | This data type contains key-value pairs that identify various Amazon resources.
+--
+--
+--
+-- /See:/ 'scope' smart constructor.
+data Scope = Scope'
+  { _sValue :: !(Maybe Text)
+  , _sKey   :: !(Maybe ScopeType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Scope' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sValue' - The resource identifier for the specified scope type.
+--
+-- * 'sKey' - The type of the scope.
+scope
+    :: Scope
+scope = Scope' {_sValue = Nothing, _sKey = Nothing}
+
+
+-- | The resource identifier for the specified scope type.
+sValue :: Lens' Scope (Maybe Text)
+sValue = lens _sValue (\ s a -> s{_sValue = a})
+
+-- | The type of the scope.
+sKey :: Lens' Scope (Maybe ScopeType)
+sKey = lens _sKey (\ s a -> s{_sKey = a})
+
+instance FromJSON Scope where
+        parseJSON
+          = withObject "Scope"
+              (\ x -> Scope' <$> (x .:? "value") <*> (x .:? "key"))
+
+instance Hashable Scope where
+
+instance NFData Scope where
+
+-- | Contains information about a security group associated with a network interface. This data type is used as one of the elements of the 'NetworkInterface' data type.
+--
+--
+--
+-- /See:/ 'securityGroup' smart constructor.
+data SecurityGroup = SecurityGroup'
+  { _sgGroupId   :: !(Maybe Text)
+  , _sgGroupName :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SecurityGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sgGroupId' - The ID of the security group.
+--
+-- * 'sgGroupName' - The name of the security group.
+securityGroup
+    :: SecurityGroup
+securityGroup = SecurityGroup' {_sgGroupId = Nothing, _sgGroupName = Nothing}
+
+
+-- | The ID of the security group.
+sgGroupId :: Lens' SecurityGroup (Maybe Text)
+sgGroupId = lens _sgGroupId (\ s a -> s{_sgGroupId = a})
+
+-- | The name of the security group.
+sgGroupName :: Lens' SecurityGroup (Maybe Text)
+sgGroupName = lens _sgGroupName (\ s a -> s{_sgGroupName = a})
+
+instance FromJSON SecurityGroup where
+        parseJSON
+          = withObject "SecurityGroup"
+              (\ x ->
+                 SecurityGroup' <$>
+                   (x .:? "groupId") <*> (x .:? "groupName"))
+
+instance Hashable SecurityGroup where
+
+instance NFData SecurityGroup where
 
 -- | This data type is used as a response element in the 'ListEventSubscriptions' action.
 --

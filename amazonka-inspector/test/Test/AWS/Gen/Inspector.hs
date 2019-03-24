@@ -52,6 +52,9 @@ import Test.Tasty
 --         , requestCreateAssessmentTemplate $
 --             createAssessmentTemplate
 --
+--         , requestDescribeExclusions $
+--             describeExclusions
+--
 --         , requestListTagsForResource $
 --             listTagsForResource
 --
@@ -70,6 +73,9 @@ import Test.Tasty
 --         , requestCreateAssessmentTarget $
 --             createAssessmentTarget
 --
+--         , requestGetExclusionsPreview $
+--             getExclusionsPreview
+--
 --         , requestListEventSubscriptions $
 --             listEventSubscriptions
 --
@@ -79,6 +85,9 @@ import Test.Tasty
 --         , requestListAssessmentTargets $
 --             listAssessmentTargets
 --
+--         , requestCreateExclusionsPreview $
+--             createExclusionsPreview
+--
 --         , requestCreateResourceGroup $
 --             createResourceGroup
 --
@@ -87,6 +96,9 @@ import Test.Tasty
 --
 --         , requestStopAssessmentRun $
 --             stopAssessmentRun
+--
+--         , requestListExclusions $
+--             listExclusions
 --
 --         , requestPreviewAgents $
 --             previewAgents
@@ -154,6 +166,9 @@ import Test.Tasty
 --         , responseCreateAssessmentTemplate $
 --             createAssessmentTemplateResponse
 --
+--         , responseDescribeExclusions $
+--             describeExclusionsResponse
+--
 --         , responseListTagsForResource $
 --             listTagsForResourceResponse
 --
@@ -172,6 +187,9 @@ import Test.Tasty
 --         , responseCreateAssessmentTarget $
 --             createAssessmentTargetResponse
 --
+--         , responseGetExclusionsPreview $
+--             getExclusionsPreviewResponse
+--
 --         , responseListEventSubscriptions $
 --             listEventSubscriptionsResponse
 --
@@ -181,6 +199,9 @@ import Test.Tasty
 --         , responseListAssessmentTargets $
 --             listAssessmentTargetsResponse
 --
+--         , responseCreateExclusionsPreview $
+--             createExclusionsPreviewResponse
+--
 --         , responseCreateResourceGroup $
 --             createResourceGroupResponse
 --
@@ -189,6 +210,9 @@ import Test.Tasty
 --
 --         , responseStopAssessmentRun $
 --             stopAssessmentRunResponse
+--
+--         , responseListExclusions $
+--             listExclusionsResponse
 --
 --         , responsePreviewAgents $
 --             previewAgentsResponse
@@ -274,6 +298,11 @@ requestCreateAssessmentTemplate = req
     "CreateAssessmentTemplate"
     "fixture/CreateAssessmentTemplate.yaml"
 
+requestDescribeExclusions :: DescribeExclusions -> TestTree
+requestDescribeExclusions = req
+    "DescribeExclusions"
+    "fixture/DescribeExclusions.yaml"
+
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource = req
     "ListTagsForResource"
@@ -304,6 +333,11 @@ requestCreateAssessmentTarget = req
     "CreateAssessmentTarget"
     "fixture/CreateAssessmentTarget.yaml"
 
+requestGetExclusionsPreview :: GetExclusionsPreview -> TestTree
+requestGetExclusionsPreview = req
+    "GetExclusionsPreview"
+    "fixture/GetExclusionsPreview.yaml"
+
 requestListEventSubscriptions :: ListEventSubscriptions -> TestTree
 requestListEventSubscriptions = req
     "ListEventSubscriptions"
@@ -319,6 +353,11 @@ requestListAssessmentTargets = req
     "ListAssessmentTargets"
     "fixture/ListAssessmentTargets.yaml"
 
+requestCreateExclusionsPreview :: CreateExclusionsPreview -> TestTree
+requestCreateExclusionsPreview = req
+    "CreateExclusionsPreview"
+    "fixture/CreateExclusionsPreview.yaml"
+
 requestCreateResourceGroup :: CreateResourceGroup -> TestTree
 requestCreateResourceGroup = req
     "CreateResourceGroup"
@@ -333,6 +372,11 @@ requestStopAssessmentRun :: StopAssessmentRun -> TestTree
 requestStopAssessmentRun = req
     "StopAssessmentRun"
     "fixture/StopAssessmentRun.yaml"
+
+requestListExclusions :: ListExclusions -> TestTree
+requestListExclusions = req
+    "ListExclusions"
+    "fixture/ListExclusions.yaml"
 
 requestPreviewAgents :: PreviewAgents -> TestTree
 requestPreviewAgents = req
@@ -457,6 +501,13 @@ responseCreateAssessmentTemplate = res
     inspector
     (Proxy :: Proxy CreateAssessmentTemplate)
 
+responseDescribeExclusions :: DescribeExclusionsResponse -> TestTree
+responseDescribeExclusions = res
+    "DescribeExclusionsResponse"
+    "fixture/DescribeExclusionsResponse.proto"
+    inspector
+    (Proxy :: Proxy DescribeExclusions)
+
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource = res
     "ListTagsForResourceResponse"
@@ -499,6 +550,13 @@ responseCreateAssessmentTarget = res
     inspector
     (Proxy :: Proxy CreateAssessmentTarget)
 
+responseGetExclusionsPreview :: GetExclusionsPreviewResponse -> TestTree
+responseGetExclusionsPreview = res
+    "GetExclusionsPreviewResponse"
+    "fixture/GetExclusionsPreviewResponse.proto"
+    inspector
+    (Proxy :: Proxy GetExclusionsPreview)
+
 responseListEventSubscriptions :: ListEventSubscriptionsResponse -> TestTree
 responseListEventSubscriptions = res
     "ListEventSubscriptionsResponse"
@@ -520,6 +578,13 @@ responseListAssessmentTargets = res
     inspector
     (Proxy :: Proxy ListAssessmentTargets)
 
+responseCreateExclusionsPreview :: CreateExclusionsPreviewResponse -> TestTree
+responseCreateExclusionsPreview = res
+    "CreateExclusionsPreviewResponse"
+    "fixture/CreateExclusionsPreviewResponse.proto"
+    inspector
+    (Proxy :: Proxy CreateExclusionsPreview)
+
 responseCreateResourceGroup :: CreateResourceGroupResponse -> TestTree
 responseCreateResourceGroup = res
     "CreateResourceGroupResponse"
@@ -540,6 +605,13 @@ responseStopAssessmentRun = res
     "fixture/StopAssessmentRunResponse.proto"
     inspector
     (Proxy :: Proxy StopAssessmentRun)
+
+responseListExclusions :: ListExclusionsResponse -> TestTree
+responseListExclusions = res
+    "ListExclusionsResponse"
+    "fixture/ListExclusionsResponse.proto"
+    inspector
+    (Proxy :: Proxy ListExclusions)
 
 responsePreviewAgents :: PreviewAgentsResponse -> TestTree
 responsePreviewAgents = res

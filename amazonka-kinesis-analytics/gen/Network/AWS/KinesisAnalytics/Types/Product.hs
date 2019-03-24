@@ -302,9 +302,9 @@ instance ToJSON ApplicationUpdate where
 -- | Provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the /'\n'/ as the row delimiter and a comma (",") as the column delimiter:
 --
 --
--- @"name1", "address1" @
+-- @"name1", "address1"@
 --
--- @"name2, "address2"@
+-- @"name2", "address2"@
 --
 --
 -- /See:/ 'csvMappingParameters' smart constructor.
@@ -534,7 +534,7 @@ instance ToJSON CloudWatchLoggingOptionUpdate where
 --
 -- /See:/ 'destinationSchema' smart constructor.
 newtype DestinationSchema = DestinationSchema'
-  { _dsRecordFormatType :: Maybe RecordFormatType
+  { _dsRecordFormatType :: RecordFormatType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -544,19 +544,21 @@ newtype DestinationSchema = DestinationSchema'
 --
 -- * 'dsRecordFormatType' - Specifies the format of the records on the output stream.
 destinationSchema
-    :: DestinationSchema
-destinationSchema = DestinationSchema' {_dsRecordFormatType = Nothing}
+    :: RecordFormatType -- ^ 'dsRecordFormatType'
+    -> DestinationSchema
+destinationSchema pRecordFormatType_ =
+  DestinationSchema' {_dsRecordFormatType = pRecordFormatType_}
 
 
 -- | Specifies the format of the records on the output stream.
-dsRecordFormatType :: Lens' DestinationSchema (Maybe RecordFormatType)
+dsRecordFormatType :: Lens' DestinationSchema RecordFormatType
 dsRecordFormatType = lens _dsRecordFormatType (\ s a -> s{_dsRecordFormatType = a})
 
 instance FromJSON DestinationSchema where
         parseJSON
           = withObject "DestinationSchema"
               (\ x ->
-                 DestinationSchema' <$> (x .:? "RecordFormatType"))
+                 DestinationSchema' <$> (x .: "RecordFormatType"))
 
 instance Hashable DestinationSchema where
 
@@ -566,7 +568,7 @@ instance ToJSON DestinationSchema where
         toJSON DestinationSchema'{..}
           = object
               (catMaybes
-                 [("RecordFormatType" .=) <$> _dsRecordFormatType])
+                 [Just ("RecordFormatType" .= _dsRecordFormatType)])
 
 -- | When you configure the application input, you specify the streaming source, the in-application stream name that is created, and the mapping between the two. For more information, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
 --
@@ -1407,7 +1409,7 @@ data KinesisFirehoseInput = KinesisFirehoseInput'
 --
 -- * 'kfiResourceARN' - ARN of the input delivery stream.
 --
--- * 'kfiRoleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to make sure the role has necessary permissions to access the stream.
+-- * 'kfiRoleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to make sure that the role has the necessary permissions to access the stream.
 kinesisFirehoseInput
     :: Text -- ^ 'kfiResourceARN'
     -> Text -- ^ 'kfiRoleARN'
@@ -1421,7 +1423,7 @@ kinesisFirehoseInput pResourceARN_ pRoleARN_ =
 kfiResourceARN :: Lens' KinesisFirehoseInput Text
 kfiResourceARN = lens _kfiResourceARN (\ s a -> s{_kfiResourceARN = a})
 
--- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to make sure the role has necessary permissions to access the stream.
+-- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to make sure that the role has the necessary permissions to access the stream.
 kfiRoleARN :: Lens' KinesisFirehoseInput Text
 kfiRoleARN = lens _kfiRoleARN (\ s a -> s{_kfiRoleARN = a})
 
@@ -1497,7 +1499,7 @@ data KinesisFirehoseInputUpdate = KinesisFirehoseInputUpdate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'kfiuRoleARNUpdate' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant necessary permissions to this role.
+-- * 'kfiuRoleARNUpdate' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.
 --
 -- * 'kfiuResourceARNUpdate' - Amazon Resource Name (ARN) of the input Amazon Kinesis Firehose delivery stream to read.
 kinesisFirehoseInputUpdate
@@ -1507,7 +1509,7 @@ kinesisFirehoseInputUpdate =
     {_kfiuRoleARNUpdate = Nothing, _kfiuResourceARNUpdate = Nothing}
 
 
--- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant necessary permissions to this role.
+-- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.
 kfiuRoleARNUpdate :: Lens' KinesisFirehoseInputUpdate (Maybe Text)
 kfiuRoleARNUpdate = lens _kfiuRoleARNUpdate (\ s a -> s{_kfiuRoleARNUpdate = a})
 
@@ -1634,7 +1636,7 @@ data KinesisFirehoseOutputUpdate = KinesisFirehoseOutputUpdate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'kfouRoleARNUpdate' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant necessary permissions to this role.
+-- * 'kfouRoleARNUpdate' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.
 --
 -- * 'kfouResourceARNUpdate' - Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream to write to.
 kinesisFirehoseOutputUpdate
@@ -1644,7 +1646,7 @@ kinesisFirehoseOutputUpdate =
     {_kfouRoleARNUpdate = Nothing, _kfouResourceARNUpdate = Nothing}
 
 
--- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant necessary permissions to this role.
+-- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.
 kfouRoleARNUpdate :: Lens' KinesisFirehoseOutputUpdate (Maybe Text)
 kfouRoleARNUpdate = lens _kfouRoleARNUpdate (\ s a -> s{_kfouRoleARNUpdate = a})
 
@@ -2680,7 +2682,7 @@ instance ToJSON ReferenceDataSourceUpdate where
                     _rdsuReferenceSchemaUpdate,
                   Just ("ReferenceId" .= _rdsuReferenceId)])
 
--- | Provides a description of an Amazon S3 data source, including the Amazon Resource Name (ARN) of the S3 bucket, the ARN of the IAM role that is used to access the bucket, and the name of the S3 object that contains the data.
+-- | Provides a description of an Amazon S3 data source, including the Amazon Resource Name (ARN) of the S3 bucket, the ARN of the IAM role that is used to access the bucket, and the name of the Amazon S3 object that contains the data.
 --
 --
 --

@@ -18,6 +18,7 @@ module Network.AWS.KinesisAnalytics.Types
     -- * Errors
     , _InvalidApplicationConfigurationException
     , _ResourceProvisionedThroughputExceededException
+    , _UnsupportedOperationException
     , _InvalidArgumentException
     , _CodeValidationException
     , _ConcurrentModificationException
@@ -459,6 +460,12 @@ _ResourceProvisionedThroughputExceededException =
     "ResourceProvisionedThroughputExceededException"
 
 
+-- | Prism for UnsupportedOperationException' errors.
+_UnsupportedOperationException :: AsError a => Getting (First ServiceError) a ServiceError
+_UnsupportedOperationException =
+  _MatchServiceError kinesisAnalytics "UnsupportedOperationException"
+
+
 -- | Specified input parameter value is invalid.
 --
 --
@@ -483,7 +490,7 @@ _ConcurrentModificationException =
   _MatchServiceError kinesisAnalytics "ConcurrentModificationException"
 
 
--- | The service is unavailable, back off and retry the operation.
+-- | The service is unavailable. Back off and retry the operation.
 --
 --
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -491,7 +498,7 @@ _ServiceUnavailableException =
   _MatchServiceError kinesisAnalytics "ServiceUnavailableException"
 
 
--- | Data format is not valid, Amazon Kinesis Analytics is not able to detect schema for the given streaming source.
+-- | Data format is not valid. Amazon Kinesis Analytics is not able to detect schema for the given streaming source.
 --
 --
 _UnableToDetectSchemaException :: AsError a => Getting (First ServiceError) a ServiceError

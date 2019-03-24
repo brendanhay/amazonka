@@ -29,6 +29,9 @@ module Network.AWS.KinesisAnalytics
     -- ** ResourceProvisionedThroughputExceededException
     , _ResourceProvisionedThroughputExceededException
 
+    -- ** UnsupportedOperationException
+    , _UnsupportedOperationException
+
     -- ** InvalidArgumentException
     , _InvalidArgumentException
 

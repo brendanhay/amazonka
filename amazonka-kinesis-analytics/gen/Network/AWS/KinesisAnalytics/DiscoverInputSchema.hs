@@ -73,7 +73,7 @@ data DiscoverInputSchema = DiscoverInputSchema'
 --
 -- * 'disInputProcessingConfiguration' - The 'InputProcessingConfiguration' to use to preprocess the records before discovering the schema of the records.
 --
--- * 'disS3Configuration' - Specify this parameter to discover a schema from data in an S3 object.
+-- * 'disS3Configuration' - Specify this parameter to discover a schema from data in an Amazon S3 object.
 --
 -- * 'disResourceARN' - Amazon Resource Name (ARN) of the streaming source.
 --
@@ -98,7 +98,7 @@ disInputStartingPositionConfiguration = lens _disInputStartingPositionConfigurat
 disInputProcessingConfiguration :: Lens' DiscoverInputSchema (Maybe InputProcessingConfiguration)
 disInputProcessingConfiguration = lens _disInputProcessingConfiguration (\ s a -> s{_disInputProcessingConfiguration = a})
 
--- | Specify this parameter to discover a schema from data in an S3 object.
+-- | Specify this parameter to discover a schema from data in an Amazon S3 object.
 disS3Configuration :: Lens' DiscoverInputSchema (Maybe S3Configuration)
 disS3Configuration = lens _disS3Configuration (\ s a -> s{_disS3Configuration = a})
 

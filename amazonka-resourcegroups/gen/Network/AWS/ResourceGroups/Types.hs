@@ -24,8 +24,17 @@ module Network.AWS.ResourceGroups.Types
     , _UnauthorizedException
     , _BadRequestException
 
+    -- * GroupFilterName
+    , GroupFilterName (..)
+
+    -- * QueryErrorCode
+    , QueryErrorCode (..)
+
     -- * QueryType
     , QueryType (..)
+
+    -- * ResourceFilterName
+    , ResourceFilterName (..)
 
     -- * Group
     , Group
@@ -34,11 +43,35 @@ module Network.AWS.ResourceGroups.Types
     , gGroupARN
     , gName
 
+    -- * GroupFilter
+    , GroupFilter
+    , groupFilter
+    , gfName
+    , gfValues
+
+    -- * GroupIdentifier
+    , GroupIdentifier
+    , groupIdentifier
+    , giGroupARN
+    , giGroupName
+
     -- * GroupQuery
     , GroupQuery
     , groupQuery
     , gqGroupName
     , gqResourceQuery
+
+    -- * QueryError
+    , QueryError
+    , queryError
+    , qeErrorCode
+    , qeMessage
+
+    -- * ResourceFilter
+    , ResourceFilter
+    , resourceFilter
+    , rfName
+    , rfValues
 
     -- * ResourceIdentifier
     , ResourceIdentifier

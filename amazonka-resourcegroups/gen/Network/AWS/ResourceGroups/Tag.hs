@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds specified tags to a resource with the specified ARN. Existing tags on a resource are not changed if they are not specified in the request parameters.
+-- Adds tags to a resource group with the specified ARN. Existing tags on a resource group are not changed if they are not specified in the request parameters.
 --
 --
 module Network.AWS.ResourceGroups.Tag
@@ -59,7 +59,7 @@ data Tag = Tag'
 --
 -- * 'tagARN' - The ARN of the resource to which to add tags.
 --
--- * 'tagTags' - The tags to add to the specified resource. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 127 characters, and tag values can have a maximum length of 255 characters.
+-- * 'tagTags' - The tags to add to the specified resource. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 tag
     :: Text -- ^ 'tagARN'
     -> Tag
@@ -70,7 +70,7 @@ tag pARN_ = Tag' {_tagARN = pARN_, _tagTags = mempty}
 tagARN :: Lens' Tag Text
 tagARN = lens _tagARN (\ s a -> s{_tagARN = a})
 
--- | The tags to add to the specified resource. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 127 characters, and tag values can have a maximum length of 255 characters.
+-- | The tags to add to the specified resource. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 tagTags :: Lens' Tag (HashMap Text Text)
 tagTags = lens _tagTags (\ s a -> s{_tagTags = a}) . _Map
 

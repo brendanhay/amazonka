@@ -64,9 +64,9 @@ data CreateGroup = CreateGroup'
 --
 -- * 'cgDescription' - The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores, punctuation, and spaces.
 --
--- * 'cgTags' - The tags to add to the group. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 127 characters, and tag values can have a maximum length of 255 characters.
+-- * 'cgTags' - The tags to add to the group. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 --
--- * 'cgName' - The name of the group, which is the identifier of the group in other operations. A resource group name cannot be updated after it is created. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with @AWS@ or @aws@ ; these are reserved. A resource group name must be unique within your account.
+-- * 'cgName' - The name of the group, which is the identifier of the group in other operations. A resource group name cannot be updated after it is created. A resource group name can have a maximum of 128 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with @AWS@ or @aws@ ; these are reserved. A resource group name must be unique within your account.
 --
 -- * 'cgResourceQuery' - The resource query that determines which AWS resources are members of this group.
 createGroup
@@ -86,11 +86,11 @@ createGroup pName_ pResourceQuery_ =
 cgDescription :: Lens' CreateGroup (Maybe Text)
 cgDescription = lens _cgDescription (\ s a -> s{_cgDescription = a})
 
--- | The tags to add to the group. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 127 characters, and tag values can have a maximum length of 255 characters.
+-- | The tags to add to the group. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 cgTags :: Lens' CreateGroup (HashMap Text Text)
 cgTags = lens _cgTags (\ s a -> s{_cgTags = a}) . _Default . _Map
 
--- | The name of the group, which is the identifier of the group in other operations. A resource group name cannot be updated after it is created. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with @AWS@ or @aws@ ; these are reserved. A resource group name must be unique within your account.
+-- | The name of the group, which is the identifier of the group in other operations. A resource group name cannot be updated after it is created. A resource group name can have a maximum of 128 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with @AWS@ or @aws@ ; these are reserved. A resource group name must be unique within your account.
 cgName :: Lens' CreateGroup Text
 cgName = lens _cgName (\ s a -> s{_cgName = a})
 

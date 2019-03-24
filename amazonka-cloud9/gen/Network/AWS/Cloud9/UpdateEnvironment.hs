@@ -48,9 +48,9 @@ import Network.AWS.Response
 -- | /See:/ 'updateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
   { _ueName          :: !(Maybe Text)
-  , _ueDescription   :: !(Maybe Text)
+  , _ueDescription   :: !(Maybe (Sensitive Text))
   , _ueEnvironmentId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'UpdateEnvironment' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ ueName = lens _ueName (\ s a -> s{_ueName = a})
 
 -- | Any new or replacement description for the environment.
 ueDescription :: Lens' UpdateEnvironment (Maybe Text)
-ueDescription = lens _ueDescription (\ s a -> s{_ueDescription = a})
+ueDescription = lens _ueDescription (\ s a -> s{_ueDescription = a}) . mapping _Sensitive
 
 -- | The ID of the environment to change settings.
 ueEnvironmentId :: Lens' UpdateEnvironment Text

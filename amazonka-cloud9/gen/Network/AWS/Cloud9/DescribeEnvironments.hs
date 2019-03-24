@@ -107,7 +107,7 @@ instance ToQuery DescribeEnvironments where
 data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'
   { _deersEnvironments   :: !(Maybe [Environment])
   , _deersResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'DescribeEnvironmentsResponse' with the minimum fields required to make a request.

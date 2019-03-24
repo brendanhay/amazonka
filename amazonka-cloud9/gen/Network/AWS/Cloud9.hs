@@ -108,6 +108,9 @@ module Network.AWS.Cloud9
 
     -- * Types
 
+    -- ** EnvironmentLifecycleStatus
+    , EnvironmentLifecycleStatus (..)
+
     -- ** EnvironmentStatus
     , EnvironmentStatus (..)
 
@@ -124,11 +127,19 @@ module Network.AWS.Cloud9
     , Environment
     , environment
     , eArn
+    , eLifecycle
     , eOwnerARN
     , eName
     , eId
     , eType
     , eDescription
+
+    -- ** EnvironmentLifecycle
+    , EnvironmentLifecycle
+    , environmentLifecycle
+    , elStatus
+    , elFailureResource
+    , elReason
 
     -- ** EnvironmentMember
     , EnvironmentMember

@@ -19,38 +19,68 @@ module Network.AWS.Cloud9.Types.Sum where
 
 import Network.AWS.Prelude
 
-data EnvironmentStatus
-  = Connecting
-  | Creating
+data EnvironmentLifecycleStatus
+  = Created
+  | DeleteFailed
   | Deleting
-  | Error'
-  | Ready
-  | Stopped
-  | Stopping
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText EnvironmentLifecycleStatus where
+    parser = takeLowerText >>= \case
+        "created" -> pure Created
+        "delete_failed" -> pure DeleteFailed
+        "deleting" -> pure Deleting
+        e -> fromTextError $ "Failure parsing EnvironmentLifecycleStatus from value: '" <> e
+           <> "'. Accepted values: created, delete_failed, deleting"
+
+instance ToText EnvironmentLifecycleStatus where
+    toText = \case
+        Created -> "CREATED"
+        DeleteFailed -> "DELETE_FAILED"
+        Deleting -> "DELETING"
+
+instance Hashable     EnvironmentLifecycleStatus
+instance NFData       EnvironmentLifecycleStatus
+instance ToByteString EnvironmentLifecycleStatus
+instance ToQuery      EnvironmentLifecycleStatus
+instance ToHeader     EnvironmentLifecycleStatus
+
+instance FromJSON EnvironmentLifecycleStatus where
+    parseJSON = parseJSONText "EnvironmentLifecycleStatus"
+
+data EnvironmentStatus
+  = ESConnecting
+  | ESCreating
+  | ESDeleting
+  | ESError'
+  | ESReady
+  | ESStopped
+  | ESStopping
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText EnvironmentStatus where
     parser = takeLowerText >>= \case
-        "connecting" -> pure Connecting
-        "creating" -> pure Creating
-        "deleting" -> pure Deleting
-        "error" -> pure Error'
-        "ready" -> pure Ready
-        "stopped" -> pure Stopped
-        "stopping" -> pure Stopping
+        "connecting" -> pure ESConnecting
+        "creating" -> pure ESCreating
+        "deleting" -> pure ESDeleting
+        "error" -> pure ESError'
+        "ready" -> pure ESReady
+        "stopped" -> pure ESStopped
+        "stopping" -> pure ESStopping
         e -> fromTextError $ "Failure parsing EnvironmentStatus from value: '" <> e
            <> "'. Accepted values: connecting, creating, deleting, error, ready, stopped, stopping"
 
 instance ToText EnvironmentStatus where
     toText = \case
-        Connecting -> "connecting"
-        Creating -> "creating"
-        Deleting -> "deleting"
-        Error' -> "error"
-        Ready -> "ready"
-        Stopped -> "stopped"
-        Stopping -> "stopping"
+        ESConnecting -> "connecting"
+        ESCreating -> "creating"
+        ESDeleting -> "deleting"
+        ESError' -> "error"
+        ESReady -> "ready"
+        ESStopped -> "stopped"
+        ESStopping -> "stopping"
 
 instance Hashable     EnvironmentStatus
 instance NFData       EnvironmentStatus

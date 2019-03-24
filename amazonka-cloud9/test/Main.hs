@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.Cloud9
 import Test.AWS.Cloud9.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "Cloud9"

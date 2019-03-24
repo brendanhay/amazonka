@@ -56,10 +56,10 @@ data CreateEnvironmentEC = CreateEnvironmentEC'
   , _ceecSubnetId                 :: !(Maybe Text)
   , _ceecOwnerARN                 :: !(Maybe Text)
   , _ceecClientRequestToken       :: !(Maybe Text)
-  , _ceecDescription              :: !(Maybe Text)
+  , _ceecDescription              :: !(Maybe (Sensitive Text))
   , _ceecName                     :: !Text
   , _ceecInstanceType             :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'CreateEnvironmentEC' with the minimum fields required to make a request.
@@ -113,7 +113,7 @@ ceecClientRequestToken = lens _ceecClientRequestToken (\ s a -> s{_ceecClientReq
 
 -- | The description of the environment to create.
 ceecDescription :: Lens' CreateEnvironmentEC (Maybe Text)
-ceecDescription = lens _ceecDescription (\ s a -> s{_ceecDescription = a})
+ceecDescription = lens _ceecDescription (\ s a -> s{_ceecDescription = a}) . mapping _Sensitive
 
 -- | The name of the environment to create. This name is visible to other AWS IAM users in the same AWS account.
 ceecName :: Lens' CreateEnvironmentEC Text

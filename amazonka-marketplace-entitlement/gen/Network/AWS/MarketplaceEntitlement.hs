@@ -46,7 +46,7 @@ module Network.AWS.MarketplaceEntitlement
     -- * Operations
     -- $operations
 
-    -- ** GetEntitlements
+    -- ** GetEntitlements (Paginated)
     , module Network.AWS.MarketplaceEntitlement.GetEntitlements
 
     -- * Types

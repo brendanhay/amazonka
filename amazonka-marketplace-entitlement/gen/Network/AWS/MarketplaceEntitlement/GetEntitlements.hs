@@ -21,6 +21,8 @@
 -- GetEntitlements retrieves entitlement values for a given product. The results can be filtered based on customer identifier or product dimensions.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.MarketplaceEntitlement.GetEntitlements
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.MarketplaceEntitlement.GetEntitlements
 import Network.AWS.Lens
 import Network.AWS.MarketplaceEntitlement.Types
 import Network.AWS.MarketplaceEntitlement.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -99,6 +102,13 @@ geMaxResults = lens _geMaxResults (\ s a -> s{_geMaxResults = a})
 -- | Product code is used to uniquely identify a product in AWS Marketplace. The product code will be provided by AWS Marketplace when the product listing is created.
 geProductCode :: Lens' GetEntitlements Text
 geProductCode = lens _geProductCode (\ s a -> s{_geProductCode = a})
+
+instance AWSPager GetEntitlements where
+        page rq rs
+          | stop (rs ^. gersNextToken) = Nothing
+          | stop (rs ^. gersEntitlements) = Nothing
+          | otherwise =
+            Just $ rq & geNextToken .~ rs ^. gersNextToken
 
 instance AWSRequest GetEntitlements where
         type Rs GetEntitlements = GetEntitlementsResponse

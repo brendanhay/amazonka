@@ -21,6 +21,8 @@
 -- Returns an array of 'RuleGroup' objects that you are subscribed to.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WAF.ListSubscribedRuleGroups
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.WAF.ListSubscribedRuleGroups
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -73,6 +76,13 @@ lsrgNextMarker = lens _lsrgNextMarker (\ s a -> s{_lsrgNextMarker = a})
 -- | Specifies the number of subscribed rule groups that you want AWS WAF to return for this request. If you have more objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of objects.
 lsrgLimit :: Lens' ListSubscribedRuleGroups (Maybe Natural)
 lsrgLimit = lens _lsrgLimit (\ s a -> s{_lsrgLimit = a}) . mapping _Nat
+
+instance AWSPager ListSubscribedRuleGroups where
+        page rq rs
+          | stop (rs ^. lsrgrsNextMarker) = Nothing
+          | stop (rs ^. lsrgrsRuleGroups) = Nothing
+          | otherwise =
+            Just $ rq & lsrgNextMarker .~ rs ^. lsrgrsNextMarker
 
 instance AWSRequest ListSubscribedRuleGroups where
         type Rs ListSubscribedRuleGroups =

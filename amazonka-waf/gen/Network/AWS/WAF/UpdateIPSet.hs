@@ -29,7 +29,7 @@
 --
 --
 --
--- AWS WAF supports /8, /16, /24, and /32 IP address ranges for IPv4, and /24, /32, /48, /56, /64 and /128 for IPv6. For more information about CIDR notation, see the Wikipedia entry <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless Inter-Domain Routing> .
+-- AWS WAF supports IPv4 address ranges: /8 and any range between /16 through /32. AWS WAF supports IPv6 address ranges: /24, /32, /48, /56, /64, and /128. For more information about CIDR notation, see the Wikipedia entry <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless Inter-Domain Routing> .
 --
 -- IPv6 addresses can be represented using any of the following formats:
 --
@@ -57,7 +57,9 @@
 --
 -- When you update an @IPSet@ , you specify the IP addresses that you want to add and/or the IP addresses that you want to delete. If you want to change an IP address, you delete the existing IP address and add the new one.
 --
--- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
+-- You can insert a maximum of 1000 addresses in a single request.
+--
+-- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
 --
 module Network.AWS.WAF.UpdateIPSet
     (
@@ -100,7 +102,7 @@ data UpdateIPSet = UpdateIPSet'
 --
 -- * 'uisChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
 --
--- * 'uisUpdates' - An array of @IPSetUpdate@ objects that you want to insert into or delete from an 'IPSet' . For more information, see the applicable data types:     * 'IPSetUpdate' : Contains @Action@ and @IPSetDescriptor@      * 'IPSetDescriptor' : Contains @Type@ and @Value@
+-- * 'uisUpdates' - An array of @IPSetUpdate@ objects that you want to insert into or delete from an 'IPSet' . For more information, see the applicable data types:     * 'IPSetUpdate' : Contains @Action@ and @IPSetDescriptor@      * 'IPSetDescriptor' : Contains @Type@ and @Value@  You can insert a maximum of 1000 addresses in a single request.
 updateIPSet
     :: Text -- ^ 'uisIPSetId'
     -> Text -- ^ 'uisChangeToken'
@@ -122,7 +124,7 @@ uisIPSetId = lens _uisIPSetId (\ s a -> s{_uisIPSetId = a})
 uisChangeToken :: Lens' UpdateIPSet Text
 uisChangeToken = lens _uisChangeToken (\ s a -> s{_uisChangeToken = a})
 
--- | An array of @IPSetUpdate@ objects that you want to insert into or delete from an 'IPSet' . For more information, see the applicable data types:     * 'IPSetUpdate' : Contains @Action@ and @IPSetDescriptor@      * 'IPSetDescriptor' : Contains @Type@ and @Value@
+-- | An array of @IPSetUpdate@ objects that you want to insert into or delete from an 'IPSet' . For more information, see the applicable data types:     * 'IPSetUpdate' : Contains @Action@ and @IPSetDescriptor@      * 'IPSetDescriptor' : Contains @Type@ and @Value@  You can insert a maximum of 1000 addresses in a single request.
 uisUpdates :: Lens' UpdateIPSet (NonEmpty IPSetUpdate)
 uisUpdates = lens _uisUpdates (\ s a -> s{_uisUpdates = a}) . _List1
 

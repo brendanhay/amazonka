@@ -23,6 +23,7 @@ module Network.AWS.WAF.Types
     , _WAFInvalidOperationException
     , _WAFNonexistentItemException
     , _WAFInvalidParameterException
+    , _WAFServiceLinkedRoleErrorException
     , _WAFLimitsExceededException
     , _WAFInvalidPermissionPolicyException
     , _WAFStaleDataException
@@ -78,6 +79,7 @@ module Network.AWS.WAF.Types
     , activatedRule
     , arOverrideAction
     , arAction
+    , arExcludedRules
     , arType
     , arPriority
     , arRuleId
@@ -108,6 +110,11 @@ module Network.AWS.WAF.Types
     , bmtTargetString
     , bmtTextTransformation
     , bmtPositionalConstraint
+
+    -- * ExcludedRule
+    , ExcludedRule
+    , excludedRule
+    , erRuleId
 
     -- * FieldToMatch
     , FieldToMatch
@@ -180,6 +187,13 @@ module Network.AWS.WAF.Types
     , ipSetUpdate
     , isuAction
     , isuIPSetDescriptor
+
+    -- * LoggingConfiguration
+    , LoggingConfiguration
+    , loggingConfiguration
+    , lcRedactedFields
+    , lcResourceARN
+    , lcLogDestinationConfigs
 
     -- * Predicate
     , Predicate
@@ -371,6 +385,7 @@ module Network.AWS.WAF.Types
     , webACL
     , waMetricName
     , waName
+    , waWebACLARN
     , waWebACLId
     , waDefaultAction
     , waRules
@@ -507,8 +522,6 @@ _WAFInvalidRegexPatternException =
 --
 --     * You tried to add a @Rule@ to a @WebACL@ , but the @Rule@ already exists in the specified @WebACL@ .
 --
---     * You tried to add an IP address to an @IPSet@ , but the IP address already exists in the specified @IPSet@ .
---
 --     * You tried to add a @ByteMatchTuple@ to a @ByteMatchSet@ , but the @ByteMatchTuple@ already exists in the specified @WebACL@ .
 --
 --
@@ -554,7 +567,15 @@ _WAFInvalidParameterException =
   _MatchServiceError waf "WAFInvalidParameterException"
 
 
--- | The operation exceeds a resource limit, for example, the maximum number of @WebACL@ objects that you can create for an AWS account. For more information, see <http://docs.aws.amazon.com/waf/latest/developerguide/limits.html Limits> in the /AWS WAF Developer Guide/ .
+-- | AWS WAF is not able to access the service linked role. This can be caused by a previous @PutLoggingConfiguration@ request, which can lock the service linked role for about 20 seconds. Please try your request again. The service linked role can also be locked by a previous @DeleteServiceLinkedRole@ request, which can lock the role for 15 minutes or more. If you recently made a @DeleteServiceLinkedRole@ , wait at least 15 minutes and try the request again. If you receive this same exception again, you will have to wait additional time until the role is unlocked.
+--
+--
+_WAFServiceLinkedRoleErrorException :: AsError a => Getting (First ServiceError) a ServiceError
+_WAFServiceLinkedRoleErrorException =
+  _MatchServiceError waf "WAFServiceLinkedRoleErrorException"
+
+
+-- | The operation exceeds a resource limit, for example, the maximum number of @WebACL@ objects that you can create for an AWS account. For more information, see <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html Limits> in the /AWS WAF Developer Guide/ .
 --
 --
 _WAFLimitsExceededException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -573,7 +594,7 @@ _WAFLimitsExceededException =
 --
 --     * @Effect@ must specify @Allow@ .
 --
---     * The @Action@ in the policy must be @waf:UpdateWebACL@ or @waf-regional:UpdateWebACL@ . Any extra or wildcard actions in the policy will be rejected.
+--     * The @Action@ in the policy must be @waf:UpdateWebACL@ , @waf-regional:UpdateWebACL@ , @waf:GetRuleGroup@ and @waf-regional:GetRuleGroup@ . Any extra or wildcard actions in the policy will be rejected.
 --
 --     * The policy cannot include a @Resource@ parameter.
 --

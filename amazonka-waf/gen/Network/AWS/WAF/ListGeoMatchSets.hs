@@ -21,6 +21,8 @@
 -- Returns an array of 'GeoMatchSetSummary' objects in the response.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WAF.ListGeoMatchSets
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.WAF.ListGeoMatchSets
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -73,6 +76,13 @@ lgmsNextMarker = lens _lgmsNextMarker (\ s a -> s{_lgmsNextMarker = a})
 -- | Specifies the number of @GeoMatchSet@ objects that you want AWS WAF to return for this request. If you have more @GeoMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @GeoMatchSet@ objects.
 lgmsLimit :: Lens' ListGeoMatchSets (Maybe Natural)
 lgmsLimit = lens _lgmsLimit (\ s a -> s{_lgmsLimit = a}) . mapping _Nat
+
+instance AWSPager ListGeoMatchSets where
+        page rq rs
+          | stop (rs ^. lgmsrsNextMarker) = Nothing
+          | stop (rs ^. lgmsrsGeoMatchSets) = Nothing
+          | otherwise =
+            Just $ rq & lgmsNextMarker .~ rs ^. lgmsrsNextMarker
 
 instance AWSRequest ListGeoMatchSets where
         type Rs ListGeoMatchSets = ListGeoMatchSetsResponse

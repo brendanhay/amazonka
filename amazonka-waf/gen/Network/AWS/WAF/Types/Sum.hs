@@ -947,30 +947,36 @@ instance FromJSON IPSetDescriptorType where
     parseJSON = parseJSONText "IPSetDescriptorType"
 
 data MatchFieldType
-  = Body
+  = AllQueryArgs
+  | Body
   | Header
   | Method
   | QueryString
+  | SingleQueryArg
   | URI
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText MatchFieldType where
     parser = takeLowerText >>= \case
+        "all_query_args" -> pure AllQueryArgs
         "body" -> pure Body
         "header" -> pure Header
         "method" -> pure Method
         "query_string" -> pure QueryString
+        "single_query_arg" -> pure SingleQueryArg
         "uri" -> pure URI
         e -> fromTextError $ "Failure parsing MatchFieldType from value: '" <> e
-           <> "'. Accepted values: body, header, method, query_string, uri"
+           <> "'. Accepted values: all_query_args, body, header, method, query_string, single_query_arg, uri"
 
 instance ToText MatchFieldType where
     toText = \case
+        AllQueryArgs -> "ALL_QUERY_ARGS"
         Body -> "BODY"
         Header -> "HEADER"
         Method -> "METHOD"
         QueryString -> "QUERY_STRING"
+        SingleQueryArg -> "SINGLE_QUERY_ARG"
         URI -> "URI"
 
 instance Hashable     MatchFieldType

@@ -21,6 +21,8 @@
 -- Returns an array of 'RegexPatternSetSummary' objects.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WAF.ListRegexPatternSets
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.WAF.ListRegexPatternSets
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -73,6 +76,13 @@ lrpsNextMarker = lens _lrpsNextMarker (\ s a -> s{_lrpsNextMarker = a})
 -- | Specifies the number of @RegexPatternSet@ objects that you want AWS WAF to return for this request. If you have more @RegexPatternSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @RegexPatternSet@ objects.
 lrpsLimit :: Lens' ListRegexPatternSets (Maybe Natural)
 lrpsLimit = lens _lrpsLimit (\ s a -> s{_lrpsLimit = a}) . mapping _Nat
+
+instance AWSPager ListRegexPatternSets where
+        page rq rs
+          | stop (rs ^. lrpsrsNextMarker) = Nothing
+          | stop (rs ^. lrpsrsRegexPatternSets) = Nothing
+          | otherwise =
+            Just $ rq & lrpsNextMarker .~ rs ^. lrpsrsNextMarker
 
 instance AWSRequest ListRegexPatternSets where
         type Rs ListRegexPatternSets =

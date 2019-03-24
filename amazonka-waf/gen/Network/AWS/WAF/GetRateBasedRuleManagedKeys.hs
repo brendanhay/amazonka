@@ -21,6 +21,8 @@
 -- Returns an array of IP addresses currently being blocked by the 'RateBasedRule' that is specified by the @RuleId@ . The maximum number of managed keys that will be blocked is 10,000. If more than 10,000 addresses exceed the rate limit, the 10,000 addresses with the highest rates will be blocked.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WAF.GetRateBasedRuleManagedKeys
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.WAF.GetRateBasedRuleManagedKeys
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -75,6 +78,14 @@ grbrmkNextMarker = lens _grbrmkNextMarker (\ s a -> s{_grbrmkNextMarker = a})
 -- | The @RuleId@ of the 'RateBasedRule' for which you want to get a list of @ManagedKeys@ . @RuleId@ is returned by 'CreateRateBasedRule' and by 'ListRateBasedRules' .
 grbrmkRuleId :: Lens' GetRateBasedRuleManagedKeys Text
 grbrmkRuleId = lens _grbrmkRuleId (\ s a -> s{_grbrmkRuleId = a})
+
+instance AWSPager GetRateBasedRuleManagedKeys where
+        page rq rs
+          | stop (rs ^. grbrmkrsNextMarker) = Nothing
+          | stop (rs ^. grbrmkrsManagedKeys) = Nothing
+          | otherwise =
+            Just $ rq &
+              grbrmkNextMarker .~ rs ^. grbrmkrsNextMarker
 
 instance AWSRequest GetRateBasedRuleManagedKeys where
         type Rs GetRateBasedRuleManagedKeys =

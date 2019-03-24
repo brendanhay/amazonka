@@ -21,6 +21,8 @@
 -- Returns an array of 'RuleGroup' objects.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WAF.ListRuleGroups
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.WAF.ListRuleGroups
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,6 +75,13 @@ lrgNextMarker = lens _lrgNextMarker (\ s a -> s{_lrgNextMarker = a})
 -- | Specifies the number of @RuleGroups@ that you want AWS WAF to return for this request. If you have more @RuleGroups@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @RuleGroups@ .
 lrgLimit :: Lens' ListRuleGroups (Maybe Natural)
 lrgLimit = lens _lrgLimit (\ s a -> s{_lrgLimit = a}) . mapping _Nat
+
+instance AWSPager ListRuleGroups where
+        page rq rs
+          | stop (rs ^. lrgrsNextMarker) = Nothing
+          | stop (rs ^. lrgrsRuleGroups) = Nothing
+          | otherwise =
+            Just $ rq & lrgNextMarker .~ rs ^. lrgrsNextMarker
 
 instance AWSRequest ListRuleGroups where
         type Rs ListRuleGroups = ListRuleGroupsResponse

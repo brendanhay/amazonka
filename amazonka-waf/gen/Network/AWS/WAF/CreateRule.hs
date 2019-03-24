@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a @Rule@ , which contains the @IPSet@ objects, @ByteMatchSet@ objects, and other predicates that identify the requests that you want to block. If you add more than one predicate to a @Rule@ , a request must match all of the specifications to be allowed or blocked. For example, suppose you add the following to a @Rule@ :
+-- Creates a @Rule@ , which contains the @IPSet@ objects, @ByteMatchSet@ objects, and other predicates that identify the requests that you want to block. If you add more than one predicate to a @Rule@ , a request must match all of the specifications to be allowed or blocked. For example, suppose that you add the following to a @Rule@ :
 --
 --
 --     * An @IPSet@ that matches the IP address @192.0.2.44/32@
@@ -45,7 +45,7 @@
 --
 --
 --
--- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
+-- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
 --
 module Network.AWS.WAF.CreateRule
     (
@@ -87,7 +87,7 @@ data CreateRule = CreateRule'
 --
 -- * 'crName' - A friendly name or description of the 'Rule' . You can't change the name of a @Rule@ after you create it.
 --
--- * 'crMetricName' - A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change the name of the metric after you create the @Rule@ .
+-- * 'crMetricName' - A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain white space. You can't change the name of the metric after you create the @Rule@ .
 --
 -- * 'crChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
 createRule
@@ -107,7 +107,7 @@ createRule pName_ pMetricName_ pChangeToken_ =
 crName :: Lens' CreateRule Text
 crName = lens _crName (\ s a -> s{_crName = a})
 
--- | A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change the name of the metric after you create the @Rule@ .
+-- | A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain white space. You can't change the name of the metric after you create the @Rule@ .
 crMetricName :: Lens' CreateRule Text
 crMetricName = lens _crMetricName (\ s a -> s{_crMetricName = a})
 

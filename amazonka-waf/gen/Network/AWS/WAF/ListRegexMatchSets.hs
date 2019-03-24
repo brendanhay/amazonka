@@ -21,6 +21,8 @@
 -- Returns an array of 'RegexMatchSetSummary' objects.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WAF.ListRegexMatchSets
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.WAF.ListRegexMatchSets
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -73,6 +76,13 @@ lrmsNextMarker = lens _lrmsNextMarker (\ s a -> s{_lrmsNextMarker = a})
 -- | Specifies the number of @RegexMatchSet@ objects that you want AWS WAF to return for this request. If you have more @RegexMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @RegexMatchSet@ objects.
 lrmsLimit :: Lens' ListRegexMatchSets (Maybe Natural)
 lrmsLimit = lens _lrmsLimit (\ s a -> s{_lrmsLimit = a}) . mapping _Nat
+
+instance AWSPager ListRegexMatchSets where
+        page rq rs
+          | stop (rs ^. lrmsrsNextMarker) = Nothing
+          | stop (rs ^. lrmsrsRegexMatchSets) = Nothing
+          | otherwise =
+            Just $ rq & lrmsNextMarker .~ rs ^. lrmsrsNextMarker
 
 instance AWSRequest ListRegexMatchSets where
         type Rs ListRegexMatchSets =

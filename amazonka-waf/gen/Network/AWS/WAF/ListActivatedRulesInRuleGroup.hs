@@ -21,6 +21,8 @@
 -- Returns an array of 'ActivatedRule' objects.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WAF.ListActivatedRulesInRuleGroup
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.WAF.ListActivatedRulesInRuleGroup
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -85,6 +88,14 @@ larirgNextMarker = lens _larirgNextMarker (\ s a -> s{_larirgNextMarker = a})
 -- | Specifies the number of @ActivatedRules@ that you want AWS WAF to return for this request. If you have more @ActivatedRules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @ActivatedRules@ .
 larirgLimit :: Lens' ListActivatedRulesInRuleGroup (Maybe Natural)
 larirgLimit = lens _larirgLimit (\ s a -> s{_larirgLimit = a}) . mapping _Nat
+
+instance AWSPager ListActivatedRulesInRuleGroup where
+        page rq rs
+          | stop (rs ^. larirgrsNextMarker) = Nothing
+          | stop (rs ^. larirgrsActivatedRules) = Nothing
+          | otherwise =
+            Just $ rq &
+              larirgNextMarker .~ rs ^. larirgrsNextMarker
 
 instance AWSRequest ListActivatedRulesInRuleGroup
          where

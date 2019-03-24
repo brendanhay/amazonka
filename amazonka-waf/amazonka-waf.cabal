@@ -60,6 +60,7 @@ library
         , Network.AWS.WAF.DeleteByteMatchSet
         , Network.AWS.WAF.DeleteGeoMatchSet
         , Network.AWS.WAF.DeleteIPSet
+        , Network.AWS.WAF.DeleteLoggingConfiguration
         , Network.AWS.WAF.DeletePermissionPolicy
         , Network.AWS.WAF.DeleteRateBasedRule
         , Network.AWS.WAF.DeleteRegexMatchSet
@@ -75,6 +76,7 @@ library
         , Network.AWS.WAF.GetChangeTokenStatus
         , Network.AWS.WAF.GetGeoMatchSet
         , Network.AWS.WAF.GetIPSet
+        , Network.AWS.WAF.GetLoggingConfiguration
         , Network.AWS.WAF.GetPermissionPolicy
         , Network.AWS.WAF.GetRateBasedRule
         , Network.AWS.WAF.GetRateBasedRuleManagedKeys
@@ -91,6 +93,7 @@ library
         , Network.AWS.WAF.ListByteMatchSets
         , Network.AWS.WAF.ListGeoMatchSets
         , Network.AWS.WAF.ListIPSets
+        , Network.AWS.WAF.ListLoggingConfigurations
         , Network.AWS.WAF.ListRateBasedRules
         , Network.AWS.WAF.ListRegexMatchSets
         , Network.AWS.WAF.ListRegexPatternSets
@@ -101,6 +104,7 @@ library
         , Network.AWS.WAF.ListSubscribedRuleGroups
         , Network.AWS.WAF.ListWebACLs
         , Network.AWS.WAF.ListXSSMatchSets
+        , Network.AWS.WAF.PutLoggingConfiguration
         , Network.AWS.WAF.PutPermissionPolicy
         , Network.AWS.WAF.Types
         , Network.AWS.WAF.UpdateByteMatchSet

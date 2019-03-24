@@ -25,7 +25,7 @@
 --
 --     * @PENDING@ : AWS WAF is propagating the create, update, or delete request to all AWS WAF servers.
 --
---     * @IN_SYNC@ : Propagation is complete.
+--     * @INSYNC@ : Propagation is complete.
 --
 --
 --

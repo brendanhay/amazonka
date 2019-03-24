@@ -39,7 +39,7 @@
 --
 --
 --
--- For more information about how to use the AWS WAF API, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
+-- For more information about how to use the AWS WAF API, see the <https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
 --
 module Network.AWS.WAF.CreateWebACL
     (
@@ -83,7 +83,7 @@ data CreateWebACL = CreateWebACL'
 --
 -- * 'cwaName' - A friendly name or description of the 'WebACL' . You can't change @Name@ after you create the @WebACL@ .
 --
--- * 'cwaMetricName' - A friendly name or description for the metrics for this @WebACL@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change @MetricName@ after you create the @WebACL@ .
+-- * 'cwaMetricName' - A friendly name or description for the metrics for this @WebACL@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain white space. You can't change @MetricName@ after you create the @WebACL@ .
 --
 -- * 'cwaDefaultAction' - The action that you want AWS WAF to take when a request doesn't match the criteria specified in any of the @Rule@ objects that are associated with the @WebACL@ .
 --
@@ -107,7 +107,7 @@ createWebACL pName_ pMetricName_ pDefaultAction_ pChangeToken_ =
 cwaName :: Lens' CreateWebACL Text
 cwaName = lens _cwaName (\ s a -> s{_cwaName = a})
 
--- | A friendly name or description for the metrics for this @WebACL@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change @MetricName@ after you create the @WebACL@ .
+-- | A friendly name or description for the metrics for this @WebACL@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain white space. You can't change @MetricName@ after you create the @WebACL@ .
 cwaMetricName :: Lens' CreateWebACL Text
 cwaMetricName = lens _cwaMetricName (\ s a -> s{_cwaMetricName = a})
 

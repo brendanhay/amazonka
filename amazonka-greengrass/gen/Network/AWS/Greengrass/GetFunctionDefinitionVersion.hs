@@ -25,6 +25,7 @@ module Network.AWS.Greengrass.GetFunctionDefinitionVersion
       getFunctionDefinitionVersion
     , GetFunctionDefinitionVersion
     -- * Request Lenses
+    , gfdvNextToken
     , gfdvFunctionDefinitionId
     , gfdvFunctionDefinitionVersionId
 
@@ -34,6 +35,7 @@ module Network.AWS.Greengrass.GetFunctionDefinitionVersion
     -- * Response Lenses
     , gfdvrsDefinition
     , gfdvrsARN
+    , gfdvrsNextToken
     , gfdvrsCreationTimestamp
     , gfdvrsVersion
     , gfdvrsId
@@ -49,7 +51,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getFunctionDefinitionVersion' smart constructor.
 data GetFunctionDefinitionVersion = GetFunctionDefinitionVersion'
-  { _gfdvFunctionDefinitionId        :: !Text
+  { _gfdvNextToken                   :: !(Maybe Text)
+  , _gfdvFunctionDefinitionId        :: !Text
   , _gfdvFunctionDefinitionVersionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -57,6 +60,8 @@ data GetFunctionDefinitionVersion = GetFunctionDefinitionVersion'
 -- | Creates a value of 'GetFunctionDefinitionVersion' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gfdvNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
 -- * 'gfdvFunctionDefinitionId' - The ID of the Lambda function definition.
 --
@@ -67,10 +72,15 @@ getFunctionDefinitionVersion
     -> GetFunctionDefinitionVersion
 getFunctionDefinitionVersion pFunctionDefinitionId_ pFunctionDefinitionVersionId_ =
   GetFunctionDefinitionVersion'
-    { _gfdvFunctionDefinitionId = pFunctionDefinitionId_
+    { _gfdvNextToken = Nothing
+    , _gfdvFunctionDefinitionId = pFunctionDefinitionId_
     , _gfdvFunctionDefinitionVersionId = pFunctionDefinitionVersionId_
     }
 
+
+-- | The token for the next set of results, or ''null'' if there are no additional results.
+gfdvNextToken :: Lens' GetFunctionDefinitionVersion (Maybe Text)
+gfdvNextToken = lens _gfdvNextToken (\ s a -> s{_gfdvNextToken = a})
 
 -- | The ID of the Lambda function definition.
 gfdvFunctionDefinitionId :: Lens' GetFunctionDefinitionVersion Text
@@ -90,7 +100,8 @@ instance AWSRequest GetFunctionDefinitionVersion
               (\ s h x ->
                  GetFunctionDefinitionVersionResponse' <$>
                    (x .?> "Definition") <*> (x .?> "Arn") <*>
-                     (x .?> "CreationTimestamp")
+                     (x .?> "NextToken")
+                     <*> (x .?> "CreationTimestamp")
                      <*> (x .?> "Version")
                      <*> (x .?> "Id")
                      <*> (pure (fromEnum s)))
@@ -114,12 +125,14 @@ instance ToPath GetFunctionDefinitionVersion where
                toBS _gfdvFunctionDefinitionVersionId]
 
 instance ToQuery GetFunctionDefinitionVersion where
-        toQuery = const mempty
+        toQuery GetFunctionDefinitionVersion'{..}
+          = mconcat ["NextToken" =: _gfdvNextToken]
 
 -- | /See:/ 'getFunctionDefinitionVersionResponse' smart constructor.
 data GetFunctionDefinitionVersionResponse = GetFunctionDefinitionVersionResponse'
   { _gfdvrsDefinition        :: !(Maybe FunctionDefinitionVersion)
   , _gfdvrsARN               :: !(Maybe Text)
+  , _gfdvrsNextToken         :: !(Maybe Text)
   , _gfdvrsCreationTimestamp :: !(Maybe Text)
   , _gfdvrsVersion           :: !(Maybe Text)
   , _gfdvrsId                :: !(Maybe Text)
@@ -135,6 +148,8 @@ data GetFunctionDefinitionVersionResponse = GetFunctionDefinitionVersionResponse
 --
 -- * 'gfdvrsARN' - The ARN of the function definition version.
 --
+-- * 'gfdvrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+--
 -- * 'gfdvrsCreationTimestamp' - The time, in milliseconds since the epoch, when the function definition version was created.
 --
 -- * 'gfdvrsVersion' - The version of the function definition version.
@@ -149,6 +164,7 @@ getFunctionDefinitionVersionResponse pResponseStatus_ =
   GetFunctionDefinitionVersionResponse'
     { _gfdvrsDefinition = Nothing
     , _gfdvrsARN = Nothing
+    , _gfdvrsNextToken = Nothing
     , _gfdvrsCreationTimestamp = Nothing
     , _gfdvrsVersion = Nothing
     , _gfdvrsId = Nothing
@@ -163,6 +179,10 @@ gfdvrsDefinition = lens _gfdvrsDefinition (\ s a -> s{_gfdvrsDefinition = a})
 -- | The ARN of the function definition version.
 gfdvrsARN :: Lens' GetFunctionDefinitionVersionResponse (Maybe Text)
 gfdvrsARN = lens _gfdvrsARN (\ s a -> s{_gfdvrsARN = a})
+
+-- | The token for the next set of results, or ''null'' if there are no additional results.
+gfdvrsNextToken :: Lens' GetFunctionDefinitionVersionResponse (Maybe Text)
+gfdvrsNextToken = lens _gfdvrsNextToken (\ s a -> s{_gfdvrsNextToken = a})
 
 -- | The time, in milliseconds since the epoch, when the function definition version was created.
 gfdvrsCreationTimestamp :: Lens' GetFunctionDefinitionVersionResponse (Maybe Text)

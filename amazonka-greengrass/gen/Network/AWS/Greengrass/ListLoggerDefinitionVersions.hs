@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the versions of a logger definition.
+--
+-- This operation returns paginated results.
 module Network.AWS.Greengrass.ListLoggerDefinitionVersions
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.Greengrass.ListLoggerDefinitionVersions
 import Network.AWS.Greengrass.Types
 import Network.AWS.Greengrass.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -84,6 +87,13 @@ lldvMaxResults = lens _lldvMaxResults (\ s a -> s{_lldvMaxResults = a})
 -- | The ID of the logger definition.
 lldvLoggerDefinitionId :: Lens' ListLoggerDefinitionVersions Text
 lldvLoggerDefinitionId = lens _lldvLoggerDefinitionId (\ s a -> s{_lldvLoggerDefinitionId = a})
+
+instance AWSPager ListLoggerDefinitionVersions where
+        page rq rs
+          | stop (rs ^. lldvrsNextToken) = Nothing
+          | stop (rs ^. lldvrsVersions) = Nothing
+          | otherwise =
+            Just $ rq & lldvNextToken .~ rs ^. lldvrsNextToken
 
 instance AWSRequest ListLoggerDefinitionVersions
          where

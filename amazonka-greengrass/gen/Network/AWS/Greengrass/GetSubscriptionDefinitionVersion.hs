@@ -25,6 +25,7 @@ module Network.AWS.Greengrass.GetSubscriptionDefinitionVersion
       getSubscriptionDefinitionVersion
     , GetSubscriptionDefinitionVersion
     -- * Request Lenses
+    , gsdvNextToken
     , gsdvSubscriptionDefinitionId
     , gsdvSubscriptionDefinitionVersionId
 
@@ -34,6 +35,7 @@ module Network.AWS.Greengrass.GetSubscriptionDefinitionVersion
     -- * Response Lenses
     , gsdvrsDefinition
     , gsdvrsARN
+    , gsdvrsNextToken
     , gsdvrsCreationTimestamp
     , gsdvrsVersion
     , gsdvrsId
@@ -49,7 +51,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getSubscriptionDefinitionVersion' smart constructor.
 data GetSubscriptionDefinitionVersion = GetSubscriptionDefinitionVersion'
-  { _gsdvSubscriptionDefinitionId        :: !Text
+  { _gsdvNextToken                       :: !(Maybe Text)
+  , _gsdvSubscriptionDefinitionId        :: !Text
   , _gsdvSubscriptionDefinitionVersionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -57,6 +60,8 @@ data GetSubscriptionDefinitionVersion = GetSubscriptionDefinitionVersion'
 -- | Creates a value of 'GetSubscriptionDefinitionVersion' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gsdvNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
 -- * 'gsdvSubscriptionDefinitionId' - The ID of the subscription definition.
 --
@@ -67,10 +72,15 @@ getSubscriptionDefinitionVersion
     -> GetSubscriptionDefinitionVersion
 getSubscriptionDefinitionVersion pSubscriptionDefinitionId_ pSubscriptionDefinitionVersionId_ =
   GetSubscriptionDefinitionVersion'
-    { _gsdvSubscriptionDefinitionId = pSubscriptionDefinitionId_
+    { _gsdvNextToken = Nothing
+    , _gsdvSubscriptionDefinitionId = pSubscriptionDefinitionId_
     , _gsdvSubscriptionDefinitionVersionId = pSubscriptionDefinitionVersionId_
     }
 
+
+-- | The token for the next set of results, or ''null'' if there are no additional results.
+gsdvNextToken :: Lens' GetSubscriptionDefinitionVersion (Maybe Text)
+gsdvNextToken = lens _gsdvNextToken (\ s a -> s{_gsdvNextToken = a})
 
 -- | The ID of the subscription definition.
 gsdvSubscriptionDefinitionId :: Lens' GetSubscriptionDefinitionVersion Text
@@ -90,7 +100,8 @@ instance AWSRequest GetSubscriptionDefinitionVersion
               (\ s h x ->
                  GetSubscriptionDefinitionVersionResponse' <$>
                    (x .?> "Definition") <*> (x .?> "Arn") <*>
-                     (x .?> "CreationTimestamp")
+                     (x .?> "NextToken")
+                     <*> (x .?> "CreationTimestamp")
                      <*> (x .?> "Version")
                      <*> (x .?> "Id")
                      <*> (pure (fromEnum s)))
@@ -119,12 +130,14 @@ instance ToPath GetSubscriptionDefinitionVersion
 
 instance ToQuery GetSubscriptionDefinitionVersion
          where
-        toQuery = const mempty
+        toQuery GetSubscriptionDefinitionVersion'{..}
+          = mconcat ["NextToken" =: _gsdvNextToken]
 
 -- | /See:/ 'getSubscriptionDefinitionVersionResponse' smart constructor.
 data GetSubscriptionDefinitionVersionResponse = GetSubscriptionDefinitionVersionResponse'
   { _gsdvrsDefinition        :: !(Maybe SubscriptionDefinitionVersion)
   , _gsdvrsARN               :: !(Maybe Text)
+  , _gsdvrsNextToken         :: !(Maybe Text)
   , _gsdvrsCreationTimestamp :: !(Maybe Text)
   , _gsdvrsVersion           :: !(Maybe Text)
   , _gsdvrsId                :: !(Maybe Text)
@@ -140,6 +153,8 @@ data GetSubscriptionDefinitionVersionResponse = GetSubscriptionDefinitionVersion
 --
 -- * 'gsdvrsARN' - The ARN of the subscription definition version.
 --
+-- * 'gsdvrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+--
 -- * 'gsdvrsCreationTimestamp' - The time, in milliseconds since the epoch, when the subscription definition version was created.
 --
 -- * 'gsdvrsVersion' - The version of the subscription definition version.
@@ -154,6 +169,7 @@ getSubscriptionDefinitionVersionResponse pResponseStatus_ =
   GetSubscriptionDefinitionVersionResponse'
     { _gsdvrsDefinition = Nothing
     , _gsdvrsARN = Nothing
+    , _gsdvrsNextToken = Nothing
     , _gsdvrsCreationTimestamp = Nothing
     , _gsdvrsVersion = Nothing
     , _gsdvrsId = Nothing
@@ -168,6 +184,10 @@ gsdvrsDefinition = lens _gsdvrsDefinition (\ s a -> s{_gsdvrsDefinition = a})
 -- | The ARN of the subscription definition version.
 gsdvrsARN :: Lens' GetSubscriptionDefinitionVersionResponse (Maybe Text)
 gsdvrsARN = lens _gsdvrsARN (\ s a -> s{_gsdvrsARN = a})
+
+-- | The token for the next set of results, or ''null'' if there are no additional results.
+gsdvrsNextToken :: Lens' GetSubscriptionDefinitionVersionResponse (Maybe Text)
+gsdvrsNextToken = lens _gsdvrsNextToken (\ s a -> s{_gsdvrsNextToken = a})
 
 -- | The time, in milliseconds since the epoch, when the subscription definition version was created.
 gsdvrsCreationTimestamp :: Lens' GetSubscriptionDefinitionVersionResponse (Maybe Text)

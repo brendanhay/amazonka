@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a list of subscription definitions.
+--
+-- This operation returns paginated results.
 module Network.AWS.Greengrass.ListSubscriptionDefinitions
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.Greengrass.ListSubscriptionDefinitions
 import Network.AWS.Greengrass.Types
 import Network.AWS.Greengrass.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,6 +75,13 @@ lsdNextToken = lens _lsdNextToken (\ s a -> s{_lsdNextToken = a})
 -- | The maximum number of results to be returned per request.
 lsdMaxResults :: Lens' ListSubscriptionDefinitions (Maybe Text)
 lsdMaxResults = lens _lsdMaxResults (\ s a -> s{_lsdMaxResults = a})
+
+instance AWSPager ListSubscriptionDefinitions where
+        page rq rs
+          | stop (rs ^. lsdrsNextToken) = Nothing
+          | stop (rs ^. lsdrsDefinitions) = Nothing
+          | otherwise =
+            Just $ rq & lsdNextToken .~ rs ^. lsdrsNextToken
 
 instance AWSRequest ListSubscriptionDefinitions where
         type Rs ListSubscriptionDefinitions =

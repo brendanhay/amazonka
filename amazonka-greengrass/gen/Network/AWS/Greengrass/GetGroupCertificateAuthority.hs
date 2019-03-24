@@ -58,7 +58,7 @@ data GetGroupCertificateAuthority = GetGroupCertificateAuthority'
 --
 -- * 'ggcaCertificateAuthorityId' - The ID of the certificate authority.
 --
--- * 'ggcaGroupId' - The ID of the AWS Greengrass group.
+-- * 'ggcaGroupId' - The ID of the Greengrass group.
 getGroupCertificateAuthority
     :: Text -- ^ 'ggcaCertificateAuthorityId'
     -> Text -- ^ 'ggcaGroupId'
@@ -74,7 +74,7 @@ getGroupCertificateAuthority pCertificateAuthorityId_ pGroupId_ =
 ggcaCertificateAuthorityId :: Lens' GetGroupCertificateAuthority Text
 ggcaCertificateAuthorityId = lens _ggcaCertificateAuthorityId (\ s a -> s{_ggcaCertificateAuthorityId = a})
 
--- | The ID of the AWS Greengrass group.
+-- | The ID of the Greengrass group.
 ggcaGroupId :: Lens' GetGroupCertificateAuthority Text
 ggcaGroupId = lens _ggcaGroupId (\ s a -> s{_ggcaGroupId = a})
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the versions of a group.
+--
+-- This operation returns paginated results.
 module Network.AWS.Greengrass.ListGroupVersions
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.Greengrass.ListGroupVersions
 import Network.AWS.Greengrass.Types
 import Network.AWS.Greengrass.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -61,7 +64,7 @@ data ListGroupVersions = ListGroupVersions'
 --
 -- * 'lgvMaxResults' - The maximum number of results to be returned per request.
 --
--- * 'lgvGroupId' - The ID of the AWS Greengrass group.
+-- * 'lgvGroupId' - The ID of the Greengrass group.
 listGroupVersions
     :: Text -- ^ 'lgvGroupId'
     -> ListGroupVersions
@@ -78,9 +81,16 @@ lgvNextToken = lens _lgvNextToken (\ s a -> s{_lgvNextToken = a})
 lgvMaxResults :: Lens' ListGroupVersions (Maybe Text)
 lgvMaxResults = lens _lgvMaxResults (\ s a -> s{_lgvMaxResults = a})
 
--- | The ID of the AWS Greengrass group.
+-- | The ID of the Greengrass group.
 lgvGroupId :: Lens' ListGroupVersions Text
 lgvGroupId = lens _lgvGroupId (\ s a -> s{_lgvGroupId = a})
+
+instance AWSPager ListGroupVersions where
+        page rq rs
+          | stop (rs ^. lgvrsNextToken) = Nothing
+          | stop (rs ^. lgvrsVersions) = Nothing
+          | otherwise =
+            Just $ rq & lgvNextToken .~ rs ^. lgvrsNextToken
 
 instance AWSRequest ListGroupVersions where
         type Rs ListGroupVersions = ListGroupVersionsResponse

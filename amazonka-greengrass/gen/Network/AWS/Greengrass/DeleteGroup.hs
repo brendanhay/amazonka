@@ -51,14 +51,14 @@ newtype DeleteGroup = DeleteGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgGroupId' - The ID of the AWS Greengrass group.
+-- * 'dgGroupId' - The ID of the Greengrass group.
 deleteGroup
     :: Text -- ^ 'dgGroupId'
     -> DeleteGroup
 deleteGroup pGroupId_ = DeleteGroup' {_dgGroupId = pGroupId_}
 
 
--- | The ID of the AWS Greengrass group.
+-- | The ID of the Greengrass group.
 dgGroupId :: Lens' DeleteGroup Text
 dgGroupId = lens _dgGroupId (\ s a -> s{_dgGroupId = a})
 

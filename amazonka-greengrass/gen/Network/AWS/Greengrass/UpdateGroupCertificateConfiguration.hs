@@ -58,7 +58,7 @@ data UpdateGroupCertificateConfiguration = UpdateGroupCertificateConfiguration'
 --
 -- * 'ugccCertificateExpiryInMilliseconds' - The amount of time remaining before the certificate expires, in milliseconds.
 --
--- * 'ugccGroupId' - The ID of the AWS Greengrass group.
+-- * 'ugccGroupId' - The ID of the Greengrass group.
 updateGroupCertificateConfiguration
     :: Text -- ^ 'ugccGroupId'
     -> UpdateGroupCertificateConfiguration
@@ -71,7 +71,7 @@ updateGroupCertificateConfiguration pGroupId_ =
 ugccCertificateExpiryInMilliseconds :: Lens' UpdateGroupCertificateConfiguration (Maybe Text)
 ugccCertificateExpiryInMilliseconds = lens _ugccCertificateExpiryInMilliseconds (\ s a -> s{_ugccCertificateExpiryInMilliseconds = a})
 
--- | The ID of the AWS Greengrass group.
+-- | The ID of the Greengrass group.
 ugccGroupId :: Lens' UpdateGroupCertificateConfiguration Text
 ugccGroupId = lens _ugccGroupId (\ s a -> s{_ugccGroupId = a})
 

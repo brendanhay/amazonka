@@ -52,7 +52,7 @@ newtype ListGroupCertificateAuthorities = ListGroupCertificateAuthorities'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgcaGroupId' - The ID of the AWS Greengrass group.
+-- * 'lgcaGroupId' - The ID of the Greengrass group.
 listGroupCertificateAuthorities
     :: Text -- ^ 'lgcaGroupId'
     -> ListGroupCertificateAuthorities
@@ -60,7 +60,7 @@ listGroupCertificateAuthorities pGroupId_ =
   ListGroupCertificateAuthorities' {_lgcaGroupId = pGroupId_}
 
 
--- | The ID of the AWS Greengrass group.
+-- | The ID of the Greengrass group.
 lgcaGroupId :: Lens' ListGroupCertificateAuthorities Text
 lgcaGroupId = lens _lgcaGroupId (\ s a -> s{_lgcaGroupId = a})
 

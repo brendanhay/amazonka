@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a deployment.
+-- Creates a deployment. ''CreateDeployment'' requests are idempotent with respect to the ''X-Amzn-Client-Token'' token and the request parameters.
 module Network.AWS.Greengrass.CreateDeployment
     (
     -- * Creating a Request
@@ -65,11 +65,11 @@ data CreateDeployment = CreateDeployment'
 --
 -- * 'cdAmznClientToken' - A client token used to correlate requests and responses.
 --
--- * 'cdDeploymentType' - The type of deployment. When used in ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.
+-- * 'cdDeploymentType' - The type of deployment. When used for ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.
 --
 -- * 'cdGroupVersionId' - The ID of the group version to be deployed.
 --
--- * 'cdGroupId' - The ID of the AWS Greengrass group.
+-- * 'cdGroupId' - The ID of the Greengrass group.
 createDeployment
     :: Text -- ^ 'cdGroupId'
     -> CreateDeployment
@@ -91,7 +91,7 @@ cdDeploymentId = lens _cdDeploymentId (\ s a -> s{_cdDeploymentId = a})
 cdAmznClientToken :: Lens' CreateDeployment (Maybe Text)
 cdAmznClientToken = lens _cdAmznClientToken (\ s a -> s{_cdAmznClientToken = a})
 
--- | The type of deployment. When used in ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.
+-- | The type of deployment. When used for ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.
 cdDeploymentType :: Lens' CreateDeployment (Maybe DeploymentType)
 cdDeploymentType = lens _cdDeploymentType (\ s a -> s{_cdDeploymentType = a})
 
@@ -99,7 +99,7 @@ cdDeploymentType = lens _cdDeploymentType (\ s a -> s{_cdDeploymentType = a})
 cdGroupVersionId :: Lens' CreateDeployment (Maybe Text)
 cdGroupVersionId = lens _cdGroupVersionId (\ s a -> s{_cdGroupVersionId = a})
 
--- | The ID of the AWS Greengrass group.
+-- | The ID of the Greengrass group.
 cdGroupId :: Lens' CreateDeployment Text
 cdGroupId = lens _cdGroupId (\ s a -> s{_cdGroupId = a})
 

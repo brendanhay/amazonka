@@ -19,6 +19,47 @@ module Network.AWS.Greengrass.Types.Sum where
 
 import Network.AWS.Prelude
 
+-- | The current status of the bulk deployment.
+data BulkDeploymentStatus
+  = Completed
+  | Failed
+  | Initializing
+  | Running
+  | Stopped
+  | Stopping
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText BulkDeploymentStatus where
+    parser = takeLowerText >>= \case
+        "completed" -> pure Completed
+        "failed" -> pure Failed
+        "initializing" -> pure Initializing
+        "running" -> pure Running
+        "stopped" -> pure Stopped
+        "stopping" -> pure Stopping
+        e -> fromTextError $ "Failure parsing BulkDeploymentStatus from value: '" <> e
+           <> "'. Accepted values: completed, failed, initializing, running, stopped, stopping"
+
+instance ToText BulkDeploymentStatus where
+    toText = \case
+        Completed -> "Completed"
+        Failed -> "Failed"
+        Initializing -> "Initializing"
+        Running -> "Running"
+        Stopped -> "Stopped"
+        Stopping -> "Stopping"
+
+instance Hashable     BulkDeploymentStatus
+instance NFData       BulkDeploymentStatus
+instance ToByteString BulkDeploymentStatus
+instance ToQuery      BulkDeploymentStatus
+instance ToHeader     BulkDeploymentStatus
+
+instance FromJSON BulkDeploymentStatus where
+    parseJSON = parseJSONText "BulkDeploymentStatus"
+
+-- | The type of deployment. When used for ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.
 data DeploymentType
   = ForceResetDeployment
   | NewDeployment
@@ -84,6 +125,37 @@ instance ToJSON EncodingType where
 
 instance FromJSON EncodingType where
     parseJSON = parseJSONText "EncodingType"
+
+-- | Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.
+data FunctionIsolationMode
+  = GreengrassContainer
+  | NoContainer
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FunctionIsolationMode where
+    parser = takeLowerText >>= \case
+        "greengrasscontainer" -> pure GreengrassContainer
+        "nocontainer" -> pure NoContainer
+        e -> fromTextError $ "Failure parsing FunctionIsolationMode from value: '" <> e
+           <> "'. Accepted values: greengrasscontainer, nocontainer"
+
+instance ToText FunctionIsolationMode where
+    toText = \case
+        GreengrassContainer -> "GreengrassContainer"
+        NoContainer -> "NoContainer"
+
+instance Hashable     FunctionIsolationMode
+instance NFData       FunctionIsolationMode
+instance ToByteString FunctionIsolationMode
+instance ToQuery      FunctionIsolationMode
+instance ToHeader     FunctionIsolationMode
+
+instance ToJSON FunctionIsolationMode where
+    toJSON = toJSONText
+
+instance FromJSON FunctionIsolationMode where
+    parseJSON = parseJSONText "FunctionIsolationMode"
 
 data LoggerComponent
   = GreengrassSystem

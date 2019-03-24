@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a list of Lambda function definitions.
+--
+-- This operation returns paginated results.
 module Network.AWS.Greengrass.ListFunctionDefinitions
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.Greengrass.ListFunctionDefinitions
 import Network.AWS.Greengrass.Types
 import Network.AWS.Greengrass.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -71,6 +74,13 @@ lfdNextToken = lens _lfdNextToken (\ s a -> s{_lfdNextToken = a})
 -- | The maximum number of results to be returned per request.
 lfdMaxResults :: Lens' ListFunctionDefinitions (Maybe Text)
 lfdMaxResults = lens _lfdMaxResults (\ s a -> s{_lfdMaxResults = a})
+
+instance AWSPager ListFunctionDefinitions where
+        page rq rs
+          | stop (rs ^. lfdrsNextToken) = Nothing
+          | stop (rs ^. lfdrsDefinitions) = Nothing
+          | otherwise =
+            Just $ rq & lfdNextToken .~ rs ^. lfdrsNextToken
 
 instance AWSRequest ListFunctionDefinitions where
         type Rs ListFunctionDefinitions =

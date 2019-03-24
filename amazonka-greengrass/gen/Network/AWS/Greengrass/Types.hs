@@ -19,11 +19,17 @@ module Network.AWS.Greengrass.Types
     , _InternalServerErrorException
     , _BadRequestException
 
+    -- * BulkDeploymentStatus
+    , BulkDeploymentStatus (..)
+
     -- * DeploymentType
     , DeploymentType (..)
 
     -- * EncodingType
     , EncodingType (..)
+
+    -- * FunctionIsolationMode
+    , FunctionIsolationMode (..)
 
     -- * LoggerComponent
     , LoggerComponent (..)
@@ -49,6 +55,32 @@ module Network.AWS.Greengrass.Types
     -- * UpdateTargetsOperatingSystem
     , UpdateTargetsOperatingSystem (..)
 
+    -- * BulkDeployment
+    , BulkDeployment
+    , bulkDeployment
+    , bdBulkDeploymentARN
+    , bdBulkDeploymentId
+    , bdCreatedAt
+
+    -- * BulkDeploymentMetrics
+    , BulkDeploymentMetrics
+    , bulkDeploymentMetrics
+    , bdmRecordsProcessed
+    , bdmRetryAttempts
+    , bdmInvalidInputRecords
+
+    -- * BulkDeploymentResult
+    , BulkDeploymentResult
+    , bulkDeploymentResult
+    , bdrDeploymentId
+    , bdrDeploymentARN
+    , bdrCreatedAt
+    , bdrDeploymentType
+    , bdrErrorDetails
+    , bdrGroupARN
+    , bdrDeploymentStatus
+    , bdrErrorMessage
+
     -- * ConnectivityInfo
     , ConnectivityInfo
     , connectivityInfo
@@ -56,6 +88,18 @@ module Network.AWS.Greengrass.Types
     , ciId
     , ciMetadata
     , ciHostAddress
+
+    -- * Connector
+    , Connector
+    , connector
+    , conConnectorARN
+    , conParameters
+    , conId
+
+    -- * ConnectorDefinitionVersion
+    , ConnectorDefinitionVersion
+    , connectorDefinitionVersion
+    , cdvConnectors
 
     -- * Core
     , Core
@@ -131,13 +175,38 @@ module Network.AWS.Greengrass.Types
     , FunctionConfigurationEnvironment
     , functionConfigurationEnvironment
     , fceVariables
+    , fceExecution
     , fceResourceAccessPolicies
     , fceAccessSysfs
+
+    -- * FunctionDefaultConfig
+    , FunctionDefaultConfig
+    , functionDefaultConfig
+    , fdcExecution
+
+    -- * FunctionDefaultExecutionConfig
+    , FunctionDefaultExecutionConfig
+    , functionDefaultExecutionConfig
+    , fdecRunAs
+    , fdecIsolationMode
 
     -- * FunctionDefinitionVersion
     , FunctionDefinitionVersion
     , functionDefinitionVersion
+    , fdvDefaultConfig
     , fdvFunctions
+
+    -- * FunctionExecutionConfig
+    , FunctionExecutionConfig
+    , functionExecutionConfig
+    , fecRunAs
+    , fecIsolationMode
+
+    -- * FunctionRunAsConfig
+    , FunctionRunAsConfig
+    , functionRunAsConfig
+    , fracUid
+    , fracGid
 
     -- * GreengrassLogger
     , GreengrassLogger
@@ -180,6 +249,7 @@ module Network.AWS.Greengrass.Types
     , gvDeviceDefinitionVersionARN
     , gvFunctionDefinitionVersionARN
     , gvLoggerDefinitionVersionARN
+    , gvConnectorDefinitionVersionARN
 
     -- * LocalDeviceResourceData
     , LocalDeviceResourceData
@@ -219,6 +289,7 @@ module Network.AWS.Greengrass.Types
     , rdcSageMakerMachineLearningModelResourceData
     , rdcLocalVolumeResourceData
     , rdcLocalDeviceResourceData
+    , rdcSecretsManagerSecretResourceData
 
     -- * ResourceDefinitionVersion
     , ResourceDefinitionVersion
@@ -236,6 +307,12 @@ module Network.AWS.Greengrass.Types
     , sageMakerMachineLearningModelResourceData
     , smmlmrdSageMakerJobARN
     , smmlmrdDestinationPath
+
+    -- * SecretsManagerSecretResourceData
+    , SecretsManagerSecretResourceData
+    , secretsManagerSecretResourceData
+    , smsrdAdditionalStagingLabelsToDownload
+    , smsrdARN
 
     -- * Subscription
     , Subscription

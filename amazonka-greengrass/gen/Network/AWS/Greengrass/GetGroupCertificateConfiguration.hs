@@ -54,7 +54,7 @@ newtype GetGroupCertificateConfiguration = GetGroupCertificateConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggccGroupId' - The ID of the AWS Greengrass group.
+-- * 'ggccGroupId' - The ID of the Greengrass group.
 getGroupCertificateConfiguration
     :: Text -- ^ 'ggccGroupId'
     -> GetGroupCertificateConfiguration
@@ -62,7 +62,7 @@ getGroupCertificateConfiguration pGroupId_ =
   GetGroupCertificateConfiguration' {_ggccGroupId = pGroupId_}
 
 
--- | The ID of the AWS Greengrass group.
+-- | The ID of the Greengrass group.
 ggccGroupId :: Lens' GetGroupCertificateConfiguration Text
 ggccGroupId = lens _ggccGroupId (\ s a -> s{_ggccGroupId = a})
 

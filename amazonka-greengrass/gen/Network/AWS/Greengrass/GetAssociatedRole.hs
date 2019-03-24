@@ -53,14 +53,14 @@ newtype GetAssociatedRole = GetAssociatedRole'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'garGroupId' - The ID of the AWS Greengrass group.
+-- * 'garGroupId' - The ID of the Greengrass group.
 getAssociatedRole
     :: Text -- ^ 'garGroupId'
     -> GetAssociatedRole
 getAssociatedRole pGroupId_ = GetAssociatedRole' {_garGroupId = pGroupId_}
 
 
--- | The ID of the AWS Greengrass group.
+-- | The ID of the Greengrass group.
 garGroupId :: Lens' GetAssociatedRole Text
 garGroupId = lens _garGroupId (\ s a -> s{_garGroupId = a})
 

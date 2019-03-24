@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a list of device definitions.
+--
+-- This operation returns paginated results.
 module Network.AWS.Greengrass.ListDeviceDefinitions
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.Greengrass.ListDeviceDefinitions
 import Network.AWS.Greengrass.Types
 import Network.AWS.Greengrass.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -71,6 +74,13 @@ lddNextToken = lens _lddNextToken (\ s a -> s{_lddNextToken = a})
 -- | The maximum number of results to be returned per request.
 lddMaxResults :: Lens' ListDeviceDefinitions (Maybe Text)
 lddMaxResults = lens _lddMaxResults (\ s a -> s{_lddMaxResults = a})
+
+instance AWSPager ListDeviceDefinitions where
+        page rq rs
+          | stop (rs ^. lddrsNextToken) = Nothing
+          | stop (rs ^. lddrsDefinitions) = Nothing
+          | otherwise =
+            Just $ rq & lddNextToken .~ rs ^. lddrsNextToken
 
 instance AWSRequest ListDeviceDefinitions where
         type Rs ListDeviceDefinitions =

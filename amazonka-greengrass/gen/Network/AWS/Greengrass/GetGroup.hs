@@ -58,14 +58,14 @@ newtype GetGroup = GetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggGroupId' - The ID of the AWS Greengrass group.
+-- * 'ggGroupId' - The ID of the Greengrass group.
 getGroup
     :: Text -- ^ 'ggGroupId'
     -> GetGroup
 getGroup pGroupId_ = GetGroup' {_ggGroupId = pGroupId_}
 
 
--- | The ID of the AWS Greengrass group.
+-- | The ID of the Greengrass group.
 ggGroupId :: Lens' GetGroup Text
 ggGroupId = lens _ggGroupId (\ s a -> s{_ggGroupId = a})
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the versions of a Lambda function definition.
+--
+-- This operation returns paginated results.
 module Network.AWS.Greengrass.ListFunctionDefinitionVersions
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.Greengrass.ListFunctionDefinitionVersions
 import Network.AWS.Greengrass.Types
 import Network.AWS.Greengrass.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -84,6 +87,14 @@ lfdvMaxResults = lens _lfdvMaxResults (\ s a -> s{_lfdvMaxResults = a})
 -- | The ID of the Lambda function definition.
 lfdvFunctionDefinitionId :: Lens' ListFunctionDefinitionVersions Text
 lfdvFunctionDefinitionId = lens _lfdvFunctionDefinitionId (\ s a -> s{_lfdvFunctionDefinitionId = a})
+
+instance AWSPager ListFunctionDefinitionVersions
+         where
+        page rq rs
+          | stop (rs ^. lfdvrsNextToken) = Nothing
+          | stop (rs ^. lfdvrsVersions) = Nothing
+          | otherwise =
+            Just $ rq & lfdvNextToken .~ rs ^. lfdvrsNextToken
 
 instance AWSRequest ListFunctionDefinitionVersions
          where

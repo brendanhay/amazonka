@@ -60,7 +60,7 @@ data GetGroupVersion = GetGroupVersion'
 --
 -- * 'ggvGroupVersionId' - The ID of the group version.
 --
--- * 'ggvGroupId' - The ID of the AWS Greengrass group.
+-- * 'ggvGroupId' - The ID of the Greengrass group.
 getGroupVersion
     :: Text -- ^ 'ggvGroupVersionId'
     -> Text -- ^ 'ggvGroupId'
@@ -74,7 +74,7 @@ getGroupVersion pGroupVersionId_ pGroupId_ =
 ggvGroupVersionId :: Lens' GetGroupVersion Text
 ggvGroupVersionId = lens _ggvGroupVersionId (\ s a -> s{_ggvGroupVersionId = a})
 
--- | The ID of the AWS Greengrass group.
+-- | The ID of the Greengrass group.
 ggvGroupId :: Lens' GetGroupVersion Text
 ggvGroupId = lens _ggvGroupId (\ s a -> s{_ggvGroupId = a})
 

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates a role with a group. Your AWS Greengrass core will use the role to access AWS cloud services. The role's permissions should allow Greengrass core Lambda functions to perform actions against the cloud.
+-- Associates a role with a group. Your Greengrass core will use the role to access AWS cloud services. The role's permissions should allow Greengrass core Lambda functions to perform actions against the cloud.
 module Network.AWS.Greengrass.AssociateRoleToGroup
     (
     -- * Creating a Request
@@ -56,7 +56,7 @@ data AssociateRoleToGroup = AssociateRoleToGroup'
 --
 -- * 'artgRoleARN' - The ARN of the role you wish to associate with this group.
 --
--- * 'artgGroupId' - The ID of the AWS Greengrass group.
+-- * 'artgGroupId' - The ID of the Greengrass group.
 associateRoleToGroup
     :: Text -- ^ 'artgGroupId'
     -> AssociateRoleToGroup
@@ -68,7 +68,7 @@ associateRoleToGroup pGroupId_ =
 artgRoleARN :: Lens' AssociateRoleToGroup (Maybe Text)
 artgRoleARN = lens _artgRoleARN (\ s a -> s{_artgRoleARN = a})
 
--- | The ID of the AWS Greengrass group.
+-- | The ID of the Greengrass group.
 artgGroupId :: Lens' AssociateRoleToGroup Text
 artgGroupId = lens _artgGroupId (\ s a -> s{_artgGroupId = a})
 

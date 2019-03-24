@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the versions of a subscription definition.
+--
+-- This operation returns paginated results.
 module Network.AWS.Greengrass.ListSubscriptionDefinitionVersions
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.Greengrass.ListSubscriptionDefinitionVersions
 import Network.AWS.Greengrass.Types
 import Network.AWS.Greengrass.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -84,6 +87,14 @@ lsdvMaxResults = lens _lsdvMaxResults (\ s a -> s{_lsdvMaxResults = a})
 -- | The ID of the subscription definition.
 lsdvSubscriptionDefinitionId :: Lens' ListSubscriptionDefinitionVersions Text
 lsdvSubscriptionDefinitionId = lens _lsdvSubscriptionDefinitionId (\ s a -> s{_lsdvSubscriptionDefinitionId = a})
+
+instance AWSPager ListSubscriptionDefinitionVersions
+         where
+        page rq rs
+          | stop (rs ^. lsdvrsNextToken) = Nothing
+          | stop (rs ^. lsdvrsVersions) = Nothing
+          | otherwise =
+            Just $ rq & lsdvNextToken .~ rs ^. lsdvrsNextToken
 
 instance AWSRequest
            ListSubscriptionDefinitionVersions

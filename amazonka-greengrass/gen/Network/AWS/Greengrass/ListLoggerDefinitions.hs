@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a list of logger definitions.
+--
+-- This operation returns paginated results.
 module Network.AWS.Greengrass.ListLoggerDefinitions
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.Greengrass.ListLoggerDefinitions
 import Network.AWS.Greengrass.Types
 import Network.AWS.Greengrass.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -71,6 +74,13 @@ lldNextToken = lens _lldNextToken (\ s a -> s{_lldNextToken = a})
 -- | The maximum number of results to be returned per request.
 lldMaxResults :: Lens' ListLoggerDefinitions (Maybe Text)
 lldMaxResults = lens _lldMaxResults (\ s a -> s{_lldMaxResults = a})
+
+instance AWSPager ListLoggerDefinitions where
+        page rq rs
+          | stop (rs ^. lldrsNextToken) = Nothing
+          | stop (rs ^. lldrsDefinitions) = Nothing
+          | otherwise =
+            Just $ rq & lldNextToken .~ rs ^. lldrsNextToken
 
 instance AWSRequest ListLoggerDefinitions where
         type Rs ListLoggerDefinitions =

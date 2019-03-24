@@ -25,6 +25,7 @@ module Network.AWS.Greengrass.GetLoggerDefinitionVersion
       getLoggerDefinitionVersion
     , GetLoggerDefinitionVersion
     -- * Request Lenses
+    , gldvNextToken
     , gldvLoggerDefinitionVersionId
     , gldvLoggerDefinitionId
 
@@ -49,7 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'getLoggerDefinitionVersion' smart constructor.
 data GetLoggerDefinitionVersion = GetLoggerDefinitionVersion'
-  { _gldvLoggerDefinitionVersionId :: !Text
+  { _gldvNextToken                 :: !(Maybe Text)
+  , _gldvLoggerDefinitionVersionId :: !Text
   , _gldvLoggerDefinitionId        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -57,6 +59,8 @@ data GetLoggerDefinitionVersion = GetLoggerDefinitionVersion'
 -- | Creates a value of 'GetLoggerDefinitionVersion' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gldvNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
 -- * 'gldvLoggerDefinitionVersionId' - The ID of the logger definition version.
 --
@@ -67,10 +71,15 @@ getLoggerDefinitionVersion
     -> GetLoggerDefinitionVersion
 getLoggerDefinitionVersion pLoggerDefinitionVersionId_ pLoggerDefinitionId_ =
   GetLoggerDefinitionVersion'
-    { _gldvLoggerDefinitionVersionId = pLoggerDefinitionVersionId_
+    { _gldvNextToken = Nothing
+    , _gldvLoggerDefinitionVersionId = pLoggerDefinitionVersionId_
     , _gldvLoggerDefinitionId = pLoggerDefinitionId_
     }
 
+
+-- | The token for the next set of results, or ''null'' if there are no additional results.
+gldvNextToken :: Lens' GetLoggerDefinitionVersion (Maybe Text)
+gldvNextToken = lens _gldvNextToken (\ s a -> s{_gldvNextToken = a})
 
 -- | The ID of the logger definition version.
 gldvLoggerDefinitionVersionId :: Lens' GetLoggerDefinitionVersion Text
@@ -113,7 +122,8 @@ instance ToPath GetLoggerDefinitionVersion where
                toBS _gldvLoggerDefinitionVersionId]
 
 instance ToQuery GetLoggerDefinitionVersion where
-        toQuery = const mempty
+        toQuery GetLoggerDefinitionVersion'{..}
+          = mconcat ["NextToken" =: _gldvNextToken]
 
 -- | /See:/ 'getLoggerDefinitionVersionResponse' smart constructor.
 data GetLoggerDefinitionVersionResponse = GetLoggerDefinitionVersionResponse'

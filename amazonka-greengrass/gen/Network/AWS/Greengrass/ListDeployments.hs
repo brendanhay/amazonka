@@ -19,15 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a history of deployments for the group.
+--
+-- This operation returns paginated results.
 module Network.AWS.Greengrass.ListDeployments
     (
     -- * Creating a Request
       listDeployments
     , ListDeployments
     -- * Request Lenses
-    , lNextToken
-    , lMaxResults
-    , lGroupId
+    , ldsNextToken
+    , ldsMaxResults
+    , ldsGroupId
 
     -- * Destructuring the Response
     , listDeploymentsResponse
@@ -41,15 +43,16 @@ module Network.AWS.Greengrass.ListDeployments
 import Network.AWS.Greengrass.Types
 import Network.AWS.Greengrass.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'listDeployments' smart constructor.
 data ListDeployments = ListDeployments'
-  { _lNextToken  :: !(Maybe Text)
-  , _lMaxResults :: !(Maybe Text)
-  , _lGroupId    :: !Text
+  { _ldsNextToken  :: !(Maybe Text)
+  , _ldsMaxResults :: !(Maybe Text)
+  , _ldsGroupId    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -57,30 +60,37 @@ data ListDeployments = ListDeployments'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'ldsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 --
--- * 'lMaxResults' - The maximum number of results to be returned per request.
+-- * 'ldsMaxResults' - The maximum number of results to be returned per request.
 --
--- * 'lGroupId' - The ID of the AWS Greengrass group.
+-- * 'ldsGroupId' - The ID of the Greengrass group.
 listDeployments
-    :: Text -- ^ 'lGroupId'
+    :: Text -- ^ 'ldsGroupId'
     -> ListDeployments
 listDeployments pGroupId_ =
   ListDeployments'
-    {_lNextToken = Nothing, _lMaxResults = Nothing, _lGroupId = pGroupId_}
+    {_ldsNextToken = Nothing, _ldsMaxResults = Nothing, _ldsGroupId = pGroupId_}
 
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lNextToken :: Lens' ListDeployments (Maybe Text)
-lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a})
+ldsNextToken :: Lens' ListDeployments (Maybe Text)
+ldsNextToken = lens _ldsNextToken (\ s a -> s{_ldsNextToken = a})
 
 -- | The maximum number of results to be returned per request.
-lMaxResults :: Lens' ListDeployments (Maybe Text)
-lMaxResults = lens _lMaxResults (\ s a -> s{_lMaxResults = a})
+ldsMaxResults :: Lens' ListDeployments (Maybe Text)
+ldsMaxResults = lens _ldsMaxResults (\ s a -> s{_ldsMaxResults = a})
 
--- | The ID of the AWS Greengrass group.
-lGroupId :: Lens' ListDeployments Text
-lGroupId = lens _lGroupId (\ s a -> s{_lGroupId = a})
+-- | The ID of the Greengrass group.
+ldsGroupId :: Lens' ListDeployments Text
+ldsGroupId = lens _ldsGroupId (\ s a -> s{_ldsGroupId = a})
+
+instance AWSPager ListDeployments where
+        page rq rs
+          | stop (rs ^. ldrsNextToken) = Nothing
+          | stop (rs ^. ldrsDeployments) = Nothing
+          | otherwise =
+            Just $ rq & ldsNextToken .~ rs ^. ldrsNextToken
 
 instance AWSRequest ListDeployments where
         type Rs ListDeployments = ListDeploymentsResponse
@@ -107,14 +117,14 @@ instance ToHeaders ListDeployments where
 instance ToPath ListDeployments where
         toPath ListDeployments'{..}
           = mconcat
-              ["/greengrass/groups/", toBS _lGroupId,
+              ["/greengrass/groups/", toBS _ldsGroupId,
                "/deployments"]
 
 instance ToQuery ListDeployments where
         toQuery ListDeployments'{..}
           = mconcat
-              ["NextToken" =: _lNextToken,
-               "MaxResults" =: _lMaxResults]
+              ["NextToken" =: _ldsNextToken,
+               "MaxResults" =: _ldsMaxResults]
 
 -- | /See:/ 'listDeploymentsResponse' smart constructor.
 data ListDeploymentsResponse = ListDeploymentsResponse'

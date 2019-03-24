@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the versions of a device definition.
+--
+-- This operation returns paginated results.
 module Network.AWS.Greengrass.ListDeviceDefinitionVersions
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.Greengrass.ListDeviceDefinitionVersions
 import Network.AWS.Greengrass.Types
 import Network.AWS.Greengrass.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -84,6 +87,13 @@ lddvMaxResults = lens _lddvMaxResults (\ s a -> s{_lddvMaxResults = a})
 -- | The ID of the device definition.
 lddvDeviceDefinitionId :: Lens' ListDeviceDefinitionVersions Text
 lddvDeviceDefinitionId = lens _lddvDeviceDefinitionId (\ s a -> s{_lddvDeviceDefinitionId = a})
+
+instance AWSPager ListDeviceDefinitionVersions where
+        page rq rs
+          | stop (rs ^. lddvrsNextToken) = Nothing
+          | stop (rs ^. lddvrsVersions) = Nothing
+          | otherwise =
+            Just $ rq & lddvNextToken .~ rs ^. lddvrsNextToken
 
 instance AWSRequest ListDeviceDefinitionVersions
          where

@@ -26,6 +26,7 @@ module Network.AWS.Greengrass.CreateFunctionDefinitionVersion
     , CreateFunctionDefinitionVersion
     -- * Request Lenses
     , cfdvAmznClientToken
+    , cfdvDefaultConfig
     , cfdvFunctions
     , cfdvFunctionDefinitionId
 
@@ -52,6 +53,7 @@ import Network.AWS.Response
 -- /See:/ 'createFunctionDefinitionVersion' smart constructor.
 data CreateFunctionDefinitionVersion = CreateFunctionDefinitionVersion'
   { _cfdvAmznClientToken      :: !(Maybe Text)
+  , _cfdvDefaultConfig        :: !(Maybe FunctionDefaultConfig)
   , _cfdvFunctions            :: !(Maybe [Function])
   , _cfdvFunctionDefinitionId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -63,6 +65,8 @@ data CreateFunctionDefinitionVersion = CreateFunctionDefinitionVersion'
 --
 -- * 'cfdvAmznClientToken' - A client token used to correlate requests and responses.
 --
+-- * 'cfdvDefaultConfig' - The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.
+--
 -- * 'cfdvFunctions' - A list of Lambda functions in this function definition version.
 --
 -- * 'cfdvFunctionDefinitionId' - The ID of the Lambda function definition.
@@ -72,6 +76,7 @@ createFunctionDefinitionVersion
 createFunctionDefinitionVersion pFunctionDefinitionId_ =
   CreateFunctionDefinitionVersion'
     { _cfdvAmznClientToken = Nothing
+    , _cfdvDefaultConfig = Nothing
     , _cfdvFunctions = Nothing
     , _cfdvFunctionDefinitionId = pFunctionDefinitionId_
     }
@@ -80,6 +85,10 @@ createFunctionDefinitionVersion pFunctionDefinitionId_ =
 -- | A client token used to correlate requests and responses.
 cfdvAmznClientToken :: Lens' CreateFunctionDefinitionVersion (Maybe Text)
 cfdvAmznClientToken = lens _cfdvAmznClientToken (\ s a -> s{_cfdvAmznClientToken = a})
+
+-- | The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.
+cfdvDefaultConfig :: Lens' CreateFunctionDefinitionVersion (Maybe FunctionDefaultConfig)
+cfdvDefaultConfig = lens _cfdvDefaultConfig (\ s a -> s{_cfdvDefaultConfig = a})
 
 -- | A list of Lambda functions in this function definition version.
 cfdvFunctions :: Lens' CreateFunctionDefinitionVersion [Function]
@@ -119,7 +128,9 @@ instance ToHeaders CreateFunctionDefinitionVersion
 instance ToJSON CreateFunctionDefinitionVersion where
         toJSON CreateFunctionDefinitionVersion'{..}
           = object
-              (catMaybes [("Functions" .=) <$> _cfdvFunctions])
+              (catMaybes
+                 [("DefaultConfig" .=) <$> _cfdvDefaultConfig,
+                  ("Functions" .=) <$> _cfdvFunctions])
 
 instance ToPath CreateFunctionDefinitionVersion where
         toPath CreateFunctionDefinitionVersion'{..}

@@ -63,7 +63,7 @@ data ResetDeployments = ResetDeployments'
 --
 -- * 'rdForce' - If true, performs a best-effort only core reset.
 --
--- * 'rdGroupId' - The ID of the AWS Greengrass group.
+-- * 'rdGroupId' - The ID of the Greengrass group.
 resetDeployments
     :: Text -- ^ 'rdGroupId'
     -> ResetDeployments
@@ -80,7 +80,7 @@ rdAmznClientToken = lens _rdAmznClientToken (\ s a -> s{_rdAmznClientToken = a})
 rdForce :: Lens' ResetDeployments (Maybe Bool)
 rdForce = lens _rdForce (\ s a -> s{_rdForce = a})
 
--- | The ID of the AWS Greengrass group.
+-- | The ID of the Greengrass group.
 rdGroupId :: Lens' ResetDeployments Text
 rdGroupId = lens _rdGroupId (\ s a -> s{_rdGroupId = a})
 

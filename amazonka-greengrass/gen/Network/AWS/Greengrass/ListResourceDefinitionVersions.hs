@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the versions of a resource definition.
+--
+-- This operation returns paginated results.
 module Network.AWS.Greengrass.ListResourceDefinitionVersions
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.Greengrass.ListResourceDefinitionVersions
 import Network.AWS.Greengrass.Types
 import Network.AWS.Greengrass.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -84,6 +87,14 @@ lrdvMaxResults = lens _lrdvMaxResults (\ s a -> s{_lrdvMaxResults = a})
 -- | The ID of the resource definition.
 lrdvResourceDefinitionId :: Lens' ListResourceDefinitionVersions Text
 lrdvResourceDefinitionId = lens _lrdvResourceDefinitionId (\ s a -> s{_lrdvResourceDefinitionId = a})
+
+instance AWSPager ListResourceDefinitionVersions
+         where
+        page rq rs
+          | stop (rs ^. lrdvrsNextToken) = Nothing
+          | stop (rs ^. lrdvrsVersions) = Nothing
+          | otherwise =
+            Just $ rq & lrdvNextToken .~ rs ^. lrdvrsNextToken
 
 instance AWSRequest ListResourceDefinitionVersions
          where

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a list of groups.
+--
+-- This operation returns paginated results.
 module Network.AWS.Greengrass.ListGroups
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.Greengrass.ListGroups
 import Network.AWS.Greengrass.Types
 import Network.AWS.Greengrass.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -70,6 +73,13 @@ lgNextToken = lens _lgNextToken (\ s a -> s{_lgNextToken = a})
 -- | The maximum number of results to be returned per request.
 lgMaxResults :: Lens' ListGroups (Maybe Text)
 lgMaxResults = lens _lgMaxResults (\ s a -> s{_lgMaxResults = a})
+
+instance AWSPager ListGroups where
+        page rq rs
+          | stop (rs ^. lgrsNextToken) = Nothing
+          | stop (rs ^. lgrsGroups) = Nothing
+          | otherwise =
+            Just $ rq & lgNextToken .~ rs ^. lgrsNextToken
 
 instance AWSRequest ListGroups where
         type Rs ListGroups = ListGroupsResponse

@@ -47,6 +47,8 @@ library
           Network.AWS.Greengrass
         , Network.AWS.Greengrass.AssociateRoleToGroup
         , Network.AWS.Greengrass.AssociateServiceRoleToAccount
+        , Network.AWS.Greengrass.CreateConnectorDefinition
+        , Network.AWS.Greengrass.CreateConnectorDefinitionVersion
         , Network.AWS.Greengrass.CreateCoreDefinition
         , Network.AWS.Greengrass.CreateCoreDefinitionVersion
         , Network.AWS.Greengrass.CreateDeployment
@@ -64,6 +66,7 @@ library
         , Network.AWS.Greengrass.CreateSoftwareUpdateJob
         , Network.AWS.Greengrass.CreateSubscriptionDefinition
         , Network.AWS.Greengrass.CreateSubscriptionDefinitionVersion
+        , Network.AWS.Greengrass.DeleteConnectorDefinition
         , Network.AWS.Greengrass.DeleteCoreDefinition
         , Network.AWS.Greengrass.DeleteDeviceDefinition
         , Network.AWS.Greengrass.DeleteFunctionDefinition
@@ -74,7 +77,10 @@ library
         , Network.AWS.Greengrass.DisassociateRoleFromGroup
         , Network.AWS.Greengrass.DisassociateServiceRoleFromAccount
         , Network.AWS.Greengrass.GetAssociatedRole
+        , Network.AWS.Greengrass.GetBulkDeploymentStatus
         , Network.AWS.Greengrass.GetConnectivityInfo
+        , Network.AWS.Greengrass.GetConnectorDefinition
+        , Network.AWS.Greengrass.GetConnectorDefinitionVersion
         , Network.AWS.Greengrass.GetCoreDefinition
         , Network.AWS.Greengrass.GetCoreDefinitionVersion
         , Network.AWS.Greengrass.GetDeploymentStatus
@@ -93,6 +99,10 @@ library
         , Network.AWS.Greengrass.GetServiceRoleForAccount
         , Network.AWS.Greengrass.GetSubscriptionDefinition
         , Network.AWS.Greengrass.GetSubscriptionDefinitionVersion
+        , Network.AWS.Greengrass.ListBulkDeploymentDetailedReports
+        , Network.AWS.Greengrass.ListBulkDeployments
+        , Network.AWS.Greengrass.ListConnectorDefinitionVersions
+        , Network.AWS.Greengrass.ListConnectorDefinitions
         , Network.AWS.Greengrass.ListCoreDefinitionVersions
         , Network.AWS.Greengrass.ListCoreDefinitions
         , Network.AWS.Greengrass.ListDeployments
@@ -110,8 +120,11 @@ library
         , Network.AWS.Greengrass.ListSubscriptionDefinitionVersions
         , Network.AWS.Greengrass.ListSubscriptionDefinitions
         , Network.AWS.Greengrass.ResetDeployments
+        , Network.AWS.Greengrass.StartBulkDeployment
+        , Network.AWS.Greengrass.StopBulkDeployment
         , Network.AWS.Greengrass.Types
         , Network.AWS.Greengrass.UpdateConnectivityInfo
+        , Network.AWS.Greengrass.UpdateConnectorDefinition
         , Network.AWS.Greengrass.UpdateCoreDefinition
         , Network.AWS.Greengrass.UpdateDeviceDefinition
         , Network.AWS.Greengrass.UpdateFunctionDefinition

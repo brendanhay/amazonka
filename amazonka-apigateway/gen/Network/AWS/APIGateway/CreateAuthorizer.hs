@@ -21,7 +21,7 @@
 -- Adds a new 'Authorizer' resource to an existing 'RestApi' resource.
 --
 --
--- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html AWS CLI>
+-- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.CreateAuthorizer
     (
     -- * Creating a Request
@@ -93,7 +93,7 @@ data CreateAuthorizer = CreateAuthorizer'
 --
 -- * 'caAuthorizerResultTtlInSeconds' - The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.
 --
--- * 'caAuthType' - Optional customer-defined field, used in Swagger imports and exports without functional impact.
+-- * 'caAuthType' - Optional customer-defined field, used in OpenAPI imports and exports without functional impact.
 --
 -- * 'caIdentitySource' - The identity source for which authorization is requested.     * For a @TOKEN@ or @COGNITO_USER_POOLS@ authorizer, this is required and specifies the request header mapping expression for the custom header holding the authorization token submitted by the client. For example, if the token header name is @Auth@ , the header mapping expression is @method.request.header.Auth@ .    * For the @REQUEST@ authorizer, this is required when authorization caching is enabled. The value is a comma-separated string of one or more mapping expressions of the specified request parameters. For example, if an @Auth@ header, a @Name@ query string parameter are defined as identity sources, this value is @method.request.header.Auth, method.request.querystring.Name@ . These parameters will be used to derive the authorization caching key and to perform runtime validation of the @REQUEST@ authorizer by verifying all of the identity-related request parameters are present, not null and non-empty. Only when this is true does the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401 Unauthorized response without calling the Lambda function. The valid value is a string of comma-separated mapping expressions of the specified request parameters. When the authorization caching is not enabled, this property is optional.
 --
@@ -140,7 +140,7 @@ caProviderARNs = lens _caProviderARNs (\ s a -> s{_caProviderARNs = a}) . _Defau
 caAuthorizerResultTtlInSeconds :: Lens' CreateAuthorizer (Maybe Int)
 caAuthorizerResultTtlInSeconds = lens _caAuthorizerResultTtlInSeconds (\ s a -> s{_caAuthorizerResultTtlInSeconds = a})
 
--- | Optional customer-defined field, used in Swagger imports and exports without functional impact.
+-- | Optional customer-defined field, used in OpenAPI imports and exports without functional impact.
 caAuthType :: Lens' CreateAuthorizer (Maybe Text)
 caAuthType = lens _caAuthType (\ s a -> s{_caAuthType = a})
 

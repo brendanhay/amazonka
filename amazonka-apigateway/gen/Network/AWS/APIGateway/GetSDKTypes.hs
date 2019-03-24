@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Undocumented operation.
+--
+-- This operation returns paginated results.
 module Network.AWS.APIGateway.GetSDKTypes
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.APIGateway.GetSDKTypes
 import Network.AWS.APIGateway.Types
 import Network.AWS.APIGateway.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -74,6 +77,13 @@ gstLimit = lens _gstLimit (\ s a -> s{_gstLimit = a})
 -- | The current pagination position in the paged result set.
 gstPosition :: Lens' GetSDKTypes (Maybe Text)
 gstPosition = lens _gstPosition (\ s a -> s{_gstPosition = a})
+
+instance AWSPager GetSDKTypes where
+        page rq rs
+          | stop (rs ^. gstrsPosition) = Nothing
+          | stop (rs ^. gstrsItems) = Nothing
+          | otherwise =
+            Just $ rq & gstPosition .~ rs ^. gstrsPosition
 
 instance AWSRequest GetSDKTypes where
         type Rs GetSDKTypes = GetSDKTypesResponse

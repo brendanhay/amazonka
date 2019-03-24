@@ -155,7 +155,7 @@ instance ToQuery GetAPIKeys where
 -- | Represents a collection of API keys as represented by an 'ApiKeys' resource.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html Use API Keys>
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html Use API Keys>
 --
 -- /See:/ 'getAPIKeysResponse' smart constructor.
 data GetAPIKeysResponse = GetAPIKeysResponse'

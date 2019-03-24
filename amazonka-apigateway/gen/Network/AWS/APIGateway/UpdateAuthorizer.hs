@@ -21,7 +21,7 @@
 -- Updates an existing 'Authorizer' resource.
 --
 --
--- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html AWS CLI>
+-- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.UpdateAuthorizer
     (
     -- * Creating a Request

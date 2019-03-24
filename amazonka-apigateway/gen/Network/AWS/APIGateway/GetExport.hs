@@ -68,15 +68,15 @@ data GetExport = GetExport'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'geParameters' - A key-value map of query string parameters that specify properties of the export, depending on the requested @exportType@ . For @exportType@ @swagger@ , any combination of the following parameters are supported: @integrations@ will export the API with x-amazon-apigateway-integration extensions. @authorizers@ will export the API with x-amazon-apigateway-authorizer extensions. @postman@ will export the API with Postman extensions, allowing for import to the Postman tool
+-- * 'geParameters' - A key-value map of query string parameters that specify properties of the export, depending on the requested @exportType@ . For @exportType@ @oas30@ and @swagger@ , any combination of the following parameters are supported: @extensions='integrations'@ or @extensions='apigateway'@ will export the API with x-amazon-apigateway-integration extensions. @extensions='authorizers'@ will export the API with x-amazon-apigateway-authorizer extensions. @postman@ will export the API with Postman extensions, allowing for import to the Postman tool
 --
--- * 'geAccepts' - The content-type of the export, for example @application/json@ . Currently @application/json@ and @application/yaml@ are supported for @exportType@ of @swagger@ . This should be specified in the @Accept@ header for direct API requests.
+-- * 'geAccepts' - The content-type of the export, for example @application/json@ . Currently @application/json@ and @application/yaml@ are supported for @exportType@ of@oas30@ and @swagger@ . This should be specified in the @Accept@ header for direct API requests.
 --
 -- * 'geRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
 -- * 'geStageName' - [Required] The name of the 'Stage' that will be exported.
 --
--- * 'geExportType' - [Required] The type of export. Currently only 'swagger' is supported.
+-- * 'geExportType' - [Required] The type of export. Acceptable values are 'oas30' for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.
 getExport
     :: Text -- ^ 'geRestAPIId'
     -> Text -- ^ 'geStageName'
@@ -92,11 +92,11 @@ getExport pRestAPIId_ pStageName_ pExportType_ =
     }
 
 
--- | A key-value map of query string parameters that specify properties of the export, depending on the requested @exportType@ . For @exportType@ @swagger@ , any combination of the following parameters are supported: @integrations@ will export the API with x-amazon-apigateway-integration extensions. @authorizers@ will export the API with x-amazon-apigateway-authorizer extensions. @postman@ will export the API with Postman extensions, allowing for import to the Postman tool
+-- | A key-value map of query string parameters that specify properties of the export, depending on the requested @exportType@ . For @exportType@ @oas30@ and @swagger@ , any combination of the following parameters are supported: @extensions='integrations'@ or @extensions='apigateway'@ will export the API with x-amazon-apigateway-integration extensions. @extensions='authorizers'@ will export the API with x-amazon-apigateway-authorizer extensions. @postman@ will export the API with Postman extensions, allowing for import to the Postman tool
 geParameters :: Lens' GetExport (HashMap Text Text)
 geParameters = lens _geParameters (\ s a -> s{_geParameters = a}) . _Default . _Map
 
--- | The content-type of the export, for example @application/json@ . Currently @application/json@ and @application/yaml@ are supported for @exportType@ of @swagger@ . This should be specified in the @Accept@ header for direct API requests.
+-- | The content-type of the export, for example @application/json@ . Currently @application/json@ and @application/yaml@ are supported for @exportType@ of@oas30@ and @swagger@ . This should be specified in the @Accept@ header for direct API requests.
 geAccepts :: Lens' GetExport (Maybe Text)
 geAccepts = lens _geAccepts (\ s a -> s{_geAccepts = a})
 
@@ -108,7 +108,7 @@ geRestAPIId = lens _geRestAPIId (\ s a -> s{_geRestAPIId = a})
 geStageName :: Lens' GetExport Text
 geStageName = lens _geStageName (\ s a -> s{_geStageName = a})
 
--- | [Required] The type of export. Currently only 'swagger' is supported.
+-- | [Required] The type of export. Acceptable values are 'oas30' for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.
 geExportType :: Lens' GetExport Text
 geExportType = lens _geExportType (\ s a -> s{_geExportType = a})
 

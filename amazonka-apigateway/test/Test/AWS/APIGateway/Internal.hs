@@ -14,4 +14,4 @@
 
 module Test.AWS.APIGateway.Internal where
 
-import           Test.AWS.Prelude
+import Test.AWS.Prelude

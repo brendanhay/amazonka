@@ -79,11 +79,11 @@ data PutRestAPI = PutRestAPI'
 --
 -- * 'praFailOnWarnings' - A query parameter to indicate whether to rollback the API update (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
 --
--- * 'praParameters' - Custom header parameters as part of the request. For example, to exclude 'DocumentationParts' from an imported API, set @ignore=documentation@ as a @parameters@ value, as in the AWS CLI command of @aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json@ .
+-- * 'praParameters' - Custom header parameters as part of the request. For example, to exclude 'DocumentationParts' from an imported API, set @ignore=documentation@ as a @parameters@ value, as in the AWS CLI command of @aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'@ .
 --
 -- * 'praRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'praBody' - [Required] The PUT request body containing external API definitions. Currently, only Swagger definition JSON files are supported. The maximum size of the API definition file is 2MB.
+-- * 'praBody' - [Required] The PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 2MB.
 putRestAPI
     :: Text -- ^ 'praRestAPIId'
     -> ByteString -- ^ 'praBody'
@@ -106,7 +106,7 @@ praMode = lens _praMode (\ s a -> s{_praMode = a})
 praFailOnWarnings :: Lens' PutRestAPI (Maybe Bool)
 praFailOnWarnings = lens _praFailOnWarnings (\ s a -> s{_praFailOnWarnings = a})
 
--- | Custom header parameters as part of the request. For example, to exclude 'DocumentationParts' from an imported API, set @ignore=documentation@ as a @parameters@ value, as in the AWS CLI command of @aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json@ .
+-- | Custom header parameters as part of the request. For example, to exclude 'DocumentationParts' from an imported API, set @ignore=documentation@ as a @parameters@ value, as in the AWS CLI command of @aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'@ .
 praParameters :: Lens' PutRestAPI (HashMap Text Text)
 praParameters = lens _praParameters (\ s a -> s{_praParameters = a}) . _Default . _Map
 
@@ -114,7 +114,7 @@ praParameters = lens _praParameters (\ s a -> s{_praParameters = a}) . _Default 
 praRestAPIId :: Lens' PutRestAPI Text
 praRestAPIId = lens _praRestAPIId (\ s a -> s{_praRestAPIId = a})
 
--- | [Required] The PUT request body containing external API definitions. Currently, only Swagger definition JSON files are supported. The maximum size of the API definition file is 2MB.
+-- | [Required] The PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 2MB.
 praBody :: Lens' PutRestAPI ByteString
 praBody = lens _praBody (\ s a -> s{_praBody = a})
 

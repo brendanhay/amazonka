@@ -21,6 +21,8 @@
 -- Gets the 'RequestValidators' collection of a given 'RestApi' .
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.APIGateway.GetRequestValidators
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.APIGateway.GetRequestValidators
 import Network.AWS.APIGateway.Types
 import Network.AWS.APIGateway.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -88,6 +91,13 @@ grvPosition = lens _grvPosition (\ s a -> s{_grvPosition = a})
 grvRestAPIId :: Lens' GetRequestValidators Text
 grvRestAPIId = lens _grvRestAPIId (\ s a -> s{_grvRestAPIId = a})
 
+instance AWSPager GetRequestValidators where
+        page rq rs
+          | stop (rs ^. grvrsPosition) = Nothing
+          | stop (rs ^. grvrsItems) = Nothing
+          | otherwise =
+            Just $ rq & grvPosition .~ rs ^. grvrsPosition
+
 instance AWSRequest GetRequestValidators where
         type Rs GetRequestValidators =
              GetRequestValidatorsResponse
@@ -123,9 +133,9 @@ instance ToQuery GetRequestValidators where
 -- | A collection of 'RequestValidator' resources of a given 'RestApi' .
 --
 --
--- In Swagger, the 'RequestValidators' of an API is defined by the <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html#api-gateway-swagger-extensions-request-validators.html x-amazon-apigateway-request-validators> extension.
+-- In OpenAPI, the 'RequestValidators' of an API is defined by the <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html#api-gateway-swagger-extensions-request-validators.html x-amazon-apigateway-request-validators> extension.
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html Enable Basic Request Validation in API Gateway>
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html Enable Basic Request Validation in API Gateway>
 --
 -- /See:/ 'getRequestValidatorsResponse' smart constructor.
 data GetRequestValidatorsResponse = GetRequestValidatorsResponse'

@@ -29,6 +29,7 @@ module Network.AWS.APIGateway.CreateDeployment
     -- * Request Lenses
     , cdStageDescription
     , cdVariables
+    , cdTracingEnabled
     , cdCacheClusterSize
     , cdCanarySettings
     , cdCacheClusterEnabled
@@ -61,6 +62,7 @@ import Network.AWS.Response
 data CreateDeployment = CreateDeployment'
   { _cdStageDescription    :: !(Maybe Text)
   , _cdVariables           :: !(Maybe (Map Text Text))
+  , _cdTracingEnabled      :: !(Maybe Bool)
   , _cdCacheClusterSize    :: !(Maybe CacheClusterSize)
   , _cdCanarySettings      :: !(Maybe DeploymentCanarySettings)
   , _cdCacheClusterEnabled :: !(Maybe Bool)
@@ -77,6 +79,8 @@ data CreateDeployment = CreateDeployment'
 -- * 'cdStageDescription' - The description of the 'Stage' resource for the 'Deployment' resource to create.
 --
 -- * 'cdVariables' - A map that defines the stage variables for the 'Stage' resource that is associated with the new deployment. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
+--
+-- * 'cdTracingEnabled' - Specifies whether active tracing with X-ray is enabled for the 'Stage' .
 --
 -- * 'cdCacheClusterSize' - Specifies the cache cluster size for the 'Stage' resource specified in the input, if a cache cluster is enabled.
 --
@@ -96,6 +100,7 @@ createDeployment pRestAPIId_ =
   CreateDeployment'
     { _cdStageDescription = Nothing
     , _cdVariables = Nothing
+    , _cdTracingEnabled = Nothing
     , _cdCacheClusterSize = Nothing
     , _cdCanarySettings = Nothing
     , _cdCacheClusterEnabled = Nothing
@@ -112,6 +117,10 @@ cdStageDescription = lens _cdStageDescription (\ s a -> s{_cdStageDescription = 
 -- | A map that defines the stage variables for the 'Stage' resource that is associated with the new deployment. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
 cdVariables :: Lens' CreateDeployment (HashMap Text Text)
 cdVariables = lens _cdVariables (\ s a -> s{_cdVariables = a}) . _Default . _Map
+
+-- | Specifies whether active tracing with X-ray is enabled for the 'Stage' .
+cdTracingEnabled :: Lens' CreateDeployment (Maybe Bool)
+cdTracingEnabled = lens _cdTracingEnabled (\ s a -> s{_cdTracingEnabled = a})
 
 -- | Specifies the cache cluster size for the 'Stage' resource specified in the input, if a cache cluster is enabled.
 cdCacheClusterSize :: Lens' CreateDeployment (Maybe CacheClusterSize)
@@ -158,6 +167,7 @@ instance ToJSON CreateDeployment where
               (catMaybes
                  [("stageDescription" .=) <$> _cdStageDescription,
                   ("variables" .=) <$> _cdVariables,
+                  ("tracingEnabled" .=) <$> _cdTracingEnabled,
                   ("cacheClusterSize" .=) <$> _cdCacheClusterSize,
                   ("canarySettings" .=) <$> _cdCanarySettings,
                   ("cacheClusterEnabled" .=) <$>

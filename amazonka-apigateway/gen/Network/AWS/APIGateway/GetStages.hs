@@ -109,7 +109,7 @@ instance ToQuery GetStages where
 -- | A list of 'Stage' resources that are associated with the 'ApiKey' resource.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/stages.html Deploying API in Stages>
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/stages.html Deploying API in Stages>
 --
 -- /See:/ 'getStagesResponse' smart constructor.
 data GetStagesResponse = GetStagesResponse'

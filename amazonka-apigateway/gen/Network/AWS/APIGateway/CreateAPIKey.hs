@@ -21,7 +21,7 @@
 -- Create an 'ApiKey' resource.
 --
 --
--- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html AWS CLI>
+-- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html AWS CLI>
 module Network.AWS.APIGateway.CreateAPIKey
     (
     -- * Creating a Request

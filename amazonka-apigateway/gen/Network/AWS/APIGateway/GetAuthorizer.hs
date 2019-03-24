@@ -21,7 +21,7 @@
 -- Describe an existing 'Authorizer' resource.
 --
 --
--- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html AWS CLI>
+-- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.GetAuthorizer
     (
     -- * Creating a Request

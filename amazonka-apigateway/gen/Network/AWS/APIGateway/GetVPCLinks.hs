@@ -118,7 +118,7 @@ instance ToQuery GetVPCLinks where
 -- | The collection of VPC links under the caller's account in a region.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-with-private-integration.html Getting Started with Private Integrations> , <http://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-private-integration.html Set up Private Integrations>
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-with-private-integration.html Getting Started with Private Integrations> , <https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-private-integration.html Set up Private Integrations>
 --
 -- /See:/ 'getVPCLinksResponse' smart constructor.
 data GetVPCLinksResponse = GetVPCLinksResponse'

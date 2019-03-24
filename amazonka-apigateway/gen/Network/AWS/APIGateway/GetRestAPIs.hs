@@ -118,7 +118,7 @@ instance ToQuery GetRestAPIs where
 -- | Contains references to your APIs and links that guide you in how to interact with your collection. A collection offers a paginated view of your APIs.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Create an API>
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Create an API>
 --
 -- /See:/ 'getRestAPIsResponse' smart constructor.
 data GetRestAPIsResponse = GetRestAPIsResponse'

@@ -131,7 +131,7 @@ instance ToQuery GetModels where
 -- | Represents a collection of 'Model' resources.
 --
 --
--- 'Method' , 'MethodResponse' , <http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html Models and Mappings>
+-- 'Method' , 'MethodResponse' , <https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html Models and Mappings>
 --
 -- /See:/ 'getModelsResponse' smart constructor.
 data GetModelsResponse = GetModelsResponse'

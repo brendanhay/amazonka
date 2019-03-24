@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Undocumented operation.
+--
+-- This operation returns paginated results.
 module Network.AWS.APIGateway.GetDocumentationParts
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.APIGateway.GetDocumentationParts
 import Network.AWS.APIGateway.Types
 import Network.AWS.APIGateway.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -125,6 +128,13 @@ gdpPosition = lens _gdpPosition (\ s a -> s{_gdpPosition = a})
 gdpRestAPIId :: Lens' GetDocumentationParts Text
 gdpRestAPIId = lens _gdpRestAPIId (\ s a -> s{_gdpRestAPIId = a})
 
+instance AWSPager GetDocumentationParts where
+        page rq rs
+          | stop (rs ^. gdprsPosition) = Nothing
+          | stop (rs ^. gdprsItems) = Nothing
+          | otherwise =
+            Just $ rq & gdpPosition .~ rs ^. gdprsPosition
+
 instance AWSRequest GetDocumentationParts where
         type Rs GetDocumentationParts =
              GetDocumentationPartsResponse
@@ -163,7 +173,7 @@ instance ToQuery GetDocumentationParts where
 -- | The collection of documentation parts of an API.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API> , 'DocumentationPart'
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API> , 'DocumentationPart'
 --
 -- /See:/ 'getDocumentationPartsResponse' smart constructor.
 data GetDocumentationPartsResponse = GetDocumentationPartsResponse'

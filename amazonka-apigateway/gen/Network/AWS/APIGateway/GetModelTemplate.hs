@@ -110,7 +110,7 @@ instance ToQuery GetModelTemplate where
 -- | Represents a mapping template used to transform a payload.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-mappings Mapping Templates>
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-mappings Mapping Templates>
 --
 -- /See:/ 'getModelTemplateResponse' smart constructor.
 data GetModelTemplateResponse = GetModelTemplateResponse'
@@ -123,7 +123,7 @@ data GetModelTemplateResponse = GetModelTemplateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmtrsValue' - The Apache <http://velocity.apache.org/engine/devel/vtl-reference-guide.html Velocity Template Language (VTL)> template content used for the template resource.
+-- * 'gmtrsValue' - The Apache <https://velocity.apache.org/engine/devel/vtl-reference-guide.html Velocity Template Language (VTL)> template content used for the template resource.
 --
 -- * 'gmtrsResponseStatus' - -- | The response status code.
 getModelTemplateResponse
@@ -134,7 +134,7 @@ getModelTemplateResponse pResponseStatus_ =
     {_gmtrsValue = Nothing, _gmtrsResponseStatus = pResponseStatus_}
 
 
--- | The Apache <http://velocity.apache.org/engine/devel/vtl-reference-guide.html Velocity Template Language (VTL)> template content used for the template resource.
+-- | The Apache <https://velocity.apache.org/engine/devel/vtl-reference-guide.html Velocity Template Language (VTL)> template content used for the template resource.
 gmtrsValue :: Lens' GetModelTemplateResponse (Maybe Text)
 gmtrsValue = lens _gmtrsValue (\ s a -> s{_gmtrsValue = a})
 

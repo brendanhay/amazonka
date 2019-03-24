@@ -21,7 +21,9 @@
 -- Describe an existing 'Authorizers' resource.
 --
 --
--- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html AWS CLI>
+-- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html AWS CLI>
+--
+-- This operation returns paginated results.
 module Network.AWS.APIGateway.GetAuthorizers
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.APIGateway.GetAuthorizers
 import Network.AWS.APIGateway.Types
 import Network.AWS.APIGateway.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -89,6 +92,13 @@ gaPosition = lens _gaPosition (\ s a -> s{_gaPosition = a})
 gaRestAPIId :: Lens' GetAuthorizers Text
 gaRestAPIId = lens _gaRestAPIId (\ s a -> s{_gaRestAPIId = a})
 
+instance AWSPager GetAuthorizers where
+        page rq rs
+          | stop (rs ^. garsPosition) = Nothing
+          | stop (rs ^. garsItems) = Nothing
+          | otherwise =
+            Just $ rq & gaPosition .~ rs ^. garsPosition
+
 instance AWSRequest GetAuthorizers where
         type Rs GetAuthorizers = GetAuthorizersResponse
         request = get apiGateway
@@ -122,7 +132,7 @@ instance ToQuery GetAuthorizers where
 -- | Represents a collection of 'Authorizer' resources.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html Enable custom authorization>
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html Enable custom authorization>
 --
 -- /See:/ 'getAuthorizersResponse' smart constructor.
 data GetAuthorizersResponse = GetAuthorizersResponse'

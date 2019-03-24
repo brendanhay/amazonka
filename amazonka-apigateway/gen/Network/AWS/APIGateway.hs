@@ -92,7 +92,7 @@ module Network.AWS.APIGateway
     -- ** GetBasePathMapping
     , module Network.AWS.APIGateway.GetBasePathMapping
 
-    -- ** GetRequestValidators
+    -- ** GetRequestValidators (Paginated)
     , module Network.AWS.APIGateway.GetRequestValidators
 
     -- ** PutMethodResponse
@@ -116,7 +116,7 @@ module Network.AWS.APIGateway
     -- ** GetRestAPIs (Paginated)
     , module Network.AWS.APIGateway.GetRestAPIs
 
-    -- ** GetDocumentationVersions
+    -- ** GetDocumentationVersions (Paginated)
     , module Network.AWS.APIGateway.GetDocumentationVersions
 
     -- ** CreateDeployment
@@ -131,7 +131,7 @@ module Network.AWS.APIGateway
     -- ** GetIntegration
     , module Network.AWS.APIGateway.GetIntegration
 
-    -- ** GetDocumentationParts
+    -- ** GetDocumentationParts (Paginated)
     , module Network.AWS.APIGateway.GetDocumentationParts
 
     -- ** UpdateAccount
@@ -179,7 +179,7 @@ module Network.AWS.APIGateway
     -- ** FlushStageAuthorizersCache
     , module Network.AWS.APIGateway.FlushStageAuthorizersCache
 
-    -- ** GetGatewayResponses
+    -- ** GetGatewayResponses (Paginated)
     , module Network.AWS.APIGateway.GetGatewayResponses
 
     -- ** DeleteModel
@@ -242,7 +242,7 @@ module Network.AWS.APIGateway
     -- ** UpdateDocumentationPart
     , module Network.AWS.APIGateway.UpdateDocumentationPart
 
-    -- ** GetAuthorizers
+    -- ** GetAuthorizers (Paginated)
     , module Network.AWS.APIGateway.GetAuthorizers
 
     -- ** CreateDocumentationVersion
@@ -389,7 +389,7 @@ module Network.AWS.APIGateway
     -- ** DeleteRequestValidator
     , module Network.AWS.APIGateway.DeleteRequestValidator
 
-    -- ** GetSDKTypes
+    -- ** GetSDKTypes (Paginated)
     , module Network.AWS.APIGateway.GetSDKTypes
 
     -- ** GetClientCertificates (Paginated)
@@ -481,6 +481,7 @@ module Network.AWS.APIGateway
     , apiStage
     , asStage
     , asApiId
+    , asThrottle
 
     -- ** AccessLogSettings
     , AccessLogSettings
@@ -751,11 +752,13 @@ module Network.AWS.APIGateway
     , sAccessLogSettings
     , sDocumentationVersion
     , sClientCertificateId
+    , sTracingEnabled
     , sCreatedDate
     , sCacheClusterStatus
     , sMethodSettings
     , sLastUpdatedDate
     , sCacheClusterSize
+    , sWebACLARN
     , sCanarySettings
     , sCacheClusterEnabled
     , sStageName

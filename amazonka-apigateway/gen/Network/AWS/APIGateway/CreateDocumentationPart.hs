@@ -65,7 +65,7 @@ data CreateDocumentationPart = CreateDocumentationPart'
 --
 -- * 'cdpLocation' - [Required] The location of the targeted API entity of the to-be-created documentation part.
 --
--- * 'cdpProperties' - [Required] The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only Swagger-compliant key-value pairs can be exported and, hence, published.
+-- * 'cdpProperties' - [Required] The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
 createDocumentationPart
     :: Text -- ^ 'cdpRestAPIId'
     -> DocumentationPartLocation -- ^ 'cdpLocation'
@@ -87,7 +87,7 @@ cdpRestAPIId = lens _cdpRestAPIId (\ s a -> s{_cdpRestAPIId = a})
 cdpLocation :: Lens' CreateDocumentationPart DocumentationPartLocation
 cdpLocation = lens _cdpLocation (\ s a -> s{_cdpLocation = a})
 
--- | [Required] The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only Swagger-compliant key-value pairs can be exported and, hence, published.
+-- | [Required] The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
 cdpProperties :: Lens' CreateDocumentationPart Text
 cdpProperties = lens _cdpProperties (\ s a -> s{_cdpProperties = a})
 

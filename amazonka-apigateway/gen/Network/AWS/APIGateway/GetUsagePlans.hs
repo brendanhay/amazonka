@@ -129,7 +129,7 @@ instance ToQuery GetUsagePlans where
 -- | Represents a collection of usage plans for an AWS account.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans>
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans>
 --
 -- /See:/ 'getUsagePlansResponse' smart constructor.
 data GetUsagePlansResponse = GetUsagePlansResponse'

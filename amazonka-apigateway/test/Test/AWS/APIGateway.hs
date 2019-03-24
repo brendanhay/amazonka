@@ -16,13 +16,13 @@ module Test.AWS.APIGateway
     , fixtures
     ) where
 
-import           Data.Time
-import           Network.AWS.APIGateway
-import           Network.AWS.Lens        ((&), (?~))
-import           Network.AWS.Prelude
-import           Test.AWS.Gen.APIGateway
-import           Test.AWS.TH
-import           Test.Tasty
+import Data.Time
+import Network.AWS.APIGateway
+import Network.AWS.Lens        ((&), (?~))
+import Network.AWS.Prelude
+import Test.AWS.Gen.APIGateway
+import Test.AWS.TH
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

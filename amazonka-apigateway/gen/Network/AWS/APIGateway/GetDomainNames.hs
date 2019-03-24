@@ -118,7 +118,7 @@ instance ToQuery GetDomainNames where
 -- | Represents a collection of 'DomainName' resources.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html Use Client-Side Certificate>
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html Use Client-Side Certificate>
 --
 -- /See:/ 'getDomainNamesResponse' smart constructor.
 data GetDomainNamesResponse = GetDomainNamesResponse'

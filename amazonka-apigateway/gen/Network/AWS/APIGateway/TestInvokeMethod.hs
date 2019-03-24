@@ -32,6 +32,7 @@ module Network.AWS.APIGateway.TestInvokeMethod
     , timClientCertificateId
     , timStageVariables
     , timHeaders
+    , timMultiValueHeaders
     , timRestAPIId
     , timResourceId
     , timHttpMethod
@@ -45,6 +46,7 @@ module Network.AWS.APIGateway.TestInvokeMethod
     , timrsBody
     , timrsLatency
     , timrsHeaders
+    , timrsMultiValueHeaders
     , timrsResponseStatus
     ) where
 
@@ -66,6 +68,7 @@ data TestInvokeMethod = TestInvokeMethod'
   , _timClientCertificateId :: !(Maybe Text)
   , _timStageVariables      :: !(Maybe (Map Text Text))
   , _timHeaders             :: !(Maybe (Map Text Text))
+  , _timMultiValueHeaders   :: !(Maybe (Map Text [Text]))
   , _timRestAPIId           :: !Text
   , _timResourceId          :: !Text
   , _timHttpMethod          :: !Text
@@ -86,6 +89,8 @@ data TestInvokeMethod = TestInvokeMethod'
 --
 -- * 'timHeaders' - A key-value map of headers to simulate an incoming invocation request.
 --
+-- * 'timMultiValueHeaders' - The headers as a map from string to list of values to simulate an incoming invocation request.
+--
 -- * 'timRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
 -- * 'timResourceId' - [Required] Specifies a test invoke method request's resource ID.
@@ -103,6 +108,7 @@ testInvokeMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
     , _timClientCertificateId = Nothing
     , _timStageVariables = Nothing
     , _timHeaders = Nothing
+    , _timMultiValueHeaders = Nothing
     , _timRestAPIId = pRestAPIId_
     , _timResourceId = pResourceId_
     , _timHttpMethod = pHttpMethod_
@@ -129,6 +135,10 @@ timStageVariables = lens _timStageVariables (\ s a -> s{_timStageVariables = a})
 timHeaders :: Lens' TestInvokeMethod (HashMap Text Text)
 timHeaders = lens _timHeaders (\ s a -> s{_timHeaders = a}) . _Default . _Map
 
+-- | The headers as a map from string to list of values to simulate an incoming invocation request.
+timMultiValueHeaders :: Lens' TestInvokeMethod (HashMap Text [Text])
+timMultiValueHeaders = lens _timMultiValueHeaders (\ s a -> s{_timMultiValueHeaders = a}) . _Default . _Map
+
 -- | [Required] The string identifier of the associated 'RestApi' .
 timRestAPIId :: Lens' TestInvokeMethod Text
 timRestAPIId = lens _timRestAPIId (\ s a -> s{_timRestAPIId = a})
@@ -151,6 +161,7 @@ instance AWSRequest TestInvokeMethod where
                    (x .?> "log") <*> (x .?> "status") <*> (x .?> "body")
                      <*> (x .?> "latency")
                      <*> (x .?> "headers" .!@ mempty)
+                     <*> (x .?> "multiValueHeaders" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
 instance Hashable TestInvokeMethod where
@@ -173,7 +184,8 @@ instance ToJSON TestInvokeMethod where
                   ("clientCertificateId" .=) <$>
                     _timClientCertificateId,
                   ("stageVariables" .=) <$> _timStageVariables,
-                  ("headers" .=) <$> _timHeaders])
+                  ("headers" .=) <$> _timHeaders,
+                  ("multiValueHeaders" .=) <$> _timMultiValueHeaders])
 
 instance ToPath TestInvokeMethod where
         toPath TestInvokeMethod'{..}
@@ -188,16 +200,17 @@ instance ToQuery TestInvokeMethod where
 -- | Represents the response of the test invoke request in the HTTP method.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-test-method.html#how-to-test-method-console Test API using the API Gateway console>
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-test-method.html#how-to-test-method-console Test API using the API Gateway console>
 --
 -- /See:/ 'testInvokeMethodResponse' smart constructor.
 data TestInvokeMethodResponse = TestInvokeMethodResponse'
-  { _timrsLog            :: !(Maybe Text)
-  , _timrsStatus         :: !(Maybe Int)
-  , _timrsBody           :: !(Maybe Text)
-  , _timrsLatency        :: !(Maybe Integer)
-  , _timrsHeaders        :: !(Maybe (Map Text Text))
-  , _timrsResponseStatus :: !Int
+  { _timrsLog               :: !(Maybe Text)
+  , _timrsStatus            :: !(Maybe Int)
+  , _timrsBody              :: !(Maybe Text)
+  , _timrsLatency           :: !(Maybe Integer)
+  , _timrsHeaders           :: !(Maybe (Map Text Text))
+  , _timrsMultiValueHeaders :: !(Maybe (Map Text [Text]))
+  , _timrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -215,6 +228,8 @@ data TestInvokeMethodResponse = TestInvokeMethodResponse'
 --
 -- * 'timrsHeaders' - The headers of the HTTP response.
 --
+-- * 'timrsMultiValueHeaders' - The headers of the HTTP response as a map from string to list of values.
+--
 -- * 'timrsResponseStatus' - -- | The response status code.
 testInvokeMethodResponse
     :: Int -- ^ 'timrsResponseStatus'
@@ -226,6 +241,7 @@ testInvokeMethodResponse pResponseStatus_ =
     , _timrsBody = Nothing
     , _timrsLatency = Nothing
     , _timrsHeaders = Nothing
+    , _timrsMultiValueHeaders = Nothing
     , _timrsResponseStatus = pResponseStatus_
     }
 
@@ -249,6 +265,10 @@ timrsLatency = lens _timrsLatency (\ s a -> s{_timrsLatency = a})
 -- | The headers of the HTTP response.
 timrsHeaders :: Lens' TestInvokeMethodResponse (HashMap Text Text)
 timrsHeaders = lens _timrsHeaders (\ s a -> s{_timrsHeaders = a}) . _Default . _Map
+
+-- | The headers of the HTTP response as a map from string to list of values.
+timrsMultiValueHeaders :: Lens' TestInvokeMethodResponse (HashMap Text [Text])
+timrsMultiValueHeaders = lens _timrsMultiValueHeaders (\ s a -> s{_timrsMultiValueHeaders = a}) . _Default . _Map
 
 -- | -- | The response status code.
 timrsResponseStatus :: Lens' TestInvokeMethodResponse Int

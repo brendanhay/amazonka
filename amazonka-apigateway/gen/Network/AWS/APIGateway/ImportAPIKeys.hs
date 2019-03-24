@@ -65,7 +65,7 @@ data ImportAPIKeys = ImportAPIKeys'
 --
 -- * 'iakFailOnWarnings' - A query parameter to indicate whether to rollback 'ApiKey' importation (@true@ ) or not (@false@ ) when error is encountered.
 --
--- * 'iakBody' - The payload of the POST request to import API keys. For the payload format, see <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html API Key File Format> .
+-- * 'iakBody' - The payload of the POST request to import API keys. For the payload format, see <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html API Key File Format> .
 --
 -- * 'iakFormat' - A query parameter to specify the input format to imported API keys. Currently, only the @csv@ format is supported.
 importAPIKeys
@@ -81,7 +81,7 @@ importAPIKeys pBody_ pFormat_ =
 iakFailOnWarnings :: Lens' ImportAPIKeys (Maybe Bool)
 iakFailOnWarnings = lens _iakFailOnWarnings (\ s a -> s{_iakFailOnWarnings = a})
 
--- | The payload of the POST request to import API keys. For the payload format, see <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html API Key File Format> .
+-- | The payload of the POST request to import API keys. For the payload format, see <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html API Key File Format> .
 iakBody :: Lens' ImportAPIKeys ByteString
 iakBody = lens _iakBody (\ s a -> s{_iakBody = a})
 

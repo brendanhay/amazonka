@@ -15,9 +15,9 @@ module Test.AWS.CloudSearch
     , fixtures
     ) where
 
-import           Network.AWS.CloudSearch
-import           Test.AWS.Gen.CloudSearch
-import           Test.Tasty
+import Network.AWS.CloudSearch
+import Test.AWS.Gen.CloudSearch
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

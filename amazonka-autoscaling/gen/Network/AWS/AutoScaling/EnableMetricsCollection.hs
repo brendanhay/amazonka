@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables group metrics for the specified Auto Scaling group. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html Monitoring Your Auto Scaling Groups and Instances> in the /Auto Scaling User Guide/ .
+-- Enables group metrics for the specified Auto Scaling group. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html Monitoring Your Auto Scaling Groups and Instances> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 --
 module Network.AWS.AutoScaling.EnableMetricsCollection

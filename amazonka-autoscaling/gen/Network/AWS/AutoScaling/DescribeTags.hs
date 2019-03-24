@@ -66,11 +66,11 @@ data DescribeTags = DescribeTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtFilters' - A filter used to scope the tags to return.
+-- * 'dtFilters' - One or more filters to scope the tags to return. The maximum number of filters per filter type (for example, @auto-scaling-group@ ) is 1000.
 --
 -- * 'dtNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dtMaxRecords' - The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
+-- * 'dtMaxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
 describeTags
     :: DescribeTags
 describeTags =
@@ -78,7 +78,7 @@ describeTags =
     {_dtFilters = Nothing, _dtNextToken = Nothing, _dtMaxRecords = Nothing}
 
 
--- | A filter used to scope the tags to return.
+-- | One or more filters to scope the tags to return. The maximum number of filters per filter type (for example, @auto-scaling-group@ ) is 1000.
 dtFilters :: Lens' DescribeTags [Filter]
 dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce
 
@@ -86,7 +86,7 @@ dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce
 dtNextToken :: Lens' DescribeTags (Maybe Text)
 dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a})
 
--- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
+-- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
 dtMaxRecords :: Lens' DescribeTags (Maybe Int)
 dtMaxRecords = lens _dtMaxRecords (\ s a -> s{_dtMaxRecords = a})
 
@@ -141,7 +141,7 @@ data DescribeTagsResponse = DescribeTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- * 'dtrsNextToken' - A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
 --
 -- * 'dtrsTags' - One or more tags.
 --
@@ -157,7 +157,7 @@ describeTagsResponse pResponseStatus_ =
     }
 
 
--- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
 dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a})
 

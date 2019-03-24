@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified Auto Scaling policy.
+-- Deletes the specified scaling policy.
 --
 --
 -- Deleting a policy deletes the underlying alarm action, but does not delete the alarm, even if it no longer has an associated action.

@@ -133,6 +133,9 @@ import Test.Tasty
 --         , requestPutLifecycleHook $
 --             putLifecycleHook
 --
+--         , requestBatchPutScheduledUpdateGroupAction $
+--             batchPutScheduledUpdateGroupAction
+--
 --         , requestDeleteLifecycleHook $
 --             deleteLifecycleHook
 --
@@ -147,6 +150,9 @@ import Test.Tasty
 --
 --         , requestAttachLoadBalancers $
 --             attachLoadBalancers
+--
+--         , requestBatchDeleteScheduledAction $
+--             batchDeleteScheduledAction
 --
 --         , requestTerminateInstanceInAutoScalingGroup $
 --             terminateInstanceInAutoScalingGroup
@@ -292,6 +298,9 @@ import Test.Tasty
 --         , responsePutLifecycleHook $
 --             putLifecycleHookResponse
 --
+--         , responseBatchPutScheduledUpdateGroupAction $
+--             batchPutScheduledUpdateGroupActionResponse
+--
 --         , responseDeleteLifecycleHook $
 --             deleteLifecycleHookResponse
 --
@@ -306,6 +315,9 @@ import Test.Tasty
 --
 --         , responseAttachLoadBalancers $
 --             attachLoadBalancersResponse
+--
+--         , responseBatchDeleteScheduledAction $
+--             batchDeleteScheduledActionResponse
 --
 --         , responseTerminateInstanceInAutoScalingGroup $
 --             terminateInstanceInAutoScalingGroupResponse
@@ -523,6 +535,11 @@ requestPutLifecycleHook = req
     "PutLifecycleHook"
     "fixture/PutLifecycleHook.yaml"
 
+requestBatchPutScheduledUpdateGroupAction :: BatchPutScheduledUpdateGroupAction -> TestTree
+requestBatchPutScheduledUpdateGroupAction = req
+    "BatchPutScheduledUpdateGroupAction"
+    "fixture/BatchPutScheduledUpdateGroupAction.yaml"
+
 requestDeleteLifecycleHook :: DeleteLifecycleHook -> TestTree
 requestDeleteLifecycleHook = req
     "DeleteLifecycleHook"
@@ -547,6 +564,11 @@ requestAttachLoadBalancers :: AttachLoadBalancers -> TestTree
 requestAttachLoadBalancers = req
     "AttachLoadBalancers"
     "fixture/AttachLoadBalancers.yaml"
+
+requestBatchDeleteScheduledAction :: BatchDeleteScheduledAction -> TestTree
+requestBatchDeleteScheduledAction = req
+    "BatchDeleteScheduledAction"
+    "fixture/BatchDeleteScheduledAction.yaml"
 
 requestTerminateInstanceInAutoScalingGroup :: TerminateInstanceInAutoScalingGroup -> TestTree
 requestTerminateInstanceInAutoScalingGroup = req
@@ -855,6 +877,13 @@ responsePutLifecycleHook = res
     autoScaling
     (Proxy :: Proxy PutLifecycleHook)
 
+responseBatchPutScheduledUpdateGroupAction :: BatchPutScheduledUpdateGroupActionResponse -> TestTree
+responseBatchPutScheduledUpdateGroupAction = res
+    "BatchPutScheduledUpdateGroupActionResponse"
+    "fixture/BatchPutScheduledUpdateGroupActionResponse.proto"
+    autoScaling
+    (Proxy :: Proxy BatchPutScheduledUpdateGroupAction)
+
 responseDeleteLifecycleHook :: DeleteLifecycleHookResponse -> TestTree
 responseDeleteLifecycleHook = res
     "DeleteLifecycleHookResponse"
@@ -889,6 +918,13 @@ responseAttachLoadBalancers = res
     "fixture/AttachLoadBalancersResponse.proto"
     autoScaling
     (Proxy :: Proxy AttachLoadBalancers)
+
+responseBatchDeleteScheduledAction :: BatchDeleteScheduledActionResponse -> TestTree
+responseBatchDeleteScheduledAction = res
+    "BatchDeleteScheduledActionResponse"
+    "fixture/BatchDeleteScheduledActionResponse.proto"
+    autoScaling
+    (Proxy :: Proxy BatchDeleteScheduledAction)
 
 responseTerminateInstanceInAutoScalingGroup :: TerminateInstanceInAutoScalingGroupResponse -> TestTree
 responseTerminateInstanceInAutoScalingGroup = res

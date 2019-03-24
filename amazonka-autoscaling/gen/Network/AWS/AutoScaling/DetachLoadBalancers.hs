@@ -21,9 +21,9 @@
 -- Detaches one or more Classic Load Balancers from the specified Auto Scaling group.
 --
 --
--- Note that this operation detaches only Classic Load Balancers. If you have Application Load Balancers, use 'DetachLoadBalancerTargetGroups' instead.
+-- This operation detaches only Classic Load Balancers. If you have Application Load Balancers or Network Load Balancers, use 'DetachLoadBalancerTargetGroups' instead.
 --
--- When you detach a load balancer, it enters the @Removing@ state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using 'DescribeLoadBalancers' . Note that the instances remain running.
+-- When you detach a load balancer, it enters the @Removing@ state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using 'DescribeLoadBalancers' . The instances remain running.
 --
 module Network.AWS.AutoScaling.DetachLoadBalancers
     (

@@ -23,7 +23,7 @@
 --
 -- This configuration overwrites any existing configuration.
 --
--- For more information see <http://docs.aws.amazon.com/autoscaling/latest/userguide/ASGettingNotifications.html Getting SNS Notifications When Your Auto Scaling Group Scales> in the /Auto Scaling User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html Getting Amazon SNS Notifications When Your Auto Scaling Group Scales> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.PutNotificationConfiguration
     (
@@ -61,9 +61,9 @@ data PutNotificationConfiguration = PutNotificationConfiguration'
 --
 -- * 'pncAutoScalingGroupName' - The name of the Auto Scaling group.
 --
--- * 'pncTopicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic.
+-- * 'pncTopicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
 --
--- * 'pncNotificationTypes' - The type of event that will cause the notification to be sent. For details about notification types supported by Auto Scaling, see 'DescribeAutoScalingNotificationTypes' .
+-- * 'pncNotificationTypes' - The type of event that causes the notification to be sent. For more information about notification types supported by Amazon EC2 Auto Scaling, see 'DescribeAutoScalingNotificationTypes' .
 putNotificationConfiguration
     :: Text -- ^ 'pncAutoScalingGroupName'
     -> Text -- ^ 'pncTopicARN'
@@ -80,11 +80,11 @@ putNotificationConfiguration pAutoScalingGroupName_ pTopicARN_ =
 pncAutoScalingGroupName :: Lens' PutNotificationConfiguration Text
 pncAutoScalingGroupName = lens _pncAutoScalingGroupName (\ s a -> s{_pncAutoScalingGroupName = a})
 
--- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic.
+-- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
 pncTopicARN :: Lens' PutNotificationConfiguration Text
 pncTopicARN = lens _pncTopicARN (\ s a -> s{_pncTopicARN = a})
 
--- | The type of event that will cause the notification to be sent. For details about notification types supported by Auto Scaling, see 'DescribeAutoScalingNotificationTypes' .
+-- | The type of event that causes the notification to be sent. For more information about notification types supported by Amazon EC2 Auto Scaling, see 'DescribeAutoScalingNotificationTypes' .
 pncNotificationTypes :: Lens' PutNotificationConfiguration [Text]
 pncNotificationTypes = lens _pncNotificationTypes (\ s a -> s{_pncNotificationTypes = a}) . _Coerce
 

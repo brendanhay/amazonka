@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the current Auto Scaling resource limits for your AWS account.
+-- Describes the current Amazon EC2 Auto Scaling resource limits for your AWS account.
 --
 --
--- For information about requesting an increase in these limits, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-account-limits.html Auto Scaling Limits> in the /Auto Scaling User Guide/ .
+-- For information about requesting an increase in these limits, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html Amazon EC2 Auto Scaling Limits> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.DescribeAccountLimits
     (
@@ -109,9 +109,9 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
 --
 -- * 'dalrsNumberOfAutoScalingGroups' - The current number of groups for your AWS account.
 --
--- * 'dalrsMaxNumberOfAutoScalingGroups' - The maximum number of groups allowed for your AWS account. The default limit is 20 per region.
+-- * 'dalrsMaxNumberOfAutoScalingGroups' - The maximum number of groups allowed for your AWS account. The default limit is 200 per region.
 --
--- * 'dalrsMaxNumberOfLaunchConfigurations' - The maximum number of launch configurations allowed for your AWS account. The default limit is 100 per region.
+-- * 'dalrsMaxNumberOfLaunchConfigurations' - The maximum number of launch configurations allowed for your AWS account. The default limit is 200 per region.
 --
 -- * 'dalrsResponseStatus' - -- | The response status code.
 describeAccountLimitsResponse
@@ -135,11 +135,11 @@ dalrsNumberOfLaunchConfigurations = lens _dalrsNumberOfLaunchConfigurations (\ s
 dalrsNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe Int)
 dalrsNumberOfAutoScalingGroups = lens _dalrsNumberOfAutoScalingGroups (\ s a -> s{_dalrsNumberOfAutoScalingGroups = a})
 
--- | The maximum number of groups allowed for your AWS account. The default limit is 20 per region.
+-- | The maximum number of groups allowed for your AWS account. The default limit is 200 per region.
 dalrsMaxNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe Int)
 dalrsMaxNumberOfAutoScalingGroups = lens _dalrsMaxNumberOfAutoScalingGroups (\ s a -> s{_dalrsMaxNumberOfAutoScalingGroups = a})
 
--- | The maximum number of launch configurations allowed for your AWS account. The default limit is 100 per region.
+-- | The maximum number of launch configurations allowed for your AWS account. The default limit is 200 per region.
 dalrsMaxNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsResponse (Maybe Int)
 dalrsMaxNumberOfLaunchConfigurations = lens _dalrsMaxNumberOfLaunchConfigurations (\ s a -> s{_dalrsMaxNumberOfLaunchConfigurations = a})
 

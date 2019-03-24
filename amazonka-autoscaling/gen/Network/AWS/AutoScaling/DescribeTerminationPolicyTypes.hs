@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the termination policies supported by Auto Scaling.
+-- Describes the termination policies supported by Amazon EC2 Auto Scaling.
 --
+--
+-- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html Controlling Which Auto Scaling Instances Terminate During Scale In> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     (
@@ -100,7 +102,7 @@ data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtptrsTerminationPolicyTypes' - The termination policies supported by Auto Scaling (@OldestInstance@ , @OldestLaunchConfiguration@ , @NewestInstance@ , @ClosestToNextInstanceHour@ , and @Default@ ).
+-- * 'dtptrsTerminationPolicyTypes' - The termination policies supported by Amazon EC2 Auto Scaling: @OldestInstance@ , @OldestLaunchConfiguration@ , @NewestInstance@ , @ClosestToNextInstanceHour@ , @Default@ , @OldestLaunchTemplate@ , and @AllocationStrategy@ .
 --
 -- * 'dtptrsResponseStatus' - -- | The response status code.
 describeTerminationPolicyTypesResponse
@@ -113,7 +115,7 @@ describeTerminationPolicyTypesResponse pResponseStatus_ =
     }
 
 
--- | The termination policies supported by Auto Scaling (@OldestInstance@ , @OldestLaunchConfiguration@ , @NewestInstance@ , @ClosestToNextInstanceHour@ , and @Default@ ).
+-- | The termination policies supported by Amazon EC2 Auto Scaling: @OldestInstance@ , @OldestLaunchConfiguration@ , @NewestInstance@ , @ClosestToNextInstanceHour@ , @Default@ , @OldestLaunchTemplate@ , and @AllocationStrategy@ .
 dtptrsTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
 dtptrsTerminationPolicyTypes = lens _dtptrsTerminationPolicyTypes (\ s a -> s{_dtptrsTerminationPolicyTypes = a}) . _Default . _Coerce
 

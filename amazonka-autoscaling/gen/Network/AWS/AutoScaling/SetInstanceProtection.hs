@@ -21,7 +21,7 @@
 -- Updates the instance protection settings of the specified instances.
 --
 --
--- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html#instance-protection Instance Protection> in the /Auto Scaling User Guide/ .
+-- For more information about preventing instances that are part of an Auto Scaling group from terminating on scale in, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance Protection> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.SetInstanceProtection
     (
@@ -63,7 +63,7 @@ data SetInstanceProtection = SetInstanceProtection'
 --
 -- * 'sipAutoScalingGroupName' - The name of the Auto Scaling group.
 --
--- * 'sipProtectedFromScaleIn' - Indicates whether the instance is protected from termination by Auto Scaling when scaling in.
+-- * 'sipProtectedFromScaleIn' - Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
 setInstanceProtection
     :: Text -- ^ 'sipAutoScalingGroupName'
     -> Bool -- ^ 'sipProtectedFromScaleIn'
@@ -84,7 +84,7 @@ sipInstanceIds = lens _sipInstanceIds (\ s a -> s{_sipInstanceIds = a}) . _Coerc
 sipAutoScalingGroupName :: Lens' SetInstanceProtection Text
 sipAutoScalingGroupName = lens _sipAutoScalingGroupName (\ s a -> s{_sipAutoScalingGroupName = a})
 
--- | Indicates whether the instance is protected from termination by Auto Scaling when scaling in.
+-- | Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
 sipProtectedFromScaleIn :: Lens' SetInstanceProtection Bool
 sipProtectedFromScaleIn = lens _sipProtectedFromScaleIn (\ s a -> s{_sipProtectedFromScaleIn = a})
 

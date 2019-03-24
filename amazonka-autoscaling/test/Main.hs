@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.AutoScaling
 import Test.AWS.AutoScaling.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "AutoScaling"

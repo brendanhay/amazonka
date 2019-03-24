@@ -21,11 +21,11 @@
 -- Attaches one or more Classic Load Balancers to the specified Auto Scaling group.
 --
 --
--- To attach an Application Load Balancer instead, see 'AttachLoadBalancerTargetGroups' .
+-- To attach an Application Load Balancer or a Network Load Balancer instead, see 'AttachLoadBalancerTargetGroups' .
 --
 -- To describe the load balancers for an Auto Scaling group, use 'DescribeLoadBalancers' . To detach the load balancer from the Auto Scaling group, use 'DetachLoadBalancers' .
 --
--- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/attach-load-balancer-asg.html Attach a Load Balancer to Your Auto Scaling Group> in the /Auto Scaling User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-load-balancer-asg.html Attaching a Load Balancer to Your Auto Scaling Group> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.AttachLoadBalancers
     (

@@ -13,7 +13,9 @@
 --
 -- __Amazon EC2 Auto Scaling__
 --
--- Amazon EC2 Auto Scaling is designed to automatically launch or terminate EC2 instances based on user-defined policies, schedules, and health checks. Use this service in conjunction with the AWS Auto Scaling, Amazon CloudWatch, and Elastic Load Balancing services.
+-- Amazon EC2 Auto Scaling is designed to automatically launch or terminate EC2 instances based on user-defined policies, schedules, and health checks. Use this service with AWS Auto Scaling, Amazon CloudWatch, and Elastic Load Balancing.
+--
+-- For more information, including information about granting IAM users required permissions for Amazon EC2 Auto Scaling actions, see the <https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html Amazon EC2 Auto Scaling User Guide> .
 --
 module Network.AWS.AutoScaling
     (
@@ -53,7 +55,7 @@ module Network.AWS.AutoScaling
     -- ** DescribeMetricCollectionTypes
     , module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
 
-    -- ** DescribeLoadBalancers
+    -- ** DescribeLoadBalancers (Paginated)
     , module Network.AWS.AutoScaling.DescribeLoadBalancers
 
     -- ** PutNotificationConfiguration
@@ -155,6 +157,9 @@ module Network.AWS.AutoScaling
     -- ** PutLifecycleHook
     , module Network.AWS.AutoScaling.PutLifecycleHook
 
+    -- ** BatchPutScheduledUpdateGroupAction
+    , module Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction
+
     -- ** DeleteLifecycleHook
     , module Network.AWS.AutoScaling.DeleteLifecycleHook
 
@@ -170,10 +175,13 @@ module Network.AWS.AutoScaling
     -- ** AttachLoadBalancers
     , module Network.AWS.AutoScaling.AttachLoadBalancers
 
+    -- ** BatchDeleteScheduledAction
+    , module Network.AWS.AutoScaling.BatchDeleteScheduledAction
+
     -- ** TerminateInstanceInAutoScalingGroup
     , module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
 
-    -- ** DescribeLoadBalancerTargetGroups
+    -- ** DescribeLoadBalancerTargetGroups (Paginated)
     , module Network.AWS.AutoScaling.DescribeLoadBalancerTargetGroups
 
     -- ** PutScheduledUpdateGroupAction
@@ -255,6 +263,7 @@ module Network.AWS.AutoScaling
     , asgNewInstancesProtectedFromScaleIn
     , asgVPCZoneIdentifier
     , asgTargetGroupARNs
+    , asgMixedInstancesPolicy
     , asgEnabledMetrics
     , asgLaunchConfigurationName
     , asgInstances
@@ -318,6 +327,13 @@ module Network.AWS.AutoScaling
     , emGranularity
     , emMetric
 
+    -- ** FailedScheduledUpdateGroupActionRequest
+    , FailedScheduledUpdateGroupActionRequest
+    , failedScheduledUpdateGroupActionRequest
+    , fsugarErrorCode
+    , fsugarErrorMessage
+    , fsugarScheduledActionName
+
     -- ** Filter
     , Filter
     , filter'
@@ -339,6 +355,16 @@ module Network.AWS.AutoScaling
     , InstanceMonitoring
     , instanceMonitoring
     , imEnabled
+
+    -- ** InstancesDistribution
+    , InstancesDistribution
+    , instancesDistribution
+    , idSpotAllocationStrategy
+    , idSpotInstancePools
+    , idSpotMaxPrice
+    , idOnDemandBaseCapacity
+    , idOnDemandAllocationStrategy
+    , idOnDemandPercentageAboveBaseCapacity
 
     -- ** LaunchConfiguration
     , LaunchConfiguration
@@ -362,6 +388,17 @@ module Network.AWS.AutoScaling
     , lcImageId
     , lcInstanceType
     , lcCreatedTime
+
+    -- ** LaunchTemplate
+    , LaunchTemplate
+    , launchTemplate
+    , ltOverrides
+    , ltLaunchTemplateSpecification
+
+    -- ** LaunchTemplateOverrides
+    , LaunchTemplateOverrides
+    , launchTemplateOverrides
+    , ltoInstanceType
 
     -- ** LaunchTemplateSpecification
     , LaunchTemplateSpecification
@@ -422,6 +459,12 @@ module Network.AWS.AutoScaling
     , metricGranularityType
     , mgtGranularity
 
+    -- ** MixedInstancesPolicy
+    , MixedInstancesPolicy
+    , mixedInstancesPolicy
+    , mipLaunchTemplate
+    , mipInstancesDistribution
+
     -- ** NotificationConfiguration
     , NotificationConfiguration
     , notificationConfiguration
@@ -478,6 +521,17 @@ module Network.AWS.AutoScaling
     , sugaAutoScalingGroupName
     , sugaEndTime
 
+    -- ** ScheduledUpdateGroupActionRequest
+    , ScheduledUpdateGroupActionRequest
+    , scheduledUpdateGroupActionRequest
+    , sugarStartTime
+    , sugarMaxSize
+    , sugarRecurrence
+    , sugarDesiredCapacity
+    , sugarMinSize
+    , sugarEndTime
+    , sugarScheduledActionName
+
     -- ** StepAdjustment
     , StepAdjustment
     , stepAdjustment
@@ -521,6 +575,8 @@ module Network.AWS.AutoScaling
 import Network.AWS.AutoScaling.AttachInstances
 import Network.AWS.AutoScaling.AttachLoadBalancers
 import Network.AWS.AutoScaling.AttachLoadBalancerTargetGroups
+import Network.AWS.AutoScaling.BatchDeleteScheduledAction
+import Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction
 import Network.AWS.AutoScaling.CompleteLifecycleAction
 import Network.AWS.AutoScaling.CreateAutoScalingGroup
 import Network.AWS.AutoScaling.CreateLaunchConfiguration

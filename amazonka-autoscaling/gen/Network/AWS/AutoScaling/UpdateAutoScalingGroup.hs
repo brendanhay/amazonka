@@ -23,7 +23,7 @@
 --
 -- The new settings take effect on any scaling activities after this call returns. Scaling activities that are currently in progress aren't affected.
 --
--- To update an Auto Scaling group with a launch configuration with @InstanceMonitoring@ set to @false@ , you must first disable the collection of group metrics. Otherwise, you will get an error. If you have previously enabled the collection of group metrics, you can disable it using 'DisableMetricsCollection' .
+-- To update an Auto Scaling group with a launch configuration with @InstanceMonitoring@ set to @false@ , you must first disable the collection of group metrics. Otherwise, you get an error. If you have previously enabled the collection of group metrics, you can disable it using 'DisableMetricsCollection' .
 --
 -- Note the following:
 --
@@ -50,6 +50,7 @@ module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     , uasgMaxSize
     , uasgAvailabilityZones
     , uasgDesiredCapacity
+    , uasgMixedInstancesPolicy
     , uasgMinSize
     , uasgLaunchConfigurationName
     , uasgHealthCheckType
@@ -80,6 +81,7 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
   , _uasgMaxSize :: !(Maybe Int)
   , _uasgAvailabilityZones :: !(Maybe (List1 Text))
   , _uasgDesiredCapacity :: !(Maybe Int)
+  , _uasgMixedInstancesPolicy :: !(Maybe MixedInstancesPolicy)
   , _uasgMinSize :: !(Maybe Int)
   , _uasgLaunchConfigurationName :: !(Maybe Text)
   , _uasgHealthCheckType :: !(Maybe Text)
@@ -93,17 +95,17 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uasgTerminationPolicies' - A standalone termination policy or a list of termination policies used to select the instance to terminate. The policies are executed in the order that they are listed. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html Controlling Which Instances Auto Scaling Terminates During Scale In> in the /Auto Scaling User Guide/ .
+-- * 'uasgTerminationPolicies' - A standalone termination policy or a list of termination policies used to select the instance to terminate. The policies are executed in the order that they are listed. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html Controlling Which Instances Auto Scaling Terminates During Scale In> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
--- * 'uasgHealthCheckGracePeriod' - The amount of time, in seconds, that Auto Scaling waits before checking the health status of an EC2 instance that has come into service. The default is 0. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html Health Checks> in the /Auto Scaling User Guide/ .
+-- * 'uasgHealthCheckGracePeriod' - The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service. The default value is @0@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html Health Checks for Auto Scaling Instances> in the /Amazon EC2 Auto Scaling User Guide/ . Conditional: This parameter is required if you are adding an @ELB@ health check.
 --
--- * 'uasgServiceLinkedRoleARN' - The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
+-- * 'uasgServiceLinkedRoleARN' - The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html Service-Linked Roles> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
--- * 'uasgNewInstancesProtectedFromScaleIn' - Indicates whether newly launched instances are protected from termination by Auto Scaling when scaling in.
+-- * 'uasgNewInstancesProtectedFromScaleIn' - Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance Protection> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
--- * 'uasgVPCZoneIdentifier' - The ID of the subnet, if you are launching into a VPC. You can specify several subnets in a comma-separated list. When you specify @VPCZoneIdentifier@ with @AvailabilityZones@ , ensure that the subnets' Availability Zones match the values you specify for @AvailabilityZones@ . For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC> in the /Auto Scaling User Guide/ .
+-- * 'uasgVPCZoneIdentifier' - A comma-separated list of subnet IDs, if you are launching into a VPC. If you specify @VPCZoneIdentifier@ with @AvailabilityZones@ , the subnets that you specify for this parameter must reside in those Availability Zones.
 --
--- * 'uasgDefaultCooldown' - The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default is 300. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html Auto Scaling Cooldowns> in the /Auto Scaling User Guide/ .
+-- * 'uasgDefaultCooldown' - The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default value is @300@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling Cooldowns> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 -- * 'uasgMaxSize' - The maximum size of the Auto Scaling group.
 --
@@ -111,15 +113,17 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
 --
 -- * 'uasgDesiredCapacity' - The number of EC2 instances that should be running in the Auto Scaling group. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.
 --
+-- * 'uasgMixedInstancesPolicy' - The mixed instances policy to use to specify the updates. If you specify this parameter, you can't specify a launch configuration or a launch template.  For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html Auto Scaling Groups with Multiple Instance Types and Purchase Options> in the /Amazon EC2 Auto Scaling User Guide/ .
+--
 -- * 'uasgMinSize' - The minimum size of the Auto Scaling group.
 --
--- * 'uasgLaunchConfigurationName' - The name of the launch configuration. If you specify a launch configuration, you can't specify a launch template.
+-- * 'uasgLaunchConfigurationName' - The name of the launch configuration. If you specify this parameter, you can't specify a launch template or a mixed instances policy.
 --
--- * 'uasgHealthCheckType' - The service to use for the health checks. The valid values are @EC2@ and @ELB@ .
+-- * 'uasgHealthCheckType' - The service to use for the health checks. The valid values are @EC2@ and @ELB@ . If you configure an Auto Scaling group to use ELB health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.
 --
--- * 'uasgLaunchTemplate' - The launch template to use to specify the updates. If you specify a launch template, you can't specify a launch configuration.
+-- * 'uasgLaunchTemplate' - The launch template and version to use to specify the updates. If you specify this parameter, you can't specify a launch configuration or a mixed instances policy.
 --
--- * 'uasgPlacementGroup' - The name of the placement group into which you'll launch your instances, if any. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'uasgPlacementGroup' - The name of the placement group into which to launch your instances, if any. A placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a placement group. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon EC2 User Guide for Linux Instances/ .
 --
 -- * 'uasgAutoScalingGroupName' - The name of the Auto Scaling group.
 updateAutoScalingGroup
@@ -136,6 +140,7 @@ updateAutoScalingGroup pAutoScalingGroupName_ =
     , _uasgMaxSize = Nothing
     , _uasgAvailabilityZones = Nothing
     , _uasgDesiredCapacity = Nothing
+    , _uasgMixedInstancesPolicy = Nothing
     , _uasgMinSize = Nothing
     , _uasgLaunchConfigurationName = Nothing
     , _uasgHealthCheckType = Nothing
@@ -145,27 +150,27 @@ updateAutoScalingGroup pAutoScalingGroupName_ =
     }
 
 
--- | A standalone termination policy or a list of termination policies used to select the instance to terminate. The policies are executed in the order that they are listed. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html Controlling Which Instances Auto Scaling Terminates During Scale In> in the /Auto Scaling User Guide/ .
+-- | A standalone termination policy or a list of termination policies used to select the instance to terminate. The policies are executed in the order that they are listed. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html Controlling Which Instances Auto Scaling Terminates During Scale In> in the /Amazon EC2 Auto Scaling User Guide/ .
 uasgTerminationPolicies :: Lens' UpdateAutoScalingGroup [Text]
 uasgTerminationPolicies = lens _uasgTerminationPolicies (\ s a -> s{_uasgTerminationPolicies = a}) . _Default . _Coerce
 
--- | The amount of time, in seconds, that Auto Scaling waits before checking the health status of an EC2 instance that has come into service. The default is 0. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html Health Checks> in the /Auto Scaling User Guide/ .
+-- | The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service. The default value is @0@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html Health Checks for Auto Scaling Instances> in the /Amazon EC2 Auto Scaling User Guide/ . Conditional: This parameter is required if you are adding an @ELB@ health check.
 uasgHealthCheckGracePeriod :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgHealthCheckGracePeriod = lens _uasgHealthCheckGracePeriod (\ s a -> s{_uasgHealthCheckGracePeriod = a})
 
--- | The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
+-- | The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html Service-Linked Roles> in the /Amazon EC2 Auto Scaling User Guide/ .
 uasgServiceLinkedRoleARN :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgServiceLinkedRoleARN = lens _uasgServiceLinkedRoleARN (\ s a -> s{_uasgServiceLinkedRoleARN = a})
 
--- | Indicates whether newly launched instances are protected from termination by Auto Scaling when scaling in.
+-- | Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance Protection> in the /Amazon EC2 Auto Scaling User Guide/ .
 uasgNewInstancesProtectedFromScaleIn :: Lens' UpdateAutoScalingGroup (Maybe Bool)
 uasgNewInstancesProtectedFromScaleIn = lens _uasgNewInstancesProtectedFromScaleIn (\ s a -> s{_uasgNewInstancesProtectedFromScaleIn = a})
 
--- | The ID of the subnet, if you are launching into a VPC. You can specify several subnets in a comma-separated list. When you specify @VPCZoneIdentifier@ with @AvailabilityZones@ , ensure that the subnets' Availability Zones match the values you specify for @AvailabilityZones@ . For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC> in the /Auto Scaling User Guide/ .
+-- | A comma-separated list of subnet IDs, if you are launching into a VPC. If you specify @VPCZoneIdentifier@ with @AvailabilityZones@ , the subnets that you specify for this parameter must reside in those Availability Zones.
 uasgVPCZoneIdentifier :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgVPCZoneIdentifier = lens _uasgVPCZoneIdentifier (\ s a -> s{_uasgVPCZoneIdentifier = a})
 
--- | The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default is 300. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html Auto Scaling Cooldowns> in the /Auto Scaling User Guide/ .
+-- | The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default value is @300@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling Cooldowns> in the /Amazon EC2 Auto Scaling User Guide/ .
 uasgDefaultCooldown :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgDefaultCooldown = lens _uasgDefaultCooldown (\ s a -> s{_uasgDefaultCooldown = a})
 
@@ -181,23 +186,27 @@ uasgAvailabilityZones = lens _uasgAvailabilityZones (\ s a -> s{_uasgAvailabilit
 uasgDesiredCapacity :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgDesiredCapacity = lens _uasgDesiredCapacity (\ s a -> s{_uasgDesiredCapacity = a})
 
+-- | The mixed instances policy to use to specify the updates. If you specify this parameter, you can't specify a launch configuration or a launch template.  For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html Auto Scaling Groups with Multiple Instance Types and Purchase Options> in the /Amazon EC2 Auto Scaling User Guide/ .
+uasgMixedInstancesPolicy :: Lens' UpdateAutoScalingGroup (Maybe MixedInstancesPolicy)
+uasgMixedInstancesPolicy = lens _uasgMixedInstancesPolicy (\ s a -> s{_uasgMixedInstancesPolicy = a})
+
 -- | The minimum size of the Auto Scaling group.
 uasgMinSize :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgMinSize = lens _uasgMinSize (\ s a -> s{_uasgMinSize = a})
 
--- | The name of the launch configuration. If you specify a launch configuration, you can't specify a launch template.
+-- | The name of the launch configuration. If you specify this parameter, you can't specify a launch template or a mixed instances policy.
 uasgLaunchConfigurationName :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgLaunchConfigurationName = lens _uasgLaunchConfigurationName (\ s a -> s{_uasgLaunchConfigurationName = a})
 
--- | The service to use for the health checks. The valid values are @EC2@ and @ELB@ .
+-- | The service to use for the health checks. The valid values are @EC2@ and @ELB@ . If you configure an Auto Scaling group to use ELB health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.
 uasgHealthCheckType :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgHealthCheckType = lens _uasgHealthCheckType (\ s a -> s{_uasgHealthCheckType = a})
 
--- | The launch template to use to specify the updates. If you specify a launch template, you can't specify a launch configuration.
+-- | The launch template and version to use to specify the updates. If you specify this parameter, you can't specify a launch configuration or a mixed instances policy.
 uasgLaunchTemplate :: Lens' UpdateAutoScalingGroup (Maybe LaunchTemplateSpecification)
 uasgLaunchTemplate = lens _uasgLaunchTemplate (\ s a -> s{_uasgLaunchTemplate = a})
 
--- | The name of the placement group into which you'll launch your instances, if any. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- | The name of the placement group into which to launch your instances, if any. A placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a placement group. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon EC2 User Guide for Linux Instances/ .
 uasgPlacementGroup :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgPlacementGroup = lens _uasgPlacementGroup (\ s a -> s{_uasgPlacementGroup = a})
 
@@ -243,6 +252,7 @@ instance ToQuery UpdateAutoScalingGroup where
                  toQuery
                    (toQueryList "member" <$> _uasgAvailabilityZones),
                "DesiredCapacity" =: _uasgDesiredCapacity,
+               "MixedInstancesPolicy" =: _uasgMixedInstancesPolicy,
                "MinSize" =: _uasgMinSize,
                "LaunchConfigurationName" =:
                  _uasgLaunchConfigurationName,

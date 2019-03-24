@@ -66,7 +66,7 @@ data DescribeNotificationConfigurations = DescribeNotificationConfigurations'
 --
 -- * 'dncNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dncMaxRecords' - The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
+-- * 'dncMaxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
 describeNotificationConfigurations
     :: DescribeNotificationConfigurations
 describeNotificationConfigurations =
@@ -85,7 +85,7 @@ dncAutoScalingGroupNames = lens _dncAutoScalingGroupNames (\ s a -> s{_dncAutoSc
 dncNextToken :: Lens' DescribeNotificationConfigurations (Maybe Text)
 dncNextToken = lens _dncNextToken (\ s a -> s{_dncNextToken = a})
 
--- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
+-- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
 dncMaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Int)
 dncMaxRecords = lens _dncMaxRecords (\ s a -> s{_dncMaxRecords = a})
 
@@ -152,7 +152,7 @@ data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurat
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dncrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- * 'dncrsNextToken' - A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
 --
 -- * 'dncrsResponseStatus' - -- | The response status code.
 --
@@ -168,7 +168,7 @@ describeNotificationConfigurationsResponse pResponseStatus_ =
     }
 
 
--- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
 dncrsNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
 dncrsNextToken = lens _dncrsNextToken (\ s a -> s{_dncrsNextToken = a})
 

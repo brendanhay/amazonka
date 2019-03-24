@@ -48,6 +48,8 @@ library
         , Network.AWS.AutoScaling.AttachInstances
         , Network.AWS.AutoScaling.AttachLoadBalancerTargetGroups
         , Network.AWS.AutoScaling.AttachLoadBalancers
+        , Network.AWS.AutoScaling.BatchDeleteScheduledAction
+        , Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction
         , Network.AWS.AutoScaling.CompleteLifecycleAction
         , Network.AWS.AutoScaling.CreateAutoScalingGroup
         , Network.AWS.AutoScaling.CreateLaunchConfiguration

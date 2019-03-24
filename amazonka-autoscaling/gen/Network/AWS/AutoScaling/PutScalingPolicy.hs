@@ -18,10 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates a policy for an Auto Scaling group. To update an existing policy, use the existing policy name and set the parameters you want to change. Any existing parameter not changed in an update to an existing policy is not changed in this update request.
+-- Creates or updates a policy for an Auto Scaling group. To update an existing policy, use the existing policy name and set the parameters to change. Any existing parameter not changed in an update to an existing policy is not changed in this update request.
 --
---
--- If you exceed your maximum limit of step adjustments, which by default is 20 per region, the call fails. For information about updating this limit, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Limits> in the /Amazon Web Services General Reference/ .
 --
 module Network.AWS.AutoScaling.PutScalingPolicy
     (
@@ -85,15 +83,15 @@ data PutScalingPolicy = PutScalingPolicy'
 --
 -- * 'pspPolicyType' - The policy type. The valid values are @SimpleScaling@ , @StepScaling@ , and @TargetTrackingScaling@ . If the policy type is null, the value is treated as @SimpleScaling@ .
 --
--- * 'pspStepAdjustments' - A set of adjustments that enable you to scale based on the size of the alarm breach. This parameter is required if the policy type is @StepScaling@ and not supported otherwise.
+-- * 'pspStepAdjustments' - A set of adjustments that enable you to scale based on the size of the alarm breach. Conditional: This parameter is required if the policy type is @StepScaling@ and not supported otherwise.
 --
--- * 'pspTargetTrackingConfiguration' - A target tracking policy. This parameter is required if the policy type is @TargetTrackingScaling@ and not supported otherwise.
+-- * 'pspTargetTrackingConfiguration' - A target tracking scaling policy. Includes support for predefined or customized metrics. Conditional: This parameter is required if the policy type is @TargetTrackingScaling@ and not supported otherwise.
 --
--- * 'pspAdjustmentType' - The adjustment type. The valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ . This parameter is supported if the policy type is @SimpleScaling@ or @StepScaling@ . For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-scale-based-on-demand.html Dynamic Scaling> in the /Auto Scaling User Guide/ .
+-- * 'pspAdjustmentType' - The adjustment type. The valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ . This parameter is supported if the policy type is @SimpleScaling@ or @StepScaling@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html Dynamic Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
--- * 'pspScalingAdjustment' - The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. This parameter is required if the policy type is @SimpleScaling@ and not supported otherwise.
+-- * 'pspScalingAdjustment' - The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. Conditional: This parameter is required if the policy type is @SimpleScaling@ and not supported otherwise.
 --
--- * 'pspCooldown' - The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start. If this parameter is not specified, the default cooldown period for the group applies. This parameter is supported if the policy type is @SimpleScaling@ . For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html Auto Scaling Cooldowns> in the /Auto Scaling User Guide/ .
+-- * 'pspCooldown' - The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start. If this parameter is not specified, the default cooldown period for the group applies. This parameter is supported if the policy type is @SimpleScaling@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling Cooldowns> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 -- * 'pspMetricAggregationType' - The aggregation type for the CloudWatch metrics. The valid values are @Minimum@ , @Maximum@ , and @Average@ . If the aggregation type is null, the value is treated as @Average@ . This parameter is supported if the policy type is @StepScaling@ .
 --
@@ -135,23 +133,23 @@ pspEstimatedInstanceWarmup = lens _pspEstimatedInstanceWarmup (\ s a -> s{_pspEs
 pspPolicyType :: Lens' PutScalingPolicy (Maybe Text)
 pspPolicyType = lens _pspPolicyType (\ s a -> s{_pspPolicyType = a})
 
--- | A set of adjustments that enable you to scale based on the size of the alarm breach. This parameter is required if the policy type is @StepScaling@ and not supported otherwise.
+-- | A set of adjustments that enable you to scale based on the size of the alarm breach. Conditional: This parameter is required if the policy type is @StepScaling@ and not supported otherwise.
 pspStepAdjustments :: Lens' PutScalingPolicy [StepAdjustment]
 pspStepAdjustments = lens _pspStepAdjustments (\ s a -> s{_pspStepAdjustments = a}) . _Default . _Coerce
 
--- | A target tracking policy. This parameter is required if the policy type is @TargetTrackingScaling@ and not supported otherwise.
+-- | A target tracking scaling policy. Includes support for predefined or customized metrics. Conditional: This parameter is required if the policy type is @TargetTrackingScaling@ and not supported otherwise.
 pspTargetTrackingConfiguration :: Lens' PutScalingPolicy (Maybe TargetTrackingConfiguration)
 pspTargetTrackingConfiguration = lens _pspTargetTrackingConfiguration (\ s a -> s{_pspTargetTrackingConfiguration = a})
 
--- | The adjustment type. The valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ . This parameter is supported if the policy type is @SimpleScaling@ or @StepScaling@ . For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-scale-based-on-demand.html Dynamic Scaling> in the /Auto Scaling User Guide/ .
+-- | The adjustment type. The valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ . This parameter is supported if the policy type is @SimpleScaling@ or @StepScaling@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html Dynamic Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
 pspAdjustmentType :: Lens' PutScalingPolicy (Maybe Text)
 pspAdjustmentType = lens _pspAdjustmentType (\ s a -> s{_pspAdjustmentType = a})
 
--- | The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. This parameter is required if the policy type is @SimpleScaling@ and not supported otherwise.
+-- | The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. Conditional: This parameter is required if the policy type is @SimpleScaling@ and not supported otherwise.
 pspScalingAdjustment :: Lens' PutScalingPolicy (Maybe Int)
 pspScalingAdjustment = lens _pspScalingAdjustment (\ s a -> s{_pspScalingAdjustment = a})
 
--- | The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start. If this parameter is not specified, the default cooldown period for the group applies. This parameter is supported if the policy type is @SimpleScaling@ . For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html Auto Scaling Cooldowns> in the /Auto Scaling User Guide/ .
+-- | The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start. If this parameter is not specified, the default cooldown period for the group applies. This parameter is supported if the policy type is @SimpleScaling@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling Cooldowns> in the /Amazon EC2 Auto Scaling User Guide/ .
 pspCooldown :: Lens' PutScalingPolicy (Maybe Int)
 pspCooldown = lens _pspCooldown (\ s a -> s{_pspCooldown = a})
 
@@ -234,7 +232,7 @@ data PutScalingPolicyResponse = PutScalingPolicyResponse'
 --
 -- * 'psprsPolicyARN' - The Amazon Resource Name (ARN) of the policy.
 --
--- * 'psprsAlarms' - The CloudWatch alarms created for the target tracking policy.
+-- * 'psprsAlarms' - The CloudWatch alarms created for the target tracking scaling policy.
 --
 -- * 'psprsResponseStatus' - -- | The response status code.
 putScalingPolicyResponse
@@ -252,7 +250,7 @@ putScalingPolicyResponse pResponseStatus_ =
 psprsPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
 psprsPolicyARN = lens _psprsPolicyARN (\ s a -> s{_psprsPolicyARN = a})
 
--- | The CloudWatch alarms created for the target tracking policy.
+-- | The CloudWatch alarms created for the target tracking scaling policy.
 psprsAlarms :: Lens' PutScalingPolicyResponse [Alarm]
 psprsAlarms = lens _psprsAlarms (\ s a -> s{_psprsAlarms = a}) . _Default . _Coerce
 

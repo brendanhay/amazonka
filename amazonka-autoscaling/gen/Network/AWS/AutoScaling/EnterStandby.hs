@@ -21,7 +21,7 @@
 -- Moves the specified instances into the standby state.
 --
 --
--- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-enter-exit-standby.html Temporarily Removing Instances from Your Auto Scaling Group> in the /Auto Scaling User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html Temporarily Removing Instances from Your Auto Scaling Group> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.EnterStandby
     (

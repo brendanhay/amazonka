@@ -18,14 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Suspends the specified Auto Scaling processes, or all processes, for the specified Auto Scaling group.
+-- Suspends the specified automatic scaling processes, or all processes, for the specified Auto Scaling group.
 --
 --
--- Note that if you suspend either the @Launch@ or @Terminate@ process types, it can prevent other process types from functioning properly.
+-- If you suspend either the @Launch@ or @Terminate@ process types, it can prevent other process types from functioning properly.
 --
 -- To resume processes that have been suspended, use 'ResumeProcesses' .
 --
--- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-suspend-resume-processes.html Suspending and Resuming Auto Scaling Processes> in the /Auto Scaling User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html Suspending and Resuming Scaling Processes> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.SuspendProcesses
     (

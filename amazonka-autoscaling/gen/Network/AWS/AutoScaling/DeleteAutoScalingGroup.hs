@@ -25,7 +25,7 @@
 --
 -- If the group has policies, deleting the group deletes the policies, the underlying alarm actions, and any alarm that no longer has an associated action.
 --
--- To remove instances from the Auto Scaling group before deleting it, call 'DetachInstances' with the list of instances and the option to decrement the desired capacity so that Auto Scaling does not launch replacement instances.
+-- To remove instances from the Auto Scaling group before deleting it, call 'DetachInstances' with the list of instances and the option to decrement the desired capacity. This ensures that Amazon EC2 Auto Scaling does not launch replacement instances.
 --
 -- To terminate all instances before deleting the Auto Scaling group, call 'UpdateAutoScalingGroup' and set the minimum size and desired capacity of the Auto Scaling group to zero.
 --
@@ -61,7 +61,7 @@ data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dasgForceDelete' - Specifies that the group will be deleted along with all instances associated with the group, without waiting for all instances to be terminated. This parameter also deletes any lifecycle actions associated with the group.
+-- * 'dasgForceDelete' - Specifies that the group is to be deleted along with all instances associated with the group, without waiting for all instances to be terminated. This parameter also deletes any lifecycle actions associated with the group.
 --
 -- * 'dasgAutoScalingGroupName' - The name of the Auto Scaling group.
 deleteAutoScalingGroup
@@ -74,7 +74,7 @@ deleteAutoScalingGroup pAutoScalingGroupName_ =
     }
 
 
--- | Specifies that the group will be deleted along with all instances associated with the group, without waiting for all instances to be terminated. This parameter also deletes any lifecycle actions associated with the group.
+-- | Specifies that the group is to be deleted along with all instances associated with the group, without waiting for all instances to be terminated. This parameter also deletes any lifecycle actions associated with the group.
 dasgForceDelete :: Lens' DeleteAutoScalingGroup (Maybe Bool)
 dasgForceDelete = lens _dasgForceDelete (\ s a -> s{_dasgForceDelete = a})
 

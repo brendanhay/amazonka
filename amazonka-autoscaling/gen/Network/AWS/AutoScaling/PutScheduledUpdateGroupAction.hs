@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates a scheduled scaling action for an Auto Scaling group. When updating a scheduled scaling action, if you leave a parameter unspecified, the corresponding value remains unchanged.
+-- Creates or updates a scheduled scaling action for an Auto Scaling group. If you leave a parameter unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.
 --
 --
--- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/schedule_time.html Scheduled Scaling> in the /Auto Scaling User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html Scheduled Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     (
@@ -69,19 +69,19 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'psugaStartTime' - The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, @2014-06-01T00:00:00Z@ ). If you specify @Recurrence@ and @StartTime@ , Auto Scaling performs the action at this time, and then performs the action based on the specified recurrence. If you try to schedule your action in the past, Auto Scaling returns an error message.
+-- * 'psugaStartTime' - The time for this action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT only and in quotes (for example, @"2019-06-01T00:00:00Z"@ ). If you specify @Recurrence@ and @StartTime@ , Amazon EC2 Auto Scaling performs the action at this time, and then performs the action based on the specified recurrence. If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an error message.
 --
 -- * 'psugaTime' - This parameter is deprecated.
 --
 -- * 'psugaMaxSize' - The maximum size for the Auto Scaling group.
 --
--- * 'psugaRecurrence' - The recurring schedule for this action, in Unix cron syntax format. For more information, see <http://en.wikipedia.org/wiki/Cron Cron> in Wikipedia.
+-- * 'psugaRecurrence' - The recurring schedule for this action, in Unix cron syntax format. This format consists of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example, @"30 0 1 1,6,12 *"@ ). For more information about this format, see <http://crontab.org Crontab> .
 --
 -- * 'psugaDesiredCapacity' - The number of EC2 instances that should be running in the group.
 --
 -- * 'psugaMinSize' - The minimum size for the Auto Scaling group.
 --
--- * 'psugaEndTime' - The time for the recurring schedule to end. Auto Scaling does not perform the action after this time.
+-- * 'psugaEndTime' - The time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform the action after this time.
 --
 -- * 'psugaAutoScalingGroupName' - The name of the Auto Scaling group.
 --
@@ -104,7 +104,7 @@ putScheduledUpdateGroupAction pAutoScalingGroupName_ pScheduledActionName_ =
     }
 
 
--- | The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, @2014-06-01T00:00:00Z@ ). If you specify @Recurrence@ and @StartTime@ , Auto Scaling performs the action at this time, and then performs the action based on the specified recurrence. If you try to schedule your action in the past, Auto Scaling returns an error message.
+-- | The time for this action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT only and in quotes (for example, @"2019-06-01T00:00:00Z"@ ). If you specify @Recurrence@ and @StartTime@ , Amazon EC2 Auto Scaling performs the action at this time, and then performs the action based on the specified recurrence. If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an error message.
 psugaStartTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
 psugaStartTime = lens _psugaStartTime (\ s a -> s{_psugaStartTime = a}) . mapping _Time
 
@@ -116,7 +116,7 @@ psugaTime = lens _psugaTime (\ s a -> s{_psugaTime = a}) . mapping _Time
 psugaMaxSize :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
 psugaMaxSize = lens _psugaMaxSize (\ s a -> s{_psugaMaxSize = a})
 
--- | The recurring schedule for this action, in Unix cron syntax format. For more information, see <http://en.wikipedia.org/wiki/Cron Cron> in Wikipedia.
+-- | The recurring schedule for this action, in Unix cron syntax format. This format consists of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example, @"30 0 1 1,6,12 *"@ ). For more information about this format, see <http://crontab.org Crontab> .
 psugaRecurrence :: Lens' PutScheduledUpdateGroupAction (Maybe Text)
 psugaRecurrence = lens _psugaRecurrence (\ s a -> s{_psugaRecurrence = a})
 
@@ -128,7 +128,7 @@ psugaDesiredCapacity = lens _psugaDesiredCapacity (\ s a -> s{_psugaDesiredCapac
 psugaMinSize :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
 psugaMinSize = lens _psugaMinSize (\ s a -> s{_psugaMinSize = a})
 
--- | The time for the recurring schedule to end. Auto Scaling does not perform the action after this time.
+-- | The time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform the action after this time.
 psugaEndTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
 psugaEndTime = lens _psugaEndTime (\ s a -> s{_psugaEndTime = a}) . mapping _Time
 

@@ -23,7 +23,7 @@
 --
 -- To describe the target groups for an Auto Scaling group, use 'DescribeLoadBalancerTargetGroups' . To detach the target group from the Auto Scaling group, use 'DetachLoadBalancerTargetGroups' .
 --
--- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/attach-load-balancer-asg.html Attach a Load Balancer to Your Auto Scaling Group> in the /Auto Scaling User Guide/ .
+-- With Application Load Balancers and Network Load Balancers, instances are registered as targets with a target group. With Classic Load Balancers, instances are registered with the load balancer. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-load-balancer-asg.html Attaching a Load Balancer to Your Auto Scaling Group> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.AttachLoadBalancerTargetGroups
     (

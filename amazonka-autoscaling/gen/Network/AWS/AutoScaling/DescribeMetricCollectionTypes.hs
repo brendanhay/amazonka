@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the available CloudWatch metrics for Auto Scaling.
+-- Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.
 --
 --
--- Note that the @GroupStandbyInstances@ metric is not returned by default. You must explicitly request this metric when calling 'EnableMetricsCollection' .
+-- The @GroupStandbyInstances@ metric is not returned by default. You must explicitly request this metric when calling 'EnableMetricsCollection' .
 --
 module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     (

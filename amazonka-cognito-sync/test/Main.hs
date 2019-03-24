@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.CognitoSync
 import Test.AWS.CognitoSync.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "CognitoSync"

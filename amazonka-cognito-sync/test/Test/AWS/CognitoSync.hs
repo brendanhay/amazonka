@@ -15,9 +15,9 @@ module Test.AWS.CognitoSync
     , fixtures
     ) where
 
-import           Network.AWS.CognitoSync
-import           Test.AWS.Gen.CognitoSync
-import           Test.Tasty
+import Network.AWS.CognitoSync
+import Test.AWS.Gen.CognitoSync
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

@@ -23,6 +23,8 @@
 --
 -- The results for @ListPhoneNumbersOptedOut@ are paginated, and each page returns up to 100 phone numbers. If additional phone numbers are available after the first page of results, then a @NextToken@ string will be returned. To receive the next page, you call @ListPhoneNumbersOptedOut@ again using the @NextToken@ string received from the previous call. When there are no more records to return, @NextToken@ will be null.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SNS.ListPhoneNumbersOptedOut
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.SNS.ListPhoneNumbersOptedOut
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -70,6 +73,13 @@ listPhoneNumbersOptedOut = ListPhoneNumbersOptedOut' {_lpnooNextToken = Nothing}
 -- | A @NextToken@ string is used when you call the @ListPhoneNumbersOptedOut@ action to retrieve additional records that are available after the first page of results.
 lpnooNextToken :: Lens' ListPhoneNumbersOptedOut (Maybe Text)
 lpnooNextToken = lens _lpnooNextToken (\ s a -> s{_lpnooNextToken = a})
+
+instance AWSPager ListPhoneNumbersOptedOut where
+        page rq rs
+          | stop (rs ^. lpnoorsNextToken) = Nothing
+          | stop (rs ^. lpnoorsPhoneNumbers) = Nothing
+          | otherwise =
+            Just $ rq & lpnooNextToken .~ rs ^. lpnoorsNextToken
 
 instance AWSRequest ListPhoneNumbersOptedOut where
         type Rs ListPhoneNumbersOptedOut =

@@ -27,6 +27,7 @@ module Network.AWS.SNS.CreateTopic
       createTopic
     , CreateTopic
     -- * Request Lenses
+    , ctAttributes
     , ctName
 
     -- * Destructuring the Response
@@ -49,8 +50,9 @@ import Network.AWS.SNS.Types.Product
 --
 --
 -- /See:/ 'createTopic' smart constructor.
-newtype CreateTopic = CreateTopic'
-  { _ctName :: Text
+data CreateTopic = CreateTopic'
+  { _ctAttributes :: !(Maybe (Map Text Text))
+  , _ctName       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -58,75 +60,4 @@ newtype CreateTopic = CreateTopic'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctName' - The name of the topic you want to create. Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.
-createTopic
-    :: Text -- ^ 'ctName'
-    -> CreateTopic
-createTopic pName_ = CreateTopic' {_ctName = pName_}
-
-
--- | The name of the topic you want to create. Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.
-ctName :: Lens' CreateTopic Text
-ctName = lens _ctName (\ s a -> s{_ctName = a})
-
-instance AWSRequest CreateTopic where
-        type Rs CreateTopic = CreateTopicResponse
-        request = postQuery sns
-        response
-          = receiveXMLWrapper "CreateTopicResult"
-              (\ s h x ->
-                 CreateTopicResponse' <$>
-                   (x .@? "TopicArn") <*> (pure (fromEnum s)))
-
-instance Hashable CreateTopic where
-
-instance NFData CreateTopic where
-
-instance ToHeaders CreateTopic where
-        toHeaders = const mempty
-
-instance ToPath CreateTopic where
-        toPath = const "/"
-
-instance ToQuery CreateTopic where
-        toQuery CreateTopic'{..}
-          = mconcat
-              ["Action" =: ("CreateTopic" :: ByteString),
-               "Version" =: ("2010-03-31" :: ByteString),
-               "Name" =: _ctName]
-
--- | Response from CreateTopic action.
---
---
---
--- /See:/ 'createTopicResponse' smart constructor.
-data CreateTopicResponse = CreateTopicResponse'
-  { _ctrsTopicARN       :: !(Maybe Text)
-  , _ctrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateTopicResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctrsTopicARN' - The Amazon Resource Name (ARN) assigned to the created topic.
---
--- * 'ctrsResponseStatus' - -- | The response status code.
-createTopicResponse
-    :: Int -- ^ 'ctrsResponseStatus'
-    -> CreateTopicResponse
-createTopicResponse pResponseStatus_ =
-  CreateTopicResponse'
-    {_ctrsTopicARN = Nothing, _ctrsResponseStatus = pResponseStatus_}
-
-
--- | The Amazon Resource Name (ARN) assigned to the created topic.
-ctrsTopicARN :: Lens' CreateTopicResponse (Maybe Text)
-ctrsTopicARN = lens _ctrsTopicARN (\ s a -> s{_ctrsTopicARN = a})
-
--- | -- | The response status code.
-ctrsResponseStatus :: Lens' CreateTopicResponse Int
-ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a})
-
-instance NFData CreateTopicResponse where
+-- * 'ctAttributes' - A map of attributes with their corresponding values. The following lists the names, descriptions, and values of the special request parameters that the @CreateTopic@ action uses:     * @DeliveryPolicy@

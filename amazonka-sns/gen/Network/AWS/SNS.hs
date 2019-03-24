@@ -25,11 +25,17 @@ module Network.AWS.SNS
     -- * Errors
     -- $errors
 
+    -- ** KMSInvalidStateException
+    , _KMSInvalidStateException
+
     -- ** EndpointDisabledException
     , _EndpointDisabledException
 
     -- ** AuthorizationErrorException
     , _AuthorizationErrorException
+
+    -- ** KMSThrottlingException
+    , _KMSThrottlingException
 
     -- ** InvalidParameterException
     , _InvalidParameterException
@@ -40,11 +46,17 @@ module Network.AWS.SNS
     -- ** PlatformApplicationDisabledException
     , _PlatformApplicationDisabledException
 
+    -- ** KMSOptInRequired
+    , _KMSOptInRequired
+
     -- ** InternalErrorException
     , _InternalErrorException
 
     -- ** ThrottledException
     , _ThrottledException
+
+    -- ** KMSNotFoundException
+    , _KMSNotFoundException
 
     -- ** InvalidParameterValueException
     , _InvalidParameterValueException
@@ -52,8 +64,20 @@ module Network.AWS.SNS
     -- ** NotFoundException
     , _NotFoundException
 
+    -- ** KMSDisabledException
+    , _KMSDisabledException
+
+    -- ** InvalidSecurityException
+    , _InvalidSecurityException
+
     -- ** TopicLimitExceededException
     , _TopicLimitExceededException
+
+    -- ** FilterPolicyLimitExceededException
+    , _FilterPolicyLimitExceededException
+
+    -- ** KMSAccessDeniedException
+    , _KMSAccessDeniedException
 
     -- * Waiters
     -- $waiters
@@ -61,7 +85,7 @@ module Network.AWS.SNS
     -- * Operations
     -- $operations
 
-    -- ** ListPhoneNumbersOptedOut
+    -- ** ListPhoneNumbersOptedOut (Paginated)
     , module Network.AWS.SNS.ListPhoneNumbersOptedOut
 
     -- ** DeleteEndpoint

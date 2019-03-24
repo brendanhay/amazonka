@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.SNS
 import Test.AWS.SNS.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "SNS"

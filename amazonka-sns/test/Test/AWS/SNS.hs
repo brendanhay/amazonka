@@ -15,9 +15,9 @@ module Test.AWS.SNS
     , fixtures
     ) where
 
-import           Network.AWS.SNS
-import           Test.AWS.Gen.SNS
-import           Test.Tasty
+import Network.AWS.SNS
+import Test.AWS.Gen.SNS
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

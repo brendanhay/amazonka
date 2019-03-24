@@ -16,16 +16,24 @@ module Network.AWS.SNS.Types
       sns
 
     -- * Errors
+    , _KMSInvalidStateException
     , _EndpointDisabledException
     , _AuthorizationErrorException
+    , _KMSThrottlingException
     , _InvalidParameterException
     , _SubscriptionLimitExceededException
     , _PlatformApplicationDisabledException
+    , _KMSOptInRequired
     , _InternalErrorException
     , _ThrottledException
+    , _KMSNotFoundException
     , _InvalidParameterValueException
     , _NotFoundException
+    , _KMSDisabledException
+    , _InvalidSecurityException
     , _TopicLimitExceededException
+    , _FilterPolicyLimitExceededException
+    , _KMSAccessDeniedException
 
     -- * Endpoint
     , Endpoint
@@ -106,6 +114,14 @@ sns =
       | otherwise = Nothing
 
 
+-- | The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/ .
+--
+--
+_KMSInvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSInvalidStateException =
+  _MatchServiceError sns "KMSInvalidState" . hasStatus 400
+
+
 -- | Exception error indicating endpoint disabled.
 --
 --
@@ -120,6 +136,13 @@ _EndpointDisabledException =
 _AuthorizationErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _AuthorizationErrorException =
   _MatchServiceError sns "AuthorizationError" . hasStatus 403
+
+
+-- | The request was denied due to request throttling. For more information about throttling, see <http://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second Limits> in the /AWS Key Management Service Developer Guide./
+--
+--
+_KMSThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSThrottlingException = _MatchServiceError sns "KMSThrottling" . hasStatus 400
 
 
 -- | Indicates that a request parameter does not comply with the associated constraints.
@@ -146,6 +169,13 @@ _PlatformApplicationDisabledException =
   _MatchServiceError sns "PlatformApplicationDisabled" . hasStatus 400
 
 
+-- | The AWS access key ID needs a subscription for the service.
+--
+--
+_KMSOptInRequired :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSOptInRequired = _MatchServiceError sns "KMSOptInRequired" . hasStatus 403
+
+
 -- | Indicates an internal service error.
 --
 --
@@ -158,6 +188,13 @@ _InternalErrorException = _MatchServiceError sns "InternalError" . hasStatus 500
 --
 _ThrottledException :: AsError a => Getting (First ServiceError) a ServiceError
 _ThrottledException = _MatchServiceError sns "Throttled" . hasStatus 429
+
+
+-- | The request was rejected because the specified entity or resource can't be found.
+--
+--
+_KMSNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSNotFoundException = _MatchServiceError sns "KMSNotFound" . hasStatus 400
 
 
 -- | Indicates that a request parameter does not comply with the associated constraints.
@@ -175,10 +212,41 @@ _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException = _MatchServiceError sns "NotFound" . hasStatus 404
 
 
+-- | The request was rejected because the specified customer master key (CMK) isn't enabled.
+--
+--
+_KMSDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSDisabledException = _MatchServiceError sns "KMSDisabled" . hasStatus 400
+
+
+-- | The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.
+--
+--
+_InvalidSecurityException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidSecurityException =
+  _MatchServiceError sns "InvalidSecurity" . hasStatus 403
+
+
 -- | Indicates that the customer already owns the maximum allowed number of topics.
 --
 --
 _TopicLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _TopicLimitExceededException =
   _MatchServiceError sns "TopicLimitExceeded" . hasStatus 403
+
+
+-- | Indicates that the number of filter polices in your AWS account exceeds the limit. To add more filter polices, submit an SNS Limit Increase case in the AWS Support Center.
+--
+--
+_FilterPolicyLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_FilterPolicyLimitExceededException =
+  _MatchServiceError sns "FilterPolicyLimitExceeded" . hasStatus 403
+
+
+-- | The ciphertext references a key that doesn't exist or that you don't have access to.
+--
+--
+_KMSAccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSAccessDeniedException =
+  _MatchServiceError sns "KMSAccessDenied" . hasStatus 400
 

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a JSON representation of the schema. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_schemas.html#jsonformat JSON Schema Format> for more information.
+-- Retrieves a JSON representation of the schema. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json JSON Schema Format> for more information.
 --
 --
 module Network.AWS.CloudDirectory.GetSchemaAsJSON

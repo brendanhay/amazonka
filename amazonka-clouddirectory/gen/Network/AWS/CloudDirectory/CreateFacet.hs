@@ -27,10 +27,11 @@ module Network.AWS.CloudDirectory.CreateFacet
       createFacet
     , CreateFacet
     -- * Request Lenses
+    , cfFacetStyle
+    , cfObjectType
     , cfAttributes
     , cfSchemaARN
     , cfName
-    , cfObjectType
 
     -- * Destructuring the Response
     , createFacetResponse
@@ -48,10 +49,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'createFacet' smart constructor.
 data CreateFacet = CreateFacet'
-  { _cfAttributes :: !(Maybe [FacetAttribute])
+  { _cfFacetStyle :: !(Maybe FacetStyle)
+  , _cfObjectType :: !(Maybe ObjectType)
+  , _cfAttributes :: !(Maybe [FacetAttribute])
   , _cfSchemaARN  :: !Text
   , _cfName       :: !Text
-  , _cfObjectType :: !ObjectType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -59,26 +61,36 @@ data CreateFacet = CreateFacet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'cfFacetStyle' - There are two different styles that you can define on any given facet, @Static@ and @Dynamic@ . For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.
+--
+-- * 'cfObjectType' - Specifies whether a given object created from this facet is of type node, leaf node, policy or index.     * Node: Can have multiple children but one parent.     * Leaf node: Cannot have children but can have multiple parents.     * Policy: Allows you to store a policy document and policy type. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .     * Index: Can be created with the Index API.
+--
 -- * 'cfAttributes' - The attributes that are associated with the 'Facet' .
 --
 -- * 'cfSchemaARN' - The schema ARN in which the new 'Facet' will be created. For more information, see 'arns' .
 --
 -- * 'cfName' - The name of the 'Facet' , which is unique for a given schema.
---
--- * 'cfObjectType' - Specifies whether a given object created from this facet is of type node, leaf node, policy or index.     * Node: Can have multiple children but one parent.     * Leaf node: Cannot have children but can have multiple parents.     * Policy: Allows you to store a policy document and policy type. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies Policies> .     * Index: Can be created with the Index API.
 createFacet
     :: Text -- ^ 'cfSchemaARN'
     -> Text -- ^ 'cfName'
-    -> ObjectType -- ^ 'cfObjectType'
     -> CreateFacet
-createFacet pSchemaARN_ pName_ pObjectType_ =
+createFacet pSchemaARN_ pName_ =
   CreateFacet'
-    { _cfAttributes = Nothing
+    { _cfFacetStyle = Nothing
+    , _cfObjectType = Nothing
+    , _cfAttributes = Nothing
     , _cfSchemaARN = pSchemaARN_
     , _cfName = pName_
-    , _cfObjectType = pObjectType_
     }
 
+
+-- | There are two different styles that you can define on any given facet, @Static@ and @Dynamic@ . For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.
+cfFacetStyle :: Lens' CreateFacet (Maybe FacetStyle)
+cfFacetStyle = lens _cfFacetStyle (\ s a -> s{_cfFacetStyle = a})
+
+-- | Specifies whether a given object created from this facet is of type node, leaf node, policy or index.     * Node: Can have multiple children but one parent.     * Leaf node: Cannot have children but can have multiple parents.     * Policy: Allows you to store a policy document and policy type. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .     * Index: Can be created with the Index API.
+cfObjectType :: Lens' CreateFacet (Maybe ObjectType)
+cfObjectType = lens _cfObjectType (\ s a -> s{_cfObjectType = a})
 
 -- | The attributes that are associated with the 'Facet' .
 cfAttributes :: Lens' CreateFacet [FacetAttribute]
@@ -91,10 +103,6 @@ cfSchemaARN = lens _cfSchemaARN (\ s a -> s{_cfSchemaARN = a})
 -- | The name of the 'Facet' , which is unique for a given schema.
 cfName :: Lens' CreateFacet Text
 cfName = lens _cfName (\ s a -> s{_cfName = a})
-
--- | Specifies whether a given object created from this facet is of type node, leaf node, policy or index.     * Node: Can have multiple children but one parent.     * Leaf node: Cannot have children but can have multiple parents.     * Policy: Allows you to store a policy document and policy type. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies Policies> .     * Index: Can be created with the Index API.
-cfObjectType :: Lens' CreateFacet ObjectType
-cfObjectType = lens _cfObjectType (\ s a -> s{_cfObjectType = a})
 
 instance AWSRequest CreateFacet where
         type Rs CreateFacet = CreateFacetResponse
@@ -116,9 +124,10 @@ instance ToJSON CreateFacet where
         toJSON CreateFacet'{..}
           = object
               (catMaybes
-                 [("Attributes" .=) <$> _cfAttributes,
-                  Just ("Name" .= _cfName),
-                  Just ("ObjectType" .= _cfObjectType)])
+                 [("FacetStyle" .=) <$> _cfFacetStyle,
+                  ("ObjectType" .=) <$> _cfObjectType,
+                  ("Attributes" .=) <$> _cfAttributes,
+                  Just ("Name" .= _cfName)])
 
 instance ToPath CreateFacet where
         toPath

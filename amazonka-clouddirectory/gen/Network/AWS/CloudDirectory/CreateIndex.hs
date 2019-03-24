@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an index object. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_indexing.html Indexing> for more information.
+-- Creates an index object. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.html Indexing and search> for more information.
 --
 --
 module Network.AWS.CloudDirectory.CreateIndex

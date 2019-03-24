@@ -28,6 +28,7 @@ module Network.AWS.CloudDirectory.ListObjectParents
     , ListObjectParents
     -- * Request Lenses
     , lopConsistencyLevel
+    , lopIncludeAllLinksToEachParent
     , lopNextToken
     , lopMaxResults
     , lopDirectoryARN
@@ -39,6 +40,7 @@ module Network.AWS.CloudDirectory.ListObjectParents
     -- * Response Lenses
     , lrsNextToken
     , lrsParents
+    , lrsParentLinks
     , lrsResponseStatus
     ) where
 
@@ -51,11 +53,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'listObjectParents' smart constructor.
 data ListObjectParents = ListObjectParents'
-  { _lopConsistencyLevel :: !(Maybe ConsistencyLevel)
-  , _lopNextToken        :: !(Maybe Text)
-  , _lopMaxResults       :: !(Maybe Nat)
-  , _lopDirectoryARN     :: !Text
-  , _lopObjectReference  :: !ObjectReference
+  { _lopConsistencyLevel            :: !(Maybe ConsistencyLevel)
+  , _lopIncludeAllLinksToEachParent :: !(Maybe Bool)
+  , _lopNextToken                   :: !(Maybe Text)
+  , _lopMaxResults                  :: !(Maybe Nat)
+  , _lopDirectoryARN                :: !Text
+  , _lopObjectReference             :: !ObjectReference
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -64,6 +67,8 @@ data ListObjectParents = ListObjectParents'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lopConsistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
+--
+-- * 'lopIncludeAllLinksToEachParent' - When set to True, returns all 'ListObjectParentsResponse$ParentLinks' . There could be multiple links between a parent-child pair.
 --
 -- * 'lopNextToken' - The pagination token.
 --
@@ -79,6 +84,7 @@ listObjectParents
 listObjectParents pDirectoryARN_ pObjectReference_ =
   ListObjectParents'
     { _lopConsistencyLevel = Nothing
+    , _lopIncludeAllLinksToEachParent = Nothing
     , _lopNextToken = Nothing
     , _lopMaxResults = Nothing
     , _lopDirectoryARN = pDirectoryARN_
@@ -89,6 +95,10 @@ listObjectParents pDirectoryARN_ pObjectReference_ =
 -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 lopConsistencyLevel :: Lens' ListObjectParents (Maybe ConsistencyLevel)
 lopConsistencyLevel = lens _lopConsistencyLevel (\ s a -> s{_lopConsistencyLevel = a})
+
+-- | When set to True, returns all 'ListObjectParentsResponse$ParentLinks' . There could be multiple links between a parent-child pair.
+lopIncludeAllLinksToEachParent :: Lens' ListObjectParents (Maybe Bool)
+lopIncludeAllLinksToEachParent = lens _lopIncludeAllLinksToEachParent (\ s a -> s{_lopIncludeAllLinksToEachParent = a})
 
 -- | The pagination token.
 lopNextToken :: Lens' ListObjectParents (Maybe Text)
@@ -114,6 +124,7 @@ instance AWSRequest ListObjectParents where
               (\ s h x ->
                  ListObjectParentsResponse' <$>
                    (x .?> "NextToken") <*> (x .?> "Parents" .!@ mempty)
+                     <*> (x .?> "ParentLinks" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
 instance Hashable ListObjectParents where
@@ -130,7 +141,9 @@ instance ToJSON ListObjectParents where
         toJSON ListObjectParents'{..}
           = object
               (catMaybes
-                 [("NextToken" .=) <$> _lopNextToken,
+                 [("IncludeAllLinksToEachParent" .=) <$>
+                    _lopIncludeAllLinksToEachParent,
+                  ("NextToken" .=) <$> _lopNextToken,
                   ("MaxResults" .=) <$> _lopMaxResults,
                   Just ("ObjectReference" .= _lopObjectReference)])
 
@@ -146,6 +159,7 @@ instance ToQuery ListObjectParents where
 data ListObjectParentsResponse = ListObjectParentsResponse'
   { _lrsNextToken      :: !(Maybe Text)
   , _lrsParents        :: !(Maybe (Map Text Text))
+  , _lrsParentLinks    :: !(Maybe [ObjectIdentifierAndLinkNameTuple])
   , _lrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -158,6 +172,8 @@ data ListObjectParentsResponse = ListObjectParentsResponse'
 --
 -- * 'lrsParents' - The parent structure, which is a map with key as the @ObjectIdentifier@ and LinkName as the value.
 --
+-- * 'lrsParentLinks' - Returns a list of parent reference and LinkName Tuples.
+--
 -- * 'lrsResponseStatus' - -- | The response status code.
 listObjectParentsResponse
     :: Int -- ^ 'lrsResponseStatus'
@@ -166,6 +182,7 @@ listObjectParentsResponse pResponseStatus_ =
   ListObjectParentsResponse'
     { _lrsNextToken = Nothing
     , _lrsParents = Nothing
+    , _lrsParentLinks = Nothing
     , _lrsResponseStatus = pResponseStatus_
     }
 
@@ -177,6 +194,10 @@ lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a})
 -- | The parent structure, which is a map with key as the @ObjectIdentifier@ and LinkName as the value.
 lrsParents :: Lens' ListObjectParentsResponse (HashMap Text Text)
 lrsParents = lens _lrsParents (\ s a -> s{_lrsParents = a}) . _Default . _Map
+
+-- | Returns a list of parent reference and LinkName Tuples.
+lrsParentLinks :: Lens' ListObjectParentsResponse [ObjectIdentifierAndLinkNameTuple]
+lrsParentLinks = lens _lrsParentLinks (\ s a -> s{_lrsParentLinks = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 lrsResponseStatus :: Lens' ListObjectParentsResponse Int

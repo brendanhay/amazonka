@@ -73,6 +73,7 @@ library
         , Network.AWS.CloudDirectory.GetAppliedSchemaVersion
         , Network.AWS.CloudDirectory.GetDirectory
         , Network.AWS.CloudDirectory.GetFacet
+        , Network.AWS.CloudDirectory.GetLinkAttributes
         , Network.AWS.CloudDirectory.GetObjectAttributes
         , Network.AWS.CloudDirectory.GetObjectInformation
         , Network.AWS.CloudDirectory.GetSchemaAsJSON
@@ -85,6 +86,7 @@ library
         , Network.AWS.CloudDirectory.ListFacetNames
         , Network.AWS.CloudDirectory.ListIncomingTypedLinks
         , Network.AWS.CloudDirectory.ListIndex
+        , Network.AWS.CloudDirectory.ListManagedSchemaARNs
         , Network.AWS.CloudDirectory.ListObjectAttributes
         , Network.AWS.CloudDirectory.ListObjectChildren
         , Network.AWS.CloudDirectory.ListObjectParentPaths
@@ -104,6 +106,7 @@ library
         , Network.AWS.CloudDirectory.Types
         , Network.AWS.CloudDirectory.UntagResource
         , Network.AWS.CloudDirectory.UpdateFacet
+        , Network.AWS.CloudDirectory.UpdateLinkAttributes
         , Network.AWS.CloudDirectory.UpdateObjectAttributes
         , Network.AWS.CloudDirectory.UpdateSchema
         , Network.AWS.CloudDirectory.UpdateTypedLinkFacet

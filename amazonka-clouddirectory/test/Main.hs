@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.CloudDirectory
 import Test.AWS.CloudDirectory.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "CloudDirectory"

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a paginated list of all the incoming 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
+-- Returns a paginated list of all the incoming 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListIncomingTypedLinks
     (
     -- * Creating a Request
@@ -47,6 +49,7 @@ module Network.AWS.CloudDirectory.ListIncomingTypedLinks
 import Network.AWS.CloudDirectory.Types
 import Network.AWS.CloudDirectory.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -123,6 +126,13 @@ litlDirectoryARN = lens _litlDirectoryARN (\ s a -> s{_litlDirectoryARN = a})
 -- | Reference that identifies the object whose attributes will be listed.
 litlObjectReference :: Lens' ListIncomingTypedLinks ObjectReference
 litlObjectReference = lens _litlObjectReference (\ s a -> s{_litlObjectReference = a})
+
+instance AWSPager ListIncomingTypedLinks where
+        page rq rs
+          | stop (rs ^. litlrsNextToken) = Nothing
+          | stop (rs ^. litlrsLinkSpecifiers) = Nothing
+          | otherwise =
+            Just $ rq & litlNextToken .~ rs ^. litlrsNextToken
 
 instance AWSRequest ListIncomingTypedLinks where
         type Rs ListIncomingTypedLinks =

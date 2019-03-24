@@ -145,6 +145,7 @@ data FacetAttributeType
   | Datetime
   | Number
   | String
+  | Variant
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -155,8 +156,9 @@ instance FromText FacetAttributeType where
         "datetime" -> pure Datetime
         "number" -> pure Number
         "string" -> pure String
+        "variant" -> pure Variant
         e -> fromTextError $ "Failure parsing FacetAttributeType from value: '" <> e
-           <> "'. Accepted values: binary, boolean, datetime, number, string"
+           <> "'. Accepted values: binary, boolean, datetime, number, string, variant"
 
 instance ToText FacetAttributeType where
     toText = \case
@@ -165,6 +167,7 @@ instance ToText FacetAttributeType where
         Datetime -> "DATETIME"
         Number -> "NUMBER"
         String -> "STRING"
+        Variant -> "VARIANT"
 
 instance Hashable     FacetAttributeType
 instance NFData       FacetAttributeType
@@ -177,6 +180,36 @@ instance ToJSON FacetAttributeType where
 
 instance FromJSON FacetAttributeType where
     parseJSON = parseJSONText "FacetAttributeType"
+
+data FacetStyle
+  = Dynamic
+  | Static
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FacetStyle where
+    parser = takeLowerText >>= \case
+        "dynamic" -> pure Dynamic
+        "static" -> pure Static
+        e -> fromTextError $ "Failure parsing FacetStyle from value: '" <> e
+           <> "'. Accepted values: dynamic, static"
+
+instance ToText FacetStyle where
+    toText = \case
+        Dynamic -> "DYNAMIC"
+        Static -> "STATIC"
+
+instance Hashable     FacetStyle
+instance NFData       FacetStyle
+instance ToByteString FacetStyle
+instance ToQuery      FacetStyle
+instance ToHeader     FacetStyle
+
+instance ToJSON FacetStyle where
+    toJSON = toJSONText
+
+instance FromJSON FacetStyle where
+    parseJSON = parseJSONText "FacetStyle"
 
 data ObjectType
   = Index

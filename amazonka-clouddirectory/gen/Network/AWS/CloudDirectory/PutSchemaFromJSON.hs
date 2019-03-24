@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allows a schema to be updated using JSON upload. Only available for development schemas. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_schemas.html#jsonformat JSON Schema Format> for more information.
+-- Allows a schema to be updated using JSON upload. Only available for development schemas. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json JSON Schema Format> for more information.
 --
 --
 module Network.AWS.CloudDirectory.PutSchemaFromJSON

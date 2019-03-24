@@ -21,6 +21,8 @@
 -- Creates a 'Directory' by copying the published schema into the directory. A directory cannot be created without a schema.
 --
 --
+-- You can also quickly create a directory using a managed schema, called the @QuickStartSchema@ . For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_managed.html Managed Schema> in the /Amazon Cloud Directory Developer Guide/ .
+--
 module Network.AWS.CloudDirectory.CreateDirectory
     (
     -- * Creating a Request

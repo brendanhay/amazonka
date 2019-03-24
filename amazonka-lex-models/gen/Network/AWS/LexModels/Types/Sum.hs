@@ -240,6 +240,7 @@ data LexStatus
   | LSFailed
   | LSNotBuilt
   | LSReady
+  | LSReadyBasicTesting
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -249,8 +250,9 @@ instance FromText LexStatus where
         "failed" -> pure LSFailed
         "not_built" -> pure LSNotBuilt
         "ready" -> pure LSReady
+        "ready_basic_testing" -> pure LSReadyBasicTesting
         e -> fromTextError $ "Failure parsing LexStatus from value: '" <> e
-           <> "'. Accepted values: building, failed, not_built, ready"
+           <> "'. Accepted values: building, failed, not_built, ready, ready_basic_testing"
 
 instance ToText LexStatus where
     toText = \case
@@ -258,6 +260,7 @@ instance ToText LexStatus where
         LSFailed -> "FAILED"
         LSNotBuilt -> "NOT_BUILT"
         LSReady -> "READY"
+        LSReadyBasicTesting -> "READY_BASIC_TESTING"
 
 instance Hashable     LexStatus
 instance NFData       LexStatus

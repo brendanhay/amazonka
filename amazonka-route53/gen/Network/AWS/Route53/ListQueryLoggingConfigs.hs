@@ -23,6 +23,8 @@
 --
 -- For more information about DNS query logs, see 'CreateQueryLoggingConfig' . Additional information, including the format of DNS query logs, appears in <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html Logging DNS Queries> in the /Amazon Route 53 Developer Guide/ .
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Route53.ListQueryLoggingConfigs
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.Route53.ListQueryLoggingConfigs
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -65,7 +68,7 @@ data ListQueryLoggingConfigs = ListQueryLoggingConfigs'
 --
 -- * 'lqlcNextToken' - (Optional) If the current AWS account has more than @MaxResults@ query logging configurations, use @NextToken@ to get the second and subsequent pages of results. For the first @ListQueryLoggingConfigs@ request, omit this value. For the second and subsequent requests, get the value of @NextToken@ from the previous response and specify that value for @NextToken@ in the request.
 --
--- * 'lqlcMaxResults' - (Optional) The maximum number of query logging configurations that you want Amazon Route 53 to return in response to the current request. If the current AWS account has more than @MaxResults@ configurations, use the value of 'ListQueryLoggingConfigsResponse$NextToken' in the response to get the next page of results. If you don't specify a value for @MaxResults@ , Amazon Route 53 returns up to 100 configurations.
+-- * 'lqlcMaxResults' - (Optional) The maximum number of query logging configurations that you want Amazon Route 53 to return in response to the current request. If the current AWS account has more than @MaxResults@ configurations, use the value of 'ListQueryLoggingConfigsResponse$NextToken' in the response to get the next page of results. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 configurations.
 listQueryLoggingConfigs
     :: ListQueryLoggingConfigs
 listQueryLoggingConfigs =
@@ -84,9 +87,16 @@ lqlcHostedZoneId = lens _lqlcHostedZoneId (\ s a -> s{_lqlcHostedZoneId = a})
 lqlcNextToken :: Lens' ListQueryLoggingConfigs (Maybe Text)
 lqlcNextToken = lens _lqlcNextToken (\ s a -> s{_lqlcNextToken = a})
 
--- | (Optional) The maximum number of query logging configurations that you want Amazon Route 53 to return in response to the current request. If the current AWS account has more than @MaxResults@ configurations, use the value of 'ListQueryLoggingConfigsResponse$NextToken' in the response to get the next page of results. If you don't specify a value for @MaxResults@ , Amazon Route 53 returns up to 100 configurations.
+-- | (Optional) The maximum number of query logging configurations that you want Amazon Route 53 to return in response to the current request. If the current AWS account has more than @MaxResults@ configurations, use the value of 'ListQueryLoggingConfigsResponse$NextToken' in the response to get the next page of results. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 configurations.
 lqlcMaxResults :: Lens' ListQueryLoggingConfigs (Maybe Text)
 lqlcMaxResults = lens _lqlcMaxResults (\ s a -> s{_lqlcMaxResults = a})
+
+instance AWSPager ListQueryLoggingConfigs where
+        page rq rs
+          | stop (rs ^. lqlcrsNextToken) = Nothing
+          | stop (rs ^. lqlcrsQueryLoggingConfigs) = Nothing
+          | otherwise =
+            Just $ rq & lqlcNextToken .~ rs ^. lqlcrsNextToken
 
 instance AWSRequest ListQueryLoggingConfigs where
         type Rs ListQueryLoggingConfigs =

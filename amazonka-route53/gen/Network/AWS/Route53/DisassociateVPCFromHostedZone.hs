@@ -18,10 +18,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates a VPC from a Amazon Route 53 private hosted zone.
+-- Disassociates a VPC from a Amazon Route 53 private hosted zone. Note the following:
 --
 --
--- /Important:/ You can't disassociate a VPC from a private hosted zone when only one VPC is associated with the hosted zone. You also can't convert a private hosted zone into a public hosted zone.
+--     * You can't disassociate the last VPC from a private hosted zone.
+--
+--     * You can't convert a private hosted zone into a public hosted zone.
+--
+--     * You can submit a @DisassociateVPCFromHostedZone@ request using either the account that created the hosted zone or the account that created the VPC.
+--
+--
 --
 module Network.AWS.Route53.DisassociateVPCFromHostedZone
     (

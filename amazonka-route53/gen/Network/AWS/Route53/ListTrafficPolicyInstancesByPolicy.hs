@@ -21,7 +21,7 @@
 -- Gets information about the traffic policy instances that you created by using a specify traffic policy version.
 --
 --
--- Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the @MaxItems@ parameter to list them in groups of up to 100.
+-- Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the @MaxItems@ parameter to list them in groups of up to 100.
 --
 module Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
     (

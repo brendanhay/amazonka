@@ -23,15 +23,15 @@
 --
 -- Use the following syntax to determine whether a continent is supported for geolocation:
 --
--- @GET /2013-04-01/geolocation?ContinentCode=/two-letter abbreviation for a continent/ @
+-- @GET /2013-04-01/geolocation?continentcode=/two-letter abbreviation for a continent/ @
 --
 -- Use the following syntax to determine whether a country is supported for geolocation:
 --
--- @GET /2013-04-01/geolocation?CountryCode=/two-character country code/ @
+-- @GET /2013-04-01/geolocation?countrycode=/two-character country code/ @
 --
 -- Use the following syntax to determine whether a subdivision of a country is supported for geolocation:
 --
--- @GET /2013-04-01/geolocation?CountryCode=/two-character country code/ &SubdivisionCode=/subdivision code/ @
+-- @GET /2013-04-01/geolocation?countrycode=/two-character country code/ &subdivisioncode=/subdivision code/ @
 --
 module Network.AWS.Route53.GetGeoLocation
     (
@@ -74,7 +74,7 @@ data GetGeoLocation = GetGeoLocation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gglSubdivisionCode' - Amazon Route 53 uses the one- to three-letter subdivision codes that are specified in <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2> . Amazon Route 53 doesn't support subdivision codes for all countries. If you specify @SubdivisionCode@ , you must also specify @CountryCode@ .
+-- * 'gglSubdivisionCode' - Amazon Route 53 uses the one- to three-letter subdivision codes that are specified in <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2> . Route 53 doesn't support subdivision codes for all countries. If you specify @subdivisioncode@ , you must also specify @countrycode@ .
 --
 -- * 'gglCountryCode' - Amazon Route 53 uses the two-letter country codes that are specified in <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2> .
 --
@@ -89,7 +89,7 @@ getGeoLocation =
     }
 
 
--- | Amazon Route 53 uses the one- to three-letter subdivision codes that are specified in <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2> . Amazon Route 53 doesn't support subdivision codes for all countries. If you specify @SubdivisionCode@ , you must also specify @CountryCode@ .
+-- | Amazon Route 53 uses the one- to three-letter subdivision codes that are specified in <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2> . Route 53 doesn't support subdivision codes for all countries. If you specify @subdivisioncode@ , you must also specify @countrycode@ .
 gglSubdivisionCode :: Lens' GetGeoLocation (Maybe Text)
 gglSubdivisionCode = lens _gglSubdivisionCode (\ s a -> s{_gglSubdivisionCode = a})
 

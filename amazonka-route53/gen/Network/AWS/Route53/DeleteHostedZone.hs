@@ -25,7 +25,7 @@
 --
 -- Some domain registries don't allow you to remove all of the name servers for a domain. If the registry for your domain requires one or more name servers, we recommend that you delete the hosted zone only if you transfer DNS service to another service provider, and you replace the name servers for the domain with name servers from the new provider.
 --
--- You can delete a hosted zone only if it contains only the default SOA record and NS resource record sets. If the hosted zone contains other resource record sets, you must delete them before you can delete the hosted zone. If you try to delete a hosted zone that contains other resource record sets, the request fails, and Amazon Route 53 returns a @HostedZoneNotEmpty@ error. For information about deleting records from your hosted zone, see 'ChangeResourceRecordSets' .
+-- You can delete a hosted zone only if it contains only the default SOA record and NS resource record sets. If the hosted zone contains other resource record sets, you must delete them before you can delete the hosted zone. If you try to delete a hosted zone that contains other resource record sets, the request fails, and Route 53 returns a @HostedZoneNotEmpty@ error. For information about deleting records from your hosted zone, see 'ChangeResourceRecordSets' .
 --
 -- To verify that the hosted zone has been deleted, do one of the following:
 --

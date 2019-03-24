@@ -23,7 +23,7 @@
 --
 --     * @PENDING@ indicates that the changes in this request have not propagated to all Amazon Route 53 DNS servers. This is the initial status of all change batch requests.
 --
---     * @INSYNC@ indicates that the changes have propagated to all Amazon Route 53 DNS servers.
+--     * @INSYNC@ indicates that the changes have propagated to all Route 53 DNS servers.
 --
 --
 --

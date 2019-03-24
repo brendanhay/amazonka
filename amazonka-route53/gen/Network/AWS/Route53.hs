@@ -212,7 +212,7 @@ module Network.AWS.Route53
     -- ** ListTagsForResource
     , module Network.AWS.Route53.ListTagsForResource
 
-    -- ** ListQueryLoggingConfigs
+    -- ** ListQueryLoggingConfigs (Paginated)
     , module Network.AWS.Route53.ListQueryLoggingConfigs
 
     -- ** ListTrafficPolicyInstances
@@ -239,7 +239,7 @@ module Network.AWS.Route53
     -- ** CreateVPCAssociationAuthorization
     , module Network.AWS.Route53.CreateVPCAssociationAuthorization
 
-    -- ** ListVPCAssociationAuthorizations
+    -- ** ListVPCAssociationAuthorizations (Paginated)
     , module Network.AWS.Route53.ListVPCAssociationAuthorizations
 
     -- ** ListTrafficPolicyInstancesByPolicy
@@ -500,6 +500,7 @@ module Network.AWS.Route53
     , hccFailureThreshold
     , hccIPAddress
     , hccEnableSNI
+    , hccDisabled
     , hccSearchString
     , hccHealthThreshold
     , hccRegions

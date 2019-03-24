@@ -15,9 +15,9 @@ module Test.AWS.Route53
     , fixtures
     ) where
 
-import           Network.AWS.Route53
-import           Test.AWS.Gen.Route53
-import           Test.Tasty
+import Network.AWS.Route53
+import Test.AWS.Gen.Route53
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

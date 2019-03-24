@@ -216,6 +216,7 @@ module Network.AWS.Route53.Types
     , hccFailureThreshold
     , hccIPAddress
     , hccEnableSNI
+    , hccDisabled
     , hccSearchString
     , hccHealthThreshold
     , hccRegions
@@ -527,7 +528,7 @@ _NoSuchCloudWatchLogsLogGroup =
   _MatchServiceError route53 "NoSuchCloudWatchLogsLogGroup" . hasStatus 404
 
 
--- | If Amazon Route 53 can't process a request before the next request arrives, it will reject subsequent requests for the same hosted zone and return an @HTTP 400 error@ (@Bad request@ ). If Amazon Route 53 returns this error repeatedly for the same request, we recommend that you wait, in intervals of increasing duration, before you try the request again.
+-- | If Amazon Route 53 can't process a request before the next request arrives, it will reject subsequent requests for the same hosted zone and return an @HTTP 400 error@ (@Bad request@ ). If Route 53 returns this error repeatedly for the same request, we recommend that you wait, in intervals of increasing duration, before you try the request again.
 --
 --
 _PriorRequestNotComplete :: AsError a => Getting (First ServiceError) a ServiceError
@@ -657,7 +658,7 @@ _VPCAssociationAuthorizationNotFound =
   hasStatus 404
 
 
--- | Amazon Route 53 doesn't support the specified geolocation.
+-- | Amazon Route 53 doesn't support the specified geographic location.
 --
 --
 _NoSuchGeoLocation :: AsError a => Getting (First ServiceError) a ServiceError
@@ -665,7 +666,7 @@ _NoSuchGeoLocation =
   _MatchServiceError route53 "NoSuchGeoLocation" . hasStatus 404
 
 
--- | You can create a hosted zone that has the same name as an existing hosted zone (example.com is common), but there is a limit to the number of hosted zones that have the same name. If you get this error, Amazon Route 53 has reached that limit. If you own the domain name and Amazon Route 53 generates this error, contact Customer Support.
+-- | You can create a hosted zone that has the same name as an existing hosted zone (example.com is common), but there is a limit to the number of hosted zones that have the same name. If you get this error, Amazon Route 53 has reached that limit. If you own the domain name and Route 53 generates this error, contact Customer Support.
 --
 --
 _DelegationSetNotAvailable :: AsError a => Getting (First ServiceError) a ServiceError
@@ -815,7 +816,7 @@ _TooManyHealthChecks :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyHealthChecks = _MatchServiceError route53 "TooManyHealthChecks"
 
 
--- | No health check exists with the ID that you specified in the @DeleteHealthCheck@ request.
+-- | No health check exists with the specified ID.
 --
 --
 _NoSuchHealthCheck :: AsError a => Getting (First ServiceError) a ServiceError

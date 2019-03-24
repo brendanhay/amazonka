@@ -122,7 +122,7 @@ data DisableGatewayResponse = DisableGatewayResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'disrsGatewayARN' - The unique Amazon Resource Name of the disabled gateway.
+-- * 'disrsGatewayARN' - The unique Amazon Resource Name (ARN) of the disabled gateway.
 --
 -- * 'disrsResponseStatus' - -- | The response status code.
 disableGatewayResponse
@@ -133,7 +133,7 @@ disableGatewayResponse pResponseStatus_ =
     {_disrsGatewayARN = Nothing, _disrsResponseStatus = pResponseStatus_}
 
 
--- | The unique Amazon Resource Name of the disabled gateway.
+-- | The unique Amazon Resource Name (ARN) of the disabled gateway.
 disrsGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
 disrsGatewayARN = lens _disrsGatewayARN (\ s a -> s{_disrsGatewayARN = a})
 

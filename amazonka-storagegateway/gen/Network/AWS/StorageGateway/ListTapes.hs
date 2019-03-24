@@ -23,6 +23,8 @@
 --
 -- This operation supports pagination. By default, the operation returns a maximum of up to 100 tapes. You can optionally specify the @Limit@ parameter in the body to limit the number of tapes in the response. If the number of tapes returned in the response is truncated, the response includes a @Marker@ element that you can use in your subsequent request to retrieve the next set of tapes. This operation is only supported in the tape gateway type.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.StorageGateway.ListTapes
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.StorageGateway.ListTapes
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -95,6 +98,13 @@ ltLimit = lens _ltLimit (\ s a -> s{_ltLimit = a}) . mapping _Nat
 -- | Undocumented member.
 ltTapeARNs :: Lens' ListTapes [Text]
 ltTapeARNs = lens _ltTapeARNs (\ s a -> s{_ltTapeARNs = a}) . _Default . _Coerce
+
+instance AWSPager ListTapes where
+        page rq rs
+          | stop (rs ^. ltrsMarker) = Nothing
+          | stop (rs ^. ltrsTapeInfos) = Nothing
+          | otherwise =
+            Just $ rq & ltMarker .~ rs ^. ltrsMarker
 
 instance AWSRequest ListTapes where
         type Rs ListTapes = ListTapesResponse

@@ -42,6 +42,7 @@ module Network.AWS.StorageGateway.DescribeGatewayInformation
     , dgirsGatewayId
     , dgirsGatewayType
     , dgirsGatewayTimezone
+    , dgirsTags
     , dgirsResponseStatus
     ) where
 
@@ -94,6 +95,7 @@ instance AWSRequest DescribeGatewayInformation where
                      <*> (x .?> "GatewayId")
                      <*> (x .?> "GatewayType")
                      <*> (x .?> "GatewayTimezone")
+                     <*> (x .?> "Tags" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeGatewayInformation where
@@ -136,6 +138,7 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
   , _dgirsGatewayId                  :: !(Maybe Text)
   , _dgirsGatewayType                :: !(Maybe Text)
   , _dgirsGatewayTimezone            :: !(Maybe Text)
+  , _dgirsTags                       :: !(Maybe [Tag])
   , _dgirsResponseStatus             :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -162,6 +165,8 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
 --
 -- * 'dgirsGatewayTimezone' - A value that indicates the time zone configured for the gateway.
 --
+-- * 'dgirsTags' - A list of up to ten (10) tags assigned to the gateway are returned, sorted alphabetically by key name. Every tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the @ListTagsForResource@ API.
+--
 -- * 'dgirsResponseStatus' - -- | The response status code.
 describeGatewayInformationResponse
     :: Int -- ^ 'dgirsResponseStatus'
@@ -177,6 +182,7 @@ describeGatewayInformationResponse pResponseStatus_ =
     , _dgirsGatewayId = Nothing
     , _dgirsGatewayType = Nothing
     , _dgirsGatewayTimezone = Nothing
+    , _dgirsTags = Nothing
     , _dgirsResponseStatus = pResponseStatus_
     }
 
@@ -216,6 +222,10 @@ dgirsGatewayType = lens _dgirsGatewayType (\ s a -> s{_dgirsGatewayType = a})
 -- | A value that indicates the time zone configured for the gateway.
 dgirsGatewayTimezone :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayTimezone = lens _dgirsGatewayTimezone (\ s a -> s{_dgirsGatewayTimezone = a})
+
+-- | A list of up to ten (10) tags assigned to the gateway are returned, sorted alphabetically by key name. Every tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the @ListTagsForResource@ API.
+dgirsTags :: Lens' DescribeGatewayInformationResponse [Tag]
+dgirsTags = lens _dgirsTags (\ s a -> s{_dgirsTags = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dgirsResponseStatus :: Lens' DescribeGatewayInformationResponse Int

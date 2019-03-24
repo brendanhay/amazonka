@@ -145,7 +145,17 @@ instance ToPath ListVolumes where
 instance ToQuery ListVolumes where
         toQuery = const mempty
 
--- | /See:/ 'listVolumesResponse' smart constructor.
+-- | A JSON object containing the following fields:
+--
+--
+--     * 'ListVolumesOutput$Marker'
+--
+--     * 'ListVolumesOutput$VolumeInfos'
+--
+--
+--
+--
+-- /See:/ 'listVolumesResponse' smart constructor.
 data ListVolumesResponse = ListVolumesResponse'
   { _lvrsGatewayARN     :: !(Maybe Text)
   , _lvrsMarker         :: !(Maybe Text)
@@ -160,9 +170,9 @@ data ListVolumesResponse = ListVolumesResponse'
 --
 -- * 'lvrsGatewayARN' - Undocumented member.
 --
--- * 'lvrsMarker' - Undocumented member.
+-- * 'lvrsMarker' - Use the marker in your next request to continue pagination of iSCSI volumes. If there are no more volumes to list, this field does not appear in the response body.
 --
--- * 'lvrsVolumeInfos' - Undocumented member.
+-- * 'lvrsVolumeInfos' - An array of 'VolumeInfo' objects, where each object describes an iSCSI volume. If no volumes are defined for the gateway, then @VolumeInfos@ is an empty array "[]".
 --
 -- * 'lvrsResponseStatus' - -- | The response status code.
 listVolumesResponse
@@ -181,11 +191,11 @@ listVolumesResponse pResponseStatus_ =
 lvrsGatewayARN :: Lens' ListVolumesResponse (Maybe Text)
 lvrsGatewayARN = lens _lvrsGatewayARN (\ s a -> s{_lvrsGatewayARN = a})
 
--- | Undocumented member.
+-- | Use the marker in your next request to continue pagination of iSCSI volumes. If there are no more volumes to list, this field does not appear in the response body.
 lvrsMarker :: Lens' ListVolumesResponse (Maybe Text)
 lvrsMarker = lens _lvrsMarker (\ s a -> s{_lvrsMarker = a})
 
--- | Undocumented member.
+-- | An array of 'VolumeInfo' objects, where each object describes an iSCSI volume. If no volumes are defined for the gateway, then @VolumeInfos@ is an empty array "[]".
 lvrsVolumeInfos :: Lens' ListVolumesResponse [VolumeInfo]
 lvrsVolumeInfos = lens _lvrsVolumeInfos (\ s a -> s{_lvrsVolumeInfos = a}) . _Default . _Coerce
 

@@ -50,10 +50,12 @@ library
         , Network.AWS.StorageGateway.AddTagsToResource
         , Network.AWS.StorageGateway.AddUploadBuffer
         , Network.AWS.StorageGateway.AddWorkingStorage
+        , Network.AWS.StorageGateway.AttachVolume
         , Network.AWS.StorageGateway.CancelArchival
         , Network.AWS.StorageGateway.CancelRetrieval
         , Network.AWS.StorageGateway.CreateCachediSCSIVolume
         , Network.AWS.StorageGateway.CreateNFSFileShare
+        , Network.AWS.StorageGateway.CreateSMBFileShare
         , Network.AWS.StorageGateway.CreateSnapshot
         , Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
         , Network.AWS.StorageGateway.CreateStorediSCSIVolume
@@ -74,6 +76,8 @@ library
         , Network.AWS.StorageGateway.DescribeGatewayInformation
         , Network.AWS.StorageGateway.DescribeMaintenanceStartTime
         , Network.AWS.StorageGateway.DescribeNFSFileShares
+        , Network.AWS.StorageGateway.DescribeSMBFileShares
+        , Network.AWS.StorageGateway.DescribeSMBSettings
         , Network.AWS.StorageGateway.DescribeSnapshotSchedule
         , Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
         , Network.AWS.StorageGateway.DescribeTapeArchives
@@ -82,7 +86,9 @@ library
         , Network.AWS.StorageGateway.DescribeUploadBuffer
         , Network.AWS.StorageGateway.DescribeVTLDevices
         , Network.AWS.StorageGateway.DescribeWorkingStorage
+        , Network.AWS.StorageGateway.DetachVolume
         , Network.AWS.StorageGateway.DisableGateway
+        , Network.AWS.StorageGateway.JoinDomain
         , Network.AWS.StorageGateway.ListFileShares
         , Network.AWS.StorageGateway.ListGateways
         , Network.AWS.StorageGateway.ListLocalDisks
@@ -98,6 +104,7 @@ library
         , Network.AWS.StorageGateway.RetrieveTapeArchive
         , Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
         , Network.AWS.StorageGateway.SetLocalConsolePassword
+        , Network.AWS.StorageGateway.SetSMBGuestPassword
         , Network.AWS.StorageGateway.ShutdownGateway
         , Network.AWS.StorageGateway.StartGateway
         , Network.AWS.StorageGateway.Types
@@ -107,6 +114,7 @@ library
         , Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
         , Network.AWS.StorageGateway.UpdateMaintenanceStartTime
         , Network.AWS.StorageGateway.UpdateNFSFileShare
+        , Network.AWS.StorageGateway.UpdateSMBFileShare
         , Network.AWS.StorageGateway.UpdateSnapshotSchedule
         , Network.AWS.StorageGateway.UpdateVTLDeviceType
         , Network.AWS.StorageGateway.Waiters

@@ -20,6 +20,9 @@ module Network.AWS.StorageGateway.Types
     , _ServiceUnavailableError
     , _InternalServerError
 
+    -- * FileShareType
+    , FileShareType (..)
+
     -- * ObjectACL
     , ObjectACL (..)
 
@@ -29,6 +32,8 @@ module Network.AWS.StorageGateway.Types
     , cscsivVolumeiSCSIAttributes
     , cscsivVolumeStatus
     , cscsivSourceSnapshotId
+    , cscsivKMSKey
+    , cscsivVolumeAttachmentStatus
     , cscsivVolumeARN
     , cscsivVolumeProgress
     , cscsivVolumeSizeInBytes
@@ -36,6 +41,7 @@ module Network.AWS.StorageGateway.Types
     , cscsivCreatedDate
     , cscsivVolumeId
     , cscsivVolumeType
+    , cscsivTargetName
 
     -- * ChapInfo
     , ChapInfo
@@ -63,6 +69,7 @@ module Network.AWS.StorageGateway.Types
     , dDiskSizeInBytes
     , dDiskStatus
     , dDiskId
+    , dDiskAttributeList
 
     -- * FileShareInfo
     , FileShareInfo
@@ -71,6 +78,7 @@ module Network.AWS.StorageGateway.Types
     , fsiGatewayARN
     , fsiFileShareId
     , fsiFileShareARN
+    , fsiFileShareType
 
     -- * GatewayInfo
     , GatewayInfo
@@ -109,6 +117,7 @@ module Network.AWS.StorageGateway.Types
     , nfsfsiClientList
     , nfsfsiGuessMIMETypeEnabled
     , nfsfsiReadOnly
+    , nfsfsiTags
 
     -- * NetworkInterface
     , NetworkInterface
@@ -117,6 +126,28 @@ module Network.AWS.StorageGateway.Types
     , niMACAddress
     , niIPv4Address
 
+    -- * SMBFileShareInfo
+    , SMBFileShareInfo
+    , sMBFileShareInfo
+    , smbfsiFileShareStatus
+    , smbfsiInvalidUserList
+    , smbfsiKMSKey
+    , smbfsiValidUserList
+    , smbfsiGatewayARN
+    , smbfsiPath
+    , smbfsiAuthentication
+    , smbfsiObjectACL
+    , smbfsiKMSEncrypted
+    , smbfsiFileShareId
+    , smbfsiFileShareARN
+    , smbfsiDefaultStorageClass
+    , smbfsiRole
+    , smbfsiRequesterPays
+    , smbfsiLocationARN
+    , smbfsiGuessMIMETypeEnabled
+    , smbfsiReadOnly
+    , smbfsiTags
+
     -- * StorediSCSIVolume
     , StorediSCSIVolume
     , storediSCSIVolume
@@ -124,6 +155,8 @@ module Network.AWS.StorageGateway.Types
     , sscsivVolumeStatus
     , sscsivSourceSnapshotId
     , sscsivPreservedExistingData
+    , sscsivKMSKey
+    , sscsivVolumeAttachmentStatus
     , sscsivVolumeARN
     , sscsivVolumeProgress
     , sscsivVolumeSizeInBytes
@@ -132,6 +165,7 @@ module Network.AWS.StorageGateway.Types
     , sscsivVolumeId
     , sscsivVolumeDiskId
     , sscsivVolumeType
+    , sscsivTargetName
 
     -- * Tag
     , Tag
@@ -144,6 +178,7 @@ module Network.AWS.StorageGateway.Types
     , tape
     , tTapeBarcode
     , tTapeStatus
+    , tKMSKey
     , tTapeARN
     , tProgress
     , tTapeSizeInBytes
@@ -156,6 +191,7 @@ module Network.AWS.StorageGateway.Types
     , tapeArchive
     , taTapeBarcode
     , taTapeStatus
+    , taKMSKey
     , taTapeARN
     , taTapeSizeInBytes
     , taCompletionTime
@@ -193,6 +229,7 @@ module Network.AWS.StorageGateway.Types
     , VolumeInfo
     , volumeInfo
     , viGatewayARN
+    , viVolumeAttachmentStatus
     , viVolumeARN
     , viVolumeSizeInBytes
     , viVolumeId

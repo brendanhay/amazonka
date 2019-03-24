@@ -146,9 +146,9 @@ data ListGatewaysResponse = ListGatewaysResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgrsMarker' - Undocumented member.
+-- * 'lgrsMarker' - Use the marker in your next request to fetch the next set of gateways in the list. If there are no more gateways to list, this field does not appear in the response.
 --
--- * 'lgrsGateways' - Undocumented member.
+-- * 'lgrsGateways' - An array of 'GatewayInfo' objects.
 --
 -- * 'lgrsResponseStatus' - -- | The response status code.
 listGatewaysResponse
@@ -162,11 +162,11 @@ listGatewaysResponse pResponseStatus_ =
     }
 
 
--- | Undocumented member.
+-- | Use the marker in your next request to fetch the next set of gateways in the list. If there are no more gateways to list, this field does not appear in the response.
 lgrsMarker :: Lens' ListGatewaysResponse (Maybe Text)
 lgrsMarker = lens _lgrsMarker (\ s a -> s{_lgrsMarker = a})
 
--- | Undocumented member.
+-- | An array of 'GatewayInfo' objects.
 lgrsGateways :: Lens' ListGatewaysResponse [GatewayInfo]
 lgrsGateways = lens _lgrsGateways (\ s a -> s{_lgrsGateways = a}) . _Default . _Coerce
 

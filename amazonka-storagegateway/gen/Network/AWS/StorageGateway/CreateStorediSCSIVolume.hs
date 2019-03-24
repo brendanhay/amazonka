@@ -31,6 +31,8 @@ module Network.AWS.StorageGateway.CreateStorediSCSIVolume
       createStorediSCSIVolume
     , CreateStorediSCSIVolume
     -- * Request Lenses
+    , csscsivKMSKey
+    , csscsivKMSEncrypted
     , csscsivSnapshotId
     , csscsivGatewayARN
     , csscsivDiskId
@@ -73,7 +75,9 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'createStorediSCSIVolume' smart constructor.
 data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
-  { _csscsivSnapshotId           :: !(Maybe Text)
+  { _csscsivKMSKey               :: !(Maybe Text)
+  , _csscsivKMSEncrypted         :: !(Maybe Bool)
+  , _csscsivSnapshotId           :: !(Maybe Text)
   , _csscsivGatewayARN           :: !Text
   , _csscsivDiskId               :: !Text
   , _csscsivPreserveExistingData :: !Bool
@@ -86,15 +90,19 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csscsivSnapshotId' - The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot otherwise do not include this field. To list snapshots for your account use <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/ .
+-- * 'csscsivKMSKey' - The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
+--
+-- * 'csscsivKMSEncrypted' - True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by Amazon S3. Optional.
+--
+-- * 'csscsivSnapshotId' - The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot otherwise do not include this field. To list snapshots for your account use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/ .
 --
 -- * 'csscsivGatewayARN' - Undocumented member.
 --
--- * 'csscsivDiskId' - The unique identifier for the gateway local disk that is configured as a stored volume. Use <http://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks> to list disk IDs for a gateway.
+-- * 'csscsivDiskId' - The unique identifier for the gateway local disk that is configured as a stored volume. Use <https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks> to list disk IDs for a gateway.
 --
 -- * 'csscsivPreserveExistingData' - Specify this field as true if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume. Valid Values: true, false
 --
--- * 'csscsivTargetName' - The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume. The target name must be unique across all volumes of a gateway.
+-- * 'csscsivTargetName' - The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume@ . The target name must be unique across all volumes on a gateway. If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
 --
 -- * 'csscsivNetworkInterfaceId' - The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted. Use 'DescribeGatewayInformation' to get a list of the network interfaces available on a gateway. Valid Values: A valid IP address.
 createStorediSCSIVolume
@@ -106,7 +114,9 @@ createStorediSCSIVolume
     -> CreateStorediSCSIVolume
 createStorediSCSIVolume pGatewayARN_ pDiskId_ pPreserveExistingData_ pTargetName_ pNetworkInterfaceId_ =
   CreateStorediSCSIVolume'
-    { _csscsivSnapshotId = Nothing
+    { _csscsivKMSKey = Nothing
+    , _csscsivKMSEncrypted = Nothing
+    , _csscsivSnapshotId = Nothing
     , _csscsivGatewayARN = pGatewayARN_
     , _csscsivDiskId = pDiskId_
     , _csscsivPreserveExistingData = pPreserveExistingData_
@@ -115,7 +125,15 @@ createStorediSCSIVolume pGatewayARN_ pDiskId_ pPreserveExistingData_ pTargetName
     }
 
 
--- | The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot otherwise do not include this field. To list snapshots for your account use <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/ .
+-- | The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
+csscsivKMSKey :: Lens' CreateStorediSCSIVolume (Maybe Text)
+csscsivKMSKey = lens _csscsivKMSKey (\ s a -> s{_csscsivKMSKey = a})
+
+-- | True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by Amazon S3. Optional.
+csscsivKMSEncrypted :: Lens' CreateStorediSCSIVolume (Maybe Bool)
+csscsivKMSEncrypted = lens _csscsivKMSEncrypted (\ s a -> s{_csscsivKMSEncrypted = a})
+
+-- | The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored volume. Specify this field if you want to create the iSCSI storage volume from a snapshot otherwise do not include this field. To list snapshots for your account use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots> in the /Amazon Elastic Compute Cloud API Reference/ .
 csscsivSnapshotId :: Lens' CreateStorediSCSIVolume (Maybe Text)
 csscsivSnapshotId = lens _csscsivSnapshotId (\ s a -> s{_csscsivSnapshotId = a})
 
@@ -123,7 +141,7 @@ csscsivSnapshotId = lens _csscsivSnapshotId (\ s a -> s{_csscsivSnapshotId = a})
 csscsivGatewayARN :: Lens' CreateStorediSCSIVolume Text
 csscsivGatewayARN = lens _csscsivGatewayARN (\ s a -> s{_csscsivGatewayARN = a})
 
--- | The unique identifier for the gateway local disk that is configured as a stored volume. Use <http://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks> to list disk IDs for a gateway.
+-- | The unique identifier for the gateway local disk that is configured as a stored volume. Use <https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks> to list disk IDs for a gateway.
 csscsivDiskId :: Lens' CreateStorediSCSIVolume Text
 csscsivDiskId = lens _csscsivDiskId (\ s a -> s{_csscsivDiskId = a})
 
@@ -131,7 +149,7 @@ csscsivDiskId = lens _csscsivDiskId (\ s a -> s{_csscsivDiskId = a})
 csscsivPreserveExistingData :: Lens' CreateStorediSCSIVolume Bool
 csscsivPreserveExistingData = lens _csscsivPreserveExistingData (\ s a -> s{_csscsivPreserveExistingData = a})
 
--- | The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume. The target name must be unique across all volumes of a gateway.
+-- | The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying @TargetName@ as /myvolume/ results in the target ARN of @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume@ . The target name must be unique across all volumes on a gateway. If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name.
 csscsivTargetName :: Lens' CreateStorediSCSIVolume Text
 csscsivTargetName = lens _csscsivTargetName (\ s a -> s{_csscsivTargetName = a})
 
@@ -169,7 +187,9 @@ instance ToJSON CreateStorediSCSIVolume where
         toJSON CreateStorediSCSIVolume'{..}
           = object
               (catMaybes
-                 [("SnapshotId" .=) <$> _csscsivSnapshotId,
+                 [("KMSKey" .=) <$> _csscsivKMSKey,
+                  ("KMSEncrypted" .=) <$> _csscsivKMSEncrypted,
+                  ("SnapshotId" .=) <$> _csscsivSnapshotId,
                   Just ("GatewayARN" .= _csscsivGatewayARN),
                   Just ("DiskId" .= _csscsivDiskId),
                   Just
@@ -203,7 +223,7 @@ data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csscsivrsTargetARN' - he Amazon Resource Name (ARN) of the volume target that includes the iSCSI name that initiators can use to connect to the target.
+-- * 'csscsivrsTargetARN' - The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name that initiators can use to connect to the target.
 --
 -- * 'csscsivrsVolumeARN' - The Amazon Resource Name (ARN) of the configured volume.
 --
@@ -222,7 +242,7 @@ createStorediSCSIVolumeResponse pResponseStatus_ =
     }
 
 
--- | he Amazon Resource Name (ARN) of the volume target that includes the iSCSI name that initiators can use to connect to the target.
+-- | The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name that initiators can use to connect to the target.
 csscsivrsTargetARN :: Lens' CreateStorediSCSIVolumeResponse (Maybe Text)
 csscsivrsTargetARN = lens _csscsivrsTargetARN (\ s a -> s{_csscsivrsTargetARN = a})
 

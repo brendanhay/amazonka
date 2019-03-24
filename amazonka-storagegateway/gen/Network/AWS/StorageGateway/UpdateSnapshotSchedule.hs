@@ -169,7 +169,7 @@ data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ussrsVolumeARN' -
+-- * 'ussrsVolumeARN' - The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
 --
 -- * 'ussrsResponseStatus' - -- | The response status code.
 updateSnapshotScheduleResponse
@@ -180,7 +180,7 @@ updateSnapshotScheduleResponse pResponseStatus_ =
     {_ussrsVolumeARN = Nothing, _ussrsResponseStatus = pResponseStatus_}
 
 
--- |
+-- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
 ussrsVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
 ussrsVolumeARN = lens _ussrsVolumeARN (\ s a -> s{_ussrsVolumeARN = a})
 

@@ -121,7 +121,7 @@ data ListLocalDisksResponse = ListLocalDisksResponse'
 --
 -- * 'lldrsGatewayARN' - Undocumented member.
 --
--- * 'lldrsDisks' - Undocumented member.
+-- * 'lldrsDisks' - A JSON object containing the following fields:     * 'ListLocalDisksOutput$Disks'
 --
 -- * 'lldrsResponseStatus' - -- | The response status code.
 listLocalDisksResponse
@@ -139,7 +139,7 @@ listLocalDisksResponse pResponseStatus_ =
 lldrsGatewayARN :: Lens' ListLocalDisksResponse (Maybe Text)
 lldrsGatewayARN = lens _lldrsGatewayARN (\ s a -> s{_lldrsGatewayARN = a})
 
--- | Undocumented member.
+-- | A JSON object containing the following fields:     * 'ListLocalDisksOutput$Disks'
 lldrsDisks :: Lens' ListLocalDisksResponse [Disk]
 lldrsDisks = lens _lldrsDisks (\ s a -> s{_lldrsDisks = a}) . _Default . _Coerce
 

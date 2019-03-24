@@ -56,14 +56,14 @@ newtype DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcscsivVolumeARNs' - Undocumented member.
+-- * 'dcscsivVolumeARNs' - An array of strings where each string represents the Amazon Resource Name (ARN) of a cached volume. All of the specified cached volumes must from the same gateway. Use 'ListVolumes' to get volume ARNs for a gateway.
 describeCachediSCSIVolumes
     :: DescribeCachediSCSIVolumes
 describeCachediSCSIVolumes =
   DescribeCachediSCSIVolumes' {_dcscsivVolumeARNs = mempty}
 
 
--- | Undocumented member.
+-- | An array of strings where each string represents the Amazon Resource Name (ARN) of a cached volume. All of the specified cached volumes must from the same gateway. Use 'ListVolumes' to get volume ARNs for a gateway.
 dcscsivVolumeARNs :: Lens' DescribeCachediSCSIVolumes [Text]
 dcscsivVolumeARNs = lens _dcscsivVolumeARNs (\ s a -> s{_dcscsivVolumeARNs = a}) . _Coerce
 

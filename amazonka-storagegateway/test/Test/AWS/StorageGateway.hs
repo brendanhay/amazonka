@@ -15,9 +15,9 @@ module Test.AWS.StorageGateway
     , fixtures
     ) where
 
-import           Network.AWS.StorageGateway
-import           Test.AWS.Gen.StorageGateway
-import           Test.Tasty
+import Network.AWS.StorageGateway
+import Test.AWS.Gen.StorageGateway
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

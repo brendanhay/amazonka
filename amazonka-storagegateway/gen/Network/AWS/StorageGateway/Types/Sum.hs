@@ -19,7 +19,37 @@ module Network.AWS.StorageGateway.Types.Sum where
 
 import Network.AWS.Prelude
 
--- | Sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is "private".
+-- | The type of the file share.
+--
+--
+data FileShareType
+  = Nfs
+  | Smb
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FileShareType where
+    parser = takeLowerText >>= \case
+        "nfs" -> pure Nfs
+        "smb" -> pure Smb
+        e -> fromTextError $ "Failure parsing FileShareType from value: '" <> e
+           <> "'. Accepted values: nfs, smb"
+
+instance ToText FileShareType where
+    toText = \case
+        Nfs -> "NFS"
+        Smb -> "SMB"
+
+instance Hashable     FileShareType
+instance NFData       FileShareType
+instance ToByteString FileShareType
+instance ToQuery      FileShareType
+instance ToHeader     FileShareType
+
+instance FromJSON FileShareType where
+    parseJSON = parseJSONText "FileShareType"
+
+-- | A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is "private".
 --
 --
 data ObjectACL

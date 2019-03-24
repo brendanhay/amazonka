@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a file share. This operation is only supported in the file gateway type.
+-- Updates a Network File System (NFS) file share. This operation is only supported in the file gateway type.
 --
 --
 -- Updates the following file share setting:
@@ -92,25 +92,25 @@ data UpdateNFSFileShare = UpdateNFSFileShare'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'unfsfsKMSKey' - The KMS key used for Amazon S3 server side encryption. This value can only be set when KmsEncrypted is true. Optional.
+-- * 'unfsfsKMSKey' - The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
 --
--- * 'unfsfsObjectACL' - Sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is "private".
+-- * 'unfsfsObjectACL' - A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is "private".
 --
 -- * 'unfsfsKMSEncrypted' - True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by Amazon S3. Optional.
 --
--- * 'unfsfsDefaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by a file gateway. Possible values are S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used. Optional.
+-- * 'unfsfsDefaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by the file gateway. Possible values are @S3_STANDARD@ , @S3_STANDARD_IA@ , or @S3_ONEZONE_IA@ . If this field is not populated, the default value @S3_STANDARD@ is used. Optional.
 --
--- * 'unfsfsSquash' - The user mapped to anonymous user. Valid options are the following:     * "RootSquash" - Only root is mapped to anonymous user.     * "NoSquash" - No one is mapped to anonymous user     * "AllSquash" - Everyone is mapped to anonymous user.
+-- * 'unfsfsSquash' - The user mapped to anonymous user. Valid options are the following:     * @RootSquash@ - Only root is mapped to anonymous user.     * @NoSquash@ - No one is mapped to anonymous user     * @AllSquash@ - Everyone is mapped to anonymous user.
 --
--- * 'unfsfsRequesterPays' - Sets who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to true if you want the requester to pay instead of the bucket owner, and otherwise to false.
+-- * 'unfsfsRequesterPays' - A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts objects into. The default value is @private@ .
 --
 -- * 'unfsfsNFSFileShareDefaults' - The default values for the file share. Optional.
 --
 -- * 'unfsfsClientList' - The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
 --
--- * 'unfsfsGuessMIMETypeEnabled' - Enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, and otherwise to false. The default value is true.
+-- * 'unfsfsGuessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, and otherwise to false. The default value is true.
 --
--- * 'unfsfsReadOnly' - Sets the write status of a file share. This value is true if the write status is read-only, and otherwise false.
+-- * 'unfsfsReadOnly' - A value that sets the write status of a file share. This value is true if the write status is read-only, and otherwise false.
 --
 -- * 'unfsfsFileShareARN' - The Amazon Resource Name (ARN) of the file share to be updated.
 updateNFSFileShare
@@ -132,11 +132,11 @@ updateNFSFileShare pFileShareARN_ =
     }
 
 
--- | The KMS key used for Amazon S3 server side encryption. This value can only be set when KmsEncrypted is true. Optional.
+-- | The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
 unfsfsKMSKey :: Lens' UpdateNFSFileShare (Maybe Text)
 unfsfsKMSKey = lens _unfsfsKMSKey (\ s a -> s{_unfsfsKMSKey = a})
 
--- | Sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is "private".
+-- | A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is "private".
 unfsfsObjectACL :: Lens' UpdateNFSFileShare (Maybe ObjectACL)
 unfsfsObjectACL = lens _unfsfsObjectACL (\ s a -> s{_unfsfsObjectACL = a})
 
@@ -144,15 +144,15 @@ unfsfsObjectACL = lens _unfsfsObjectACL (\ s a -> s{_unfsfsObjectACL = a})
 unfsfsKMSEncrypted :: Lens' UpdateNFSFileShare (Maybe Bool)
 unfsfsKMSEncrypted = lens _unfsfsKMSEncrypted (\ s a -> s{_unfsfsKMSEncrypted = a})
 
--- | The default storage class for objects put into an Amazon S3 bucket by a file gateway. Possible values are S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used. Optional.
+-- | The default storage class for objects put into an Amazon S3 bucket by the file gateway. Possible values are @S3_STANDARD@ , @S3_STANDARD_IA@ , or @S3_ONEZONE_IA@ . If this field is not populated, the default value @S3_STANDARD@ is used. Optional.
 unfsfsDefaultStorageClass :: Lens' UpdateNFSFileShare (Maybe Text)
 unfsfsDefaultStorageClass = lens _unfsfsDefaultStorageClass (\ s a -> s{_unfsfsDefaultStorageClass = a})
 
--- | The user mapped to anonymous user. Valid options are the following:     * "RootSquash" - Only root is mapped to anonymous user.     * "NoSquash" - No one is mapped to anonymous user     * "AllSquash" - Everyone is mapped to anonymous user.
+-- | The user mapped to anonymous user. Valid options are the following:     * @RootSquash@ - Only root is mapped to anonymous user.     * @NoSquash@ - No one is mapped to anonymous user     * @AllSquash@ - Everyone is mapped to anonymous user.
 unfsfsSquash :: Lens' UpdateNFSFileShare (Maybe Text)
 unfsfsSquash = lens _unfsfsSquash (\ s a -> s{_unfsfsSquash = a})
 
--- | Sets who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to true if you want the requester to pay instead of the bucket owner, and otherwise to false.
+-- | A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts objects into. The default value is @private@ .
 unfsfsRequesterPays :: Lens' UpdateNFSFileShare (Maybe Bool)
 unfsfsRequesterPays = lens _unfsfsRequesterPays (\ s a -> s{_unfsfsRequesterPays = a})
 
@@ -164,11 +164,11 @@ unfsfsNFSFileShareDefaults = lens _unfsfsNFSFileShareDefaults (\ s a -> s{_unfsf
 unfsfsClientList :: Lens' UpdateNFSFileShare (Maybe (NonEmpty Text))
 unfsfsClientList = lens _unfsfsClientList (\ s a -> s{_unfsfsClientList = a}) . mapping _List1
 
--- | Enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, and otherwise to false. The default value is true.
+-- | A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, and otherwise to false. The default value is true.
 unfsfsGuessMIMETypeEnabled :: Lens' UpdateNFSFileShare (Maybe Bool)
 unfsfsGuessMIMETypeEnabled = lens _unfsfsGuessMIMETypeEnabled (\ s a -> s{_unfsfsGuessMIMETypeEnabled = a})
 
--- | Sets the write status of a file share. This value is true if the write status is read-only, and otherwise false.
+-- | A value that sets the write status of a file share. This value is true if the write status is read-only, and otherwise false.
 unfsfsReadOnly :: Lens' UpdateNFSFileShare (Maybe Bool)
 unfsfsReadOnly = lens _unfsfsReadOnly (\ s a -> s{_unfsfsReadOnly = a})
 

@@ -124,13 +124,13 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dubrsUploadBufferAllocatedInBytes' - Undocumented member.
+-- * 'dubrsUploadBufferAllocatedInBytes' - The total number of bytes allocated in the gateway's as upload buffer.
 --
 -- * 'dubrsGatewayARN' - Undocumented member.
 --
--- * 'dubrsDiskIds' - Undocumented member.
+-- * 'dubrsDiskIds' - An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
 --
--- * 'dubrsUploadBufferUsedInBytes' - Undocumented member.
+-- * 'dubrsUploadBufferUsedInBytes' - The total number of bytes being used in the gateway's upload buffer.
 --
 -- * 'dubrsResponseStatus' - -- | The response status code.
 describeUploadBufferResponse
@@ -146,7 +146,7 @@ describeUploadBufferResponse pResponseStatus_ =
     }
 
 
--- | Undocumented member.
+-- | The total number of bytes allocated in the gateway's as upload buffer.
 dubrsUploadBufferAllocatedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
 dubrsUploadBufferAllocatedInBytes = lens _dubrsUploadBufferAllocatedInBytes (\ s a -> s{_dubrsUploadBufferAllocatedInBytes = a})
 
@@ -154,11 +154,11 @@ dubrsUploadBufferAllocatedInBytes = lens _dubrsUploadBufferAllocatedInBytes (\ s
 dubrsGatewayARN :: Lens' DescribeUploadBufferResponse (Maybe Text)
 dubrsGatewayARN = lens _dubrsGatewayARN (\ s a -> s{_dubrsGatewayARN = a})
 
--- | Undocumented member.
+-- | An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
 dubrsDiskIds :: Lens' DescribeUploadBufferResponse [Text]
 dubrsDiskIds = lens _dubrsDiskIds (\ s a -> s{_dubrsDiskIds = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- | The total number of bytes being used in the gateway's upload buffer.
 dubrsUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
 dubrsUploadBufferUsedInBytes = lens _dubrsUploadBufferUsedInBytes (\ s a -> s{_dubrsUploadBufferUsedInBytes = a})
 

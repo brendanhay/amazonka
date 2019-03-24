@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a file share on an existing file gateway. In Storage Gateway, a file share is a file system mount point backed by Amazon S3 cloud storage. Storage Gateway exposes file shares using a Network File System (NFS) interface. This operation is only supported in the file gateway type.
+-- Creates a Network File System (NFS) file share on an existing file gateway. In Storage Gateway, a file share is a file system mount point backed by Amazon S3 cloud storage. Storage Gateway exposes file shares using a NFS interface. This operation is only supported for file gateways.
 --
 --
 -- /Important:/ File gateway requires AWS Security Token Service (AWS STS) to be activated to enable you create a file share. Make sure AWS STS is activated in the region you are creating your file gateway in. If AWS STS is not activated in the region, activate it. For information about how to activate AWS STS, see Activating and Deactivating AWS STS in an AWS Region in the AWS Identity and Access Management User Guide.
@@ -41,6 +41,7 @@ module Network.AWS.StorageGateway.CreateNFSFileShare
     , cnfsfsClientList
     , cnfsfsGuessMIMETypeEnabled
     , cnfsfsReadOnly
+    , cnfsfsTags
     , cnfsfsClientToken
     , cnfsfsGatewayARN
     , cnfsfsRole
@@ -77,6 +78,7 @@ data CreateNFSFileShare = CreateNFSFileShare'
   , _cnfsfsClientList           :: !(Maybe (List1 Text))
   , _cnfsfsGuessMIMETypeEnabled :: !(Maybe Bool)
   , _cnfsfsReadOnly             :: !(Maybe Bool)
+  , _cnfsfsTags                 :: !(Maybe [Tag])
   , _cnfsfsClientToken          :: !Text
   , _cnfsfsGatewayARN           :: !Text
   , _cnfsfsRole                 :: !Text
@@ -88,25 +90,27 @@ data CreateNFSFileShare = CreateNFSFileShare'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cnfsfsKMSKey' - The KMS key used for Amazon S3 server side encryption. This value can only be set when KmsEncrypted is true. Optional.
+-- * 'cnfsfsKMSKey' - The Amazon Resource Name (ARN) AWS KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
 --
--- * 'cnfsfsObjectACL' - Sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts objects into. The default value is "private".
+-- * 'cnfsfsObjectACL' - A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is "private".
 --
 -- * 'cnfsfsKMSEncrypted' - True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by Amazon S3. Optional.
 --
--- * 'cnfsfsDefaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by file gateway. Possible values are S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used. Optional.
+-- * 'cnfsfsDefaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by the file gateway. Possible values are @S3_STANDARD@ , @S3_STANDARD_IA@ , or @S3_ONEZONE_IA@ . If this field is not populated, the default value @S3_STANDARD@ is used. Optional.
 --
--- * 'cnfsfsSquash' - Maps a user to anonymous user. Valid options are the following:      * "RootSquash" - Only root is mapped to anonymous user.     * "NoSquash" - No one is mapped to anonymous user.     * "AllSquash" - Everyone is mapped to anonymous user.
+-- * 'cnfsfsSquash' - Maps a user to anonymous user. Valid options are the following:      * @RootSquash@ - Only root is mapped to anonymous user.     * @NoSquash@ - No one is mapped to anonymous user     * @AllSquash@ - Everyone is mapped to anonymous user.
 --
--- * 'cnfsfsRequesterPays' - Sets who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to true if you want the requester to pay instead of the bucket owner, and otherwise to false.
+-- * 'cnfsfsRequesterPays' - A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts objects into. The default value is @private@ .
 --
 -- * 'cnfsfsNFSFileShareDefaults' - File share default values. Optional.
 --
 -- * 'cnfsfsClientList' - The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
 --
--- * 'cnfsfsGuessMIMETypeEnabled' - Enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, and otherwise to false. The default value is true.
+-- * 'cnfsfsGuessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, and otherwise to false. The default value is true.
 --
--- * 'cnfsfsReadOnly' - Sets the write status of a file share. This value is true if the write status is read-only, and otherwise false.
+-- * 'cnfsfsReadOnly' - A value that sets the write status of a file share. This value is true if the write status is read-only, and otherwise false.
+--
+-- * 'cnfsfsTags' - A list of up to ten (10) tags can be assigned to the NFS file share. Every tag is a key-value pair.
 --
 -- * 'cnfsfsClientToken' - A unique string value that you supply that is used by file gateway to ensure idempotent file share creation.
 --
@@ -133,6 +137,7 @@ createNFSFileShare pClientToken_ pGatewayARN_ pRole_ pLocationARN_ =
     , _cnfsfsClientList = Nothing
     , _cnfsfsGuessMIMETypeEnabled = Nothing
     , _cnfsfsReadOnly = Nothing
+    , _cnfsfsTags = Nothing
     , _cnfsfsClientToken = pClientToken_
     , _cnfsfsGatewayARN = pGatewayARN_
     , _cnfsfsRole = pRole_
@@ -140,11 +145,11 @@ createNFSFileShare pClientToken_ pGatewayARN_ pRole_ pLocationARN_ =
     }
 
 
--- | The KMS key used for Amazon S3 server side encryption. This value can only be set when KmsEncrypted is true. Optional.
+-- | The Amazon Resource Name (ARN) AWS KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
 cnfsfsKMSKey :: Lens' CreateNFSFileShare (Maybe Text)
 cnfsfsKMSKey = lens _cnfsfsKMSKey (\ s a -> s{_cnfsfsKMSKey = a})
 
--- | Sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts objects into. The default value is "private".
+-- | A value that sets the access control list permission for objects in the S3 bucket that a file gateway puts objects into. The default value is "private".
 cnfsfsObjectACL :: Lens' CreateNFSFileShare (Maybe ObjectACL)
 cnfsfsObjectACL = lens _cnfsfsObjectACL (\ s a -> s{_cnfsfsObjectACL = a})
 
@@ -152,15 +157,15 @@ cnfsfsObjectACL = lens _cnfsfsObjectACL (\ s a -> s{_cnfsfsObjectACL = a})
 cnfsfsKMSEncrypted :: Lens' CreateNFSFileShare (Maybe Bool)
 cnfsfsKMSEncrypted = lens _cnfsfsKMSEncrypted (\ s a -> s{_cnfsfsKMSEncrypted = a})
 
--- | The default storage class for objects put into an Amazon S3 bucket by file gateway. Possible values are S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used. Optional.
+-- | The default storage class for objects put into an Amazon S3 bucket by the file gateway. Possible values are @S3_STANDARD@ , @S3_STANDARD_IA@ , or @S3_ONEZONE_IA@ . If this field is not populated, the default value @S3_STANDARD@ is used. Optional.
 cnfsfsDefaultStorageClass :: Lens' CreateNFSFileShare (Maybe Text)
 cnfsfsDefaultStorageClass = lens _cnfsfsDefaultStorageClass (\ s a -> s{_cnfsfsDefaultStorageClass = a})
 
--- | Maps a user to anonymous user. Valid options are the following:      * "RootSquash" - Only root is mapped to anonymous user.     * "NoSquash" - No one is mapped to anonymous user.     * "AllSquash" - Everyone is mapped to anonymous user.
+-- | Maps a user to anonymous user. Valid options are the following:      * @RootSquash@ - Only root is mapped to anonymous user.     * @NoSquash@ - No one is mapped to anonymous user     * @AllSquash@ - Everyone is mapped to anonymous user.
 cnfsfsSquash :: Lens' CreateNFSFileShare (Maybe Text)
 cnfsfsSquash = lens _cnfsfsSquash (\ s a -> s{_cnfsfsSquash = a})
 
--- | Sets who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to true if you want the requester to pay instead of the bucket owner, and otherwise to false.
+-- | A value that sets the access control list permission for objects in the Amazon S3 bucket that a file gateway puts objects into. The default value is @private@ .
 cnfsfsRequesterPays :: Lens' CreateNFSFileShare (Maybe Bool)
 cnfsfsRequesterPays = lens _cnfsfsRequesterPays (\ s a -> s{_cnfsfsRequesterPays = a})
 
@@ -172,13 +177,17 @@ cnfsfsNFSFileShareDefaults = lens _cnfsfsNFSFileShareDefaults (\ s a -> s{_cnfsf
 cnfsfsClientList :: Lens' CreateNFSFileShare (Maybe (NonEmpty Text))
 cnfsfsClientList = lens _cnfsfsClientList (\ s a -> s{_cnfsfsClientList = a}) . mapping _List1
 
--- | Enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, and otherwise to false. The default value is true.
+-- | A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, and otherwise to false. The default value is true.
 cnfsfsGuessMIMETypeEnabled :: Lens' CreateNFSFileShare (Maybe Bool)
 cnfsfsGuessMIMETypeEnabled = lens _cnfsfsGuessMIMETypeEnabled (\ s a -> s{_cnfsfsGuessMIMETypeEnabled = a})
 
--- | Sets the write status of a file share. This value is true if the write status is read-only, and otherwise false.
+-- | A value that sets the write status of a file share. This value is true if the write status is read-only, and otherwise false.
 cnfsfsReadOnly :: Lens' CreateNFSFileShare (Maybe Bool)
 cnfsfsReadOnly = lens _cnfsfsReadOnly (\ s a -> s{_cnfsfsReadOnly = a})
+
+-- | A list of up to ten (10) tags can be assigned to the NFS file share. Every tag is a key-value pair.
+cnfsfsTags :: Lens' CreateNFSFileShare [Tag]
+cnfsfsTags = lens _cnfsfsTags (\ s a -> s{_cnfsfsTags = a}) . _Default . _Coerce
 
 -- | A unique string value that you supply that is used by file gateway to ensure idempotent file share creation.
 cnfsfsClientToken :: Lens' CreateNFSFileShare Text
@@ -237,6 +246,7 @@ instance ToJSON CreateNFSFileShare where
                   ("GuessMIMETypeEnabled" .=) <$>
                     _cnfsfsGuessMIMETypeEnabled,
                   ("ReadOnly" .=) <$> _cnfsfsReadOnly,
+                  ("Tags" .=) <$> _cnfsfsTags,
                   Just ("ClientToken" .= _cnfsfsClientToken),
                   Just ("GatewayARN" .= _cnfsfsGatewayARN),
                   Just ("Role" .= _cnfsfsRole),

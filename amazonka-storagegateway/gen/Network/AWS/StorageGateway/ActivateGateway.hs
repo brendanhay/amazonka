@@ -30,6 +30,7 @@ module Network.AWS.StorageGateway.ActivateGateway
     , agMediumChangerType
     , agTapeDriveType
     , agGatewayType
+    , agTags
     , agActivationKey
     , agGatewayName
     , agGatewayTimezone
@@ -75,6 +76,7 @@ data ActivateGateway = ActivateGateway'
   { _agMediumChangerType :: !(Maybe Text)
   , _agTapeDriveType     :: !(Maybe Text)
   , _agGatewayType       :: !(Maybe Text)
+  , _agTags              :: !(Maybe [Tag])
   , _agActivationKey     :: !Text
   , _agGatewayName       :: !Text
   , _agGatewayTimezone   :: !Text
@@ -90,7 +92,9 @@ data ActivateGateway = ActivateGateway'
 --
 -- * 'agTapeDriveType' - The value that indicates the type of tape drive to use for tape gateway. This field is optional. Valid Values: "IBM-ULT3580-TD5"
 --
--- * 'agGatewayType' - A value that defines the type of gateway to activate. The type specified is critical to all later functions of the gateway and cannot be changed after activation. The default value is @STORED@ .  Valid Values: "STORED", "CACHED", "VTL", "FILE_S3"
+-- * 'agGatewayType' - A value that defines the type of gateway to activate. The type specified is critical to all later functions of the gateway and cannot be changed after activation. The default value is @CACHED@ .  Valid Values: "STORED", "CACHED", "VTL", "FILE_S3"
+--
+-- * 'agTags' - A list of up to ten (10) tags assigned to the gateway may be specified. Every tag is a key-value pair.
 --
 -- * 'agActivationKey' - Your gateway activation key. You can obtain the activation key by sending an HTTP GET request with redirects enabled to the gateway IP address (port 80). The redirect URL returned in the response provides you the activation key for your gateway in the query string parameter @activationKey@ . It may also include other activation-related parameters, however, these are merely defaults -- the arguments you pass to the @ActivateGateway@ API call determine the actual configuration of your gateway.  For more information, see https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html in the Storage Gateway User Guide.
 --
@@ -98,7 +102,7 @@ data ActivateGateway = ActivateGateway'
 --
 -- * 'agGatewayTimezone' - A value that indicates the time zone you want to set for the gateway. The time zone is of the format "GMT-hr:mm" or "GMT+hr:mm". For example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00 indicates the time is 2 hours ahead of GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
 --
--- * 'agGatewayRegion' - A value that indicates the region where you want to store your data. The gateway region specified must be the same region as the region in your @Host@ header in the request. For more information about available regions and endpoints for AWS Storage Gateway, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region Regions and Endpoints> in the /Amazon Web Services Glossary/ . Valid Values: "us-east-1", "us-east-2", "us-west-1", "us-west-2", "ca-central-1", "eu-west-1", "eu-central-1", "eu-west-2", "eu-west-3", "ap-northeast-1", "ap-northeast-2", "ap-southeast-1", "ap-southeast-2", "ap-south-1", "sa-east-1"
+-- * 'agGatewayRegion' - A value that indicates the region where you want to store your data. The gateway region specified must be the same region as the region in your @Host@ header in the request. For more information about available regions and endpoints for AWS Storage Gateway, see <https://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region Regions and Endpoints> in the /Amazon Web Services Glossary/ . Valid Values: See <https://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region AWS Storage Gateway Regions and Endpoints> in the AWS General Reference.
 activateGateway
     :: Text -- ^ 'agActivationKey'
     -> Text -- ^ 'agGatewayName'
@@ -110,6 +114,7 @@ activateGateway pActivationKey_ pGatewayName_ pGatewayTimezone_ pGatewayRegion_ 
     { _agMediumChangerType = Nothing
     , _agTapeDriveType = Nothing
     , _agGatewayType = Nothing
+    , _agTags = Nothing
     , _agActivationKey = pActivationKey_
     , _agGatewayName = pGatewayName_
     , _agGatewayTimezone = pGatewayTimezone_
@@ -125,9 +130,13 @@ agMediumChangerType = lens _agMediumChangerType (\ s a -> s{_agMediumChangerType
 agTapeDriveType :: Lens' ActivateGateway (Maybe Text)
 agTapeDriveType = lens _agTapeDriveType (\ s a -> s{_agTapeDriveType = a})
 
--- | A value that defines the type of gateway to activate. The type specified is critical to all later functions of the gateway and cannot be changed after activation. The default value is @STORED@ .  Valid Values: "STORED", "CACHED", "VTL", "FILE_S3"
+-- | A value that defines the type of gateway to activate. The type specified is critical to all later functions of the gateway and cannot be changed after activation. The default value is @CACHED@ .  Valid Values: "STORED", "CACHED", "VTL", "FILE_S3"
 agGatewayType :: Lens' ActivateGateway (Maybe Text)
 agGatewayType = lens _agGatewayType (\ s a -> s{_agGatewayType = a})
+
+-- | A list of up to ten (10) tags assigned to the gateway may be specified. Every tag is a key-value pair.
+agTags :: Lens' ActivateGateway [Tag]
+agTags = lens _agTags (\ s a -> s{_agTags = a}) . _Default . _Coerce
 
 -- | Your gateway activation key. You can obtain the activation key by sending an HTTP GET request with redirects enabled to the gateway IP address (port 80). The redirect URL returned in the response provides you the activation key for your gateway in the query string parameter @activationKey@ . It may also include other activation-related parameters, however, these are merely defaults -- the arguments you pass to the @ActivateGateway@ API call determine the actual configuration of your gateway.  For more information, see https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html in the Storage Gateway User Guide.
 agActivationKey :: Lens' ActivateGateway Text
@@ -141,7 +150,7 @@ agGatewayName = lens _agGatewayName (\ s a -> s{_agGatewayName = a})
 agGatewayTimezone :: Lens' ActivateGateway Text
 agGatewayTimezone = lens _agGatewayTimezone (\ s a -> s{_agGatewayTimezone = a})
 
--- | A value that indicates the region where you want to store your data. The gateway region specified must be the same region as the region in your @Host@ header in the request. For more information about available regions and endpoints for AWS Storage Gateway, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region Regions and Endpoints> in the /Amazon Web Services Glossary/ . Valid Values: "us-east-1", "us-east-2", "us-west-1", "us-west-2", "ca-central-1", "eu-west-1", "eu-central-1", "eu-west-2", "eu-west-3", "ap-northeast-1", "ap-northeast-2", "ap-southeast-1", "ap-southeast-2", "ap-south-1", "sa-east-1"
+-- | A value that indicates the region where you want to store your data. The gateway region specified must be the same region as the region in your @Host@ header in the request. For more information about available regions and endpoints for AWS Storage Gateway, see <https://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region Regions and Endpoints> in the /Amazon Web Services Glossary/ . Valid Values: See <https://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region AWS Storage Gateway Regions and Endpoints> in the AWS General Reference.
 agGatewayRegion :: Lens' ActivateGateway Text
 agGatewayRegion = lens _agGatewayRegion (\ s a -> s{_agGatewayRegion = a})
 
@@ -175,6 +184,7 @@ instance ToJSON ActivateGateway where
                  [("MediumChangerType" .=) <$> _agMediumChangerType,
                   ("TapeDriveType" .=) <$> _agTapeDriveType,
                   ("GatewayType" .=) <$> _agGatewayType,
+                  ("Tags" .=) <$> _agTags,
                   Just ("ActivationKey" .= _agActivationKey),
                   Just ("GatewayName" .= _agGatewayName),
                   Just ("GatewayTimezone" .= _agGatewayTimezone),

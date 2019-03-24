@@ -118,7 +118,7 @@ data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lvrprsVolumeRecoveryPointInfos' - Undocumented member.
+-- * 'lvrprsVolumeRecoveryPointInfos' - An array of 'VolumeRecoveryPointInfo' objects.
 --
 -- * 'lvrprsGatewayARN' - Undocumented member.
 --
@@ -134,7 +134,7 @@ listVolumeRecoveryPointsResponse pResponseStatus_ =
     }
 
 
--- | Undocumented member.
+-- | An array of 'VolumeRecoveryPointInfo' objects.
 lvrprsVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeRecoveryPointInfo]
 lvrprsVolumeRecoveryPointInfos = lens _lvrprsVolumeRecoveryPointInfos (\ s a -> s{_lvrprsVolumeRecoveryPointInfos = a}) . _Default . _Coerce
 

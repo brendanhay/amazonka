@@ -128,15 +128,15 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssrsStartAt' - Undocumented member.
+-- * 'dssrsStartAt' - The hour of the day at which the snapshot schedule begins represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
 --
--- * 'dssrsVolumeARN' - Undocumented member.
+-- * 'dssrsVolumeARN' - The Amazon Resource Name (ARN) of the volume that was specified in the request.
 --
--- * 'dssrsRecurrenceInHours' - Undocumented member.
+-- * 'dssrsRecurrenceInHours' - The number of hours between snapshots.
 --
--- * 'dssrsTimezone' - Undocumented member.
+-- * 'dssrsTimezone' - A value that indicates the time zone of the gateway.
 --
--- * 'dssrsDescription' - Undocumented member.
+-- * 'dssrsDescription' - The snapshot description.
 --
 -- * 'dssrsResponseStatus' - -- | The response status code.
 describeSnapshotScheduleResponse
@@ -153,23 +153,23 @@ describeSnapshotScheduleResponse pResponseStatus_ =
     }
 
 
--- | Undocumented member.
+-- | The hour of the day at which the snapshot schedule begins represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
 dssrsStartAt :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
 dssrsStartAt = lens _dssrsStartAt (\ s a -> s{_dssrsStartAt = a}) . mapping _Nat
 
--- | Undocumented member.
+-- | The Amazon Resource Name (ARN) of the volume that was specified in the request.
 dssrsVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrsVolumeARN = lens _dssrsVolumeARN (\ s a -> s{_dssrsVolumeARN = a})
 
--- | Undocumented member.
+-- | The number of hours between snapshots.
 dssrsRecurrenceInHours :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
 dssrsRecurrenceInHours = lens _dssrsRecurrenceInHours (\ s a -> s{_dssrsRecurrenceInHours = a}) . mapping _Nat
 
--- | Undocumented member.
+-- | A value that indicates the time zone of the gateway.
 dssrsTimezone :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrsTimezone = lens _dssrsTimezone (\ s a -> s{_dssrsTimezone = a})
 
--- | Undocumented member.
+-- | The snapshot description.
 dssrsDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrsDescription = lens _dssrsDescription (\ s a -> s{_dssrsDescription = a})
 

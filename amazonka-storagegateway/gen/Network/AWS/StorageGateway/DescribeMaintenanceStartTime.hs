@@ -149,7 +149,7 @@ data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
 --
 -- * 'dmstrsHourOfDay' - The hour component of the maintenance start time represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
 --
--- * 'dmstrsTimezone' - Undocumented member.
+-- * 'dmstrsTimezone' - A value that indicates the time zone that is set for the gateway. The start time and day of week specified should be in the time zone of the gateway.
 --
 -- * 'dmstrsDayOfWeek' - An ordinal number between 0 and 6 that represents the day of the week, where 0 represents Sunday and 6 represents Saturday. The day of week is in the time zone of the gateway.
 --
@@ -180,7 +180,7 @@ dmstrsMinuteOfHour = lens _dmstrsMinuteOfHour (\ s a -> s{_dmstrsMinuteOfHour = 
 dmstrsHourOfDay :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrsHourOfDay = lens _dmstrsHourOfDay (\ s a -> s{_dmstrsHourOfDay = a}) . mapping _Nat
 
--- | Undocumented member.
+-- | A value that indicates the time zone that is set for the gateway. The start time and day of week specified should be in the time zone of the gateway.
 dmstrsTimezone :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
 dmstrsTimezone = lens _dmstrsTimezone (\ s a -> s{_dmstrsTimezone = a})
 

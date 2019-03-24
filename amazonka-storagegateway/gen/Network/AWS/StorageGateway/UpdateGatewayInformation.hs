@@ -61,7 +61,7 @@ data UpdateGatewayInformation = UpdateGatewayInformation'
 --
 -- * 'ugiGatewayName' - Undocumented member.
 --
--- * 'ugiGatewayTimezone' - Undocumented member.
+-- * 'ugiGatewayTimezone' - A value that indicates the time zone of the gateway.
 --
 -- * 'ugiGatewayARN' - Undocumented member.
 updateGatewayInformation
@@ -79,7 +79,7 @@ updateGatewayInformation pGatewayARN_ =
 ugiGatewayName :: Lens' UpdateGatewayInformation (Maybe Text)
 ugiGatewayName = lens _ugiGatewayName (\ s a -> s{_ugiGatewayName = a})
 
--- | Undocumented member.
+-- | A value that indicates the time zone of the gateway.
 ugiGatewayTimezone :: Lens' UpdateGatewayInformation (Maybe Text)
 ugiGatewayTimezone = lens _ugiGatewayTimezone (\ s a -> s{_ugiGatewayTimezone = a})
 
@@ -144,7 +144,7 @@ data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
 --
 -- * 'ugirsGatewayARN' - Undocumented member.
 --
--- * 'ugirsGatewayName' - Undocumented member.
+-- * 'ugirsGatewayName' - The name you configured for your gateway.
 --
 -- * 'ugirsResponseStatus' - -- | The response status code.
 updateGatewayInformationResponse
@@ -162,7 +162,7 @@ updateGatewayInformationResponse pResponseStatus_ =
 ugirsGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
 ugirsGatewayARN = lens _ugirsGatewayARN (\ s a -> s{_ugirsGatewayARN = a})
 
--- | Undocumented member.
+-- | The name you configured for your gateway.
 ugirsGatewayName :: Lens' UpdateGatewayInformationResponse (Maybe Text)
 ugirsGatewayName = lens _ugirsGatewayName (\ s a -> s{_ugirsGatewayName = a})
 

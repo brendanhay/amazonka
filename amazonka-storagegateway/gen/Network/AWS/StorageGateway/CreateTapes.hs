@@ -27,6 +27,8 @@ module Network.AWS.StorageGateway.CreateTapes
       createTapes
     , CreateTapes
     -- * Request Lenses
+    , ctKMSKey
+    , ctKMSEncrypted
     , ctGatewayARN
     , ctTapeSizeInBytes
     , ctClientToken
@@ -54,7 +56,9 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'createTapes' smart constructor.
 data CreateTapes = CreateTapes'
-  { _ctGatewayARN        :: !Text
+  { _ctKMSKey            :: !(Maybe Text)
+  , _ctKMSEncrypted      :: !(Maybe Bool)
+  , _ctGatewayARN        :: !Text
   , _ctTapeSizeInBytes   :: !Integer
   , _ctClientToken       :: !Text
   , _ctNumTapesToCreate  :: !Nat
@@ -65,6 +69,10 @@ data CreateTapes = CreateTapes'
 -- | Creates a value of 'CreateTapes' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ctKMSKey' - The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
+--
+-- * 'ctKMSEncrypted' - True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by Amazon S3. Optional.
 --
 -- * 'ctGatewayARN' - The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tapes with. Use the 'ListGateways' operation to return a list of gateways for your account and region.
 --
@@ -84,13 +92,23 @@ createTapes
     -> CreateTapes
 createTapes pGatewayARN_ pTapeSizeInBytes_ pClientToken_ pNumTapesToCreate_ pTapeBarcodePrefix_ =
   CreateTapes'
-    { _ctGatewayARN = pGatewayARN_
+    { _ctKMSKey = Nothing
+    , _ctKMSEncrypted = Nothing
+    , _ctGatewayARN = pGatewayARN_
     , _ctTapeSizeInBytes = pTapeSizeInBytes_
     , _ctClientToken = pClientToken_
     , _ctNumTapesToCreate = _Nat # pNumTapesToCreate_
     , _ctTapeBarcodePrefix = pTapeBarcodePrefix_
     }
 
+
+-- | The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
+ctKMSKey :: Lens' CreateTapes (Maybe Text)
+ctKMSKey = lens _ctKMSKey (\ s a -> s{_ctKMSKey = a})
+
+-- | True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by Amazon S3. Optional.
+ctKMSEncrypted :: Lens' CreateTapes (Maybe Bool)
+ctKMSEncrypted = lens _ctKMSEncrypted (\ s a -> s{_ctKMSEncrypted = a})
 
 -- | The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tapes with. Use the 'ListGateways' operation to return a list of gateways for your account and region.
 ctGatewayARN :: Lens' CreateTapes Text
@@ -140,7 +158,9 @@ instance ToJSON CreateTapes where
         toJSON CreateTapes'{..}
           = object
               (catMaybes
-                 [Just ("GatewayARN" .= _ctGatewayARN),
+                 [("KMSKey" .=) <$> _ctKMSKey,
+                  ("KMSEncrypted" .=) <$> _ctKMSEncrypted,
+                  Just ("GatewayARN" .= _ctGatewayARN),
                   Just ("TapeSizeInBytes" .= _ctTapeSizeInBytes),
                   Just ("ClientToken" .= _ctClientToken),
                   Just ("NumTapesToCreate" .= _ctNumTapesToCreate),

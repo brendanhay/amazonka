@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures one or more gateway local disks as cache for a gateway. This operation is only supported in the cached volume, tape and file gateway type (see <http://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html Storage Gateway Concepts> ).
+-- Configures one or more gateway local disks as cache for a gateway. This operation is only supported in the cached volume, tape and file gateway type (see <https://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html Storage Gateway Concepts> ).
 --
 --
 -- In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to add cache, and one or more disk IDs that you want to configure as cache.
@@ -60,7 +60,7 @@ data AddCache = AddCache'
 --
 -- * 'acGatewayARN' - Undocumented member.
 --
--- * 'acDiskIds' - Undocumented member.
+-- * 'acDiskIds' - An array of strings that identify disks that are to be configured as working storage. Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
 addCache
     :: Text -- ^ 'acGatewayARN'
     -> AddCache
@@ -72,7 +72,7 @@ addCache pGatewayARN_ =
 acGatewayARN :: Lens' AddCache Text
 acGatewayARN = lens _acGatewayARN (\ s a -> s{_acGatewayARN = a})
 
--- | Undocumented member.
+-- | An array of strings that identify disks that are to be configured as working storage. Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
 acDiskIds :: Lens' AddCache [Text]
 acDiskIds = lens _acDiskIds (\ s a -> s{_acDiskIds = a}) . _Coerce
 

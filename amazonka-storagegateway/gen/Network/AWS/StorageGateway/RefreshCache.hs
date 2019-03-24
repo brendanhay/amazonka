@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Refreshes the cache for the specified file share. This operation finds objects in the Amazon S3 bucket that were added, removed or replaced since the gateway last listed the bucket's contents and cached the results. This operation is only supported in the file gateway type.
+-- Refreshes the cache for the specified file share. This operation finds objects in the Amazon S3 bucket that were added, removed or replaced since the gateway last listed the bucket's contents and cached the results. This operation is only supported in the file gateway type. You can subscribe to be notified through an Amazon CloudWatch event when your RefreshCache operation completes. For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification Getting Notified About File Operations> .
 --
 --
 module Network.AWS.StorageGateway.RefreshCache
@@ -27,6 +27,8 @@ module Network.AWS.StorageGateway.RefreshCache
       refreshCache
     , RefreshCache
     -- * Request Lenses
+    , rcFolderList
+    , rcRecursive
     , rcFileShareARN
 
     -- * Destructuring the Response
@@ -34,6 +36,7 @@ module Network.AWS.StorageGateway.RefreshCache
     , RefreshCacheResponse
     -- * Response Lenses
     , rcrsFileShareARN
+    , rcrsNotificationId
     , rcrsResponseStatus
     ) where
 
@@ -44,9 +47,15 @@ import Network.AWS.Response
 import Network.AWS.StorageGateway.Types
 import Network.AWS.StorageGateway.Types.Product
 
--- | /See:/ 'refreshCache' smart constructor.
-newtype RefreshCache = RefreshCache'
-  { _rcFileShareARN :: Text
+-- | RefreshCacheInput
+--
+--
+--
+-- /See:/ 'refreshCache' smart constructor.
+data RefreshCache = RefreshCache'
+  { _rcFolderList   :: !(Maybe (List1 Text))
+  , _rcRecursive    :: !(Maybe Bool)
+  , _rcFileShareARN :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -54,14 +63,31 @@ newtype RefreshCache = RefreshCache'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcFileShareARN' - Undocumented member.
+-- * 'rcFolderList' - A comma-separated list of the paths of folders to refresh in the cache. The default is [@"/"@ ]. The default refreshes objects and folders at the root of the Amazon S3 bucket. If @Recursive@ is set to "true", the entire S3 bucket that the file share has access to is refreshed.
+--
+-- * 'rcRecursive' - A value that specifies whether to recursively refresh folders in the cache. The refresh includes folders that were in the cache the last time the gateway listed the folder's contents. If this value set to "true", each folder that is listed in @FolderList@ is recursively updated. Otherwise, subfolders listed in @FolderList@ are not refreshed. Only objects that are in folders listed directly under @FolderList@ are found and used for the update. The default is "true".
+--
+-- * 'rcFileShareARN' - The Amazon Resource Name (ARN) of the file share you want to refresh.
 refreshCache
     :: Text -- ^ 'rcFileShareARN'
     -> RefreshCache
-refreshCache pFileShareARN_ = RefreshCache' {_rcFileShareARN = pFileShareARN_}
+refreshCache pFileShareARN_ =
+  RefreshCache'
+    { _rcFolderList = Nothing
+    , _rcRecursive = Nothing
+    , _rcFileShareARN = pFileShareARN_
+    }
 
 
--- | Undocumented member.
+-- | A comma-separated list of the paths of folders to refresh in the cache. The default is [@"/"@ ]. The default refreshes objects and folders at the root of the Amazon S3 bucket. If @Recursive@ is set to "true", the entire S3 bucket that the file share has access to is refreshed.
+rcFolderList :: Lens' RefreshCache (Maybe (NonEmpty Text))
+rcFolderList = lens _rcFolderList (\ s a -> s{_rcFolderList = a}) . mapping _List1
+
+-- | A value that specifies whether to recursively refresh folders in the cache. The refresh includes folders that were in the cache the last time the gateway listed the folder's contents. If this value set to "true", each folder that is listed in @FolderList@ is recursively updated. Otherwise, subfolders listed in @FolderList@ are not refreshed. Only objects that are in folders listed directly under @FolderList@ are found and used for the update. The default is "true".
+rcRecursive :: Lens' RefreshCache (Maybe Bool)
+rcRecursive = lens _rcRecursive (\ s a -> s{_rcRecursive = a})
+
+-- | The Amazon Resource Name (ARN) of the file share you want to refresh.
 rcFileShareARN :: Lens' RefreshCache Text
 rcFileShareARN = lens _rcFileShareARN (\ s a -> s{_rcFileShareARN = a})
 
@@ -72,7 +98,8 @@ instance AWSRequest RefreshCache where
           = receiveJSON
               (\ s h x ->
                  RefreshCacheResponse' <$>
-                   (x .?> "FileShareARN") <*> (pure (fromEnum s)))
+                   (x .?> "FileShareARN") <*> (x .?> "NotificationId")
+                     <*> (pure (fromEnum s)))
 
 instance Hashable RefreshCache where
 
@@ -92,7 +119,9 @@ instance ToJSON RefreshCache where
         toJSON RefreshCache'{..}
           = object
               (catMaybes
-                 [Just ("FileShareARN" .= _rcFileShareARN)])
+                 [("FolderList" .=) <$> _rcFolderList,
+                  ("Recursive" .=) <$> _rcRecursive,
+                  Just ("FileShareARN" .= _rcFileShareARN)])
 
 instance ToPath RefreshCache where
         toPath = const "/"
@@ -100,9 +129,14 @@ instance ToPath RefreshCache where
 instance ToQuery RefreshCache where
         toQuery = const mempty
 
--- | /See:/ 'refreshCacheResponse' smart constructor.
+-- | RefreshCacheOutput
+--
+--
+--
+-- /See:/ 'refreshCacheResponse' smart constructor.
 data RefreshCacheResponse = RefreshCacheResponse'
   { _rcrsFileShareARN   :: !(Maybe Text)
+  , _rcrsNotificationId :: !(Maybe Text)
   , _rcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -113,18 +147,27 @@ data RefreshCacheResponse = RefreshCacheResponse'
 --
 -- * 'rcrsFileShareARN' - Undocumented member.
 --
+-- * 'rcrsNotificationId' - Undocumented member.
+--
 -- * 'rcrsResponseStatus' - -- | The response status code.
 refreshCacheResponse
     :: Int -- ^ 'rcrsResponseStatus'
     -> RefreshCacheResponse
 refreshCacheResponse pResponseStatus_ =
   RefreshCacheResponse'
-    {_rcrsFileShareARN = Nothing, _rcrsResponseStatus = pResponseStatus_}
+    { _rcrsFileShareARN = Nothing
+    , _rcrsNotificationId = Nothing
+    , _rcrsResponseStatus = pResponseStatus_
+    }
 
 
 -- | Undocumented member.
 rcrsFileShareARN :: Lens' RefreshCacheResponse (Maybe Text)
 rcrsFileShareARN = lens _rcrsFileShareARN (\ s a -> s{_rcrsFileShareARN = a})
+
+-- | Undocumented member.
+rcrsNotificationId :: Lens' RefreshCacheResponse (Maybe Text)
+rcrsNotificationId = lens _rcrsNotificationId (\ s a -> s{_rcrsNotificationId = a})
 
 -- | -- | The response status code.
 rcrsResponseStatus :: Lens' RefreshCacheResponse Int

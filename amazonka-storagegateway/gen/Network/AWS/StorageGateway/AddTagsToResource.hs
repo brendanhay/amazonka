@@ -23,13 +23,11 @@
 --
 --     * Storage gateways of all types
 --
---
---
 --     * Storage Volumes
 --
---
---
 --     * Virtual Tapes
+--
+--     * NFS and SMB File Shares
 --
 --
 --

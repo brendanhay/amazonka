@@ -27,6 +27,8 @@ module Network.AWS.StorageGateway.CreateTapeWithBarcode
       createTapeWithBarcode
     , CreateTapeWithBarcode
     -- * Request Lenses
+    , ctwbKMSKey
+    , ctwbKMSEncrypted
     , ctwbGatewayARN
     , ctwbTapeSizeInBytes
     , ctwbTapeBarcode
@@ -52,7 +54,9 @@ import Network.AWS.StorageGateway.Types.Product
 --
 -- /See:/ 'createTapeWithBarcode' smart constructor.
 data CreateTapeWithBarcode = CreateTapeWithBarcode'
-  { _ctwbGatewayARN      :: !Text
+  { _ctwbKMSKey          :: !(Maybe Text)
+  , _ctwbKMSEncrypted    :: !(Maybe Bool)
+  , _ctwbGatewayARN      :: !Text
   , _ctwbTapeSizeInBytes :: !Integer
   , _ctwbTapeBarcode     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -61,6 +65,10 @@ data CreateTapeWithBarcode = CreateTapeWithBarcode'
 -- | Creates a value of 'CreateTapeWithBarcode' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ctwbKMSKey' - The Amazon Resource Name (ARN) of the AWS KMS Key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
+--
+-- * 'ctwbKMSEncrypted' - True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by Amazon S3. Optional.
 --
 -- * 'ctwbGatewayARN' - The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tape with. Use the 'ListGateways' operation to return a list of gateways for your account and region.
 --
@@ -74,11 +82,21 @@ createTapeWithBarcode
     -> CreateTapeWithBarcode
 createTapeWithBarcode pGatewayARN_ pTapeSizeInBytes_ pTapeBarcode_ =
   CreateTapeWithBarcode'
-    { _ctwbGatewayARN = pGatewayARN_
+    { _ctwbKMSKey = Nothing
+    , _ctwbKMSEncrypted = Nothing
+    , _ctwbGatewayARN = pGatewayARN_
     , _ctwbTapeSizeInBytes = pTapeSizeInBytes_
     , _ctwbTapeBarcode = pTapeBarcode_
     }
 
+
+-- | The Amazon Resource Name (ARN) of the AWS KMS Key used for Amazon S3 server side encryption. This value can only be set when KMSEncrypted is true. Optional.
+ctwbKMSKey :: Lens' CreateTapeWithBarcode (Maybe Text)
+ctwbKMSKey = lens _ctwbKMSKey (\ s a -> s{_ctwbKMSKey = a})
+
+-- | True to use Amazon S3 server side encryption with your own AWS KMS key, or false to use a key managed by Amazon S3. Optional.
+ctwbKMSEncrypted :: Lens' CreateTapeWithBarcode (Maybe Bool)
+ctwbKMSEncrypted = lens _ctwbKMSEncrypted (\ s a -> s{_ctwbKMSEncrypted = a})
 
 -- | The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tape with. Use the 'ListGateways' operation to return a list of gateways for your account and region.
 ctwbGatewayARN :: Lens' CreateTapeWithBarcode Text
@@ -120,7 +138,9 @@ instance ToJSON CreateTapeWithBarcode where
         toJSON CreateTapeWithBarcode'{..}
           = object
               (catMaybes
-                 [Just ("GatewayARN" .= _ctwbGatewayARN),
+                 [("KMSKey" .=) <$> _ctwbKMSKey,
+                  ("KMSEncrypted" .=) <$> _ctwbKMSEncrypted,
+                  Just ("GatewayARN" .= _ctwbGatewayARN),
                   Just ("TapeSizeInBytes" .= _ctwbTapeSizeInBytes),
                   Just ("TapeBarcode" .= _ctwbTapeBarcode)])
 

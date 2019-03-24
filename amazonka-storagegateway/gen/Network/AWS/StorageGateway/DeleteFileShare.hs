@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a file share from a file gateway. This operation is only supported in the file gateway type.
+-- Deletes a file share from a file gateway. This operation is only supported for file gateways.
 --
 --
 module Network.AWS.StorageGateway.DeleteFileShare

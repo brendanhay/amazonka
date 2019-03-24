@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a user pool.
+-- Updates an identity pool.
 --
 --
 -- You must use AWS Developer credentials to call this API.
@@ -32,6 +32,7 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
     , uipSamlProviderARNs
     , uipSupportedLoginProviders
     , uipDeveloperProviderName
+    , uipIdentityPoolTags
     , uipOpenIdConnectProviderARNs
     , uipCognitoIdentityProviders
     , uipIdentityPoolId
@@ -45,6 +46,7 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
     , ipSamlProviderARNs
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
+    , ipIdentityPoolTags
     , ipOpenIdConnectProviderARNs
     , ipCognitoIdentityProviders
     , ipIdentityPoolId
@@ -68,6 +70,7 @@ data UpdateIdentityPool = UpdateIdentityPool'
   { _uipSamlProviderARNs               :: !(Maybe [Text])
   , _uipSupportedLoginProviders        :: !(Maybe (Map Text Text))
   , _uipDeveloperProviderName          :: !(Maybe Text)
+  , _uipIdentityPoolTags               :: !(Maybe (Map Text Text))
   , _uipOpenIdConnectProviderARNs      :: !(Maybe [Text])
   , _uipCognitoIdentityProviders       :: !(Maybe [CognitoIdentityProvider])
   , _uipIdentityPoolId                 :: !Text
@@ -86,9 +89,11 @@ data UpdateIdentityPool = UpdateIdentityPool'
 --
 -- * 'uipDeveloperProviderName' - The "domain" by which Cognito will refer to your users.
 --
+-- * 'uipIdentityPoolTags' - The tags that are assigned to the identity pool. A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+--
 -- * 'uipOpenIdConnectProviderARNs' - A list of OpendID Connect provider ARNs.
 --
--- * 'uipCognitoIdentityProviders' - A list representing an Amazon Cognito Identity User Pool and its client ID.
+-- * 'uipCognitoIdentityProviders' - A list representing an Amazon Cognito user pool and its client ID.
 --
 -- * 'uipIdentityPoolId' - An identity pool ID in the format REGION:GUID.
 --
@@ -105,6 +110,7 @@ updateIdentityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIden
     { _uipSamlProviderARNs = Nothing
     , _uipSupportedLoginProviders = Nothing
     , _uipDeveloperProviderName = Nothing
+    , _uipIdentityPoolTags = Nothing
     , _uipOpenIdConnectProviderARNs = Nothing
     , _uipCognitoIdentityProviders = Nothing
     , _uipIdentityPoolId = pIdentityPoolId_
@@ -125,11 +131,15 @@ uipSupportedLoginProviders = lens _uipSupportedLoginProviders (\ s a -> s{_uipSu
 uipDeveloperProviderName :: Lens' UpdateIdentityPool (Maybe Text)
 uipDeveloperProviderName = lens _uipDeveloperProviderName (\ s a -> s{_uipDeveloperProviderName = a})
 
+-- | The tags that are assigned to the identity pool. A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+uipIdentityPoolTags :: Lens' UpdateIdentityPool (HashMap Text Text)
+uipIdentityPoolTags = lens _uipIdentityPoolTags (\ s a -> s{_uipIdentityPoolTags = a}) . _Default . _Map
+
 -- | A list of OpendID Connect provider ARNs.
 uipOpenIdConnectProviderARNs :: Lens' UpdateIdentityPool [Text]
 uipOpenIdConnectProviderARNs = lens _uipOpenIdConnectProviderARNs (\ s a -> s{_uipOpenIdConnectProviderARNs = a}) . _Default . _Coerce
 
--- | A list representing an Amazon Cognito Identity User Pool and its client ID.
+-- | A list representing an Amazon Cognito user pool and its client ID.
 uipCognitoIdentityProviders :: Lens' UpdateIdentityPool [CognitoIdentityProvider]
 uipCognitoIdentityProviders = lens _uipCognitoIdentityProviders (\ s a -> s{_uipCognitoIdentityProviders = a}) . _Default . _Coerce
 
@@ -173,6 +183,7 @@ instance ToJSON UpdateIdentityPool where
                     _uipSupportedLoginProviders,
                   ("DeveloperProviderName" .=) <$>
                     _uipDeveloperProviderName,
+                  ("IdentityPoolTags" .=) <$> _uipIdentityPoolTags,
                   ("OpenIdConnectProviderARNs" .=) <$>
                     _uipOpenIdConnectProviderARNs,
                   ("CognitoIdentityProviders" .=) <$>

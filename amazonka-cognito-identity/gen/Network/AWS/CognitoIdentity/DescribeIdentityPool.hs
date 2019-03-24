@@ -38,6 +38,7 @@ module Network.AWS.CognitoIdentity.DescribeIdentityPool
     , ipSamlProviderARNs
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
+    , ipIdentityPoolTags
     , ipOpenIdConnectProviderARNs
     , ipCognitoIdentityProviders
     , ipIdentityPoolId

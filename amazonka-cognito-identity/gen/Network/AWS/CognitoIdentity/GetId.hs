@@ -66,7 +66,7 @@ data GetId = GetId'
 --
 -- * 'giAccountId' - A standard AWS account ID (9+ digits).
 --
--- * 'giLogins' - A set of optional name-value pairs that map provider names to provider tokens. The available provider names for @Logins@ are as follows:     * Facebook: @graph.facebook.com@      * Amazon Cognito Identity Provider: @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@      * Google: @accounts.google.com@      * Amazon: @www.amazon.com@      * Twitter: @api.twitter.com@      * Digits: @www.digits.com@
+-- * 'giLogins' - A set of optional name-value pairs that map provider names to provider tokens. The available provider names for @Logins@ are as follows:     * Facebook: @graph.facebook.com@      * Amazon Cognito user pool: @cognito-idp.<region>.amazonaws.com/<YOUR_USER_POOL_ID>@ , for example, @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@ .      * Google: @accounts.google.com@      * Amazon: @www.amazon.com@      * Twitter: @api.twitter.com@      * Digits: @www.digits.com@
 --
 -- * 'giIdentityPoolId' - An identity pool ID in the format REGION:GUID.
 getId
@@ -84,7 +84,7 @@ getId pIdentityPoolId_ =
 giAccountId :: Lens' GetId (Maybe Text)
 giAccountId = lens _giAccountId (\ s a -> s{_giAccountId = a})
 
--- | A set of optional name-value pairs that map provider names to provider tokens. The available provider names for @Logins@ are as follows:     * Facebook: @graph.facebook.com@      * Amazon Cognito Identity Provider: @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@      * Google: @accounts.google.com@      * Amazon: @www.amazon.com@      * Twitter: @api.twitter.com@      * Digits: @www.digits.com@
+-- | A set of optional name-value pairs that map provider names to provider tokens. The available provider names for @Logins@ are as follows:     * Facebook: @graph.facebook.com@      * Amazon Cognito user pool: @cognito-idp.<region>.amazonaws.com/<YOUR_USER_POOL_ID>@ , for example, @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@ .      * Google: @accounts.google.com@      * Amazon: @www.amazon.com@      * Twitter: @api.twitter.com@      * Digits: @www.digits.com@
 giLogins :: Lens' GetId (HashMap Text Text)
 giLogins = lens _giLogins (\ s a -> s{_giLogins = a}) . _Default . _Map
 

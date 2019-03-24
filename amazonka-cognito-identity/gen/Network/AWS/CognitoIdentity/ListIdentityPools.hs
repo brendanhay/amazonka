@@ -23,6 +23,8 @@
 --
 -- You must use AWS Developer credentials to call this API.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CognitoIdentity.ListIdentityPools
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.CognitoIdentity.ListIdentityPools
 import Network.AWS.CognitoIdentity.Types
 import Network.AWS.CognitoIdentity.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -81,6 +84,13 @@ lipNextToken = lens _lipNextToken (\ s a -> s{_lipNextToken = a})
 -- | The maximum number of identities to return.
 lipMaxResults :: Lens' ListIdentityPools Natural
 lipMaxResults = lens _lipMaxResults (\ s a -> s{_lipMaxResults = a}) . _Nat
+
+instance AWSPager ListIdentityPools where
+        page rq rs
+          | stop (rs ^. liprsNextToken) = Nothing
+          | stop (rs ^. liprsIdentityPools) = Nothing
+          | otherwise =
+            Just $ rq & lipNextToken .~ rs ^. liprsNextToken
 
 instance AWSRequest ListIdentityPools where
         type Rs ListIdentityPools = ListIdentityPoolsResponse

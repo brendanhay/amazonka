@@ -44,6 +44,7 @@ module Network.AWS.CognitoIdentity.CreateIdentityPool
     , cipSamlProviderARNs
     , cipSupportedLoginProviders
     , cipDeveloperProviderName
+    , cipIdentityPoolTags
     , cipOpenIdConnectProviderARNs
     , cipCognitoIdentityProviders
     , cipIdentityPoolName
@@ -56,6 +57,7 @@ module Network.AWS.CognitoIdentity.CreateIdentityPool
     , ipSamlProviderARNs
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
+    , ipIdentityPoolTags
     , ipOpenIdConnectProviderARNs
     , ipCognitoIdentityProviders
     , ipIdentityPoolId
@@ -79,6 +81,7 @@ data CreateIdentityPool = CreateIdentityPool'
   { _cipSamlProviderARNs               :: !(Maybe [Text])
   , _cipSupportedLoginProviders        :: !(Maybe (Map Text Text))
   , _cipDeveloperProviderName          :: !(Maybe Text)
+  , _cipIdentityPoolTags               :: !(Maybe (Map Text Text))
   , _cipOpenIdConnectProviderARNs      :: !(Maybe [Text])
   , _cipCognitoIdentityProviders       :: !(Maybe [CognitoIdentityProvider])
   , _cipIdentityPoolName               :: !Text
@@ -96,9 +99,11 @@ data CreateIdentityPool = CreateIdentityPool'
 --
 -- * 'cipDeveloperProviderName' - The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the @DeveloperProviderName@ , you can use letters as well as period (@.@ ), underscore (@_@ ), and dash (@-@ ). Once you have set a developer provider name, you cannot change it. Please take care in setting this parameter.
 --
+-- * 'cipIdentityPoolTags' - Tags to assign to the identity pool. A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+--
 -- * 'cipOpenIdConnectProviderARNs' - A list of OpendID Connect provider ARNs.
 --
--- * 'cipCognitoIdentityProviders' - An array of Amazon Cognito Identity user pools and their client IDs.
+-- * 'cipCognitoIdentityProviders' - An array of Amazon Cognito user pools and their client IDs.
 --
 -- * 'cipIdentityPoolName' - A string that you provide.
 --
@@ -112,6 +117,7 @@ createIdentityPool pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
     { _cipSamlProviderARNs = Nothing
     , _cipSupportedLoginProviders = Nothing
     , _cipDeveloperProviderName = Nothing
+    , _cipIdentityPoolTags = Nothing
     , _cipOpenIdConnectProviderARNs = Nothing
     , _cipCognitoIdentityProviders = Nothing
     , _cipIdentityPoolName = pIdentityPoolName_
@@ -131,11 +137,15 @@ cipSupportedLoginProviders = lens _cipSupportedLoginProviders (\ s a -> s{_cipSu
 cipDeveloperProviderName :: Lens' CreateIdentityPool (Maybe Text)
 cipDeveloperProviderName = lens _cipDeveloperProviderName (\ s a -> s{_cipDeveloperProviderName = a})
 
+-- | Tags to assign to the identity pool. A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+cipIdentityPoolTags :: Lens' CreateIdentityPool (HashMap Text Text)
+cipIdentityPoolTags = lens _cipIdentityPoolTags (\ s a -> s{_cipIdentityPoolTags = a}) . _Default . _Map
+
 -- | A list of OpendID Connect provider ARNs.
 cipOpenIdConnectProviderARNs :: Lens' CreateIdentityPool [Text]
 cipOpenIdConnectProviderARNs = lens _cipOpenIdConnectProviderARNs (\ s a -> s{_cipOpenIdConnectProviderARNs = a}) . _Default . _Coerce
 
--- | An array of Amazon Cognito Identity user pools and their client IDs.
+-- | An array of Amazon Cognito user pools and their client IDs.
 cipCognitoIdentityProviders :: Lens' CreateIdentityPool [CognitoIdentityProvider]
 cipCognitoIdentityProviders = lens _cipCognitoIdentityProviders (\ s a -> s{_cipCognitoIdentityProviders = a}) . _Default . _Coerce
 
@@ -175,6 +185,7 @@ instance ToJSON CreateIdentityPool where
                     _cipSupportedLoginProviders,
                   ("DeveloperProviderName" .=) <$>
                     _cipDeveloperProviderName,
+                  ("IdentityPoolTags" .=) <$> _cipIdentityPoolTags,
                   ("OpenIdConnectProviderARNs" .=) <$>
                     _cipOpenIdConnectProviderARNs,
                   ("CognitoIdentityProviders" .=) <$>

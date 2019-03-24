@@ -37,6 +37,9 @@ import Test.Tasty
 --         , requestDescribeIdentityPool $
 --             describeIdentityPool
 --
+--         , requestListTagsForResource $
+--             listTagsForResource
+--
 --         , requestGetId $
 --             getId
 --
@@ -73,8 +76,14 @@ import Test.Tasty
 --         , requestUnlinkIdentity $
 --             unlinkIdentity
 --
+--         , requestTagResource $
+--             tagResource
+--
 --         , requestDescribeIdentity $
 --             describeIdentity
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestCreateIdentityPool $
 --             createIdentityPool
@@ -93,6 +102,9 @@ import Test.Tasty
 --
 --         , responseDescribeIdentityPool $
 --             identityPool
+--
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
 --
 --         , responseGetId $
 --             getIdResponse
@@ -130,8 +142,14 @@ import Test.Tasty
 --         , responseUnlinkIdentity $
 --             unlinkIdentityResponse
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
 --         , responseDescribeIdentity $
 --             identityDescription
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responseCreateIdentityPool $
 --             identityPool
@@ -158,6 +176,11 @@ requestDescribeIdentityPool :: DescribeIdentityPool -> TestTree
 requestDescribeIdentityPool = req
     "DescribeIdentityPool"
     "fixture/DescribeIdentityPool.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource = req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestGetId :: GetId -> TestTree
 requestGetId = req
@@ -219,10 +242,20 @@ requestUnlinkIdentity = req
     "UnlinkIdentity"
     "fixture/UnlinkIdentity.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestDescribeIdentity :: DescribeIdentity -> TestTree
 requestDescribeIdentity = req
     "DescribeIdentity"
     "fixture/DescribeIdentity.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestCreateIdentityPool :: CreateIdentityPool -> TestTree
 requestCreateIdentityPool = req
@@ -256,6 +289,13 @@ responseDescribeIdentityPool = res
     "fixture/DescribeIdentityPoolResponse.proto"
     cognitoIdentity
     (Proxy :: Proxy DescribeIdentityPool)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource = res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    cognitoIdentity
+    (Proxy :: Proxy ListTagsForResource)
 
 responseGetId :: GetIdResponse -> TestTree
 responseGetId = res
@@ -341,12 +381,26 @@ responseUnlinkIdentity = res
     cognitoIdentity
     (Proxy :: Proxy UnlinkIdentity)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    cognitoIdentity
+    (Proxy :: Proxy TagResource)
+
 responseDescribeIdentity :: IdentityDescription -> TestTree
 responseDescribeIdentity = res
     "DescribeIdentityResponse"
     "fixture/DescribeIdentityResponse.proto"
     cognitoIdentity
     (Proxy :: Proxy DescribeIdentity)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    cognitoIdentity
+    (Proxy :: Proxy UntagResource)
 
 responseCreateIdentityPool :: IdentityPool -> TestTree
 responseCreateIdentityPool = res

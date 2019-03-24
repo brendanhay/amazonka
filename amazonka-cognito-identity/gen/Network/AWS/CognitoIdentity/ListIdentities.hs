@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the identities in a pool.
+-- Lists the identities in an identity pool.
 --
 --
 -- You must use AWS Developer credentials to call this API.

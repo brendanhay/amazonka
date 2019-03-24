@@ -57,12 +57,15 @@ library
         , Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
         , Network.AWS.CognitoIdentity.ListIdentities
         , Network.AWS.CognitoIdentity.ListIdentityPools
+        , Network.AWS.CognitoIdentity.ListTagsForResource
         , Network.AWS.CognitoIdentity.LookupDeveloperIdentity
         , Network.AWS.CognitoIdentity.MergeDeveloperIdentities
         , Network.AWS.CognitoIdentity.SetIdentityPoolRoles
+        , Network.AWS.CognitoIdentity.TagResource
         , Network.AWS.CognitoIdentity.Types
         , Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
         , Network.AWS.CognitoIdentity.UnlinkIdentity
+        , Network.AWS.CognitoIdentity.UntagResource
         , Network.AWS.CognitoIdentity.UpdateIdentityPool
         , Network.AWS.CognitoIdentity.Waiters
 

@@ -55,9 +55,9 @@ data AssociateIPGroups = AssociateIPGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aigDirectoryId' - The ID of the directory.
+-- * 'aigDirectoryId' - The identifier of the directory.
 --
--- * 'aigGroupIds' - The IDs of one or more IP access control groups.
+-- * 'aigGroupIds' - The identifiers of one or more IP access control groups.
 associateIPGroups
     :: Text -- ^ 'aigDirectoryId'
     -> AssociateIPGroups
@@ -65,11 +65,11 @@ associateIPGroups pDirectoryId_ =
   AssociateIPGroups' {_aigDirectoryId = pDirectoryId_, _aigGroupIds = mempty}
 
 
--- | The ID of the directory.
+-- | The identifier of the directory.
 aigDirectoryId :: Lens' AssociateIPGroups Text
 aigDirectoryId = lens _aigDirectoryId (\ s a -> s{_aigDirectoryId = a})
 
--- | The IDs of one or more IP access control groups.
+-- | The identifiers of one or more IP access control groups.
 aigGroupIds :: Lens' AssociateIPGroups [Text]
 aigGroupIds = lens _aigGroupIds (\ s a -> s{_aigGroupIds = a}) . _Coerce
 

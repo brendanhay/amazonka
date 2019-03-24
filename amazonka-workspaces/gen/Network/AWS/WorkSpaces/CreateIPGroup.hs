@@ -137,7 +137,7 @@ data CreateIPGroupResponse = CreateIPGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cigrsGroupId' - The ID of the group.
+-- * 'cigrsGroupId' - The identifier of the group.
 --
 -- * 'cigrsResponseStatus' - -- | The response status code.
 createIPGroupResponse
@@ -148,7 +148,7 @@ createIPGroupResponse pResponseStatus_ =
     {_cigrsGroupId = Nothing, _cigrsResponseStatus = pResponseStatus_}
 
 
--- | The ID of the group.
+-- | The identifier of the group.
 cigrsGroupId :: Lens' CreateIPGroupResponse (Maybe Text)
 cigrsGroupId = lens _cigrsGroupId (\ s a -> s{_cigrsGroupId = a})
 

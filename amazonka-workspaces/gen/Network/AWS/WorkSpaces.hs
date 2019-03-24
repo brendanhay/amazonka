@@ -13,7 +13,7 @@
 --
 -- __Amazon WorkSpaces Service__
 --
--- Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows desktops for your users.
+-- Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows and Amazon Linux desktops for your users.
 --
 module Network.AWS.WorkSpaces
     (
@@ -65,8 +65,14 @@ module Network.AWS.WorkSpaces
     -- * Operations
     -- $operations
 
+    -- ** DescribeAccount
+    , module Network.AWS.WorkSpaces.DescribeAccount
+
     -- ** RevokeIPRules
     , module Network.AWS.WorkSpaces.RevokeIPRules
+
+    -- ** DescribeWorkspaceImages (Paginated)
+    , module Network.AWS.WorkSpaces.DescribeWorkspaceImages
 
     -- ** ModifyWorkspaceProperties
     , module Network.AWS.WorkSpaces.ModifyWorkspaceProperties
@@ -89,6 +95,9 @@ module Network.AWS.WorkSpaces
     -- ** RebuildWorkspaces
     , module Network.AWS.WorkSpaces.RebuildWorkspaces
 
+    -- ** ImportWorkspaceImage
+    , module Network.AWS.WorkSpaces.ImportWorkspaceImage
+
     -- ** ModifyWorkspaceState
     , module Network.AWS.WorkSpaces.ModifyWorkspaceState
 
@@ -104,13 +113,16 @@ module Network.AWS.WorkSpaces
     -- ** UpdateRulesOfIPGroup
     , module Network.AWS.WorkSpaces.UpdateRulesOfIPGroup
 
+    -- ** DeleteWorkspaceImage
+    , module Network.AWS.WorkSpaces.DeleteWorkspaceImage
+
     -- ** StopWorkspaces
     , module Network.AWS.WorkSpaces.StopWorkspaces
 
     -- ** AssociateIPGroups
     , module Network.AWS.WorkSpaces.AssociateIPGroups
 
-    -- ** DescribeWorkspacesConnectionStatus
+    -- ** DescribeWorkspacesConnectionStatus (Paginated)
     , module Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
 
     -- ** RebootWorkspaces
@@ -125,14 +137,29 @@ module Network.AWS.WorkSpaces
     -- ** CreateWorkspaces
     , module Network.AWS.WorkSpaces.CreateWorkspaces
 
-    -- ** DescribeIPGroups
+    -- ** DescribeClientProperties
+    , module Network.AWS.WorkSpaces.DescribeClientProperties
+
+    -- ** ModifyClientProperties
+    , module Network.AWS.WorkSpaces.ModifyClientProperties
+
+    -- ** DescribeIPGroups (Paginated)
     , module Network.AWS.WorkSpaces.DescribeIPGroups
+
+    -- ** ListAvailableManagementCidrRanges (Paginated)
+    , module Network.AWS.WorkSpaces.ListAvailableManagementCidrRanges
 
     -- ** DescribeWorkspaces (Paginated)
     , module Network.AWS.WorkSpaces.DescribeWorkspaces
 
     -- ** StartWorkspaces
     , module Network.AWS.WorkSpaces.StartWorkspaces
+
+    -- ** DescribeAccountModifications (Paginated)
+    , module Network.AWS.WorkSpaces.DescribeAccountModifications
+
+    -- ** ModifyAccount
+    , module Network.AWS.WorkSpaces.ModifyAccount
 
     -- * Types
 
@@ -142,11 +169,26 @@ module Network.AWS.WorkSpaces
     -- ** ConnectionState
     , ConnectionState (..)
 
+    -- ** DedicatedTenancyModificationStateEnum
+    , DedicatedTenancyModificationStateEnum (..)
+
+    -- ** DedicatedTenancySupportEnum
+    , DedicatedTenancySupportEnum (..)
+
+    -- ** DedicatedTenancySupportResultEnum
+    , DedicatedTenancySupportResultEnum (..)
+
     -- ** ModificationResourceEnum
     , ModificationResourceEnum (..)
 
     -- ** ModificationStateEnum
     , ModificationStateEnum (..)
+
+    -- ** OperatingSystemType
+    , OperatingSystemType (..)
+
+    -- ** ReconnectEnum
+    , ReconnectEnum (..)
 
     -- ** RunningMode
     , RunningMode (..)
@@ -160,8 +202,38 @@ module Network.AWS.WorkSpaces
     -- ** WorkspaceDirectoryType
     , WorkspaceDirectoryType (..)
 
+    -- ** WorkspaceImageIngestionProcess
+    , WorkspaceImageIngestionProcess (..)
+
+    -- ** WorkspaceImageRequiredTenancy
+    , WorkspaceImageRequiredTenancy (..)
+
+    -- ** WorkspaceImageState
+    , WorkspaceImageState (..)
+
     -- ** WorkspaceState
     , WorkspaceState (..)
+
+    -- ** AccountModification
+    , AccountModification
+    , accountModification
+    , amStartTime
+    , amDedicatedTenancySupport
+    , amModificationState
+    , amDedicatedTenancyManagementCidrRange
+    , amErrorCode
+    , amErrorMessage
+
+    -- ** ClientProperties
+    , ClientProperties
+    , clientProperties
+    , cpReconnectEnabled
+
+    -- ** ClientPropertiesResult
+    , ClientPropertiesResult
+    , clientPropertiesResult
+    , cprResourceId
+    , cprClientProperties
 
     -- ** ComputeType
     , ComputeType
@@ -202,6 +274,11 @@ module Network.AWS.WorkSpaces
     , modificationState
     , msState
     , msResource
+
+    -- ** OperatingSystem
+    , OperatingSystem
+    , operatingSystem
+    , osType
 
     -- ** RebootRequest
     , RebootRequest
@@ -299,6 +376,18 @@ module Network.AWS.WorkSpaces
     , wdDNSIPAddresses
     , wdDirectoryName
 
+    -- ** WorkspaceImage
+    , WorkspaceImage
+    , workspaceImage
+    , wiState
+    , wiOperatingSystem
+    , wiRequiredTenancy
+    , wiName
+    , wiImageId
+    , wiErrorCode
+    , wiErrorMessage
+    , wiDescription
+
     -- ** WorkspaceProperties
     , WorkspaceProperties
     , workspaceProperties
@@ -336,13 +425,22 @@ import Network.AWS.WorkSpaces.CreateTags
 import Network.AWS.WorkSpaces.CreateWorkspaces
 import Network.AWS.WorkSpaces.DeleteIPGroup
 import Network.AWS.WorkSpaces.DeleteTags
+import Network.AWS.WorkSpaces.DeleteWorkspaceImage
+import Network.AWS.WorkSpaces.DescribeAccount
+import Network.AWS.WorkSpaces.DescribeAccountModifications
+import Network.AWS.WorkSpaces.DescribeClientProperties
 import Network.AWS.WorkSpaces.DescribeIPGroups
 import Network.AWS.WorkSpaces.DescribeTags
 import Network.AWS.WorkSpaces.DescribeWorkspaceBundles
 import Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
+import Network.AWS.WorkSpaces.DescribeWorkspaceImages
 import Network.AWS.WorkSpaces.DescribeWorkspaces
 import Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
 import Network.AWS.WorkSpaces.DisassociateIPGroups
+import Network.AWS.WorkSpaces.ImportWorkspaceImage
+import Network.AWS.WorkSpaces.ListAvailableManagementCidrRanges
+import Network.AWS.WorkSpaces.ModifyAccount
+import Network.AWS.WorkSpaces.ModifyClientProperties
 import Network.AWS.WorkSpaces.ModifyWorkspaceProperties
 import Network.AWS.WorkSpaces.ModifyWorkspaceState
 import Network.AWS.WorkSpaces.RebootWorkspaces

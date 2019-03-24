@@ -55,7 +55,7 @@ data UpdateRulesOfIPGroup = UpdateRulesOfIPGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uroigGroupId' - The ID of the group.
+-- * 'uroigGroupId' - The identifier of the group.
 --
 -- * 'uroigUserRules' - One or more rules.
 updateRulesOfIPGroup
@@ -65,7 +65,7 @@ updateRulesOfIPGroup pGroupId_ =
   UpdateRulesOfIPGroup' {_uroigGroupId = pGroupId_, _uroigUserRules = mempty}
 
 
--- | The ID of the group.
+-- | The identifier of the group.
 uroigGroupId :: Lens' UpdateRulesOfIPGroup Text
 uroigGroupId = lens _uroigGroupId (\ s a -> s{_uroigGroupId = a})
 

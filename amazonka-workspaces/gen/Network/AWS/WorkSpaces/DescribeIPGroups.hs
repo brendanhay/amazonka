@@ -21,6 +21,8 @@
 -- Describes one or more of your IP access control groups.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WorkSpaces.DescribeIPGroups
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.WorkSpaces.DescribeIPGroups
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -59,9 +62,9 @@ data DescribeIPGroups = DescribeIPGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dipgGroupIds' - The IDs of one or more IP access control groups.
+-- * 'dipgGroupIds' - The identifiers of one or more IP access control groups.
 --
--- * 'dipgNextToken' - The token for the next set of results. (You received this token from a previous call.)
+-- * 'dipgNextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
 --
 -- * 'dipgMaxResults' - The maximum number of items to return.
 describeIPGroups
@@ -74,17 +77,24 @@ describeIPGroups =
     }
 
 
--- | The IDs of one or more IP access control groups.
+-- | The identifiers of one or more IP access control groups.
 dipgGroupIds :: Lens' DescribeIPGroups [Text]
 dipgGroupIds = lens _dipgGroupIds (\ s a -> s{_dipgGroupIds = a}) . _Default . _Coerce
 
--- | The token for the next set of results. (You received this token from a previous call.)
+-- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
 dipgNextToken :: Lens' DescribeIPGroups (Maybe Text)
 dipgNextToken = lens _dipgNextToken (\ s a -> s{_dipgNextToken = a})
 
 -- | The maximum number of items to return.
 dipgMaxResults :: Lens' DescribeIPGroups (Maybe Natural)
 dipgMaxResults = lens _dipgMaxResults (\ s a -> s{_dipgMaxResults = a}) . mapping _Nat
+
+instance AWSPager DescribeIPGroups where
+        page rq rs
+          | stop (rs ^. digsrsNextToken) = Nothing
+          | stop (rs ^. digsrsResult) = Nothing
+          | otherwise =
+            Just $ rq & dipgNextToken .~ rs ^. digsrsNextToken
 
 instance AWSRequest DescribeIPGroups where
         type Rs DescribeIPGroups = DescribeIPGroupsResponse
@@ -137,7 +147,7 @@ data DescribeIPGroupsResponse = DescribeIPGroupsResponse'
 --
 -- * 'digsrsResult' - Information about the IP access control groups.
 --
--- * 'digsrsNextToken' - The token to use to retrieve the next set of results, or null if there are no more results available. This token is valid for one day and must be used within that time frame.
+-- * 'digsrsNextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
 --
 -- * 'digsrsResponseStatus' - -- | The response status code.
 describeIPGroupsResponse
@@ -155,7 +165,7 @@ describeIPGroupsResponse pResponseStatus_ =
 digsrsResult :: Lens' DescribeIPGroupsResponse [WorkspacesIPGroup]
 digsrsResult = lens _digsrsResult (\ s a -> s{_digsrsResult = a}) . _Default . _Coerce
 
--- | The token to use to retrieve the next set of results, or null if there are no more results available. This token is valid for one day and must be used within that time frame.
+-- | The token to use to retrieve the next set of results, or null if no more results are available.
 digsrsNextToken :: Lens' DescribeIPGroupsResponse (Maybe Text)
 digsrsNextToken = lens _digsrsNextToken (\ s a -> s{_digsrsNextToken = a})
 

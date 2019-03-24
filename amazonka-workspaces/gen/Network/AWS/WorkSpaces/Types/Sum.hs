@@ -21,8 +21,10 @@ import Network.AWS.Prelude
 
 data Compute
   = Graphics
+  | Graphicspro
   | Performance
   | Power
+  | Powerpro
   | Standard
   | Value
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -31,18 +33,22 @@ data Compute
 instance FromText Compute where
     parser = takeLowerText >>= \case
         "graphics" -> pure Graphics
+        "graphicspro" -> pure Graphicspro
         "performance" -> pure Performance
         "power" -> pure Power
+        "powerpro" -> pure Powerpro
         "standard" -> pure Standard
         "value" -> pure Value
         e -> fromTextError $ "Failure parsing Compute from value: '" <> e
-           <> "'. Accepted values: graphics, performance, power, standard, value"
+           <> "'. Accepted values: graphics, graphicspro, performance, power, powerpro, standard, value"
 
 instance ToText Compute where
     toText = \case
         Graphics -> "GRAPHICS"
+        Graphicspro -> "GRAPHICSPRO"
         Performance -> "PERFORMANCE"
         Power -> "POWER"
+        Powerpro -> "POWERPRO"
         Standard -> "STANDARD"
         Value -> "VALUE"
 
@@ -87,6 +93,87 @@ instance ToHeader     ConnectionState
 
 instance FromJSON ConnectionState where
     parseJSON = parseJSONText "ConnectionState"
+
+data DedicatedTenancyModificationStateEnum
+  = Completed
+  | Failed
+  | Pending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DedicatedTenancyModificationStateEnum where
+    parser = takeLowerText >>= \case
+        "completed" -> pure Completed
+        "failed" -> pure Failed
+        "pending" -> pure Pending
+        e -> fromTextError $ "Failure parsing DedicatedTenancyModificationStateEnum from value: '" <> e
+           <> "'. Accepted values: completed, failed, pending"
+
+instance ToText DedicatedTenancyModificationStateEnum where
+    toText = \case
+        Completed -> "COMPLETED"
+        Failed -> "FAILED"
+        Pending -> "PENDING"
+
+instance Hashable     DedicatedTenancyModificationStateEnum
+instance NFData       DedicatedTenancyModificationStateEnum
+instance ToByteString DedicatedTenancyModificationStateEnum
+instance ToQuery      DedicatedTenancyModificationStateEnum
+instance ToHeader     DedicatedTenancyModificationStateEnum
+
+instance FromJSON DedicatedTenancyModificationStateEnum where
+    parseJSON = parseJSONText "DedicatedTenancyModificationStateEnum"
+
+data DedicatedTenancySupportEnum =
+  DTSEEnabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DedicatedTenancySupportEnum where
+    parser = takeLowerText >>= \case
+        "enabled" -> pure DTSEEnabled
+        e -> fromTextError $ "Failure parsing DedicatedTenancySupportEnum from value: '" <> e
+           <> "'. Accepted values: enabled"
+
+instance ToText DedicatedTenancySupportEnum where
+    toText = \case
+        DTSEEnabled -> "ENABLED"
+
+instance Hashable     DedicatedTenancySupportEnum
+instance NFData       DedicatedTenancySupportEnum
+instance ToByteString DedicatedTenancySupportEnum
+instance ToQuery      DedicatedTenancySupportEnum
+instance ToHeader     DedicatedTenancySupportEnum
+
+instance ToJSON DedicatedTenancySupportEnum where
+    toJSON = toJSONText
+
+data DedicatedTenancySupportResultEnum
+  = Disabled
+  | Enabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DedicatedTenancySupportResultEnum where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure Disabled
+        "enabled" -> pure Enabled
+        e -> fromTextError $ "Failure parsing DedicatedTenancySupportResultEnum from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText DedicatedTenancySupportResultEnum where
+    toText = \case
+        Disabled -> "DISABLED"
+        Enabled -> "ENABLED"
+
+instance Hashable     DedicatedTenancySupportResultEnum
+instance NFData       DedicatedTenancySupportResultEnum
+instance ToByteString DedicatedTenancySupportResultEnum
+instance ToQuery      DedicatedTenancySupportResultEnum
+instance ToHeader     DedicatedTenancySupportResultEnum
+
+instance FromJSON DedicatedTenancySupportResultEnum where
+    parseJSON = parseJSONText "DedicatedTenancySupportResultEnum"
 
 data ModificationResourceEnum
   = ComputeType
@@ -144,6 +231,63 @@ instance ToHeader     ModificationStateEnum
 
 instance FromJSON ModificationStateEnum where
     parseJSON = parseJSONText "ModificationStateEnum"
+
+data OperatingSystemType
+  = Linux
+  | Windows
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText OperatingSystemType where
+    parser = takeLowerText >>= \case
+        "linux" -> pure Linux
+        "windows" -> pure Windows
+        e -> fromTextError $ "Failure parsing OperatingSystemType from value: '" <> e
+           <> "'. Accepted values: linux, windows"
+
+instance ToText OperatingSystemType where
+    toText = \case
+        Linux -> "LINUX"
+        Windows -> "WINDOWS"
+
+instance Hashable     OperatingSystemType
+instance NFData       OperatingSystemType
+instance ToByteString OperatingSystemType
+instance ToQuery      OperatingSystemType
+instance ToHeader     OperatingSystemType
+
+instance FromJSON OperatingSystemType where
+    parseJSON = parseJSONText "OperatingSystemType"
+
+data ReconnectEnum
+  = REDisabled
+  | REEnabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ReconnectEnum where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure REDisabled
+        "enabled" -> pure REEnabled
+        e -> fromTextError $ "Failure parsing ReconnectEnum from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText ReconnectEnum where
+    toText = \case
+        REDisabled -> "DISABLED"
+        REEnabled -> "ENABLED"
+
+instance Hashable     ReconnectEnum
+instance NFData       ReconnectEnum
+instance ToByteString ReconnectEnum
+instance ToQuery      ReconnectEnum
+instance ToHeader     ReconnectEnum
+
+instance ToJSON ReconnectEnum where
+    toJSON = toJSONText
+
+instance FromJSON ReconnectEnum where
+    parseJSON = parseJSONText "ReconnectEnum"
 
 data RunningMode
   = AlwaysOn
@@ -264,6 +408,93 @@ instance ToHeader     WorkspaceDirectoryType
 
 instance FromJSON WorkspaceDirectoryType where
     parseJSON = parseJSONText "WorkspaceDirectoryType"
+
+data WorkspaceImageIngestionProcess
+  = ByolGraphics
+  | ByolGraphicspro
+  | ByolRegular
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText WorkspaceImageIngestionProcess where
+    parser = takeLowerText >>= \case
+        "byol_graphics" -> pure ByolGraphics
+        "byol_graphicspro" -> pure ByolGraphicspro
+        "byol_regular" -> pure ByolRegular
+        e -> fromTextError $ "Failure parsing WorkspaceImageIngestionProcess from value: '" <> e
+           <> "'. Accepted values: byol_graphics, byol_graphicspro, byol_regular"
+
+instance ToText WorkspaceImageIngestionProcess where
+    toText = \case
+        ByolGraphics -> "BYOL_GRAPHICS"
+        ByolGraphicspro -> "BYOL_GRAPHICSPRO"
+        ByolRegular -> "BYOL_REGULAR"
+
+instance Hashable     WorkspaceImageIngestionProcess
+instance NFData       WorkspaceImageIngestionProcess
+instance ToByteString WorkspaceImageIngestionProcess
+instance ToQuery      WorkspaceImageIngestionProcess
+instance ToHeader     WorkspaceImageIngestionProcess
+
+instance ToJSON WorkspaceImageIngestionProcess where
+    toJSON = toJSONText
+
+data WorkspaceImageRequiredTenancy
+  = Dedicated
+  | Default
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText WorkspaceImageRequiredTenancy where
+    parser = takeLowerText >>= \case
+        "dedicated" -> pure Dedicated
+        "default" -> pure Default
+        e -> fromTextError $ "Failure parsing WorkspaceImageRequiredTenancy from value: '" <> e
+           <> "'. Accepted values: dedicated, default"
+
+instance ToText WorkspaceImageRequiredTenancy where
+    toText = \case
+        Dedicated -> "DEDICATED"
+        Default -> "DEFAULT"
+
+instance Hashable     WorkspaceImageRequiredTenancy
+instance NFData       WorkspaceImageRequiredTenancy
+instance ToByteString WorkspaceImageRequiredTenancy
+instance ToQuery      WorkspaceImageRequiredTenancy
+instance ToHeader     WorkspaceImageRequiredTenancy
+
+instance FromJSON WorkspaceImageRequiredTenancy where
+    parseJSON = parseJSONText "WorkspaceImageRequiredTenancy"
+
+data WorkspaceImageState
+  = WISAvailable
+  | WISError'
+  | WISPending
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText WorkspaceImageState where
+    parser = takeLowerText >>= \case
+        "available" -> pure WISAvailable
+        "error" -> pure WISError'
+        "pending" -> pure WISPending
+        e -> fromTextError $ "Failure parsing WorkspaceImageState from value: '" <> e
+           <> "'. Accepted values: available, error, pending"
+
+instance ToText WorkspaceImageState where
+    toText = \case
+        WISAvailable -> "AVAILABLE"
+        WISError' -> "ERROR"
+        WISPending -> "PENDING"
+
+instance Hashable     WorkspaceImageState
+instance NFData       WorkspaceImageState
+instance ToByteString WorkspaceImageState
+instance ToQuery      WorkspaceImageState
+instance ToHeader     WorkspaceImageState
+
+instance FromJSON WorkspaceImageState where
+    parseJSON = parseJSONText "WorkspaceImageState"
 
 data WorkspaceState
   = WSAdminMaintenance

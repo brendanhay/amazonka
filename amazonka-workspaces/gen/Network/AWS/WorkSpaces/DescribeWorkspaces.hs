@@ -21,7 +21,7 @@
 -- Describes the specified WorkSpaces.
 --
 --
--- You can filter the results using bundle ID, directory ID, or owner, but you can specify only one filter at a time.
+-- You can filter the results by using the bundle identifier, directory identifier, or owner, but you can specify only one filter at a time.
 --
 --
 -- This operation returns paginated results.
@@ -70,15 +70,15 @@ data DescribeWorkspaces = DescribeWorkspaces'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwDirectoryId' - The ID of the directory. In addition, you can optionally specify a specific directory user (see @UserName@ ). This parameter cannot be combined with any other filter.
+-- * 'dwDirectoryId' - The identifier of the directory. In addition, you can optionally specify a specific directory user (see @UserName@ ). You cannot combine this parameter with any other filter.
 --
--- * 'dwWorkspaceIds' - The IDs of the WorkSpaces. This parameter cannot be combined with any other filter. Because the 'CreateWorkspaces' operation is asynchronous, the identifier it returns is not immediately available. If you immediately call 'DescribeWorkspaces' with this identifier, no information is returned.
+-- * 'dwWorkspaceIds' - The identifiers of the WorkSpaces. You cannot combine this parameter with any other filter. Because the 'CreateWorkspaces' operation is asynchronous, the identifier it returns is not immediately available. If you immediately call 'DescribeWorkspaces' with this identifier, no information is returned.
 --
 -- * 'dwUserName' - The name of the directory user. You must specify this parameter with @DirectoryId@ .
 --
--- * 'dwBundleId' - The ID of the bundle. All WorkSpaces that are created from this bundle are retrieved. This parameter cannot be combined with any other filter.
+-- * 'dwBundleId' - The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot combine this parameter with any other filter.
 --
--- * 'dwNextToken' - The token for the next set of results. (You received this token from a previous call.)
+-- * 'dwNextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
 --
 -- * 'dwLimit' - The maximum number of items to return.
 describeWorkspaces
@@ -94,11 +94,11 @@ describeWorkspaces =
     }
 
 
--- | The ID of the directory. In addition, you can optionally specify a specific directory user (see @UserName@ ). This parameter cannot be combined with any other filter.
+-- | The identifier of the directory. In addition, you can optionally specify a specific directory user (see @UserName@ ). You cannot combine this parameter with any other filter.
 dwDirectoryId :: Lens' DescribeWorkspaces (Maybe Text)
 dwDirectoryId = lens _dwDirectoryId (\ s a -> s{_dwDirectoryId = a})
 
--- | The IDs of the WorkSpaces. This parameter cannot be combined with any other filter. Because the 'CreateWorkspaces' operation is asynchronous, the identifier it returns is not immediately available. If you immediately call 'DescribeWorkspaces' with this identifier, no information is returned.
+-- | The identifiers of the WorkSpaces. You cannot combine this parameter with any other filter. Because the 'CreateWorkspaces' operation is asynchronous, the identifier it returns is not immediately available. If you immediately call 'DescribeWorkspaces' with this identifier, no information is returned.
 dwWorkspaceIds :: Lens' DescribeWorkspaces (Maybe (NonEmpty Text))
 dwWorkspaceIds = lens _dwWorkspaceIds (\ s a -> s{_dwWorkspaceIds = a}) . mapping _List1
 
@@ -106,11 +106,11 @@ dwWorkspaceIds = lens _dwWorkspaceIds (\ s a -> s{_dwWorkspaceIds = a}) . mappin
 dwUserName :: Lens' DescribeWorkspaces (Maybe Text)
 dwUserName = lens _dwUserName (\ s a -> s{_dwUserName = a})
 
--- | The ID of the bundle. All WorkSpaces that are created from this bundle are retrieved. This parameter cannot be combined with any other filter.
+-- | The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot combine this parameter with any other filter.
 dwBundleId :: Lens' DescribeWorkspaces (Maybe Text)
 dwBundleId = lens _dwBundleId (\ s a -> s{_dwBundleId = a})
 
--- | The token for the next set of results. (You received this token from a previous call.)
+-- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
 dwNextToken :: Lens' DescribeWorkspaces (Maybe Text)
 dwNextToken = lens _dwNextToken (\ s a -> s{_dwNextToken = a})
 
@@ -180,7 +180,7 @@ data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwrsNextToken' - The token to use to retrieve the next set of results, or null if there are no more results available. This token is valid for one day and must be used within that time frame.
+-- * 'dwrsNextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
 --
 -- * 'dwrsWorkspaces' - Information about the WorkSpaces. Because 'CreateWorkspaces' is an asynchronous operation, some of the returned information could be incomplete.
 --
@@ -196,7 +196,7 @@ describeWorkspacesResponse pResponseStatus_ =
     }
 
 
--- | The token to use to retrieve the next set of results, or null if there are no more results available. This token is valid for one day and must be used within that time frame.
+-- | The token to use to retrieve the next set of results, or null if no more results are available.
 dwrsNextToken :: Lens' DescribeWorkspacesResponse (Maybe Text)
 dwrsNextToken = lens _dwrsNextToken (\ s a -> s{_dwrsNextToken = a})
 

@@ -60,7 +60,7 @@ data DescribeWorkspaceDirectories = DescribeWorkspaceDirectories'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwdNextToken' - The token for the next set of results. (You received this token from a previous call.)
+-- * 'dwdNextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
 --
 -- * 'dwdDirectoryIds' - The identifiers of the directories. If the value is null, all directories are retrieved.
 describeWorkspaceDirectories
@@ -70,7 +70,7 @@ describeWorkspaceDirectories =
     {_dwdNextToken = Nothing, _dwdDirectoryIds = Nothing}
 
 
--- | The token for the next set of results. (You received this token from a previous call.)
+-- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
 dwdNextToken :: Lens' DescribeWorkspaceDirectories (Maybe Text)
 dwdNextToken = lens _dwdNextToken (\ s a -> s{_dwdNextToken = a})
 
@@ -139,7 +139,7 @@ data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse
 --
 -- * 'dwdrsDirectories' - Information about the directories.
 --
--- * 'dwdrsNextToken' - The token to use to retrieve the next set of results, or null if there are no more results available. This token is valid for one day and must be used within that time frame.
+-- * 'dwdrsNextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
 --
 -- * 'dwdrsResponseStatus' - -- | The response status code.
 describeWorkspaceDirectoriesResponse
@@ -157,7 +157,7 @@ describeWorkspaceDirectoriesResponse pResponseStatus_ =
 dwdrsDirectories :: Lens' DescribeWorkspaceDirectoriesResponse [WorkspaceDirectory]
 dwdrsDirectories = lens _dwdrsDirectories (\ s a -> s{_dwdrsDirectories = a}) . _Default . _Coerce
 
--- | The token to use to retrieve the next set of results, or null if there are no more results available. This token is valid for one day and must be used within that time frame.
+-- | The token to use to retrieve the next set of results, or null if no more results are available.
 dwdrsNextToken :: Lens' DescribeWorkspaceDirectoriesResponse (Maybe Text)
 dwdrsNextToken = lens _dwdrsNextToken (\ s a -> s{_dwdrsNextToken = a})
 

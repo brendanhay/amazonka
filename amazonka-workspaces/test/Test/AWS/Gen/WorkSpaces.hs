@@ -28,8 +28,14 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestRevokeIPRules $
+--         [ requestDescribeAccount $
+--             describeAccount
+--
+--         , requestRevokeIPRules $
 --             revokeIPRules
+--
+--         , requestDescribeWorkspaceImages $
+--             describeWorkspaceImages
 --
 --         , requestModifyWorkspaceProperties $
 --             modifyWorkspaceProperties
@@ -52,6 +58,9 @@ import Test.Tasty
 --         , requestRebuildWorkspaces $
 --             rebuildWorkspaces
 --
+--         , requestImportWorkspaceImage $
+--             importWorkspaceImage
+--
 --         , requestModifyWorkspaceState $
 --             modifyWorkspaceState
 --
@@ -66,6 +75,9 @@ import Test.Tasty
 --
 --         , requestUpdateRulesOfIPGroup $
 --             updateRulesOfIPGroup
+--
+--         , requestDeleteWorkspaceImage $
+--             deleteWorkspaceImage
 --
 --         , requestStopWorkspaces $
 --             stopWorkspaces
@@ -88,8 +100,17 @@ import Test.Tasty
 --         , requestCreateWorkspaces $
 --             createWorkspaces
 --
+--         , requestDescribeClientProperties $
+--             describeClientProperties
+--
+--         , requestModifyClientProperties $
+--             modifyClientProperties
+--
 --         , requestDescribeIPGroups $
 --             describeIPGroups
+--
+--         , requestListAvailableManagementCidrRanges $
+--             listAvailableManagementCidrRanges
 --
 --         , requestDescribeWorkspaces $
 --             describeWorkspaces
@@ -97,11 +118,23 @@ import Test.Tasty
 --         , requestStartWorkspaces $
 --             startWorkspaces
 --
+--         , requestDescribeAccountModifications $
+--             describeAccountModifications
+--
+--         , requestModifyAccount $
+--             modifyAccount
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseRevokeIPRules $
+--         [ responseDescribeAccount $
+--             describeAccountResponse
+--
+--         , responseRevokeIPRules $
 --             revokeIPRulesResponse
+--
+--         , responseDescribeWorkspaceImages $
+--             describeWorkspaceImagesResponse
 --
 --         , responseModifyWorkspaceProperties $
 --             modifyWorkspacePropertiesResponse
@@ -124,6 +157,9 @@ import Test.Tasty
 --         , responseRebuildWorkspaces $
 --             rebuildWorkspacesResponse
 --
+--         , responseImportWorkspaceImage $
+--             importWorkspaceImageResponse
+--
 --         , responseModifyWorkspaceState $
 --             modifyWorkspaceStateResponse
 --
@@ -138,6 +174,9 @@ import Test.Tasty
 --
 --         , responseUpdateRulesOfIPGroup $
 --             updateRulesOfIPGroupResponse
+--
+--         , responseDeleteWorkspaceImage $
+--             deleteWorkspaceImageResponse
 --
 --         , responseStopWorkspaces $
 --             stopWorkspacesResponse
@@ -160,8 +199,17 @@ import Test.Tasty
 --         , responseCreateWorkspaces $
 --             createWorkspacesResponse
 --
+--         , responseDescribeClientProperties $
+--             describeClientPropertiesResponse
+--
+--         , responseModifyClientProperties $
+--             modifyClientPropertiesResponse
+--
 --         , responseDescribeIPGroups $
 --             describeIPGroupsResponse
+--
+--         , responseListAvailableManagementCidrRanges $
+--             listAvailableManagementCidrRangesResponse
 --
 --         , responseDescribeWorkspaces $
 --             describeWorkspacesResponse
@@ -169,15 +217,31 @@ import Test.Tasty
 --         , responseStartWorkspaces $
 --             startWorkspacesResponse
 --
+--         , responseDescribeAccountModifications $
+--             describeAccountModificationsResponse
+--
+--         , responseModifyAccount $
+--             modifyAccountResponse
+--
 --           ]
 --     ]
 
 -- Requests
 
+requestDescribeAccount :: DescribeAccount -> TestTree
+requestDescribeAccount = req
+    "DescribeAccount"
+    "fixture/DescribeAccount.yaml"
+
 requestRevokeIPRules :: RevokeIPRules -> TestTree
 requestRevokeIPRules = req
     "RevokeIPRules"
     "fixture/RevokeIPRules.yaml"
+
+requestDescribeWorkspaceImages :: DescribeWorkspaceImages -> TestTree
+requestDescribeWorkspaceImages = req
+    "DescribeWorkspaceImages"
+    "fixture/DescribeWorkspaceImages.yaml"
 
 requestModifyWorkspaceProperties :: ModifyWorkspaceProperties -> TestTree
 requestModifyWorkspaceProperties = req
@@ -214,6 +278,11 @@ requestRebuildWorkspaces = req
     "RebuildWorkspaces"
     "fixture/RebuildWorkspaces.yaml"
 
+requestImportWorkspaceImage :: ImportWorkspaceImage -> TestTree
+requestImportWorkspaceImage = req
+    "ImportWorkspaceImage"
+    "fixture/ImportWorkspaceImage.yaml"
+
 requestModifyWorkspaceState :: ModifyWorkspaceState -> TestTree
 requestModifyWorkspaceState = req
     "ModifyWorkspaceState"
@@ -238,6 +307,11 @@ requestUpdateRulesOfIPGroup :: UpdateRulesOfIPGroup -> TestTree
 requestUpdateRulesOfIPGroup = req
     "UpdateRulesOfIPGroup"
     "fixture/UpdateRulesOfIPGroup.yaml"
+
+requestDeleteWorkspaceImage :: DeleteWorkspaceImage -> TestTree
+requestDeleteWorkspaceImage = req
+    "DeleteWorkspaceImage"
+    "fixture/DeleteWorkspaceImage.yaml"
 
 requestStopWorkspaces :: StopWorkspaces -> TestTree
 requestStopWorkspaces = req
@@ -274,10 +348,25 @@ requestCreateWorkspaces = req
     "CreateWorkspaces"
     "fixture/CreateWorkspaces.yaml"
 
+requestDescribeClientProperties :: DescribeClientProperties -> TestTree
+requestDescribeClientProperties = req
+    "DescribeClientProperties"
+    "fixture/DescribeClientProperties.yaml"
+
+requestModifyClientProperties :: ModifyClientProperties -> TestTree
+requestModifyClientProperties = req
+    "ModifyClientProperties"
+    "fixture/ModifyClientProperties.yaml"
+
 requestDescribeIPGroups :: DescribeIPGroups -> TestTree
 requestDescribeIPGroups = req
     "DescribeIPGroups"
     "fixture/DescribeIPGroups.yaml"
+
+requestListAvailableManagementCidrRanges :: ListAvailableManagementCidrRanges -> TestTree
+requestListAvailableManagementCidrRanges = req
+    "ListAvailableManagementCidrRanges"
+    "fixture/ListAvailableManagementCidrRanges.yaml"
 
 requestDescribeWorkspaces :: DescribeWorkspaces -> TestTree
 requestDescribeWorkspaces = req
@@ -289,7 +378,24 @@ requestStartWorkspaces = req
     "StartWorkspaces"
     "fixture/StartWorkspaces.yaml"
 
+requestDescribeAccountModifications :: DescribeAccountModifications -> TestTree
+requestDescribeAccountModifications = req
+    "DescribeAccountModifications"
+    "fixture/DescribeAccountModifications.yaml"
+
+requestModifyAccount :: ModifyAccount -> TestTree
+requestModifyAccount = req
+    "ModifyAccount"
+    "fixture/ModifyAccount.yaml"
+
 -- Responses
+
+responseDescribeAccount :: DescribeAccountResponse -> TestTree
+responseDescribeAccount = res
+    "DescribeAccountResponse"
+    "fixture/DescribeAccountResponse.proto"
+    workSpaces
+    (Proxy :: Proxy DescribeAccount)
 
 responseRevokeIPRules :: RevokeIPRulesResponse -> TestTree
 responseRevokeIPRules = res
@@ -297,6 +403,13 @@ responseRevokeIPRules = res
     "fixture/RevokeIPRulesResponse.proto"
     workSpaces
     (Proxy :: Proxy RevokeIPRules)
+
+responseDescribeWorkspaceImages :: DescribeWorkspaceImagesResponse -> TestTree
+responseDescribeWorkspaceImages = res
+    "DescribeWorkspaceImagesResponse"
+    "fixture/DescribeWorkspaceImagesResponse.proto"
+    workSpaces
+    (Proxy :: Proxy DescribeWorkspaceImages)
 
 responseModifyWorkspaceProperties :: ModifyWorkspacePropertiesResponse -> TestTree
 responseModifyWorkspaceProperties = res
@@ -347,6 +460,13 @@ responseRebuildWorkspaces = res
     workSpaces
     (Proxy :: Proxy RebuildWorkspaces)
 
+responseImportWorkspaceImage :: ImportWorkspaceImageResponse -> TestTree
+responseImportWorkspaceImage = res
+    "ImportWorkspaceImageResponse"
+    "fixture/ImportWorkspaceImageResponse.proto"
+    workSpaces
+    (Proxy :: Proxy ImportWorkspaceImage)
+
 responseModifyWorkspaceState :: ModifyWorkspaceStateResponse -> TestTree
 responseModifyWorkspaceState = res
     "ModifyWorkspaceStateResponse"
@@ -381,6 +501,13 @@ responseUpdateRulesOfIPGroup = res
     "fixture/UpdateRulesOfIPGroupResponse.proto"
     workSpaces
     (Proxy :: Proxy UpdateRulesOfIPGroup)
+
+responseDeleteWorkspaceImage :: DeleteWorkspaceImageResponse -> TestTree
+responseDeleteWorkspaceImage = res
+    "DeleteWorkspaceImageResponse"
+    "fixture/DeleteWorkspaceImageResponse.proto"
+    workSpaces
+    (Proxy :: Proxy DeleteWorkspaceImage)
 
 responseStopWorkspaces :: StopWorkspacesResponse -> TestTree
 responseStopWorkspaces = res
@@ -431,12 +558,33 @@ responseCreateWorkspaces = res
     workSpaces
     (Proxy :: Proxy CreateWorkspaces)
 
+responseDescribeClientProperties :: DescribeClientPropertiesResponse -> TestTree
+responseDescribeClientProperties = res
+    "DescribeClientPropertiesResponse"
+    "fixture/DescribeClientPropertiesResponse.proto"
+    workSpaces
+    (Proxy :: Proxy DescribeClientProperties)
+
+responseModifyClientProperties :: ModifyClientPropertiesResponse -> TestTree
+responseModifyClientProperties = res
+    "ModifyClientPropertiesResponse"
+    "fixture/ModifyClientPropertiesResponse.proto"
+    workSpaces
+    (Proxy :: Proxy ModifyClientProperties)
+
 responseDescribeIPGroups :: DescribeIPGroupsResponse -> TestTree
 responseDescribeIPGroups = res
     "DescribeIPGroupsResponse"
     "fixture/DescribeIPGroupsResponse.proto"
     workSpaces
     (Proxy :: Proxy DescribeIPGroups)
+
+responseListAvailableManagementCidrRanges :: ListAvailableManagementCidrRangesResponse -> TestTree
+responseListAvailableManagementCidrRanges = res
+    "ListAvailableManagementCidrRangesResponse"
+    "fixture/ListAvailableManagementCidrRangesResponse.proto"
+    workSpaces
+    (Proxy :: Proxy ListAvailableManagementCidrRanges)
 
 responseDescribeWorkspaces :: DescribeWorkspacesResponse -> TestTree
 responseDescribeWorkspaces = res
@@ -451,3 +599,17 @@ responseStartWorkspaces = res
     "fixture/StartWorkspacesResponse.proto"
     workSpaces
     (Proxy :: Proxy StartWorkspaces)
+
+responseDescribeAccountModifications :: DescribeAccountModificationsResponse -> TestTree
+responseDescribeAccountModifications = res
+    "DescribeAccountModificationsResponse"
+    "fixture/DescribeAccountModificationsResponse.proto"
+    workSpaces
+    (Proxy :: Proxy DescribeAccountModifications)
+
+responseModifyAccount :: ModifyAccountResponse -> TestTree
+responseModifyAccount = res
+    "ModifyAccountResponse"
+    "fixture/ModifyAccountResponse.proto"
+    workSpaces
+    (Proxy :: Proxy ModifyAccount)

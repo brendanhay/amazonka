@@ -55,7 +55,7 @@ data CreateTags = CreateTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctResourceId' - The ID of the WorkSpace. To find this ID, use 'DescribeWorkspaces' .
+-- * 'ctResourceId' - The identifier of the WorkSpace. To find this ID, use 'DescribeWorkspaces' .
 --
 -- * 'ctTags' - The tags. Each WorkSpace can have a maximum of 50 tags.
 createTags
@@ -65,7 +65,7 @@ createTags pResourceId_ =
   CreateTags' {_ctResourceId = pResourceId_, _ctTags = mempty}
 
 
--- | The ID of the WorkSpace. To find this ID, use 'DescribeWorkspaces' .
+-- | The identifier of the WorkSpace. To find this ID, use 'DescribeWorkspaces' .
 ctResourceId :: Lens' CreateTags Text
 ctResourceId = lens _ctResourceId (\ s a -> s{_ctResourceId = a})
 

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the available WorkSpace bundles.
+-- Retrieves a list that describes the available WorkSpace bundles.
 --
 --
 -- You can filter the results using either bundle ID or owner, but not both.
@@ -64,9 +64,9 @@ data DescribeWorkspaceBundles = DescribeWorkspaceBundles'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwbBundleIds' - The IDs of the bundles. This parameter cannot be combined with any other filter.
+-- * 'dwbBundleIds' - The identifiers of the bundles. You cannot combine this parameter with any other filter.
 --
--- * 'dwbOwner' - The owner of the bundles. This parameter cannot be combined with any other filter. Specify @AMAZON@ to describe the bundles provided by AWS or null to describe the bundles that belong to your account.
+-- * 'dwbOwner' - The owner of the bundles. You cannot combine this parameter with any other filter. Specify @AMAZON@ to describe the bundles provided by AWS or null to describe the bundles that belong to your account.
 --
 -- * 'dwbNextToken' - The token for the next set of results. (You received this token from a previous call.)
 describeWorkspaceBundles
@@ -76,11 +76,11 @@ describeWorkspaceBundles =
     {_dwbBundleIds = Nothing, _dwbOwner = Nothing, _dwbNextToken = Nothing}
 
 
--- | The IDs of the bundles. This parameter cannot be combined with any other filter.
+-- | The identifiers of the bundles. You cannot combine this parameter with any other filter.
 dwbBundleIds :: Lens' DescribeWorkspaceBundles (Maybe (NonEmpty Text))
 dwbBundleIds = lens _dwbBundleIds (\ s a -> s{_dwbBundleIds = a}) . mapping _List1
 
--- | The owner of the bundles. This parameter cannot be combined with any other filter. Specify @AMAZON@ to describe the bundles provided by AWS or null to describe the bundles that belong to your account.
+-- | The owner of the bundles. You cannot combine this parameter with any other filter. Specify @AMAZON@ to describe the bundles provided by AWS or null to describe the bundles that belong to your account.
 dwbOwner :: Lens' DescribeWorkspaceBundles (Maybe Text)
 dwbOwner = lens _dwbOwner (\ s a -> s{_dwbOwner = a})
 

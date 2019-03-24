@@ -52,13 +52,22 @@ library
         , Network.AWS.WorkSpaces.CreateWorkspaces
         , Network.AWS.WorkSpaces.DeleteIPGroup
         , Network.AWS.WorkSpaces.DeleteTags
+        , Network.AWS.WorkSpaces.DeleteWorkspaceImage
+        , Network.AWS.WorkSpaces.DescribeAccount
+        , Network.AWS.WorkSpaces.DescribeAccountModifications
+        , Network.AWS.WorkSpaces.DescribeClientProperties
         , Network.AWS.WorkSpaces.DescribeIPGroups
         , Network.AWS.WorkSpaces.DescribeTags
         , Network.AWS.WorkSpaces.DescribeWorkspaceBundles
         , Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
+        , Network.AWS.WorkSpaces.DescribeWorkspaceImages
         , Network.AWS.WorkSpaces.DescribeWorkspaces
         , Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
         , Network.AWS.WorkSpaces.DisassociateIPGroups
+        , Network.AWS.WorkSpaces.ImportWorkspaceImage
+        , Network.AWS.WorkSpaces.ListAvailableManagementCidrRanges
+        , Network.AWS.WorkSpaces.ModifyAccount
+        , Network.AWS.WorkSpaces.ModifyClientProperties
         , Network.AWS.WorkSpaces.ModifyWorkspaceProperties
         , Network.AWS.WorkSpaces.ModifyWorkspaceState
         , Network.AWS.WorkSpaces.RebootWorkspaces

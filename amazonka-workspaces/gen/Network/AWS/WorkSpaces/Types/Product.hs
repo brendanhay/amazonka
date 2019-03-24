@@ -21,7 +21,174 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.WorkSpaces.Types.Sum
 
--- | Information about the compute type.
+-- | Describes a modification to the configuration of bring your own license (BYOL) for the specified account.
+--
+--
+--
+-- /See:/ 'accountModification' smart constructor.
+data AccountModification = AccountModification'
+  { _amStartTime :: !(Maybe POSIX)
+  , _amDedicatedTenancySupport :: !(Maybe DedicatedTenancySupportResultEnum)
+  , _amModificationState :: !(Maybe DedicatedTenancyModificationStateEnum)
+  , _amDedicatedTenancyManagementCidrRange :: !(Maybe Text)
+  , _amErrorCode :: !(Maybe Text)
+  , _amErrorMessage :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AccountModification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'amStartTime' - The timestamp when the modification of the BYOL configuration was started.
+--
+-- * 'amDedicatedTenancySupport' - The status of BYOL (whether BYOL is being enabled or disabled).
+--
+-- * 'amModificationState' - The state of the modification to the configuration of BYOL.
+--
+-- * 'amDedicatedTenancyManagementCidrRange' - The IP address range, specified as an IPv4 CIDR block, for the management network interface used for the account.
+--
+-- * 'amErrorCode' - The error code that is returned if the configuration of BYOL cannot be modified.
+--
+-- * 'amErrorMessage' - The text of the error message that is returned if the configuration of BYOL cannot be modified.
+accountModification
+    :: AccountModification
+accountModification =
+  AccountModification'
+    { _amStartTime = Nothing
+    , _amDedicatedTenancySupport = Nothing
+    , _amModificationState = Nothing
+    , _amDedicatedTenancyManagementCidrRange = Nothing
+    , _amErrorCode = Nothing
+    , _amErrorMessage = Nothing
+    }
+
+
+-- | The timestamp when the modification of the BYOL configuration was started.
+amStartTime :: Lens' AccountModification (Maybe UTCTime)
+amStartTime = lens _amStartTime (\ s a -> s{_amStartTime = a}) . mapping _Time
+
+-- | The status of BYOL (whether BYOL is being enabled or disabled).
+amDedicatedTenancySupport :: Lens' AccountModification (Maybe DedicatedTenancySupportResultEnum)
+amDedicatedTenancySupport = lens _amDedicatedTenancySupport (\ s a -> s{_amDedicatedTenancySupport = a})
+
+-- | The state of the modification to the configuration of BYOL.
+amModificationState :: Lens' AccountModification (Maybe DedicatedTenancyModificationStateEnum)
+amModificationState = lens _amModificationState (\ s a -> s{_amModificationState = a})
+
+-- | The IP address range, specified as an IPv4 CIDR block, for the management network interface used for the account.
+amDedicatedTenancyManagementCidrRange :: Lens' AccountModification (Maybe Text)
+amDedicatedTenancyManagementCidrRange = lens _amDedicatedTenancyManagementCidrRange (\ s a -> s{_amDedicatedTenancyManagementCidrRange = a})
+
+-- | The error code that is returned if the configuration of BYOL cannot be modified.
+amErrorCode :: Lens' AccountModification (Maybe Text)
+amErrorCode = lens _amErrorCode (\ s a -> s{_amErrorCode = a})
+
+-- | The text of the error message that is returned if the configuration of BYOL cannot be modified.
+amErrorMessage :: Lens' AccountModification (Maybe Text)
+amErrorMessage = lens _amErrorMessage (\ s a -> s{_amErrorMessage = a})
+
+instance FromJSON AccountModification where
+        parseJSON
+          = withObject "AccountModification"
+              (\ x ->
+                 AccountModification' <$>
+                   (x .:? "StartTime") <*>
+                     (x .:? "DedicatedTenancySupport")
+                     <*> (x .:? "ModificationState")
+                     <*> (x .:? "DedicatedTenancyManagementCidrRange")
+                     <*> (x .:? "ErrorCode")
+                     <*> (x .:? "ErrorMessage"))
+
+instance Hashable AccountModification where
+
+instance NFData AccountModification where
+
+-- | Describes an Amazon WorkSpaces client.
+--
+--
+--
+-- /See:/ 'clientProperties' smart constructor.
+newtype ClientProperties = ClientProperties'
+  { _cpReconnectEnabled :: Maybe ReconnectEnum
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ClientProperties' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpReconnectEnabled' - Specifies whether users can cache their credentials on the Amazon WorkSpaces client. When enabled, users can choose to reconnect to their WorkSpaces without re-entering their credentials.
+clientProperties
+    :: ClientProperties
+clientProperties = ClientProperties' {_cpReconnectEnabled = Nothing}
+
+
+-- | Specifies whether users can cache their credentials on the Amazon WorkSpaces client. When enabled, users can choose to reconnect to their WorkSpaces without re-entering their credentials.
+cpReconnectEnabled :: Lens' ClientProperties (Maybe ReconnectEnum)
+cpReconnectEnabled = lens _cpReconnectEnabled (\ s a -> s{_cpReconnectEnabled = a})
+
+instance FromJSON ClientProperties where
+        parseJSON
+          = withObject "ClientProperties"
+              (\ x ->
+                 ClientProperties' <$> (x .:? "ReconnectEnabled"))
+
+instance Hashable ClientProperties where
+
+instance NFData ClientProperties where
+
+instance ToJSON ClientProperties where
+        toJSON ClientProperties'{..}
+          = object
+              (catMaybes
+                 [("ReconnectEnabled" .=) <$> _cpReconnectEnabled])
+
+-- | Information about the Amazon WorkSpaces client.
+--
+--
+--
+-- /See:/ 'clientPropertiesResult' smart constructor.
+data ClientPropertiesResult = ClientPropertiesResult'
+  { _cprResourceId       :: !(Maybe Text)
+  , _cprClientProperties :: !(Maybe ClientProperties)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ClientPropertiesResult' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cprResourceId' - The resource identifier, in the form of a directory ID.
+--
+-- * 'cprClientProperties' - Information about the Amazon WorkSpaces client.
+clientPropertiesResult
+    :: ClientPropertiesResult
+clientPropertiesResult =
+  ClientPropertiesResult'
+    {_cprResourceId = Nothing, _cprClientProperties = Nothing}
+
+
+-- | The resource identifier, in the form of a directory ID.
+cprResourceId :: Lens' ClientPropertiesResult (Maybe Text)
+cprResourceId = lens _cprResourceId (\ s a -> s{_cprResourceId = a})
+
+-- | Information about the Amazon WorkSpaces client.
+cprClientProperties :: Lens' ClientPropertiesResult (Maybe ClientProperties)
+cprClientProperties = lens _cprClientProperties (\ s a -> s{_cprClientProperties = a})
+
+instance FromJSON ClientPropertiesResult where
+        parseJSON
+          = withObject "ClientPropertiesResult"
+              (\ x ->
+                 ClientPropertiesResult' <$>
+                   (x .:? "ResourceId") <*> (x .:? "ClientProperties"))
+
+instance Hashable ClientPropertiesResult where
+
+instance NFData ClientPropertiesResult where
+
+-- | Describes the compute type.
 --
 --
 --
@@ -54,7 +221,7 @@ instance Hashable ComputeType where
 
 instance NFData ComputeType where
 
--- | Information about defaults used to create a WorkSpace.
+-- | Describes the default values used to create a WorkSpace.
 --
 --
 --
@@ -74,9 +241,9 @@ data DefaultWorkspaceCreationProperties = DefaultWorkspaceCreationProperties'
 --
 -- * 'dwcpCustomSecurityGroupId' - The identifier of any security groups to apply to WorkSpaces when they are created.
 --
--- * 'dwcpUserEnabledAsLocalAdministrator' - Indicates whether the WorkSpace user is an administrator on the WorkSpace.
+-- * 'dwcpUserEnabledAsLocalAdministrator' - Specifies whether the WorkSpace user is an administrator on the WorkSpace.
 --
--- * 'dwcpEnableWorkDocs' - Indicates whether the directory is enabled for Amazon WorkDocs.
+-- * 'dwcpEnableWorkDocs' - Specifies whether the directory is enabled for Amazon WorkDocs.
 --
 -- * 'dwcpEnableInternetAccess' - The public IP address to attach to all WorkSpaces that are created or rebuilt.
 --
@@ -97,11 +264,11 @@ defaultWorkspaceCreationProperties =
 dwcpCustomSecurityGroupId :: Lens' DefaultWorkspaceCreationProperties (Maybe Text)
 dwcpCustomSecurityGroupId = lens _dwcpCustomSecurityGroupId (\ s a -> s{_dwcpCustomSecurityGroupId = a})
 
--- | Indicates whether the WorkSpace user is an administrator on the WorkSpace.
+-- | Specifies whether the WorkSpace user is an administrator on the WorkSpace.
 dwcpUserEnabledAsLocalAdministrator :: Lens' DefaultWorkspaceCreationProperties (Maybe Bool)
 dwcpUserEnabledAsLocalAdministrator = lens _dwcpUserEnabledAsLocalAdministrator (\ s a -> s{_dwcpUserEnabledAsLocalAdministrator = a})
 
--- | Indicates whether the directory is enabled for Amazon WorkDocs.
+-- | Specifies whether the directory is enabled for Amazon WorkDocs.
 dwcpEnableWorkDocs :: Lens' DefaultWorkspaceCreationProperties (Maybe Bool)
 dwcpEnableWorkDocs = lens _dwcpEnableWorkDocs (\ s a -> s{_dwcpEnableWorkDocs = a})
 
@@ -131,7 +298,7 @@ instance Hashable DefaultWorkspaceCreationProperties
 instance NFData DefaultWorkspaceCreationProperties
          where
 
--- | Information about a WorkSpace that could not be created.
+-- | Describes a WorkSpace that cannot be created.
 --
 --
 --
@@ -149,9 +316,9 @@ data FailedCreateWorkspaceRequest = FailedCreateWorkspaceRequest'
 --
 -- * 'fcwrWorkspaceRequest' - Information about the WorkSpace.
 --
--- * 'fcwrErrorCode' - The error code.
+-- * 'fcwrErrorCode' - The error code that is returned if the WorkSpace cannot be created.
 --
--- * 'fcwrErrorMessage' - The textual error message.
+-- * 'fcwrErrorMessage' - The text of the error message that is returned if the WorkSpace cannot be created.
 failedCreateWorkspaceRequest
     :: FailedCreateWorkspaceRequest
 failedCreateWorkspaceRequest =
@@ -166,11 +333,11 @@ failedCreateWorkspaceRequest =
 fcwrWorkspaceRequest :: Lens' FailedCreateWorkspaceRequest (Maybe WorkspaceRequest)
 fcwrWorkspaceRequest = lens _fcwrWorkspaceRequest (\ s a -> s{_fcwrWorkspaceRequest = a})
 
--- | The error code.
+-- | The error code that is returned if the WorkSpace cannot be created.
 fcwrErrorCode :: Lens' FailedCreateWorkspaceRequest (Maybe Text)
 fcwrErrorCode = lens _fcwrErrorCode (\ s a -> s{_fcwrErrorCode = a})
 
--- | The textual error message.
+-- | The text of the error message that is returned if the WorkSpace cannot be created.
 fcwrErrorMessage :: Lens' FailedCreateWorkspaceRequest (Maybe Text)
 fcwrErrorMessage = lens _fcwrErrorMessage (\ s a -> s{_fcwrErrorMessage = a})
 
@@ -186,7 +353,7 @@ instance Hashable FailedCreateWorkspaceRequest where
 
 instance NFData FailedCreateWorkspaceRequest where
 
--- | Information about a WorkSpace that could not be rebooted ('RebootWorkspaces' ), rebuilt ('RebuildWorkspaces' ), terminated ('TerminateWorkspaces' ), started ('StartWorkspaces' ), or stopped ('StopWorkspaces' ).
+-- | Describes a WorkSpace that could not be rebooted. ('RebootWorkspaces' ), rebuilt ('RebuildWorkspaces' ), terminated ('TerminateWorkspaces' ), started ('StartWorkspaces' ), or stopped ('StopWorkspaces' ).
 --
 --
 --
@@ -202,11 +369,11 @@ data FailedWorkspaceChangeRequest = FailedWorkspaceChangeRequest'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fwcrErrorCode' - The error code.
+-- * 'fwcrErrorCode' - The error code that is returned if the WorkSpace cannot be rebooted.
 --
 -- * 'fwcrWorkspaceId' - The identifier of the WorkSpace.
 --
--- * 'fwcrErrorMessage' - The textual error message.
+-- * 'fwcrErrorMessage' - The text of the error message that is returned if the WorkSpace cannot be rebooted.
 failedWorkspaceChangeRequest
     :: FailedWorkspaceChangeRequest
 failedWorkspaceChangeRequest =
@@ -217,7 +384,7 @@ failedWorkspaceChangeRequest =
     }
 
 
--- | The error code.
+-- | The error code that is returned if the WorkSpace cannot be rebooted.
 fwcrErrorCode :: Lens' FailedWorkspaceChangeRequest (Maybe Text)
 fwcrErrorCode = lens _fwcrErrorCode (\ s a -> s{_fwcrErrorCode = a})
 
@@ -225,7 +392,7 @@ fwcrErrorCode = lens _fwcrErrorCode (\ s a -> s{_fwcrErrorCode = a})
 fwcrWorkspaceId :: Lens' FailedWorkspaceChangeRequest (Maybe Text)
 fwcrWorkspaceId = lens _fwcrWorkspaceId (\ s a -> s{_fwcrWorkspaceId = a})
 
--- | The textual error message.
+-- | The text of the error message that is returned if the WorkSpace cannot be rebooted.
 fwcrErrorMessage :: Lens' FailedWorkspaceChangeRequest (Maybe Text)
 fwcrErrorMessage = lens _fwcrErrorMessage (\ s a -> s{_fwcrErrorMessage = a})
 
@@ -241,7 +408,7 @@ instance Hashable FailedWorkspaceChangeRequest where
 
 instance NFData FailedWorkspaceChangeRequest where
 
--- | Information about a rule for an IP access control group.
+-- | Describes a rule for an IP access control group.
 --
 --
 --
@@ -290,7 +457,7 @@ instance ToJSON IPRuleItem where
                  [("ruleDesc" .=) <$> _iriRuleDesc,
                   ("ipRule" .=) <$> _iriIpRule])
 
--- | Information about a WorkSpace modification.
+-- | Describes a WorkSpace modification.
 --
 --
 --
@@ -333,7 +500,40 @@ instance Hashable ModificationState where
 
 instance NFData ModificationState where
 
--- | Information used to reboot a WorkSpace.
+-- | The operating system that the image is running.
+--
+--
+--
+-- /See:/ 'operatingSystem' smart constructor.
+newtype OperatingSystem = OperatingSystem'
+  { _osType :: Maybe OperatingSystemType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'OperatingSystem' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'osType' - The operating system.
+operatingSystem
+    :: OperatingSystem
+operatingSystem = OperatingSystem' {_osType = Nothing}
+
+
+-- | The operating system.
+osType :: Lens' OperatingSystem (Maybe OperatingSystemType)
+osType = lens _osType (\ s a -> s{_osType = a})
+
+instance FromJSON OperatingSystem where
+        parseJSON
+          = withObject "OperatingSystem"
+              (\ x -> OperatingSystem' <$> (x .:? "Type"))
+
+instance Hashable OperatingSystem where
+
+instance NFData OperatingSystem where
+
+-- | Describes the information used to reboot a WorkSpace.
 --
 --
 --
@@ -347,14 +547,14 @@ newtype RebootRequest = RebootRequest'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rWorkspaceId' - The ID of the WorkSpace.
+-- * 'rWorkspaceId' - The identifier of the WorkSpace.
 rebootRequest
     :: Text -- ^ 'rWorkspaceId'
     -> RebootRequest
 rebootRequest pWorkspaceId_ = RebootRequest' {_rWorkspaceId = pWorkspaceId_}
 
 
--- | The ID of the WorkSpace.
+-- | The identifier of the WorkSpace.
 rWorkspaceId :: Lens' RebootRequest Text
 rWorkspaceId = lens _rWorkspaceId (\ s a -> s{_rWorkspaceId = a})
 
@@ -367,7 +567,7 @@ instance ToJSON RebootRequest where
           = object
               (catMaybes [Just ("WorkspaceId" .= _rWorkspaceId)])
 
--- | Information used to rebuild a WorkSpace.
+-- | Describes the information used to rebuild a WorkSpace.
 --
 --
 --
@@ -381,14 +581,14 @@ newtype RebuildRequest = RebuildRequest'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrWorkspaceId' - The ID of the WorkSpace.
+-- * 'rrWorkspaceId' - The identifier of the WorkSpace.
 rebuildRequest
     :: Text -- ^ 'rrWorkspaceId'
     -> RebuildRequest
 rebuildRequest pWorkspaceId_ = RebuildRequest' {_rrWorkspaceId = pWorkspaceId_}
 
 
--- | The ID of the WorkSpace.
+-- | The identifier of the WorkSpace.
 rrWorkspaceId :: Lens' RebuildRequest Text
 rrWorkspaceId = lens _rrWorkspaceId (\ s a -> s{_rrWorkspaceId = a})
 
@@ -401,7 +601,7 @@ instance ToJSON RebuildRequest where
           = object
               (catMaybes [Just ("WorkspaceId" .= _rrWorkspaceId)])
 
--- | Information about the root volume for a WorkSpace bundle.
+-- | Describes the root volume for a WorkSpace bundle.
 --
 --
 --
@@ -448,13 +648,13 @@ newtype StartRequest = StartRequest'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sWorkspaceId' - The ID of the WorkSpace.
+-- * 'sWorkspaceId' - The identifier of the WorkSpace.
 startRequest
     :: StartRequest
 startRequest = StartRequest' {_sWorkspaceId = Nothing}
 
 
--- | The ID of the WorkSpace.
+-- | The identifier of the WorkSpace.
 sWorkspaceId :: Lens' StartRequest (Maybe Text)
 sWorkspaceId = lens _sWorkspaceId (\ s a -> s{_sWorkspaceId = a})
 
@@ -467,7 +667,7 @@ instance ToJSON StartRequest where
           = object
               (catMaybes [("WorkspaceId" .=) <$> _sWorkspaceId])
 
--- | Information used to stop a WorkSpace.
+-- | Describes the information used to stop a WorkSpace.
 --
 --
 --
@@ -481,13 +681,13 @@ newtype StopRequest = StopRequest'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srWorkspaceId' - The ID of the WorkSpace.
+-- * 'srWorkspaceId' - The identifier of the WorkSpace.
 stopRequest
     :: StopRequest
 stopRequest = StopRequest' {_srWorkspaceId = Nothing}
 
 
--- | The ID of the WorkSpace.
+-- | The identifier of the WorkSpace.
 srWorkspaceId :: Lens' StopRequest (Maybe Text)
 srWorkspaceId = lens _srWorkspaceId (\ s a -> s{_srWorkspaceId = a})
 
@@ -500,7 +700,7 @@ instance ToJSON StopRequest where
           = object
               (catMaybes [("WorkspaceId" .=) <$> _srWorkspaceId])
 
--- | Information about a tag.
+-- | Describes a tag.
 --
 --
 --
@@ -548,7 +748,7 @@ instance ToJSON Tag where
                  [("Value" .=) <$> _tagValue,
                   Just ("Key" .= _tagKey)])
 
--- | Information used to terminate a WorkSpace.
+-- | Describes the information used to terminate a WorkSpace.
 --
 --
 --
@@ -562,7 +762,7 @@ newtype TerminateRequest = TerminateRequest'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trWorkspaceId' - The ID of the WorkSpace.
+-- * 'trWorkspaceId' - The identifier of the WorkSpace.
 terminateRequest
     :: Text -- ^ 'trWorkspaceId'
     -> TerminateRequest
@@ -570,7 +770,7 @@ terminateRequest pWorkspaceId_ =
   TerminateRequest' {_trWorkspaceId = pWorkspaceId_}
 
 
--- | The ID of the WorkSpace.
+-- | The identifier of the WorkSpace.
 trWorkspaceId :: Lens' TerminateRequest Text
 trWorkspaceId = lens _trWorkspaceId (\ s a -> s{_trWorkspaceId = a})
 
@@ -583,7 +783,7 @@ instance ToJSON TerminateRequest where
           = object
               (catMaybes [Just ("WorkspaceId" .= _trWorkspaceId)])
 
--- | Information about the user storage for a WorkSpace bundle.
+-- | Describes the user storage for a WorkSpace bundle.
 --
 --
 --
@@ -616,7 +816,7 @@ instance Hashable UserStorage where
 
 instance NFData UserStorage where
 
--- | Information about a WorkSpace.
+-- | Describes a WorkSpace.
 --
 --
 --
@@ -662,7 +862,7 @@ data Workspace = Workspace'
 --
 -- * 'wRootVolumeEncryptionEnabled' - Indicates whether the data stored on the root volume is encrypted.
 --
--- * 'wErrorCode' - If the WorkSpace could not be created, contains the error code.
+-- * 'wErrorCode' - The error code that is returned if the WorkSpace cannot be created.
 --
 -- * 'wVolumeEncryptionKey' - The KMS key used to encrypt data stored on your WorkSpace.
 --
@@ -672,7 +872,7 @@ data Workspace = Workspace'
 --
 -- * 'wUserVolumeEncryptionEnabled' - Indicates whether the data stored on the user volume is encrypted.
 --
--- * 'wErrorMessage' - If the WorkSpace could not be created, contains a textual error message that describes the failure.
+-- * 'wErrorMessage' - The text of the error message that is returned if the WorkSpace cannot be created.
 workspace
     :: Workspace
 workspace =
@@ -731,7 +931,7 @@ wWorkspaceProperties = lens _wWorkspaceProperties (\ s a -> s{_wWorkspacePropert
 wRootVolumeEncryptionEnabled :: Lens' Workspace (Maybe Bool)
 wRootVolumeEncryptionEnabled = lens _wRootVolumeEncryptionEnabled (\ s a -> s{_wRootVolumeEncryptionEnabled = a})
 
--- | If the WorkSpace could not be created, contains the error code.
+-- | The error code that is returned if the WorkSpace cannot be created.
 wErrorCode :: Lens' Workspace (Maybe Text)
 wErrorCode = lens _wErrorCode (\ s a -> s{_wErrorCode = a})
 
@@ -751,7 +951,7 @@ wWorkspaceId = lens _wWorkspaceId (\ s a -> s{_wWorkspaceId = a})
 wUserVolumeEncryptionEnabled :: Lens' Workspace (Maybe Bool)
 wUserVolumeEncryptionEnabled = lens _wUserVolumeEncryptionEnabled (\ s a -> s{_wUserVolumeEncryptionEnabled = a})
 
--- | If the WorkSpace could not be created, contains a textual error message that describes the failure.
+-- | The text of the error message that is returned if the WorkSpace cannot be created.
 wErrorMessage :: Lens' Workspace (Maybe Text)
 wErrorMessage = lens _wErrorMessage (\ s a -> s{_wErrorMessage = a})
 
@@ -779,7 +979,7 @@ instance Hashable Workspace where
 
 instance NFData Workspace where
 
--- | Information about a WorkSpace bundle.
+-- | Describes a WorkSpace bundle.
 --
 --
 --
@@ -889,9 +1089,9 @@ data WorkspaceConnectionStatus = WorkspaceConnectionStatus'
 --
 -- * 'wcsLastKnownUserConnectionTimestamp' - The timestamp of the last known user connection.
 --
--- * 'wcsConnectionStateCheckTimestamp' - The timestamp of the connection state check.
+-- * 'wcsConnectionStateCheckTimestamp' - The timestamp of the connection status check.
 --
--- * 'wcsWorkspaceId' - The ID of the WorkSpace.
+-- * 'wcsWorkspaceId' - The identifier of the WorkSpace.
 --
 -- * 'wcsConnectionState' - The connection state of the WorkSpace. The connection state is unknown if the WorkSpace is stopped.
 workspaceConnectionStatus
@@ -909,11 +1109,11 @@ workspaceConnectionStatus =
 wcsLastKnownUserConnectionTimestamp :: Lens' WorkspaceConnectionStatus (Maybe UTCTime)
 wcsLastKnownUserConnectionTimestamp = lens _wcsLastKnownUserConnectionTimestamp (\ s a -> s{_wcsLastKnownUserConnectionTimestamp = a}) . mapping _Time
 
--- | The timestamp of the connection state check.
+-- | The timestamp of the connection status check.
 wcsConnectionStateCheckTimestamp :: Lens' WorkspaceConnectionStatus (Maybe UTCTime)
 wcsConnectionStateCheckTimestamp = lens _wcsConnectionStateCheckTimestamp (\ s a -> s{_wcsConnectionStateCheckTimestamp = a}) . mapping _Time
 
--- | The ID of the WorkSpace.
+-- | The identifier of the WorkSpace.
 wcsWorkspaceId :: Lens' WorkspaceConnectionStatus (Maybe Text)
 wcsWorkspaceId = lens _wcsWorkspaceId (\ s a -> s{_wcsWorkspaceId = a})
 
@@ -935,7 +1135,7 @@ instance Hashable WorkspaceConnectionStatus where
 
 instance NFData WorkspaceConnectionStatus where
 
--- | Information about an AWS Directory Service directory for use with Amazon WorkSpaces.
+-- | Describes an AWS Directory Service directory that is used with Amazon WorkSpaces.
 --
 --
 --
@@ -1080,7 +1280,107 @@ instance Hashable WorkspaceDirectory where
 
 instance NFData WorkspaceDirectory where
 
--- | Information about a WorkSpace.
+-- | Describes a WorkSpace image.
+--
+--
+--
+-- /See:/ 'workspaceImage' smart constructor.
+data WorkspaceImage = WorkspaceImage'
+  { _wiState           :: !(Maybe WorkspaceImageState)
+  , _wiOperatingSystem :: !(Maybe OperatingSystem)
+  , _wiRequiredTenancy :: !(Maybe WorkspaceImageRequiredTenancy)
+  , _wiName            :: !(Maybe Text)
+  , _wiImageId         :: !(Maybe Text)
+  , _wiErrorCode       :: !(Maybe Text)
+  , _wiErrorMessage    :: !(Maybe Text)
+  , _wiDescription     :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'WorkspaceImage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'wiState' - The status of the image.
+--
+-- * 'wiOperatingSystem' - The operating system that the image is running.
+--
+-- * 'wiRequiredTenancy' - Specifies whether the image is running on dedicated hardware. When bring your own license (BYOL) is enabled, this value is set to DEDICATED.
+--
+-- * 'wiName' - The name of the image.
+--
+-- * 'wiImageId' - The identifier of the image.
+--
+-- * 'wiErrorCode' - The error code that is returned for the image.
+--
+-- * 'wiErrorMessage' - The text of the error message that is returned for the image.
+--
+-- * 'wiDescription' - The description of the image.
+workspaceImage
+    :: WorkspaceImage
+workspaceImage =
+  WorkspaceImage'
+    { _wiState = Nothing
+    , _wiOperatingSystem = Nothing
+    , _wiRequiredTenancy = Nothing
+    , _wiName = Nothing
+    , _wiImageId = Nothing
+    , _wiErrorCode = Nothing
+    , _wiErrorMessage = Nothing
+    , _wiDescription = Nothing
+    }
+
+
+-- | The status of the image.
+wiState :: Lens' WorkspaceImage (Maybe WorkspaceImageState)
+wiState = lens _wiState (\ s a -> s{_wiState = a})
+
+-- | The operating system that the image is running.
+wiOperatingSystem :: Lens' WorkspaceImage (Maybe OperatingSystem)
+wiOperatingSystem = lens _wiOperatingSystem (\ s a -> s{_wiOperatingSystem = a})
+
+-- | Specifies whether the image is running on dedicated hardware. When bring your own license (BYOL) is enabled, this value is set to DEDICATED.
+wiRequiredTenancy :: Lens' WorkspaceImage (Maybe WorkspaceImageRequiredTenancy)
+wiRequiredTenancy = lens _wiRequiredTenancy (\ s a -> s{_wiRequiredTenancy = a})
+
+-- | The name of the image.
+wiName :: Lens' WorkspaceImage (Maybe Text)
+wiName = lens _wiName (\ s a -> s{_wiName = a})
+
+-- | The identifier of the image.
+wiImageId :: Lens' WorkspaceImage (Maybe Text)
+wiImageId = lens _wiImageId (\ s a -> s{_wiImageId = a})
+
+-- | The error code that is returned for the image.
+wiErrorCode :: Lens' WorkspaceImage (Maybe Text)
+wiErrorCode = lens _wiErrorCode (\ s a -> s{_wiErrorCode = a})
+
+-- | The text of the error message that is returned for the image.
+wiErrorMessage :: Lens' WorkspaceImage (Maybe Text)
+wiErrorMessage = lens _wiErrorMessage (\ s a -> s{_wiErrorMessage = a})
+
+-- | The description of the image.
+wiDescription :: Lens' WorkspaceImage (Maybe Text)
+wiDescription = lens _wiDescription (\ s a -> s{_wiDescription = a})
+
+instance FromJSON WorkspaceImage where
+        parseJSON
+          = withObject "WorkspaceImage"
+              (\ x ->
+                 WorkspaceImage' <$>
+                   (x .:? "State") <*> (x .:? "OperatingSystem") <*>
+                     (x .:? "RequiredTenancy")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "ImageId")
+                     <*> (x .:? "ErrorCode")
+                     <*> (x .:? "ErrorMessage")
+                     <*> (x .:? "Description"))
+
+instance Hashable WorkspaceImage where
+
+instance NFData WorkspaceImage where
+
+-- | Describes a WorkSpace.
 --
 --
 --
@@ -1164,7 +1464,7 @@ instance ToJSON WorkspaceProperties where
                     _wpRunningModeAutoStopTimeoutInMinutes,
                   ("UserVolumeSizeGib" .=) <$> _wpUserVolumeSizeGib])
 
--- | Information used to create a WorkSpace.
+-- | Describes the information used to create a WorkSpace.
 --
 --
 --
@@ -1285,7 +1585,7 @@ instance ToJSON WorkspaceRequest where
                   Just ("UserName" .= _wrUserName),
                   Just ("BundleId" .= _wrBundleId)])
 
--- | Information about an IP access control group.
+-- | Describes an IP access control group.
 --
 --
 --
@@ -1306,7 +1606,7 @@ data WorkspacesIPGroup = WorkspacesIPGroup'
 --
 -- * 'wigUserRules' - The rules.
 --
--- * 'wigGroupId' - The ID of the group.
+-- * 'wigGroupId' - The identifier of the group.
 --
 -- * 'wigGroupName' - The name of the group.
 workspacesIPGroup
@@ -1328,7 +1628,7 @@ wigGroupDesc = lens _wigGroupDesc (\ s a -> s{_wigGroupDesc = a})
 wigUserRules :: Lens' WorkspacesIPGroup [IPRuleItem]
 wigUserRules = lens _wigUserRules (\ s a -> s{_wigUserRules = a}) . _Default . _Coerce
 
--- | The ID of the group.
+-- | The identifier of the group.
 wigGroupId :: Lens' WorkspacesIPGroup (Maybe Text)
 wigGroupId = lens _wigGroupId (\ s a -> s{_wigGroupId = a})
 

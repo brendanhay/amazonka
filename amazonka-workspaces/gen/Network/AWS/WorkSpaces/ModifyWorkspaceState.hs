@@ -57,7 +57,7 @@ data ModifyWorkspaceState = ModifyWorkspaceState'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mwsWorkspaceId' - The ID of the WorkSpace.
+-- * 'mwsWorkspaceId' - The identifier of the WorkSpace.
 --
 -- * 'mwsWorkspaceState' - The WorkSpace state.
 modifyWorkspaceState
@@ -69,7 +69,7 @@ modifyWorkspaceState pWorkspaceId_ pWorkspaceState_ =
     {_mwsWorkspaceId = pWorkspaceId_, _mwsWorkspaceState = pWorkspaceState_}
 
 
--- | The ID of the WorkSpace.
+-- | The identifier of the WorkSpace.
 mwsWorkspaceId :: Lens' ModifyWorkspaceState Text
 mwsWorkspaceId = lens _mwsWorkspaceId (\ s a -> s{_mwsWorkspaceId = a})
 

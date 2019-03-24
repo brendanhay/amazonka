@@ -35,11 +35,26 @@ module Network.AWS.WorkSpaces.Types
     -- * ConnectionState
     , ConnectionState (..)
 
+    -- * DedicatedTenancyModificationStateEnum
+    , DedicatedTenancyModificationStateEnum (..)
+
+    -- * DedicatedTenancySupportEnum
+    , DedicatedTenancySupportEnum (..)
+
+    -- * DedicatedTenancySupportResultEnum
+    , DedicatedTenancySupportResultEnum (..)
+
     -- * ModificationResourceEnum
     , ModificationResourceEnum (..)
 
     -- * ModificationStateEnum
     , ModificationStateEnum (..)
+
+    -- * OperatingSystemType
+    , OperatingSystemType (..)
+
+    -- * ReconnectEnum
+    , ReconnectEnum (..)
 
     -- * RunningMode
     , RunningMode (..)
@@ -53,8 +68,38 @@ module Network.AWS.WorkSpaces.Types
     -- * WorkspaceDirectoryType
     , WorkspaceDirectoryType (..)
 
+    -- * WorkspaceImageIngestionProcess
+    , WorkspaceImageIngestionProcess (..)
+
+    -- * WorkspaceImageRequiredTenancy
+    , WorkspaceImageRequiredTenancy (..)
+
+    -- * WorkspaceImageState
+    , WorkspaceImageState (..)
+
     -- * WorkspaceState
     , WorkspaceState (..)
+
+    -- * AccountModification
+    , AccountModification
+    , accountModification
+    , amStartTime
+    , amDedicatedTenancySupport
+    , amModificationState
+    , amDedicatedTenancyManagementCidrRange
+    , amErrorCode
+    , amErrorMessage
+
+    -- * ClientProperties
+    , ClientProperties
+    , clientProperties
+    , cpReconnectEnabled
+
+    -- * ClientPropertiesResult
+    , ClientPropertiesResult
+    , clientPropertiesResult
+    , cprResourceId
+    , cprClientProperties
 
     -- * ComputeType
     , ComputeType
@@ -95,6 +140,11 @@ module Network.AWS.WorkSpaces.Types
     , modificationState
     , msState
     , msResource
+
+    -- * OperatingSystem
+    , OperatingSystem
+    , operatingSystem
+    , osType
 
     -- * RebootRequest
     , RebootRequest
@@ -191,6 +241,18 @@ module Network.AWS.WorkSpaces.Types
     , wdWorkspaceCreationProperties
     , wdDNSIPAddresses
     , wdDirectoryName
+
+    -- * WorkspaceImage
+    , WorkspaceImage
+    , workspaceImage
+    , wiState
+    , wiOperatingSystem
+    , wiRequiredTenancy
+    , wiName
+    , wiImageId
+    , wiErrorCode
+    , wiErrorMessage
+    , wiDescription
 
     -- * WorkspaceProperties
     , WorkspaceProperties

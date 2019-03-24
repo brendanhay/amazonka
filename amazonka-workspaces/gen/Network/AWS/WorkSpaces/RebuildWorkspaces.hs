@@ -122,7 +122,7 @@ data RebuildWorkspacesResponse = RebuildWorkspacesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rwrsFailedRequests' - Information about the WorkSpace if it could not be rebuilt.
+-- * 'rwrsFailedRequests' - Information about the WorkSpace that could not be rebuilt.
 --
 -- * 'rwrsResponseStatus' - -- | The response status code.
 rebuildWorkspacesResponse
@@ -133,7 +133,7 @@ rebuildWorkspacesResponse pResponseStatus_ =
     {_rwrsFailedRequests = Nothing, _rwrsResponseStatus = pResponseStatus_}
 
 
--- | Information about the WorkSpace if it could not be rebuilt.
+-- | Information about the WorkSpace that could not be rebuilt.
 rwrsFailedRequests :: Lens' RebuildWorkspacesResponse [FailedWorkspaceChangeRequest]
 rwrsFailedRequests = lens _rwrsFailedRequests (\ s a -> s{_rwrsFailedRequests = a}) . _Default . _Coerce
 

@@ -55,14 +55,14 @@ newtype DeleteIPGroup = DeleteIPGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'digGroupId' - The ID of the IP access control group.
+-- * 'digGroupId' - The identifier of the IP access control group.
 deleteIPGroup
     :: Text -- ^ 'digGroupId'
     -> DeleteIPGroup
 deleteIPGroup pGroupId_ = DeleteIPGroup' {_digGroupId = pGroupId_}
 
 
--- | The ID of the IP access control group.
+-- | The identifier of the IP access control group.
 digGroupId :: Lens' DeleteIPGroup Text
 digGroupId = lens _digGroupId (\ s a -> s{_digGroupId = a})
 

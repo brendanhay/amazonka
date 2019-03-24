@@ -55,7 +55,7 @@ data RevokeIPRules = RevokeIPRules'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rirGroupId' - The ID of the group.
+-- * 'rirGroupId' - The identifier of the group.
 --
 -- * 'rirUserRules' - The rules to remove from the group.
 revokeIPRules
@@ -65,7 +65,7 @@ revokeIPRules pGroupId_ =
   RevokeIPRules' {_rirGroupId = pGroupId_, _rirUserRules = mempty}
 
 
--- | The ID of the group.
+-- | The identifier of the group.
 rirGroupId :: Lens' RevokeIPRules Text
 rirGroupId = lens _rirGroupId (\ s a -> s{_rirGroupId = a})
 

@@ -54,14 +54,14 @@ newtype DescribeTags = DescribeTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtResourceId' - The ID of the WorkSpace. To find this ID, use 'DescribeWorkspaces' .
+-- * 'dtResourceId' - The identifier of the WorkSpace. To find this ID, use 'DescribeWorkspaces' .
 describeTags
     :: Text -- ^ 'dtResourceId'
     -> DescribeTags
 describeTags pResourceId_ = DescribeTags' {_dtResourceId = pResourceId_}
 
 
--- | The ID of the WorkSpace. To find this ID, use 'DescribeWorkspaces' .
+-- | The identifier of the WorkSpace. To find this ID, use 'DescribeWorkspaces' .
 dtResourceId :: Lens' DescribeTags Text
 dtResourceId = lens _dtResourceId (\ s a -> s{_dtResourceId = a})
 

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the web ACL for the specified resource.
+-- Returns the web ACL for the specified resource, either an application load balancer or Amazon API Gateway stage.
 --
 --
 module Network.AWS.WAFRegional.GetWebACLForResource
@@ -54,7 +54,7 @@ newtype GetWebACLForResource = GetWebACLForResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gwafrResourceARN' - The ARN (Amazon Resource Name) of the resource for which to get the web ACL.
+-- * 'gwafrResourceARN' - The ARN (Amazon Resource Name) of the resource for which to get the web ACL, either an application load balancer or Amazon API Gateway stage. The ARN should be in one of the following formats:     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @      * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
 getWebACLForResource
     :: Text -- ^ 'gwafrResourceARN'
     -> GetWebACLForResource
@@ -62,7 +62,7 @@ getWebACLForResource pResourceARN_ =
   GetWebACLForResource' {_gwafrResourceARN = pResourceARN_}
 
 
--- | The ARN (Amazon Resource Name) of the resource for which to get the web ACL.
+-- | The ARN (Amazon Resource Name) of the resource for which to get the web ACL, either an application load balancer or Amazon API Gateway stage. The ARN should be in one of the following formats:     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @      * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
 gwafrResourceARN :: Lens' GetWebACLForResource Text
 gwafrResourceARN = lens _gwafrResourceARN (\ s a -> s{_gwafrResourceARN = a})
 

@@ -27,6 +27,7 @@ module Network.AWS.WAFRegional.ListResourcesForWebACL
       listResourcesForWebACL
     , ListResourcesForWebACL
     -- * Request Lenses
+    , lrfwaResourceType
     , lrfwaWebACLId
 
     -- * Destructuring the Response
@@ -45,8 +46,9 @@ import Network.AWS.WAFRegional.Types
 import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'listResourcesForWebACL' smart constructor.
-newtype ListResourcesForWebACL = ListResourcesForWebACL'
-  { _lrfwaWebACLId :: Text
+data ListResourcesForWebACL = ListResourcesForWebACL'
+  { _lrfwaResourceType :: !(Maybe ResourceType)
+  , _lrfwaWebACLId     :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -54,13 +56,20 @@ newtype ListResourcesForWebACL = ListResourcesForWebACL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'lrfwaResourceType' - The type of resource to list, either an application load balancer or Amazon API Gateway.
+--
 -- * 'lrfwaWebACLId' - The unique identifier (ID) of the web ACL for which to list the associated resources.
 listResourcesForWebACL
     :: Text -- ^ 'lrfwaWebACLId'
     -> ListResourcesForWebACL
 listResourcesForWebACL pWebACLId_ =
-  ListResourcesForWebACL' {_lrfwaWebACLId = pWebACLId_}
+  ListResourcesForWebACL'
+    {_lrfwaResourceType = Nothing, _lrfwaWebACLId = pWebACLId_}
 
+
+-- | The type of resource to list, either an application load balancer or Amazon API Gateway.
+lrfwaResourceType :: Lens' ListResourcesForWebACL (Maybe ResourceType)
+lrfwaResourceType = lens _lrfwaResourceType (\ s a -> s{_lrfwaResourceType = a})
 
 -- | The unique identifier (ID) of the web ACL for which to list the associated resources.
 lrfwaWebACLId :: Lens' ListResourcesForWebACL Text
@@ -94,7 +103,9 @@ instance ToHeaders ListResourcesForWebACL where
 instance ToJSON ListResourcesForWebACL where
         toJSON ListResourcesForWebACL'{..}
           = object
-              (catMaybes [Just ("WebACLId" .= _lrfwaWebACLId)])
+              (catMaybes
+                 [("ResourceType" .=) <$> _lrfwaResourceType,
+                  Just ("WebACLId" .= _lrfwaWebACLId)])
 
 instance ToPath ListResourcesForWebACL where
         toPath = const "/"

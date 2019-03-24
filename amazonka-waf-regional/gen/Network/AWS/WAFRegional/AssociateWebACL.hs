@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates a web ACL with a resource.
+-- Associates a web ACL with a resource, either an application load balancer or Amazon API Gateway stage.
 --
 --
 module Network.AWS.WAFRegional.AssociateWebACL
@@ -57,7 +57,7 @@ data AssociateWebACL = AssociateWebACL'
 --
 -- * 'awaWebACLId' - A unique identifier (ID) for the web ACL.
 --
--- * 'awaResourceARN' - The ARN (Amazon Resource Name) of the resource to be protected.
+-- * 'awaResourceARN' - The ARN (Amazon Resource Name) of the resource to be protected, either an application load balancer or Amazon API Gateway stage.  The ARN should be in one of the following formats:     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @      * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
 associateWebACL
     :: Text -- ^ 'awaWebACLId'
     -> Text -- ^ 'awaResourceARN'
@@ -70,7 +70,7 @@ associateWebACL pWebACLId_ pResourceARN_ =
 awaWebACLId :: Lens' AssociateWebACL Text
 awaWebACLId = lens _awaWebACLId (\ s a -> s{_awaWebACLId = a})
 
--- | The ARN (Amazon Resource Name) of the resource to be protected.
+-- | The ARN (Amazon Resource Name) of the resource to be protected, either an application load balancer or Amazon API Gateway stage.  The ARN should be in one of the following formats:     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @      * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
 awaResourceARN :: Lens' AssociateWebACL Text
 awaResourceARN = lens _awaResourceARN (\ s a -> s{_awaResourceARN = a})
 

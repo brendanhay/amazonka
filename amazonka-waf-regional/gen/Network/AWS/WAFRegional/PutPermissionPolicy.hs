@@ -29,7 +29,7 @@
 --
 --     * @Effect@ must specify @Allow@ .
 --
---     * The @Action@ in the policy must be @waf:UpdateWebACL@ and @waf-regional:UpdateWebACL@ . Any extra or wildcard actions in the policy will be rejected.
+--     * The @Action@ in the policy must be @waf:UpdateWebACL@ , @waf-regional:UpdateWebACL@ , @waf:GetRuleGroup@ and @waf-regional:GetRuleGroup@ . Any extra or wildcard actions in the policy will be rejected.
 --
 --     * The policy cannot include a @Resource@ parameter.
 --

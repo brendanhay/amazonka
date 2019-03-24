@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes a web ACL from the specified resource.
+-- Removes a web ACL from the specified resource, either an application load balancer or Amazon API Gateway stage.
 --
 --
 module Network.AWS.WAFRegional.DisassociateWebACL
@@ -53,7 +53,7 @@ newtype DisassociateWebACL = DisassociateWebACL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwaResourceARN' - The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed.
+-- * 'dwaResourceARN' - The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed, either an application load balancer or Amazon API Gateway stage. The ARN should be in one of the following formats:     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @      * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
 disassociateWebACL
     :: Text -- ^ 'dwaResourceARN'
     -> DisassociateWebACL
@@ -61,7 +61,7 @@ disassociateWebACL pResourceARN_ =
   DisassociateWebACL' {_dwaResourceARN = pResourceARN_}
 
 
--- | The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed.
+-- | The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed, either an application load balancer or Amazon API Gateway stage. The ARN should be in one of the following formats:     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @      * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
 dwaResourceARN :: Lens' DisassociateWebACL Text
 dwaResourceARN = lens _dwaResourceARN (\ s a -> s{_dwaResourceARN = a})
 

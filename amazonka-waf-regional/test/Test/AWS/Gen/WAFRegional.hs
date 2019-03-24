@@ -73,17 +73,26 @@ import Test.Tasty
 --         , requestCreateRule $
 --             createRule
 --
+--         , requestDeleteLoggingConfiguration $
+--             deleteLoggingConfiguration
+--
 --         , requestCreateWebACL $
 --             createWebACL
 --
 --         , requestGetGeoMatchSet $
 --             getGeoMatchSet
 --
+--         , requestPutLoggingConfiguration $
+--             putLoggingConfiguration
+--
 --         , requestListByteMatchSets $
 --             listByteMatchSets
 --
 --         , requestListGeoMatchSets $
 --             listGeoMatchSets
+--
+--         , requestGetLoggingConfiguration $
+--             getLoggingConfiguration
 --
 --         , requestCreateRuleGroup $
 --             createRuleGroup
@@ -156,6 +165,9 @@ import Test.Tasty
 --
 --         , requestPutPermissionPolicy $
 --             putPermissionPolicy
+--
+--         , requestListLoggingConfigurations $
+--             listLoggingConfigurations
 --
 --         , requestGetRateBasedRuleManagedKeys $
 --             getRateBasedRuleManagedKeys
@@ -295,17 +307,26 @@ import Test.Tasty
 --         , responseCreateRule $
 --             createRuleResponse
 --
+--         , responseDeleteLoggingConfiguration $
+--             deleteLoggingConfigurationResponse
+--
 --         , responseCreateWebACL $
 --             createWebACLResponse
 --
 --         , responseGetGeoMatchSet $
 --             getGeoMatchSetResponse
 --
+--         , responsePutLoggingConfiguration $
+--             putLoggingConfigurationResponse
+--
 --         , responseListByteMatchSets $
 --             listByteMatchSetsResponse
 --
 --         , responseListGeoMatchSets $
 --             listGeoMatchSetsResponse
+--
+--         , responseGetLoggingConfiguration $
+--             getLoggingConfigurationResponse
 --
 --         , responseCreateRuleGroup $
 --             createRuleGroupResponse
@@ -378,6 +399,9 @@ import Test.Tasty
 --
 --         , responsePutPermissionPolicy $
 --             putPermissionPolicyResponse
+--
+--         , responseListLoggingConfigurations $
+--             listLoggingConfigurationsResponse
 --
 --         , responseGetRateBasedRuleManagedKeys $
 --             getRateBasedRuleManagedKeysResponse
@@ -549,6 +573,11 @@ requestCreateRule = req
     "CreateRule"
     "fixture/CreateRule.yaml"
 
+requestDeleteLoggingConfiguration :: DeleteLoggingConfiguration -> TestTree
+requestDeleteLoggingConfiguration = req
+    "DeleteLoggingConfiguration"
+    "fixture/DeleteLoggingConfiguration.yaml"
+
 requestCreateWebACL :: CreateWebACL -> TestTree
 requestCreateWebACL = req
     "CreateWebACL"
@@ -559,6 +588,11 @@ requestGetGeoMatchSet = req
     "GetGeoMatchSet"
     "fixture/GetGeoMatchSet.yaml"
 
+requestPutLoggingConfiguration :: PutLoggingConfiguration -> TestTree
+requestPutLoggingConfiguration = req
+    "PutLoggingConfiguration"
+    "fixture/PutLoggingConfiguration.yaml"
+
 requestListByteMatchSets :: ListByteMatchSets -> TestTree
 requestListByteMatchSets = req
     "ListByteMatchSets"
@@ -568,6 +602,11 @@ requestListGeoMatchSets :: ListGeoMatchSets -> TestTree
 requestListGeoMatchSets = req
     "ListGeoMatchSets"
     "fixture/ListGeoMatchSets.yaml"
+
+requestGetLoggingConfiguration :: GetLoggingConfiguration -> TestTree
+requestGetLoggingConfiguration = req
+    "GetLoggingConfiguration"
+    "fixture/GetLoggingConfiguration.yaml"
 
 requestCreateRuleGroup :: CreateRuleGroup -> TestTree
 requestCreateRuleGroup = req
@@ -688,6 +727,11 @@ requestPutPermissionPolicy :: PutPermissionPolicy -> TestTree
 requestPutPermissionPolicy = req
     "PutPermissionPolicy"
     "fixture/PutPermissionPolicy.yaml"
+
+requestListLoggingConfigurations :: ListLoggingConfigurations -> TestTree
+requestListLoggingConfigurations = req
+    "ListLoggingConfigurations"
+    "fixture/ListLoggingConfigurations.yaml"
 
 requestGetRateBasedRuleManagedKeys :: GetRateBasedRuleManagedKeys -> TestTree
 requestGetRateBasedRuleManagedKeys = req
@@ -946,6 +990,13 @@ responseCreateRule = res
     wAFRegional
     (Proxy :: Proxy CreateRule)
 
+responseDeleteLoggingConfiguration :: DeleteLoggingConfigurationResponse -> TestTree
+responseDeleteLoggingConfiguration = res
+    "DeleteLoggingConfigurationResponse"
+    "fixture/DeleteLoggingConfigurationResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy DeleteLoggingConfiguration)
+
 responseCreateWebACL :: CreateWebACLResponse -> TestTree
 responseCreateWebACL = res
     "CreateWebACLResponse"
@@ -960,6 +1011,13 @@ responseGetGeoMatchSet = res
     wAFRegional
     (Proxy :: Proxy GetGeoMatchSet)
 
+responsePutLoggingConfiguration :: PutLoggingConfigurationResponse -> TestTree
+responsePutLoggingConfiguration = res
+    "PutLoggingConfigurationResponse"
+    "fixture/PutLoggingConfigurationResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy PutLoggingConfiguration)
+
 responseListByteMatchSets :: ListByteMatchSetsResponse -> TestTree
 responseListByteMatchSets = res
     "ListByteMatchSetsResponse"
@@ -973,6 +1031,13 @@ responseListGeoMatchSets = res
     "fixture/ListGeoMatchSetsResponse.proto"
     wAFRegional
     (Proxy :: Proxy ListGeoMatchSets)
+
+responseGetLoggingConfiguration :: GetLoggingConfigurationResponse -> TestTree
+responseGetLoggingConfiguration = res
+    "GetLoggingConfigurationResponse"
+    "fixture/GetLoggingConfigurationResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy GetLoggingConfiguration)
 
 responseCreateRuleGroup :: CreateRuleGroupResponse -> TestTree
 responseCreateRuleGroup = res
@@ -1141,6 +1206,13 @@ responsePutPermissionPolicy = res
     "fixture/PutPermissionPolicyResponse.proto"
     wAFRegional
     (Proxy :: Proxy PutPermissionPolicy)
+
+responseListLoggingConfigurations :: ListLoggingConfigurationsResponse -> TestTree
+responseListLoggingConfigurations = res
+    "ListLoggingConfigurationsResponse"
+    "fixture/ListLoggingConfigurationsResponse.proto"
+    wAFRegional
+    (Proxy :: Proxy ListLoggingConfigurations)
 
 responseGetRateBasedRuleManagedKeys :: GetRateBasedRuleManagedKeysResponse -> TestTree
 responseGetRateBasedRuleManagedKeys = res

@@ -23,11 +23,11 @@
 --
 --     * A default action for the @WebACL@ , either @ALLOW@ or @BLOCK@ . AWS WAF performs the default action if a request doesn't match the criteria in any of the @Rules@ in a @WebACL@ .
 --
---     * The @Rules@ that you want to add and/or delete. If you want to replace one @Rule@ with another, you delete the existing @Rule@ and add the new one.
+--     * The @Rules@ that you want to add or delete. If you want to replace one @Rule@ with another, you delete the existing @Rule@ and add the new one.
 --
 --     * For each @Rule@ , whether you want AWS WAF to allow requests, block requests, or count requests that match the conditions in the @Rule@ .
 --
---     * The order in which you want AWS WAF to evaluate the @Rules@ in a @WebACL@ . If you add more than one @Rule@ to a @WebACL@ , AWS WAF evaluates each request against the @Rules@ in order based on the value of @Priority@ . (The @Rule@ that has the lowest value for @Priority@ is evaluated first.) When a web request matches all of the predicates (such as @ByteMatchSets@ and @IPSets@ ) in a @Rule@ , AWS WAF immediately takes the corresponding action, allow or block, and doesn't evaluate the request against the remaining @Rules@ in the @WebACL@ , if any.
+--     * The order in which you want AWS WAF to evaluate the @Rules@ in a @WebACL@ . If you add more than one @Rule@ to a @WebACL@ , AWS WAF evaluates each request against the @Rules@ in order based on the value of @Priority@ . (The @Rule@ that has the lowest value for @Priority@ is evaluated first.) When a web request matches all the predicates (such as @ByteMatchSets@ and @IPSets@ ) in a @Rule@ , AWS WAF immediately takes the corresponding action, allow or block, and doesn't evaluate the request against the remaining @Rules@ in the @WebACL@ , if any.
 --
 --
 --
@@ -43,11 +43,15 @@
 --
 --     * Submit an @UpdateWebACL@ request to specify the @Rules@ that you want to include in the @WebACL@ , to specify the default action, and to associate the @WebACL@ with a CloudFront distribution.
 --
+-- The @ActivatedRule@ can be a rule group. If you specify a rule group as your @ActivatedRule@ , you can exclude specific rules from that rule group.
+--
+-- If you already have a rule group associated with a web ACL and want to submit an @UpdateWebACL@ request to exclude certain rules from that rule group, you must first remove the rule group from the web ACL, the re-insert it again, specifying the excluded rules. For details, see 'ActivatedRule$ExcludedRules' .
+--
 --
 --
 -- Be aware that if you try to add a RATE_BASED rule to a web ACL without setting the rule type when first creating the rule, the 'UpdateWebACL' request will fail because the request tries to add a REGULAR rule (the default rule type) with the specified ID, which does not exist.
 --
--- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
+-- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
 --
 module Network.AWS.WAFRegional.UpdateWebACL
     (
@@ -88,7 +92,7 @@ data UpdateWebACL = UpdateWebACL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uwaUpdates' - An array of updates to make to the 'WebACL' . An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@      * 'ActivatedRule' : Contains @Action@ , @OverrideAction@ , @Priority@ , @RuleId@ , and @Type@ . @ActivatedRule|OverrideAction@ applies only when updating or adding a @RuleGroup@ to a @WebACL@ . In this case you do not use @ActivatedRule|Action@ . For all other update requests, @ActivatedRule|Action@ is used instead of @ActivatedRule|OverrideAction@ .      * 'WafAction' : Contains @Type@
+-- * 'uwaUpdates' - An array of updates to make to the 'WebACL' . An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@      * 'ActivatedRule' : Contains @Action@ , @OverrideAction@ , @Priority@ , @RuleId@ , and @Type@ . @ActivatedRule|OverrideAction@ applies only when updating or adding a @RuleGroup@ to a @WebACL@ . In this case, you do not use @ActivatedRule|Action@ . For all other update requests, @ActivatedRule|Action@ is used instead of @ActivatedRule|OverrideAction@ .      * 'WafAction' : Contains @Type@
 --
 -- * 'uwaDefaultAction' - A default action for the web ACL, either ALLOW or BLOCK. AWS WAF performs the default action if a request doesn't match the criteria in any of the rules in a web ACL.
 --
@@ -108,7 +112,7 @@ updateWebACL pWebACLId_ pChangeToken_ =
     }
 
 
--- | An array of updates to make to the 'WebACL' . An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@      * 'ActivatedRule' : Contains @Action@ , @OverrideAction@ , @Priority@ , @RuleId@ , and @Type@ . @ActivatedRule|OverrideAction@ applies only when updating or adding a @RuleGroup@ to a @WebACL@ . In this case you do not use @ActivatedRule|Action@ . For all other update requests, @ActivatedRule|Action@ is used instead of @ActivatedRule|OverrideAction@ .      * 'WafAction' : Contains @Type@
+-- | An array of updates to make to the 'WebACL' . An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@      * 'ActivatedRule' : Contains @Action@ , @OverrideAction@ , @Priority@ , @RuleId@ , and @Type@ . @ActivatedRule|OverrideAction@ applies only when updating or adding a @RuleGroup@ to a @WebACL@ . In this case, you do not use @ActivatedRule|Action@ . For all other update requests, @ActivatedRule|Action@ is used instead of @ActivatedRule|OverrideAction@ .      * 'WafAction' : Contains @Type@
 uwaUpdates :: Lens' UpdateWebACL [WebACLUpdate]
 uwaUpdates = lens _uwaUpdates (\ s a -> s{_uwaUpdates = a}) . _Default . _Coerce
 

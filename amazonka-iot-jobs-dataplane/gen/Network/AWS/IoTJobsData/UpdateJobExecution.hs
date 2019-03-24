@@ -28,6 +28,7 @@ module Network.AWS.IoTJobsData.UpdateJobExecution
     , UpdateJobExecution
     -- * Request Lenses
     , ujeIncludeJobDocument
+    , ujeStepTimeoutInMinutes
     , ujeStatusDetails
     , ujeExecutionNumber
     , ujeExpectedVersion
@@ -55,6 +56,7 @@ import Network.AWS.Response
 -- | /See:/ 'updateJobExecution' smart constructor.
 data UpdateJobExecution = UpdateJobExecution'
   { _ujeIncludeJobDocument       :: !(Maybe Bool)
+  , _ujeStepTimeoutInMinutes     :: !(Maybe Integer)
   , _ujeStatusDetails            :: !(Maybe (Map Text Text))
   , _ujeExecutionNumber          :: !(Maybe Integer)
   , _ujeExpectedVersion          :: !(Maybe Integer)
@@ -70,6 +72,8 @@ data UpdateJobExecution = UpdateJobExecution'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ujeIncludeJobDocument' - Optional. When set to true, the response contains the job document. The default is false.
+--
+-- * 'ujeStepTimeoutInMinutes' - Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by again calling @UpdateJobExecution@ , setting the status to @IN_PROGRESS@ and specifying a new timeout value in this field) the job execution status will be automatically set to @TIMED_OUT@ . Note that setting or resetting this timeout has no effect on that job execution timeout which may have been specified when the job was created (@CreateJob@ using field @timeoutConfig@ ).
 --
 -- * 'ujeStatusDetails' - Optional. A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
 --
@@ -92,6 +96,7 @@ updateJobExecution
 updateJobExecution pJobId_ pThingName_ pStatus_ =
   UpdateJobExecution'
     { _ujeIncludeJobDocument = Nothing
+    , _ujeStepTimeoutInMinutes = Nothing
     , _ujeStatusDetails = Nothing
     , _ujeExecutionNumber = Nothing
     , _ujeExpectedVersion = Nothing
@@ -105,6 +110,10 @@ updateJobExecution pJobId_ pThingName_ pStatus_ =
 -- | Optional. When set to true, the response contains the job document. The default is false.
 ujeIncludeJobDocument :: Lens' UpdateJobExecution (Maybe Bool)
 ujeIncludeJobDocument = lens _ujeIncludeJobDocument (\ s a -> s{_ujeIncludeJobDocument = a})
+
+-- | Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by again calling @UpdateJobExecution@ , setting the status to @IN_PROGRESS@ and specifying a new timeout value in this field) the job execution status will be automatically set to @TIMED_OUT@ . Note that setting or resetting this timeout has no effect on that job execution timeout which may have been specified when the job was created (@CreateJob@ using field @timeoutConfig@ ).
+ujeStepTimeoutInMinutes :: Lens' UpdateJobExecution (Maybe Integer)
+ujeStepTimeoutInMinutes = lens _ujeStepTimeoutInMinutes (\ s a -> s{_ujeStepTimeoutInMinutes = a})
 
 -- | Optional. A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
 ujeStatusDetails :: Lens' UpdateJobExecution (HashMap Text Text)
@@ -158,6 +167,8 @@ instance ToJSON UpdateJobExecution where
               (catMaybes
                  [("includeJobDocument" .=) <$>
                     _ujeIncludeJobDocument,
+                  ("stepTimeoutInMinutes" .=) <$>
+                    _ujeStepTimeoutInMinutes,
                   ("statusDetails" .=) <$> _ujeStatusDetails,
                   ("executionNumber" .=) <$> _ujeExecutionNumber,
                   ("expectedVersion" .=) <$> _ujeExpectedVersion,

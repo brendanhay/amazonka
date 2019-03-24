@@ -27,6 +27,7 @@ data JobExecutionStatus
   | Rejected
   | Removed
   | Succeeded
+  | TimedOut
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -39,8 +40,9 @@ instance FromText JobExecutionStatus where
         "rejected" -> pure Rejected
         "removed" -> pure Removed
         "succeeded" -> pure Succeeded
+        "timed_out" -> pure TimedOut
         e -> fromTextError $ "Failure parsing JobExecutionStatus from value: '" <> e
-           <> "'. Accepted values: canceled, failed, in_progress, queued, rejected, removed, succeeded"
+           <> "'. Accepted values: canceled, failed, in_progress, queued, rejected, removed, succeeded, timed_out"
 
 instance ToText JobExecutionStatus where
     toText = \case
@@ -51,6 +53,7 @@ instance ToText JobExecutionStatus where
         Rejected -> "REJECTED"
         Removed -> "REMOVED"
         Succeeded -> "SUCCEEDED"
+        TimedOut -> "TIMED_OUT"
 
 instance Hashable     JobExecutionStatus
 instance NFData       JobExecutionStatus

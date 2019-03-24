@@ -27,16 +27,17 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'jobExecution' smart constructor.
 data JobExecution = JobExecution'
-  { _jeStatus          :: !(Maybe JobExecutionStatus)
-  , _jeJobId           :: !(Maybe Text)
-  , _jeLastUpdatedAt   :: !(Maybe Integer)
-  , _jeQueuedAt        :: !(Maybe Integer)
-  , _jeJobDocument     :: !(Maybe Text)
-  , _jeStatusDetails   :: !(Maybe (Map Text Text))
-  , _jeExecutionNumber :: !(Maybe Integer)
-  , _jeVersionNumber   :: !(Maybe Integer)
-  , _jeStartedAt       :: !(Maybe Integer)
-  , _jeThingName       :: !(Maybe Text)
+  { _jeStatus                           :: !(Maybe JobExecutionStatus)
+  , _jeJobId                            :: !(Maybe Text)
+  , _jeLastUpdatedAt                    :: !(Maybe Integer)
+  , _jeApproximateSecondsBeforeTimedOut :: !(Maybe Integer)
+  , _jeQueuedAt                         :: !(Maybe Integer)
+  , _jeJobDocument                      :: !(Maybe Text)
+  , _jeStatusDetails                    :: !(Maybe (Map Text Text))
+  , _jeExecutionNumber                  :: !(Maybe Integer)
+  , _jeVersionNumber                    :: !(Maybe Integer)
+  , _jeStartedAt                        :: !(Maybe Integer)
+  , _jeThingName                        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -49,6 +50,8 @@ data JobExecution = JobExecution'
 -- * 'jeJobId' - The unique identifier you assigned to this job when it was created.
 --
 -- * 'jeLastUpdatedAt' - The time, in milliseconds since the epoch, when the job execution was last updated.
+--
+-- * 'jeApproximateSecondsBeforeTimedOut' - The estimated number of seconds that remain before the job execution status will be changed to @TIMED_OUT@ .
 --
 -- * 'jeQueuedAt' - The time, in milliseconds since the epoch, when the job execution was enqueued.
 --
@@ -70,6 +73,7 @@ jobExecution =
     { _jeStatus = Nothing
     , _jeJobId = Nothing
     , _jeLastUpdatedAt = Nothing
+    , _jeApproximateSecondsBeforeTimedOut = Nothing
     , _jeQueuedAt = Nothing
     , _jeJobDocument = Nothing
     , _jeStatusDetails = Nothing
@@ -91,6 +95,10 @@ jeJobId = lens _jeJobId (\ s a -> s{_jeJobId = a})
 -- | The time, in milliseconds since the epoch, when the job execution was last updated.
 jeLastUpdatedAt :: Lens' JobExecution (Maybe Integer)
 jeLastUpdatedAt = lens _jeLastUpdatedAt (\ s a -> s{_jeLastUpdatedAt = a})
+
+-- | The estimated number of seconds that remain before the job execution status will be changed to @TIMED_OUT@ .
+jeApproximateSecondsBeforeTimedOut :: Lens' JobExecution (Maybe Integer)
+jeApproximateSecondsBeforeTimedOut = lens _jeApproximateSecondsBeforeTimedOut (\ s a -> s{_jeApproximateSecondsBeforeTimedOut = a})
 
 -- | The time, in milliseconds since the epoch, when the job execution was enqueued.
 jeQueuedAt :: Lens' JobExecution (Maybe Integer)
@@ -127,6 +135,7 @@ instance FromJSON JobExecution where
                  JobExecution' <$>
                    (x .:? "status") <*> (x .:? "jobId") <*>
                      (x .:? "lastUpdatedAt")
+                     <*> (x .:? "approximateSecondsBeforeTimedOut")
                      <*> (x .:? "queuedAt")
                      <*> (x .:? "jobDocument")
                      <*> (x .:? "statusDetails" .!= mempty)

@@ -27,6 +27,7 @@ module Network.AWS.IoTJobsData.StartNextPendingJobExecution
       startNextPendingJobExecution
     , StartNextPendingJobExecution
     -- * Request Lenses
+    , snpjeStepTimeoutInMinutes
     , snpjeStatusDetails
     , snpjeThingName
 
@@ -47,14 +48,17 @@ import Network.AWS.Response
 
 -- | /See:/ 'startNextPendingJobExecution' smart constructor.
 data StartNextPendingJobExecution = StartNextPendingJobExecution'
-  { _snpjeStatusDetails :: !(Maybe (Map Text Text))
-  , _snpjeThingName     :: !Text
+  { _snpjeStepTimeoutInMinutes :: !(Maybe Integer)
+  , _snpjeStatusDetails        :: !(Maybe (Map Text Text))
+  , _snpjeThingName            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'StartNextPendingJobExecution' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'snpjeStepTimeoutInMinutes' - Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by calling @UpdateJobExecution@ , setting the status to @IN_PROGRESS@ and specifying a new timeout value in field @stepTimeoutInMinutes@ ) the job execution status will be automatically set to @TIMED_OUT@ . Note that setting this timeout has no effect on that job execution timeout which may have been specified when the job was created (@CreateJob@ using field @timeoutConfig@ ).
 --
 -- * 'snpjeStatusDetails' - A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
 --
@@ -64,8 +68,15 @@ startNextPendingJobExecution
     -> StartNextPendingJobExecution
 startNextPendingJobExecution pThingName_ =
   StartNextPendingJobExecution'
-    {_snpjeStatusDetails = Nothing, _snpjeThingName = pThingName_}
+    { _snpjeStepTimeoutInMinutes = Nothing
+    , _snpjeStatusDetails = Nothing
+    , _snpjeThingName = pThingName_
+    }
 
+
+-- | Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by calling @UpdateJobExecution@ , setting the status to @IN_PROGRESS@ and specifying a new timeout value in field @stepTimeoutInMinutes@ ) the job execution status will be automatically set to @TIMED_OUT@ . Note that setting this timeout has no effect on that job execution timeout which may have been specified when the job was created (@CreateJob@ using field @timeoutConfig@ ).
+snpjeStepTimeoutInMinutes :: Lens' StartNextPendingJobExecution (Maybe Integer)
+snpjeStepTimeoutInMinutes = lens _snpjeStepTimeoutInMinutes (\ s a -> s{_snpjeStepTimeoutInMinutes = a})
 
 -- | A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
 snpjeStatusDetails :: Lens' StartNextPendingJobExecution (HashMap Text Text)
@@ -97,7 +108,9 @@ instance ToJSON StartNextPendingJobExecution where
         toJSON StartNextPendingJobExecution'{..}
           = object
               (catMaybes
-                 [("statusDetails" .=) <$> _snpjeStatusDetails])
+                 [("stepTimeoutInMinutes" .=) <$>
+                    _snpjeStepTimeoutInMinutes,
+                  ("statusDetails" .=) <$> _snpjeStatusDetails])
 
 instance ToPath StartNextPendingJobExecution where
         toPath StartNextPendingJobExecution'{..}

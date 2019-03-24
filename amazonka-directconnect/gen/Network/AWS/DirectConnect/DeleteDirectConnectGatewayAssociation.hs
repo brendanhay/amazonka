@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the association between a direct connect gateway and a virtual private gateway.
+-- Deletes the association between the specified Direct Connect gateway and virtual private gateway.
 --
 --
 module Network.AWS.DirectConnect.DeleteDirectConnectGatewayAssociation
@@ -45,11 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the DeleteDirectConnectGatewayAssociation operation.
---
---
---
--- /See:/ 'deleteDirectConnectGatewayAssociation' smart constructor.
+-- | /See:/ 'deleteDirectConnectGatewayAssociation' smart constructor.
 data DeleteDirectConnectGatewayAssociation = DeleteDirectConnectGatewayAssociation'
   { _delDirectConnectGatewayId :: !Text
   , _delVirtualGatewayId       :: !Text
@@ -60,9 +56,9 @@ data DeleteDirectConnectGatewayAssociation = DeleteDirectConnectGatewayAssociati
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delDirectConnectGatewayId' - The ID of the direct connect gateway. Example: "abcd1234-dcba-5678-be23-cdef9876ab45" Default: None
+-- * 'delDirectConnectGatewayId' - The ID of the Direct Connect gateway.
 --
--- * 'delVirtualGatewayId' - The ID of the virtual private gateway. Example: "vgw-abc123ef" Default: None
+-- * 'delVirtualGatewayId' - The ID of the virtual private gateway.
 deleteDirectConnectGatewayAssociation
     :: Text -- ^ 'delDirectConnectGatewayId'
     -> Text -- ^ 'delVirtualGatewayId'
@@ -74,11 +70,11 @@ deleteDirectConnectGatewayAssociation pDirectConnectGatewayId_ pVirtualGatewayId
     }
 
 
--- | The ID of the direct connect gateway. Example: "abcd1234-dcba-5678-be23-cdef9876ab45" Default: None
+-- | The ID of the Direct Connect gateway.
 delDirectConnectGatewayId :: Lens' DeleteDirectConnectGatewayAssociation Text
 delDirectConnectGatewayId = lens _delDirectConnectGatewayId (\ s a -> s{_delDirectConnectGatewayId = a})
 
--- | The ID of the virtual private gateway. Example: "vgw-abc123ef" Default: None
+-- | The ID of the virtual private gateway.
 delVirtualGatewayId :: Lens' DeleteDirectConnectGatewayAssociation Text
 delVirtualGatewayId = lens _delVirtualGatewayId (\ s a -> s{_delVirtualGatewayId = a})
 
@@ -133,11 +129,7 @@ instance ToQuery
          where
         toQuery = const mempty
 
--- | Container for the response from the DeleteDirectConnectGatewayAssociation API call
---
---
---
--- /See:/ 'deleteDirectConnectGatewayAssociationResponse' smart constructor.
+-- | /See:/ 'deleteDirectConnectGatewayAssociationResponse' smart constructor.
 data DeleteDirectConnectGatewayAssociationResponse = DeleteDirectConnectGatewayAssociationResponse'
   { _delrsDirectConnectGatewayAssociation :: !(Maybe DirectConnectGatewayAssociation)
   , _delrsResponseStatus :: !Int
@@ -148,7 +140,7 @@ data DeleteDirectConnectGatewayAssociationResponse = DeleteDirectConnectGatewayA
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsDirectConnectGatewayAssociation' - The direct connect gateway association to be deleted.
+-- * 'delrsDirectConnectGatewayAssociation' - The association to be deleted.
 --
 -- * 'delrsResponseStatus' - -- | The response status code.
 deleteDirectConnectGatewayAssociationResponse
@@ -161,7 +153,7 @@ deleteDirectConnectGatewayAssociationResponse pResponseStatus_ =
     }
 
 
--- | The direct connect gateway association to be deleted.
+-- | The association to be deleted.
 delrsDirectConnectGatewayAssociation :: Lens' DeleteDirectConnectGatewayAssociationResponse (Maybe DirectConnectGatewayAssociation)
 delrsDirectConnectGatewayAssociation = lens _delrsDirectConnectGatewayAssociation (\ s a -> s{_delrsDirectConnectGatewayAssociation = a})
 

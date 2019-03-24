@@ -18,14 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new interconnect between a AWS Direct Connect partner's network and a specific AWS Direct Connect location.
+-- Creates an interconnect between an AWS Direct Connect partner's network and a specific AWS Direct Connect location.
 --
 --
--- An interconnect is a connection which is capable of hosting other connections. The AWS Direct Connect partner can use an interconnect to provide sub-1Gbps AWS Direct Connect service to tier 2 customers who do not have their own connections. Like a standard connection, an interconnect links the AWS Direct Connect partner's network to an AWS Direct Connect location over a standard 1 Gbps or 10 Gbps Ethernet fiber-optic cable. One end is connected to the partner's router, the other to an AWS Direct Connect router.
+-- An interconnect is a connection which is capable of hosting other connections. The partner can use an interconnect to provide sub-1Gbps AWS Direct Connect service to tier 2 customers who do not have their own connections. Like a standard connection, an interconnect links the partner's network to an AWS Direct Connect location over a standard Ethernet fiber-optic cable. One end is connected to the partner's router, the other to an AWS Direct Connect router.
 --
--- You can automatically add the new interconnect to a link aggregation group (LAG) by specifying a LAG ID in the request. This ensures that the new interconnect is allocated on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint, the request fails and no interconnect will be created.
+-- You can automatically add the new interconnect to a link aggregation group (LAG) by specifying a LAG ID in the request. This ensures that the new interconnect is allocated on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint, the request fails and no interconnect is created.
 --
--- For each end customer, the AWS Direct Connect partner provisions a connection on their interconnect by calling AllocateConnectionOnInterconnect. The end customer can then connect to AWS resources by creating a virtual interface on their connection, using the VLAN assigned to them by the AWS Direct Connect partner.
+-- For each end customer, the AWS Direct Connect partner provisions a connection on their interconnect by calling 'AllocateConnectionOnInterconnect' . The end customer can then connect to AWS resources by creating a virtual interface on their connection, using the VLAN assigned to them by the partner.
 --
 module Network.AWS.DirectConnect.CreateInterconnect
     (
@@ -47,10 +47,13 @@ module Network.AWS.DirectConnect.CreateInterconnect
     , iLocation
     , iInterconnectName
     , iAwsDevice
+    , iHasLogicalRedundancy
     , iLoaIssueTime
     , iBandwidth
+    , iJumboFrameCapable
     , iInterconnectState
     , iRegion
+    , iAwsDeviceV2
     ) where
 
 import Network.AWS.DirectConnect.Types
@@ -60,11 +63,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the CreateInterconnect operation.
---
---
---
--- /See:/ 'createInterconnect' smart constructor.
+-- | /See:/ 'createInterconnect' smart constructor.
 data CreateInterconnect = CreateInterconnect'
   { _ciLagId            :: !(Maybe Text)
   , _ciInterconnectName :: !Text
@@ -77,13 +76,13 @@ data CreateInterconnect = CreateInterconnect'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ciLagId' - Undocumented member.
+-- * 'ciLagId' - The ID of the LAG.
 --
--- * 'ciInterconnectName' - The name of the interconnect. Example: "/1G Interconnect to AWS/ " Default: None
+-- * 'ciInterconnectName' - The name of the interconnect.
 --
--- * 'ciBandwidth' - The port bandwidth Example: 1Gbps Default: None Available values: 1Gbps,10Gbps
+-- * 'ciBandwidth' - The port bandwidth, in Gbps. The possible values are 1 and 10.
 --
--- * 'ciLocation' - Where the interconnect is located Example: EqSV5 Default: None
+-- * 'ciLocation' - The location of the interconnect.
 createInterconnect
     :: Text -- ^ 'ciInterconnectName'
     -> Text -- ^ 'ciBandwidth'
@@ -98,19 +97,19 @@ createInterconnect pInterconnectName_ pBandwidth_ pLocation_ =
     }
 
 
--- | Undocumented member.
+-- | The ID of the LAG.
 ciLagId :: Lens' CreateInterconnect (Maybe Text)
 ciLagId = lens _ciLagId (\ s a -> s{_ciLagId = a})
 
--- | The name of the interconnect. Example: "/1G Interconnect to AWS/ " Default: None
+-- | The name of the interconnect.
 ciInterconnectName :: Lens' CreateInterconnect Text
 ciInterconnectName = lens _ciInterconnectName (\ s a -> s{_ciInterconnectName = a})
 
--- | The port bandwidth Example: 1Gbps Default: None Available values: 1Gbps,10Gbps
+-- | The port bandwidth, in Gbps. The possible values are 1 and 10.
 ciBandwidth :: Lens' CreateInterconnect Text
 ciBandwidth = lens _ciBandwidth (\ s a -> s{_ciBandwidth = a})
 
--- | Where the interconnect is located Example: EqSV5 Default: None
+-- | The location of the interconnect.
 ciLocation :: Lens' CreateInterconnect Text
 ciLocation = lens _ciLocation (\ s a -> s{_ciLocation = a})
 

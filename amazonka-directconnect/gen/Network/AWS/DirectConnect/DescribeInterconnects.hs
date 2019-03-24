@@ -18,10 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of interconnects owned by the AWS account.
+-- Lists the interconnects owned by the AWS account or only the specified interconnect.
 --
---
--- If an interconnect ID is provided, it will only return this particular interconnect.
 --
 module Network.AWS.DirectConnect.DescribeInterconnects
     (
@@ -46,11 +44,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the DescribeInterconnects operation.
---
---
---
--- /See:/ 'describeInterconnects' smart constructor.
+-- | /See:/ 'describeInterconnects' smart constructor.
 newtype DescribeInterconnects = DescribeInterconnects'
   { _diInterconnectId :: Maybe Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -60,13 +54,13 @@ newtype DescribeInterconnects = DescribeInterconnects'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diInterconnectId' - Undocumented member.
+-- * 'diInterconnectId' - The ID of the interconnect.
 describeInterconnects
     :: DescribeInterconnects
 describeInterconnects = DescribeInterconnects' {_diInterconnectId = Nothing}
 
 
--- | Undocumented member.
+-- | The ID of the interconnect.
 diInterconnectId :: Lens' DescribeInterconnects (Maybe Text)
 diInterconnectId = lens _diInterconnectId (\ s a -> s{_diInterconnectId = a})
 
@@ -107,11 +101,7 @@ instance ToPath DescribeInterconnects where
 instance ToQuery DescribeInterconnects where
         toQuery = const mempty
 
--- | A structure containing a list of interconnects.
---
---
---
--- /See:/ 'describeInterconnectsResponse' smart constructor.
+-- | /See:/ 'describeInterconnectsResponse' smart constructor.
 data DescribeInterconnectsResponse = DescribeInterconnectsResponse'
   { _dirsInterconnects  :: !(Maybe [Interconnect])
   , _dirsResponseStatus :: !Int
@@ -122,7 +112,7 @@ data DescribeInterconnectsResponse = DescribeInterconnectsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dirsInterconnects' - A list of interconnects.
+-- * 'dirsInterconnects' - The interconnects.
 --
 -- * 'dirsResponseStatus' - -- | The response status code.
 describeInterconnectsResponse
@@ -133,7 +123,7 @@ describeInterconnectsResponse pResponseStatus_ =
     {_dirsInterconnects = Nothing, _dirsResponseStatus = pResponseStatus_}
 
 
--- | A list of interconnects.
+-- | The interconnects.
 dirsInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
 dirsInterconnects = lens _dirsInterconnects (\ s a -> s{_dirsInterconnects = a}) . _Default . _Coerce
 

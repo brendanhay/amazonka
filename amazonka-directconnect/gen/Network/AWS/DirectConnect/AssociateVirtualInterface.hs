@@ -23,7 +23,7 @@
 --
 -- Virtual interfaces associated with a hosted connection cannot be associated with a LAG; hosted connections must be migrated along with their virtual interfaces using 'AssociateHostedConnection' .
 --
--- In order to reassociate a virtual interface to a new connection or LAG, the requester must own either the virtual interface itself or the connection to which the virtual interface is currently associated. Additionally, the requester must own the connection or LAG to which the virtual interface will be newly associated.
+-- To reassociate a virtual interface to a new connection or LAG, the requester must own either the virtual interface itself or the connection to which the virtual interface is currently associated. Additionally, the requester must own the connection or LAG for the association.
 --
 module Network.AWS.DirectConnect.AssociateVirtualInterface
     (
@@ -40,6 +40,7 @@ module Network.AWS.DirectConnect.AssociateVirtualInterface
     -- * Response Lenses
     , viBgpPeers
     , viVirtualGatewayId
+    , viMtu
     , viRouteFilterPrefixes
     , viCustomerAddress
     , viVlan
@@ -53,9 +54,12 @@ module Network.AWS.DirectConnect.AssociateVirtualInterface
     , viVirtualInterfaceType
     , viAsn
     , viAuthKey
+    , viJumboFrameCapable
     , viCustomerRouterConfig
     , viOwnerAccount
+    , viRegion
     , viVirtualInterfaceName
+    , viAwsDeviceV2
     , viVirtualInterfaceId
     ) where
 
@@ -66,11 +70,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the AssociateVirtualInterface operation.
---
---
---
--- /See:/ 'associateVirtualInterface' smart constructor.
+-- | /See:/ 'associateVirtualInterface' smart constructor.
 data AssociateVirtualInterface = AssociateVirtualInterface'
   { _aviVirtualInterfaceId :: !Text
   , _aviConnectionId       :: !Text
@@ -81,9 +81,9 @@ data AssociateVirtualInterface = AssociateVirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aviVirtualInterfaceId' - The ID of the virtual interface. Example: dxvif-123dfg56 Default: None
+-- * 'aviVirtualInterfaceId' - The ID of the virtual interface.
 --
--- * 'aviConnectionId' - The ID of the LAG or connection with which to associate the virtual interface. Example: dxlag-abc123 or dxcon-abc123 Default: None
+-- * 'aviConnectionId' - The ID of the LAG or connection.
 associateVirtualInterface
     :: Text -- ^ 'aviVirtualInterfaceId'
     -> Text -- ^ 'aviConnectionId'
@@ -95,11 +95,11 @@ associateVirtualInterface pVirtualInterfaceId_ pConnectionId_ =
     }
 
 
--- | The ID of the virtual interface. Example: dxvif-123dfg56 Default: None
+-- | The ID of the virtual interface.
 aviVirtualInterfaceId :: Lens' AssociateVirtualInterface Text
 aviVirtualInterfaceId = lens _aviVirtualInterfaceId (\ s a -> s{_aviVirtualInterfaceId = a})
 
--- | The ID of the LAG or connection with which to associate the virtual interface. Example: dxlag-abc123 or dxcon-abc123 Default: None
+-- | The ID of the LAG or connection.
 aviConnectionId :: Lens' AssociateVirtualInterface Text
 aviConnectionId = lens _aviConnectionId (\ s a -> s{_aviConnectionId = a})
 

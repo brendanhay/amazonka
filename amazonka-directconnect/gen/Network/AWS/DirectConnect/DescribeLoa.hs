@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the LOA-CFA for a connection, interconnect, or link aggregation group (LAG).
+-- Gets the LOA-CFA for a connection, interconnect, or link aggregation group (LAG).
 --
 --
--- The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing your cross connect to AWS at the colocation facility. For more information, see <http://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html Requesting Cross Connects at AWS Direct Connect Locations> in the AWS Direct Connect user guide.
+-- The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing your cross connect to AWS at the colocation facility. For more information, see <https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html Requesting Cross Connects at AWS Direct Connect Locations> in the /AWS Direct Connect User Guide/ .
 --
 module Network.AWS.DirectConnect.DescribeLoa
     (
@@ -49,11 +49,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the DescribeLoa operation.
---
---
---
--- /See:/ 'describeLoa' smart constructor.
+-- | /See:/ 'describeLoa' smart constructor.
 data DescribeLoa = DescribeLoa'
   { _dlLoaContentType :: !(Maybe LoaContentType)
   , _dlProviderName   :: !(Maybe Text)
@@ -65,11 +61,11 @@ data DescribeLoa = DescribeLoa'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlLoaContentType' - A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported value is "application/pdf". Default: application/pdf
+-- * 'dlLoaContentType' - The standard media type for the LOA-CFA document. The only supported value is application/pdf.
 --
--- * 'dlProviderName' - The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect. Default: None
+-- * 'dlProviderName' - The name of the service provider who establishes connectivity on your behalf. If you specify this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
 --
--- * 'dlConnectionId' - The ID of a connection, LAG, or interconnect for which to get the LOA-CFA information. Example: dxcon-abc123 or dxlag-abc123 Default: None
+-- * 'dlConnectionId' - The ID of a connection, LAG, or interconnect.
 describeLoa
     :: Text -- ^ 'dlConnectionId'
     -> DescribeLoa
@@ -81,15 +77,15 @@ describeLoa pConnectionId_ =
     }
 
 
--- | A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported value is "application/pdf". Default: application/pdf
+-- | The standard media type for the LOA-CFA document. The only supported value is application/pdf.
 dlLoaContentType :: Lens' DescribeLoa (Maybe LoaContentType)
 dlLoaContentType = lens _dlLoaContentType (\ s a -> s{_dlLoaContentType = a})
 
--- | The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect. Default: None
+-- | The name of the service provider who establishes connectivity on your behalf. If you specify this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
 dlProviderName :: Lens' DescribeLoa (Maybe Text)
 dlProviderName = lens _dlProviderName (\ s a -> s{_dlProviderName = a})
 
--- | The ID of a connection, LAG, or interconnect for which to get the LOA-CFA information. Example: dxcon-abc123 or dxlag-abc123 Default: None
+-- | The ID of a connection, LAG, or interconnect.
 dlConnectionId :: Lens' DescribeLoa Text
 dlConnectionId = lens _dlConnectionId (\ s a -> s{_dlConnectionId = a})
 
@@ -130,7 +126,7 @@ instance ToPath DescribeLoa where
 instance ToQuery DescribeLoa where
         toQuery = const mempty
 
--- | A structure containing the Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.
+-- | Information about a Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.
 --
 --
 --
@@ -146,9 +142,9 @@ data DescribeLoaResponse = DescribeLoaResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlrsLoaContent' - Undocumented member.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'dlrsLoaContent' - The binary contents of the LOA-CFA document.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'dlrsLoaContentType' - Undocumented member.
+-- * 'dlrsLoaContentType' - The standard media type for the LOA-CFA document. The only supported value is application/pdf.
 --
 -- * 'dlrsResponseStatus' - -- | The response status code.
 describeLoaResponse
@@ -162,11 +158,11 @@ describeLoaResponse pResponseStatus_ =
     }
 
 
--- | Undocumented member.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | The binary contents of the LOA-CFA document.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 dlrsLoaContent :: Lens' DescribeLoaResponse (Maybe ByteString)
 dlrsLoaContent = lens _dlrsLoaContent (\ s a -> s{_dlrsLoaContent = a}) . mapping _Base64
 
--- | Undocumented member.
+-- | The standard media type for the LOA-CFA document. The only supported value is application/pdf.
 dlrsLoaContentType :: Lens' DescribeLoaResponse (Maybe LoaContentType)
 dlrsLoaContentType = lens _dlrsLoaContentType (\ s a -> s{_dlrsLoaContentType = a})
 

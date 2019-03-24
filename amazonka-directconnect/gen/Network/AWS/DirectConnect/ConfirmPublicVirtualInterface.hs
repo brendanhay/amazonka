@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Accept ownership of a public virtual interface created by another customer.
+-- Accepts ownership of a public virtual interface created by another AWS account.
 --
 --
--- After the virtual interface owner calls this function, the specified virtual interface will be created and made available for handling traffic.
+-- After the virtual interface owner makes this call, the specified virtual interface is created and made available to handle traffic.
 --
 module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
     (
@@ -46,11 +46,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the ConfirmPublicVirtualInterface operation.
---
---
---
--- /See:/ 'confirmPublicVirtualInterface' smart constructor.
+-- | /See:/ 'confirmPublicVirtualInterface' smart constructor.
 newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface'
   { _cVirtualInterfaceId :: Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -60,7 +56,7 @@ newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cVirtualInterfaceId' - Undocumented member.
+-- * 'cVirtualInterfaceId' - The ID of the virtual interface.
 confirmPublicVirtualInterface
     :: Text -- ^ 'cVirtualInterfaceId'
     -> ConfirmPublicVirtualInterface
@@ -68,7 +64,7 @@ confirmPublicVirtualInterface pVirtualInterfaceId_ =
   ConfirmPublicVirtualInterface' {_cVirtualInterfaceId = pVirtualInterfaceId_}
 
 
--- | Undocumented member.
+-- | The ID of the virtual interface.
 cVirtualInterfaceId :: Lens' ConfirmPublicVirtualInterface Text
 cVirtualInterfaceId = lens _cVirtualInterfaceId (\ s a -> s{_cVirtualInterfaceId = a})
 
@@ -112,11 +108,7 @@ instance ToPath ConfirmPublicVirtualInterface where
 instance ToQuery ConfirmPublicVirtualInterface where
         toQuery = const mempty
 
--- | The response received when ConfirmPublicVirtualInterface is called.
---
---
---
--- /See:/ 'confirmPublicVirtualInterfaceResponse' smart constructor.
+-- | /See:/ 'confirmPublicVirtualInterfaceResponse' smart constructor.
 data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'
   { _crsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
   , _crsResponseStatus        :: !Int
@@ -127,7 +119,7 @@ data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceRespon
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsVirtualInterfaceState' - Undocumented member.
+-- * 'crsVirtualInterfaceState' - The state of the virtual interface. The following are the possible values:     * @confirming@ : The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.     * @verifying@ : This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.     * @pending@ : A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.     * @available@ : A virtual interface that is able to forward traffic.     * @down@ : A virtual interface that is BGP down.     * @deleting@ : A virtual interface is in this state immediately after calling 'DeleteVirtualInterface' until it can no longer forward traffic.     * @deleted@ : A virtual interface that cannot forward traffic.     * @rejected@ : The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the @Confirming@ state is deleted by the virtual interface owner, the virtual interface enters the @Rejected@ state.     * @unknown@ : The state of the virtual interface is not available.
 --
 -- * 'crsResponseStatus' - -- | The response status code.
 confirmPublicVirtualInterfaceResponse
@@ -138,7 +130,7 @@ confirmPublicVirtualInterfaceResponse pResponseStatus_ =
     {_crsVirtualInterfaceState = Nothing, _crsResponseStatus = pResponseStatus_}
 
 
--- | Undocumented member.
+-- | The state of the virtual interface. The following are the possible values:     * @confirming@ : The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.     * @verifying@ : This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.     * @pending@ : A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.     * @available@ : A virtual interface that is able to forward traffic.     * @down@ : A virtual interface that is BGP down.     * @deleting@ : A virtual interface is in this state immediately after calling 'DeleteVirtualInterface' until it can no longer forward traffic.     * @deleted@ : A virtual interface that cannot forward traffic.     * @rejected@ : The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the @Confirming@ state is deleted by the virtual interface owner, the virtual interface enters the @Rejected@ state.     * @unknown@ : The state of the virtual interface is not available.
 crsVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 crsVirtualInterfaceState = lens _crsVirtualInterfaceState (\ s a -> s{_crsVirtualInterfaceState = a})
 

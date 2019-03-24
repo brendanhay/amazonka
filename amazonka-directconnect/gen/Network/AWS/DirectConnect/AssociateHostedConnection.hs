@@ -38,13 +38,16 @@ module Network.AWS.DirectConnect.AssociateHostedConnection
     , cVlan
     , cLocation
     , cAwsDevice
+    , cHasLogicalRedundancy
     , cConnectionId
     , cLoaIssueTime
     , cPartnerName
     , cConnectionName
     , cBandwidth
+    , cJumboFrameCapable
     , cOwnerAccount
     , cRegion
+    , cAwsDeviceV2
     , cConnectionState
     ) where
 
@@ -55,11 +58,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the AssociateHostedConnection operation.
---
---
---
--- /See:/ 'associateHostedConnection' smart constructor.
+-- | /See:/ 'associateHostedConnection' smart constructor.
 data AssociateHostedConnection = AssociateHostedConnection'
   { _assConnectionId       :: !Text
   , _assParentConnectionId :: !Text
@@ -70,9 +69,9 @@ data AssociateHostedConnection = AssociateHostedConnection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'assConnectionId' - The ID of the hosted connection. Example: dxcon-abc123 Default: None
+-- * 'assConnectionId' - The ID of the hosted connection.
 --
--- * 'assParentConnectionId' - The ID of the interconnect or the LAG. Example: dxcon-abc123 or dxlag-abc123 Default: None
+-- * 'assParentConnectionId' - The ID of the interconnect or the LAG.
 associateHostedConnection
     :: Text -- ^ 'assConnectionId'
     -> Text -- ^ 'assParentConnectionId'
@@ -84,11 +83,11 @@ associateHostedConnection pConnectionId_ pParentConnectionId_ =
     }
 
 
--- | The ID of the hosted connection. Example: dxcon-abc123 Default: None
+-- | The ID of the hosted connection.
 assConnectionId :: Lens' AssociateHostedConnection Text
 assConnectionId = lens _assConnectionId (\ s a -> s{_assConnectionId = a})
 
--- | The ID of the interconnect or the LAG. Example: dxcon-abc123 or dxlag-abc123 Default: None
+-- | The ID of the interconnect or the LAG.
 assParentConnectionId :: Lens' AssociateHostedConnection Text
 assParentConnectionId = lens _assParentConnectionId (\ s a -> s{_assParentConnectionId = a})
 

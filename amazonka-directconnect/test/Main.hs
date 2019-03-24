@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.DirectConnect
 import Test.AWS.DirectConnect.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "DirectConnect"

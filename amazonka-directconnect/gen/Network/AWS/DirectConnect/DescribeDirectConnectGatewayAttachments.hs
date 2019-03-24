@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of all direct connect gateway and virtual interface (VIF) attachments. Either a direct connect gateway ID or a VIF ID must be provided in the request. If a direct connect gateway ID is provided, the response returns all VIFs attached to the direct connect gateway. If a VIF ID is provided, the response returns all direct connect gateways attached to the VIF. If both are provided, the response only returns the attachment that matches both the direct connect gateway and the VIF.
+-- Lists the attachments between your Direct Connect gateways and virtual interfaces. You must specify a Direct Connect gateway, a virtual interface, or both. If you specify a Direct Connect gateway, the response contains all virtual interfaces attached to the Direct Connect gateway. If you specify a virtual interface, the response contains all Direct Connect gateways attached to the virtual interface. If you specify both, the response contains the attachment between the Direct Connect gateway and the virtual interface.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DirectConnect.DescribeDirectConnectGatewayAttachments
     (
     -- * Creating a Request
@@ -44,15 +46,12 @@ module Network.AWS.DirectConnect.DescribeDirectConnectGatewayAttachments
 import Network.AWS.DirectConnect.Types
 import Network.AWS.DirectConnect.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the DescribeDirectConnectGatewayAttachments operation.
---
---
---
--- /See:/ 'describeDirectConnectGatewayAttachments' smart constructor.
+-- | /See:/ 'describeDirectConnectGatewayAttachments' smart constructor.
 data DescribeDirectConnectGatewayAttachments = DescribeDirectConnectGatewayAttachments'
   { _ddcgasDirectConnectGatewayId :: !(Maybe Text)
   , _ddcgasNextToken              :: !(Maybe Text)
@@ -65,13 +64,13 @@ data DescribeDirectConnectGatewayAttachments = DescribeDirectConnectGatewayAttac
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcgasDirectConnectGatewayId' - The ID of the direct connect gateway. Example: "abcd1234-dcba-5678-be23-cdef9876ab45" Default: None
+-- * 'ddcgasDirectConnectGatewayId' - The ID of the Direct Connect gateway.
 --
--- * 'ddcgasNextToken' - The token provided in the previous describe result to retrieve the next page of the result. Default: None
+-- * 'ddcgasNextToken' - The token provided in the previous call to retrieve the next page.
 --
--- * 'ddcgasMaxResults' - The maximum number of direct connect gateway attachments to return per page. Example: 15 Default: None
+-- * 'ddcgasMaxResults' - The maximum number of attachments to return per page.
 --
--- * 'ddcgasVirtualInterfaceId' - The ID of the virtual interface. Example: "dxvif-abc123ef" Default: None
+-- * 'ddcgasVirtualInterfaceId' - The ID of the virtual interface.
 describeDirectConnectGatewayAttachments
     :: DescribeDirectConnectGatewayAttachments
 describeDirectConnectGatewayAttachments =
@@ -83,21 +82,33 @@ describeDirectConnectGatewayAttachments =
     }
 
 
--- | The ID of the direct connect gateway. Example: "abcd1234-dcba-5678-be23-cdef9876ab45" Default: None
+-- | The ID of the Direct Connect gateway.
 ddcgasDirectConnectGatewayId :: Lens' DescribeDirectConnectGatewayAttachments (Maybe Text)
 ddcgasDirectConnectGatewayId = lens _ddcgasDirectConnectGatewayId (\ s a -> s{_ddcgasDirectConnectGatewayId = a})
 
--- | The token provided in the previous describe result to retrieve the next page of the result. Default: None
+-- | The token provided in the previous call to retrieve the next page.
 ddcgasNextToken :: Lens' DescribeDirectConnectGatewayAttachments (Maybe Text)
 ddcgasNextToken = lens _ddcgasNextToken (\ s a -> s{_ddcgasNextToken = a})
 
--- | The maximum number of direct connect gateway attachments to return per page. Example: 15 Default: None
+-- | The maximum number of attachments to return per page.
 ddcgasMaxResults :: Lens' DescribeDirectConnectGatewayAttachments (Maybe Int)
 ddcgasMaxResults = lens _ddcgasMaxResults (\ s a -> s{_ddcgasMaxResults = a})
 
--- | The ID of the virtual interface. Example: "dxvif-abc123ef" Default: None
+-- | The ID of the virtual interface.
 ddcgasVirtualInterfaceId :: Lens' DescribeDirectConnectGatewayAttachments (Maybe Text)
 ddcgasVirtualInterfaceId = lens _ddcgasVirtualInterfaceId (\ s a -> s{_ddcgasVirtualInterfaceId = a})
+
+instance AWSPager
+           DescribeDirectConnectGatewayAttachments
+         where
+        page rq rs
+          | stop (rs ^. ddcgasrsNextToken) = Nothing
+          | stop
+              (rs ^. ddcgasrsDirectConnectGatewayAttachments)
+            = Nothing
+          | otherwise =
+            Just $ rq &
+              ddcgasNextToken .~ rs ^. ddcgasrsNextToken
 
 instance AWSRequest
            DescribeDirectConnectGatewayAttachments
@@ -156,11 +167,7 @@ instance ToQuery
          where
         toQuery = const mempty
 
--- | Container for the response from the DescribeDirectConnectGatewayAttachments API call
---
---
---
--- /See:/ 'describeDirectConnectGatewayAttachmentsResponse' smart constructor.
+-- | /See:/ 'describeDirectConnectGatewayAttachmentsResponse' smart constructor.
 data DescribeDirectConnectGatewayAttachmentsResponse = DescribeDirectConnectGatewayAttachmentsResponse'
   { _ddcgasrsNextToken :: !(Maybe Text)
   , _ddcgasrsDirectConnectGatewayAttachments :: !(Maybe [DirectConnectGatewayAttachment])
@@ -172,9 +179,9 @@ data DescribeDirectConnectGatewayAttachmentsResponse = DescribeDirectConnectGate
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcgasrsNextToken' - Undocumented member.
+-- * 'ddcgasrsNextToken' - The token to retrieve the next page.
 --
--- * 'ddcgasrsDirectConnectGatewayAttachments' - Information about the direct connect gateway attachments.
+-- * 'ddcgasrsDirectConnectGatewayAttachments' - The attachments.
 --
 -- * 'ddcgasrsResponseStatus' - -- | The response status code.
 describeDirectConnectGatewayAttachmentsResponse
@@ -188,11 +195,11 @@ describeDirectConnectGatewayAttachmentsResponse pResponseStatus_ =
     }
 
 
--- | Undocumented member.
+-- | The token to retrieve the next page.
 ddcgasrsNextToken :: Lens' DescribeDirectConnectGatewayAttachmentsResponse (Maybe Text)
 ddcgasrsNextToken = lens _ddcgasrsNextToken (\ s a -> s{_ddcgasrsNextToken = a})
 
--- | Information about the direct connect gateway attachments.
+-- | The attachments.
 ddcgasrsDirectConnectGatewayAttachments :: Lens' DescribeDirectConnectGatewayAttachmentsResponse [DirectConnectGatewayAttachment]
 ddcgasrsDirectConnectGatewayAttachments = lens _ddcgasrsDirectConnectGatewayAttachments (\ s a -> s{_ddcgasrsDirectConnectGatewayAttachments = a}) . _Default . _Coerce
 

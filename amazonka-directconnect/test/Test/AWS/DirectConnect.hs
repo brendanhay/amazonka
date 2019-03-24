@@ -15,9 +15,9 @@ module Test.AWS.DirectConnect
     , fixtures
     ) where
 
-import           Network.AWS.DirectConnect
-import           Test.AWS.Gen.DirectConnect
-import           Test.Tasty
+import Network.AWS.DirectConnect
+import Test.AWS.Gen.DirectConnect
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

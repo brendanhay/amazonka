@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes one or more tags from the specified Direct Connect resource.
+-- Removes one or more tags from the specified AWS Direct Connect resource.
 --
 --
 module Network.AWS.DirectConnect.UntagResource
@@ -44,11 +44,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the UntagResource operation.
---
---
---
--- /See:/ 'untagResource' smart constructor.
+-- | /See:/ 'untagResource' smart constructor.
 data UntagResource = UntagResource'
   { _urResourceARN :: !Text
   , _urTagKeys     :: ![Text]
@@ -59,9 +55,9 @@ data UntagResource = UntagResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urResourceARN' - The Amazon Resource Name (ARN) of the Direct Connect resource.
+-- * 'urResourceARN' - The Amazon Resource Name (ARN) of the resource.
 --
--- * 'urTagKeys' - The list of tag keys to remove.
+-- * 'urTagKeys' - The tag keys of the tags to remove.
 untagResource
     :: Text -- ^ 'urResourceARN'
     -> UntagResource
@@ -69,11 +65,11 @@ untagResource pResourceARN_ =
   UntagResource' {_urResourceARN = pResourceARN_, _urTagKeys = mempty}
 
 
--- | The Amazon Resource Name (ARN) of the Direct Connect resource.
+-- | The Amazon Resource Name (ARN) of the resource.
 urResourceARN :: Lens' UntagResource Text
 urResourceARN = lens _urResourceARN (\ s a -> s{_urResourceARN = a})
 
--- | The list of tag keys to remove.
+-- | The tag keys of the tags to remove.
 urTagKeys :: Lens' UntagResource [Text]
 urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _Coerce
 
@@ -111,11 +107,7 @@ instance ToPath UntagResource where
 instance ToQuery UntagResource where
         toQuery = const mempty
 
--- | The response received when UntagResource is called.
---
---
---
--- /See:/ 'untagResourceResponse' smart constructor.
+-- | /See:/ 'untagResourceResponse' smart constructor.
 newtype UntagResourceResponse = UntagResourceResponse'
   { _urrsResponseStatus :: Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)

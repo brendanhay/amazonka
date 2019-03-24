@@ -18,14 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new connection between the customer network and a specific AWS Direct Connect location.
+-- Creates a connection between a customer network and a specific AWS Direct Connect location.
 --
 --
--- A connection links your internal network to an AWS Direct Connect location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. An AWS Direct Connect location provides access to Amazon Web Services in the region it is associated with. You can establish connections with AWS Direct Connect locations in multiple regions, but a connection in one region does not provide connectivity to other regions.
+-- A connection links your internal network to an AWS Direct Connect location over a standard Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router.
 --
--- To find the locations for your region, use 'DescribeLocations' .
+-- To find the locations for your Region, use 'DescribeLocations' .
 --
--- You can automatically add the new connection to a link aggregation group (LAG) by specifying a LAG ID in the request. This ensures that the new connection is allocated on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint, the request fails and no connection will be created.
+-- You can automatically add the new connection to a link aggregation group (LAG) by specifying a LAG ID in the request. This ensures that the new connection is allocated on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint, the request fails and no connection is created.
 --
 module Network.AWS.DirectConnect.CreateConnection
     (
@@ -46,13 +46,16 @@ module Network.AWS.DirectConnect.CreateConnection
     , cVlan
     , cLocation
     , cAwsDevice
+    , cHasLogicalRedundancy
     , cConnectionId
     , cLoaIssueTime
     , cPartnerName
     , cConnectionName
     , cBandwidth
+    , cJumboFrameCapable
     , cOwnerAccount
     , cRegion
+    , cAwsDeviceV2
     , cConnectionState
     ) where
 
@@ -63,11 +66,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the CreateConnection operation.
---
---
---
--- /See:/ 'createConnection' smart constructor.
+-- | /See:/ 'createConnection' smart constructor.
 data CreateConnection = CreateConnection'
   { _ccLagId          :: !(Maybe Text)
   , _ccLocation       :: !Text
@@ -80,13 +79,13 @@ data CreateConnection = CreateConnection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccLagId' - Undocumented member.
+-- * 'ccLagId' - The ID of the LAG.
 --
--- * 'ccLocation' - Undocumented member.
+-- * 'ccLocation' - The location of the connection.
 --
--- * 'ccBandwidth' - Undocumented member.
+-- * 'ccBandwidth' - The bandwidth of the connection.
 --
--- * 'ccConnectionName' - Undocumented member.
+-- * 'ccConnectionName' - The name of the connection.
 createConnection
     :: Text -- ^ 'ccLocation'
     -> Text -- ^ 'ccBandwidth'
@@ -101,19 +100,19 @@ createConnection pLocation_ pBandwidth_ pConnectionName_ =
     }
 
 
--- | Undocumented member.
+-- | The ID of the LAG.
 ccLagId :: Lens' CreateConnection (Maybe Text)
 ccLagId = lens _ccLagId (\ s a -> s{_ccLagId = a})
 
--- | Undocumented member.
+-- | The location of the connection.
 ccLocation :: Lens' CreateConnection Text
 ccLocation = lens _ccLocation (\ s a -> s{_ccLocation = a})
 
--- | Undocumented member.
+-- | The bandwidth of the connection.
 ccBandwidth :: Lens' CreateConnection Text
 ccBandwidth = lens _ccBandwidth (\ s a -> s{_ccBandwidth = a})
 
--- | Undocumented member.
+-- | The name of the connection.
 ccConnectionName :: Lens' CreateConnection Text
 ccConnectionName = lens _ccConnectionName (\ s a -> s{_ccConnectionName = a})
 

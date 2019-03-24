@@ -43,6 +43,9 @@ import Test.Tasty
 --         , requestDeleteConnection $
 --             deleteConnection
 --
+--         , requestUpdateVirtualInterfaceAttributes $
+--             updateVirtualInterfaceAttributes
+--
 --         , requestAssociateConnectionWithLag $
 --             associateConnectionWithLag
 --
@@ -165,6 +168,9 @@ import Test.Tasty
 --
 --         , responseDeleteConnection $
 --             connection
+--
+--         , responseUpdateVirtualInterfaceAttributes $
+--             virtualInterface
 --
 --         , responseAssociateConnectionWithLag $
 --             connection
@@ -300,6 +306,11 @@ requestDeleteConnection :: DeleteConnection -> TestTree
 requestDeleteConnection = req
     "DeleteConnection"
     "fixture/DeleteConnection.yaml"
+
+requestUpdateVirtualInterfaceAttributes :: UpdateVirtualInterfaceAttributes -> TestTree
+requestUpdateVirtualInterfaceAttributes = req
+    "UpdateVirtualInterfaceAttributes"
+    "fixture/UpdateVirtualInterfaceAttributes.yaml"
 
 requestAssociateConnectionWithLag :: AssociateConnectionWithLag -> TestTree
 requestAssociateConnectionWithLag = req
@@ -512,6 +523,13 @@ responseDeleteConnection = res
     "fixture/DeleteConnectionResponse.proto"
     directConnect
     (Proxy :: Proxy DeleteConnection)
+
+responseUpdateVirtualInterfaceAttributes :: VirtualInterface -> TestTree
+responseUpdateVirtualInterfaceAttributes = res
+    "UpdateVirtualInterfaceAttributesResponse"
+    "fixture/UpdateVirtualInterfaceAttributesResponse.proto"
+    directConnect
+    (Proxy :: Proxy UpdateVirtualInterfaceAttributes)
 
 responseAssociateConnectionWithLag :: Connection -> TestTree
 responseAssociateConnectionWithLag = res

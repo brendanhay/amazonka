@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of virtual private gateways owned by the AWS account.
+-- Lists the virtual private gateways owned by the AWS account.
 --
 --
--- You can create one or more AWS Direct Connect private virtual interfaces linking to a virtual private gateway. A virtual private gateway can be managed via Amazon Virtual Private Cloud (VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway> action.
+-- You can create one or more AWS Direct Connect private virtual interfaces linked to a virtual private gateway.
 --
 module Network.AWS.DirectConnect.DescribeVirtualGateways
     (
@@ -91,11 +91,7 @@ instance ToPath DescribeVirtualGateways where
 instance ToQuery DescribeVirtualGateways where
         toQuery = const mempty
 
--- | A structure containing a list of virtual private gateways.
---
---
---
--- /See:/ 'describeVirtualGatewaysResponse' smart constructor.
+-- | /See:/ 'describeVirtualGatewaysResponse' smart constructor.
 data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'
   { _dvgrsVirtualGateways :: !(Maybe [VirtualGateway])
   , _dvgrsResponseStatus  :: !Int
@@ -106,7 +102,7 @@ data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvgrsVirtualGateways' - A list of virtual private gateways.
+-- * 'dvgrsVirtualGateways' - The virtual private gateways.
 --
 -- * 'dvgrsResponseStatus' - -- | The response status code.
 describeVirtualGatewaysResponse
@@ -117,7 +113,7 @@ describeVirtualGatewaysResponse pResponseStatus_ =
     {_dvgrsVirtualGateways = Nothing, _dvgrsResponseStatus = pResponseStatus_}
 
 
--- | A list of virtual private gateways.
+-- | The virtual private gateways.
 dvgrsVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
 dvgrsVirtualGateways = lens _dvgrsVirtualGateways (\ s a -> s{_dvgrsVirtualGateways = a}) . _Default . _Coerce
 

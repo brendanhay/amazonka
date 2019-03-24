@@ -21,7 +21,7 @@ import Network.AWS.DirectConnect.Types.Sum
 import Network.AWS.Lens
 import Network.AWS.Prelude
 
--- | A structure containing information about a BGP peer.
+-- | Information about a BGP peer.
 --
 --
 --
@@ -33,7 +33,9 @@ data BGPPeer = BGPPeer'
   , _bpBgpStatus       :: !(Maybe BGPStatus)
   , _bpAsn             :: !(Maybe Int)
   , _bpAuthKey         :: !(Maybe Text)
+  , _bpBgpPeerId       :: !(Maybe Text)
   , _bpBgpPeerState    :: !(Maybe BGPPeerState)
+  , _bpAwsDeviceV2     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -41,19 +43,23 @@ data BGPPeer = BGPPeer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bpCustomerAddress' - Undocumented member.
+-- * 'bpCustomerAddress' - The IP address assigned to the customer interface.
 --
--- * 'bpAmazonAddress' - Undocumented member.
+-- * 'bpAmazonAddress' - The IP address assigned to the Amazon interface.
 --
--- * 'bpAddressFamily' - Undocumented member.
+-- * 'bpAddressFamily' - The address family for the BGP peer.
 --
--- * 'bpBgpStatus' - Undocumented member.
+-- * 'bpBgpStatus' - The status of the BGP peer. The following are the possible values:     * @up@ : The BGP peer is established. This state does not indicate the state of the routing function. Ensure that you are receiving routes over the BGP session.     * @down@ : The BGP peer is down.     * @unknown@ : The BGP peer status is not available.
 --
--- * 'bpAsn' - Undocumented member.
+-- * 'bpAsn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 --
--- * 'bpAuthKey' - Undocumented member.
+-- * 'bpAuthKey' - The authentication key for BGP configuration.
 --
--- * 'bpBgpPeerState' - Undocumented member.
+-- * 'bpBgpPeerId' - The ID of the BGP peer.
+--
+-- * 'bpBgpPeerState' - The state of the BGP peer. The following are the possible values:     * @verifying@ : The BGP peering addresses or ASN require validation before the BGP peer can be created. This state applies only to public virtual interfaces.     * @pending@ : The BGP peer is created, and remains in this state until it is ready to be established.     * @available@ : The BGP peer is ready to be established.     * @deleting@ : The BGP peer is being deleted.     * @deleted@ : The BGP peer is deleted and cannot be established.
+--
+-- * 'bpAwsDeviceV2' - The Direct Connect endpoint on which the BGP peer terminates.
 bgpPeer
     :: BGPPeer
 bgpPeer =
@@ -64,37 +70,47 @@ bgpPeer =
     , _bpBgpStatus = Nothing
     , _bpAsn = Nothing
     , _bpAuthKey = Nothing
+    , _bpBgpPeerId = Nothing
     , _bpBgpPeerState = Nothing
+    , _bpAwsDeviceV2 = Nothing
     }
 
 
--- | Undocumented member.
+-- | The IP address assigned to the customer interface.
 bpCustomerAddress :: Lens' BGPPeer (Maybe Text)
 bpCustomerAddress = lens _bpCustomerAddress (\ s a -> s{_bpCustomerAddress = a})
 
--- | Undocumented member.
+-- | The IP address assigned to the Amazon interface.
 bpAmazonAddress :: Lens' BGPPeer (Maybe Text)
 bpAmazonAddress = lens _bpAmazonAddress (\ s a -> s{_bpAmazonAddress = a})
 
--- | Undocumented member.
+-- | The address family for the BGP peer.
 bpAddressFamily :: Lens' BGPPeer (Maybe AddressFamily)
 bpAddressFamily = lens _bpAddressFamily (\ s a -> s{_bpAddressFamily = a})
 
--- | Undocumented member.
+-- | The status of the BGP peer. The following are the possible values:     * @up@ : The BGP peer is established. This state does not indicate the state of the routing function. Ensure that you are receiving routes over the BGP session.     * @down@ : The BGP peer is down.     * @unknown@ : The BGP peer status is not available.
 bpBgpStatus :: Lens' BGPPeer (Maybe BGPStatus)
 bpBgpStatus = lens _bpBgpStatus (\ s a -> s{_bpBgpStatus = a})
 
--- | Undocumented member.
+-- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 bpAsn :: Lens' BGPPeer (Maybe Int)
 bpAsn = lens _bpAsn (\ s a -> s{_bpAsn = a})
 
--- | Undocumented member.
+-- | The authentication key for BGP configuration.
 bpAuthKey :: Lens' BGPPeer (Maybe Text)
 bpAuthKey = lens _bpAuthKey (\ s a -> s{_bpAuthKey = a})
 
--- | Undocumented member.
+-- | The ID of the BGP peer.
+bpBgpPeerId :: Lens' BGPPeer (Maybe Text)
+bpBgpPeerId = lens _bpBgpPeerId (\ s a -> s{_bpBgpPeerId = a})
+
+-- | The state of the BGP peer. The following are the possible values:     * @verifying@ : The BGP peering addresses or ASN require validation before the BGP peer can be created. This state applies only to public virtual interfaces.     * @pending@ : The BGP peer is created, and remains in this state until it is ready to be established.     * @available@ : The BGP peer is ready to be established.     * @deleting@ : The BGP peer is being deleted.     * @deleted@ : The BGP peer is deleted and cannot be established.
 bpBgpPeerState :: Lens' BGPPeer (Maybe BGPPeerState)
 bpBgpPeerState = lens _bpBgpPeerState (\ s a -> s{_bpBgpPeerState = a})
+
+-- | The Direct Connect endpoint on which the BGP peer terminates.
+bpAwsDeviceV2 :: Lens' BGPPeer (Maybe Text)
+bpAwsDeviceV2 = lens _bpAwsDeviceV2 (\ s a -> s{_bpAwsDeviceV2 = a})
 
 instance FromJSON BGPPeer where
         parseJSON
@@ -106,30 +122,35 @@ instance FromJSON BGPPeer where
                      <*> (x .:? "bgpStatus")
                      <*> (x .:? "asn")
                      <*> (x .:? "authKey")
-                     <*> (x .:? "bgpPeerState"))
+                     <*> (x .:? "bgpPeerId")
+                     <*> (x .:? "bgpPeerState")
+                     <*> (x .:? "awsDeviceV2"))
 
 instance Hashable BGPPeer where
 
 instance NFData BGPPeer where
 
--- | A connection represents the physical network connection between the AWS Direct Connect location and the customer.
+-- | Information about an AWS Direct Connect connection.
 --
 --
 --
 -- /See:/ 'connection' smart constructor.
 data Connection = Connection'
-  { _cLagId           :: !(Maybe Text)
-  , _cVlan            :: !(Maybe Int)
-  , _cLocation        :: !(Maybe Text)
-  , _cAwsDevice       :: !(Maybe Text)
-  , _cConnectionId    :: !(Maybe Text)
-  , _cLoaIssueTime    :: !(Maybe POSIX)
-  , _cPartnerName     :: !(Maybe Text)
-  , _cConnectionName  :: !(Maybe Text)
-  , _cBandwidth       :: !(Maybe Text)
-  , _cOwnerAccount    :: !(Maybe Text)
-  , _cRegion          :: !(Maybe Text)
-  , _cConnectionState :: !(Maybe ConnectionState)
+  { _cLagId                :: !(Maybe Text)
+  , _cVlan                 :: !(Maybe Int)
+  , _cLocation             :: !(Maybe Text)
+  , _cAwsDevice            :: !(Maybe Text)
+  , _cHasLogicalRedundancy :: !(Maybe HasLogicalRedundancy)
+  , _cConnectionId         :: !(Maybe Text)
+  , _cLoaIssueTime         :: !(Maybe POSIX)
+  , _cPartnerName          :: !(Maybe Text)
+  , _cConnectionName       :: !(Maybe Text)
+  , _cBandwidth            :: !(Maybe Text)
+  , _cJumboFrameCapable    :: !(Maybe Bool)
+  , _cOwnerAccount         :: !(Maybe Text)
+  , _cRegion               :: !(Maybe Text)
+  , _cAwsDeviceV2          :: !(Maybe Text)
+  , _cConnectionState      :: !(Maybe ConnectionState)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -137,29 +158,35 @@ data Connection = Connection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cLagId' - Undocumented member.
+-- * 'cLagId' - The ID of the LAG.
 --
--- * 'cVlan' - Undocumented member.
+-- * 'cVlan' - The ID of the VLAN.
 --
--- * 'cLocation' - Undocumented member.
+-- * 'cLocation' - The location of the connection.
 --
--- * 'cAwsDevice' - The Direct Connection endpoint which the physical connection terminates on.
+-- * 'cAwsDevice' - The Direct Connect endpoint on which the physical connection terminates.
 --
--- * 'cConnectionId' - Undocumented member.
+-- * 'cHasLogicalRedundancy' - Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+--
+-- * 'cConnectionId' - The ID of the connection.
 --
 -- * 'cLoaIssueTime' - The time of the most recent call to 'DescribeLoa' for this connection.
 --
 -- * 'cPartnerName' - The name of the AWS Direct Connect service provider associated with the connection.
 --
--- * 'cConnectionName' - Undocumented member.
+-- * 'cConnectionName' - The name of the connection.
 --
--- * 'cBandwidth' - Bandwidth of the connection. Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections) Default: None
+-- * 'cBandwidth' - The bandwidth of the connection.
 --
--- * 'cOwnerAccount' - The AWS account that will own the new connection.
+-- * 'cJumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
 --
--- * 'cRegion' - Undocumented member.
+-- * 'cOwnerAccount' - The ID of the AWS account that owns the connection.
 --
--- * 'cConnectionState' - Undocumented member.
+-- * 'cRegion' - The AWS Region where the connection is located.
+--
+-- * 'cAwsDeviceV2' - The Direct Connect endpoint on which the physical connection terminates.
+--
+-- * 'cConnectionState' - The state of the connection. The following are the possible values:     * @ordering@ : The initial state of a hosted connection provisioned on an interconnect. The connection stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.     * @requested@ : The initial state of a standard connection. The connection stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.     * @pending@ : The connection has been approved and is being initialized.     * @available@ : The network link is up and the connection is ready for use.     * @down@ : The network link is down.     * @deleting@ : The connection is being deleted.     * @deleted@ : The connection has been deleted.     * @rejected@ : A hosted connection in the @ordering@ state enters the @rejected@ state if it is deleted by the customer.     * @unknown@ : The state of the connection is not available.
 connection
     :: Connection
 connection =
@@ -168,34 +195,41 @@ connection =
     , _cVlan = Nothing
     , _cLocation = Nothing
     , _cAwsDevice = Nothing
+    , _cHasLogicalRedundancy = Nothing
     , _cConnectionId = Nothing
     , _cLoaIssueTime = Nothing
     , _cPartnerName = Nothing
     , _cConnectionName = Nothing
     , _cBandwidth = Nothing
+    , _cJumboFrameCapable = Nothing
     , _cOwnerAccount = Nothing
     , _cRegion = Nothing
+    , _cAwsDeviceV2 = Nothing
     , _cConnectionState = Nothing
     }
 
 
--- | Undocumented member.
+-- | The ID of the LAG.
 cLagId :: Lens' Connection (Maybe Text)
 cLagId = lens _cLagId (\ s a -> s{_cLagId = a})
 
--- | Undocumented member.
+-- | The ID of the VLAN.
 cVlan :: Lens' Connection (Maybe Int)
 cVlan = lens _cVlan (\ s a -> s{_cVlan = a})
 
--- | Undocumented member.
+-- | The location of the connection.
 cLocation :: Lens' Connection (Maybe Text)
 cLocation = lens _cLocation (\ s a -> s{_cLocation = a})
 
--- | The Direct Connection endpoint which the physical connection terminates on.
+-- | The Direct Connect endpoint on which the physical connection terminates.
 cAwsDevice :: Lens' Connection (Maybe Text)
 cAwsDevice = lens _cAwsDevice (\ s a -> s{_cAwsDevice = a})
 
--- | Undocumented member.
+-- | Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
+cHasLogicalRedundancy :: Lens' Connection (Maybe HasLogicalRedundancy)
+cHasLogicalRedundancy = lens _cHasLogicalRedundancy (\ s a -> s{_cHasLogicalRedundancy = a})
+
+-- | The ID of the connection.
 cConnectionId :: Lens' Connection (Maybe Text)
 cConnectionId = lens _cConnectionId (\ s a -> s{_cConnectionId = a})
 
@@ -207,23 +241,31 @@ cLoaIssueTime = lens _cLoaIssueTime (\ s a -> s{_cLoaIssueTime = a}) . mapping _
 cPartnerName :: Lens' Connection (Maybe Text)
 cPartnerName = lens _cPartnerName (\ s a -> s{_cPartnerName = a})
 
--- | Undocumented member.
+-- | The name of the connection.
 cConnectionName :: Lens' Connection (Maybe Text)
 cConnectionName = lens _cConnectionName (\ s a -> s{_cConnectionName = a})
 
--- | Bandwidth of the connection. Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections) Default: None
+-- | The bandwidth of the connection.
 cBandwidth :: Lens' Connection (Maybe Text)
 cBandwidth = lens _cBandwidth (\ s a -> s{_cBandwidth = a})
 
--- | The AWS account that will own the new connection.
+-- | Indicates whether jumbo frames (9001 MTU) are supported.
+cJumboFrameCapable :: Lens' Connection (Maybe Bool)
+cJumboFrameCapable = lens _cJumboFrameCapable (\ s a -> s{_cJumboFrameCapable = a})
+
+-- | The ID of the AWS account that owns the connection.
 cOwnerAccount :: Lens' Connection (Maybe Text)
 cOwnerAccount = lens _cOwnerAccount (\ s a -> s{_cOwnerAccount = a})
 
--- | Undocumented member.
+-- | The AWS Region where the connection is located.
 cRegion :: Lens' Connection (Maybe Text)
 cRegion = lens _cRegion (\ s a -> s{_cRegion = a})
 
--- | Undocumented member.
+-- | The Direct Connect endpoint on which the physical connection terminates.
+cAwsDeviceV2 :: Lens' Connection (Maybe Text)
+cAwsDeviceV2 = lens _cAwsDeviceV2 (\ s a -> s{_cAwsDeviceV2 = a})
+
+-- | The state of the connection. The following are the possible values:     * @ordering@ : The initial state of a hosted connection provisioned on an interconnect. The connection stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.     * @requested@ : The initial state of a standard connection. The connection stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.     * @pending@ : The connection has been approved and is being initialized.     * @available@ : The network link is up and the connection is ready for use.     * @down@ : The network link is down.     * @deleting@ : The connection is being deleted.     * @deleted@ : The connection has been deleted.     * @rejected@ : A hosted connection in the @ordering@ state enters the @rejected@ state if it is deleted by the customer.     * @unknown@ : The state of the connection is not available.
 cConnectionState :: Lens' Connection (Maybe ConnectionState)
 cConnectionState = lens _cConnectionState (\ s a -> s{_cConnectionState = a})
 
@@ -235,24 +277,23 @@ instance FromJSON Connection where
                    (x .:? "lagId") <*> (x .:? "vlan") <*>
                      (x .:? "location")
                      <*> (x .:? "awsDevice")
+                     <*> (x .:? "hasLogicalRedundancy")
                      <*> (x .:? "connectionId")
                      <*> (x .:? "loaIssueTime")
                      <*> (x .:? "partnerName")
                      <*> (x .:? "connectionName")
                      <*> (x .:? "bandwidth")
+                     <*> (x .:? "jumboFrameCapable")
                      <*> (x .:? "ownerAccount")
                      <*> (x .:? "region")
+                     <*> (x .:? "awsDeviceV2")
                      <*> (x .:? "connectionState"))
 
 instance Hashable Connection where
 
 instance NFData Connection where
 
--- | A structure containing a list of connections.
---
---
---
--- /See:/ 'connections' smart constructor.
+-- | /See:/ 'connections' smart constructor.
 newtype Connections = Connections'
   { _cConnections :: Maybe [Connection]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -262,13 +303,13 @@ newtype Connections = Connections'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cConnections' - A list of connections.
+-- * 'cConnections' - The connections.
 connections
     :: Connections
 connections = Connections' {_cConnections = Nothing}
 
 
--- | A list of connections.
+-- | The connections.
 cConnections :: Lens' Connections [Connection]
 cConnections = lens _cConnections (\ s a -> s{_cConnections = a}) . _Default . _Coerce
 
@@ -282,7 +323,7 @@ instance Hashable Connections where
 
 instance NFData Connections where
 
--- | A direct connect gateway is an intermediate object that enables you to connect virtual interfaces and virtual private gateways.
+-- | Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateways.
 --
 --
 --
@@ -301,17 +342,17 @@ data DirectConnectGateway = DirectConnectGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcgDirectConnectGatewayId' - Undocumented member.
+-- * 'dcgDirectConnectGatewayId' - The ID of the Direct Connect gateway.
 --
--- * 'dcgStateChangeError' - Undocumented member.
+-- * 'dcgStateChangeError' - The error message if the state of an object failed to advance.
 --
 -- * 'dcgAmazonSideASN' - The autonomous system number (ASN) for the Amazon side of the connection.
 --
--- * 'dcgDirectConnectGatewayName' - Undocumented member.
+-- * 'dcgDirectConnectGatewayName' - The name of the Direct Connect gateway.
 --
--- * 'dcgDirectConnectGatewayState' - Undocumented member.
+-- * 'dcgDirectConnectGatewayState' - The state of the Direct Connect gateway. The following are the possible values:     * @pending@ : The initial state after calling 'CreateDirectConnectGateway' .     * @available@ : The Direct Connect gateway is ready for use.     * @deleting@ : The initial state after calling 'DeleteDirectConnectGateway' .     * @deleted@ : The Direct Connect gateway is deleted and cannot pass traffic.
 --
--- * 'dcgOwnerAccount' - The AWS account ID of the owner of the direct connect gateway.
+-- * 'dcgOwnerAccount' - The ID of the AWS account that owns the Direct Connect gateway.
 directConnectGateway
     :: DirectConnectGateway
 directConnectGateway =
@@ -325,11 +366,11 @@ directConnectGateway =
     }
 
 
--- | Undocumented member.
+-- | The ID of the Direct Connect gateway.
 dcgDirectConnectGatewayId :: Lens' DirectConnectGateway (Maybe Text)
 dcgDirectConnectGatewayId = lens _dcgDirectConnectGatewayId (\ s a -> s{_dcgDirectConnectGatewayId = a})
 
--- | Undocumented member.
+-- | The error message if the state of an object failed to advance.
 dcgStateChangeError :: Lens' DirectConnectGateway (Maybe Text)
 dcgStateChangeError = lens _dcgStateChangeError (\ s a -> s{_dcgStateChangeError = a})
 
@@ -337,15 +378,15 @@ dcgStateChangeError = lens _dcgStateChangeError (\ s a -> s{_dcgStateChangeError
 dcgAmazonSideASN :: Lens' DirectConnectGateway (Maybe Integer)
 dcgAmazonSideASN = lens _dcgAmazonSideASN (\ s a -> s{_dcgAmazonSideASN = a})
 
--- | Undocumented member.
+-- | The name of the Direct Connect gateway.
 dcgDirectConnectGatewayName :: Lens' DirectConnectGateway (Maybe Text)
 dcgDirectConnectGatewayName = lens _dcgDirectConnectGatewayName (\ s a -> s{_dcgDirectConnectGatewayName = a})
 
--- | Undocumented member.
+-- | The state of the Direct Connect gateway. The following are the possible values:     * @pending@ : The initial state after calling 'CreateDirectConnectGateway' .     * @available@ : The Direct Connect gateway is ready for use.     * @deleting@ : The initial state after calling 'DeleteDirectConnectGateway' .     * @deleted@ : The Direct Connect gateway is deleted and cannot pass traffic.
 dcgDirectConnectGatewayState :: Lens' DirectConnectGateway (Maybe DirectConnectGatewayState)
 dcgDirectConnectGatewayState = lens _dcgDirectConnectGatewayState (\ s a -> s{_dcgDirectConnectGatewayState = a})
 
--- | The AWS account ID of the owner of the direct connect gateway.
+-- | The ID of the AWS account that owns the Direct Connect gateway.
 dcgOwnerAccount :: Lens' DirectConnectGateway (Maybe Text)
 dcgOwnerAccount = lens _dcgOwnerAccount (\ s a -> s{_dcgOwnerAccount = a})
 
@@ -365,7 +406,7 @@ instance Hashable DirectConnectGateway where
 
 instance NFData DirectConnectGateway where
 
--- | The association between a direct connect gateway and virtual private gateway.
+-- | Information about an association between a Direct Connect gateway and a virtual private gateway.
 --
 --
 --
@@ -384,17 +425,17 @@ data DirectConnectGatewayAssociation = DirectConnectGatewayAssociation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcgaVirtualGatewayId' - Undocumented member.
+-- * 'dcgaVirtualGatewayId' - The ID of the virtual private gateway. Applies only to private virtual interfaces.
 --
--- * 'dcgaDirectConnectGatewayId' - Undocumented member.
+-- * 'dcgaDirectConnectGatewayId' - The ID of the Direct Connect gateway.
 --
--- * 'dcgaVirtualGatewayOwnerAccount' - The AWS account ID of the owner of the virtual private gateway.
+-- * 'dcgaVirtualGatewayOwnerAccount' - The ID of the AWS account that owns the virtual private gateway.
 --
--- * 'dcgaStateChangeError' - Undocumented member.
+-- * 'dcgaStateChangeError' - The error message if the state of an object failed to advance.
 --
--- * 'dcgaVirtualGatewayRegion' - Undocumented member.
+-- * 'dcgaVirtualGatewayRegion' - The AWS Region where the virtual private gateway is located.
 --
--- * 'dcgaAssociationState' - Undocumented member.
+-- * 'dcgaAssociationState' - The state of the association. The following are the possible values:     * @associating@ : The initial state after calling 'CreateDirectConnectGatewayAssociation' .     * @associated@ : The Direct Connect gateway and virtual private gateway are successfully associated and ready to pass traffic.     * @disassociating@ : The initial state after calling 'DeleteDirectConnectGatewayAssociation' .     * @disassociated@ : The virtual private gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway is stopped.
 directConnectGatewayAssociation
     :: DirectConnectGatewayAssociation
 directConnectGatewayAssociation =
@@ -408,27 +449,27 @@ directConnectGatewayAssociation =
     }
 
 
--- | Undocumented member.
+-- | The ID of the virtual private gateway. Applies only to private virtual interfaces.
 dcgaVirtualGatewayId :: Lens' DirectConnectGatewayAssociation (Maybe Text)
 dcgaVirtualGatewayId = lens _dcgaVirtualGatewayId (\ s a -> s{_dcgaVirtualGatewayId = a})
 
--- | Undocumented member.
+-- | The ID of the Direct Connect gateway.
 dcgaDirectConnectGatewayId :: Lens' DirectConnectGatewayAssociation (Maybe Text)
 dcgaDirectConnectGatewayId = lens _dcgaDirectConnectGatewayId (\ s a -> s{_dcgaDirectConnectGatewayId = a})
 
--- | The AWS account ID of the owner of the virtual private gateway.
+-- | The ID of the AWS account that owns the virtual private gateway.
 dcgaVirtualGatewayOwnerAccount :: Lens' DirectConnectGatewayAssociation (Maybe Text)
 dcgaVirtualGatewayOwnerAccount = lens _dcgaVirtualGatewayOwnerAccount (\ s a -> s{_dcgaVirtualGatewayOwnerAccount = a})
 
--- | Undocumented member.
+-- | The error message if the state of an object failed to advance.
 dcgaStateChangeError :: Lens' DirectConnectGatewayAssociation (Maybe Text)
 dcgaStateChangeError = lens _dcgaStateChangeError (\ s a -> s{_dcgaStateChangeError = a})
 
--- | Undocumented member.
+-- | The AWS Region where the virtual private gateway is located.
 dcgaVirtualGatewayRegion :: Lens' DirectConnectGatewayAssociation (Maybe Text)
 dcgaVirtualGatewayRegion = lens _dcgaVirtualGatewayRegion (\ s a -> s{_dcgaVirtualGatewayRegion = a})
 
--- | Undocumented member.
+-- | The state of the association. The following are the possible values:     * @associating@ : The initial state after calling 'CreateDirectConnectGatewayAssociation' .     * @associated@ : The Direct Connect gateway and virtual private gateway are successfully associated and ready to pass traffic.     * @disassociating@ : The initial state after calling 'DeleteDirectConnectGatewayAssociation' .     * @disassociated@ : The virtual private gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway is stopped.
 dcgaAssociationState :: Lens' DirectConnectGatewayAssociation (Maybe DirectConnectGatewayAssociationState)
 dcgaAssociationState = lens _dcgaAssociationState (\ s a -> s{_dcgaAssociationState = a})
 
@@ -450,7 +491,7 @@ instance Hashable DirectConnectGatewayAssociation
 
 instance NFData DirectConnectGatewayAssociation where
 
--- | The association between a direct connect gateway and virtual interface.
+-- | Information about an attachment between a Direct Connect gateway and a virtual interface.
 --
 --
 --
@@ -469,17 +510,17 @@ data DirectConnectGatewayAttachment = DirectConnectGatewayAttachment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dDirectConnectGatewayId' - Undocumented member.
+-- * 'dDirectConnectGatewayId' - The ID of the Direct Connect gateway.
 --
--- * 'dAttachmentState' - Undocumented member.
+-- * 'dAttachmentState' - The state of the attachment. The following are the possible values:     * @attaching@ : The initial state after a virtual interface is created using the Direct Connect gateway.     * @attached@ : The Direct Connect gateway and virtual interface are attached and ready to pass traffic.     * @detaching@ : The initial state after calling 'DeleteVirtualInterface' .     * @detached@ : The virtual interface is detached from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual interface is stopped.
 --
--- * 'dStateChangeError' - Undocumented member.
+-- * 'dStateChangeError' - The error message if the state of an object failed to advance.
 --
--- * 'dVirtualInterfaceRegion' - Undocumented member.
+-- * 'dVirtualInterfaceRegion' - The AWS Region where the virtual interface is located.
 --
--- * 'dVirtualInterfaceOwnerAccount' - The AWS account ID of the owner of the virtual interface.
+-- * 'dVirtualInterfaceOwnerAccount' - The ID of the AWS account that owns the virtual interface.
 --
--- * 'dVirtualInterfaceId' - Undocumented member.
+-- * 'dVirtualInterfaceId' - The ID of the virtual interface.
 directConnectGatewayAttachment
     :: DirectConnectGatewayAttachment
 directConnectGatewayAttachment =
@@ -493,27 +534,27 @@ directConnectGatewayAttachment =
     }
 
 
--- | Undocumented member.
+-- | The ID of the Direct Connect gateway.
 dDirectConnectGatewayId :: Lens' DirectConnectGatewayAttachment (Maybe Text)
 dDirectConnectGatewayId = lens _dDirectConnectGatewayId (\ s a -> s{_dDirectConnectGatewayId = a})
 
--- | Undocumented member.
+-- | The state of the attachment. The following are the possible values:     * @attaching@ : The initial state after a virtual interface is created using the Direct Connect gateway.     * @attached@ : The Direct Connect gateway and virtual interface are attached and ready to pass traffic.     * @detaching@ : The initial state after calling 'DeleteVirtualInterface' .     * @detached@ : The virtual interface is detached from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual interface is stopped.
 dAttachmentState :: Lens' DirectConnectGatewayAttachment (Maybe DirectConnectGatewayAttachmentState)
 dAttachmentState = lens _dAttachmentState (\ s a -> s{_dAttachmentState = a})
 
--- | Undocumented member.
+-- | The error message if the state of an object failed to advance.
 dStateChangeError :: Lens' DirectConnectGatewayAttachment (Maybe Text)
 dStateChangeError = lens _dStateChangeError (\ s a -> s{_dStateChangeError = a})
 
--- | Undocumented member.
+-- | The AWS Region where the virtual interface is located.
 dVirtualInterfaceRegion :: Lens' DirectConnectGatewayAttachment (Maybe Text)
 dVirtualInterfaceRegion = lens _dVirtualInterfaceRegion (\ s a -> s{_dVirtualInterfaceRegion = a})
 
--- | The AWS account ID of the owner of the virtual interface.
+-- | The ID of the AWS account that owns the virtual interface.
 dVirtualInterfaceOwnerAccount :: Lens' DirectConnectGatewayAttachment (Maybe Text)
 dVirtualInterfaceOwnerAccount = lens _dVirtualInterfaceOwnerAccount (\ s a -> s{_dVirtualInterfaceOwnerAccount = a})
 
--- | Undocumented member.
+-- | The ID of the virtual interface.
 dVirtualInterfaceId :: Lens' DirectConnectGatewayAttachment (Maybe Text)
 dVirtualInterfaceId = lens _dVirtualInterfaceId (\ s a -> s{_dVirtualInterfaceId = a})
 
@@ -535,25 +576,24 @@ instance Hashable DirectConnectGatewayAttachment
 
 instance NFData DirectConnectGatewayAttachment where
 
--- | An interconnect is a connection that can host other connections.
+-- | Information about an interconnect.
 --
---
--- Like a standard AWS Direct Connect connection, an interconnect represents the physical connection between an AWS Direct Connect partner's network and a specific Direct Connect location. An AWS Direct Connect partner who owns an interconnect can provision hosted connections on the interconnect for their end customers, thereby providing the end customers with connectivity to AWS services.
---
--- The resources of the interconnect, including bandwidth and VLAN numbers, are shared by all of the hosted connections on the interconnect, and the owner of the interconnect determines how these resources are assigned.
 --
 --
 -- /See:/ 'interconnect' smart constructor.
 data Interconnect = Interconnect'
-  { _iLagId             :: !(Maybe Text)
-  , _iInterconnectId    :: !(Maybe Text)
-  , _iLocation          :: !(Maybe Text)
-  , _iInterconnectName  :: !(Maybe Text)
-  , _iAwsDevice         :: !(Maybe Text)
-  , _iLoaIssueTime      :: !(Maybe POSIX)
-  , _iBandwidth         :: !(Maybe Text)
-  , _iInterconnectState :: !(Maybe InterconnectState)
-  , _iRegion            :: !(Maybe Text)
+  { _iLagId                :: !(Maybe Text)
+  , _iInterconnectId       :: !(Maybe Text)
+  , _iLocation             :: !(Maybe Text)
+  , _iInterconnectName     :: !(Maybe Text)
+  , _iAwsDevice            :: !(Maybe Text)
+  , _iHasLogicalRedundancy :: !(Maybe HasLogicalRedundancy)
+  , _iLoaIssueTime         :: !(Maybe POSIX)
+  , _iBandwidth            :: !(Maybe Text)
+  , _iJumboFrameCapable    :: !(Maybe Bool)
+  , _iInterconnectState    :: !(Maybe InterconnectState)
+  , _iRegion               :: !(Maybe Text)
+  , _iAwsDeviceV2          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -561,23 +601,29 @@ data Interconnect = Interconnect'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iLagId' - Undocumented member.
+-- * 'iLagId' - The ID of the LAG.
 --
--- * 'iInterconnectId' - Undocumented member.
+-- * 'iInterconnectId' - The ID of the interconnect.
 --
--- * 'iLocation' - Undocumented member.
+-- * 'iLocation' - The location of the connection.
 --
--- * 'iInterconnectName' - Undocumented member.
+-- * 'iInterconnectName' - The name of the interconnect.
 --
--- * 'iAwsDevice' - The Direct Connection endpoint which the physical connection terminates on.
+-- * 'iAwsDevice' - The Direct Connect endpoint on which the physical connection terminates.
 --
--- * 'iLoaIssueTime' - The time of the most recent call to DescribeInterconnectLoa for this Interconnect.
+-- * 'iHasLogicalRedundancy' - Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
 --
--- * 'iBandwidth' - Undocumented member.
+-- * 'iLoaIssueTime' - The time of the most recent call to 'DescribeLoa' for this connection.
 --
--- * 'iInterconnectState' - Undocumented member.
+-- * 'iBandwidth' - The bandwidth of the connection.
 --
--- * 'iRegion' - Undocumented member.
+-- * 'iJumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
+--
+-- * 'iInterconnectState' - The state of the interconnect. The following are the possible values:     * @requested@ : The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.     * @pending@ : The interconnect is approved, and is being initialized.     * @available@ : The network link is up, and the interconnect is ready for use.     * @down@ : The network link is down.     * @deleting@ : The interconnect is being deleted.     * @deleted@ : The interconnect is deleted.     * @unknown@ : The state of the interconnect is not available.
+--
+-- * 'iRegion' - The AWS Region where the connection is located.
+--
+-- * 'iAwsDeviceV2' - The Direct Connect endpoint on which the physical connection terminates.
 interconnect
     :: Interconnect
 interconnect =
@@ -587,48 +633,63 @@ interconnect =
     , _iLocation = Nothing
     , _iInterconnectName = Nothing
     , _iAwsDevice = Nothing
+    , _iHasLogicalRedundancy = Nothing
     , _iLoaIssueTime = Nothing
     , _iBandwidth = Nothing
+    , _iJumboFrameCapable = Nothing
     , _iInterconnectState = Nothing
     , _iRegion = Nothing
+    , _iAwsDeviceV2 = Nothing
     }
 
 
--- | Undocumented member.
+-- | The ID of the LAG.
 iLagId :: Lens' Interconnect (Maybe Text)
 iLagId = lens _iLagId (\ s a -> s{_iLagId = a})
 
--- | Undocumented member.
+-- | The ID of the interconnect.
 iInterconnectId :: Lens' Interconnect (Maybe Text)
 iInterconnectId = lens _iInterconnectId (\ s a -> s{_iInterconnectId = a})
 
--- | Undocumented member.
+-- | The location of the connection.
 iLocation :: Lens' Interconnect (Maybe Text)
 iLocation = lens _iLocation (\ s a -> s{_iLocation = a})
 
--- | Undocumented member.
+-- | The name of the interconnect.
 iInterconnectName :: Lens' Interconnect (Maybe Text)
 iInterconnectName = lens _iInterconnectName (\ s a -> s{_iInterconnectName = a})
 
--- | The Direct Connection endpoint which the physical connection terminates on.
+-- | The Direct Connect endpoint on which the physical connection terminates.
 iAwsDevice :: Lens' Interconnect (Maybe Text)
 iAwsDevice = lens _iAwsDevice (\ s a -> s{_iAwsDevice = a})
 
--- | The time of the most recent call to DescribeInterconnectLoa for this Interconnect.
+-- | Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
+iHasLogicalRedundancy :: Lens' Interconnect (Maybe HasLogicalRedundancy)
+iHasLogicalRedundancy = lens _iHasLogicalRedundancy (\ s a -> s{_iHasLogicalRedundancy = a})
+
+-- | The time of the most recent call to 'DescribeLoa' for this connection.
 iLoaIssueTime :: Lens' Interconnect (Maybe UTCTime)
 iLoaIssueTime = lens _iLoaIssueTime (\ s a -> s{_iLoaIssueTime = a}) . mapping _Time
 
--- | Undocumented member.
+-- | The bandwidth of the connection.
 iBandwidth :: Lens' Interconnect (Maybe Text)
 iBandwidth = lens _iBandwidth (\ s a -> s{_iBandwidth = a})
 
--- | Undocumented member.
+-- | Indicates whether jumbo frames (9001 MTU) are supported.
+iJumboFrameCapable :: Lens' Interconnect (Maybe Bool)
+iJumboFrameCapable = lens _iJumboFrameCapable (\ s a -> s{_iJumboFrameCapable = a})
+
+-- | The state of the interconnect. The following are the possible values:     * @requested@ : The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.     * @pending@ : The interconnect is approved, and is being initialized.     * @available@ : The network link is up, and the interconnect is ready for use.     * @down@ : The network link is down.     * @deleting@ : The interconnect is being deleted.     * @deleted@ : The interconnect is deleted.     * @unknown@ : The state of the interconnect is not available.
 iInterconnectState :: Lens' Interconnect (Maybe InterconnectState)
 iInterconnectState = lens _iInterconnectState (\ s a -> s{_iInterconnectState = a})
 
--- | Undocumented member.
+-- | The AWS Region where the connection is located.
 iRegion :: Lens' Interconnect (Maybe Text)
 iRegion = lens _iRegion (\ s a -> s{_iRegion = a})
+
+-- | The Direct Connect endpoint on which the physical connection terminates.
+iAwsDeviceV2 :: Lens' Interconnect (Maybe Text)
+iAwsDeviceV2 = lens _iAwsDeviceV2 (\ s a -> s{_iAwsDeviceV2 = a})
 
 instance FromJSON Interconnect where
         parseJSON
@@ -639,16 +700,19 @@ instance FromJSON Interconnect where
                      (x .:? "location")
                      <*> (x .:? "interconnectName")
                      <*> (x .:? "awsDevice")
+                     <*> (x .:? "hasLogicalRedundancy")
                      <*> (x .:? "loaIssueTime")
                      <*> (x .:? "bandwidth")
+                     <*> (x .:? "jumboFrameCapable")
                      <*> (x .:? "interconnectState")
-                     <*> (x .:? "region"))
+                     <*> (x .:? "region")
+                     <*> (x .:? "awsDeviceV2"))
 
 instance Hashable Interconnect where
 
 instance NFData Interconnect where
 
--- | Describes a link aggregation group (LAG). A LAG is a connection that uses the Link Aggregation Control Protocol (LACP) to logically aggregate a bundle of physical connections. Like an interconnect, it can host other connections. All connections in a LAG must terminate on the same physical AWS Direct Connect endpoint, and must be the same bandwidth.
+-- | Information about a link aggregation group (LAG).
 --
 --
 --
@@ -661,11 +725,14 @@ data Lag = Lag'
   , _lagLocation                :: !(Maybe Text)
   , _lagConnections             :: !(Maybe [Connection])
   , _lagAwsDevice               :: !(Maybe Text)
+  , _lagHasLogicalRedundancy    :: !(Maybe HasLogicalRedundancy)
   , _lagAllowsHostedConnections :: !(Maybe Bool)
   , _lagNumberOfConnections     :: !(Maybe Int)
+  , _lagJumboFrameCapable       :: !(Maybe Bool)
   , _lagLagState                :: !(Maybe LagState)
   , _lagOwnerAccount            :: !(Maybe Text)
   , _lagRegion                  :: !(Maybe Text)
+  , _lagAwsDeviceV2             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -673,29 +740,35 @@ data Lag = Lag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lagLagId' - Undocumented member.
+-- * 'lagLagId' - The ID of the LAG.
 --
--- * 'lagConnectionsBandwidth' - The individual bandwidth of the physical connections bundled by the LAG. Available values: 1Gbps, 10Gbps
+-- * 'lagConnectionsBandwidth' - The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps and 10Gbps.
 --
--- * 'lagMinimumLinks' - The minimum number of physical connections that must be operational for the LAG itself to be operational. If the number of operational connections drops below this setting, the LAG state changes to @down@ . This value can help to ensure that a LAG is not overutilized if a significant number of its bundled connections go down.
+-- * 'lagMinimumLinks' - The minimum number of physical connections that must be operational for the LAG itself to be operational.
 --
 -- * 'lagLagName' - The name of the LAG.
 --
--- * 'lagLocation' - Undocumented member.
+-- * 'lagLocation' - The location of the LAG.
 --
--- * 'lagConnections' - A list of connections bundled by this LAG.
+-- * 'lagConnections' - The connections bundled by the LAG.
 --
--- * 'lagAwsDevice' - The AWS Direct Connection endpoint that hosts the LAG.
+-- * 'lagAwsDevice' - The Direct Connect endpoint that hosts the LAG.
+--
+-- * 'lagHasLogicalRedundancy' - Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
 --
 -- * 'lagAllowsHostedConnections' - Indicates whether the LAG can host other connections.
 --
 -- * 'lagNumberOfConnections' - The number of physical connections bundled by the LAG, up to a maximum of 10.
 --
--- * 'lagLagState' - Undocumented member.
+-- * 'lagJumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
 --
--- * 'lagOwnerAccount' - The owner of the LAG.
+-- * 'lagLagState' - The state of the LAG. The following are the possible values:     * @requested@ : The initial state of a LAG. The LAG stays in the requested state until the Letter of Authorization (LOA) is available.     * @pending@ : The LAG has been approved and is being initialized.     * @available@ : The network link is established and the LAG is ready for use.     * @down@ : The network link is down.     * @deleting@ : The LAG is being deleted.     * @deleted@ : The LAG is deleted.     * @unknown@ : The state of the LAG is not available.
 --
--- * 'lagRegion' - Undocumented member.
+-- * 'lagOwnerAccount' - The ID of the AWS account that owns the LAG.
+--
+-- * 'lagRegion' - The AWS Region where the connection is located.
+--
+-- * 'lagAwsDeviceV2' - The Direct Connect endpoint that hosts the LAG.
 lag
     :: Lag
 lag =
@@ -707,23 +780,26 @@ lag =
     , _lagLocation = Nothing
     , _lagConnections = Nothing
     , _lagAwsDevice = Nothing
+    , _lagHasLogicalRedundancy = Nothing
     , _lagAllowsHostedConnections = Nothing
     , _lagNumberOfConnections = Nothing
+    , _lagJumboFrameCapable = Nothing
     , _lagLagState = Nothing
     , _lagOwnerAccount = Nothing
     , _lagRegion = Nothing
+    , _lagAwsDeviceV2 = Nothing
     }
 
 
--- | Undocumented member.
+-- | The ID of the LAG.
 lagLagId :: Lens' Lag (Maybe Text)
 lagLagId = lens _lagLagId (\ s a -> s{_lagLagId = a})
 
--- | The individual bandwidth of the physical connections bundled by the LAG. Available values: 1Gbps, 10Gbps
+-- | The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps and 10Gbps.
 lagConnectionsBandwidth :: Lens' Lag (Maybe Text)
 lagConnectionsBandwidth = lens _lagConnectionsBandwidth (\ s a -> s{_lagConnectionsBandwidth = a})
 
--- | The minimum number of physical connections that must be operational for the LAG itself to be operational. If the number of operational connections drops below this setting, the LAG state changes to @down@ . This value can help to ensure that a LAG is not overutilized if a significant number of its bundled connections go down.
+-- | The minimum number of physical connections that must be operational for the LAG itself to be operational.
 lagMinimumLinks :: Lens' Lag (Maybe Int)
 lagMinimumLinks = lens _lagMinimumLinks (\ s a -> s{_lagMinimumLinks = a})
 
@@ -731,17 +807,21 @@ lagMinimumLinks = lens _lagMinimumLinks (\ s a -> s{_lagMinimumLinks = a})
 lagLagName :: Lens' Lag (Maybe Text)
 lagLagName = lens _lagLagName (\ s a -> s{_lagLagName = a})
 
--- | Undocumented member.
+-- | The location of the LAG.
 lagLocation :: Lens' Lag (Maybe Text)
 lagLocation = lens _lagLocation (\ s a -> s{_lagLocation = a})
 
--- | A list of connections bundled by this LAG.
+-- | The connections bundled by the LAG.
 lagConnections :: Lens' Lag [Connection]
 lagConnections = lens _lagConnections (\ s a -> s{_lagConnections = a}) . _Default . _Coerce
 
--- | The AWS Direct Connection endpoint that hosts the LAG.
+-- | The Direct Connect endpoint that hosts the LAG.
 lagAwsDevice :: Lens' Lag (Maybe Text)
 lagAwsDevice = lens _lagAwsDevice (\ s a -> s{_lagAwsDevice = a})
+
+-- | Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
+lagHasLogicalRedundancy :: Lens' Lag (Maybe HasLogicalRedundancy)
+lagHasLogicalRedundancy = lens _lagHasLogicalRedundancy (\ s a -> s{_lagHasLogicalRedundancy = a})
 
 -- | Indicates whether the LAG can host other connections.
 lagAllowsHostedConnections :: Lens' Lag (Maybe Bool)
@@ -751,17 +831,25 @@ lagAllowsHostedConnections = lens _lagAllowsHostedConnections (\ s a -> s{_lagAl
 lagNumberOfConnections :: Lens' Lag (Maybe Int)
 lagNumberOfConnections = lens _lagNumberOfConnections (\ s a -> s{_lagNumberOfConnections = a})
 
--- | Undocumented member.
+-- | Indicates whether jumbo frames (9001 MTU) are supported.
+lagJumboFrameCapable :: Lens' Lag (Maybe Bool)
+lagJumboFrameCapable = lens _lagJumboFrameCapable (\ s a -> s{_lagJumboFrameCapable = a})
+
+-- | The state of the LAG. The following are the possible values:     * @requested@ : The initial state of a LAG. The LAG stays in the requested state until the Letter of Authorization (LOA) is available.     * @pending@ : The LAG has been approved and is being initialized.     * @available@ : The network link is established and the LAG is ready for use.     * @down@ : The network link is down.     * @deleting@ : The LAG is being deleted.     * @deleted@ : The LAG is deleted.     * @unknown@ : The state of the LAG is not available.
 lagLagState :: Lens' Lag (Maybe LagState)
 lagLagState = lens _lagLagState (\ s a -> s{_lagLagState = a})
 
--- | The owner of the LAG.
+-- | The ID of the AWS account that owns the LAG.
 lagOwnerAccount :: Lens' Lag (Maybe Text)
 lagOwnerAccount = lens _lagOwnerAccount (\ s a -> s{_lagOwnerAccount = a})
 
--- | Undocumented member.
+-- | The AWS Region where the connection is located.
 lagRegion :: Lens' Lag (Maybe Text)
 lagRegion = lens _lagRegion (\ s a -> s{_lagRegion = a})
+
+-- | The Direct Connect endpoint that hosts the LAG.
+lagAwsDeviceV2 :: Lens' Lag (Maybe Text)
+lagAwsDeviceV2 = lens _lagAwsDeviceV2 (\ s a -> s{_lagAwsDeviceV2 = a})
 
 instance FromJSON Lag where
         parseJSON
@@ -774,24 +862,29 @@ instance FromJSON Lag where
                      <*> (x .:? "location")
                      <*> (x .:? "connections" .!= mempty)
                      <*> (x .:? "awsDevice")
+                     <*> (x .:? "hasLogicalRedundancy")
                      <*> (x .:? "allowsHostedConnections")
                      <*> (x .:? "numberOfConnections")
+                     <*> (x .:? "jumboFrameCapable")
                      <*> (x .:? "lagState")
                      <*> (x .:? "ownerAccount")
-                     <*> (x .:? "region"))
+                     <*> (x .:? "region")
+                     <*> (x .:? "awsDeviceV2"))
 
 instance Hashable Lag where
 
 instance NFData Lag where
 
--- | An AWS Direct Connect location where connections and interconnects can be requested.
+-- | Information about an AWS Direct Connect location.
 --
 --
 --
 -- /See:/ 'location' smart constructor.
 data Location = Location'
-  { _lLocationName :: !(Maybe Text)
-  , _lLocationCode :: !(Maybe Text)
+  { _lAvailablePortSpeeds :: !(Maybe [Text])
+  , _lLocationName        :: !(Maybe Text)
+  , _lLocationCode        :: !(Maybe Text)
+  , _lRegion              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -799,34 +892,55 @@ data Location = Location'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lLocationName' - The name of the AWS Direct Connect location. The name includes the colocation partner name and the physical site of the lit building.
+-- * 'lAvailablePortSpeeds' - The available port speeds for the location.
 --
--- * 'lLocationCode' - The code used to indicate the AWS Direct Connect location.
+-- * 'lLocationName' - The name of the location. This includes the name of the colocation partner and the physical site of the building.
+--
+-- * 'lLocationCode' - The code for the location.
+--
+-- * 'lRegion' - The AWS Region for the location.
 location
     :: Location
-location = Location' {_lLocationName = Nothing, _lLocationCode = Nothing}
+location =
+  Location'
+    { _lAvailablePortSpeeds = Nothing
+    , _lLocationName = Nothing
+    , _lLocationCode = Nothing
+    , _lRegion = Nothing
+    }
 
 
--- | The name of the AWS Direct Connect location. The name includes the colocation partner name and the physical site of the lit building.
+-- | The available port speeds for the location.
+lAvailablePortSpeeds :: Lens' Location [Text]
+lAvailablePortSpeeds = lens _lAvailablePortSpeeds (\ s a -> s{_lAvailablePortSpeeds = a}) . _Default . _Coerce
+
+-- | The name of the location. This includes the name of the colocation partner and the physical site of the building.
 lLocationName :: Lens' Location (Maybe Text)
 lLocationName = lens _lLocationName (\ s a -> s{_lLocationName = a})
 
--- | The code used to indicate the AWS Direct Connect location.
+-- | The code for the location.
 lLocationCode :: Lens' Location (Maybe Text)
 lLocationCode = lens _lLocationCode (\ s a -> s{_lLocationCode = a})
+
+-- | The AWS Region for the location.
+lRegion :: Lens' Location (Maybe Text)
+lRegion = lens _lRegion (\ s a -> s{_lRegion = a})
 
 instance FromJSON Location where
         parseJSON
           = withObject "Location"
               (\ x ->
                  Location' <$>
-                   (x .:? "locationName") <*> (x .:? "locationCode"))
+                   (x .:? "availablePortSpeeds" .!= mempty) <*>
+                     (x .:? "locationName")
+                     <*> (x .:? "locationCode")
+                     <*> (x .:? "region"))
 
 instance Hashable Location where
 
 instance NFData Location where
 
--- | A structure containing information about a new BGP peer.
+-- | Information about a new BGP peer.
 --
 --
 --
@@ -844,15 +958,15 @@ data NewBGPPeer = NewBGPPeer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'nbpCustomerAddress' - Undocumented member.
+-- * 'nbpCustomerAddress' - The IP address assigned to the customer interface.
 --
--- * 'nbpAmazonAddress' - Undocumented member.
+-- * 'nbpAmazonAddress' - The IP address assigned to the Amazon interface.
 --
--- * 'nbpAddressFamily' - Undocumented member.
+-- * 'nbpAddressFamily' - The address family for the BGP peer.
 --
--- * 'nbpAsn' - Undocumented member.
+-- * 'nbpAsn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 --
--- * 'nbpAuthKey' - Undocumented member.
+-- * 'nbpAuthKey' - The authentication key for BGP configuration.
 newBGPPeer
     :: NewBGPPeer
 newBGPPeer =
@@ -865,23 +979,23 @@ newBGPPeer =
     }
 
 
--- | Undocumented member.
+-- | The IP address assigned to the customer interface.
 nbpCustomerAddress :: Lens' NewBGPPeer (Maybe Text)
 nbpCustomerAddress = lens _nbpCustomerAddress (\ s a -> s{_nbpCustomerAddress = a})
 
--- | Undocumented member.
+-- | The IP address assigned to the Amazon interface.
 nbpAmazonAddress :: Lens' NewBGPPeer (Maybe Text)
 nbpAmazonAddress = lens _nbpAmazonAddress (\ s a -> s{_nbpAmazonAddress = a})
 
--- | Undocumented member.
+-- | The address family for the BGP peer.
 nbpAddressFamily :: Lens' NewBGPPeer (Maybe AddressFamily)
 nbpAddressFamily = lens _nbpAddressFamily (\ s a -> s{_nbpAddressFamily = a})
 
--- | Undocumented member.
+-- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 nbpAsn :: Lens' NewBGPPeer (Maybe Int)
 nbpAsn = lens _nbpAsn (\ s a -> s{_nbpAsn = a})
 
--- | Undocumented member.
+-- | The authentication key for BGP configuration.
 nbpAuthKey :: Lens' NewBGPPeer (Maybe Text)
 nbpAuthKey = lens _nbpAuthKey (\ s a -> s{_nbpAuthKey = a})
 
@@ -899,13 +1013,14 @@ instance ToJSON NewBGPPeer where
                   ("asn" .=) <$> _nbpAsn,
                   ("authKey" .=) <$> _nbpAuthKey])
 
--- | A structure containing information about a new private virtual interface.
+-- | Information about a private virtual interface.
 --
 --
 --
 -- /See:/ 'newPrivateVirtualInterface' smart constructor.
 data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
   { _nVirtualGatewayId       :: !(Maybe Text)
+  , _nMtu                    :: !(Maybe Int)
   , _nCustomerAddress        :: !(Maybe Text)
   , _nAmazonAddress          :: !(Maybe Text)
   , _nAddressFamily          :: !(Maybe AddressFamily)
@@ -921,23 +1036,25 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'nVirtualGatewayId' - Undocumented member.
+-- * 'nVirtualGatewayId' - The ID of the virtual private gateway.
 --
--- * 'nCustomerAddress' - Undocumented member.
+-- * 'nMtu' - The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
 --
--- * 'nAmazonAddress' - Undocumented member.
+-- * 'nCustomerAddress' - The IP address assigned to the customer interface.
 --
--- * 'nAddressFamily' - Undocumented member.
+-- * 'nAmazonAddress' - The IP address assigned to the Amazon interface.
 --
--- * 'nDirectConnectGatewayId' - Undocumented member.
+-- * 'nAddressFamily' - The address family for the BGP peer.
 --
--- * 'nAuthKey' - Undocumented member.
+-- * 'nDirectConnectGatewayId' - The ID of the Direct Connect gateway.
 --
--- * 'nVirtualInterfaceName' - Undocumented member.
+-- * 'nAuthKey' - The authentication key for BGP configuration.
 --
--- * 'nVlan' - Undocumented member.
+-- * 'nVirtualInterfaceName' - The name of the virtual interface assigned by the customer network.
 --
--- * 'nAsn' - Undocumented member.
+-- * 'nVlan' - The ID of the VLAN.
+--
+-- * 'nAsn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 newPrivateVirtualInterface
     :: Text -- ^ 'nVirtualInterfaceName'
     -> Int -- ^ 'nVlan'
@@ -946,6 +1063,7 @@ newPrivateVirtualInterface
 newPrivateVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ =
   NewPrivateVirtualInterface'
     { _nVirtualGatewayId = Nothing
+    , _nMtu = Nothing
     , _nCustomerAddress = Nothing
     , _nAmazonAddress = Nothing
     , _nAddressFamily = Nothing
@@ -957,39 +1075,43 @@ newPrivateVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ =
     }
 
 
--- | Undocumented member.
+-- | The ID of the virtual private gateway.
 nVirtualGatewayId :: Lens' NewPrivateVirtualInterface (Maybe Text)
 nVirtualGatewayId = lens _nVirtualGatewayId (\ s a -> s{_nVirtualGatewayId = a})
 
--- | Undocumented member.
+-- | The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+nMtu :: Lens' NewPrivateVirtualInterface (Maybe Int)
+nMtu = lens _nMtu (\ s a -> s{_nMtu = a})
+
+-- | The IP address assigned to the customer interface.
 nCustomerAddress :: Lens' NewPrivateVirtualInterface (Maybe Text)
 nCustomerAddress = lens _nCustomerAddress (\ s a -> s{_nCustomerAddress = a})
 
--- | Undocumented member.
+-- | The IP address assigned to the Amazon interface.
 nAmazonAddress :: Lens' NewPrivateVirtualInterface (Maybe Text)
 nAmazonAddress = lens _nAmazonAddress (\ s a -> s{_nAmazonAddress = a})
 
--- | Undocumented member.
+-- | The address family for the BGP peer.
 nAddressFamily :: Lens' NewPrivateVirtualInterface (Maybe AddressFamily)
 nAddressFamily = lens _nAddressFamily (\ s a -> s{_nAddressFamily = a})
 
--- | Undocumented member.
+-- | The ID of the Direct Connect gateway.
 nDirectConnectGatewayId :: Lens' NewPrivateVirtualInterface (Maybe Text)
 nDirectConnectGatewayId = lens _nDirectConnectGatewayId (\ s a -> s{_nDirectConnectGatewayId = a})
 
--- | Undocumented member.
+-- | The authentication key for BGP configuration.
 nAuthKey :: Lens' NewPrivateVirtualInterface (Maybe Text)
 nAuthKey = lens _nAuthKey (\ s a -> s{_nAuthKey = a})
 
--- | Undocumented member.
+-- | The name of the virtual interface assigned by the customer network.
 nVirtualInterfaceName :: Lens' NewPrivateVirtualInterface Text
 nVirtualInterfaceName = lens _nVirtualInterfaceName (\ s a -> s{_nVirtualInterfaceName = a})
 
--- | Undocumented member.
+-- | The ID of the VLAN.
 nVlan :: Lens' NewPrivateVirtualInterface Int
 nVlan = lens _nVlan (\ s a -> s{_nVlan = a})
 
--- | Undocumented member.
+-- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 nAsn :: Lens' NewPrivateVirtualInterface Int
 nAsn = lens _nAsn (\ s a -> s{_nAsn = a})
 
@@ -1002,6 +1124,7 @@ instance ToJSON NewPrivateVirtualInterface where
           = object
               (catMaybes
                  [("virtualGatewayId" .=) <$> _nVirtualGatewayId,
+                  ("mtu" .=) <$> _nMtu,
                   ("customerAddress" .=) <$> _nCustomerAddress,
                   ("amazonAddress" .=) <$> _nAmazonAddress,
                   ("addressFamily" .=) <$> _nAddressFamily,
@@ -1012,13 +1135,14 @@ instance ToJSON NewPrivateVirtualInterface where
                     ("virtualInterfaceName" .= _nVirtualInterfaceName),
                   Just ("vlan" .= _nVlan), Just ("asn" .= _nAsn)])
 
--- | A structure containing information about a private virtual interface that will be provisioned on a connection.
+-- | Information about a private virtual interface to be provisioned on a connection.
 --
 --
 --
 -- /See:/ 'newPrivateVirtualInterfaceAllocation' smart constructor.
 data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation'
-  { _npviaCustomerAddress      :: !(Maybe Text)
+  { _npviaMtu                  :: !(Maybe Int)
+  , _npviaCustomerAddress      :: !(Maybe Text)
   , _npviaAmazonAddress        :: !(Maybe Text)
   , _npviaAddressFamily        :: !(Maybe AddressFamily)
   , _npviaAuthKey              :: !(Maybe Text)
@@ -1032,19 +1156,21 @@ data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'npviaCustomerAddress' - Undocumented member.
+-- * 'npviaMtu' - The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
 --
--- * 'npviaAmazonAddress' - Undocumented member.
+-- * 'npviaCustomerAddress' - The IP address assigned to the customer interface.
 --
--- * 'npviaAddressFamily' - Undocumented member.
+-- * 'npviaAmazonAddress' - The IP address assigned to the Amazon interface.
 --
--- * 'npviaAuthKey' - Undocumented member.
+-- * 'npviaAddressFamily' - The address family for the BGP peer.
 --
--- * 'npviaVirtualInterfaceName' - Undocumented member.
+-- * 'npviaAuthKey' - The authentication key for BGP configuration.
 --
--- * 'npviaVlan' - Undocumented member.
+-- * 'npviaVirtualInterfaceName' - The name of the virtual interface assigned by the customer network.
 --
--- * 'npviaAsn' - Undocumented member.
+-- * 'npviaVlan' - The ID of the VLAN.
+--
+-- * 'npviaAsn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 newPrivateVirtualInterfaceAllocation
     :: Text -- ^ 'npviaVirtualInterfaceName'
     -> Int -- ^ 'npviaVlan'
@@ -1052,7 +1178,8 @@ newPrivateVirtualInterfaceAllocation
     -> NewPrivateVirtualInterfaceAllocation
 newPrivateVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ =
   NewPrivateVirtualInterfaceAllocation'
-    { _npviaCustomerAddress = Nothing
+    { _npviaMtu = Nothing
+    , _npviaCustomerAddress = Nothing
     , _npviaAmazonAddress = Nothing
     , _npviaAddressFamily = Nothing
     , _npviaAuthKey = Nothing
@@ -1062,31 +1189,35 @@ newPrivateVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ =
     }
 
 
--- | Undocumented member.
+-- | The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+npviaMtu :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe Int)
+npviaMtu = lens _npviaMtu (\ s a -> s{_npviaMtu = a})
+
+-- | The IP address assigned to the customer interface.
 npviaCustomerAddress :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe Text)
 npviaCustomerAddress = lens _npviaCustomerAddress (\ s a -> s{_npviaCustomerAddress = a})
 
--- | Undocumented member.
+-- | The IP address assigned to the Amazon interface.
 npviaAmazonAddress :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe Text)
 npviaAmazonAddress = lens _npviaAmazonAddress (\ s a -> s{_npviaAmazonAddress = a})
 
--- | Undocumented member.
+-- | The address family for the BGP peer.
 npviaAddressFamily :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe AddressFamily)
 npviaAddressFamily = lens _npviaAddressFamily (\ s a -> s{_npviaAddressFamily = a})
 
--- | Undocumented member.
+-- | The authentication key for BGP configuration.
 npviaAuthKey :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe Text)
 npviaAuthKey = lens _npviaAuthKey (\ s a -> s{_npviaAuthKey = a})
 
--- | Undocumented member.
+-- | The name of the virtual interface assigned by the customer network.
 npviaVirtualInterfaceName :: Lens' NewPrivateVirtualInterfaceAllocation Text
 npviaVirtualInterfaceName = lens _npviaVirtualInterfaceName (\ s a -> s{_npviaVirtualInterfaceName = a})
 
--- | Undocumented member.
+-- | The ID of the VLAN.
 npviaVlan :: Lens' NewPrivateVirtualInterfaceAllocation Int
 npviaVlan = lens _npviaVlan (\ s a -> s{_npviaVlan = a})
 
--- | Undocumented member.
+-- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 npviaAsn :: Lens' NewPrivateVirtualInterfaceAllocation Int
 npviaAsn = lens _npviaAsn (\ s a -> s{_npviaAsn = a})
 
@@ -1102,7 +1233,8 @@ instance ToJSON NewPrivateVirtualInterfaceAllocation
         toJSON NewPrivateVirtualInterfaceAllocation'{..}
           = object
               (catMaybes
-                 [("customerAddress" .=) <$> _npviaCustomerAddress,
+                 [("mtu" .=) <$> _npviaMtu,
+                  ("customerAddress" .=) <$> _npviaCustomerAddress,
                   ("amazonAddress" .=) <$> _npviaAmazonAddress,
                   ("addressFamily" .=) <$> _npviaAddressFamily,
                   ("authKey" .=) <$> _npviaAuthKey,
@@ -1112,7 +1244,7 @@ instance ToJSON NewPrivateVirtualInterfaceAllocation
                   Just ("vlan" .= _npviaVlan),
                   Just ("asn" .= _npviaAsn)])
 
--- | A structure containing information about a new public virtual interface.
+-- | Information about a public virtual interface.
 --
 --
 --
@@ -1133,21 +1265,21 @@ data NewPublicVirtualInterface = NewPublicVirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'npviRouteFilterPrefixes' - Undocumented member.
+-- * 'npviRouteFilterPrefixes' - The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
 --
--- * 'npviCustomerAddress' - Undocumented member.
+-- * 'npviCustomerAddress' - The IP address assigned to the customer interface.
 --
--- * 'npviAmazonAddress' - Undocumented member.
+-- * 'npviAmazonAddress' - The IP address assigned to the Amazon interface.
 --
--- * 'npviAddressFamily' - Undocumented member.
+-- * 'npviAddressFamily' - The address family for the BGP peer.
 --
--- * 'npviAuthKey' - Undocumented member.
+-- * 'npviAuthKey' - The authentication key for BGP configuration.
 --
--- * 'npviVirtualInterfaceName' - Undocumented member.
+-- * 'npviVirtualInterfaceName' - The name of the virtual interface assigned by the customer network.
 --
--- * 'npviVlan' - Undocumented member.
+-- * 'npviVlan' - The ID of the VLAN.
 --
--- * 'npviAsn' - Undocumented member.
+-- * 'npviAsn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 newPublicVirtualInterface
     :: Text -- ^ 'npviVirtualInterfaceName'
     -> Int -- ^ 'npviVlan'
@@ -1166,35 +1298,35 @@ newPublicVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ =
     }
 
 
--- | Undocumented member.
+-- | The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
 npviRouteFilterPrefixes :: Lens' NewPublicVirtualInterface [RouteFilterPrefix]
 npviRouteFilterPrefixes = lens _npviRouteFilterPrefixes (\ s a -> s{_npviRouteFilterPrefixes = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- | The IP address assigned to the customer interface.
 npviCustomerAddress :: Lens' NewPublicVirtualInterface (Maybe Text)
 npviCustomerAddress = lens _npviCustomerAddress (\ s a -> s{_npviCustomerAddress = a})
 
--- | Undocumented member.
+-- | The IP address assigned to the Amazon interface.
 npviAmazonAddress :: Lens' NewPublicVirtualInterface (Maybe Text)
 npviAmazonAddress = lens _npviAmazonAddress (\ s a -> s{_npviAmazonAddress = a})
 
--- | Undocumented member.
+-- | The address family for the BGP peer.
 npviAddressFamily :: Lens' NewPublicVirtualInterface (Maybe AddressFamily)
 npviAddressFamily = lens _npviAddressFamily (\ s a -> s{_npviAddressFamily = a})
 
--- | Undocumented member.
+-- | The authentication key for BGP configuration.
 npviAuthKey :: Lens' NewPublicVirtualInterface (Maybe Text)
 npviAuthKey = lens _npviAuthKey (\ s a -> s{_npviAuthKey = a})
 
--- | Undocumented member.
+-- | The name of the virtual interface assigned by the customer network.
 npviVirtualInterfaceName :: Lens' NewPublicVirtualInterface Text
 npviVirtualInterfaceName = lens _npviVirtualInterfaceName (\ s a -> s{_npviVirtualInterfaceName = a})
 
--- | Undocumented member.
+-- | The ID of the VLAN.
 npviVlan :: Lens' NewPublicVirtualInterface Int
 npviVlan = lens _npviVlan (\ s a -> s{_npviVlan = a})
 
--- | Undocumented member.
+-- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 npviAsn :: Lens' NewPublicVirtualInterface Int
 npviAsn = lens _npviAsn (\ s a -> s{_npviAsn = a})
 
@@ -1218,7 +1350,7 @@ instance ToJSON NewPublicVirtualInterface where
                   Just ("vlan" .= _npviVlan),
                   Just ("asn" .= _npviAsn)])
 
--- | A structure containing information about a public virtual interface that will be provisioned on a connection.
+-- | Information about a public virtual interface to be provisioned on a connection.
 --
 --
 --
@@ -1239,21 +1371,21 @@ data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'newRouteFilterPrefixes' - Undocumented member.
+-- * 'newRouteFilterPrefixes' - The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
 --
--- * 'newCustomerAddress' - Undocumented member.
+-- * 'newCustomerAddress' - The IP address assigned to the customer interface.
 --
--- * 'newAmazonAddress' - Undocumented member.
+-- * 'newAmazonAddress' - The IP address assigned to the Amazon interface.
 --
--- * 'newAddressFamily' - Undocumented member.
+-- * 'newAddressFamily' - The address family for the BGP peer.
 --
--- * 'newAuthKey' - Undocumented member.
+-- * 'newAuthKey' - The authentication key for BGP configuration.
 --
--- * 'newVirtualInterfaceName' - Undocumented member.
+-- * 'newVirtualInterfaceName' - The name of the virtual interface assigned by the customer network.
 --
--- * 'newVlan' - Undocumented member.
+-- * 'newVlan' - The ID of the VLAN.
 --
--- * 'newAsn' - Undocumented member.
+-- * 'newAsn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 newPublicVirtualInterfaceAllocation
     :: Text -- ^ 'newVirtualInterfaceName'
     -> Int -- ^ 'newVlan'
@@ -1272,35 +1404,35 @@ newPublicVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ =
     }
 
 
--- | Undocumented member.
+-- | The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
 newRouteFilterPrefixes :: Lens' NewPublicVirtualInterfaceAllocation [RouteFilterPrefix]
 newRouteFilterPrefixes = lens _newRouteFilterPrefixes (\ s a -> s{_newRouteFilterPrefixes = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- | The IP address assigned to the customer interface.
 newCustomerAddress :: Lens' NewPublicVirtualInterfaceAllocation (Maybe Text)
 newCustomerAddress = lens _newCustomerAddress (\ s a -> s{_newCustomerAddress = a})
 
--- | Undocumented member.
+-- | The IP address assigned to the Amazon interface.
 newAmazonAddress :: Lens' NewPublicVirtualInterfaceAllocation (Maybe Text)
 newAmazonAddress = lens _newAmazonAddress (\ s a -> s{_newAmazonAddress = a})
 
--- | Undocumented member.
+-- | The address family for the BGP peer.
 newAddressFamily :: Lens' NewPublicVirtualInterfaceAllocation (Maybe AddressFamily)
 newAddressFamily = lens _newAddressFamily (\ s a -> s{_newAddressFamily = a})
 
--- | Undocumented member.
+-- | The authentication key for BGP configuration.
 newAuthKey :: Lens' NewPublicVirtualInterfaceAllocation (Maybe Text)
 newAuthKey = lens _newAuthKey (\ s a -> s{_newAuthKey = a})
 
--- | Undocumented member.
+-- | The name of the virtual interface assigned by the customer network.
 newVirtualInterfaceName :: Lens' NewPublicVirtualInterfaceAllocation Text
 newVirtualInterfaceName = lens _newVirtualInterfaceName (\ s a -> s{_newVirtualInterfaceName = a})
 
--- | Undocumented member.
+-- | The ID of the VLAN.
 newVlan :: Lens' NewPublicVirtualInterfaceAllocation Int
 newVlan = lens _newVlan (\ s a -> s{_newVlan = a})
 
--- | Undocumented member.
+-- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 newAsn :: Lens' NewPublicVirtualInterfaceAllocation Int
 newAsn = lens _newAsn (\ s a -> s{_newAsn = a})
 
@@ -1325,7 +1457,7 @@ instance ToJSON NewPublicVirtualInterfaceAllocation
                     ("virtualInterfaceName" .= _newVirtualInterfaceName),
                   Just ("vlan" .= _newVlan), Just ("asn" .= _newAsn)])
 
--- | The tags associated with a Direct Connect resource.
+-- | Information about a tag associated with an AWS Direct Connect resource.
 --
 --
 --
@@ -1340,7 +1472,7 @@ data ResourceTag = ResourceTag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtResourceARN' - The Amazon Resource Name (ARN) of the Direct Connect resource.
+-- * 'rtResourceARN' - The Amazon Resource Name (ARN) of the resource.
 --
 -- * 'rtTags' - The tags.
 resourceTag
@@ -1348,7 +1480,7 @@ resourceTag
 resourceTag = ResourceTag' {_rtResourceARN = Nothing, _rtTags = Nothing}
 
 
--- | The Amazon Resource Name (ARN) of the Direct Connect resource.
+-- | The Amazon Resource Name (ARN) of the resource.
 rtResourceARN :: Lens' ResourceTag (Maybe Text)
 rtResourceARN = lens _rtResourceARN (\ s a -> s{_rtResourceARN = a})
 
@@ -1367,7 +1499,7 @@ instance Hashable ResourceTag where
 
 instance NFData ResourceTag where
 
--- | A route filter prefix that the customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
+-- | Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
 --
 --
 --
@@ -1381,13 +1513,13 @@ newtype RouteFilterPrefix = RouteFilterPrefix'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rfpCidr' - CIDR notation for the advertised route. Multiple routes are separated by commas. IPv6 CIDRs must be at least a /64 or shorter Example: 10.10.10.0/24,10.10.11.0/24,2001:db8::/64
+-- * 'rfpCidr' - The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
 routeFilterPrefix
     :: RouteFilterPrefix
 routeFilterPrefix = RouteFilterPrefix' {_rfpCidr = Nothing}
 
 
--- | CIDR notation for the advertised route. Multiple routes are separated by commas. IPv6 CIDRs must be at least a /64 or shorter Example: 10.10.10.0/24,10.10.11.0/24,2001:db8::/64
+-- | The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.
 rfpCidr :: Lens' RouteFilterPrefix (Maybe Text)
 rfpCidr = lens _rfpCidr (\ s a -> s{_rfpCidr = a})
 
@@ -1419,20 +1551,20 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue' - The value of the tag.
+-- * 'tagValue' - The value.
 --
--- * 'tagKey' - The key of the tag.
+-- * 'tagKey' - The key.
 tag
     :: Text -- ^ 'tagKey'
     -> Tag
 tag pKey_ = Tag' {_tagValue = Nothing, _tagKey = pKey_}
 
 
--- | The value of the tag.
+-- | The value.
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
 
--- | The key of the tag.
+-- | The key.
 tagKey :: Lens' Tag Text
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
 
@@ -1452,10 +1584,8 @@ instance ToJSON Tag where
                  [("value" .=) <$> _tagValue,
                   Just ("key" .= _tagKey)])
 
--- | You can create one or more AWS Direct Connect private virtual interfaces linking to your virtual private gateway.
+-- | Information about a virtual private gateway for a private virtual interface.
 --
---
--- Virtual private gateways can be managed using the Amazon Virtual Private Cloud (Amazon VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html Amazon EC2 CreateVpnGateway action> .
 --
 --
 -- /See:/ 'virtualGateway' smart constructor.
@@ -1469,9 +1599,9 @@ data VirtualGateway = VirtualGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vgVirtualGatewayId' - Undocumented member.
+-- * 'vgVirtualGatewayId' - The ID of the virtual private gateway.
 --
--- * 'vgVirtualGatewayState' - Undocumented member.
+-- * 'vgVirtualGatewayState' - The state of the virtual private gateway. The following are the possible values:     * @pending@ : Initial state after creating the virtual private gateway.     * @available@ : Ready for use by a private virtual interface.     * @deleting@ : Initial state after deleting the virtual private gateway.     * @deleted@ : The virtual private gateway is deleted. The private virtual interface is unable to send traffic over this gateway.
 virtualGateway
     :: VirtualGateway
 virtualGateway =
@@ -1479,11 +1609,11 @@ virtualGateway =
     {_vgVirtualGatewayId = Nothing, _vgVirtualGatewayState = Nothing}
 
 
--- | Undocumented member.
+-- | The ID of the virtual private gateway.
 vgVirtualGatewayId :: Lens' VirtualGateway (Maybe Text)
 vgVirtualGatewayId = lens _vgVirtualGatewayId (\ s a -> s{_vgVirtualGatewayId = a})
 
--- | Undocumented member.
+-- | The state of the virtual private gateway. The following are the possible values:     * @pending@ : Initial state after creating the virtual private gateway.     * @available@ : Ready for use by a private virtual interface.     * @deleting@ : Initial state after deleting the virtual private gateway.     * @deleted@ : The virtual private gateway is deleted. The private virtual interface is unable to send traffic over this gateway.
 vgVirtualGatewayState :: Lens' VirtualGateway (Maybe Text)
 vgVirtualGatewayState = lens _vgVirtualGatewayState (\ s a -> s{_vgVirtualGatewayState = a})
 
@@ -1499,7 +1629,7 @@ instance Hashable VirtualGateway where
 
 instance NFData VirtualGateway where
 
--- | A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer.
+-- | Information about a virtual interface.
 --
 --
 --
@@ -1507,6 +1637,7 @@ instance NFData VirtualGateway where
 data VirtualInterface = VirtualInterface'
   { _viBgpPeers               :: !(Maybe [BGPPeer])
   , _viVirtualGatewayId       :: !(Maybe Text)
+  , _viMtu                    :: !(Maybe Int)
   , _viRouteFilterPrefixes    :: !(Maybe [RouteFilterPrefix])
   , _viCustomerAddress        :: !(Maybe Text)
   , _viVlan                   :: !(Maybe Int)
@@ -1520,9 +1651,12 @@ data VirtualInterface = VirtualInterface'
   , _viVirtualInterfaceType   :: !(Maybe Text)
   , _viAsn                    :: !(Maybe Int)
   , _viAuthKey                :: !(Maybe Text)
+  , _viJumboFrameCapable      :: !(Maybe Bool)
   , _viCustomerRouterConfig   :: !(Maybe Text)
   , _viOwnerAccount           :: !(Maybe Text)
+  , _viRegion                 :: !(Maybe Text)
   , _viVirtualInterfaceName   :: !(Maybe Text)
+  , _viAwsDeviceV2            :: !(Maybe Text)
   , _viVirtualInterfaceId     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -1531,49 +1665,58 @@ data VirtualInterface = VirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'viBgpPeers' - Undocumented member.
+-- * 'viBgpPeers' - The BGP peers configured on this virtual interface.
 --
--- * 'viVirtualGatewayId' - Undocumented member.
+-- * 'viVirtualGatewayId' - The ID of the virtual private gateway. Applies only to private virtual interfaces.
 --
--- * 'viRouteFilterPrefixes' - Undocumented member.
+-- * 'viMtu' - The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
 --
--- * 'viCustomerAddress' - Undocumented member.
+-- * 'viRouteFilterPrefixes' - The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
 --
--- * 'viVlan' - Undocumented member.
+-- * 'viCustomerAddress' - The IP address assigned to the customer interface.
 --
--- * 'viLocation' - Undocumented member.
+-- * 'viVlan' - The ID of the VLAN.
 --
--- * 'viAmazonAddress' - Undocumented member.
+-- * 'viLocation' - The location of the connection.
 --
--- * 'viAddressFamily' - Undocumented member.
+-- * 'viAmazonAddress' - The IP address assigned to the Amazon interface.
 --
--- * 'viVirtualInterfaceState' - Undocumented member.
+-- * 'viAddressFamily' - The address family for the BGP peer.
 --
--- * 'viConnectionId' - Undocumented member.
+-- * 'viVirtualInterfaceState' - The state of the virtual interface. The following are the possible values:     * @confirming@ : The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.     * @verifying@ : This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.     * @pending@ : A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.     * @available@ : A virtual interface that is able to forward traffic.     * @down@ : A virtual interface that is BGP down.     * @deleting@ : A virtual interface is in this state immediately after calling 'DeleteVirtualInterface' until it can no longer forward traffic.     * @deleted@ : A virtual interface that cannot forward traffic.     * @rejected@ : The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the @Confirming@ state is deleted by the virtual interface owner, the virtual interface enters the @Rejected@ state.     * @unknown@ : The state of the virtual interface is not available.
 --
--- * 'viDirectConnectGatewayId' - Undocumented member.
+-- * 'viConnectionId' - The ID of the connection.
+--
+-- * 'viDirectConnectGatewayId' - The ID of the Direct Connect gateway.
 --
 -- * 'viAmazonSideASN' - The autonomous system number (ASN) for the Amazon side of the connection.
 --
--- * 'viVirtualInterfaceType' - Undocumented member.
+-- * 'viVirtualInterfaceType' - The type of virtual interface. The possible values are @private@ and @public@ .
 --
--- * 'viAsn' - Undocumented member.
+-- * 'viAsn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 --
--- * 'viAuthKey' - Undocumented member.
+-- * 'viAuthKey' - The authentication key for BGP configuration.
 --
--- * 'viCustomerRouterConfig' - Information for generating the customer router configuration.
+-- * 'viJumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
 --
--- * 'viOwnerAccount' - The AWS account that will own the new virtual interface.
+-- * 'viCustomerRouterConfig' - The customer router configuration.
 --
--- * 'viVirtualInterfaceName' - Undocumented member.
+-- * 'viOwnerAccount' - The ID of the AWS account that owns the virtual interface.
 --
--- * 'viVirtualInterfaceId' - Undocumented member.
+-- * 'viRegion' - The AWS Region where the virtual interface is located.
+--
+-- * 'viVirtualInterfaceName' - The name of the virtual interface assigned by the customer network.
+--
+-- * 'viAwsDeviceV2' - The Direct Connect endpoint on which the virtual interface terminates.
+--
+-- * 'viVirtualInterfaceId' - The ID of the virtual interface.
 virtualInterface
     :: VirtualInterface
 virtualInterface =
   VirtualInterface'
     { _viBgpPeers = Nothing
     , _viVirtualGatewayId = Nothing
+    , _viMtu = Nothing
     , _viRouteFilterPrefixes = Nothing
     , _viCustomerAddress = Nothing
     , _viVlan = Nothing
@@ -1587,54 +1730,61 @@ virtualInterface =
     , _viVirtualInterfaceType = Nothing
     , _viAsn = Nothing
     , _viAuthKey = Nothing
+    , _viJumboFrameCapable = Nothing
     , _viCustomerRouterConfig = Nothing
     , _viOwnerAccount = Nothing
+    , _viRegion = Nothing
     , _viVirtualInterfaceName = Nothing
+    , _viAwsDeviceV2 = Nothing
     , _viVirtualInterfaceId = Nothing
     }
 
 
--- | Undocumented member.
+-- | The BGP peers configured on this virtual interface.
 viBgpPeers :: Lens' VirtualInterface [BGPPeer]
 viBgpPeers = lens _viBgpPeers (\ s a -> s{_viBgpPeers = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- | The ID of the virtual private gateway. Applies only to private virtual interfaces.
 viVirtualGatewayId :: Lens' VirtualInterface (Maybe Text)
 viVirtualGatewayId = lens _viVirtualGatewayId (\ s a -> s{_viVirtualGatewayId = a})
 
--- | Undocumented member.
+-- | The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+viMtu :: Lens' VirtualInterface (Maybe Int)
+viMtu = lens _viMtu (\ s a -> s{_viMtu = a})
+
+-- | The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
 viRouteFilterPrefixes :: Lens' VirtualInterface [RouteFilterPrefix]
 viRouteFilterPrefixes = lens _viRouteFilterPrefixes (\ s a -> s{_viRouteFilterPrefixes = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- | The IP address assigned to the customer interface.
 viCustomerAddress :: Lens' VirtualInterface (Maybe Text)
 viCustomerAddress = lens _viCustomerAddress (\ s a -> s{_viCustomerAddress = a})
 
--- | Undocumented member.
+-- | The ID of the VLAN.
 viVlan :: Lens' VirtualInterface (Maybe Int)
 viVlan = lens _viVlan (\ s a -> s{_viVlan = a})
 
--- | Undocumented member.
+-- | The location of the connection.
 viLocation :: Lens' VirtualInterface (Maybe Text)
 viLocation = lens _viLocation (\ s a -> s{_viLocation = a})
 
--- | Undocumented member.
+-- | The IP address assigned to the Amazon interface.
 viAmazonAddress :: Lens' VirtualInterface (Maybe Text)
 viAmazonAddress = lens _viAmazonAddress (\ s a -> s{_viAmazonAddress = a})
 
--- | Undocumented member.
+-- | The address family for the BGP peer.
 viAddressFamily :: Lens' VirtualInterface (Maybe AddressFamily)
 viAddressFamily = lens _viAddressFamily (\ s a -> s{_viAddressFamily = a})
 
--- | Undocumented member.
+-- | The state of the virtual interface. The following are the possible values:     * @confirming@ : The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.     * @verifying@ : This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.     * @pending@ : A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.     * @available@ : A virtual interface that is able to forward traffic.     * @down@ : A virtual interface that is BGP down.     * @deleting@ : A virtual interface is in this state immediately after calling 'DeleteVirtualInterface' until it can no longer forward traffic.     * @deleted@ : A virtual interface that cannot forward traffic.     * @rejected@ : The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the @Confirming@ state is deleted by the virtual interface owner, the virtual interface enters the @Rejected@ state.     * @unknown@ : The state of the virtual interface is not available.
 viVirtualInterfaceState :: Lens' VirtualInterface (Maybe VirtualInterfaceState)
 viVirtualInterfaceState = lens _viVirtualInterfaceState (\ s a -> s{_viVirtualInterfaceState = a})
 
--- | Undocumented member.
+-- | The ID of the connection.
 viConnectionId :: Lens' VirtualInterface (Maybe Text)
 viConnectionId = lens _viConnectionId (\ s a -> s{_viConnectionId = a})
 
--- | Undocumented member.
+-- | The ID of the Direct Connect gateway.
 viDirectConnectGatewayId :: Lens' VirtualInterface (Maybe Text)
 viDirectConnectGatewayId = lens _viDirectConnectGatewayId (\ s a -> s{_viDirectConnectGatewayId = a})
 
@@ -1642,31 +1792,43 @@ viDirectConnectGatewayId = lens _viDirectConnectGatewayId (\ s a -> s{_viDirectC
 viAmazonSideASN :: Lens' VirtualInterface (Maybe Integer)
 viAmazonSideASN = lens _viAmazonSideASN (\ s a -> s{_viAmazonSideASN = a})
 
--- | Undocumented member.
+-- | The type of virtual interface. The possible values are @private@ and @public@ .
 viVirtualInterfaceType :: Lens' VirtualInterface (Maybe Text)
 viVirtualInterfaceType = lens _viVirtualInterfaceType (\ s a -> s{_viVirtualInterfaceType = a})
 
--- | Undocumented member.
+-- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 viAsn :: Lens' VirtualInterface (Maybe Int)
 viAsn = lens _viAsn (\ s a -> s{_viAsn = a})
 
--- | Undocumented member.
+-- | The authentication key for BGP configuration.
 viAuthKey :: Lens' VirtualInterface (Maybe Text)
 viAuthKey = lens _viAuthKey (\ s a -> s{_viAuthKey = a})
 
--- | Information for generating the customer router configuration.
+-- | Indicates whether jumbo frames (9001 MTU) are supported.
+viJumboFrameCapable :: Lens' VirtualInterface (Maybe Bool)
+viJumboFrameCapable = lens _viJumboFrameCapable (\ s a -> s{_viJumboFrameCapable = a})
+
+-- | The customer router configuration.
 viCustomerRouterConfig :: Lens' VirtualInterface (Maybe Text)
 viCustomerRouterConfig = lens _viCustomerRouterConfig (\ s a -> s{_viCustomerRouterConfig = a})
 
--- | The AWS account that will own the new virtual interface.
+-- | The ID of the AWS account that owns the virtual interface.
 viOwnerAccount :: Lens' VirtualInterface (Maybe Text)
 viOwnerAccount = lens _viOwnerAccount (\ s a -> s{_viOwnerAccount = a})
 
--- | Undocumented member.
+-- | The AWS Region where the virtual interface is located.
+viRegion :: Lens' VirtualInterface (Maybe Text)
+viRegion = lens _viRegion (\ s a -> s{_viRegion = a})
+
+-- | The name of the virtual interface assigned by the customer network.
 viVirtualInterfaceName :: Lens' VirtualInterface (Maybe Text)
 viVirtualInterfaceName = lens _viVirtualInterfaceName (\ s a -> s{_viVirtualInterfaceName = a})
 
--- | Undocumented member.
+-- | The Direct Connect endpoint on which the virtual interface terminates.
+viAwsDeviceV2 :: Lens' VirtualInterface (Maybe Text)
+viAwsDeviceV2 = lens _viAwsDeviceV2 (\ s a -> s{_viAwsDeviceV2 = a})
+
+-- | The ID of the virtual interface.
 viVirtualInterfaceId :: Lens' VirtualInterface (Maybe Text)
 viVirtualInterfaceId = lens _viVirtualInterfaceId (\ s a -> s{_viVirtualInterfaceId = a})
 
@@ -1677,6 +1839,7 @@ instance FromJSON VirtualInterface where
                  VirtualInterface' <$>
                    (x .:? "bgpPeers" .!= mempty) <*>
                      (x .:? "virtualGatewayId")
+                     <*> (x .:? "mtu")
                      <*> (x .:? "routeFilterPrefixes" .!= mempty)
                      <*> (x .:? "customerAddress")
                      <*> (x .:? "vlan")
@@ -1690,9 +1853,12 @@ instance FromJSON VirtualInterface where
                      <*> (x .:? "virtualInterfaceType")
                      <*> (x .:? "asn")
                      <*> (x .:? "authKey")
+                     <*> (x .:? "jumboFrameCapable")
                      <*> (x .:? "customerRouterConfig")
                      <*> (x .:? "ownerAccount")
+                     <*> (x .:? "region")
                      <*> (x .:? "virtualInterfaceName")
+                     <*> (x .:? "awsDeviceV2")
                      <*> (x .:? "virtualInterfaceId"))
 
 instance Hashable VirtualInterface where

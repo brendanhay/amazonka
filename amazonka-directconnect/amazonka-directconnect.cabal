@@ -86,6 +86,7 @@ library
         , Network.AWS.DirectConnect.Types
         , Network.AWS.DirectConnect.UntagResource
         , Network.AWS.DirectConnect.UpdateLag
+        , Network.AWS.DirectConnect.UpdateVirtualInterfaceAttributes
         , Network.AWS.DirectConnect.Waiters
 
     other-modules:

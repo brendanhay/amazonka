@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a link aggregation group (LAG). You cannot delete a LAG if it has active virtual interfaces or hosted connections.
+-- Deletes the specified link aggregation group (LAG). You cannot delete a LAG if it has active virtual interfaces or hosted connections.
 --
 --
 module Network.AWS.DirectConnect.DeleteLag
@@ -40,11 +40,14 @@ module Network.AWS.DirectConnect.DeleteLag
     , lagLocation
     , lagConnections
     , lagAwsDevice
+    , lagHasLogicalRedundancy
     , lagAllowsHostedConnections
     , lagNumberOfConnections
+    , lagJumboFrameCapable
     , lagLagState
     , lagOwnerAccount
     , lagRegion
+    , lagAwsDeviceV2
     ) where
 
 import Network.AWS.DirectConnect.Types
@@ -54,11 +57,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the DeleteLag operation.
---
---
---
--- /See:/ 'deleteLag' smart constructor.
+-- | /See:/ 'deleteLag' smart constructor.
 newtype DeleteLag = DeleteLag'
   { _dLagId :: Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -68,14 +67,14 @@ newtype DeleteLag = DeleteLag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dLagId' - The ID of the LAG to delete. Example: dxlag-abc123 Default: None
+-- * 'dLagId' - The ID of the LAG.
 deleteLag
     :: Text -- ^ 'dLagId'
     -> DeleteLag
 deleteLag pLagId_ = DeleteLag' {_dLagId = pLagId_}
 
 
--- | The ID of the LAG to delete. Example: dxlag-abc123 Default: None
+-- | The ID of the LAG.
 dLagId :: Lens' DeleteLag Text
 dLagId = lens _dLagId (\ s a -> s{_dLagId = a})
 

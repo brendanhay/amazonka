@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the attributes of a link aggregation group (LAG).
+-- Updates the attributes of the specified link aggregation group (LAG).
 --
 --
 -- You can update the following attributes:
@@ -29,7 +29,7 @@
 --
 --
 --
--- When you create a LAG, the default value for the minimum number of operational connections is zero (0). If you update this value, and the number of operational connections falls below the specified value, the LAG will automatically go down to avoid overutilization of the remaining connections. Adjusting this value should be done with care as it could force the LAG down if the value is set higher than the current number of operational connections.
+-- When you create a LAG, the default value for the minimum number of operational connections is zero (0). If you update this value and the number of operational connections falls below the specified value, the LAG automatically goes down to avoid over-utilization of the remaining connections. Adjust this value with care, as it could force the LAG down if it is set higher than the current number of operational connections.
 --
 module Network.AWS.DirectConnect.UpdateLag
     (
@@ -52,11 +52,14 @@ module Network.AWS.DirectConnect.UpdateLag
     , lagLocation
     , lagConnections
     , lagAwsDevice
+    , lagHasLogicalRedundancy
     , lagAllowsHostedConnections
     , lagNumberOfConnections
+    , lagJumboFrameCapable
     , lagLagState
     , lagOwnerAccount
     , lagRegion
+    , lagAwsDeviceV2
     ) where
 
 import Network.AWS.DirectConnect.Types
@@ -66,11 +69,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the UpdateLag operation.
---
---
---
--- /See:/ 'updateLag' smart constructor.
+-- | /See:/ 'updateLag' smart constructor.
 data UpdateLag = UpdateLag'
   { _ulMinimumLinks :: !(Maybe Int)
   , _ulLagName      :: !(Maybe Text)
@@ -82,11 +81,11 @@ data UpdateLag = UpdateLag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ulMinimumLinks' - The minimum number of physical connections that must be operational for the LAG itself to be operational. Default: None
+-- * 'ulMinimumLinks' - The minimum number of physical connections that must be operational for the LAG itself to be operational.
 --
--- * 'ulLagName' - The name for the LAG. Example: "@3x10G LAG to AWS@ " Default: None
+-- * 'ulLagName' - The name of the LAG.
 --
--- * 'ulLagId' - The ID of the LAG to update. Example: dxlag-abc123 Default: None
+-- * 'ulLagId' - The ID of the LAG.
 updateLag
     :: Text -- ^ 'ulLagId'
     -> UpdateLag
@@ -95,15 +94,15 @@ updateLag pLagId_ =
     {_ulMinimumLinks = Nothing, _ulLagName = Nothing, _ulLagId = pLagId_}
 
 
--- | The minimum number of physical connections that must be operational for the LAG itself to be operational. Default: None
+-- | The minimum number of physical connections that must be operational for the LAG itself to be operational.
 ulMinimumLinks :: Lens' UpdateLag (Maybe Int)
 ulMinimumLinks = lens _ulMinimumLinks (\ s a -> s{_ulMinimumLinks = a})
 
--- | The name for the LAG. Example: "@3x10G LAG to AWS@ " Default: None
+-- | The name of the LAG.
 ulLagName :: Lens' UpdateLag (Maybe Text)
 ulLagName = lens _ulLagName (\ s a -> s{_ulLagName = a})
 
--- | The ID of the LAG to update. Example: dxlag-abc123 Default: None
+-- | The ID of the LAG.
 ulLagId :: Lens' UpdateLag Text
 ulLagId = lens _ulLagId (\ s a -> s{_ulLagId = a})
 

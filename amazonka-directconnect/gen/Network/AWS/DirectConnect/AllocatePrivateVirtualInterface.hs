@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provisions a private virtual interface to be owned by another AWS customer.
+-- Provisions a private virtual interface to be owned by the specified AWS account.
 --
 --
--- Virtual interfaces created using this action must be confirmed by the virtual interface owner by using the 'ConfirmPrivateVirtualInterface' action. Until then, the virtual interface will be in 'Confirming' state, and will not be available for handling traffic.
+-- Virtual interfaces created using this action must be confirmed by the owner using 'ConfirmPrivateVirtualInterface' . Until then, the virtual interface is in the @Confirming@ state and is not available to handle traffic.
 --
 module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     (
@@ -39,6 +39,7 @@ module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     -- * Response Lenses
     , viBgpPeers
     , viVirtualGatewayId
+    , viMtu
     , viRouteFilterPrefixes
     , viCustomerAddress
     , viVlan
@@ -52,9 +53,12 @@ module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     , viVirtualInterfaceType
     , viAsn
     , viAuthKey
+    , viJumboFrameCapable
     , viCustomerRouterConfig
     , viOwnerAccount
+    , viRegion
     , viVirtualInterfaceName
+    , viAwsDeviceV2
     , viVirtualInterfaceId
     ) where
 
@@ -65,11 +69,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the AllocatePrivateVirtualInterface operation.
---
---
---
--- /See:/ 'allocatePrivateVirtualInterface' smart constructor.
+-- | /See:/ 'allocatePrivateVirtualInterface' smart constructor.
 data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface'
   { _apviConnectionId :: !Text
   , _apviOwnerAccount :: !Text
@@ -81,11 +81,11 @@ data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apviConnectionId' - The connection ID on which the private virtual interface is provisioned. Default: None
+-- * 'apviConnectionId' - The ID of the connection on which the private virtual interface is provisioned.
 --
--- * 'apviOwnerAccount' - The AWS account that will own the new private virtual interface. Default: None
+-- * 'apviOwnerAccount' - The ID of the AWS account that owns the virtual private interface.
 --
--- * 'apviNewPrivateVirtualInterfaceAllocation' - Detailed information for the private virtual interface to be provisioned. Default: None
+-- * 'apviNewPrivateVirtualInterfaceAllocation' - Information about the private virtual interface.
 allocatePrivateVirtualInterface
     :: Text -- ^ 'apviConnectionId'
     -> Text -- ^ 'apviOwnerAccount'
@@ -100,15 +100,15 @@ allocatePrivateVirtualInterface pConnectionId_ pOwnerAccount_ pNewPrivateVirtual
     }
 
 
--- | The connection ID on which the private virtual interface is provisioned. Default: None
+-- | The ID of the connection on which the private virtual interface is provisioned.
 apviConnectionId :: Lens' AllocatePrivateVirtualInterface Text
 apviConnectionId = lens _apviConnectionId (\ s a -> s{_apviConnectionId = a})
 
--- | The AWS account that will own the new private virtual interface. Default: None
+-- | The ID of the AWS account that owns the virtual private interface.
 apviOwnerAccount :: Lens' AllocatePrivateVirtualInterface Text
 apviOwnerAccount = lens _apviOwnerAccount (\ s a -> s{_apviOwnerAccount = a})
 
--- | Detailed information for the private virtual interface to be provisioned. Default: None
+-- | Information about the private virtual interface.
 apviNewPrivateVirtualInterfaceAllocation :: Lens' AllocatePrivateVirtualInterface NewPrivateVirtualInterfaceAllocation
 apviNewPrivateVirtualInterfaceAllocation = lens _apviNewPrivateVirtualInterfaceAllocation (\ s a -> s{_apviNewPrivateVirtualInterfaceAllocation = a})
 

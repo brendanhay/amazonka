@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a hosted connection on an interconnect or a link aggregation group (LAG).
+-- Creates a hosted connection on the specified interconnect or a link aggregation group (LAG).
 --
 --
--- Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the given interconnect or LAG.
+-- Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect or LAG.
 --
 module Network.AWS.DirectConnect.AllocateHostedConnection
     (
@@ -43,13 +43,16 @@ module Network.AWS.DirectConnect.AllocateHostedConnection
     , cVlan
     , cLocation
     , cAwsDevice
+    , cHasLogicalRedundancy
     , cConnectionId
     , cLoaIssueTime
     , cPartnerName
     , cConnectionName
     , cBandwidth
+    , cJumboFrameCapable
     , cOwnerAccount
     , cRegion
+    , cAwsDeviceV2
     , cConnectionState
     ) where
 
@@ -60,11 +63,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to theHostedConnection operation.
---
---
---
--- /See:/ 'allocateHostedConnection' smart constructor.
+-- | /See:/ 'allocateHostedConnection' smart constructor.
 data AllocateHostedConnection = AllocateHostedConnection'
   { _ahcConnectionId   :: !Text
   , _ahcOwnerAccount   :: !Text
@@ -78,15 +77,15 @@ data AllocateHostedConnection = AllocateHostedConnection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ahcConnectionId' - The ID of the interconnect or LAG on which the connection will be provisioned. Example: dxcon-456abc78 or dxlag-abc123 Default: None
+-- * 'ahcConnectionId' - The ID of the interconnect or LAG.
 --
--- * 'ahcOwnerAccount' - The numeric account ID of the customer for whom the connection will be provisioned. Example: 123443215678 Default: None
+-- * 'ahcOwnerAccount' - The ID of the AWS account ID of the customer for the connection.
 --
--- * 'ahcBandwidth' - The bandwidth of the connection. Example: @500Mbps@  Default: None Values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, or 500Mbps
+-- * 'ahcBandwidth' - The bandwidth of the hosted connection, in Mbps. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, and 500Mbps.
 --
--- * 'ahcConnectionName' - The name of the provisioned connection. Example: "@500M Connection to AWS@ " Default: None
+-- * 'ahcConnectionName' - The name of the hosted connection.
 --
--- * 'ahcVlan' - The dedicated VLAN provisioned to the hosted connection. Example: 101 Default: None
+-- * 'ahcVlan' - The dedicated VLAN provisioned to the hosted connection.
 allocateHostedConnection
     :: Text -- ^ 'ahcConnectionId'
     -> Text -- ^ 'ahcOwnerAccount'
@@ -104,23 +103,23 @@ allocateHostedConnection pConnectionId_ pOwnerAccount_ pBandwidth_ pConnectionNa
     }
 
 
--- | The ID of the interconnect or LAG on which the connection will be provisioned. Example: dxcon-456abc78 or dxlag-abc123 Default: None
+-- | The ID of the interconnect or LAG.
 ahcConnectionId :: Lens' AllocateHostedConnection Text
 ahcConnectionId = lens _ahcConnectionId (\ s a -> s{_ahcConnectionId = a})
 
--- | The numeric account ID of the customer for whom the connection will be provisioned. Example: 123443215678 Default: None
+-- | The ID of the AWS account ID of the customer for the connection.
 ahcOwnerAccount :: Lens' AllocateHostedConnection Text
 ahcOwnerAccount = lens _ahcOwnerAccount (\ s a -> s{_ahcOwnerAccount = a})
 
--- | The bandwidth of the connection. Example: @500Mbps@  Default: None Values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, or 500Mbps
+-- | The bandwidth of the hosted connection, in Mbps. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, and 500Mbps.
 ahcBandwidth :: Lens' AllocateHostedConnection Text
 ahcBandwidth = lens _ahcBandwidth (\ s a -> s{_ahcBandwidth = a})
 
--- | The name of the provisioned connection. Example: "@500M Connection to AWS@ " Default: None
+-- | The name of the hosted connection.
 ahcConnectionName :: Lens' AllocateHostedConnection Text
 ahcConnectionName = lens _ahcConnectionName (\ s a -> s{_ahcConnectionName = a})
 
--- | The dedicated VLAN provisioned to the hosted connection. Example: 101 Default: None
+-- | The dedicated VLAN provisioned to the hosted connection.
 ahcVlan :: Lens' AllocateHostedConnection Int
 ahcVlan = lens _ahcVlan (\ s a -> s{_ahcVlan = a})
 

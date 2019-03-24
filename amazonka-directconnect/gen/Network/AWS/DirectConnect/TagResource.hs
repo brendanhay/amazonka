@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds the specified tags to the specified Direct Connect resource. Each Direct Connect resource can have a maximum of 50 tags.
+-- Adds the specified tags to the specified AWS Direct Connect resource. Each resource can have a maximum of 50 tags.
 --
 --
--- Each tag consists of a key and an optional value. If a tag with the same key is already associated with the Direct Connect resource, this action updates its value.
+-- Each tag consists of a key and an optional value. If a tag with the same key is already associated with the resource, this action updates its value.
 --
 module Network.AWS.DirectConnect.TagResource
     (
@@ -46,11 +46,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the TagResource operation.
---
---
---
--- /See:/ 'tagResource' smart constructor.
+-- | /See:/ 'tagResource' smart constructor.
 data TagResource = TagResource'
   { _trResourceARN :: !Text
   , _trTags        :: !(List1 Tag)
@@ -61,9 +57,9 @@ data TagResource = TagResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trResourceARN' - The Amazon Resource Name (ARN) of the Direct Connect resource. Example: arn:aws:directconnect:us-east-1:123456789012:dxcon/dxcon-fg5678gh
+-- * 'trResourceARN' - The Amazon Resource Name (ARN) of the resource.
 --
--- * 'trTags' - The list of tags to add.
+-- * 'trTags' - The tags to add.
 tagResource
     :: Text -- ^ 'trResourceARN'
     -> NonEmpty Tag -- ^ 'trTags'
@@ -72,11 +68,11 @@ tagResource pResourceARN_ pTags_ =
   TagResource' {_trResourceARN = pResourceARN_, _trTags = _List1 # pTags_}
 
 
--- | The Amazon Resource Name (ARN) of the Direct Connect resource. Example: arn:aws:directconnect:us-east-1:123456789012:dxcon/dxcon-fg5678gh
+-- | The Amazon Resource Name (ARN) of the resource.
 trResourceARN :: Lens' TagResource Text
 trResourceARN = lens _trResourceARN (\ s a -> s{_trResourceARN = a})
 
--- | The list of tags to add.
+-- | The tags to add.
 trTags :: Lens' TagResource (NonEmpty Tag)
 trTags = lens _trTags (\ s a -> s{_trTags = a}) . _List1
 
@@ -114,11 +110,7 @@ instance ToPath TagResource where
 instance ToQuery TagResource where
         toQuery = const mempty
 
--- | The response received when TagResource is called.
---
---
---
--- /See:/ 'tagResourceResponse' smart constructor.
+-- | /See:/ 'tagResourceResponse' smart constructor.
 newtype TagResourceResponse = TagResourceResponse'
   { _trrsResponseStatus :: Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)

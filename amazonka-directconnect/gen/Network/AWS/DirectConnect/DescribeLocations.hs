@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the list of AWS Direct Connect locations in the current AWS region. These are the locations that may be selected when calling 'CreateConnection' or 'CreateInterconnect' .
+-- Lists the AWS Direct Connect locations in the current AWS Region. These are the locations that can be selected when calling 'CreateConnection' or 'CreateInterconnect' .
 --
 --
 module Network.AWS.DirectConnect.DescribeLocations
@@ -87,11 +87,7 @@ instance ToPath DescribeLocations where
 instance ToQuery DescribeLocations where
         toQuery = const mempty
 
--- | A location is a network facility where AWS Direct Connect routers are available to be connected. Generally, these are colocation hubs where many network providers have equipment, and where cross connects can be delivered. Locations include a name and facility code, and must be provided when creating a connection.
---
---
---
--- /See:/ 'describeLocationsResponse' smart constructor.
+-- | /See:/ 'describeLocationsResponse' smart constructor.
 data DescribeLocationsResponse = DescribeLocationsResponse'
   { _dlsrsLocations      :: !(Maybe [Location])
   , _dlsrsResponseStatus :: !Int
@@ -102,7 +98,7 @@ data DescribeLocationsResponse = DescribeLocationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlsrsLocations' - A list of colocation hubs where network providers have equipment. Most regions have multiple locations available.
+-- * 'dlsrsLocations' - The locations.
 --
 -- * 'dlsrsResponseStatus' - -- | The response status code.
 describeLocationsResponse
@@ -113,7 +109,7 @@ describeLocationsResponse pResponseStatus_ =
     {_dlsrsLocations = Nothing, _dlsrsResponseStatus = pResponseStatus_}
 
 
--- | A list of colocation hubs where network providers have equipment. Most regions have multiple locations available.
+-- | The locations.
 dlsrsLocations :: Lens' DescribeLocationsResponse [Location]
 dlsrsLocations = lens _dlsrsLocations (\ s a -> s{_dlsrsLocations = a}) . _Default . _Coerce
 

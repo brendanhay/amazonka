@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the connection.
+-- Deletes the specified connection.
 --
 --
--- Deleting a connection only stops the AWS Direct Connect port hour and data transfer charges. You need to cancel separately with the providers any services or charges for cross-connects or network circuits that connect you to the AWS Direct Connect location.
+-- Deleting a connection only stops the AWS Direct Connect port hour and data transfer charges. If you are partnering with any third parties to connect with the AWS Direct Connect location, you must cancel your service with them separately.
 --
 module Network.AWS.DirectConnect.DeleteConnection
     (
@@ -39,13 +39,16 @@ module Network.AWS.DirectConnect.DeleteConnection
     , cVlan
     , cLocation
     , cAwsDevice
+    , cHasLogicalRedundancy
     , cConnectionId
     , cLoaIssueTime
     , cPartnerName
     , cConnectionName
     , cBandwidth
+    , cJumboFrameCapable
     , cOwnerAccount
     , cRegion
+    , cAwsDeviceV2
     , cConnectionState
     ) where
 
@@ -56,11 +59,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the DeleteConnection operation.
---
---
---
--- /See:/ 'deleteConnection' smart constructor.
+-- | /See:/ 'deleteConnection' smart constructor.
 newtype DeleteConnection = DeleteConnection'
   { _dcConnectionId :: Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -70,7 +69,7 @@ newtype DeleteConnection = DeleteConnection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcConnectionId' - Undocumented member.
+-- * 'dcConnectionId' - The ID of the connection.
 deleteConnection
     :: Text -- ^ 'dcConnectionId'
     -> DeleteConnection
@@ -78,7 +77,7 @@ deleteConnection pConnectionId_ =
   DeleteConnection' {_dcConnectionId = pConnectionId_}
 
 
--- | Undocumented member.
+-- | The ID of the connection.
 dcConnectionId :: Lens' DeleteConnection Text
 dcConnectionId = lens _dcConnectionId (\ s a -> s{_dcConnectionId = a})
 

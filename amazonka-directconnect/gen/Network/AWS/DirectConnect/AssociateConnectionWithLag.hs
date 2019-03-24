@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates an existing connection with a link aggregation group (LAG). The connection is interrupted and re-established as a member of the LAG (connectivity to AWS will be interrupted). The connection must be hosted on the same AWS Direct Connect endpoint as the LAG, and its bandwidth must match the bandwidth for the LAG. You can reassociate a connection that's currently associated with a different LAG; however, if removing the connection will cause the original LAG to fall below its setting for minimum number of operational connections, the request fails.
+-- Associates an existing connection with a link aggregation group (LAG). The connection is interrupted and re-established as a member of the LAG (connectivity to AWS is interrupted). The connection must be hosted on the same AWS Direct Connect endpoint as the LAG, and its bandwidth must match the bandwidth for the LAG. You can re-associate a connection that's currently associated with a different LAG; however, if removing the connection would cause the original LAG to fall below its setting for minimum number of operational connections, the request fails.
 --
 --
 -- Any virtual interfaces that are directly associated with the connection are automatically re-associated with the LAG. If the connection was originally associated with a different LAG, the virtual interfaces remain associated with the original LAG.
@@ -42,13 +42,16 @@ module Network.AWS.DirectConnect.AssociateConnectionWithLag
     , cVlan
     , cLocation
     , cAwsDevice
+    , cHasLogicalRedundancy
     , cConnectionId
     , cLoaIssueTime
     , cPartnerName
     , cConnectionName
     , cBandwidth
+    , cJumboFrameCapable
     , cOwnerAccount
     , cRegion
+    , cAwsDeviceV2
     , cConnectionState
     ) where
 
@@ -59,11 +62,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the AssociateConnectionWithLag operation.
---
---
---
--- /See:/ 'associateConnectionWithLag' smart constructor.
+-- | /See:/ 'associateConnectionWithLag' smart constructor.
 data AssociateConnectionWithLag = AssociateConnectionWithLag'
   { _acwlConnectionId :: !Text
   , _acwlLagId        :: !Text
@@ -74,9 +73,9 @@ data AssociateConnectionWithLag = AssociateConnectionWithLag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acwlConnectionId' - The ID of the connection. Example: dxcon-abc123 Default: None
+-- * 'acwlConnectionId' - The ID of the connection.
 --
--- * 'acwlLagId' - The ID of the LAG with which to associate the connection. Example: dxlag-abc123 Default: None
+-- * 'acwlLagId' - The ID of the LAG with which to associate the connection.
 associateConnectionWithLag
     :: Text -- ^ 'acwlConnectionId'
     -> Text -- ^ 'acwlLagId'
@@ -86,11 +85,11 @@ associateConnectionWithLag pConnectionId_ pLagId_ =
     {_acwlConnectionId = pConnectionId_, _acwlLagId = pLagId_}
 
 
--- | The ID of the connection. Example: dxcon-abc123 Default: None
+-- | The ID of the connection.
 acwlConnectionId :: Lens' AssociateConnectionWithLag Text
 acwlConnectionId = lens _acwlConnectionId (\ s a -> s{_acwlConnectionId = a})
 
--- | The ID of the LAG with which to associate the connection. Example: dxlag-abc123 Default: None
+-- | The ID of the LAG with which to associate the connection.
 acwlLagId :: Lens' AssociateConnectionWithLag Text
 acwlLagId = lens _acwlLagId (\ s a -> s{_acwlLagId = a})
 

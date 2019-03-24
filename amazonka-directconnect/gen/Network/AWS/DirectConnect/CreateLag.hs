@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new link aggregation group (LAG) with the specified number of bundled physical connections between the customer network and a specific AWS Direct Connect location. A LAG is a logical interface that uses the Link Aggregation Control Protocol (LACP) to aggregate multiple 1 gigabit or 10 gigabit interfaces, allowing you to treat them as a single interface.
+-- Creates a link aggregation group (LAG) with the specified number of bundled physical connections between the customer network and a specific AWS Direct Connect location. A LAG is a logical interface that uses the Link Aggregation Control Protocol (LACP) to aggregate multiple interfaces, enabling you to treat them as a single interface.
 --
 --
--- All connections in a LAG must use the same bandwidth (for example, 10 Gbps), and must terminate at the same AWS Direct Connect endpoint.
+-- All connections in a LAG must use the same bandwidth and must terminate at the same AWS Direct Connect endpoint.
 --
 -- You can have up to 10 connections per LAG. Regardless of this limit, if you request more connections for the LAG than AWS Direct Connect can allocate on a single endpoint, no LAG is created.
 --
@@ -52,11 +52,14 @@ module Network.AWS.DirectConnect.CreateLag
     , lagLocation
     , lagConnections
     , lagAwsDevice
+    , lagHasLogicalRedundancy
     , lagAllowsHostedConnections
     , lagNumberOfConnections
+    , lagJumboFrameCapable
     , lagLagState
     , lagOwnerAccount
     , lagRegion
+    , lagAwsDeviceV2
     ) where
 
 import Network.AWS.DirectConnect.Types
@@ -66,11 +69,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the CreateLag operation.
---
---
---
--- /See:/ 'createLag' smart constructor.
+-- | /See:/ 'createLag' smart constructor.
 data CreateLag = CreateLag'
   { _clConnectionId         :: !(Maybe Text)
   , _clNumberOfConnections  :: !Int
@@ -84,15 +83,15 @@ data CreateLag = CreateLag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clConnectionId' - The ID of an existing connection to migrate to the LAG. Default: None
+-- * 'clConnectionId' - The ID of an existing connection to migrate to the LAG.
 --
--- * 'clNumberOfConnections' - The number of physical connections initially provisioned and bundled by the LAG. Default: None
+-- * 'clNumberOfConnections' - The number of physical connections initially provisioned and bundled by the LAG.
 --
--- * 'clLocation' - The AWS Direct Connect location in which the LAG should be allocated. Example: EqSV5 Default: None
+-- * 'clLocation' - The location for the LAG.
 --
--- * 'clConnectionsBandwidth' - The bandwidth of the individual physical connections bundled by the LAG. Default: None Available values: 1Gbps, 10Gbps
+-- * 'clConnectionsBandwidth' - The bandwidth of the individual physical connections bundled by the LAG. The possible values are 1Gbps and 10Gbps.
 --
--- * 'clLagName' - The name of the LAG. Example: "@3x10G LAG to AWS@ " Default: None
+-- * 'clLagName' - The name of the LAG.
 createLag
     :: Int -- ^ 'clNumberOfConnections'
     -> Text -- ^ 'clLocation'
@@ -109,23 +108,23 @@ createLag pNumberOfConnections_ pLocation_ pConnectionsBandwidth_ pLagName_ =
     }
 
 
--- | The ID of an existing connection to migrate to the LAG. Default: None
+-- | The ID of an existing connection to migrate to the LAG.
 clConnectionId :: Lens' CreateLag (Maybe Text)
 clConnectionId = lens _clConnectionId (\ s a -> s{_clConnectionId = a})
 
--- | The number of physical connections initially provisioned and bundled by the LAG. Default: None
+-- | The number of physical connections initially provisioned and bundled by the LAG.
 clNumberOfConnections :: Lens' CreateLag Int
 clNumberOfConnections = lens _clNumberOfConnections (\ s a -> s{_clNumberOfConnections = a})
 
--- | The AWS Direct Connect location in which the LAG should be allocated. Example: EqSV5 Default: None
+-- | The location for the LAG.
 clLocation :: Lens' CreateLag Text
 clLocation = lens _clLocation (\ s a -> s{_clLocation = a})
 
--- | The bandwidth of the individual physical connections bundled by the LAG. Default: None Available values: 1Gbps, 10Gbps
+-- | The bandwidth of the individual physical connections bundled by the LAG. The possible values are 1Gbps and 10Gbps.
 clConnectionsBandwidth :: Lens' CreateLag Text
 clConnectionsBandwidth = lens _clConnectionsBandwidth (\ s a -> s{_clConnectionsBandwidth = a})
 
--- | The name of the LAG. Example: "@3x10G LAG to AWS@ " Default: None
+-- | The name of the LAG.
 clLagName :: Lens' CreateLag Text
 clLagName = lens _clLagName (\ s a -> s{_clLagName = a})
 

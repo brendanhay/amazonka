@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an association between a direct connect gateway and a virtual private gateway (VGW). The VGW must be attached to a VPC and must not be associated with another direct connect gateway.
+-- Creates an association between a Direct Connect gateway and a virtual private gateway. The virtual private gateway must be attached to a VPC and must not be associated with another Direct Connect gateway.
 --
 --
 module Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation
@@ -45,11 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the CreateDirectConnectGatewayAssociation operation.
---
---
---
--- /See:/ 'createDirectConnectGatewayAssociation' smart constructor.
+-- | /See:/ 'createDirectConnectGatewayAssociation' smart constructor.
 data CreateDirectConnectGatewayAssociation = CreateDirectConnectGatewayAssociation'
   { _cdcgaDirectConnectGatewayId :: !Text
   , _cdcgaVirtualGatewayId       :: !Text
@@ -60,9 +56,9 @@ data CreateDirectConnectGatewayAssociation = CreateDirectConnectGatewayAssociati
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdcgaDirectConnectGatewayId' - The ID of the direct connect gateway. Example: "abcd1234-dcba-5678-be23-cdef9876ab45" Default: None
+-- * 'cdcgaDirectConnectGatewayId' - The ID of the Direct Connect gateway.
 --
--- * 'cdcgaVirtualGatewayId' - The ID of the virtual private gateway. Example: "vgw-abc123ef" Default: None
+-- * 'cdcgaVirtualGatewayId' - The ID of the virtual private gateway.
 createDirectConnectGatewayAssociation
     :: Text -- ^ 'cdcgaDirectConnectGatewayId'
     -> Text -- ^ 'cdcgaVirtualGatewayId'
@@ -74,11 +70,11 @@ createDirectConnectGatewayAssociation pDirectConnectGatewayId_ pVirtualGatewayId
     }
 
 
--- | The ID of the direct connect gateway. Example: "abcd1234-dcba-5678-be23-cdef9876ab45" Default: None
+-- | The ID of the Direct Connect gateway.
 cdcgaDirectConnectGatewayId :: Lens' CreateDirectConnectGatewayAssociation Text
 cdcgaDirectConnectGatewayId = lens _cdcgaDirectConnectGatewayId (\ s a -> s{_cdcgaDirectConnectGatewayId = a})
 
--- | The ID of the virtual private gateway. Example: "vgw-abc123ef" Default: None
+-- | The ID of the virtual private gateway.
 cdcgaVirtualGatewayId :: Lens' CreateDirectConnectGatewayAssociation Text
 cdcgaVirtualGatewayId = lens _cdcgaVirtualGatewayId (\ s a -> s{_cdcgaVirtualGatewayId = a})
 
@@ -133,11 +129,7 @@ instance ToQuery
          where
         toQuery = const mempty
 
--- | Container for the response from the CreateDirectConnectGatewayAssociation API call
---
---
---
--- /See:/ 'createDirectConnectGatewayAssociationResponse' smart constructor.
+-- | /See:/ 'createDirectConnectGatewayAssociationResponse' smart constructor.
 data CreateDirectConnectGatewayAssociationResponse = CreateDirectConnectGatewayAssociationResponse'
   { _cdcgarsDirectConnectGatewayAssociation :: !(Maybe DirectConnectGatewayAssociation)
   , _cdcgarsResponseStatus :: !Int
@@ -148,7 +140,7 @@ data CreateDirectConnectGatewayAssociationResponse = CreateDirectConnectGatewayA
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdcgarsDirectConnectGatewayAssociation' - The direct connect gateway association to be created.
+-- * 'cdcgarsDirectConnectGatewayAssociation' - The association to be created.
 --
 -- * 'cdcgarsResponseStatus' - -- | The response status code.
 createDirectConnectGatewayAssociationResponse
@@ -161,7 +153,7 @@ createDirectConnectGatewayAssociationResponse pResponseStatus_ =
     }
 
 
--- | The direct connect gateway association to be created.
+-- | The association to be created.
 cdcgarsDirectConnectGatewayAssociation :: Lens' CreateDirectConnectGatewayAssociationResponse (Maybe DirectConnectGatewayAssociation)
 cdcgarsDirectConnectGatewayAssociation = lens _cdcgarsDirectConnectGatewayAssociation (\ s a -> s{_cdcgarsDirectConnectGatewayAssociation = a})
 

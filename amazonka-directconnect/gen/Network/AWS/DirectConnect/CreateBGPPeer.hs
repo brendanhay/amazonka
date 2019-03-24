@@ -18,12 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new BGP peer on a specified virtual interface. The BGP peer cannot be in the same address family (IPv4/IPv6) of an existing BGP peer on the virtual interface.
+-- Creates a BGP peer on the specified virtual interface.
 --
 --
--- You must create a BGP peer for the corresponding address family in order to access AWS resources that also use that address family.
+-- You must create a BGP peer for the corresponding address family (IPv4/IPv6) in order to access AWS resources that also use that address family.
 --
--- When creating a IPv6 BGP peer, the Amazon address and customer address fields must be left blank. IPv6 addresses are automatically assigned from Amazon's pool of IPv6 addresses; you cannot specify custom IPv6 addresses.
+-- If logical redundancy is not supported by the connection, interconnect, or LAG, the BGP peer cannot be in the same address family as an existing BGP peer on the virtual interface.
+--
+-- When creating a IPv6 BGP peer, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.
 --
 -- For a public virtual interface, the Autonomous System Number (ASN) must be private or already whitelisted for the virtual interface.
 --
@@ -51,11 +53,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the CreateBGPPeer operation.
---
---
---
--- /See:/ 'createBGPPeer' smart constructor.
+-- | /See:/ 'createBGPPeer' smart constructor.
 data CreateBGPPeer = CreateBGPPeer'
   { _cbpNewBGPPeer         :: !(Maybe NewBGPPeer)
   , _cbpVirtualInterfaceId :: !(Maybe Text)
@@ -66,20 +64,20 @@ data CreateBGPPeer = CreateBGPPeer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbpNewBGPPeer' - Detailed information for the BGP peer to be created. Default: None
+-- * 'cbpNewBGPPeer' - Information about the BGP peer.
 --
--- * 'cbpVirtualInterfaceId' - The ID of the virtual interface on which the BGP peer will be provisioned. Example: dxvif-456abc78 Default: None
+-- * 'cbpVirtualInterfaceId' - The ID of the virtual interface.
 createBGPPeer
     :: CreateBGPPeer
 createBGPPeer =
   CreateBGPPeer' {_cbpNewBGPPeer = Nothing, _cbpVirtualInterfaceId = Nothing}
 
 
--- | Detailed information for the BGP peer to be created. Default: None
+-- | Information about the BGP peer.
 cbpNewBGPPeer :: Lens' CreateBGPPeer (Maybe NewBGPPeer)
 cbpNewBGPPeer = lens _cbpNewBGPPeer (\ s a -> s{_cbpNewBGPPeer = a})
 
--- | The ID of the virtual interface on which the BGP peer will be provisioned. Example: dxvif-456abc78 Default: None
+-- | The ID of the virtual interface.
 cbpVirtualInterfaceId :: Lens' CreateBGPPeer (Maybe Text)
 cbpVirtualInterfaceId = lens _cbpVirtualInterfaceId (\ s a -> s{_cbpVirtualInterfaceId = a})
 
@@ -119,11 +117,7 @@ instance ToPath CreateBGPPeer where
 instance ToQuery CreateBGPPeer where
         toQuery = const mempty
 
--- | The response received when CreateBGPPeer is called.
---
---
---
--- /See:/ 'createBGPPeerResponse' smart constructor.
+-- | /See:/ 'createBGPPeerResponse' smart constructor.
 data CreateBGPPeerResponse = CreateBGPPeerResponse'
   { _cbprsVirtualInterface :: !(Maybe VirtualInterface)
   , _cbprsResponseStatus   :: !Int
@@ -134,7 +128,7 @@ data CreateBGPPeerResponse = CreateBGPPeerResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbprsVirtualInterface' - Undocumented member.
+-- * 'cbprsVirtualInterface' - The virtual interface.
 --
 -- * 'cbprsResponseStatus' - -- | The response status code.
 createBGPPeerResponse
@@ -145,7 +139,7 @@ createBGPPeerResponse pResponseStatus_ =
     {_cbprsVirtualInterface = Nothing, _cbprsResponseStatus = pResponseStatus_}
 
 
--- | Undocumented member.
+-- | The virtual interface.
 cbprsVirtualInterface :: Lens' CreateBGPPeerResponse (Maybe VirtualInterface)
 cbprsVirtualInterface = lens _cbprsVirtualInterface (\ s a -> s{_cbprsVirtualInterface = a})
 

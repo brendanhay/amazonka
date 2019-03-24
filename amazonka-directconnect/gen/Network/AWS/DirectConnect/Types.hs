@@ -42,6 +42,9 @@ module Network.AWS.DirectConnect.Types
     -- * DirectConnectGatewayState
     , DirectConnectGatewayState (..)
 
+    -- * HasLogicalRedundancy
+    , HasLogicalRedundancy (..)
+
     -- * InterconnectState
     , InterconnectState (..)
 
@@ -63,7 +66,9 @@ module Network.AWS.DirectConnect.Types
     , bpBgpStatus
     , bpAsn
     , bpAuthKey
+    , bpBgpPeerId
     , bpBgpPeerState
+    , bpAwsDeviceV2
 
     -- * Connection
     , Connection
@@ -72,13 +77,16 @@ module Network.AWS.DirectConnect.Types
     , cVlan
     , cLocation
     , cAwsDevice
+    , cHasLogicalRedundancy
     , cConnectionId
     , cLoaIssueTime
     , cPartnerName
     , cConnectionName
     , cBandwidth
+    , cJumboFrameCapable
     , cOwnerAccount
     , cRegion
+    , cAwsDeviceV2
     , cConnectionState
 
     -- * Connections
@@ -124,10 +132,13 @@ module Network.AWS.DirectConnect.Types
     , iLocation
     , iInterconnectName
     , iAwsDevice
+    , iHasLogicalRedundancy
     , iLoaIssueTime
     , iBandwidth
+    , iJumboFrameCapable
     , iInterconnectState
     , iRegion
+    , iAwsDeviceV2
 
     -- * Lag
     , Lag
@@ -139,17 +150,22 @@ module Network.AWS.DirectConnect.Types
     , lagLocation
     , lagConnections
     , lagAwsDevice
+    , lagHasLogicalRedundancy
     , lagAllowsHostedConnections
     , lagNumberOfConnections
+    , lagJumboFrameCapable
     , lagLagState
     , lagOwnerAccount
     , lagRegion
+    , lagAwsDeviceV2
 
     -- * Location
     , Location
     , location
+    , lAvailablePortSpeeds
     , lLocationName
     , lLocationCode
+    , lRegion
 
     -- * NewBGPPeer
     , NewBGPPeer
@@ -164,6 +180,7 @@ module Network.AWS.DirectConnect.Types
     , NewPrivateVirtualInterface
     , newPrivateVirtualInterface
     , nVirtualGatewayId
+    , nMtu
     , nCustomerAddress
     , nAmazonAddress
     , nAddressFamily
@@ -176,6 +193,7 @@ module Network.AWS.DirectConnect.Types
     -- * NewPrivateVirtualInterfaceAllocation
     , NewPrivateVirtualInterfaceAllocation
     , newPrivateVirtualInterfaceAllocation
+    , npviaMtu
     , npviaCustomerAddress
     , npviaAmazonAddress
     , npviaAddressFamily
@@ -236,6 +254,7 @@ module Network.AWS.DirectConnect.Types
     , virtualInterface
     , viBgpPeers
     , viVirtualGatewayId
+    , viMtu
     , viRouteFilterPrefixes
     , viCustomerAddress
     , viVlan
@@ -249,9 +268,12 @@ module Network.AWS.DirectConnect.Types
     , viVirtualInterfaceType
     , viAsn
     , viAuthKey
+    , viJumboFrameCapable
     , viCustomerRouterConfig
     , viOwnerAccount
+    , viRegion
     , viVirtualInterfaceName
+    , viAwsDeviceV2
     , viVirtualInterfaceId
     ) where
 
@@ -300,7 +322,7 @@ directConnect =
       | otherwise = Nothing
 
 
--- | The API was called with invalid parameters. The error message will contain additional details about the cause.
+-- | One or more parameters are not valid.
 --
 --
 _DirectConnectClientException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -316,14 +338,14 @@ _DuplicateTagKeysException =
   _MatchServiceError directConnect "DuplicateTagKeysException"
 
 
--- | You have reached the limit on the number of tags that can be assigned to a Direct Connect resource.
+-- | You have reached the limit on the number of tags that can be assigned.
 --
 --
 _TooManyTagsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyTagsException = _MatchServiceError directConnect "TooManyTagsException"
 
 
--- | A server-side error occurred during the API call. The error message will contain additional details about the cause.
+-- | A server-side error occurred.
 --
 --
 _DirectConnectServerException :: AsError a => Getting (First ServiceError) a ServiceError

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of all direct connect gateway and virtual private gateway (VGW) associations. Either a direct connect gateway ID or a VGW ID must be provided in the request. If a direct connect gateway ID is provided, the response returns all VGWs associated with the direct connect gateway. If a VGW ID is provided, the response returns all direct connect gateways associated with the VGW. If both are provided, the response only returns the association that matches both the direct connect gateway and the VGW.
+-- Lists the associations between your Direct Connect gateways and virtual private gateways. You must specify a Direct Connect gateway, a virtual private gateway, or both. If you specify a Direct Connect gateway, the response contains all virtual private gateways associated with the Direct Connect gateway. If you specify a virtual private gateway, the response contains all Direct Connect gateways associated with the virtual private gateway. If you specify both, the response contains the association between the Direct Connect gateway and the virtual private gateway.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociations
     (
     -- * Creating a Request
@@ -44,15 +46,12 @@ module Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociations
 import Network.AWS.DirectConnect.Types
 import Network.AWS.DirectConnect.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the DescribeDirectConnectGatewayAssociations operation.
---
---
---
--- /See:/ 'describeDirectConnectGatewayAssociations' smart constructor.
+-- | /See:/ 'describeDirectConnectGatewayAssociations' smart constructor.
 data DescribeDirectConnectGatewayAssociations = DescribeDirectConnectGatewayAssociations'
   { _ddcgaVirtualGatewayId       :: !(Maybe Text)
   , _ddcgaDirectConnectGatewayId :: !(Maybe Text)
@@ -65,13 +64,13 @@ data DescribeDirectConnectGatewayAssociations = DescribeDirectConnectGatewayAsso
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcgaVirtualGatewayId' - The ID of the virtual private gateway. Example: "vgw-abc123ef" Default: None
+-- * 'ddcgaVirtualGatewayId' - The ID of the virtual private gateway.
 --
--- * 'ddcgaDirectConnectGatewayId' - The ID of the direct connect gateway. Example: "abcd1234-dcba-5678-be23-cdef9876ab45" Default: None
+-- * 'ddcgaDirectConnectGatewayId' - The ID of the Direct Connect gateway.
 --
--- * 'ddcgaNextToken' - The token provided in the previous describe result to retrieve the next page of the result. Default: None
+-- * 'ddcgaNextToken' - The token provided in the previous call to retrieve the next page.
 --
--- * 'ddcgaMaxResults' - The maximum number of direct connect gateway associations to return per page. Example: 15 Default: None
+-- * 'ddcgaMaxResults' - The maximum number of associations to return per page.
 describeDirectConnectGatewayAssociations
     :: DescribeDirectConnectGatewayAssociations
 describeDirectConnectGatewayAssociations =
@@ -83,21 +82,32 @@ describeDirectConnectGatewayAssociations =
     }
 
 
--- | The ID of the virtual private gateway. Example: "vgw-abc123ef" Default: None
+-- | The ID of the virtual private gateway.
 ddcgaVirtualGatewayId :: Lens' DescribeDirectConnectGatewayAssociations (Maybe Text)
 ddcgaVirtualGatewayId = lens _ddcgaVirtualGatewayId (\ s a -> s{_ddcgaVirtualGatewayId = a})
 
--- | The ID of the direct connect gateway. Example: "abcd1234-dcba-5678-be23-cdef9876ab45" Default: None
+-- | The ID of the Direct Connect gateway.
 ddcgaDirectConnectGatewayId :: Lens' DescribeDirectConnectGatewayAssociations (Maybe Text)
 ddcgaDirectConnectGatewayId = lens _ddcgaDirectConnectGatewayId (\ s a -> s{_ddcgaDirectConnectGatewayId = a})
 
--- | The token provided in the previous describe result to retrieve the next page of the result. Default: None
+-- | The token provided in the previous call to retrieve the next page.
 ddcgaNextToken :: Lens' DescribeDirectConnectGatewayAssociations (Maybe Text)
 ddcgaNextToken = lens _ddcgaNextToken (\ s a -> s{_ddcgaNextToken = a})
 
--- | The maximum number of direct connect gateway associations to return per page. Example: 15 Default: None
+-- | The maximum number of associations to return per page.
 ddcgaMaxResults :: Lens' DescribeDirectConnectGatewayAssociations (Maybe Int)
 ddcgaMaxResults = lens _ddcgaMaxResults (\ s a -> s{_ddcgaMaxResults = a})
+
+instance AWSPager
+           DescribeDirectConnectGatewayAssociations
+         where
+        page rq rs
+          | stop (rs ^. ddcgarsNextToken) = Nothing
+          | stop
+              (rs ^. ddcgarsDirectConnectGatewayAssociations)
+            = Nothing
+          | otherwise =
+            Just $ rq & ddcgaNextToken .~ rs ^. ddcgarsNextToken
 
 instance AWSRequest
            DescribeDirectConnectGatewayAssociations
@@ -155,11 +165,7 @@ instance ToQuery
          where
         toQuery = const mempty
 
--- | Container for the response from the DescribeDirectConnectGatewayAssociations API call
---
---
---
--- /See:/ 'describeDirectConnectGatewayAssociationsResponse' smart constructor.
+-- | /See:/ 'describeDirectConnectGatewayAssociationsResponse' smart constructor.
 data DescribeDirectConnectGatewayAssociationsResponse = DescribeDirectConnectGatewayAssociationsResponse'
   { _ddcgarsNextToken :: !(Maybe Text)
   , _ddcgarsDirectConnectGatewayAssociations :: !(Maybe [DirectConnectGatewayAssociation])
@@ -171,9 +177,9 @@ data DescribeDirectConnectGatewayAssociationsResponse = DescribeDirectConnectGat
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcgarsNextToken' - Undocumented member.
+-- * 'ddcgarsNextToken' - The token to retrieve the next page.
 --
--- * 'ddcgarsDirectConnectGatewayAssociations' - Information about the direct connect gateway associations.
+-- * 'ddcgarsDirectConnectGatewayAssociations' - The associations.
 --
 -- * 'ddcgarsResponseStatus' - -- | The response status code.
 describeDirectConnectGatewayAssociationsResponse
@@ -187,11 +193,11 @@ describeDirectConnectGatewayAssociationsResponse pResponseStatus_ =
     }
 
 
--- | Undocumented member.
+-- | The token to retrieve the next page.
 ddcgarsNextToken :: Lens' DescribeDirectConnectGatewayAssociationsResponse (Maybe Text)
 ddcgarsNextToken = lens _ddcgarsNextToken (\ s a -> s{_ddcgarsNextToken = a})
 
--- | Information about the direct connect gateway associations.
+-- | The associations.
 ddcgarsDirectConnectGatewayAssociations :: Lens' DescribeDirectConnectGatewayAssociationsResponse [DirectConnectGatewayAssociation]
 ddcgarsDirectConnectGatewayAssociations = lens _ddcgarsDirectConnectGatewayAssociations (\ s a -> s{_ddcgarsDirectConnectGatewayAssociations = a}) . _Default . _Coerce
 

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of hosted connections that have been provisioned on the given interconnect or link aggregation group (LAG).
+-- Lists the hosted connections that have been provisioned on the specified interconnect or link aggregation group (LAG).
 --
 --
 module Network.AWS.DirectConnect.DescribeHostedConnections
@@ -43,11 +43,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the DescribeHostedConnections operation.
---
---
---
--- /See:/ 'describeHostedConnections' smart constructor.
+-- | /See:/ 'describeHostedConnections' smart constructor.
 newtype DescribeHostedConnections = DescribeHostedConnections'
   { _dhcConnectionId :: Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -57,7 +53,7 @@ newtype DescribeHostedConnections = DescribeHostedConnections'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhcConnectionId' - The ID of the interconnect or LAG on which the hosted connections are provisioned. Example: dxcon-abc123 or dxlag-abc123 Default: None
+-- * 'dhcConnectionId' - The ID of the interconnect or LAG.
 describeHostedConnections
     :: Text -- ^ 'dhcConnectionId'
     -> DescribeHostedConnections
@@ -65,7 +61,7 @@ describeHostedConnections pConnectionId_ =
   DescribeHostedConnections' {_dhcConnectionId = pConnectionId_}
 
 
--- | The ID of the interconnect or LAG on which the hosted connections are provisioned. Example: dxcon-abc123 or dxlag-abc123 Default: None
+-- | The ID of the interconnect or LAG.
 dhcConnectionId :: Lens' DescribeHostedConnections Text
 dhcConnectionId = lens _dhcConnectionId (\ s a -> s{_dhcConnectionId = a})
 

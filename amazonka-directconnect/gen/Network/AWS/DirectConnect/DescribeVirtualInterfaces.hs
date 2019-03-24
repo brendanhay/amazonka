@@ -21,7 +21,7 @@
 -- Displays all virtual interfaces for an AWS account. Virtual interfaces deleted fewer than 15 minutes before you make the request are also returned. If you specify a connection ID, only the virtual interfaces associated with the connection are returned. If you specify a virtual interface ID, then only a single virtual interface is returned.
 --
 --
--- A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer.
+-- A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer network.
 --
 module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     (
@@ -47,11 +47,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the DescribeVirtualInterfaces operation.
---
---
---
--- /See:/ 'describeVirtualInterfaces' smart constructor.
+-- | /See:/ 'describeVirtualInterfaces' smart constructor.
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces'
   { _dviConnectionId       :: !(Maybe Text)
   , _dviVirtualInterfaceId :: !(Maybe Text)
@@ -62,9 +58,9 @@ data DescribeVirtualInterfaces = DescribeVirtualInterfaces'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dviConnectionId' - Undocumented member.
+-- * 'dviConnectionId' - The ID of the connection.
 --
--- * 'dviVirtualInterfaceId' - Undocumented member.
+-- * 'dviVirtualInterfaceId' - The ID of the virtual interface.
 describeVirtualInterfaces
     :: DescribeVirtualInterfaces
 describeVirtualInterfaces =
@@ -72,11 +68,11 @@ describeVirtualInterfaces =
     {_dviConnectionId = Nothing, _dviVirtualInterfaceId = Nothing}
 
 
--- | Undocumented member.
+-- | The ID of the connection.
 dviConnectionId :: Lens' DescribeVirtualInterfaces (Maybe Text)
 dviConnectionId = lens _dviConnectionId (\ s a -> s{_dviConnectionId = a})
 
--- | Undocumented member.
+-- | The ID of the virtual interface.
 dviVirtualInterfaceId :: Lens' DescribeVirtualInterfaces (Maybe Text)
 dviVirtualInterfaceId = lens _dviVirtualInterfaceId (\ s a -> s{_dviVirtualInterfaceId = a})
 
@@ -119,11 +115,7 @@ instance ToPath DescribeVirtualInterfaces where
 instance ToQuery DescribeVirtualInterfaces where
         toQuery = const mempty
 
--- | A structure containing a list of virtual interfaces.
---
---
---
--- /See:/ 'describeVirtualInterfacesResponse' smart constructor.
+-- | /See:/ 'describeVirtualInterfacesResponse' smart constructor.
 data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
   { _dvisrsVirtualInterfaces :: !(Maybe [VirtualInterface])
   , _dvisrsResponseStatus    :: !Int
@@ -134,7 +126,7 @@ data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvisrsVirtualInterfaces' - A list of virtual interfaces.
+-- * 'dvisrsVirtualInterfaces' - The virtual interfaces
 --
 -- * 'dvisrsResponseStatus' - -- | The response status code.
 describeVirtualInterfacesResponse
@@ -147,7 +139,7 @@ describeVirtualInterfacesResponse pResponseStatus_ =
     }
 
 
--- | A list of virtual interfaces.
+-- | The virtual interfaces
 dvisrsVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
 dvisrsVirtualInterfaces = lens _dvisrsVirtualInterfaces (\ s a -> s{_dvisrsVirtualInterfaces = a}) . _Default . _Coerce
 

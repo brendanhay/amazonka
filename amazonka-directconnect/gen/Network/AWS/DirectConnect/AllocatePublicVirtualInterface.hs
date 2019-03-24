@@ -18,14 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provisions a public virtual interface to be owned by a different customer.
+-- Provisions a public virtual interface to be owned by the specified AWS account.
 --
 --
--- The owner of a connection calls this function to provision a public virtual interface which will be owned by another AWS customer.
+-- The owner of a connection calls this function to provision a public virtual interface to be owned by the specified AWS account.
 --
--- Virtual interfaces created using this function must be confirmed by the virtual interface owner by calling ConfirmPublicVirtualInterface. Until this step has been completed, the virtual interface will be in 'Confirming' state, and will not be available for handling traffic.
+-- Virtual interfaces created using this function must be confirmed by the owner using 'ConfirmPublicVirtualInterface' . Until this step has been completed, the virtual interface is in the @confirming@ state and is not available to handle traffic.
 --
--- When creating an IPv6 public virtual interface (addressFamily is 'ipv6'), the customer and amazon address fields should be left blank to use auto-assigned IPv6 space. Custom IPv6 Addresses are currently not supported.
+-- When creating an IPv6 public virtual interface, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.
 --
 module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
     (
@@ -43,6 +43,7 @@ module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
     -- * Response Lenses
     , viBgpPeers
     , viVirtualGatewayId
+    , viMtu
     , viRouteFilterPrefixes
     , viCustomerAddress
     , viVlan
@@ -56,9 +57,12 @@ module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
     , viVirtualInterfaceType
     , viAsn
     , viAuthKey
+    , viJumboFrameCapable
     , viCustomerRouterConfig
     , viOwnerAccount
+    , viRegion
     , viVirtualInterfaceName
+    , viAwsDeviceV2
     , viVirtualInterfaceId
     ) where
 
@@ -69,11 +73,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the AllocatePublicVirtualInterface operation.
---
---
---
--- /See:/ 'allocatePublicVirtualInterface' smart constructor.
+-- | /See:/ 'allocatePublicVirtualInterface' smart constructor.
 data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface'
   { _aConnectionId :: !Text
   , _aOwnerAccount :: !Text
@@ -85,11 +85,11 @@ data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aConnectionId' - The connection ID on which the public virtual interface is provisioned. Default: None
+-- * 'aConnectionId' - The ID of the connection on which the public virtual interface is provisioned.
 --
--- * 'aOwnerAccount' - The AWS account that will own the new public virtual interface. Default: None
+-- * 'aOwnerAccount' - The ID of the AWS account that owns the public virtual interface.
 --
--- * 'aNewPublicVirtualInterfaceAllocation' - Detailed information for the public virtual interface to be provisioned. Default: None
+-- * 'aNewPublicVirtualInterfaceAllocation' - Information about the public virtual interface.
 allocatePublicVirtualInterface
     :: Text -- ^ 'aConnectionId'
     -> Text -- ^ 'aOwnerAccount'
@@ -104,15 +104,15 @@ allocatePublicVirtualInterface pConnectionId_ pOwnerAccount_ pNewPublicVirtualIn
     }
 
 
--- | The connection ID on which the public virtual interface is provisioned. Default: None
+-- | The ID of the connection on which the public virtual interface is provisioned.
 aConnectionId :: Lens' AllocatePublicVirtualInterface Text
 aConnectionId = lens _aConnectionId (\ s a -> s{_aConnectionId = a})
 
--- | The AWS account that will own the new public virtual interface. Default: None
+-- | The ID of the AWS account that owns the public virtual interface.
 aOwnerAccount :: Lens' AllocatePublicVirtualInterface Text
 aOwnerAccount = lens _aOwnerAccount (\ s a -> s{_aOwnerAccount = a})
 
--- | Detailed information for the public virtual interface to be provisioned. Default: None
+-- | Information about the public virtual interface.
 aNewPublicVirtualInterfaceAllocation :: Lens' AllocatePublicVirtualInterface NewPublicVirtualInterfaceAllocation
 aNewPublicVirtualInterfaceAllocation = lens _aNewPublicVirtualInterfaceAllocation (\ s a -> s{_aNewPublicVirtualInterfaceAllocation = a})
 

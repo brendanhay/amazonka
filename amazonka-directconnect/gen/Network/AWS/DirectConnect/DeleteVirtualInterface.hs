@@ -44,11 +44,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the DeleteVirtualInterface operation.
---
---
---
--- /See:/ 'deleteVirtualInterface' smart constructor.
+-- | /See:/ 'deleteVirtualInterface' smart constructor.
 newtype DeleteVirtualInterface = DeleteVirtualInterface'
   { _delVirtualInterfaceId :: Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -58,7 +54,7 @@ newtype DeleteVirtualInterface = DeleteVirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delVirtualInterfaceId' - Undocumented member.
+-- * 'delVirtualInterfaceId' - The ID of the virtual interface.
 deleteVirtualInterface
     :: Text -- ^ 'delVirtualInterfaceId'
     -> DeleteVirtualInterface
@@ -66,7 +62,7 @@ deleteVirtualInterface pVirtualInterfaceId_ =
   DeleteVirtualInterface' {_delVirtualInterfaceId = pVirtualInterfaceId_}
 
 
--- | Undocumented member.
+-- | The ID of the virtual interface.
 delVirtualInterfaceId :: Lens' DeleteVirtualInterface Text
 delVirtualInterfaceId = lens _delVirtualInterfaceId (\ s a -> s{_delVirtualInterfaceId = a})
 
@@ -108,11 +104,7 @@ instance ToPath DeleteVirtualInterface where
 instance ToQuery DeleteVirtualInterface where
         toQuery = const mempty
 
--- | The response received when DeleteVirtualInterface is called.
---
---
---
--- /See:/ 'deleteVirtualInterfaceResponse' smart constructor.
+-- | /See:/ 'deleteVirtualInterfaceResponse' smart constructor.
 data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'
   { _dvirsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
   , _dvirsResponseStatus        :: !Int
@@ -123,7 +115,7 @@ data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvirsVirtualInterfaceState' - Undocumented member.
+-- * 'dvirsVirtualInterfaceState' - The state of the virtual interface. The following are the possible values:     * @confirming@ : The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.     * @verifying@ : This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.     * @pending@ : A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.     * @available@ : A virtual interface that is able to forward traffic.     * @down@ : A virtual interface that is BGP down.     * @deleting@ : A virtual interface is in this state immediately after calling 'DeleteVirtualInterface' until it can no longer forward traffic.     * @deleted@ : A virtual interface that cannot forward traffic.     * @rejected@ : The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the @Confirming@ state is deleted by the virtual interface owner, the virtual interface enters the @Rejected@ state.     * @unknown@ : The state of the virtual interface is not available.
 --
 -- * 'dvirsResponseStatus' - -- | The response status code.
 deleteVirtualInterfaceResponse
@@ -136,7 +128,7 @@ deleteVirtualInterfaceResponse pResponseStatus_ =
     }
 
 
--- | Undocumented member.
+-- | The state of the virtual interface. The following are the possible values:     * @confirming@ : The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.     * @verifying@ : This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.     * @pending@ : A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.     * @available@ : A virtual interface that is able to forward traffic.     * @down@ : A virtual interface that is BGP down.     * @deleting@ : A virtual interface is in this state immediately after calling 'DeleteVirtualInterface' until it can no longer forward traffic.     * @deleted@ : A virtual interface that cannot forward traffic.     * @rejected@ : The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the @Confirming@ state is deleted by the virtual interface owner, the virtual interface enters the @Rejected@ state.     * @unknown@ : The state of the virtual interface is not available.
 dvirsVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 dvirsVirtualInterfaceState = lens _dvirsVirtualInterfaceState (\ s a -> s{_dvirsVirtualInterfaceState = a})
 

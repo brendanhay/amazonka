@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new direct connect gateway. A direct connect gateway is an intermediate object that enables you to connect a set of virtual interfaces and virtual private gateways. direct connect gateways are global and visible in any AWS region after they are created. The virtual interfaces and virtual private gateways that are connected through a direct connect gateway can be in different regions. This enables you to connect to a VPC in any region, regardless of the region in which the virtual interfaces are located, and pass traffic between them.
+-- Creates a Direct Connect gateway, which is an intermediate object that enables you to connect a set of virtual interfaces and virtual private gateways. A Direct Connect gateway is global and visible in any AWS Region after it is created. The virtual interfaces and virtual private gateways that are connected through a Direct Connect gateway can be in different AWS Regions. This enables you to connect to a VPC in any Region, regardless of the Region in which the virtual interfaces are located, and pass traffic between them.
 --
 --
 module Network.AWS.DirectConnect.CreateDirectConnectGateway
@@ -45,11 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the CreateDirectConnectGateway operation.
---
---
---
--- /See:/ 'createDirectConnectGateway' smart constructor.
+-- | /See:/ 'createDirectConnectGateway' smart constructor.
 data CreateDirectConnectGateway = CreateDirectConnectGateway'
   { _cdcgAmazonSideASN            :: !(Maybe Integer)
   , _cdcgDirectConnectGatewayName :: !Text
@@ -60,9 +56,9 @@ data CreateDirectConnectGateway = CreateDirectConnectGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdcgAmazonSideASN' - The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294  Example: 65200 Default: 64512
+-- * 'cdcgAmazonSideASN' - The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294. The default is 64512.
 --
--- * 'cdcgDirectConnectGatewayName' - The name of the direct connect gateway. Example: "My direct connect gateway" Default: None
+-- * 'cdcgDirectConnectGatewayName' - The name of the Direct Connect gateway.
 createDirectConnectGateway
     :: Text -- ^ 'cdcgDirectConnectGatewayName'
     -> CreateDirectConnectGateway
@@ -73,11 +69,11 @@ createDirectConnectGateway pDirectConnectGatewayName_ =
     }
 
 
--- | The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294  Example: 65200 Default: 64512
+-- | The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294. The default is 64512.
 cdcgAmazonSideASN :: Lens' CreateDirectConnectGateway (Maybe Integer)
 cdcgAmazonSideASN = lens _cdcgAmazonSideASN (\ s a -> s{_cdcgAmazonSideASN = a})
 
--- | The name of the direct connect gateway. Example: "My direct connect gateway" Default: None
+-- | The name of the Direct Connect gateway.
 cdcgDirectConnectGatewayName :: Lens' CreateDirectConnectGateway Text
 cdcgDirectConnectGatewayName = lens _cdcgDirectConnectGatewayName (\ s a -> s{_cdcgDirectConnectGatewayName = a})
 
@@ -121,11 +117,7 @@ instance ToPath CreateDirectConnectGateway where
 instance ToQuery CreateDirectConnectGateway where
         toQuery = const mempty
 
--- | Container for the response from the CreateDirectConnectGateway API call
---
---
---
--- /See:/ 'createDirectConnectGatewayResponse' smart constructor.
+-- | /See:/ 'createDirectConnectGatewayResponse' smart constructor.
 data CreateDirectConnectGatewayResponse = CreateDirectConnectGatewayResponse'
   { _cdcgrsDirectConnectGateway :: !(Maybe DirectConnectGateway)
   , _cdcgrsResponseStatus       :: !Int
@@ -136,7 +128,7 @@ data CreateDirectConnectGatewayResponse = CreateDirectConnectGatewayResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdcgrsDirectConnectGateway' - The direct connect gateway to be created.
+-- * 'cdcgrsDirectConnectGateway' - The Direct Connect gateway.
 --
 -- * 'cdcgrsResponseStatus' - -- | The response status code.
 createDirectConnectGatewayResponse
@@ -149,7 +141,7 @@ createDirectConnectGatewayResponse pResponseStatus_ =
     }
 
 
--- | The direct connect gateway to be created.
+-- | The Direct Connect gateway.
 cdcgrsDirectConnectGateway :: Lens' CreateDirectConnectGatewayResponse (Maybe DirectConnectGateway)
 cdcgrsDirectConnectGateway = lens _cdcgrsDirectConnectGateway (\ s a -> s{_cdcgrsDirectConnectGateway = a})
 

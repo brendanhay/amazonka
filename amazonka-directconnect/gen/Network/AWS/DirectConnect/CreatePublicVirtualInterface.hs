@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new public virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic. A public virtual interface supports sending traffic to public services of AWS such as Amazon Simple Storage Service (Amazon S3).
+-- Creates a public virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic. A public virtual interface supports sending traffic to public services of AWS such as Amazon S3.
 --
 --
--- When creating an IPv6 public virtual interface (addressFamily is 'ipv6'), the customer and amazon address fields should be left blank to use auto-assigned IPv6 space. Custom IPv6 Addresses are currently not supported.
+-- When creating an IPv6 public virtual interface (@addressFamily@ is @ipv6@ ), leave the @customer@ and @amazon@ address fields blank to use auto-assigned IPv6 space. Custom IPv6 addresses are not supported.
 --
 module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     (
@@ -38,6 +38,7 @@ module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     -- * Response Lenses
     , viBgpPeers
     , viVirtualGatewayId
+    , viMtu
     , viRouteFilterPrefixes
     , viCustomerAddress
     , viVlan
@@ -51,9 +52,12 @@ module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     , viVirtualInterfaceType
     , viAsn
     , viAuthKey
+    , viJumboFrameCapable
     , viCustomerRouterConfig
     , viOwnerAccount
+    , viRegion
     , viVirtualInterfaceName
+    , viAwsDeviceV2
     , viVirtualInterfaceId
     ) where
 
@@ -64,11 +68,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Container for the parameters to the CreatePublicVirtualInterface operation.
---
---
---
--- /See:/ 'createPublicVirtualInterface' smart constructor.
+-- | /See:/ 'createPublicVirtualInterface' smart constructor.
 data CreatePublicVirtualInterface = CreatePublicVirtualInterface'
   { _cpviConnectionId              :: !Text
   , _cpviNewPublicVirtualInterface :: !NewPublicVirtualInterface
@@ -79,9 +79,9 @@ data CreatePublicVirtualInterface = CreatePublicVirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpviConnectionId' - Undocumented member.
+-- * 'cpviConnectionId' - The ID of the connection.
 --
--- * 'cpviNewPublicVirtualInterface' - Detailed information for the public virtual interface to be created. Default: None
+-- * 'cpviNewPublicVirtualInterface' - Information about the public virtual interface.
 createPublicVirtualInterface
     :: Text -- ^ 'cpviConnectionId'
     -> NewPublicVirtualInterface -- ^ 'cpviNewPublicVirtualInterface'
@@ -93,11 +93,11 @@ createPublicVirtualInterface pConnectionId_ pNewPublicVirtualInterface_ =
     }
 
 
--- | Undocumented member.
+-- | The ID of the connection.
 cpviConnectionId :: Lens' CreatePublicVirtualInterface Text
 cpviConnectionId = lens _cpviConnectionId (\ s a -> s{_cpviConnectionId = a})
 
--- | Detailed information for the public virtual interface to be created. Default: None
+-- | Information about the public virtual interface.
 cpviNewPublicVirtualInterface :: Lens' CreatePublicVirtualInterface NewPublicVirtualInterface
 cpviNewPublicVirtualInterface = lens _cpviNewPublicVirtualInterface (\ s a -> s{_cpviNewPublicVirtualInterface = a})
 

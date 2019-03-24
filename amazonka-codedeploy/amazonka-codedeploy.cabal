@@ -49,7 +49,7 @@ library
         , Network.AWS.CodeDeploy.BatchGetApplicationRevisions
         , Network.AWS.CodeDeploy.BatchGetApplications
         , Network.AWS.CodeDeploy.BatchGetDeploymentGroups
-        , Network.AWS.CodeDeploy.BatchGetDeploymentInstances
+        , Network.AWS.CodeDeploy.BatchGetDeploymentTargets
         , Network.AWS.CodeDeploy.BatchGetDeployments
         , Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
         , Network.AWS.CodeDeploy.ContinueDeployment
@@ -67,13 +67,13 @@ library
         , Network.AWS.CodeDeploy.GetDeployment
         , Network.AWS.CodeDeploy.GetDeploymentConfig
         , Network.AWS.CodeDeploy.GetDeploymentGroup
-        , Network.AWS.CodeDeploy.GetDeploymentInstance
+        , Network.AWS.CodeDeploy.GetDeploymentTarget
         , Network.AWS.CodeDeploy.GetOnPremisesInstance
         , Network.AWS.CodeDeploy.ListApplicationRevisions
         , Network.AWS.CodeDeploy.ListApplications
         , Network.AWS.CodeDeploy.ListDeploymentConfigs
         , Network.AWS.CodeDeploy.ListDeploymentGroups
-        , Network.AWS.CodeDeploy.ListDeploymentInstances
+        , Network.AWS.CodeDeploy.ListDeploymentTargets
         , Network.AWS.CodeDeploy.ListDeployments
         , Network.AWS.CodeDeploy.ListGitHubAccountTokenNames
         , Network.AWS.CodeDeploy.ListOnPremisesInstances
@@ -81,7 +81,6 @@ library
         , Network.AWS.CodeDeploy.RegisterApplicationRevision
         , Network.AWS.CodeDeploy.RegisterOnPremisesInstance
         , Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
-        , Network.AWS.CodeDeploy.SkipWaitTimeForInstanceTermination
         , Network.AWS.CodeDeploy.StopDeployment
         , Network.AWS.CodeDeploy.Types
         , Network.AWS.CodeDeploy.UpdateApplication

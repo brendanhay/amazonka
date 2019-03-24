@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the deployment configurations with the applicable IAM user or AWS account.
+-- Lists the deployment configurations with the IAM user or AWS account.
 --
 --
 --
@@ -62,13 +62,13 @@ newtype ListDeploymentConfigs = ListDeploymentConfigs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldcNextToken' - An identifier returned from the previous list deployment configurations call. It can be used to return the next set of deployment configurations in the list.
+-- * 'ldcNextToken' - An identifier returned from the previous @ListDeploymentConfigs@ call. It can be used to return the next set of deployment configurations in the list.
 listDeploymentConfigs
     :: ListDeploymentConfigs
 listDeploymentConfigs = ListDeploymentConfigs' {_ldcNextToken = Nothing}
 
 
--- | An identifier returned from the previous list deployment configurations call. It can be used to return the next set of deployment configurations in the list.
+-- | An identifier returned from the previous @ListDeploymentConfigs@ call. It can be used to return the next set of deployment configurations in the list.
 ldcNextToken :: Lens' ListDeploymentConfigs (Maybe Text)
 ldcNextToken = lens _ldcNextToken (\ s a -> s{_ldcNextToken = a})
 

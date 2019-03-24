@@ -58,7 +58,7 @@ newtype GetApplication = GetApplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaApplicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
+-- * 'gaApplicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
 getApplication
     :: Text -- ^ 'gaApplicationName'
     -> GetApplication
@@ -66,7 +66,7 @@ getApplication pApplicationName_ =
   GetApplication' {_gaApplicationName = pApplicationName_}
 
 
--- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
+-- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
 gaApplicationName :: Lens' GetApplication Text
 gaApplicationName = lens _gaApplicationName (\ s a -> s{_gaApplicationName = a})
 

@@ -63,7 +63,7 @@ data BatchGetDeploymentGroups = BatchGetDeploymentGroups'
 --
 -- * 'bgdgApplicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 --
--- * 'bgdgDeploymentGroupNames' - The deployment groups' names.
+-- * 'bgdgDeploymentGroupNames' - The names of the deployment groups.
 batchGetDeploymentGroups
     :: Text -- ^ 'bgdgApplicationName'
     -> BatchGetDeploymentGroups
@@ -78,7 +78,7 @@ batchGetDeploymentGroups pApplicationName_ =
 bgdgApplicationName :: Lens' BatchGetDeploymentGroups Text
 bgdgApplicationName = lens _bgdgApplicationName (\ s a -> s{_bgdgApplicationName = a})
 
--- | The deployment groups' names.
+-- | The names of the deployment groups.
 bgdgDeploymentGroupNames :: Lens' BatchGetDeploymentGroups [Text]
 bgdgDeploymentGroupNames = lens _bgdgDeploymentGroupNames (\ s a -> s{_bgdgDeploymentGroupNames = a}) . _Coerce
 
@@ -141,7 +141,7 @@ data BatchGetDeploymentGroupsResponse = BatchGetDeploymentGroupsResponse'
 --
 -- * 'bgdgrsDeploymentGroupsInfo' - Information about the deployment groups.
 --
--- * 'bgdgrsErrorMessage' - Information about errors that may have occurred during the API call.
+-- * 'bgdgrsErrorMessage' - Information about errors that might have occurred during the API call.
 --
 -- * 'bgdgrsResponseStatus' - -- | The response status code.
 batchGetDeploymentGroupsResponse
@@ -159,7 +159,7 @@ batchGetDeploymentGroupsResponse pResponseStatus_ =
 bgdgrsDeploymentGroupsInfo :: Lens' BatchGetDeploymentGroupsResponse [DeploymentGroupInfo]
 bgdgrsDeploymentGroupsInfo = lens _bgdgrsDeploymentGroupsInfo (\ s a -> s{_bgdgrsDeploymentGroupsInfo = a}) . _Default . _Coerce
 
--- | Information about errors that may have occurred during the API call.
+-- | Information about errors that might have occurred during the API call.
 bgdgrsErrorMessage :: Lens' BatchGetDeploymentGroupsResponse (Maybe Text)
 bgdgrsErrorMessage = lens _bgdgrsErrorMessage (\ s a -> s{_bgdgrsErrorMessage = a})
 

@@ -122,20 +122,23 @@ instance FromJSON BundleType where
     parseJSON = parseJSONText "BundleType"
 
 data ComputePlatform
-  = Lambda
+  = Ecs
+  | Lambda
   | Server
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ComputePlatform where
     parser = takeLowerText >>= \case
+        "ecs" -> pure Ecs
         "lambda" -> pure Lambda
         "server" -> pure Server
         e -> fromTextError $ "Failure parsing ComputePlatform from value: '" <> e
-           <> "'. Accepted values: lambda, server"
+           <> "'. Accepted values: ecs, lambda, server"
 
 instance ToText ComputePlatform where
     toText = \case
+        Ecs -> "ECS"
         Lambda -> "Lambda"
         Server -> "Server"
 
@@ -157,7 +160,9 @@ data DeployErrorCode
   | ApplicationMissing
   | AutoScalingConfiguration
   | AutoScalingIAMRolePermissions
+  | AutoscalingValidationError
   | DeploymentGroupMissing
+  | EcsUpdateError
   | ElasticLoadBalancingInvalid
   | ElbInvalidInstance
   | HealthConstraints
@@ -166,8 +171,10 @@ data DeployErrorCode
   | IAMRoleMissing
   | IAMRolePermissions
   | InternalError
+  | InvalidEcsService
   | InvalidLambdaConfiguration
   | InvalidLambdaFunction
+  | InvalidRevision
   | ManualStop
   | MissingBlueGreenDeploymentConfiguration
   | MissingElbInformation
@@ -188,7 +195,9 @@ instance FromText DeployErrorCode where
         "application_missing" -> pure ApplicationMissing
         "auto_scaling_configuration" -> pure AutoScalingConfiguration
         "auto_scaling_iam_role_permissions" -> pure AutoScalingIAMRolePermissions
+        "autoscaling_validation_error" -> pure AutoscalingValidationError
         "deployment_group_missing" -> pure DeploymentGroupMissing
+        "ecs_update_error" -> pure EcsUpdateError
         "elastic_load_balancing_invalid" -> pure ElasticLoadBalancingInvalid
         "elb_invalid_instance" -> pure ElbInvalidInstance
         "health_constraints" -> pure HealthConstraints
@@ -197,8 +206,10 @@ instance FromText DeployErrorCode where
         "iam_role_missing" -> pure IAMRoleMissing
         "iam_role_permissions" -> pure IAMRolePermissions
         "internal_error" -> pure InternalError
+        "invalid_ecs_service" -> pure InvalidEcsService
         "invalid_lambda_configuration" -> pure InvalidLambdaConfiguration
         "invalid_lambda_function" -> pure InvalidLambdaFunction
+        "invalid_revision" -> pure InvalidRevision
         "manual_stop" -> pure ManualStop
         "missing_blue_green_deployment_configuration" -> pure MissingBlueGreenDeploymentConfiguration
         "missing_elb_information" -> pure MissingElbInformation
@@ -210,7 +221,7 @@ instance FromText DeployErrorCode where
         "throttled" -> pure Throttled
         "timeout" -> pure Timeout
         e -> fromTextError $ "Failure parsing DeployErrorCode from value: '" <> e
-           <> "'. Accepted values: agent_issue, alarm_active, application_missing, auto_scaling_configuration, auto_scaling_iam_role_permissions, deployment_group_missing, elastic_load_balancing_invalid, elb_invalid_instance, health_constraints, health_constraints_invalid, hook_execution_failure, iam_role_missing, iam_role_permissions, internal_error, invalid_lambda_configuration, invalid_lambda_function, manual_stop, missing_blue_green_deployment_configuration, missing_elb_information, missing_github_token, no_ec2_subscription, no_instances, over_max_instances, revision_missing, throttled, timeout"
+           <> "'. Accepted values: agent_issue, alarm_active, application_missing, auto_scaling_configuration, auto_scaling_iam_role_permissions, autoscaling_validation_error, deployment_group_missing, ecs_update_error, elastic_load_balancing_invalid, elb_invalid_instance, health_constraints, health_constraints_invalid, hook_execution_failure, iam_role_missing, iam_role_permissions, internal_error, invalid_ecs_service, invalid_lambda_configuration, invalid_lambda_function, invalid_revision, manual_stop, missing_blue_green_deployment_configuration, missing_elb_information, missing_github_token, no_ec2_subscription, no_instances, over_max_instances, revision_missing, throttled, timeout"
 
 instance ToText DeployErrorCode where
     toText = \case
@@ -219,7 +230,9 @@ instance ToText DeployErrorCode where
         ApplicationMissing -> "APPLICATION_MISSING"
         AutoScalingConfiguration -> "AUTO_SCALING_CONFIGURATION"
         AutoScalingIAMRolePermissions -> "AUTO_SCALING_IAM_ROLE_PERMISSIONS"
+        AutoscalingValidationError -> "AUTOSCALING_VALIDATION_ERROR"
         DeploymentGroupMissing -> "DEPLOYMENT_GROUP_MISSING"
+        EcsUpdateError -> "ECS_UPDATE_ERROR"
         ElasticLoadBalancingInvalid -> "ELASTIC_LOAD_BALANCING_INVALID"
         ElbInvalidInstance -> "ELB_INVALID_INSTANCE"
         HealthConstraints -> "HEALTH_CONSTRAINTS"
@@ -228,8 +241,10 @@ instance ToText DeployErrorCode where
         IAMRoleMissing -> "IAM_ROLE_MISSING"
         IAMRolePermissions -> "IAM_ROLE_PERMISSIONS"
         InternalError -> "INTERNAL_ERROR"
+        InvalidEcsService -> "INVALID_ECS_SERVICE"
         InvalidLambdaConfiguration -> "INVALID_LAMBDA_CONFIGURATION"
         InvalidLambdaFunction -> "INVALID_LAMBDA_FUNCTION"
+        InvalidRevision -> "INVALID_REVISION"
         ManualStop -> "MANUAL_STOP"
         MissingBlueGreenDeploymentConfiguration -> "MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION"
         MissingElbInformation -> "MISSING_ELB_INFORMATION"
@@ -385,6 +400,36 @@ instance ToJSON DeploymentStatus where
 instance FromJSON DeploymentStatus where
     parseJSON = parseJSONText "DeploymentStatus"
 
+data DeploymentTargetType
+  = ECSTarget
+  | InstanceTarget
+  | LambdaTarget
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DeploymentTargetType where
+    parser = takeLowerText >>= \case
+        "ecstarget" -> pure ECSTarget
+        "instancetarget" -> pure InstanceTarget
+        "lambdatarget" -> pure LambdaTarget
+        e -> fromTextError $ "Failure parsing DeploymentTargetType from value: '" <> e
+           <> "'. Accepted values: ecstarget, instancetarget, lambdatarget"
+
+instance ToText DeploymentTargetType where
+    toText = \case
+        ECSTarget -> "ECSTarget"
+        InstanceTarget -> "InstanceTarget"
+        LambdaTarget -> "LambdaTarget"
+
+instance Hashable     DeploymentTargetType
+instance NFData       DeploymentTargetType
+instance ToByteString DeploymentTargetType
+instance ToQuery      DeploymentTargetType
+instance ToHeader     DeploymentTargetType
+
+instance FromJSON DeploymentTargetType where
+    parseJSON = parseJSONText "DeploymentTargetType"
+
 data DeploymentType
   = BlueGreen
   | InPlace
@@ -414,6 +459,33 @@ instance ToJSON DeploymentType where
 
 instance FromJSON DeploymentType where
     parseJSON = parseJSONText "DeploymentType"
+
+data DeploymentWaitType
+  = ReadyWait
+  | TerminationWait
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DeploymentWaitType where
+    parser = takeLowerText >>= \case
+        "ready_wait" -> pure ReadyWait
+        "termination_wait" -> pure TerminationWait
+        e -> fromTextError $ "Failure parsing DeploymentWaitType from value: '" <> e
+           <> "'. Accepted values: ready_wait, termination_wait"
+
+instance ToText DeploymentWaitType where
+    toText = \case
+        ReadyWait -> "READY_WAIT"
+        TerminationWait -> "TERMINATION_WAIT"
+
+instance Hashable     DeploymentWaitType
+instance NFData       DeploymentWaitType
+instance ToByteString DeploymentWaitType
+instance ToQuery      DeploymentWaitType
+instance ToHeader     DeploymentWaitType
+
+instance ToJSON DeploymentWaitType where
+    toJSON = toJSONText
 
 data EC2TagFilterType
   = KeyAndValue
@@ -540,81 +612,6 @@ instance ToJSON InstanceAction where
 
 instance FromJSON InstanceAction where
     parseJSON = parseJSONText "InstanceAction"
-
-data InstanceStatus
-  = ISFailed
-  | ISInProgress
-  | ISPending
-  | ISReady
-  | ISSkipped
-  | ISSucceeded
-  | ISUnknown
-  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
-
-
-instance FromText InstanceStatus where
-    parser = takeLowerText >>= \case
-        "failed" -> pure ISFailed
-        "inprogress" -> pure ISInProgress
-        "pending" -> pure ISPending
-        "ready" -> pure ISReady
-        "skipped" -> pure ISSkipped
-        "succeeded" -> pure ISSucceeded
-        "unknown" -> pure ISUnknown
-        e -> fromTextError $ "Failure parsing InstanceStatus from value: '" <> e
-           <> "'. Accepted values: failed, inprogress, pending, ready, skipped, succeeded, unknown"
-
-instance ToText InstanceStatus where
-    toText = \case
-        ISFailed -> "Failed"
-        ISInProgress -> "InProgress"
-        ISPending -> "Pending"
-        ISReady -> "Ready"
-        ISSkipped -> "Skipped"
-        ISSucceeded -> "Succeeded"
-        ISUnknown -> "Unknown"
-
-instance Hashable     InstanceStatus
-instance NFData       InstanceStatus
-instance ToByteString InstanceStatus
-instance ToQuery      InstanceStatus
-instance ToHeader     InstanceStatus
-
-instance ToJSON InstanceStatus where
-    toJSON = toJSONText
-
-instance FromJSON InstanceStatus where
-    parseJSON = parseJSONText "InstanceStatus"
-
-data InstanceType
-  = Blue
-  | Green
-  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
-
-
-instance FromText InstanceType where
-    parser = takeLowerText >>= \case
-        "blue" -> pure Blue
-        "green" -> pure Green
-        e -> fromTextError $ "Failure parsing InstanceType from value: '" <> e
-           <> "'. Accepted values: blue, green"
-
-instance ToText InstanceType where
-    toText = \case
-        Blue -> "Blue"
-        Green -> "Green"
-
-instance Hashable     InstanceType
-instance NFData       InstanceType
-instance ToByteString InstanceType
-instance ToQuery      InstanceType
-instance ToHeader     InstanceType
-
-instance ToJSON InstanceType where
-    toJSON = toJSONText
-
-instance FromJSON InstanceType where
-    parseJSON = parseJSONText "InstanceType"
 
 data LifecycleErrorCode
   = ScriptFailed
@@ -785,7 +782,8 @@ instance ToJSON RegistrationStatus where
     toJSON = toJSONText
 
 data RevisionLocationType
-  = GitHub
+  = AppSpecContent
+  | GitHub
   | S3
   | String
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -793,14 +791,16 @@ data RevisionLocationType
 
 instance FromText RevisionLocationType where
     parser = takeLowerText >>= \case
+        "appspeccontent" -> pure AppSpecContent
         "github" -> pure GitHub
         "s3" -> pure S3
         "string" -> pure String
         e -> fromTextError $ "Failure parsing RevisionLocationType from value: '" <> e
-           <> "'. Accepted values: github, s3, string"
+           <> "'. Accepted values: appspeccontent, github, s3, string"
 
 instance ToText RevisionLocationType where
     toText = \case
+        AppSpecContent -> "AppSpecContent"
         GitHub -> "GitHub"
         S3 -> "S3"
         String -> "String"
@@ -903,6 +903,102 @@ instance ToJSON TagFilterType where
 
 instance FromJSON TagFilterType where
     parseJSON = parseJSONText "TagFilterType"
+
+data TargetFilterName
+  = ServerInstanceLabel
+  | TargetStatus
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TargetFilterName where
+    parser = takeLowerText >>= \case
+        "serverinstancelabel" -> pure ServerInstanceLabel
+        "targetstatus" -> pure TargetStatus
+        e -> fromTextError $ "Failure parsing TargetFilterName from value: '" <> e
+           <> "'. Accepted values: serverinstancelabel, targetstatus"
+
+instance ToText TargetFilterName where
+    toText = \case
+        ServerInstanceLabel -> "ServerInstanceLabel"
+        TargetStatus -> "TargetStatus"
+
+instance Hashable     TargetFilterName
+instance NFData       TargetFilterName
+instance ToByteString TargetFilterName
+instance ToQuery      TargetFilterName
+instance ToHeader     TargetFilterName
+
+instance ToJSON TargetFilterName where
+    toJSON = toJSONText
+
+data TargetLabel
+  = TLBlue
+  | TLGreen
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TargetLabel where
+    parser = takeLowerText >>= \case
+        "blue" -> pure TLBlue
+        "green" -> pure TLGreen
+        e -> fromTextError $ "Failure parsing TargetLabel from value: '" <> e
+           <> "'. Accepted values: blue, green"
+
+instance ToText TargetLabel where
+    toText = \case
+        TLBlue -> "Blue"
+        TLGreen -> "Green"
+
+instance Hashable     TargetLabel
+instance NFData       TargetLabel
+instance ToByteString TargetLabel
+instance ToQuery      TargetLabel
+instance ToHeader     TargetLabel
+
+instance FromJSON TargetLabel where
+    parseJSON = parseJSONText "TargetLabel"
+
+data TargetStatus
+  = TSFailed
+  | TSInProgress
+  | TSPending
+  | TSReady
+  | TSSkipped
+  | TSSucceeded
+  | TSUnknown
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TargetStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure TSFailed
+        "inprogress" -> pure TSInProgress
+        "pending" -> pure TSPending
+        "ready" -> pure TSReady
+        "skipped" -> pure TSSkipped
+        "succeeded" -> pure TSSucceeded
+        "unknown" -> pure TSUnknown
+        e -> fromTextError $ "Failure parsing TargetStatus from value: '" <> e
+           <> "'. Accepted values: failed, inprogress, pending, ready, skipped, succeeded, unknown"
+
+instance ToText TargetStatus where
+    toText = \case
+        TSFailed -> "Failed"
+        TSInProgress -> "InProgress"
+        TSPending -> "Pending"
+        TSReady -> "Ready"
+        TSSkipped -> "Skipped"
+        TSSucceeded -> "Succeeded"
+        TSUnknown -> "Unknown"
+
+instance Hashable     TargetStatus
+instance NFData       TargetStatus
+instance ToByteString TargetStatus
+instance ToQuery      TargetStatus
+instance ToHeader     TargetStatus
+
+instance FromJSON TargetStatus where
+    parseJSON = parseJSONText "TargetStatus"
 
 data TrafficRoutingType
   = AllAtOnce

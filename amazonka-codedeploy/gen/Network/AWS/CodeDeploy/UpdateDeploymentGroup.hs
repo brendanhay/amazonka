@@ -33,6 +33,7 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     , udgOnPremisesTagSet
     , udgNewDeploymentGroupName
     , udgEc2TagFilters
+    , udgEcsServices
     , udgBlueGreenDeploymentConfiguration
     , udgLoadBalancerInfo
     , udgOnPremisesInstanceTagFilters
@@ -71,6 +72,7 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
   , _udgOnPremisesTagSet :: !(Maybe OnPremisesTagSet)
   , _udgNewDeploymentGroupName :: !(Maybe Text)
   , _udgEc2TagFilters :: !(Maybe [EC2TagFilter])
+  , _udgEcsServices :: !(Maybe [ECSService])
   , _udgBlueGreenDeploymentConfiguration :: !(Maybe BlueGreenDeploymentConfiguration)
   , _udgLoadBalancerInfo :: !(Maybe LoadBalancerInfo)
   , _udgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
@@ -90,15 +92,17 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
 --
 -- * 'udgServiceRoleARN' - A replacement ARN for the service role, if you want to change it.
 --
--- * 'udgEc2TagSet' - Information about groups of tags applied to on-premises instances. The deployment group will include only EC2 instances identified by all the tag groups.
+-- * 'udgEc2TagSet' - Information about groups of tags applied to on-premises instances. The deployment group includes only EC2 instances identified by all the tag groups.
 --
 -- * 'udgDeploymentConfigName' - The replacement deployment configuration name to use, if you want to change it.
 --
--- * 'udgOnPremisesTagSet' - Information about an on-premises instance tag set. The deployment group will include only on-premises instances identified by all the tag groups.
+-- * 'udgOnPremisesTagSet' - Information about an on-premises instance tag set. The deployment group includes only on-premises instances identified by all the tag groups.
 --
 -- * 'udgNewDeploymentGroupName' - The new name of the deployment group, if you want to change it.
 --
 -- * 'udgEc2TagFilters' - The replacement set of Amazon EC2 tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names.
+--
+-- * 'udgEcsServices' - The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format @<clustername>:<servicename>@ .
 --
 -- * 'udgBlueGreenDeploymentConfiguration' - Information about blue/green deployment options for a deployment group.
 --
@@ -108,7 +112,7 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
 --
 -- * 'udgAlarmConfiguration' - Information to add or change about Amazon CloudWatch alarms when the deployment group is updated.
 --
--- * 'udgTriggerConfigurations' - Information about triggers to change when the deployment group is updated. For examples, see <http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html Modify Triggers in an AWS CodeDeploy Deployment Group> in the AWS CodeDeploy User Guide.
+-- * 'udgTriggerConfigurations' - Information about triggers to change when the deployment group is updated. For examples, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html Modify Triggers in an AWS CodeDeploy Deployment Group> in the AWS CodeDeploy User Guide.
 --
 -- * 'udgAutoScalingGroups' - The replacement list of Auto Scaling groups to be included in the deployment group, if you want to change them. To keep the Auto Scaling groups, enter their names. To remove Auto Scaling groups, do not enter any Auto Scaling group names.
 --
@@ -116,7 +120,7 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
 --
 -- * 'udgAutoRollbackConfiguration' - Information for an automatic rollback configuration that is added or changed when a deployment group is updated.
 --
--- * 'udgApplicationName' - The application name corresponding to the deployment group to update.
+-- * 'udgApplicationName' - The application name that corresponds to the deployment group to update.
 --
 -- * 'udgCurrentDeploymentGroupName' - The current name of the deployment group.
 updateDeploymentGroup
@@ -131,6 +135,7 @@ updateDeploymentGroup pApplicationName_ pCurrentDeploymentGroupName_ =
     , _udgOnPremisesTagSet = Nothing
     , _udgNewDeploymentGroupName = Nothing
     , _udgEc2TagFilters = Nothing
+    , _udgEcsServices = Nothing
     , _udgBlueGreenDeploymentConfiguration = Nothing
     , _udgLoadBalancerInfo = Nothing
     , _udgOnPremisesInstanceTagFilters = Nothing
@@ -148,7 +153,7 @@ updateDeploymentGroup pApplicationName_ pCurrentDeploymentGroupName_ =
 udgServiceRoleARN :: Lens' UpdateDeploymentGroup (Maybe Text)
 udgServiceRoleARN = lens _udgServiceRoleARN (\ s a -> s{_udgServiceRoleARN = a})
 
--- | Information about groups of tags applied to on-premises instances. The deployment group will include only EC2 instances identified by all the tag groups.
+-- | Information about groups of tags applied to on-premises instances. The deployment group includes only EC2 instances identified by all the tag groups.
 udgEc2TagSet :: Lens' UpdateDeploymentGroup (Maybe EC2TagSet)
 udgEc2TagSet = lens _udgEc2TagSet (\ s a -> s{_udgEc2TagSet = a})
 
@@ -156,7 +161,7 @@ udgEc2TagSet = lens _udgEc2TagSet (\ s a -> s{_udgEc2TagSet = a})
 udgDeploymentConfigName :: Lens' UpdateDeploymentGroup (Maybe Text)
 udgDeploymentConfigName = lens _udgDeploymentConfigName (\ s a -> s{_udgDeploymentConfigName = a})
 
--- | Information about an on-premises instance tag set. The deployment group will include only on-premises instances identified by all the tag groups.
+-- | Information about an on-premises instance tag set. The deployment group includes only on-premises instances identified by all the tag groups.
 udgOnPremisesTagSet :: Lens' UpdateDeploymentGroup (Maybe OnPremisesTagSet)
 udgOnPremisesTagSet = lens _udgOnPremisesTagSet (\ s a -> s{_udgOnPremisesTagSet = a})
 
@@ -167,6 +172,10 @@ udgNewDeploymentGroupName = lens _udgNewDeploymentGroupName (\ s a -> s{_udgNewD
 -- | The replacement set of Amazon EC2 tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names.
 udgEc2TagFilters :: Lens' UpdateDeploymentGroup [EC2TagFilter]
 udgEc2TagFilters = lens _udgEc2TagFilters (\ s a -> s{_udgEc2TagFilters = a}) . _Default . _Coerce
+
+-- | The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format @<clustername>:<servicename>@ .
+udgEcsServices :: Lens' UpdateDeploymentGroup [ECSService]
+udgEcsServices = lens _udgEcsServices (\ s a -> s{_udgEcsServices = a}) . _Default . _Coerce
 
 -- | Information about blue/green deployment options for a deployment group.
 udgBlueGreenDeploymentConfiguration :: Lens' UpdateDeploymentGroup (Maybe BlueGreenDeploymentConfiguration)
@@ -184,7 +193,7 @@ udgOnPremisesInstanceTagFilters = lens _udgOnPremisesInstanceTagFilters (\ s a -
 udgAlarmConfiguration :: Lens' UpdateDeploymentGroup (Maybe AlarmConfiguration)
 udgAlarmConfiguration = lens _udgAlarmConfiguration (\ s a -> s{_udgAlarmConfiguration = a})
 
--- | Information about triggers to change when the deployment group is updated. For examples, see <http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html Modify Triggers in an AWS CodeDeploy Deployment Group> in the AWS CodeDeploy User Guide.
+-- | Information about triggers to change when the deployment group is updated. For examples, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html Modify Triggers in an AWS CodeDeploy Deployment Group> in the AWS CodeDeploy User Guide.
 udgTriggerConfigurations :: Lens' UpdateDeploymentGroup [TriggerConfig]
 udgTriggerConfigurations = lens _udgTriggerConfigurations (\ s a -> s{_udgTriggerConfigurations = a}) . _Default . _Coerce
 
@@ -200,7 +209,7 @@ udgDeploymentStyle = lens _udgDeploymentStyle (\ s a -> s{_udgDeploymentStyle = 
 udgAutoRollbackConfiguration :: Lens' UpdateDeploymentGroup (Maybe AutoRollbackConfiguration)
 udgAutoRollbackConfiguration = lens _udgAutoRollbackConfiguration (\ s a -> s{_udgAutoRollbackConfiguration = a})
 
--- | The application name corresponding to the deployment group to update.
+-- | The application name that corresponds to the deployment group to update.
 udgApplicationName :: Lens' UpdateDeploymentGroup Text
 udgApplicationName = lens _udgApplicationName (\ s a -> s{_udgApplicationName = a})
 
@@ -245,6 +254,7 @@ instance ToJSON UpdateDeploymentGroup where
                   ("newDeploymentGroupName" .=) <$>
                     _udgNewDeploymentGroupName,
                   ("ec2TagFilters" .=) <$> _udgEc2TagFilters,
+                  ("ecsServices" .=) <$> _udgEcsServices,
                   ("blueGreenDeploymentConfiguration" .=) <$>
                     _udgBlueGreenDeploymentConfiguration,
                   ("loadBalancerInfo" .=) <$> _udgLoadBalancerInfo,

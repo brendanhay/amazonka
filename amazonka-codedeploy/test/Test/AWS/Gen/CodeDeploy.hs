@@ -88,29 +88,26 @@ import Test.Tasty
 --         , requestDeleteGitHubAccountToken $
 --             deleteGitHubAccountToken
 --
---         , requestGetDeploymentInstance $
---             getDeploymentInstance
---
 --         , requestDeregisterOnPremisesInstance $
 --             deregisterOnPremisesInstance
 --
 --         , requestPutLifecycleEventHookExecutionStatus $
 --             putLifecycleEventHookExecutionStatus
 --
+--         , requestGetDeploymentTarget $
+--             getDeploymentTarget
+--
 --         , requestCreateApplication $
 --             createApplication
+--
+--         , requestBatchGetDeploymentTargets $
+--             batchGetDeploymentTargets
 --
 --         , requestStopDeployment $
 --             stopDeployment
 --
 --         , requestListGitHubAccountTokenNames $
 --             listGitHubAccountTokenNames
---
---         , requestBatchGetDeploymentInstances $
---             batchGetDeploymentInstances
---
---         , requestSkipWaitTimeForInstanceTermination $
---             skipWaitTimeForInstanceTermination
 --
 --         , requestGetApplication $
 --             getApplication
@@ -145,8 +142,8 @@ import Test.Tasty
 --         , requestAddTagsToOnPremisesInstances $
 --             addTagsToOnPremisesInstances
 --
---         , requestListDeploymentInstances $
---             listDeploymentInstances
+--         , requestListDeploymentTargets $
+--             listDeploymentTargets
 --
 --           ]
 
@@ -211,29 +208,26 @@ import Test.Tasty
 --         , responseDeleteGitHubAccountToken $
 --             deleteGitHubAccountTokenResponse
 --
---         , responseGetDeploymentInstance $
---             getDeploymentInstanceResponse
---
 --         , responseDeregisterOnPremisesInstance $
 --             deregisterOnPremisesInstanceResponse
 --
 --         , responsePutLifecycleEventHookExecutionStatus $
 --             putLifecycleEventHookExecutionStatusResponse
 --
+--         , responseGetDeploymentTarget $
+--             getDeploymentTargetResponse
+--
 --         , responseCreateApplication $
 --             createApplicationResponse
+--
+--         , responseBatchGetDeploymentTargets $
+--             batchGetDeploymentTargetsResponse
 --
 --         , responseStopDeployment $
 --             stopDeploymentResponse
 --
 --         , responseListGitHubAccountTokenNames $
 --             listGitHubAccountTokenNamesResponse
---
---         , responseBatchGetDeploymentInstances $
---             batchGetDeploymentInstancesResponse
---
---         , responseSkipWaitTimeForInstanceTermination $
---             skipWaitTimeForInstanceTerminationResponse
 --
 --         , responseGetApplication $
 --             getApplicationResponse
@@ -268,8 +262,8 @@ import Test.Tasty
 --         , responseAddTagsToOnPremisesInstances $
 --             addTagsToOnPremisesInstancesResponse
 --
---         , responseListDeploymentInstances $
---             listDeploymentInstancesResponse
+--         , responseListDeploymentTargets $
+--             listDeploymentTargetsResponse
 --
 --           ]
 --     ]
@@ -376,11 +370,6 @@ requestDeleteGitHubAccountToken = req
     "DeleteGitHubAccountToken"
     "fixture/DeleteGitHubAccountToken.yaml"
 
-requestGetDeploymentInstance :: GetDeploymentInstance -> TestTree
-requestGetDeploymentInstance = req
-    "GetDeploymentInstance"
-    "fixture/GetDeploymentInstance.yaml"
-
 requestDeregisterOnPremisesInstance :: DeregisterOnPremisesInstance -> TestTree
 requestDeregisterOnPremisesInstance = req
     "DeregisterOnPremisesInstance"
@@ -391,10 +380,20 @@ requestPutLifecycleEventHookExecutionStatus = req
     "PutLifecycleEventHookExecutionStatus"
     "fixture/PutLifecycleEventHookExecutionStatus.yaml"
 
+requestGetDeploymentTarget :: GetDeploymentTarget -> TestTree
+requestGetDeploymentTarget = req
+    "GetDeploymentTarget"
+    "fixture/GetDeploymentTarget.yaml"
+
 requestCreateApplication :: CreateApplication -> TestTree
 requestCreateApplication = req
     "CreateApplication"
     "fixture/CreateApplication.yaml"
+
+requestBatchGetDeploymentTargets :: BatchGetDeploymentTargets -> TestTree
+requestBatchGetDeploymentTargets = req
+    "BatchGetDeploymentTargets"
+    "fixture/BatchGetDeploymentTargets.yaml"
 
 requestStopDeployment :: StopDeployment -> TestTree
 requestStopDeployment = req
@@ -405,16 +404,6 @@ requestListGitHubAccountTokenNames :: ListGitHubAccountTokenNames -> TestTree
 requestListGitHubAccountTokenNames = req
     "ListGitHubAccountTokenNames"
     "fixture/ListGitHubAccountTokenNames.yaml"
-
-requestBatchGetDeploymentInstances :: BatchGetDeploymentInstances -> TestTree
-requestBatchGetDeploymentInstances = req
-    "BatchGetDeploymentInstances"
-    "fixture/BatchGetDeploymentInstances.yaml"
-
-requestSkipWaitTimeForInstanceTermination :: SkipWaitTimeForInstanceTermination -> TestTree
-requestSkipWaitTimeForInstanceTermination = req
-    "SkipWaitTimeForInstanceTermination"
-    "fixture/SkipWaitTimeForInstanceTermination.yaml"
 
 requestGetApplication :: GetApplication -> TestTree
 requestGetApplication = req
@@ -471,10 +460,10 @@ requestAddTagsToOnPremisesInstances = req
     "AddTagsToOnPremisesInstances"
     "fixture/AddTagsToOnPremisesInstances.yaml"
 
-requestListDeploymentInstances :: ListDeploymentInstances -> TestTree
-requestListDeploymentInstances = req
-    "ListDeploymentInstances"
-    "fixture/ListDeploymentInstances.yaml"
+requestListDeploymentTargets :: ListDeploymentTargets -> TestTree
+requestListDeploymentTargets = req
+    "ListDeploymentTargets"
+    "fixture/ListDeploymentTargets.yaml"
 
 -- Responses
 
@@ -618,13 +607,6 @@ responseDeleteGitHubAccountToken = res
     codeDeploy
     (Proxy :: Proxy DeleteGitHubAccountToken)
 
-responseGetDeploymentInstance :: GetDeploymentInstanceResponse -> TestTree
-responseGetDeploymentInstance = res
-    "GetDeploymentInstanceResponse"
-    "fixture/GetDeploymentInstanceResponse.proto"
-    codeDeploy
-    (Proxy :: Proxy GetDeploymentInstance)
-
 responseDeregisterOnPremisesInstance :: DeregisterOnPremisesInstanceResponse -> TestTree
 responseDeregisterOnPremisesInstance = res
     "DeregisterOnPremisesInstanceResponse"
@@ -639,12 +621,26 @@ responsePutLifecycleEventHookExecutionStatus = res
     codeDeploy
     (Proxy :: Proxy PutLifecycleEventHookExecutionStatus)
 
+responseGetDeploymentTarget :: GetDeploymentTargetResponse -> TestTree
+responseGetDeploymentTarget = res
+    "GetDeploymentTargetResponse"
+    "fixture/GetDeploymentTargetResponse.proto"
+    codeDeploy
+    (Proxy :: Proxy GetDeploymentTarget)
+
 responseCreateApplication :: CreateApplicationResponse -> TestTree
 responseCreateApplication = res
     "CreateApplicationResponse"
     "fixture/CreateApplicationResponse.proto"
     codeDeploy
     (Proxy :: Proxy CreateApplication)
+
+responseBatchGetDeploymentTargets :: BatchGetDeploymentTargetsResponse -> TestTree
+responseBatchGetDeploymentTargets = res
+    "BatchGetDeploymentTargetsResponse"
+    "fixture/BatchGetDeploymentTargetsResponse.proto"
+    codeDeploy
+    (Proxy :: Proxy BatchGetDeploymentTargets)
 
 responseStopDeployment :: StopDeploymentResponse -> TestTree
 responseStopDeployment = res
@@ -659,20 +655,6 @@ responseListGitHubAccountTokenNames = res
     "fixture/ListGitHubAccountTokenNamesResponse.proto"
     codeDeploy
     (Proxy :: Proxy ListGitHubAccountTokenNames)
-
-responseBatchGetDeploymentInstances :: BatchGetDeploymentInstancesResponse -> TestTree
-responseBatchGetDeploymentInstances = res
-    "BatchGetDeploymentInstancesResponse"
-    "fixture/BatchGetDeploymentInstancesResponse.proto"
-    codeDeploy
-    (Proxy :: Proxy BatchGetDeploymentInstances)
-
-responseSkipWaitTimeForInstanceTermination :: SkipWaitTimeForInstanceTerminationResponse -> TestTree
-responseSkipWaitTimeForInstanceTermination = res
-    "SkipWaitTimeForInstanceTerminationResponse"
-    "fixture/SkipWaitTimeForInstanceTerminationResponse.proto"
-    codeDeploy
-    (Proxy :: Proxy SkipWaitTimeForInstanceTermination)
 
 responseGetApplication :: GetApplicationResponse -> TestTree
 responseGetApplication = res
@@ -751,9 +733,9 @@ responseAddTagsToOnPremisesInstances = res
     codeDeploy
     (Proxy :: Proxy AddTagsToOnPremisesInstances)
 
-responseListDeploymentInstances :: ListDeploymentInstancesResponse -> TestTree
-responseListDeploymentInstances = res
-    "ListDeploymentInstancesResponse"
-    "fixture/ListDeploymentInstancesResponse.proto"
+responseListDeploymentTargets :: ListDeploymentTargetsResponse -> TestTree
+responseListDeploymentTargets = res
+    "ListDeploymentTargetsResponse"
+    "fixture/ListDeploymentTargetsResponse.proto"
     codeDeploy
-    (Proxy :: Proxy ListDeploymentInstances)
+    (Proxy :: Proxy ListDeploymentTargets)

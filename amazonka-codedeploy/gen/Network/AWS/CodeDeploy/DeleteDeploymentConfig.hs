@@ -55,7 +55,7 @@ newtype DeleteDeploymentConfig = DeleteDeploymentConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcDeploymentConfigName' - The name of a deployment configuration associated with the applicable IAM user or AWS account.
+-- * 'ddcDeploymentConfigName' - The name of a deployment configuration associated with the IAM user or AWS account.
 deleteDeploymentConfig
     :: Text -- ^ 'ddcDeploymentConfigName'
     -> DeleteDeploymentConfig
@@ -63,7 +63,7 @@ deleteDeploymentConfig pDeploymentConfigName_ =
   DeleteDeploymentConfig' {_ddcDeploymentConfigName = pDeploymentConfigName_}
 
 
--- | The name of a deployment configuration associated with the applicable IAM user or AWS account.
+-- | The name of a deployment configuration associated with the IAM user or AWS account.
 ddcDeploymentConfigName :: Lens' DeleteDeploymentConfig Text
 ddcDeploymentConfigName = lens _ddcDeploymentConfigName (\ s a -> s{_ddcDeploymentConfigName = a})
 

@@ -21,8 +21,10 @@
 -- Gets a list of names for one or more on-premises instances.
 --
 --
--- Unless otherwise specified, both registered and deregistered on-premises instance names will be listed. To list only registered or deregistered on-premises instance names, use the registration status parameter.
+-- Unless otherwise specified, both registered and deregistered on-premises instance names are listed. To list only registered or deregistered on-premises instance names, use the registration status parameter.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CodeDeploy.ListOnPremisesInstances
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.CodeDeploy.ListOnPremisesInstances
 import Network.AWS.CodeDeploy.Types
 import Network.AWS.CodeDeploy.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -65,7 +68,7 @@ data ListOnPremisesInstances = ListOnPremisesInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lopiTagFilters' - The on-premises instance tags that will be used to restrict the corresponding on-premises instance names returned.
+-- * 'lopiTagFilters' - The on-premises instance tags that are used to restrict the on-premises instance names returned.
 --
 -- * 'lopiNextToken' - An identifier returned from the previous list on-premises instances call. It can be used to return the next set of on-premises instances in the list.
 --
@@ -80,7 +83,7 @@ listOnPremisesInstances =
     }
 
 
--- | The on-premises instance tags that will be used to restrict the corresponding on-premises instance names returned.
+-- | The on-premises instance tags that are used to restrict the on-premises instance names returned.
 lopiTagFilters :: Lens' ListOnPremisesInstances [TagFilter]
 lopiTagFilters = lens _lopiTagFilters (\ s a -> s{_lopiTagFilters = a}) . _Default . _Coerce
 
@@ -91,6 +94,13 @@ lopiNextToken = lens _lopiNextToken (\ s a -> s{_lopiNextToken = a})
 -- | The registration status of the on-premises instances:     * Deregistered: Include deregistered on-premises instances in the resulting list.     * Registered: Include registered on-premises instances in the resulting list.
 lopiRegistrationStatus :: Lens' ListOnPremisesInstances (Maybe RegistrationStatus)
 lopiRegistrationStatus = lens _lopiRegistrationStatus (\ s a -> s{_lopiRegistrationStatus = a})
+
+instance AWSPager ListOnPremisesInstances where
+        page rq rs
+          | stop (rs ^. lopirsNextToken) = Nothing
+          | stop (rs ^. lopirsInstanceNames) = Nothing
+          | otherwise =
+            Just $ rq & lopiNextToken .~ rs ^. lopirsNextToken
 
 instance AWSRequest ListOnPremisesInstances where
         type Rs ListOnPremisesInstances =
@@ -133,7 +143,7 @@ instance ToPath ListOnPremisesInstances where
 instance ToQuery ListOnPremisesInstances where
         toQuery = const mempty
 
--- | Represents the output of list on-premises instances operation.
+-- | Represents the output of the list on-premises instances operation.
 --
 --
 --

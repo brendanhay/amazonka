@@ -60,9 +60,9 @@ data DeleteDeploymentGroup = DeleteDeploymentGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddgApplicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
+-- * 'ddgApplicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
 --
--- * 'ddgDeploymentGroupName' - The name of an existing deployment group for the specified application.
+-- * 'ddgDeploymentGroupName' - The name of a deployment group for the specified application.
 deleteDeploymentGroup
     :: Text -- ^ 'ddgApplicationName'
     -> Text -- ^ 'ddgDeploymentGroupName'
@@ -74,11 +74,11 @@ deleteDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
     }
 
 
--- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
+-- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
 ddgApplicationName :: Lens' DeleteDeploymentGroup Text
 ddgApplicationName = lens _ddgApplicationName (\ s a -> s{_ddgApplicationName = a})
 
--- | The name of an existing deployment group for the specified application.
+-- | The name of a deployment group for the specified application.
 ddgDeploymentGroupName :: Lens' DeleteDeploymentGroup Text
 ddgDeploymentGroupName = lens _ddgDeploymentGroupName (\ s a -> s{_ddgDeploymentGroupName = a})
 

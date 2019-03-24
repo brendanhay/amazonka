@@ -58,14 +58,14 @@ newtype GetDeployment = GetDeployment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdDeploymentId' - A deployment ID associated with the applicable IAM user or AWS account.
+-- * 'gdDeploymentId' - The unique ID of a deployment associated with the IAM user or AWS account.
 getDeployment
     :: Text -- ^ 'gdDeploymentId'
     -> GetDeployment
 getDeployment pDeploymentId_ = GetDeployment' {_gdDeploymentId = pDeploymentId_}
 
 
--- | A deployment ID associated with the applicable IAM user or AWS account.
+-- | The unique ID of a deployment associated with the IAM user or AWS account.
 gdDeploymentId :: Lens' GetDeployment Text
 gdDeploymentId = lens _gdDeploymentId (\ s a -> s{_gdDeploymentId = a})
 

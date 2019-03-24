@@ -58,7 +58,7 @@ newtype GetDeploymentConfig = GetDeploymentConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdcDeploymentConfigName' - The name of a deployment configuration associated with the applicable IAM user or AWS account.
+-- * 'gdcDeploymentConfigName' - The name of a deployment configuration associated with the IAM user or AWS account.
 getDeploymentConfig
     :: Text -- ^ 'gdcDeploymentConfigName'
     -> GetDeploymentConfig
@@ -66,7 +66,7 @@ getDeploymentConfig pDeploymentConfigName_ =
   GetDeploymentConfig' {_gdcDeploymentConfigName = pDeploymentConfigName_}
 
 
--- | The name of a deployment configuration associated with the applicable IAM user or AWS account.
+-- | The name of a deployment configuration associated with the IAM user or AWS account.
 gdcDeploymentConfigName :: Lens' GetDeploymentConfig Text
 gdcDeploymentConfigName = lens _gdcDeploymentConfigName (\ s a -> s{_gdcDeploymentConfigName = a})
 

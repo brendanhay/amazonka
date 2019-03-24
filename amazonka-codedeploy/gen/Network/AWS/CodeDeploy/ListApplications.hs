@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the applications registered with the applicable IAM user or AWS account.
+-- Lists the applications registered with the IAM user or AWS account.
 --
 --
 --
@@ -131,7 +131,7 @@ data ListApplicationsResponse = ListApplicationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'larsNextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list applications call to return the next set of applications, will also be returned. in the list.
+-- * 'larsNextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list applications call to return the next set of applications in the list.
 --
 -- * 'larsApplications' - A list of application names.
 --
@@ -147,7 +147,7 @@ listApplicationsResponse pResponseStatus_ =
     }
 
 
--- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list applications call to return the next set of applications, will also be returned. in the list.
+-- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list applications call to return the next set of applications in the list.
 larsNextToken :: Lens' ListApplicationsResponse (Maybe Text)
 larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a})
 

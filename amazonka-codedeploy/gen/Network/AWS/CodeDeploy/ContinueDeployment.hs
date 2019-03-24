@@ -28,6 +28,7 @@ module Network.AWS.CodeDeploy.ContinueDeployment
     , ContinueDeployment
     -- * Request Lenses
     , cdDeploymentId
+    , cdDeploymentWaitType
 
     -- * Destructuring the Response
     , continueDeploymentResponse
@@ -42,8 +43,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'continueDeployment' smart constructor.
-newtype ContinueDeployment = ContinueDeployment'
-  { _cdDeploymentId :: Maybe Text
+data ContinueDeployment = ContinueDeployment'
+  { _cdDeploymentId       :: !(Maybe Text)
+  , _cdDeploymentWaitType :: !(Maybe DeploymentWaitType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -51,15 +53,23 @@ newtype ContinueDeployment = ContinueDeployment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdDeploymentId' - The deployment ID of the blue/green deployment for which you want to start rerouting traffic to the replacement environment.
+-- * 'cdDeploymentId' - The unique ID of a blue/green deployment for which you want to start rerouting traffic to the replacement environment.
+--
+-- * 'cdDeploymentWaitType' - The status of the deployment's waiting period. READY_WAIT indicates the deployment is ready to start shifting traffic. TERMINATION_WAIT indicates the traffic is shifted, but the original target is not terminated.
 continueDeployment
     :: ContinueDeployment
-continueDeployment = ContinueDeployment' {_cdDeploymentId = Nothing}
+continueDeployment =
+  ContinueDeployment'
+    {_cdDeploymentId = Nothing, _cdDeploymentWaitType = Nothing}
 
 
--- | The deployment ID of the blue/green deployment for which you want to start rerouting traffic to the replacement environment.
+-- | The unique ID of a blue/green deployment for which you want to start rerouting traffic to the replacement environment.
 cdDeploymentId :: Lens' ContinueDeployment (Maybe Text)
 cdDeploymentId = lens _cdDeploymentId (\ s a -> s{_cdDeploymentId = a})
+
+-- | The status of the deployment's waiting period. READY_WAIT indicates the deployment is ready to start shifting traffic. TERMINATION_WAIT indicates the traffic is shifted, but the original target is not terminated.
+cdDeploymentWaitType :: Lens' ContinueDeployment (Maybe DeploymentWaitType)
+cdDeploymentWaitType = lens _cdDeploymentWaitType (\ s a -> s{_cdDeploymentWaitType = a})
 
 instance AWSRequest ContinueDeployment where
         type Rs ContinueDeployment =
@@ -84,7 +94,9 @@ instance ToHeaders ContinueDeployment where
 instance ToJSON ContinueDeployment where
         toJSON ContinueDeployment'{..}
           = object
-              (catMaybes [("deploymentId" .=) <$> _cdDeploymentId])
+              (catMaybes
+                 [("deploymentId" .=) <$> _cdDeploymentId,
+                  ("deploymentWaitType" .=) <$> _cdDeploymentWaitType])
 
 instance ToPath ContinueDeployment where
         toPath = const "/"

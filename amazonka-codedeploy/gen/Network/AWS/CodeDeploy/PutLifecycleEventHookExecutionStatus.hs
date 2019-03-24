@@ -60,7 +60,7 @@ data PutLifecycleEventHookExecutionStatus = PutLifecycleEventHookExecutionStatus
 --
 -- * 'plehesStatus' - The result of a Lambda function that validates a deployment lifecycle event (@Succeeded@ or @Failed@ ).
 --
--- * 'plehesDeploymentId' - The ID of the deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
+-- * 'plehesDeploymentId' - The unique ID of a deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
 --
 -- * 'plehesLifecycleEventHookExecutionId' - The execution ID of a deployment's lifecycle hook. A deployment lifecycle hook is specified in the @hooks@ section of the AppSpec file.
 putLifecycleEventHookExecutionStatus
@@ -77,7 +77,7 @@ putLifecycleEventHookExecutionStatus =
 plehesStatus :: Lens' PutLifecycleEventHookExecutionStatus (Maybe LifecycleEventStatus)
 plehesStatus = lens _plehesStatus (\ s a -> s{_plehesStatus = a})
 
--- | The ID of the deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
+-- | The unique ID of a deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
 plehesDeploymentId :: Lens' PutLifecycleEventHookExecutionStatus (Maybe Text)
 plehesDeploymentId = lens _plehesDeploymentId (\ s a -> s{_plehesDeploymentId = a})
 

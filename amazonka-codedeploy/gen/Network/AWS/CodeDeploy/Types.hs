@@ -45,6 +45,8 @@ module Network.AWS.CodeDeploy.Types
     , _InstanceLimitExceededException
     , _InvalidLifecycleEventHookExecutionIdException
     , _InvalidDeploymentStyleException
+    , _InvalidTargetFilterNameException
+    , _DeploymentTargetListSizeExceededException
     , _InvalidDeployedStateFilterException
     , _InvalidAutoScalingGroupException
     , _InvalidApplicationNameException
@@ -58,8 +60,10 @@ module Network.AWS.CodeDeploy.Types
     , _InvalidLifecycleEventHookExecutionStatusException
     , _AlarmsLimitExceededException
     , _OperationNotSupportedException
+    , _DeploymentTargetDoesNotExistException
     , _InvalidTagFilterException
     , _InvalidTriggerConfigException
+    , _InvalidDeploymentWaitTypeException
     , _InvalidIgnoreApplicationStopFailuresValueException
     , _InvalidUpdateOutdatedInstancesOnlyValueException
     , _TagRequiredException
@@ -70,6 +74,7 @@ module Network.AWS.CodeDeploy.Types
     , _DeploymentGroupAlreadyExistsException
     , _InvalidSortByException
     , _RevisionDoesNotExistException
+    , _InvalidTargetException
     , _DeploymentGroupLimitExceededException
     , _DeploymentGroupDoesNotExistException
     , _ThrottlingException
@@ -78,12 +83,14 @@ module Network.AWS.CodeDeploy.Types
     , _DeploymentIdRequiredException
     , _InvalidInstanceIdException
     , _DeploymentIsNotInReadyStateException
+    , _InvalidTargetGroupPairException
     , _InvalidNextTokenException
     , _InstanceIdRequiredException
     , _InvalidDeploymentIdException
     , _InvalidSortOrderException
     , _InvalidAutoRollbackConfigException
     , _DeploymentAlreadyCompletedException
+    , _ECSServiceMappingLimitExceededException
     , _DeploymentDoesNotExistException
     , _BatchLimitExceededException
     , _InvalidRevisionException
@@ -102,16 +109,20 @@ module Network.AWS.CodeDeploy.Types
     , _InstanceNotRegisteredException
     , _ApplicationAlreadyExistsException
     , _InvalidInstanceStatusException
+    , _InvalidDeploymentTargetIdException
     , _TagLimitExceededException
     , _ApplicationLimitExceededException
     , _TagSetListLimitExceededException
     , _InvalidOperationException
+    , _DeploymentTargetIdRequiredException
     , _GitHubAccountTokenNameRequiredException
+    , _InvalidECSServiceException
     , _InvalidDeploymentInstanceTypeException
     , _IAMARNRequiredException
     , _InvalidGitHubAccountTokenNameException
     , _LifecycleEventAlreadyCompletedException
     , _InvalidKeyPrefixFilterException
+    , _DeploymentAlreadyStartedException
 
     -- * ApplicationRevisionSortBy
     , ApplicationRevisionSortBy (..)
@@ -140,8 +151,14 @@ module Network.AWS.CodeDeploy.Types
     -- * DeploymentStatus
     , DeploymentStatus (..)
 
+    -- * DeploymentTargetType
+    , DeploymentTargetType (..)
+
     -- * DeploymentType
     , DeploymentType (..)
+
+    -- * DeploymentWaitType
+    , DeploymentWaitType (..)
 
     -- * EC2TagFilterType
     , EC2TagFilterType (..)
@@ -154,12 +171,6 @@ module Network.AWS.CodeDeploy.Types
 
     -- * InstanceAction
     , InstanceAction (..)
-
-    -- * InstanceStatus
-    , InstanceStatus (..)
-
-    -- * InstanceType
-    , InstanceType (..)
 
     -- * LifecycleErrorCode
     , LifecycleErrorCode (..)
@@ -188,6 +199,15 @@ module Network.AWS.CodeDeploy.Types
     -- * TagFilterType
     , TagFilterType (..)
 
+    -- * TargetFilterName
+    , TargetFilterName (..)
+
+    -- * TargetLabel
+    , TargetLabel (..)
+
+    -- * TargetStatus
+    , TargetStatus (..)
+
     -- * TrafficRoutingType
     , TrafficRoutingType (..)
 
@@ -205,6 +225,12 @@ module Network.AWS.CodeDeploy.Types
     , acIgnorePollAlarmFailure
     , acEnabled
     , acAlarms
+
+    -- * AppSpecContent
+    , AppSpecContent
+    , appSpecContent
+    , ascContent
+    , ascSha256
 
     -- * ApplicationInfo
     , ApplicationInfo
@@ -262,6 +288,7 @@ module Network.AWS.CodeDeploy.Types
     , dgiComputePlatform
     , dgiTargetRevision
     , dgiEc2TagFilters
+    , dgiEcsServices
     , dgiBlueGreenDeploymentConfiguration
     , dgiLoadBalancerInfo
     , dgiOnPremisesInstanceTagFilters
@@ -328,6 +355,14 @@ module Network.AWS.CodeDeploy.Types
     , dsDeploymentOption
     , dsDeploymentType
 
+    -- * DeploymentTarget
+    , DeploymentTarget
+    , deploymentTarget
+    , dtInstanceTarget
+    , dtEcsTarget
+    , dtDeploymentTargetType
+    , dtLambdaTarget
+
     -- * Diagnostics
     , Diagnostics
     , diagnostics
@@ -347,6 +382,35 @@ module Network.AWS.CodeDeploy.Types
     , EC2TagSet
     , ec2TagSet
     , etsEc2TagSetList
+
+    -- * ECSService
+    , ECSService
+    , eCSService
+    , ecssServiceName
+    , ecssClusterName
+
+    -- * ECSTarget
+    , ECSTarget
+    , eCSTarget
+    , ecstTargetARN
+    , ecstTargetId
+    , ecstStatus
+    , ecstDeploymentId
+    , ecstLastUpdatedAt
+    , ecstTaskSetsInfo
+    , ecstLifecycleEvents
+
+    -- * ECSTaskSet
+    , ECSTaskSet
+    , eCSTaskSet
+    , ecstsRunningCount
+    , ecstsStatus
+    , ecstsIdentifer
+    , ecstsDesiredCount
+    , ecstsPendingCount
+    , ecstsTrafficWeight
+    , ecstsTargetGroup
+    , ecstsTaskSetLabel
 
     -- * ELBInfo
     , ELBInfo
@@ -390,15 +454,26 @@ module Network.AWS.CodeDeploy.Types
     , iiIamSessionARN
     , iiTags
 
-    -- * InstanceSummary
-    , InstanceSummary
-    , instanceSummary
-    , isInstanceId
-    , isStatus
-    , isDeploymentId
-    , isLastUpdatedAt
-    , isLifecycleEvents
-    , isInstanceType
+    -- * InstanceTarget
+    , InstanceTarget
+    , instanceTarget
+    , itTargetARN
+    , itTargetId
+    , itStatus
+    , itDeploymentId
+    , itInstanceLabel
+    , itLastUpdatedAt
+    , itLifecycleEvents
+
+    -- * LambdaTarget
+    , LambdaTarget
+    , lambdaTarget
+    , ltTargetARN
+    , ltTargetId
+    , ltStatus
+    , ltDeploymentId
+    , ltLastUpdatedAt
+    , ltLifecycleEvents
 
     -- * LastDeploymentInfo
     , LastDeploymentInfo
@@ -422,6 +497,7 @@ module Network.AWS.CodeDeploy.Types
     , loadBalancerInfo
     , lbiElbInfoList
     , lbiTargetGroupInfoList
+    , lbiTargetGroupPairInfoList
 
     -- * MinimumHealthyHosts
     , MinimumHealthyHosts
@@ -452,6 +528,7 @@ module Network.AWS.CodeDeploy.Types
     , rlString
     , rlRevisionType
     , rlS3Location
+    , rlAppSpecContent
     , rlGitHubLocation
 
     -- * RollbackInfo
@@ -488,6 +565,13 @@ module Network.AWS.CodeDeploy.Types
     , targetGroupInfo
     , tgiName
 
+    -- * TargetGroupPairInfo
+    , TargetGroupPairInfo
+    , targetGroupPairInfo
+    , tgpiProdTrafficRoute
+    , tgpiTestTrafficRoute
+    , tgpiTargetGroups
+
     -- * TargetInstances
     , TargetInstances
     , targetInstances
@@ -512,6 +596,11 @@ module Network.AWS.CodeDeploy.Types
     , timeRange
     , trStart
     , trEnd
+
+    -- * TrafficRoute
+    , TrafficRoute
+    , trafficRoute
+    , trListenerARNs
 
     -- * TrafficRoutingConfig
     , TrafficRoutingConfig
@@ -597,14 +686,14 @@ _InvalidComputePlatformException =
   _MatchServiceError codeDeploy "InvalidComputePlatformException"
 
 
--- | The specified tag was specified in an invalid format.
+-- | The tag was specified in an invalid format.
 --
 --
 _InvalidTagException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTagException = _MatchServiceError codeDeploy "InvalidTagException"
 
 
--- | An invalid fileExistsBehavior option was specified to determine how AWS CodeDeploy handles files or directories that already exist in a deployment target location but weren't part of the previous successful deployment. Valid values include "DISALLOW", "OVERWRITE", and "RETAIN".
+-- | An invalid fileExistsBehavior option was specified to determine how AWS CodeDeploy handles files or directories that already exist in a deployment target location, but weren't part of the previous successful deployment. Valid values include "DISALLOW," "OVERWRITE," and "RETAIN."
 --
 --
 _InvalidFileExistsBehaviorException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -619,11 +708,11 @@ _InvalidFileExistsBehaviorException =
 --
 --     * The alarm object is null.
 --
---     * The alarm name is empty or null or exceeds the 255 character limit.
+--     * The alarm name is empty or null or exceeds the limit of 255 characters.
 --
 --     * Two alarms with the same name have been specified.
 --
---     * The alarm configuration is enabled but the alarm list is empty.
+--     * The alarm configuration is enabled, but the alarm list is empty.
 --
 --
 --
@@ -745,14 +834,14 @@ _InvalidBlueGreenDeploymentConfigurationException =
     "InvalidBlueGreenDeploymentConfigurationException"
 
 
--- | The service role ARN was specified in an invalid format. Or, if an Auto Scaling group was specified, the specified service role does not grant the appropriate permissions to Auto Scaling.
+-- | The service role ARN was specified in an invalid format. Or, if an Auto Scaling group was specified, the specified service role does not grant the appropriate permissions to Amazon EC2 Auto Scaling.
 --
 --
 _InvalidRoleException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRoleException = _MatchServiceError codeDeploy "InvalidRoleException"
 
 
--- | A deployment configuration with the specified name already exists with the applicable IAM user or AWS account.
+-- | A deployment configuration with the specified name with the IAM user or AWS account already exists .
 --
 --
 _DeploymentConfigAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -818,12 +907,28 @@ _InvalidLifecycleEventHookExecutionIdException =
   _MatchServiceError codeDeploy "InvalidLifecycleEventHookExecutionIdException"
 
 
--- | An invalid deployment style was specified. Valid deployment types include "IN_PLACE" and "BLUE_GREEN". Valid deployment options include "WITH_TRAFFIC_CONTROL" and "WITHOUT_TRAFFIC_CONTROL".
+-- | An invalid deployment style was specified. Valid deployment types include "IN_PLACE" and "BLUE_GREEN." Valid deployment options include "WITH_TRAFFIC_CONTROL" and "WITHOUT_TRAFFIC_CONTROL."
 --
 --
 _InvalidDeploymentStyleException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDeploymentStyleException =
   _MatchServiceError codeDeploy "InvalidDeploymentStyleException"
+
+
+-- | The target filter name is invalid.
+--
+--
+_InvalidTargetFilterNameException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidTargetFilterNameException =
+  _MatchServiceError codeDeploy "InvalidTargetFilterNameException"
+
+
+-- | The maximum number of targets that can be associated with an Amazon ECS or AWS Lambda deployment was exceeded. The target list of both types of deployments must have exactly one item. This exception does not apply to EC2/On-premises deployments.
+--
+--
+_DeploymentTargetListSizeExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_DeploymentTargetListSizeExceededException =
+  _MatchServiceError codeDeploy "DeploymentTargetListSizeExceededException"
 
 
 -- | The deployed state filter was specified in an invalid format.
@@ -858,7 +963,7 @@ _GitHubAccountTokenDoesNotExistException =
   _MatchServiceError codeDeploy "GitHubAccountTokenDoesNotExistException"
 
 
--- | The application does not exist with the applicable IAM user or AWS account.
+-- | The application does not exist with the IAM user or AWS account.
 --
 --
 _ApplicationDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -932,7 +1037,15 @@ _OperationNotSupportedException =
   _MatchServiceError codeDeploy "OperationNotSupportedException"
 
 
--- | The specified tag filter was specified in an invalid format.
+-- | The provided target ID does not belong to the attempted deployment.
+--
+--
+_DeploymentTargetDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
+_DeploymentTargetDoesNotExistException =
+  _MatchServiceError codeDeploy "DeploymentTargetDoesNotExistException"
+
+
+-- | The tag filter was specified in an invalid format.
 --
 --
 _InvalidTagFilterException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -946,6 +1059,14 @@ _InvalidTagFilterException =
 _InvalidTriggerConfigException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTriggerConfigException =
   _MatchServiceError codeDeploy "InvalidTriggerConfigException"
+
+
+-- | The wait type is invalid.
+--
+--
+_InvalidDeploymentWaitTypeException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidDeploymentWaitTypeException =
+  _MatchServiceError codeDeploy "InvalidDeploymentWaitTypeException"
 
 
 -- | The IgnoreApplicationStopFailures value is invalid. For AWS Lambda deployments, @false@ is expected. For EC2/On-premises deployments, @true@ or @false@ is expected.
@@ -991,7 +1112,7 @@ _BucketNameFilterRequiredException =
   _MatchServiceError codeDeploy "BucketNameFilterRequiredException"
 
 
--- | The deployment configuration does not exist with the applicable IAM user or AWS account.
+-- | The deployment configuration does not exist with the IAM user or AWS account.
 --
 --
 _DeploymentConfigDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1007,7 +1128,7 @@ _InvalidBucketNameFilterException =
   _MatchServiceError codeDeploy "InvalidBucketNameFilterException"
 
 
--- | A deployment group with the specified name already exists with the applicable IAM user or AWS account.
+-- | A deployment group with the specified name with the IAM user or AWS account already exists.
 --
 --
 _DeploymentGroupAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1022,12 +1143,19 @@ _InvalidSortByException :: AsError a => Getting (First ServiceError) a ServiceEr
 _InvalidSortByException = _MatchServiceError codeDeploy "InvalidSortByException"
 
 
--- | The named revision does not exist with the applicable IAM user or AWS account.
+-- | The named revision does not exist with the IAM user or AWS account.
 --
 --
 _RevisionDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _RevisionDoesNotExistException =
   _MatchServiceError codeDeploy "RevisionDoesNotExistException"
+
+
+-- | A target is not valid.
+--
+--
+_InvalidTargetException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidTargetException = _MatchServiceError codeDeploy "InvalidTargetException"
 
 
 -- | The deployment groups limit was exceeded.
@@ -1038,7 +1166,7 @@ _DeploymentGroupLimitExceededException =
   _MatchServiceError codeDeploy "DeploymentGroupLimitExceededException"
 
 
--- | The named deployment group does not exist with the applicable IAM user or AWS account.
+-- | The named deployment group with the IAM user or AWS account does not exist.
 --
 --
 _DeploymentGroupDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1093,6 +1221,14 @@ _DeploymentIsNotInReadyStateException =
   _MatchServiceError codeDeploy "DeploymentIsNotInReadyStateException"
 
 
+-- | A target group pair associated with this deployment is not valid.
+--
+--
+_InvalidTargetGroupPairException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidTargetGroupPairException =
+  _MatchServiceError codeDeploy "InvalidTargetGroupPairException"
+
+
 -- | The next token was specified in an invalid format.
 --
 --
@@ -1125,7 +1261,7 @@ _InvalidSortOrderException =
   _MatchServiceError codeDeploy "InvalidSortOrderException"
 
 
--- | The automatic rollback configuration was specified in an invalid format. For example, automatic rollback is enabled but an invalid triggering event type or no event types were listed.
+-- | The automatic rollback configuration was specified in an invalid format. For example, automatic rollback is enabled, but an invalid triggering event type or no event types were listed.
 --
 --
 _InvalidAutoRollbackConfigException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1141,7 +1277,15 @@ _DeploymentAlreadyCompletedException =
   _MatchServiceError codeDeploy "DeploymentAlreadyCompletedException"
 
 
--- | The deployment does not exist with the applicable IAM user or AWS account.
+-- | The Amazon ECS service is associated with more than one deployment groups. An Amazon ECS service can be associated with only one deployment group.
+--
+--
+_ECSServiceMappingLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_ECSServiceMappingLimitExceededException =
+  _MatchServiceError codeDeploy "ECSServiceMappingLimitExceededException"
+
+
+-- | The deployment with the IAM user or AWS account does not exist.
 --
 --
 _DeploymentDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1189,7 +1333,7 @@ _DeploymentConfigInUseException =
   _MatchServiceError codeDeploy "DeploymentConfigInUseException"
 
 
--- | The specified input was specified in an invalid format.
+-- | The input was specified in an invalid format.
 --
 --
 _InvalidInputException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1203,7 +1347,7 @@ _InvalidEC2TagException :: AsError a => Getting (First ServiceError) a ServiceEr
 _InvalidEC2TagException = _MatchServiceError codeDeploy "InvalidEC2TagException"
 
 
--- | The specified on-premises instance name was specified in an invalid format.
+-- | The on-premises instance name was specified in an invalid format.
 --
 --
 _InvalidInstanceNameException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1267,7 +1411,7 @@ _InstanceNotRegisteredException =
   _MatchServiceError codeDeploy "InstanceNotRegisteredException"
 
 
--- | An application with the specified name already exists with the applicable IAM user or AWS account.
+-- | An application with the specified name with the IAM user or AWS account already exists.
 --
 --
 _ApplicationAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1281,6 +1425,14 @@ _ApplicationAlreadyExistsException =
 _InvalidInstanceStatusException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInstanceStatusException =
   _MatchServiceError codeDeploy "InvalidInstanceStatusException"
+
+
+-- | The target ID provided was not valid.
+--
+--
+_InvalidDeploymentTargetIdException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidDeploymentTargetIdException =
+  _MatchServiceError codeDeploy "InvalidDeploymentTargetIdException"
 
 
 -- | The maximum allowed number of tags was exceeded.
@@ -1315,12 +1467,28 @@ _InvalidOperationException =
   _MatchServiceError codeDeploy "InvalidOperationException"
 
 
+-- | A deployment target ID was not provided.
+--
+--
+_DeploymentTargetIdRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
+_DeploymentTargetIdRequiredException =
+  _MatchServiceError codeDeploy "DeploymentTargetIdRequiredException"
+
+
 -- | The call is missing a required GitHub account connection name.
 --
 --
 _GitHubAccountTokenNameRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _GitHubAccountTokenNameRequiredException =
   _MatchServiceError codeDeploy "GitHubAccountTokenNameRequiredException"
+
+
+-- | The Amazon ECS service identifier is not valid.
+--
+--
+_InvalidECSServiceException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidECSServiceException =
+  _MatchServiceError codeDeploy "InvalidECSServiceException"
 
 
 -- | An instance type was specified for an in-place deployment. Instance types are supported for blue/green deployments only.
@@ -1361,4 +1529,12 @@ _LifecycleEventAlreadyCompletedException =
 _InvalidKeyPrefixFilterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidKeyPrefixFilterException =
   _MatchServiceError codeDeploy "InvalidKeyPrefixFilterException"
+
+
+-- | A deployment to a target was attempted while another deployment was in progress.
+--
+--
+_DeploymentAlreadyStartedException :: AsError a => Getting (First ServiceError) a ServiceError
+_DeploymentAlreadyStartedException =
+  _MatchServiceError codeDeploy "DeploymentAlreadyStartedException"
 

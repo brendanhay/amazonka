@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.LexRuntime
 import Test.AWS.LexRuntime.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "LexRuntime"

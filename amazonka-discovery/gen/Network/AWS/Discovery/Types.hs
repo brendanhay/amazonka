@@ -18,22 +18,39 @@ module Network.AWS.Discovery.Types
     -- * Errors
     , _AuthorizationErrorException
     , _InvalidParameterException
+    , _ConflictErrorException
     , _InvalidParameterValueException
     , _ServerInternalErrorException
     , _OperationNotPermittedException
     , _ResourceNotFoundException
+    , _ResourceInUseException
 
     -- * AgentStatus
     , AgentStatus (..)
 
+    -- * BatchDeleteImportDataErrorCode
+    , BatchDeleteImportDataErrorCode (..)
+
     -- * ConfigurationItemType
     , ConfigurationItemType (..)
+
+    -- * ContinuousExportStatus
+    , ContinuousExportStatus (..)
+
+    -- * DataSource
+    , DataSource (..)
 
     -- * ExportDataFormat
     , ExportDataFormat (..)
 
     -- * ExportStatus
     , ExportStatus (..)
+
+    -- * ImportStatus
+    , ImportStatus (..)
+
+    -- * ImportTaskFilterName
+    , ImportTaskFilterName (..)
 
     -- * OrderString
     , OrderString (..)
@@ -65,6 +82,13 @@ module Network.AWS.Discovery.Types
     , aniIpAddress
     , aniMacAddress
 
+    -- * BatchDeleteImportDataError
+    , BatchDeleteImportDataError
+    , batchDeleteImportDataError
+    , bdideImportTaskId
+    , bdideErrorCode
+    , bdideErrorDescription
+
     -- * ConfigurationTag
     , ConfigurationTag
     , configurationTag
@@ -73,6 +97,18 @@ module Network.AWS.Discovery.Types
     , ctConfigurationType
     , ctValue
     , ctKey
+
+    -- * ContinuousExportDescription
+    , ContinuousExportDescription
+    , continuousExportDescription
+    , cedStatus
+    , cedStartTime
+    , cedSchemaStorageConfig
+    , cedStatusDetail
+    , cedStopTime
+    , cedDataSource
+    , cedS3Bucket
+    , cedExportId
 
     -- * CustomerAgentInfo
     , CustomerAgentInfo
@@ -121,6 +157,29 @@ module Network.AWS.Discovery.Types
     , fName
     , fValues
     , fCondition
+
+    -- * ImportTask
+    , ImportTask
+    , importTask
+    , itApplicationImportSuccess
+    , itStatus
+    , itServerImportSuccess
+    , itImportCompletionTime
+    , itName
+    , itApplicationImportFailure
+    , itErrorsAndFailedEntriesZip
+    , itImportTaskId
+    , itImportDeletedTime
+    , itServerImportFailure
+    , itClientRequestToken
+    , itImportURL
+    , itImportRequestTime
+
+    -- * ImportTaskFilter
+    , ImportTaskFilter
+    , importTaskFilter
+    , itfValues
+    , itfName
 
     -- * NeighborConnectionDetail
     , NeighborConnectionDetail
@@ -211,6 +270,13 @@ _InvalidParameterException =
   _MatchServiceError discovery "InvalidParameterException"
 
 
+-- |
+--
+--
+_ConflictErrorException :: AsError a => Getting (First ServiceError) a ServiceError
+_ConflictErrorException = _MatchServiceError discovery "ConflictErrorException"
+
+
 -- | The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.
 --
 --
@@ -241,4 +307,11 @@ _OperationNotPermittedException =
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
   _MatchServiceError discovery "ResourceNotFoundException"
+
+
+-- | This issue occurs when the same @clientRequestToken@ is used with the @StartImportTask@ action, but with different parameters. For example, you use the same request token but have two different import URLs, you can encounter this issue. If the import tasks are meant to be different, use a different @clientRequestToken@ , and try again.
+--
+--
+_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseException = _MatchServiceError discovery "ResourceInUseException"
 

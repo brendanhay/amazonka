@@ -18,9 +18,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of configuration items that are tagged with a specific tag. Or retrieves a list of all tags assigned to a specific configuration item.
+-- Retrieves a list of configuration items that have tags as specified by the key-value pairs, name and value, passed to the optional parameter @filters@ .
 --
 --
+-- There are three valid tag filter names:
+--
+--     * tagKey
+--
+--     * tagValue
+--
+--     * configurationId
+--
+--
+--
+-- Also, all configuration items associated with your user account that have tags can be listed if you call @DescribeTags@ as is without passing any parameters.
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.Discovery.DescribeTags
     (
     -- * Creating a Request
@@ -43,6 +57,7 @@ module Network.AWS.Discovery.DescribeTags
 import Network.AWS.Discovery.Types
 import Network.AWS.Discovery.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -82,6 +97,13 @@ dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a})
 -- | The total number of items to return in a single page of output. The maximum value is 100.
 dtMaxResults :: Lens' DescribeTags (Maybe Int)
 dtMaxResults = lens _dtMaxResults (\ s a -> s{_dtMaxResults = a})
+
+instance AWSPager DescribeTags where
+        page rq rs
+          | stop (rs ^. dtrsNextToken) = Nothing
+          | stop (rs ^. dtrsTags) = Nothing
+          | otherwise =
+            Just $ rq & dtNextToken .~ rs ^. dtrsNextToken
 
 instance AWSRequest DescribeTags where
         type Rs DescribeTags = DescribeTagsResponse

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists agents or the Connector by ID or lists all agents/Connectors associated with your user account if you did not specify an ID.
+-- Lists agents or connectors as specified by ID or other filters. All agents/connectors associated with your user account can be listed if you call @DescribeAgents@ as is without passing any parameters.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Discovery.DescribeAgents
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.Discovery.DescribeAgents
 import Network.AWS.Discovery.Types
 import Network.AWS.Discovery.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -94,6 +97,13 @@ daNextToken = lens _daNextToken (\ s a -> s{_daNextToken = a})
 -- | The total number of agents/Connectors to return in a single page of output. The maximum value is 100.
 daMaxResults :: Lens' DescribeAgents (Maybe Int)
 daMaxResults = lens _daMaxResults (\ s a -> s{_daMaxResults = a})
+
+instance AWSPager DescribeAgents where
+        page rq rs
+          | stop (rs ^. dasrsNextToken) = Nothing
+          | stop (rs ^. dasrsAgentsInfo) = Nothing
+          | otherwise =
+            Just $ rq & daNextToken .~ rs ^. dasrsNextToken
 
 instance AWSRequest DescribeAgents where
         type Rs DescribeAgents = DescribeAgentsResponse

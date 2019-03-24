@@ -29,8 +29,6 @@
 --
 -- /Important:/ Application Discovery Service doesn't gather sensitive information. All data is handled according to the <http://aws.amazon.com/privacy/ AWS Privacy Policy> . You can operate Application Discovery Service offline to inspect collected data before it is shared with the service.
 --
--- Your AWS account must be granted access to Application Discovery Service, a process called /whitelisting/ . This is true for AWS partners and customers alike. To request access, <http://aws.amazon.com/application-discovery/ sign up for Application Discovery Service> .
---
 -- This API reference provides descriptions, syntax, and usage examples for each of the actions and data types for Application Discovery Service. The topic for each action shows the API request parameters and the response. Alternatively, you can use one of the AWS SDKs to access an API that is tailored to the programming language or platform that you're using. For more information, see <http://aws.amazon.com/tools/#SDKs AWS SDKs> .
 --
 -- This guide is intended for use with the <http://docs.aws.amazon.com/application-discovery/latest/userguide/ /AWS Application Discovery Service User Guide/ > .
@@ -49,6 +47,9 @@ module Network.AWS.Discovery
     -- ** InvalidParameterException
     , _InvalidParameterException
 
+    -- ** ConflictErrorException
+    , _ConflictErrorException
+
     -- ** InvalidParameterValueException
     , _InvalidParameterValueException
 
@@ -61,14 +62,20 @@ module Network.AWS.Discovery
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
 
+    -- ** ResourceInUseException
+    , _ResourceInUseException
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
 
-    -- ** DescribeTags
+    -- ** DescribeTags (Paginated)
     , module Network.AWS.Discovery.DescribeTags
+
+    -- ** DescribeContinuousExports (Paginated)
+    , module Network.AWS.Discovery.DescribeContinuousExports
 
     -- ** StopDataCollectionByAgentIds
     , module Network.AWS.Discovery.StopDataCollectionByAgentIds
@@ -76,8 +83,14 @@ module Network.AWS.Discovery
     -- ** CreateTags
     , module Network.AWS.Discovery.CreateTags
 
+    -- ** BatchDeleteImportData
+    , module Network.AWS.Discovery.BatchDeleteImportData
+
     -- ** DeleteTags
     , module Network.AWS.Discovery.DeleteTags
+
+    -- ** StartImportTask
+    , module Network.AWS.Discovery.StartImportTask
 
     -- ** DeleteApplications
     , module Network.AWS.Discovery.DeleteApplications
@@ -88,16 +101,22 @@ module Network.AWS.Discovery
     -- ** DescribeConfigurations
     , module Network.AWS.Discovery.DescribeConfigurations
 
+    -- ** DescribeImportTasks
+    , module Network.AWS.Discovery.DescribeImportTasks
+
     -- ** CreateApplication
     , module Network.AWS.Discovery.CreateApplication
 
-    -- ** ListConfigurations
+    -- ** ListConfigurations (Paginated)
     , module Network.AWS.Discovery.ListConfigurations
 
-    -- ** DescribeAgents
+    -- ** StartContinuousExport
+    , module Network.AWS.Discovery.StartContinuousExport
+
+    -- ** DescribeAgents (Paginated)
     , module Network.AWS.Discovery.DescribeAgents
 
-    -- ** DescribeExportTasks
+    -- ** DescribeExportTasks (Paginated)
     , module Network.AWS.Discovery.DescribeExportTasks
 
     -- ** StartDataCollectionByAgentIds
@@ -115,6 +134,9 @@ module Network.AWS.Discovery
     -- ** ListServerNeighbors
     , module Network.AWS.Discovery.ListServerNeighbors
 
+    -- ** StopContinuousExport
+    , module Network.AWS.Discovery.StopContinuousExport
+
     -- ** StartExportTask
     , module Network.AWS.Discovery.StartExportTask
 
@@ -123,14 +145,29 @@ module Network.AWS.Discovery
     -- ** AgentStatus
     , AgentStatus (..)
 
+    -- ** BatchDeleteImportDataErrorCode
+    , BatchDeleteImportDataErrorCode (..)
+
     -- ** ConfigurationItemType
     , ConfigurationItemType (..)
+
+    -- ** ContinuousExportStatus
+    , ContinuousExportStatus (..)
+
+    -- ** DataSource
+    , DataSource (..)
 
     -- ** ExportDataFormat
     , ExportDataFormat (..)
 
     -- ** ExportStatus
     , ExportStatus (..)
+
+    -- ** ImportStatus
+    , ImportStatus (..)
+
+    -- ** ImportTaskFilterName
+    , ImportTaskFilterName (..)
 
     -- ** OrderString
     , OrderString (..)
@@ -162,6 +199,13 @@ module Network.AWS.Discovery
     , aniIpAddress
     , aniMacAddress
 
+    -- ** BatchDeleteImportDataError
+    , BatchDeleteImportDataError
+    , batchDeleteImportDataError
+    , bdideImportTaskId
+    , bdideErrorCode
+    , bdideErrorDescription
+
     -- ** ConfigurationTag
     , ConfigurationTag
     , configurationTag
@@ -170,6 +214,18 @@ module Network.AWS.Discovery
     , ctConfigurationType
     , ctValue
     , ctKey
+
+    -- ** ContinuousExportDescription
+    , ContinuousExportDescription
+    , continuousExportDescription
+    , cedStatus
+    , cedStartTime
+    , cedSchemaStorageConfig
+    , cedStatusDetail
+    , cedStopTime
+    , cedDataSource
+    , cedS3Bucket
+    , cedExportId
 
     -- ** CustomerAgentInfo
     , CustomerAgentInfo
@@ -219,6 +275,29 @@ module Network.AWS.Discovery
     , fValues
     , fCondition
 
+    -- ** ImportTask
+    , ImportTask
+    , importTask
+    , itApplicationImportSuccess
+    , itStatus
+    , itServerImportSuccess
+    , itImportCompletionTime
+    , itName
+    , itApplicationImportFailure
+    , itErrorsAndFailedEntriesZip
+    , itImportTaskId
+    , itImportDeletedTime
+    , itServerImportFailure
+    , itClientRequestToken
+    , itImportURL
+    , itImportRequestTime
+
+    -- ** ImportTaskFilter
+    , ImportTaskFilter
+    , importTaskFilter
+    , itfValues
+    , itfName
+
     -- ** NeighborConnectionDetail
     , NeighborConnectionDetail
     , neighborConnectionDetail
@@ -248,20 +327,26 @@ module Network.AWS.Discovery
     ) where
 
 import Network.AWS.Discovery.AssociateConfigurationItemsToApplication
+import Network.AWS.Discovery.BatchDeleteImportData
 import Network.AWS.Discovery.CreateApplication
 import Network.AWS.Discovery.CreateTags
 import Network.AWS.Discovery.DeleteApplications
 import Network.AWS.Discovery.DeleteTags
 import Network.AWS.Discovery.DescribeAgents
 import Network.AWS.Discovery.DescribeConfigurations
+import Network.AWS.Discovery.DescribeContinuousExports
 import Network.AWS.Discovery.DescribeExportTasks
+import Network.AWS.Discovery.DescribeImportTasks
 import Network.AWS.Discovery.DescribeTags
 import Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
 import Network.AWS.Discovery.GetDiscoverySummary
 import Network.AWS.Discovery.ListConfigurations
 import Network.AWS.Discovery.ListServerNeighbors
+import Network.AWS.Discovery.StartContinuousExport
 import Network.AWS.Discovery.StartDataCollectionByAgentIds
 import Network.AWS.Discovery.StartExportTask
+import Network.AWS.Discovery.StartImportTask
+import Network.AWS.Discovery.StopContinuousExport
 import Network.AWS.Discovery.StopDataCollectionByAgentIds
 import Network.AWS.Discovery.Types
 import Network.AWS.Discovery.UpdateApplication

@@ -33,8 +33,8 @@ module Network.AWS.Discovery.StartDataCollectionByAgentIds
     , startDataCollectionByAgentIdsResponse
     , StartDataCollectionByAgentIdsResponse
     -- * Response Lenses
-    , srsAgentsConfigurationStatus
-    , srsResponseStatus
+    , sdcbaisrsAgentsConfigurationStatus
+    , sdcbaisrsResponseStatus
     ) where
 
 import Network.AWS.Discovery.Types
@@ -105,8 +105,8 @@ instance ToQuery StartDataCollectionByAgentIds where
 
 -- | /See:/ 'startDataCollectionByAgentIdsResponse' smart constructor.
 data StartDataCollectionByAgentIdsResponse = StartDataCollectionByAgentIdsResponse'
-  { _srsAgentsConfigurationStatus :: !(Maybe [AgentConfigurationStatus])
-  , _srsResponseStatus            :: !Int
+  { _sdcbaisrsAgentsConfigurationStatus :: !(Maybe [AgentConfigurationStatus])
+  , _sdcbaisrsResponseStatus            :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,26 +114,26 @@ data StartDataCollectionByAgentIdsResponse = StartDataCollectionByAgentIdsRespon
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsAgentsConfigurationStatus' - Information about agents or the connector that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated.
+-- * 'sdcbaisrsAgentsConfigurationStatus' - Information about agents or the connector that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated.
 --
--- * 'srsResponseStatus' - -- | The response status code.
+-- * 'sdcbaisrsResponseStatus' - -- | The response status code.
 startDataCollectionByAgentIdsResponse
-    :: Int -- ^ 'srsResponseStatus'
+    :: Int -- ^ 'sdcbaisrsResponseStatus'
     -> StartDataCollectionByAgentIdsResponse
 startDataCollectionByAgentIdsResponse pResponseStatus_ =
   StartDataCollectionByAgentIdsResponse'
-    { _srsAgentsConfigurationStatus = Nothing
-    , _srsResponseStatus = pResponseStatus_
+    { _sdcbaisrsAgentsConfigurationStatus = Nothing
+    , _sdcbaisrsResponseStatus = pResponseStatus_
     }
 
 
 -- | Information about agents or the connector that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated.
-srsAgentsConfigurationStatus :: Lens' StartDataCollectionByAgentIdsResponse [AgentConfigurationStatus]
-srsAgentsConfigurationStatus = lens _srsAgentsConfigurationStatus (\ s a -> s{_srsAgentsConfigurationStatus = a}) . _Default . _Coerce
+sdcbaisrsAgentsConfigurationStatus :: Lens' StartDataCollectionByAgentIdsResponse [AgentConfigurationStatus]
+sdcbaisrsAgentsConfigurationStatus = lens _sdcbaisrsAgentsConfigurationStatus (\ s a -> s{_sdcbaisrsAgentsConfigurationStatus = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
-srsResponseStatus :: Lens' StartDataCollectionByAgentIdsResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a})
+sdcbaisrsResponseStatus :: Lens' StartDataCollectionByAgentIdsResponse Int
+sdcbaisrsResponseStatus = lens _sdcbaisrsResponseStatus (\ s a -> s{_sdcbaisrsResponseStatus = a})
 
 instance NFData StartDataCollectionByAgentIdsResponse
          where

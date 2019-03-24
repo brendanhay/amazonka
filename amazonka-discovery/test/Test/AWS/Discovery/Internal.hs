@@ -14,4 +14,4 @@
 
 module Test.AWS.Discovery.Internal where
 
-import           Test.AWS.Prelude
+import Test.AWS.Prelude

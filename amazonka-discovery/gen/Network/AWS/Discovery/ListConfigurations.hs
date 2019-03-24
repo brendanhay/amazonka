@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of configuration items according to criteria that you specify in a filter. The filter criteria identifies the relationship requirements.
+-- Retrieves a list of configuration items as specified by the value passed to the required paramater @configurationType@ . Optional filtering may be applied to refine search results.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Discovery.ListConfigurations
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.Discovery.ListConfigurations
 import Network.AWS.Discovery.Types
 import Network.AWS.Discovery.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -104,6 +107,13 @@ lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a})
 -- | A valid configuration identified by Application Discovery Service.
 lcConfigurationType :: Lens' ListConfigurations ConfigurationItemType
 lcConfigurationType = lens _lcConfigurationType (\ s a -> s{_lcConfigurationType = a})
+
+instance AWSPager ListConfigurations where
+        page rq rs
+          | stop (rs ^. lcrsNextToken) = Nothing
+          | stop (rs ^. lcrsConfigurations) = Nothing
+          | otherwise =
+            Just $ rq & lcNextToken .~ rs ^. lcrsNextToken
 
 instance AWSRequest ListConfigurations where
         type Rs ListConfigurations =

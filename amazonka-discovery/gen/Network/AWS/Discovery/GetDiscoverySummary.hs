@@ -21,6 +21,8 @@
 -- Retrieves a short summary of discovered assets.
 --
 --
+-- This API operation takes no request parameters and is called as is at the command prompt as shown in the example.
+--
 module Network.AWS.Discovery.GetDiscoverySummary
     (
     -- * Creating a Request

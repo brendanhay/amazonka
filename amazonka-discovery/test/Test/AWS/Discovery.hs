@@ -16,9 +16,9 @@ module Test.AWS.Discovery
     , fixtures
     ) where
 
-import           Network.AWS.Discovery
-import           Test.AWS.Gen.Discovery
-import           Test.Tasty
+import Network.AWS.Discovery
+import Test.AWS.Gen.Discovery
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

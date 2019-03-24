@@ -46,20 +46,26 @@ library
     exposed-modules:
           Network.AWS.Discovery
         , Network.AWS.Discovery.AssociateConfigurationItemsToApplication
+        , Network.AWS.Discovery.BatchDeleteImportData
         , Network.AWS.Discovery.CreateApplication
         , Network.AWS.Discovery.CreateTags
         , Network.AWS.Discovery.DeleteApplications
         , Network.AWS.Discovery.DeleteTags
         , Network.AWS.Discovery.DescribeAgents
         , Network.AWS.Discovery.DescribeConfigurations
+        , Network.AWS.Discovery.DescribeContinuousExports
         , Network.AWS.Discovery.DescribeExportTasks
+        , Network.AWS.Discovery.DescribeImportTasks
         , Network.AWS.Discovery.DescribeTags
         , Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
         , Network.AWS.Discovery.GetDiscoverySummary
         , Network.AWS.Discovery.ListConfigurations
         , Network.AWS.Discovery.ListServerNeighbors
+        , Network.AWS.Discovery.StartContinuousExport
         , Network.AWS.Discovery.StartDataCollectionByAgentIds
         , Network.AWS.Discovery.StartExportTask
+        , Network.AWS.Discovery.StartImportTask
+        , Network.AWS.Discovery.StopContinuousExport
         , Network.AWS.Discovery.StopDataCollectionByAgentIds
         , Network.AWS.Discovery.Types
         , Network.AWS.Discovery.UpdateApplication

@@ -15,9 +15,9 @@ module Test.AWS.CloudHSM
     , fixtures
     ) where
 
-import           Network.AWS.CloudHSM
-import           Test.AWS.Gen.CloudHSM
-import           Test.Tasty
+import Network.AWS.CloudHSM
+import Test.AWS.Gen.CloudHSM
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

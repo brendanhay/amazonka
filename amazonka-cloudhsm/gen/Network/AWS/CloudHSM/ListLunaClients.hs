@@ -27,6 +27,8 @@
 --
 -- This operation supports pagination with the use of the @NextToken@ member. If more results are available, the @NextToken@ member of the response contains a token that you pass in the next call to @ListLunaClients@ to retrieve the next set of items.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudHSM.ListLunaClients
     (
     -- * Creating a Request
@@ -47,6 +49,7 @@ module Network.AWS.CloudHSM.ListLunaClients
 import Network.AWS.CloudHSM.Types
 import Network.AWS.CloudHSM.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -70,6 +73,13 @@ listLunaClients = ListLunaClients' {_llcNextToken = Nothing}
 -- | The @NextToken@ value from a previous call to @ListLunaClients@ . Pass null if this is the first call.
 llcNextToken :: Lens' ListLunaClients (Maybe Text)
 llcNextToken = lens _llcNextToken (\ s a -> s{_llcNextToken = a})
+
+instance AWSPager ListLunaClients where
+        page rq rs
+          | stop (rs ^. llcrsNextToken) = Nothing
+          | stop (rs ^. llcrsClientList) = Nothing
+          | otherwise =
+            Just $ rq & llcNextToken .~ rs ^. llcrsNextToken
 
 instance AWSRequest ListLunaClients where
         type Rs ListLunaClients = ListLunaClientsResponse

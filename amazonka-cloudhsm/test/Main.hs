@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.CloudHSM
 import Test.AWS.CloudHSM.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "CloudHSM"

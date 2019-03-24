@@ -43,13 +43,13 @@ module Network.AWS.CloudHSM
     -- ** DeleteHAPG
     , module Network.AWS.CloudHSM.DeleteHAPG
 
-    -- ** ListHAPGs
+    -- ** ListHAPGs (Paginated)
     , module Network.AWS.CloudHSM.ListHAPGs
 
     -- ** ModifyLunaClient
     , module Network.AWS.CloudHSM.ModifyLunaClient
 
-    -- ** ListHSMs
+    -- ** ListHSMs (Paginated)
     , module Network.AWS.CloudHSM.ListHSMs
 
     -- ** DescribeLunaClient
@@ -73,7 +73,7 @@ module Network.AWS.CloudHSM
     -- ** CreateLunaClient
     , module Network.AWS.CloudHSM.CreateLunaClient
 
-    -- ** ListLunaClients
+    -- ** ListLunaClients (Paginated)
     , module Network.AWS.CloudHSM.ListLunaClients
 
     -- ** AddTagsToResource

@@ -296,9 +296,9 @@ data ClusterMetadata = ClusterMetadata'
 --
 -- * 'cmAddressId' - The automatically generated ID for a specific address.
 --
--- * 'cmSnowballType' - The type of AWS Snowball appliance to use for this cluster. Currently, the only supported appliance type for cluster jobs is @EDGE@ .
+-- * 'cmSnowballType' - The type of AWS Snowball device to use for this cluster. The only supported device types for cluster jobs are @EDGE@ , @EDGE_C@ , and @EDGE_CG@ .
 --
--- * 'cmShippingOption' - The shipping speed for each node in this cluster. This speed doesn't dictate how soon you'll get each Snowball Edge appliance, rather it represents how quickly each appliance moves to its destination while in transit. Regional shipping speeds are as follows:     * In Australia, you have access to express shipping. Typically, appliances shipped express are delivered in about a day.     * In the European Union (EU), you have access to express shipping. Typically, Snowball Edges shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.     * In India, Snowball Edges are delivered in one to seven days.     * In the US, you have access to one-day shipping and two-day shipping.
+-- * 'cmShippingOption' - The shipping speed for each node in this cluster. This speed doesn't dictate how soon you'll get each device, rather it represents how quickly each device moves to its destination while in transit. Regional shipping speeds are as follows:     * In Australia, you have access to express shipping. Typically, devices shipped express are delivered in about a day.     * In the European Union (EU), you have access to express shipping. Typically, devices shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.     * In India, devices are delivered in one to seven days.     * In the US, you have access to one-day shipping and two-day shipping.
 --
 -- * 'cmResources' - The arrays of 'JobResource' objects that can include updated 'S3Resource' objects or 'LambdaResource' objects.
 --
@@ -353,11 +353,11 @@ cmForwardingAddressId = lens _cmForwardingAddressId (\ s a -> s{_cmForwardingAdd
 cmAddressId :: Lens' ClusterMetadata (Maybe Text)
 cmAddressId = lens _cmAddressId (\ s a -> s{_cmAddressId = a})
 
--- | The type of AWS Snowball appliance to use for this cluster. Currently, the only supported appliance type for cluster jobs is @EDGE@ .
+-- | The type of AWS Snowball device to use for this cluster. The only supported device types for cluster jobs are @EDGE@ , @EDGE_C@ , and @EDGE_CG@ .
 cmSnowballType :: Lens' ClusterMetadata (Maybe SnowballType)
 cmSnowballType = lens _cmSnowballType (\ s a -> s{_cmSnowballType = a})
 
--- | The shipping speed for each node in this cluster. This speed doesn't dictate how soon you'll get each Snowball Edge appliance, rather it represents how quickly each appliance moves to its destination while in transit. Regional shipping speeds are as follows:     * In Australia, you have access to express shipping. Typically, appliances shipped express are delivered in about a day.     * In the European Union (EU), you have access to express shipping. Typically, Snowball Edges shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.     * In India, Snowball Edges are delivered in one to seven days.     * In the US, you have access to one-day shipping and two-day shipping.
+-- | The shipping speed for each node in this cluster. This speed doesn't dictate how soon you'll get each device, rather it represents how quickly each device moves to its destination while in transit. Regional shipping speeds are as follows:     * In Australia, you have access to express shipping. Typically, devices shipped express are delivered in about a day.     * In the European Union (EU), you have access to express shipping. Typically, devices shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.     * In India, devices are delivered in one to seven days.     * In the US, you have access to one-day shipping and two-day shipping.
 cmShippingOption :: Lens' ClusterMetadata (Maybe ShippingOption)
 cmShippingOption = lens _cmShippingOption (\ s a -> s{_cmShippingOption = a})
 
@@ -403,7 +403,49 @@ instance Hashable ClusterMetadata where
 
 instance NFData ClusterMetadata where
 
--- | Defines the real-time status of a Snowball's data transfer while the appliance is at AWS. This data is only available while a job has a @JobState@ value of @InProgress@ , for both import and export jobs.
+-- | A JSON-formatted object that describes a compatible Amazon Machine Image (AMI). For more information on compatible AMIs, see <http://docs.aws.amazon.com/snowball/latest/developer-guide/using-ec2.html Using Amazon EC2 Compute Instances> in the /AWS Snowball Developer Guide/ .
+--
+--
+--
+-- /See:/ 'compatibleImage' smart constructor.
+data CompatibleImage = CompatibleImage'
+  { _ciName  :: !(Maybe Text)
+  , _ciAMIId :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CompatibleImage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ciName' - The optional name of a compatible image.
+--
+-- * 'ciAMIId' - The unique identifier for an individual Snowball Edge AMI.
+compatibleImage
+    :: CompatibleImage
+compatibleImage = CompatibleImage' {_ciName = Nothing, _ciAMIId = Nothing}
+
+
+-- | The optional name of a compatible image.
+ciName :: Lens' CompatibleImage (Maybe Text)
+ciName = lens _ciName (\ s a -> s{_ciName = a})
+
+-- | The unique identifier for an individual Snowball Edge AMI.
+ciAMIId :: Lens' CompatibleImage (Maybe Text)
+ciAMIId = lens _ciAMIId (\ s a -> s{_ciAMIId = a})
+
+instance FromJSON CompatibleImage where
+        parseJSON
+          = withObject "CompatibleImage"
+              (\ x ->
+                 CompatibleImage' <$>
+                   (x .:? "Name") <*> (x .:? "AmiId"))
+
+instance Hashable CompatibleImage where
+
+instance NFData CompatibleImage where
+
+-- | Defines the real-time status of a Snowball's data transfer while the device is at AWS. This data is only available while a job has a @JobState@ value of @InProgress@ , for both import and export jobs.
 --
 --
 --
@@ -466,6 +508,57 @@ instance FromJSON DataTransfer where
 instance Hashable DataTransfer where
 
 instance NFData DataTransfer where
+
+-- | A JSON-formatted object that contains the IDs for an Amazon Machine Image (AMI), including the Amazon EC2 AMI ID and the Snowball Edge AMI ID. Each AMI has these two IDs to simplify identifying the AMI in both the AWS Cloud and on the device.
+--
+--
+--
+-- /See:/ 'ec2AMIResource' smart constructor.
+data EC2AMIResource = EC2AMIResource'
+  { _earSnowballAMIId :: !(Maybe Text)
+  , _earAMIId         :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'EC2AMIResource' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'earSnowballAMIId' - The ID of the AMI on the supported device.
+--
+-- * 'earAMIId' - The ID of the AMI in Amazon EC2.
+ec2AMIResource
+    :: Text -- ^ 'earAMIId'
+    -> EC2AMIResource
+ec2AMIResource pAMIId_ =
+  EC2AMIResource' {_earSnowballAMIId = Nothing, _earAMIId = pAMIId_}
+
+
+-- | The ID of the AMI on the supported device.
+earSnowballAMIId :: Lens' EC2AMIResource (Maybe Text)
+earSnowballAMIId = lens _earSnowballAMIId (\ s a -> s{_earSnowballAMIId = a})
+
+-- | The ID of the AMI in Amazon EC2.
+earAMIId :: Lens' EC2AMIResource Text
+earAMIId = lens _earAMIId (\ s a -> s{_earAMIId = a})
+
+instance FromJSON EC2AMIResource where
+        parseJSON
+          = withObject "EC2AMIResource"
+              (\ x ->
+                 EC2AMIResource' <$>
+                   (x .:? "SnowballAmiId") <*> (x .: "AmiId"))
+
+instance Hashable EC2AMIResource where
+
+instance NFData EC2AMIResource where
+
+instance ToJSON EC2AMIResource where
+        toJSON EC2AMIResource'{..}
+          = object
+              (catMaybes
+                 [("SnowballAmiId" .=) <$> _earSnowballAMIId,
+                  Just ("AmiId" .= _earAMIId)])
 
 -- | The container for the 'EventTriggerDefinition$EventResourceARN' .
 --
@@ -535,7 +628,7 @@ data JobListEntry = JobListEntry'
 --
 -- * 'jleJobState' - The current state of this job.
 --
--- * 'jleSnowballType' - The type of appliance used with this job.
+-- * 'jleSnowballType' - The type of device used with this job.
 --
 -- * 'jleCreationDate' - The creation date for this job.
 --
@@ -568,7 +661,7 @@ jleJobId = lens _jleJobId (\ s a -> s{_jleJobId = a})
 jleJobState :: Lens' JobListEntry (Maybe JobState)
 jleJobState = lens _jleJobState (\ s a -> s{_jleJobState = a})
 
--- | The type of appliance used with this job.
+-- | The type of device used with this job.
 jleSnowballType :: Lens' JobListEntry (Maybe SnowballType)
 jleSnowballType = lens _jleSnowballType (\ s a -> s{_jleSnowballType = a})
 
@@ -710,9 +803,9 @@ data JobMetadata = JobMetadata'
 --
 -- * 'jmAddressId' - The ID for the address that you want the Snowball shipped to.
 --
--- * 'jmSnowballType' - The type of appliance used with this job.
+-- * 'jmSnowballType' - The type of device used with this job.
 --
--- * 'jmDataTransferProgress' - A value that defines the real-time status of a Snowball's data transfer while the appliance is at AWS. This data is only available while a job has a @JobState@ value of @InProgress@ , for both import and export jobs.
+-- * 'jmDataTransferProgress' - A value that defines the real-time status of a Snowball's data transfer while the device is at AWS. This data is only available while a job has a @JobState@ value of @InProgress@ , for both import and export jobs.
 --
 -- * 'jmResources' - An array of @S3Resource@ objects. Each @S3Resource@ object represents an Amazon S3 bucket that your transferred data will be exported from or imported into.
 --
@@ -785,11 +878,11 @@ jmShippingDetails = lens _jmShippingDetails (\ s a -> s{_jmShippingDetails = a})
 jmAddressId :: Lens' JobMetadata (Maybe Text)
 jmAddressId = lens _jmAddressId (\ s a -> s{_jmAddressId = a})
 
--- | The type of appliance used with this job.
+-- | The type of device used with this job.
 jmSnowballType :: Lens' JobMetadata (Maybe SnowballType)
 jmSnowballType = lens _jmSnowballType (\ s a -> s{_jmSnowballType = a})
 
--- | A value that defines the real-time status of a Snowball's data transfer while the appliance is at AWS. This data is only available while a job has a @JobState@ value of @InProgress@ , for both import and export jobs.
+-- | A value that defines the real-time status of a Snowball's data transfer while the device is at AWS. This data is only available while a job has a @JobState@ value of @InProgress@ , for both import and export jobs.
 jmDataTransferProgress :: Lens' JobMetadata (Maybe DataTransfer)
 jmDataTransferProgress = lens _jmDataTransferProgress (\ s a -> s{_jmDataTransferProgress = a})
 
@@ -843,13 +936,14 @@ instance Hashable JobMetadata where
 
 instance NFData JobMetadata where
 
--- | Contains an array of @S3Resource@ objects. Each @S3Resource@ object represents an Amazon S3 bucket that your transferred data will be exported from or imported into.
+-- | Contains an array of AWS resource objects. Each object represents an Amazon S3 bucket, an AWS Lambda function, or an Amazon Machine Image (AMI) based on Amazon EC2 that is associated with a particular job.
 --
 --
 --
 -- /See:/ 'jobResource' smart constructor.
 data JobResource = JobResource'
-  { _jrLambdaResources :: !(Maybe [LambdaResource])
+  { _jrEC2AMIResources :: !(Maybe [EC2AMIResource])
+  , _jrLambdaResources :: !(Maybe [LambdaResource])
   , _jrS3Resources     :: !(Maybe [S3Resource])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -858,14 +952,24 @@ data JobResource = JobResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'jrEC2AMIResources' - The Amazon Machine Images (AMIs) associated with this job.
+--
 -- * 'jrLambdaResources' - The Python-language Lambda functions for this job.
 --
 -- * 'jrS3Resources' - An array of @S3Resource@ objects.
 jobResource
     :: JobResource
 jobResource =
-  JobResource' {_jrLambdaResources = Nothing, _jrS3Resources = Nothing}
+  JobResource'
+    { _jrEC2AMIResources = Nothing
+    , _jrLambdaResources = Nothing
+    , _jrS3Resources = Nothing
+    }
 
+
+-- | The Amazon Machine Images (AMIs) associated with this job.
+jrEC2AMIResources :: Lens' JobResource [EC2AMIResource]
+jrEC2AMIResources = lens _jrEC2AMIResources (\ s a -> s{_jrEC2AMIResources = a}) . _Default . _Coerce
 
 -- | The Python-language Lambda functions for this job.
 jrLambdaResources :: Lens' JobResource [LambdaResource]
@@ -880,8 +984,9 @@ instance FromJSON JobResource where
           = withObject "JobResource"
               (\ x ->
                  JobResource' <$>
-                   (x .:? "LambdaResources" .!= mempty) <*>
-                     (x .:? "S3Resources" .!= mempty))
+                   (x .:? "Ec2AmiResources" .!= mempty) <*>
+                     (x .:? "LambdaResources" .!= mempty)
+                     <*> (x .:? "S3Resources" .!= mempty))
 
 instance Hashable JobResource where
 
@@ -891,7 +996,8 @@ instance ToJSON JobResource where
         toJSON JobResource'{..}
           = object
               (catMaybes
-                 [("LambdaResources" .=) <$> _jrLambdaResources,
+                 [("Ec2AmiResources" .=) <$> _jrEC2AMIResources,
+                  ("LambdaResources" .=) <$> _jrLambdaResources,
                   ("S3Resources" .=) <$> _jrS3Resources])
 
 -- | Contains a key range. For export jobs, a @S3Resource@ object can have an optional @KeyRange@ value. The length of the range is defined at job creation, and has either an inclusive @BeginMarker@ , an inclusive @EndMarker@ , or both. Ranges are UTF-8 binary sorted.

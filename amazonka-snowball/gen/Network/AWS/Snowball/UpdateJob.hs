@@ -77,7 +77,7 @@ data UpdateJob = UpdateJob'
 --
 -- * 'ujShippingOption' - The updated shipping option value of this job's 'ShippingDetails' object.
 --
--- * 'ujResources' - The updated 'S3Resource' object (for a single Amazon S3 bucket or key range), or the updated 'JobResource' object (for multiple buckets or key ranges).
+-- * 'ujResources' - The updated @JobResource@ object, or the updated 'JobResource' object.
 --
 -- * 'ujDescription' - The updated description of this job's 'JobMetadata' object.
 --
@@ -119,7 +119,7 @@ ujAddressId = lens _ujAddressId (\ s a -> s{_ujAddressId = a})
 ujShippingOption :: Lens' UpdateJob (Maybe ShippingOption)
 ujShippingOption = lens _ujShippingOption (\ s a -> s{_ujShippingOption = a})
 
--- | The updated 'S3Resource' object (for a single Amazon S3 bucket or key range), or the updated 'JobResource' object (for multiple buckets or key ranges).
+-- | The updated @JobResource@ object, or the updated 'JobResource' object.
 ujResources :: Lens' UpdateJob (Maybe JobResource)
 ujResources = lens _ujResources (\ s a -> s{_ujResources = a})
 

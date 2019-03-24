@@ -59,6 +59,7 @@ library
         , Network.AWS.Snowball.GetSnowballUsage
         , Network.AWS.Snowball.ListClusterJobs
         , Network.AWS.Snowball.ListClusters
+        , Network.AWS.Snowball.ListCompatibleImages
         , Network.AWS.Snowball.ListJobs
         , Network.AWS.Snowball.Types
         , Network.AWS.Snowball.UpdateCluster

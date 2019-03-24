@@ -67,6 +67,7 @@ data JobState
   | JSPreparingAppliance
   | JSPreparingShipment
   | JSWithAWS
+  | JSWithAWSSortingFacility
   | JSWithCustomer
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -84,9 +85,10 @@ instance FromText JobState where
         "preparingappliance" -> pure JSPreparingAppliance
         "preparingshipment" -> pure JSPreparingShipment
         "withaws" -> pure JSWithAWS
+        "withawssortingfacility" -> pure JSWithAWSSortingFacility
         "withcustomer" -> pure JSWithCustomer
         e -> fromTextError $ "Failure parsing JobState from value: '" <> e
-           <> "'. Accepted values: cancelled, complete, inprogress, intransittoaws, intransittocustomer, listing, new, pending, preparingappliance, preparingshipment, withaws, withcustomer"
+           <> "'. Accepted values: cancelled, complete, inprogress, intransittoaws, intransittocustomer, listing, new, pending, preparingappliance, preparingshipment, withaws, withawssortingfacility, withcustomer"
 
 instance ToText JobState where
     toText = \case
@@ -101,6 +103,7 @@ instance ToText JobState where
         JSPreparingAppliance -> "PreparingAppliance"
         JSPreparingShipment -> "PreparingShipment"
         JSWithAWS -> "WithAWS"
+        JSWithAWSSortingFacility -> "WithAWSSortingFacility"
         JSWithCustomer -> "WithCustomer"
 
 instance Hashable     JobState
@@ -187,6 +190,7 @@ instance FromJSON ShippingOption where
 data SnowballCapacity
   = NoPreference
   | T100
+  | T42
   | T50
   | T80
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -196,15 +200,17 @@ instance FromText SnowballCapacity where
     parser = takeLowerText >>= \case
         "nopreference" -> pure NoPreference
         "t100" -> pure T100
+        "t42" -> pure T42
         "t50" -> pure T50
         "t80" -> pure T80
         e -> fromTextError $ "Failure parsing SnowballCapacity from value: '" <> e
-           <> "'. Accepted values: nopreference, t100, t50, t80"
+           <> "'. Accepted values: nopreference, t100, t42, t50, t80"
 
 instance ToText SnowballCapacity where
     toText = \case
         NoPreference -> "NoPreference"
         T100 -> "T100"
+        T42 -> "T42"
         T50 -> "T50"
         T80 -> "T80"
 
@@ -222,6 +228,8 @@ instance FromJSON SnowballCapacity where
 
 data SnowballType
   = Edge
+  | EdgeC
+  | EdgeCg
   | Standard
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -229,13 +237,17 @@ data SnowballType
 instance FromText SnowballType where
     parser = takeLowerText >>= \case
         "edge" -> pure Edge
+        "edge_c" -> pure EdgeC
+        "edge_cg" -> pure EdgeCg
         "standard" -> pure Standard
         e -> fromTextError $ "Failure parsing SnowballType from value: '" <> e
-           <> "'. Accepted values: edge, standard"
+           <> "'. Accepted values: edge, edge_c, edge_cg, standard"
 
 instance ToText SnowballType where
     toText = \case
         Edge -> "EDGE"
+        EdgeC -> "EDGE_C"
+        EdgeCg -> "EDGE_CG"
         Standard -> "STANDARD"
 
 instance Hashable     SnowballType

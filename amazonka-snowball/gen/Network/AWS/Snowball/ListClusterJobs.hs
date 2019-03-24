@@ -21,6 +21,8 @@
 -- Returns an array of @JobListEntry@ objects of the specified length. Each @JobListEntry@ object is for a job in the specified cluster and contains a job's state, a job's ID, and other information.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Snowball.ListClusterJobs
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.Snowball.ListClusterJobs
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -86,6 +89,13 @@ lcjMaxResults = lens _lcjMaxResults (\ s a -> s{_lcjMaxResults = a}) . mapping _
 -- | The 39-character ID for the cluster that you want to list, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
 lcjClusterId :: Lens' ListClusterJobs Text
 lcjClusterId = lens _lcjClusterId (\ s a -> s{_lcjClusterId = a})
+
+instance AWSPager ListClusterJobs where
+        page rq rs
+          | stop (rs ^. lcjrsNextToken) = Nothing
+          | stop (rs ^. lcjrsJobListEntries) = Nothing
+          | otherwise =
+            Just $ rq & lcjNextToken .~ rs ^. lcjrsNextToken
 
 instance AWSRequest ListClusterJobs where
         type Rs ListClusterJobs = ListClusterJobsResponse

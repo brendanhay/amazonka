@@ -78,7 +78,7 @@ data CreateCluster = CreateCluster'
 --
 -- * 'ccForwardingAddressId' - The forwarding address ID for a cluster. This field is not supported in most regions.
 --
--- * 'ccSnowballType' - The type of AWS Snowball appliance to use for this cluster. Currently, the only supported appliance type for cluster jobs is @EDGE@ .
+-- * 'ccSnowballType' - The type of AWS Snowball device to use for this cluster. The only supported device types for cluster jobs are @EDGE@ , @EDGE_C@ , and @EDGE_CG@ .
 --
 -- * 'ccDescription' - An optional description of this specific cluster, for example @Environmental Data Cluster-01@ .
 --
@@ -90,7 +90,7 @@ data CreateCluster = CreateCluster'
 --
 -- * 'ccRoleARN' - The @RoleARN@ that you want to associate with this cluster. @RoleArn@ values are created by using the <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
 --
--- * 'ccShippingOption' - The shipping speed for each node in this cluster. This speed doesn't dictate how soon you'll get each Snowball Edge appliance, rather it represents how quickly each appliance moves to its destination while in transit. Regional shipping speeds are as follows:     * In Australia, you have access to express shipping. Typically, appliances shipped express are delivered in about a day.     * In the European Union (EU), you have access to express shipping. Typically, Snowball Edges shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.     * In India, Snowball Edges are delivered in one to seven days.     * In the US, you have access to one-day shipping and two-day shipping.
+-- * 'ccShippingOption' - The shipping speed for each node in this cluster. This speed doesn't dictate how soon you'll get each Snowball Edge device, rather it represents how quickly each device moves to its destination while in transit. Regional shipping speeds are as follows:     * In Australia, you have access to express shipping. Typically, devices shipped express are delivered in about a day.     * In the European Union (EU), you have access to express shipping. Typically, Snowball Edges shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.     * In India, devices are delivered in one to seven days.     * In the US, you have access to one-day shipping and two-day shipping.
 createCluster
     :: JobType -- ^ 'ccJobType'
     -> JobResource -- ^ 'ccResources'
@@ -125,7 +125,7 @@ ccNotification = lens _ccNotification (\ s a -> s{_ccNotification = a})
 ccForwardingAddressId :: Lens' CreateCluster (Maybe Text)
 ccForwardingAddressId = lens _ccForwardingAddressId (\ s a -> s{_ccForwardingAddressId = a})
 
--- | The type of AWS Snowball appliance to use for this cluster. Currently, the only supported appliance type for cluster jobs is @EDGE@ .
+-- | The type of AWS Snowball device to use for this cluster. The only supported device types for cluster jobs are @EDGE@ , @EDGE_C@ , and @EDGE_CG@ .
 ccSnowballType :: Lens' CreateCluster (Maybe SnowballType)
 ccSnowballType = lens _ccSnowballType (\ s a -> s{_ccSnowballType = a})
 
@@ -149,7 +149,7 @@ ccAddressId = lens _ccAddressId (\ s a -> s{_ccAddressId = a})
 ccRoleARN :: Lens' CreateCluster Text
 ccRoleARN = lens _ccRoleARN (\ s a -> s{_ccRoleARN = a})
 
--- | The shipping speed for each node in this cluster. This speed doesn't dictate how soon you'll get each Snowball Edge appliance, rather it represents how quickly each appliance moves to its destination while in transit. Regional shipping speeds are as follows:     * In Australia, you have access to express shipping. Typically, appliances shipped express are delivered in about a day.     * In the European Union (EU), you have access to express shipping. Typically, Snowball Edges shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.     * In India, Snowball Edges are delivered in one to seven days.     * In the US, you have access to one-day shipping and two-day shipping.
+-- | The shipping speed for each node in this cluster. This speed doesn't dictate how soon you'll get each Snowball Edge device, rather it represents how quickly each device moves to its destination while in transit. Regional shipping speeds are as follows:     * In Australia, you have access to express shipping. Typically, devices shipped express are delivered in about a day.     * In the European Union (EU), you have access to express shipping. Typically, Snowball Edges shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.     * In India, devices are delivered in one to seven days.     * In the US, you have access to one-day shipping and two-day shipping.
 ccShippingOption :: Lens' CreateCluster ShippingOption
 ccShippingOption = lens _ccShippingOption (\ s a -> s{_ccShippingOption = a})
 

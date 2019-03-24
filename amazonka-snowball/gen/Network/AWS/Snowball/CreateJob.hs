@@ -86,7 +86,7 @@ data CreateJob = CreateJob'
 --
 -- * 'cjAddressId' - The ID for the address that you want the Snowball shipped to.
 --
--- * 'cjSnowballType' - The type of AWS Snowball appliance to use for this job. Currently, the only supported appliance type for cluster jobs is @EDGE@ .
+-- * 'cjSnowballType' - The type of AWS Snowball device to use for this job. The only supported device types for cluster jobs are @EDGE@ , @EDGE_C@ , and @EDGE_CG@ .
 --
 -- * 'cjShippingOption' - The shipping speed for this job. This speed doesn't dictate how soon you'll get the Snowball, rather it represents how quickly the Snowball moves to its destination while in transit. Regional shipping speeds are as follows:     * In Australia, you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day.     * In the European Union (EU), you have access to express shipping. Typically, Snowballs shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.     * In India, Snowballs are delivered in one to seven days.     * In the US, you have access to one-day shipping and two-day shipping.
 --
@@ -138,7 +138,7 @@ cjForwardingAddressId = lens _cjForwardingAddressId (\ s a -> s{_cjForwardingAdd
 cjAddressId :: Lens' CreateJob (Maybe Text)
 cjAddressId = lens _cjAddressId (\ s a -> s{_cjAddressId = a})
 
--- | The type of AWS Snowball appliance to use for this job. Currently, the only supported appliance type for cluster jobs is @EDGE@ .
+-- | The type of AWS Snowball device to use for this job. The only supported device types for cluster jobs are @EDGE@ , @EDGE_C@ , and @EDGE_CG@ .
 cjSnowballType :: Lens' CreateJob (Maybe SnowballType)
 cjSnowballType = lens _cjSnowballType (\ s a -> s{_cjSnowballType = a})
 

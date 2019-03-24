@@ -43,6 +43,9 @@ import Test.Tasty
 --         , requestDescribeAddresses $
 --             describeAddresses
 --
+--         , requestListCompatibleImages $
+--             listCompatibleImages
+--
 --         , requestUpdateCluster $
 --             updateCluster
 --
@@ -96,6 +99,9 @@ import Test.Tasty
 --
 --         , responseDescribeAddresses $
 --             describeAddressesResponse
+--
+--         , responseListCompatibleImages $
+--             listCompatibleImagesResponse
 --
 --         , responseUpdateCluster $
 --             updateClusterResponse
@@ -162,6 +168,11 @@ requestDescribeAddresses :: DescribeAddresses -> TestTree
 requestDescribeAddresses = req
     "DescribeAddresses"
     "fixture/DescribeAddresses.yaml"
+
+requestListCompatibleImages :: ListCompatibleImages -> TestTree
+requestListCompatibleImages = req
+    "ListCompatibleImages"
+    "fixture/ListCompatibleImages.yaml"
 
 requestUpdateCluster :: UpdateCluster -> TestTree
 requestUpdateCluster = req
@@ -259,6 +270,13 @@ responseDescribeAddresses = res
     "fixture/DescribeAddressesResponse.proto"
     snowball
     (Proxy :: Proxy DescribeAddresses)
+
+responseListCompatibleImages :: ListCompatibleImagesResponse -> TestTree
+responseListCompatibleImages = res
+    "ListCompatibleImagesResponse"
+    "fixture/ListCompatibleImagesResponse.proto"
+    snowball
+    (Proxy :: Proxy ListCompatibleImages)
 
 responseUpdateCluster :: UpdateClusterResponse -> TestTree
 responseUpdateCluster = res

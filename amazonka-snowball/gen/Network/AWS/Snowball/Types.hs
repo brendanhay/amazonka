@@ -21,6 +21,7 @@ module Network.AWS.Snowball.Types
     , _KMSRequestFailedException
     , _InvalidJobStateException
     , _InvalidInputCombinationException
+    , _EC2RequestFailedException
     , _InvalidNextTokenException
     , _InvalidAddressException
     , _ClusterLimitExceededException
@@ -86,6 +87,12 @@ module Network.AWS.Snowball.Types
     , cmDescription
     , cmRoleARN
 
+    -- * CompatibleImage
+    , CompatibleImage
+    , compatibleImage
+    , ciName
+    , ciAMIId
+
     -- * DataTransfer
     , DataTransfer
     , dataTransfer
@@ -93,6 +100,12 @@ module Network.AWS.Snowball.Types
     , dtTotalBytes
     , dtObjectsTransferred
     , dtBytesTransferred
+
+    -- * EC2AMIResource
+    , EC2AMIResource
+    , ec2AMIResource
+    , earSnowballAMIId
+    , earAMIId
 
     -- * EventTriggerDefinition
     , EventTriggerDefinition
@@ -141,6 +154,7 @@ module Network.AWS.Snowball.Types
     -- * JobResource
     , JobResource
     , jobResource
+    , jrEC2AMIResources
     , jrLambdaResources
     , jrS3Resources
 
@@ -266,6 +280,14 @@ _InvalidJobStateException =
 _InvalidInputCombinationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInputCombinationException =
   _MatchServiceError snowball "InvalidInputCombinationException"
+
+
+-- | Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted action.
+--
+--
+_EC2RequestFailedException :: AsError a => Getting (First ServiceError) a ServiceError
+_EC2RequestFailedException =
+  _MatchServiceError snowball "Ec2RequestFailedException"
 
 
 -- | The @NextToken@ string was altered unexpectedly, and the operation has stopped. Run the operation without changing the @NextToken@ string, and try again.

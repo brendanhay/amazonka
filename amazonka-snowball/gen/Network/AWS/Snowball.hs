@@ -11,7 +11,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS Snowball is a petabyte-scale data transport solution that uses secure appliances to transfer large amounts of data between your on-premises data centers and Amazon Simple Storage Service (Amazon S3). The Snowball commands described here provide access to the same functionality that is available in the AWS Snowball Management Console, which enables you to create and manage jobs for Snowball. To transfer data locally with a Snowball appliance, you'll need to use the Snowball client or the Amazon S3 API adapter for Snowball. For more information, see the <http://docs.aws.amazon.com/AWSImportExport/latest/ug/api-reference.html User Guide> .
+-- AWS Snowball is a petabyte-scale data transport solution that uses secure devices to transfer large amounts of data between your on-premises data centers and Amazon Simple Storage Service (Amazon S3). The commands described here provide access to the same functionality that is available in the AWS Snowball Management Console, which enables you to create and manage jobs for Snowball and Snowball Edge devices. To transfer data locally with a device, you'll need to use the Snowball client or the Amazon S3 API adapter for Snowball.
 --
 --
 module Network.AWS.Snowball
@@ -36,6 +36,9 @@ module Network.AWS.Snowball
 
     -- ** InvalidInputCombinationException
     , _InvalidInputCombinationException
+
+    -- ** EC2RequestFailedException
+    , _EC2RequestFailedException
 
     -- ** InvalidNextTokenException
     , _InvalidNextTokenException
@@ -67,6 +70,9 @@ module Network.AWS.Snowball
     -- ** DescribeAddresses (Paginated)
     , module Network.AWS.Snowball.DescribeAddresses
 
+    -- ** ListCompatibleImages (Paginated)
+    , module Network.AWS.Snowball.ListCompatibleImages
+
     -- ** UpdateCluster
     , module Network.AWS.Snowball.UpdateCluster
 
@@ -88,13 +94,13 @@ module Network.AWS.Snowball
     -- ** GetJobUnlockCode
     , module Network.AWS.Snowball.GetJobUnlockCode
 
-    -- ** ListClusterJobs
+    -- ** ListClusterJobs (Paginated)
     , module Network.AWS.Snowball.ListClusterJobs
 
     -- ** DescribeJob
     , module Network.AWS.Snowball.DescribeJob
 
-    -- ** ListClusters
+    -- ** ListClusters (Paginated)
     , module Network.AWS.Snowball.ListClusters
 
     -- ** DescribeAddress
@@ -166,6 +172,12 @@ module Network.AWS.Snowball
     , cmDescription
     , cmRoleARN
 
+    -- ** CompatibleImage
+    , CompatibleImage
+    , compatibleImage
+    , ciName
+    , ciAMIId
+
     -- ** DataTransfer
     , DataTransfer
     , dataTransfer
@@ -173,6 +185,12 @@ module Network.AWS.Snowball
     , dtTotalBytes
     , dtObjectsTransferred
     , dtBytesTransferred
+
+    -- ** EC2AMIResource
+    , EC2AMIResource
+    , ec2AMIResource
+    , earSnowballAMIId
+    , earAMIId
 
     -- ** EventTriggerDefinition
     , EventTriggerDefinition
@@ -221,6 +239,7 @@ module Network.AWS.Snowball
     -- ** JobResource
     , JobResource
     , jobResource
+    , jrEC2AMIResources
     , jrLambdaResources
     , jrS3Resources
 
@@ -277,6 +296,7 @@ import Network.AWS.Snowball.GetJobUnlockCode
 import Network.AWS.Snowball.GetSnowballUsage
 import Network.AWS.Snowball.ListClusterJobs
 import Network.AWS.Snowball.ListClusters
+import Network.AWS.Snowball.ListCompatibleImages
 import Network.AWS.Snowball.ListJobs
 import Network.AWS.Snowball.Types
 import Network.AWS.Snowball.UpdateCluster

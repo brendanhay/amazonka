@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified IAM user. The user must not belong to any groups or have any access keys, signing certificates, or attached policies.
+-- Deletes the specified IAM user. The user must not belong to any groups or have any access keys, signing certificates, MFA devices enabled for AWS, or attached policies.
 --
 --
 module Network.AWS.IAM.DeleteUser
@@ -51,14 +51,14 @@ newtype DeleteUser = DeleteUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duUserName' - The name of the user to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'duUserName' - The name of the user to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 deleteUser
     :: Text -- ^ 'duUserName'
     -> DeleteUser
 deleteUser pUserName_ = DeleteUser' {_duUserName = pUserName_}
 
 
--- | The name of the user to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | The name of the user to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 duUserName :: Lens' DeleteUser Text
 duUserName = lens _duUserName (\ s a -> s{_duUserName = a})
 

@@ -15,9 +15,9 @@ module Test.AWS.IAM
     , fixtures
     ) where
 
-import           Network.AWS.IAM
-import           Test.AWS.Gen.IAM
-import           Test.Tasty
+import Network.AWS.IAM
+import Test.AWS.Gen.IAM
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

@@ -55,7 +55,7 @@ newtype DeleteServerCertificate = DeleteServerCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dscServerCertificateName' - The name of the server certificate you want to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'dscServerCertificateName' - The name of the server certificate you want to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 deleteServerCertificate
     :: Text -- ^ 'dscServerCertificateName'
     -> DeleteServerCertificate
@@ -63,7 +63,7 @@ deleteServerCertificate pServerCertificateName_ =
   DeleteServerCertificate' {_dscServerCertificateName = pServerCertificateName_}
 
 
--- | The name of the server certificate you want to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | The name of the server certificate you want to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 dscServerCertificateName :: Lens' DeleteServerCertificate Text
 dscServerCertificateName = lens _dscServerCertificateName (\ s a -> s{_dscServerCertificateName = a})
 

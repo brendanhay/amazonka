@@ -91,6 +91,9 @@ module Network.AWS.IAM
     -- ** ServiceFailureException
     , _ServiceFailureException
 
+    -- ** ConcurrentModificationException
+    , _ConcurrentModificationException
+
     -- ** InvalidInputException
     , _InvalidInputException
 
@@ -148,6 +151,9 @@ module Network.AWS.IAM
     -- ** CreateAccessKey
     , module Network.AWS.IAM.CreateAccessKey
 
+    -- ** ListRoleTags
+    , module Network.AWS.IAM.ListRoleTags
+
     -- ** ListSSHPublicKeys (Paginated)
     , module Network.AWS.IAM.ListSSHPublicKeys
 
@@ -202,8 +208,14 @@ module Network.AWS.IAM
     -- ** ListUserPolicies (Paginated)
     , module Network.AWS.IAM.ListUserPolicies
 
+    -- ** PutRolePermissionsBoundary
+    , module Network.AWS.IAM.PutRolePermissionsBoundary
+
     -- ** UploadSSHPublicKey
     , module Network.AWS.IAM.UploadSSHPublicKey
+
+    -- ** DeleteRolePermissionsBoundary
+    , module Network.AWS.IAM.DeleteRolePermissionsBoundary
 
     -- ** SimulateCustomPolicy (Paginated)
     , module Network.AWS.IAM.SimulateCustomPolicy
@@ -226,14 +238,23 @@ module Network.AWS.IAM
     -- ** GetSSHPublicKey
     , module Network.AWS.IAM.GetSSHPublicKey
 
+    -- ** UntagUser
+    , module Network.AWS.IAM.UntagUser
+
     -- ** DetachGroupPolicy
     , module Network.AWS.IAM.DetachGroupPolicy
 
     -- ** GetOpenIdConnectProvider
     , module Network.AWS.IAM.GetOpenIdConnectProvider
 
+    -- ** PutUserPermissionsBoundary
+    , module Network.AWS.IAM.PutUserPermissionsBoundary
+
     -- ** DeleteUserPolicy
     , module Network.AWS.IAM.DeleteUserPolicy
+
+    -- ** DeleteUserPermissionsBoundary
+    , module Network.AWS.IAM.DeleteUserPermissionsBoundary
 
     -- ** CreateRole
     , module Network.AWS.IAM.CreateRole
@@ -247,11 +268,17 @@ module Network.AWS.IAM
     -- ** GetAccountSummary
     , module Network.AWS.IAM.GetAccountSummary
 
+    -- ** GenerateServiceLastAccessedDetails
+    , module Network.AWS.IAM.GenerateServiceLastAccessedDetails
+
     -- ** ListGroupPolicies (Paginated)
     , module Network.AWS.IAM.ListGroupPolicies
 
     -- ** DeletePolicyVersion
     , module Network.AWS.IAM.DeletePolicyVersion
+
+    -- ** TagUser
+    , module Network.AWS.IAM.TagUser
 
     -- ** DeleteInstanceProfile
     , module Network.AWS.IAM.DeleteInstanceProfile
@@ -289,6 +316,9 @@ module Network.AWS.IAM
     -- ** DeleteGroupPolicy
     , module Network.AWS.IAM.DeleteGroupPolicy
 
+    -- ** TagRole
+    , module Network.AWS.IAM.TagRole
+
     -- ** PutGroupPolicy
     , module Network.AWS.IAM.PutGroupPolicy
 
@@ -312,6 +342,9 @@ module Network.AWS.IAM
 
     -- ** UpdateAssumeRolePolicy
     , module Network.AWS.IAM.UpdateAssumeRolePolicy
+
+    -- ** GetServiceLastAccessedDetailsWithEntities
+    , module Network.AWS.IAM.GetServiceLastAccessedDetailsWithEntities
 
     -- ** GetInstanceProfile
     , module Network.AWS.IAM.GetInstanceProfile
@@ -385,11 +418,17 @@ module Network.AWS.IAM
     -- ** UpdateAccessKey
     , module Network.AWS.IAM.UpdateAccessKey
 
+    -- ** ListUserTags
+    , module Network.AWS.IAM.ListUserTags
+
     -- ** ListAccessKeys (Paginated)
     , module Network.AWS.IAM.ListAccessKeys
 
     -- ** GetRolePolicy
     , module Network.AWS.IAM.GetRolePolicy
+
+    -- ** UntagRole
+    , module Network.AWS.IAM.UntagRole
 
     -- ** CreateUser
     , module Network.AWS.IAM.CreateUser
@@ -427,6 +466,9 @@ module Network.AWS.IAM
     -- ** CreateAccountAlias
     , module Network.AWS.IAM.CreateAccountAlias
 
+    -- ** ListPoliciesGrantingServiceAccess
+    , module Network.AWS.IAM.ListPoliciesGrantingServiceAccess
+
     -- ** ListInstanceProfiles (Paginated)
     , module Network.AWS.IAM.ListInstanceProfiles
 
@@ -462,6 +504,9 @@ module Network.AWS.IAM
 
     -- ** ListSAMLProviders
     , module Network.AWS.IAM.ListSAMLProviders
+
+    -- ** GetServiceLastAccessedDetails
+    , module Network.AWS.IAM.GetServiceLastAccessedDetails
 
     -- ** GetServerCertificate
     , module Network.AWS.IAM.GetServerCertificate
@@ -516,14 +561,29 @@ module Network.AWS.IAM
     -- ** EntityType
     , EntityType (..)
 
+    -- ** JobStatusType
+    , JobStatusType (..)
+
+    -- ** PermissionsBoundaryAttachmentType
+    , PermissionsBoundaryAttachmentType (..)
+
     -- ** PolicyEvaluationDecisionType
     , PolicyEvaluationDecisionType (..)
+
+    -- ** PolicyOwnerEntityType
+    , PolicyOwnerEntityType (..)
 
     -- ** PolicyScopeType
     , PolicyScopeType (..)
 
     -- ** PolicySourceType
     , PolicySourceType (..)
+
+    -- ** PolicyType
+    , PolicyType (..)
+
+    -- ** PolicyUsageType
+    , PolicyUsageType (..)
 
     -- ** ReportFormatType
     , ReportFormatType (..)
@@ -561,6 +621,12 @@ module Network.AWS.IAM
     , akmUserName
     , akmAccessKeyId
 
+    -- ** AttachedPermissionsBoundary
+    , AttachedPermissionsBoundary
+    , attachedPermissionsBoundary
+    , apbPermissionsBoundaryType
+    , apbPermissionsBoundaryARN
+
     -- ** AttachedPolicy
     , AttachedPolicy
     , attachedPolicy
@@ -579,6 +645,27 @@ module Network.AWS.IAM
     , deletionTaskFailureReasonType
     , dtfrtRoleUsageList
     , dtfrtReason
+
+    -- ** EntityDetails
+    , EntityDetails
+    , entityDetails
+    , edLastAuthenticated
+    , edEntityInfo
+
+    -- ** EntityInfo
+    , EntityInfo
+    , entityInfo
+    , eiPath
+    , eiARN
+    , eiName
+    , eiType
+    , eiId
+
+    -- ** ErrorDetails
+    , ErrorDetails
+    , errorDetails
+    , edMessage
+    , edCode
 
     -- ** EvaluationResult
     , EvaluationResult
@@ -627,6 +714,12 @@ module Network.AWS.IAM
     , ipCreateDate
     , ipRoles
 
+    -- ** ListPoliciesGrantingServiceAccessEntry
+    , ListPoliciesGrantingServiceAccessEntry
+    , listPoliciesGrantingServiceAccessEntry
+    , lpgsaeServiceNamespace
+    , lpgsaePolicies
+
     -- ** LoginProfile
     , LoginProfile
     , loginProfile
@@ -652,6 +745,7 @@ module Network.AWS.IAM
     , mpdPolicyVersionList
     , mpdCreateDate
     , mpdIsAttachable
+    , mpdPermissionsBoundaryUsageCount
     , mpdDefaultVersionId
     , mpdAttachmentCount
     , mpdDescription
@@ -690,6 +784,7 @@ module Network.AWS.IAM
     , pPath
     , pCreateDate
     , pIsAttachable
+    , pPermissionsBoundaryUsageCount
     , pDefaultVersionId
     , pAttachmentCount
     , pDescription
@@ -699,6 +794,15 @@ module Network.AWS.IAM
     , policyDetail
     , pdPolicyDocument
     , pdPolicyName
+
+    -- ** PolicyGrantingServiceAccess
+    , PolicyGrantingServiceAccess
+    , policyGrantingServiceAccess
+    , pgsaEntityName
+    , pgsaEntityType
+    , pgsaPolicyARN
+    , pgsaPolicyName
+    , pgsaPolicyType
 
     -- ** PolicyGroup
     , PolicyGroup
@@ -746,7 +850,9 @@ module Network.AWS.IAM
     , role'
     , rMaxSessionDuration
     , rAssumeRolePolicyDocument
+    , rPermissionsBoundary
     , rDescription
+    , rTags
     , rPath
     , rRoleName
     , rRoleId
@@ -763,7 +869,9 @@ module Network.AWS.IAM
     , rdCreateDate
     , rdRoleName
     , rdRoleId
+    , rdPermissionsBoundary
     , rdRolePolicyList
+    , rdTags
     , rdAttachedManagedPolicies
 
     -- ** RoleUsageType
@@ -814,6 +922,15 @@ module Network.AWS.IAM
     , scmServerCertificateId
     , scmARN
 
+    -- ** ServiceLastAccessed
+    , ServiceLastAccessed
+    , serviceLastAccessed
+    , slaLastAuthenticated
+    , slaLastAuthenticatedEntity
+    , slaTotalAuthenticatedEntities
+    , slaServiceName
+    , slaServiceNamespace
+
     -- ** ServiceSpecificCredential
     , ServiceSpecificCredential
     , serviceSpecificCredential
@@ -859,10 +976,18 @@ module Network.AWS.IAM
     , sEndPosition
     , sStartPosition
 
+    -- ** Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
+
     -- ** User
     , User
     , user
     , uPasswordLastUsed
+    , uPermissionsBoundary
+    , uTags
     , uPath
     , uUserName
     , uUserId
@@ -878,7 +1003,9 @@ module Network.AWS.IAM
     , udCreateDate
     , udUserName
     , udUserId
+    , udPermissionsBoundary
     , udUserPolicyList
+    , udTags
     , udAttachedManagedPolicies
 
     -- ** VirtualMFADevice
@@ -924,6 +1051,7 @@ import Network.AWS.IAM.DeleteOpenIdConnectProvider
 import Network.AWS.IAM.DeletePolicy
 import Network.AWS.IAM.DeletePolicyVersion
 import Network.AWS.IAM.DeleteRole
+import Network.AWS.IAM.DeleteRolePermissionsBoundary
 import Network.AWS.IAM.DeleteRolePolicy
 import Network.AWS.IAM.DeleteSAMLProvider
 import Network.AWS.IAM.DeleteServerCertificate
@@ -932,6 +1060,7 @@ import Network.AWS.IAM.DeleteServiceSpecificCredential
 import Network.AWS.IAM.DeleteSigningCertificate
 import Network.AWS.IAM.DeleteSSHPublicKey
 import Network.AWS.IAM.DeleteUser
+import Network.AWS.IAM.DeleteUserPermissionsBoundary
 import Network.AWS.IAM.DeleteUserPolicy
 import Network.AWS.IAM.DeleteVirtualMFADevice
 import Network.AWS.IAM.DetachGroupPolicy
@@ -939,6 +1068,7 @@ import Network.AWS.IAM.DetachRolePolicy
 import Network.AWS.IAM.DetachUserPolicy
 import Network.AWS.IAM.EnableMFADevice
 import Network.AWS.IAM.GenerateCredentialReport
+import Network.AWS.IAM.GenerateServiceLastAccessedDetails
 import Network.AWS.IAM.GetAccessKeyLastUsed
 import Network.AWS.IAM.GetAccountAuthorizationDetails
 import Network.AWS.IAM.GetAccountPasswordPolicy
@@ -957,6 +1087,8 @@ import Network.AWS.IAM.GetRole
 import Network.AWS.IAM.GetRolePolicy
 import Network.AWS.IAM.GetSAMLProvider
 import Network.AWS.IAM.GetServerCertificate
+import Network.AWS.IAM.GetServiceLastAccessedDetails
+import Network.AWS.IAM.GetServiceLastAccessedDetailsWithEntities
 import Network.AWS.IAM.GetServiceLinkedRoleDeletionStatus
 import Network.AWS.IAM.GetSSHPublicKey
 import Network.AWS.IAM.GetUser
@@ -975,9 +1107,11 @@ import Network.AWS.IAM.ListInstanceProfilesForRole
 import Network.AWS.IAM.ListMFADevices
 import Network.AWS.IAM.ListOpenIdConnectProviders
 import Network.AWS.IAM.ListPolicies
+import Network.AWS.IAM.ListPoliciesGrantingServiceAccess
 import Network.AWS.IAM.ListPolicyVersions
 import Network.AWS.IAM.ListRolePolicies
 import Network.AWS.IAM.ListRoles
+import Network.AWS.IAM.ListRoleTags
 import Network.AWS.IAM.ListSAMLProviders
 import Network.AWS.IAM.ListServerCertificates
 import Network.AWS.IAM.ListServiceSpecificCredentials
@@ -985,9 +1119,12 @@ import Network.AWS.IAM.ListSigningCertificates
 import Network.AWS.IAM.ListSSHPublicKeys
 import Network.AWS.IAM.ListUserPolicies
 import Network.AWS.IAM.ListUsers
+import Network.AWS.IAM.ListUserTags
 import Network.AWS.IAM.ListVirtualMFADevices
 import Network.AWS.IAM.PutGroupPolicy
+import Network.AWS.IAM.PutRolePermissionsBoundary
 import Network.AWS.IAM.PutRolePolicy
+import Network.AWS.IAM.PutUserPermissionsBoundary
 import Network.AWS.IAM.PutUserPolicy
 import Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
 import Network.AWS.IAM.RemoveRoleFromInstanceProfile
@@ -997,7 +1134,11 @@ import Network.AWS.IAM.ResyncMFADevice
 import Network.AWS.IAM.SetDefaultPolicyVersion
 import Network.AWS.IAM.SimulateCustomPolicy
 import Network.AWS.IAM.SimulatePrincipalPolicy
+import Network.AWS.IAM.TagRole
+import Network.AWS.IAM.TagUser
 import Network.AWS.IAM.Types
+import Network.AWS.IAM.UntagRole
+import Network.AWS.IAM.UntagUser
 import Network.AWS.IAM.UpdateAccessKey
 import Network.AWS.IAM.UpdateAccountPasswordPolicy
 import Network.AWS.IAM.UpdateAssumeRolePolicy

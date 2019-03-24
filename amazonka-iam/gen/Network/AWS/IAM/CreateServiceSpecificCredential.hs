@@ -64,7 +64,7 @@ data CreateServiceSpecificCredential = CreateServiceSpecificCredential'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csscUserName' - The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'csscUserName' - The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'csscServiceName' - The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
 createServiceSpecificCredential
@@ -76,7 +76,7 @@ createServiceSpecificCredential pUserName_ pServiceName_ =
     {_csscUserName = pUserName_, _csscServiceName = pServiceName_}
 
 
--- | The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 csscUserName :: Lens' CreateServiceSpecificCredential Text
 csscUserName = lens _csscUserName (\ s a -> s{_csscUserName = a})
 

@@ -21,7 +21,7 @@
 -- Changes the status of the specified access key from Active to Inactive, or vice versa. This operation can be used to disable a user's key as part of a key rotation workflow.
 --
 --
--- If the @UserName@ field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
+-- If the @UserName@ field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
 --
 -- For information about rotating keys, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html Managing Keys and Certificates> in the /IAM User Guide/ .
 --
@@ -59,9 +59,9 @@ data UpdateAccessKey = UpdateAccessKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uakUserName' - The name of the user whose key you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'uakUserName' - The name of the user whose key you want to update. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
--- * 'uakAccessKeyId' - The access key ID of the secret access key you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+-- * 'uakAccessKeyId' - The access key ID of the secret access key you want to update. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 --
 -- * 'uakStatus' - The status you want to assign to the secret access key. @Active@ means that the key can be used for API calls to AWS, while @Inactive@ means that the key cannot be used.
 updateAccessKey
@@ -76,11 +76,11 @@ updateAccessKey pAccessKeyId_ pStatus_ =
     }
 
 
--- | The name of the user whose key you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | The name of the user whose key you want to update. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 uakUserName :: Lens' UpdateAccessKey (Maybe Text)
 uakUserName = lens _uakUserName (\ s a -> s{_uakUserName = a})
 
--- | The access key ID of the secret access key you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+-- | The access key ID of the secret access key you want to update. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 uakAccessKeyId :: Lens' UpdateAccessKey AccessKey
 uakAccessKeyId = lens _uakAccessKeyId (\ s a -> s{_uakAccessKeyId = a})
 

@@ -21,7 +21,7 @@
 -- Uploads an X.509 signing certificate and associates it with the specified IAM user. Some AWS services use X.509 signing certificates to validate requests that are signed with a corresponding private key. When you upload the certificate, its default status is @Active@ .
 --
 --
--- If the @UserName@ field is not specified, the IAM user name is determined implicitly based on the AWS access key ID used to sign the request. Because this operation works for access keys under the AWS account, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
+-- If the @UserName@ field is not specified, the IAM user name is determined implicitly based on the AWS access key ID used to sign the request. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
 --
 module Network.AWS.IAM.UploadSigningCertificate
     (
@@ -58,7 +58,7 @@ data UploadSigningCertificate = UploadSigningCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uplUserName' - The name of the user the signing certificate is for. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'uplUserName' - The name of the user the signing certificate is for. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'uplCertificateBody' - The contents of the signing certificate. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:     * Any printable ASCII character ranging from the space character (\u0020) through the end of the ASCII character range     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF)     * The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)
 uploadSigningCertificate
@@ -69,7 +69,7 @@ uploadSigningCertificate pCertificateBody_ =
     {_uplUserName = Nothing, _uplCertificateBody = pCertificateBody_}
 
 
--- | The name of the user the signing certificate is for. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | The name of the user the signing certificate is for. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 uplUserName :: Lens' UploadSigningCertificate (Maybe Text)
 uplUserName = lens _uplUserName (\ s a -> s{_uplUserName = a})
 

@@ -61,7 +61,7 @@ data UpdateLoginProfile = UpdateLoginProfile'
 --
 -- * 'ulpPasswordResetRequired' - Allows this new password to be used only once by requiring the specified IAM user to set a new password on next sign-in.
 --
--- * 'ulpUserName' - The name of the user whose password you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'ulpUserName' - The name of the user whose password you want to update. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 updateLoginProfile
     :: Text -- ^ 'ulpUserName'
     -> UpdateLoginProfile
@@ -81,7 +81,7 @@ ulpPassword = lens _ulpPassword (\ s a -> s{_ulpPassword = a}) . mapping _Sensit
 ulpPasswordResetRequired :: Lens' UpdateLoginProfile (Maybe Bool)
 ulpPasswordResetRequired = lens _ulpPasswordResetRequired (\ s a -> s{_ulpPasswordResetRequired = a})
 
--- | The name of the user whose password you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | The name of the user whose password you want to update. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 ulpUserName :: Lens' UpdateLoginProfile Text
 ulpUserName = lens _ulpUserName (\ s a -> s{_ulpUserName = a})
 

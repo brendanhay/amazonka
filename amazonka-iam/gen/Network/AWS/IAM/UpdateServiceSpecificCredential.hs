@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the status of a service-specific credential to @Active@ or @Inactive@ . Service-specific credentials that are inactive cannot be used for authentication to the service. This operation can be used to disable a user’s service-specific credential as part of a credential rotation work flow.
+-- Sets the status of a service-specific credential to @Active@ or @Inactive@ . Service-specific credentials that are inactive cannot be used for authentication to the service. This operation can be used to disable a user's service-specific credential as part of a credential rotation work flow.
 --
 --
 module Network.AWS.IAM.UpdateServiceSpecificCredential
@@ -55,9 +55,9 @@ data UpdateServiceSpecificCredential = UpdateServiceSpecificCredential'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usscUserName' - The name of the IAM user associated with the service-specific credential. If you do not specify this value, then the operation assumes the user whose credentials are used to call the operation. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'usscUserName' - The name of the IAM user associated with the service-specific credential. If you do not specify this value, then the operation assumes the user whose credentials are used to call the operation. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
--- * 'usscServiceSpecificCredentialId' - The unique identifier of the service-specific credential. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+-- * 'usscServiceSpecificCredentialId' - The unique identifier of the service-specific credential. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 --
 -- * 'usscStatus' - The status to be assigned to the service-specific credential.
 updateServiceSpecificCredential
@@ -72,11 +72,11 @@ updateServiceSpecificCredential pServiceSpecificCredentialId_ pStatus_ =
     }
 
 
--- | The name of the IAM user associated with the service-specific credential. If you do not specify this value, then the operation assumes the user whose credentials are used to call the operation. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | The name of the IAM user associated with the service-specific credential. If you do not specify this value, then the operation assumes the user whose credentials are used to call the operation. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 usscUserName :: Lens' UpdateServiceSpecificCredential (Maybe Text)
 usscUserName = lens _usscUserName (\ s a -> s{_usscUserName = a})
 
--- | The unique identifier of the service-specific credential. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+-- | The unique identifier of the service-specific credential. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 usscServiceSpecificCredentialId :: Lens' UpdateServiceSpecificCredential Text
 usscServiceSpecificCredentialId = lens _usscServiceSpecificCredentialId (\ s a -> s{_usscServiceSpecificCredentialId = a})
 

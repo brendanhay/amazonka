@@ -56,7 +56,7 @@ newtype GetServerCertificate = GetServerCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gscServerCertificateName' - The name of the server certificate you want to retrieve information about. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'gscServerCertificateName' - The name of the server certificate you want to retrieve information about. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 getServerCertificate
     :: Text -- ^ 'gscServerCertificateName'
     -> GetServerCertificate
@@ -64,7 +64,7 @@ getServerCertificate pServerCertificateName_ =
   GetServerCertificate' {_gscServerCertificateName = pServerCertificateName_}
 
 
--- | The name of the server certificate you want to retrieve information about. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | The name of the server certificate you want to retrieve information about. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 gscServerCertificateName :: Lens' GetServerCertificate Text
 gscServerCertificateName = lens _gscServerCertificateName (\ s a -> s{_gscServerCertificateName = a})
 

@@ -51,14 +51,14 @@ newtype DeleteGroup = DeleteGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgGroupName' - The name of the IAM group to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'dgGroupName' - The name of the IAM group to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 deleteGroup
     :: Text -- ^ 'dgGroupName'
     -> DeleteGroup
 deleteGroup pGroupName_ = DeleteGroup' {_dgGroupName = pGroupName_}
 
 
--- | The name of the IAM group to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | The name of the IAM group to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 dgGroupName :: Lens' DeleteGroup Text
 dgGroupName = lens _dgGroupName (\ s a -> s{_dgGroupName = a})
 

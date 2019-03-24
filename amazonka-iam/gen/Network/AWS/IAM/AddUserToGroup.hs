@@ -53,9 +53,9 @@ data AddUserToGroup = AddUserToGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'autgGroupName' - The name of the group to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'autgGroupName' - The name of the group to update. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
--- * 'autgUserName' - The name of the user to add. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'autgUserName' - The name of the user to add. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 addUserToGroup
     :: Text -- ^ 'autgGroupName'
     -> Text -- ^ 'autgUserName'
@@ -64,11 +64,11 @@ addUserToGroup pGroupName_ pUserName_ =
   AddUserToGroup' {_autgGroupName = pGroupName_, _autgUserName = pUserName_}
 
 
--- | The name of the group to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | The name of the group to update. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 autgGroupName :: Lens' AddUserToGroup Text
 autgGroupName = lens _autgGroupName (\ s a -> s{_autgGroupName = a})
 
--- | The name of the user to add. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | The name of the user to add. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 autgUserName :: Lens' AddUserToGroup Text
 autgUserName = lens _autgUserName (\ s a -> s{_autgUserName = a})
 

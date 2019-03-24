@@ -81,7 +81,7 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
 --
 -- * 'uappHardExpiry' - Prevents IAM users from setting a new password after their password has expired. The IAM user cannot be accessed until an administrator resets the password. If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that IAM users can change their passwords after they expire and continue to sign in as the user.
 --
--- * 'uappRequireSymbols' - Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters: ! @ # $ % ^ &amp; * ( ) _ + - = [ ] { } | ' If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one symbol character.
+-- * 'uappRequireSymbols' - Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters: ! @ # $ % ^ & * ( ) _ + - = [ ] { } | ' If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one symbol character.
 --
 -- * 'uappRequireUppercaseCharacters' - Specifies whether IAM user passwords must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z). If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one uppercase character.
 --
@@ -126,7 +126,7 @@ uappMaxPasswordAge = lens _uappMaxPasswordAge (\ s a -> s{_uappMaxPasswordAge = 
 uappHardExpiry :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappHardExpiry = lens _uappHardExpiry (\ s a -> s{_uappHardExpiry = a})
 
--- | Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters: ! @ # $ % ^ &amp; * ( ) _ + - = [ ] { } | ' If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one symbol character.
+-- | Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric characters: ! @ # $ % ^ & * ( ) _ + - = [ ] { } | ' If you do not specify a value for this parameter, then the operation uses the default value of @false@ . The result is that passwords do not require at least one symbol character.
 uappRequireSymbols :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireSymbols = lens _uappRequireSymbols (\ s a -> s{_uappRequireSymbols = a})
 

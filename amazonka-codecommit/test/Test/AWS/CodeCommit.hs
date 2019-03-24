@@ -15,9 +15,9 @@ module Test.AWS.CodeCommit
     , fixtures
     ) where
 
-import           Network.AWS.CodeCommit
-import           Test.AWS.Gen.CodeCommit
-import           Test.Tasty
+import Network.AWS.CodeCommit
+import Test.AWS.Gen.CodeCommit
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

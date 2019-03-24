@@ -33,8 +33,8 @@ module Network.AWS.CodeCommit.GetComment
     , getCommentResponse
     , GetCommentResponse
     -- * Response Lenses
-    , getrsComment
-    , getrsResponseStatus
+    , gccrsComment
+    , gccrsResponseStatus
     ) where
 
 import Network.AWS.CodeCommit.Types
@@ -100,8 +100,8 @@ instance ToQuery GetComment where
 
 -- | /See:/ 'getCommentResponse' smart constructor.
 data GetCommentResponse = GetCommentResponse'
-  { _getrsComment        :: !(Maybe Comment)
-  , _getrsResponseStatus :: !Int
+  { _gccrsComment        :: !(Maybe Comment)
+  , _gccrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -109,23 +109,23 @@ data GetCommentResponse = GetCommentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'getrsComment' - The contents of the comment.
+-- * 'gccrsComment' - The contents of the comment.
 --
--- * 'getrsResponseStatus' - -- | The response status code.
+-- * 'gccrsResponseStatus' - -- | The response status code.
 getCommentResponse
-    :: Int -- ^ 'getrsResponseStatus'
+    :: Int -- ^ 'gccrsResponseStatus'
     -> GetCommentResponse
 getCommentResponse pResponseStatus_ =
   GetCommentResponse'
-    {_getrsComment = Nothing, _getrsResponseStatus = pResponseStatus_}
+    {_gccrsComment = Nothing, _gccrsResponseStatus = pResponseStatus_}
 
 
 -- | The contents of the comment.
-getrsComment :: Lens' GetCommentResponse (Maybe Comment)
-getrsComment = lens _getrsComment (\ s a -> s{_getrsComment = a})
+gccrsComment :: Lens' GetCommentResponse (Maybe Comment)
+gccrsComment = lens _gccrsComment (\ s a -> s{_gccrsComment = a})
 
 -- | -- | The response status code.
-getrsResponseStatus :: Lens' GetCommentResponse Int
-getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a})
+gccrsResponseStatus :: Lens' GetCommentResponse Int
+gccrsResponseStatus = lens _gccrsResponseStatus (\ s a -> s{_gccrsResponseStatus = a})
 
 instance NFData GetCommentResponse where

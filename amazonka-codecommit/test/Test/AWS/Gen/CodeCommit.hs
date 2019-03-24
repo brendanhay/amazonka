@@ -52,6 +52,9 @@ import Test.Tasty
 --         , requestListPullRequests $
 --             listPullRequests
 --
+--         , requestCreateCommit $
+--             createCommit
+--
 --         , requestGetComment $
 --             getComment
 --
@@ -63,6 +66,9 @@ import Test.Tasty
 --
 --         , requestCreateBranch $
 --             createBranch
+--
+--         , requestGetFolder $
+--             getFolder
 --
 --         , requestCreatePullRequest $
 --             createPullRequest
@@ -94,6 +100,9 @@ import Test.Tasty
 --         , requestPutFile $
 --             putFile
 --
+--         , requestDeleteFile $
+--             deleteFile
+--
 --         , requestGetCommentsForComparedCommit $
 --             getCommentsForComparedCommit
 --
@@ -114,6 +123,9 @@ import Test.Tasty
 --
 --         , requestPutRepositoryTriggers $
 --             putRepositoryTriggers
+--
+--         , requestGetFile $
+--             getFile
 --
 --         , requestGetMergeConflicts $
 --             getMergeConflicts
@@ -163,6 +175,9 @@ import Test.Tasty
 --         , responseListPullRequests $
 --             listPullRequestsResponse
 --
+--         , responseCreateCommit $
+--             createCommitResponse
+--
 --         , responseGetComment $
 --             getCommentResponse
 --
@@ -174,6 +189,9 @@ import Test.Tasty
 --
 --         , responseCreateBranch $
 --             createBranchResponse
+--
+--         , responseGetFolder $
+--             getFolderResponse
 --
 --         , responseCreatePullRequest $
 --             createPullRequestResponse
@@ -205,6 +223,9 @@ import Test.Tasty
 --         , responsePutFile $
 --             putFileResponse
 --
+--         , responseDeleteFile $
+--             deleteFileResponse
+--
 --         , responseGetCommentsForComparedCommit $
 --             getCommentsForComparedCommitResponse
 --
@@ -225,6 +246,9 @@ import Test.Tasty
 --
 --         , responsePutRepositoryTriggers $
 --             putRepositoryTriggersResponse
+--
+--         , responseGetFile $
+--             getFileResponse
 --
 --         , responseGetMergeConflicts $
 --             getMergeConflictsResponse
@@ -292,6 +316,11 @@ requestListPullRequests = req
     "ListPullRequests"
     "fixture/ListPullRequests.yaml"
 
+requestCreateCommit :: CreateCommit -> TestTree
+requestCreateCommit = req
+    "CreateCommit"
+    "fixture/CreateCommit.yaml"
+
 requestGetComment :: GetComment -> TestTree
 requestGetComment = req
     "GetComment"
@@ -311,6 +340,11 @@ requestCreateBranch :: CreateBranch -> TestTree
 requestCreateBranch = req
     "CreateBranch"
     "fixture/CreateBranch.yaml"
+
+requestGetFolder :: GetFolder -> TestTree
+requestGetFolder = req
+    "GetFolder"
+    "fixture/GetFolder.yaml"
 
 requestCreatePullRequest :: CreatePullRequest -> TestTree
 requestCreatePullRequest = req
@@ -362,6 +396,11 @@ requestPutFile = req
     "PutFile"
     "fixture/PutFile.yaml"
 
+requestDeleteFile :: DeleteFile -> TestTree
+requestDeleteFile = req
+    "DeleteFile"
+    "fixture/DeleteFile.yaml"
+
 requestGetCommentsForComparedCommit :: GetCommentsForComparedCommit -> TestTree
 requestGetCommentsForComparedCommit = req
     "GetCommentsForComparedCommit"
@@ -396,6 +435,11 @@ requestPutRepositoryTriggers :: PutRepositoryTriggers -> TestTree
 requestPutRepositoryTriggers = req
     "PutRepositoryTriggers"
     "fixture/PutRepositoryTriggers.yaml"
+
+requestGetFile :: GetFile -> TestTree
+requestGetFile = req
+    "GetFile"
+    "fixture/GetFile.yaml"
 
 requestGetMergeConflicts :: GetMergeConflicts -> TestTree
 requestGetMergeConflicts = req
@@ -490,6 +534,13 @@ responseListPullRequests = res
     codeCommit
     (Proxy :: Proxy ListPullRequests)
 
+responseCreateCommit :: CreateCommitResponse -> TestTree
+responseCreateCommit = res
+    "CreateCommitResponse"
+    "fixture/CreateCommitResponse.proto"
+    codeCommit
+    (Proxy :: Proxy CreateCommit)
+
 responseGetComment :: GetCommentResponse -> TestTree
 responseGetComment = res
     "GetCommentResponse"
@@ -517,6 +568,13 @@ responseCreateBranch = res
     "fixture/CreateBranchResponse.proto"
     codeCommit
     (Proxy :: Proxy CreateBranch)
+
+responseGetFolder :: GetFolderResponse -> TestTree
+responseGetFolder = res
+    "GetFolderResponse"
+    "fixture/GetFolderResponse.proto"
+    codeCommit
+    (Proxy :: Proxy GetFolder)
 
 responseCreatePullRequest :: CreatePullRequestResponse -> TestTree
 responseCreatePullRequest = res
@@ -588,6 +646,13 @@ responsePutFile = res
     codeCommit
     (Proxy :: Proxy PutFile)
 
+responseDeleteFile :: DeleteFileResponse -> TestTree
+responseDeleteFile = res
+    "DeleteFileResponse"
+    "fixture/DeleteFileResponse.proto"
+    codeCommit
+    (Proxy :: Proxy DeleteFile)
+
 responseGetCommentsForComparedCommit :: GetCommentsForComparedCommitResponse -> TestTree
 responseGetCommentsForComparedCommit = res
     "GetCommentsForComparedCommitResponse"
@@ -636,6 +701,13 @@ responsePutRepositoryTriggers = res
     "fixture/PutRepositoryTriggersResponse.proto"
     codeCommit
     (Proxy :: Proxy PutRepositoryTriggers)
+
+responseGetFile :: GetFileResponse -> TestTree
+responseGetFile = res
+    "GetFileResponse"
+    "fixture/GetFileResponse.proto"
+    codeCommit
+    (Proxy :: Proxy GetFile)
 
 responseGetMergeConflicts :: GetMergeConflictsResponse -> TestTree
 responseGetMergeConflicts = res

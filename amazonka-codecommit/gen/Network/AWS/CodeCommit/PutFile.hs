@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or updates a file in an AWS CodeCommit repository.
+-- Adds or updates a file in a branch in an AWS CodeCommit repository, and generates a commit for the addition in the specified branch.
 --
 --
 module Network.AWS.CodeCommit.PutFile
@@ -76,7 +76,7 @@ data PutFile = PutFile'
 --
 -- * 'pfFileMode' - The file mode permissions of the blob. Valid file mode permissions are listed below.
 --
--- * 'pfParentCommitId' - The full commit ID of the head commit in the branch where you want to add or update the file. If the commit ID does not match the ID of the head commit at the time of the operation, an error will occur, and the file will not be added or updated.
+-- * 'pfParentCommitId' - The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty repository, no commit ID is required. If this is not an empty repository, a commit ID is required.  The commit ID must match the ID of the head commit at the time of the operation, or an error will occur, and the file will not be added or updated.
 --
 -- * 'pfName' - The name of the person adding or updating the file. While optional, adding a name is strongly encouraged in order to provide a more useful commit history for your repository.
 --
@@ -84,7 +84,7 @@ data PutFile = PutFile'
 --
 -- * 'pfRepositoryName' - The name of the repository where you want to add or update the file.
 --
--- * 'pfBranchName' - The name of the branch where you want to add or update the file.
+-- * 'pfBranchName' - The name of the branch where you want to add or update the file. If this is an empty repository, this branch will be created.
 --
 -- * 'pfFileContent' - The content of the file, in binary object format. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
@@ -117,7 +117,7 @@ pfEmail = lens _pfEmail (\ s a -> s{_pfEmail = a})
 pfFileMode :: Lens' PutFile (Maybe FileModeTypeEnum)
 pfFileMode = lens _pfFileMode (\ s a -> s{_pfFileMode = a})
 
--- | The full commit ID of the head commit in the branch where you want to add or update the file. If the commit ID does not match the ID of the head commit at the time of the operation, an error will occur, and the file will not be added or updated.
+-- | The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty repository, no commit ID is required. If this is not an empty repository, a commit ID is required.  The commit ID must match the ID of the head commit at the time of the operation, or an error will occur, and the file will not be added or updated.
 pfParentCommitId :: Lens' PutFile (Maybe Text)
 pfParentCommitId = lens _pfParentCommitId (\ s a -> s{_pfParentCommitId = a})
 
@@ -133,7 +133,7 @@ pfCommitMessage = lens _pfCommitMessage (\ s a -> s{_pfCommitMessage = a})
 pfRepositoryName :: Lens' PutFile Text
 pfRepositoryName = lens _pfRepositoryName (\ s a -> s{_pfRepositoryName = a})
 
--- | The name of the branch where you want to add or update the file.
+-- | The name of the branch where you want to add or update the file. If this is an empty repository, this branch will be created.
 pfBranchName :: Lens' PutFile Text
 pfBranchName = lens _pfBranchName (\ s a -> s{_pfBranchName = a})
 
@@ -208,7 +208,7 @@ data PutFileResponse = PutFileResponse'
 --
 -- * 'pfrsBlobId' - The ID of the blob, which is its SHA-1 pointer.
 --
--- * 'pfrsTreeId' - Tree information for the commit that contains this file change.
+-- * 'pfrsTreeId' - The full SHA-1 pointer of the tree information for the commit that contains this file change.
 putFileResponse
     :: Int -- ^ 'pfrsResponseStatus'
     -> Text -- ^ 'pfrsCommitId'
@@ -236,7 +236,7 @@ pfrsCommitId = lens _pfrsCommitId (\ s a -> s{_pfrsCommitId = a})
 pfrsBlobId :: Lens' PutFileResponse Text
 pfrsBlobId = lens _pfrsBlobId (\ s a -> s{_pfrsBlobId = a})
 
--- | Tree information for the commit that contains this file change.
+-- | The full SHA-1 pointer of the tree information for the commit that contains this file change.
 pfrsTreeId :: Lens' PutFileResponse Text
 pfrsTreeId = lens _pfrsTreeId (\ s a -> s{_pfrsTreeId = a})
 

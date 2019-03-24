@@ -13,4 +13,4 @@
 
 module Test.AWS.CodeCommit.Internal where
 
-import           Test.AWS.Prelude
+import Test.AWS.Prelude

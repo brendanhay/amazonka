@@ -20,6 +20,7 @@ module Network.AWS.CodeCommit.Types
     , _InvalidContinuationTokenException
     , _ManualMergeRequiredException
     , _TargetsRequiredException
+    , _FileEntryRequiredException
     , _EncryptionKeyNotFoundException
     , _TipsDivergenceExceededException
     , _InvalidRepositoryTriggerBranchNameException
@@ -33,6 +34,8 @@ module Network.AWS.CodeCommit.Types
     , _CommitMessageLengthExceededException
     , _BlobIdDoesNotExistException
     , _MaximumRepositoryNamesExceededException
+    , _PutFileEntryConflictException
+    , _FolderDoesNotExistException
     , _InvalidRepositoryDescriptionException
     , _RepositoryNameExistsException
     , _ReferenceNameRequiredException
@@ -51,16 +54,21 @@ module Network.AWS.CodeCommit.Types
     , _RepositoryNamesRequiredException
     , _InvalidActorARNException
     , _InvalidCommentIdException
+    , _FilePathConflictsWithSubmodulePathException
     , _InvalidDescriptionException
     , _InvalidBlobIdException
     , _PullRequestDoesNotExistException
+    , _NoChangeException
     , _InvalidOrderException
     , _BranchDoesNotExistException
     , _DefaultBranchCannotBeDeletedException
+    , _FolderContentSizeLimitExceededException
+    , _InvalidDeletionParameterException
     , _InvalidPathException
     , _PathRequiredException
     , _RepositoryTriggerNameRequiredException
     , _InvalidFileModeException
+    , _FileModeRequiredException
     , _InvalidPullRequestStatusException
     , _ParentCommitIdRequiredException
     , _InvalidSourceCommitSpecifierException
@@ -72,8 +80,11 @@ module Network.AWS.CodeCommit.Types
     , _InvalidPullRequestEventTypeException
     , _FileContentRequiredException
     , _SourceAndDestinationAreSameException
+    , _RestrictedSourceFileException
     , _PathDoesNotExistException
     , _EncryptionIntegrityChecksFailedException
+    , _SamePathRequestException
+    , _SourceFileOrContentRequiredException
     , _ParentCommitIdOutdatedException
     , _RepositoryTriggerEventsListRequiredException
     , _CommentContentRequiredException
@@ -98,7 +109,9 @@ module Network.AWS.CodeCommit.Types
     , _InvalidReferenceNameException
     , _SameFileContentException
     , _CommitIdRequiredException
+    , _FileDoesNotExistException
     , _InvalidCommitIdException
+    , _FileContentAndSourceFileSpecifiedException
     , _TipOfSourceReferenceIsDifferentException
     , _RepositoryTriggerDestinationARNRequiredException
     , _InvalidClientRequestTokenException
@@ -109,6 +122,7 @@ module Network.AWS.CodeCommit.Types
     , _CommentIdRequiredException
     , _InvalidMaxResultsException
     , _FileTooLargeException
+    , _MaximumFileEntriesExceededException
     , _CommitIdDoesNotExistException
     , _MultipleRepositoriesInPullRequestException
     , _FileContentSizeLimitExceededException
@@ -213,12 +227,39 @@ module Network.AWS.CodeCommit.Types
     , cAuthor
     , cMessage
 
+    -- * DeleteFileEntry
+    , DeleteFileEntry
+    , deleteFileEntry
+    , dfeFilePath
+
     -- * Difference
     , Difference
     , difference
     , dAfterBlob
     , dBeforeBlob
     , dChangeType
+
+    -- * File
+    , File
+    , file
+    , fAbsolutePath
+    , fFileMode
+    , fBlobId
+    , fRelativePath
+
+    -- * FileMetadata
+    , FileMetadata
+    , fileMetadata
+    , fmAbsolutePath
+    , fmFileMode
+    , fmBlobId
+
+    -- * Folder
+    , Folder
+    , folder
+    , folAbsolutePath
+    , folTreeId
+    , folRelativePath
 
     -- * Location
     , Location
@@ -246,10 +287,19 @@ module Network.AWS.CodeCommit.Types
     , prPullRequestTargets
     , prDescription
 
+    -- * PullRequestCreatedEventMetadata
+    , PullRequestCreatedEventMetadata
+    , pullRequestCreatedEventMetadata
+    , prcemDestinationCommitId
+    , prcemMergeBase
+    , prcemRepositoryName
+    , prcemSourceCommitId
+
     -- * PullRequestEvent
     , PullRequestEvent
     , pullRequestEvent
     , prePullRequestMergedStateChangedEventMetadata
+    , prePullRequestCreatedEventMetadata
     , prePullRequestEventType
     , prePullRequestStatusChangedEventMetadata
     , preActorARN
@@ -269,6 +319,7 @@ module Network.AWS.CodeCommit.Types
     , pullRequestSourceReferenceUpdatedEventMetadata
     , prsruemAfterCommitId
     , prsruemBeforeCommitId
+    , prsruemMergeBase
     , prsruemRepositoryName
 
     -- * PullRequestStatusChangedEventMetadata
@@ -282,9 +333,18 @@ module Network.AWS.CodeCommit.Types
     , prtSourceCommit
     , prtDestinationReference
     , prtMergeMetadata
+    , prtMergeBase
     , prtDestinationCommit
     , prtRepositoryName
     , prtSourceReference
+
+    -- * PutFileEntry
+    , PutFileEntry
+    , putFileEntry
+    , pfeFileContent
+    , pfeFileMode
+    , pfeSourceFile
+    , pfeFilePath
 
     -- * RepositoryMetadata
     , RepositoryMetadata
@@ -320,6 +380,33 @@ module Network.AWS.CodeCommit.Types
     , repositoryTriggerExecutionFailure
     , rtefFailureMessage
     , rtefTrigger
+
+    -- * SetFileModeEntry
+    , SetFileModeEntry
+    , setFileModeEntry
+    , sfmeFilePath
+    , sfmeFileMode
+
+    -- * SourceFileSpecifier
+    , SourceFileSpecifier
+    , sourceFileSpecifier
+    , sfsIsMove
+    , sfsFilePath
+
+    -- * SubModule
+    , SubModule
+    , subModule
+    , smCommitId
+    , smAbsolutePath
+    , smRelativePath
+
+    -- * SymbolicLink
+    , SymbolicLink
+    , symbolicLink
+    , slAbsolutePath
+    , slFileMode
+    , slBlobId
+    , slRelativePath
 
     -- * Target
     , Target
@@ -411,6 +498,14 @@ _ManualMergeRequiredException =
 _TargetsRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _TargetsRequiredException =
   _MatchServiceError codeCommit "TargetsRequiredException"
+
+
+-- | The commit cannot be created because no files have been specified as added, updated, or changed (PutFile or DeleteFile) for the commit.
+--
+--
+_FileEntryRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
+_FileEntryRequiredException =
+  _MatchServiceError codeCommit "FileEntryRequiredException"
 
 
 -- | No encryption key was found.
@@ -514,6 +609,22 @@ _BlobIdDoesNotExistException =
 _MaximumRepositoryNamesExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _MaximumRepositoryNamesExceededException =
   _MatchServiceError codeCommit "MaximumRepositoryNamesExceededException"
+
+
+-- | The commit cannot be created because one or more files specified in the commit reference both a file and a folder.
+--
+--
+_PutFileEntryConflictException :: AsError a => Getting (First ServiceError) a ServiceError
+_PutFileEntryConflictException =
+  _MatchServiceError codeCommit "PutFileEntryConflictException"
+
+
+-- | The specified folder does not exist. Either the folder name is not correct, or you did not provide the full path to the folder.
+--
+--
+_FolderDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
+_FolderDoesNotExistException =
+  _MatchServiceError codeCommit "FolderDoesNotExistException"
 
 
 -- | The specified repository description is not valid.
@@ -662,6 +773,14 @@ _InvalidCommentIdException =
   _MatchServiceError codeCommit "InvalidCommentIdException"
 
 
+-- | The commit cannot be created because a specified file path points to a submodule. Verify that the destination files have valid file paths that do not point to a submodule.
+--
+--
+_FilePathConflictsWithSubmodulePathException :: AsError a => Getting (First ServiceError) a ServiceError
+_FilePathConflictsWithSubmodulePathException =
+  _MatchServiceError codeCommit "FilePathConflictsWithSubmodulePathException"
+
+
 -- | The pull request description is not valid. Descriptions are limited to 1,000 characters in length.
 --
 --
@@ -683,6 +802,13 @@ _InvalidBlobIdException = _MatchServiceError codeCommit "InvalidBlobIdException"
 _PullRequestDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _PullRequestDoesNotExistException =
   _MatchServiceError codeCommit "PullRequestDoesNotExistException"
+
+
+-- | The commit cannot be created because no changes will be made to the repository as a result of this commit. A commit must contain at least one change.
+--
+--
+_NoChangeException :: AsError a => Getting (First ServiceError) a ServiceError
+_NoChangeException = _MatchServiceError codeCommit "NoChangeException"
 
 
 -- | The specified sort order is not valid.
@@ -708,6 +834,22 @@ _DefaultBranchCannotBeDeletedException =
   _MatchServiceError codeCommit "DefaultBranchCannotBeDeletedException"
 
 
+-- | The commit cannot be created because at least one of the overall changes in the commit result in a folder contents exceeding the limit of 6 MB. Either reduce the number and size of your changes, or split the changes across multiple folders.
+--
+--
+_FolderContentSizeLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_FolderContentSizeLimitExceededException =
+  _MatchServiceError codeCommit "FolderContentSizeLimitExceededException"
+
+
+-- | The specified deletion parameter is not valid.
+--
+--
+_InvalidDeletionParameterException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidDeletionParameterException =
+  _MatchServiceError codeCommit "InvalidDeletionParameterException"
+
+
 -- | The specified path is not valid.
 --
 --
@@ -715,7 +857,7 @@ _InvalidPathException :: AsError a => Getting (First ServiceError) a ServiceErro
 _InvalidPathException = _MatchServiceError codeCommit "InvalidPathException"
 
 
--- | The filePath for a location cannot be empty or null.
+-- | The folderPath for a location cannot be null.
 --
 --
 _PathRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -736,6 +878,14 @@ _RepositoryTriggerNameRequiredException =
 _InvalidFileModeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidFileModeException =
   _MatchServiceError codeCommit "InvalidFileModeException"
+
+
+-- | The commit cannot be created because a file mode is required to update mode permissions for an existing file, but no file mode has been specified.
+--
+--
+_FileModeRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
+_FileModeRequiredException =
+  _MatchServiceError codeCommit "FileModeRequiredException"
 
 
 -- | The pull request status is not valid. The only valid values are @OPEN@ and @CLOSED@ .
@@ -825,6 +975,14 @@ _SourceAndDestinationAreSameException =
   _MatchServiceError codeCommit "SourceAndDestinationAreSameException"
 
 
+-- | The commit cannot be created because one of the changes specifies copying or moving a .gitkeep file.
+--
+--
+_RestrictedSourceFileException :: AsError a => Getting (First ServiceError) a ServiceError
+_RestrictedSourceFileException =
+  _MatchServiceError codeCommit "RestrictedSourceFileException"
+
+
 -- | The specified path does not exist.
 --
 --
@@ -839,6 +997,22 @@ _PathDoesNotExistException =
 _EncryptionIntegrityChecksFailedException :: AsError a => Getting (First ServiceError) a ServiceError
 _EncryptionIntegrityChecksFailedException =
   _MatchServiceError codeCommit "EncryptionIntegrityChecksFailedException"
+
+
+-- | The commit cannot be created because one or more changes in this commit duplicate actions in the same file path. For example, you cannot make the same delete request to the same file in the same file path twice, or make a delete request and a move request to the same file as part of the same commit.
+--
+--
+_SamePathRequestException :: AsError a => Getting (First ServiceError) a ServiceError
+_SamePathRequestException =
+  _MatchServiceError codeCommit "SamePathRequestException"
+
+
+-- | The commit cannot be created because no source files or file content have been specified for the commit.
+--
+--
+_SourceFileOrContentRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
+_SourceFileOrContentRequiredException =
+  _MatchServiceError codeCommit "SourceFileOrContentRequiredException"
 
 
 -- | The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head of the branch, use 'GetBranch' .
@@ -936,7 +1110,7 @@ _FileNameConflictsWithDirectoryNameException =
   _MatchServiceError codeCommit "FileNameConflictsWithDirectoryNameException"
 
 
--- | The file name is not valid because it has exceeded the character limit for file names. File names, including the path to the file, cannot exceed the character limit.
+-- | The user name is not valid because it has exceeded the character limit for file names. File names, including the path to the file, cannot exceed the character limit.
 --
 --
 _NameLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1030,12 +1204,28 @@ _CommitIdRequiredException =
   _MatchServiceError codeCommit "CommitIdRequiredException"
 
 
+-- | The specified file does not exist. Verify that you have provided the correct name of the file, including its full path and extension.
+--
+--
+_FileDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
+_FileDoesNotExistException =
+  _MatchServiceError codeCommit "FileDoesNotExistException"
+
+
 -- | The specified commit ID is not valid.
 --
 --
 _InvalidCommitIdException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidCommitIdException =
   _MatchServiceError codeCommit "InvalidCommitIdException"
+
+
+-- | The commit cannot be created because both a source file and file content have been specified for the same file. You cannot provide both. Either specify a source file, or provide the file content directly.
+--
+--
+_FileContentAndSourceFileSpecifiedException :: AsError a => Getting (First ServiceError) a ServiceError
+_FileContentAndSourceFileSpecifiedException =
+  _MatchServiceError codeCommit "FileContentAndSourceFileSpecifiedException"
 
 
 -- | The tip of the source branch in the destination repository does not match the tip of the source branch specified in your request. The pull request might have been updated. Make sure that you have the latest changes.
@@ -1121,6 +1311,14 @@ _FileTooLargeException :: AsError a => Getting (First ServiceError) a ServiceErr
 _FileTooLargeException = _MatchServiceError codeCommit "FileTooLargeException"
 
 
+-- | The number of specified files to change as part of this commit exceeds the maximum number of files that can be changed in a single commit. Consider using a Git client for these changes.
+--
+--
+_MaximumFileEntriesExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_MaximumFileEntriesExceededException =
+  _MatchServiceError codeCommit "MaximumFileEntriesExceededException"
+
+
 -- | The specified commit ID does not exist.
 --
 --
@@ -1137,7 +1335,7 @@ _MultipleRepositoriesInPullRequestException =
   _MatchServiceError codeCommit "MultipleRepositoriesInPullRequestException"
 
 
--- | The file cannot be added because it is too large. The maximum file size that can be added using PutFile is 6 MB. For files larger than 6 MB but smaller than 2 GB, add them using a Git client.
+-- | The file cannot be added because it is too large. The maximum file size that can be added using PutFile is 6 MB, and the combined file content change size is 7 MB. Consider making these changes using a Git client.
 --
 --
 _FileContentSizeLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1209,7 +1407,7 @@ _PullRequestStatusRequiredException =
   _MatchServiceError codeCommit "PullRequestStatusRequiredException"
 
 
--- | The repository does not contain any pull requests with that pull request ID. Check to make sure you have provided the correct repository name for the pull request.
+-- | The repository does not contain any pull requests with that pull request ID. Use GetPullRequest to verify the correct repository name for the pull request ID.
 --
 --
 _RepositoryNotAssociatedWithPullRequestException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1242,7 +1440,7 @@ _CommentDeletedException =
   _MatchServiceError codeCommit "CommentDeletedException"
 
 
--- | The parent commit ID is not valid. The specified parent commit ID does not exist in the specified branch of the repository.
+-- | The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.
 --
 --
 _ParentCommitDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError

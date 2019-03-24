@@ -496,6 +496,40 @@ instance Hashable Commit where
 
 instance NFData Commit where
 
+-- | A file that will be deleted as part of a commit.
+--
+--
+--
+-- /See:/ 'deleteFileEntry' smart constructor.
+newtype DeleteFileEntry = DeleteFileEntry'
+  { _dfeFilePath :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DeleteFileEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dfeFilePath' - The full path of the file that will be deleted, including the name of the file.
+deleteFileEntry
+    :: Text -- ^ 'dfeFilePath'
+    -> DeleteFileEntry
+deleteFileEntry pFilePath_ = DeleteFileEntry' {_dfeFilePath = pFilePath_}
+
+
+-- | The full path of the file that will be deleted, including the name of the file.
+dfeFilePath :: Lens' DeleteFileEntry Text
+dfeFilePath = lens _dfeFilePath (\ s a -> s{_dfeFilePath = a})
+
+instance Hashable DeleteFileEntry where
+
+instance NFData DeleteFileEntry where
+
+instance ToJSON DeleteFileEntry where
+        toJSON DeleteFileEntry'{..}
+          = object
+              (catMaybes [Just ("filePath" .= _dfeFilePath)])
+
 -- | Returns information about a set of differences for a commit specifier.
 --
 --
@@ -547,6 +581,177 @@ instance FromJSON Difference where
 instance Hashable Difference where
 
 instance NFData Difference where
+
+-- | Returns information about a file in a repository.
+--
+--
+--
+-- /See:/ 'file' smart constructor.
+data File = File'
+  { _fAbsolutePath :: !(Maybe Text)
+  , _fFileMode     :: !(Maybe FileModeTypeEnum)
+  , _fBlobId       :: !(Maybe Text)
+  , _fRelativePath :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'File' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fAbsolutePath' - The fully-qualified path to the file in the repository.
+--
+-- * 'fFileMode' - The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
+--
+-- * 'fBlobId' - The blob ID that contains the file information.
+--
+-- * 'fRelativePath' - The relative path of the file from the folder where the query originated.
+file
+    :: File
+file =
+  File'
+    { _fAbsolutePath = Nothing
+    , _fFileMode = Nothing
+    , _fBlobId = Nothing
+    , _fRelativePath = Nothing
+    }
+
+
+-- | The fully-qualified path to the file in the repository.
+fAbsolutePath :: Lens' File (Maybe Text)
+fAbsolutePath = lens _fAbsolutePath (\ s a -> s{_fAbsolutePath = a})
+
+-- | The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
+fFileMode :: Lens' File (Maybe FileModeTypeEnum)
+fFileMode = lens _fFileMode (\ s a -> s{_fFileMode = a})
+
+-- | The blob ID that contains the file information.
+fBlobId :: Lens' File (Maybe Text)
+fBlobId = lens _fBlobId (\ s a -> s{_fBlobId = a})
+
+-- | The relative path of the file from the folder where the query originated.
+fRelativePath :: Lens' File (Maybe Text)
+fRelativePath = lens _fRelativePath (\ s a -> s{_fRelativePath = a})
+
+instance FromJSON File where
+        parseJSON
+          = withObject "File"
+              (\ x ->
+                 File' <$>
+                   (x .:? "absolutePath") <*> (x .:? "fileMode") <*>
+                     (x .:? "blobId")
+                     <*> (x .:? "relativePath"))
+
+instance Hashable File where
+
+instance NFData File where
+
+-- | A file that will be added, updated, or deleted as part of a commit.
+--
+--
+--
+-- /See:/ 'fileMetadata' smart constructor.
+data FileMetadata = FileMetadata'
+  { _fmAbsolutePath :: !(Maybe Text)
+  , _fmFileMode     :: !(Maybe FileModeTypeEnum)
+  , _fmBlobId       :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'FileMetadata' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fmAbsolutePath' - The full path to the file that will be added or updated, including the name of the file.
+--
+-- * 'fmFileMode' - The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
+--
+-- * 'fmBlobId' - The blob ID that contains the file information.
+fileMetadata
+    :: FileMetadata
+fileMetadata =
+  FileMetadata'
+    {_fmAbsolutePath = Nothing, _fmFileMode = Nothing, _fmBlobId = Nothing}
+
+
+-- | The full path to the file that will be added or updated, including the name of the file.
+fmAbsolutePath :: Lens' FileMetadata (Maybe Text)
+fmAbsolutePath = lens _fmAbsolutePath (\ s a -> s{_fmAbsolutePath = a})
+
+-- | The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
+fmFileMode :: Lens' FileMetadata (Maybe FileModeTypeEnum)
+fmFileMode = lens _fmFileMode (\ s a -> s{_fmFileMode = a})
+
+-- | The blob ID that contains the file information.
+fmBlobId :: Lens' FileMetadata (Maybe Text)
+fmBlobId = lens _fmBlobId (\ s a -> s{_fmBlobId = a})
+
+instance FromJSON FileMetadata where
+        parseJSON
+          = withObject "FileMetadata"
+              (\ x ->
+                 FileMetadata' <$>
+                   (x .:? "absolutePath") <*> (x .:? "fileMode") <*>
+                     (x .:? "blobId"))
+
+instance Hashable FileMetadata where
+
+instance NFData FileMetadata where
+
+-- | Returns information about a folder in a repository.
+--
+--
+--
+-- /See:/ 'folder' smart constructor.
+data Folder = Folder'
+  { _folAbsolutePath :: !(Maybe Text)
+  , _folTreeId       :: !(Maybe Text)
+  , _folRelativePath :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Folder' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'folAbsolutePath' - The fully-qualified path of the folder in the repository.
+--
+-- * 'folTreeId' - The full SHA-1 pointer of the tree information for the commit that contains the folder.
+--
+-- * 'folRelativePath' - The relative path of the specified folder from the folder where the query originated.
+folder
+    :: Folder
+folder =
+  Folder'
+    { _folAbsolutePath = Nothing
+    , _folTreeId = Nothing
+    , _folRelativePath = Nothing
+    }
+
+
+-- | The fully-qualified path of the folder in the repository.
+folAbsolutePath :: Lens' Folder (Maybe Text)
+folAbsolutePath = lens _folAbsolutePath (\ s a -> s{_folAbsolutePath = a})
+
+-- | The full SHA-1 pointer of the tree information for the commit that contains the folder.
+folTreeId :: Lens' Folder (Maybe Text)
+folTreeId = lens _folTreeId (\ s a -> s{_folTreeId = a})
+
+-- | The relative path of the specified folder from the folder where the query originated.
+folRelativePath :: Lens' Folder (Maybe Text)
+folRelativePath = lens _folRelativePath (\ s a -> s{_folRelativePath = a})
+
+instance FromJSON Folder where
+        parseJSON
+          = withObject "Folder"
+              (\ x ->
+                 Folder' <$>
+                   (x .:? "absolutePath") <*> (x .:? "treeId") <*>
+                     (x .:? "relativePath"))
+
+instance Hashable Folder where
+
+instance NFData Folder where
 
 -- | Returns information about the location of a change or comment in the comparison between two commits or a pull request.
 --
@@ -763,6 +968,72 @@ instance Hashable PullRequest where
 
 instance NFData PullRequest where
 
+-- | Metadata about the pull request that is used when comparing the pull request source with its destination.
+--
+--
+--
+-- /See:/ 'pullRequestCreatedEventMetadata' smart constructor.
+data PullRequestCreatedEventMetadata = PullRequestCreatedEventMetadata'
+  { _prcemDestinationCommitId :: !(Maybe Text)
+  , _prcemMergeBase           :: !(Maybe Text)
+  , _prcemRepositoryName      :: !(Maybe Text)
+  , _prcemSourceCommitId      :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'PullRequestCreatedEventMetadata' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prcemDestinationCommitId' - The commit ID of the tip of the branch specified as the destination branch when the pull request was created.
+--
+-- * 'prcemMergeBase' - The commit ID of the most recent commit that the source branch and the destination branch have in common.
+--
+-- * 'prcemRepositoryName' - The name of the repository where the pull request was created.
+--
+-- * 'prcemSourceCommitId' - The commit ID on the source branch used when the pull request was created.
+pullRequestCreatedEventMetadata
+    :: PullRequestCreatedEventMetadata
+pullRequestCreatedEventMetadata =
+  PullRequestCreatedEventMetadata'
+    { _prcemDestinationCommitId = Nothing
+    , _prcemMergeBase = Nothing
+    , _prcemRepositoryName = Nothing
+    , _prcemSourceCommitId = Nothing
+    }
+
+
+-- | The commit ID of the tip of the branch specified as the destination branch when the pull request was created.
+prcemDestinationCommitId :: Lens' PullRequestCreatedEventMetadata (Maybe Text)
+prcemDestinationCommitId = lens _prcemDestinationCommitId (\ s a -> s{_prcemDestinationCommitId = a})
+
+-- | The commit ID of the most recent commit that the source branch and the destination branch have in common.
+prcemMergeBase :: Lens' PullRequestCreatedEventMetadata (Maybe Text)
+prcemMergeBase = lens _prcemMergeBase (\ s a -> s{_prcemMergeBase = a})
+
+-- | The name of the repository where the pull request was created.
+prcemRepositoryName :: Lens' PullRequestCreatedEventMetadata (Maybe Text)
+prcemRepositoryName = lens _prcemRepositoryName (\ s a -> s{_prcemRepositoryName = a})
+
+-- | The commit ID on the source branch used when the pull request was created.
+prcemSourceCommitId :: Lens' PullRequestCreatedEventMetadata (Maybe Text)
+prcemSourceCommitId = lens _prcemSourceCommitId (\ s a -> s{_prcemSourceCommitId = a})
+
+instance FromJSON PullRequestCreatedEventMetadata
+         where
+        parseJSON
+          = withObject "PullRequestCreatedEventMetadata"
+              (\ x ->
+                 PullRequestCreatedEventMetadata' <$>
+                   (x .:? "destinationCommitId") <*> (x .:? "mergeBase")
+                     <*> (x .:? "repositoryName")
+                     <*> (x .:? "sourceCommitId"))
+
+instance Hashable PullRequestCreatedEventMetadata
+         where
+
+instance NFData PullRequestCreatedEventMetadata where
+
 -- | Returns information about a pull request event.
 --
 --
@@ -770,6 +1041,7 @@ instance NFData PullRequest where
 -- /See:/ 'pullRequestEvent' smart constructor.
 data PullRequestEvent = PullRequestEvent'
   { _prePullRequestMergedStateChangedEventMetadata :: !(Maybe PullRequestMergedStateChangedEventMetadata)
+  , _prePullRequestCreatedEventMetadata :: !(Maybe PullRequestCreatedEventMetadata)
   , _prePullRequestEventType :: !(Maybe PullRequestEventType)
   , _prePullRequestStatusChangedEventMetadata :: !(Maybe PullRequestStatusChangedEventMetadata)
   , _preActorARN :: !(Maybe Text)
@@ -784,6 +1056,8 @@ data PullRequestEvent = PullRequestEvent'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'prePullRequestMergedStateChangedEventMetadata' - Information about the change in mergability state for the pull request event.
+--
+-- * 'prePullRequestCreatedEventMetadata' - Information about the source and destination branches for the pull request.
 --
 -- * 'prePullRequestEventType' - The type of the pull request event, for example a status change event (PULL_REQUEST_STATUS_CHANGED) or update event (PULL_REQUEST_SOURCE_REFERENCE_UPDATED).
 --
@@ -801,6 +1075,7 @@ pullRequestEvent
 pullRequestEvent =
   PullRequestEvent'
     { _prePullRequestMergedStateChangedEventMetadata = Nothing
+    , _prePullRequestCreatedEventMetadata = Nothing
     , _prePullRequestEventType = Nothing
     , _prePullRequestStatusChangedEventMetadata = Nothing
     , _preActorARN = Nothing
@@ -813,6 +1088,10 @@ pullRequestEvent =
 -- | Information about the change in mergability state for the pull request event.
 prePullRequestMergedStateChangedEventMetadata :: Lens' PullRequestEvent (Maybe PullRequestMergedStateChangedEventMetadata)
 prePullRequestMergedStateChangedEventMetadata = lens _prePullRequestMergedStateChangedEventMetadata (\ s a -> s{_prePullRequestMergedStateChangedEventMetadata = a})
+
+-- | Information about the source and destination branches for the pull request.
+prePullRequestCreatedEventMetadata :: Lens' PullRequestEvent (Maybe PullRequestCreatedEventMetadata)
+prePullRequestCreatedEventMetadata = lens _prePullRequestCreatedEventMetadata (\ s a -> s{_prePullRequestCreatedEventMetadata = a})
 
 -- | The type of the pull request event, for example a status change event (PULL_REQUEST_STATUS_CHANGED) or update event (PULL_REQUEST_SOURCE_REFERENCE_UPDATED).
 prePullRequestEventType :: Lens' PullRequestEvent (Maybe PullRequestEventType)
@@ -844,6 +1123,7 @@ instance FromJSON PullRequestEvent where
               (\ x ->
                  PullRequestEvent' <$>
                    (x .:? "pullRequestMergedStateChangedEventMetadata")
+                     <*> (x .:? "pullRequestCreatedEventMetadata")
                      <*> (x .:? "pullRequestEventType")
                      <*> (x .:? "pullRequestStatusChangedEventMetadata")
                      <*> (x .:? "actorArn")
@@ -928,6 +1208,7 @@ instance NFData
 data PullRequestSourceReferenceUpdatedEventMetadata = PullRequestSourceReferenceUpdatedEventMetadata'
   { _prsruemAfterCommitId  :: !(Maybe Text)
   , _prsruemBeforeCommitId :: !(Maybe Text)
+  , _prsruemMergeBase      :: !(Maybe Text)
   , _prsruemRepositoryName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -940,6 +1221,8 @@ data PullRequestSourceReferenceUpdatedEventMetadata = PullRequestSourceReference
 --
 -- * 'prsruemBeforeCommitId' - The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was updated.
 --
+-- * 'prsruemMergeBase' - The commit ID of the most recent commit that the source branch and the destination branch have in common.
+--
 -- * 'prsruemRepositoryName' - The name of the repository where the pull request was updated.
 pullRequestSourceReferenceUpdatedEventMetadata
     :: PullRequestSourceReferenceUpdatedEventMetadata
@@ -947,6 +1230,7 @@ pullRequestSourceReferenceUpdatedEventMetadata =
   PullRequestSourceReferenceUpdatedEventMetadata'
     { _prsruemAfterCommitId = Nothing
     , _prsruemBeforeCommitId = Nothing
+    , _prsruemMergeBase = Nothing
     , _prsruemRepositoryName = Nothing
     }
 
@@ -958,6 +1242,10 @@ prsruemAfterCommitId = lens _prsruemAfterCommitId (\ s a -> s{_prsruemAfterCommi
 -- | The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was updated.
 prsruemBeforeCommitId :: Lens' PullRequestSourceReferenceUpdatedEventMetadata (Maybe Text)
 prsruemBeforeCommitId = lens _prsruemBeforeCommitId (\ s a -> s{_prsruemBeforeCommitId = a})
+
+-- | The commit ID of the most recent commit that the source branch and the destination branch have in common.
+prsruemMergeBase :: Lens' PullRequestSourceReferenceUpdatedEventMetadata (Maybe Text)
+prsruemMergeBase = lens _prsruemMergeBase (\ s a -> s{_prsruemMergeBase = a})
 
 -- | The name of the repository where the pull request was updated.
 prsruemRepositoryName :: Lens' PullRequestSourceReferenceUpdatedEventMetadata (Maybe Text)
@@ -972,6 +1260,7 @@ instance FromJSON
               (\ x ->
                  PullRequestSourceReferenceUpdatedEventMetadata' <$>
                    (x .:? "afterCommitId") <*> (x .:? "beforeCommitId")
+                     <*> (x .:? "mergeBase")
                      <*> (x .:? "repositoryName"))
 
 instance Hashable
@@ -1032,6 +1321,7 @@ data PullRequestTarget = PullRequestTarget'
   { _prtSourceCommit         :: !(Maybe Text)
   , _prtDestinationReference :: !(Maybe Text)
   , _prtMergeMetadata        :: !(Maybe MergeMetadata)
+  , _prtMergeBase            :: !(Maybe Text)
   , _prtDestinationCommit    :: !(Maybe Text)
   , _prtRepositoryName       :: !(Maybe Text)
   , _prtSourceReference      :: !(Maybe Text)
@@ -1048,6 +1338,8 @@ data PullRequestTarget = PullRequestTarget'
 --
 -- * 'prtMergeMetadata' - Returns metadata about the state of the merge, including whether the merge has been made.
 --
+-- * 'prtMergeBase' - The commit ID of the most recent commit that the source branch and the destination branch have in common.
+--
 -- * 'prtDestinationCommit' - The full commit ID that is the tip of the destination branch. This is the commit where the pull request was or will be merged.
 --
 -- * 'prtRepositoryName' - The name of the repository that contains the pull request source and destination branches.
@@ -1060,6 +1352,7 @@ pullRequestTarget =
     { _prtSourceCommit = Nothing
     , _prtDestinationReference = Nothing
     , _prtMergeMetadata = Nothing
+    , _prtMergeBase = Nothing
     , _prtDestinationCommit = Nothing
     , _prtRepositoryName = Nothing
     , _prtSourceReference = Nothing
@@ -1077,6 +1370,10 @@ prtDestinationReference = lens _prtDestinationReference (\ s a -> s{_prtDestinat
 -- | Returns metadata about the state of the merge, including whether the merge has been made.
 prtMergeMetadata :: Lens' PullRequestTarget (Maybe MergeMetadata)
 prtMergeMetadata = lens _prtMergeMetadata (\ s a -> s{_prtMergeMetadata = a})
+
+-- | The commit ID of the most recent commit that the source branch and the destination branch have in common.
+prtMergeBase :: Lens' PullRequestTarget (Maybe Text)
+prtMergeBase = lens _prtMergeBase (\ s a -> s{_prtMergeBase = a})
 
 -- | The full commit ID that is the tip of the destination branch. This is the commit where the pull request was or will be merged.
 prtDestinationCommit :: Lens' PullRequestTarget (Maybe Text)
@@ -1098,6 +1395,7 @@ instance FromJSON PullRequestTarget where
                    (x .:? "sourceCommit") <*>
                      (x .:? "destinationReference")
                      <*> (x .:? "mergeMetadata")
+                     <*> (x .:? "mergeBase")
                      <*> (x .:? "destinationCommit")
                      <*> (x .:? "repositoryName")
                      <*> (x .:? "sourceReference"))
@@ -1105,6 +1403,71 @@ instance FromJSON PullRequestTarget where
 instance Hashable PullRequestTarget where
 
 instance NFData PullRequestTarget where
+
+-- | Information about a file that will be added or updated as part of a commit.
+--
+--
+--
+-- /See:/ 'putFileEntry' smart constructor.
+data PutFileEntry = PutFileEntry'
+  { _pfeFileContent :: !(Maybe Base64)
+  , _pfeFileMode    :: !(Maybe FileModeTypeEnum)
+  , _pfeSourceFile  :: !(Maybe SourceFileSpecifier)
+  , _pfeFilePath    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'PutFileEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pfeFileContent' - The content of the file, if a source file is not specified.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+--
+-- * 'pfeFileMode' - The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
+--
+-- * 'pfeSourceFile' - The name and full path of the file that contains the changes you want to make as part of the commit, if you are not providing the file content directly.
+--
+-- * 'pfeFilePath' - The full path to the file in the repository, including the name of the file.
+putFileEntry
+    :: Text -- ^ 'pfeFilePath'
+    -> PutFileEntry
+putFileEntry pFilePath_ =
+  PutFileEntry'
+    { _pfeFileContent = Nothing
+    , _pfeFileMode = Nothing
+    , _pfeSourceFile = Nothing
+    , _pfeFilePath = pFilePath_
+    }
+
+
+-- | The content of the file, if a source file is not specified.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+pfeFileContent :: Lens' PutFileEntry (Maybe ByteString)
+pfeFileContent = lens _pfeFileContent (\ s a -> s{_pfeFileContent = a}) . mapping _Base64
+
+-- | The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
+pfeFileMode :: Lens' PutFileEntry (Maybe FileModeTypeEnum)
+pfeFileMode = lens _pfeFileMode (\ s a -> s{_pfeFileMode = a})
+
+-- | The name and full path of the file that contains the changes you want to make as part of the commit, if you are not providing the file content directly.
+pfeSourceFile :: Lens' PutFileEntry (Maybe SourceFileSpecifier)
+pfeSourceFile = lens _pfeSourceFile (\ s a -> s{_pfeSourceFile = a})
+
+-- | The full path to the file in the repository, including the name of the file.
+pfeFilePath :: Lens' PutFileEntry Text
+pfeFilePath = lens _pfeFilePath (\ s a -> s{_pfeFilePath = a})
+
+instance Hashable PutFileEntry where
+
+instance NFData PutFileEntry where
+
+instance ToJSON PutFileEntry where
+        toJSON PutFileEntry'{..}
+          = object
+              (catMaybes
+                 [("fileContent" .=) <$> _pfeFileContent,
+                  ("fileMode" .=) <$> _pfeFileMode,
+                  ("sourceFile" .=) <$> _pfeSourceFile,
+                  Just ("filePath" .= _pfeFilePath)])
 
 -- | Information about a repository.
 --
@@ -1401,6 +1764,214 @@ instance Hashable RepositoryTriggerExecutionFailure
 
 instance NFData RepositoryTriggerExecutionFailure
          where
+
+-- | Information about the file mode changes.
+--
+--
+--
+-- /See:/ 'setFileModeEntry' smart constructor.
+data SetFileModeEntry = SetFileModeEntry'
+  { _sfmeFilePath :: !Text
+  , _sfmeFileMode :: !FileModeTypeEnum
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SetFileModeEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sfmeFilePath' - The full path to the file, including the name of the file.
+--
+-- * 'sfmeFileMode' - The file mode for the file.
+setFileModeEntry
+    :: Text -- ^ 'sfmeFilePath'
+    -> FileModeTypeEnum -- ^ 'sfmeFileMode'
+    -> SetFileModeEntry
+setFileModeEntry pFilePath_ pFileMode_ =
+  SetFileModeEntry' {_sfmeFilePath = pFilePath_, _sfmeFileMode = pFileMode_}
+
+
+-- | The full path to the file, including the name of the file.
+sfmeFilePath :: Lens' SetFileModeEntry Text
+sfmeFilePath = lens _sfmeFilePath (\ s a -> s{_sfmeFilePath = a})
+
+-- | The file mode for the file.
+sfmeFileMode :: Lens' SetFileModeEntry FileModeTypeEnum
+sfmeFileMode = lens _sfmeFileMode (\ s a -> s{_sfmeFileMode = a})
+
+instance Hashable SetFileModeEntry where
+
+instance NFData SetFileModeEntry where
+
+instance ToJSON SetFileModeEntry where
+        toJSON SetFileModeEntry'{..}
+          = object
+              (catMaybes
+                 [Just ("filePath" .= _sfmeFilePath),
+                  Just ("fileMode" .= _sfmeFileMode)])
+
+-- | Information about a source file that is part of changes made in a commit.
+--
+--
+--
+-- /See:/ 'sourceFileSpecifier' smart constructor.
+data SourceFileSpecifier = SourceFileSpecifier'
+  { _sfsIsMove   :: !(Maybe Bool)
+  , _sfsFilePath :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SourceFileSpecifier' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sfsIsMove' - Whether to remove the source file from the parent commit.
+--
+-- * 'sfsFilePath' - The full path to the file, including the name of the file.
+sourceFileSpecifier
+    :: Text -- ^ 'sfsFilePath'
+    -> SourceFileSpecifier
+sourceFileSpecifier pFilePath_ =
+  SourceFileSpecifier' {_sfsIsMove = Nothing, _sfsFilePath = pFilePath_}
+
+
+-- | Whether to remove the source file from the parent commit.
+sfsIsMove :: Lens' SourceFileSpecifier (Maybe Bool)
+sfsIsMove = lens _sfsIsMove (\ s a -> s{_sfsIsMove = a})
+
+-- | The full path to the file, including the name of the file.
+sfsFilePath :: Lens' SourceFileSpecifier Text
+sfsFilePath = lens _sfsFilePath (\ s a -> s{_sfsFilePath = a})
+
+instance Hashable SourceFileSpecifier where
+
+instance NFData SourceFileSpecifier where
+
+instance ToJSON SourceFileSpecifier where
+        toJSON SourceFileSpecifier'{..}
+          = object
+              (catMaybes
+                 [("isMove" .=) <$> _sfsIsMove,
+                  Just ("filePath" .= _sfsFilePath)])
+
+-- | Returns information about a submodule reference in a repository folder.
+--
+--
+--
+-- /See:/ 'subModule' smart constructor.
+data SubModule = SubModule'
+  { _smCommitId     :: !(Maybe Text)
+  , _smAbsolutePath :: !(Maybe Text)
+  , _smRelativePath :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SubModule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'smCommitId' - The commit ID that contains the reference to the submodule.
+--
+-- * 'smAbsolutePath' - The fully qualified path to the folder that contains the reference to the submodule.
+--
+-- * 'smRelativePath' - The relative path of the submodule from the folder where the query originated.
+subModule
+    :: SubModule
+subModule =
+  SubModule'
+    { _smCommitId = Nothing
+    , _smAbsolutePath = Nothing
+    , _smRelativePath = Nothing
+    }
+
+
+-- | The commit ID that contains the reference to the submodule.
+smCommitId :: Lens' SubModule (Maybe Text)
+smCommitId = lens _smCommitId (\ s a -> s{_smCommitId = a})
+
+-- | The fully qualified path to the folder that contains the reference to the submodule.
+smAbsolutePath :: Lens' SubModule (Maybe Text)
+smAbsolutePath = lens _smAbsolutePath (\ s a -> s{_smAbsolutePath = a})
+
+-- | The relative path of the submodule from the folder where the query originated.
+smRelativePath :: Lens' SubModule (Maybe Text)
+smRelativePath = lens _smRelativePath (\ s a -> s{_smRelativePath = a})
+
+instance FromJSON SubModule where
+        parseJSON
+          = withObject "SubModule"
+              (\ x ->
+                 SubModule' <$>
+                   (x .:? "commitId") <*> (x .:? "absolutePath") <*>
+                     (x .:? "relativePath"))
+
+instance Hashable SubModule where
+
+instance NFData SubModule where
+
+-- | Returns information about a symbolic link in a repository folder.
+--
+--
+--
+-- /See:/ 'symbolicLink' smart constructor.
+data SymbolicLink = SymbolicLink'
+  { _slAbsolutePath :: !(Maybe Text)
+  , _slFileMode     :: !(Maybe FileModeTypeEnum)
+  , _slBlobId       :: !(Maybe Text)
+  , _slRelativePath :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SymbolicLink' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slAbsolutePath' - The fully-qualified path to the folder that contains the symbolic link.
+--
+-- * 'slFileMode' - The file mode permissions of the blob that cotains information about the symbolic link.
+--
+-- * 'slBlobId' - The blob ID that contains the information about the symbolic link.
+--
+-- * 'slRelativePath' - The relative path of the symbolic link from the folder where the query originated.
+symbolicLink
+    :: SymbolicLink
+symbolicLink =
+  SymbolicLink'
+    { _slAbsolutePath = Nothing
+    , _slFileMode = Nothing
+    , _slBlobId = Nothing
+    , _slRelativePath = Nothing
+    }
+
+
+-- | The fully-qualified path to the folder that contains the symbolic link.
+slAbsolutePath :: Lens' SymbolicLink (Maybe Text)
+slAbsolutePath = lens _slAbsolutePath (\ s a -> s{_slAbsolutePath = a})
+
+-- | The file mode permissions of the blob that cotains information about the symbolic link.
+slFileMode :: Lens' SymbolicLink (Maybe FileModeTypeEnum)
+slFileMode = lens _slFileMode (\ s a -> s{_slFileMode = a})
+
+-- | The blob ID that contains the information about the symbolic link.
+slBlobId :: Lens' SymbolicLink (Maybe Text)
+slBlobId = lens _slBlobId (\ s a -> s{_slBlobId = a})
+
+-- | The relative path of the symbolic link from the folder where the query originated.
+slRelativePath :: Lens' SymbolicLink (Maybe Text)
+slRelativePath = lens _slRelativePath (\ s a -> s{_slRelativePath = a})
+
+instance FromJSON SymbolicLink where
+        parseJSON
+          = withObject "SymbolicLink"
+              (\ x ->
+                 SymbolicLink' <$>
+                   (x .:? "absolutePath") <*> (x .:? "fileMode") <*>
+                     (x .:? "blobId")
+                     <*> (x .:? "relativePath"))
+
+instance Hashable SymbolicLink where
+
+instance NFData SymbolicLink where
 
 -- | Returns information about a target for a pull request.
 --

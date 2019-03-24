@@ -79,6 +79,9 @@ instance ToHeader     FileModeTypeEnum
 instance ToJSON FileModeTypeEnum where
     toJSON = toJSONText
 
+instance FromJSON FileModeTypeEnum where
+    parseJSON = parseJSONText "FileModeTypeEnum"
+
 data MergeOptionTypeEnum =
   FastForwardMerge
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)

@@ -15,13 +15,13 @@
 --
 -- AWS Secrets Manager is a web service that enables you to store, manage, and retrieve, secrets.
 --
--- This guide provides descriptions of the Secrets Manager API. For more information about using this service, see the <http://docs.aws.amazon.com/secretsmanager/latest/userguide/introduction.html AWS Secrets Manager User Guide> .
+-- This guide provides descriptions of the Secrets Manager API. For more information about using this service, see the <https://docs.aws.amazon.com/secretsmanager/latest/userguide/introduction.html AWS Secrets Manager User Guide> .
 --
 -- __API Version__
 --
 -- This version of the Secrets Manager API Reference documents the Secrets Manager API version 2017-10-17.
 --
--- We recommend that you use the AWS SDKs to make programmatic API calls to Secrets Manager. However, you also can use the Secrets Manager HTTP Query API to make direct calls to the Secrets Manager web service. To learn more about the Secrets Manager HTTP Query API, see <http://docs.aws.amazon.com/secretsmanager/latest/userguide/query-requests.html Making Query Requests> in the /AWS Secrets Manager User Guide/ .
+-- We recommend that you use the AWS SDKs to make programmatic API calls to Secrets Manager. However, you also can use the Secrets Manager HTTP Query API to make direct calls to the Secrets Manager web service. To learn more about the Secrets Manager HTTP Query API, see <https://docs.aws.amazon.com/secretsmanager/latest/userguide/query-requests.html Making Query Requests> in the /AWS Secrets Manager User Guide/ .
 --
 -- Secrets Manager supports GET and POST requests for all actions. That is, the API doesn't require you to use GET for some actions and POST for others. However, GET requests are subject to the limitation size of a URL. Therefore, for operations that require larger sizes, use a POST request.
 --
@@ -35,7 +35,7 @@
 --
 -- __Logging API Requests__
 --
--- AWS Secrets Manager supports AWS CloudTrail, a service that records AWS API calls for your AWS account and delivers log files to an Amazon S3 bucket. By using information that's collected by AWS CloudTrail, you can determine which requests were successfully made to Secrets Manager, who made the request, when it was made, and so on. For more about AWS Secrets Manager and its support for AWS CloudTrail, see <http://docs.aws.amazon.com/secretsmanager/latest/userguide/monitoring.html#monitoring_cloudtrail Logging AWS Secrets Manager Events with AWS CloudTrail> in the /AWS Secrets Manager User Guide/ . To learn more about CloudTrail, including how to turn it on and find your log files, see the <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html AWS CloudTrail User Guide> .
+-- AWS Secrets Manager supports AWS CloudTrail, a service that records AWS API calls for your AWS account and delivers log files to an Amazon S3 bucket. By using information that's collected by AWS CloudTrail, you can determine which requests were successfully made to Secrets Manager, who made the request, when it was made, and so on. For more about AWS Secrets Manager and its support for AWS CloudTrail, see <http://docs.aws.amazon.com/secretsmanager/latest/userguide/monitoring.html#monitoring_cloudtrail Logging AWS Secrets Manager Events with AWS CloudTrail> in the /AWS Secrets Manager User Guide/ . To learn more about CloudTrail, including how to turn it on and find your log files, see the <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html AWS CloudTrail User Guide> .
 --
 module Network.AWS.SecretsManager
     (
@@ -59,6 +59,9 @@ module Network.AWS.SecretsManager
 
     -- ** EncryptionFailure
     , _EncryptionFailure
+
+    -- ** PreconditionNotMetException
+    , _PreconditionNotMetException
 
     -- ** InvalidNextTokenException
     , _InvalidNextTokenException
@@ -84,7 +87,7 @@ module Network.AWS.SecretsManager
     -- ** DeleteSecret
     , module Network.AWS.SecretsManager.DeleteSecret
 
-    -- ** ListSecrets
+    -- ** ListSecrets (Paginated)
     , module Network.AWS.SecretsManager.ListSecrets
 
     -- ** UpdateSecret
@@ -108,6 +111,9 @@ module Network.AWS.SecretsManager
     -- ** CancelRotateSecret
     , module Network.AWS.SecretsManager.CancelRotateSecret
 
+    -- ** GetResourcePolicy
+    , module Network.AWS.SecretsManager.GetResourcePolicy
+
     -- ** PutSecretValue
     , module Network.AWS.SecretsManager.PutSecretValue
 
@@ -119,6 +125,12 @@ module Network.AWS.SecretsManager
 
     -- ** TagResource
     , module Network.AWS.SecretsManager.TagResource
+
+    -- ** PutResourcePolicy
+    , module Network.AWS.SecretsManager.PutResourcePolicy
+
+    -- ** DeleteResourcePolicy
+    , module Network.AWS.SecretsManager.DeleteResourcePolicy
 
     -- ** UntagResource
     , module Network.AWS.SecretsManager.UntagResource
@@ -167,12 +179,15 @@ module Network.AWS.SecretsManager
 
 import Network.AWS.SecretsManager.CancelRotateSecret
 import Network.AWS.SecretsManager.CreateSecret
+import Network.AWS.SecretsManager.DeleteResourcePolicy
 import Network.AWS.SecretsManager.DeleteSecret
 import Network.AWS.SecretsManager.DescribeSecret
 import Network.AWS.SecretsManager.GetRandomPassword
+import Network.AWS.SecretsManager.GetResourcePolicy
 import Network.AWS.SecretsManager.GetSecretValue
 import Network.AWS.SecretsManager.ListSecrets
 import Network.AWS.SecretsManager.ListSecretVersionIds
+import Network.AWS.SecretsManager.PutResourcePolicy
 import Network.AWS.SecretsManager.PutSecretValue
 import Network.AWS.SecretsManager.RestoreSecret
 import Network.AWS.SecretsManager.RotateSecret

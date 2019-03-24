@@ -27,7 +27,7 @@
 --
 --     * secretsmanager:GetSecretValue
 --
---     * kms:Decrypt - required only if you use a customer-created KMS key to encrypt the secret. You do not need this permission to use the account's default AWS managed CMK for Secrets Manager.
+--     * kms:Decrypt - required only if you use a customer-managed AWS KMS key to encrypt the secret. You do not need this permission to use the account's default AWS managed CMK for Secrets Manager.
 --
 --
 --
@@ -82,9 +82,9 @@ data GetSecretValue = GetSecretValue'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsvVersionId' - Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify this parameter then don't specify @VersionStage@ . If you don't specify either a @VersionStage@ or @SecretVersionId@ then the default is to perform the operation on the version with the @VersionStage@ value of @AWSCURRENT@ . This value is typically a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value with 32 hexadecimal digits.
+-- * 'gsvVersionId' - Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify this parameter then don't specify @VersionStage@ . If you don't specify either a @VersionStage@ or @VersionId@ then the default is to perform the operation on the version with the @VersionStage@ value of @AWSCURRENT@ . This value is typically a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value with 32 hexadecimal digits.
 --
--- * 'gsvVersionStage' - Specifies the secret version that you want to retrieve by the staging label attached to the version. Staging labels are used to keep track of different versions during the rotation process. If you use this parameter then don't specify @SecretVersionId@ . If you don't specify either a @VersionStage@ or @SecretVersionId@ , then the default is to perform the operation on the version with the @VersionStage@ value of @AWSCURRENT@ .
+-- * 'gsvVersionStage' - Specifies the secret version that you want to retrieve by the staging label attached to the version. Staging labels are used to keep track of different versions during the rotation process. If you use this parameter then don't specify @VersionId@ . If you don't specify either a @VersionStage@ or @VersionId@ , then the default is to perform the operation on the version with the @VersionStage@ value of @AWSCURRENT@ .
 --
 -- * 'gsvSecretId' - Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 getSecretValue
@@ -98,11 +98,11 @@ getSecretValue pSecretId_ =
     }
 
 
--- | Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify this parameter then don't specify @VersionStage@ . If you don't specify either a @VersionStage@ or @SecretVersionId@ then the default is to perform the operation on the version with the @VersionStage@ value of @AWSCURRENT@ . This value is typically a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value with 32 hexadecimal digits.
+-- | Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify this parameter then don't specify @VersionStage@ . If you don't specify either a @VersionStage@ or @VersionId@ then the default is to perform the operation on the version with the @VersionStage@ value of @AWSCURRENT@ . This value is typically a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value with 32 hexadecimal digits.
 gsvVersionId :: Lens' GetSecretValue (Maybe Text)
 gsvVersionId = lens _gsvVersionId (\ s a -> s{_gsvVersionId = a})
 
--- | Specifies the secret version that you want to retrieve by the staging label attached to the version. Staging labels are used to keep track of different versions during the rotation process. If you use this parameter then don't specify @SecretVersionId@ . If you don't specify either a @VersionStage@ or @SecretVersionId@ , then the default is to perform the operation on the version with the @VersionStage@ value of @AWSCURRENT@ .
+-- | Specifies the secret version that you want to retrieve by the staging label attached to the version. Staging labels are used to keep track of different versions during the rotation process. If you use this parameter then don't specify @VersionId@ . If you don't specify either a @VersionStage@ or @VersionId@ , then the default is to perform the operation on the version with the @VersionStage@ value of @AWSCURRENT@ .
 gsvVersionStage :: Lens' GetSecretValue (Maybe Text)
 gsvVersionStage = lens _gsvVersionStage (\ s a -> s{_gsvVersionStage = a})
 

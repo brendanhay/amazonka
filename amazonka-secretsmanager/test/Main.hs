@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.SecretsManager
 import Test.AWS.SecretsManager.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "SecretsManager"

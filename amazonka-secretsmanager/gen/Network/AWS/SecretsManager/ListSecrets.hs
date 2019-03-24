@@ -35,6 +35,8 @@
 --
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SecretsManager.ListSecrets
     (
     -- * Creating a Request
@@ -54,6 +56,7 @@ module Network.AWS.SecretsManager.ListSecrets
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -86,6 +89,13 @@ lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a})
 -- | (Optional) Limits the number of results that you want to include in the response. If you don't include this parameter, it defaults to a value that's specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (isn't null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Secrets Manager might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
 lsMaxResults :: Lens' ListSecrets (Maybe Natural)
 lsMaxResults = lens _lsMaxResults (\ s a -> s{_lsMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListSecrets where
+        page rq rs
+          | stop (rs ^. lsrsNextToken) = Nothing
+          | stop (rs ^. lsrsSecretList) = Nothing
+          | otherwise =
+            Just $ rq & lsNextToken .~ rs ^. lsrsNextToken
 
 instance AWSRequest ListSecrets where
         type Rs ListSecrets = ListSecretsResponse

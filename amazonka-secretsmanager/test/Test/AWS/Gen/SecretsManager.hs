@@ -55,6 +55,9 @@ import Test.Tasty
 --         , requestCancelRotateSecret $
 --             cancelRotateSecret
 --
+--         , requestGetResourcePolicy $
+--             getResourcePolicy
+--
 --         , requestPutSecretValue $
 --             putSecretValue
 --
@@ -66,6 +69,12 @@ import Test.Tasty
 --
 --         , requestTagResource $
 --             tagResource
+--
+--         , requestPutResourcePolicy $
+--             putResourcePolicy
+--
+--         , requestDeleteResourcePolicy $
+--             deleteResourcePolicy
 --
 --         , requestUntagResource $
 --             untagResource
@@ -103,6 +112,9 @@ import Test.Tasty
 --         , responseCancelRotateSecret $
 --             cancelRotateSecretResponse
 --
+--         , responseGetResourcePolicy $
+--             getResourcePolicyResponse
+--
 --         , responsePutSecretValue $
 --             putSecretValueResponse
 --
@@ -114,6 +126,12 @@ import Test.Tasty
 --
 --         , responseTagResource $
 --             tagResourceResponse
+--
+--         , responsePutResourcePolicy $
+--             putResourcePolicyResponse
+--
+--         , responseDeleteResourcePolicy $
+--             deleteResourcePolicyResponse
 --
 --         , responseUntagResource $
 --             untagResourceResponse
@@ -171,6 +189,11 @@ requestCancelRotateSecret = req
     "CancelRotateSecret"
     "fixture/CancelRotateSecret.yaml"
 
+requestGetResourcePolicy :: GetResourcePolicy -> TestTree
+requestGetResourcePolicy = req
+    "GetResourcePolicy"
+    "fixture/GetResourcePolicy.yaml"
+
 requestPutSecretValue :: PutSecretValue -> TestTree
 requestPutSecretValue = req
     "PutSecretValue"
@@ -190,6 +213,16 @@ requestTagResource :: TagResource -> TestTree
 requestTagResource = req
     "TagResource"
     "fixture/TagResource.yaml"
+
+requestPutResourcePolicy :: PutResourcePolicy -> TestTree
+requestPutResourcePolicy = req
+    "PutResourcePolicy"
+    "fixture/PutResourcePolicy.yaml"
+
+requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
+requestDeleteResourcePolicy = req
+    "DeleteResourcePolicy"
+    "fixture/DeleteResourcePolicy.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource = req
@@ -266,6 +299,13 @@ responseCancelRotateSecret = res
     secretsManager
     (Proxy :: Proxy CancelRotateSecret)
 
+responseGetResourcePolicy :: GetResourcePolicyResponse -> TestTree
+responseGetResourcePolicy = res
+    "GetResourcePolicyResponse"
+    "fixture/GetResourcePolicyResponse.proto"
+    secretsManager
+    (Proxy :: Proxy GetResourcePolicy)
+
 responsePutSecretValue :: PutSecretValueResponse -> TestTree
 responsePutSecretValue = res
     "PutSecretValueResponse"
@@ -293,6 +333,20 @@ responseTagResource = res
     "fixture/TagResourceResponse.proto"
     secretsManager
     (Proxy :: Proxy TagResource)
+
+responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
+responsePutResourcePolicy = res
+    "PutResourcePolicyResponse"
+    "fixture/PutResourcePolicyResponse.proto"
+    secretsManager
+    (Proxy :: Proxy PutResourcePolicy)
+
+responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
+responseDeleteResourcePolicy = res
+    "DeleteResourcePolicyResponse"
+    "fixture/DeleteResourcePolicyResponse.proto"
+    secretsManager
+    (Proxy :: Proxy DeleteResourcePolicy)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource = res

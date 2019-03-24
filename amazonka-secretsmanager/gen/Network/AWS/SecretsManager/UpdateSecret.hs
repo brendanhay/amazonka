@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies many of the details of a secret. If you include a @ClientRequestToken@ and either @SecretString@ or @SecretBinary@ then it also creates a new version attached to the secret.
+-- Modifies many of the details of the specified secret. If you include a @ClientRequestToken@ and /either/ @SecretString@ or @SecretBinary@ then it also creates a new version attached to the secret.
 --
 --
 -- To modify the rotation configuration of a secret, use 'RotateSecret' instead.
 --
---     * If a version with a @SecretVersionId@ with the same value as the @ClientRequestToken@ parameter already exists, the operation generates an error. You cannot modify an existing version, you can only create new ones.
+--     * If a version with a @VersionId@ with the same value as the @ClientRequestToken@ parameter already exists, the operation results in an error. You cannot modify an existing version, you can only create a new version.
 --
 --     * If you include @SecretString@ or @SecretBinary@ to create a new secret version, Secrets Manager automatically attaches the staging label @AWSCURRENT@ to the new version.
 --
@@ -35,9 +35,9 @@
 --
 --     * secretsmanager:UpdateSecret
 --
---     * kms:GenerateDataKey - needed only if you use a custom KMS key to encrypt the secret. You do not need this permission to use the account's AWS managed CMK for Secrets Manager.
+--     * kms:GenerateDataKey - needed only if you use a custom AWS KMS key to encrypt the secret. You do not need this permission to use the account's AWS managed CMK for Secrets Manager.
 --
---     * kms:Decrypt - needed only if you use a custom KMS key to encrypt the secret. You do not need this permission to use the account's AWS managed CMK for Secrets Manager.
+--     * kms:Decrypt - needed only if you use a custom AWS KMS key to encrypt the secret. You do not need this permission to use the account's AWS managed CMK for Secrets Manager.
 --
 --
 --
@@ -98,17 +98,17 @@ data UpdateSecret = UpdateSecret'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usSecretBinary' - (Optional) Specifies binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter. Either @SecretBinary@ or @SecretString@ must have a value, but not both. They cannot both be empty. This parameter is not accessible using the Secrets Manager console.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'usSecretBinary' - (Optional) Specifies updated binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter. Either @SecretBinary@ or @SecretString@ must have a value, but not both. They cannot both be empty. This parameter is not accessible using the Secrets Manager console.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'usKMSKeyId' - (Optional) Specifies the ARN or alias of the KMS customer master key (CMK) to be used to encrypt the protected text in the versions of this secret. If you don't specify this value, then Secrets Manager defaults to using the default CMK in the account (the one named @aws/secretsmanager@ ). If a KMS CMK with that name doesn't exist, then Secrets Manager creates it for you automatically the first time it needs to encrypt a version's @Plaintext@ or @PlaintextString@ fields. /Important:/ You can only use the account's default CMK to encrypt and decrypt if you call this operation using credentials from the same account that owns the secret. If the secret is in a different account, then you must create a custom CMK and provide the ARN in this field.
+-- * 'usKMSKeyId' - (Optional) Specifies an updated ARN or alias of the AWS KMS customer master key (CMK) to be used to encrypt the protected text in new versions of this secret. /Important:/ You can only use the account's default CMK to encrypt and decrypt if you call this operation using credentials from the same account that owns the secret. If the secret is in a different account, then you must create a custom CMK and provide the ARN of that CMK in this field. The user making the call must have permissions to both the secret and the CMK in their respective accounts.
 --
--- * 'usSecretString' - (Optional) Specifies text data that you want to encrypt and store in this new version of the secret. Either @SecretBinary@ or @SecretString@ must have a value, but not both. They cannot both be empty. If you create this secret by using the Secrets Manager console then Secrets Manager puts the protected secret text in only the @SecretString@ parameter. The Secrets Manager console stores the information as a JSON structure of key/value pairs that the default Lambda rotation function knows how to parse. For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ .
+-- * 'usSecretString' - (Optional) Specifies updated text data that you want to encrypt and store in this new version of the secret. Either @SecretBinary@ or @SecretString@ must have a value, but not both. They cannot both be empty. If you create this secret by using the Secrets Manager console then Secrets Manager puts the protected secret text in only the @SecretString@ parameter. The Secrets Manager console stores the information as a JSON structure of key/value pairs that the default Lambda rotation function knows how to parse. For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ . For example: @[{"username":"bob"},{"password":"abc123xyz456"}]@  If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text. You can also 'escape' the double quote character in the embedded JSON text by prefacing each with a backslash. For example, the following string is surrounded by double-quotes. All of the embedded double quotes are escaped: @"[{\"username\":\"bob\"},{\"password\":\"abc123xyz456\"}]"@
 --
--- * 'usClientRequestToken' - (Optional) If you want to add a new version to the secret, this parameter specifies a unique identifier for the new version that helps ensure idempotency.  If you use the AWS CLI or one of the AWS SDK to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes that in the request. If you don't use the SDK and instead generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a @ClientRequestToken@ yourself for new versions and include that value in the request. You typically only need to interact with this value if you implement your own retry logic and want to ensure that a given secret is not created twice. We recommend that you generate a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value to ensure uniqueness within the specified secret.  Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the Lambda rotation function's processing.     * If the @ClientRequestToken@ value isn't already associated with a version of the secret then a new version of the secret is created.      * If a version with this value already exists and that version's @SecretString@ and @SecretBinary@ values are the same as those in the request then the request is ignored (the operation is idempotent).      * If a version with this value already exists and that version's @SecretString@ and @SecretBinary@ values are different from the request then an error occurs because you cannot modify an existing secret value. This value becomes the @SecretVersionId@ of the new version.
+-- * 'usClientRequestToken' - (Optional) If you want to add a new version to the secret, this parameter specifies a unique identifier for the new version that helps ensure idempotency.  If you use the AWS CLI or one of the AWS SDK to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes that in the request. If you don't use the SDK and instead generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a @ClientRequestToken@ yourself for new versions and include that value in the request. You typically only need to interact with this value if you implement your own retry logic and want to ensure that a given secret is not created twice. We recommend that you generate a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value to ensure uniqueness within the specified secret.  Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the Lambda rotation function's processing.     * If the @ClientRequestToken@ value isn't already associated with a version of the secret then a new version of the secret is created.      * If a version with this value already exists and that version's @SecretString@ and @SecretBinary@ values are the same as those in the request then the request is ignored (the operation is idempotent).      * If a version with this value already exists and that version's @SecretString@ and @SecretBinary@ values are different from the request then an error occurs because you cannot modify an existing secret value. This value becomes the @VersionId@ of the new version.
 --
--- * 'usDescription' - (Optional) Specifies a user-provided description of the secret.
+-- * 'usDescription' - (Optional) Specifies an updated user-provided description of the secret.
 --
--- * 'usSecretId' - Specifies the secret that you want to update or to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+-- * 'usSecretId' - Specifies the secret that you want to modify or to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 updateSecret
     :: Text -- ^ 'usSecretId'
     -> UpdateSecret
@@ -123,27 +123,27 @@ updateSecret pSecretId_ =
     }
 
 
--- | (Optional) Specifies binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter. Either @SecretBinary@ or @SecretString@ must have a value, but not both. They cannot both be empty. This parameter is not accessible using the Secrets Manager console.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | (Optional) Specifies updated binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter. Either @SecretBinary@ or @SecretString@ must have a value, but not both. They cannot both be empty. This parameter is not accessible using the Secrets Manager console.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 usSecretBinary :: Lens' UpdateSecret (Maybe ByteString)
 usSecretBinary = lens _usSecretBinary (\ s a -> s{_usSecretBinary = a}) . mapping (_Sensitive . _Base64)
 
--- | (Optional) Specifies the ARN or alias of the KMS customer master key (CMK) to be used to encrypt the protected text in the versions of this secret. If you don't specify this value, then Secrets Manager defaults to using the default CMK in the account (the one named @aws/secretsmanager@ ). If a KMS CMK with that name doesn't exist, then Secrets Manager creates it for you automatically the first time it needs to encrypt a version's @Plaintext@ or @PlaintextString@ fields. /Important:/ You can only use the account's default CMK to encrypt and decrypt if you call this operation using credentials from the same account that owns the secret. If the secret is in a different account, then you must create a custom CMK and provide the ARN in this field.
+-- | (Optional) Specifies an updated ARN or alias of the AWS KMS customer master key (CMK) to be used to encrypt the protected text in new versions of this secret. /Important:/ You can only use the account's default CMK to encrypt and decrypt if you call this operation using credentials from the same account that owns the secret. If the secret is in a different account, then you must create a custom CMK and provide the ARN of that CMK in this field. The user making the call must have permissions to both the secret and the CMK in their respective accounts.
 usKMSKeyId :: Lens' UpdateSecret (Maybe Text)
 usKMSKeyId = lens _usKMSKeyId (\ s a -> s{_usKMSKeyId = a})
 
--- | (Optional) Specifies text data that you want to encrypt and store in this new version of the secret. Either @SecretBinary@ or @SecretString@ must have a value, but not both. They cannot both be empty. If you create this secret by using the Secrets Manager console then Secrets Manager puts the protected secret text in only the @SecretString@ parameter. The Secrets Manager console stores the information as a JSON structure of key/value pairs that the default Lambda rotation function knows how to parse. For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ .
+-- | (Optional) Specifies updated text data that you want to encrypt and store in this new version of the secret. Either @SecretBinary@ or @SecretString@ must have a value, but not both. They cannot both be empty. If you create this secret by using the Secrets Manager console then Secrets Manager puts the protected secret text in only the @SecretString@ parameter. The Secrets Manager console stores the information as a JSON structure of key/value pairs that the default Lambda rotation function knows how to parse. For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ . For example: @[{"username":"bob"},{"password":"abc123xyz456"}]@  If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text. You can also 'escape' the double quote character in the embedded JSON text by prefacing each with a backslash. For example, the following string is surrounded by double-quotes. All of the embedded double quotes are escaped: @"[{\"username\":\"bob\"},{\"password\":\"abc123xyz456\"}]"@
 usSecretString :: Lens' UpdateSecret (Maybe Text)
 usSecretString = lens _usSecretString (\ s a -> s{_usSecretString = a}) . mapping _Sensitive
 
--- | (Optional) If you want to add a new version to the secret, this parameter specifies a unique identifier for the new version that helps ensure idempotency.  If you use the AWS CLI or one of the AWS SDK to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes that in the request. If you don't use the SDK and instead generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a @ClientRequestToken@ yourself for new versions and include that value in the request. You typically only need to interact with this value if you implement your own retry logic and want to ensure that a given secret is not created twice. We recommend that you generate a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value to ensure uniqueness within the specified secret.  Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the Lambda rotation function's processing.     * If the @ClientRequestToken@ value isn't already associated with a version of the secret then a new version of the secret is created.      * If a version with this value already exists and that version's @SecretString@ and @SecretBinary@ values are the same as those in the request then the request is ignored (the operation is idempotent).      * If a version with this value already exists and that version's @SecretString@ and @SecretBinary@ values are different from the request then an error occurs because you cannot modify an existing secret value. This value becomes the @SecretVersionId@ of the new version.
+-- | (Optional) If you want to add a new version to the secret, this parameter specifies a unique identifier for the new version that helps ensure idempotency.  If you use the AWS CLI or one of the AWS SDK to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes that in the request. If you don't use the SDK and instead generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a @ClientRequestToken@ yourself for new versions and include that value in the request. You typically only need to interact with this value if you implement your own retry logic and want to ensure that a given secret is not created twice. We recommend that you generate a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value to ensure uniqueness within the specified secret.  Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the Lambda rotation function's processing.     * If the @ClientRequestToken@ value isn't already associated with a version of the secret then a new version of the secret is created.      * If a version with this value already exists and that version's @SecretString@ and @SecretBinary@ values are the same as those in the request then the request is ignored (the operation is idempotent).      * If a version with this value already exists and that version's @SecretString@ and @SecretBinary@ values are different from the request then an error occurs because you cannot modify an existing secret value. This value becomes the @VersionId@ of the new version.
 usClientRequestToken :: Lens' UpdateSecret (Maybe Text)
 usClientRequestToken = lens _usClientRequestToken (\ s a -> s{_usClientRequestToken = a})
 
--- | (Optional) Specifies a user-provided description of the secret.
+-- | (Optional) Specifies an updated user-provided description of the secret.
 usDescription :: Lens' UpdateSecret (Maybe Text)
 usDescription = lens _usDescription (\ s a -> s{_usDescription = a})
 
--- | Specifies the secret that you want to update or to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+-- | Specifies the secret that you want to modify or to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 usSecretId :: Lens' UpdateSecret Text
 usSecretId = lens _usSecretId (\ s a -> s{_usSecretId = a})
 
@@ -201,11 +201,11 @@ data UpdateSecretResponse = UpdateSecretResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usrsVersionId' - If a version of the secret was created or updated by this operation, then its unique identifier is returned.
+-- * 'usrsVersionId' - If a new version of the secret was created by this operation, then @VersionId@ contains the unique identifier of the new version.
 --
--- * 'usrsARN' - The ARN of this secret.
+-- * 'usrsARN' - The ARN of the secret that was updated.
 --
--- * 'usrsName' - The friendly name of this secret.
+-- * 'usrsName' - The friendly name of the secret that was updated.
 --
 -- * 'usrsResponseStatus' - -- | The response status code.
 updateSecretResponse
@@ -220,15 +220,15 @@ updateSecretResponse pResponseStatus_ =
     }
 
 
--- | If a version of the secret was created or updated by this operation, then its unique identifier is returned.
+-- | If a new version of the secret was created by this operation, then @VersionId@ contains the unique identifier of the new version.
 usrsVersionId :: Lens' UpdateSecretResponse (Maybe Text)
 usrsVersionId = lens _usrsVersionId (\ s a -> s{_usrsVersionId = a})
 
--- | The ARN of this secret.
+-- | The ARN of the secret that was updated.
 usrsARN :: Lens' UpdateSecretResponse (Maybe Text)
 usrsARN = lens _usrsARN (\ s a -> s{_usrsARN = a})
 
--- | The friendly name of this secret.
+-- | The friendly name of the secret that was updated.
 usrsName :: Lens' UpdateSecretResponse (Maybe Text)
 usrsName = lens _usrsName (\ s a -> s{_usrsName = a})
 

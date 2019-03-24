@@ -48,6 +48,7 @@ module Network.AWS.SecretsManager.DeleteSecret
     , DeleteSecret
     -- * Request Lenses
     , dsRecoveryWindowInDays
+    , dsForceDeleteWithoutRecovery
     , dsSecretId
 
     -- * Destructuring the Response
@@ -69,8 +70,9 @@ import Network.AWS.SecretsManager.Types.Product
 
 -- | /See:/ 'deleteSecret' smart constructor.
 data DeleteSecret = DeleteSecret'
-  { _dsRecoveryWindowInDays :: !(Maybe Integer)
-  , _dsSecretId             :: !Text
+  { _dsRecoveryWindowInDays       :: !(Maybe Integer)
+  , _dsForceDeleteWithoutRecovery :: !(Maybe Bool)
+  , _dsSecretId                   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -78,19 +80,29 @@ data DeleteSecret = DeleteSecret'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsRecoveryWindowInDays' - (Optional) Specifies the number of days that Secrets Manager waits before it can delete the secret. This value can range from 7 to 30 days. The default value is 30.
+-- * 'dsRecoveryWindowInDays' - (Optional) Specifies the number of days that Secrets Manager waits before it can delete the secret. You can't use both this parameter and the @ForceDeleteWithoutRecovery@ parameter in the same API call. This value can range from 7 to 30 days. The default value is 30.
+--
+-- * 'dsForceDeleteWithoutRecovery' - (Optional) Specifies that the secret is to be deleted without any recovery window. You can't use both this parameter and the @RecoveryWindowInDays@ parameter in the same API call. An asynchronous background process performs the actual deletion, so there can be a short delay before the operation completes. If you write code to delete and then immediately recreate a secret with the same name, ensure that your code includes appropriate back off and retry logic. /Important:/ Use this parameter with caution. This parameter causes the operation to skip the normal waiting period before the permanent deletion that AWS would normally impose with the @RecoveryWindowInDays@ parameter. If you delete a secret with the @ForceDeleteWithouRecovery@ parameter, then you have no opportunity to recover the secret. It is permanently lost.
 --
 -- * 'dsSecretId' - Specifies the secret that you want to delete. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 deleteSecret
     :: Text -- ^ 'dsSecretId'
     -> DeleteSecret
 deleteSecret pSecretId_ =
-  DeleteSecret' {_dsRecoveryWindowInDays = Nothing, _dsSecretId = pSecretId_}
+  DeleteSecret'
+    { _dsRecoveryWindowInDays = Nothing
+    , _dsForceDeleteWithoutRecovery = Nothing
+    , _dsSecretId = pSecretId_
+    }
 
 
--- | (Optional) Specifies the number of days that Secrets Manager waits before it can delete the secret. This value can range from 7 to 30 days. The default value is 30.
+-- | (Optional) Specifies the number of days that Secrets Manager waits before it can delete the secret. You can't use both this parameter and the @ForceDeleteWithoutRecovery@ parameter in the same API call. This value can range from 7 to 30 days. The default value is 30.
 dsRecoveryWindowInDays :: Lens' DeleteSecret (Maybe Integer)
 dsRecoveryWindowInDays = lens _dsRecoveryWindowInDays (\ s a -> s{_dsRecoveryWindowInDays = a})
+
+-- | (Optional) Specifies that the secret is to be deleted without any recovery window. You can't use both this parameter and the @RecoveryWindowInDays@ parameter in the same API call. An asynchronous background process performs the actual deletion, so there can be a short delay before the operation completes. If you write code to delete and then immediately recreate a secret with the same name, ensure that your code includes appropriate back off and retry logic. /Important:/ Use this parameter with caution. This parameter causes the operation to skip the normal waiting period before the permanent deletion that AWS would normally impose with the @RecoveryWindowInDays@ parameter. If you delete a secret with the @ForceDeleteWithouRecovery@ parameter, then you have no opportunity to recover the secret. It is permanently lost.
+dsForceDeleteWithoutRecovery :: Lens' DeleteSecret (Maybe Bool)
+dsForceDeleteWithoutRecovery = lens _dsForceDeleteWithoutRecovery (\ s a -> s{_dsForceDeleteWithoutRecovery = a})
 
 -- | Specifies the secret that you want to delete. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 dsSecretId :: Lens' DeleteSecret Text
@@ -126,6 +138,8 @@ instance ToJSON DeleteSecret where
               (catMaybes
                  [("RecoveryWindowInDays" .=) <$>
                     _dsRecoveryWindowInDays,
+                  ("ForceDeleteWithoutRecovery" .=) <$>
+                    _dsForceDeleteWithoutRecovery,
                   Just ("SecretId" .= _dsSecretId)])
 
 instance ToPath DeleteSecret where

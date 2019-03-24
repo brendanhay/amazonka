@@ -21,6 +21,7 @@ module Network.AWS.SecretsManager.Types
     , _InvalidRequestException
     , _DecryptionFailure
     , _EncryptionFailure
+    , _PreconditionNotMetException
     , _InvalidNextTokenException
     , _InternalServiceError
     , _ResourceExistsException
@@ -125,7 +126,15 @@ _InvalidParameterException =
   _MatchServiceError secretsManager "InvalidParameterException"
 
 
--- | You provided a parameter value that is not valid for the current state of the resource. For example, if you try to enable rotation on a secret, you must already have a Lambda function ARN configured or included as a parameter in this call.
+-- | You provided a parameter value that is not valid for the current state of the resource.
+--
+--
+-- Possible causes:
+--
+--     * You tried to perform the operation on a secret that's currently marked deleted.
+--
+--     * You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call.
+--
 --
 --
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -145,6 +154,14 @@ _DecryptionFailure = _MatchServiceError secretsManager "DecryptionFailure"
 --
 _EncryptionFailure :: AsError a => Getting (First ServiceError) a ServiceError
 _EncryptionFailure = _MatchServiceError secretsManager "EncryptionFailure"
+
+
+-- | The request failed because you did not complete all the prerequisite steps.
+--
+--
+_PreconditionNotMetException :: AsError a => Getting (First ServiceError) a ServiceError
+_PreconditionNotMetException =
+  _MatchServiceError secretsManager "PreconditionNotMetException"
 
 
 -- | You provided an invalid @NextToken@ value.

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the staging labels attached to a version of a secret. Staging labels are used to track a version as it progresses through the secret rotation process. You can attach a staging label to only one version of a secret at a time. If a staging label to be added is already attached to another version, then it is moved--removed from the other version first and then attached to this one. For more information about staging labels, see <http://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label Staging Labels> in the /AWS Secrets Manager User Guide/ .
+-- Modifies the staging labels attached to a version of a secret. Staging labels are used to track a version as it progresses through the secret rotation process. You can attach a staging label to only one version of a secret at a time. If a staging label to be added is already attached to another version, then it is moved--removed from the other version first and then attached to this one. For more information about staging labels, see <https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label Staging Labels> in the /AWS Secrets Manager User Guide/ .
 --
 --
 -- The staging labels that you specify in the @VersionStage@ parameter are added to the existing list of staging labels--they don't replace it.
@@ -81,13 +81,13 @@ data UpdateSecretVersionStage = UpdateSecretVersionStage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usvsRemoveFromVersionId' - (Optional) Specifies the secret version ID of the version that the staging labels are to be removed from. If you want to move a label to a new version, you do not have to explicitly remove it with this parameter. Adding a label using the @MoveToVersionId@ parameter automatically removes it from the old version. However, if you do include both the "MoveTo" and "RemoveFrom" parameters, then the move is successful only if the staging labels are actually present on the "RemoveFrom" version. If a staging label was on a different version than "RemoveFrom", then the request fails.
+-- * 'usvsRemoveFromVersionId' - Specifies the secret version ID of the version that the staging label is to be removed from. If the staging label you are trying to attach to one version is already attached to a different version, then you must include this parameter and specify the version that the label is to be removed from. If the label is attached and you either do not specify this parameter, or the version ID does not match, then the operation fails.
 --
--- * 'usvsMoveToVersionId' - (Optional) The secret version ID that you want to add the staging labels to. If any of the staging labels are already attached to a different version of the secret, then they are removed from that version before adding them to this version.
+-- * 'usvsMoveToVersionId' - (Optional) The secret version ID that you want to add the staging label to. If you want to remove a label from a version, then do not specify this parameter. If the staging label is already attached to a different version of the secret, then you must also specify the @RemoveFromVersionId@ parameter.
 --
 -- * 'usvsSecretId' - Specifies the secret with the version whose list of staging labels you want to modify. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 --
--- * 'usvsVersionStage' - The list of staging labels to add to this version.
+-- * 'usvsVersionStage' - The staging label to add to this version.
 updateSecretVersionStage
     :: Text -- ^ 'usvsSecretId'
     -> Text -- ^ 'usvsVersionStage'
@@ -101,11 +101,11 @@ updateSecretVersionStage pSecretId_ pVersionStage_ =
     }
 
 
--- | (Optional) Specifies the secret version ID of the version that the staging labels are to be removed from. If you want to move a label to a new version, you do not have to explicitly remove it with this parameter. Adding a label using the @MoveToVersionId@ parameter automatically removes it from the old version. However, if you do include both the "MoveTo" and "RemoveFrom" parameters, then the move is successful only if the staging labels are actually present on the "RemoveFrom" version. If a staging label was on a different version than "RemoveFrom", then the request fails.
+-- | Specifies the secret version ID of the version that the staging label is to be removed from. If the staging label you are trying to attach to one version is already attached to a different version, then you must include this parameter and specify the version that the label is to be removed from. If the label is attached and you either do not specify this parameter, or the version ID does not match, then the operation fails.
 usvsRemoveFromVersionId :: Lens' UpdateSecretVersionStage (Maybe Text)
 usvsRemoveFromVersionId = lens _usvsRemoveFromVersionId (\ s a -> s{_usvsRemoveFromVersionId = a})
 
--- | (Optional) The secret version ID that you want to add the staging labels to. If any of the staging labels are already attached to a different version of the secret, then they are removed from that version before adding them to this version.
+-- | (Optional) The secret version ID that you want to add the staging label to. If you want to remove a label from a version, then do not specify this parameter. If the staging label is already attached to a different version of the secret, then you must also specify the @RemoveFromVersionId@ parameter.
 usvsMoveToVersionId :: Lens' UpdateSecretVersionStage (Maybe Text)
 usvsMoveToVersionId = lens _usvsMoveToVersionId (\ s a -> s{_usvsMoveToVersionId = a})
 
@@ -113,7 +113,7 @@ usvsMoveToVersionId = lens _usvsMoveToVersionId (\ s a -> s{_usvsMoveToVersionId
 usvsSecretId :: Lens' UpdateSecretVersionStage Text
 usvsSecretId = lens _usvsSecretId (\ s a -> s{_usvsSecretId = a})
 
--- | The list of staging labels to add to this version.
+-- | The staging label to add to this version.
 usvsVersionStage :: Lens' UpdateSecretVersionStage Text
 usvsVersionStage = lens _usvsVersionStage (\ s a -> s{_usvsVersionStage = a})
 
@@ -170,9 +170,9 @@ data UpdateSecretVersionStageResponse = UpdateSecretVersionStageResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usvsrsARN' - The ARN of the secret with the staging labels that were modified.
+-- * 'usvsrsARN' - The ARN of the secret with the staging label that was modified.
 --
--- * 'usvsrsName' - The friendly name of the secret with the staging labels that were modified.
+-- * 'usvsrsName' - The friendly name of the secret with the staging label that was modified.
 --
 -- * 'usvsrsResponseStatus' - -- | The response status code.
 updateSecretVersionStageResponse
@@ -186,11 +186,11 @@ updateSecretVersionStageResponse pResponseStatus_ =
     }
 
 
--- | The ARN of the secret with the staging labels that were modified.
+-- | The ARN of the secret with the staging label that was modified.
 usvsrsARN :: Lens' UpdateSecretVersionStageResponse (Maybe Text)
 usvsrsARN = lens _usvsrsARN (\ s a -> s{_usvsrsARN = a})
 
--- | The friendly name of the secret with the staging labels that were modified.
+-- | The friendly name of the secret with the staging label that was modified.
 usvsrsName :: Lens' UpdateSecretVersionStageResponse (Maybe Text)
 usvsrsName = lens _usvsrsName (\ s a -> s{_usvsrsName = a})
 

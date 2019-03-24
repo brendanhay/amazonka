@@ -35,13 +35,13 @@ newtype RotationRulesType = RotationRulesType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrtAutomaticallyAfterDays' - Specifies the number of days between automatic scheduled rotations of the secret.
+-- * 'rrtAutomaticallyAfterDays' - Specifies the number of days between automatic scheduled rotations of the secret. Secrets Manager schedules the next rotation when the previous one is complete. Secrets Manager schedules the date by adding the rotation interval (number of days) to the actual date of the last rotation. The service chooses the hour within that 24-hour date window randomly. The minute is also chosen somewhat randomly, but weighted towards the top of the hour and influenced by a variety of factors that help distribute load.
 rotationRulesType
     :: RotationRulesType
 rotationRulesType = RotationRulesType' {_rrtAutomaticallyAfterDays = Nothing}
 
 
--- | Specifies the number of days between automatic scheduled rotations of the secret.
+-- | Specifies the number of days between automatic scheduled rotations of the secret. Secrets Manager schedules the next rotation when the previous one is complete. Secrets Manager schedules the date by adding the rotation interval (number of days) to the actual date of the last rotation. The service chooses the hour within that 24-hour date window randomly. The minute is also chosen somewhat randomly, but weighted towards the top of the hour and influenced by a variety of factors that help distribute load.
 rrtAutomaticallyAfterDays :: Lens' RotationRulesType (Maybe Natural)
 rrtAutomaticallyAfterDays = lens _rrtAutomaticallyAfterDays (\ s a -> s{_rrtAutomaticallyAfterDays = a}) . mapping _Nat
 
@@ -91,7 +91,7 @@ data SecretListEntry = SecretListEntry'
 --
 -- * 'sleLastChangedDate' - The last date and time that this secret was modified in any way.
 --
--- * 'sleARN' - The Amazon Resource Name (ARN) of the secret. For more information about ARNs in Secrets Manager, see <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources Policy Resources> in the /AWS Secrets Manager User Guide/ .
+-- * 'sleARN' - The Amazon Resource Name (ARN) of the secret. For more information about ARNs in Secrets Manager, see <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources Policy Resources> in the /AWS Secrets Manager User Guide/ .
 --
 -- * 'sleSecretVersionsToStages' - A list of all of the currently assigned @SecretVersionStage@ staging labels and the @SecretVersionId@ that each is attached to. Staging labels are used to keep track of the different versions during the rotation process.
 --
@@ -138,7 +138,7 @@ secretListEntry =
 sleLastChangedDate :: Lens' SecretListEntry (Maybe UTCTime)
 sleLastChangedDate = lens _sleLastChangedDate (\ s a -> s{_sleLastChangedDate = a}) . mapping _Time
 
--- | The Amazon Resource Name (ARN) of the secret. For more information about ARNs in Secrets Manager, see <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources Policy Resources> in the /AWS Secrets Manager User Guide/ .
+-- | The Amazon Resource Name (ARN) of the secret. For more information about ARNs in Secrets Manager, see <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources Policy Resources> in the /AWS Secrets Manager User Guide/ .
 sleARN :: Lens' SecretListEntry (Maybe Text)
 sleARN = lens _sleARN (\ s a -> s{_sleARN = a})
 

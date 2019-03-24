@@ -21,6 +21,8 @@
 -- Describes a list of job definitions. You can specify a @status@ (such as @ACTIVE@ ) to only return job definitions that match that status.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Batch.DescribeJobDefinitions
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.Batch.DescribeJobDefinitions
 import Network.AWS.Batch.Types
 import Network.AWS.Batch.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -103,6 +106,13 @@ djdNextToken = lens _djdNextToken (\ s a -> s{_djdNextToken = a})
 -- | The maximum number of results returned by @DescribeJobDefinitions@ in paginated output. When this parameter is used, @DescribeJobDefinitions@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeJobDefinitions@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeJobDefinitions@ returns up to 100 results and a @nextToken@ value if applicable.
 djdMaxResults :: Lens' DescribeJobDefinitions (Maybe Int)
 djdMaxResults = lens _djdMaxResults (\ s a -> s{_djdMaxResults = a})
+
+instance AWSPager DescribeJobDefinitions where
+        page rq rs
+          | stop (rs ^. djdrsNextToken) = Nothing
+          | stop (rs ^. djdrsJobDefinitions) = Nothing
+          | otherwise =
+            Just $ rq & djdNextToken .~ rs ^. djdrsNextToken
 
 instance AWSRequest DescribeJobDefinitions where
         type Rs DescribeJobDefinitions =

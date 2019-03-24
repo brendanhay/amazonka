@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.Batch
 import Test.AWS.Batch.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "Batch"

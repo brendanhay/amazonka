@@ -18,9 +18,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of task jobs for a specified job queue. You can filter the results by job status with the @jobStatus@ parameter. If you do not specify a status, only @RUNNING@ jobs are returned.
+-- Returns a list of AWS Batch jobs.
 --
 --
+-- You must specify only one of the following:
+--
+--     * a job queue ID to return a list of jobs in that job queue
+--
+--     * a multi-node parallel job ID to return a list of that job's nodes
+--
+--     * an array job ID to return a list of that job's children
+--
+--
+--
+-- You can filter the results by job status with the @jobStatus@ parameter. If you do not specify a status, only @RUNNING@ jobs are returned.
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.Batch.ListJobs
     (
     -- * Creating a Request
@@ -28,6 +42,7 @@ module Network.AWS.Batch.ListJobs
     , ListJobs
     -- * Request Lenses
     , ljNextToken
+    , ljMultiNodeJobId
     , ljJobStatus
     , ljArrayJobId
     , ljJobQueue
@@ -45,17 +60,19 @@ module Network.AWS.Batch.ListJobs
 import Network.AWS.Batch.Types
 import Network.AWS.Batch.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'listJobs' smart constructor.
 data ListJobs = ListJobs'
-  { _ljNextToken  :: !(Maybe Text)
-  , _ljJobStatus  :: !(Maybe JobStatus)
-  , _ljArrayJobId :: !(Maybe Text)
-  , _ljJobQueue   :: !(Maybe Text)
-  , _ljMaxResults :: !(Maybe Int)
+  { _ljNextToken      :: !(Maybe Text)
+  , _ljMultiNodeJobId :: !(Maybe Text)
+  , _ljJobStatus      :: !(Maybe JobStatus)
+  , _ljArrayJobId     :: !(Maybe Text)
+  , _ljJobQueue       :: !(Maybe Text)
+  , _ljMaxResults     :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -64,6 +81,8 @@ data ListJobs = ListJobs'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ljNextToken' - The @nextToken@ value returned from a previous paginated @ListJobs@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+--
+-- * 'ljMultiNodeJobId' - The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter lists all nodes that are associated with the specified job.
 --
 -- * 'ljJobStatus' - The job status with which to filter jobs in the specified queue. If you do not specify a status, only @RUNNING@ jobs are returned.
 --
@@ -77,6 +96,7 @@ listJobs
 listJobs =
   ListJobs'
     { _ljNextToken = Nothing
+    , _ljMultiNodeJobId = Nothing
     , _ljJobStatus = Nothing
     , _ljArrayJobId = Nothing
     , _ljJobQueue = Nothing
@@ -87,6 +107,10 @@ listJobs =
 -- | The @nextToken@ value returned from a previous paginated @ListJobs@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 ljNextToken :: Lens' ListJobs (Maybe Text)
 ljNextToken = lens _ljNextToken (\ s a -> s{_ljNextToken = a})
+
+-- | The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID with this parameter lists all nodes that are associated with the specified job.
+ljMultiNodeJobId :: Lens' ListJobs (Maybe Text)
+ljMultiNodeJobId = lens _ljMultiNodeJobId (\ s a -> s{_ljMultiNodeJobId = a})
 
 -- | The job status with which to filter jobs in the specified queue. If you do not specify a status, only @RUNNING@ jobs are returned.
 ljJobStatus :: Lens' ListJobs (Maybe JobStatus)
@@ -103,6 +127,13 @@ ljJobQueue = lens _ljJobQueue (\ s a -> s{_ljJobQueue = a})
 -- | The maximum number of results returned by @ListJobs@ in paginated output. When this parameter is used, @ListJobs@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListJobs@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListJobs@ returns up to 100 results and a @nextToken@ value if applicable.
 ljMaxResults :: Lens' ListJobs (Maybe Int)
 ljMaxResults = lens _ljMaxResults (\ s a -> s{_ljMaxResults = a})
+
+instance AWSPager ListJobs where
+        page rq rs
+          | stop (rs ^. ljrsNextToken) = Nothing
+          | stop (rs ^. ljrsJobSummaryList) = Nothing
+          | otherwise =
+            Just $ rq & ljNextToken .~ rs ^. ljrsNextToken
 
 instance AWSRequest ListJobs where
         type Rs ListJobs = ListJobsResponse
@@ -130,6 +161,7 @@ instance ToJSON ListJobs where
           = object
               (catMaybes
                  [("nextToken" .=) <$> _ljNextToken,
+                  ("multiNodeJobId" .=) <$> _ljMultiNodeJobId,
                   ("jobStatus" .=) <$> _ljJobStatus,
                   ("arrayJobId" .=) <$> _ljArrayJobId,
                   ("jobQueue" .=) <$> _ljJobQueue,

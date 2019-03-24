@@ -247,20 +247,23 @@ instance ToHeader     JQStatus
 instance FromJSON JQStatus where
     parseJSON = parseJSONText "JQStatus"
 
-data JobDefinitionType =
-  Container
+data JobDefinitionType
+  = Container
+  | Multinode
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText JobDefinitionType where
     parser = takeLowerText >>= \case
         "container" -> pure Container
+        "multinode" -> pure Multinode
         e -> fromTextError $ "Failure parsing JobDefinitionType from value: '" <> e
-           <> "'. Accepted values: container"
+           <> "'. Accepted values: container, multinode"
 
 instance ToText JobDefinitionType where
     toText = \case
         Container -> "container"
+        Multinode -> "multinode"
 
 instance Hashable     JobDefinitionType
 instance NFData       JobDefinitionType

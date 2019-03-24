@@ -31,6 +31,7 @@ module Network.AWS.Batch.RegisterJobDefinition
     , rjdParameters
     , rjdTimeout
     , rjdContainerProperties
+    , rjdNodeProperties
     , rjdJobDefinitionName
     , rjdType
 
@@ -57,6 +58,7 @@ data RegisterJobDefinition = RegisterJobDefinition'
   , _rjdParameters          :: !(Maybe (Map Text Text))
   , _rjdTimeout             :: !(Maybe JobTimeout)
   , _rjdContainerProperties :: !(Maybe ContainerProperties)
+  , _rjdNodeProperties      :: !(Maybe NodeProperties)
   , _rjdJobDefinitionName   :: !Text
   , _rjdType                :: !JobDefinitionType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -72,7 +74,9 @@ data RegisterJobDefinition = RegisterJobDefinition'
 --
 -- * 'rjdTimeout' - The timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it is not retried. The minimum value for the timeout is 60 seconds. Any timeout configuration that is specified during a 'SubmitJob' operation overrides the timeout configuration defined here. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html Job Timeouts> in the /Amazon Elastic Container Service Developer Guide/ .
 --
--- * 'rjdContainerProperties' - An object with various properties specific for container-based jobs. This parameter is required if the @type@ parameter is @container@ .
+-- * 'rjdContainerProperties' - An object with various properties specific to single-node container-based jobs. If the job definition's @type@ parameter is @container@ , then you must specify either @containerProperties@ or @nodeProperties@ .
+--
+-- * 'rjdNodeProperties' - An object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see <http://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html Multi-node Parallel Jobs> in the /AWS Batch User Guide/ . If the job definition's @type@ parameter is @container@ , then you must specify either @containerProperties@ or @nodeProperties@ .
 --
 -- * 'rjdJobDefinitionName' - The name of the job definition to register. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 --
@@ -87,6 +91,7 @@ registerJobDefinition pJobDefinitionName_ pType_ =
     , _rjdParameters = Nothing
     , _rjdTimeout = Nothing
     , _rjdContainerProperties = Nothing
+    , _rjdNodeProperties = Nothing
     , _rjdJobDefinitionName = pJobDefinitionName_
     , _rjdType = pType_
     }
@@ -104,9 +109,13 @@ rjdParameters = lens _rjdParameters (\ s a -> s{_rjdParameters = a}) . _Default 
 rjdTimeout :: Lens' RegisterJobDefinition (Maybe JobTimeout)
 rjdTimeout = lens _rjdTimeout (\ s a -> s{_rjdTimeout = a})
 
--- | An object with various properties specific for container-based jobs. This parameter is required if the @type@ parameter is @container@ .
+-- | An object with various properties specific to single-node container-based jobs. If the job definition's @type@ parameter is @container@ , then you must specify either @containerProperties@ or @nodeProperties@ .
 rjdContainerProperties :: Lens' RegisterJobDefinition (Maybe ContainerProperties)
 rjdContainerProperties = lens _rjdContainerProperties (\ s a -> s{_rjdContainerProperties = a})
+
+-- | An object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see <http://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html Multi-node Parallel Jobs> in the /AWS Batch User Guide/ . If the job definition's @type@ parameter is @container@ , then you must specify either @containerProperties@ or @nodeProperties@ .
+rjdNodeProperties :: Lens' RegisterJobDefinition (Maybe NodeProperties)
+rjdNodeProperties = lens _rjdNodeProperties (\ s a -> s{_rjdNodeProperties = a})
 
 -- | The name of the job definition to register. Up to 128 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 rjdJobDefinitionName :: Lens' RegisterJobDefinition Text
@@ -148,6 +157,7 @@ instance ToJSON RegisterJobDefinition where
                   ("timeout" .=) <$> _rjdTimeout,
                   ("containerProperties" .=) <$>
                     _rjdContainerProperties,
+                  ("nodeProperties" .=) <$> _rjdNodeProperties,
                   Just ("jobDefinitionName" .= _rjdJobDefinitionName),
                   Just ("type" .= _rjdType)])
 

@@ -147,7 +147,7 @@ data UpdateComputeEnvironmentResponse = UpdateComputeEnvironmentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucersComputeEnvironmentName' - The name of compute environment.
+-- * 'ucersComputeEnvironmentName' - The name of the compute environment.
 --
 -- * 'ucersComputeEnvironmentARN' - The Amazon Resource Name (ARN) of the compute environment.
 --
@@ -163,7 +163,7 @@ updateComputeEnvironmentResponse pResponseStatus_ =
     }
 
 
--- | The name of compute environment.
+-- | The name of the compute environment.
 ucersComputeEnvironmentName :: Lens' UpdateComputeEnvironmentResponse (Maybe Text)
 ucersComputeEnvironmentName = lens _ucersComputeEnvironmentName (\ s a -> s{_ucersComputeEnvironmentName = a})
 

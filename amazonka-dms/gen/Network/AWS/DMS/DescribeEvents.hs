@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists events for a given source identifier and source type. You can also specify a start and end time. For more information on AWS DMS events, see <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications > .
+-- Lists events for a given source identifier and source type. You can also specify a start and end time. For more information on AWS DMS events, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications> in the /AWS Database Migration User Guide./
 --
 --
 --

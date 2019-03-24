@@ -112,6 +112,36 @@ instance ToJSON CompressionTypeValue where
 instance FromJSON CompressionTypeValue where
     parseJSON = parseJSONText "CompressionTypeValue"
 
+data DataFormatValue
+  = CSV
+  | Parquet
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DataFormatValue where
+    parser = takeLowerText >>= \case
+        "csv" -> pure CSV
+        "parquet" -> pure Parquet
+        e -> fromTextError $ "Failure parsing DataFormatValue from value: '" <> e
+           <> "'. Accepted values: csv, parquet"
+
+instance ToText DataFormatValue where
+    toText = \case
+        CSV -> "csv"
+        Parquet -> "parquet"
+
+instance Hashable     DataFormatValue
+instance NFData       DataFormatValue
+instance ToByteString DataFormatValue
+instance ToQuery      DataFormatValue
+instance ToHeader     DataFormatValue
+
+instance ToJSON DataFormatValue where
+    toJSON = toJSONText
+
+instance FromJSON DataFormatValue where
+    parseJSON = parseJSONText "DataFormatValue"
+
 data DmsSSLModeValue
   = DSMVNone
   | DSMVRequire
@@ -147,6 +177,96 @@ instance ToJSON DmsSSLModeValue where
 
 instance FromJSON DmsSSLModeValue where
     parseJSON = parseJSONText "DmsSSLModeValue"
+
+data EncodingTypeValue
+  = Plain
+  | PlainDictionary
+  | RleDictionary
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText EncodingTypeValue where
+    parser = takeLowerText >>= \case
+        "plain" -> pure Plain
+        "plain-dictionary" -> pure PlainDictionary
+        "rle-dictionary" -> pure RleDictionary
+        e -> fromTextError $ "Failure parsing EncodingTypeValue from value: '" <> e
+           <> "'. Accepted values: plain, plain-dictionary, rle-dictionary"
+
+instance ToText EncodingTypeValue where
+    toText = \case
+        Plain -> "plain"
+        PlainDictionary -> "plain-dictionary"
+        RleDictionary -> "rle-dictionary"
+
+instance Hashable     EncodingTypeValue
+instance NFData       EncodingTypeValue
+instance ToByteString EncodingTypeValue
+instance ToQuery      EncodingTypeValue
+instance ToHeader     EncodingTypeValue
+
+instance ToJSON EncodingTypeValue where
+    toJSON = toJSONText
+
+instance FromJSON EncodingTypeValue where
+    parseJSON = parseJSONText "EncodingTypeValue"
+
+data EncryptionModeValue
+  = SseKMS
+  | SseS3
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText EncryptionModeValue where
+    parser = takeLowerText >>= \case
+        "sse-kms" -> pure SseKMS
+        "sse-s3" -> pure SseS3
+        e -> fromTextError $ "Failure parsing EncryptionModeValue from value: '" <> e
+           <> "'. Accepted values: sse-kms, sse-s3"
+
+instance ToText EncryptionModeValue where
+    toText = \case
+        SseKMS -> "sse-kms"
+        SseS3 -> "sse-s3"
+
+instance Hashable     EncryptionModeValue
+instance NFData       EncryptionModeValue
+instance ToByteString EncryptionModeValue
+instance ToQuery      EncryptionModeValue
+instance ToHeader     EncryptionModeValue
+
+instance ToJSON EncryptionModeValue where
+    toJSON = toJSONText
+
+instance FromJSON EncryptionModeValue where
+    parseJSON = parseJSONText "EncryptionModeValue"
+
+data MessageFormatValue =
+  JSON
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText MessageFormatValue where
+    parser = takeLowerText >>= \case
+        "json" -> pure JSON
+        e -> fromTextError $ "Failure parsing MessageFormatValue from value: '" <> e
+           <> "'. Accepted values: json"
+
+instance ToText MessageFormatValue where
+    toText = \case
+        JSON -> "json"
+
+instance Hashable     MessageFormatValue
+instance NFData       MessageFormatValue
+instance ToByteString MessageFormatValue
+instance ToQuery      MessageFormatValue
+instance ToHeader     MessageFormatValue
+
+instance ToJSON MessageFormatValue where
+    toJSON = toJSONText
+
+instance FromJSON MessageFormatValue where
+    parseJSON = parseJSONText "MessageFormatValue"
 
 data MigrationTypeValue
   = Cdc
@@ -211,6 +331,36 @@ instance ToJSON NestingLevelValue where
 instance FromJSON NestingLevelValue where
     parseJSON = parseJSONText "NestingLevelValue"
 
+data ParquetVersionValue
+  = Parquet10
+  | Parquet20
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ParquetVersionValue where
+    parser = takeLowerText >>= \case
+        "parquet-1-0" -> pure Parquet10
+        "parquet-2-0" -> pure Parquet20
+        e -> fromTextError $ "Failure parsing ParquetVersionValue from value: '" <> e
+           <> "'. Accepted values: parquet-1-0, parquet-2-0"
+
+instance ToText ParquetVersionValue where
+    toText = \case
+        Parquet10 -> "parquet-1-0"
+        Parquet20 -> "parquet-2-0"
+
+instance Hashable     ParquetVersionValue
+instance NFData       ParquetVersionValue
+instance ToByteString ParquetVersionValue
+instance ToQuery      ParquetVersionValue
+instance ToHeader     ParquetVersionValue
+
+instance ToJSON ParquetVersionValue where
+    toJSON = toJSONText
+
+instance FromJSON ParquetVersionValue where
+    parseJSON = parseJSONText "ParquetVersionValue"
+
 data RefreshSchemasStatusTypeValue
   = Failed
   | Refreshing
@@ -240,6 +390,33 @@ instance ToHeader     RefreshSchemasStatusTypeValue
 
 instance FromJSON RefreshSchemasStatusTypeValue where
     parseJSON = parseJSONText "RefreshSchemasStatusTypeValue"
+
+data ReloadOptionValue
+  = DataReload
+  | ValidateOnly
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ReloadOptionValue where
+    parser = takeLowerText >>= \case
+        "data-reload" -> pure DataReload
+        "validate-only" -> pure ValidateOnly
+        e -> fromTextError $ "Failure parsing ReloadOptionValue from value: '" <> e
+           <> "'. Accepted values: data-reload, validate-only"
+
+instance ToText ReloadOptionValue where
+    toText = \case
+        DataReload -> "data-reload"
+        ValidateOnly -> "validate-only"
+
+instance Hashable     ReloadOptionValue
+instance NFData       ReloadOptionValue
+instance ToByteString ReloadOptionValue
+instance ToQuery      ReloadOptionValue
+instance ToHeader     ReloadOptionValue
+
+instance ToJSON ReloadOptionValue where
+    toJSON = toJSONText
 
 data ReplicationEndpointTypeValue
   = Source

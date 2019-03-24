@@ -15,7 +15,7 @@
 --
 -- AWS Database Migration Service (AWS DMS) can migrate your data to and from the most widely used commercial and open-source databases such as Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift, MariaDB, Amazon Aurora, MySQL, and SAP Adaptive Server Enterprise (ASE). The service supports homogeneous migrations such as Oracle to Oracle, as well as heterogeneous migrations between different database platforms, such as Oracle to MySQL or SQL Server to PostgreSQL.
 --
--- For more information about AWS DMS, see the AWS DMS user guide at <http://docs.aws.amazon.com/dms/latest/userguide/Welcome.html What Is AWS Database Migration Service? >
+-- For more information about AWS DMS, see <https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html What Is AWS Database Migration Service?> in the /AWS Database Migration User Guide./
 --
 module Network.AWS.DMS
     (
@@ -24,6 +24,12 @@ module Network.AWS.DMS
 
     -- * Errors
     -- $errors
+
+    -- ** KMSAccessDeniedFault
+    , _KMSAccessDeniedFault
+
+    -- ** KMSDisabledFault
+    , _KMSDisabledFault
 
     -- ** InvalidSubnet
     , _InvalidSubnet
@@ -52,6 +58,12 @@ module Network.AWS.DMS
     -- ** SNSInvalidTopicFault
     , _SNSInvalidTopicFault
 
+    -- ** KMSNotFoundFault
+    , _KMSNotFoundFault
+
+    -- ** KMSThrottlingFault
+    , _KMSThrottlingFault
+
     -- ** ResourceQuotaExceededFault
     , _ResourceQuotaExceededFault
 
@@ -70,8 +82,35 @@ module Network.AWS.DMS
     -- ** SubnetAlreadyInUse
     , _SubnetAlreadyInUse
 
+    -- ** KMSInvalidStateFault
+    , _KMSInvalidStateFault
+
     -- * Waiters
     -- $waiters
+
+    -- ** ReplicationInstanceAvailable
+    , replicationInstanceAvailable
+
+    -- ** ReplicationTaskDeleted
+    , replicationTaskDeleted
+
+    -- ** ReplicationTaskReady
+    , replicationTaskReady
+
+    -- ** ReplicationInstanceDeleted
+    , replicationInstanceDeleted
+
+    -- ** EndpointDeleted
+    , endpointDeleted
+
+    -- ** ReplicationTaskStopped
+    , replicationTaskStopped
+
+    -- ** ReplicationTaskRunning
+    , replicationTaskRunning
+
+    -- ** TestConnectionSucceeds
+    , testConnectionSucceeds
 
     -- * Operations
     -- $operations
@@ -172,6 +211,9 @@ module Network.AWS.DMS
     -- ** DescribeOrderableReplicationInstances (Paginated)
     , module Network.AWS.DMS.DescribeOrderableReplicationInstances
 
+    -- ** DescribePendingMaintenanceActions
+    , module Network.AWS.DMS.DescribePendingMaintenanceActions
+
     -- ** CreateReplicationTask
     , module Network.AWS.DMS.CreateReplicationTask
 
@@ -186,6 +228,9 @@ module Network.AWS.DMS
 
     -- ** ModifyReplicationSubnetGroup
     , module Network.AWS.DMS.ModifyReplicationSubnetGroup
+
+    -- ** ApplyPendingMaintenanceAction
+    , module Network.AWS.DMS.ApplyPendingMaintenanceAction
 
     -- ** DescribeAccountAttributes
     , module Network.AWS.DMS.DescribeAccountAttributes
@@ -219,8 +264,20 @@ module Network.AWS.DMS
     -- ** CompressionTypeValue
     , CompressionTypeValue (..)
 
+    -- ** DataFormatValue
+    , DataFormatValue (..)
+
     -- ** DmsSSLModeValue
     , DmsSSLModeValue (..)
+
+    -- ** EncodingTypeValue
+    , EncodingTypeValue (..)
+
+    -- ** EncryptionModeValue
+    , EncryptionModeValue (..)
+
+    -- ** MessageFormatValue
+    , MessageFormatValue (..)
 
     -- ** MigrationTypeValue
     , MigrationTypeValue (..)
@@ -228,8 +285,14 @@ module Network.AWS.DMS
     -- ** NestingLevelValue
     , NestingLevelValue (..)
 
+    -- ** ParquetVersionValue
+    , ParquetVersionValue (..)
+
     -- ** RefreshSchemasStatusTypeValue
     , RefreshSchemasStatusTypeValue (..)
+
+    -- ** ReloadOptionValue
+    , ReloadOptionValue (..)
 
     -- ** ReplicationEndpointTypeValue
     , ReplicationEndpointTypeValue (..)
@@ -276,21 +339,38 @@ module Network.AWS.DMS
     , cEndpointARN
     , cLastFailureMessage
 
+    -- ** DmsTransferSettings
+    , DmsTransferSettings
+    , dmsTransferSettings
+    , dtsServiceAccessRoleARN
+    , dtsBucketName
+
     -- ** DynamoDBSettings
     , DynamoDBSettings
     , dynamoDBSettings
     , ddsServiceAccessRoleARN
 
+    -- ** ElasticsearchSettings
+    , ElasticsearchSettings
+    , elasticsearchSettings
+    , esFullLoadErrorPercentage
+    , esErrorRetryDuration
+    , esServiceAccessRoleARN
+    , esEndpointURI
+
     -- ** Endpoint
     , Endpoint
     , endpoint
     , eStatus
+    , eDmsTransferSettings
     , eServerName
     , eCertificateARN
     , eServiceAccessRoleARN
     , eEngineDisplayName
     , eExtraConnectionAttributes
     , eEndpointType
+    , eRedshiftSettings
+    , eElasticsearchSettings
     , eUsername
     , eExternalTableDefinition
     , eEngineName
@@ -299,6 +379,7 @@ module Network.AWS.DMS
     , eSSLMode
     , eDatabaseName
     , eS3Settings
+    , eKinesisSettings
     , eEndpointIdentifier
     , eExternalId
     , eDynamoDBSettings
@@ -339,6 +420,13 @@ module Network.AWS.DMS
     , fName
     , fValues
 
+    -- ** KinesisSettings
+    , KinesisSettings
+    , kinesisSettings
+    , ksServiceAccessRoleARN
+    , ksStreamARN
+    , ksMessageFormat
+
     -- ** MongoDBSettings
     , MongoDBSettings
     , mongoDBSettings
@@ -361,10 +449,50 @@ module Network.AWS.DMS
     , oriEngineVersion
     , oriMinAllocatedStorage
     , oriIncludedAllocatedStorage
+    , oriAvailabilityZones
     , oriMaxAllocatedStorage
     , oriReplicationInstanceClass
     , oriDefaultAllocatedStorage
     , oriStorageType
+
+    -- ** PendingMaintenanceAction
+    , PendingMaintenanceAction
+    , pendingMaintenanceAction
+    , pmaAutoAppliedAfterDate
+    , pmaAction
+    , pmaOptInStatus
+    , pmaDescription
+    , pmaForcedApplyDate
+    , pmaCurrentApplyDate
+
+    -- ** RedshiftSettings
+    , RedshiftSettings
+    , redshiftSettings
+    , rsEmptyAsNull
+    , rsMaxFileSize
+    , rsReplaceChars
+    , rsServerName
+    , rsConnectionTimeout
+    , rsLoadTimeout
+    , rsServiceAccessRoleARN
+    , rsBucketFolder
+    , rsTruncateColumns
+    , rsReplaceInvalidChars
+    , rsUsername
+    , rsBucketName
+    , rsEncryptionMode
+    , rsDateFormat
+    , rsRemoveQuotes
+    , rsPassword
+    , rsDatabaseName
+    , rsAcceptAnyDate
+    , rsAfterConnectScript
+    , rsWriteBufferSize
+    , rsTrimBlanks
+    , rsTimeFormat
+    , rsServerSideEncryptionKMSKeyId
+    , rsPort
+    , rsFileTransferUploadStreams
 
     -- ** RefreshSchemasStatus
     , RefreshSchemasStatus
@@ -396,6 +524,7 @@ module Network.AWS.DMS
     , riSecondaryAvailabilityZone
     , riReplicationInstanceARN
     , riAllocatedStorage
+    , riDNSNameServers
     , riReplicationInstancePublicIPAddress
     , riReplicationInstanceClass
     , riReplicationInstanceIdentifier
@@ -467,16 +596,32 @@ module Network.AWS.DMS
     , rtsTablesQueued
     , rtsTablesLoading
 
+    -- ** ResourcePendingMaintenanceActions
+    , ResourcePendingMaintenanceActions
+    , resourcePendingMaintenanceActions
+    , rpmaPendingMaintenanceActionDetails
+    , rpmaResourceIdentifier
+
     -- ** S3Settings
     , S3Settings
     , s3Settings
+    , ssParquetVersion
     , ssCSVDelimiter
     , ssServiceAccessRoleARN
     , ssBucketFolder
+    , ssDataFormat
+    , ssEncodingType
     , ssExternalTableDefinition
+    , ssDictPageSizeLimit
     , ssBucketName
+    , ssEncryptionMode
+    , ssEnableStatistics
+    , ssCdcInsertsOnly
     , ssCSVRowDelimiter
     , ssCompressionType
+    , ssServerSideEncryptionKMSKeyId
+    , ssDataPageSize
+    , ssRowGroupLength
 
     -- ** Subnet
     , Subnet
@@ -503,6 +648,7 @@ module Network.AWS.DMS
     , tsValidationFailedRecords
     , tsValidationSuspendedRecords
     , tsSchemaName
+    , tsValidationStateDetails
     , tsTableState
     , tsFullLoadErrorRows
     , tsDdls
@@ -532,6 +678,7 @@ module Network.AWS.DMS
     ) where
 
 import Network.AWS.DMS.AddTagsToResource
+import Network.AWS.DMS.ApplyPendingMaintenanceAction
 import Network.AWS.DMS.CreateEndpoint
 import Network.AWS.DMS.CreateEventSubscription
 import Network.AWS.DMS.CreateReplicationInstance
@@ -552,6 +699,7 @@ import Network.AWS.DMS.DescribeEventCategories
 import Network.AWS.DMS.DescribeEvents
 import Network.AWS.DMS.DescribeEventSubscriptions
 import Network.AWS.DMS.DescribeOrderableReplicationInstances
+import Network.AWS.DMS.DescribePendingMaintenanceActions
 import Network.AWS.DMS.DescribeRefreshSchemasStatus
 import Network.AWS.DMS.DescribeReplicationInstances
 import Network.AWS.DMS.DescribeReplicationInstanceTaskLogs

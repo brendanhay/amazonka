@@ -37,6 +37,7 @@ module Network.AWS.DMS.CreateReplicationInstance
     , criVPCSecurityGroupIds
     , criMultiAZ
     , criAllocatedStorage
+    , criDNSNameServers
     , criTags
     , criReplicationInstanceIdentifier
     , criReplicationInstanceClass
@@ -72,6 +73,7 @@ data CreateReplicationInstance = CreateReplicationInstance'
   , _criVPCSecurityGroupIds              :: !(Maybe [Text])
   , _criMultiAZ                          :: !(Maybe Bool)
   , _criAllocatedStorage                 :: !(Maybe Int)
+  , _criDNSNameServers                   :: !(Maybe Text)
   , _criTags                             :: !(Maybe [Tag])
   , _criReplicationInstanceIdentifier    :: !Text
   , _criReplicationInstanceClass         :: !Text
@@ -92,7 +94,7 @@ data CreateReplicationInstance = CreateReplicationInstance'
 --
 -- * 'criPreferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun Constraints: Minimum 30-minute window.
 --
--- * 'criKMSKeyId' - The KMS key identifier that will be used to encrypt the content on the replication instance. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+-- * 'criKMSKeyId' - The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
 --
 -- * 'criAvailabilityZone' - The EC2 Availability Zone that the replication instance will be created in. Default: A random, system-chosen Availability Zone in the endpoint's region. Example: @us-east-1d@
 --
@@ -101,6 +103,8 @@ data CreateReplicationInstance = CreateReplicationInstance'
 -- * 'criMultiAZ' - Specifies if the replication instance is a Multi-AZ deployment. You cannot set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
 --
 -- * 'criAllocatedStorage' - The amount of storage (in gigabytes) to be initially allocated for the replication instance.
+--
+-- * 'criDNSNameServers' - A list of DNS name servers supported for the replication instance.
 --
 -- * 'criTags' - Tags to be associated with the replication instance.
 --
@@ -123,6 +127,7 @@ createReplicationInstance pReplicationInstanceIdentifier_ pReplicationInstanceCl
     , _criVPCSecurityGroupIds = Nothing
     , _criMultiAZ = Nothing
     , _criAllocatedStorage = Nothing
+    , _criDNSNameServers = Nothing
     , _criTags = Nothing
     , _criReplicationInstanceIdentifier = pReplicationInstanceIdentifier_
     , _criReplicationInstanceClass = pReplicationInstanceClass_
@@ -149,7 +154,7 @@ criReplicationSubnetGroupIdentifier = lens _criReplicationSubnetGroupIdentifier 
 criPreferredMaintenanceWindow :: Lens' CreateReplicationInstance (Maybe Text)
 criPreferredMaintenanceWindow = lens _criPreferredMaintenanceWindow (\ s a -> s{_criPreferredMaintenanceWindow = a})
 
--- | The KMS key identifier that will be used to encrypt the content on the replication instance. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+-- | The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
 criKMSKeyId :: Lens' CreateReplicationInstance (Maybe Text)
 criKMSKeyId = lens _criKMSKeyId (\ s a -> s{_criKMSKeyId = a})
 
@@ -168,6 +173,10 @@ criMultiAZ = lens _criMultiAZ (\ s a -> s{_criMultiAZ = a})
 -- | The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 criAllocatedStorage :: Lens' CreateReplicationInstance (Maybe Int)
 criAllocatedStorage = lens _criAllocatedStorage (\ s a -> s{_criAllocatedStorage = a})
+
+-- | A list of DNS name servers supported for the replication instance.
+criDNSNameServers :: Lens' CreateReplicationInstance (Maybe Text)
+criDNSNameServers = lens _criDNSNameServers (\ s a -> s{_criDNSNameServers = a})
 
 -- | Tags to be associated with the replication instance.
 criTags :: Lens' CreateReplicationInstance [Tag]
@@ -224,6 +233,7 @@ instance ToJSON CreateReplicationInstance where
                     _criVPCSecurityGroupIds,
                   ("MultiAZ" .=) <$> _criMultiAZ,
                   ("AllocatedStorage" .=) <$> _criAllocatedStorage,
+                  ("DnsNameServers" .=) <$> _criDNSNameServers,
                   ("Tags" .=) <$> _criTags,
                   Just
                     ("ReplicationInstanceIdentifier" .=

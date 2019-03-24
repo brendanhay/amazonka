@@ -46,6 +46,7 @@ library
     exposed-modules:
           Network.AWS.DMS
         , Network.AWS.DMS.AddTagsToResource
+        , Network.AWS.DMS.ApplyPendingMaintenanceAction
         , Network.AWS.DMS.CreateEndpoint
         , Network.AWS.DMS.CreateEventSubscription
         , Network.AWS.DMS.CreateReplicationInstance
@@ -66,6 +67,7 @@ library
         , Network.AWS.DMS.DescribeEventSubscriptions
         , Network.AWS.DMS.DescribeEvents
         , Network.AWS.DMS.DescribeOrderableReplicationInstances
+        , Network.AWS.DMS.DescribePendingMaintenanceActions
         , Network.AWS.DMS.DescribeRefreshSchemasStatus
         , Network.AWS.DMS.DescribeReplicationInstanceTaskLogs
         , Network.AWS.DMS.DescribeReplicationInstances

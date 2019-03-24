@@ -16,6 +16,8 @@ module Network.AWS.DMS.Types
       dms
 
     -- * Errors
+    , _KMSAccessDeniedFault
+    , _KMSDisabledFault
     , _InvalidSubnet
     , _KMSKeyNotAccessibleFault
     , _ReplicationSubnetGroupDoesNotCoverEnoughAZs
@@ -25,12 +27,15 @@ module Network.AWS.DMS.Types
     , _ResourceAlreadyExistsFault
     , _InsufficientResourceCapacityFault
     , _SNSInvalidTopicFault
+    , _KMSNotFoundFault
+    , _KMSThrottlingFault
     , _ResourceQuotaExceededFault
     , _UpgradeDependencyFailureFault
     , _ResourceNotFoundFault
     , _StorageQuotaExceededFault
     , _AccessDeniedFault
     , _SubnetAlreadyInUse
+    , _KMSInvalidStateFault
 
     -- * AuthMechanismValue
     , AuthMechanismValue (..)
@@ -41,8 +46,20 @@ module Network.AWS.DMS.Types
     -- * CompressionTypeValue
     , CompressionTypeValue (..)
 
+    -- * DataFormatValue
+    , DataFormatValue (..)
+
     -- * DmsSSLModeValue
     , DmsSSLModeValue (..)
+
+    -- * EncodingTypeValue
+    , EncodingTypeValue (..)
+
+    -- * EncryptionModeValue
+    , EncryptionModeValue (..)
+
+    -- * MessageFormatValue
+    , MessageFormatValue (..)
 
     -- * MigrationTypeValue
     , MigrationTypeValue (..)
@@ -50,8 +67,14 @@ module Network.AWS.DMS.Types
     -- * NestingLevelValue
     , NestingLevelValue (..)
 
+    -- * ParquetVersionValue
+    , ParquetVersionValue (..)
+
     -- * RefreshSchemasStatusTypeValue
     , RefreshSchemasStatusTypeValue (..)
+
+    -- * ReloadOptionValue
+    , ReloadOptionValue (..)
 
     -- * ReplicationEndpointTypeValue
     , ReplicationEndpointTypeValue (..)
@@ -98,21 +121,38 @@ module Network.AWS.DMS.Types
     , cEndpointARN
     , cLastFailureMessage
 
+    -- * DmsTransferSettings
+    , DmsTransferSettings
+    , dmsTransferSettings
+    , dtsServiceAccessRoleARN
+    , dtsBucketName
+
     -- * DynamoDBSettings
     , DynamoDBSettings
     , dynamoDBSettings
     , ddsServiceAccessRoleARN
 
+    -- * ElasticsearchSettings
+    , ElasticsearchSettings
+    , elasticsearchSettings
+    , esFullLoadErrorPercentage
+    , esErrorRetryDuration
+    , esServiceAccessRoleARN
+    , esEndpointURI
+
     -- * Endpoint
     , Endpoint
     , endpoint
     , eStatus
+    , eDmsTransferSettings
     , eServerName
     , eCertificateARN
     , eServiceAccessRoleARN
     , eEngineDisplayName
     , eExtraConnectionAttributes
     , eEndpointType
+    , eRedshiftSettings
+    , eElasticsearchSettings
     , eUsername
     , eExternalTableDefinition
     , eEngineName
@@ -121,6 +161,7 @@ module Network.AWS.DMS.Types
     , eSSLMode
     , eDatabaseName
     , eS3Settings
+    , eKinesisSettings
     , eEndpointIdentifier
     , eExternalId
     , eDynamoDBSettings
@@ -161,6 +202,13 @@ module Network.AWS.DMS.Types
     , fName
     , fValues
 
+    -- * KinesisSettings
+    , KinesisSettings
+    , kinesisSettings
+    , ksServiceAccessRoleARN
+    , ksStreamARN
+    , ksMessageFormat
+
     -- * MongoDBSettings
     , MongoDBSettings
     , mongoDBSettings
@@ -183,10 +231,50 @@ module Network.AWS.DMS.Types
     , oriEngineVersion
     , oriMinAllocatedStorage
     , oriIncludedAllocatedStorage
+    , oriAvailabilityZones
     , oriMaxAllocatedStorage
     , oriReplicationInstanceClass
     , oriDefaultAllocatedStorage
     , oriStorageType
+
+    -- * PendingMaintenanceAction
+    , PendingMaintenanceAction
+    , pendingMaintenanceAction
+    , pmaAutoAppliedAfterDate
+    , pmaAction
+    , pmaOptInStatus
+    , pmaDescription
+    , pmaForcedApplyDate
+    , pmaCurrentApplyDate
+
+    -- * RedshiftSettings
+    , RedshiftSettings
+    , redshiftSettings
+    , rsEmptyAsNull
+    , rsMaxFileSize
+    , rsReplaceChars
+    , rsServerName
+    , rsConnectionTimeout
+    , rsLoadTimeout
+    , rsServiceAccessRoleARN
+    , rsBucketFolder
+    , rsTruncateColumns
+    , rsReplaceInvalidChars
+    , rsUsername
+    , rsBucketName
+    , rsEncryptionMode
+    , rsDateFormat
+    , rsRemoveQuotes
+    , rsPassword
+    , rsDatabaseName
+    , rsAcceptAnyDate
+    , rsAfterConnectScript
+    , rsWriteBufferSize
+    , rsTrimBlanks
+    , rsTimeFormat
+    , rsServerSideEncryptionKMSKeyId
+    , rsPort
+    , rsFileTransferUploadStreams
 
     -- * RefreshSchemasStatus
     , RefreshSchemasStatus
@@ -218,6 +306,7 @@ module Network.AWS.DMS.Types
     , riSecondaryAvailabilityZone
     , riReplicationInstanceARN
     , riAllocatedStorage
+    , riDNSNameServers
     , riReplicationInstancePublicIPAddress
     , riReplicationInstanceClass
     , riReplicationInstanceIdentifier
@@ -289,16 +378,32 @@ module Network.AWS.DMS.Types
     , rtsTablesQueued
     , rtsTablesLoading
 
+    -- * ResourcePendingMaintenanceActions
+    , ResourcePendingMaintenanceActions
+    , resourcePendingMaintenanceActions
+    , rpmaPendingMaintenanceActionDetails
+    , rpmaResourceIdentifier
+
     -- * S3Settings
     , S3Settings
     , s3Settings
+    , ssParquetVersion
     , ssCSVDelimiter
     , ssServiceAccessRoleARN
     , ssBucketFolder
+    , ssDataFormat
+    , ssEncodingType
     , ssExternalTableDefinition
+    , ssDictPageSizeLimit
     , ssBucketName
+    , ssEncryptionMode
+    , ssEnableStatistics
+    , ssCdcInsertsOnly
     , ssCSVRowDelimiter
     , ssCompressionType
+    , ssServerSideEncryptionKMSKeyId
+    , ssDataPageSize
+    , ssRowGroupLength
 
     -- * Subnet
     , Subnet
@@ -325,6 +430,7 @@ module Network.AWS.DMS.Types
     , tsValidationFailedRecords
     , tsValidationSuspendedRecords
     , tsSchemaName
+    , tsValidationStateDetails
     , tsTableState
     , tsFullLoadErrorRows
     , tsDdls
@@ -398,6 +504,20 @@ dms =
       | otherwise = Nothing
 
 
+-- | The ciphertext references a key that doesn't exist or DMS account doesn't have an access to
+--
+--
+_KMSAccessDeniedFault :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSAccessDeniedFault = _MatchServiceError dms "KMSAccessDeniedFault"
+
+
+-- | The specified master key (CMK) isn't enabled.
+--
+--
+_KMSDisabledFault :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSDisabledFault = _MatchServiceError dms "KMSDisabledFault"
+
+
 -- | The subnet provided is invalid.
 --
 --
@@ -464,6 +584,20 @@ _SNSInvalidTopicFault :: AsError a => Getting (First ServiceError) a ServiceErro
 _SNSInvalidTopicFault = _MatchServiceError dms "SNSInvalidTopicFault"
 
 
+-- | The specified KMS entity or resource can't be found.
+--
+--
+_KMSNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSNotFoundFault = _MatchServiceError dms "KMSNotFoundFault"
+
+
+-- | This request triggered KMS request throttling.
+--
+--
+_KMSThrottlingFault :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSThrottlingFault = _MatchServiceError dms "KMSThrottlingFault"
+
+
 -- | The quota for this resource quota has been exceeded.
 --
 --
@@ -494,7 +628,7 @@ _StorageQuotaExceededFault :: AsError a => Getting (First ServiceError) a Servic
 _StorageQuotaExceededFault = _MatchServiceError dms "StorageQuotaExceededFault"
 
 
--- | AWS DMS was denied access to the endpoint.
+-- | AWS DMS was denied access to the endpoint. Check that the role is correctly configured.
 --
 --
 _AccessDeniedFault :: AsError a => Getting (First ServiceError) a ServiceError
@@ -506,4 +640,11 @@ _AccessDeniedFault = _MatchServiceError dms "AccessDeniedFault"
 --
 _SubnetAlreadyInUse :: AsError a => Getting (First ServiceError) a ServiceError
 _SubnetAlreadyInUse = _MatchServiceError dms "SubnetAlreadyInUse"
+
+
+-- | The state of the specified KMS resource isn't valid for this request.
+--
+--
+_KMSInvalidStateFault :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSInvalidStateFault = _MatchServiceError dms "KMSInvalidStateFault"
 

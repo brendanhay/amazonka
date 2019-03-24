@@ -12,4 +12,4 @@
 
 module Test.AWS.DMS.Internal where
 
-import           Test.AWS.Prelude
+import Test.AWS.Prelude

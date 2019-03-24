@@ -124,6 +124,9 @@ import Test.Tasty
 --         , requestDescribeOrderableReplicationInstances $
 --             describeOrderableReplicationInstances
 --
+--         , requestDescribePendingMaintenanceActions $
+--             describePendingMaintenanceActions
+--
 --         , requestCreateReplicationTask $
 --             createReplicationTask
 --
@@ -138,6 +141,9 @@ import Test.Tasty
 --
 --         , requestModifyReplicationSubnetGroup $
 --             modifyReplicationSubnetGroup
+--
+--         , requestApplyPendingMaintenanceAction $
+--             applyPendingMaintenanceAction
 --
 --         , requestDescribeAccountAttributes $
 --             describeAccountAttributes
@@ -259,6 +265,9 @@ import Test.Tasty
 --         , responseDescribeOrderableReplicationInstances $
 --             describeOrderableReplicationInstancesResponse
 --
+--         , responseDescribePendingMaintenanceActions $
+--             describePendingMaintenanceActionsResponse
+--
 --         , responseCreateReplicationTask $
 --             createReplicationTaskResponse
 --
@@ -273,6 +282,9 @@ import Test.Tasty
 --
 --         , responseModifyReplicationSubnetGroup $
 --             modifyReplicationSubnetGroupResponse
+--
+--         , responseApplyPendingMaintenanceAction $
+--             applyPendingMaintenanceActionResponse
 --
 --         , responseDescribeAccountAttributes $
 --             describeAccountAttributesResponse
@@ -460,6 +472,11 @@ requestDescribeOrderableReplicationInstances = req
     "DescribeOrderableReplicationInstances"
     "fixture/DescribeOrderableReplicationInstances.yaml"
 
+requestDescribePendingMaintenanceActions :: DescribePendingMaintenanceActions -> TestTree
+requestDescribePendingMaintenanceActions = req
+    "DescribePendingMaintenanceActions"
+    "fixture/DescribePendingMaintenanceActions.yaml"
+
 requestCreateReplicationTask :: CreateReplicationTask -> TestTree
 requestCreateReplicationTask = req
     "CreateReplicationTask"
@@ -484,6 +501,11 @@ requestModifyReplicationSubnetGroup :: ModifyReplicationSubnetGroup -> TestTree
 requestModifyReplicationSubnetGroup = req
     "ModifyReplicationSubnetGroup"
     "fixture/ModifyReplicationSubnetGroup.yaml"
+
+requestApplyPendingMaintenanceAction :: ApplyPendingMaintenanceAction -> TestTree
+requestApplyPendingMaintenanceAction = req
+    "ApplyPendingMaintenanceAction"
+    "fixture/ApplyPendingMaintenanceAction.yaml"
 
 requestDescribeAccountAttributes :: DescribeAccountAttributes -> TestTree
 requestDescribeAccountAttributes = req
@@ -746,6 +768,13 @@ responseDescribeOrderableReplicationInstances = res
     dms
     (Proxy :: Proxy DescribeOrderableReplicationInstances)
 
+responseDescribePendingMaintenanceActions :: DescribePendingMaintenanceActionsResponse -> TestTree
+responseDescribePendingMaintenanceActions = res
+    "DescribePendingMaintenanceActionsResponse"
+    "fixture/DescribePendingMaintenanceActionsResponse.proto"
+    dms
+    (Proxy :: Proxy DescribePendingMaintenanceActions)
+
 responseCreateReplicationTask :: CreateReplicationTaskResponse -> TestTree
 responseCreateReplicationTask = res
     "CreateReplicationTaskResponse"
@@ -780,6 +809,13 @@ responseModifyReplicationSubnetGroup = res
     "fixture/ModifyReplicationSubnetGroupResponse.proto"
     dms
     (Proxy :: Proxy ModifyReplicationSubnetGroup)
+
+responseApplyPendingMaintenanceAction :: ApplyPendingMaintenanceActionResponse -> TestTree
+responseApplyPendingMaintenanceAction = res
+    "ApplyPendingMaintenanceActionResponse"
+    "fixture/ApplyPendingMaintenanceActionResponse.proto"
+    dms
+    (Proxy :: Proxy ApplyPendingMaintenanceAction)
 
 responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
 responseDescribeAccountAttributes = res

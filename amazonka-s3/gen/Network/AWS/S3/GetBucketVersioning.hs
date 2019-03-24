@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the versioning state of a bucket.
+--
+--
 module Network.AWS.S3.GetBucketVersioning
     (
     -- * Creating a Request
@@ -53,14 +55,14 @@ newtype GetBucketVersioning = GetBucketVersioning'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbvBucket' - Undocumented member.
+-- * 'gbvBucket' -
 getBucketVersioning
     :: BucketName -- ^ 'gbvBucket'
     -> GetBucketVersioning
 getBucketVersioning pBucket_ = GetBucketVersioning' {_gbvBucket = pBucket_}
 
 
--- | Undocumented member.
+-- |
 gbvBucket :: Lens' GetBucketVersioning BucketName
 gbvBucket = lens _gbvBucket (\ s a -> s{_gbvBucket = a})
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets lifecycle configuration for your bucket. If a lifecycle configuration exists, it replaces it.
+--
+--
 module Network.AWS.S3.PutBucketLifecycleConfiguration
     (
     -- * Creating a Request
@@ -51,9 +53,9 @@ data PutBucketLifecycleConfiguration = PutBucketLifecycleConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pblcLifecycleConfiguration' - Undocumented member.
+-- * 'pblcLifecycleConfiguration' -
 --
--- * 'pblcBucket' - Undocumented member.
+-- * 'pblcBucket' -
 putBucketLifecycleConfiguration
     :: BucketName -- ^ 'pblcBucket'
     -> PutBucketLifecycleConfiguration
@@ -62,11 +64,11 @@ putBucketLifecycleConfiguration pBucket_ =
     {_pblcLifecycleConfiguration = Nothing, _pblcBucket = pBucket_}
 
 
--- | Undocumented member.
+-- |
 pblcLifecycleConfiguration :: Lens' PutBucketLifecycleConfiguration (Maybe BucketLifecycleConfiguration)
 pblcLifecycleConfiguration = lens _pblcLifecycleConfiguration (\ s a -> s{_pblcLifecycleConfiguration = a})
 
--- | Undocumented member.
+-- |
 pblcBucket :: Lens' PutBucketLifecycleConfiguration BucketName
 pblcBucket = lens _pblcBucket (\ s a -> s{_pblcBucket = a})
 

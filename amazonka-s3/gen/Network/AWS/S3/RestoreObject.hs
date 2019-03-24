@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Restores an archived copy of an object back into Amazon S3
+--
+--
 module Network.AWS.S3.RestoreObject
     (
     -- * Creating a Request
@@ -61,15 +63,15 @@ data RestoreObject = RestoreObject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'roVersionId' - Undocumented member.
+-- * 'roVersionId' -
 --
 -- * 'roRequestPayer' - Undocumented member.
 --
 -- * 'roRestoreRequest' - Undocumented member.
 --
--- * 'roBucket' - Undocumented member.
+-- * 'roBucket' -
 --
--- * 'roKey' - Undocumented member.
+-- * 'roKey' -
 restoreObject
     :: BucketName -- ^ 'roBucket'
     -> ObjectKey -- ^ 'roKey'
@@ -84,7 +86,7 @@ restoreObject pBucket_ pKey_ =
     }
 
 
--- | Undocumented member.
+-- |
 roVersionId :: Lens' RestoreObject (Maybe ObjectVersionId)
 roVersionId = lens _roVersionId (\ s a -> s{_roVersionId = a})
 
@@ -96,11 +98,11 @@ roRequestPayer = lens _roRequestPayer (\ s a -> s{_roRequestPayer = a})
 roRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
 roRestoreRequest = lens _roRestoreRequest (\ s a -> s{_roRestoreRequest = a})
 
--- | Undocumented member.
+-- |
 roBucket :: Lens' RestoreObject BucketName
 roBucket = lens _roBucket (\ s a -> s{_roBucket = a})
 
--- | Undocumented member.
+-- |
 roKey :: Lens' RestoreObject ObjectKey
 roKey = lens _roKey (\ s a -> s{_roKey = a})
 

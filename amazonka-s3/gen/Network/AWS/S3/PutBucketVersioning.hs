@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the versioning state of an existing bucket. To set the versioning state, you must be the bucket owner.
+--
+--
 module Network.AWS.S3.PutBucketVersioning
     (
     -- * Creating a Request
@@ -57,11 +59,11 @@ data PutBucketVersioning = PutBucketVersioning'
 --
 -- * 'pbvMFA' - The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 --
--- * 'pbvContentMD5' - Undocumented member.
+-- * 'pbvContentMD5' -
 --
--- * 'pbvBucket' - Undocumented member.
+-- * 'pbvBucket' -
 --
--- * 'pbvVersioningConfiguration' - Undocumented member.
+-- * 'pbvVersioningConfiguration' -
 putBucketVersioning
     :: BucketName -- ^ 'pbvBucket'
     -> VersioningConfiguration -- ^ 'pbvVersioningConfiguration'
@@ -79,15 +81,15 @@ putBucketVersioning pBucket_ pVersioningConfiguration_ =
 pbvMFA :: Lens' PutBucketVersioning (Maybe Text)
 pbvMFA = lens _pbvMFA (\ s a -> s{_pbvMFA = a})
 
--- | Undocumented member.
+-- |
 pbvContentMD5 :: Lens' PutBucketVersioning (Maybe Text)
 pbvContentMD5 = lens _pbvContentMD5 (\ s a -> s{_pbvContentMD5 = a})
 
--- | Undocumented member.
+-- |
 pbvBucket :: Lens' PutBucketVersioning BucketName
 pbvBucket = lens _pbvBucket (\ s a -> s{_pbvBucket = a})
 
--- | Undocumented member.
+-- |
 pbvVersioningConfiguration :: Lens' PutBucketVersioning VersioningConfiguration
 pbvVersioningConfiguration = lens _pbvVersioningConfiguration (\ s a -> s{_pbvVersioningConfiguration = a})
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the metrics configurations for the bucket.
+--
+--
 module Network.AWS.S3.ListBucketMetricsConfigurations
     (
     -- * Creating a Request

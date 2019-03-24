@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new bucket.
+--
+--
 module Network.AWS.S3.CreateBucket
     (
     -- * Creating a Request
@@ -26,6 +28,7 @@ module Network.AWS.S3.CreateBucket
     , CreateBucket
     -- * Request Lenses
     , cbGrantReadACP
+    , cbObjectLockEnabledForBucket
     , cbGrantWriteACP
     , cbGrantRead
     , cbGrantFullControl
@@ -51,14 +54,15 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'createBucket' smart constructor.
 data CreateBucket = CreateBucket'
-  { _cbGrantReadACP              :: !(Maybe Text)
-  , _cbGrantWriteACP             :: !(Maybe Text)
-  , _cbGrantRead                 :: !(Maybe Text)
-  , _cbGrantFullControl          :: !(Maybe Text)
-  , _cbCreateBucketConfiguration :: !(Maybe CreateBucketConfiguration)
-  , _cbGrantWrite                :: !(Maybe Text)
-  , _cbACL                       :: !(Maybe BucketCannedACL)
-  , _cbBucket                    :: !BucketName
+  { _cbGrantReadACP               :: !(Maybe Text)
+  , _cbObjectLockEnabledForBucket :: !(Maybe Bool)
+  , _cbGrantWriteACP              :: !(Maybe Text)
+  , _cbGrantRead                  :: !(Maybe Text)
+  , _cbGrantFullControl           :: !(Maybe Text)
+  , _cbCreateBucketConfiguration  :: !(Maybe CreateBucketConfiguration)
+  , _cbGrantWrite                 :: !(Maybe Text)
+  , _cbACL                        :: !(Maybe BucketCannedACL)
+  , _cbBucket                     :: !BucketName
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -68,25 +72,28 @@ data CreateBucket = CreateBucket'
 --
 -- * 'cbGrantReadACP' - Allows grantee to read the bucket ACL.
 --
+-- * 'cbObjectLockEnabledForBucket' - Specifies whether you want S3 Object Lock to be enabled for the new bucket.
+--
 -- * 'cbGrantWriteACP' - Allows grantee to write the ACL for the applicable bucket.
 --
 -- * 'cbGrantRead' - Allows grantee to list the objects in the bucket.
 --
 -- * 'cbGrantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
 --
--- * 'cbCreateBucketConfiguration' - Undocumented member.
+-- * 'cbCreateBucketConfiguration' -
 --
 -- * 'cbGrantWrite' - Allows grantee to create, overwrite, and delete any object in the bucket.
 --
 -- * 'cbACL' - The canned ACL to apply to the bucket.
 --
--- * 'cbBucket' - Undocumented member.
+-- * 'cbBucket' -
 createBucket
     :: BucketName -- ^ 'cbBucket'
     -> CreateBucket
 createBucket pBucket_ =
   CreateBucket'
     { _cbGrantReadACP = Nothing
+    , _cbObjectLockEnabledForBucket = Nothing
     , _cbGrantWriteACP = Nothing
     , _cbGrantRead = Nothing
     , _cbGrantFullControl = Nothing
@@ -101,6 +108,10 @@ createBucket pBucket_ =
 cbGrantReadACP :: Lens' CreateBucket (Maybe Text)
 cbGrantReadACP = lens _cbGrantReadACP (\ s a -> s{_cbGrantReadACP = a})
 
+-- | Specifies whether you want S3 Object Lock to be enabled for the new bucket.
+cbObjectLockEnabledForBucket :: Lens' CreateBucket (Maybe Bool)
+cbObjectLockEnabledForBucket = lens _cbObjectLockEnabledForBucket (\ s a -> s{_cbObjectLockEnabledForBucket = a})
+
 -- | Allows grantee to write the ACL for the applicable bucket.
 cbGrantWriteACP :: Lens' CreateBucket (Maybe Text)
 cbGrantWriteACP = lens _cbGrantWriteACP (\ s a -> s{_cbGrantWriteACP = a})
@@ -113,7 +124,7 @@ cbGrantRead = lens _cbGrantRead (\ s a -> s{_cbGrantRead = a})
 cbGrantFullControl :: Lens' CreateBucket (Maybe Text)
 cbGrantFullControl = lens _cbGrantFullControl (\ s a -> s{_cbGrantFullControl = a})
 
--- | Undocumented member.
+-- |
 cbCreateBucketConfiguration :: Lens' CreateBucket (Maybe CreateBucketConfiguration)
 cbCreateBucketConfiguration = lens _cbCreateBucketConfiguration (\ s a -> s{_cbCreateBucketConfiguration = a})
 
@@ -125,7 +136,7 @@ cbGrantWrite = lens _cbGrantWrite (\ s a -> s{_cbGrantWrite = a})
 cbACL :: Lens' CreateBucket (Maybe BucketCannedACL)
 cbACL = lens _cbACL (\ s a -> s{_cbACL = a})
 
--- | Undocumented member.
+-- |
 cbBucket :: Lens' CreateBucket BucketName
 cbBucket = lens _cbBucket (\ s a -> s{_cbBucket = a})
 
@@ -153,6 +164,8 @@ instance ToHeaders CreateBucket where
         toHeaders CreateBucket'{..}
           = mconcat
               ["x-amz-grant-read-acp" =# _cbGrantReadACP,
+               "x-amz-bucket-object-lock-enabled" =#
+                 _cbObjectLockEnabledForBucket,
                "x-amz-grant-write-acp" =# _cbGrantWriteACP,
                "x-amz-grant-read" =# _cbGrantRead,
                "x-amz-grant-full-control" =# _cbGrantFullControl,
@@ -177,7 +190,7 @@ data CreateBucketResponse = CreateBucketResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbrsLocation' - Undocumented member.
+-- * 'cbrsLocation' -
 --
 -- * 'cbrsResponseStatus' - -- | The response status code.
 createBucketResponse
@@ -188,7 +201,7 @@ createBucketResponse pResponseStatus_ =
     {_cbrsLocation = Nothing, _cbrsResponseStatus = pResponseStatus_}
 
 
--- | Undocumented member.
+-- |
 cbrsLocation :: Lens' CreateBucketResponse (Maybe Text)
 cbrsLocation = lens _cbrsLocation (\ s a -> s{_cbrsLocation = a})
 

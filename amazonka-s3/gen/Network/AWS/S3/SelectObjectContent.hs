@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation filters the contents of an Amazon S3 object based on a simple Structured Query Language (SQL) statement. In the request, along with the SQL expression, you must also specify a data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data into records, and returns only records that match the specified SQL expression. You must also specify the data serialization format for the response.
+--
+--
 module Network.AWS.S3.SelectObjectContent
     (
     -- * Creating a Request
@@ -51,7 +53,9 @@ import Network.AWS.Response
 import Network.AWS.S3.Types
 import Network.AWS.S3.Types.Product
 
--- | <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectSELECTContent.html S3Select API Documentation>
+-- | Request to filter the contents of an Amazon S3 object based on a simple Structured Query Language (SQL) statement. In the request, along with the SQL expression, you must specify a data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data into records. It returns only records that match the specified SQL expression. You must also specify the data serialization format for the response. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectSELECTContent.html S3Select API Documentation> .
+--
+--
 --
 -- /See:/ 'selectObjectContent' smart constructor.
 data SelectObjectContent = SelectObjectContent'
@@ -72,21 +76,21 @@ data SelectObjectContent = SelectObjectContent'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'socSSECustomerAlgorithm' - <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>
+-- * 'socSSECustomerAlgorithm' - The SSE Algorithm used to encrypt the object. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys> .
 --
--- * 'socSSECustomerKey' - <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>
+-- * 'socSSECustomerKey' - The SSE Customer Key. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys> .
 --
 -- * 'socRequestProgress' - Specifies if periodic request progress information should be enabled.
 --
--- * 'socSSECustomerKeyMD5' - <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>
+-- * 'socSSECustomerKeyMD5' - The SSE Customer Key MD5. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys> .
 --
--- * 'socBucket' - The S3 Bucket.
+-- * 'socBucket' - The S3 bucket.
 --
--- * 'socKey' - The Object Key.
+-- * 'socKey' - The object key.
 --
 -- * 'socExpression' - The expression that is used to query the object.
 --
--- * 'socExpressionType' - The type of the provided expression (e.g., SQL).
+-- * 'socExpressionType' - The type of the provided expression (for example., SQL).
 --
 -- * 'socInputSerialization' - Describes the format of the data in the object that is being queried.
 --
@@ -114,11 +118,11 @@ selectObjectContent pBucket_ pKey_ pExpression_ pExpressionType_ pInputSerializa
     }
 
 
--- | <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>
+-- | The SSE Algorithm used to encrypt the object. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys> .
 socSSECustomerAlgorithm :: Lens' SelectObjectContent (Maybe Text)
 socSSECustomerAlgorithm = lens _socSSECustomerAlgorithm (\ s a -> s{_socSSECustomerAlgorithm = a})
 
--- | <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>
+-- | The SSE Customer Key. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys> .
 socSSECustomerKey :: Lens' SelectObjectContent (Maybe Text)
 socSSECustomerKey = lens _socSSECustomerKey (\ s a -> s{_socSSECustomerKey = a}) . mapping _Sensitive
 
@@ -126,15 +130,15 @@ socSSECustomerKey = lens _socSSECustomerKey (\ s a -> s{_socSSECustomerKey = a})
 socRequestProgress :: Lens' SelectObjectContent (Maybe RequestProgress)
 socRequestProgress = lens _socRequestProgress (\ s a -> s{_socRequestProgress = a})
 
--- | <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>
+-- | The SSE Customer Key MD5. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys> .
 socSSECustomerKeyMD5 :: Lens' SelectObjectContent (Maybe Text)
 socSSECustomerKeyMD5 = lens _socSSECustomerKeyMD5 (\ s a -> s{_socSSECustomerKeyMD5 = a})
 
--- | The S3 Bucket.
+-- | The S3 bucket.
 socBucket :: Lens' SelectObjectContent BucketName
 socBucket = lens _socBucket (\ s a -> s{_socBucket = a})
 
--- | The Object Key.
+-- | The object key.
 socKey :: Lens' SelectObjectContent ObjectKey
 socKey = lens _socKey (\ s a -> s{_socKey = a})
 
@@ -142,7 +146,7 @@ socKey = lens _socKey (\ s a -> s{_socKey = a})
 socExpression :: Lens' SelectObjectContent Text
 socExpression = lens _socExpression (\ s a -> s{_socExpression = a})
 
--- | The type of the provided expression (e.g., SQL).
+-- | The type of the provided expression (for example., SQL).
 socExpressionType :: Lens' SelectObjectContent ExpressionType
 socExpressionType = lens _socExpressionType (\ s a -> s{_socExpressionType = a})
 
@@ -210,7 +214,7 @@ data SelectObjectContentResponse = SelectObjectContentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'socrsPayload' - Undocumented member.
+-- * 'socrsPayload' -
 --
 -- * 'socrsResponseStatus' - -- | The response status code.
 selectObjectContentResponse
@@ -221,7 +225,7 @@ selectObjectContentResponse pResponseStatus_ =
     {_socrsPayload = Nothing, _socrsResponseStatus = pResponseStatus_}
 
 
--- | Undocumented member.
+-- |
 socrsPayload :: Lens' SelectObjectContentResponse (Maybe SelectObjectContentEventStream)
 socrsPayload = lens _socrsPayload (\ s a -> s{_socrsPayload = a})
 

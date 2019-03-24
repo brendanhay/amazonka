@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the analytics configurations for the bucket.
+--
+--
 module Network.AWS.S3.ListBucketAnalyticsConfigurations
     (
     -- * Creating a Request

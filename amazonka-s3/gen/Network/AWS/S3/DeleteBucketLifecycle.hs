@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the lifecycle configuration from the bucket.
+--
+--
 module Network.AWS.S3.DeleteBucketLifecycle
     (
     -- * Creating a Request
@@ -49,14 +51,14 @@ newtype DeleteBucketLifecycle = DeleteBucketLifecycle'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dblBucket' - Undocumented member.
+-- * 'dblBucket' -
 deleteBucketLifecycle
     :: BucketName -- ^ 'dblBucket'
     -> DeleteBucketLifecycle
 deleteBucketLifecycle pBucket_ = DeleteBucketLifecycle' {_dblBucket = pBucket_}
 
 
--- | Undocumented member.
+-- |
 dblBucket :: Lens' DeleteBucketLifecycle BucketName
 dblBucket = lens _dblBucket (\ s a -> s{_dblBucket = a})
 

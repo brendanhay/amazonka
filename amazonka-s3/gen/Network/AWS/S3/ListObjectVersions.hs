@@ -20,6 +20,8 @@
 --
 -- Returns metadata about all of the versions of objects in a bucket.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.S3.ListObjectVersions
     (
@@ -91,7 +93,7 @@ data ListObjectVersions = ListObjectVersions'
 --
 -- * 'lDelimiter' - A delimiter is a character you use to group keys.
 --
--- * 'lBucket' - Undocumented member.
+-- * 'lBucket' -
 listObjectVersions
     :: BucketName -- ^ 'lBucket'
     -> ListObjectVersions
@@ -131,7 +133,7 @@ lMaxKeys = lens _lMaxKeys (\ s a -> s{_lMaxKeys = a})
 lDelimiter :: Lens' ListObjectVersions (Maybe Delimiter)
 lDelimiter = lens _lDelimiter (\ s a -> s{_lDelimiter = a})
 
--- | Undocumented member.
+-- |
 lBucket :: Lens' ListObjectVersions BucketName
 lBucket = lens _lBucket (\ s a -> s{_lBucket = a})
 
@@ -214,27 +216,27 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
 --
 -- * 'lrsKeyMarker' - Marks the last Key returned in a truncated response.
 --
--- * 'lrsDeleteMarkers' - Undocumented member.
+-- * 'lrsDeleteMarkers' -
 --
--- * 'lrsPrefix' - Undocumented member.
+-- * 'lrsPrefix' -
 --
--- * 'lrsCommonPrefixes' - Undocumented member.
+-- * 'lrsCommonPrefixes' -
 --
 -- * 'lrsEncodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
 --
--- * 'lrsVersions' - Undocumented member.
+-- * 'lrsVersions' -
 --
--- * 'lrsName' - Undocumented member.
+-- * 'lrsName' -
 --
 -- * 'lrsNextKeyMarker' - Use this value for the key marker request parameter in a subsequent request.
 --
--- * 'lrsVersionIdMarker' - Undocumented member.
+-- * 'lrsVersionIdMarker' -
 --
--- * 'lrsMaxKeys' - Undocumented member.
+-- * 'lrsMaxKeys' -
 --
 -- * 'lrsIsTruncated' - A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request using the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in another request to return the rest of the results.
 --
--- * 'lrsDelimiter' - Undocumented member.
+-- * 'lrsDelimiter' -
 --
 -- * 'lrsResponseStatus' - -- | The response status code.
 listObjectVersionsResponse
@@ -267,15 +269,15 @@ lrsNextVersionIdMarker = lens _lrsNextVersionIdMarker (\ s a -> s{_lrsNextVersio
 lrsKeyMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
 lrsKeyMarker = lens _lrsKeyMarker (\ s a -> s{_lrsKeyMarker = a})
 
--- | Undocumented member.
+-- |
 lrsDeleteMarkers :: Lens' ListObjectVersionsResponse [DeleteMarkerEntry]
 lrsDeleteMarkers = lens _lrsDeleteMarkers (\ s a -> s{_lrsDeleteMarkers = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- |
 lrsPrefix :: Lens' ListObjectVersionsResponse (Maybe Text)
 lrsPrefix = lens _lrsPrefix (\ s a -> s{_lrsPrefix = a})
 
--- | Undocumented member.
+-- |
 lrsCommonPrefixes :: Lens' ListObjectVersionsResponse [CommonPrefix]
 lrsCommonPrefixes = lens _lrsCommonPrefixes (\ s a -> s{_lrsCommonPrefixes = a}) . _Default . _Coerce
 
@@ -283,11 +285,11 @@ lrsCommonPrefixes = lens _lrsCommonPrefixes (\ s a -> s{_lrsCommonPrefixes = a})
 lrsEncodingType :: Lens' ListObjectVersionsResponse (Maybe EncodingType)
 lrsEncodingType = lens _lrsEncodingType (\ s a -> s{_lrsEncodingType = a})
 
--- | Undocumented member.
+-- |
 lrsVersions :: Lens' ListObjectVersionsResponse [ObjectVersion]
 lrsVersions = lens _lrsVersions (\ s a -> s{_lrsVersions = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- |
 lrsName :: Lens' ListObjectVersionsResponse (Maybe BucketName)
 lrsName = lens _lrsName (\ s a -> s{_lrsName = a})
 
@@ -295,11 +297,11 @@ lrsName = lens _lrsName (\ s a -> s{_lrsName = a})
 lrsNextKeyMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
 lrsNextKeyMarker = lens _lrsNextKeyMarker (\ s a -> s{_lrsNextKeyMarker = a})
 
--- | Undocumented member.
+-- |
 lrsVersionIdMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
 lrsVersionIdMarker = lens _lrsVersionIdMarker (\ s a -> s{_lrsVersionIdMarker = a})
 
--- | Undocumented member.
+-- |
 lrsMaxKeys :: Lens' ListObjectVersionsResponse (Maybe Int)
 lrsMaxKeys = lens _lrsMaxKeys (\ s a -> s{_lrsMaxKeys = a})
 
@@ -307,7 +309,7 @@ lrsMaxKeys = lens _lrsMaxKeys (\ s a -> s{_lrsMaxKeys = a})
 lrsIsTruncated :: Lens' ListObjectVersionsResponse (Maybe Bool)
 lrsIsTruncated = lens _lrsIsTruncated (\ s a -> s{_lrsIsTruncated = a})
 
--- | Undocumented member.
+-- |
 lrsDelimiter :: Lens' ListObjectVersionsResponse (Maybe Delimiter)
 lrsDelimiter = lens _lrsDelimiter (\ s a -> s{_lrsDelimiter = a})
 

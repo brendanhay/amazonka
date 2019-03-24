@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the replication configuration from the bucket.
+-- Deletes the replication configuration from the bucket. For information about replication configuration, see < https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html Cross-Region Replication (CRR)> in the /Amazon S3 Developer Guide/ .
+--
+--
 module Network.AWS.S3.DeleteBucketReplication
     (
     -- * Creating a Request
@@ -49,7 +51,7 @@ newtype DeleteBucketReplication = DeleteBucketReplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbrBucket' - Undocumented member.
+-- * 'dbrBucket' - The bucket name.
 deleteBucketReplication
     :: BucketName -- ^ 'dbrBucket'
     -> DeleteBucketReplication
@@ -57,7 +59,7 @@ deleteBucketReplication pBucket_ =
   DeleteBucketReplication' {_dbrBucket = pBucket_}
 
 
--- | Undocumented member.
+-- | The bucket name.
 dbrBucket :: Lens' DeleteBucketReplication BucketName
 dbrBucket = lens _dbrBucket (\ s a -> s{_dbrBucket = a})
 

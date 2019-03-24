@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new replication configuration (or replaces an existing one, if present).
+-- Creates a replication configuration or replaces an existing one. For more information, see < https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html Cross-Region Replication (CRR)> in the /Amazon S3 Developer Guide/ .
+--
+--
 module Network.AWS.S3.PutBucketReplication
     (
     -- * Creating a Request
@@ -53,9 +55,9 @@ data PutBucketReplication = PutBucketReplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbrContentMD5' - Undocumented member.
+-- * 'pbrContentMD5' -
 --
--- * 'pbrBucket' - Undocumented member.
+-- * 'pbrBucket' -
 --
 -- * 'pbrReplicationConfiguration' - Undocumented member.
 putBucketReplication
@@ -70,11 +72,11 @@ putBucketReplication pBucket_ pReplicationConfiguration_ =
     }
 
 
--- | Undocumented member.
+-- |
 pbrContentMD5 :: Lens' PutBucketReplication (Maybe Text)
 pbrContentMD5 = lens _pbrContentMD5 (\ s a -> s{_pbrContentMD5 = a})
 
--- | Undocumented member.
+-- |
 pbrBucket :: Lens' PutBucketReplication BucketName
 pbrBucket = lens _pbrBucket (\ s a -> s{_pbrBucket = a})
 

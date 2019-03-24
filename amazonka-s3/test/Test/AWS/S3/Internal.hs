@@ -13,13 +13,13 @@
 
 module Test.AWS.S3.Internal where
 
-import           Data.Time
-import           Network.AWS.Prelude
-import           Network.AWS.S3
-import           Test.AWS.Fixture
-import           Test.AWS.Prelude
-import           Test.Tasty
-import           Test.Tasty.HUnit
+import Data.Time
+import Network.AWS.Prelude
+import Network.AWS.S3
+import Test.AWS.Fixture
+import Test.AWS.Prelude
+import Test.Tasty
+import Test.Tasty.HUnit
 
 -- FIXME: expand, convert to quick/smallcheck properties.
 objectKeyTests :: TestTree

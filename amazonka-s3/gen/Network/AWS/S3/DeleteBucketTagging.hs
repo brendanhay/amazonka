@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the tags from the bucket.
+--
+--
 module Network.AWS.S3.DeleteBucketTagging
     (
     -- * Creating a Request
@@ -49,14 +51,14 @@ newtype DeleteBucketTagging = DeleteBucketTagging'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbtBucket' - Undocumented member.
+-- * 'dbtBucket' -
 deleteBucketTagging
     :: BucketName -- ^ 'dbtBucket'
     -> DeleteBucketTagging
 deleteBucketTagging pBucket_ = DeleteBucketTagging' {_dbtBucket = pBucket_}
 
 
--- | Undocumented member.
+-- |
 dbtBucket :: Lens' DeleteBucketTagging BucketName
 dbtBucket = lens _dbtBucket (\ s a -> s{_dbtBucket = a})
 

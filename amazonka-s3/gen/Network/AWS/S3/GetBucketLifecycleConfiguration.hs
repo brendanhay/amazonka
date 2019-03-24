@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the lifecycle configuration information set on the bucket.
+--
+--
 module Network.AWS.S3.GetBucketLifecycleConfiguration
     (
     -- * Creating a Request
@@ -52,7 +54,7 @@ newtype GetBucketLifecycleConfiguration = GetBucketLifecycleConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gblcBucket' - Undocumented member.
+-- * 'gblcBucket' -
 getBucketLifecycleConfiguration
     :: BucketName -- ^ 'gblcBucket'
     -> GetBucketLifecycleConfiguration
@@ -60,7 +62,7 @@ getBucketLifecycleConfiguration pBucket_ =
   GetBucketLifecycleConfiguration' {_gblcBucket = pBucket_}
 
 
--- | Undocumented member.
+-- |
 gblcBucket :: Lens' GetBucketLifecycleConfiguration BucketName
 gblcBucket = lens _gblcBucket (\ s a -> s{_gblcBucket = a})
 
@@ -104,7 +106,7 @@ data GetBucketLifecycleConfigurationResponse = GetBucketLifecycleConfigurationRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gblcrsRules' - Undocumented member.
+-- * 'gblcrsRules' -
 --
 -- * 'gblcrsResponseStatus' - -- | The response status code.
 getBucketLifecycleConfigurationResponse
@@ -115,7 +117,7 @@ getBucketLifecycleConfigurationResponse pResponseStatus_ =
     {_gblcrsRules = Nothing, _gblcrsResponseStatus = pResponseStatus_}
 
 
--- | Undocumented member.
+-- |
 gblcrsRules :: Lens' GetBucketLifecycleConfigurationResponse [LifecycleRule]
 gblcrsRules = lens _gblcrsRules (\ s a -> s{_gblcrsRules = a}) . _Default . _Coerce
 

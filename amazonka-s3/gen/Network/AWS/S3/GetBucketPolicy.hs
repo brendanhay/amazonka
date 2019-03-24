@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the policy of a specified bucket.
+--
+--
 module Network.AWS.S3.GetBucketPolicy
     (
     -- * Creating a Request
@@ -52,14 +54,14 @@ newtype GetBucketPolicy = GetBucketPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbpBucket' - Undocumented member.
+-- * 'gbpBucket' -
 getBucketPolicy
     :: BucketName -- ^ 'gbpBucket'
     -> GetBucketPolicy
 getBucketPolicy pBucket_ = GetBucketPolicy' {_gbpBucket = pBucket_}
 
 
--- | Undocumented member.
+-- |
 gbpBucket :: Lens' GetBucketPolicy BucketName
 gbpBucket = lens _gbpBucket (\ s a -> s{_gbpBucket = a})
 

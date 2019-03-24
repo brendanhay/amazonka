@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the tag-set from an existing object.
+--
+--
 module Network.AWS.S3.DeleteObjectTagging
     (
     -- * Creating a Request
@@ -58,9 +60,9 @@ data DeleteObjectTagging = DeleteObjectTagging'
 --
 -- * 'dotVersionId' - The versionId of the object that the tag-set will be removed from.
 --
--- * 'dotBucket' - Undocumented member.
+-- * 'dotBucket' -
 --
--- * 'dotKey' - Undocumented member.
+-- * 'dotKey' -
 deleteObjectTagging
     :: BucketName -- ^ 'dotBucket'
     -> ObjectKey -- ^ 'dotKey'
@@ -74,11 +76,11 @@ deleteObjectTagging pBucket_ pKey_ =
 dotVersionId :: Lens' DeleteObjectTagging (Maybe ObjectVersionId)
 dotVersionId = lens _dotVersionId (\ s a -> s{_dotVersionId = a})
 
--- | Undocumented member.
+-- |
 dotBucket :: Lens' DeleteObjectTagging BucketName
 dotBucket = lens _dotBucket (\ s a -> s{_dotBucket = a})
 
--- | Undocumented member.
+-- |
 dotKey :: Lens' DeleteObjectTagging ObjectKey
 dotKey = lens _dotKey (\ s a -> s{_dotKey = a})
 

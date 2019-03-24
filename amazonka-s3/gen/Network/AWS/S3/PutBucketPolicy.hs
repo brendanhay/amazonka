@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Replaces a policy on a bucket. If the bucket already has a policy, the one in this request completely replaces it.
+--
+--
 module Network.AWS.S3.PutBucketPolicy
     (
     -- * Creating a Request
@@ -57,9 +59,9 @@ data PutBucketPolicy = PutBucketPolicy'
 --
 -- * 'pbpConfirmRemoveSelfBucketAccess' - Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.
 --
--- * 'pbpContentMD5' - Undocumented member.
+-- * 'pbpContentMD5' -
 --
--- * 'pbpBucket' - Undocumented member.
+-- * 'pbpBucket' -
 --
 -- * 'pbpPolicy' - The bucket policy as a JSON document.
 putBucketPolicy
@@ -79,11 +81,11 @@ putBucketPolicy pBucket_ pPolicy_ =
 pbpConfirmRemoveSelfBucketAccess :: Lens' PutBucketPolicy (Maybe Bool)
 pbpConfirmRemoveSelfBucketAccess = lens _pbpConfirmRemoveSelfBucketAccess (\ s a -> s{_pbpConfirmRemoveSelfBucketAccess = a})
 
--- | Undocumented member.
+-- |
 pbpContentMD5 :: Lens' PutBucketPolicy (Maybe Text)
 pbpContentMD5 = lens _pbpContentMD5 (\ s a -> s{_pbpContentMD5 = a})
 
--- | Undocumented member.
+-- |
 pbpBucket :: Lens' PutBucketPolicy BucketName
 pbpBucket = lens _pbpBucket (\ s a -> s{_pbpBucket = a})
 

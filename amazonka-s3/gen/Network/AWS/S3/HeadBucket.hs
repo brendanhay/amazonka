@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation is useful to determine if a bucket exists and you have permission to access it.
+--
+--
 module Network.AWS.S3.HeadBucket
     (
     -- * Creating a Request
@@ -49,14 +51,14 @@ newtype HeadBucket = HeadBucket'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hbBucket' - Undocumented member.
+-- * 'hbBucket' -
 headBucket
     :: BucketName -- ^ 'hbBucket'
     -> HeadBucket
 headBucket pBucket_ = HeadBucket' {_hbBucket = pBucket_}
 
 
--- | Undocumented member.
+-- |
 hbBucket :: Lens' HeadBucket BucketName
 hbBucket = lens _hbBucket (\ s a -> s{_hbBucket = a})
 

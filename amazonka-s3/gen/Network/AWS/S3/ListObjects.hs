@@ -20,6 +20,8 @@
 --
 -- Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.S3.ListObjects
     (
@@ -88,7 +90,7 @@ data ListObjects = ListObjects'
 --
 -- * 'loDelimiter' - A delimiter is a character you use to group keys.
 --
--- * 'loBucket' - Undocumented member.
+-- * 'loBucket' -
 listObjects
     :: BucketName -- ^ 'loBucket'
     -> ListObjects
@@ -128,7 +130,7 @@ loMaxKeys = lens _loMaxKeys (\ s a -> s{_loMaxKeys = a})
 loDelimiter :: Lens' ListObjects (Maybe Delimiter)
 loDelimiter = lens _loDelimiter (\ s a -> s{_loDelimiter = a})
 
--- | Undocumented member.
+-- |
 loBucket :: Lens' ListObjects BucketName
 loBucket = lens _loBucket (\ s a -> s{_loBucket = a})
 
@@ -206,25 +208,25 @@ data ListObjectsResponse = ListObjectsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lorsContents' - Undocumented member.
+-- * 'lorsContents' -
 --
--- * 'lorsPrefix' - Undocumented member.
+-- * 'lorsPrefix' -
 --
--- * 'lorsCommonPrefixes' - Undocumented member.
+-- * 'lorsCommonPrefixes' -
 --
 -- * 'lorsEncodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
 --
--- * 'lorsName' - Undocumented member.
+-- * 'lorsName' -
 --
--- * 'lorsMarker' - Undocumented member.
+-- * 'lorsMarker' -
 --
 -- * 'lorsNextMarker' - When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMaker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.
 --
--- * 'lorsMaxKeys' - Undocumented member.
+-- * 'lorsMaxKeys' -
 --
 -- * 'lorsIsTruncated' - A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria.
 --
--- * 'lorsDelimiter' - Undocumented member.
+-- * 'lorsDelimiter' -
 --
 -- * 'lorsResponseStatus' - -- | The response status code.
 listObjectsResponse
@@ -246,15 +248,15 @@ listObjectsResponse pResponseStatus_ =
     }
 
 
--- | Undocumented member.
+-- |
 lorsContents :: Lens' ListObjectsResponse [Object]
 lorsContents = lens _lorsContents (\ s a -> s{_lorsContents = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- |
 lorsPrefix :: Lens' ListObjectsResponse (Maybe Text)
 lorsPrefix = lens _lorsPrefix (\ s a -> s{_lorsPrefix = a})
 
--- | Undocumented member.
+-- |
 lorsCommonPrefixes :: Lens' ListObjectsResponse [CommonPrefix]
 lorsCommonPrefixes = lens _lorsCommonPrefixes (\ s a -> s{_lorsCommonPrefixes = a}) . _Default . _Coerce
 
@@ -262,11 +264,11 @@ lorsCommonPrefixes = lens _lorsCommonPrefixes (\ s a -> s{_lorsCommonPrefixes = 
 lorsEncodingType :: Lens' ListObjectsResponse (Maybe EncodingType)
 lorsEncodingType = lens _lorsEncodingType (\ s a -> s{_lorsEncodingType = a})
 
--- | Undocumented member.
+-- |
 lorsName :: Lens' ListObjectsResponse (Maybe BucketName)
 lorsName = lens _lorsName (\ s a -> s{_lorsName = a})
 
--- | Undocumented member.
+-- |
 lorsMarker :: Lens' ListObjectsResponse (Maybe Text)
 lorsMarker = lens _lorsMarker (\ s a -> s{_lorsMarker = a})
 
@@ -274,7 +276,7 @@ lorsMarker = lens _lorsMarker (\ s a -> s{_lorsMarker = a})
 lorsNextMarker :: Lens' ListObjectsResponse (Maybe Text)
 lorsNextMarker = lens _lorsNextMarker (\ s a -> s{_lorsNextMarker = a})
 
--- | Undocumented member.
+-- |
 lorsMaxKeys :: Lens' ListObjectsResponse (Maybe Int)
 lorsMaxKeys = lens _lorsMaxKeys (\ s a -> s{_lorsMaxKeys = a})
 
@@ -282,7 +284,7 @@ lorsMaxKeys = lens _lorsMaxKeys (\ s a -> s{_lorsMaxKeys = a})
 lorsIsTruncated :: Lens' ListObjectsResponse (Maybe Bool)
 lorsIsTruncated = lens _lorsIsTruncated (\ s a -> s{_lorsIsTruncated = a})
 
--- | Undocumented member.
+-- |
 lorsDelimiter :: Lens' ListObjectsResponse (Maybe Delimiter)
 lorsDelimiter = lens _lorsDelimiter (\ s a -> s{_lorsDelimiter = a})
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- uses the acl subresource to set the access control list (ACL) permissions for an object that already exists in a bucket
+--
+--
 module Network.AWS.S3.PutObjectACL
     (
     -- * Creating a Request
@@ -86,17 +88,17 @@ data PutObjectACL = PutObjectACL'
 --
 -- * 'poaGrantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
 --
--- * 'poaContentMD5' - Undocumented member.
+-- * 'poaContentMD5' -
 --
--- * 'poaAccessControlPolicy' - Undocumented member.
+-- * 'poaAccessControlPolicy' -
 --
 -- * 'poaGrantWrite' - Allows grantee to create, overwrite, and delete any object in the bucket.
 --
 -- * 'poaACL' - The canned ACL to apply to the object.
 --
--- * 'poaBucket' - Undocumented member.
+-- * 'poaBucket' -
 --
--- * 'poaKey' - Undocumented member.
+-- * 'poaKey' -
 putObjectACL
     :: BucketName -- ^ 'poaBucket'
     -> ObjectKey -- ^ 'poaKey'
@@ -142,11 +144,11 @@ poaGrantRead = lens _poaGrantRead (\ s a -> s{_poaGrantRead = a})
 poaGrantFullControl :: Lens' PutObjectACL (Maybe Text)
 poaGrantFullControl = lens _poaGrantFullControl (\ s a -> s{_poaGrantFullControl = a})
 
--- | Undocumented member.
+-- |
 poaContentMD5 :: Lens' PutObjectACL (Maybe Text)
 poaContentMD5 = lens _poaContentMD5 (\ s a -> s{_poaContentMD5 = a})
 
--- | Undocumented member.
+-- |
 poaAccessControlPolicy :: Lens' PutObjectACL (Maybe AccessControlPolicy)
 poaAccessControlPolicy = lens _poaAccessControlPolicy (\ s a -> s{_poaAccessControlPolicy = a})
 
@@ -158,11 +160,11 @@ poaGrantWrite = lens _poaGrantWrite (\ s a -> s{_poaGrantWrite = a})
 poaACL :: Lens' PutObjectACL (Maybe ObjectCannedACL)
 poaACL = lens _poaACL (\ s a -> s{_poaACL = a})
 
--- | Undocumented member.
+-- |
 poaBucket :: Lens' PutObjectACL BucketName
 poaBucket = lens _poaBucket (\ s a -> s{_poaBucket = a})
 
--- | Undocumented member.
+-- |
 poaKey :: Lens' PutObjectACL ObjectKey
 poaKey = lens _poaKey (\ s a -> s{_poaKey = a})
 

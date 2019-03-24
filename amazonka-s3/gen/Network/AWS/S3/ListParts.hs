@@ -20,6 +20,8 @@
 --
 -- Lists the parts that have been uploaded for a specific multipart upload.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.S3.ListParts
     (
@@ -84,9 +86,9 @@ data ListParts = ListParts'
 --
 -- * 'lpPartNumberMarker' - Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.
 --
--- * 'lpBucket' - Undocumented member.
+-- * 'lpBucket' -
 --
--- * 'lpKey' - Undocumented member.
+-- * 'lpKey' -
 --
 -- * 'lpUploadId' - Upload ID identifying the multipart upload whose parts are being listed.
 listParts
@@ -117,11 +119,11 @@ lpRequestPayer = lens _lpRequestPayer (\ s a -> s{_lpRequestPayer = a})
 lpPartNumberMarker :: Lens' ListParts (Maybe Int)
 lpPartNumberMarker = lens _lpPartNumberMarker (\ s a -> s{_lpPartNumberMarker = a})
 
--- | Undocumented member.
+-- |
 lpBucket :: Lens' ListParts BucketName
 lpBucket = lens _lpBucket (\ s a -> s{_lpBucket = a})
 
--- | Undocumented member.
+-- |
 lpKey :: Lens' ListParts ObjectKey
 lpKey = lens _lpKey (\ s a -> s{_lpKey = a})
 
@@ -187,7 +189,7 @@ data ListPartsResponse = ListPartsResponse'
   , _lprsMaxParts             :: !(Maybe Int)
   , _lprsInitiator            :: !(Maybe Initiator)
   , _lprsBucket               :: !(Maybe BucketName)
-  , _lprsAbortDate            :: !(Maybe RFC822)
+  , _lprsAbortDate            :: !(Maybe ISO8601)
   , _lprsNextPartNumberMarker :: !(Maybe Int)
   , _lprsAbortRuleId          :: !(Maybe Text)
   , _lprsOwner                :: !(Maybe Owner)
@@ -204,7 +206,7 @@ data ListPartsResponse = ListPartsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lprsParts' - Undocumented member.
+-- * 'lprsParts' -
 --
 -- * 'lprsRequestCharged' - Undocumented member.
 --
@@ -220,7 +222,7 @@ data ListPartsResponse = ListPartsResponse'
 --
 -- * 'lprsAbortRuleId' - Id of the lifecycle rule that makes a multipart upload eligible for abort operation.
 --
--- * 'lprsOwner' - Undocumented member.
+-- * 'lprsOwner' -
 --
 -- * 'lprsKey' - Object key for which the multipart upload was initiated.
 --
@@ -256,7 +258,7 @@ listPartsResponse pResponseStatus_ =
     }
 
 
--- | Undocumented member.
+-- |
 lprsParts :: Lens' ListPartsResponse [Part]
 lprsParts = lens _lprsParts (\ s a -> s{_lprsParts = a}) . _Default . _Coerce
 
@@ -288,7 +290,7 @@ lprsNextPartNumberMarker = lens _lprsNextPartNumberMarker (\ s a -> s{_lprsNextP
 lprsAbortRuleId :: Lens' ListPartsResponse (Maybe Text)
 lprsAbortRuleId = lens _lprsAbortRuleId (\ s a -> s{_lprsAbortRuleId = a})
 
--- | Undocumented member.
+-- |
 lprsOwner :: Lens' ListPartsResponse (Maybe Owner)
 lprsOwner = lens _lprsOwner (\ s a -> s{_lprsOwner = a})
 

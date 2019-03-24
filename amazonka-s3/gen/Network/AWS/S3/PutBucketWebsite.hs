@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Set the website configuration for a bucket.
+--
+--
 module Network.AWS.S3.PutBucketWebsite
     (
     -- * Creating a Request
@@ -53,11 +55,11 @@ data PutBucketWebsite = PutBucketWebsite'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbwContentMD5' - Undocumented member.
+-- * 'pbwContentMD5' -
 --
--- * 'pbwBucket' - Undocumented member.
+-- * 'pbwBucket' -
 --
--- * 'pbwWebsiteConfiguration' - Undocumented member.
+-- * 'pbwWebsiteConfiguration' -
 putBucketWebsite
     :: BucketName -- ^ 'pbwBucket'
     -> WebsiteConfiguration -- ^ 'pbwWebsiteConfiguration'
@@ -70,15 +72,15 @@ putBucketWebsite pBucket_ pWebsiteConfiguration_ =
     }
 
 
--- | Undocumented member.
+-- |
 pbwContentMD5 :: Lens' PutBucketWebsite (Maybe Text)
 pbwContentMD5 = lens _pbwContentMD5 (\ s a -> s{_pbwContentMD5 = a})
 
--- | Undocumented member.
+-- |
 pbwBucket :: Lens' PutBucketWebsite BucketName
 pbwBucket = lens _pbwBucket (\ s a -> s{_pbwBucket = a})
 
--- | Undocumented member.
+-- |
 pbwWebsiteConfiguration :: Lens' PutBucketWebsite WebsiteConfiguration
 pbwWebsiteConfiguration = lens _pbwWebsiteConfiguration (\ s a -> s{_pbwWebsiteConfiguration = a})
 

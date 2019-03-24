@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a metrics configuration (specified by the metrics configuration ID) from the bucket.
+--
+--
 module Network.AWS.S3.GetBucketMetricsConfiguration
     (
     -- * Creating a Request

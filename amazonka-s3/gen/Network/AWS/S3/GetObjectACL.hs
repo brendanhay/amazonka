@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the access control list (ACL) of an object.
+--
+--
 module Network.AWS.S3.GetObjectACL
     (
     -- * Creating a Request
@@ -64,9 +66,9 @@ data GetObjectACL = GetObjectACL'
 --
 -- * 'goaRequestPayer' - Undocumented member.
 --
--- * 'goaBucket' - Undocumented member.
+-- * 'goaBucket' -
 --
--- * 'goaKey' - Undocumented member.
+-- * 'goaKey' -
 getObjectACL
     :: BucketName -- ^ 'goaBucket'
     -> ObjectKey -- ^ 'goaKey'
@@ -88,11 +90,11 @@ goaVersionId = lens _goaVersionId (\ s a -> s{_goaVersionId = a})
 goaRequestPayer :: Lens' GetObjectACL (Maybe RequestPayer)
 goaRequestPayer = lens _goaRequestPayer (\ s a -> s{_goaRequestPayer = a})
 
--- | Undocumented member.
+-- |
 goaBucket :: Lens' GetObjectACL BucketName
 goaBucket = lens _goaBucket (\ s a -> s{_goaBucket = a})
 
--- | Undocumented member.
+-- |
 goaKey :: Lens' GetObjectACL ObjectKey
 goaKey = lens _goaKey (\ s a -> s{_goaKey = a})
 
@@ -142,7 +144,7 @@ data GetObjectACLResponse = GetObjectACLResponse'
 --
 -- * 'goarsGrants' - A list of grants.
 --
--- * 'goarsOwner' - Undocumented member.
+-- * 'goarsOwner' -
 --
 -- * 'goarsResponseStatus' - -- | The response status code.
 getObjectACLResponse
@@ -165,7 +167,7 @@ goarsRequestCharged = lens _goarsRequestCharged (\ s a -> s{_goarsRequestCharged
 goarsGrants :: Lens' GetObjectACLResponse [Grant]
 goarsGrants = lens _goarsGrants (\ s a -> s{_goarsGrants = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- |
 goarsOwner :: Lens' GetObjectACLResponse (Maybe Owner)
 goarsOwner = lens _goarsOwner (\ s a -> s{_goarsOwner = a})
 

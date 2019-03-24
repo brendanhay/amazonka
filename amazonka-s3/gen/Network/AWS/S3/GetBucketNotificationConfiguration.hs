@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the notification configuration of a bucket.
+--
+--
 module Network.AWS.S3.GetBucketNotificationConfiguration
     (
     -- * Creating a Request

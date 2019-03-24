@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation removes the website configuration from the bucket.
+--
+--
 module Network.AWS.S3.DeleteBucketWebsite
     (
     -- * Creating a Request
@@ -49,14 +51,14 @@ newtype DeleteBucketWebsite = DeleteBucketWebsite'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbwBucket' - Undocumented member.
+-- * 'dbwBucket' -
 deleteBucketWebsite
     :: BucketName -- ^ 'dbwBucket'
     -> DeleteBucketWebsite
 deleteBucketWebsite pBucket_ = DeleteBucketWebsite' {_dbwBucket = pBucket_}
 
 
--- | Undocumented member.
+-- |
 dbwBucket :: Lens' DeleteBucketWebsite BucketName
 dbwBucket = lens _dbwBucket (\ s a -> s{_dbwBucket = a})
 

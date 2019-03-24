@@ -64,11 +64,11 @@ data AbortMultipartUpload = AbortMultipartUpload'
 --
 -- * 'amuRequestPayer' - Undocumented member.
 --
--- * 'amuBucket' - Undocumented member.
+-- * 'amuBucket' -
 --
--- * 'amuKey' - Undocumented member.
+-- * 'amuKey' -
 --
--- * 'amuUploadId' - Undocumented member.
+-- * 'amuUploadId' -
 abortMultipartUpload
     :: BucketName -- ^ 'amuBucket'
     -> ObjectKey -- ^ 'amuKey'
@@ -87,15 +87,15 @@ abortMultipartUpload pBucket_ pKey_ pUploadId_ =
 amuRequestPayer :: Lens' AbortMultipartUpload (Maybe RequestPayer)
 amuRequestPayer = lens _amuRequestPayer (\ s a -> s{_amuRequestPayer = a})
 
--- | Undocumented member.
+-- |
 amuBucket :: Lens' AbortMultipartUpload BucketName
 amuBucket = lens _amuBucket (\ s a -> s{_amuBucket = a})
 
--- | Undocumented member.
+-- |
 amuKey :: Lens' AbortMultipartUpload ObjectKey
 amuKey = lens _amuKey (\ s a -> s{_amuKey = a})
 
--- | Undocumented member.
+-- |
 amuUploadId :: Lens' AbortMultipartUpload Text
 amuUploadId = lens _amuUploadId (\ s a -> s{_amuUploadId = a})
 

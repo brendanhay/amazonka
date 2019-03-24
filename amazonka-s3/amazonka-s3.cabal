@@ -64,6 +64,7 @@ library
         , Network.AWS.S3.DeleteObject
         , Network.AWS.S3.DeleteObjectTagging
         , Network.AWS.S3.DeleteObjects
+        , Network.AWS.S3.DeletePublicAccessBlock
         , Network.AWS.S3.GetBucketACL
         , Network.AWS.S3.GetBucketAccelerateConfiguration
         , Network.AWS.S3.GetBucketAnalyticsConfiguration
@@ -76,6 +77,7 @@ library
         , Network.AWS.S3.GetBucketMetricsConfiguration
         , Network.AWS.S3.GetBucketNotificationConfiguration
         , Network.AWS.S3.GetBucketPolicy
+        , Network.AWS.S3.GetBucketPolicyStatus
         , Network.AWS.S3.GetBucketReplication
         , Network.AWS.S3.GetBucketRequestPayment
         , Network.AWS.S3.GetBucketTagging
@@ -83,8 +85,12 @@ library
         , Network.AWS.S3.GetBucketWebsite
         , Network.AWS.S3.GetObject
         , Network.AWS.S3.GetObjectACL
+        , Network.AWS.S3.GetObjectLegalHold
+        , Network.AWS.S3.GetObjectLockConfiguration
+        , Network.AWS.S3.GetObjectRetention
         , Network.AWS.S3.GetObjectTagging
         , Network.AWS.S3.GetObjectTorrent
+        , Network.AWS.S3.GetPublicAccessBlock
         , Network.AWS.S3.HeadBucket
         , Network.AWS.S3.HeadObject
         , Network.AWS.S3.ListBucketAnalyticsConfigurations
@@ -114,7 +120,11 @@ library
         , Network.AWS.S3.PutBucketWebsite
         , Network.AWS.S3.PutObject
         , Network.AWS.S3.PutObjectACL
+        , Network.AWS.S3.PutObjectLegalHold
+        , Network.AWS.S3.PutObjectLockConfiguration
+        , Network.AWS.S3.PutObjectRetention
         , Network.AWS.S3.PutObjectTagging
+        , Network.AWS.S3.PutPublicAccessBlock
         , Network.AWS.S3.RestoreObject
         , Network.AWS.S3.SelectObjectContent
         , Network.AWS.S3.Types

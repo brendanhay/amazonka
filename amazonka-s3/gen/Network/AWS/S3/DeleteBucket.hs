@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the bucket. All objects (including all object versions and Delete Markers) in the bucket must be deleted before the bucket itself can be deleted.
+--
+--
 module Network.AWS.S3.DeleteBucket
     (
     -- * Creating a Request
@@ -49,14 +51,14 @@ newtype DeleteBucket = DeleteBucket'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbBucket' - Undocumented member.
+-- * 'dbBucket' -
 deleteBucket
     :: BucketName -- ^ 'dbBucket'
     -> DeleteBucket
 deleteBucket pBucket_ = DeleteBucket' {_dbBucket = pBucket_}
 
 
--- | Undocumented member.
+-- |
 dbBucket :: Lens' DeleteBucket BucketName
 dbBucket = lens _dbBucket (\ s a -> s{_dbBucket = a})
 

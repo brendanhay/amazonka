@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets an analytics configuration for the bucket (specified by the analytics configuration ID).
+--
+--
 module Network.AWS.S3.GetBucketAnalyticsConfiguration
     (
     -- * Creating a Request

@@ -20,6 +20,8 @@
 --
 -- This operation lists in-progress multipart uploads.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.S3.ListMultipartUploads
     (
@@ -90,7 +92,7 @@ data ListMultipartUploads = ListMultipartUploads'
 --
 -- * 'lmuDelimiter' - Character you use to group keys.
 --
--- * 'lmuBucket' - Undocumented member.
+-- * 'lmuBucket' -
 listMultipartUploads
     :: BucketName -- ^ 'lmuBucket'
     -> ListMultipartUploads
@@ -130,7 +132,7 @@ lmuMaxUploads = lens _lmuMaxUploads (\ s a -> s{_lmuMaxUploads = a})
 lmuDelimiter :: Lens' ListMultipartUploads (Maybe Delimiter)
 lmuDelimiter = lens _lmuDelimiter (\ s a -> s{_lmuDelimiter = a})
 
--- | Undocumented member.
+-- |
 lmuBucket :: Lens' ListMultipartUploads BucketName
 lmuBucket = lens _lmuBucket (\ s a -> s{_lmuBucket = a})
 
@@ -212,7 +214,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
 --
 -- * 'lmursPrefix' - When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.
 --
--- * 'lmursCommonPrefixes' - Undocumented member.
+-- * 'lmursCommonPrefixes' -
 --
 -- * 'lmursEncodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
 --
@@ -224,13 +226,13 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
 --
 -- * 'lmursNextKeyMarker' - When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.
 --
--- * 'lmursUploads' - Undocumented member.
+-- * 'lmursUploads' -
 --
 -- * 'lmursIsTruncated' - Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.
 --
 -- * 'lmursNextUploadIdMarker' - When a list is truncated, this element specifies the value that should be used for the upload-id-marker request parameter in a subsequent request.
 --
--- * 'lmursDelimiter' - Undocumented member.
+-- * 'lmursDelimiter' -
 --
 -- * 'lmursResponseStatus' - -- | The response status code.
 listMultipartUploadsResponse
@@ -262,7 +264,7 @@ lmursKeyMarker = lens _lmursKeyMarker (\ s a -> s{_lmursKeyMarker = a})
 lmursPrefix :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmursPrefix = lens _lmursPrefix (\ s a -> s{_lmursPrefix = a})
 
--- | Undocumented member.
+-- |
 lmursCommonPrefixes :: Lens' ListMultipartUploadsResponse [CommonPrefix]
 lmursCommonPrefixes = lens _lmursCommonPrefixes (\ s a -> s{_lmursCommonPrefixes = a}) . _Default . _Coerce
 
@@ -286,7 +288,7 @@ lmursMaxUploads = lens _lmursMaxUploads (\ s a -> s{_lmursMaxUploads = a})
 lmursNextKeyMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmursNextKeyMarker = lens _lmursNextKeyMarker (\ s a -> s{_lmursNextKeyMarker = a})
 
--- | Undocumented member.
+-- |
 lmursUploads :: Lens' ListMultipartUploadsResponse [MultipartUpload]
 lmursUploads = lens _lmursUploads (\ s a -> s{_lmursUploads = a}) . _Default . _Coerce
 
@@ -298,7 +300,7 @@ lmursIsTruncated = lens _lmursIsTruncated (\ s a -> s{_lmursIsTruncated = a})
 lmursNextUploadIdMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmursNextUploadIdMarker = lens _lmursNextUploadIdMarker (\ s a -> s{_lmursNextUploadIdMarker = a})
 
--- | Undocumented member.
+-- |
 lmursDelimiter :: Lens' ListMultipartUploadsResponse (Maybe Delimiter)
 lmursDelimiter = lens _lmursDelimiter (\ s a -> s{_lmursDelimiter = a})
 

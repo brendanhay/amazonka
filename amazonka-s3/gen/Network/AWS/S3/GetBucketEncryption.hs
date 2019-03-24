@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the server-side encryption configuration of a bucket.
+--
+--
 module Network.AWS.S3.GetBucketEncryption
     (
     -- * Creating a Request

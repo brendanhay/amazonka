@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the access control policy for the bucket.
+--
+--
 module Network.AWS.S3.GetBucketACL
     (
     -- * Creating a Request
@@ -53,14 +55,14 @@ newtype GetBucketACL = GetBucketACL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbaBucket' - Undocumented member.
+-- * 'gbaBucket' -
 getBucketACL
     :: BucketName -- ^ 'gbaBucket'
     -> GetBucketACL
 getBucketACL pBucket_ = GetBucketACL' {_gbaBucket = pBucket_}
 
 
--- | Undocumented member.
+-- |
 gbaBucket :: Lens' GetBucketACL BucketName
 gbaBucket = lens _gbaBucket (\ s a -> s{_gbaBucket = a})
 
@@ -104,7 +106,7 @@ data GetBucketACLResponse = GetBucketACLResponse'
 --
 -- * 'gbarsGrants' - A list of grants.
 --
--- * 'gbarsOwner' - Undocumented member.
+-- * 'gbarsOwner' -
 --
 -- * 'gbarsResponseStatus' - -- | The response status code.
 getBucketACLResponse
@@ -122,7 +124,7 @@ getBucketACLResponse pResponseStatus_ =
 gbarsGrants :: Lens' GetBucketACLResponse [Grant]
 gbarsGrants = lens _gbarsGrants (\ s a -> s{_gbarsGrants = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- |
 gbarsOwner :: Lens' GetBucketACLResponse (Maybe Owner)
 gbarsOwner = lens _gbarsOwner (\ s a -> s{_gbarsOwner = a})
 

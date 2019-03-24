@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Completes a multipart upload by assembling previously uploaded parts.
+--
+--
 module Network.AWS.S3.CompleteMultipartUpload
     (
     -- * Creating a Request
@@ -70,13 +72,13 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
 --
 -- * 'cRequestPayer' - Undocumented member.
 --
--- * 'cMultipartUpload' - Undocumented member.
+-- * 'cMultipartUpload' -
 --
--- * 'cBucket' - Undocumented member.
+-- * 'cBucket' -
 --
--- * 'cKey' - Undocumented member.
+-- * 'cKey' -
 --
--- * 'cUploadId' - Undocumented member.
+-- * 'cUploadId' -
 completeMultipartUpload
     :: BucketName -- ^ 'cBucket'
     -> ObjectKey -- ^ 'cKey'
@@ -96,19 +98,19 @@ completeMultipartUpload pBucket_ pKey_ pUploadId_ =
 cRequestPayer :: Lens' CompleteMultipartUpload (Maybe RequestPayer)
 cRequestPayer = lens _cRequestPayer (\ s a -> s{_cRequestPayer = a})
 
--- | Undocumented member.
+-- |
 cMultipartUpload :: Lens' CompleteMultipartUpload (Maybe CompletedMultipartUpload)
 cMultipartUpload = lens _cMultipartUpload (\ s a -> s{_cMultipartUpload = a})
 
--- | Undocumented member.
+-- |
 cBucket :: Lens' CompleteMultipartUpload BucketName
 cBucket = lens _cBucket (\ s a -> s{_cBucket = a})
 
--- | Undocumented member.
+-- |
 cKey :: Lens' CompleteMultipartUpload ObjectKey
 cKey = lens _cKey (\ s a -> s{_cKey = a})
 
--- | Undocumented member.
+-- |
 cUploadId :: Lens' CompleteMultipartUpload Text
 cUploadId = lens _cUploadId (\ s a -> s{_cUploadId = a})
 
@@ -179,13 +181,13 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
 --
 -- * 'crsVersionId' - Version of the object.
 --
--- * 'crsLocation' - Undocumented member.
+-- * 'crsLocation' -
 --
 -- * 'crsExpiration' - If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
 --
--- * 'crsBucket' - Undocumented member.
+-- * 'crsBucket' -
 --
--- * 'crsKey' - Undocumented member.
+-- * 'crsKey' -
 --
 -- * 'crsSSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
 --
@@ -222,7 +224,7 @@ crsETag = lens _crsETag (\ s a -> s{_crsETag = a})
 crsVersionId :: Lens' CompleteMultipartUploadResponse (Maybe ObjectVersionId)
 crsVersionId = lens _crsVersionId (\ s a -> s{_crsVersionId = a})
 
--- | Undocumented member.
+-- |
 crsLocation :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 crsLocation = lens _crsLocation (\ s a -> s{_crsLocation = a})
 
@@ -230,11 +232,11 @@ crsLocation = lens _crsLocation (\ s a -> s{_crsLocation = a})
 crsExpiration :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 crsExpiration = lens _crsExpiration (\ s a -> s{_crsExpiration = a})
 
--- | Undocumented member.
+-- |
 crsBucket :: Lens' CompleteMultipartUploadResponse (Maybe BucketName)
 crsBucket = lens _crsBucket (\ s a -> s{_crsBucket = a})
 
--- | Undocumented member.
+-- |
 crsKey :: Lens' CompleteMultipartUploadResponse (Maybe ObjectKey)
 crsKey = lens _crsKey (\ s a -> s{_crsKey = a})
 

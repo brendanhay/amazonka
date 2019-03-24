@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the permissions on a bucket using access control lists (ACL).
+--
+--
 module Network.AWS.S3.PutBucketACL
     (
     -- * Creating a Request
@@ -73,15 +75,15 @@ data PutBucketACL = PutBucketACL'
 --
 -- * 'pbaGrantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
 --
--- * 'pbaContentMD5' - Undocumented member.
+-- * 'pbaContentMD5' -
 --
--- * 'pbaAccessControlPolicy' - Undocumented member.
+-- * 'pbaAccessControlPolicy' -
 --
 -- * 'pbaGrantWrite' - Allows grantee to create, overwrite, and delete any object in the bucket.
 --
 -- * 'pbaACL' - The canned ACL to apply to the bucket.
 --
--- * 'pbaBucket' - Undocumented member.
+-- * 'pbaBucket' -
 putBucketACL
     :: BucketName -- ^ 'pbaBucket'
     -> PutBucketACL
@@ -115,11 +117,11 @@ pbaGrantRead = lens _pbaGrantRead (\ s a -> s{_pbaGrantRead = a})
 pbaGrantFullControl :: Lens' PutBucketACL (Maybe Text)
 pbaGrantFullControl = lens _pbaGrantFullControl (\ s a -> s{_pbaGrantFullControl = a})
 
--- | Undocumented member.
+-- |
 pbaContentMD5 :: Lens' PutBucketACL (Maybe Text)
 pbaContentMD5 = lens _pbaContentMD5 (\ s a -> s{_pbaContentMD5 = a})
 
--- | Undocumented member.
+-- |
 pbaAccessControlPolicy :: Lens' PutBucketACL (Maybe AccessControlPolicy)
 pbaAccessControlPolicy = lens _pbaAccessControlPolicy (\ s a -> s{_pbaAccessControlPolicy = a})
 
@@ -131,7 +133,7 @@ pbaGrantWrite = lens _pbaGrantWrite (\ s a -> s{_pbaGrantWrite = a})
 pbaACL :: Lens' PutBucketACL (Maybe BucketCannedACL)
 pbaACL = lens _pbaACL (\ s a -> s{_pbaACL = a})
 
--- | Undocumented member.
+-- |
 pbaBucket :: Lens' PutBucketACL BucketName
 pbaBucket = lens _pbaBucket (\ s a -> s{_pbaBucket = a})
 

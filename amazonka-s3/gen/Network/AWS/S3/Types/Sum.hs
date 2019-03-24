@@ -174,20 +174,23 @@ instance ToXML BucketVersioningStatus where
     toXML = toXMLText
 
 data CompressionType
-  = CTGzip
+  = CTBZIP2
+  | CTGzip
   | CTNone
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText CompressionType where
     parser = takeLowerText >>= \case
+        "bzip2" -> pure CTBZIP2
         "gzip" -> pure CTGzip
         "none" -> pure CTNone
         e -> fromTextError $ "Failure parsing CompressionType from value: '" <> e
-           <> "'. Accepted values: gzip, none"
+           <> "'. Accepted values: bzip2, gzip, none"
 
 instance ToText CompressionType where
     toText = \case
+        CTBZIP2 -> "BZIP2"
         CTGzip -> "GZIP"
         CTNone -> "NONE"
 
@@ -200,7 +203,39 @@ instance ToHeader     CompressionType
 instance ToXML CompressionType where
     toXML = toXMLText
 
+data DeleteMarkerReplicationStatus
+  = DMRSDisabled
+  | DMRSEnabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DeleteMarkerReplicationStatus where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure DMRSDisabled
+        "enabled" -> pure DMRSEnabled
+        e -> fromTextError $ "Failure parsing DeleteMarkerReplicationStatus from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText DeleteMarkerReplicationStatus where
+    toText = \case
+        DMRSDisabled -> "Disabled"
+        DMRSEnabled -> "Enabled"
+
+instance Hashable     DeleteMarkerReplicationStatus
+instance NFData       DeleteMarkerReplicationStatus
+instance ToByteString DeleteMarkerReplicationStatus
+instance ToQuery      DeleteMarkerReplicationStatus
+instance ToHeader     DeleteMarkerReplicationStatus
+
+instance FromXML DeleteMarkerReplicationStatus where
+    parseXML = parseXMLText "DeleteMarkerReplicationStatus"
+
+instance ToXML DeleteMarkerReplicationStatus where
+    toXML = toXMLText
+
 -- | Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.
+--
+--
 data EncodingType =
   URL
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -228,7 +263,9 @@ instance FromXML EncodingType where
 instance ToXML EncodingType where
     toXML = toXMLText
 
--- | Bucket event for which to send notifications.
+-- | The bucket event for which to send notifications.
+--
+--
 data Event
   = S3ObjectCreated
   | S3ObjectCreatedCompleteMultipartUpload
@@ -238,6 +275,8 @@ data Event
   | S3ObjectRemoved
   | S3ObjectRemovedDelete
   | S3ObjectRemovedDeleteMarkerCreated
+  | S3ObjectRestoreCompleted
+  | S3ObjectRestorePost
   | S3ReducedRedundancyLostObject
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -252,9 +291,11 @@ instance FromText Event where
         "s3:objectremoved:*" -> pure S3ObjectRemoved
         "s3:objectremoved:delete" -> pure S3ObjectRemovedDelete
         "s3:objectremoved:deletemarkercreated" -> pure S3ObjectRemovedDeleteMarkerCreated
+        "s3:objectrestore:completed" -> pure S3ObjectRestoreCompleted
+        "s3:objectrestore:post" -> pure S3ObjectRestorePost
         "s3:reducedredundancylostobject" -> pure S3ReducedRedundancyLostObject
         e -> fromTextError $ "Failure parsing Event from value: '" <> e
-           <> "'. Accepted values: s3:objectcreated:*, s3:objectcreated:completemultipartupload, s3:objectcreated:copy, s3:objectcreated:post, s3:objectcreated:put, s3:objectremoved:*, s3:objectremoved:delete, s3:objectremoved:deletemarkercreated, s3:reducedredundancylostobject"
+           <> "'. Accepted values: s3:objectcreated:*, s3:objectcreated:completemultipartupload, s3:objectcreated:copy, s3:objectcreated:post, s3:objectcreated:put, s3:objectremoved:*, s3:objectremoved:delete, s3:objectremoved:deletemarkercreated, s3:objectrestore:completed, s3:objectrestore:post, s3:reducedredundancylostobject"
 
 instance ToText Event where
     toText = \case
@@ -266,6 +307,8 @@ instance ToText Event where
         S3ObjectRemoved -> "s3:ObjectRemoved:*"
         S3ObjectRemovedDelete -> "s3:ObjectRemoved:Delete"
         S3ObjectRemovedDeleteMarkerCreated -> "s3:ObjectRemoved:DeleteMarkerCreated"
+        S3ObjectRestoreCompleted -> "s3:ObjectRestore:Completed"
+        S3ObjectRestorePost -> "s3:ObjectRestore:Post"
         S3ReducedRedundancyLostObject -> "s3:ReducedRedundancyLostObject"
 
 instance Hashable     Event
@@ -397,6 +440,7 @@ instance ToXML FilterRuleName where
 data InventoryFormat
   = IFCSV
   | IFOrc
+  | IFParquet
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -404,13 +448,15 @@ instance FromText InventoryFormat where
     parser = takeLowerText >>= \case
         "csv" -> pure IFCSV
         "orc" -> pure IFOrc
+        "parquet" -> pure IFParquet
         e -> fromTextError $ "Failure parsing InventoryFormat from value: '" <> e
-           <> "'. Accepted values: csv, orc"
+           <> "'. Accepted values: csv, orc, parquet"
 
 instance ToText InventoryFormat where
     toText = \case
         IFCSV -> "CSV"
         IFOrc -> "ORC"
+        IFParquet -> "Parquet"
 
 instance Hashable     InventoryFormat
 instance NFData       InventoryFormat
@@ -489,6 +535,9 @@ data InventoryOptionalField
   | FieldEncryptionStatus
   | FieldIsMultipartUploaded
   | FieldLastModifiedDate
+  | FieldObjectLockLegalHoldStatus
+  | FieldObjectLockMode
+  | FieldObjectLockRetainUntilDate
   | FieldReplicationStatus
   | FieldSize
   | FieldStorageClass
@@ -501,11 +550,14 @@ instance FromText InventoryOptionalField where
         "encryptionstatus" -> pure FieldEncryptionStatus
         "ismultipartuploaded" -> pure FieldIsMultipartUploaded
         "lastmodifieddate" -> pure FieldLastModifiedDate
+        "objectlocklegalholdstatus" -> pure FieldObjectLockLegalHoldStatus
+        "objectlockmode" -> pure FieldObjectLockMode
+        "objectlockretainuntildate" -> pure FieldObjectLockRetainUntilDate
         "replicationstatus" -> pure FieldReplicationStatus
         "size" -> pure FieldSize
         "storageclass" -> pure FieldStorageClass
         e -> fromTextError $ "Failure parsing InventoryOptionalField from value: '" <> e
-           <> "'. Accepted values: etag, encryptionstatus, ismultipartuploaded, lastmodifieddate, replicationstatus, size, storageclass"
+           <> "'. Accepted values: etag, encryptionstatus, ismultipartuploaded, lastmodifieddate, objectlocklegalholdstatus, objectlockmode, objectlockretainuntildate, replicationstatus, size, storageclass"
 
 instance ToText InventoryOptionalField where
     toText = \case
@@ -513,6 +565,9 @@ instance ToText InventoryOptionalField where
         FieldEncryptionStatus -> "EncryptionStatus"
         FieldIsMultipartUploaded -> "IsMultipartUploaded"
         FieldLastModifiedDate -> "LastModifiedDate"
+        FieldObjectLockLegalHoldStatus -> "ObjectLockLegalHoldStatus"
+        FieldObjectLockMode -> "ObjectLockMode"
+        FieldObjectLockRetainUntilDate -> "ObjectLockRetainUntilDate"
         FieldReplicationStatus -> "ReplicationStatus"
         FieldSize -> "Size"
         FieldStorageClass -> "StorageClass"
@@ -677,6 +732,123 @@ instance ToQuery      ObjectCannedACL
 instance ToHeader     ObjectCannedACL
 
 instance ToXML ObjectCannedACL where
+    toXML = toXMLText
+
+data ObjectLockEnabled =
+  OLEEnabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ObjectLockEnabled where
+    parser = takeLowerText >>= \case
+        "enabled" -> pure OLEEnabled
+        e -> fromTextError $ "Failure parsing ObjectLockEnabled from value: '" <> e
+           <> "'. Accepted values: enabled"
+
+instance ToText ObjectLockEnabled where
+    toText = \case
+        OLEEnabled -> "Enabled"
+
+instance Hashable     ObjectLockEnabled
+instance NFData       ObjectLockEnabled
+instance ToByteString ObjectLockEnabled
+instance ToQuery      ObjectLockEnabled
+instance ToHeader     ObjectLockEnabled
+
+instance FromXML ObjectLockEnabled where
+    parseXML = parseXMLText "ObjectLockEnabled"
+
+instance ToXML ObjectLockEnabled where
+    toXML = toXMLText
+
+data ObjectLockLegalHoldStatus
+  = ON
+  | Off
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ObjectLockLegalHoldStatus where
+    parser = takeLowerText >>= \case
+        "on" -> pure ON
+        "off" -> pure Off
+        e -> fromTextError $ "Failure parsing ObjectLockLegalHoldStatus from value: '" <> e
+           <> "'. Accepted values: on, off"
+
+instance ToText ObjectLockLegalHoldStatus where
+    toText = \case
+        ON -> "ON"
+        Off -> "OFF"
+
+instance Hashable     ObjectLockLegalHoldStatus
+instance NFData       ObjectLockLegalHoldStatus
+instance ToByteString ObjectLockLegalHoldStatus
+instance ToQuery      ObjectLockLegalHoldStatus
+instance ToHeader     ObjectLockLegalHoldStatus
+
+instance FromXML ObjectLockLegalHoldStatus where
+    parseXML = parseXMLText "ObjectLockLegalHoldStatus"
+
+instance ToXML ObjectLockLegalHoldStatus where
+    toXML = toXMLText
+
+data ObjectLockMode
+  = Compliance
+  | Governance
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ObjectLockMode where
+    parser = takeLowerText >>= \case
+        "compliance" -> pure Compliance
+        "governance" -> pure Governance
+        e -> fromTextError $ "Failure parsing ObjectLockMode from value: '" <> e
+           <> "'. Accepted values: compliance, governance"
+
+instance ToText ObjectLockMode where
+    toText = \case
+        Compliance -> "COMPLIANCE"
+        Governance -> "GOVERNANCE"
+
+instance Hashable     ObjectLockMode
+instance NFData       ObjectLockMode
+instance ToByteString ObjectLockMode
+instance ToQuery      ObjectLockMode
+instance ToHeader     ObjectLockMode
+
+instance FromXML ObjectLockMode where
+    parseXML = parseXMLText "ObjectLockMode"
+
+instance ToXML ObjectLockMode where
+    toXML = toXMLText
+
+data ObjectLockRetentionMode
+  = OLRMCompliance
+  | OLRMGovernance
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ObjectLockRetentionMode where
+    parser = takeLowerText >>= \case
+        "compliance" -> pure OLRMCompliance
+        "governance" -> pure OLRMGovernance
+        e -> fromTextError $ "Failure parsing ObjectLockRetentionMode from value: '" <> e
+           <> "'. Accepted values: compliance, governance"
+
+instance ToText ObjectLockRetentionMode where
+    toText = \case
+        OLRMCompliance -> "COMPLIANCE"
+        OLRMGovernance -> "GOVERNANCE"
+
+instance Hashable     ObjectLockRetentionMode
+instance NFData       ObjectLockRetentionMode
+instance ToByteString ObjectLockRetentionMode
+instance ToQuery      ObjectLockRetentionMode
+instance ToHeader     ObjectLockRetentionMode
+
+instance FromXML ObjectLockRetentionMode where
+    parseXML = parseXMLText "ObjectLockRetentionMode"
+
+instance ToXML ObjectLockRetentionMode where
     toXML = toXMLText
 
 data ObjectStorageClass
@@ -953,6 +1125,8 @@ instance FromXML ReplicationStatus where
     parseXML = parseXMLText "ReplicationStatus"
 
 -- | If present, indicates that the requester was successfully charged for the request.
+--
+--
 data RequestCharged =
   RCRequester
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -978,6 +1152,8 @@ instance FromXML RequestCharged where
     parseXML = parseXMLText "RequestCharged"
 
 -- | Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html
+--
+--
 data RequestPayer =
   RPRequester
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -1087,7 +1263,9 @@ instance ToXML SseKMSEncryptedObjectsStatus where
     toXML = toXMLText
 
 data StorageClass
-  = OnezoneIA
+  = Glacier
+  | IntelligentTiering
+  | OnezoneIA
   | ReducedRedundancy
   | Standard
   | StandardIA
@@ -1096,15 +1274,19 @@ data StorageClass
 
 instance FromText StorageClass where
     parser = takeLowerText >>= \case
+        "glacier" -> pure Glacier
+        "intelligent_tiering" -> pure IntelligentTiering
         "onezone_ia" -> pure OnezoneIA
         "reduced_redundancy" -> pure ReducedRedundancy
         "standard" -> pure Standard
         "standard_ia" -> pure StandardIA
         e -> fromTextError $ "Failure parsing StorageClass from value: '" <> e
-           <> "'. Accepted values: onezone_ia, reduced_redundancy, standard, standard_ia"
+           <> "'. Accepted values: glacier, intelligent_tiering, onezone_ia, reduced_redundancy, standard, standard_ia"
 
 instance ToText StorageClass where
     toText = \case
+        Glacier -> "GLACIER"
+        IntelligentTiering -> "INTELLIGENT_TIERING"
         OnezoneIA -> "ONEZONE_IA"
         ReducedRedundancy -> "REDUCED_REDUNDANCY"
         Standard -> "STANDARD"
@@ -1208,6 +1390,7 @@ instance ToXML Tier where
 
 data TransitionStorageClass
   = TSCGlacier
+  | TSCIntelligentTiering
   | TSCOnezoneIA
   | TSCStandardIA
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -1216,14 +1399,16 @@ data TransitionStorageClass
 instance FromText TransitionStorageClass where
     parser = takeLowerText >>= \case
         "glacier" -> pure TSCGlacier
+        "intelligent_tiering" -> pure TSCIntelligentTiering
         "onezone_ia" -> pure TSCOnezoneIA
         "standard_ia" -> pure TSCStandardIA
         e -> fromTextError $ "Failure parsing TransitionStorageClass from value: '" <> e
-           <> "'. Accepted values: glacier, onezone_ia, standard_ia"
+           <> "'. Accepted values: glacier, intelligent_tiering, onezone_ia, standard_ia"
 
 instance ToText TransitionStorageClass where
     toText = \case
         TSCGlacier -> "GLACIER"
+        TSCIntelligentTiering -> "INTELLIGENT_TIERING"
         TSCOnezoneIA -> "ONEZONE_IA"
         TSCStandardIA -> "STANDARD_IA"
 

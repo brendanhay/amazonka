@@ -25,6 +25,8 @@
 --
 -- Unlike other operations, @ReEncrypt@ is authorized twice, once as @ReEncryptFrom@ on the source CMK and once as @ReEncryptTo@ on the destination CMK. We recommend that you include the @"kms:ReEncrypt*"@ permission in your <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html key policies> to permit reencryption from or to the CMK. This permission is automatically included in the key policy when you create a CMK through the console, but you must include it manually when you create a CMK programmatically or when you set a key policy with the 'PutKeyPolicy' operation.
 --
+-- The result of this operation varies with the key state of the CMK. For details, see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/ .
+--
 module Network.AWS.KMS.ReEncrypt
     (
     -- * Creating a Request
@@ -170,7 +172,7 @@ data ReEncryptResponse = ReEncryptResponse'
 --
 -- * 'rersKeyId' - Unique identifier of the CMK used to reencrypt the data.
 --
--- * 'rersCiphertextBlob' - The reencrypted data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'rersCiphertextBlob' - The reencrypted data. When you use the HTTP API or the AWS CLI, the value is Base64-encdoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
 -- * 'rersResponseStatus' - -- | The response status code.
 reEncryptResponse
@@ -193,7 +195,7 @@ rersSourceKeyId = lens _rersSourceKeyId (\ s a -> s{_rersSourceKeyId = a})
 rersKeyId :: Lens' ReEncryptResponse (Maybe Text)
 rersKeyId = lens _rersKeyId (\ s a -> s{_rersKeyId = a})
 
--- | The reencrypted data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | The reencrypted data. When you use the HTTP API or the AWS CLI, the value is Base64-encdoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 rersCiphertextBlob :: Lens' ReEncryptResponse (Maybe ByteString)
 rersCiphertextBlob = lens _rersCiphertextBlob (\ s a -> s{_rersCiphertextBlob = a}) . mapping _Base64
 

@@ -13,7 +13,7 @@
 --
 -- __AWS Key Management Service__
 --
--- AWS Key Management Service (AWS KMS) is an encryption and key management web service. This guide describes the AWS KMS operations that you can call programmatically. For general information about AWS KMS, see the <http://docs.aws.amazon.com/kms/latest/developerguide/ AWS Key Management Service Developer Guide> .
+-- AWS Key Management Service (AWS KMS) is an encryption and key management web service. This guide describes the AWS KMS operations that you can call programmatically. For general information about AWS KMS, see the <http://docs.aws.amazon.com/kms/latest/developerguide/ /AWS Key Management Service Developer Guide/ > .
 --
 -- We recommend that you use the AWS SDKs to make programmatic API calls to AWS KMS.
 --
@@ -33,7 +33,7 @@
 --
 -- For more information about credentials and request signing, see the following:
 --
---     * <http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html AWS Security Credentials> - This topic provides general information about the types of credentials used for accessing AWS.
+--     * <http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html AWS Security Credentials> - This topic provides general information about the of credentials used for accessing AWS.
 --
 --     * <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html Temporary Security Credentials> - This section of the /IAM User Guide/ describes how to create and use temporary security credentials.
 --
@@ -75,6 +75,9 @@ module Network.AWS.KMS
     -- ** MalformedPolicyDocumentException
     , _MalformedPolicyDocumentException
 
+    -- ** CustomKeyStoreNameInUseException
+    , _CustomKeyStoreNameInUseException
+
     -- ** UnsupportedOperationException
     , _UnsupportedOperationException
 
@@ -93,14 +96,38 @@ module Network.AWS.KMS
     -- ** TagException
     , _TagException
 
+    -- ** CustomKeyStoreHasCMKsException
+    , _CustomKeyStoreHasCMKsException
+
     -- ** InvalidImportTokenException
     , _InvalidImportTokenException
+
+    -- ** CloudHSMClusterNotRelatedException
+    , _CloudHSMClusterNotRelatedException
+
+    -- ** IncorrectTrustAnchorException
+    , _IncorrectTrustAnchorException
+
+    -- ** CloudHSMClusterInvalidConfigurationException
+    , _CloudHSMClusterInvalidConfigurationException
+
+    -- ** CloudHSMClusterNotActiveException
+    , _CloudHSMClusterNotActiveException
+
+    -- ** CloudHSMClusterNotFoundException
+    , _CloudHSMClusterNotFoundException
 
     -- ** NotFoundException
     , _NotFoundException
 
     -- ** InvalidAliasNameException
     , _InvalidAliasNameException
+
+    -- ** CustomKeyStoreNotFoundException
+    , _CustomKeyStoreNotFoundException
+
+    -- ** CustomKeyStoreInvalidStateException
+    , _CustomKeyStoreInvalidStateException
 
     -- ** InvalidGrantIdException
     , _InvalidGrantIdException
@@ -120,6 +147,9 @@ module Network.AWS.KMS
     -- ** InvalidCiphertextException
     , _InvalidCiphertextException
 
+    -- ** CloudHSMClusterInUseException
+    , _CloudHSMClusterInUseException
+
     -- ** AlreadyExistsException
     , _AlreadyExistsException
 
@@ -135,6 +165,9 @@ module Network.AWS.KMS
     -- ** Encrypt
     , module Network.AWS.KMS.Encrypt
 
+    -- ** CreateCustomKeyStore
+    , module Network.AWS.KMS.CreateCustomKeyStore
+
     -- ** ListGrants (Paginated)
     , module Network.AWS.KMS.ListGrants
 
@@ -144,11 +177,17 @@ module Network.AWS.KMS
     -- ** GenerateDataKeyWithoutPlaintext
     , module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
 
+    -- ** UpdateCustomKeyStore
+    , module Network.AWS.KMS.UpdateCustomKeyStore
+
     -- ** GetParametersForImport
     , module Network.AWS.KMS.GetParametersForImport
 
     -- ** EnableKeyRotation
     , module Network.AWS.KMS.EnableKeyRotation
+
+    -- ** DeleteCustomKeyStore
+    , module Network.AWS.KMS.DeleteCustomKeyStore
 
     -- ** CreateAlias
     , module Network.AWS.KMS.CreateAlias
@@ -158,6 +197,9 @@ module Network.AWS.KMS
 
     -- ** ListAliases (Paginated)
     , module Network.AWS.KMS.ListAliases
+
+    -- ** ConnectCustomKeyStore
+    , module Network.AWS.KMS.ConnectCustomKeyStore
 
     -- ** ListRetirableGrants
     , module Network.AWS.KMS.ListRetirableGrants
@@ -170,6 +212,9 @@ module Network.AWS.KMS
 
     -- ** DisableKey
     , module Network.AWS.KMS.DisableKey
+
+    -- ** DisconnectCustomKeyStore
+    , module Network.AWS.KMS.DisconnectCustomKeyStore
 
     -- ** RetireGrant
     , module Network.AWS.KMS.RetireGrant
@@ -194,6 +239,9 @@ module Network.AWS.KMS
 
     -- ** DescribeKey
     , module Network.AWS.KMS.DescribeKey
+
+    -- ** DescribeCustomKeyStores
+    , module Network.AWS.KMS.DescribeCustomKeyStores
 
     -- ** CancelKeyDeletion
     , module Network.AWS.KMS.CancelKeyDeletion
@@ -242,6 +290,12 @@ module Network.AWS.KMS
     -- ** AlgorithmSpec
     , AlgorithmSpec (..)
 
+    -- ** ConnectionErrorCodeType
+    , ConnectionErrorCodeType (..)
+
+    -- ** ConnectionStateType
+    , ConnectionStateType (..)
+
     -- ** DataKeySpec
     , DataKeySpec (..)
 
@@ -272,6 +326,17 @@ module Network.AWS.KMS
     , aleTargetKeyId
     , aleAliasName
     , aleAliasARN
+
+    -- ** CustomKeyStoresListEntry
+    , CustomKeyStoresListEntry
+    , customKeyStoresListEntry
+    , cksleCustomKeyStoreName
+    , cksleTrustAnchorCertificate
+    , cksleConnectionErrorCode
+    , cksleCreationDate
+    , cksleCloudHSMClusterId
+    , cksleCustomKeyStoreId
+    , cksleConnectionState
 
     -- ** GrantConstraints
     , GrantConstraints
@@ -312,7 +377,9 @@ module Network.AWS.KMS
     , kmKeyUsage
     , kmCreationDate
     , kmDeletionDate
+    , kmCloudHSMClusterId
     , kmDescription
+    , kmCustomKeyStoreId
     , kmKeyId
 
     -- ** ListGrantsResponse
@@ -330,15 +397,20 @@ module Network.AWS.KMS
     ) where
 
 import Network.AWS.KMS.CancelKeyDeletion
+import Network.AWS.KMS.ConnectCustomKeyStore
 import Network.AWS.KMS.CreateAlias
+import Network.AWS.KMS.CreateCustomKeyStore
 import Network.AWS.KMS.CreateGrant
 import Network.AWS.KMS.CreateKey
 import Network.AWS.KMS.Decrypt
 import Network.AWS.KMS.DeleteAlias
+import Network.AWS.KMS.DeleteCustomKeyStore
 import Network.AWS.KMS.DeleteImportedKeyMaterial
+import Network.AWS.KMS.DescribeCustomKeyStores
 import Network.AWS.KMS.DescribeKey
 import Network.AWS.KMS.DisableKey
 import Network.AWS.KMS.DisableKeyRotation
+import Network.AWS.KMS.DisconnectCustomKeyStore
 import Network.AWS.KMS.EnableKey
 import Network.AWS.KMS.EnableKeyRotation
 import Network.AWS.KMS.Encrypt
@@ -364,6 +436,7 @@ import Network.AWS.KMS.TagResource
 import Network.AWS.KMS.Types
 import Network.AWS.KMS.UntagResource
 import Network.AWS.KMS.UpdateAlias
+import Network.AWS.KMS.UpdateCustomKeyStore
 import Network.AWS.KMS.UpdateKeyDescription
 import Network.AWS.KMS.Waiters
 

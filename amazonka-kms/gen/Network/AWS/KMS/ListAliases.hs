@@ -21,7 +21,9 @@
 -- Gets a list of all aliases in the caller's AWS account and region. You cannot list aliases in other accounts. For more information about aliases, see 'CreateAlias' .
 --
 --
--- The response might include several aliases that do not have a @TargetKeyId@ field because they are not associated with a CMK. These are predefined aliases that are reserved for CMKs managed by AWS services. If an alias is not associated with a CMK, the alias does not count against the <http://docs.aws.amazon.com/kms/latest/developerguide/limits.html#aliases-limit alias limit> for your account.
+-- By default, the @ListAliases@ command returns all aliases in the account and region. To get only the aliases that point to a particular customer master key (CMK), use the @KeyId@ parameter.
+--
+-- The @ListAliases@ response might include several aliases have no @TargetKeyId@ field. These are predefined aliases that AWS has created but has not yet associated with a CMK. Aliases that AWS creates in your account, including predefined aliases, do not count against your <http://docs.aws.amazon.com/kms/latest/developerguide/limits.html#aliases-limit AWS KMS aliases limit> .
 --
 --
 -- This operation returns paginated results.
@@ -31,6 +33,7 @@ module Network.AWS.KMS.ListAliases
       listAliases
     , ListAliases
     -- * Request Lenses
+    , laKeyId
     , laMarker
     , laLimit
 
@@ -54,7 +57,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'listAliases' smart constructor.
 data ListAliases = ListAliases'
-  { _laMarker :: !(Maybe Text)
+  { _laKeyId  :: !(Maybe Text)
+  , _laMarker :: !(Maybe Text)
   , _laLimit  :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -63,13 +67,20 @@ data ListAliases = ListAliases'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'laKeyId' - Lists only aliases that refer to the specified CMK. The value of this parameter can be the ID or Amazon Resource Name (ARN) of a CMK in the caller's account and region. You cannot use an alias name or alias ARN in this value. This parameter is optional. If you omit it, @ListAliases@ returns all aliases in the account and region.
+--
 -- * 'laMarker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 --
 -- * 'laLimit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
 listAliases
     :: ListAliases
-listAliases = ListAliases' {_laMarker = Nothing, _laLimit = Nothing}
+listAliases =
+  ListAliases' {_laKeyId = Nothing, _laMarker = Nothing, _laLimit = Nothing}
 
+
+-- | Lists only aliases that refer to the specified CMK. The value of this parameter can be the ID or Amazon Resource Name (ARN) of a CMK in the caller's account and region. You cannot use an alias name or alias ARN in this value. This parameter is optional. If you omit it, @ListAliases@ returns all aliases in the account and region.
+laKeyId :: Lens' ListAliases (Maybe Text)
+laKeyId = lens _laKeyId (\ s a -> s{_laKeyId = a})
 
 -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 laMarker :: Lens' ListAliases (Maybe Text)
@@ -114,7 +125,8 @@ instance ToJSON ListAliases where
         toJSON ListAliases'{..}
           = object
               (catMaybes
-                 [("Marker" .=) <$> _laMarker,
+                 [("KeyId" .=) <$> _laKeyId,
+                  ("Marker" .=) <$> _laMarker,
                   ("Limit" .=) <$> _laLimit])
 
 instance ToPath ListAliases where

@@ -18,10 +18,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a Boolean value that indicates whether automatic rotation of the key material is enabled for the specified customer master key (CMK).
+-- Gets a Boolean value that indicates whether <http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html automatic rotation of the key material> is enabled for the specified customer master key (CMK).
 --
 --
--- To perform this operation on a CMK in a different AWS account, specify the key ARN in the value of the KeyId parameter.
+-- The result of this operation varies with the key state of the CMK. For details, see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/ .
+--
+--     * Disabled: The key rotation status does not change when you disable a CMK. However, while the CMK is disabled, AWS KMS does not rotate the backing key.
+--
+--     * Pending deletion: While a CMK is pending deletion, its key rotation status is @false@ and AWS KMS does not rotate the backing key. If you cancel the deletion, the original key rotation status is restored.
+--
+--
+--
+-- To perform this operation on a CMK in a different AWS account, specify the key ARN in the value of the @KeyId@ parameter.
 --
 module Network.AWS.KMS.GetKeyRotationStatus
     (

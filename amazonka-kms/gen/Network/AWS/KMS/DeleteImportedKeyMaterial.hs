@@ -25,6 +25,8 @@
 --
 -- After you delete key material, you can use 'ImportKeyMaterial' to reimport the same key material into the CMK.
 --
+-- The result of this operation varies with the key state of the CMK. For details, see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/ .
+--
 module Network.AWS.KMS.DeleteImportedKeyMaterial
     (
     -- * Creating a Request

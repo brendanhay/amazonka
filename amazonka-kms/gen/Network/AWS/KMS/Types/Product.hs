@@ -73,6 +73,98 @@ instance Hashable AliasListEntry where
 
 instance NFData AliasListEntry where
 
+-- | Contains information about each custom key store in the custom key store list.
+--
+--
+--
+-- /See:/ 'customKeyStoresListEntry' smart constructor.
+data CustomKeyStoresListEntry = CustomKeyStoresListEntry'
+  { _cksleCustomKeyStoreName     :: !(Maybe Text)
+  , _cksleTrustAnchorCertificate :: !(Maybe Text)
+  , _cksleConnectionErrorCode    :: !(Maybe ConnectionErrorCodeType)
+  , _cksleCreationDate           :: !(Maybe POSIX)
+  , _cksleCloudHSMClusterId      :: !(Maybe Text)
+  , _cksleCustomKeyStoreId       :: !(Maybe Text)
+  , _cksleConnectionState        :: !(Maybe ConnectionStateType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CustomKeyStoresListEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cksleCustomKeyStoreName' - The user-specified friendly name for the custom key store.
+--
+-- * 'cksleTrustAnchorCertificate' - The trust anchor certificate of the associated AWS CloudHSM cluster. When you <http://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr initialize the cluster> , you create this certificate and save it in the @customerCA.crt@ file.
+--
+-- * 'cksleConnectionErrorCode' - Describes the connection error. Valid values are:     * @CLUSTER_NOT_FOUND@ - AWS KMS cannot find the AWS CloudHSM cluster with the specified cluster ID.     * @INSUFFICIENT_CLOUDHSM_HSMS@ - The associated AWS CloudHSM cluster does not contain any active HSMs. To connect a custom key store to its AWS CloudHSM cluster, the cluster must contain at least one active HSM.     * @INVALID_CREDENTIALS@ - AWS KMS does not have the correct password for the @kmsuser@ crypto user in the AWS CloudHSM cluster.     * @NETWORK_ERRORS@ - Network errors are preventing AWS KMS from connecting to the custom key store.     * @USER_LOCKED_OUT@ - The @kmsuser@ CU account is locked out of the associated AWS CloudHSM cluster due to too many failed password attempts. Before you can connect your custom key store to its AWS CloudHSM cluster, you must change the @kmsuser@ account password and update the password value for the custom key store. For help with connection failures, see <http://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html Troubleshooting Custom Key Stores> in the /AWS Key Management Service Developer Guide/ .
+--
+-- * 'cksleCreationDate' - The date and time when the custom key store was created.
+--
+-- * 'cksleCloudHSMClusterId' - A unique identifier for the AWS CloudHSM cluster that is associated with the custom key store.
+--
+-- * 'cksleCustomKeyStoreId' - A unique identifier for the custom key store.
+--
+-- * 'cksleConnectionState' - Indicates whether the custom key store is connected to its AWS CloudHSM cluster. You can create and use CMKs in your custom key stores only when its connection state is @CONNECTED@ . The value is @DISCONNECTED@ if the key store has never been connected or you use the 'DisconnectCustomKeyStore' operation to disconnect it. If the value is @CONNECTED@ but you are having trouble using the custom key store, make sure that its associated AWS CloudHSM cluster is active and contains at least one active HSM. A value of @FAILED@ indicates that an attempt to connect was unsuccessful. For help resolving a connection failure, see <http://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html Troubleshooting a Custom Key Store> in the /AWS Key Management Service Developer Guide/ .
+customKeyStoresListEntry
+    :: CustomKeyStoresListEntry
+customKeyStoresListEntry =
+  CustomKeyStoresListEntry'
+    { _cksleCustomKeyStoreName = Nothing
+    , _cksleTrustAnchorCertificate = Nothing
+    , _cksleConnectionErrorCode = Nothing
+    , _cksleCreationDate = Nothing
+    , _cksleCloudHSMClusterId = Nothing
+    , _cksleCustomKeyStoreId = Nothing
+    , _cksleConnectionState = Nothing
+    }
+
+
+-- | The user-specified friendly name for the custom key store.
+cksleCustomKeyStoreName :: Lens' CustomKeyStoresListEntry (Maybe Text)
+cksleCustomKeyStoreName = lens _cksleCustomKeyStoreName (\ s a -> s{_cksleCustomKeyStoreName = a})
+
+-- | The trust anchor certificate of the associated AWS CloudHSM cluster. When you <http://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr initialize the cluster> , you create this certificate and save it in the @customerCA.crt@ file.
+cksleTrustAnchorCertificate :: Lens' CustomKeyStoresListEntry (Maybe Text)
+cksleTrustAnchorCertificate = lens _cksleTrustAnchorCertificate (\ s a -> s{_cksleTrustAnchorCertificate = a})
+
+-- | Describes the connection error. Valid values are:     * @CLUSTER_NOT_FOUND@ - AWS KMS cannot find the AWS CloudHSM cluster with the specified cluster ID.     * @INSUFFICIENT_CLOUDHSM_HSMS@ - The associated AWS CloudHSM cluster does not contain any active HSMs. To connect a custom key store to its AWS CloudHSM cluster, the cluster must contain at least one active HSM.     * @INVALID_CREDENTIALS@ - AWS KMS does not have the correct password for the @kmsuser@ crypto user in the AWS CloudHSM cluster.     * @NETWORK_ERRORS@ - Network errors are preventing AWS KMS from connecting to the custom key store.     * @USER_LOCKED_OUT@ - The @kmsuser@ CU account is locked out of the associated AWS CloudHSM cluster due to too many failed password attempts. Before you can connect your custom key store to its AWS CloudHSM cluster, you must change the @kmsuser@ account password and update the password value for the custom key store. For help with connection failures, see <http://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html Troubleshooting Custom Key Stores> in the /AWS Key Management Service Developer Guide/ .
+cksleConnectionErrorCode :: Lens' CustomKeyStoresListEntry (Maybe ConnectionErrorCodeType)
+cksleConnectionErrorCode = lens _cksleConnectionErrorCode (\ s a -> s{_cksleConnectionErrorCode = a})
+
+-- | The date and time when the custom key store was created.
+cksleCreationDate :: Lens' CustomKeyStoresListEntry (Maybe UTCTime)
+cksleCreationDate = lens _cksleCreationDate (\ s a -> s{_cksleCreationDate = a}) . mapping _Time
+
+-- | A unique identifier for the AWS CloudHSM cluster that is associated with the custom key store.
+cksleCloudHSMClusterId :: Lens' CustomKeyStoresListEntry (Maybe Text)
+cksleCloudHSMClusterId = lens _cksleCloudHSMClusterId (\ s a -> s{_cksleCloudHSMClusterId = a})
+
+-- | A unique identifier for the custom key store.
+cksleCustomKeyStoreId :: Lens' CustomKeyStoresListEntry (Maybe Text)
+cksleCustomKeyStoreId = lens _cksleCustomKeyStoreId (\ s a -> s{_cksleCustomKeyStoreId = a})
+
+-- | Indicates whether the custom key store is connected to its AWS CloudHSM cluster. You can create and use CMKs in your custom key stores only when its connection state is @CONNECTED@ . The value is @DISCONNECTED@ if the key store has never been connected or you use the 'DisconnectCustomKeyStore' operation to disconnect it. If the value is @CONNECTED@ but you are having trouble using the custom key store, make sure that its associated AWS CloudHSM cluster is active and contains at least one active HSM. A value of @FAILED@ indicates that an attempt to connect was unsuccessful. For help resolving a connection failure, see <http://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html Troubleshooting a Custom Key Store> in the /AWS Key Management Service Developer Guide/ .
+cksleConnectionState :: Lens' CustomKeyStoresListEntry (Maybe ConnectionStateType)
+cksleConnectionState = lens _cksleConnectionState (\ s a -> s{_cksleConnectionState = a})
+
+instance FromJSON CustomKeyStoresListEntry where
+        parseJSON
+          = withObject "CustomKeyStoresListEntry"
+              (\ x ->
+                 CustomKeyStoresListEntry' <$>
+                   (x .:? "CustomKeyStoreName") <*>
+                     (x .:? "TrustAnchorCertificate")
+                     <*> (x .:? "ConnectionErrorCode")
+                     <*> (x .:? "CreationDate")
+                     <*> (x .:? "CloudHsmClusterId")
+                     <*> (x .:? "CustomKeyStoreId")
+                     <*> (x .:? "ConnectionState"))
+
+instance Hashable CustomKeyStoresListEntry where
+
+instance NFData CustomKeyStoresListEntry where
+
 -- | A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see <http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html Encryption Context> in the /AWS Key Management Service Developer Guide/ .
 --
 --
@@ -288,19 +380,21 @@ instance NFData KeyListEntry where
 --
 -- /See:/ 'keyMetadata' smart constructor.
 data KeyMetadata = KeyMetadata'
-  { _kmOrigin          :: !(Maybe OriginType)
-  , _kmExpirationModel :: !(Maybe ExpirationModelType)
-  , _kmKeyManager      :: !(Maybe KeyManagerType)
-  , _kmEnabled         :: !(Maybe Bool)
-  , _kmValidTo         :: !(Maybe POSIX)
-  , _kmARN             :: !(Maybe Text)
-  , _kmKeyState        :: !(Maybe KeyState)
-  , _kmAWSAccountId    :: !(Maybe Text)
-  , _kmKeyUsage        :: !(Maybe KeyUsageType)
-  , _kmCreationDate    :: !(Maybe POSIX)
-  , _kmDeletionDate    :: !(Maybe POSIX)
-  , _kmDescription     :: !(Maybe Text)
-  , _kmKeyId           :: !Text
+  { _kmOrigin            :: !(Maybe OriginType)
+  , _kmExpirationModel   :: !(Maybe ExpirationModelType)
+  , _kmKeyManager        :: !(Maybe KeyManagerType)
+  , _kmEnabled           :: !(Maybe Bool)
+  , _kmValidTo           :: !(Maybe POSIX)
+  , _kmARN               :: !(Maybe Text)
+  , _kmKeyState          :: !(Maybe KeyState)
+  , _kmAWSAccountId      :: !(Maybe Text)
+  , _kmKeyUsage          :: !(Maybe KeyUsageType)
+  , _kmCreationDate      :: !(Maybe POSIX)
+  , _kmDeletionDate      :: !(Maybe POSIX)
+  , _kmCloudHSMClusterId :: !(Maybe Text)
+  , _kmDescription       :: !(Maybe Text)
+  , _kmCustomKeyStoreId  :: !(Maybe Text)
+  , _kmKeyId             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -308,7 +402,7 @@ data KeyMetadata = KeyMetadata'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'kmOrigin' - The source of the CMK's key material. When this value is @AWS_KMS@ , AWS KMS created the key material. When this value is @EXTERNAL@ , the key material was imported from your existing key management infrastructure or the CMK lacks key material.
+-- * 'kmOrigin' - The source of the CMK's key material. When this value is @AWS_KMS@ , AWS KMS created the key material. When this value is @EXTERNAL@ , the key material was imported from your existing key management infrastructure or the CMK lacks key material. When this value is @AWS_CLOUDHSM@ , the key material was created in the AWS CloudHSM cluster associated with a custom key store.
 --
 -- * 'kmExpirationModel' - Specifies whether the CMK's key material expires. This value is present only when @Origin@ is @EXTERNAL@ , otherwise this value is omitted.
 --
@@ -328,9 +422,13 @@ data KeyMetadata = KeyMetadata'
 --
 -- * 'kmCreationDate' - The date and time when the CMK was created.
 --
--- * 'kmDeletionDate' - The date and time after which AWS KMS deletes the CMK. This value is present only when @KeyState@ is @PendingDeletion@ , otherwise this value is omitted.
+-- * 'kmDeletionDate' - The date and time after which AWS KMS deletes the CMK. This value is present only when @KeyState@ is @PendingDeletion@ .
+--
+-- * 'kmCloudHSMClusterId' - The cluster ID of the AWS CloudHSM cluster that contains the key material for the CMK. When you create a CMK in a <http://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html custom key store> , AWS KMS creates the key material for the CMK in the associated AWS CloudHSM cluster. This value is present only when the CMK is created in a custom key store.
 --
 -- * 'kmDescription' - The description of the CMK.
+--
+-- * 'kmCustomKeyStoreId' - A unique identifier for the <http://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html custom key store> that contains the CMK. This value is present only when the CMK is created in a custom key store.
 --
 -- * 'kmKeyId' - The globally unique identifier for the CMK.
 keyMetadata
@@ -349,12 +447,14 @@ keyMetadata pKeyId_ =
     , _kmKeyUsage = Nothing
     , _kmCreationDate = Nothing
     , _kmDeletionDate = Nothing
+    , _kmCloudHSMClusterId = Nothing
     , _kmDescription = Nothing
+    , _kmCustomKeyStoreId = Nothing
     , _kmKeyId = pKeyId_
     }
 
 
--- | The source of the CMK's key material. When this value is @AWS_KMS@ , AWS KMS created the key material. When this value is @EXTERNAL@ , the key material was imported from your existing key management infrastructure or the CMK lacks key material.
+-- | The source of the CMK's key material. When this value is @AWS_KMS@ , AWS KMS created the key material. When this value is @EXTERNAL@ , the key material was imported from your existing key management infrastructure or the CMK lacks key material. When this value is @AWS_CLOUDHSM@ , the key material was created in the AWS CloudHSM cluster associated with a custom key store.
 kmOrigin :: Lens' KeyMetadata (Maybe OriginType)
 kmOrigin = lens _kmOrigin (\ s a -> s{_kmOrigin = a})
 
@@ -394,13 +494,21 @@ kmKeyUsage = lens _kmKeyUsage (\ s a -> s{_kmKeyUsage = a})
 kmCreationDate :: Lens' KeyMetadata (Maybe UTCTime)
 kmCreationDate = lens _kmCreationDate (\ s a -> s{_kmCreationDate = a}) . mapping _Time
 
--- | The date and time after which AWS KMS deletes the CMK. This value is present only when @KeyState@ is @PendingDeletion@ , otherwise this value is omitted.
+-- | The date and time after which AWS KMS deletes the CMK. This value is present only when @KeyState@ is @PendingDeletion@ .
 kmDeletionDate :: Lens' KeyMetadata (Maybe UTCTime)
 kmDeletionDate = lens _kmDeletionDate (\ s a -> s{_kmDeletionDate = a}) . mapping _Time
+
+-- | The cluster ID of the AWS CloudHSM cluster that contains the key material for the CMK. When you create a CMK in a <http://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html custom key store> , AWS KMS creates the key material for the CMK in the associated AWS CloudHSM cluster. This value is present only when the CMK is created in a custom key store.
+kmCloudHSMClusterId :: Lens' KeyMetadata (Maybe Text)
+kmCloudHSMClusterId = lens _kmCloudHSMClusterId (\ s a -> s{_kmCloudHSMClusterId = a})
 
 -- | The description of the CMK.
 kmDescription :: Lens' KeyMetadata (Maybe Text)
 kmDescription = lens _kmDescription (\ s a -> s{_kmDescription = a})
+
+-- | A unique identifier for the <http://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html custom key store> that contains the CMK. This value is present only when the CMK is created in a custom key store.
+kmCustomKeyStoreId :: Lens' KeyMetadata (Maybe Text)
+kmCustomKeyStoreId = lens _kmCustomKeyStoreId (\ s a -> s{_kmCustomKeyStoreId = a})
 
 -- | The globally unique identifier for the CMK.
 kmKeyId :: Lens' KeyMetadata Text
@@ -421,7 +529,9 @@ instance FromJSON KeyMetadata where
                      <*> (x .:? "KeyUsage")
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "DeletionDate")
+                     <*> (x .:? "CloudHsmClusterId")
                      <*> (x .:? "Description")
+                     <*> (x .:? "CustomKeyStoreId")
                      <*> (x .: "KeyId"))
 
 instance Hashable KeyMetadata where

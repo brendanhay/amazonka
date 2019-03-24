@@ -21,7 +21,9 @@
 -- Adds a grant to a customer master key (CMK). The grant specifies who can use the CMK and under what conditions. When setting permissions, grants are an alternative to key policies.
 --
 --
--- To perform this operation on a CMK in a different AWS account, specify the key ARN in the value of the KeyId parameter. For more information about grants, see <http://docs.aws.amazon.com/kms/latest/developerguide/grants.html Grants> in the /AWS Key Management Service Developer Guide/ .
+-- To perform this operation on a CMK in a different AWS account, specify the key ARN in the value of the @KeyId@ parameter. For more information about grants, see <http://docs.aws.amazon.com/kms/latest/developerguide/grants.html Grants> in the /AWS Key Management Service Developer Guide/ .
+--
+-- The result of this operation varies with the key state of the CMK. For details, see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/ .
 --
 module Network.AWS.KMS.CreateGrant
     (

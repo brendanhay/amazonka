@@ -31,6 +31,9 @@ import Test.Tasty
 --         [ requestEncrypt $
 --             encrypt
 --
+--         , requestCreateCustomKeyStore $
+--             createCustomKeyStore
+--
 --         , requestListGrants $
 --             listGrants
 --
@@ -40,11 +43,17 @@ import Test.Tasty
 --         , requestGenerateDataKeyWithoutPlaintext $
 --             generateDataKeyWithoutPlaintext
 --
+--         , requestUpdateCustomKeyStore $
+--             updateCustomKeyStore
+--
 --         , requestGetParametersForImport $
 --             getParametersForImport
 --
 --         , requestEnableKeyRotation $
 --             enableKeyRotation
+--
+--         , requestDeleteCustomKeyStore $
+--             deleteCustomKeyStore
 --
 --         , requestCreateAlias $
 --             createAlias
@@ -54,6 +63,9 @@ import Test.Tasty
 --
 --         , requestListAliases $
 --             listAliases
+--
+--         , requestConnectCustomKeyStore $
+--             connectCustomKeyStore
 --
 --         , requestListRetirableGrants $
 --             listRetirableGrants
@@ -66,6 +78,9 @@ import Test.Tasty
 --
 --         , requestDisableKey $
 --             disableKey
+--
+--         , requestDisconnectCustomKeyStore $
+--             disconnectCustomKeyStore
 --
 --         , requestRetireGrant $
 --             retireGrant
@@ -90,6 +105,9 @@ import Test.Tasty
 --
 --         , requestDescribeKey $
 --             describeKey
+--
+--         , requestDescribeCustomKeyStores $
+--             describeCustomKeyStores
 --
 --         , requestCancelKeyDeletion $
 --             cancelKeyDeletion
@@ -139,6 +157,9 @@ import Test.Tasty
 --         [ responseEncrypt $
 --             encryptResponse
 --
+--         , responseCreateCustomKeyStore $
+--             createCustomKeyStoreResponse
+--
 --         , responseListGrants $
 --             listGrantsResponse
 --
@@ -148,11 +169,17 @@ import Test.Tasty
 --         , responseGenerateDataKeyWithoutPlaintext $
 --             generateDataKeyWithoutPlaintextResponse
 --
+--         , responseUpdateCustomKeyStore $
+--             updateCustomKeyStoreResponse
+--
 --         , responseGetParametersForImport $
 --             getParametersForImportResponse
 --
 --         , responseEnableKeyRotation $
 --             enableKeyRotationResponse
+--
+--         , responseDeleteCustomKeyStore $
+--             deleteCustomKeyStoreResponse
 --
 --         , responseCreateAlias $
 --             createAliasResponse
@@ -162,6 +189,9 @@ import Test.Tasty
 --
 --         , responseListAliases $
 --             listAliasesResponse
+--
+--         , responseConnectCustomKeyStore $
+--             connectCustomKeyStoreResponse
 --
 --         , responseListRetirableGrants $
 --             listGrantsResponse
@@ -174,6 +204,9 @@ import Test.Tasty
 --
 --         , responseDisableKey $
 --             disableKeyResponse
+--
+--         , responseDisconnectCustomKeyStore $
+--             disconnectCustomKeyStoreResponse
 --
 --         , responseRetireGrant $
 --             retireGrantResponse
@@ -198,6 +231,9 @@ import Test.Tasty
 --
 --         , responseDescribeKey $
 --             describeKeyResponse
+--
+--         , responseDescribeCustomKeyStores $
+--             describeCustomKeyStoresResponse
 --
 --         , responseCancelKeyDeletion $
 --             cancelKeyDeletionResponse
@@ -251,6 +287,11 @@ requestEncrypt = req
     "Encrypt"
     "fixture/Encrypt.yaml"
 
+requestCreateCustomKeyStore :: CreateCustomKeyStore -> TestTree
+requestCreateCustomKeyStore = req
+    "CreateCustomKeyStore"
+    "fixture/CreateCustomKeyStore.yaml"
+
 requestListGrants :: ListGrants -> TestTree
 requestListGrants = req
     "ListGrants"
@@ -266,6 +307,11 @@ requestGenerateDataKeyWithoutPlaintext = req
     "GenerateDataKeyWithoutPlaintext"
     "fixture/GenerateDataKeyWithoutPlaintext.yaml"
 
+requestUpdateCustomKeyStore :: UpdateCustomKeyStore -> TestTree
+requestUpdateCustomKeyStore = req
+    "UpdateCustomKeyStore"
+    "fixture/UpdateCustomKeyStore.yaml"
+
 requestGetParametersForImport :: GetParametersForImport -> TestTree
 requestGetParametersForImport = req
     "GetParametersForImport"
@@ -275,6 +321,11 @@ requestEnableKeyRotation :: EnableKeyRotation -> TestTree
 requestEnableKeyRotation = req
     "EnableKeyRotation"
     "fixture/EnableKeyRotation.yaml"
+
+requestDeleteCustomKeyStore :: DeleteCustomKeyStore -> TestTree
+requestDeleteCustomKeyStore = req
+    "DeleteCustomKeyStore"
+    "fixture/DeleteCustomKeyStore.yaml"
 
 requestCreateAlias :: CreateAlias -> TestTree
 requestCreateAlias = req
@@ -290,6 +341,11 @@ requestListAliases :: ListAliases -> TestTree
 requestListAliases = req
     "ListAliases"
     "fixture/ListAliases.yaml"
+
+requestConnectCustomKeyStore :: ConnectCustomKeyStore -> TestTree
+requestConnectCustomKeyStore = req
+    "ConnectCustomKeyStore"
+    "fixture/ConnectCustomKeyStore.yaml"
 
 requestListRetirableGrants :: ListRetirableGrants -> TestTree
 requestListRetirableGrants = req
@@ -310,6 +366,11 @@ requestDisableKey :: DisableKey -> TestTree
 requestDisableKey = req
     "DisableKey"
     "fixture/DisableKey.yaml"
+
+requestDisconnectCustomKeyStore :: DisconnectCustomKeyStore -> TestTree
+requestDisconnectCustomKeyStore = req
+    "DisconnectCustomKeyStore"
+    "fixture/DisconnectCustomKeyStore.yaml"
 
 requestRetireGrant :: RetireGrant -> TestTree
 requestRetireGrant = req
@@ -350,6 +411,11 @@ requestDescribeKey :: DescribeKey -> TestTree
 requestDescribeKey = req
     "DescribeKey"
     "fixture/DescribeKey.yaml"
+
+requestDescribeCustomKeyStores :: DescribeCustomKeyStores -> TestTree
+requestDescribeCustomKeyStores = req
+    "DescribeCustomKeyStores"
+    "fixture/DescribeCustomKeyStores.yaml"
 
 requestCancelKeyDeletion :: CancelKeyDeletion -> TestTree
 requestCancelKeyDeletion = req
@@ -430,6 +496,13 @@ responseEncrypt = res
     kms
     (Proxy :: Proxy Encrypt)
 
+responseCreateCustomKeyStore :: CreateCustomKeyStoreResponse -> TestTree
+responseCreateCustomKeyStore = res
+    "CreateCustomKeyStoreResponse"
+    "fixture/CreateCustomKeyStoreResponse.proto"
+    kms
+    (Proxy :: Proxy CreateCustomKeyStore)
+
 responseListGrants :: ListGrantsResponse -> TestTree
 responseListGrants = res
     "ListGrantsResponse"
@@ -451,6 +524,13 @@ responseGenerateDataKeyWithoutPlaintext = res
     kms
     (Proxy :: Proxy GenerateDataKeyWithoutPlaintext)
 
+responseUpdateCustomKeyStore :: UpdateCustomKeyStoreResponse -> TestTree
+responseUpdateCustomKeyStore = res
+    "UpdateCustomKeyStoreResponse"
+    "fixture/UpdateCustomKeyStoreResponse.proto"
+    kms
+    (Proxy :: Proxy UpdateCustomKeyStore)
+
 responseGetParametersForImport :: GetParametersForImportResponse -> TestTree
 responseGetParametersForImport = res
     "GetParametersForImportResponse"
@@ -464,6 +544,13 @@ responseEnableKeyRotation = res
     "fixture/EnableKeyRotationResponse.proto"
     kms
     (Proxy :: Proxy EnableKeyRotation)
+
+responseDeleteCustomKeyStore :: DeleteCustomKeyStoreResponse -> TestTree
+responseDeleteCustomKeyStore = res
+    "DeleteCustomKeyStoreResponse"
+    "fixture/DeleteCustomKeyStoreResponse.proto"
+    kms
+    (Proxy :: Proxy DeleteCustomKeyStore)
 
 responseCreateAlias :: CreateAliasResponse -> TestTree
 responseCreateAlias = res
@@ -485,6 +572,13 @@ responseListAliases = res
     "fixture/ListAliasesResponse.proto"
     kms
     (Proxy :: Proxy ListAliases)
+
+responseConnectCustomKeyStore :: ConnectCustomKeyStoreResponse -> TestTree
+responseConnectCustomKeyStore = res
+    "ConnectCustomKeyStoreResponse"
+    "fixture/ConnectCustomKeyStoreResponse.proto"
+    kms
+    (Proxy :: Proxy ConnectCustomKeyStore)
 
 responseListRetirableGrants :: ListGrantsResponse -> TestTree
 responseListRetirableGrants = res
@@ -513,6 +607,13 @@ responseDisableKey = res
     "fixture/DisableKeyResponse.proto"
     kms
     (Proxy :: Proxy DisableKey)
+
+responseDisconnectCustomKeyStore :: DisconnectCustomKeyStoreResponse -> TestTree
+responseDisconnectCustomKeyStore = res
+    "DisconnectCustomKeyStoreResponse"
+    "fixture/DisconnectCustomKeyStoreResponse.proto"
+    kms
+    (Proxy :: Proxy DisconnectCustomKeyStore)
 
 responseRetireGrant :: RetireGrantResponse -> TestTree
 responseRetireGrant = res
@@ -569,6 +670,13 @@ responseDescribeKey = res
     "fixture/DescribeKeyResponse.proto"
     kms
     (Proxy :: Proxy DescribeKey)
+
+responseDescribeCustomKeyStores :: DescribeCustomKeyStoresResponse -> TestTree
+responseDescribeCustomKeyStores = res
+    "DescribeCustomKeyStoresResponse"
+    "fixture/DescribeCustomKeyStoresResponse.proto"
+    kms
+    (Proxy :: Proxy DescribeCustomKeyStores)
 
 responseCancelKeyDeletion :: CancelKeyDeletionResponse -> TestTree
 responseCancelKeyDeletion = res

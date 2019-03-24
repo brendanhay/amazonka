@@ -31,6 +31,8 @@
 --
 -- Note that if a caller has been granted access permissions to all keys (through, for example, IAM user policies that grant @Decrypt@ permission on all resources), then ciphertext encrypted by using keys in other accounts where the key grants access to the caller can be decrypted. To remedy this, we recommend that you do not grant @Decrypt@ access in an IAM user policy. Instead grant @Decrypt@ access only in key policies. If you must grant @Decrypt@ access in an IAM user policy, you should scope the resource to specific keys or to specific trusted accounts.
 --
+-- The result of this operation varies with the key state of the CMK. For details, see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/ .
+--
 module Network.AWS.KMS.Decrypt
     (
     -- * Creating a Request
@@ -148,7 +150,7 @@ data DecryptResponse = DecryptResponse'
 --
 -- * 'drsKeyId' - ARN of the key used to perform the decryption. This value is returned if no errors are encountered during the operation.
 --
--- * 'drsPlaintext' - Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'drsPlaintext' - Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the value is Base64-encdoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
 -- * 'drsResponseStatus' - -- | The response status code.
 decryptResponse
@@ -166,7 +168,7 @@ decryptResponse pResponseStatus_ =
 drsKeyId :: Lens' DecryptResponse (Maybe Text)
 drsKeyId = lens _drsKeyId (\ s a -> s{_drsKeyId = a})
 
--- | Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the value is Base64-encdoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 drsPlaintext :: Lens' DecryptResponse (Maybe ByteString)
 drsPlaintext = lens _drsPlaintext (\ s a -> s{_drsPlaintext = a}) . mapping (_Sensitive . _Base64)
 

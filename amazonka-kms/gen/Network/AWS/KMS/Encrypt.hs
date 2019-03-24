@@ -33,6 +33,8 @@
 --
 -- To encrypt data locally in your application, use the 'GenerateDataKey' operation to return a plaintext data encryption key and a copy of the key encrypted under the CMK of your choosing.
 --
+-- The result of this operation varies with the key state of the CMK. For details, see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/ .
+--
 module Network.AWS.KMS.Encrypt
     (
     -- * Creating a Request
@@ -161,7 +163,7 @@ data EncryptResponse = EncryptResponse'
 --
 -- * 'ersKeyId' - The ID of the key used during encryption.
 --
--- * 'ersCiphertextBlob' - The encrypted plaintext. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'ersCiphertextBlob' - The encrypted plaintext. When you use the HTTP API or the AWS CLI, the value is Base64-encdoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
 -- * 'ersResponseStatus' - -- | The response status code.
 encryptResponse
@@ -179,7 +181,7 @@ encryptResponse pResponseStatus_ =
 ersKeyId :: Lens' EncryptResponse (Maybe Text)
 ersKeyId = lens _ersKeyId (\ s a -> s{_ersKeyId = a})
 
--- | The encrypted plaintext. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | The encrypted plaintext. When you use the HTTP API or the AWS CLI, the value is Base64-encdoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 ersCiphertextBlob :: Lens' EncryptResponse (Maybe ByteString)
 ersCiphertextBlob = lens _ersCiphertextBlob (\ s a -> s{_ersCiphertextBlob = a}) . mapping _Base64
 

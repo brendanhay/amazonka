@@ -46,15 +46,20 @@ library
     exposed-modules:
           Network.AWS.KMS
         , Network.AWS.KMS.CancelKeyDeletion
+        , Network.AWS.KMS.ConnectCustomKeyStore
         , Network.AWS.KMS.CreateAlias
+        , Network.AWS.KMS.CreateCustomKeyStore
         , Network.AWS.KMS.CreateGrant
         , Network.AWS.KMS.CreateKey
         , Network.AWS.KMS.Decrypt
         , Network.AWS.KMS.DeleteAlias
+        , Network.AWS.KMS.DeleteCustomKeyStore
         , Network.AWS.KMS.DeleteImportedKeyMaterial
+        , Network.AWS.KMS.DescribeCustomKeyStores
         , Network.AWS.KMS.DescribeKey
         , Network.AWS.KMS.DisableKey
         , Network.AWS.KMS.DisableKeyRotation
+        , Network.AWS.KMS.DisconnectCustomKeyStore
         , Network.AWS.KMS.EnableKey
         , Network.AWS.KMS.EnableKeyRotation
         , Network.AWS.KMS.Encrypt
@@ -80,6 +85,7 @@ library
         , Network.AWS.KMS.Types
         , Network.AWS.KMS.UntagResource
         , Network.AWS.KMS.UpdateAlias
+        , Network.AWS.KMS.UpdateCustomKeyStore
         , Network.AWS.KMS.UpdateKeyDescription
         , Network.AWS.KMS.Waiters
 

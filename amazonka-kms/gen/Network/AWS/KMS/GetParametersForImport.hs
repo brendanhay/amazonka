@@ -25,6 +25,8 @@
 --
 -- This operation returns a public key and an import token. Use the public key to encrypt the key material. Store the import token to send with a subsequent 'ImportKeyMaterial' request. The public key and import token from the same response must be used together. These items are valid for 24 hours. When they expire, they cannot be used for a subsequent 'ImportKeyMaterial' request. To get new ones, send another @GetParametersForImport@ request.
 --
+-- The result of this operation varies with the key state of the CMK. For details, see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/ .
+--
 module Network.AWS.KMS.GetParametersForImport
     (
     -- * Creating a Request

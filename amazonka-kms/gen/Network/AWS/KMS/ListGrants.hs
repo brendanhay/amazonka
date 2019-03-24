@@ -21,7 +21,7 @@
 -- Gets a list of all grants for the specified customer master key (CMK).
 --
 --
--- To perform this operation on a CMK in a different AWS account, specify the key ARN in the value of the KeyId parameter.
+-- To perform this operation on a CMK in a different AWS account, specify the key ARN in the value of the @KeyId@ parameter.
 --
 --
 -- This operation returns paginated results.

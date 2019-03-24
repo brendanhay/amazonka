@@ -18,14 +18,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or overwrites one or more tags for the specified customer master key (CMK). You cannot perform this operation on a CMK in a different AWS account.
+-- Adds or edits tags for a customer master key (CMK). You cannot perform this operation on a CMK in a different AWS account.
 --
 --
 -- Each tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
 --
--- You cannot use the same tag key more than once per CMK. For example, consider a CMK with one tag whose tag key is @Purpose@ and tag value is @Test@ . If you send a @TagResource@ request for this CMK with a tag key of @Purpose@ and a tag value of @Prod@ , it does not create a second tag. Instead, the original tag is overwritten with the new tag value.
+-- You can only use a tag key once for each CMK. If you use the tag key again, AWS KMS replaces the current tag value with the specified value.
 --
 -- For information about the rules that apply to tag keys and tag values, see <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html User-Defined Tag Restrictions> in the /AWS Billing and Cost Management User Guide/ .
+--
+-- The result of this operation varies with the key state of the CMK. For details, see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/ .
 --
 module Network.AWS.KMS.TagResource
     (

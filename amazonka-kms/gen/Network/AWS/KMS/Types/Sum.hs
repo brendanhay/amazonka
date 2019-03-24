@@ -49,6 +49,78 @@ instance ToHeader     AlgorithmSpec
 instance ToJSON AlgorithmSpec where
     toJSON = toJSONText
 
+data ConnectionErrorCodeType
+  = ClusterNotFound
+  | InsufficientCloudhsmHSMs
+  | InvalidCredentials
+  | NetworkErrors
+  | UserLockedOut
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ConnectionErrorCodeType where
+    parser = takeLowerText >>= \case
+        "cluster_not_found" -> pure ClusterNotFound
+        "insufficient_cloudhsm_hsms" -> pure InsufficientCloudhsmHSMs
+        "invalid_credentials" -> pure InvalidCredentials
+        "network_errors" -> pure NetworkErrors
+        "user_locked_out" -> pure UserLockedOut
+        e -> fromTextError $ "Failure parsing ConnectionErrorCodeType from value: '" <> e
+           <> "'. Accepted values: cluster_not_found, insufficient_cloudhsm_hsms, invalid_credentials, network_errors, user_locked_out"
+
+instance ToText ConnectionErrorCodeType where
+    toText = \case
+        ClusterNotFound -> "CLUSTER_NOT_FOUND"
+        InsufficientCloudhsmHSMs -> "INSUFFICIENT_CLOUDHSM_HSMS"
+        InvalidCredentials -> "INVALID_CREDENTIALS"
+        NetworkErrors -> "NETWORK_ERRORS"
+        UserLockedOut -> "USER_LOCKED_OUT"
+
+instance Hashable     ConnectionErrorCodeType
+instance NFData       ConnectionErrorCodeType
+instance ToByteString ConnectionErrorCodeType
+instance ToQuery      ConnectionErrorCodeType
+instance ToHeader     ConnectionErrorCodeType
+
+instance FromJSON ConnectionErrorCodeType where
+    parseJSON = parseJSONText "ConnectionErrorCodeType"
+
+data ConnectionStateType
+  = Connected
+  | Connecting
+  | Disconnected
+  | Disconnecting
+  | Failed
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ConnectionStateType where
+    parser = takeLowerText >>= \case
+        "connected" -> pure Connected
+        "connecting" -> pure Connecting
+        "disconnected" -> pure Disconnected
+        "disconnecting" -> pure Disconnecting
+        "failed" -> pure Failed
+        e -> fromTextError $ "Failure parsing ConnectionStateType from value: '" <> e
+           <> "'. Accepted values: connected, connecting, disconnected, disconnecting, failed"
+
+instance ToText ConnectionStateType where
+    toText = \case
+        Connected -> "CONNECTED"
+        Connecting -> "CONNECTING"
+        Disconnected -> "DISCONNECTED"
+        Disconnecting -> "DISCONNECTING"
+        Failed -> "FAILED"
+
+instance Hashable     ConnectionStateType
+instance NFData       ConnectionStateType
+instance ToByteString ConnectionStateType
+instance ToQuery      ConnectionStateType
+instance ToHeader     ConnectionStateType
+
+instance FromJSON ConnectionStateType where
+    parseJSON = parseJSONText "ConnectionStateType"
+
 data DataKeySpec
   = AES128
   | AES256
@@ -189,6 +261,7 @@ data KeyState
   | Enabled
   | PendingDeletion
   | PendingImport
+  | Unavailable
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -198,8 +271,9 @@ instance FromText KeyState where
         "enabled" -> pure Enabled
         "pendingdeletion" -> pure PendingDeletion
         "pendingimport" -> pure PendingImport
+        "unavailable" -> pure Unavailable
         e -> fromTextError $ "Failure parsing KeyState from value: '" <> e
-           <> "'. Accepted values: disabled, enabled, pendingdeletion, pendingimport"
+           <> "'. Accepted values: disabled, enabled, pendingdeletion, pendingimport, unavailable"
 
 instance ToText KeyState where
     toText = \case
@@ -207,6 +281,7 @@ instance ToText KeyState where
         Enabled -> "Enabled"
         PendingDeletion -> "PendingDeletion"
         PendingImport -> "PendingImport"
+        Unavailable -> "Unavailable"
 
 instance Hashable     KeyState
 instance NFData       KeyState
@@ -245,20 +320,23 @@ instance FromJSON KeyUsageType where
     parseJSON = parseJSONText "KeyUsageType"
 
 data OriginType
-  = AWSKMS
+  = AWSCloudhsm
+  | AWSKMS
   | External
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText OriginType where
     parser = takeLowerText >>= \case
+        "aws_cloudhsm" -> pure AWSCloudhsm
         "aws_kms" -> pure AWSKMS
         "external" -> pure External
         e -> fromTextError $ "Failure parsing OriginType from value: '" <> e
-           <> "'. Accepted values: aws_kms, external"
+           <> "'. Accepted values: aws_cloudhsm, aws_kms, external"
 
 instance ToText OriginType where
     toText = \case
+        AWSCloudhsm -> "AWS_CLOUDHSM"
         AWSKMS -> "AWS_KMS"
         External -> "EXTERNAL"
 

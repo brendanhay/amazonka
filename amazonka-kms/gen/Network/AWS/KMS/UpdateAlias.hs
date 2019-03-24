@@ -27,6 +27,8 @@
 --
 -- An alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). An alias must start with the word @alias@ followed by a forward slash (@alias/@ ). The alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). Alias names cannot begin with @aws@ ; that alias name prefix is reserved by Amazon Web Services (AWS).
 --
+-- The result of this operation varies with the key state of the CMK. For details, see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/ .
+--
 module Network.AWS.KMS.UpdateAlias
     (
     -- * Creating a Request

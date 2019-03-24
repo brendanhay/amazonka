@@ -117,3 +117,63 @@ instance ToHeader     QueryExecutionState
 
 instance FromJSON QueryExecutionState where
     parseJSON = parseJSONText "QueryExecutionState"
+
+data StatementType
+  = Ddl
+  | Dml
+  | Utility
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText StatementType where
+    parser = takeLowerText >>= \case
+        "ddl" -> pure Ddl
+        "dml" -> pure Dml
+        "utility" -> pure Utility
+        e -> fromTextError $ "Failure parsing StatementType from value: '" <> e
+           <> "'. Accepted values: ddl, dml, utility"
+
+instance ToText StatementType where
+    toText = \case
+        Ddl -> "DDL"
+        Dml -> "DML"
+        Utility -> "UTILITY"
+
+instance Hashable     StatementType
+instance NFData       StatementType
+instance ToByteString StatementType
+instance ToQuery      StatementType
+instance ToHeader     StatementType
+
+instance FromJSON StatementType where
+    parseJSON = parseJSONText "StatementType"
+
+data WorkGroupState
+  = Disabled
+  | Enabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText WorkGroupState where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure Disabled
+        "enabled" -> pure Enabled
+        e -> fromTextError $ "Failure parsing WorkGroupState from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText WorkGroupState where
+    toText = \case
+        Disabled -> "DISABLED"
+        Enabled -> "ENABLED"
+
+instance Hashable     WorkGroupState
+instance NFData       WorkGroupState
+instance ToByteString WorkGroupState
+instance ToQuery      WorkGroupState
+instance ToHeader     WorkGroupState
+
+instance ToJSON WorkGroupState where
+    toJSON = toJSONText
+
+instance FromJSON WorkGroupState where
+    parseJSON = parseJSONText "WorkGroupState"

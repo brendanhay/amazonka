@@ -28,8 +28,17 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetNamedQuery $
+--         [ requestDeleteWorkGroup $
+--             deleteWorkGroup
+--
+--         , requestUpdateWorkGroup $
+--             updateWorkGroup
+--
+--         , requestGetNamedQuery $
 --             getNamedQuery
+--
+--         , requestListTagsForResource $
+--             listTagsForResource
 --
 --         , requestCreateNamedQuery $
 --             createNamedQuery
@@ -49,11 +58,26 @@ import Test.Tasty
 --         , requestGetQueryExecution $
 --             getQueryExecution
 --
+--         , requestListWorkGroups $
+--             listWorkGroups
+--
+--         , requestCreateWorkGroup $
+--             createWorkGroup
+--
 --         , requestBatchGetQueryExecution $
 --             batchGetQueryExecution
 --
 --         , requestStopQueryExecution $
 --             stopQueryExecution
+--
+--         , requestTagResource $
+--             tagResource
+--
+--         , requestGetWorkGroup $
+--             getWorkGroup
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestGetQueryResults $
 --             getQueryResults
@@ -64,8 +88,17 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseGetNamedQuery $
+--         [ responseDeleteWorkGroup $
+--             deleteWorkGroupResponse
+--
+--         , responseUpdateWorkGroup $
+--             updateWorkGroupResponse
+--
+--         , responseGetNamedQuery $
 --             getNamedQueryResponse
+--
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
 --
 --         , responseCreateNamedQuery $
 --             createNamedQueryResponse
@@ -85,11 +118,26 @@ import Test.Tasty
 --         , responseGetQueryExecution $
 --             getQueryExecutionResponse
 --
+--         , responseListWorkGroups $
+--             listWorkGroupsResponse
+--
+--         , responseCreateWorkGroup $
+--             createWorkGroupResponse
+--
 --         , responseBatchGetQueryExecution $
 --             batchGetQueryExecutionResponse
 --
 --         , responseStopQueryExecution $
 --             stopQueryExecutionResponse
+--
+--         , responseTagResource $
+--             tagResourceResponse
+--
+--         , responseGetWorkGroup $
+--             getWorkGroupResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responseGetQueryResults $
 --             getQueryResultsResponse
@@ -102,10 +150,25 @@ import Test.Tasty
 
 -- Requests
 
+requestDeleteWorkGroup :: DeleteWorkGroup -> TestTree
+requestDeleteWorkGroup = req
+    "DeleteWorkGroup"
+    "fixture/DeleteWorkGroup.yaml"
+
+requestUpdateWorkGroup :: UpdateWorkGroup -> TestTree
+requestUpdateWorkGroup = req
+    "UpdateWorkGroup"
+    "fixture/UpdateWorkGroup.yaml"
+
 requestGetNamedQuery :: GetNamedQuery -> TestTree
 requestGetNamedQuery = req
     "GetNamedQuery"
     "fixture/GetNamedQuery.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource = req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestCreateNamedQuery :: CreateNamedQuery -> TestTree
 requestCreateNamedQuery = req
@@ -137,6 +200,16 @@ requestGetQueryExecution = req
     "GetQueryExecution"
     "fixture/GetQueryExecution.yaml"
 
+requestListWorkGroups :: ListWorkGroups -> TestTree
+requestListWorkGroups = req
+    "ListWorkGroups"
+    "fixture/ListWorkGroups.yaml"
+
+requestCreateWorkGroup :: CreateWorkGroup -> TestTree
+requestCreateWorkGroup = req
+    "CreateWorkGroup"
+    "fixture/CreateWorkGroup.yaml"
+
 requestBatchGetQueryExecution :: BatchGetQueryExecution -> TestTree
 requestBatchGetQueryExecution = req
     "BatchGetQueryExecution"
@@ -146,6 +219,21 @@ requestStopQueryExecution :: StopQueryExecution -> TestTree
 requestStopQueryExecution = req
     "StopQueryExecution"
     "fixture/StopQueryExecution.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestGetWorkGroup :: GetWorkGroup -> TestTree
+requestGetWorkGroup = req
+    "GetWorkGroup"
+    "fixture/GetWorkGroup.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestGetQueryResults :: GetQueryResults -> TestTree
 requestGetQueryResults = req
@@ -159,12 +247,33 @@ requestListQueryExecutions = req
 
 -- Responses
 
+responseDeleteWorkGroup :: DeleteWorkGroupResponse -> TestTree
+responseDeleteWorkGroup = res
+    "DeleteWorkGroupResponse"
+    "fixture/DeleteWorkGroupResponse.proto"
+    athena
+    (Proxy :: Proxy DeleteWorkGroup)
+
+responseUpdateWorkGroup :: UpdateWorkGroupResponse -> TestTree
+responseUpdateWorkGroup = res
+    "UpdateWorkGroupResponse"
+    "fixture/UpdateWorkGroupResponse.proto"
+    athena
+    (Proxy :: Proxy UpdateWorkGroup)
+
 responseGetNamedQuery :: GetNamedQueryResponse -> TestTree
 responseGetNamedQuery = res
     "GetNamedQueryResponse"
     "fixture/GetNamedQueryResponse.proto"
     athena
     (Proxy :: Proxy GetNamedQuery)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource = res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    athena
+    (Proxy :: Proxy ListTagsForResource)
 
 responseCreateNamedQuery :: CreateNamedQueryResponse -> TestTree
 responseCreateNamedQuery = res
@@ -208,6 +317,20 @@ responseGetQueryExecution = res
     athena
     (Proxy :: Proxy GetQueryExecution)
 
+responseListWorkGroups :: ListWorkGroupsResponse -> TestTree
+responseListWorkGroups = res
+    "ListWorkGroupsResponse"
+    "fixture/ListWorkGroupsResponse.proto"
+    athena
+    (Proxy :: Proxy ListWorkGroups)
+
+responseCreateWorkGroup :: CreateWorkGroupResponse -> TestTree
+responseCreateWorkGroup = res
+    "CreateWorkGroupResponse"
+    "fixture/CreateWorkGroupResponse.proto"
+    athena
+    (Proxy :: Proxy CreateWorkGroup)
+
 responseBatchGetQueryExecution :: BatchGetQueryExecutionResponse -> TestTree
 responseBatchGetQueryExecution = res
     "BatchGetQueryExecutionResponse"
@@ -221,6 +344,27 @@ responseStopQueryExecution = res
     "fixture/StopQueryExecutionResponse.proto"
     athena
     (Proxy :: Proxy StopQueryExecution)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    athena
+    (Proxy :: Proxy TagResource)
+
+responseGetWorkGroup :: GetWorkGroupResponse -> TestTree
+responseGetWorkGroup = res
+    "GetWorkGroupResponse"
+    "fixture/GetWorkGroupResponse.proto"
+    athena
+    (Proxy :: Proxy GetWorkGroup)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    athena
+    (Proxy :: Proxy UntagResource)
 
 responseGetQueryResults :: GetQueryResultsResponse -> TestTree
 responseGetQueryResults = res

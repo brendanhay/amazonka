@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a single execution of a query. Each time a query executes, information about the query execution is saved with a unique ID.
+-- Returns information about a single execution of a query if you have access to the workgroup in which the query ran. Each time a query executes, information about the query execution is saved with a unique ID.
 --
 --
 module Network.AWS.Athena.GetQueryExecution

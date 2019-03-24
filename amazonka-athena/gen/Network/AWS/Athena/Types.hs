@@ -19,6 +19,7 @@ module Network.AWS.Athena.Types
     , _InvalidRequestException
     , _TooManyRequestsException
     , _InternalServerException
+    , _ResourceNotFoundException
 
     -- * ColumnNullable
     , ColumnNullable (..)
@@ -28,6 +29,12 @@ module Network.AWS.Athena.Types
 
     -- * QueryExecutionState
     , QueryExecutionState (..)
+
+    -- * StatementType
+    , StatementType (..)
+
+    -- * WorkGroupState
+    , WorkGroupState (..)
 
     -- * ColumnInfo
     , ColumnInfo
@@ -59,6 +66,7 @@ module Network.AWS.Athena.Types
     , namedQuery
     , nqNamedQueryId
     , nqDescription
+    , nqWorkGroup
     , nqName
     , nqDatabase
     , nqQueryString
@@ -70,8 +78,10 @@ module Network.AWS.Athena.Types
     , qeQueryExecutionContext
     , qeResultConfiguration
     , qeQuery
+    , qeStatementType
     , qeStatistics
     , qeQueryExecutionId
+    , qeWorkGroup
 
     -- * QueryExecutionContext
     , QueryExecutionContext
@@ -98,6 +108,14 @@ module Network.AWS.Athena.Types
     , rcEncryptionConfiguration
     , rcOutputLocation
 
+    -- * ResultConfigurationUpdates
+    , ResultConfigurationUpdates
+    , resultConfigurationUpdates
+    , rcuRemoveOutputLocation
+    , rcuRemoveEncryptionConfiguration
+    , rcuEncryptionConfiguration
+    , rcuOutputLocation
+
     -- * ResultSet
     , ResultSet
     , resultSet
@@ -114,6 +132,12 @@ module Network.AWS.Athena.Types
     , row
     , rowData
 
+    -- * Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
+
     -- * UnprocessedNamedQueryId
     , UnprocessedNamedQueryId
     , unprocessedNamedQueryId
@@ -127,6 +151,40 @@ module Network.AWS.Athena.Types
     , uqeiErrorCode
     , uqeiQueryExecutionId
     , uqeiErrorMessage
+
+    -- * WorkGroup
+    , WorkGroup
+    , workGroup
+    , wgCreationTime
+    , wgState
+    , wgConfiguration
+    , wgDescription
+    , wgName
+
+    -- * WorkGroupConfiguration
+    , WorkGroupConfiguration
+    , workGroupConfiguration
+    , wgcResultConfiguration
+    , wgcBytesScannedCutoffPerQuery
+    , wgcEnforceWorkGroupConfiguration
+    , wgcPublishCloudWatchMetricsEnabled
+
+    -- * WorkGroupConfigurationUpdates
+    , WorkGroupConfigurationUpdates
+    , workGroupConfigurationUpdates
+    , wgcuResultConfigurationUpdates
+    , wgcuBytesScannedCutoffPerQuery
+    , wgcuRemoveBytesScannedCutoffPerQuery
+    , wgcuEnforceWorkGroupConfiguration
+    , wgcuPublishCloudWatchMetricsEnabled
+
+    -- * WorkGroupSummary
+    , WorkGroupSummary
+    , workGroupSummary
+    , wgsCreationTime
+    , wgsState
+    , wgsName
+    , wgsDescription
     ) where
 
 import Network.AWS.Athena.Types.Product
@@ -193,4 +251,12 @@ _TooManyRequestsException = _MatchServiceError athena "TooManyRequestsException"
 --
 _InternalServerException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerException = _MatchServiceError athena "InternalServerException"
+
+
+-- | A resource, such as a workgroup, was not found.
+--
+--
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException =
+  _MatchServiceError athena "ResourceNotFoundException"
 

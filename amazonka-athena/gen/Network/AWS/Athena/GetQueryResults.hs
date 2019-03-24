@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the results of a single query execution specified by @QueryExecutionId@ . This request does not execute the query but returns results. Use 'StartQueryExecution' to run a query.
+-- Returns the results of a single query execution specified by @QueryExecutionId@ if you have access to the workgroup in which the query ran. This request does not execute the query but returns results. Use 'StartQueryExecution' to run a query.
 --
 --
 --
@@ -37,6 +37,7 @@ module Network.AWS.Athena.GetQueryResults
     , getQueryResultsResponse
     , GetQueryResultsResponse
     -- * Response Lenses
+    , gqrrsUpdateCount
     , gqrrsNextToken
     , gqrrsResultSet
     , gqrrsResponseStatus
@@ -105,8 +106,9 @@ instance AWSRequest GetQueryResults where
           = receiveJSON
               (\ s h x ->
                  GetQueryResultsResponse' <$>
-                   (x .?> "NextToken") <*> (x .?> "ResultSet") <*>
-                     (pure (fromEnum s)))
+                   (x .?> "UpdateCount") <*> (x .?> "NextToken") <*>
+                     (x .?> "ResultSet")
+                     <*> (pure (fromEnum s)))
 
 instance Hashable GetQueryResults where
 
@@ -137,7 +139,8 @@ instance ToQuery GetQueryResults where
 
 -- | /See:/ 'getQueryResultsResponse' smart constructor.
 data GetQueryResultsResponse = GetQueryResultsResponse'
-  { _gqrrsNextToken      :: !(Maybe Text)
+  { _gqrrsUpdateCount    :: !(Maybe Integer)
+  , _gqrrsNextToken      :: !(Maybe Text)
   , _gqrrsResultSet      :: !(Maybe ResultSet)
   , _gqrrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -146,6 +149,8 @@ data GetQueryResultsResponse = GetQueryResultsResponse'
 -- | Creates a value of 'GetQueryResultsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gqrrsUpdateCount' - The number of rows inserted with a CREATE TABLE AS SELECT statement.
 --
 -- * 'gqrrsNextToken' - A token to be used by the next request if this request is truncated.
 --
@@ -157,11 +162,16 @@ getQueryResultsResponse
     -> GetQueryResultsResponse
 getQueryResultsResponse pResponseStatus_ =
   GetQueryResultsResponse'
-    { _gqrrsNextToken = Nothing
+    { _gqrrsUpdateCount = Nothing
+    , _gqrrsNextToken = Nothing
     , _gqrrsResultSet = Nothing
     , _gqrrsResponseStatus = pResponseStatus_
     }
 
+
+-- | The number of rows inserted with a CREATE TABLE AS SELECT statement.
+gqrrsUpdateCount :: Lens' GetQueryResultsResponse (Maybe Integer)
+gqrrsUpdateCount = lens _gqrrsUpdateCount (\ s a -> s{_gqrrsUpdateCount = a})
 
 -- | A token to be used by the next request if this request is truncated.
 gqrrsNextToken :: Lens' GetQueryResultsResponse (Maybe Text)

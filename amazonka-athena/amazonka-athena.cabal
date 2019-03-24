@@ -48,15 +48,23 @@ library
         , Network.AWS.Athena.BatchGetNamedQuery
         , Network.AWS.Athena.BatchGetQueryExecution
         , Network.AWS.Athena.CreateNamedQuery
+        , Network.AWS.Athena.CreateWorkGroup
         , Network.AWS.Athena.DeleteNamedQuery
+        , Network.AWS.Athena.DeleteWorkGroup
         , Network.AWS.Athena.GetNamedQuery
         , Network.AWS.Athena.GetQueryExecution
         , Network.AWS.Athena.GetQueryResults
+        , Network.AWS.Athena.GetWorkGroup
         , Network.AWS.Athena.ListNamedQueries
         , Network.AWS.Athena.ListQueryExecutions
+        , Network.AWS.Athena.ListTagsForResource
+        , Network.AWS.Athena.ListWorkGroups
         , Network.AWS.Athena.StartQueryExecution
         , Network.AWS.Athena.StopQueryExecution
+        , Network.AWS.Athena.TagResource
         , Network.AWS.Athena.Types
+        , Network.AWS.Athena.UntagResource
+        , Network.AWS.Athena.UpdateWorkGroup
         , Network.AWS.Athena.Waiters
 
     other-modules:

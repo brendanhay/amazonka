@@ -174,7 +174,7 @@ instance Hashable Datum where
 
 instance NFData Datum where
 
--- | If query results are encrypted in Amazon S3, indicates the Amazon S3 encryption option used.
+-- | If query results are encrypted in Amazon S3, indicates the encryption option used (for example, @SSE-KMS@ or @CSE-KMS@ ) and key information.
 --
 --
 --
@@ -191,7 +191,7 @@ data EncryptionConfiguration = EncryptionConfiguration'
 --
 -- * 'ecKMSKey' - For @SSE-KMS@ and @CSE-KMS@ , this is the KMS key ARN or ID.
 --
--- * 'ecEncryptionOption' - Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (@SSE-S3@ ), server-side encryption with KMS-managed keys (@SSE-KMS@ ), or client-side encryption with KMS-managed keys (CSE-KMS) is used.
+-- * 'ecEncryptionOption' - Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (@SSE-S3@ ), server-side encryption with KMS-managed keys (@SSE-KMS@ ), or client-side encryption with KMS-managed keys (CSE-KMS) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
 encryptionConfiguration
     :: EncryptionOption -- ^ 'ecEncryptionOption'
     -> EncryptionConfiguration
@@ -204,7 +204,7 @@ encryptionConfiguration pEncryptionOption_ =
 ecKMSKey :: Lens' EncryptionConfiguration (Maybe Text)
 ecKMSKey = lens _ecKMSKey (\ s a -> s{_ecKMSKey = a})
 
--- | Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (@SSE-S3@ ), server-side encryption with KMS-managed keys (@SSE-KMS@ ), or client-side encryption with KMS-managed keys (CSE-KMS) is used.
+-- | Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (@SSE-S3@ ), server-side encryption with KMS-managed keys (@SSE-KMS@ ), or client-side encryption with KMS-managed keys (CSE-KMS) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
 ecEncryptionOption :: Lens' EncryptionConfiguration EncryptionOption
 ecEncryptionOption = lens _ecEncryptionOption (\ s a -> s{_ecEncryptionOption = a})
 
@@ -226,7 +226,7 @@ instance ToJSON EncryptionConfiguration where
                  [("KmsKey" .=) <$> _ecKMSKey,
                   Just ("EncryptionOption" .= _ecEncryptionOption)])
 
--- | A query, where @QueryString@ is the SQL query statements that comprise the query.
+-- | A query, where @QueryString@ is the list of SQL query statements that comprise the query.
 --
 --
 --
@@ -234,6 +234,7 @@ instance ToJSON EncryptionConfiguration where
 data NamedQuery = NamedQuery'
   { _nqNamedQueryId :: !(Maybe Text)
   , _nqDescription  :: !(Maybe Text)
+  , _nqWorkGroup    :: !(Maybe Text)
   , _nqName         :: !Text
   , _nqDatabase     :: !Text
   , _nqQueryString  :: !Text
@@ -246,9 +247,11 @@ data NamedQuery = NamedQuery'
 --
 -- * 'nqNamedQueryId' - The unique identifier of the query.
 --
--- * 'nqDescription' - A brief description of the query.
+-- * 'nqDescription' - The query description.
 --
--- * 'nqName' - The plain-language name of the query.
+-- * 'nqWorkGroup' - The name of the workgroup that contains the named query.
+--
+-- * 'nqName' - The query name.
 --
 -- * 'nqDatabase' - The database to which the query belongs.
 --
@@ -262,6 +265,7 @@ namedQuery pName_ pDatabase_ pQueryString_ =
   NamedQuery'
     { _nqNamedQueryId = Nothing
     , _nqDescription = Nothing
+    , _nqWorkGroup = Nothing
     , _nqName = pName_
     , _nqDatabase = pDatabase_
     , _nqQueryString = pQueryString_
@@ -272,11 +276,15 @@ namedQuery pName_ pDatabase_ pQueryString_ =
 nqNamedQueryId :: Lens' NamedQuery (Maybe Text)
 nqNamedQueryId = lens _nqNamedQueryId (\ s a -> s{_nqNamedQueryId = a})
 
--- | A brief description of the query.
+-- | The query description.
 nqDescription :: Lens' NamedQuery (Maybe Text)
 nqDescription = lens _nqDescription (\ s a -> s{_nqDescription = a})
 
--- | The plain-language name of the query.
+-- | The name of the workgroup that contains the named query.
+nqWorkGroup :: Lens' NamedQuery (Maybe Text)
+nqWorkGroup = lens _nqWorkGroup (\ s a -> s{_nqWorkGroup = a})
+
+-- | The query name.
 nqName :: Lens' NamedQuery Text
 nqName = lens _nqName (\ s a -> s{_nqName = a})
 
@@ -294,7 +302,8 @@ instance FromJSON NamedQuery where
               (\ x ->
                  NamedQuery' <$>
                    (x .:? "NamedQueryId") <*> (x .:? "Description") <*>
-                     (x .: "Name")
+                     (x .:? "WorkGroup")
+                     <*> (x .: "Name")
                      <*> (x .: "Database")
                      <*> (x .: "QueryString"))
 
@@ -312,8 +321,10 @@ data QueryExecution = QueryExecution'
   , _qeQueryExecutionContext :: !(Maybe QueryExecutionContext)
   , _qeResultConfiguration   :: !(Maybe ResultConfiguration)
   , _qeQuery                 :: !(Maybe Text)
+  , _qeStatementType         :: !(Maybe StatementType)
   , _qeStatistics            :: !(Maybe QueryExecutionStatistics)
   , _qeQueryExecutionId      :: !(Maybe Text)
+  , _qeWorkGroup             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -325,13 +336,17 @@ data QueryExecution = QueryExecution'
 --
 -- * 'qeQueryExecutionContext' - The database in which the query execution occurred.
 --
--- * 'qeResultConfiguration' - The location in Amazon S3 where query results were stored and the encryption option, if any, used for query results.
+-- * 'qeResultConfiguration' - The location in Amazon S3 where query results were stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the location for the query results and the encryption configuration that are specified for the workgroup.
 --
 -- * 'qeQuery' - The SQL query statements which the query execution ran.
 --
--- * 'qeStatistics' - The amount of data scanned during the query execution and the amount of time that it took to execute.
+-- * 'qeStatementType' - The type of query statement that was run. @DDL@ indicates DDL query statements. @DML@ indicates DML (Data Manipulation Language) query statements, such as @CREATE TABLE AS SELECT@ . @UTILITY@ indicates query statements other than DDL and DML, such as @SHOW CREATE TABLE@ , or @DESCRIBE <table>@ .
+--
+-- * 'qeStatistics' - The amount of data scanned during the query execution and the amount of time that it took to execute, and the type of statement that was run.
 --
 -- * 'qeQueryExecutionId' - The unique identifier for each query execution.
+--
+-- * 'qeWorkGroup' - The name of the workgroup in which the query ran.
 queryExecution
     :: QueryExecution
 queryExecution =
@@ -340,8 +355,10 @@ queryExecution =
     , _qeQueryExecutionContext = Nothing
     , _qeResultConfiguration = Nothing
     , _qeQuery = Nothing
+    , _qeStatementType = Nothing
     , _qeStatistics = Nothing
     , _qeQueryExecutionId = Nothing
+    , _qeWorkGroup = Nothing
     }
 
 
@@ -353,7 +370,7 @@ qeStatus = lens _qeStatus (\ s a -> s{_qeStatus = a})
 qeQueryExecutionContext :: Lens' QueryExecution (Maybe QueryExecutionContext)
 qeQueryExecutionContext = lens _qeQueryExecutionContext (\ s a -> s{_qeQueryExecutionContext = a})
 
--- | The location in Amazon S3 where query results were stored and the encryption option, if any, used for query results.
+-- | The location in Amazon S3 where query results were stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the location for the query results and the encryption configuration that are specified for the workgroup.
 qeResultConfiguration :: Lens' QueryExecution (Maybe ResultConfiguration)
 qeResultConfiguration = lens _qeResultConfiguration (\ s a -> s{_qeResultConfiguration = a})
 
@@ -361,13 +378,21 @@ qeResultConfiguration = lens _qeResultConfiguration (\ s a -> s{_qeResultConfigu
 qeQuery :: Lens' QueryExecution (Maybe Text)
 qeQuery = lens _qeQuery (\ s a -> s{_qeQuery = a})
 
--- | The amount of data scanned during the query execution and the amount of time that it took to execute.
+-- | The type of query statement that was run. @DDL@ indicates DDL query statements. @DML@ indicates DML (Data Manipulation Language) query statements, such as @CREATE TABLE AS SELECT@ . @UTILITY@ indicates query statements other than DDL and DML, such as @SHOW CREATE TABLE@ , or @DESCRIBE <table>@ .
+qeStatementType :: Lens' QueryExecution (Maybe StatementType)
+qeStatementType = lens _qeStatementType (\ s a -> s{_qeStatementType = a})
+
+-- | The amount of data scanned during the query execution and the amount of time that it took to execute, and the type of statement that was run.
 qeStatistics :: Lens' QueryExecution (Maybe QueryExecutionStatistics)
 qeStatistics = lens _qeStatistics (\ s a -> s{_qeStatistics = a})
 
 -- | The unique identifier for each query execution.
 qeQueryExecutionId :: Lens' QueryExecution (Maybe Text)
 qeQueryExecutionId = lens _qeQueryExecutionId (\ s a -> s{_qeQueryExecutionId = a})
+
+-- | The name of the workgroup in which the query ran.
+qeWorkGroup :: Lens' QueryExecution (Maybe Text)
+qeWorkGroup = lens _qeWorkGroup (\ s a -> s{_qeWorkGroup = a})
 
 instance FromJSON QueryExecution where
         parseJSON
@@ -377,8 +402,10 @@ instance FromJSON QueryExecution where
                    (x .:? "Status") <*> (x .:? "QueryExecutionContext")
                      <*> (x .:? "ResultConfiguration")
                      <*> (x .:? "Query")
+                     <*> (x .:? "StatementType")
                      <*> (x .:? "Statistics")
-                     <*> (x .:? "QueryExecutionId"))
+                     <*> (x .:? "QueryExecutionId")
+                     <*> (x .:? "WorkGroup"))
 
 instance Hashable QueryExecution where
 
@@ -423,7 +450,7 @@ instance ToJSON QueryExecutionContext where
           = object
               (catMaybes [("Database" .=) <$> _qecDatabase])
 
--- | The amount of data scanned during the query execution and the amount of time that it took to execute.
+-- | The amount of data scanned during the query execution and the amount of time that it took to execute, and the type of statement that was run.
 --
 --
 --
@@ -487,7 +514,7 @@ data QueryExecutionStatus = QueryExecutionStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'qesState' - The state of query execution. @SUBMITTED@ indicates that the query is queued for execution. @RUNNING@ indicates that the query is scanning data and returning results. @SUCCEEDED@ indicates that the query completed without error. @FAILED@ indicates that the query experienced an error and did not complete processing. @CANCELLED@ indicates that user input interrupted query execution.
+-- * 'qesState' - The state of query execution. @QUEUED@ state is listed but is not used by Athena and is reserved for future use. @RUNNING@ indicates that the query has been submitted to the service, and Athena will execute the query as soon as resources are available. @SUCCEEDED@ indicates that the query completed without errors. @FAILED@ indicates that the query experienced an error and did not complete processing. @CANCELLED@ indicates that a user input interrupted query execution.
 --
 -- * 'qesStateChangeReason' - Further detail about the status of the query.
 --
@@ -505,7 +532,7 @@ queryExecutionStatus =
     }
 
 
--- | The state of query execution. @SUBMITTED@ indicates that the query is queued for execution. @RUNNING@ indicates that the query is scanning data and returning results. @SUCCEEDED@ indicates that the query completed without error. @FAILED@ indicates that the query experienced an error and did not complete processing. @CANCELLED@ indicates that user input interrupted query execution.
+-- | The state of query execution. @QUEUED@ state is listed but is not used by Athena and is reserved for future use. @RUNNING@ indicates that the query has been submitted to the service, and Athena will execute the query as soon as resources are available. @SUCCEEDED@ indicates that the query completed without errors. @FAILED@ indicates that the query experienced an error and did not complete processing. @CANCELLED@ indicates that a user input interrupted query execution.
 qesState :: Lens' QueryExecutionStatus (Maybe QueryExecutionState)
 qesState = lens _qesState (\ s a -> s{_qesState = a})
 
@@ -534,14 +561,14 @@ instance Hashable QueryExecutionStatus where
 
 instance NFData QueryExecutionStatus where
 
--- | The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results.
+-- | The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the location for the query results and the encryption configuration that are specified for the workgroup.
 --
 --
 --
 -- /See:/ 'resultConfiguration' smart constructor.
 data ResultConfiguration = ResultConfiguration'
   { _rcEncryptionConfiguration :: !(Maybe EncryptionConfiguration)
-  , _rcOutputLocation          :: !Text
+  , _rcOutputLocation          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -549,23 +576,22 @@ data ResultConfiguration = ResultConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcEncryptionConfiguration' - If query results are encrypted in S3, indicates the S3 encryption option used (for example, @SSE-KMS@ or @CSE-KMS@ and key information.
+-- * 'rcEncryptionConfiguration' - If query results are encrypted in Amazon S3, indicates the encryption option used (for example, @SSE-KMS@ or @CSE-KMS@ ) and key information. This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' and <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings> .
 --
--- * 'rcOutputLocation' - The location in S3 where query results are stored.
+-- * 'rcOutputLocation' - The location in Amazon S3 where your query results are stored, such as @s3://path/to/query/bucket/@ . For more information, see <https://docs.aws.amazon.com/athena/latest/ug/querying.html Queries and Query Result Files.> If workgroup settings override client-side settings, then the query uses the location for the query results and the encryption configuration that are specified for the workgroup. The "workgroup settings override" is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
 resultConfiguration
-    :: Text -- ^ 'rcOutputLocation'
-    -> ResultConfiguration
-resultConfiguration pOutputLocation_ =
+    :: ResultConfiguration
+resultConfiguration =
   ResultConfiguration'
-    {_rcEncryptionConfiguration = Nothing, _rcOutputLocation = pOutputLocation_}
+    {_rcEncryptionConfiguration = Nothing, _rcOutputLocation = Nothing}
 
 
--- | If query results are encrypted in S3, indicates the S3 encryption option used (for example, @SSE-KMS@ or @CSE-KMS@ and key information.
+-- | If query results are encrypted in Amazon S3, indicates the encryption option used (for example, @SSE-KMS@ or @CSE-KMS@ ) and key information. This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' and <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings> .
 rcEncryptionConfiguration :: Lens' ResultConfiguration (Maybe EncryptionConfiguration)
 rcEncryptionConfiguration = lens _rcEncryptionConfiguration (\ s a -> s{_rcEncryptionConfiguration = a})
 
--- | The location in S3 where query results are stored.
-rcOutputLocation :: Lens' ResultConfiguration Text
+-- | The location in Amazon S3 where your query results are stored, such as @s3://path/to/query/bucket/@ . For more information, see <https://docs.aws.amazon.com/athena/latest/ug/querying.html Queries and Query Result Files.> If workgroup settings override client-side settings, then the query uses the location for the query results and the encryption configuration that are specified for the workgroup. The "workgroup settings override" is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
+rcOutputLocation :: Lens' ResultConfiguration (Maybe Text)
 rcOutputLocation = lens _rcOutputLocation (\ s a -> s{_rcOutputLocation = a})
 
 instance FromJSON ResultConfiguration where
@@ -574,7 +600,7 @@ instance FromJSON ResultConfiguration where
               (\ x ->
                  ResultConfiguration' <$>
                    (x .:? "EncryptionConfiguration") <*>
-                     (x .: "OutputLocation"))
+                     (x .:? "OutputLocation"))
 
 instance Hashable ResultConfiguration where
 
@@ -586,7 +612,74 @@ instance ToJSON ResultConfiguration where
               (catMaybes
                  [("EncryptionConfiguration" .=) <$>
                     _rcEncryptionConfiguration,
-                  Just ("OutputLocation" .= _rcOutputLocation)])
+                  ("OutputLocation" .=) <$> _rcOutputLocation])
+
+-- | The information about the updates in the query results, such as output location and encryption configuration for the query results.
+--
+--
+--
+-- /See:/ 'resultConfigurationUpdates' smart constructor.
+data ResultConfigurationUpdates = ResultConfigurationUpdates'
+  { _rcuRemoveOutputLocation          :: !(Maybe Bool)
+  , _rcuRemoveEncryptionConfiguration :: !(Maybe Bool)
+  , _rcuEncryptionConfiguration       :: !(Maybe EncryptionConfiguration)
+  , _rcuOutputLocation                :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ResultConfigurationUpdates' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcuRemoveOutputLocation' - If set to "true", indicates that the previously-specified query results location (also known as a client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the OutputLocation in ResultConfigurationUpdates (the client-side setting), the OutputLocation in the workgroup's ResultConfiguration will be updated with the new value. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings> .
+--
+-- * 'rcuRemoveEncryptionConfiguration' - If set to "true", indicates that the previously-specified encryption configuration (also known as the client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the new value. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings> .
+--
+-- * 'rcuEncryptionConfiguration' - The encryption configuration for the query results.
+--
+-- * 'rcuOutputLocation' - The location in Amazon S3 where your query results are stored, such as @s3://path/to/query/bucket/@ . For more information, see <https://docs.aws.amazon.com/athena/latest/ug/querying.html Queries and Query Result Files.> If workgroup settings override client-side settings, then the query uses the location for the query results and the encryption configuration that are specified for the workgroup. The "workgroup settings override" is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
+resultConfigurationUpdates
+    :: ResultConfigurationUpdates
+resultConfigurationUpdates =
+  ResultConfigurationUpdates'
+    { _rcuRemoveOutputLocation = Nothing
+    , _rcuRemoveEncryptionConfiguration = Nothing
+    , _rcuEncryptionConfiguration = Nothing
+    , _rcuOutputLocation = Nothing
+    }
+
+
+-- | If set to "true", indicates that the previously-specified query results location (also known as a client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the OutputLocation in ResultConfigurationUpdates (the client-side setting), the OutputLocation in the workgroup's ResultConfiguration will be updated with the new value. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings> .
+rcuRemoveOutputLocation :: Lens' ResultConfigurationUpdates (Maybe Bool)
+rcuRemoveOutputLocation = lens _rcuRemoveOutputLocation (\ s a -> s{_rcuRemoveOutputLocation = a})
+
+-- | If set to "true", indicates that the previously-specified encryption configuration (also known as the client-side setting) for queries in this workgroup should be ignored and set to null. If set to "false" or not set, and a value is present in the EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the new value. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings> .
+rcuRemoveEncryptionConfiguration :: Lens' ResultConfigurationUpdates (Maybe Bool)
+rcuRemoveEncryptionConfiguration = lens _rcuRemoveEncryptionConfiguration (\ s a -> s{_rcuRemoveEncryptionConfiguration = a})
+
+-- | The encryption configuration for the query results.
+rcuEncryptionConfiguration :: Lens' ResultConfigurationUpdates (Maybe EncryptionConfiguration)
+rcuEncryptionConfiguration = lens _rcuEncryptionConfiguration (\ s a -> s{_rcuEncryptionConfiguration = a})
+
+-- | The location in Amazon S3 where your query results are stored, such as @s3://path/to/query/bucket/@ . For more information, see <https://docs.aws.amazon.com/athena/latest/ug/querying.html Queries and Query Result Files.> If workgroup settings override client-side settings, then the query uses the location for the query results and the encryption configuration that are specified for the workgroup. The "workgroup settings override" is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
+rcuOutputLocation :: Lens' ResultConfigurationUpdates (Maybe Text)
+rcuOutputLocation = lens _rcuOutputLocation (\ s a -> s{_rcuOutputLocation = a})
+
+instance Hashable ResultConfigurationUpdates where
+
+instance NFData ResultConfigurationUpdates where
+
+instance ToJSON ResultConfigurationUpdates where
+        toJSON ResultConfigurationUpdates'{..}
+          = object
+              (catMaybes
+                 [("RemoveOutputLocation" .=) <$>
+                    _rcuRemoveOutputLocation,
+                  ("RemoveEncryptionConfiguration" .=) <$>
+                    _rcuRemoveEncryptionConfiguration,
+                  ("EncryptionConfiguration" .=) <$>
+                    _rcuEncryptionConfiguration,
+                  ("OutputLocation" .=) <$> _rcuOutputLocation])
 
 -- | The metadata and rows that comprise a query result set. The metadata describes the column structure and data types.
 --
@@ -645,13 +738,13 @@ newtype ResultSetMetadata = ResultSetMetadata'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsmColumnInfo' - Information about the columns in a query execution result.
+-- * 'rsmColumnInfo' - Information about the columns returned in a query result metadata.
 resultSetMetadata
     :: ResultSetMetadata
 resultSetMetadata = ResultSetMetadata' {_rsmColumnInfo = Nothing}
 
 
--- | Information about the columns in a query execution result.
+-- | Information about the columns returned in a query result metadata.
 rsmColumnInfo :: Lens' ResultSetMetadata [ColumnInfo]
 rsmColumnInfo = lens _rsmColumnInfo (\ s a -> s{_rsmColumnInfo = a}) . _Default . _Coerce
 
@@ -698,6 +791,52 @@ instance FromJSON Row where
 instance Hashable Row where
 
 instance NFData Row where
+
+-- | A tag that you can add to a resource. A tag is a label that you assign to an AWS Athena resource (a workgroup). Each tag consists of a key and an optional value, both of which you define. Tags enable you to categorize workgroups in Athena, for example, by purpose, owner, or environment. Use a consistent set of tag keys to make it easier to search and filter workgroups in your account. The maximum tag key length is 128 Unicode characters in UTF-8. The maximum tag value length is 256 Unicode characters in UTF-8. You can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. Tag keys and values are case-sensitive. Tag keys must be unique per resource.
+--
+--
+--
+-- /See:/ 'tag' smart constructor.
+data Tag = Tag'
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue' - A tag value. The tag value length is from 0 to 256 Unicode characters in UTF-8. You can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. Tag values are case-sensitive.
+--
+-- * 'tagKey' - A tag key. The tag key length is from 1 to 128 Unicode characters in UTF-8. You can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. Tag keys are case-sensitive and must be unique per resource.
+tag
+    :: Tag
+tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
+
+
+-- | A tag value. The tag value length is from 0 to 256 Unicode characters in UTF-8. You can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. Tag values are case-sensitive.
+tagValue :: Lens' Tag (Maybe Text)
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
+
+-- | A tag key. The tag key length is from 1 to 128 Unicode characters in UTF-8. You can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. Tag keys are case-sensitive and must be unique per resource.
+tagKey :: Lens' Tag (Maybe Text)
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
+
+instance FromJSON Tag where
+        parseJSON
+          = withObject "Tag"
+              (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
+
+instance Hashable Tag where
+
+instance NFData Tag where
+
+instance ToJSON Tag where
+        toJSON Tag'{..}
+          = object
+              (catMaybes
+                 [("Value" .=) <$> _tagValue, ("Key" .=) <$> _tagKey])
 
 -- | Information about a named query ID that could not be processed.
 --
@@ -808,3 +947,297 @@ instance FromJSON UnprocessedQueryExecutionId where
 instance Hashable UnprocessedQueryExecutionId where
 
 instance NFData UnprocessedQueryExecutionId where
+
+-- | A workgroup, which contains a name, description, creation time, state, and other configuration, listed under 'WorkGroup$Configuration' . Each workgroup enables you to isolate queries for you or your group of users from other queries in the same account, to configure the query results location and the encryption configuration (known as workgroup settings), to enable sending query metrics to Amazon CloudWatch, and to establish per-query data usage control limits for all queries in a workgroup. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
+--
+--
+--
+-- /See:/ 'workGroup' smart constructor.
+data WorkGroup = WorkGroup'
+  { _wgCreationTime  :: !(Maybe POSIX)
+  , _wgState         :: !(Maybe WorkGroupState)
+  , _wgConfiguration :: !(Maybe WorkGroupConfiguration)
+  , _wgDescription   :: !(Maybe Text)
+  , _wgName          :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'WorkGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'wgCreationTime' - The date and time the workgroup was created.
+--
+-- * 'wgState' - The state of the workgroup: ENABLED or DISABLED.
+--
+-- * 'wgConfiguration' - The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption configuration, if any, used for query results; whether the Amazon CloudWatch Metrics are enabled for the workgroup; whether workgroup settings override client-side settings; and the data usage limit for the amount of data scanned per query, if it is specified. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
+--
+-- * 'wgDescription' - The workgroup description.
+--
+-- * 'wgName' - The workgroup name.
+workGroup
+    :: Text -- ^ 'wgName'
+    -> WorkGroup
+workGroup pName_ =
+  WorkGroup'
+    { _wgCreationTime = Nothing
+    , _wgState = Nothing
+    , _wgConfiguration = Nothing
+    , _wgDescription = Nothing
+    , _wgName = pName_
+    }
+
+
+-- | The date and time the workgroup was created.
+wgCreationTime :: Lens' WorkGroup (Maybe UTCTime)
+wgCreationTime = lens _wgCreationTime (\ s a -> s{_wgCreationTime = a}) . mapping _Time
+
+-- | The state of the workgroup: ENABLED or DISABLED.
+wgState :: Lens' WorkGroup (Maybe WorkGroupState)
+wgState = lens _wgState (\ s a -> s{_wgState = a})
+
+-- | The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption configuration, if any, used for query results; whether the Amazon CloudWatch Metrics are enabled for the workgroup; whether workgroup settings override client-side settings; and the data usage limit for the amount of data scanned per query, if it is specified. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
+wgConfiguration :: Lens' WorkGroup (Maybe WorkGroupConfiguration)
+wgConfiguration = lens _wgConfiguration (\ s a -> s{_wgConfiguration = a})
+
+-- | The workgroup description.
+wgDescription :: Lens' WorkGroup (Maybe Text)
+wgDescription = lens _wgDescription (\ s a -> s{_wgDescription = a})
+
+-- | The workgroup name.
+wgName :: Lens' WorkGroup Text
+wgName = lens _wgName (\ s a -> s{_wgName = a})
+
+instance FromJSON WorkGroup where
+        parseJSON
+          = withObject "WorkGroup"
+              (\ x ->
+                 WorkGroup' <$>
+                   (x .:? "CreationTime") <*> (x .:? "State") <*>
+                     (x .:? "Configuration")
+                     <*> (x .:? "Description")
+                     <*> (x .: "Name"))
+
+instance Hashable WorkGroup where
+
+instance NFData WorkGroup where
+
+-- | The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup and whether workgroup settings override query settings, and the data usage limit for the amount of data scanned per query, if it is specified. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
+--
+--
+--
+-- /See:/ 'workGroupConfiguration' smart constructor.
+data WorkGroupConfiguration = WorkGroupConfiguration'
+  { _wgcResultConfiguration             :: !(Maybe ResultConfiguration)
+  , _wgcBytesScannedCutoffPerQuery      :: !(Maybe Nat)
+  , _wgcEnforceWorkGroupConfiguration   :: !(Maybe Bool)
+  , _wgcPublishCloudWatchMetricsEnabled :: !(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'WorkGroupConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'wgcResultConfiguration' - The configuration for the workgroup, which includes the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results.
+--
+-- * 'wgcBytesScannedCutoffPerQuery' - The upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan.
+--
+-- * 'wgcEnforceWorkGroupConfiguration' - If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings> .
+--
+-- * 'wgcPublishCloudWatchMetricsEnabled' - Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
+workGroupConfiguration
+    :: WorkGroupConfiguration
+workGroupConfiguration =
+  WorkGroupConfiguration'
+    { _wgcResultConfiguration = Nothing
+    , _wgcBytesScannedCutoffPerQuery = Nothing
+    , _wgcEnforceWorkGroupConfiguration = Nothing
+    , _wgcPublishCloudWatchMetricsEnabled = Nothing
+    }
+
+
+-- | The configuration for the workgroup, which includes the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results.
+wgcResultConfiguration :: Lens' WorkGroupConfiguration (Maybe ResultConfiguration)
+wgcResultConfiguration = lens _wgcResultConfiguration (\ s a -> s{_wgcResultConfiguration = a})
+
+-- | The upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan.
+wgcBytesScannedCutoffPerQuery :: Lens' WorkGroupConfiguration (Maybe Natural)
+wgcBytesScannedCutoffPerQuery = lens _wgcBytesScannedCutoffPerQuery (\ s a -> s{_wgcBytesScannedCutoffPerQuery = a}) . mapping _Nat
+
+-- | If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings> .
+wgcEnforceWorkGroupConfiguration :: Lens' WorkGroupConfiguration (Maybe Bool)
+wgcEnforceWorkGroupConfiguration = lens _wgcEnforceWorkGroupConfiguration (\ s a -> s{_wgcEnforceWorkGroupConfiguration = a})
+
+-- | Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
+wgcPublishCloudWatchMetricsEnabled :: Lens' WorkGroupConfiguration (Maybe Bool)
+wgcPublishCloudWatchMetricsEnabled = lens _wgcPublishCloudWatchMetricsEnabled (\ s a -> s{_wgcPublishCloudWatchMetricsEnabled = a})
+
+instance FromJSON WorkGroupConfiguration where
+        parseJSON
+          = withObject "WorkGroupConfiguration"
+              (\ x ->
+                 WorkGroupConfiguration' <$>
+                   (x .:? "ResultConfiguration") <*>
+                     (x .:? "BytesScannedCutoffPerQuery")
+                     <*> (x .:? "EnforceWorkGroupConfiguration")
+                     <*> (x .:? "PublishCloudWatchMetricsEnabled"))
+
+instance Hashable WorkGroupConfiguration where
+
+instance NFData WorkGroupConfiguration where
+
+instance ToJSON WorkGroupConfiguration where
+        toJSON WorkGroupConfiguration'{..}
+          = object
+              (catMaybes
+                 [("ResultConfiguration" .=) <$>
+                    _wgcResultConfiguration,
+                  ("BytesScannedCutoffPerQuery" .=) <$>
+                    _wgcBytesScannedCutoffPerQuery,
+                  ("EnforceWorkGroupConfiguration" .=) <$>
+                    _wgcEnforceWorkGroupConfiguration,
+                  ("PublishCloudWatchMetricsEnabled" .=) <$>
+                    _wgcPublishCloudWatchMetricsEnabled])
+
+-- | The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
+--
+--
+--
+-- /See:/ 'workGroupConfigurationUpdates' smart constructor.
+data WorkGroupConfigurationUpdates = WorkGroupConfigurationUpdates'
+  { _wgcuResultConfigurationUpdates       :: !(Maybe ResultConfigurationUpdates)
+  , _wgcuBytesScannedCutoffPerQuery       :: !(Maybe Nat)
+  , _wgcuRemoveBytesScannedCutoffPerQuery :: !(Maybe Bool)
+  , _wgcuEnforceWorkGroupConfiguration    :: !(Maybe Bool)
+  , _wgcuPublishCloudWatchMetricsEnabled  :: !(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'WorkGroupConfigurationUpdates' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'wgcuResultConfigurationUpdates' - The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results.
+--
+-- * 'wgcuBytesScannedCutoffPerQuery' - The upper limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan.
+--
+-- * 'wgcuRemoveBytesScannedCutoffPerQuery' - Indicates that the data usage control limit per query is removed. 'WorkGroupConfiguration$BytesScannedCutoffPerQuery'
+--
+-- * 'wgcuEnforceWorkGroupConfiguration' - If set to "true", the settings for the workgroup override client-side settings. If set to "false" client-side settings are used. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings> .
+--
+-- * 'wgcuPublishCloudWatchMetricsEnabled' - Indicates whether this workgroup enables publishing metrics to Amazon CloudWatch.
+workGroupConfigurationUpdates
+    :: WorkGroupConfigurationUpdates
+workGroupConfigurationUpdates =
+  WorkGroupConfigurationUpdates'
+    { _wgcuResultConfigurationUpdates = Nothing
+    , _wgcuBytesScannedCutoffPerQuery = Nothing
+    , _wgcuRemoveBytesScannedCutoffPerQuery = Nothing
+    , _wgcuEnforceWorkGroupConfiguration = Nothing
+    , _wgcuPublishCloudWatchMetricsEnabled = Nothing
+    }
+
+
+-- | The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results.
+wgcuResultConfigurationUpdates :: Lens' WorkGroupConfigurationUpdates (Maybe ResultConfigurationUpdates)
+wgcuResultConfigurationUpdates = lens _wgcuResultConfigurationUpdates (\ s a -> s{_wgcuResultConfigurationUpdates = a})
+
+-- | The upper limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan.
+wgcuBytesScannedCutoffPerQuery :: Lens' WorkGroupConfigurationUpdates (Maybe Natural)
+wgcuBytesScannedCutoffPerQuery = lens _wgcuBytesScannedCutoffPerQuery (\ s a -> s{_wgcuBytesScannedCutoffPerQuery = a}) . mapping _Nat
+
+-- | Indicates that the data usage control limit per query is removed. 'WorkGroupConfiguration$BytesScannedCutoffPerQuery'
+wgcuRemoveBytesScannedCutoffPerQuery :: Lens' WorkGroupConfigurationUpdates (Maybe Bool)
+wgcuRemoveBytesScannedCutoffPerQuery = lens _wgcuRemoveBytesScannedCutoffPerQuery (\ s a -> s{_wgcuRemoveBytesScannedCutoffPerQuery = a})
+
+-- | If set to "true", the settings for the workgroup override client-side settings. If set to "false" client-side settings are used. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings> .
+wgcuEnforceWorkGroupConfiguration :: Lens' WorkGroupConfigurationUpdates (Maybe Bool)
+wgcuEnforceWorkGroupConfiguration = lens _wgcuEnforceWorkGroupConfiguration (\ s a -> s{_wgcuEnforceWorkGroupConfiguration = a})
+
+-- | Indicates whether this workgroup enables publishing metrics to Amazon CloudWatch.
+wgcuPublishCloudWatchMetricsEnabled :: Lens' WorkGroupConfigurationUpdates (Maybe Bool)
+wgcuPublishCloudWatchMetricsEnabled = lens _wgcuPublishCloudWatchMetricsEnabled (\ s a -> s{_wgcuPublishCloudWatchMetricsEnabled = a})
+
+instance Hashable WorkGroupConfigurationUpdates where
+
+instance NFData WorkGroupConfigurationUpdates where
+
+instance ToJSON WorkGroupConfigurationUpdates where
+        toJSON WorkGroupConfigurationUpdates'{..}
+          = object
+              (catMaybes
+                 [("ResultConfigurationUpdates" .=) <$>
+                    _wgcuResultConfigurationUpdates,
+                  ("BytesScannedCutoffPerQuery" .=) <$>
+                    _wgcuBytesScannedCutoffPerQuery,
+                  ("RemoveBytesScannedCutoffPerQuery" .=) <$>
+                    _wgcuRemoveBytesScannedCutoffPerQuery,
+                  ("EnforceWorkGroupConfiguration" .=) <$>
+                    _wgcuEnforceWorkGroupConfiguration,
+                  ("PublishCloudWatchMetricsEnabled" .=) <$>
+                    _wgcuPublishCloudWatchMetricsEnabled])
+
+-- | The summary information for the workgroup, which includes its name, state, description, and the date and time it was created.
+--
+--
+--
+-- /See:/ 'workGroupSummary' smart constructor.
+data WorkGroupSummary = WorkGroupSummary'
+  { _wgsCreationTime :: !(Maybe POSIX)
+  , _wgsState        :: !(Maybe WorkGroupState)
+  , _wgsName         :: !(Maybe Text)
+  , _wgsDescription  :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'WorkGroupSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'wgsCreationTime' - The workgroup creation date and time.
+--
+-- * 'wgsState' - The state of the workgroup.
+--
+-- * 'wgsName' - The name of the workgroup.
+--
+-- * 'wgsDescription' - The workgroup description.
+workGroupSummary
+    :: WorkGroupSummary
+workGroupSummary =
+  WorkGroupSummary'
+    { _wgsCreationTime = Nothing
+    , _wgsState = Nothing
+    , _wgsName = Nothing
+    , _wgsDescription = Nothing
+    }
+
+
+-- | The workgroup creation date and time.
+wgsCreationTime :: Lens' WorkGroupSummary (Maybe UTCTime)
+wgsCreationTime = lens _wgsCreationTime (\ s a -> s{_wgsCreationTime = a}) . mapping _Time
+
+-- | The state of the workgroup.
+wgsState :: Lens' WorkGroupSummary (Maybe WorkGroupState)
+wgsState = lens _wgsState (\ s a -> s{_wgsState = a})
+
+-- | The name of the workgroup.
+wgsName :: Lens' WorkGroupSummary (Maybe Text)
+wgsName = lens _wgsName (\ s a -> s{_wgsName = a})
+
+-- | The workgroup description.
+wgsDescription :: Lens' WorkGroupSummary (Maybe Text)
+wgsDescription = lens _wgsDescription (\ s a -> s{_wgsDescription = a})
+
+instance FromJSON WorkGroupSummary where
+        parseJSON
+          = withObject "WorkGroupSummary"
+              (\ x ->
+                 WorkGroupSummary' <$>
+                   (x .:? "CreationTime") <*> (x .:? "State") <*>
+                     (x .:? "Name")
+                     <*> (x .:? "Description"))
+
+instance Hashable WorkGroupSummary where
+
+instance NFData WorkGroupSummary where

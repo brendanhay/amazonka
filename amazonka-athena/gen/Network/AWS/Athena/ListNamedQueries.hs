@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides a list of all available query IDs.
+-- Provides a list of available query IDs only for queries saved in the specified workgroup. Requires that you have access to the workgroup.
 --
 --
 -- For code samples using the AWS SDK for Java, see <http://docs.aws.amazon.com/athena/latest/ug/code-samples.html Examples and Code Samples> in the /Amazon Athena User Guide/ .
@@ -32,6 +32,7 @@ module Network.AWS.Athena.ListNamedQueries
     , ListNamedQueries
     -- * Request Lenses
     , lnqNextToken
+    , lnqWorkGroup
     , lnqMaxResults
 
     -- * Destructuring the Response
@@ -54,6 +55,7 @@ import Network.AWS.Response
 -- | /See:/ 'listNamedQueries' smart constructor.
 data ListNamedQueries = ListNamedQueries'
   { _lnqNextToken  :: !(Maybe Text)
+  , _lnqWorkGroup  :: !(Maybe Text)
   , _lnqMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -64,16 +66,23 @@ data ListNamedQueries = ListNamedQueries'
 --
 -- * 'lnqNextToken' - The token that specifies where to start pagination if a previous request was truncated.
 --
+-- * 'lnqWorkGroup' - The name of the workgroup from which the named queries are being returned.
+--
 -- * 'lnqMaxResults' - The maximum number of queries to return in this request.
 listNamedQueries
     :: ListNamedQueries
 listNamedQueries =
-  ListNamedQueries' {_lnqNextToken = Nothing, _lnqMaxResults = Nothing}
+  ListNamedQueries'
+    {_lnqNextToken = Nothing, _lnqWorkGroup = Nothing, _lnqMaxResults = Nothing}
 
 
 -- | The token that specifies where to start pagination if a previous request was truncated.
 lnqNextToken :: Lens' ListNamedQueries (Maybe Text)
 lnqNextToken = lens _lnqNextToken (\ s a -> s{_lnqNextToken = a})
+
+-- | The name of the workgroup from which the named queries are being returned.
+lnqWorkGroup :: Lens' ListNamedQueries (Maybe Text)
+lnqWorkGroup = lens _lnqWorkGroup (\ s a -> s{_lnqWorkGroup = a})
 
 -- | The maximum number of queries to return in this request.
 lnqMaxResults :: Lens' ListNamedQueries (Maybe Natural)
@@ -114,6 +123,7 @@ instance ToJSON ListNamedQueries where
           = object
               (catMaybes
                  [("NextToken" .=) <$> _lnqNextToken,
+                  ("WorkGroup" .=) <$> _lnqWorkGroup,
                   ("MaxResults" .=) <$> _lnqMaxResults])
 
 instance ToPath ListNamedQueries where

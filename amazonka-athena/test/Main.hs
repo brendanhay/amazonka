@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.Athena
 import Test.AWS.Athena.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "Athena"

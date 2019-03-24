@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Runs (executes) the SQL query statements contained in the @Query@ string.
+-- Runs the SQL query statements contained in the @Query@ . Requires you to have access to the workgroup in which the query ran.
 --
 --
 -- For code samples using the AWS SDK for Java, see <http://docs.aws.amazon.com/athena/latest/ug/code-samples.html Examples and Code Samples> in the /Amazon Athena User Guide/ .
@@ -30,9 +30,10 @@ module Network.AWS.Athena.StartQueryExecution
     , StartQueryExecution
     -- * Request Lenses
     , sqeQueryExecutionContext
-    , sqeClientRequestToken
-    , sqeQueryString
     , sqeResultConfiguration
+    , sqeClientRequestToken
+    , sqeWorkGroup
+    , sqeQueryString
 
     -- * Destructuring the Response
     , startQueryExecutionResponse
@@ -52,9 +53,10 @@ import Network.AWS.Response
 -- | /See:/ 'startQueryExecution' smart constructor.
 data StartQueryExecution = StartQueryExecution'
   { _sqeQueryExecutionContext :: !(Maybe QueryExecutionContext)
+  , _sqeResultConfiguration   :: !(Maybe ResultConfiguration)
   , _sqeClientRequestToken    :: !(Maybe Text)
+  , _sqeWorkGroup             :: !(Maybe Text)
   , _sqeQueryString           :: !Text
-  , _sqeResultConfiguration   :: !ResultConfiguration
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -64,21 +66,23 @@ data StartQueryExecution = StartQueryExecution'
 --
 -- * 'sqeQueryExecutionContext' - The database within which the query executes.
 --
+-- * 'sqeResultConfiguration' - Specifies information about where and how to save the results of the query execution. If the query runs in a workgroup, then workgroup's settings may override query settings. This affects the query results location. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
+--
 -- * 'sqeClientRequestToken' - A unique case-sensitive string used to ensure the request to create the query is idempotent (executes only once). If another @StartQueryExecution@ request is received, the same response is returned and another query is not created. If a parameter has changed, for example, the @QueryString@ , an error is returned. /Important:/ This token is listed as not required because AWS SDKs (for example the AWS SDK for Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the action will fail.
 --
--- * 'sqeQueryString' - The SQL query statements to be executed.
+-- * 'sqeWorkGroup' - The name of the workgroup in which the query is being started.
 --
--- * 'sqeResultConfiguration' - Specifies information about where and how to save the results of the query execution.
+-- * 'sqeQueryString' - The SQL query statements to be executed.
 startQueryExecution
     :: Text -- ^ 'sqeQueryString'
-    -> ResultConfiguration -- ^ 'sqeResultConfiguration'
     -> StartQueryExecution
-startQueryExecution pQueryString_ pResultConfiguration_ =
+startQueryExecution pQueryString_ =
   StartQueryExecution'
     { _sqeQueryExecutionContext = Nothing
+    , _sqeResultConfiguration = Nothing
     , _sqeClientRequestToken = Nothing
+    , _sqeWorkGroup = Nothing
     , _sqeQueryString = pQueryString_
-    , _sqeResultConfiguration = pResultConfiguration_
     }
 
 
@@ -86,17 +90,21 @@ startQueryExecution pQueryString_ pResultConfiguration_ =
 sqeQueryExecutionContext :: Lens' StartQueryExecution (Maybe QueryExecutionContext)
 sqeQueryExecutionContext = lens _sqeQueryExecutionContext (\ s a -> s{_sqeQueryExecutionContext = a})
 
+-- | Specifies information about where and how to save the results of the query execution. If the query runs in a workgroup, then workgroup's settings may override query settings. This affects the query results location. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
+sqeResultConfiguration :: Lens' StartQueryExecution (Maybe ResultConfiguration)
+sqeResultConfiguration = lens _sqeResultConfiguration (\ s a -> s{_sqeResultConfiguration = a})
+
 -- | A unique case-sensitive string used to ensure the request to create the query is idempotent (executes only once). If another @StartQueryExecution@ request is received, the same response is returned and another query is not created. If a parameter has changed, for example, the @QueryString@ , an error is returned. /Important:/ This token is listed as not required because AWS SDKs (for example the AWS SDK for Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the action will fail.
 sqeClientRequestToken :: Lens' StartQueryExecution (Maybe Text)
 sqeClientRequestToken = lens _sqeClientRequestToken (\ s a -> s{_sqeClientRequestToken = a})
 
+-- | The name of the workgroup in which the query is being started.
+sqeWorkGroup :: Lens' StartQueryExecution (Maybe Text)
+sqeWorkGroup = lens _sqeWorkGroup (\ s a -> s{_sqeWorkGroup = a})
+
 -- | The SQL query statements to be executed.
 sqeQueryString :: Lens' StartQueryExecution Text
 sqeQueryString = lens _sqeQueryString (\ s a -> s{_sqeQueryString = a})
-
--- | Specifies information about where and how to save the results of the query execution.
-sqeResultConfiguration :: Lens' StartQueryExecution ResultConfiguration
-sqeResultConfiguration = lens _sqeResultConfiguration (\ s a -> s{_sqeResultConfiguration = a})
 
 instance AWSRequest StartQueryExecution where
         type Rs StartQueryExecution =
@@ -127,10 +135,11 @@ instance ToJSON StartQueryExecution where
               (catMaybes
                  [("QueryExecutionContext" .=) <$>
                     _sqeQueryExecutionContext,
+                  ("ResultConfiguration" .=) <$>
+                    _sqeResultConfiguration,
                   ("ClientRequestToken" .=) <$> _sqeClientRequestToken,
-                  Just ("QueryString" .= _sqeQueryString),
-                  Just
-                    ("ResultConfiguration" .= _sqeResultConfiguration)])
+                  ("WorkGroup" .=) <$> _sqeWorkGroup,
+                  Just ("QueryString" .= _sqeQueryString)])
 
 instance ToPath StartQueryExecution where
         toPath = const "/"

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a single query.
+-- Returns information about a single query. Requires that you have access to the workgroup in which the query was saved.
 --
 --
 module Network.AWS.Athena.GetNamedQuery

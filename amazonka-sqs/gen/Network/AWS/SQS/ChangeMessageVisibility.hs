@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes the visibility timeout of a specified message in a queue to a new value. The maximum allowed timeout value is 12 hours. Thus, you can't extend the timeout of a message in an existing queue to more than a total visibility timeout of 12 hours. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html Visibility Timeout> in the /Amazon Simple Queue Service Developer Guide/ .
+-- Changes the visibility timeout of a specified message in a queue to a new value. The maximum allowed timeout value is 12 hours. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html Visibility Timeout> in the /Amazon Simple Queue Service Developer Guide/ .
 --
 --
--- For example, you have a message with a visibility timeout of 5 minutes. After 3 minutes, you call @ChangeMessageVisiblity@ with a timeout of 10 minutes. At that time, the timeout for the message is extended by 10 minutes beyond the time of the @ChangeMessageVisibility@ action. This results in a total visibility timeout of 13 minutes. You can continue to call the @ChangeMessageVisibility@ to extend the visibility timeout to a maximum of 12 hours. If you try to extend the visibility timeout beyond 12 hours, your request is rejected.
+-- For example, you have a message with a visibility timeout of 5 minutes. After 3 minutes, you call @ChangeMessageVisibility@ with a timeout of 10 minutes. You can continue to call @ChangeMessageVisibility@ to extend the visibility timeout to a maximum of 12 hours. If you try to extend the visibility timeout beyond 12 hours, your request is rejected.
 --
 -- A message is considered to be /in flight/ after it's received from a queue by a consumer, but not yet deleted from the queue.
 --
@@ -67,7 +67,7 @@ data ChangeMessageVisibility = ChangeMessageVisibility'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cmvQueueURL' - The URL of the Amazon SQS queue whose message's visibility is changed. Queue URLs are case-sensitive.
+-- * 'cmvQueueURL' - The URL of the Amazon SQS queue whose message's visibility is changed. Queue URLs and names are case-sensitive.
 --
 -- * 'cmvReceiptHandle' - The receipt handle associated with the message whose visibility timeout is changed. This parameter is returned by the @'ReceiveMessage' @ action.
 --
@@ -85,7 +85,7 @@ changeMessageVisibility pQueueURL_ pReceiptHandle_ pVisibilityTimeout_ =
     }
 
 
--- | The URL of the Amazon SQS queue whose message's visibility is changed. Queue URLs are case-sensitive.
+-- | The URL of the Amazon SQS queue whose message's visibility is changed. Queue URLs and names are case-sensitive.
 cmvQueueURL :: Lens' ChangeMessageVisibility Text
 cmvQueueURL = lens _cmvQueueURL (\ s a -> s{_cmvQueueURL = a})
 

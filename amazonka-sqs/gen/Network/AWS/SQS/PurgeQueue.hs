@@ -21,9 +21,13 @@
 -- Deletes the messages in a queue specified by the @QueueURL@ parameter.
 --
 --
--- /Important:/ When you use the @PurgeQueue@ action, you can't retrieve a message deleted from a queue.
+-- /Important:/ When you use the @PurgeQueue@ action, you can't retrieve any messages deleted from a queue.
 --
--- When you purge a queue, the message deletion process takes up to 60 seconds. All messages sent to the queue before calling the @PurgeQueue@ action are deleted. Messages sent to the queue while it is being purged might be deleted. While the queue is being purged, messages sent to the queue before @PurgeQueue@ is called might be received, but are deleted within the next minute.
+-- The message deletion process takes up to 60 seconds. We recommend waiting for 60 seconds regardless of your queue's size.
+--
+-- Messages sent to the queue /before/ you call @PurgeQueue@ might be received but are deleted within the next minute.
+--
+-- Messages sent to the queue /after/ you call @PurgeQueue@ might be deleted while the queue is being purged.
 --
 module Network.AWS.SQS.PurgeQueue
     (
@@ -59,14 +63,14 @@ newtype PurgeQueue = PurgeQueue'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pqQueueURL' - The URL of the queue from which the @PurgeQueue@ action deletes messages. Queue URLs are case-sensitive.
+-- * 'pqQueueURL' - The URL of the queue from which the @PurgeQueue@ action deletes messages. Queue URLs and names are case-sensitive.
 purgeQueue
     :: Text -- ^ 'pqQueueURL'
     -> PurgeQueue
 purgeQueue pQueueURL_ = PurgeQueue' {_pqQueueURL = pQueueURL_}
 
 
--- | The URL of the queue from which the @PurgeQueue@ action deletes messages. Queue URLs are case-sensitive.
+-- | The URL of the queue from which the @PurgeQueue@ action deletes messages. Queue URLs and names are case-sensitive.
 pqQueueURL :: Lens' PurgeQueue Text
 pqQueueURL = lens _pqQueueURL (\ s a -> s{_pqQueueURL = a})
 

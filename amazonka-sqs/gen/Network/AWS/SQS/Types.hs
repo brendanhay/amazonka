@@ -175,7 +175,7 @@ _TooManyEntriesInBatchRequest =
   hasStatus 400
 
 
--- | You must wait 60 seconds after deleting a queue before you can create another one with the same name.
+-- | You must wait 60 seconds after deleting a queue before you can create another queue with the same name.
 --
 --
 _QueueDeletedRecently :: AsError a => Getting (First ServiceError) a ServiceError
@@ -184,7 +184,7 @@ _QueueDeletedRecently =
   hasStatus 400
 
 
--- | The queue referred to doesn't exist.
+-- | The specified queue doesn't exist.
 --
 --
 _QueueDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceError
@@ -193,7 +193,7 @@ _QueueDoesNotExist =
   hasStatus 400
 
 
--- | The attribute referred to doesn't exist.
+-- | The specified attribute doesn't exist.
 --
 --
 _InvalidAttributeName :: AsError a => Getting (First ServiceError) a ServiceError
@@ -225,14 +225,14 @@ _BatchRequestTooLong =
   hasStatus 400
 
 
--- | The action that you requested would violate a limit. For example, @ReceiveMessage@ returns this error if the maximum number of inflight messages is reached. @'AddPermission' @ returns this error if the maximum number of permissions for the queue is reached.
+-- | The specified action violates a limit. For example, @ReceiveMessage@ returns this error if the maximum number of inflight messages is reached and @AddPermission@ returns this error if the maximum number of permissions for the queue is reached.
 --
 --
 _OverLimit :: AsError a => Getting (First ServiceError) a ServiceError
 _OverLimit = _MatchServiceError sqs "OverLimit" . hasStatus 403
 
 
--- | A queue already exists with this name. Amazon SQS returns this error only if the request includes attributes whose values differ from those of the existing queue.
+-- | A queue with this name already exists. Amazon SQS returns this error only if the request includes attributes whose values differ from those of the existing queue.
 --
 --
 _QueueNameExists :: AsError a => Getting (First ServiceError) a ServiceError
@@ -248,14 +248,14 @@ _PurgeQueueInProgress =
   hasStatus 403
 
 
--- | The receipt handle isn't valid for the current version.
+-- | The specified receipt handle isn't valid for the current version.
 --
 --
 _InvalidIdFormat :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidIdFormat = _MatchServiceError sqs "InvalidIdFormat"
 
 
--- | The receipt handle provided isn't valid.
+-- | The specified receipt handle isn't valid.
 --
 --
 _ReceiptHandleIsInvalid :: AsError a => Getting (First ServiceError) a ServiceError
@@ -280,7 +280,7 @@ _BatchEntryIdsNotDistinct =
   hasStatus 400
 
 
--- | The message referred to isn't in flight.
+-- | The specified message isn't in flight.
 --
 --
 _MessageNotInflight :: AsError a => Getting (First ServiceError) a ServiceError

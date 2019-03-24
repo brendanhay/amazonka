@@ -33,6 +33,12 @@
 --
 -- If you don't specify the @DelaySeconds@ parameter for an entry, Amazon SQS uses the default value for the queue.
 --
+-- Some actions take lists of parameters. These lists are specified using the @param.n@ notation. Values of @n@ are integers starting from 1. For example, a parameter list with two elements looks like this:
+--
+-- @&Attribute.1=first@
+--
+-- @&Attribute.2=second@
+--
 module Network.AWS.SQS.SendMessageBatch
     (
     -- * Creating a Request
@@ -73,7 +79,7 @@ data SendMessageBatch = SendMessageBatch'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'smbQueueURL' - The URL of the Amazon SQS queue to which batched messages are sent. Queue URLs are case-sensitive.
+-- * 'smbQueueURL' - The URL of the Amazon SQS queue to which batched messages are sent. Queue URLs and names are case-sensitive.
 --
 -- * 'smbEntries' - A list of @'SendMessageBatchRequestEntry' @ items.
 sendMessageBatch
@@ -83,7 +89,7 @@ sendMessageBatch pQueueURL_ =
   SendMessageBatch' {_smbQueueURL = pQueueURL_, _smbEntries = mempty}
 
 
--- | The URL of the Amazon SQS queue to which batched messages are sent. Queue URLs are case-sensitive.
+-- | The URL of the Amazon SQS queue to which batched messages are sent. Queue URLs and names are case-sensitive.
 smbQueueURL :: Lens' SendMessageBatch Text
 smbQueueURL = lens _smbQueueURL (\ s a -> s{_smbQueueURL = a})
 

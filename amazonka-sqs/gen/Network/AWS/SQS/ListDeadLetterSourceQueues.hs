@@ -60,7 +60,7 @@ newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldlsqQueueURL' - The URL of a dead-letter queue. Queue URLs are case-sensitive.
+-- * 'ldlsqQueueURL' - The URL of a dead-letter queue. Queue URLs and names are case-sensitive.
 listDeadLetterSourceQueues
     :: Text -- ^ 'ldlsqQueueURL'
     -> ListDeadLetterSourceQueues
@@ -68,7 +68,7 @@ listDeadLetterSourceQueues pQueueURL_ =
   ListDeadLetterSourceQueues' {_ldlsqQueueURL = pQueueURL_}
 
 
--- | The URL of a dead-letter queue. Queue URLs are case-sensitive.
+-- | The URL of a dead-letter queue. Queue URLs and names are case-sensitive.
 ldlsqQueueURL :: Lens' ListDeadLetterSourceQueues Text
 ldlsqQueueURL = lens _ldlsqQueueURL (\ s a -> s{_ldlsqQueueURL = a})
 

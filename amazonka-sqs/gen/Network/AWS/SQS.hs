@@ -32,13 +32,15 @@
 --
 --     * /Amazon Simple Queue Service Developer Guide/
 --
---     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/MakingRequestsArticle.html Making API Requests>
+--     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html Making API Requests>
 --
---     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html Using Amazon SQS Message Attributes>
+--     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html Amazon SQS Message Attributes>
 --
---     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html Using Amazon SQS Dead-Letter Queues>
+--     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html Amazon SQS Dead-Letter Queues>
 --
 --
+--
+--     * <http://docs.aws.amazon.com/cli/latest/reference/sqs/index.html Amazon SQS in the /AWS CLI Command Reference/ >
 --
 --     * /Amazon Web Services General Reference/
 --

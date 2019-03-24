@@ -23,6 +23,12 @@
 --
 -- /Important:/ Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of @200@ .
 --
+-- Some actions take lists of parameters. These lists are specified using the @param.n@ notation. Values of @n@ are integers starting from 1. For example, a parameter list with two elements looks like this:
+--
+-- @&Attribute.1=first@
+--
+-- @&Attribute.2=second@
+--
 module Network.AWS.SQS.DeleteMessageBatch
     (
     -- * Creating a Request
@@ -63,7 +69,7 @@ data DeleteMessageBatch = DeleteMessageBatch'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmbQueueURL' - The URL of the Amazon SQS queue from which messages are deleted. Queue URLs are case-sensitive.
+-- * 'dmbQueueURL' - The URL of the Amazon SQS queue from which messages are deleted. Queue URLs and names are case-sensitive.
 --
 -- * 'dmbEntries' - A list of receipt handles for the messages to be deleted.
 deleteMessageBatch
@@ -73,7 +79,7 @@ deleteMessageBatch pQueueURL_ =
   DeleteMessageBatch' {_dmbQueueURL = pQueueURL_, _dmbEntries = mempty}
 
 
--- | The URL of the Amazon SQS queue from which messages are deleted. Queue URLs are case-sensitive.
+-- | The URL of the Amazon SQS queue from which messages are deleted. Queue URLs and names are case-sensitive.
 dmbQueueURL :: Lens' DeleteMessageBatch Text
 dmbQueueURL = lens _dmbQueueURL (\ s a -> s{_dmbQueueURL = a})
 

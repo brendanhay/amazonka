@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the URL of an existing queue. This action provides a simple way to retrieve the URL of an Amazon SQS queue.
+-- Returns the URL of an existing Amazon SQS queue.
 --
 --
--- To access a queue that belongs to another AWS account, use the @QueueOwnerAWSAccountId@ parameter to specify the account ID of the queue's owner. The queue's owner must grant you permission to access the queue. For more information about shared queue access, see @'AddPermission' @ or see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues> in the /Amazon Simple Queue Service Developer Guide/ .
+-- To access a queue that belongs to another AWS account, use the @QueueOwnerAWSAccountId@ parameter to specify the account ID of the queue's owner. The queue's owner must grant you permission to access the queue. For more information about shared queue access, see @'AddPermission' @ or see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue Allow Developers to Write Messages to a Shared Queue> in the /Amazon Simple Queue Service Developer Guide/ .
 --
 module Network.AWS.SQS.GetQueueURL
     (
@@ -64,7 +64,7 @@ data GetQueueURL = GetQueueURL'
 --
 -- * 'gquQueueOwnerAWSAccountId' - The AWS account ID of the account that created the queue.
 --
--- * 'gquQueueName' - The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values: alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ). Queue names are case-sensitive.
+-- * 'gquQueueName' - The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values: alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ). Queue URLs and names are case-sensitive.
 getQueueURL
     :: Text -- ^ 'gquQueueName'
     -> GetQueueURL
@@ -77,7 +77,7 @@ getQueueURL pQueueName_ =
 gquQueueOwnerAWSAccountId :: Lens' GetQueueURL (Maybe Text)
 gquQueueOwnerAWSAccountId = lens _gquQueueOwnerAWSAccountId (\ s a -> s{_gquQueueOwnerAWSAccountId = a})
 
--- | The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values: alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ). Queue names are case-sensitive.
+-- | The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values: alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ). Queue URLs and names are case-sensitive.
 gquQueueName :: Lens' GetQueueURL Text
 gquQueueName = lens _gquQueueName (\ s a -> s{_gquQueueName = a})
 
@@ -109,7 +109,7 @@ instance ToQuery GetQueueURL where
                  _gquQueueOwnerAWSAccountId,
                "QueueName" =: _gquQueueName]
 
--- | For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/UnderstandingResponses.html Responses> in the /Amazon Simple Queue Service Developer Guide/ .
+-- | For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-api-responses.html Interpreting Responses> in the /Amazon Simple Queue Service Developer Guide/ .
 --
 --
 --

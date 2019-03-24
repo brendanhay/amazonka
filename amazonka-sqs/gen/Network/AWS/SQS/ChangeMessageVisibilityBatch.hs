@@ -23,6 +23,12 @@
 --
 -- /Important:/ Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of @200@ .
 --
+-- Some actions take lists of parameters. These lists are specified using the @param.n@ notation. Values of @n@ are integers starting from 1. For example, a parameter list with two elements looks like this:
+--
+-- @&Attribute.1=first@
+--
+-- @&Attribute.2=second@
+--
 module Network.AWS.SQS.ChangeMessageVisibilityBatch
     (
     -- * Creating a Request
@@ -63,7 +69,7 @@ data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cmvbQueueURL' - The URL of the Amazon SQS queue whose messages' visibility is changed. Queue URLs are case-sensitive.
+-- * 'cmvbQueueURL' - The URL of the Amazon SQS queue whose messages' visibility is changed. Queue URLs and names are case-sensitive.
 --
 -- * 'cmvbEntries' - A list of receipt handles of the messages for which the visibility timeout must be changed.
 changeMessageVisibilityBatch
@@ -74,7 +80,7 @@ changeMessageVisibilityBatch pQueueURL_ =
     {_cmvbQueueURL = pQueueURL_, _cmvbEntries = mempty}
 
 
--- | The URL of the Amazon SQS queue whose messages' visibility is changed. Queue URLs are case-sensitive.
+-- | The URL of the Amazon SQS queue whose messages' visibility is changed. Queue URLs and names are case-sensitive.
 cmvbQueueURL :: Lens' ChangeMessageVisibilityBatch Text
 cmvbQueueURL = lens _cmvbQueueURL (\ s a -> s{_cmvbQueueURL = a})
 

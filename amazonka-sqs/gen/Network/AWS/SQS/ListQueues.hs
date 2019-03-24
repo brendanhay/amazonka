@@ -58,13 +58,13 @@ newtype ListQueues = ListQueues'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lqQueueNamePrefix' - A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue names are case-sensitive.
+-- * 'lqQueueNamePrefix' - A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
 listQueues
     :: ListQueues
 listQueues = ListQueues' {_lqQueueNamePrefix = Nothing}
 
 
--- | A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue names are case-sensitive.
+-- | A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
 lqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
 lqQueueNamePrefix = lens _lqQueueNamePrefix (\ s a -> s{_lqQueueNamePrefix = a})
 

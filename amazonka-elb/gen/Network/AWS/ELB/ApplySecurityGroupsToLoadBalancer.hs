@@ -21,7 +21,7 @@
 -- Associates one or more security groups with your load balancer in a virtual private cloud (VPC). The specified security groups override the previously associated security groups.
 --
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups Security Groups for Load Balancers in a VPC> in the /Classic Load Balancer Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups Security Groups for Load Balancers in a VPC> in the /Classic Load Balancers Guide/ .
 --
 module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     (

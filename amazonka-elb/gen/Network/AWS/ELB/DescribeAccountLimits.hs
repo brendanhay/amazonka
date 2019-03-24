@@ -21,8 +21,10 @@
 -- Describes the current Elastic Load Balancing resource limits for your AWS account.
 --
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html Limits for Your Classic Load Balancer> in the /Classic Load Balancer Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html Limits for Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ELB.DescribeAccountLimits
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.ELB.DescribeAccountLimits
 import Network.AWS.ELB.Types
 import Network.AWS.ELB.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -75,6 +78,13 @@ dalMarker = lens _dalMarker (\ s a -> s{_dalMarker = a})
 -- | The maximum number of results to return with this call.
 dalPageSize :: Lens' DescribeAccountLimits (Maybe Natural)
 dalPageSize = lens _dalPageSize (\ s a -> s{_dalPageSize = a}) . mapping _Nat
+
+instance AWSPager DescribeAccountLimits where
+        page rq rs
+          | stop (rs ^. dalrsNextMarker) = Nothing
+          | stop (rs ^. dalrsLimits) = Nothing
+          | otherwise =
+            Just $ rq & dalMarker .~ rs ^. dalrsNextMarker
 
 instance AWSRequest DescribeAccountLimits where
         type Rs DescribeAccountLimits =

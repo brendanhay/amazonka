@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer.
+-- Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer in EC2-Classic or a default VPC.
 --
 --
--- The load balancer evenly distributes requests across all its registered Availability Zones that contain instances.
+-- For load balancers in a non-default VPC, use 'AttachLoadBalancerToSubnets' .
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html Add or Remove Availability Zones> in the /Classic Load Balancer Guide/ .
+-- The load balancer evenly distributes requests across all its registered Availability Zones that contain instances. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html Add or Remove Availability Zones> in the /Classic Load Balancers Guide/ .
 --
 module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     (

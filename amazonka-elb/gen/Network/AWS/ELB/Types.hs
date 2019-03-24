@@ -408,7 +408,9 @@ _OperationNotPermittedException =
   _MatchServiceError elb "OperationNotPermitted" . hasStatus 400
 
 
--- | Prism for DependencyThrottleException' errors.
+-- | A request made by Elastic Load Balancing to another service exceeds the maximum request rate permitted for your account.
+--
+--
 _DependencyThrottleException :: AsError a => Getting (First ServiceError) a ServiceError
 _DependencyThrottleException =
   _MatchServiceError elb "DependencyThrottle" . hasStatus 400

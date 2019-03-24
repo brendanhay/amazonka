@@ -23,7 +23,7 @@
 --
 -- You can modify the load balancer attributes, such as @AccessLogs@ , @ConnectionDraining@ , and @CrossZoneLoadBalancing@ by either enabling or disabling them. Or, you can modify the load balancer attribute @ConnectionSettings@ by specifying an idle connection timeout value for your load balancer.
 --
--- For more information, see the following in the /Classic Load Balancer Guide/ :
+-- For more information, see the following in the /Classic Load Balancers Guide/ :
 --
 --     * <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Cross-Zone Load Balancing>
 --

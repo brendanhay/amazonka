@@ -154,7 +154,7 @@ module Network.AWS.ELB
     -- ** SetLoadBalancerListenerSSLCertificate
     , module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
 
-    -- ** DescribeAccountLimits
+    -- ** DescribeAccountLimits (Paginated)
     , module Network.AWS.ELB.DescribeAccountLimits
 
     -- ** AttachLoadBalancerToSubnets

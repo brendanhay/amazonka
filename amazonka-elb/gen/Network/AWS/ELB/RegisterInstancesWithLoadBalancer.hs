@@ -29,7 +29,7 @@
 --
 -- To deregister instances from a load balancer, use 'DeregisterInstancesFromLoadBalancer' .
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html Register or De-Register EC2 Instances> in the /Classic Load Balancer Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html Register or De-Register EC2 Instances> in the /Classic Load Balancers Guide/ .
 --
 module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     (

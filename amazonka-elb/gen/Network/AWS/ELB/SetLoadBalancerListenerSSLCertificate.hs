@@ -21,7 +21,7 @@
 -- Sets the certificate that terminates the specified listener's SSL connections. The specified certificate replaces any prior certificate that was used on the same load balancer and port.
 --
 --
--- For more information about updating your SSL certificate, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html Replace the SSL Certificate for Your Load Balancer> in the /Classic Load Balancer Guide/ .
+-- For more information about updating your SSL certificate, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-update-ssl-cert.html Replace the SSL Certificate for Your Load Balancer> in the /Classic Load Balancers Guide/ .
 --
 module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
     (

@@ -21,7 +21,7 @@
 -- Specifies the health check settings to use when evaluating the health state of your EC2 instances.
 --
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html Configure Health Checks for Your Load Balancer> in the /Classic Load Balancer Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html Configure Health Checks for Your Load Balancer> in the /Classic Load Balancers Guide/ .
 --
 module Network.AWS.ELB.ConfigureHealthCheck
     (

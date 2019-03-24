@@ -588,7 +588,7 @@ data Limit = Limit'
 --
 -- * 'lMax' - The maximum value of the limit.
 --
--- * 'lName' - The name of the limit. The possible values are:     * classic-listeners     * classic-load-balancers
+-- * 'lName' - The name of the limit. The possible values are:     * classic-listeners     * classic-load-balancers     * classic-registered-instances
 limit
     :: Limit
 limit = Limit' {_lMax = Nothing, _lName = Nothing}
@@ -598,7 +598,7 @@ limit = Limit' {_lMax = Nothing, _lName = Nothing}
 lMax :: Lens' Limit (Maybe Text)
 lMax = lens _lMax (\ s a -> s{_lMax = a})
 
--- | The name of the limit. The possible values are:     * classic-listeners     * classic-load-balancers
+-- | The name of the limit. The possible values are:     * classic-listeners     * classic-load-balancers     * classic-registered-instances
 lName :: Lens' Limit (Maybe Text)
 lName = lens _lName (\ s a -> s{_lName = a})
 
@@ -613,7 +613,7 @@ instance NFData Limit where
 -- | Information about a listener.
 --
 --
--- For information about the protocols and the ports supported by Elastic Load Balancing, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancer Guide/ .
+-- For information about the protocols and the ports supported by Elastic Load Balancing, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
 --
 --
 -- /See:/ 'listener' smart constructor.
@@ -757,15 +757,15 @@ data LoadBalancerAttributes = LoadBalancerAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbaCrossZoneLoadBalancing' - If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Configure Cross-Zone Load Balancing> in the /Classic Load Balancer Guide/ .
+-- * 'lbaCrossZoneLoadBalancing' - If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Configure Cross-Zone Load Balancing> in the /Classic Load Balancers Guide/ .
 --
--- * 'lbaAccessLog' - If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs> in the /Classic Load Balancer Guide/ .
+-- * 'lbaAccessLog' - If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs> in the /Classic Load Balancers Guide/ .
 --
 -- * 'lbaAdditionalAttributes' - This parameter is reserved.
 --
--- * 'lbaConnectionSettings' - If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration. By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout> in the /Classic Load Balancer Guide/ .
+-- * 'lbaConnectionSettings' - If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration. By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout> in the /Classic Load Balancers Guide/ .
 --
--- * 'lbaConnectionDraining' - If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining> in the /Classic Load Balancer Guide/ .
+-- * 'lbaConnectionDraining' - If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining> in the /Classic Load Balancers Guide/ .
 loadBalancerAttributes
     :: LoadBalancerAttributes
 loadBalancerAttributes =
@@ -778,11 +778,11 @@ loadBalancerAttributes =
     }
 
 
--- | If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Configure Cross-Zone Load Balancing> in the /Classic Load Balancer Guide/ .
+-- | If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Configure Cross-Zone Load Balancing> in the /Classic Load Balancers Guide/ .
 lbaCrossZoneLoadBalancing :: Lens' LoadBalancerAttributes (Maybe CrossZoneLoadBalancing)
 lbaCrossZoneLoadBalancing = lens _lbaCrossZoneLoadBalancing (\ s a -> s{_lbaCrossZoneLoadBalancing = a})
 
--- | If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs> in the /Classic Load Balancer Guide/ .
+-- | If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs> in the /Classic Load Balancers Guide/ .
 lbaAccessLog :: Lens' LoadBalancerAttributes (Maybe AccessLog)
 lbaAccessLog = lens _lbaAccessLog (\ s a -> s{_lbaAccessLog = a})
 
@@ -790,11 +790,11 @@ lbaAccessLog = lens _lbaAccessLog (\ s a -> s{_lbaAccessLog = a})
 lbaAdditionalAttributes :: Lens' LoadBalancerAttributes [AdditionalAttribute]
 lbaAdditionalAttributes = lens _lbaAdditionalAttributes (\ s a -> s{_lbaAdditionalAttributes = a}) . _Default . _Coerce
 
--- | If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration. By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout> in the /Classic Load Balancer Guide/ .
+-- | If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration. By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout> in the /Classic Load Balancers Guide/ .
 lbaConnectionSettings :: Lens' LoadBalancerAttributes (Maybe ConnectionSettings)
 lbaConnectionSettings = lens _lbaConnectionSettings (\ s a -> s{_lbaConnectionSettings = a})
 
--- | If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining> in the /Classic Load Balancer Guide/ .
+-- | If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining> in the /Classic Load Balancers Guide/ .
 lbaConnectionDraining :: Lens' LoadBalancerAttributes (Maybe ConnectionDraining)
 lbaConnectionDraining = lens _lbaConnectionDraining (\ s a -> s{_lbaConnectionDraining = a})
 
@@ -856,7 +856,7 @@ data LoadBalancerDescription = LoadBalancerDescription'
 --
 -- * 'lbdSourceSecurityGroup' - The security group for the load balancer, which you can use as part of your inbound rules for your registered instances. To only allow traffic from load balancers, add a security group rule that specifies this source security group as the inbound source.
 --
--- * 'lbdCanonicalHostedZoneName' - The DNS name of the load balancer. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html Configure a Custom Domain Name> in the /Classic Load Balancer Guide/ .
+-- * 'lbdCanonicalHostedZoneName' - The DNS name of the load balancer. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html Configure a Custom Domain Name> in the /Classic Load Balancers Guide/ .
 --
 -- * 'lbdSecurityGroups' - The security groups for the load balancer. Valid only for load balancers in a VPC.
 --
@@ -912,7 +912,7 @@ loadBalancerDescription =
 lbdSourceSecurityGroup :: Lens' LoadBalancerDescription (Maybe SourceSecurityGroup)
 lbdSourceSecurityGroup = lens _lbdSourceSecurityGroup (\ s a -> s{_lbdSourceSecurityGroup = a})
 
--- | The DNS name of the load balancer. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html Configure a Custom Domain Name> in the /Classic Load Balancer Guide/ .
+-- | The DNS name of the load balancer. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html Configure a Custom Domain Name> in the /Classic Load Balancers Guide/ .
 lbdCanonicalHostedZoneName :: Lens' LoadBalancerDescription (Maybe Text)
 lbdCanonicalHostedZoneName = lens _lbdCanonicalHostedZoneName (\ s a -> s{_lbdCanonicalHostedZoneName = a})
 

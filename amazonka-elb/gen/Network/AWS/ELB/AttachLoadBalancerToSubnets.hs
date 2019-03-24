@@ -21,7 +21,7 @@
 -- Adds one or more subnets to the set of configured subnets for the specified load balancer.
 --
 --
--- The load balancer evenly distributes requests across all registered subnets. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html Add or Remove Subnets for Your Load Balancer in a VPC> in the /Classic Load Balancer Guide/ .
+-- The load balancer evenly distributes requests across all registered subnets. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html Add or Remove Subnets for Your Load Balancer in a VPC> in the /Classic Load Balancers Guide/ .
 --
 module Network.AWS.ELB.AttachLoadBalancerToSubnets
     (

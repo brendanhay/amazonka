@@ -25,7 +25,7 @@
 --
 -- If the application cookie is explicitly removed or expires, the session stops being sticky until a new application cookie is issued.
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application Application-Controlled Session Stickiness> in the /Classic Load Balancer Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application Application-Controlled Session Stickiness> in the /Classic Load Balancers Guide/ .
 --
 module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     (

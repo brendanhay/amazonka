@@ -79,7 +79,7 @@ data UpdateDataRetention = UpdateDataRetention'
 --
 -- * 'udrOperation' - Indicates whether you want to increase or decrease the retention period.
 --
--- * 'udrDataRetentionChangeInHours' - The retention period, in hours. The value you specify replaces the current value.
+-- * 'udrDataRetentionChangeInHours' - The retention period, in hours. The value you specify replaces the current value. The maximum value for this parameter is 87600 (ten years).
 updateDataRetention
     :: Text -- ^ 'udrCurrentVersion'
     -> UpdateDataRetentionOperation -- ^ 'udrOperation'
@@ -111,7 +111,7 @@ udrCurrentVersion = lens _udrCurrentVersion (\ s a -> s{_udrCurrentVersion = a})
 udrOperation :: Lens' UpdateDataRetention UpdateDataRetentionOperation
 udrOperation = lens _udrOperation (\ s a -> s{_udrOperation = a})
 
--- | The retention period, in hours. The value you specify replaces the current value.
+-- | The retention period, in hours. The value you specify replaces the current value. The maximum value for this parameter is 87600 (ten years).
 udrDataRetentionChangeInHours :: Lens' UpdateDataRetention Natural
 udrDataRetentionChangeInHours = lens _udrDataRetentionChangeInHours (\ s a -> s{_udrDataRetentionChangeInHours = a}) . _Nat
 

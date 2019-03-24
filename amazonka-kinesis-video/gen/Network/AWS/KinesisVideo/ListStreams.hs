@@ -21,6 +21,8 @@
 -- Returns an array of @StreamInfo@ objects. Each object describes a stream. To retrieve only streams that satisfy a specific condition, you can specify a @StreamNameCondition@ .
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.KinesisVideo.ListStreams
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.KinesisVideo.ListStreams
 import Network.AWS.KinesisVideo.Types
 import Network.AWS.KinesisVideo.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -85,6 +88,13 @@ lsStreamNameCondition = lens _lsStreamNameCondition (\ s a -> s{_lsStreamNameCon
 -- | The maximum number of streams to return in the response. The default is 10,000.
 lsMaxResults :: Lens' ListStreams (Maybe Natural)
 lsMaxResults = lens _lsMaxResults (\ s a -> s{_lsMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListStreams where
+        page rq rs
+          | stop (rs ^. lsrsNextToken) = Nothing
+          | stop (rs ^. lsrsStreamInfoList) = Nothing
+          | otherwise =
+            Just $ rq & lsNextToken .~ rs ^. lsrsNextToken
 
 instance AWSRequest ListStreams where
         type Rs ListStreams = ListStreamsResponse

@@ -146,7 +146,7 @@ _InvalidDeviceException =
   _MatchServiceError kinesisVideo "InvalidDeviceException" . hasStatus 400
 
 
--- | The stream version that you specified is not the latest version. To get the latest version, use the <http://docs.aws.amazon.com/kinesisvideo/latest/dg/API_DescribeStream.html DescribeStream> API.
+-- | The stream version that you specified is not the latest version. To get the latest version, use the <https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html DescribeStream> API.
 --
 --
 _VersionMismatchException :: AsError a => Getting (First ServiceError) a ServiceError

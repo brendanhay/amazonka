@@ -79,7 +79,7 @@ module Network.AWS.KinesisVideo
     -- ** DeleteStream
     , module Network.AWS.KinesisVideo.DeleteStream
 
-    -- ** ListStreams
+    -- ** ListStreams (Paginated)
     , module Network.AWS.KinesisVideo.ListStreams
 
     -- ** CreateStream

@@ -29,9 +29,9 @@
 --
 --
 --
--- You must specify all @DnsRecords@ configurations (and, optionally, @HealthCheckConfig@ ) that you want to appear in the updated service. Any current configurations that don't appear in an @UpdateService@ request are deleted.
+-- For public and private DNS namespaces, you must specify all @DnsRecords@ configurations (and, optionally, @HealthCheckConfig@ ) that you want to appear in the updated service. Any current configurations that don't appear in an @UpdateService@ request are deleted.
 --
--- When you update the TTL setting for a service, Amazon Route 53 also updates the corresponding settings in all the records and health checks that were created by using the specified service.
+-- When you update the TTL setting for a service, AWS Cloud Map also updates the corresponding settings in all the records and health checks that were created by using the specified service.
 --
 module Network.AWS.Route53AutoNaming.UpdateService
     (

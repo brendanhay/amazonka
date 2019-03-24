@@ -63,9 +63,9 @@ data GetInstancesHealthStatus = GetInstancesHealthStatus'
 --
 -- * 'gihsNextToken' - For the first @GetInstancesHealthStatus@ request, omit this value. If more than @MaxResults@ instances match the specified criteria, you can submit another @GetInstancesHealthStatus@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
 --
--- * 'gihsInstances' - An array that contains the IDs of all the instances that you want to get the health status for. If you omit @Instances@ , Amazon Route 53 returns the health status for all the instances that are associated with the specified service.
+-- * 'gihsInstances' - An array that contains the IDs of all the instances that you want to get the health status for. If you omit @Instances@ , AWS Cloud Map returns the health status for all the instances that are associated with the specified service.
 --
--- * 'gihsMaxResults' - The maximum number of instances that you want Route 53 to return in the response to a @GetInstancesHealthStatus@ request. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 instances.
+-- * 'gihsMaxResults' - The maximum number of instances that you want AWS Cloud Map to return in the response to a @GetInstancesHealthStatus@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
 --
 -- * 'gihsServiceId' - The ID of the service that the instance is associated with.
 getInstancesHealthStatus
@@ -84,11 +84,11 @@ getInstancesHealthStatus pServiceId_ =
 gihsNextToken :: Lens' GetInstancesHealthStatus (Maybe Text)
 gihsNextToken = lens _gihsNextToken (\ s a -> s{_gihsNextToken = a})
 
--- | An array that contains the IDs of all the instances that you want to get the health status for. If you omit @Instances@ , Amazon Route 53 returns the health status for all the instances that are associated with the specified service.
+-- | An array that contains the IDs of all the instances that you want to get the health status for. If you omit @Instances@ , AWS Cloud Map returns the health status for all the instances that are associated with the specified service.
 gihsInstances :: Lens' GetInstancesHealthStatus (Maybe (NonEmpty Text))
 gihsInstances = lens _gihsInstances (\ s a -> s{_gihsInstances = a}) . mapping _List1
 
--- | The maximum number of instances that you want Route 53 to return in the response to a @GetInstancesHealthStatus@ request. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 instances.
+-- | The maximum number of instances that you want AWS Cloud Map to return in the response to a @GetInstancesHealthStatus@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
 gihsMaxResults :: Lens' GetInstancesHealthStatus (Maybe Natural)
 gihsMaxResults = lens _gihsMaxResults (\ s a -> s{_gihsMaxResults = a}) . mapping _Nat
 

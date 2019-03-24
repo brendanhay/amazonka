@@ -66,7 +66,7 @@ data ListServices = ListServices'
 --
 -- * 'lsNextToken' - For the first @ListServices@ request, omit this value. If the response contains @NextToken@ , submit another @ListServices@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
 --
--- * 'lsMaxResults' - The maximum number of services that you want Amazon Route 53 to return in the response to a @ListServices@ request. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 services.
+-- * 'lsMaxResults' - The maximum number of services that you want AWS Cloud Map to return in the response to a @ListServices@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 services.
 listServices
     :: ListServices
 listServices =
@@ -82,7 +82,7 @@ lsFilters = lens _lsFilters (\ s a -> s{_lsFilters = a}) . _Default . _Coerce
 lsNextToken :: Lens' ListServices (Maybe Text)
 lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a})
 
--- | The maximum number of services that you want Amazon Route 53 to return in the response to a @ListServices@ request. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 services.
+-- | The maximum number of services that you want AWS Cloud Map to return in the response to a @ListServices@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 services.
 lsMaxResults :: Lens' ListServices (Maybe Natural)
 lsMaxResults = lens _lsMaxResults (\ s a -> s{_lsMaxResults = a}) . mapping _Nat
 

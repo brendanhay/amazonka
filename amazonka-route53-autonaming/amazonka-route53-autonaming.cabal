@@ -1,6 +1,6 @@
 name:                  amazonka-route53-autonaming
 version:               1.6.1
-synopsis:              Amazon Route 53 Auto Naming SDK.
+synopsis:              Amazon Cloud Map SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
 license:               MPL-2.0
@@ -45,12 +45,14 @@ library
 
     exposed-modules:
           Network.AWS.Route53AutoNaming
+        , Network.AWS.Route53AutoNaming.CreateHTTPNamespace
         , Network.AWS.Route53AutoNaming.CreatePrivateDNSNamespace
         , Network.AWS.Route53AutoNaming.CreatePublicDNSNamespace
         , Network.AWS.Route53AutoNaming.CreateService
         , Network.AWS.Route53AutoNaming.DeleteNamespace
         , Network.AWS.Route53AutoNaming.DeleteService
         , Network.AWS.Route53AutoNaming.DeregisterInstance
+        , Network.AWS.Route53AutoNaming.DiscoverInstances
         , Network.AWS.Route53AutoNaming.GetInstance
         , Network.AWS.Route53AutoNaming.GetInstancesHealthStatus
         , Network.AWS.Route53AutoNaming.GetNamespace

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the records and the health check, if any, that Amazon Route 53 created for the specified instance.
+-- Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map created for the specified instance.
 --
 --
 module Network.AWS.Route53AutoNaming.DeregisterInstance
@@ -34,8 +34,8 @@ module Network.AWS.Route53AutoNaming.DeregisterInstance
     , deregisterInstanceResponse
     , DeregisterInstanceResponse
     -- * Response Lenses
-    , dirsOperationId
-    , dirsResponseStatus
+    , drsOperationId
+    , drsResponseStatus
     ) where
 
 import Network.AWS.Lens
@@ -114,8 +114,8 @@ instance ToQuery DeregisterInstance where
 
 -- | /See:/ 'deregisterInstanceResponse' smart constructor.
 data DeregisterInstanceResponse = DeregisterInstanceResponse'
-  { _dirsOperationId    :: !(Maybe Text)
-  , _dirsResponseStatus :: !Int
+  { _drsOperationId    :: !(Maybe Text)
+  , _drsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -123,23 +123,23 @@ data DeregisterInstanceResponse = DeregisterInstanceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dirsOperationId' - A value that you can use to determine whether the request completed successfully. For more information, see 'GetOperation' .
+-- * 'drsOperationId' - A value that you can use to determine whether the request completed successfully. For more information, see 'GetOperation' .
 --
--- * 'dirsResponseStatus' - -- | The response status code.
+-- * 'drsResponseStatus' - -- | The response status code.
 deregisterInstanceResponse
-    :: Int -- ^ 'dirsResponseStatus'
+    :: Int -- ^ 'drsResponseStatus'
     -> DeregisterInstanceResponse
 deregisterInstanceResponse pResponseStatus_ =
   DeregisterInstanceResponse'
-    {_dirsOperationId = Nothing, _dirsResponseStatus = pResponseStatus_}
+    {_drsOperationId = Nothing, _drsResponseStatus = pResponseStatus_}
 
 
 -- | A value that you can use to determine whether the request completed successfully. For more information, see 'GetOperation' .
-dirsOperationId :: Lens' DeregisterInstanceResponse (Maybe Text)
-dirsOperationId = lens _dirsOperationId (\ s a -> s{_dirsOperationId = a})
+drsOperationId :: Lens' DeregisterInstanceResponse (Maybe Text)
+drsOperationId = lens _drsOperationId (\ s a -> s{_drsOperationId = a})
 
 -- | -- | The response status code.
-dirsResponseStatus :: Lens' DeregisterInstanceResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a})
+drsResponseStatus :: Lens' DeregisterInstanceResponse Int
+drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
 
 instance NFData DeregisterInstanceResponse where

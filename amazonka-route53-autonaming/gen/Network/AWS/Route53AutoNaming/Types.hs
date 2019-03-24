@@ -40,6 +40,9 @@ module Network.AWS.Route53AutoNaming.Types
     -- * HealthStatus
     , HealthStatus (..)
 
+    -- * HealthStatusFilter
+    , HealthStatusFilter (..)
+
     -- * NamespaceFilterName
     , NamespaceFilterName (..)
 
@@ -90,6 +93,20 @@ module Network.AWS.Route53AutoNaming.Types
     , drType
     , drTTL
 
+    -- * HTTPInstanceSummary
+    , HTTPInstanceSummary
+    , hTTPInstanceSummary
+    , httpisInstanceId
+    , httpisNamespaceName
+    , httpisAttributes
+    , httpisServiceName
+    , httpisHealthStatus
+
+    -- * HTTPProperties
+    , HTTPProperties
+    , hTTPProperties
+    , httppHTTPName
+
     -- * HealthCheckConfig
     , HealthCheckConfig
     , healthCheckConfig
@@ -139,14 +156,19 @@ module Network.AWS.Route53AutoNaming.Types
     , NamespaceProperties
     , namespaceProperties
     , npDNSProperties
+    , npHTTPProperties
 
     -- * NamespaceSummary
     , NamespaceSummary
     , namespaceSummary
     , nsARN
+    , nsCreateDate
+    , nsServiceCount
     , nsName
     , nsId
     , nsType
+    , nsDescription
+    , nsProperties
 
     -- * Operation
     , Operation
@@ -196,6 +218,7 @@ module Network.AWS.Route53AutoNaming.Types
     , siCreatorRequestId
     , siCreateDate
     , siHealthCheckCustomConfig
+    , siNamespaceId
     , siName
     , siId
     , siDNSConfig
@@ -206,8 +229,12 @@ module Network.AWS.Route53AutoNaming.Types
     , serviceSummary
     , ssInstanceCount
     , ssARN
+    , ssHealthCheckConfig
+    , ssCreateDate
+    , ssHealthCheckCustomConfig
     , ssName
     , ssId
+    , ssDNSConfig
     , ssDescription
     ) where
 
@@ -217,7 +244,7 @@ import Network.AWS.Route53AutoNaming.Types.Product
 import Network.AWS.Route53AutoNaming.Types.Sum
 import Network.AWS.Sign.V4
 
--- | API version @2017-03-14@ of the Amazon Route 53 Auto Naming SDK configuration.
+-- | API version @2017-03-14@ of the Amazon Cloud Map SDK configuration.
 route53AutoNaming :: Service
 route53AutoNaming =
   Service
@@ -264,7 +291,7 @@ _ResourceLimitExceeded =
   _MatchServiceError route53AutoNaming "ResourceLimitExceeded"
 
 
--- | One or more specified values aren't valid. For example, when you're creating a namespace, the value of @Name@ might not be a valid DNS name.
+-- | One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.
 --
 --
 _InvalidInput :: AsError a => Getting (First ServiceError) a ServiceError
@@ -301,7 +328,9 @@ _ResourceInUse :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUse = _MatchServiceError route53AutoNaming "ResourceInUse"
 
 
--- | Prism for CustomHealthNotFound' errors.
+-- | The health check for the instance that is specified by @ServiceId@ and @InstanceId@ is not a custom health check.
+--
+--
 _CustomHealthNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _CustomHealthNotFound =
   _MatchServiceError route53AutoNaming "CustomHealthNotFound"

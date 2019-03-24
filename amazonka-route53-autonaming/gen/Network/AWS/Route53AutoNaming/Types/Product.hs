@@ -21,14 +21,14 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Route53AutoNaming.Types.Sum
 
--- | A complex type that contains information about the records that you want Amazon Route 53 to create when you register an instance.
+-- | A complex type that contains information about the Amazon Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
 --
 --
 --
 -- /See:/ 'dnsConfig' smart constructor.
 data DNSConfig = DNSConfig'
   { _dcRoutingPolicy :: !(Maybe RoutingPolicy)
-  , _dcNamespaceId   :: !Text
+  , _dcNamespaceId   :: !(Maybe Text)
   , _dcDNSRecords    :: ![DNSRecord]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -37,31 +37,30 @@ data DNSConfig = DNSConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcRoutingPolicy' - The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify this service. You can specify the following values: __MULTIVALUE__  If you define a health check for the service and the health check is healthy, Route 53 returns the applicable value for up to eight instances. For example, suppose the service includes configurations for one A record and a health check, and you use the service to register 10 instances. Route 53 responds to DNS queries with IP addresses for up to eight healthy instances. If fewer than eight instances are healthy, Route 53 responds to every DNS query with the IP addresses for all of the healthy instances. If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the values for up to eight instances. For more information about the multivalue routing policy, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-multivalue Multivalue Answer Routing> in the /Route 53 Developer Guide/ . __WEIGHTED__  Route 53 returns the applicable value from one randomly selected instance from among the instances that you registered using the same service. Currently, all records have the same weight, so you can't route more or less traffic to any instances. For example, suppose the service includes configurations for one A record and a health check, and you use the service to register 10 instances. Route 53 responds to DNS queries with the IP address for one randomly selected instance from among the healthy instances. If no instances are healthy, Route 53 responds to DNS queries as if all of the instances were healthy. If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance. For more information about the weighted routing policy, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted Weighted Routing> in the /Route 53 Developer Guide/ .
+-- * 'dcRoutingPolicy' - The routing policy that you want to apply to all Route 53 DNS records that AWS Cloud Map creates when you register an instance and specify this service. You can specify the following values: __MULTIVALUE__  If you define a health check for the service and the health check is healthy, Route 53 returns the applicable value for up to eight instances. For example, suppose the service includes configurations for one A record and a health check, and you use the service to register 10 instances. Route 53 responds to DNS queries with IP addresses for up to eight healthy instances. If fewer than eight instances are healthy, Route 53 responds to every DNS query with the IP addresses for all of the healthy instances. If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the values for up to eight instances. For more information about the multivalue routing policy, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-multivalue Multivalue Answer Routing> in the /Route 53 Developer Guide/ . __WEIGHTED__  Route 53 returns the applicable value from one randomly selected instance from among the instances that you registered using the same service. Currently, all records have the same weight, so you can't route more or less traffic to any instances. For example, suppose the service includes configurations for one A record and a health check, and you use the service to register 10 instances. Route 53 responds to DNS queries with the IP address for one randomly selected instance from among the healthy instances. If no instances are healthy, Route 53 responds to DNS queries as if all of the instances were healthy. If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance. For more information about the weighted routing policy, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted Weighted Routing> in the /Route 53 Developer Guide/ .
 --
 -- * 'dcNamespaceId' - The ID of the namespace to use for DNS configuration.
 --
--- * 'dcDNSRecords' - An array that contains one @DnsRecord@ object for each record that you want Route 53 to create when you register an instance.
+-- * 'dcDNSRecords' - An array that contains one @DnsRecord@ object for each Route 53 DNS record that you want AWS Cloud Map to create when you register an instance.
 dnsConfig
-    :: Text -- ^ 'dcNamespaceId'
-    -> DNSConfig
-dnsConfig pNamespaceId_ =
+    :: DNSConfig
+dnsConfig =
   DNSConfig'
     { _dcRoutingPolicy = Nothing
-    , _dcNamespaceId = pNamespaceId_
+    , _dcNamespaceId = Nothing
     , _dcDNSRecords = mempty
     }
 
 
--- | The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify this service. You can specify the following values: __MULTIVALUE__  If you define a health check for the service and the health check is healthy, Route 53 returns the applicable value for up to eight instances. For example, suppose the service includes configurations for one A record and a health check, and you use the service to register 10 instances. Route 53 responds to DNS queries with IP addresses for up to eight healthy instances. If fewer than eight instances are healthy, Route 53 responds to every DNS query with the IP addresses for all of the healthy instances. If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the values for up to eight instances. For more information about the multivalue routing policy, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-multivalue Multivalue Answer Routing> in the /Route 53 Developer Guide/ . __WEIGHTED__  Route 53 returns the applicable value from one randomly selected instance from among the instances that you registered using the same service. Currently, all records have the same weight, so you can't route more or less traffic to any instances. For example, suppose the service includes configurations for one A record and a health check, and you use the service to register 10 instances. Route 53 responds to DNS queries with the IP address for one randomly selected instance from among the healthy instances. If no instances are healthy, Route 53 responds to DNS queries as if all of the instances were healthy. If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance. For more information about the weighted routing policy, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted Weighted Routing> in the /Route 53 Developer Guide/ .
+-- | The routing policy that you want to apply to all Route 53 DNS records that AWS Cloud Map creates when you register an instance and specify this service. You can specify the following values: __MULTIVALUE__  If you define a health check for the service and the health check is healthy, Route 53 returns the applicable value for up to eight instances. For example, suppose the service includes configurations for one A record and a health check, and you use the service to register 10 instances. Route 53 responds to DNS queries with IP addresses for up to eight healthy instances. If fewer than eight instances are healthy, Route 53 responds to every DNS query with the IP addresses for all of the healthy instances. If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the values for up to eight instances. For more information about the multivalue routing policy, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-multivalue Multivalue Answer Routing> in the /Route 53 Developer Guide/ . __WEIGHTED__  Route 53 returns the applicable value from one randomly selected instance from among the instances that you registered using the same service. Currently, all records have the same weight, so you can't route more or less traffic to any instances. For example, suppose the service includes configurations for one A record and a health check, and you use the service to register 10 instances. Route 53 responds to DNS queries with the IP address for one randomly selected instance from among the healthy instances. If no instances are healthy, Route 53 responds to DNS queries as if all of the instances were healthy. If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns the applicable value for one randomly selected instance. For more information about the weighted routing policy, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted Weighted Routing> in the /Route 53 Developer Guide/ .
 dcRoutingPolicy :: Lens' DNSConfig (Maybe RoutingPolicy)
 dcRoutingPolicy = lens _dcRoutingPolicy (\ s a -> s{_dcRoutingPolicy = a})
 
 -- | The ID of the namespace to use for DNS configuration.
-dcNamespaceId :: Lens' DNSConfig Text
+dcNamespaceId :: Lens' DNSConfig (Maybe Text)
 dcNamespaceId = lens _dcNamespaceId (\ s a -> s{_dcNamespaceId = a})
 
--- | An array that contains one @DnsRecord@ object for each record that you want Route 53 to create when you register an instance.
+-- | An array that contains one @DnsRecord@ object for each Route 53 DNS record that you want AWS Cloud Map to create when you register an instance.
 dcDNSRecords :: Lens' DNSConfig [DNSRecord]
 dcDNSRecords = lens _dcDNSRecords (\ s a -> s{_dcDNSRecords = a}) . _Coerce
 
@@ -70,7 +69,7 @@ instance FromJSON DNSConfig where
           = withObject "DNSConfig"
               (\ x ->
                  DNSConfig' <$>
-                   (x .:? "RoutingPolicy") <*> (x .: "NamespaceId") <*>
+                   (x .:? "RoutingPolicy") <*> (x .:? "NamespaceId") <*>
                      (x .:? "DnsRecords" .!= mempty))
 
 instance Hashable DNSConfig where
@@ -82,10 +81,10 @@ instance ToJSON DNSConfig where
           = object
               (catMaybes
                  [("RoutingPolicy" .=) <$> _dcRoutingPolicy,
-                  Just ("NamespaceId" .= _dcNamespaceId),
+                  ("NamespaceId" .=) <$> _dcNamespaceId,
                   Just ("DnsRecords" .= _dcDNSRecords)])
 
--- | A complex type that contains information about changes to the records that Route 53 creates when you register an instance.
+-- | A complex type that contains information about changes to the Route 53 DNS records that AWS Cloud Map creates when you register an instance.
 --
 --
 --
@@ -99,13 +98,13 @@ newtype DNSConfigChange = DNSConfigChange'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dccDNSRecords' - An array that contains one @DnsRecord@ object for each record that you want Route 53 to create when you register an instance.
+-- * 'dccDNSRecords' - An array that contains one @DnsRecord@ object for each Route 53 record that you want AWS Cloud Map to create when you register an instance.
 dnsConfigChange
     :: DNSConfigChange
 dnsConfigChange = DNSConfigChange' {_dccDNSRecords = mempty}
 
 
--- | An array that contains one @DnsRecord@ object for each record that you want Route 53 to create when you register an instance.
+-- | An array that contains one @DnsRecord@ object for each Route 53 record that you want AWS Cloud Map to create when you register an instance.
 dccDNSRecords :: Lens' DNSConfigChange [DNSRecord]
 dccDNSRecords = lens _dccDNSRecords (\ s a -> s{_dccDNSRecords = a}) . _Coerce
 
@@ -118,7 +117,7 @@ instance ToJSON DNSConfigChange where
           = object
               (catMaybes [Just ("DnsRecords" .= _dccDNSRecords)])
 
--- | A complex type that contains the ID for the hosted zone that Route 53 creates when you create a namespace.
+-- | A complex type that contains the ID for the Route 53 hosted zone that AWS Cloud Map creates when you create a namespace.
 --
 --
 --
@@ -132,13 +131,13 @@ newtype DNSProperties = DNSProperties'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpHostedZoneId' - The ID for the hosted zone that Route 53 creates when you create a namespace.
+-- * 'dpHostedZoneId' - The ID for the Route 53 hosted zone that AWS Cloud Map creates when you create a namespace.
 dnsProperties
     :: DNSProperties
 dnsProperties = DNSProperties' {_dpHostedZoneId = Nothing}
 
 
--- | The ID for the hosted zone that Route 53 creates when you create a namespace.
+-- | The ID for the Route 53 hosted zone that AWS Cloud Map creates when you create a namespace.
 dpHostedZoneId :: Lens' DNSProperties (Maybe Text)
 dpHostedZoneId = lens _dpHostedZoneId (\ s a -> s{_dpHostedZoneId = a})
 
@@ -151,7 +150,7 @@ instance Hashable DNSProperties where
 
 instance NFData DNSProperties where
 
--- | A complex type that contains information about the records that you want Route 53 to create when you register an instance.
+-- | A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
 --
 --
 --
@@ -166,7 +165,7 @@ data DNSRecord = DNSRecord'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drType' - The type of the resource, which indicates the type of value that Route 53 returns in response to DNS queries. Note the following:     * __A, AAAA, and SRV records: You can specify settings for a maximum of one A, one AAAA, and one SRV record. You can specify them in any combination.__      * __CNAME records:__ If you specify @CNAME@ for @Type@ , you can't define any other records. This is a limitation of DNS—you can't create a CNAME record and any other type of record that has the same name as a CNAME record.     * __Alias records:__ If you want Route 53 to create an alias record when you register an instance, specify @A@ or @AAAA@ for @Type@ .     * __All records:__ You specify settings other than @TTL@ and @Type@ when you register an instance. The following values are supported: __A__  Route 53 returns the IP address of the resource in IPv4 format, such as 192.0.2.44. __AAAA__  Route 53 returns the IP address of the resource in IPv6 format, such as 2001:0db8:85a3:0000:0000:abcd:0001:2345. __CNAME__  Route 53 returns the domain name of the resource, such as www.example.com. Note the following:     * You specify the domain name that you want to route traffic to when you register an instance. For more information, see 'RegisterInstanceRequest$Attributes' .     * You must specify @WEIGHTED@ for the value of @RoutingPolicy@ .     * You can't specify both @CNAME@ for @Type@ and settings for @HealthCheckConfig@ . If you do, the request will fail with an @InvalidInput@ error. __SRV__  Route 53 returns the value for an SRV record. The value for an SRV record uses the following values: @priority weight port service-hostname@  Note the following about the values:     * The values of @priority@ and @weight@ are both set to @1@ and can't be changed.      * The value of @port@ comes from the value that you specify for the @AWS_INSTANCE_PORT@ attribute when you submit a 'RegisterInstance' request.      * The value of @service-hostname@ is a concatenation of the following values:     * The value that you specify for @InstanceId@ when you register an instance.     * The name of the service.     * The name of the namespace.  For example, if the value of @InstanceId@ is @test@ , the name of the service is @backend@ , and the name of the namespace is @example.com@ , the value of @service-hostname@ is: @test.backend.example.com@  If you specify settings for an SRV record and if you specify values for @AWS_INSTANCE_IPV4@ , @AWS_INSTANCE_IPV6@ , or both in the @RegisterInstance@ request, Route 53 automatically creates @A@ and/or @AAAA@ records that have the same name as the value of @service-hostname@ in the SRV record. You can ignore these records.
+-- * 'drType' - The type of the resource, which indicates the type of value that Route 53 returns in response to DNS queries. Note the following:     * __A, AAAA, and SRV records:__ You can specify settings for a maximum of one A, one AAAA, and one SRV record. You can specify them in any combination.     * __CNAME records:__ If you specify @CNAME@ for @Type@ , you can't define any other records. This is a limitation of DNS: you can't create a CNAME record and any other type of record that has the same name as a CNAME record.     * __Alias records:__ If you want AWS Cloud Map to create a Route 53 alias record when you register an instance, specify @A@ or @AAAA@ for @Type@ .     * __All records:__ You specify settings other than @TTL@ and @Type@ when you register an instance. The following values are supported: __A__  Route 53 returns the IP address of the resource in IPv4 format, such as 192.0.2.44. __AAAA__  Route 53 returns the IP address of the resource in IPv6 format, such as 2001:0db8:85a3:0000:0000:abcd:0001:2345. __CNAME__  Route 53 returns the domain name of the resource, such as www.example.com. Note the following:     * You specify the domain name that you want to route traffic to when you register an instance. For more information, see 'RegisterInstanceRequest$Attributes' .     * You must specify @WEIGHTED@ for the value of @RoutingPolicy@ .     * You can't specify both @CNAME@ for @Type@ and settings for @HealthCheckConfig@ . If you do, the request will fail with an @InvalidInput@ error. __SRV__  Route 53 returns the value for an SRV record. The value for an SRV record uses the following values: @priority weight port service-hostname@  Note the following about the values:     * The values of @priority@ and @weight@ are both set to @1@ and can't be changed.      * The value of @port@ comes from the value that you specify for the @AWS_INSTANCE_PORT@ attribute when you submit a 'RegisterInstance' request.      * The value of @service-hostname@ is a concatenation of the following values:     * The value that you specify for @InstanceId@ when you register an instance.     * The name of the service.     * The name of the namespace.  For example, if the value of @InstanceId@ is @test@ , the name of the service is @backend@ , and the name of the namespace is @example.com@ , the value of @service-hostname@ is: @test.backend.example.com@  If you specify settings for an SRV record and if you specify values for @AWS_INSTANCE_IPV4@ , @AWS_INSTANCE_IPV6@ , or both in the @RegisterInstance@ request, AWS Cloud Map automatically creates @A@ and/or @AAAA@ records that have the same name as the value of @service-hostname@ in the SRV record. You can ignore these records.
 --
 -- * 'drTTL' - The amount of time, in seconds, that you want DNS resolvers to cache the settings for this record.
 dnsRecord
@@ -176,7 +175,7 @@ dnsRecord
 dnsRecord pType_ pTTL_ = DNSRecord' {_drType = pType_, _drTTL = _Nat # pTTL_}
 
 
--- | The type of the resource, which indicates the type of value that Route 53 returns in response to DNS queries. Note the following:     * __A, AAAA, and SRV records: You can specify settings for a maximum of one A, one AAAA, and one SRV record. You can specify them in any combination.__      * __CNAME records:__ If you specify @CNAME@ for @Type@ , you can't define any other records. This is a limitation of DNS—you can't create a CNAME record and any other type of record that has the same name as a CNAME record.     * __Alias records:__ If you want Route 53 to create an alias record when you register an instance, specify @A@ or @AAAA@ for @Type@ .     * __All records:__ You specify settings other than @TTL@ and @Type@ when you register an instance. The following values are supported: __A__  Route 53 returns the IP address of the resource in IPv4 format, such as 192.0.2.44. __AAAA__  Route 53 returns the IP address of the resource in IPv6 format, such as 2001:0db8:85a3:0000:0000:abcd:0001:2345. __CNAME__  Route 53 returns the domain name of the resource, such as www.example.com. Note the following:     * You specify the domain name that you want to route traffic to when you register an instance. For more information, see 'RegisterInstanceRequest$Attributes' .     * You must specify @WEIGHTED@ for the value of @RoutingPolicy@ .     * You can't specify both @CNAME@ for @Type@ and settings for @HealthCheckConfig@ . If you do, the request will fail with an @InvalidInput@ error. __SRV__  Route 53 returns the value for an SRV record. The value for an SRV record uses the following values: @priority weight port service-hostname@  Note the following about the values:     * The values of @priority@ and @weight@ are both set to @1@ and can't be changed.      * The value of @port@ comes from the value that you specify for the @AWS_INSTANCE_PORT@ attribute when you submit a 'RegisterInstance' request.      * The value of @service-hostname@ is a concatenation of the following values:     * The value that you specify for @InstanceId@ when you register an instance.     * The name of the service.     * The name of the namespace.  For example, if the value of @InstanceId@ is @test@ , the name of the service is @backend@ , and the name of the namespace is @example.com@ , the value of @service-hostname@ is: @test.backend.example.com@  If you specify settings for an SRV record and if you specify values for @AWS_INSTANCE_IPV4@ , @AWS_INSTANCE_IPV6@ , or both in the @RegisterInstance@ request, Route 53 automatically creates @A@ and/or @AAAA@ records that have the same name as the value of @service-hostname@ in the SRV record. You can ignore these records.
+-- | The type of the resource, which indicates the type of value that Route 53 returns in response to DNS queries. Note the following:     * __A, AAAA, and SRV records:__ You can specify settings for a maximum of one A, one AAAA, and one SRV record. You can specify them in any combination.     * __CNAME records:__ If you specify @CNAME@ for @Type@ , you can't define any other records. This is a limitation of DNS: you can't create a CNAME record and any other type of record that has the same name as a CNAME record.     * __Alias records:__ If you want AWS Cloud Map to create a Route 53 alias record when you register an instance, specify @A@ or @AAAA@ for @Type@ .     * __All records:__ You specify settings other than @TTL@ and @Type@ when you register an instance. The following values are supported: __A__  Route 53 returns the IP address of the resource in IPv4 format, such as 192.0.2.44. __AAAA__  Route 53 returns the IP address of the resource in IPv6 format, such as 2001:0db8:85a3:0000:0000:abcd:0001:2345. __CNAME__  Route 53 returns the domain name of the resource, such as www.example.com. Note the following:     * You specify the domain name that you want to route traffic to when you register an instance. For more information, see 'RegisterInstanceRequest$Attributes' .     * You must specify @WEIGHTED@ for the value of @RoutingPolicy@ .     * You can't specify both @CNAME@ for @Type@ and settings for @HealthCheckConfig@ . If you do, the request will fail with an @InvalidInput@ error. __SRV__  Route 53 returns the value for an SRV record. The value for an SRV record uses the following values: @priority weight port service-hostname@  Note the following about the values:     * The values of @priority@ and @weight@ are both set to @1@ and can't be changed.      * The value of @port@ comes from the value that you specify for the @AWS_INSTANCE_PORT@ attribute when you submit a 'RegisterInstance' request.      * The value of @service-hostname@ is a concatenation of the following values:     * The value that you specify for @InstanceId@ when you register an instance.     * The name of the service.     * The name of the namespace.  For example, if the value of @InstanceId@ is @test@ , the name of the service is @backend@ , and the name of the namespace is @example.com@ , the value of @service-hostname@ is: @test.backend.example.com@  If you specify settings for an SRV record and if you specify values for @AWS_INSTANCE_IPV4@ , @AWS_INSTANCE_IPV6@ , or both in the @RegisterInstance@ request, AWS Cloud Map automatically creates @A@ and/or @AAAA@ records that have the same name as the value of @service-hostname@ in the SRV record. You can ignore these records.
 drType :: Lens' DNSRecord RecordType
 drType = lens _drType (\ s a -> s{_drType = a})
 
@@ -200,12 +199,124 @@ instance ToJSON DNSRecord where
               (catMaybes
                  [Just ("Type" .= _drType), Just ("TTL" .= _drTTL)])
 
--- | /Public DNS namespaces only./ A complex type that contains settings for an optional health check. If you specify settings for a health check, Amazon Route 53 associates the health check with all the records that you specify in @DnsConfig@ .
+-- | In a response to a 'DiscoverInstance' request, @HttpInstanceSummary@ contains information about one instance that matches the values that you specified in the request.
 --
+--
+--
+-- /See:/ 'hTTPInstanceSummary' smart constructor.
+data HTTPInstanceSummary = HTTPInstanceSummary'
+  { _httpisInstanceId    :: !(Maybe Text)
+  , _httpisNamespaceName :: !(Maybe Text)
+  , _httpisAttributes    :: !(Maybe (Map Text Text))
+  , _httpisServiceName   :: !(Maybe Text)
+  , _httpisHealthStatus  :: !(Maybe HealthStatus)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'HTTPInstanceSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'httpisInstanceId' - The ID of an instance that matches the values that you specified in the request.
+--
+-- * 'httpisNamespaceName' - The name of the namespace that you specified when you registered the instance.
+--
+-- * 'httpisAttributes' - If you included any attributes when you registered the instance, the values of those attributes.
+--
+-- * 'httpisServiceName' - The name of the service that you specified when you registered the instance.
+--
+-- * 'httpisHealthStatus' - If you configured health checking in the service, the current health status of the service instance.
+hTTPInstanceSummary
+    :: HTTPInstanceSummary
+hTTPInstanceSummary =
+  HTTPInstanceSummary'
+    { _httpisInstanceId = Nothing
+    , _httpisNamespaceName = Nothing
+    , _httpisAttributes = Nothing
+    , _httpisServiceName = Nothing
+    , _httpisHealthStatus = Nothing
+    }
+
+
+-- | The ID of an instance that matches the values that you specified in the request.
+httpisInstanceId :: Lens' HTTPInstanceSummary (Maybe Text)
+httpisInstanceId = lens _httpisInstanceId (\ s a -> s{_httpisInstanceId = a})
+
+-- | The name of the namespace that you specified when you registered the instance.
+httpisNamespaceName :: Lens' HTTPInstanceSummary (Maybe Text)
+httpisNamespaceName = lens _httpisNamespaceName (\ s a -> s{_httpisNamespaceName = a})
+
+-- | If you included any attributes when you registered the instance, the values of those attributes.
+httpisAttributes :: Lens' HTTPInstanceSummary (HashMap Text Text)
+httpisAttributes = lens _httpisAttributes (\ s a -> s{_httpisAttributes = a}) . _Default . _Map
+
+-- | The name of the service that you specified when you registered the instance.
+httpisServiceName :: Lens' HTTPInstanceSummary (Maybe Text)
+httpisServiceName = lens _httpisServiceName (\ s a -> s{_httpisServiceName = a})
+
+-- | If you configured health checking in the service, the current health status of the service instance.
+httpisHealthStatus :: Lens' HTTPInstanceSummary (Maybe HealthStatus)
+httpisHealthStatus = lens _httpisHealthStatus (\ s a -> s{_httpisHealthStatus = a})
+
+instance FromJSON HTTPInstanceSummary where
+        parseJSON
+          = withObject "HTTPInstanceSummary"
+              (\ x ->
+                 HTTPInstanceSummary' <$>
+                   (x .:? "InstanceId") <*> (x .:? "NamespaceName") <*>
+                     (x .:? "Attributes" .!= mempty)
+                     <*> (x .:? "ServiceName")
+                     <*> (x .:? "HealthStatus"))
+
+instance Hashable HTTPInstanceSummary where
+
+instance NFData HTTPInstanceSummary where
+
+-- | A complex type that contains the name of an HTTP namespace.
+--
+--
+--
+-- /See:/ 'hTTPProperties' smart constructor.
+newtype HTTPProperties = HTTPProperties'
+  { _httppHTTPName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'HTTPProperties' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'httppHTTPName' - The name of an HTTP namespace.
+hTTPProperties
+    :: HTTPProperties
+hTTPProperties = HTTPProperties' {_httppHTTPName = Nothing}
+
+
+-- | The name of an HTTP namespace.
+httppHTTPName :: Lens' HTTPProperties (Maybe Text)
+httppHTTPName = lens _httppHTTPName (\ s a -> s{_httppHTTPName = a})
+
+instance FromJSON HTTPProperties where
+        parseJSON
+          = withObject "HTTPProperties"
+              (\ x -> HTTPProperties' <$> (x .:? "HttpName"))
+
+instance Hashable HTTPProperties where
+
+instance NFData HTTPProperties where
+
+-- | /Public DNS namespaces only./ A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in @DnsConfig@ .
+--
+--
+-- /Important:/ If you specify a health check configuration, you can specify either @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
+--
+-- Health checks are basic Route 53 health checks that monitor an AWS endpoint. For information about pricing for health checks, see <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing> .
+--
+-- Note the following about configuring health checks.
 --
 -- __A and AAAA records__
 --
--- If @DnsConfig@ includes configurations for both A and AAAA records, Route 53 creates a health check that uses the IPv4 address to check the health of the resource. If the endpoint that is specified by the IPv4 address is unhealthy, Route 53 considers both the A and AAAA records to be unhealthy.
+-- If @DnsConfig@ includes configurations for both A and AAAA records, AWS Cloud Map creates a health check that uses the IPv4 address to check the health of the resource. If the endpoint that is specified by the IPv4 address is unhealthy, Route 53 considers both the A and AAAA records to be unhealthy.
 --
 -- __CNAME records__
 --
@@ -213,7 +324,7 @@ instance ToJSON DNSRecord where
 --
 -- __Request interval__
 --
--- The health check uses 30 seconds as the request interval. This is the number of seconds between the time that each Route 53 health checker gets a response from your endpoint and the time that it sends the next health check request. A health checker in each data center around the world sends your endpoint a health check request every 30 seconds. On average, your endpoint receives a health check request about every two seconds. Health checkers in different data centers don't coordinate with one another, so you'll sometimes see several requests per second followed by a few seconds with no health checks at all.
+-- A Route 53 health checker in each health-checking region sends a health check request to an endpoint every 30 seconds. On average, your endpoint receives a health check request about every two seconds. However, health checkers don't coordinate with one another, so you'll sometimes see several requests per second followed by a few seconds with no health checks at all.
 --
 -- __Health checking regions__
 --
@@ -221,7 +332,7 @@ instance ToJSON DNSRecord where
 --
 -- __Alias records__
 --
--- When you register an instance, if you include the @AWS_ALIAS_DNS_NAME@ attribute, Route 53 creates an alias record. Note the following:
+-- When you register an instance, if you include the @AWS_ALIAS_DNS_NAME@ attribute, AWS Cloud Map creates a Route 53 alias record. Note the following:
 --
 --     * Route 53 automatically sets @EvaluateTargetHealth@ to true for alias records. When @EvaluateTargetHealth@ is true, the alias record inherits the health of the referenced AWS resource. such as an ELB load balancer. For more information, see <http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html#Route53-Type-AliasTarget-EvaluateTargetHealth EvaluateTargetHealth> .
 --
@@ -229,14 +340,16 @@ instance ToJSON DNSRecord where
 --
 --
 --
--- For information about the charges for health checks, see <http://aws.amazon.com/route53/pricing Route 53 Pricing> .
+-- __Charges for health checks__
+--
+-- Health checks are basic Route 53 health checks that monitor an AWS endpoint. For information about pricing for health checks, see <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing> .
 --
 --
 -- /See:/ 'healthCheckConfig' smart constructor.
 data HealthCheckConfig = HealthCheckConfig'
   { _hccFailureThreshold :: !(Maybe Nat)
   , _hccResourcePath     :: !(Maybe Text)
-  , _hccType             :: !(Maybe HealthCheckType)
+  , _hccType             :: !HealthCheckType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -246,16 +359,17 @@ data HealthCheckConfig = HealthCheckConfig'
 --
 -- * 'hccFailureThreshold' - The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Route 53 Determines Whether an Endpoint Is Healthy> in the /Route 53 Developer Guide/ .
 --
--- * 'hccResourcePath' - The path that you want Route 53 to request when performing health checks. The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, such as the file @/docs/route53-health-check.html@ . Route 53 automatically adds the DNS name for the service and a leading forward slash (@/@ ) character.
+-- * 'hccResourcePath' - The path that you want Route 53 to request when performing health checks. The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, such as the file @/docs/route53-health-check.html@ . Route 53 automatically adds the DNS name for the service. If you don't specify a value for @ResourcePath@ , the default value is @/@ . If you specify @TCP@ for @Type@ , you must /not/ specify a value for @ResourcePath@ .
 --
--- * 'hccType' - The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. /Important:/ You can't change the value of @Type@ after you create a health check. You can create the following types of health checks:     * __HTTP__ : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTP request and waits for an HTTP status code of 200 or greater and less than 400.     * __HTTPS__ : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTPS request and waits for an HTTP status code of 200 or greater and less than 400. /Important:/ If you specify HTTPS for the value of @Type@ , the endpoint must support TLS v1.0 or later.     * __TCP__ : Route 53 tries to establish a TCP connection. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Route 53 Determines Whether an Endpoint Is Healthy> in the /Route 53 Developer Guide/ .
+-- * 'hccType' - The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. /Important:/ You can't change the value of @Type@ after you create a health check. You can create the following types of health checks:     * __HTTP__ : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTP request and waits for an HTTP status code of 200 or greater and less than 400.     * __HTTPS__ : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTPS request and waits for an HTTP status code of 200 or greater and less than 400. /Important:/ If you specify HTTPS for the value of @Type@ , the endpoint must support TLS v1.0 or later.     * __TCP__ : Route 53 tries to establish a TCP connection. If you specify @TCP@ for @Type@ , don't specify a value for @ResourcePath@ . For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Route 53 Determines Whether an Endpoint Is Healthy> in the /Route 53 Developer Guide/ .
 healthCheckConfig
-    :: HealthCheckConfig
-healthCheckConfig =
+    :: HealthCheckType -- ^ 'hccType'
+    -> HealthCheckConfig
+healthCheckConfig pType_ =
   HealthCheckConfig'
     { _hccFailureThreshold = Nothing
     , _hccResourcePath = Nothing
-    , _hccType = Nothing
+    , _hccType = pType_
     }
 
 
@@ -263,12 +377,12 @@ healthCheckConfig =
 hccFailureThreshold :: Lens' HealthCheckConfig (Maybe Natural)
 hccFailureThreshold = lens _hccFailureThreshold (\ s a -> s{_hccFailureThreshold = a}) . mapping _Nat
 
--- | The path that you want Route 53 to request when performing health checks. The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, such as the file @/docs/route53-health-check.html@ . Route 53 automatically adds the DNS name for the service and a leading forward slash (@/@ ) character.
+-- | The path that you want Route 53 to request when performing health checks. The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, such as the file @/docs/route53-health-check.html@ . Route 53 automatically adds the DNS name for the service. If you don't specify a value for @ResourcePath@ , the default value is @/@ . If you specify @TCP@ for @Type@ , you must /not/ specify a value for @ResourcePath@ .
 hccResourcePath :: Lens' HealthCheckConfig (Maybe Text)
 hccResourcePath = lens _hccResourcePath (\ s a -> s{_hccResourcePath = a})
 
--- | The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. /Important:/ You can't change the value of @Type@ after you create a health check. You can create the following types of health checks:     * __HTTP__ : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTP request and waits for an HTTP status code of 200 or greater and less than 400.     * __HTTPS__ : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTPS request and waits for an HTTP status code of 200 or greater and less than 400. /Important:/ If you specify HTTPS for the value of @Type@ , the endpoint must support TLS v1.0 or later.     * __TCP__ : Route 53 tries to establish a TCP connection. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Route 53 Determines Whether an Endpoint Is Healthy> in the /Route 53 Developer Guide/ .
-hccType :: Lens' HealthCheckConfig (Maybe HealthCheckType)
+-- | The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. /Important:/ You can't change the value of @Type@ after you create a health check. You can create the following types of health checks:     * __HTTP__ : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTP request and waits for an HTTP status code of 200 or greater and less than 400.     * __HTTPS__ : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTPS request and waits for an HTTP status code of 200 or greater and less than 400. /Important:/ If you specify HTTPS for the value of @Type@ , the endpoint must support TLS v1.0 or later.     * __TCP__ : Route 53 tries to establish a TCP connection. If you specify @TCP@ for @Type@ , don't specify a value for @ResourcePath@ . For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Route 53 Determines Whether an Endpoint Is Healthy> in the /Route 53 Developer Guide/ .
+hccType :: Lens' HealthCheckConfig HealthCheckType
 hccType = lens _hccType (\ s a -> s{_hccType = a})
 
 instance FromJSON HealthCheckConfig where
@@ -277,7 +391,7 @@ instance FromJSON HealthCheckConfig where
               (\ x ->
                  HealthCheckConfig' <$>
                    (x .:? "FailureThreshold") <*> (x .:? "ResourcePath")
-                     <*> (x .:? "Type"))
+                     <*> (x .: "Type"))
 
 instance Hashable HealthCheckConfig where
 
@@ -289,9 +403,45 @@ instance ToJSON HealthCheckConfig where
               (catMaybes
                  [("FailureThreshold" .=) <$> _hccFailureThreshold,
                   ("ResourcePath" .=) <$> _hccResourcePath,
-                  ("Type" .=) <$> _hccType])
+                  Just ("Type" .= _hccType)])
 
--- | /See:/ 'healthCheckCustomConfig' smart constructor.
+-- | A complex type that contains information about an optional custom health check. A custom health check, which requires that you use a third-party health checker to evaluate the health of your resources, is useful in the following circumstances:
+--
+--
+--     * You can't use a health check that is defined by @HealthCheckConfig@ because the resource isn't available over the internet. For example, you can use a custom health check when the instance is in an Amazon VPC. (To check the health of resources in a VPC, the health checker must also be in the VPC.)
+--
+--     * You want to use a third-party health checker regardless of where your resources are.
+--
+--
+--
+-- /Important:/ If you specify a health check configuration, you can specify either @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
+--
+-- To change the status of a custom health check, submit an @UpdateInstanceCustomHealthStatus@ request. Cloud Map doesn't monitor the status of the resource, it just keeps a record of the status specified in the most recent @UpdateInstanceCustomHealthStatus@ request.
+--
+-- Here's how custom health checks work:
+--
+--     * You create a service and specify a value for @FailureThreshold@ .
+--
+-- The failure threshold indicates the number of 30-second intervals you want AWS Cloud Map to wait between the time that your application sends an 'UpdateInstanceCustomHealthStatus' request and the time that AWS Cloud Map stops routing internet traffic to the corresponding resource.
+--
+--     * You register an instance.
+--
+--     * You configure a third-party health checker to monitor the resource that is associated with the new instance.
+--
+--     * The third-party health-checker determines that the resource is unhealthy and notifies your application.
+--
+--     * Your application submits an @UpdateInstanceCustomHealthStatus@ request.
+--
+--     * AWS Cloud Map waits for (@FailureThreshold@ x 30) seconds.
+--
+--     * If another @UpdateInstanceCustomHealthStatus@ request doesn't arrive during that time to change the status back to healthy, AWS Cloud Map stops routing traffic to the resource.
+--
+--
+--
+-- Note the following about configuring custom health checks.
+--
+--
+-- /See:/ 'healthCheckCustomConfig' smart constructor.
 newtype HealthCheckCustomConfig = HealthCheckCustomConfig'
   { _hcccFailureThreshold :: Maybe Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -301,14 +451,14 @@ newtype HealthCheckCustomConfig = HealthCheckCustomConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hcccFailureThreshold' - Undocumented member.
+-- * 'hcccFailureThreshold' - The number of 30-second intervals that you want Cloud Map to wait after receiving an @UpdateInstanceCustomHealthStatus@ request before it changes the health status of a service instance. For example, suppose you specify a value of @2@ for @FailureTheshold@ , and then your application sends an @UpdateInstanceCustomHealthStatus@ request. Cloud Map waits for approximately 60 seconds (2 x 30) before changing the status of the service instance based on that request. Sending a second or subsequent @UpdateInstanceCustomHealthStatus@ request with the same value before @FailureThreshold x 30@ seconds has passed doesn't accelerate the change. Cloud Map still waits @FailureThreshold x 30@ seconds after the first request to make the change.
 healthCheckCustomConfig
     :: HealthCheckCustomConfig
 healthCheckCustomConfig =
   HealthCheckCustomConfig' {_hcccFailureThreshold = Nothing}
 
 
--- | Undocumented member.
+-- | The number of 30-second intervals that you want Cloud Map to wait after receiving an @UpdateInstanceCustomHealthStatus@ request before it changes the health status of a service instance. For example, suppose you specify a value of @2@ for @FailureTheshold@ , and then your application sends an @UpdateInstanceCustomHealthStatus@ request. Cloud Map waits for approximately 60 seconds (2 x 30) before changing the status of the service instance based on that request. Sending a second or subsequent @UpdateInstanceCustomHealthStatus@ request with the same value before @FailureThreshold x 30@ seconds has passed doesn't accelerate the change. Cloud Map still waits @FailureThreshold x 30@ seconds after the first request to make the change.
 hcccFailureThreshold :: Lens' HealthCheckCustomConfig (Maybe Natural)
 hcccFailureThreshold = lens _hcccFailureThreshold (\ s a -> s{_hcccFailureThreshold = a}) . mapping _Nat
 
@@ -329,7 +479,7 @@ instance ToJSON HealthCheckCustomConfig where
               (catMaybes
                  [("FailureThreshold" .=) <$> _hcccFailureThreshold])
 
--- | A complex type that contains information about an instance that Amazon Route 53 creates when you submit a @RegisterInstance@ request.
+-- | A complex type that contains information about an instance that AWS Cloud Map creates when you submit a @RegisterInstance@ request.
 --
 --
 --
@@ -347,9 +497,9 @@ data Instance = Instance'
 --
 -- * 'iCreatorRequestId' - A unique string that identifies the request and that allows failed @RegisterInstance@ requests to be retried without the risk of executing the operation twice. You must use a unique @CreatorRequestId@ string every time you submit a @RegisterInstance@ request if you're registering additional instances for the same namespace and service. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
 --
--- * 'iAttributes' - A string map that contains the following information for the service that you specify in @ServiceId@ :     * The attributes that apply to the records that are defined in the service.      * For each attribute, the applicable value. Supported attribute keys include the following: __AWS_ALIAS_DNS_NAME__  ____  If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load balancer, specify the DNS name that is associated with the load balancer. For information about how to get the DNS name, see "DNSName" in the topic <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html AliasTarget> . Note the following:     * The configuration for the service that is specified by @ServiceId@ must include settings for an A record, an AAAA record, or both.     * In the service that is specified by @ServiceId@ , the value of @RoutingPolicy@ must be @WEIGHTED@ .     * If the service that is specified by @ServiceId@ includes @HealthCheckConfig@ settings, Route 53 will create the health check, but it won't associate the health check with the alias record.     * Auto naming currently doesn't support creating alias records that route traffic to AWS resources other than ELB load balancers.     * If you specify a value for @AWS_ALIAS_DNS_NAME@ , don't specify values for any of the @AWS_INSTANCE@ attributes. __AWS_INSTANCE_CNAME__  If the service configuration includes a CNAME record, the domain name that you want Route 53 to return in response to DNS queries, for example, @example.com@ . This value is required if the service specified by @ServiceId@ includes settings for an CNAME record. __AWS_INSTANCE_IPV4__  If the service configuration includes an A record, the IPv4 address that you want Route 53 to return in response to DNS queries, for example, @192.0.2.44@ . This value is required if the service specified by @ServiceId@ includes settings for an A record. If the service includes settings for an SRV record, you must specify a value for @AWS_INSTANCE_IPV4@ , @AWS_INSTANCE_IPV6@ , or both. __AWS_INSTANCE_IPV6__  If the service configuration includes an AAAA record, the IPv6 address that you want Route 53 to return in response to DNS queries, for example, @2001:0db8:85a3:0000:0000:abcd:0001:2345@ . This value is required if the service specified by @ServiceId@ includes settings for an AAAA record. If the service includes settings for an SRV record, you must specify a value for @AWS_INSTANCE_IPV4@ , @AWS_INSTANCE_IPV6@ , or both. __AWS_INSTANCE_PORT__  If the service includes an SRV record, the value that you want Route 53 to return for the port. If the service includes @HealthCheckConfig@ , the port on the endpoint that you want Route 53 to send requests to.  This value is required if you specified settings for an SRV record when you created the service.
+-- * 'iAttributes' - A string map that contains the following information for the service that you specify in @ServiceId@ :     * The attributes that apply to the records that are defined in the service.      * For each attribute, the applicable value. Supported attribute keys include the following: __AWS_ALIAS_DNS_NAME__  ____  If you want AWS Cloud Map to create a Route 53 alias record that routes traffic to an Elastic Load Balancing load balancer, specify the DNS name that is associated with the load balancer. For information about how to get the DNS name, see "DNSName" in the topic <http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html AliasTarget> . Note the following:     * The configuration for the service that is specified by @ServiceId@ must include settings for an A record, an AAAA record, or both.     * In the service that is specified by @ServiceId@ , the value of @RoutingPolicy@ must be @WEIGHTED@ .     * If the service that is specified by @ServiceId@ includes @HealthCheckConfig@ settings, AWS Cloud Map will create the health check, but it won't associate the health check with the alias record.     * Auto naming currently doesn't support creating alias records that route traffic to AWS resources other than ELB load balancers.     * If you specify a value for @AWS_ALIAS_DNS_NAME@ , don't specify values for any of the @AWS_INSTANCE@ attributes. __AWS_INSTANCE_CNAME__  If the service configuration includes a CNAME record, the domain name that you want Route 53 to return in response to DNS queries, for example, @example.com@ . This value is required if the service specified by @ServiceId@ includes settings for an CNAME record. __AWS_INSTANCE_IPV4__  If the service configuration includes an A record, the IPv4 address that you want Route 53 to return in response to DNS queries, for example, @192.0.2.44@ . This value is required if the service specified by @ServiceId@ includes settings for an A record. If the service includes settings for an SRV record, you must specify a value for @AWS_INSTANCE_IPV4@ , @AWS_INSTANCE_IPV6@ , or both. __AWS_INSTANCE_IPV6__  If the service configuration includes an AAAA record, the IPv6 address that you want Route 53 to return in response to DNS queries, for example, @2001:0db8:85a3:0000:0000:abcd:0001:2345@ . This value is required if the service specified by @ServiceId@ includes settings for an AAAA record. If the service includes settings for an SRV record, you must specify a value for @AWS_INSTANCE_IPV4@ , @AWS_INSTANCE_IPV6@ , or both. __AWS_INSTANCE_PORT__  If the service includes an SRV record, the value that you want Route 53 to return for the port. If the service includes @HealthCheckConfig@ , the port on the endpoint that you want Route 53 to send requests to.  This value is required if you specified settings for an SRV record when you created the service.
 --
--- * 'iId' - An identifier that you want to associate with the instance. Note the following:     * If the service that is specified by @ServiceId@ includes settings for an SRV record, the value of @InstanceId@ is automatically included as part of the value for the SRV record. For more information, see 'DnsRecord$Type' .     * You can use this value to update an existing instance.     * To register a new instance, you must specify a value that is unique among instances that you register by using the same service.      * If you specify an existing @InstanceId@ and @ServiceId@ , Route 53 updates the existing records. If there's also an existing health check, Route 53 deletes the old health check and creates a new one.
+-- * 'iId' - An identifier that you want to associate with the instance. Note the following:     * If the service that is specified by @ServiceId@ includes settings for an SRV record, the value of @InstanceId@ is automatically included as part of the value for the SRV record. For more information, see 'DnsRecord$Type' .     * You can use this value to update an existing instance.     * To register a new instance, you must specify a value that is unique among instances that you register by using the same service.      * If you specify an existing @InstanceId@ and @ServiceId@ , AWS Cloud Map updates the existing DNS records. If there's also an existing health check, AWS Cloud Map deletes the old health check and creates a new one.
 instance'
     :: Text -- ^ 'iId'
     -> Instance
@@ -361,11 +511,11 @@ instance' pId_ =
 iCreatorRequestId :: Lens' Instance (Maybe Text)
 iCreatorRequestId = lens _iCreatorRequestId (\ s a -> s{_iCreatorRequestId = a})
 
--- | A string map that contains the following information for the service that you specify in @ServiceId@ :     * The attributes that apply to the records that are defined in the service.      * For each attribute, the applicable value. Supported attribute keys include the following: __AWS_ALIAS_DNS_NAME__  ____  If you want Route 53 to create an alias record that routes traffic to an Elastic Load Balancing load balancer, specify the DNS name that is associated with the load balancer. For information about how to get the DNS name, see "DNSName" in the topic <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html AliasTarget> . Note the following:     * The configuration for the service that is specified by @ServiceId@ must include settings for an A record, an AAAA record, or both.     * In the service that is specified by @ServiceId@ , the value of @RoutingPolicy@ must be @WEIGHTED@ .     * If the service that is specified by @ServiceId@ includes @HealthCheckConfig@ settings, Route 53 will create the health check, but it won't associate the health check with the alias record.     * Auto naming currently doesn't support creating alias records that route traffic to AWS resources other than ELB load balancers.     * If you specify a value for @AWS_ALIAS_DNS_NAME@ , don't specify values for any of the @AWS_INSTANCE@ attributes. __AWS_INSTANCE_CNAME__  If the service configuration includes a CNAME record, the domain name that you want Route 53 to return in response to DNS queries, for example, @example.com@ . This value is required if the service specified by @ServiceId@ includes settings for an CNAME record. __AWS_INSTANCE_IPV4__  If the service configuration includes an A record, the IPv4 address that you want Route 53 to return in response to DNS queries, for example, @192.0.2.44@ . This value is required if the service specified by @ServiceId@ includes settings for an A record. If the service includes settings for an SRV record, you must specify a value for @AWS_INSTANCE_IPV4@ , @AWS_INSTANCE_IPV6@ , or both. __AWS_INSTANCE_IPV6__  If the service configuration includes an AAAA record, the IPv6 address that you want Route 53 to return in response to DNS queries, for example, @2001:0db8:85a3:0000:0000:abcd:0001:2345@ . This value is required if the service specified by @ServiceId@ includes settings for an AAAA record. If the service includes settings for an SRV record, you must specify a value for @AWS_INSTANCE_IPV4@ , @AWS_INSTANCE_IPV6@ , or both. __AWS_INSTANCE_PORT__  If the service includes an SRV record, the value that you want Route 53 to return for the port. If the service includes @HealthCheckConfig@ , the port on the endpoint that you want Route 53 to send requests to.  This value is required if you specified settings for an SRV record when you created the service.
+-- | A string map that contains the following information for the service that you specify in @ServiceId@ :     * The attributes that apply to the records that are defined in the service.      * For each attribute, the applicable value. Supported attribute keys include the following: __AWS_ALIAS_DNS_NAME__  ____  If you want AWS Cloud Map to create a Route 53 alias record that routes traffic to an Elastic Load Balancing load balancer, specify the DNS name that is associated with the load balancer. For information about how to get the DNS name, see "DNSName" in the topic <http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html AliasTarget> . Note the following:     * The configuration for the service that is specified by @ServiceId@ must include settings for an A record, an AAAA record, or both.     * In the service that is specified by @ServiceId@ , the value of @RoutingPolicy@ must be @WEIGHTED@ .     * If the service that is specified by @ServiceId@ includes @HealthCheckConfig@ settings, AWS Cloud Map will create the health check, but it won't associate the health check with the alias record.     * Auto naming currently doesn't support creating alias records that route traffic to AWS resources other than ELB load balancers.     * If you specify a value for @AWS_ALIAS_DNS_NAME@ , don't specify values for any of the @AWS_INSTANCE@ attributes. __AWS_INSTANCE_CNAME__  If the service configuration includes a CNAME record, the domain name that you want Route 53 to return in response to DNS queries, for example, @example.com@ . This value is required if the service specified by @ServiceId@ includes settings for an CNAME record. __AWS_INSTANCE_IPV4__  If the service configuration includes an A record, the IPv4 address that you want Route 53 to return in response to DNS queries, for example, @192.0.2.44@ . This value is required if the service specified by @ServiceId@ includes settings for an A record. If the service includes settings for an SRV record, you must specify a value for @AWS_INSTANCE_IPV4@ , @AWS_INSTANCE_IPV6@ , or both. __AWS_INSTANCE_IPV6__  If the service configuration includes an AAAA record, the IPv6 address that you want Route 53 to return in response to DNS queries, for example, @2001:0db8:85a3:0000:0000:abcd:0001:2345@ . This value is required if the service specified by @ServiceId@ includes settings for an AAAA record. If the service includes settings for an SRV record, you must specify a value for @AWS_INSTANCE_IPV4@ , @AWS_INSTANCE_IPV6@ , or both. __AWS_INSTANCE_PORT__  If the service includes an SRV record, the value that you want Route 53 to return for the port. If the service includes @HealthCheckConfig@ , the port on the endpoint that you want Route 53 to send requests to.  This value is required if you specified settings for an SRV record when you created the service.
 iAttributes :: Lens' Instance (HashMap Text Text)
 iAttributes = lens _iAttributes (\ s a -> s{_iAttributes = a}) . _Default . _Map
 
--- | An identifier that you want to associate with the instance. Note the following:     * If the service that is specified by @ServiceId@ includes settings for an SRV record, the value of @InstanceId@ is automatically included as part of the value for the SRV record. For more information, see 'DnsRecord$Type' .     * You can use this value to update an existing instance.     * To register a new instance, you must specify a value that is unique among instances that you register by using the same service.      * If you specify an existing @InstanceId@ and @ServiceId@ , Route 53 updates the existing records. If there's also an existing health check, Route 53 deletes the old health check and creates a new one.
+-- | An identifier that you want to associate with the instance. Note the following:     * If the service that is specified by @ServiceId@ includes settings for an SRV record, the value of @InstanceId@ is automatically included as part of the value for the SRV record. For more information, see 'DnsRecord$Type' .     * You can use this value to update an existing instance.     * To register a new instance, you must specify a value that is unique among instances that you register by using the same service.      * If you specify an existing @InstanceId@ and @ServiceId@ , AWS Cloud Map updates the existing DNS records. If there's also an existing health check, AWS Cloud Map deletes the old health check and creates a new one.
 iId :: Lens' Instance Text
 iId = lens _iId (\ s a -> s{_iId = a})
 
@@ -446,7 +596,7 @@ data Namespace = Namespace'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'nARN' - The Amazon Resource Name (ARN) that Route 53 assigns to the namespace when you create it.
+-- * 'nARN' - The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the namespace when you create it.
 --
 -- * 'nCreatorRequestId' - A unique string that identifies the request and that allows failed requests to be retried without the risk of executing an operation twice.
 --
@@ -479,7 +629,7 @@ namespace =
     }
 
 
--- | The Amazon Resource Name (ARN) that Route 53 assigns to the namespace when you create it.
+-- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the namespace when you create it.
 nARN :: Lens' Namespace (Maybe Text)
 nARN = lens _nARN (\ s a -> s{_nARN = a})
 
@@ -591,8 +741,9 @@ instance ToJSON NamespaceFilter where
 --
 --
 -- /See:/ 'namespaceProperties' smart constructor.
-newtype NamespaceProperties = NamespaceProperties'
-  { _npDNSProperties :: Maybe DNSProperties
+data NamespaceProperties = NamespaceProperties'
+  { _npDNSProperties  :: !(Maybe DNSProperties)
+  , _npHTTPProperties :: !(Maybe HTTPProperties)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -600,21 +751,29 @@ newtype NamespaceProperties = NamespaceProperties'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'npDNSProperties' - A complex type that contains the ID for the hosted zone that Route 53 creates when you create a namespace.
+-- * 'npDNSProperties' - A complex type that contains the ID for the Route 53 hosted zone that AWS Cloud Map creates when you create a namespace.
+--
+-- * 'npHTTPProperties' - A complex type that contains the name of an HTTP namespace.
 namespaceProperties
     :: NamespaceProperties
-namespaceProperties = NamespaceProperties' {_npDNSProperties = Nothing}
+namespaceProperties =
+  NamespaceProperties' {_npDNSProperties = Nothing, _npHTTPProperties = Nothing}
 
 
--- | A complex type that contains the ID for the hosted zone that Route 53 creates when you create a namespace.
+-- | A complex type that contains the ID for the Route 53 hosted zone that AWS Cloud Map creates when you create a namespace.
 npDNSProperties :: Lens' NamespaceProperties (Maybe DNSProperties)
 npDNSProperties = lens _npDNSProperties (\ s a -> s{_npDNSProperties = a})
+
+-- | A complex type that contains the name of an HTTP namespace.
+npHTTPProperties :: Lens' NamespaceProperties (Maybe HTTPProperties)
+npHTTPProperties = lens _npHTTPProperties (\ s a -> s{_npHTTPProperties = a})
 
 instance FromJSON NamespaceProperties where
         parseJSON
           = withObject "NamespaceProperties"
               (\ x ->
-                 NamespaceProperties' <$> (x .:? "DnsProperties"))
+                 NamespaceProperties' <$>
+                   (x .:? "DnsProperties") <*> (x .:? "HttpProperties"))
 
 instance Hashable NamespaceProperties where
 
@@ -626,10 +785,14 @@ instance NFData NamespaceProperties where
 --
 -- /See:/ 'namespaceSummary' smart constructor.
 data NamespaceSummary = NamespaceSummary'
-  { _nsARN  :: !(Maybe Text)
-  , _nsName :: !(Maybe Text)
-  , _nsId   :: !(Maybe Text)
-  , _nsType :: !(Maybe NamespaceType)
+  { _nsARN          :: !(Maybe Text)
+  , _nsCreateDate   :: !(Maybe POSIX)
+  , _nsServiceCount :: !(Maybe Int)
+  , _nsName         :: !(Maybe Text)
+  , _nsId           :: !(Maybe Text)
+  , _nsType         :: !(Maybe NamespaceType)
+  , _nsDescription  :: !(Maybe Text)
+  , _nsProperties   :: !(Maybe NamespaceProperties)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -637,25 +800,49 @@ data NamespaceSummary = NamespaceSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'nsARN' - The Amazon Resource Name (ARN) that Route 53 assigns to the namespace when you create it.
+-- * 'nsARN' - The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the namespace when you create it.
 --
--- * 'nsName' - The name of the namespace. When you create a namespace, Route 53 automatically creates a hosted zone that has the same name as the namespace.
+-- * 'nsCreateDate' - The date and time that the namespace was created.
+--
+-- * 'nsServiceCount' - The number of services that were created using the namespace.
+--
+-- * 'nsName' - The name of the namespace. When you create a namespace, AWS Cloud Map automatically creates a Route 53 hosted zone that has the same name as the namespace.
 --
 -- * 'nsId' - The ID of the namespace.
 --
 -- * 'nsType' - The type of the namespace, either public or private.
+--
+-- * 'nsDescription' - A description for the namespace.
+--
+-- * 'nsProperties' - Undocumented member.
 namespaceSummary
     :: NamespaceSummary
 namespaceSummary =
   NamespaceSummary'
-    {_nsARN = Nothing, _nsName = Nothing, _nsId = Nothing, _nsType = Nothing}
+    { _nsARN = Nothing
+    , _nsCreateDate = Nothing
+    , _nsServiceCount = Nothing
+    , _nsName = Nothing
+    , _nsId = Nothing
+    , _nsType = Nothing
+    , _nsDescription = Nothing
+    , _nsProperties = Nothing
+    }
 
 
--- | The Amazon Resource Name (ARN) that Route 53 assigns to the namespace when you create it.
+-- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the namespace when you create it.
 nsARN :: Lens' NamespaceSummary (Maybe Text)
 nsARN = lens _nsARN (\ s a -> s{_nsARN = a})
 
--- | The name of the namespace. When you create a namespace, Route 53 automatically creates a hosted zone that has the same name as the namespace.
+-- | The date and time that the namespace was created.
+nsCreateDate :: Lens' NamespaceSummary (Maybe UTCTime)
+nsCreateDate = lens _nsCreateDate (\ s a -> s{_nsCreateDate = a}) . mapping _Time
+
+-- | The number of services that were created using the namespace.
+nsServiceCount :: Lens' NamespaceSummary (Maybe Int)
+nsServiceCount = lens _nsServiceCount (\ s a -> s{_nsServiceCount = a})
+
+-- | The name of the namespace. When you create a namespace, AWS Cloud Map automatically creates a Route 53 hosted zone that has the same name as the namespace.
 nsName :: Lens' NamespaceSummary (Maybe Text)
 nsName = lens _nsName (\ s a -> s{_nsName = a})
 
@@ -667,13 +854,26 @@ nsId = lens _nsId (\ s a -> s{_nsId = a})
 nsType :: Lens' NamespaceSummary (Maybe NamespaceType)
 nsType = lens _nsType (\ s a -> s{_nsType = a})
 
+-- | A description for the namespace.
+nsDescription :: Lens' NamespaceSummary (Maybe Text)
+nsDescription = lens _nsDescription (\ s a -> s{_nsDescription = a})
+
+-- | Undocumented member.
+nsProperties :: Lens' NamespaceSummary (Maybe NamespaceProperties)
+nsProperties = lens _nsProperties (\ s a -> s{_nsProperties = a})
+
 instance FromJSON NamespaceSummary where
         parseJSON
           = withObject "NamespaceSummary"
               (\ x ->
                  NamespaceSummary' <$>
-                   (x .:? "Arn") <*> (x .:? "Name") <*> (x .:? "Id") <*>
-                     (x .:? "Type"))
+                   (x .:? "Arn") <*> (x .:? "CreateDate") <*>
+                     (x .:? "ServiceCount")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "Type")
+                     <*> (x .:? "Description")
+                     <*> (x .:? "Properties"))
 
 instance Hashable NamespaceSummary where
 
@@ -700,7 +900,7 @@ data Operation = Operation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oStatus' - The status of the operation. Values include the following:     * __SUBMITTED__ : This is the initial state immediately after you submit a request.     * __PENDING__ : Route 53 is performing the operation.     * __SUCCESS__ : The operation succeeded.     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
+-- * 'oStatus' - The status of the operation. Values include the following:     * __SUBMITTED__ : This is the initial state immediately after you submit a request.     * __PENDING__ : AWS Cloud Map is performing the operation.     * __SUCCESS__ : The operation succeeded.     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
 --
 -- * 'oUpdateDate' - The date and time that the value of @Status@ changed to the current value, in Unix date/time format and Coordinated Universal Time (UTC). The value of @UpdateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
 --
@@ -730,7 +930,7 @@ operation =
     }
 
 
--- | The status of the operation. Values include the following:     * __SUBMITTED__ : This is the initial state immediately after you submit a request.     * __PENDING__ : Route 53 is performing the operation.     * __SUCCESS__ : The operation succeeded.     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
+-- | The status of the operation. Values include the following:     * __SUBMITTED__ : This is the initial state immediately after you submit a request.     * __PENDING__ : AWS Cloud Map is performing the operation.     * __SUCCESS__ : The operation succeeded.     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
 oStatus :: Lens' Operation (Maybe OperationStatus)
 oStatus = lens _oStatus (\ s a -> s{_oStatus = a})
 
@@ -847,7 +1047,7 @@ data OperationSummary = OperationSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'osStatus' - The status of the operation. Values include the following:     * __SUBMITTED__ : This is the initial state immediately after you submit a request.     * __PENDING__ : Route 53 is performing the operation.     * __SUCCESS__ : The operation succeeded.     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
+-- * 'osStatus' - The status of the operation. Values include the following:     * __SUBMITTED__ : This is the initial state immediately after you submit a request.     * __PENDING__ : AWS Cloud Map is performing the operation.     * __SUCCESS__ : The operation succeeded.     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
 --
 -- * 'osId' - The ID for an operation.
 operationSummary
@@ -855,7 +1055,7 @@ operationSummary
 operationSummary = OperationSummary' {_osStatus = Nothing, _osId = Nothing}
 
 
--- | The status of the operation. Values include the following:     * __SUBMITTED__ : This is the initial state immediately after you submit a request.     * __PENDING__ : Route 53 is performing the operation.     * __SUCCESS__ : The operation succeeded.     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
+-- | The status of the operation. Values include the following:     * __SUBMITTED__ : This is the initial state immediately after you submit a request.     * __PENDING__ : AWS Cloud Map is performing the operation.     * __SUCCESS__ : The operation succeeded.     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
 osStatus :: Lens' OperationSummary (Maybe OperationStatus)
 osStatus = lens _osStatus (\ s a -> s{_osStatus = a})
 
@@ -894,7 +1094,7 @@ data ServiceChange = ServiceChange'
 --
 -- * 'scDescription' - A description for the service.
 --
--- * 'scDNSConfig' - A complex type that contains information about the records that you want Route 53 to create when you register an instance.
+-- * 'scDNSConfig' - A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
 serviceChange
     :: DNSConfigChange -- ^ 'scDNSConfig'
     -> ServiceChange
@@ -914,7 +1114,7 @@ scHealthCheckConfig = lens _scHealthCheckConfig (\ s a -> s{_scHealthCheckConfig
 scDescription :: Lens' ServiceChange (Maybe Text)
 scDescription = lens _scDescription (\ s a -> s{_scDescription = a})
 
--- | A complex type that contains information about the records that you want Route 53 to create when you register an instance.
+-- | A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
 scDNSConfig :: Lens' ServiceChange DNSConfigChange
 scDNSConfig = lens _scDNSConfig (\ s a -> s{_scDNSConfig = a})
 
@@ -994,6 +1194,7 @@ data ServiceInfo = ServiceInfo'
   , _siCreatorRequestId        :: !(Maybe Text)
   , _siCreateDate              :: !(Maybe POSIX)
   , _siHealthCheckCustomConfig :: !(Maybe HealthCheckCustomConfig)
+  , _siNamespaceId             :: !(Maybe Text)
   , _siName                    :: !(Maybe Text)
   , _siId                      :: !(Maybe Text)
   , _siDNSConfig               :: !(Maybe DNSConfig)
@@ -1007,21 +1208,23 @@ data ServiceInfo = ServiceInfo'
 --
 -- * 'siInstanceCount' - The number of instances that are currently associated with the service. Instances that were previously associated with the service but that have been deleted are not included in the count.
 --
--- * 'siARN' - The Amazon Resource Name (ARN) that Route 53 assigns to the service when you create it.
+-- * 'siARN' - The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.
 --
--- * 'siHealthCheckConfig' - /Public DNS namespaces only./ A complex type that contains settings for an optional health check. If you specify settings for a health check, Route 53 associates the health check with all the records that you specify in @DnsConfig@ . For information about the charges for health checks, see <http://aws.amazon.com/route53/pricing Route 53 Pricing> .
+-- * 'siHealthCheckConfig' - /Public DNS namespaces only./ A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in @DnsConfig@ . For information about the charges for health checks, see <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing> .
 --
 -- * 'siCreatorRequestId' - A unique string that identifies the request and that allows failed requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
 --
 -- * 'siCreateDate' - The date and time that the service was created, in Unix format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
 --
--- * 'siHealthCheckCustomConfig' - Undocumented member.
+-- * 'siHealthCheckCustomConfig' - A complex type that contains information about an optional custom health check. /Important:/ If you specify a health check configuration, you can specify either @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
+--
+-- * 'siNamespaceId' - The ID of the namespace that was used to create the service.
 --
 -- * 'siName' - The name of the service.
 --
--- * 'siId' - The ID that Route 53 assigned to the service when you created it.
+-- * 'siId' - The ID that AWS Cloud Map assigned to the service when you created it.
 --
--- * 'siDNSConfig' - A complex type that contains information about the records that you want Route 53 to create when you register an instance.
+-- * 'siDNSConfig' - A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
 --
 -- * 'siDescription' - The description of the service.
 serviceInfo
@@ -1034,6 +1237,7 @@ serviceInfo =
     , _siCreatorRequestId = Nothing
     , _siCreateDate = Nothing
     , _siHealthCheckCustomConfig = Nothing
+    , _siNamespaceId = Nothing
     , _siName = Nothing
     , _siId = Nothing
     , _siDNSConfig = Nothing
@@ -1045,11 +1249,11 @@ serviceInfo =
 siInstanceCount :: Lens' ServiceInfo (Maybe Int)
 siInstanceCount = lens _siInstanceCount (\ s a -> s{_siInstanceCount = a})
 
--- | The Amazon Resource Name (ARN) that Route 53 assigns to the service when you create it.
+-- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.
 siARN :: Lens' ServiceInfo (Maybe Text)
 siARN = lens _siARN (\ s a -> s{_siARN = a})
 
--- | /Public DNS namespaces only./ A complex type that contains settings for an optional health check. If you specify settings for a health check, Route 53 associates the health check with all the records that you specify in @DnsConfig@ . For information about the charges for health checks, see <http://aws.amazon.com/route53/pricing Route 53 Pricing> .
+-- | /Public DNS namespaces only./ A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in @DnsConfig@ . For information about the charges for health checks, see <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing> .
 siHealthCheckConfig :: Lens' ServiceInfo (Maybe HealthCheckConfig)
 siHealthCheckConfig = lens _siHealthCheckConfig (\ s a -> s{_siHealthCheckConfig = a})
 
@@ -1061,19 +1265,23 @@ siCreatorRequestId = lens _siCreatorRequestId (\ s a -> s{_siCreatorRequestId = 
 siCreateDate :: Lens' ServiceInfo (Maybe UTCTime)
 siCreateDate = lens _siCreateDate (\ s a -> s{_siCreateDate = a}) . mapping _Time
 
--- | Undocumented member.
+-- | A complex type that contains information about an optional custom health check. /Important:/ If you specify a health check configuration, you can specify either @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
 siHealthCheckCustomConfig :: Lens' ServiceInfo (Maybe HealthCheckCustomConfig)
 siHealthCheckCustomConfig = lens _siHealthCheckCustomConfig (\ s a -> s{_siHealthCheckCustomConfig = a})
+
+-- | The ID of the namespace that was used to create the service.
+siNamespaceId :: Lens' ServiceInfo (Maybe Text)
+siNamespaceId = lens _siNamespaceId (\ s a -> s{_siNamespaceId = a})
 
 -- | The name of the service.
 siName :: Lens' ServiceInfo (Maybe Text)
 siName = lens _siName (\ s a -> s{_siName = a})
 
--- | The ID that Route 53 assigned to the service when you created it.
+-- | The ID that AWS Cloud Map assigned to the service when you created it.
 siId :: Lens' ServiceInfo (Maybe Text)
 siId = lens _siId (\ s a -> s{_siId = a})
 
--- | A complex type that contains information about the records that you want Route 53 to create when you register an instance.
+-- | A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
 siDNSConfig :: Lens' ServiceInfo (Maybe DNSConfig)
 siDNSConfig = lens _siDNSConfig (\ s a -> s{_siDNSConfig = a})
 
@@ -1091,6 +1299,7 @@ instance FromJSON ServiceInfo where
                      <*> (x .:? "CreatorRequestId")
                      <*> (x .:? "CreateDate")
                      <*> (x .:? "HealthCheckCustomConfig")
+                     <*> (x .:? "NamespaceId")
                      <*> (x .:? "Name")
                      <*> (x .:? "Id")
                      <*> (x .:? "DnsConfig")
@@ -1106,11 +1315,15 @@ instance NFData ServiceInfo where
 --
 -- /See:/ 'serviceSummary' smart constructor.
 data ServiceSummary = ServiceSummary'
-  { _ssInstanceCount :: !(Maybe Int)
-  , _ssARN           :: !(Maybe Text)
-  , _ssName          :: !(Maybe Text)
-  , _ssId            :: !(Maybe Text)
-  , _ssDescription   :: !(Maybe Text)
+  { _ssInstanceCount           :: !(Maybe Int)
+  , _ssARN                     :: !(Maybe Text)
+  , _ssHealthCheckConfig       :: !(Maybe HealthCheckConfig)
+  , _ssCreateDate              :: !(Maybe POSIX)
+  , _ssHealthCheckCustomConfig :: !(Maybe HealthCheckCustomConfig)
+  , _ssName                    :: !(Maybe Text)
+  , _ssId                      :: !(Maybe Text)
+  , _ssDNSConfig               :: !(Maybe DNSConfig)
+  , _ssDescription             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1120,11 +1333,19 @@ data ServiceSummary = ServiceSummary'
 --
 -- * 'ssInstanceCount' - The number of instances that are currently associated with the service. Instances that were previously associated with the service but that have been deleted are not included in the count.
 --
--- * 'ssARN' - The Amazon Resource Name (ARN) that Route 53 assigns to the service when you create it.
+-- * 'ssARN' - The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.
+--
+-- * 'ssHealthCheckConfig' - Undocumented member.
+--
+-- * 'ssCreateDate' - The date and time that the service was created.
+--
+-- * 'ssHealthCheckCustomConfig' - Undocumented member.
 --
 -- * 'ssName' - The name of the service.
 --
--- * 'ssId' - The ID that Route 53 assigned to the service when you created it.
+-- * 'ssId' - The ID that AWS Cloud Map assigned to the service when you created it.
+--
+-- * 'ssDNSConfig' - Undocumented member.
 --
 -- * 'ssDescription' - The description that you specify when you create the service.
 serviceSummary
@@ -1133,8 +1354,12 @@ serviceSummary =
   ServiceSummary'
     { _ssInstanceCount = Nothing
     , _ssARN = Nothing
+    , _ssHealthCheckConfig = Nothing
+    , _ssCreateDate = Nothing
+    , _ssHealthCheckCustomConfig = Nothing
     , _ssName = Nothing
     , _ssId = Nothing
+    , _ssDNSConfig = Nothing
     , _ssDescription = Nothing
     }
 
@@ -1143,17 +1368,33 @@ serviceSummary =
 ssInstanceCount :: Lens' ServiceSummary (Maybe Int)
 ssInstanceCount = lens _ssInstanceCount (\ s a -> s{_ssInstanceCount = a})
 
--- | The Amazon Resource Name (ARN) that Route 53 assigns to the service when you create it.
+-- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.
 ssARN :: Lens' ServiceSummary (Maybe Text)
 ssARN = lens _ssARN (\ s a -> s{_ssARN = a})
+
+-- | Undocumented member.
+ssHealthCheckConfig :: Lens' ServiceSummary (Maybe HealthCheckConfig)
+ssHealthCheckConfig = lens _ssHealthCheckConfig (\ s a -> s{_ssHealthCheckConfig = a})
+
+-- | The date and time that the service was created.
+ssCreateDate :: Lens' ServiceSummary (Maybe UTCTime)
+ssCreateDate = lens _ssCreateDate (\ s a -> s{_ssCreateDate = a}) . mapping _Time
+
+-- | Undocumented member.
+ssHealthCheckCustomConfig :: Lens' ServiceSummary (Maybe HealthCheckCustomConfig)
+ssHealthCheckCustomConfig = lens _ssHealthCheckCustomConfig (\ s a -> s{_ssHealthCheckCustomConfig = a})
 
 -- | The name of the service.
 ssName :: Lens' ServiceSummary (Maybe Text)
 ssName = lens _ssName (\ s a -> s{_ssName = a})
 
--- | The ID that Route 53 assigned to the service when you created it.
+-- | The ID that AWS Cloud Map assigned to the service when you created it.
 ssId :: Lens' ServiceSummary (Maybe Text)
 ssId = lens _ssId (\ s a -> s{_ssId = a})
+
+-- | Undocumented member.
+ssDNSConfig :: Lens' ServiceSummary (Maybe DNSConfig)
+ssDNSConfig = lens _ssDNSConfig (\ s a -> s{_ssDNSConfig = a})
 
 -- | The description that you specify when you create the service.
 ssDescription :: Lens' ServiceSummary (Maybe Text)
@@ -1165,8 +1406,12 @@ instance FromJSON ServiceSummary where
               (\ x ->
                  ServiceSummary' <$>
                    (x .:? "InstanceCount") <*> (x .:? "Arn") <*>
-                     (x .:? "Name")
+                     (x .:? "HealthCheckConfig")
+                     <*> (x .:? "CreateDate")
+                     <*> (x .:? "HealthCheckCustomConfig")
+                     <*> (x .:? "Name")
                      <*> (x .:? "Id")
+                     <*> (x .:? "DnsConfig")
                      <*> (x .:? "Description"))
 
 instance Hashable ServiceSummary where

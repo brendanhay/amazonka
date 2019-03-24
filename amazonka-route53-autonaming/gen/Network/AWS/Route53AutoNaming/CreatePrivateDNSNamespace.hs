@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a private namespace based on DNS, which will be visible only inside a specified Amazon VPC. The namespace defines your service naming scheme. For example, if you name your namespace @example.com@ and name your service @backend@ , the resulting DNS name for the service will be @backend.example.com@ . For the current limit on the number of namespaces that you can create using the same AWS account, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities-autonaming Limits on Auto Naming> in the /Route 53 Developer Guide/ .
+-- Creates a private namespace based on DNS, which will be visible only inside a specified Amazon VPC. The namespace defines your service naming scheme. For example, if you name your namespace @example.com@ and name your service @backend@ , the resulting DNS name for the service will be @backend.example.com@ . For the current limit on the number of namespaces that you can create using the same AWS account, see <http://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html AWS Cloud Map Limits> in the /AWS Cloud Map Developer Guide/ .
 --
 --
 module Network.AWS.Route53AutoNaming.CreatePrivateDNSNamespace
@@ -64,7 +64,7 @@ data CreatePrivateDNSNamespace = CreatePrivateDNSNamespace'
 --
 -- * 'cpdnsnDescription' - A description for the namespace.
 --
--- * 'cpdnsnName' - The name that you want to assign to this namespace. When you create a namespace, Amazon Route 53 automatically creates a hosted zone that has the same name as the namespace.
+-- * 'cpdnsnName' - The name that you want to assign to this namespace. When you create a private DNS namespace, AWS Cloud Map automatically creates an Amazon Route 53 private hosted zone that has the same name as the namespace.
 --
 -- * 'cpdnsnVPC' - The ID of the Amazon VPC that you want to associate the namespace with.
 createPrivateDNSNamespace
@@ -88,7 +88,7 @@ cpdnsnCreatorRequestId = lens _cpdnsnCreatorRequestId (\ s a -> s{_cpdnsnCreator
 cpdnsnDescription :: Lens' CreatePrivateDNSNamespace (Maybe Text)
 cpdnsnDescription = lens _cpdnsnDescription (\ s a -> s{_cpdnsnDescription = a})
 
--- | The name that you want to assign to this namespace. When you create a namespace, Amazon Route 53 automatically creates a hosted zone that has the same name as the namespace.
+-- | The name that you want to assign to this namespace. When you create a private DNS namespace, AWS Cloud Map automatically creates an Amazon Route 53 private hosted zone that has the same name as the namespace.
 cpdnsnName :: Lens' CreatePrivateDNSNamespace Text
 cpdnsnName = lens _cpdnsnName (\ s a -> s{_cpdnsnName = a})
 

@@ -66,7 +66,7 @@ data ListNamespaces = ListNamespaces'
 --
 -- * 'lnNextToken' - For the first @ListNamespaces@ request, omit this value. If the response contains @NextToken@ , submit another @ListNamespaces@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
 --
--- * 'lnMaxResults' - The maximum number of namespaces that you want Amazon Route 53 to return in the response to a @ListNamespaces@ request. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 namespaces.
+-- * 'lnMaxResults' - The maximum number of namespaces that you want AWS Cloud Map to return in the response to a @ListNamespaces@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 namespaces.
 listNamespaces
     :: ListNamespaces
 listNamespaces =
@@ -82,7 +82,7 @@ lnFilters = lens _lnFilters (\ s a -> s{_lnFilters = a}) . _Default . _Coerce
 lnNextToken :: Lens' ListNamespaces (Maybe Text)
 lnNextToken = lens _lnNextToken (\ s a -> s{_lnNextToken = a})
 
--- | The maximum number of namespaces that you want Amazon Route 53 to return in the response to a @ListNamespaces@ request. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 namespaces.
+-- | The maximum number of namespaces that you want AWS Cloud Map to return in the response to a @ListNamespaces@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 namespaces.
 lnMaxResults :: Lens' ListNamespaces (Maybe Natural)
 lnMaxResults = lens _lnMaxResults (\ s a -> s{_lnMaxResults = a}) . mapping _Nat
 

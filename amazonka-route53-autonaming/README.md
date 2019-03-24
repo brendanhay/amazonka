@@ -1,4 +1,4 @@
-# Amazon Route 53 Auto Naming SDK
+# Amazon Cloud Map SDK
 
 * [Version](#version)
 * [Description](#description)

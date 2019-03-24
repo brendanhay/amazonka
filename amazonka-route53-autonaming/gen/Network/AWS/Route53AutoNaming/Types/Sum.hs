@@ -139,6 +139,36 @@ instance ToHeader     HealthStatus
 instance FromJSON HealthStatus where
     parseJSON = parseJSONText "HealthStatus"
 
+data HealthStatusFilter
+  = HSFAll
+  | HSFHealthy
+  | HSFUnhealthy
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText HealthStatusFilter where
+    parser = takeLowerText >>= \case
+        "all" -> pure HSFAll
+        "healthy" -> pure HSFHealthy
+        "unhealthy" -> pure HSFUnhealthy
+        e -> fromTextError $ "Failure parsing HealthStatusFilter from value: '" <> e
+           <> "'. Accepted values: all, healthy, unhealthy"
+
+instance ToText HealthStatusFilter where
+    toText = \case
+        HSFAll -> "ALL"
+        HSFHealthy -> "HEALTHY"
+        HSFUnhealthy -> "UNHEALTHY"
+
+instance Hashable     HealthStatusFilter
+instance NFData       HealthStatusFilter
+instance ToByteString HealthStatusFilter
+instance ToQuery      HealthStatusFilter
+instance ToHeader     HealthStatusFilter
+
+instance ToJSON HealthStatusFilter where
+    toJSON = toJSONText
+
 data NamespaceFilterName =
   Type
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -164,22 +194,25 @@ instance ToJSON NamespaceFilterName where
     toJSON = toJSONText
 
 data NamespaceType
-  = DNSPrivate
-  | DNSPublic
+  = NTDNSPrivate
+  | NTDNSPublic
+  | NTHTTP
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText NamespaceType where
     parser = takeLowerText >>= \case
-        "dns_private" -> pure DNSPrivate
-        "dns_public" -> pure DNSPublic
+        "dns_private" -> pure NTDNSPrivate
+        "dns_public" -> pure NTDNSPublic
+        "http" -> pure NTHTTP
         e -> fromTextError $ "Failure parsing NamespaceType from value: '" <> e
-           <> "'. Accepted values: dns_private, dns_public"
+           <> "'. Accepted values: dns_private, dns_public, http"
 
 instance ToText NamespaceType where
     toText = \case
-        DNSPrivate -> "DNS_PRIVATE"
-        DNSPublic -> "DNS_PUBLIC"
+        NTDNSPrivate -> "DNS_PRIVATE"
+        NTDNSPublic -> "DNS_PUBLIC"
+        NTHTTP -> "HTTP"
 
 instance Hashable     NamespaceType
 instance NFData       NamespaceType

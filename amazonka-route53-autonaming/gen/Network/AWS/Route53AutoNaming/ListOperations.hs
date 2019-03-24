@@ -66,7 +66,7 @@ data ListOperations = ListOperations'
 --
 -- * 'loNextToken' - For the first @ListOperations@ request, omit this value. If the response contains @NextToken@ , submit another @ListOperations@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
 --
--- * 'loMaxResults' - The maximum number of items that you want Amazon Route 53 to return in the response to a @ListOperations@ request. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 operations.
+-- * 'loMaxResults' - The maximum number of items that you want AWS Cloud Map to return in the response to a @ListOperations@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 operations.
 listOperations
     :: ListOperations
 listOperations =
@@ -82,7 +82,7 @@ loFilters = lens _loFilters (\ s a -> s{_loFilters = a}) . _Default . _Coerce
 loNextToken :: Lens' ListOperations (Maybe Text)
 loNextToken = lens _loNextToken (\ s a -> s{_loNextToken = a})
 
--- | The maximum number of items that you want Amazon Route 53 to return in the response to a @ListOperations@ request. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 operations.
+-- | The maximum number of items that you want AWS Cloud Map to return in the response to a @ListOperations@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 operations.
 loMaxResults :: Lens' ListOperations (Maybe Natural)
 loMaxResults = lens _loMaxResults (\ s a -> s{_loMaxResults = a}) . mapping _Nat
 

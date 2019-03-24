@@ -64,7 +64,7 @@ data ListInstances = ListInstances'
 --
 -- * 'liNextToken' - For the first @ListInstances@ request, omit this value. If more than @MaxResults@ instances match the specified criteria, you can submit another @ListInstances@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
 --
--- * 'liMaxResults' - The maximum number of instances that you want Amazon Route 53 to return in the response to a @ListInstances@ request. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 instances.
+-- * 'liMaxResults' - The maximum number of instances that you want AWS Cloud Map to return in the response to a @ListInstances@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
 --
 -- * 'liServiceId' - The ID of the service that you want to list instances for.
 listInstances
@@ -82,7 +82,7 @@ listInstances pServiceId_ =
 liNextToken :: Lens' ListInstances (Maybe Text)
 liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a})
 
--- | The maximum number of instances that you want Amazon Route 53 to return in the response to a @ListInstances@ request. If you don't specify a value for @MaxResults@ , Route 53 returns up to 100 instances.
+-- | The maximum number of instances that you want AWS Cloud Map to return in the response to a @ListInstances@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
 liMaxResults :: Lens' ListInstances (Maybe Natural)
 liMaxResults = lens _liMaxResults (\ s a -> s{_liMaxResults = a}) . mapping _Nat
 

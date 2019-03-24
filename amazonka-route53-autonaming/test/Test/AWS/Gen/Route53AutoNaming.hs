@@ -40,6 +40,9 @@ import Test.Tasty
 --         , requestListOperations $
 --             listOperations
 --
+--         , requestCreateHTTPNamespace $
+--             createHTTPNamespace
+--
 --         , requestCreatePublicDNSNamespace $
 --             createPublicDNSNamespace
 --
@@ -51,6 +54,9 @@ import Test.Tasty
 --
 --         , requestDeleteNamespace $
 --             deleteNamespace
+--
+--         , requestDiscoverInstances $
+--             discoverInstances
 --
 --         , requestGetInstancesHealthStatus $
 --             getInstancesHealthStatus
@@ -97,6 +103,9 @@ import Test.Tasty
 --         , responseListOperations $
 --             listOperationsResponse
 --
+--         , responseCreateHTTPNamespace $
+--             createHTTPNamespaceResponse
+--
 --         , responseCreatePublicDNSNamespace $
 --             createPublicDNSNamespaceResponse
 --
@@ -108,6 +117,9 @@ import Test.Tasty
 --
 --         , responseDeleteNamespace $
 --             deleteNamespaceResponse
+--
+--         , responseDiscoverInstances $
+--             discoverInstancesResponse
 --
 --         , responseGetInstancesHealthStatus $
 --             getInstancesHealthStatusResponse
@@ -164,6 +176,11 @@ requestListOperations = req
     "ListOperations"
     "fixture/ListOperations.yaml"
 
+requestCreateHTTPNamespace :: CreateHTTPNamespace -> TestTree
+requestCreateHTTPNamespace = req
+    "CreateHTTPNamespace"
+    "fixture/CreateHTTPNamespace.yaml"
+
 requestCreatePublicDNSNamespace :: CreatePublicDNSNamespace -> TestTree
 requestCreatePublicDNSNamespace = req
     "CreatePublicDNSNamespace"
@@ -183,6 +200,11 @@ requestDeleteNamespace :: DeleteNamespace -> TestTree
 requestDeleteNamespace = req
     "DeleteNamespace"
     "fixture/DeleteNamespace.yaml"
+
+requestDiscoverInstances :: DiscoverInstances -> TestTree
+requestDiscoverInstances = req
+    "DiscoverInstances"
+    "fixture/DiscoverInstances.yaml"
 
 requestGetInstancesHealthStatus :: GetInstancesHealthStatus -> TestTree
 requestGetInstancesHealthStatus = req
@@ -264,6 +286,13 @@ responseListOperations = res
     route53AutoNaming
     (Proxy :: Proxy ListOperations)
 
+responseCreateHTTPNamespace :: CreateHTTPNamespaceResponse -> TestTree
+responseCreateHTTPNamespace = res
+    "CreateHTTPNamespaceResponse"
+    "fixture/CreateHTTPNamespaceResponse.proto"
+    route53AutoNaming
+    (Proxy :: Proxy CreateHTTPNamespace)
+
 responseCreatePublicDNSNamespace :: CreatePublicDNSNamespaceResponse -> TestTree
 responseCreatePublicDNSNamespace = res
     "CreatePublicDNSNamespaceResponse"
@@ -291,6 +320,13 @@ responseDeleteNamespace = res
     "fixture/DeleteNamespaceResponse.proto"
     route53AutoNaming
     (Proxy :: Proxy DeleteNamespace)
+
+responseDiscoverInstances :: DiscoverInstancesResponse -> TestTree
+responseDiscoverInstances = res
+    "DiscoverInstancesResponse"
+    "fixture/DiscoverInstancesResponse.proto"
+    route53AutoNaming
+    (Proxy :: Proxy DiscoverInstances)
 
 responseGetInstancesHealthStatus :: GetInstancesHealthStatusResponse -> TestTree
 responseGetInstancesHealthStatus = res

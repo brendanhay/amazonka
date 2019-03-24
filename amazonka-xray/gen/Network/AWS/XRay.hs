@@ -37,37 +37,37 @@ module Network.AWS.XRay
     -- * Operations
     -- $operations
 
-    -- ** PutEncryptionConfig 
+    -- ** PutEncryptionConfig
     , module Network.AWS.XRay.PutEncryptionConfig
 
     -- ** GetServiceGraph (Paginated)
     , module Network.AWS.XRay.GetServiceGraph
 
-    -- ** GetSamplingTargets 
+    -- ** GetSamplingTargets
     , module Network.AWS.XRay.GetSamplingTargets
 
     -- ** GetTraceSummaries (Paginated)
     , module Network.AWS.XRay.GetTraceSummaries
 
-    -- ** PutTraceSegments 
+    -- ** PutTraceSegments
     , module Network.AWS.XRay.PutTraceSegments
 
     -- ** BatchGetTraces (Paginated)
     , module Network.AWS.XRay.BatchGetTraces
 
-    -- ** GetEncryptionConfig 
+    -- ** GetEncryptionConfig
     , module Network.AWS.XRay.GetEncryptionConfig
 
-    -- ** UpdateSamplingRule 
+    -- ** UpdateSamplingRule
     , module Network.AWS.XRay.UpdateSamplingRule
 
-    -- ** DeleteSamplingRule 
+    -- ** DeleteSamplingRule
     , module Network.AWS.XRay.DeleteSamplingRule
 
     -- ** GetGroups (Paginated)
     , module Network.AWS.XRay.GetGroups
 
-    -- ** PutTelemetryRecords 
+    -- ** PutTelemetryRecords
     , module Network.AWS.XRay.PutTelemetryRecords
 
     -- ** GetSamplingRules (Paginated)
@@ -76,22 +76,22 @@ module Network.AWS.XRay
     -- ** GetTraceGraph (Paginated)
     , module Network.AWS.XRay.GetTraceGraph
 
-    -- ** CreateGroup 
+    -- ** CreateGroup
     , module Network.AWS.XRay.CreateGroup
 
-    -- ** DeleteGroup 
+    -- ** DeleteGroup
     , module Network.AWS.XRay.DeleteGroup
 
-    -- ** UpdateGroup 
+    -- ** UpdateGroup
     , module Network.AWS.XRay.UpdateGroup
 
-    -- ** GetGroup 
+    -- ** GetGroup
     , module Network.AWS.XRay.GetGroup
 
     -- ** GetSamplingStatisticSummaries (Paginated)
     , module Network.AWS.XRay.GetSamplingStatisticSummaries
 
-    -- ** CreateSamplingRule 
+    -- ** CreateSamplingRule
     , module Network.AWS.XRay.CreateSamplingRule
 
     -- * Types

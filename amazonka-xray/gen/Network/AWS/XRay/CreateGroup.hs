@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a group resource with a name and a filter expression. 
+-- Creates a group resource with a name and a filter expression.
 --
 --
 module Network.AWS.XRay.CreateGroup
@@ -48,7 +48,7 @@ import Network.AWS.XRay.Types.Product
 -- | /See:/ 'createGroup' smart constructor.
 data CreateGroup = CreateGroup'
   { _cgFilterExpression :: !(Maybe Text)
-  , _cgGroupName :: !Text
+  , _cgGroupName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -105,7 +105,7 @@ instance ToQuery CreateGroup where
 
 -- | /See:/ 'createGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
-  { _cgrsGroup :: !(Maybe Group)
+  { _cgrsGroup          :: !(Maybe Group)
   , _cgrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 

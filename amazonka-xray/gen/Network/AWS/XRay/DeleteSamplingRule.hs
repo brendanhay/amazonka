@@ -48,7 +48,7 @@ import Network.AWS.XRay.Types.Product
 -- | /See:/ 'deleteSamplingRule' smart constructor.
 data DeleteSamplingRule = DeleteSamplingRule'
   { _dsrRuleName :: !(Maybe Text)
-  , _dsrRuleARN :: !(Maybe Text)
+  , _dsrRuleARN  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -106,7 +106,7 @@ instance ToQuery DeleteSamplingRule where
 -- | /See:/ 'deleteSamplingRuleResponse' smart constructor.
 data DeleteSamplingRuleResponse = DeleteSamplingRuleResponse'
   { _dsrrsSamplingRuleRecord :: !(Maybe SamplingRuleRecord)
-  , _dsrrsResponseStatus :: !Int
+  , _dsrrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

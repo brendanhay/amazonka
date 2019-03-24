@@ -105,8 +105,8 @@ instance ToQuery GetGroups where
 
 -- | /See:/ 'getGroupsResponse' smart constructor.
 data GetGroupsResponse = GetGroupsResponse'
-  { _grsGroups :: !(Maybe [GroupSummary])
-  , _grsNextToken :: !(Maybe Text)
+  { _grsGroups         :: !(Maybe [GroupSummary])
+  , _grsNextToken      :: !(Maybe Text)
   , _grsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 

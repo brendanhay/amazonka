@@ -23,7 +23,7 @@
 --
 -- Segments must include the following fields. For the full segment document schema, see <https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html AWS X-Ray Segment Documents> in the /AWS X-Ray Developer Guide/ .
 --
--- __Required Segment Document Fields__ 
+-- __Required Segment Document Fields__
 --
 --     * @name@ - The name of the service that handled the request.
 --
@@ -41,7 +41,7 @@
 --
 -- A @trace_id@ consists of three numbers separated by hyphens. For example, 1-58406520-a006649127e371903a2de979. This includes:
 --
--- __Trace ID Format__ 
+-- __Trace ID Format__
 --
 --     * The version number, i.e. @1@ .
 --
@@ -128,7 +128,7 @@ instance ToQuery PutTraceSegments where
 -- | /See:/ 'putTraceSegmentsResponse' smart constructor.
 data PutTraceSegmentsResponse = PutTraceSegmentsResponse'
   { _ptsrsUnprocessedTraceSegments :: !(Maybe [UnprocessedTraceSegment])
-  , _ptsrsResponseStatus :: !Int
+  , _ptsrsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

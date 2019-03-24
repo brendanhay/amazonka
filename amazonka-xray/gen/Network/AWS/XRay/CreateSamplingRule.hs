@@ -98,7 +98,7 @@ instance ToQuery CreateSamplingRule where
 -- | /See:/ 'createSamplingRuleResponse' smart constructor.
 data CreateSamplingRuleResponse = CreateSamplingRuleResponse'
   { _csrrsSamplingRuleRecord :: !(Maybe SamplingRuleRecord)
-  , _csrrsResponseStatus :: !Int
+  , _csrrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

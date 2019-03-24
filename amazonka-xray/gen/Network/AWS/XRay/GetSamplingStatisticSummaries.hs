@@ -112,8 +112,8 @@ instance ToQuery GetSamplingStatisticSummaries where
 -- | /See:/ 'getSamplingStatisticSummariesResponse' smart constructor.
 data GetSamplingStatisticSummariesResponse = GetSamplingStatisticSummariesResponse'
   { _gsssrsSamplingStatisticSummaries :: !(Maybe [SamplingStatisticSummary])
-  , _gsssrsNextToken :: !(Maybe Text)
-  , _gsssrsResponseStatus :: !Int
+  , _gsssrsNextToken                  :: !(Maybe Text)
+  , _gsssrsResponseStatus             :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

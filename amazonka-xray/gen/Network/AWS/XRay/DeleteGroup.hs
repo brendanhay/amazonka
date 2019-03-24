@@ -46,7 +46,7 @@ import Network.AWS.XRay.Types.Product
 
 -- | /See:/ 'deleteGroup' smart constructor.
 data DeleteGroup = DeleteGroup'
-  { _dgGroupARN :: !(Maybe Text)
+  { _dgGroupARN  :: !(Maybe Text)
   , _dgGroupName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 

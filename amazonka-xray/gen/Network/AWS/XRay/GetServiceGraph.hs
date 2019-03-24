@@ -58,10 +58,10 @@ import Network.AWS.XRay.Types.Product
 -- | /See:/ 'getServiceGraph' smart constructor.
 data GetServiceGraph = GetServiceGraph'
   { _gsgNextToken :: !(Maybe Text)
-  , _gsgGroupARN :: !(Maybe Text)
+  , _gsgGroupARN  :: !(Maybe Text)
   , _gsgGroupName :: !(Maybe Text)
   , _gsgStartTime :: !POSIX
-  , _gsgEndTime :: !POSIX
+  , _gsgEndTime   :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -159,11 +159,11 @@ instance ToQuery GetServiceGraph where
 -- | /See:/ 'getServiceGraphResponse' smart constructor.
 data GetServiceGraphResponse = GetServiceGraphResponse'
   { _gsgrsContainsOldGroupVersions :: !(Maybe Bool)
-  , _gsgrsStartTime :: !(Maybe POSIX)
-  , _gsgrsNextToken :: !(Maybe Text)
-  , _gsgrsEndTime :: !(Maybe POSIX)
-  , _gsgrsServices :: !(Maybe [ServiceInfo])
-  , _gsgrsResponseStatus :: !Int
+  , _gsgrsStartTime                :: !(Maybe POSIX)
+  , _gsgrsNextToken                :: !(Maybe Text)
+  , _gsgrsEndTime                  :: !(Maybe POSIX)
+  , _gsgrsServices                 :: !(Maybe [ServiceInfo])
+  , _gsgrsResponseStatus           :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

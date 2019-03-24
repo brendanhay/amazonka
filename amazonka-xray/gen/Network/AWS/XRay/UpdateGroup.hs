@@ -49,8 +49,8 @@ import Network.AWS.XRay.Types.Product
 -- | /See:/ 'updateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
   { _ugFilterExpression :: !(Maybe Text)
-  , _ugGroupARN :: !(Maybe Text)
-  , _ugGroupName :: !(Maybe Text)
+  , _ugGroupARN         :: !(Maybe Text)
+  , _ugGroupName        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -117,7 +117,7 @@ instance ToQuery UpdateGroup where
 
 -- | /See:/ 'updateGroupResponse' smart constructor.
 data UpdateGroupResponse = UpdateGroupResponse'
-  { _ugrsGroup :: !(Maybe Group)
+  { _ugrsGroup          :: !(Maybe Group)
   , _ugrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 

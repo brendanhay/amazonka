@@ -47,7 +47,7 @@ import Network.AWS.XRay.Types.Product
 
 -- | /See:/ 'getGroup' smart constructor.
 data GetGroup = GetGroup'
-  { _ggGroupARN :: !(Maybe Text)
+  { _ggGroupARN  :: !(Maybe Text)
   , _ggGroupName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -103,7 +103,7 @@ instance ToQuery GetGroup where
 
 -- | /See:/ 'getGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'
-  { _ggrsGroup :: !(Maybe Group)
+  { _ggrsGroup          :: !(Maybe Group)
   , _ggrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 

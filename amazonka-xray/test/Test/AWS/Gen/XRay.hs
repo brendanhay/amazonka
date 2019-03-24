@@ -14,11 +14,11 @@
 module Test.AWS.Gen.XRay where
 
 import Data.Proxy
+import Network.AWS.XRay
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.Tasty
-import Network.AWS.XRay
 import Test.AWS.XRay.Internal
+import Test.Tasty
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

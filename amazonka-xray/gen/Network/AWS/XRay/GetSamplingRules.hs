@@ -107,8 +107,8 @@ instance ToQuery GetSamplingRules where
 -- | /See:/ 'getSamplingRulesResponse' smart constructor.
 data GetSamplingRulesResponse = GetSamplingRulesResponse'
   { _gsrrsSamplingRuleRecords :: !(Maybe [SamplingRuleRecord])
-  , _gsrrsNextToken :: !(Maybe Text)
-  , _gsrrsResponseStatus :: !Int
+  , _gsrrsNextToken           :: !(Maybe Text)
+  , _gsrrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

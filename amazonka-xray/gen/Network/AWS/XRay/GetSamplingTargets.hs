@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Requests a sampling quota for rules that the service is using to sample requests. 
+-- Requests a sampling quota for rules that the service is using to sample requests.
 --
 --
 module Network.AWS.XRay.GetSamplingTargets
@@ -103,10 +103,10 @@ instance ToQuery GetSamplingTargets where
 
 -- | /See:/ 'getSamplingTargetsResponse' smart constructor.
 data GetSamplingTargetsResponse = GetSamplingTargetsResponse'
-  { _gstrsUnprocessedStatistics :: !(Maybe [UnprocessedStatistics])
-  , _gstrsLastRuleModification :: !(Maybe POSIX)
+  { _gstrsUnprocessedStatistics   :: !(Maybe [UnprocessedStatistics])
+  , _gstrsLastRuleModification    :: !(Maybe POSIX)
   , _gstrsSamplingTargetDocuments :: !(Maybe [SamplingTargetDocument])
-  , _gstrsResponseStatus :: !Int
+  , _gstrsResponseStatus          :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

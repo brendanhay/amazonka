@@ -28,8 +28,8 @@ import Network.AWS.XRay.Types.Sum
 -- /See:/ 'alias' smart constructor.
 data Alias = Alias'
   { _aNames :: !(Maybe [Text])
-  , _aName :: !(Maybe Text)
-  , _aType :: !(Maybe Text)
+  , _aName  :: !(Maybe Text)
+  , _aType  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -77,8 +77,8 @@ instance NFData Alias where
 --
 -- /See:/ 'annotationValue' smart constructor.
 data AnnotationValue = AnnotationValue'
-  { _avNumberValue :: !(Maybe Double)
-  , _avStringValue :: !(Maybe Text)
+  { _avNumberValue  :: !(Maybe Double)
+  , _avStringValue  :: !(Maybe Text)
   , _avBooleanValue :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -159,18 +159,18 @@ instance Hashable AvailabilityZoneDetail where
 
 instance NFData AvailabilityZoneDetail where
 
--- | 
+-- |
 --
 --
 --
 -- /See:/ 'backendConnectionErrors' smart constructor.
 data BackendConnectionErrors = BackendConnectionErrors'
-  { _bceOtherCount :: !(Maybe Int)
-  , _bceTimeoutCount :: !(Maybe Int)
-  , _bceHTTPCode5XXCount :: !(Maybe Int)
+  { _bceOtherCount             :: !(Maybe Int)
+  , _bceTimeoutCount           :: !(Maybe Int)
+  , _bceHTTPCode5XXCount       :: !(Maybe Int)
   , _bceConnectionRefusedCount :: !(Maybe Int)
-  , _bceHTTPCode4XXCount :: !(Maybe Int)
-  , _bceUnknownHostCount :: !(Maybe Int)
+  , _bceHTTPCode4XXCount       :: !(Maybe Int)
+  , _bceUnknownHostCount       :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -178,17 +178,17 @@ data BackendConnectionErrors = BackendConnectionErrors'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bceOtherCount' - 
+-- * 'bceOtherCount' -
 --
--- * 'bceTimeoutCount' - 
+-- * 'bceTimeoutCount' -
 --
--- * 'bceHTTPCode5XXCount' - 
+-- * 'bceHTTPCode5XXCount' -
 --
--- * 'bceConnectionRefusedCount' - 
+-- * 'bceConnectionRefusedCount' -
 --
--- * 'bceHTTPCode4XXCount' - 
+-- * 'bceHTTPCode4XXCount' -
 --
--- * 'bceUnknownHostCount' - 
+-- * 'bceUnknownHostCount' -
 backendConnectionErrors
     :: BackendConnectionErrors
 backendConnectionErrors =
@@ -202,27 +202,27 @@ backendConnectionErrors =
     }
 
 
--- | 
+-- |
 bceOtherCount :: Lens' BackendConnectionErrors (Maybe Int)
 bceOtherCount = lens _bceOtherCount (\ s a -> s{_bceOtherCount = a})
 
--- | 
+-- |
 bceTimeoutCount :: Lens' BackendConnectionErrors (Maybe Int)
 bceTimeoutCount = lens _bceTimeoutCount (\ s a -> s{_bceTimeoutCount = a})
 
--- | 
+-- |
 bceHTTPCode5XXCount :: Lens' BackendConnectionErrors (Maybe Int)
 bceHTTPCode5XXCount = lens _bceHTTPCode5XXCount (\ s a -> s{_bceHTTPCode5XXCount = a})
 
--- | 
+-- |
 bceConnectionRefusedCount :: Lens' BackendConnectionErrors (Maybe Int)
 bceConnectionRefusedCount = lens _bceConnectionRefusedCount (\ s a -> s{_bceConnectionRefusedCount = a})
 
--- | 
+-- |
 bceHTTPCode4XXCount :: Lens' BackendConnectionErrors (Maybe Int)
 bceHTTPCode4XXCount = lens _bceHTTPCode4XXCount (\ s a -> s{_bceHTTPCode4XXCount = a})
 
--- | 
+-- |
 bceUnknownHostCount :: Lens' BackendConnectionErrors (Maybe Int)
 bceUnknownHostCount = lens _bceUnknownHostCount (\ s a -> s{_bceUnknownHostCount = a})
 
@@ -248,12 +248,12 @@ instance ToJSON BackendConnectionErrors where
 --
 -- /See:/ 'edge' smart constructor.
 data Edge = Edge'
-  { _eStartTime :: !(Maybe POSIX)
-  , _eAliases :: !(Maybe [Alias])
+  { _eStartTime             :: !(Maybe POSIX)
+  , _eAliases               :: !(Maybe [Alias])
   , _eResponseTimeHistogram :: !(Maybe [HistogramEntry])
-  , _eReferenceId :: !(Maybe Int)
-  , _eEndTime :: !(Maybe POSIX)
-  , _eSummaryStatistics :: !(Maybe EdgeStatistics)
+  , _eReferenceId           :: !(Maybe Int)
+  , _eEndTime               :: !(Maybe POSIX)
+  , _eSummaryStatistics     :: !(Maybe EdgeStatistics)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -330,11 +330,11 @@ instance NFData Edge where
 --
 -- /See:/ 'edgeStatistics' smart constructor.
 data EdgeStatistics = EdgeStatistics'
-  { _esFaultStatistics :: !(Maybe FaultStatistics)
-  , _esOKCount :: !(Maybe Integer)
+  { _esFaultStatistics   :: !(Maybe FaultStatistics)
+  , _esOKCount           :: !(Maybe Integer)
   , _esTotalResponseTime :: !(Maybe Double)
-  , _esErrorStatistics :: !(Maybe ErrorStatistics)
-  , _esTotalCount :: !(Maybe Integer)
+  , _esErrorStatistics   :: !(Maybe ErrorStatistics)
+  , _esTotalCount        :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -404,8 +404,8 @@ instance NFData EdgeStatistics where
 -- /See:/ 'encryptionConfig' smart constructor.
 data EncryptionConfig = EncryptionConfig'
   { _ecStatus :: !(Maybe EncryptionStatus)
-  , _ecKeyId :: !(Maybe Text)
-  , _ecType :: !(Maybe EncryptionType)
+  , _ecKeyId  :: !(Maybe Text)
+  , _ecType   :: !(Maybe EncryptionType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -489,8 +489,8 @@ instance NFData ErrorRootCause where
 -- /See:/ 'errorRootCauseEntity' smart constructor.
 data ErrorRootCauseEntity = ErrorRootCauseEntity'
   { _erceExceptions :: !(Maybe [RootCauseException])
-  , _erceRemote :: !(Maybe Bool)
-  , _erceName :: !(Maybe Text)
+  , _erceRemote     :: !(Maybe Bool)
+  , _erceName       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -541,11 +541,11 @@ instance NFData ErrorRootCauseEntity where
 -- /See:/ 'errorRootCauseService' smart constructor.
 data ErrorRootCauseService = ErrorRootCauseService'
   { _ercsEntityPath :: !(Maybe [ErrorRootCauseEntity])
-  , _ercsAccountId :: !(Maybe Text)
-  , _ercsNames :: !(Maybe [Text])
-  , _ercsName :: !(Maybe Text)
-  , _ercsInferred :: !(Maybe Bool)
-  , _ercsType :: !(Maybe Text)
+  , _ercsAccountId  :: !(Maybe Text)
+  , _ercsNames      :: !(Maybe [Text])
+  , _ercsName       :: !(Maybe Text)
+  , _ercsInferred   :: !(Maybe Bool)
+  , _ercsType       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -553,7 +553,7 @@ data ErrorRootCauseService = ErrorRootCauseService'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ercsEntityPath' - The path of root cause entities found on the service. 
+-- * 'ercsEntityPath' - The path of root cause entities found on the service.
 --
 -- * 'ercsAccountId' - The account ID associated to the service.
 --
@@ -577,7 +577,7 @@ errorRootCauseService =
     }
 
 
--- | The path of root cause entities found on the service. 
+-- | The path of root cause entities found on the service.
 ercsEntityPath :: Lens' ErrorRootCauseService [ErrorRootCauseEntity]
 ercsEntityPath = lens _ercsEntityPath (\ s a -> s{_ercsEntityPath = a}) . _Default . _Coerce
 
@@ -623,9 +623,9 @@ instance NFData ErrorRootCauseService where
 --
 -- /See:/ 'errorStatistics' smart constructor.
 data ErrorStatistics = ErrorStatistics'
-  { _eOtherCount :: !(Maybe Integer)
+  { _eOtherCount    :: !(Maybe Integer)
   , _eThrottleCount :: !(Maybe Integer)
-  , _eTotalCount :: !(Maybe Integer)
+  , _eTotalCount    :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -710,8 +710,8 @@ instance NFData FaultRootCause where
 -- /See:/ 'faultRootCauseEntity' smart constructor.
 data FaultRootCauseEntity = FaultRootCauseEntity'
   { _frceExceptions :: !(Maybe [RootCauseException])
-  , _frceRemote :: !(Maybe Bool)
-  , _frceName :: !(Maybe Text)
+  , _frceRemote     :: !(Maybe Bool)
+  , _frceName       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -762,11 +762,11 @@ instance NFData FaultRootCauseEntity where
 -- /See:/ 'faultRootCauseService' smart constructor.
 data FaultRootCauseService = FaultRootCauseService'
   { _frcsEntityPath :: !(Maybe [FaultRootCauseEntity])
-  , _frcsAccountId :: !(Maybe Text)
-  , _frcsNames :: !(Maybe [Text])
-  , _frcsName :: !(Maybe Text)
-  , _frcsInferred :: !(Maybe Bool)
-  , _frcsType :: !(Maybe Text)
+  , _frcsAccountId  :: !(Maybe Text)
+  , _frcsNames      :: !(Maybe [Text])
+  , _frcsName       :: !(Maybe Text)
+  , _frcsInferred   :: !(Maybe Bool)
+  , _frcsType       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -774,7 +774,7 @@ data FaultRootCauseService = FaultRootCauseService'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'frcsEntityPath' - The path of root cause entities found on the service. 
+-- * 'frcsEntityPath' - The path of root cause entities found on the service.
 --
 -- * 'frcsAccountId' - The account ID associated to the service.
 --
@@ -798,7 +798,7 @@ faultRootCauseService =
     }
 
 
--- | The path of root cause entities found on the service. 
+-- | The path of root cause entities found on the service.
 frcsEntityPath :: Lens' FaultRootCauseService [FaultRootCauseEntity]
 frcsEntityPath = lens _frcsEntityPath (\ s a -> s{_frcsEntityPath = a}) . _Default . _Coerce
 
@@ -888,8 +888,8 @@ instance NFData FaultStatistics where
 -- /See:/ 'group'' smart constructor.
 data Group = Group'
   { _gFilterExpression :: !(Maybe Text)
-  , _gGroupARN :: !(Maybe Text)
-  , _gGroupName :: !(Maybe Text)
+  , _gGroupARN         :: !(Maybe Text)
+  , _gGroupName        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -940,8 +940,8 @@ instance NFData Group where
 -- /See:/ 'groupSummary' smart constructor.
 data GroupSummary = GroupSummary'
   { _gsFilterExpression :: !(Maybe Text)
-  , _gsGroupARN :: !(Maybe Text)
-  , _gsGroupName :: !(Maybe Text)
+  , _gsGroupARN         :: !(Maybe Text)
+  , _gsGroupName        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -996,9 +996,9 @@ instance NFData GroupSummary where
 data HTTP = HTTP'
   { _httpHTTPMethod :: !(Maybe Text)
   , _httpHTTPStatus :: !(Maybe Int)
-  , _httpClientIP :: !(Maybe Text)
-  , _httpUserAgent :: !(Maybe Text)
-  , _httpHTTPURL :: !(Maybe Text)
+  , _httpClientIP   :: !(Maybe Text)
+  , _httpUserAgent  :: !(Maybe Text)
+  , _httpHTTPURL    :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1103,7 +1103,7 @@ instance Hashable HistogramEntry where
 
 instance NFData HistogramEntry where
 
--- | A list of EC2 instance IDs corresponding to the segments in a trace. 
+-- | A list of EC2 instance IDs corresponding to the segments in a trace.
 --
 --
 --
@@ -1210,9 +1210,9 @@ instance NFData ResponseTimeRootCause where
 --
 -- /See:/ 'responseTimeRootCauseEntity' smart constructor.
 data ResponseTimeRootCauseEntity = ResponseTimeRootCauseEntity'
-  { _rtrceRemote :: !(Maybe Bool)
+  { _rtrceRemote   :: !(Maybe Bool)
   , _rtrceCoverage :: !(Maybe Double)
-  , _rtrceName :: !(Maybe Text)
+  , _rtrceName     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1263,11 +1263,11 @@ instance NFData ResponseTimeRootCauseEntity where
 -- /See:/ 'responseTimeRootCauseService' smart constructor.
 data ResponseTimeRootCauseService = ResponseTimeRootCauseService'
   { _rtrcsEntityPath :: !(Maybe [ResponseTimeRootCauseEntity])
-  , _rtrcsAccountId :: !(Maybe Text)
-  , _rtrcsNames :: !(Maybe [Text])
-  , _rtrcsName :: !(Maybe Text)
-  , _rtrcsInferred :: !(Maybe Bool)
-  , _rtrcsType :: !(Maybe Text)
+  , _rtrcsAccountId  :: !(Maybe Text)
+  , _rtrcsNames      :: !(Maybe [Text])
+  , _rtrcsName       :: !(Maybe Text)
+  , _rtrcsInferred   :: !(Maybe Bool)
+  , _rtrcsType       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1275,7 +1275,7 @@ data ResponseTimeRootCauseService = ResponseTimeRootCauseService'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtrcsEntityPath' - The path of root cause entities found on the service. 
+-- * 'rtrcsEntityPath' - The path of root cause entities found on the service.
 --
 -- * 'rtrcsAccountId' - The account ID associated to the service.
 --
@@ -1299,7 +1299,7 @@ responseTimeRootCauseService =
     }
 
 
--- | The path of root cause entities found on the service. 
+-- | The path of root cause entities found on the service.
 rtrcsEntityPath :: Lens' ResponseTimeRootCauseService [ResponseTimeRootCauseEntity]
 rtrcsEntityPath = lens _rtrcsEntityPath (\ s a -> s{_rtrcsEntityPath = a}) . _Default . _Coerce
 
@@ -1345,7 +1345,7 @@ instance NFData ResponseTimeRootCauseService where
 --
 -- /See:/ 'rootCauseException' smart constructor.
 data RootCauseException = RootCauseException'
-  { _rceName :: !(Maybe Text)
+  { _rceName    :: !(Maybe Text)
   , _rceMessage :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -1388,19 +1388,19 @@ instance NFData RootCauseException where
 --
 -- /See:/ 'samplingRule' smart constructor.
 data SamplingRule = SamplingRule'
-  { _srRuleName :: !(Maybe Text)
-  , _srAttributes :: !(Maybe (Map Text Text))
-  , _srRuleARN :: !(Maybe Text)
-  , _srResourceARN :: !Text
-  , _srPriority :: !Nat
-  , _srFixedRate :: !Double
+  { _srRuleName      :: !(Maybe Text)
+  , _srAttributes    :: !(Maybe (Map Text Text))
+  , _srRuleARN       :: !(Maybe Text)
+  , _srResourceARN   :: !Text
+  , _srPriority      :: !Nat
+  , _srFixedRate     :: !Double
   , _srReservoirSize :: !Nat
-  , _srServiceName :: !Text
-  , _srServiceType :: !Text
-  , _srHost :: !Text
-  , _srHTTPMethod :: !Text
-  , _srURLPath :: !Text
-  , _srVersion :: !Nat
+  , _srServiceName   :: !Text
+  , _srServiceType   :: !Text
+  , _srHost          :: !Text
+  , _srHTTPMethod    :: !Text
+  , _srURLPath       :: !Text
+  , _srVersion       :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1562,9 +1562,9 @@ instance ToJSON SamplingRule where
 --
 -- /See:/ 'samplingRuleRecord' smart constructor.
 data SamplingRuleRecord = SamplingRuleRecord'
-  { _srrModifiedAt :: !(Maybe POSIX)
+  { _srrModifiedAt   :: !(Maybe POSIX)
   , _srrSamplingRule :: !(Maybe SamplingRule)
-  , _srrCreatedAt :: !(Maybe POSIX)
+  , _srrCreatedAt    :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1617,18 +1617,18 @@ instance NFData SamplingRuleRecord where
 --
 -- /See:/ 'samplingRuleUpdate' smart constructor.
 data SamplingRuleUpdate = SamplingRuleUpdate'
-  { _sruHTTPMethod :: !(Maybe Text)
-  , _sruPriority :: !(Maybe Int)
-  , _sruRuleName :: !(Maybe Text)
+  { _sruHTTPMethod    :: !(Maybe Text)
+  , _sruPriority      :: !(Maybe Int)
+  , _sruRuleName      :: !(Maybe Text)
   , _sruReservoirSize :: !(Maybe Int)
-  , _sruFixedRate :: !(Maybe Double)
-  , _sruResourceARN :: !(Maybe Text)
-  , _sruAttributes :: !(Maybe (Map Text Text))
-  , _sruServiceName :: !(Maybe Text)
-  , _sruServiceType :: !(Maybe Text)
-  , _sruHost :: !(Maybe Text)
-  , _sruRuleARN :: !(Maybe Text)
-  , _sruURLPath :: !(Maybe Text)
+  , _sruFixedRate     :: !(Maybe Double)
+  , _sruResourceARN   :: !(Maybe Text)
+  , _sruAttributes    :: !(Maybe (Map Text Text))
+  , _sruServiceName   :: !(Maybe Text)
+  , _sruServiceType   :: !(Maybe Text)
+  , _sruHost          :: !(Maybe Text)
+  , _sruRuleARN       :: !(Maybe Text)
+  , _sruURLPath       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1754,9 +1754,9 @@ instance ToJSON SamplingRuleUpdate where
 -- /See:/ 'samplingStatisticSummary' smart constructor.
 data SamplingStatisticSummary = SamplingStatisticSummary'
   { _sssRequestCount :: !(Maybe Int)
-  , _sssBorrowCount :: !(Maybe Int)
-  , _sssRuleName :: !(Maybe Text)
-  , _sssTimestamp :: !(Maybe POSIX)
+  , _sssBorrowCount  :: !(Maybe Int)
+  , _sssRuleName     :: !(Maybe Text)
+  , _sssTimestamp    :: !(Maybe POSIX)
   , _sssSampledCount :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -1826,10 +1826,10 @@ instance NFData SamplingStatisticSummary where
 --
 -- /See:/ 'samplingStatisticsDocument' smart constructor.
 data SamplingStatisticsDocument = SamplingStatisticsDocument'
-  { _ssdBorrowCount :: !(Maybe Nat)
-  , _ssdRuleName :: !Text
-  , _ssdClientId :: !Text
-  , _ssdTimestamp :: !POSIX
+  { _ssdBorrowCount  :: !(Maybe Nat)
+  , _ssdRuleName     :: !Text
+  , _ssdClientId     :: !Text
+  , _ssdTimestamp    :: !POSIX
   , _ssdRequestCount :: !Nat
   , _ssdSampledCount :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -1913,10 +1913,10 @@ instance ToJSON SamplingStatisticsDocument where
 --
 -- /See:/ 'samplingTargetDocument' smart constructor.
 data SamplingTargetDocument = SamplingTargetDocument'
-  { _stdReservoirQuota :: !(Maybe Int)
-  , _stdRuleName :: !(Maybe Text)
-  , _stdFixedRate :: !(Maybe Double)
-  , _stdInterval :: !(Maybe Int)
+  { _stdReservoirQuota    :: !(Maybe Int)
+  , _stdRuleName          :: !(Maybe Text)
+  , _stdFixedRate         :: !(Maybe Double)
+  , _stdInterval          :: !(Maybe Int)
   , _stdReservoirQuotaTTL :: !(Maybe POSIX)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -1989,7 +1989,7 @@ instance NFData SamplingTargetDocument where
 -- /See:/ 'segment' smart constructor.
 data Segment = Segment'
   { _sDocument :: !(Maybe Text)
-  , _sId :: !(Maybe Text)
+  , _sId       :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2023,16 +2023,16 @@ instance Hashable Segment where
 
 instance NFData Segment where
 
--- | 
+-- |
 --
 --
 --
 -- /See:/ 'serviceId' smart constructor.
 data ServiceId = ServiceId'
   { _siAccountId :: !(Maybe Text)
-  , _siNames :: !(Maybe [Text])
-  , _siName :: !(Maybe Text)
-  , _siType :: !(Maybe Text)
+  , _siNames     :: !(Maybe [Text])
+  , _siName      :: !(Maybe Text)
+  , _siType      :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2040,13 +2040,13 @@ data ServiceId = ServiceId'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'siAccountId' - 
+-- * 'siAccountId' -
 --
--- * 'siNames' - 
+-- * 'siNames' -
 --
--- * 'siName' - 
+-- * 'siName' -
 --
--- * 'siType' - 
+-- * 'siType' -
 serviceId
     :: ServiceId
 serviceId =
@@ -2058,19 +2058,19 @@ serviceId =
     }
 
 
--- | 
+-- |
 siAccountId :: Lens' ServiceId (Maybe Text)
 siAccountId = lens _siAccountId (\ s a -> s{_siAccountId = a})
 
--- | 
+-- |
 siNames :: Lens' ServiceId [Text]
 siNames = lens _siNames (\ s a -> s{_siNames = a}) . _Default . _Coerce
 
--- | 
+-- |
 siName :: Lens' ServiceId (Maybe Text)
 siName = lens _siName (\ s a -> s{_siName = a})
 
--- | 
+-- |
 siType :: Lens' ServiceId (Maybe Text)
 siType = lens _siType (\ s a -> s{_siType = a})
 
@@ -2093,19 +2093,19 @@ instance NFData ServiceId where
 --
 -- /See:/ 'serviceInfo' smart constructor.
 data ServiceInfo = ServiceInfo'
-  { _sState :: !(Maybe Text)
-  , _sStartTime :: !(Maybe POSIX)
-  , _sRoot :: !(Maybe Bool)
+  { _sState                 :: !(Maybe Text)
+  , _sStartTime             :: !(Maybe POSIX)
+  , _sRoot                  :: !(Maybe Bool)
   , _sResponseTimeHistogram :: !(Maybe [HistogramEntry])
-  , _sDurationHistogram :: !(Maybe [HistogramEntry])
-  , _sReferenceId :: !(Maybe Int)
-  , _sAccountId :: !(Maybe Text)
-  , _sNames :: !(Maybe [Text])
-  , _sName :: !(Maybe Text)
-  , _sEndTime :: !(Maybe POSIX)
-  , _sType :: !(Maybe Text)
-  , _sEdges :: !(Maybe [Edge])
-  , _sSummaryStatistics :: !(Maybe ServiceStatistics)
+  , _sDurationHistogram     :: !(Maybe [HistogramEntry])
+  , _sReferenceId           :: !(Maybe Int)
+  , _sAccountId             :: !(Maybe Text)
+  , _sNames                 :: !(Maybe [Text])
+  , _sName                  :: !(Maybe Text)
+  , _sEndTime               :: !(Maybe POSIX)
+  , _sType                  :: !(Maybe Text)
+  , _sEdges                 :: !(Maybe [Edge])
+  , _sSummaryStatistics     :: !(Maybe ServiceStatistics)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2238,11 +2238,11 @@ instance NFData ServiceInfo where
 --
 -- /See:/ 'serviceStatistics' smart constructor.
 data ServiceStatistics = ServiceStatistics'
-  { _ssFaultStatistics :: !(Maybe FaultStatistics)
-  , _ssOKCount :: !(Maybe Integer)
+  { _ssFaultStatistics   :: !(Maybe FaultStatistics)
+  , _ssOKCount           :: !(Maybe Integer)
   , _ssTotalResponseTime :: !(Maybe Double)
-  , _ssErrorStatistics :: !(Maybe ErrorStatistics)
-  , _ssTotalCount :: !(Maybe Integer)
+  , _ssErrorStatistics   :: !(Maybe ErrorStatistics)
+  , _ssTotalCount        :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2305,18 +2305,18 @@ instance Hashable ServiceStatistics where
 
 instance NFData ServiceStatistics where
 
--- | 
+-- |
 --
 --
 --
 -- /See:/ 'telemetryRecord' smart constructor.
 data TelemetryRecord = TelemetryRecord'
-  { _trSegmentsReceivedCount :: !(Maybe Int)
-  , _trSegmentsSentCount :: !(Maybe Int)
-  , _trSegmentsSpilloverCount :: !(Maybe Int)
-  , _trSegmentsRejectedCount :: !(Maybe Int)
+  { _trSegmentsReceivedCount   :: !(Maybe Int)
+  , _trSegmentsSentCount       :: !(Maybe Int)
+  , _trSegmentsSpilloverCount  :: !(Maybe Int)
+  , _trSegmentsRejectedCount   :: !(Maybe Int)
   , _trBackendConnectionErrors :: !(Maybe BackendConnectionErrors)
-  , _trTimestamp :: !POSIX
+  , _trTimestamp               :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2324,17 +2324,17 @@ data TelemetryRecord = TelemetryRecord'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trSegmentsReceivedCount' - 
+-- * 'trSegmentsReceivedCount' -
 --
--- * 'trSegmentsSentCount' - 
+-- * 'trSegmentsSentCount' -
 --
--- * 'trSegmentsSpilloverCount' - 
+-- * 'trSegmentsSpilloverCount' -
 --
--- * 'trSegmentsRejectedCount' - 
+-- * 'trSegmentsRejectedCount' -
 --
--- * 'trBackendConnectionErrors' - 
+-- * 'trBackendConnectionErrors' -
 --
--- * 'trTimestamp' - 
+-- * 'trTimestamp' -
 telemetryRecord
     :: UTCTime -- ^ 'trTimestamp'
     -> TelemetryRecord
@@ -2349,27 +2349,27 @@ telemetryRecord pTimestamp_ =
     }
 
 
--- | 
+-- |
 trSegmentsReceivedCount :: Lens' TelemetryRecord (Maybe Int)
 trSegmentsReceivedCount = lens _trSegmentsReceivedCount (\ s a -> s{_trSegmentsReceivedCount = a})
 
--- | 
+-- |
 trSegmentsSentCount :: Lens' TelemetryRecord (Maybe Int)
 trSegmentsSentCount = lens _trSegmentsSentCount (\ s a -> s{_trSegmentsSentCount = a})
 
--- | 
+-- |
 trSegmentsSpilloverCount :: Lens' TelemetryRecord (Maybe Int)
 trSegmentsSpilloverCount = lens _trSegmentsSpilloverCount (\ s a -> s{_trSegmentsSpilloverCount = a})
 
--- | 
+-- |
 trSegmentsRejectedCount :: Lens' TelemetryRecord (Maybe Int)
 trSegmentsRejectedCount = lens _trSegmentsRejectedCount (\ s a -> s{_trSegmentsRejectedCount = a})
 
--- | 
+-- |
 trBackendConnectionErrors :: Lens' TelemetryRecord (Maybe BackendConnectionErrors)
 trBackendConnectionErrors = lens _trBackendConnectionErrors (\ s a -> s{_trBackendConnectionErrors = a})
 
--- | 
+-- |
 trTimestamp :: Lens' TelemetryRecord UTCTime
 trTimestamp = lens _trTimestamp (\ s a -> s{_trTimestamp = a}) . _Time
 
@@ -2398,7 +2398,7 @@ instance ToJSON TelemetryRecord where
 --
 -- /See:/ 'trace' smart constructor.
 data Trace = Trace'
-  { _tId :: !(Maybe Text)
+  { _tId       :: !(Maybe Text)
   , _tSegments :: !(Maybe [Segment])
   , _tDuration :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -2448,25 +2448,25 @@ instance NFData Trace where
 --
 -- /See:/ 'traceSummary' smart constructor.
 data TraceSummary = TraceSummary'
-  { _tsAnnotations :: !(Maybe (Map Text [ValueWithServiceIds]))
-  , _tsHasThrottle :: !(Maybe Bool)
-  , _tsUsers :: !(Maybe [TraceUser])
-  , _tsEntryPoint :: !(Maybe ServiceId)
-  , _tsHasFault :: !(Maybe Bool)
-  , _tsServiceIds :: !(Maybe [ServiceId])
-  , _tsIsPartial :: !(Maybe Bool)
-  , _tsErrorRootCauses :: !(Maybe [ErrorRootCause])
-  , _tsResourceARNs :: !(Maybe [ResourceARNDetail])
-  , _tsAvailabilityZones :: !(Maybe [AvailabilityZoneDetail])
-  , _tsInstanceIds :: !(Maybe [InstanceIdDetail])
+  { _tsAnnotations            :: !(Maybe (Map Text [ValueWithServiceIds]))
+  , _tsHasThrottle            :: !(Maybe Bool)
+  , _tsUsers                  :: !(Maybe [TraceUser])
+  , _tsEntryPoint             :: !(Maybe ServiceId)
+  , _tsHasFault               :: !(Maybe Bool)
+  , _tsServiceIds             :: !(Maybe [ServiceId])
+  , _tsIsPartial              :: !(Maybe Bool)
+  , _tsErrorRootCauses        :: !(Maybe [ErrorRootCause])
+  , _tsResourceARNs           :: !(Maybe [ResourceARNDetail])
+  , _tsAvailabilityZones      :: !(Maybe [AvailabilityZoneDetail])
+  , _tsInstanceIds            :: !(Maybe [InstanceIdDetail])
   , _tsResponseTimeRootCauses :: !(Maybe [ResponseTimeRootCause])
-  , _tsHasError :: !(Maybe Bool)
-  , _tsId :: !(Maybe Text)
-  , _tsHTTP :: !(Maybe HTTP)
-  , _tsRevision :: !(Maybe Int)
-  , _tsDuration :: !(Maybe Double)
-  , _tsFaultRootCauses :: !(Maybe [FaultRootCause])
-  , _tsResponseTime :: !(Maybe Double)
+  , _tsHasError               :: !(Maybe Bool)
+  , _tsId                     :: !(Maybe Text)
+  , _tsHTTP                   :: !(Maybe HTTP)
+  , _tsRevision               :: !(Maybe Int)
+  , _tsDuration               :: !(Maybe Double)
+  , _tsFaultRootCauses        :: !(Maybe [FaultRootCause])
+  , _tsResponseTime           :: !(Maybe Double)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2649,7 +2649,7 @@ instance NFData TraceSummary where
 -- /See:/ 'traceUser' smart constructor.
 data TraceUser = TraceUser'
   { _tuServiceIds :: !(Maybe [ServiceId])
-  , _tuUserName :: !(Maybe Text)
+  , _tuUserName   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2691,9 +2691,9 @@ instance NFData TraceUser where
 --
 -- /See:/ 'unprocessedStatistics' smart constructor.
 data UnprocessedStatistics = UnprocessedStatistics'
-  { _usRuleName :: !(Maybe Text)
+  { _usRuleName  :: !(Maybe Text)
   , _usErrorCode :: !(Maybe Text)
-  , _usMessage :: !(Maybe Text)
+  , _usMessage   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2744,8 +2744,8 @@ instance NFData UnprocessedStatistics where
 -- /See:/ 'unprocessedTraceSegment' smart constructor.
 data UnprocessedTraceSegment = UnprocessedTraceSegment'
   { _utsErrorCode :: !(Maybe Text)
-  , _utsId :: !(Maybe Text)
-  , _utsMessage :: !(Maybe Text)
+  , _utsId        :: !(Maybe Text)
+  , _utsMessage   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2795,7 +2795,7 @@ instance NFData UnprocessedTraceSegment where
 --
 -- /See:/ 'valueWithServiceIds' smart constructor.
 data ValueWithServiceIds = ValueWithServiceIds'
-  { _vwsiServiceIds :: !(Maybe [ServiceId])
+  { _vwsiServiceIds      :: !(Maybe [ServiceId])
   , _vwsiAnnotationValue :: !(Maybe AnnotationValue)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 

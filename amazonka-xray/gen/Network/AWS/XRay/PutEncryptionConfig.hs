@@ -48,7 +48,7 @@ import Network.AWS.XRay.Types.Product
 -- | /See:/ 'putEncryptionConfig' smart constructor.
 data PutEncryptionConfig = PutEncryptionConfig'
   { _pecKeyId :: !(Maybe Text)
-  , _pecType :: !EncryptionType
+  , _pecType  :: !EncryptionType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -107,7 +107,7 @@ instance ToQuery PutEncryptionConfig where
 -- | /See:/ 'putEncryptionConfigResponse' smart constructor.
 data PutEncryptionConfigResponse = PutEncryptionConfigResponse'
   { _pecrsEncryptionConfig :: !(Maybe EncryptionConfig)
-  , _pecrsResponseStatus :: !Int
+  , _pecrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

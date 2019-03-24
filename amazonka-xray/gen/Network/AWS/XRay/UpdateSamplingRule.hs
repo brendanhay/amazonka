@@ -99,7 +99,7 @@ instance ToQuery UpdateSamplingRule where
 -- | /See:/ 'updateSamplingRuleResponse' smart constructor.
 data UpdateSamplingRuleResponse = UpdateSamplingRuleResponse'
   { _usrrsSamplingRuleRecord :: !(Maybe SamplingRuleRecord)
-  , _usrrsResponseStatus :: !Int
+  , _usrrsResponseStatus     :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

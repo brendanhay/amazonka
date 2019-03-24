@@ -84,7 +84,7 @@ instance ToQuery GetEncryptionConfig where
 -- | /See:/ 'getEncryptionConfigResponse' smart constructor.
 data GetEncryptionConfigResponse = GetEncryptionConfigResponse'
   { _gecrsEncryptionConfig :: !(Maybe EncryptionConfig)
-  , _gecrsResponseStatus :: !Int
+  , _gecrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -25,9 +25,9 @@ module Network.AWS.GuardDuty.GetFindingsStatistics
       getFindingsStatistics
     , GetFindingsStatistics
     -- * Request Lenses
-    , gfsFindingStatisticTypes
     , gfsFindingCriteria
     , gfsDetectorId
+    , gfsFindingStatisticTypes
 
     -- * Destructuring the Response
     , getFindingsStatisticsResponse
@@ -48,9 +48,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'getFindingsStatistics' smart constructor.
 data GetFindingsStatistics = GetFindingsStatistics'
-  { _gfsFindingStatisticTypes :: !(Maybe [FindingStatisticType])
-  , _gfsFindingCriteria       :: !(Maybe FindingCriteria)
+  { _gfsFindingCriteria       :: !(Maybe FindingCriteria)
   , _gfsDetectorId            :: !Text
+  , _gfsFindingStatisticTypes :: ![FindingStatisticType]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -58,25 +58,21 @@ data GetFindingsStatistics = GetFindingsStatistics'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gfsFindingStatisticTypes' - Types of finding statistics to retrieve.
---
 -- * 'gfsFindingCriteria' - Represents the criteria used for querying findings.
 --
 -- * 'gfsDetectorId' - The ID of the detector that specifies the GuardDuty service whose findings' statistics you want to retrieve.
+--
+-- * 'gfsFindingStatisticTypes' - Types of finding statistics to retrieve.
 getFindingsStatistics
     :: Text -- ^ 'gfsDetectorId'
     -> GetFindingsStatistics
 getFindingsStatistics pDetectorId_ =
   GetFindingsStatistics'
-    { _gfsFindingStatisticTypes = Nothing
-    , _gfsFindingCriteria = Nothing
+    { _gfsFindingCriteria = Nothing
     , _gfsDetectorId = pDetectorId_
+    , _gfsFindingStatisticTypes = mempty
     }
 
-
--- | Types of finding statistics to retrieve.
-gfsFindingStatisticTypes :: Lens' GetFindingsStatistics [FindingStatisticType]
-gfsFindingStatisticTypes = lens _gfsFindingStatisticTypes (\ s a -> s{_gfsFindingStatisticTypes = a}) . _Default . _Coerce
 
 -- | Represents the criteria used for querying findings.
 gfsFindingCriteria :: Lens' GetFindingsStatistics (Maybe FindingCriteria)
@@ -85,6 +81,10 @@ gfsFindingCriteria = lens _gfsFindingCriteria (\ s a -> s{_gfsFindingCriteria = 
 -- | The ID of the detector that specifies the GuardDuty service whose findings' statistics you want to retrieve.
 gfsDetectorId :: Lens' GetFindingsStatistics Text
 gfsDetectorId = lens _gfsDetectorId (\ s a -> s{_gfsDetectorId = a})
+
+-- | Types of finding statistics to retrieve.
+gfsFindingStatisticTypes :: Lens' GetFindingsStatistics [FindingStatisticType]
+gfsFindingStatisticTypes = lens _gfsFindingStatisticTypes (\ s a -> s{_gfsFindingStatisticTypes = a}) . _Coerce
 
 instance AWSRequest GetFindingsStatistics where
         type Rs GetFindingsStatistics =
@@ -111,9 +111,10 @@ instance ToJSON GetFindingsStatistics where
         toJSON GetFindingsStatistics'{..}
           = object
               (catMaybes
-                 [("findingStatisticTypes" .=) <$>
-                    _gfsFindingStatisticTypes,
-                  ("findingCriteria" .=) <$> _gfsFindingCriteria])
+                 [("findingCriteria" .=) <$> _gfsFindingCriteria,
+                  Just
+                    ("findingStatisticTypes" .=
+                       _gfsFindingStatisticTypes)])
 
 instance ToPath GetFindingsStatistics where
         toPath GetFindingsStatistics'{..}

@@ -25,8 +25,8 @@ module Network.AWS.GuardDuty.GetMembers
       getMembers
     , GetMembers
     -- * Request Lenses
-    , gmAccountIds
     , gmDetectorId
+    , gmAccountIds
 
     -- * Destructuring the Response
     , getMembersResponse
@@ -48,8 +48,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getMembers' smart constructor.
 data GetMembers = GetMembers'
-  { _gmAccountIds :: !(Maybe [Text])
-  , _gmDetectorId :: !Text
+  { _gmDetectorId :: !Text
+  , _gmAccountIds :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -57,23 +57,23 @@ data GetMembers = GetMembers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmAccountIds' - A list of account IDs of the GuardDuty member accounts that you want to describe.
---
 -- * 'gmDetectorId' - The unique ID of the detector of the GuardDuty account whose members you want to retrieve.
+--
+-- * 'gmAccountIds' - A list of account IDs of the GuardDuty member accounts that you want to describe.
 getMembers
     :: Text -- ^ 'gmDetectorId'
     -> GetMembers
 getMembers pDetectorId_ =
-  GetMembers' {_gmAccountIds = Nothing, _gmDetectorId = pDetectorId_}
+  GetMembers' {_gmDetectorId = pDetectorId_, _gmAccountIds = mempty}
 
-
--- | A list of account IDs of the GuardDuty member accounts that you want to describe.
-gmAccountIds :: Lens' GetMembers [Text]
-gmAccountIds = lens _gmAccountIds (\ s a -> s{_gmAccountIds = a}) . _Default . _Coerce
 
 -- | The unique ID of the detector of the GuardDuty account whose members you want to retrieve.
 gmDetectorId :: Lens' GetMembers Text
 gmDetectorId = lens _gmDetectorId (\ s a -> s{_gmDetectorId = a})
+
+-- | A list of account IDs of the GuardDuty member accounts that you want to describe.
+gmAccountIds :: Lens' GetMembers [Text]
+gmAccountIds = lens _gmAccountIds (\ s a -> s{_gmAccountIds = a}) . _Coerce
 
 instance AWSRequest GetMembers where
         type Rs GetMembers = GetMembersResponse
@@ -100,7 +100,7 @@ instance ToHeaders GetMembers where
 instance ToJSON GetMembers where
         toJSON GetMembers'{..}
           = object
-              (catMaybes [("accountIds" .=) <$> _gmAccountIds])
+              (catMaybes [Just ("accountIds" .= _gmAccountIds)])
 
 instance ToPath GetMembers where
         toPath GetMembers'{..}

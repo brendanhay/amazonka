@@ -25,8 +25,8 @@ module Network.AWS.GuardDuty.DisassociateMembers
       disassociateMembers
     , DisassociateMembers
     -- * Request Lenses
-    , dmsAccountIds
     , dmsDetectorId
+    , dmsAccountIds
 
     -- * Destructuring the Response
     , disassociateMembersResponse
@@ -47,8 +47,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'disassociateMembers' smart constructor.
 data DisassociateMembers = DisassociateMembers'
-  { _dmsAccountIds :: !(Maybe [Text])
-  , _dmsDetectorId :: !Text
+  { _dmsDetectorId :: !Text
+  , _dmsAccountIds :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -56,23 +56,23 @@ data DisassociateMembers = DisassociateMembers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmsAccountIds' - A list of account IDs of the GuardDuty member accounts that you want to disassociate from master.
---
 -- * 'dmsDetectorId' - The unique ID of the detector of the GuardDuty account whose members you want to disassociate from master.
+--
+-- * 'dmsAccountIds' - A list of account IDs of the GuardDuty member accounts that you want to disassociate from master.
 disassociateMembers
     :: Text -- ^ 'dmsDetectorId'
     -> DisassociateMembers
 disassociateMembers pDetectorId_ =
-  DisassociateMembers' {_dmsAccountIds = Nothing, _dmsDetectorId = pDetectorId_}
+  DisassociateMembers' {_dmsDetectorId = pDetectorId_, _dmsAccountIds = mempty}
 
-
--- | A list of account IDs of the GuardDuty member accounts that you want to disassociate from master.
-dmsAccountIds :: Lens' DisassociateMembers [Text]
-dmsAccountIds = lens _dmsAccountIds (\ s a -> s{_dmsAccountIds = a}) . _Default . _Coerce
 
 -- | The unique ID of the detector of the GuardDuty account whose members you want to disassociate from master.
 dmsDetectorId :: Lens' DisassociateMembers Text
 dmsDetectorId = lens _dmsDetectorId (\ s a -> s{_dmsDetectorId = a})
+
+-- | A list of account IDs of the GuardDuty member accounts that you want to disassociate from master.
+dmsAccountIds :: Lens' DisassociateMembers [Text]
+dmsAccountIds = lens _dmsAccountIds (\ s a -> s{_dmsAccountIds = a}) . _Coerce
 
 instance AWSRequest DisassociateMembers where
         type Rs DisassociateMembers =
@@ -99,7 +99,7 @@ instance ToHeaders DisassociateMembers where
 instance ToJSON DisassociateMembers where
         toJSON DisassociateMembers'{..}
           = object
-              (catMaybes [("accountIds" .=) <$> _dmsAccountIds])
+              (catMaybes [Just ("accountIds" .= _dmsAccountIds)])
 
 instance ToPath DisassociateMembers where
         toPath DisassociateMembers'{..}

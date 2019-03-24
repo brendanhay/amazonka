@@ -25,10 +25,10 @@ module Network.AWS.GuardDuty.UpdateFindingsFeedback
       updateFindingsFeedback
     , UpdateFindingsFeedback
     -- * Request Lenses
-    , uffFindingIds
     , uffComments
-    , uffFeedback
     , uffDetectorId
+    , uffFeedback
+    , uffFindingIds
 
     -- * Destructuring the Response
     , updateFindingsFeedbackResponse
@@ -48,10 +48,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateFindingsFeedback' smart constructor.
 data UpdateFindingsFeedback = UpdateFindingsFeedback'
-  { _uffFindingIds :: !(Maybe [Text])
-  , _uffComments   :: !(Maybe Text)
-  , _uffFeedback   :: !(Maybe Feedback)
+  { _uffComments   :: !(Maybe Text)
   , _uffDetectorId :: !Text
+  , _uffFeedback   :: !Feedback
+  , _uffFindingIds :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -59,40 +59,41 @@ data UpdateFindingsFeedback = UpdateFindingsFeedback'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uffFindingIds' - IDs of the findings that you want to mark as useful or not useful.
---
 -- * 'uffComments' - Additional feedback about the GuardDuty findings.
+--
+-- * 'uffDetectorId' - The ID of the detector that specifies the GuardDuty service whose findings you want to mark as useful or not useful.
 --
 -- * 'uffFeedback' - Valid values: USEFUL | NOT_USEFUL
 --
--- * 'uffDetectorId' - The ID of the detector that specifies the GuardDuty service whose findings you want to mark as useful or not useful.
+-- * 'uffFindingIds' - IDs of the findings that you want to mark as useful or not useful.
 updateFindingsFeedback
     :: Text -- ^ 'uffDetectorId'
+    -> Feedback -- ^ 'uffFeedback'
     -> UpdateFindingsFeedback
-updateFindingsFeedback pDetectorId_ =
+updateFindingsFeedback pDetectorId_ pFeedback_ =
   UpdateFindingsFeedback'
-    { _uffFindingIds = Nothing
-    , _uffComments = Nothing
-    , _uffFeedback = Nothing
+    { _uffComments = Nothing
     , _uffDetectorId = pDetectorId_
+    , _uffFeedback = pFeedback_
+    , _uffFindingIds = mempty
     }
 
-
--- | IDs of the findings that you want to mark as useful or not useful.
-uffFindingIds :: Lens' UpdateFindingsFeedback [Text]
-uffFindingIds = lens _uffFindingIds (\ s a -> s{_uffFindingIds = a}) . _Default . _Coerce
 
 -- | Additional feedback about the GuardDuty findings.
 uffComments :: Lens' UpdateFindingsFeedback (Maybe Text)
 uffComments = lens _uffComments (\ s a -> s{_uffComments = a})
 
--- | Valid values: USEFUL | NOT_USEFUL
-uffFeedback :: Lens' UpdateFindingsFeedback (Maybe Feedback)
-uffFeedback = lens _uffFeedback (\ s a -> s{_uffFeedback = a})
-
 -- | The ID of the detector that specifies the GuardDuty service whose findings you want to mark as useful or not useful.
 uffDetectorId :: Lens' UpdateFindingsFeedback Text
 uffDetectorId = lens _uffDetectorId (\ s a -> s{_uffDetectorId = a})
+
+-- | Valid values: USEFUL | NOT_USEFUL
+uffFeedback :: Lens' UpdateFindingsFeedback Feedback
+uffFeedback = lens _uffFeedback (\ s a -> s{_uffFeedback = a})
+
+-- | IDs of the findings that you want to mark as useful or not useful.
+uffFindingIds :: Lens' UpdateFindingsFeedback [Text]
+uffFindingIds = lens _uffFindingIds (\ s a -> s{_uffFindingIds = a}) . _Coerce
 
 instance AWSRequest UpdateFindingsFeedback where
         type Rs UpdateFindingsFeedback =
@@ -119,9 +120,9 @@ instance ToJSON UpdateFindingsFeedback where
         toJSON UpdateFindingsFeedback'{..}
           = object
               (catMaybes
-                 [("findingIds" .=) <$> _uffFindingIds,
-                  ("comments" .=) <$> _uffComments,
-                  ("feedback" .=) <$> _uffFeedback])
+                 [("comments" .=) <$> _uffComments,
+                  Just ("feedback" .= _uffFeedback),
+                  Just ("findingIds" .= _uffFindingIds)])
 
 instance ToPath UpdateFindingsFeedback where
         toPath UpdateFindingsFeedback'{..}

@@ -33,6 +33,7 @@ module Network.AWS.GuardDuty.GetDetector
     -- * Response Lenses
     , gdrsStatus
     , gdrsCreatedAt
+    , gdrsFindingPublishingFrequency
     , gdrsUpdatedAt
     , gdrsServiceRole
     , gdrsResponseStatus
@@ -74,7 +75,8 @@ instance AWSRequest GetDetector where
               (\ s h x ->
                  GetDetectorResponse' <$>
                    (x .?> "status") <*> (x .?> "createdAt") <*>
-                     (x .?> "updatedAt")
+                     (x .?> "findingPublishingFrequency")
+                     <*> (x .?> "updatedAt")
                      <*> (x .?> "serviceRole")
                      <*> (pure (fromEnum s)))
 
@@ -98,11 +100,12 @@ instance ToQuery GetDetector where
 
 -- | /See:/ 'getDetectorResponse' smart constructor.
 data GetDetectorResponse = GetDetectorResponse'
-  { _gdrsStatus         :: !(Maybe DetectorStatus)
-  , _gdrsCreatedAt      :: !(Maybe Text)
-  , _gdrsUpdatedAt      :: !(Maybe Text)
-  , _gdrsServiceRole    :: !(Maybe Text)
-  , _gdrsResponseStatus :: !Int
+  { _gdrsStatus                     :: !(Maybe DetectorStatus)
+  , _gdrsCreatedAt                  :: !(Maybe Text)
+  , _gdrsFindingPublishingFrequency :: !(Maybe FindingPublishingFrequency)
+  , _gdrsUpdatedAt                  :: !(Maybe Text)
+  , _gdrsServiceRole                :: !(Maybe Text)
+  , _gdrsResponseStatus             :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -113,6 +116,8 @@ data GetDetectorResponse = GetDetectorResponse'
 -- * 'gdrsStatus' - Undocumented member.
 --
 -- * 'gdrsCreatedAt' - Undocumented member.
+--
+-- * 'gdrsFindingPublishingFrequency' - Undocumented member.
 --
 -- * 'gdrsUpdatedAt' - Undocumented member.
 --
@@ -126,6 +131,7 @@ getDetectorResponse pResponseStatus_ =
   GetDetectorResponse'
     { _gdrsStatus = Nothing
     , _gdrsCreatedAt = Nothing
+    , _gdrsFindingPublishingFrequency = Nothing
     , _gdrsUpdatedAt = Nothing
     , _gdrsServiceRole = Nothing
     , _gdrsResponseStatus = pResponseStatus_
@@ -139,6 +145,10 @@ gdrsStatus = lens _gdrsStatus (\ s a -> s{_gdrsStatus = a})
 -- | Undocumented member.
 gdrsCreatedAt :: Lens' GetDetectorResponse (Maybe Text)
 gdrsCreatedAt = lens _gdrsCreatedAt (\ s a -> s{_gdrsCreatedAt = a})
+
+-- | Undocumented member.
+gdrsFindingPublishingFrequency :: Lens' GetDetectorResponse (Maybe FindingPublishingFrequency)
+gdrsFindingPublishingFrequency = lens _gdrsFindingPublishingFrequency (\ s a -> s{_gdrsFindingPublishingFrequency = a})
 
 -- | Undocumented member.
 gdrsUpdatedAt :: Lens' GetDetectorResponse (Maybe Text)

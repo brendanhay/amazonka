@@ -26,12 +26,12 @@ module Network.AWS.GuardDuty.CreateFilter
     , CreateFilter
     -- * Request Lenses
     , cfClientToken
-    , cfFindingCriteria
     , cfAction
-    , cfName
     , cfDescription
     , cfRank
     , cfDetectorId
+    , cfFindingCriteria
+    , cfName
 
     -- * Destructuring the Response
     , createFilterResponse
@@ -53,12 +53,12 @@ import Network.AWS.Response
 -- /See:/ 'createFilter' smart constructor.
 data CreateFilter = CreateFilter'
   { _cfClientToken     :: !(Maybe Text)
-  , _cfFindingCriteria :: !(Maybe FindingCriteria)
   , _cfAction          :: !(Maybe FilterAction)
-  , _cfName            :: !(Maybe Text)
   , _cfDescription     :: !(Maybe Text)
   , _cfRank            :: !(Maybe Int)
   , _cfDetectorId      :: !Text
+  , _cfFindingCriteria :: !FindingCriteria
+  , _cfName            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -68,29 +68,31 @@ data CreateFilter = CreateFilter'
 --
 -- * 'cfClientToken' - The idempotency token for the create request.
 --
--- * 'cfFindingCriteria' - Represents the criteria to be used in the filter for querying findings.
---
 -- * 'cfAction' - Specifies the action that is to be applied to the findings that match the filter.
---
--- * 'cfName' - The name of the filter.
 --
 -- * 'cfDescription' - The description of the filter.
 --
 -- * 'cfRank' - Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
 --
 -- * 'cfDetectorId' - The unique ID of the detector that you want to update.
+--
+-- * 'cfFindingCriteria' - Represents the criteria to be used in the filter for querying findings.
+--
+-- * 'cfName' - The name of the filter.
 createFilter
     :: Text -- ^ 'cfDetectorId'
+    -> FindingCriteria -- ^ 'cfFindingCriteria'
+    -> Text -- ^ 'cfName'
     -> CreateFilter
-createFilter pDetectorId_ =
+createFilter pDetectorId_ pFindingCriteria_ pName_ =
   CreateFilter'
     { _cfClientToken = Nothing
-    , _cfFindingCriteria = Nothing
     , _cfAction = Nothing
-    , _cfName = Nothing
     , _cfDescription = Nothing
     , _cfRank = Nothing
     , _cfDetectorId = pDetectorId_
+    , _cfFindingCriteria = pFindingCriteria_
+    , _cfName = pName_
     }
 
 
@@ -98,17 +100,9 @@ createFilter pDetectorId_ =
 cfClientToken :: Lens' CreateFilter (Maybe Text)
 cfClientToken = lens _cfClientToken (\ s a -> s{_cfClientToken = a})
 
--- | Represents the criteria to be used in the filter for querying findings.
-cfFindingCriteria :: Lens' CreateFilter (Maybe FindingCriteria)
-cfFindingCriteria = lens _cfFindingCriteria (\ s a -> s{_cfFindingCriteria = a})
-
 -- | Specifies the action that is to be applied to the findings that match the filter.
 cfAction :: Lens' CreateFilter (Maybe FilterAction)
 cfAction = lens _cfAction (\ s a -> s{_cfAction = a})
-
--- | The name of the filter.
-cfName :: Lens' CreateFilter (Maybe Text)
-cfName = lens _cfName (\ s a -> s{_cfName = a})
 
 -- | The description of the filter.
 cfDescription :: Lens' CreateFilter (Maybe Text)
@@ -121,6 +115,14 @@ cfRank = lens _cfRank (\ s a -> s{_cfRank = a})
 -- | The unique ID of the detector that you want to update.
 cfDetectorId :: Lens' CreateFilter Text
 cfDetectorId = lens _cfDetectorId (\ s a -> s{_cfDetectorId = a})
+
+-- | Represents the criteria to be used in the filter for querying findings.
+cfFindingCriteria :: Lens' CreateFilter FindingCriteria
+cfFindingCriteria = lens _cfFindingCriteria (\ s a -> s{_cfFindingCriteria = a})
+
+-- | The name of the filter.
+cfName :: Lens' CreateFilter Text
+cfName = lens _cfName (\ s a -> s{_cfName = a})
 
 instance AWSRequest CreateFilter where
         type Rs CreateFilter = CreateFilterResponse
@@ -147,10 +149,11 @@ instance ToJSON CreateFilter where
           = object
               (catMaybes
                  [("clientToken" .=) <$> _cfClientToken,
-                  ("findingCriteria" .=) <$> _cfFindingCriteria,
-                  ("action" .=) <$> _cfAction, ("name" .=) <$> _cfName,
+                  ("action" .=) <$> _cfAction,
                   ("description" .=) <$> _cfDescription,
-                  ("rank" .=) <$> _cfRank])
+                  ("rank" .=) <$> _cfRank,
+                  Just ("findingCriteria" .= _cfFindingCriteria),
+                  Just ("name" .= _cfName)])
 
 instance ToPath CreateFilter where
         toPath CreateFilter'{..}

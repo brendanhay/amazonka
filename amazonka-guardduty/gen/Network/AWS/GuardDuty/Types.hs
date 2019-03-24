@@ -28,6 +28,9 @@ module Network.AWS.GuardDuty.Types
     -- * FilterAction
     , FilterAction (..)
 
+    -- * FindingPublishingFrequency
+    , FindingPublishingFrequency (..)
+
     -- * FindingStatisticType
     , FindingStatisticType (..)
 

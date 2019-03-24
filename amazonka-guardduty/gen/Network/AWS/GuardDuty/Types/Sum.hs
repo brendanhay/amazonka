@@ -106,6 +106,40 @@ instance ToJSON FilterAction where
 instance FromJSON FilterAction where
     parseJSON = parseJSONText "FilterAction"
 
+-- | A enum value that specifies how frequently customer got Finding updates published.
+data FindingPublishingFrequency
+  = FifteenMinutes
+  | OneHour
+  | SixHours
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FindingPublishingFrequency where
+    parser = takeLowerText >>= \case
+        "fifteen_minutes" -> pure FifteenMinutes
+        "one_hour" -> pure OneHour
+        "six_hours" -> pure SixHours
+        e -> fromTextError $ "Failure parsing FindingPublishingFrequency from value: '" <> e
+           <> "'. Accepted values: fifteen_minutes, one_hour, six_hours"
+
+instance ToText FindingPublishingFrequency where
+    toText = \case
+        FifteenMinutes -> "FIFTEEN_MINUTES"
+        OneHour -> "ONE_HOUR"
+        SixHours -> "SIX_HOURS"
+
+instance Hashable     FindingPublishingFrequency
+instance NFData       FindingPublishingFrequency
+instance ToByteString FindingPublishingFrequency
+instance ToQuery      FindingPublishingFrequency
+instance ToHeader     FindingPublishingFrequency
+
+instance ToJSON FindingPublishingFrequency where
+    toJSON = toJSONText
+
+instance FromJSON FindingPublishingFrequency where
+    parseJSON = parseJSONText "FindingPublishingFrequency"
+
 -- | The types of finding statistics.
 data FindingStatisticType =
   CountBySeverity

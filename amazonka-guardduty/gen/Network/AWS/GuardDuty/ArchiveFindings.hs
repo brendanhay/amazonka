@@ -25,8 +25,8 @@ module Network.AWS.GuardDuty.ArchiveFindings
       archiveFindings
     , ArchiveFindings
     -- * Request Lenses
-    , afFindingIds
     , afDetectorId
+    , afFindingIds
 
     -- * Destructuring the Response
     , archiveFindingsResponse
@@ -46,8 +46,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'archiveFindings' smart constructor.
 data ArchiveFindings = ArchiveFindings'
-  { _afFindingIds :: !(Maybe [Text])
-  , _afDetectorId :: !Text
+  { _afDetectorId :: !Text
+  , _afFindingIds :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -55,23 +55,23 @@ data ArchiveFindings = ArchiveFindings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'afFindingIds' - IDs of the findings that you want to archive.
---
 -- * 'afDetectorId' - The ID of the detector that specifies the GuardDuty service whose findings you want to archive.
+--
+-- * 'afFindingIds' - IDs of the findings that you want to archive.
 archiveFindings
     :: Text -- ^ 'afDetectorId'
     -> ArchiveFindings
 archiveFindings pDetectorId_ =
-  ArchiveFindings' {_afFindingIds = Nothing, _afDetectorId = pDetectorId_}
+  ArchiveFindings' {_afDetectorId = pDetectorId_, _afFindingIds = mempty}
 
-
--- | IDs of the findings that you want to archive.
-afFindingIds :: Lens' ArchiveFindings [Text]
-afFindingIds = lens _afFindingIds (\ s a -> s{_afFindingIds = a}) . _Default . _Coerce
 
 -- | The ID of the detector that specifies the GuardDuty service whose findings you want to archive.
 afDetectorId :: Lens' ArchiveFindings Text
 afDetectorId = lens _afDetectorId (\ s a -> s{_afDetectorId = a})
+
+-- | IDs of the findings that you want to archive.
+afFindingIds :: Lens' ArchiveFindings [Text]
+afFindingIds = lens _afFindingIds (\ s a -> s{_afFindingIds = a}) . _Coerce
 
 instance AWSRequest ArchiveFindings where
         type Rs ArchiveFindings = ArchiveFindingsResponse
@@ -95,7 +95,7 @@ instance ToHeaders ArchiveFindings where
 instance ToJSON ArchiveFindings where
         toJSON ArchiveFindings'{..}
           = object
-              (catMaybes [("findingIds" .=) <$> _afFindingIds])
+              (catMaybes [Just ("findingIds" .= _afFindingIds)])
 
 instance ToPath ArchiveFindings where
         toPath ArchiveFindings'{..}

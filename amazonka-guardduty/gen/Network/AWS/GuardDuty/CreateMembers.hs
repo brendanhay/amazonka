@@ -25,8 +25,8 @@ module Network.AWS.GuardDuty.CreateMembers
       createMembers
     , CreateMembers
     -- * Request Lenses
-    , cmAccountDetails
     , cmDetectorId
+    , cmAccountDetails
 
     -- * Destructuring the Response
     , createMembersResponse
@@ -47,8 +47,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'createMembers' smart constructor.
 data CreateMembers = CreateMembers'
-  { _cmAccountDetails :: !(Maybe [AccountDetail])
-  , _cmDetectorId     :: !Text
+  { _cmDetectorId     :: !Text
+  , _cmAccountDetails :: ![AccountDetail]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -56,23 +56,23 @@ data CreateMembers = CreateMembers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cmAccountDetails' - A list of account ID and email address pairs of the accounts that you want to associate with the master GuardDuty account.
---
 -- * 'cmDetectorId' - The unique ID of the detector of the GuardDuty account with which you want to associate member accounts.
+--
+-- * 'cmAccountDetails' - A list of account ID and email address pairs of the accounts that you want to associate with the master GuardDuty account.
 createMembers
     :: Text -- ^ 'cmDetectorId'
     -> CreateMembers
 createMembers pDetectorId_ =
-  CreateMembers' {_cmAccountDetails = Nothing, _cmDetectorId = pDetectorId_}
+  CreateMembers' {_cmDetectorId = pDetectorId_, _cmAccountDetails = mempty}
 
-
--- | A list of account ID and email address pairs of the accounts that you want to associate with the master GuardDuty account.
-cmAccountDetails :: Lens' CreateMembers [AccountDetail]
-cmAccountDetails = lens _cmAccountDetails (\ s a -> s{_cmAccountDetails = a}) . _Default . _Coerce
 
 -- | The unique ID of the detector of the GuardDuty account with which you want to associate member accounts.
 cmDetectorId :: Lens' CreateMembers Text
 cmDetectorId = lens _cmDetectorId (\ s a -> s{_cmDetectorId = a})
+
+-- | A list of account ID and email address pairs of the accounts that you want to associate with the master GuardDuty account.
+cmAccountDetails :: Lens' CreateMembers [AccountDetail]
+cmAccountDetails = lens _cmAccountDetails (\ s a -> s{_cmAccountDetails = a}) . _Coerce
 
 instance AWSRequest CreateMembers where
         type Rs CreateMembers = CreateMembersResponse
@@ -99,7 +99,7 @@ instance ToJSON CreateMembers where
         toJSON CreateMembers'{..}
           = object
               (catMaybes
-                 [("accountDetails" .=) <$> _cmAccountDetails])
+                 [Just ("accountDetails" .= _cmAccountDetails)])
 
 instance ToPath CreateMembers where
         toPath CreateMembers'{..}

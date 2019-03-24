@@ -25,11 +25,12 @@ module Network.AWS.GuardDuty.CreateIPSet
       createIPSet
     , CreateIPSet
     -- * Request Lenses
-    , cisLocation
+    , cisClientToken
+    , cisDetectorId
     , cisFormat
     , cisActivate
+    , cisLocation
     , cisName
-    , cisDetectorId
 
     -- * Destructuring the Response
     , createIPSetResponse
@@ -50,11 +51,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'createIPSet' smart constructor.
 data CreateIPSet = CreateIPSet'
-  { _cisLocation   :: !(Maybe Text)
-  , _cisFormat     :: !(Maybe IPSetFormat)
-  , _cisActivate   :: !(Maybe Bool)
-  , _cisName       :: !(Maybe Text)
-  , _cisDetectorId :: !Text
+  { _cisClientToken :: !(Maybe Text)
+  , _cisDetectorId  :: !Text
+  , _cisFormat      :: !IPSetFormat
+  , _cisActivate    :: !Bool
+  , _cisLocation    :: !Text
+  , _cisName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -62,47 +64,58 @@ data CreateIPSet = CreateIPSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cisLocation' - The URI of the file that contains the IPSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)
+-- * 'cisClientToken' - The idempotency token for the create request.
+--
+-- * 'cisDetectorId' - The unique ID of the detector that you want to update.
 --
 -- * 'cisFormat' - The format of the file that contains the IPSet.
 --
 -- * 'cisActivate' - A boolean value that indicates whether GuardDuty is to start using the uploaded IPSet.
 --
--- * 'cisName' - The user friendly name to identify the IPSet. This name is displayed in all findings that are triggered by activity that involves IP addresses included in this IPSet.
+-- * 'cisLocation' - The URI of the file that contains the IPSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)
 --
--- * 'cisDetectorId' - The unique ID of the detector that you want to update.
+-- * 'cisName' - The user friendly name to identify the IPSet. This name is displayed in all findings that are triggered by activity that involves IP addresses included in this IPSet.
 createIPSet
     :: Text -- ^ 'cisDetectorId'
+    -> IPSetFormat -- ^ 'cisFormat'
+    -> Bool -- ^ 'cisActivate'
+    -> Text -- ^ 'cisLocation'
+    -> Text -- ^ 'cisName'
     -> CreateIPSet
-createIPSet pDetectorId_ =
+createIPSet pDetectorId_ pFormat_ pActivate_ pLocation_ pName_ =
   CreateIPSet'
-    { _cisLocation = Nothing
-    , _cisFormat = Nothing
-    , _cisActivate = Nothing
-    , _cisName = Nothing
+    { _cisClientToken = Nothing
     , _cisDetectorId = pDetectorId_
+    , _cisFormat = pFormat_
+    , _cisActivate = pActivate_
+    , _cisLocation = pLocation_
+    , _cisName = pName_
     }
 
 
--- | The URI of the file that contains the IPSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)
-cisLocation :: Lens' CreateIPSet (Maybe Text)
-cisLocation = lens _cisLocation (\ s a -> s{_cisLocation = a})
-
--- | The format of the file that contains the IPSet.
-cisFormat :: Lens' CreateIPSet (Maybe IPSetFormat)
-cisFormat = lens _cisFormat (\ s a -> s{_cisFormat = a})
-
--- | A boolean value that indicates whether GuardDuty is to start using the uploaded IPSet.
-cisActivate :: Lens' CreateIPSet (Maybe Bool)
-cisActivate = lens _cisActivate (\ s a -> s{_cisActivate = a})
-
--- | The user friendly name to identify the IPSet. This name is displayed in all findings that are triggered by activity that involves IP addresses included in this IPSet.
-cisName :: Lens' CreateIPSet (Maybe Text)
-cisName = lens _cisName (\ s a -> s{_cisName = a})
+-- | The idempotency token for the create request.
+cisClientToken :: Lens' CreateIPSet (Maybe Text)
+cisClientToken = lens _cisClientToken (\ s a -> s{_cisClientToken = a})
 
 -- | The unique ID of the detector that you want to update.
 cisDetectorId :: Lens' CreateIPSet Text
 cisDetectorId = lens _cisDetectorId (\ s a -> s{_cisDetectorId = a})
+
+-- | The format of the file that contains the IPSet.
+cisFormat :: Lens' CreateIPSet IPSetFormat
+cisFormat = lens _cisFormat (\ s a -> s{_cisFormat = a})
+
+-- | A boolean value that indicates whether GuardDuty is to start using the uploaded IPSet.
+cisActivate :: Lens' CreateIPSet Bool
+cisActivate = lens _cisActivate (\ s a -> s{_cisActivate = a})
+
+-- | The URI of the file that contains the IPSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)
+cisLocation :: Lens' CreateIPSet Text
+cisLocation = lens _cisLocation (\ s a -> s{_cisLocation = a})
+
+-- | The user friendly name to identify the IPSet. This name is displayed in all findings that are triggered by activity that involves IP addresses included in this IPSet.
+cisName :: Lens' CreateIPSet Text
+cisName = lens _cisName (\ s a -> s{_cisName = a})
 
 instance AWSRequest CreateIPSet where
         type Rs CreateIPSet = CreateIPSetResponse
@@ -128,10 +141,11 @@ instance ToJSON CreateIPSet where
         toJSON CreateIPSet'{..}
           = object
               (catMaybes
-                 [("location" .=) <$> _cisLocation,
-                  ("format" .=) <$> _cisFormat,
-                  ("activate" .=) <$> _cisActivate,
-                  ("name" .=) <$> _cisName])
+                 [("clientToken" .=) <$> _cisClientToken,
+                  Just ("format" .= _cisFormat),
+                  Just ("activate" .= _cisActivate),
+                  Just ("location" .= _cisLocation),
+                  Just ("name" .= _cisName)])
 
 instance ToPath CreateIPSet where
         toPath CreateIPSet'{..}

@@ -25,6 +25,8 @@ module Network.AWS.GuardDuty.CreateDetector
       createDetector
     , CreateDetector
     -- * Request Lenses
+    , cdClientToken
+    , cdFindingPublishingFrequency
     , cdEnable
 
     -- * Destructuring the Response
@@ -45,8 +47,10 @@ import Network.AWS.Response
 -- | CreateDetector request body.
 --
 -- /See:/ 'createDetector' smart constructor.
-newtype CreateDetector = CreateDetector'
-  { _cdEnable :: Maybe Bool
+data CreateDetector = CreateDetector'
+  { _cdClientToken                :: !(Maybe Text)
+  , _cdFindingPublishingFrequency :: !(Maybe FindingPublishingFrequency)
+  , _cdEnable                     :: !Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -54,14 +58,32 @@ newtype CreateDetector = CreateDetector'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'cdClientToken' - The idempotency token for the create request.
+--
+-- * 'cdFindingPublishingFrequency' - A enum value that specifies how frequently customer got Finding updates published.
+--
 -- * 'cdEnable' - A boolean value that specifies whether the detector is to be enabled.
 createDetector
-    :: CreateDetector
-createDetector = CreateDetector' {_cdEnable = Nothing}
+    :: Bool -- ^ 'cdEnable'
+    -> CreateDetector
+createDetector pEnable_ =
+  CreateDetector'
+    { _cdClientToken = Nothing
+    , _cdFindingPublishingFrequency = Nothing
+    , _cdEnable = pEnable_
+    }
 
+
+-- | The idempotency token for the create request.
+cdClientToken :: Lens' CreateDetector (Maybe Text)
+cdClientToken = lens _cdClientToken (\ s a -> s{_cdClientToken = a})
+
+-- | A enum value that specifies how frequently customer got Finding updates published.
+cdFindingPublishingFrequency :: Lens' CreateDetector (Maybe FindingPublishingFrequency)
+cdFindingPublishingFrequency = lens _cdFindingPublishingFrequency (\ s a -> s{_cdFindingPublishingFrequency = a})
 
 -- | A boolean value that specifies whether the detector is to be enabled.
-cdEnable :: Lens' CreateDetector (Maybe Bool)
+cdEnable :: Lens' CreateDetector Bool
 cdEnable = lens _cdEnable (\ s a -> s{_cdEnable = a})
 
 instance AWSRequest CreateDetector where
@@ -86,7 +108,12 @@ instance ToHeaders CreateDetector where
 
 instance ToJSON CreateDetector where
         toJSON CreateDetector'{..}
-          = object (catMaybes [("enable" .=) <$> _cdEnable])
+          = object
+              (catMaybes
+                 [("clientToken" .=) <$> _cdClientToken,
+                  ("findingPublishingFrequency" .=) <$>
+                    _cdFindingPublishingFrequency,
+                  Just ("enable" .= _cdEnable)])
 
 instance ToPath CreateDetector where
         toPath = const "/detector"

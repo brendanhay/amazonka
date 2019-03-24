@@ -25,10 +25,10 @@ module Network.AWS.GuardDuty.InviteMembers
       inviteMembers
     , InviteMembers
     -- * Request Lenses
-    , imAccountIds
     , imDisableEmailNotification
     , imMessage
     , imDetectorId
+    , imAccountIds
 
     -- * Destructuring the Response
     , inviteMembersResponse
@@ -49,10 +49,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'inviteMembers' smart constructor.
 data InviteMembers = InviteMembers'
-  { _imAccountIds               :: !(Maybe [Text])
-  , _imDisableEmailNotification :: !(Maybe Bool)
+  { _imDisableEmailNotification :: !(Maybe Bool)
   , _imMessage                  :: !(Maybe Text)
   , _imDetectorId               :: !Text
+  , _imAccountIds               :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -60,107 +60,4 @@ data InviteMembers = InviteMembers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'imAccountIds' - A list of account IDs of the accounts that you want to invite to GuardDuty as members.
---
--- * 'imDisableEmailNotification' - A boolean value that specifies whether you want to disable email notification to the accounts that you’re inviting to GuardDuty as members.
---
--- * 'imMessage' - The invitation message that you want to send to the accounts that you’re inviting to GuardDuty as members.
---
--- * 'imDetectorId' - The unique ID of the detector of the GuardDuty account with which you want to invite members.
-inviteMembers
-    :: Text -- ^ 'imDetectorId'
-    -> InviteMembers
-inviteMembers pDetectorId_ =
-  InviteMembers'
-    { _imAccountIds = Nothing
-    , _imDisableEmailNotification = Nothing
-    , _imMessage = Nothing
-    , _imDetectorId = pDetectorId_
-    }
-
-
--- | A list of account IDs of the accounts that you want to invite to GuardDuty as members.
-imAccountIds :: Lens' InviteMembers [Text]
-imAccountIds = lens _imAccountIds (\ s a -> s{_imAccountIds = a}) . _Default . _Coerce
-
--- | A boolean value that specifies whether you want to disable email notification to the accounts that you’re inviting to GuardDuty as members.
-imDisableEmailNotification :: Lens' InviteMembers (Maybe Bool)
-imDisableEmailNotification = lens _imDisableEmailNotification (\ s a -> s{_imDisableEmailNotification = a})
-
--- | The invitation message that you want to send to the accounts that you’re inviting to GuardDuty as members.
-imMessage :: Lens' InviteMembers (Maybe Text)
-imMessage = lens _imMessage (\ s a -> s{_imMessage = a})
-
--- | The unique ID of the detector of the GuardDuty account with which you want to invite members.
-imDetectorId :: Lens' InviteMembers Text
-imDetectorId = lens _imDetectorId (\ s a -> s{_imDetectorId = a})
-
-instance AWSRequest InviteMembers where
-        type Rs InviteMembers = InviteMembersResponse
-        request = postJSON guardDuty
-        response
-          = receiveJSON
-              (\ s h x ->
-                 InviteMembersResponse' <$>
-                   (x .?> "unprocessedAccounts" .!@ mempty) <*>
-                     (pure (fromEnum s)))
-
-instance Hashable InviteMembers where
-
-instance NFData InviteMembers where
-
-instance ToHeaders InviteMembers where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON InviteMembers where
-        toJSON InviteMembers'{..}
-          = object
-              (catMaybes
-                 [("accountIds" .=) <$> _imAccountIds,
-                  ("disableEmailNotification" .=) <$>
-                    _imDisableEmailNotification,
-                  ("message" .=) <$> _imMessage])
-
-instance ToPath InviteMembers where
-        toPath InviteMembers'{..}
-          = mconcat
-              ["/detector/", toBS _imDetectorId, "/member/invite"]
-
-instance ToQuery InviteMembers where
-        toQuery = const mempty
-
--- | /See:/ 'inviteMembersResponse' smart constructor.
-data InviteMembersResponse = InviteMembersResponse'
-  { _imrsUnprocessedAccounts :: !(Maybe [UnprocessedAccount])
-  , _imrsResponseStatus      :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'InviteMembersResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'imrsUnprocessedAccounts' - A list of objects containing the unprocessed account and a result string explaining why it was unprocessed.
---
--- * 'imrsResponseStatus' - -- | The response status code.
-inviteMembersResponse
-    :: Int -- ^ 'imrsResponseStatus'
-    -> InviteMembersResponse
-inviteMembersResponse pResponseStatus_ =
-  InviteMembersResponse'
-    {_imrsUnprocessedAccounts = Nothing, _imrsResponseStatus = pResponseStatus_}
-
-
--- | A list of objects containing the unprocessed account and a result string explaining why it was unprocessed.
-imrsUnprocessedAccounts :: Lens' InviteMembersResponse [UnprocessedAccount]
-imrsUnprocessedAccounts = lens _imrsUnprocessedAccounts (\ s a -> s{_imrsUnprocessedAccounts = a}) . _Default . _Coerce
-
--- | -- | The response status code.
-imrsResponseStatus :: Lens' InviteMembersResponse Int
-imrsResponseStatus = lens _imrsResponseStatus (\ s a -> s{_imrsResponseStatus = a})
-
-instance NFData InviteMembersResponse where
+-- * 'imDisableEmailNotification' - A boolean value that specifies whether you want to disable email notification to the accounts that you

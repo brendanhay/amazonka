@@ -46,7 +46,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteInvitations' smart constructor.
 newtype DeleteInvitations = DeleteInvitations'
-  { _diAccountIds :: Maybe [Text]
+  { _diAccountIds :: [Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -57,12 +57,12 @@ newtype DeleteInvitations = DeleteInvitations'
 -- * 'diAccountIds' - A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to delete invitations from.
 deleteInvitations
     :: DeleteInvitations
-deleteInvitations = DeleteInvitations' {_diAccountIds = Nothing}
+deleteInvitations = DeleteInvitations' {_diAccountIds = mempty}
 
 
 -- | A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to delete invitations from.
 diAccountIds :: Lens' DeleteInvitations [Text]
-diAccountIds = lens _diAccountIds (\ s a -> s{_diAccountIds = a}) . _Default . _Coerce
+diAccountIds = lens _diAccountIds (\ s a -> s{_diAccountIds = a}) . _Coerce
 
 instance AWSRequest DeleteInvitations where
         type Rs DeleteInvitations = DeleteInvitationsResponse
@@ -88,7 +88,7 @@ instance ToHeaders DeleteInvitations where
 instance ToJSON DeleteInvitations where
         toJSON DeleteInvitations'{..}
           = object
-              (catMaybes [("accountIds" .=) <$> _diAccountIds])
+              (catMaybes [Just ("accountIds" .= _diAccountIds)])
 
 instance ToPath DeleteInvitations where
         toPath = const "/invitation/delete"

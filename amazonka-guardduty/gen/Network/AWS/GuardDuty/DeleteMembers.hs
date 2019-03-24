@@ -25,8 +25,8 @@ module Network.AWS.GuardDuty.DeleteMembers
       deleteMembers
     , DeleteMembers
     -- * Request Lenses
-    , dmAccountIds
     , dmDetectorId
+    , dmAccountIds
 
     -- * Destructuring the Response
     , deleteMembersResponse
@@ -47,8 +47,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteMembers' smart constructor.
 data DeleteMembers = DeleteMembers'
-  { _dmAccountIds :: !(Maybe [Text])
-  , _dmDetectorId :: !Text
+  { _dmDetectorId :: !Text
+  , _dmAccountIds :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -56,23 +56,23 @@ data DeleteMembers = DeleteMembers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmAccountIds' - A list of account IDs of the GuardDuty member accounts that you want to delete.
---
 -- * 'dmDetectorId' - The unique ID of the detector of the GuardDuty account whose members you want to delete.
+--
+-- * 'dmAccountIds' - A list of account IDs of the GuardDuty member accounts that you want to delete.
 deleteMembers
     :: Text -- ^ 'dmDetectorId'
     -> DeleteMembers
 deleteMembers pDetectorId_ =
-  DeleteMembers' {_dmAccountIds = Nothing, _dmDetectorId = pDetectorId_}
+  DeleteMembers' {_dmDetectorId = pDetectorId_, _dmAccountIds = mempty}
 
-
--- | A list of account IDs of the GuardDuty member accounts that you want to delete.
-dmAccountIds :: Lens' DeleteMembers [Text]
-dmAccountIds = lens _dmAccountIds (\ s a -> s{_dmAccountIds = a}) . _Default . _Coerce
 
 -- | The unique ID of the detector of the GuardDuty account whose members you want to delete.
 dmDetectorId :: Lens' DeleteMembers Text
 dmDetectorId = lens _dmDetectorId (\ s a -> s{_dmDetectorId = a})
+
+-- | A list of account IDs of the GuardDuty member accounts that you want to delete.
+dmAccountIds :: Lens' DeleteMembers [Text]
+dmAccountIds = lens _dmAccountIds (\ s a -> s{_dmAccountIds = a}) . _Coerce
 
 instance AWSRequest DeleteMembers where
         type Rs DeleteMembers = DeleteMembersResponse
@@ -98,7 +98,7 @@ instance ToHeaders DeleteMembers where
 instance ToJSON DeleteMembers where
         toJSON DeleteMembers'{..}
           = object
-              (catMaybes [("accountIds" .=) <$> _dmAccountIds])
+              (catMaybes [Just ("accountIds" .= _dmAccountIds)])
 
 instance ToPath DeleteMembers where
         toPath DeleteMembers'{..}

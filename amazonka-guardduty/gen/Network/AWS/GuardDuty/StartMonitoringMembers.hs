@@ -25,8 +25,8 @@ module Network.AWS.GuardDuty.StartMonitoringMembers
       startMonitoringMembers
     , StartMonitoringMembers
     -- * Request Lenses
-    , sAccountIds
     , sDetectorId
+    , sAccountIds
 
     -- * Destructuring the Response
     , startMonitoringMembersResponse
@@ -47,8 +47,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'startMonitoringMembers' smart constructor.
 data StartMonitoringMembers = StartMonitoringMembers'
-  { _sAccountIds :: !(Maybe [Text])
-  , _sDetectorId :: !Text
+  { _sDetectorId :: !Text
+  , _sAccountIds :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -56,23 +56,23 @@ data StartMonitoringMembers = StartMonitoringMembers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sAccountIds' - A list of account IDs of the GuardDuty member accounts whose findings you want the master account to monitor.
---
 -- * 'sDetectorId' - The unique ID of the detector of the GuardDuty account whom you want to re-enable to monitor members' findings.
+--
+-- * 'sAccountIds' - A list of account IDs of the GuardDuty member accounts whose findings you want the master account to monitor.
 startMonitoringMembers
     :: Text -- ^ 'sDetectorId'
     -> StartMonitoringMembers
 startMonitoringMembers pDetectorId_ =
-  StartMonitoringMembers' {_sAccountIds = Nothing, _sDetectorId = pDetectorId_}
+  StartMonitoringMembers' {_sDetectorId = pDetectorId_, _sAccountIds = mempty}
 
-
--- | A list of account IDs of the GuardDuty member accounts whose findings you want the master account to monitor.
-sAccountIds :: Lens' StartMonitoringMembers [Text]
-sAccountIds = lens _sAccountIds (\ s a -> s{_sAccountIds = a}) . _Default . _Coerce
 
 -- | The unique ID of the detector of the GuardDuty account whom you want to re-enable to monitor members' findings.
 sDetectorId :: Lens' StartMonitoringMembers Text
 sDetectorId = lens _sDetectorId (\ s a -> s{_sDetectorId = a})
+
+-- | A list of account IDs of the GuardDuty member accounts whose findings you want the master account to monitor.
+sAccountIds :: Lens' StartMonitoringMembers [Text]
+sAccountIds = lens _sAccountIds (\ s a -> s{_sAccountIds = a}) . _Coerce
 
 instance AWSRequest StartMonitoringMembers where
         type Rs StartMonitoringMembers =
@@ -99,7 +99,7 @@ instance ToHeaders StartMonitoringMembers where
 instance ToJSON StartMonitoringMembers where
         toJSON StartMonitoringMembers'{..}
           = object
-              (catMaybes [("accountIds" .=) <$> _sAccountIds])
+              (catMaybes [Just ("accountIds" .= _sAccountIds)])
 
 instance ToPath StartMonitoringMembers where
         toPath StartMonitoringMembers'{..}

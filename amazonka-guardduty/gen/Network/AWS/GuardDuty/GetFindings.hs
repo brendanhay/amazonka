@@ -25,9 +25,9 @@ module Network.AWS.GuardDuty.GetFindings
       getFindings
     , GetFindings
     -- * Request Lenses
-    , gfFindingIds
     , gfSortCriteria
     , gfDetectorId
+    , gfFindingIds
 
     -- * Destructuring the Response
     , getFindingsResponse
@@ -48,9 +48,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'getFindings' smart constructor.
 data GetFindings = GetFindings'
-  { _gfFindingIds   :: !(Maybe [Text])
-  , _gfSortCriteria :: !(Maybe SortCriteria)
+  { _gfSortCriteria :: !(Maybe SortCriteria)
   , _gfDetectorId   :: !Text
+  , _gfFindingIds   :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -58,25 +58,21 @@ data GetFindings = GetFindings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gfFindingIds' - IDs of the findings that you want to retrieve.
---
 -- * 'gfSortCriteria' - Represents the criteria used for sorting findings.
 --
 -- * 'gfDetectorId' - The ID of the detector that specifies the GuardDuty service whose findings you want to retrieve.
+--
+-- * 'gfFindingIds' - IDs of the findings that you want to retrieve.
 getFindings
     :: Text -- ^ 'gfDetectorId'
     -> GetFindings
 getFindings pDetectorId_ =
   GetFindings'
-    { _gfFindingIds = Nothing
-    , _gfSortCriteria = Nothing
+    { _gfSortCriteria = Nothing
     , _gfDetectorId = pDetectorId_
+    , _gfFindingIds = mempty
     }
 
-
--- | IDs of the findings that you want to retrieve.
-gfFindingIds :: Lens' GetFindings [Text]
-gfFindingIds = lens _gfFindingIds (\ s a -> s{_gfFindingIds = a}) . _Default . _Coerce
 
 -- | Represents the criteria used for sorting findings.
 gfSortCriteria :: Lens' GetFindings (Maybe SortCriteria)
@@ -85,6 +81,10 @@ gfSortCriteria = lens _gfSortCriteria (\ s a -> s{_gfSortCriteria = a})
 -- | The ID of the detector that specifies the GuardDuty service whose findings you want to retrieve.
 gfDetectorId :: Lens' GetFindings Text
 gfDetectorId = lens _gfDetectorId (\ s a -> s{_gfDetectorId = a})
+
+-- | IDs of the findings that you want to retrieve.
+gfFindingIds :: Lens' GetFindings [Text]
+gfFindingIds = lens _gfFindingIds (\ s a -> s{_gfFindingIds = a}) . _Coerce
 
 instance AWSRequest GetFindings where
         type Rs GetFindings = GetFindingsResponse
@@ -111,8 +111,8 @@ instance ToJSON GetFindings where
         toJSON GetFindings'{..}
           = object
               (catMaybes
-                 [("findingIds" .=) <$> _gfFindingIds,
-                  ("sortCriteria" .=) <$> _gfSortCriteria])
+                 [("sortCriteria" .=) <$> _gfSortCriteria,
+                  Just ("findingIds" .= _gfFindingIds)])
 
 instance ToPath GetFindings where
         toPath GetFindings'{..}

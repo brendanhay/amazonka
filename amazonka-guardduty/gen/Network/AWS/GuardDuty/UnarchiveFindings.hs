@@ -25,8 +25,8 @@ module Network.AWS.GuardDuty.UnarchiveFindings
       unarchiveFindings
     , UnarchiveFindings
     -- * Request Lenses
-    , uFindingIds
     , uDetectorId
+    , uFindingIds
 
     -- * Destructuring the Response
     , unarchiveFindingsResponse
@@ -46,8 +46,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'unarchiveFindings' smart constructor.
 data UnarchiveFindings = UnarchiveFindings'
-  { _uFindingIds :: !(Maybe [Text])
-  , _uDetectorId :: !Text
+  { _uDetectorId :: !Text
+  , _uFindingIds :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -55,23 +55,23 @@ data UnarchiveFindings = UnarchiveFindings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uFindingIds' - IDs of the findings that you want to unarchive.
---
 -- * 'uDetectorId' - The ID of the detector that specifies the GuardDuty service whose findings you want to unarchive.
+--
+-- * 'uFindingIds' - IDs of the findings that you want to unarchive.
 unarchiveFindings
     :: Text -- ^ 'uDetectorId'
     -> UnarchiveFindings
 unarchiveFindings pDetectorId_ =
-  UnarchiveFindings' {_uFindingIds = Nothing, _uDetectorId = pDetectorId_}
+  UnarchiveFindings' {_uDetectorId = pDetectorId_, _uFindingIds = mempty}
 
-
--- | IDs of the findings that you want to unarchive.
-uFindingIds :: Lens' UnarchiveFindings [Text]
-uFindingIds = lens _uFindingIds (\ s a -> s{_uFindingIds = a}) . _Default . _Coerce
 
 -- | The ID of the detector that specifies the GuardDuty service whose findings you want to unarchive.
 uDetectorId :: Lens' UnarchiveFindings Text
 uDetectorId = lens _uDetectorId (\ s a -> s{_uDetectorId = a})
+
+-- | IDs of the findings that you want to unarchive.
+uFindingIds :: Lens' UnarchiveFindings [Text]
+uFindingIds = lens _uFindingIds (\ s a -> s{_uFindingIds = a}) . _Coerce
 
 instance AWSRequest UnarchiveFindings where
         type Rs UnarchiveFindings = UnarchiveFindingsResponse
@@ -95,7 +95,7 @@ instance ToHeaders UnarchiveFindings where
 instance ToJSON UnarchiveFindings where
         toJSON UnarchiveFindings'{..}
           = object
-              (catMaybes [("findingIds" .=) <$> _uFindingIds])
+              (catMaybes [Just ("findingIds" .= _uFindingIds)])
 
 instance ToPath UnarchiveFindings where
         toPath UnarchiveFindings'{..}

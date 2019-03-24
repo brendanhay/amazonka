@@ -25,6 +25,7 @@ module Network.AWS.GuardDuty.UpdateDetector
       updateDetector
     , UpdateDetector
     -- * Request Lenses
+    , udFindingPublishingFrequency
     , udEnable
     , udDetectorId
 
@@ -46,14 +47,17 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateDetector' smart constructor.
 data UpdateDetector = UpdateDetector'
-  { _udEnable     :: !(Maybe Bool)
-  , _udDetectorId :: !Text
+  { _udFindingPublishingFrequency :: !(Maybe FindingPublishingFrequency)
+  , _udEnable                     :: !(Maybe Bool)
+  , _udDetectorId                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'UpdateDetector' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'udFindingPublishingFrequency' - A enum value that specifies how frequently customer got Finding updates published.
 --
 -- * 'udEnable' - Updated boolean value for the detector that specifies whether the detector is enabled.
 --
@@ -62,8 +66,16 @@ updateDetector
     :: Text -- ^ 'udDetectorId'
     -> UpdateDetector
 updateDetector pDetectorId_ =
-  UpdateDetector' {_udEnable = Nothing, _udDetectorId = pDetectorId_}
+  UpdateDetector'
+    { _udFindingPublishingFrequency = Nothing
+    , _udEnable = Nothing
+    , _udDetectorId = pDetectorId_
+    }
 
+
+-- | A enum value that specifies how frequently customer got Finding updates published.
+udFindingPublishingFrequency :: Lens' UpdateDetector (Maybe FindingPublishingFrequency)
+udFindingPublishingFrequency = lens _udFindingPublishingFrequency (\ s a -> s{_udFindingPublishingFrequency = a})
 
 -- | Updated boolean value for the detector that specifies whether the detector is enabled.
 udEnable :: Lens' UpdateDetector (Maybe Bool)
@@ -94,7 +106,11 @@ instance ToHeaders UpdateDetector where
 
 instance ToJSON UpdateDetector where
         toJSON UpdateDetector'{..}
-          = object (catMaybes [("enable" .=) <$> _udEnable])
+          = object
+              (catMaybes
+                 [("findingPublishingFrequency" .=) <$>
+                    _udFindingPublishingFrequency,
+                  ("enable" .=) <$> _udEnable])
 
 instance ToPath UpdateDetector where
         toPath UpdateDetector'{..}

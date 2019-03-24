@@ -46,7 +46,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'declineInvitations' smart constructor.
 newtype DeclineInvitations = DeclineInvitations'
-  { _dAccountIds :: Maybe [Text]
+  { _dAccountIds :: [Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -57,12 +57,12 @@ newtype DeclineInvitations = DeclineInvitations'
 -- * 'dAccountIds' - A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to decline invitations from.
 declineInvitations
     :: DeclineInvitations
-declineInvitations = DeclineInvitations' {_dAccountIds = Nothing}
+declineInvitations = DeclineInvitations' {_dAccountIds = mempty}
 
 
 -- | A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to decline invitations from.
 dAccountIds :: Lens' DeclineInvitations [Text]
-dAccountIds = lens _dAccountIds (\ s a -> s{_dAccountIds = a}) . _Default . _Coerce
+dAccountIds = lens _dAccountIds (\ s a -> s{_dAccountIds = a}) . _Coerce
 
 instance AWSRequest DeclineInvitations where
         type Rs DeclineInvitations =
@@ -89,7 +89,7 @@ instance ToHeaders DeclineInvitations where
 instance ToJSON DeclineInvitations where
         toJSON DeclineInvitations'{..}
           = object
-              (catMaybes [("accountIds" .=) <$> _dAccountIds])
+              (catMaybes [Just ("accountIds" .= _dAccountIds)])
 
 instance ToPath DeclineInvitations where
         toPath = const "/invitation/decline"

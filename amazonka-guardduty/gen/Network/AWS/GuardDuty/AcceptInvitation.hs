@@ -25,9 +25,9 @@ module Network.AWS.GuardDuty.AcceptInvitation
       acceptInvitation
     , AcceptInvitation
     -- * Request Lenses
+    , aiDetectorId
     , aiMasterId
     , aiInvitationId
-    , aiDetectorId
 
     -- * Destructuring the Response
     , acceptInvitationResponse
@@ -47,9 +47,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'acceptInvitation' smart constructor.
 data AcceptInvitation = AcceptInvitation'
-  { _aiMasterId     :: !(Maybe Text)
-  , _aiInvitationId :: !(Maybe Text)
-  , _aiDetectorId   :: !Text
+  { _aiDetectorId   :: !Text
+  , _aiMasterId     :: !Text
+  , _aiInvitationId :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -57,33 +57,35 @@ data AcceptInvitation = AcceptInvitation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'aiDetectorId' - The unique ID of the detector of the GuardDuty member account.
+--
 -- * 'aiMasterId' - The account ID of the master GuardDuty account whose invitation you're accepting.
 --
 -- * 'aiInvitationId' - This value is used to validate the master account to the member account.
---
--- * 'aiDetectorId' - The unique ID of the detector of the GuardDuty member account.
 acceptInvitation
     :: Text -- ^ 'aiDetectorId'
+    -> Text -- ^ 'aiMasterId'
+    -> Text -- ^ 'aiInvitationId'
     -> AcceptInvitation
-acceptInvitation pDetectorId_ =
+acceptInvitation pDetectorId_ pMasterId_ pInvitationId_ =
   AcceptInvitation'
-    { _aiMasterId = Nothing
-    , _aiInvitationId = Nothing
-    , _aiDetectorId = pDetectorId_
+    { _aiDetectorId = pDetectorId_
+    , _aiMasterId = pMasterId_
+    , _aiInvitationId = pInvitationId_
     }
 
-
--- | The account ID of the master GuardDuty account whose invitation you're accepting.
-aiMasterId :: Lens' AcceptInvitation (Maybe Text)
-aiMasterId = lens _aiMasterId (\ s a -> s{_aiMasterId = a})
-
--- | This value is used to validate the master account to the member account.
-aiInvitationId :: Lens' AcceptInvitation (Maybe Text)
-aiInvitationId = lens _aiInvitationId (\ s a -> s{_aiInvitationId = a})
 
 -- | The unique ID of the detector of the GuardDuty member account.
 aiDetectorId :: Lens' AcceptInvitation Text
 aiDetectorId = lens _aiDetectorId (\ s a -> s{_aiDetectorId = a})
+
+-- | The account ID of the master GuardDuty account whose invitation you're accepting.
+aiMasterId :: Lens' AcceptInvitation Text
+aiMasterId = lens _aiMasterId (\ s a -> s{_aiMasterId = a})
+
+-- | This value is used to validate the master account to the member account.
+aiInvitationId :: Lens' AcceptInvitation Text
+aiInvitationId = lens _aiInvitationId (\ s a -> s{_aiInvitationId = a})
 
 instance AWSRequest AcceptInvitation where
         type Rs AcceptInvitation = AcceptInvitationResponse
@@ -108,8 +110,8 @@ instance ToJSON AcceptInvitation where
         toJSON AcceptInvitation'{..}
           = object
               (catMaybes
-                 [("masterId" .=) <$> _aiMasterId,
-                  ("invitationId" .=) <$> _aiInvitationId])
+                 [Just ("masterId" .= _aiMasterId),
+                  Just ("invitationId" .= _aiInvitationId)])
 
 instance ToPath AcceptInvitation where
         toPath AcceptInvitation'{..}

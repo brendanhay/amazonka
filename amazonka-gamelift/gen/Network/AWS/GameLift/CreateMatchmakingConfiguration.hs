@@ -25,9 +25,7 @@
 --
 -- __Player acceptance__ -- In each configuration, you have the option to require that all players accept participation in a proposed match. To enable this feature, set /AcceptanceRequired/ to true and specify a time limit for player acceptance. Players have the option to accept or reject a proposed match, and a match does not move ahead to game session placement unless all matched players accept.
 --
--- __Matchmaking status notification__ -- There are two ways to track the progress of matchmaking tickets: (1) polling ticket status with 'DescribeMatchmaking' ; or (2) receiving notifications with Amazon Simple Notification Service (SNS). To use notifications, you first need to set up an SNS topic to receive the notifications, and provide the topic ARN in the matchmaking configuration (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html Setting up Notifications for Matchmaking> ). Since notifications promise only "best effort" delivery, we recommend calling @DescribeMatchmaking@ if no notifications are received within 30 seconds.
---
--- Operations related to match configurations and rule sets include:
+-- __Matchmaking status notification__ -- There are two ways to track the progress of matchmaking tickets: (1) polling ticket status with 'DescribeMatchmaking' ; or (2) receiving notifications with Amazon Simple Notification Service (SNS). To use notifications, you first need to set up an SNS topic to receive the notifications, and provide the topic ARN in the matchmaking configuration (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html Setting up Notifications for Matchmaking> ). Since notifications promise only "best effort" delivery, we recommend calling @DescribeMatchmaking@ if no notifications are received within 30 seconds.
 --
 --     * 'CreateMatchmakingConfiguration'
 --
@@ -42,6 +40,8 @@
 --     * 'DescribeMatchmakingRuleSets'
 --
 --     * 'ValidateMatchmakingRuleSet'
+--
+--     * 'DeleteMatchmakingRuleSet'
 --
 --
 --
@@ -104,7 +104,7 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cmcGameProperties' - Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
+-- * 'cmcGameProperties' - Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
 --
 -- * 'cmcAcceptanceTimeoutSeconds' - Length of time (in seconds) to wait for players to accept a proposed match. If any player rejects the match or fails to accept before the timeout, the ticket continues to look for an acceptable match.
 --
@@ -112,7 +112,7 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
 --
 -- * 'cmcCustomEventData' - Information to attached to all events related to the matchmaking configuration.
 --
--- * 'cmcGameSessionData' - Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
+-- * 'cmcGameSessionData' - Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
 --
 -- * 'cmcDescription' - Meaningful description of the matchmaking configuration.
 --
@@ -120,7 +120,7 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
 --
 -- * 'cmcName' - Unique identifier for a matchmaking configuration. This name is used to identify the configuration associated with a matchmaking request or ticket.
 --
--- * 'cmcGameSessionQueueARNs' - Amazon Resource Name (<http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) that is assigned to a game session queue and uniquely identifies it. Format is @arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@ . These queues are used when placing game sessions for matches that are created with this matchmaking configuration. Queues can be located in any region.
+-- * 'cmcGameSessionQueueARNs' - Amazon Resource Name (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) that is assigned to a game session queue and uniquely identifies it. Format is @arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@ . These queues are used when placing game sessions for matches that are created with this matchmaking configuration. Queues can be located in any region.
 --
 -- * 'cmcRequestTimeoutSeconds' - Maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out. Requests that time out can be resubmitted as needed.
 --
@@ -150,7 +150,7 @@ createMatchmakingConfiguration pName_ pRequestTimeoutSeconds_ pAcceptanceRequire
     }
 
 
--- | Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
+-- | Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
 cmcGameProperties :: Lens' CreateMatchmakingConfiguration [GameProperty]
 cmcGameProperties = lens _cmcGameProperties (\ s a -> s{_cmcGameProperties = a}) . _Default . _Coerce
 
@@ -166,7 +166,7 @@ cmcNotificationTarget = lens _cmcNotificationTarget (\ s a -> s{_cmcNotification
 cmcCustomEventData :: Lens' CreateMatchmakingConfiguration (Maybe Text)
 cmcCustomEventData = lens _cmcCustomEventData (\ s a -> s{_cmcCustomEventData = a})
 
--- | Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
+-- | Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
 cmcGameSessionData :: Lens' CreateMatchmakingConfiguration (Maybe Text)
 cmcGameSessionData = lens _cmcGameSessionData (\ s a -> s{_cmcGameSessionData = a})
 
@@ -182,7 +182,7 @@ cmcAdditionalPlayerCount = lens _cmcAdditionalPlayerCount (\ s a -> s{_cmcAdditi
 cmcName :: Lens' CreateMatchmakingConfiguration Text
 cmcName = lens _cmcName (\ s a -> s{_cmcName = a})
 
--- | Amazon Resource Name (<http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) that is assigned to a game session queue and uniquely identifies it. Format is @arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@ . These queues are used when placing game sessions for matches that are created with this matchmaking configuration. Queues can be located in any region.
+-- | Amazon Resource Name (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) that is assigned to a game session queue and uniquely identifies it. Format is @arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@ . These queues are used when placing game sessions for matches that are created with this matchmaking configuration. Queues can be located in any region.
 cmcGameSessionQueueARNs :: Lens' CreateMatchmakingConfiguration [Text]
 cmcGameSessionQueueARNs = lens _cmcGameSessionQueueARNs (\ s a -> s{_cmcGameSessionQueueARNs = a}) . _Coerce
 

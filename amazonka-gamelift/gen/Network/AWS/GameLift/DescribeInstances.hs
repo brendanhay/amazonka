@@ -23,6 +23,8 @@
 --
 -- To get a specific instance, specify fleet ID and instance ID. To get all instances in a fleet, specify a fleet ID only. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, an 'Instance' object is returned for each result.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeInstances
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.GameLift.DescribeInstances
 import Network.AWS.GameLift.Types
 import Network.AWS.GameLift.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -101,6 +104,13 @@ diLimit = lens _diLimit (\ s a -> s{_diLimit = a}) . mapping _Nat
 -- | Unique identifier for a fleet to retrieve instance information for.
 diFleetId :: Lens' DescribeInstances Text
 diFleetId = lens _diFleetId (\ s a -> s{_diFleetId = a})
+
+instance AWSPager DescribeInstances where
+        page rq rs
+          | stop (rs ^. dirsNextToken) = Nothing
+          | stop (rs ^. dirsInstances) = Nothing
+          | otherwise =
+            Just $ rq & diNextToken .~ rs ^. dirsNextToken
 
 instance AWSRequest DescribeInstances where
         type Rs DescribeInstances = DescribeInstancesResponse

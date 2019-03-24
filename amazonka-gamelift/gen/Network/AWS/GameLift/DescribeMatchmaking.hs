@@ -25,8 +25,6 @@
 --
 -- To request matchmaking tickets, provide a list of up to 10 ticket IDs. If the request is successful, a ticket object is returned for each requested ID that currently exists.
 --
--- Matchmaking-related operations include:
---
 --     * 'StartMatchmaking'
 --
 --     * 'DescribeMatchmaking'

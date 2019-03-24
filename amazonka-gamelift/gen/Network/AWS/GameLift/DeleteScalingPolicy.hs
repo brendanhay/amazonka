@@ -23,8 +23,6 @@
 --
 -- To temporarily suspend scaling policies, call 'StopFleetActions' . This operation suspends all policies for the fleet.
 --
--- Operations related to fleet capacity scaling include:
---
 --     * 'DescribeFleetCapacity'
 --
 --     * 'UpdateFleetCapacity'

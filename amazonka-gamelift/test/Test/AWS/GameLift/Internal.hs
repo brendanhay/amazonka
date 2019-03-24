@@ -12,4 +12,4 @@
 
 module Test.AWS.GameLift.Internal where
 
-import           Test.AWS.Prelude
+import Test.AWS.Prelude

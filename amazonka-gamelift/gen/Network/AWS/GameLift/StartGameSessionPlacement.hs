@@ -33,7 +33,7 @@
 --
 --     * A unique ID (such as a UUID) for the placement. You use this ID to track the status of the placement request
 --
---     * (Optional) A set of IDs and player data for each player you want to join to the new game session
+--     * (Optional) A set of player data and a unique player ID for each player that you are joining to the new game session (player data is optional, but if you include it, you must also provide a unique ID for each player)
 --
 --     * Latency data for all players (if you want to optimize game play for the players)
 --
@@ -42,8 +42,6 @@
 -- If successful, a new game session placement is created.
 --
 -- To track the status of a placement request, call 'DescribeGameSessionPlacement' and check the request's status. If the status is @FULFILLED@ , a new game session has been created and a game session ARN and region are referenced. If the placement request times out, you can resubmit the request or retry it with a different queue.
---
--- Game-session-related operations include:
 --
 --     * 'CreateGameSession'
 --
@@ -120,13 +118,13 @@ data StartGameSessionPlacement = StartGameSessionPlacement'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sgspGameProperties' - Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+-- * 'sgspGameProperties' - Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
 --
 -- * 'sgspGameSessionName' - Descriptive label that is associated with a game session. Session names do not need to be unique.
 --
 -- * 'sgspPlayerLatencies' - Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS regions. This information is used to try to place the new game session where it can offer the best possible gameplay experience for the players.
 --
--- * 'sgspGameSessionData' - Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+-- * 'sgspGameSessionData' - Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
 --
 -- * 'sgspDesiredPlayerSessions' - Set of information on each player to create a player session for.
 --
@@ -153,7 +151,7 @@ startGameSessionPlacement pPlacementId_ pGameSessionQueueName_ pMaximumPlayerSes
     }
 
 
--- | Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+-- | Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
 sgspGameProperties :: Lens' StartGameSessionPlacement [GameProperty]
 sgspGameProperties = lens _sgspGameProperties (\ s a -> s{_sgspGameProperties = a}) . _Default . _Coerce
 
@@ -165,7 +163,7 @@ sgspGameSessionName = lens _sgspGameSessionName (\ s a -> s{_sgspGameSessionName
 sgspPlayerLatencies :: Lens' StartGameSessionPlacement [PlayerLatency]
 sgspPlayerLatencies = lens _sgspPlayerLatencies (\ s a -> s{_sgspPlayerLatencies = a}) . _Default . _Coerce
 
--- | Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+-- | Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
 sgspGameSessionData :: Lens' StartGameSessionPlacement (Maybe Text)
 sgspGameSessionData = lens _sgspGameSessionData (\ s a -> s{_sgspGameSessionData = a})
 

@@ -23,6 +23,58 @@
 --
 -- To stop fleet actions, specify the fleet ID and the type of actions to suspend. When auto-scaling fleet actions are stopped, Amazon GameLift no longer initiates scaling events except to maintain the fleet's desired instances setting ('FleetCapacity' . Changes to the fleet's capacity must be done manually using 'UpdateFleetCapacity' .
 --
+-- __Learn more__
+--
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Working with Fleets> .
+--
+-- __Related operations__
+--
+--     * 'CreateFleet'
+--
+--     * 'ListFleets'
+--
+--     * 'DeleteFleet'
+--
+--     * Describe fleets:
+--
+--     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetCapacity'
+--
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeEC2InstanceLimits'
+--
+--     * 'DescribeFleetEvents'
+--
+--
+--
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
+--
+--
+--
+--     * Manage fleet actions:
+--
+--     * 'StartFleetActions'
+--
+--     * 'StopFleetActions'
+--
+--
+--
+--
+--
 module Network.AWS.GameLift.StopFleetActions
     (
     -- * Creating a Request

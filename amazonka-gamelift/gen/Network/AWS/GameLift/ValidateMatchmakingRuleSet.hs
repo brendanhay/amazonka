@@ -18,10 +18,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Validates the syntax of a matchmaking rule or rule set. This operation checks that the rule set uses syntactically correct JSON and that it conforms to allowed property expressions. To validate syntax, provide a rule set string.
+-- Validates the syntax of a matchmaking rule or rule set. This operation checks that the rule set is using syntactically correct JSON and that it conforms to allowed property expressions. To validate syntax, provide a rule set JSON string.
 --
 --
--- Operations related to match configurations and rule sets include:
+-- __Learn more__
+--
+--     * <https://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html Build a Rule Set>
+--
+--
+--
+-- __Related operations__
 --
 --     * 'CreateMatchmakingConfiguration'
 --
@@ -36,6 +42,8 @@
 --     * 'DescribeMatchmakingRuleSets'
 --
 --     * 'ValidateMatchmakingRuleSet'
+--
+--     * 'DeleteMatchmakingRuleSet'
 --
 --
 --

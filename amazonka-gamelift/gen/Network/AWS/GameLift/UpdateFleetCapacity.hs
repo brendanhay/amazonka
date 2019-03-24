@@ -25,7 +25,11 @@
 --
 -- To update fleet capacity, specify the fleet ID and the number of instances you want the fleet to host. If successful, Amazon GameLift starts or terminates instances so that the fleet's active instance count matches the desired instance count. You can view a fleet's current capacity information by calling 'DescribeFleetCapacity' . If the desired instance count is higher than the instance type's limit, the "Limit Exceeded" exception occurs.
 --
--- Fleet-related operations include:
+-- __Learn more__
+--
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Working with Fleets> .
+--
+-- __Related operations__
 --
 --     * 'CreateFleet'
 --

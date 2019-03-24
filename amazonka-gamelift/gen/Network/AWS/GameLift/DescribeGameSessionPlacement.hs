@@ -21,8 +21,6 @@
 -- Retrieves properties and current status of a game session placement request. To get game session placement details, specify the placement ID. If successful, a 'GameSessionPlacement' object is returned.
 --
 --
--- Game-session-related operations include:
---
 --     * 'CreateGameSession'
 --
 --     * 'DescribeGameSessions'

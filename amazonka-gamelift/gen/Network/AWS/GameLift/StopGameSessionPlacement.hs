@@ -21,8 +21,6 @@
 -- Cancels a game session placement that is in @PENDING@ status. To stop a placement, provide the placement ID values. If successful, the placement is moved to @CANCELLED@ status.
 --
 --
--- Game-session-related operations include:
---
 --     * 'CreateGameSession'
 --
 --     * 'DescribeGameSessions'

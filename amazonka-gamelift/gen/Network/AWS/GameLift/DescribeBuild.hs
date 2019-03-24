@@ -21,7 +21,11 @@
 -- Retrieves properties for a build. To request a build record, specify a build ID. If successful, an object containing the build properties is returned.
 --
 --
--- Build-related operations include:
+-- __Learn more__
+--
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/build-intro.html Working with Builds>
+--
+-- __Related operations__
 --
 --     * 'CreateBuild'
 --

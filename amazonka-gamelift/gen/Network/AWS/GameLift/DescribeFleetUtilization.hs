@@ -21,7 +21,11 @@
 -- Retrieves utilization statistics for one or more fleets. You can request utilization data for all fleets, or specify a list of one or more fleet IDs. When requesting multiple fleets, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a 'FleetUtilization' object is returned for each requested fleet ID. When specifying a list of fleet IDs, utilization objects are returned only for fleets that currently exist.
 --
 --
--- Fleet-related operations include:
+-- __Learn more__
+--
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Working with Fleets> .
+--
+-- __Related operations__
 --
 --     * 'CreateFleet'
 --
@@ -69,6 +73,8 @@
 --
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeFleetUtilization
     (
     -- * Creating a Request
@@ -91,6 +97,7 @@ module Network.AWS.GameLift.DescribeFleetUtilization
 import Network.AWS.GameLift.Types
 import Network.AWS.GameLift.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -134,6 +141,13 @@ dfuLimit = lens _dfuLimit (\ s a -> s{_dfuLimit = a}) . mapping _Nat
 -- | Unique identifier for a fleet(s) to retrieve utilization data for. To request utilization data for all fleets, leave this parameter empty.
 dfuFleetIds :: Lens' DescribeFleetUtilization (Maybe (NonEmpty Text))
 dfuFleetIds = lens _dfuFleetIds (\ s a -> s{_dfuFleetIds = a}) . mapping _List1
+
+instance AWSPager DescribeFleetUtilization where
+        page rq rs
+          | stop (rs ^. dfursNextToken) = Nothing
+          | stop (rs ^. dfursFleetUtilization) = Nothing
+          | otherwise =
+            Just $ rq & dfuNextToken .~ rs ^. dfursNextToken
 
 instance AWSRequest DescribeFleetUtilization where
         type Rs DescribeFleetUtilization =

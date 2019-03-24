@@ -25,8 +25,6 @@
 --
 -- A fleet may have all of its scaling policies suspended ('StopFleetActions' ). This action does not affect the status of the scaling policies, which remains ACTIVE. To see whether a fleet's scaling policies are in force or suspended, call 'DescribeFleetAttributes' and check the stopped actions.
 --
--- Operations related to fleet capacity scaling include:
---
 --     * 'DescribeFleetCapacity'
 --
 --     * 'UpdateFleetCapacity'
@@ -53,6 +51,8 @@
 --
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeScalingPolicies
     (
     -- * Creating a Request
@@ -76,6 +76,7 @@ module Network.AWS.GameLift.DescribeScalingPolicies
 import Network.AWS.GameLift.Types
 import Network.AWS.GameLift.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -131,6 +132,13 @@ dLimit = lens _dLimit (\ s a -> s{_dLimit = a}) . mapping _Nat
 -- | Unique identifier for a fleet to retrieve scaling policies for.
 dFleetId :: Lens' DescribeScalingPolicies Text
 dFleetId = lens _dFleetId (\ s a -> s{_dFleetId = a})
+
+instance AWSPager DescribeScalingPolicies where
+        page rq rs
+          | stop (rs ^. dsprsNextToken) = Nothing
+          | stop (rs ^. dsprsScalingPolicies) = Nothing
+          | otherwise =
+            Just $ rq & dNextToken .~ rs ^. dsprsNextToken
 
 instance AWSRequest DescribeScalingPolicies where
         type Rs DescribeScalingPolicies =

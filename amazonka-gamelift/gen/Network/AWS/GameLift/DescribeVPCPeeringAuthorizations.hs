@@ -21,8 +21,6 @@
 -- Retrieves valid VPC peering authorizations that are pending for the AWS account. This operation returns all VPC peering authorizations and requests for peering. This includes those initiated and received by this account.
 --
 --
--- VPC peering connection operations include:
---
 --     * 'CreateVpcPeeringAuthorization'
 --
 --     * 'DescribeVpcPeeringAuthorizations'

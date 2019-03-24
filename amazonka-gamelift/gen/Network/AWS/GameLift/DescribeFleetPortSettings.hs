@@ -21,7 +21,11 @@
 -- Retrieves the inbound connection permissions for a fleet. Connection permissions include a range of IP addresses and port settings that incoming traffic can use to access server processes in the fleet. To get a fleet's inbound connection permissions, specify a fleet ID. If successful, a collection of 'IpPermission' objects is returned for the requested fleet ID. If the requested fleet has been deleted, the result set is empty.
 --
 --
--- Fleet-related operations include:
+-- __Learn more__
+--
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Working with Fleets> .
+--
+-- __Related operations__
 --
 --     * 'CreateFleet'
 --

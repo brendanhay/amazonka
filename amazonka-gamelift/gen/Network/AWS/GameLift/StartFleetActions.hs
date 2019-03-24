@@ -23,21 +23,45 @@
 --
 -- To start fleet actions, specify the fleet ID and the type of actions to restart. When auto-scaling fleet actions are restarted, Amazon GameLift once again initiates scaling events as triggered by the fleet's scaling policies. If actions on the fleet were never stopped, this operation will have no effect. You can view a fleet's stopped actions using 'DescribeFleetAttributes' .
 --
--- Operations related to fleet capacity scaling include:
+-- __Learn more__
+--
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Working with Fleets> .
+--
+-- __Related operations__
+--
+--     * 'CreateFleet'
+--
+--     * 'ListFleets'
+--
+--     * 'DeleteFleet'
+--
+--     * Describe fleets:
+--
+--     * 'DescribeFleetAttributes'
 --
 --     * 'DescribeFleetCapacity'
 --
---     * 'UpdateFleetCapacity'
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
 --
 --     * 'DescribeEC2InstanceLimits'
 --
---     * Manage scaling policies:
+--     * 'DescribeFleetEvents'
 --
---     * 'PutScalingPolicy' (auto-scaling)
 --
---     * 'DescribeScalingPolicies' (auto-scaling)
 --
---     * 'DeleteScalingPolicy' (auto-scaling)
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
 --
 --
 --

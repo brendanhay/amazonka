@@ -21,8 +21,6 @@
 -- Cancels a matchmaking ticket that is currently being processed. To stop the matchmaking operation, specify the ticket ID. If successful, work on the ticket is stopped, and the ticket status is changed to @CANCELLED@ .
 --
 --
--- Matchmaking-related operations include:
---
 --     * 'StartMatchmaking'
 --
 --     * 'DescribeMatchmaking'

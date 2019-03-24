@@ -21,8 +21,6 @@
 -- Deletes a game session queue. This action means that any 'StartGameSessionPlacement' requests that reference this queue will fail. To delete a queue, specify the queue name.
 --
 --
--- Queue-related operations include:
---
 --     * 'CreateGameSessionQueue'
 --
 --     * 'DescribeGameSessionQueues'

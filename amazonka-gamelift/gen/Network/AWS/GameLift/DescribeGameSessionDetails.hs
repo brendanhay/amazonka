@@ -23,8 +23,6 @@
 --
 -- To get game session record(s), specify just one of the following: game session ID, fleet ID, or alias ID. You can filter this request by game session status. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, a 'GameSessionDetail' object is returned for each session matching the request.
 --
--- Game-session-related operations include:
---
 --     * 'CreateGameSession'
 --
 --     * 'DescribeGameSessions'
@@ -49,6 +47,8 @@
 --
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeGameSessionDetails
     (
     -- * Creating a Request
@@ -74,6 +74,7 @@ module Network.AWS.GameLift.DescribeGameSessionDetails
 import Network.AWS.GameLift.Types
 import Network.AWS.GameLift.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -144,6 +145,13 @@ dgsdLimit = lens _dgsdLimit (\ s a -> s{_dgsdLimit = a}) . mapping _Nat
 -- | Unique identifier for a fleet to retrieve all game sessions active on the fleet.
 dgsdFleetId :: Lens' DescribeGameSessionDetails (Maybe Text)
 dgsdFleetId = lens _dgsdFleetId (\ s a -> s{_dgsdFleetId = a})
+
+instance AWSPager DescribeGameSessionDetails where
+        page rq rs
+          | stop (rs ^. dgsdrsNextToken) = Nothing
+          | stop (rs ^. dgsdrsGameSessionDetails) = Nothing
+          | otherwise =
+            Just $ rq & dgsdNextToken .~ rs ^. dgsdrsNextToken
 
 instance AWSRequest DescribeGameSessionDetails where
         type Rs DescribeGameSessionDetails =

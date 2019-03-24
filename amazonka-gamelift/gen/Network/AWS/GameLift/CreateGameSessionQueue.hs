@@ -27,8 +27,6 @@
 --
 -- To create a new queue, provide a name, timeout value, a list of destinations and, if desired, a set of latency policies. If successful, a new queue object is returned.
 --
--- Queue-related operations include:
---
 --     * 'CreateGameSessionQueue'
 --
 --     * 'DescribeGameSessionQueues'

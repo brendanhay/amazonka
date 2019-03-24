@@ -187,6 +187,7 @@ module Network.AWS.GameLift.Types
     , faNewGameSessionProtectionPolicy
     , faName
     , faServerLaunchPath
+    , faInstanceRoleARN
     , faMetricGroups
     , faFleetId
     , faDescription

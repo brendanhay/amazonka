@@ -18,28 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new fleet to run your game servers. A fleet is a set of Amazon Elastic Compute Cloud (Amazon EC2) instances, each of which can run multiple server processes to host game sessions. You set up a fleet to use instances with certain hardware specifications (see <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for more information), and deploy your game build to run on each instance.
+-- Creates a new fleet to run your game servers. A fleet is a set of Amazon Elastic Compute Cloud (Amazon EC2) instances, each of which can run multiple server processes to host game sessions. You set up a fleet to use instances with certain hardware specifications (see <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> ), and deploy your game build to the fleet.
 --
 --
--- To create a new fleet, you must specify the following: (1) a fleet name, (2) the build ID of a successfully uploaded game build, (3) an EC2 instance type, and (4) a run-time configuration, which describes the server processes to run on each instance in the fleet. If you don't specify a fleet type (on-demand or spot), the new fleet uses on-demand instances by default.
---
--- You can also configure the new fleet with the following settings:
---
---     * Fleet description
---
---     * Access permissions for inbound traffic
---
---     * Fleet-wide game session protection
---
---     * Resource usage limits
---
---
---
---     * VPC peering connection (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> )
---
---
---
--- If you use Amazon CloudWatch for metrics, you can add the new fleet to a metric group. By adding multiple fleets to a metric group, you can view aggregated metrics for all the fleets in the group.
+-- To create a new fleet, you must provide the following: (1) a fleet name, (2) an EC2 instance type, (3) the build ID for your game build, and (4) a run-time configuration, which specifies the server processes to run on each instance in the fleet. If fleet type is not set, the new fleet will use on-demand instances by default.
 --
 -- If the @CreateFleet@ call is successful, Amazon GameLift performs the following tasks. You can track the process of a fleet by checking the fleet status or by monitoring fleet creation events:
 --
@@ -57,7 +39,11 @@
 --
 --
 --
--- Fleet-related operations include:
+-- __Learn more__
+--
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Working with Fleets> .
+--
+-- __Related operations__
 --
 --     * 'CreateFleet'
 --
@@ -120,6 +106,7 @@ module Network.AWS.GameLift.CreateFleet
     , cfRuntimeConfiguration
     , cfNewGameSessionProtectionPolicy
     , cfServerLaunchPath
+    , cfInstanceRoleARN
     , cfMetricGroups
     , cfDescription
     , cfResourceCreationLimitPolicy
@@ -157,6 +144,7 @@ data CreateFleet = CreateFleet'
   , _cfRuntimeConfiguration           :: !(Maybe RuntimeConfiguration)
   , _cfNewGameSessionProtectionPolicy :: !(Maybe ProtectionPolicy)
   , _cfServerLaunchPath               :: !(Maybe Text)
+  , _cfInstanceRoleARN                :: !(Maybe Text)
   , _cfMetricGroups                   :: !(Maybe [Text])
   , _cfDescription                    :: !(Maybe Text)
   , _cfResourceCreationLimitPolicy    :: !(Maybe ResourceCreationLimitPolicy)
@@ -172,11 +160,11 @@ data CreateFleet = CreateFleet'
 --
 -- * 'cfServerLaunchParameters' - This parameter is no longer used. Instead, specify server launch parameters in the @RuntimeConfiguration@ parameter. (Requests that specify a server launch path and launch parameters instead of a run-time configuration will continue to work.)
 --
--- * 'cfLogPaths' - This parameter is no longer used. Instead, to specify where Amazon GameLift should store log files once a server process shuts down, use the Amazon GameLift server API @ProcessReady()@ and specify one or more directory paths in @logParameters@ . See more information in the <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api-ref.html#gamelift-sdk-server-api-ref-dataypes-process Server API Reference> .
+-- * 'cfLogPaths' - This parameter is no longer used. Instead, to specify where Amazon GameLift should store log files once a server process shuts down, use the Amazon GameLift server API @ProcessReady()@ and specify one or more directory paths in @logParameters@ . See more information in the <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api-ref.html#gamelift-sdk-server-api-ref-dataypes-process Server API Reference> .
 --
--- * 'cfPeerVPCId' - Unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same region where your fleet is deployed. To get VPC information, including IDs, use the Virtual Private Cloud service tools, including the VPC Dashboard in the AWS Management Console.
+-- * 'cfPeerVPCId' - Unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same region where your fleet is deployed. Look up a VPC ID using the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
 --
--- * 'cfFleetType' - Indicates whether to use on-demand instances or spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations, based on the instance type selected for this fleet. You can acquire on-demand instances at any time for a fixed price and keep them as long as you need them. Spot instances have lower prices, but spot pricing is variable, and while in use they can be interrupted (with a two-minute notification). Learn more about Amazon GameLift spot instances with at <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html Choose Computing Resources> .
+-- * 'cfFleetType' - Indicates whether to use on-demand instances or spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations, based on the instance type selected for this fleet. You can acquire on-demand instances at any time for a fixed price and keep them as long as you need them. Spot instances have lower prices, but spot pricing is variable, and while in use they can be interrupted (with a two-minute notification). Learn more about Amazon GameLift spot instances with at <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-credentials.html Set up Access to External Services> .
 --
 -- * 'cfPeerVPCAWSAccountId' - Unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your Account ID in the AWS Management Console under account settings.
 --
@@ -188,7 +176,9 @@ data CreateFleet = CreateFleet'
 --
 -- * 'cfServerLaunchPath' - This parameter is no longer used. Instead, specify a server launch path using the @RuntimeConfiguration@ parameter. (Requests that specify a server launch path and launch parameters instead of a run-time configuration will continue to work.)
 --
--- * 'cfMetricGroups' - Name of a metric group to add this fleet to. A metric group tracks metrics across all fleets in the group. Use an existing metric group name to add this fleet to the group, or use a new name to create a new metric group. A fleet can only be included in one metric group at a time.
+-- * 'cfInstanceRoleARN' - Unique identifier for an AWS IAM role that manages access to your AWS services. Any application that runs on an instance in this fleet can assume the role, including install scripts, server processs, daemons (background processes). Create a role or look up a role's ARN using the <https://console.aws.amazon.com/iam/ IAM dashboard> in the AWS Management Console. Learn more about using on-box credentials for your game servers at <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html Access external resources from a game server> .
+--
+-- * 'cfMetricGroups' - Name of an Amazon CloudWatch metric group to add this fleet to. A metric group aggregates the metrics for all fleets in the group. Specify an existing metric group name, or provide a new name to create a new metric group. A fleet can only be included in one metric group at a time.
 --
 -- * 'cfDescription' - Human-readable description of a fleet.
 --
@@ -215,6 +205,7 @@ createFleet pName_ pBuildId_ pEC2InstanceType_ =
     , _cfRuntimeConfiguration = Nothing
     , _cfNewGameSessionProtectionPolicy = Nothing
     , _cfServerLaunchPath = Nothing
+    , _cfInstanceRoleARN = Nothing
     , _cfMetricGroups = Nothing
     , _cfDescription = Nothing
     , _cfResourceCreationLimitPolicy = Nothing
@@ -228,15 +219,15 @@ createFleet pName_ pBuildId_ pEC2InstanceType_ =
 cfServerLaunchParameters :: Lens' CreateFleet (Maybe Text)
 cfServerLaunchParameters = lens _cfServerLaunchParameters (\ s a -> s{_cfServerLaunchParameters = a})
 
--- | This parameter is no longer used. Instead, to specify where Amazon GameLift should store log files once a server process shuts down, use the Amazon GameLift server API @ProcessReady()@ and specify one or more directory paths in @logParameters@ . See more information in the <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api-ref.html#gamelift-sdk-server-api-ref-dataypes-process Server API Reference> .
+-- | This parameter is no longer used. Instead, to specify where Amazon GameLift should store log files once a server process shuts down, use the Amazon GameLift server API @ProcessReady()@ and specify one or more directory paths in @logParameters@ . See more information in the <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api-ref.html#gamelift-sdk-server-api-ref-dataypes-process Server API Reference> .
 cfLogPaths :: Lens' CreateFleet [Text]
 cfLogPaths = lens _cfLogPaths (\ s a -> s{_cfLogPaths = a}) . _Default . _Coerce
 
--- | Unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same region where your fleet is deployed. To get VPC information, including IDs, use the Virtual Private Cloud service tools, including the VPC Dashboard in the AWS Management Console.
+-- | Unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same region where your fleet is deployed. Look up a VPC ID using the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
 cfPeerVPCId :: Lens' CreateFleet (Maybe Text)
 cfPeerVPCId = lens _cfPeerVPCId (\ s a -> s{_cfPeerVPCId = a})
 
--- | Indicates whether to use on-demand instances or spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations, based on the instance type selected for this fleet. You can acquire on-demand instances at any time for a fixed price and keep them as long as you need them. Spot instances have lower prices, but spot pricing is variable, and while in use they can be interrupted (with a two-minute notification). Learn more about Amazon GameLift spot instances with at <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html Choose Computing Resources> .
+-- | Indicates whether to use on-demand instances or spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations, based on the instance type selected for this fleet. You can acquire on-demand instances at any time for a fixed price and keep them as long as you need them. Spot instances have lower prices, but spot pricing is variable, and while in use they can be interrupted (with a two-minute notification). Learn more about Amazon GameLift spot instances with at <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-credentials.html Set up Access to External Services> .
 cfFleetType :: Lens' CreateFleet (Maybe FleetType)
 cfFleetType = lens _cfFleetType (\ s a -> s{_cfFleetType = a})
 
@@ -260,7 +251,11 @@ cfNewGameSessionProtectionPolicy = lens _cfNewGameSessionProtectionPolicy (\ s a
 cfServerLaunchPath :: Lens' CreateFleet (Maybe Text)
 cfServerLaunchPath = lens _cfServerLaunchPath (\ s a -> s{_cfServerLaunchPath = a})
 
--- | Name of a metric group to add this fleet to. A metric group tracks metrics across all fleets in the group. Use an existing metric group name to add this fleet to the group, or use a new name to create a new metric group. A fleet can only be included in one metric group at a time.
+-- | Unique identifier for an AWS IAM role that manages access to your AWS services. Any application that runs on an instance in this fleet can assume the role, including install scripts, server processs, daemons (background processes). Create a role or look up a role's ARN using the <https://console.aws.amazon.com/iam/ IAM dashboard> in the AWS Management Console. Learn more about using on-box credentials for your game servers at <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html Access external resources from a game server> .
+cfInstanceRoleARN :: Lens' CreateFleet (Maybe Text)
+cfInstanceRoleARN = lens _cfInstanceRoleARN (\ s a -> s{_cfInstanceRoleARN = a})
+
+-- | Name of an Amazon CloudWatch metric group to add this fleet to. A metric group aggregates the metrics for all fleets in the group. Specify an existing metric group name, or provide a new name to create a new metric group. A fleet can only be included in one metric group at a time.
 cfMetricGroups :: Lens' CreateFleet [Text]
 cfMetricGroups = lens _cfMetricGroups (\ s a -> s{_cfMetricGroups = a}) . _Default . _Coerce
 
@@ -324,6 +319,7 @@ instance ToJSON CreateFleet where
                   ("NewGameSessionProtectionPolicy" .=) <$>
                     _cfNewGameSessionProtectionPolicy,
                   ("ServerLaunchPath" .=) <$> _cfServerLaunchPath,
+                  ("InstanceRoleArn" .=) <$> _cfInstanceRoleARN,
                   ("MetricGroups" .=) <$> _cfMetricGroups,
                   ("Description" .=) <$> _cfDescription,
                   ("ResourceCreationLimitPolicy" .=) <$>

@@ -21,8 +21,6 @@
 -- Permanently removes a FlexMatch matchmaking configuration. To delete, specify the configuration name. A matchmaking configuration cannot be deleted if it is being used in any active matchmaking tickets.
 --
 --
--- Operations related to match configurations and rule sets include:
---
 --     * 'CreateMatchmakingConfiguration'
 --
 --     * 'DescribeMatchmakingConfigurations'
@@ -36,6 +34,8 @@
 --     * 'DescribeMatchmakingRuleSets'
 --
 --     * 'ValidateMatchmakingRuleSet'
+--
+--     * 'DeleteMatchmakingRuleSet'
 --
 --
 --

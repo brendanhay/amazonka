@@ -21,8 +21,6 @@
 -- Updates properties for an alias. To update properties, specify the alias ID to be updated and provide the information to be changed. To reassign an alias to another fleet, provide an updated routing strategy. If successful, the updated alias record is returned.
 --
 --
--- Alias-related operations include:
---
 --     * 'CreateAlias'
 --
 --     * 'ListAliases'

@@ -21,8 +21,6 @@
 -- Retrieves the properties for one or more game session queues. When requesting multiple queues, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a 'GameSessionQueue' object is returned for each requested queue. When specifying a list of queues, objects are returned only for queues that currently exist in the region.
 --
 --
--- Queue-related operations include:
---
 --     * 'CreateGameSessionQueue'
 --
 --     * 'DescribeGameSessionQueues'
@@ -33,6 +31,8 @@
 --
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeGameSessionQueues
     (
     -- * Creating a Request
@@ -55,6 +55,7 @@ module Network.AWS.GameLift.DescribeGameSessionQueues
 import Network.AWS.GameLift.Types
 import Network.AWS.GameLift.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -98,6 +99,13 @@ dgsqNames = lens _dgsqNames (\ s a -> s{_dgsqNames = a}) . _Default . _Coerce
 -- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 dgsqLimit :: Lens' DescribeGameSessionQueues (Maybe Natural)
 dgsqLimit = lens _dgsqLimit (\ s a -> s{_dgsqLimit = a}) . mapping _Nat
+
+instance AWSPager DescribeGameSessionQueues where
+        page rq rs
+          | stop (rs ^. drsNextToken) = Nothing
+          | stop (rs ^. drsGameSessionQueues) = Nothing
+          | otherwise =
+            Just $ rq & dgsqNextToken .~ rs ^. drsNextToken
 
 instance AWSRequest DescribeGameSessionQueues where
         type Rs DescribeGameSessionQueues =

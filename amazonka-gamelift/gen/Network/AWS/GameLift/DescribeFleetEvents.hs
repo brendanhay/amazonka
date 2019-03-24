@@ -21,7 +21,11 @@
 -- Retrieves entries from the specified fleet's event log. You can specify a time range to limit the result set. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, a collection of event log entries matching the request are returned.
 --
 --
--- Fleet-related operations include:
+-- __Learn more__
+--
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Working with Fleets> .
+--
+-- __Related operations__
 --
 --     * 'CreateFleet'
 --
@@ -69,6 +73,8 @@
 --
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeFleetEvents
     (
     -- * Creating a Request
@@ -93,6 +99,7 @@ module Network.AWS.GameLift.DescribeFleetEvents
 import Network.AWS.GameLift.Types
 import Network.AWS.GameLift.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -156,6 +163,13 @@ dfeLimit = lens _dfeLimit (\ s a -> s{_dfeLimit = a}) . mapping _Nat
 -- | Unique identifier for a fleet to get event logs for.
 dfeFleetId :: Lens' DescribeFleetEvents Text
 dfeFleetId = lens _dfeFleetId (\ s a -> s{_dfeFleetId = a})
+
+instance AWSPager DescribeFleetEvents where
+        page rq rs
+          | stop (rs ^. dfersNextToken) = Nothing
+          | stop (rs ^. dfersEvents) = Nothing
+          | otherwise =
+            Just $ rq & dfeNextToken .~ rs ^. dfersNextToken
 
 instance AWSRequest DescribeFleetEvents where
         type Rs DescribeFleetEvents =

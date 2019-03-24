@@ -23,8 +23,6 @@
 --
 -- To get alias properties, specify the alias ID. If successful, the requested alias record is returned.
 --
--- Alias-related operations include:
---
 --     * 'CreateAlias'
 --
 --     * 'ListAliases'

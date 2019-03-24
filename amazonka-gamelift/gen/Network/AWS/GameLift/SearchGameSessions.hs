@@ -41,8 +41,6 @@
 --
 -- You can search for game sessions one fleet at a time only. To find game sessions across multiple fleets, you must search each fleet separately and combine the results. This search feature finds only game sessions that are in @ACTIVE@ status. To locate games in statuses other than active, use 'DescribeGameSessionDetails' .
 --
--- Game-session-related operations include:
---
 --     * 'CreateGameSession'
 --
 --     * 'DescribeGameSessions'
@@ -67,6 +65,8 @@
 --
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.GameLift.SearchGameSessions
     (
     -- * Creating a Request
@@ -92,6 +92,7 @@ module Network.AWS.GameLift.SearchGameSessions
 import Network.AWS.GameLift.Types
 import Network.AWS.GameLift.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -162,6 +163,13 @@ sgsLimit = lens _sgsLimit (\ s a -> s{_sgsLimit = a}) . mapping _Nat
 -- | Unique identifier for a fleet to search for active game sessions. Each request must reference either a fleet ID or alias ID, but not both.
 sgsFleetId :: Lens' SearchGameSessions (Maybe Text)
 sgsFleetId = lens _sgsFleetId (\ s a -> s{_sgsFleetId = a})
+
+instance AWSPager SearchGameSessions where
+        page rq rs
+          | stop (rs ^. sgsrsNextToken) = Nothing
+          | stop (rs ^. sgsrsGameSessions) = Nothing
+          | otherwise =
+            Just $ rq & sgsNextToken .~ rs ^. sgsrsNextToken
 
 instance AWSRequest SearchGameSessions where
         type Rs SearchGameSessions =

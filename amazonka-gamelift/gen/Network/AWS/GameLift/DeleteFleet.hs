@@ -23,7 +23,11 @@
 --
 -- This action removes the fleet's resources and the fleet record. Once a fleet is deleted, you can no longer use that fleet.
 --
--- Fleet-related operations include:
+-- __Learn more__
+--
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Working with Fleets> .
+--
+-- __Related operations__
 --
 --     * 'CreateFleet'
 --

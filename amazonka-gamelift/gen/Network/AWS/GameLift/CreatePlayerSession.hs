@@ -25,8 +25,6 @@
 --
 -- /Available in Amazon GameLift Local./
 --
--- Player-session-related operations include:
---
 --     * 'CreatePlayerSession'
 --
 --     * 'CreatePlayerSessions'

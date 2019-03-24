@@ -21,7 +21,11 @@
 -- Retrieves a collection of fleet records for this AWS account. You can filter the result set by build ID. Use the pagination parameters to retrieve results in sequential pages.
 --
 --
--- Fleet-related operations include:
+-- __Learn more__
+--
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Working with Fleets> .
+--
+-- __Related operations__
 --
 --     * 'CreateFleet'
 --
@@ -69,6 +73,8 @@
 --
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.GameLift.ListFleets
     (
     -- * Creating a Request
@@ -91,6 +97,7 @@ module Network.AWS.GameLift.ListFleets
 import Network.AWS.GameLift.Types
 import Network.AWS.GameLift.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -133,6 +140,13 @@ lfNextToken = lens _lfNextToken (\ s a -> s{_lfNextToken = a})
 -- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 lfLimit :: Lens' ListFleets (Maybe Natural)
 lfLimit = lens _lfLimit (\ s a -> s{_lfLimit = a}) . mapping _Nat
+
+instance AWSPager ListFleets where
+        page rq rs
+          | stop (rs ^. lfrsNextToken) = Nothing
+          | stop (rs ^. lfrsFleetIds) = Nothing
+          | otherwise =
+            Just $ rq & lfNextToken .~ rs ^. lfrsNextToken
 
 instance AWSRequest ListFleets where
         type Rs ListFleets = ListFleetsResponse

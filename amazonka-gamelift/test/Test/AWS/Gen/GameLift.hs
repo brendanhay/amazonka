@@ -217,6 +217,9 @@ import Test.Tasty
 --         , requestDescribeEC2InstanceLimits $
 --             describeEC2InstanceLimits
 --
+--         , requestDeleteMatchmakingRuleSet $
+--             deleteMatchmakingRuleSet
+--
 --         , requestStopGameSessionPlacement $
 --             stopGameSessionPlacement
 --
@@ -420,6 +423,9 @@ import Test.Tasty
 --
 --         , responseDescribeEC2InstanceLimits $
 --             describeEC2InstanceLimitsResponse
+--
+--         , responseDeleteMatchmakingRuleSet $
+--             deleteMatchmakingRuleSetResponse
 --
 --         , responseStopGameSessionPlacement $
 --             stopGameSessionPlacementResponse
@@ -752,6 +758,11 @@ requestDescribeEC2InstanceLimits :: DescribeEC2InstanceLimits -> TestTree
 requestDescribeEC2InstanceLimits = req
     "DescribeEC2InstanceLimits"
     "fixture/DescribeEC2InstanceLimits.yaml"
+
+requestDeleteMatchmakingRuleSet :: DeleteMatchmakingRuleSet -> TestTree
+requestDeleteMatchmakingRuleSet = req
+    "DeleteMatchmakingRuleSet"
+    "fixture/DeleteMatchmakingRuleSet.yaml"
 
 requestStopGameSessionPlacement :: StopGameSessionPlacement -> TestTree
 requestStopGameSessionPlacement = req
@@ -1215,6 +1226,13 @@ responseDescribeEC2InstanceLimits = res
     "fixture/DescribeEC2InstanceLimitsResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeEC2InstanceLimits)
+
+responseDeleteMatchmakingRuleSet :: DeleteMatchmakingRuleSetResponse -> TestTree
+responseDeleteMatchmakingRuleSet = res
+    "DeleteMatchmakingRuleSetResponse"
+    "fixture/DeleteMatchmakingRuleSetResponse.proto"
+    gameLift
+    (Proxy :: Proxy DeleteMatchmakingRuleSet)
 
 responseStopGameSessionPlacement :: StopGameSessionPlacementResponse -> TestTree
 responseStopGameSessionPlacement = res

@@ -23,7 +23,11 @@
 --
 -- To delete a build, specify its ID. Deleting a build does not affect the status of any active fleets using the build, but you can no longer create new fleets with the deleted build.
 --
--- Build-related operations include:
+-- __Learn more__
+--
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/build-intro.html Working with Builds>
+--
+-- __Related operations__
 --
 --     * 'CreateBuild'
 --

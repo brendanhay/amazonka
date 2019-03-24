@@ -25,8 +25,6 @@
 --
 -- To create a fleet alias, specify an alias name, routing strategy, and optional description. Each simple alias can point to only one fleet, but a fleet can have multiple aliases. If successful, a new alias record is returned, including an alias ID, which you can reference when creating a game session. You can reassign an alias to another fleet by calling @UpdateAlias@ .
 --
--- Alias-related operations include:
---
 --     * 'CreateAlias'
 --
 --     * 'ListAliases'

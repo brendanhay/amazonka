@@ -25,8 +25,6 @@
 --
 -- /Available in Amazon GameLift Local./
 --
--- Game-session-related operations include:
---
 --     * 'CreateGameSession'
 --
 --     * 'DescribeGameSessions'
@@ -51,6 +49,8 @@
 --
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeGameSessions
     (
     -- * Creating a Request
@@ -76,6 +76,7 @@ module Network.AWS.GameLift.DescribeGameSessions
 import Network.AWS.GameLift.Types
 import Network.AWS.GameLift.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -146,6 +147,13 @@ dgsLimit = lens _dgsLimit (\ s a -> s{_dgsLimit = a}) . mapping _Nat
 -- | Unique identifier for a fleet to retrieve all game sessions for.
 dgsFleetId :: Lens' DescribeGameSessions (Maybe Text)
 dgsFleetId = lens _dgsFleetId (\ s a -> s{_dgsFleetId = a})
+
+instance AWSPager DescribeGameSessions where
+        page rq rs
+          | stop (rs ^. dgsrsNextToken) = Nothing
+          | stop (rs ^. dgsrsGameSessions) = Nothing
+          | otherwise =
+            Just $ rq & dgsNextToken .~ rs ^. dgsrsNextToken
 
 instance AWSRequest DescribeGameSessions where
         type Rs DescribeGameSessions =

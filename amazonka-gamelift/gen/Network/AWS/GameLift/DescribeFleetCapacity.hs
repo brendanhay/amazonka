@@ -21,7 +21,11 @@
 -- Retrieves the current status of fleet capacity for one or more fleets. This information includes the number of instances that have been requested for the fleet and the number currently active. You can request capacity for all fleets, or specify a list of one or more fleet IDs. When requesting multiple fleets, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a 'FleetCapacity' object is returned for each requested fleet ID. When specifying a list of fleet IDs, attribute objects are returned only for fleets that currently exist.
 --
 --
--- Fleet-related operations include:
+-- __Learn more__
+--
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Working with Fleets> .
+--
+-- __Related operations__
 --
 --     * 'CreateFleet'
 --
@@ -69,6 +73,8 @@
 --
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeFleetCapacity
     (
     -- * Creating a Request
@@ -91,6 +97,7 @@ module Network.AWS.GameLift.DescribeFleetCapacity
 import Network.AWS.GameLift.Types
 import Network.AWS.GameLift.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -134,6 +141,13 @@ dfcLimit = lens _dfcLimit (\ s a -> s{_dfcLimit = a}) . mapping _Nat
 -- | Unique identifier for a fleet(s) to retrieve capacity information for. To request capacity information for all fleets, leave this parameter empty.
 dfcFleetIds :: Lens' DescribeFleetCapacity (Maybe (NonEmpty Text))
 dfcFleetIds = lens _dfcFleetIds (\ s a -> s{_dfcFleetIds = a}) . mapping _List1
+
+instance AWSPager DescribeFleetCapacity where
+        page rq rs
+          | stop (rs ^. dfcrsNextToken) = Nothing
+          | stop (rs ^. dfcrsFleetCapacity) = Nothing
+          | otherwise =
+            Just $ rq & dfcNextToken .~ rs ^. dfcrsNextToken
 
 instance AWSRequest DescribeFleetCapacity where
         type Rs DescribeFleetCapacity =

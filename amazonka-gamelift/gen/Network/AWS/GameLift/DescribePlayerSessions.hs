@@ -25,8 +25,6 @@
 --
 -- /Available in Amazon GameLift Local./
 --
--- Player-session-related operations include:
---
 --     * 'CreatePlayerSession'
 --
 --     * 'CreatePlayerSessions'
@@ -45,6 +43,8 @@
 --
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.GameLift.DescribePlayerSessions
     (
     -- * Creating a Request
@@ -70,6 +70,7 @@ module Network.AWS.GameLift.DescribePlayerSessions
 import Network.AWS.GameLift.Types
 import Network.AWS.GameLift.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -140,6 +141,13 @@ dpssPlayerId = lens _dpssPlayerId (\ s a -> s{_dpssPlayerId = a})
 -- | Player session status to filter results on. Possible player session statuses include the following:     * __RESERVED__ -- The player session request has been received, but the player has not yet connected to the server process and/or been validated.      * __ACTIVE__ -- The player has been validated by the server process and is currently connected.     * __COMPLETED__ -- The player connection has been dropped.     * __TIMEDOUT__ -- A player session request was received, but the player did not connect and/or was not validated within the timeout limit (60 seconds).
 dpssPlayerSessionStatusFilter :: Lens' DescribePlayerSessions (Maybe Text)
 dpssPlayerSessionStatusFilter = lens _dpssPlayerSessionStatusFilter (\ s a -> s{_dpssPlayerSessionStatusFilter = a})
+
+instance AWSPager DescribePlayerSessions where
+        page rq rs
+          | stop (rs ^. dpsrsNextToken) = Nothing
+          | stop (rs ^. dpsrsPlayerSessions) = Nothing
+          | otherwise =
+            Just $ rq & dpssNextToken .~ rs ^. dpsrsNextToken
 
 instance AWSRequest DescribePlayerSessions where
         type Rs DescribePlayerSessions =

@@ -21,8 +21,6 @@
 -- Retrieves the details of FlexMatch matchmaking configurations. with this operation, you have the following options: (1) retrieve all existing configurations, (2) provide the names of one or more configurations to retrieve, or (3) retrieve all configurations that use a specified rule set name. When requesting multiple items, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a configuration is returned for each requested name. When specifying a list of names, only configurations that currently exist are returned.
 --
 --
--- Operations related to match configurations and rule sets include:
---
 --     * 'CreateMatchmakingConfiguration'
 --
 --     * 'DescribeMatchmakingConfigurations'
@@ -37,8 +35,12 @@
 --
 --     * 'ValidateMatchmakingRuleSet'
 --
+--     * 'DeleteMatchmakingRuleSet'
 --
 --
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeMatchmakingConfigurations
     (
     -- * Creating a Request
@@ -62,6 +64,7 @@ module Network.AWS.GameLift.DescribeMatchmakingConfigurations
 import Network.AWS.GameLift.Types
 import Network.AWS.GameLift.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -116,6 +119,14 @@ dmcNames = lens _dmcNames (\ s a -> s{_dmcNames = a}) . _Default . _Coerce
 -- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is limited to 10.
 dmcLimit :: Lens' DescribeMatchmakingConfigurations (Maybe Natural)
 dmcLimit = lens _dmcLimit (\ s a -> s{_dmcLimit = a}) . mapping _Nat
+
+instance AWSPager DescribeMatchmakingConfigurations
+         where
+        page rq rs
+          | stop (rs ^. dmcsrsNextToken) = Nothing
+          | stop (rs ^. dmcsrsConfigurations) = Nothing
+          | otherwise =
+            Just $ rq & dmcNextToken .~ rs ^. dmcsrsNextToken
 
 instance AWSRequest DescribeMatchmakingConfigurations
          where

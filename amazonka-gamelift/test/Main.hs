@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.GameLift
 import Test.AWS.GameLift.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "GameLift"

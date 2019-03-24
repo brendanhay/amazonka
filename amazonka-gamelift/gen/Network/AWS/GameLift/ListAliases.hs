@@ -21,8 +21,6 @@
 -- Retrieves all aliases for this AWS account. You can filter the result set by alias name and/or routing strategy type. Use the pagination parameters to retrieve results in sequential pages.
 --
 --
--- Alias-related operations include:
---
 --     * 'CreateAlias'
 --
 --     * 'ListAliases'
@@ -37,6 +35,8 @@
 --
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.GameLift.ListAliases
     (
     -- * Creating a Request
@@ -60,6 +60,7 @@ module Network.AWS.GameLift.ListAliases
 import Network.AWS.GameLift.Types
 import Network.AWS.GameLift.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -114,6 +115,13 @@ laName = lens _laName (\ s a -> s{_laName = a})
 -- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 laLimit :: Lens' ListAliases (Maybe Natural)
 laLimit = lens _laLimit (\ s a -> s{_laLimit = a}) . mapping _Nat
+
+instance AWSPager ListAliases where
+        page rq rs
+          | stop (rs ^. larsNextToken) = Nothing
+          | stop (rs ^. larsAliases) = Nothing
+          | otherwise =
+            Just $ rq & laNextToken .~ rs ^. larsNextToken
 
 instance AWSRequest ListAliases where
         type Rs ListAliases = ListAliasesResponse

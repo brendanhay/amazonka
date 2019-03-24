@@ -21,7 +21,11 @@
 -- Updates metadata in a build record, including the build name and version. To update the metadata, specify the build ID to update and provide the new values. If successful, a build object containing the updated metadata is returned.
 --
 --
--- Build-related operations include:
+-- __Learn more__
+--
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/build-intro.html Working with Builds>
+--
+-- __Related operations__
 --
 --     * 'CreateBuild'
 --

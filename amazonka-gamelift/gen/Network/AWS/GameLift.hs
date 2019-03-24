@@ -25,27 +25,27 @@
 --
 -- This reference guide describes the low-level service API for Amazon GameLift. You can use the API functionality with these tools:
 --
---     * The Amazon Web Services software development kit (<http://aws.amazon.com/tools/#sdk AWS SDK> ) is available in <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-supported.html#gamelift-supported-clients multiple languages> including C++ and C#. Use the SDK to access the API programmatically from an application, such as a game client.
+--     * The Amazon Web Services software development kit (<http://aws.amazon.com/tools/#sdk AWS SDK> ) is available in <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-supported.html#gamelift-supported-clients multiple languages> including C++ and C#. Use the SDK to access the API programmatically from an application, such as a game client.
 --
---     * The <http://aws.amazon.com/cli/ AWS command-line interface> (CLI) tool is primarily useful for handling administrative actions, such as setting up and managing Amazon GameLift settings and resources. You can use the AWS CLI to manage all of your AWS services.
+--     * The <https://docs.aws.amazon.com/cli/latest/userguide/ AWS command-line interface> (CLI) tool is primarily useful for handling administrative actions, such as setting up and managing Amazon GameLift settings and resources. You can use the AWS CLI to manage all of your AWS services.
 --
 --     * The <https://console.aws.amazon.com/gamelift/home AWS Management Console> for Amazon GameLift provides a web interface to manage your Amazon GameLift settings and resources. The console includes a dashboard for tracking key resources, including builds and fleets, and displays usage and performance metrics for your games as customizable graphs.
 --
---     * Amazon GameLift Local is a tool for testing your game's integration with Amazon GameLift before deploying it on the service. This tools supports a subset of key API actions, which can be called from either the AWS CLI or programmatically. See <http://docs.aws.amazon.com/gamelift/latest/developerguide/integration-testing-local.html Testing an Integration> .
+--     * Amazon GameLift Local is a tool for testing your game's integration with Amazon GameLift before deploying it on the service. This tools supports a subset of key API actions, which can be called from either the AWS CLI or programmatically. See <https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-testing-local.html Testing an Integration> .
 --
 --
 --
 -- __Learn more__
 --
---     * <http://docs.aws.amazon.com/gamelift/latest/developerguide/ Developer Guide> -- Read about Amazon GameLift features and how to use them.
+--     * <https://docs.aws.amazon.com/gamelift/latest/developerguide/ Developer Guide> -- Read about Amazon GameLift features and how to use them.
 --
 --     * <https://gamedev.amazon.com/forums/tutorials Tutorials> -- Get started fast with walkthroughs and sample projects.
 --
---     * <http://aws.amazon.com/blogs/gamedev/ GameDev Blog> -- Stay up to date with new features and techniques.
+--     * <https://gamedev.amazon.com/blogs/gamedev/ GameDev Blog> -- Stay up to date with new features and techniques.
 --
 --     * <https://gamedev.amazon.com/forums/spaces/123/gamelift-discussion.html GameDev Forums> -- Connect with the GameDev community.
 --
---     * <http://aws.amazon.com/releasenotes/Amazon-GameLift/ Release notes> and <http://docs.aws.amazon.com/gamelift/latest/developerguide/doc-history.html document history> -- Stay current with updates to the Amazon GameLift service, SDKs, and documentation.
+--     * <https://aws.amazon.com/releasenotes/Amazon-GameLift/ Release notes> and <https://docs.aws.amazon.com/gamelift/latest/developerguide/doc-history.html document history> -- Stay current with updates to the Amazon GameLift service, SDKs, and documentation.
 --
 --
 --
@@ -119,7 +119,7 @@
 --
 -- __Setting Up and Managing Game Servers__
 --
--- When setting up Amazon GameLift resources for your game, you first <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html create a game build> and upload it to Amazon GameLift. You can then use these actions to configure and manage a fleet of resources to run your game servers, scale capacity to meet player demand, access performance and utilization metrics, and more.
+-- When setting up Amazon GameLift resources for your game, you first <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html create a game build> and upload it to Amazon GameLift. You can then use these actions to configure and manage a fleet of resources to run your game servers, scale capacity to meet player demand, access performance and utilization metrics, and more.
 --
 --     * __Manage game builds__
 --
@@ -177,19 +177,35 @@
 --
 --
 --
---     * __Manage VPC peering connections for fleets__
+--     * __Manage game session queues__
 --
---     * 'CreateVpcPeeringAuthorization' -- Authorize a peering connection to one of your VPCs.
+--     * 'CreateGameSessionQueue' -- Create a queue for processing requests for new game sessions.
 --
---     * 'DescribeVpcPeeringAuthorizations' -- Retrieve valid peering connection authorizations.
+--     * 'DescribeGameSessionQueues' -- Retrieve game session queues defined in a Amazon GameLift region.
 --
---     * 'DeleteVpcPeeringAuthorization' -- Delete a peering connection authorization.
+--     * 'UpdateGameSessionQueue' -- Change the configuration of a game session queue.
 --
---     * 'CreateVpcPeeringConnection' -- Establish a peering connection between the VPC for a Amazon GameLift fleet and one of your VPCs.
+--     * 'DeleteGameSessionQueue' -- Remove a game session queue from the region.
 --
---     * 'DescribeVpcPeeringConnections' -- Retrieve information on active or pending VPC peering connections with a Amazon GameLift fleet.
 --
---     * 'DeleteVpcPeeringConnection' -- Delete a VPC peering connection with a Amazon GameLift fleet.
+--
+--     * __Manage FlexMatch resources__
+--
+--     * 'CreateMatchmakingConfiguration' -- Create a matchmaking configuration with instructions for building a player group and placing in a new game session.
+--
+--     * 'DescribeMatchmakingConfigurations' -- Retrieve matchmaking configurations defined a Amazon GameLift region.
+--
+--     * 'UpdateMatchmakingConfiguration' -- Change settings for matchmaking configuration. queue.
+--
+--     * 'DeleteMatchmakingConfiguration' -- Remove a matchmaking configuration from the region.
+--
+--     * 'CreateMatchmakingRuleSet' -- Create a set of rules to use when searching for player matches.
+--
+--     * 'DescribeMatchmakingRuleSets' -- Retrieve matchmaking rule sets defined in a Amazon GameLift region.
+--
+--     * 'ValidateMatchmakingRuleSet' -- Verify syntax for a set of matchmaking rules.
+--
+--     * 'DeleteMatchmakingRuleSet' -- Remove a matchmaking rule set from the region.
 --
 --
 --
@@ -227,33 +243,19 @@
 --
 --
 --
---     * __Manage game session queues__
+--     * __Manage VPC peering connections for fleets__
 --
---     * 'CreateGameSessionQueue' -- Create a queue for processing requests for new game sessions.
+--     * 'CreateVpcPeeringAuthorization' -- Authorize a peering connection to one of your VPCs.
 --
---     * 'DescribeGameSessionQueues' -- Retrieve game session queues defined in a Amazon GameLift region.
+--     * 'DescribeVpcPeeringAuthorizations' -- Retrieve valid peering connection authorizations.
 --
---     * 'UpdateGameSessionQueue' -- Change the configuration of a game session queue.
+--     * 'DeleteVpcPeeringAuthorization' -- Delete a peering connection authorization.
 --
---     * 'DeleteGameSessionQueue' -- Remove a game session queue from the region.
+--     * 'CreateVpcPeeringConnection' -- Establish a peering connection between the VPC for a Amazon GameLift fleet and one of your VPCs.
 --
+--     * 'DescribeVpcPeeringConnections' -- Retrieve information on active or pending VPC peering connections with a Amazon GameLift fleet.
 --
---
---     * __Manage FlexMatch resources__
---
---     * 'CreateMatchmakingConfiguration' -- Create a matchmaking configuration with instructions for building a player group and placing in a new game session.
---
---     * 'DescribeMatchmakingConfigurations' -- Retrieve matchmaking configurations defined a Amazon GameLift region.
---
---     * 'UpdateMatchmakingConfiguration' -- Change settings for matchmaking configuration. queue.
---
---     * 'DeleteMatchmakingConfiguration' -- Remove a matchmaking configuration from the region.
---
---     * 'CreateMatchmakingRuleSet' -- Create a set of rules to use when searching for player matches.
---
---     * 'DescribeMatchmakingRuleSets' -- Retrieve matchmaking rule sets defined in a Amazon GameLift region.
---
---     * 'ValidateMatchmakingRuleSet' -- Verify syntax for a set of matchmaking rules.
+--     * 'DeleteVpcPeeringConnection' -- Delete a VPC peering connection with a Amazon GameLift fleet.
 --
 --
 --
@@ -324,7 +326,7 @@ module Network.AWS.GameLift
     -- ** PutScalingPolicy
     , module Network.AWS.GameLift.PutScalingPolicy
 
-    -- ** ListBuilds
+    -- ** ListBuilds (Paginated)
     , module Network.AWS.GameLift.ListBuilds
 
     -- ** DeleteFleet
@@ -342,7 +344,7 @@ module Network.AWS.GameLift
     -- ** ResolveAlias
     , module Network.AWS.GameLift.ResolveAlias
 
-    -- ** ListAliases
+    -- ** ListAliases (Paginated)
     , module Network.AWS.GameLift.ListAliases
 
     -- ** UpdateRuntimeConfiguration
@@ -354,7 +356,7 @@ module Network.AWS.GameLift
     -- ** CreateGameSessionQueue
     , module Network.AWS.GameLift.CreateGameSessionQueue
 
-    -- ** SearchGameSessions
+    -- ** SearchGameSessions (Paginated)
     , module Network.AWS.GameLift.SearchGameSessions
 
     -- ** CreateVPCPeeringAuthorization
@@ -375,19 +377,19 @@ module Network.AWS.GameLift
     -- ** GetInstanceAccess
     , module Network.AWS.GameLift.GetInstanceAccess
 
-    -- ** DescribeScalingPolicies
+    -- ** DescribeScalingPolicies (Paginated)
     , module Network.AWS.GameLift.DescribeScalingPolicies
 
-    -- ** DescribeMatchmakingRuleSets
+    -- ** DescribeMatchmakingRuleSets (Paginated)
     , module Network.AWS.GameLift.DescribeMatchmakingRuleSets
 
-    -- ** DescribeGameSessions
+    -- ** DescribeGameSessions (Paginated)
     , module Network.AWS.GameLift.DescribeGameSessions
 
     -- ** StartGameSessionPlacement
     , module Network.AWS.GameLift.StartGameSessionPlacement
 
-    -- ** DescribeFleetUtilization
+    -- ** DescribeFleetUtilization (Paginated)
     , module Network.AWS.GameLift.DescribeFleetUtilization
 
     -- ** DescribeRuntimeConfiguration
@@ -396,13 +398,13 @@ module Network.AWS.GameLift
     -- ** GetGameSessionLogURL
     , module Network.AWS.GameLift.GetGameSessionLogURL
 
-    -- ** DescribeFleetAttributes
+    -- ** DescribeFleetAttributes (Paginated)
     , module Network.AWS.GameLift.DescribeFleetAttributes
 
     -- ** DescribeGameSessionPlacement
     , module Network.AWS.GameLift.DescribeGameSessionPlacement
 
-    -- ** DescribeFleetEvents
+    -- ** DescribeFleetEvents (Paginated)
     , module Network.AWS.GameLift.DescribeFleetEvents
 
     -- ** StartMatchmaking
@@ -411,7 +413,7 @@ module Network.AWS.GameLift
     -- ** CreateMatchmakingRuleSet
     , module Network.AWS.GameLift.CreateMatchmakingRuleSet
 
-    -- ** DescribeFleetCapacity
+    -- ** DescribeFleetCapacity (Paginated)
     , module Network.AWS.GameLift.DescribeFleetCapacity
 
     -- ** DeleteBuild
@@ -420,7 +422,7 @@ module Network.AWS.GameLift
     -- ** UpdateBuild
     , module Network.AWS.GameLift.UpdateBuild
 
-    -- ** ListFleets
+    -- ** ListFleets (Paginated)
     , module Network.AWS.GameLift.ListFleets
 
     -- ** DeleteAlias
@@ -432,16 +434,16 @@ module Network.AWS.GameLift
     -- ** StartMatchBackfill
     , module Network.AWS.GameLift.StartMatchBackfill
 
-    -- ** DescribeInstances
+    -- ** DescribeInstances (Paginated)
     , module Network.AWS.GameLift.DescribeInstances
 
-    -- ** DescribeGameSessionDetails
+    -- ** DescribeGameSessionDetails (Paginated)
     , module Network.AWS.GameLift.DescribeGameSessionDetails
 
     -- ** DescribeFleetPortSettings
     , module Network.AWS.GameLift.DescribeFleetPortSettings
 
-    -- ** DescribeGameSessionQueues
+    -- ** DescribeGameSessionQueues (Paginated)
     , module Network.AWS.GameLift.DescribeGameSessionQueues
 
     -- ** DescribeVPCPeeringConnections
@@ -450,7 +452,7 @@ module Network.AWS.GameLift
     -- ** CreatePlayerSessions
     , module Network.AWS.GameLift.CreatePlayerSessions
 
-    -- ** DescribeMatchmakingConfigurations
+    -- ** DescribeMatchmakingConfigurations (Paginated)
     , module Network.AWS.GameLift.DescribeMatchmakingConfigurations
 
     -- ** DescribeVPCPeeringAuthorizations
@@ -474,7 +476,7 @@ module Network.AWS.GameLift
     -- ** CreateMatchmakingConfiguration
     , module Network.AWS.GameLift.CreateMatchmakingConfiguration
 
-    -- ** DescribePlayerSessions
+    -- ** DescribePlayerSessions (Paginated)
     , module Network.AWS.GameLift.DescribePlayerSessions
 
     -- ** StopFleetActions
@@ -500,6 +502,9 @@ module Network.AWS.GameLift
 
     -- ** DescribeEC2InstanceLimits
     , module Network.AWS.GameLift.DescribeEC2InstanceLimits
+
+    -- ** DeleteMatchmakingRuleSet
+    , module Network.AWS.GameLift.DeleteMatchmakingRuleSet
 
     -- ** StopGameSessionPlacement
     , module Network.AWS.GameLift.StopGameSessionPlacement
@@ -672,6 +677,7 @@ module Network.AWS.GameLift
     , faNewGameSessionProtectionPolicy
     , faName
     , faServerLaunchPath
+    , faInstanceRoleARN
     , faMetricGroups
     , faFleetId
     , faDescription
@@ -984,6 +990,7 @@ import Network.AWS.GameLift.DeleteBuild
 import Network.AWS.GameLift.DeleteFleet
 import Network.AWS.GameLift.DeleteGameSessionQueue
 import Network.AWS.GameLift.DeleteMatchmakingConfiguration
+import Network.AWS.GameLift.DeleteMatchmakingRuleSet
 import Network.AWS.GameLift.DeleteScalingPolicy
 import Network.AWS.GameLift.DeleteVPCPeeringAuthorization
 import Network.AWS.GameLift.DeleteVPCPeeringConnection

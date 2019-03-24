@@ -21,8 +21,6 @@
 -- Cancels a pending VPC peering authorization for the specified VPC. If the authorization has already been used to create a peering connection, call 'DeleteVpcPeeringConnection' to remove the connection.
 --
 --
--- VPC peering connection operations include:
---
 --     * 'CreateVpcPeeringAuthorization'
 --
 --     * 'DescribeVpcPeeringAuthorizations'
@@ -77,7 +75,7 @@ data DeleteVPCPeeringAuthorization = DeleteVPCPeeringAuthorization'
 --
 -- * 'dvpaGameLiftAWSAccountId' - Unique identifier for the AWS account that you use to manage your Amazon GameLift fleet. You can find your Account ID in the AWS Management Console under account settings.
 --
--- * 'dvpaPeerVPCId' - Unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same region where your fleet is deployed. To get VPC information, including IDs, use the Virtual Private Cloud service tools, including the VPC Dashboard in the AWS Management Console.
+-- * 'dvpaPeerVPCId' - Unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same region where your fleet is deployed. Look up a VPC ID using the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
 deleteVPCPeeringAuthorization
     :: Text -- ^ 'dvpaGameLiftAWSAccountId'
     -> Text -- ^ 'dvpaPeerVPCId'
@@ -93,7 +91,7 @@ deleteVPCPeeringAuthorization pGameLiftAWSAccountId_ pPeerVPCId_ =
 dvpaGameLiftAWSAccountId :: Lens' DeleteVPCPeeringAuthorization Text
 dvpaGameLiftAWSAccountId = lens _dvpaGameLiftAWSAccountId (\ s a -> s{_dvpaGameLiftAWSAccountId = a})
 
--- | Unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same region where your fleet is deployed. To get VPC information, including IDs, use the Virtual Private Cloud service tools, including the VPC Dashboard in the AWS Management Console.
+-- | Unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same region where your fleet is deployed. Look up a VPC ID using the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
 dvpaPeerVPCId :: Lens' DeleteVPCPeeringAuthorization Text
 dvpaPeerVPCId = lens _dvpaPeerVPCId (\ s a -> s{_dvpaPeerVPCId = a})
 

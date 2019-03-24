@@ -62,6 +62,7 @@ library
         , Network.AWS.GameLift.DeleteFleet
         , Network.AWS.GameLift.DeleteGameSessionQueue
         , Network.AWS.GameLift.DeleteMatchmakingConfiguration
+        , Network.AWS.GameLift.DeleteMatchmakingRuleSet
         , Network.AWS.GameLift.DeleteScalingPolicy
         , Network.AWS.GameLift.DeleteVPCPeeringAuthorization
         , Network.AWS.GameLift.DeleteVPCPeeringConnection

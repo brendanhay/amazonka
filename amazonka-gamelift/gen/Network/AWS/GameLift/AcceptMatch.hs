@@ -27,8 +27,6 @@
 --
 -- If any player rejects the match, or if acceptances are not received before a specified timeout, the proposed match is dropped. The matchmaking tickets are then handled in one of two ways: For tickets where all players accepted the match, the ticket status is returned to @SEARCHING@ to find a new match. For tickets where one or more players failed to accept the match, the ticket status is set to @FAILED@ , and processing is terminated. A new matchmaking request for these players can be submitted as needed.
 --
--- Matchmaking-related operations include:
---
 --     * 'StartMatchmaking'
 --
 --     * 'DescribeMatchmaking'

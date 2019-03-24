@@ -21,7 +21,11 @@
 -- Retrieves build records for all builds associated with the AWS account in use. You can limit results to builds that are in a specific status by using the @Status@ parameter. Use the pagination parameters to retrieve results in a set of sequential pages.
 --
 --
--- Build-related operations include:
+-- __Learn more__
+--
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/build-intro.html Working with Builds>
+--
+-- __Related operations__
 --
 --     * 'CreateBuild'
 --
@@ -35,6 +39,8 @@
 --
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.GameLift.ListBuilds
     (
     -- * Creating a Request
@@ -57,6 +63,7 @@ module Network.AWS.GameLift.ListBuilds
 import Network.AWS.GameLift.Types
 import Network.AWS.GameLift.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -99,6 +106,13 @@ lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a})
 -- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 lbLimit :: Lens' ListBuilds (Maybe Natural)
 lbLimit = lens _lbLimit (\ s a -> s{_lbLimit = a}) . mapping _Nat
+
+instance AWSPager ListBuilds where
+        page rq rs
+          | stop (rs ^. lbrsNextToken) = Nothing
+          | stop (rs ^. lbrsBuilds) = Nothing
+          | otherwise =
+            Just $ rq & lbNextToken .~ rs ^. lbrsNextToken
 
 instance AWSRequest ListBuilds where
         type Rs ListBuilds = ListBuildsResponse

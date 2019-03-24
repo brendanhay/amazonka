@@ -21,7 +21,11 @@
 -- Retrieves fleet properties, including metadata, status, and configuration, for one or more fleets. You can request attributes for all fleets, or specify a list of one or more fleet IDs. When requesting multiple fleets, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a 'FleetAttributes' object is returned for each requested fleet ID. When specifying a list of fleet IDs, attribute objects are returned only for fleets that currently exist.
 --
 --
--- Fleet-related operations include:
+-- __Learn more__
+--
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Working with Fleets> .
+--
+-- __Related operations__
 --
 --     * 'CreateFleet'
 --
@@ -69,6 +73,8 @@
 --
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeFleetAttributes
     (
     -- * Creating a Request
@@ -91,6 +97,7 @@ module Network.AWS.GameLift.DescribeFleetAttributes
 import Network.AWS.GameLift.Types
 import Network.AWS.GameLift.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -134,6 +141,13 @@ dfaLimit = lens _dfaLimit (\ s a -> s{_dfaLimit = a}) . mapping _Nat
 -- | Unique identifier for a fleet(s) to retrieve attributes for. To request attributes for all fleets, leave this parameter empty.
 dfaFleetIds :: Lens' DescribeFleetAttributes (Maybe (NonEmpty Text))
 dfaFleetIds = lens _dfaFleetIds (\ s a -> s{_dfaFleetIds = a}) . mapping _List1
+
+instance AWSPager DescribeFleetAttributes where
+        page rq rs
+          | stop (rs ^. dfarsNextToken) = Nothing
+          | stop (rs ^. dfarsFleetAttributes) = Nothing
+          | otherwise =
+            Just $ rq & dfaNextToken .~ rs ^. dfarsNextToken
 
 instance AWSRequest DescribeFleetAttributes where
         type Rs DescribeFleetAttributes =

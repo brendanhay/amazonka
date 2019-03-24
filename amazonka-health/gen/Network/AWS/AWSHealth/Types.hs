@@ -36,6 +36,7 @@ module Network.AWS.AWSHealth.Types
     , affectedEntity
     , aeLastUpdatedTime
     , aeEntityValue
+    , aeEntityURL
     , aeAwsAccountId
     , aeEventARN
     , aeEntityARN

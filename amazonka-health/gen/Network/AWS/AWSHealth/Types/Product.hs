@@ -29,6 +29,7 @@ import Network.AWS.Prelude
 data AffectedEntity = AffectedEntity'
   { _aeLastUpdatedTime :: !(Maybe POSIX)
   , _aeEntityValue     :: !(Maybe Text)
+  , _aeEntityURL       :: !(Maybe Text)
   , _aeAwsAccountId    :: !(Maybe Text)
   , _aeEventARN        :: !(Maybe Text)
   , _aeEntityARN       :: !(Maybe Text)
@@ -45,9 +46,11 @@ data AffectedEntity = AffectedEntity'
 --
 -- * 'aeEntityValue' - The ID of the affected entity.
 --
+-- * 'aeEntityURL' - Undocumented member.
+--
 -- * 'aeAwsAccountId' - The 12-digit AWS account number that contains the affected entity.
 --
--- * 'aeEventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//EVENT_TYPE_PLUS_ID/ @ . Example: @arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331@
+-- * 'aeEventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 --
 -- * 'aeEntityARN' - The unique identifier for the entity. Format: @arn:aws:health:/entity-region/ :/aws-account/ :entity//entity-id/ @ . Example: @arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K@
 --
@@ -60,6 +63,7 @@ affectedEntity =
   AffectedEntity'
     { _aeLastUpdatedTime = Nothing
     , _aeEntityValue = Nothing
+    , _aeEntityURL = Nothing
     , _aeAwsAccountId = Nothing
     , _aeEventARN = Nothing
     , _aeEntityARN = Nothing
@@ -76,11 +80,15 @@ aeLastUpdatedTime = lens _aeLastUpdatedTime (\ s a -> s{_aeLastUpdatedTime = a})
 aeEntityValue :: Lens' AffectedEntity (Maybe Text)
 aeEntityValue = lens _aeEntityValue (\ s a -> s{_aeEntityValue = a})
 
+-- | Undocumented member.
+aeEntityURL :: Lens' AffectedEntity (Maybe Text)
+aeEntityURL = lens _aeEntityURL (\ s a -> s{_aeEntityURL = a})
+
 -- | The 12-digit AWS account number that contains the affected entity.
 aeAwsAccountId :: Lens' AffectedEntity (Maybe Text)
 aeAwsAccountId = lens _aeAwsAccountId (\ s a -> s{_aeAwsAccountId = a})
 
--- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//EVENT_TYPE_PLUS_ID/ @ . Example: @arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331@
+-- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 aeEventARN :: Lens' AffectedEntity (Maybe Text)
 aeEventARN = lens _aeEventARN (\ s a -> s{_aeEventARN = a})
 
@@ -102,6 +110,7 @@ instance FromJSON AffectedEntity where
               (\ x ->
                  AffectedEntity' <$>
                    (x .:? "lastUpdatedTime") <*> (x .:? "entityValue")
+                     <*> (x .:? "entityUrl")
                      <*> (x .:? "awsAccountId")
                      <*> (x .:? "eventArn")
                      <*> (x .:? "entityArn")
@@ -170,7 +179,7 @@ data EntityAggregate = EntityAggregate'
 --
 -- * 'eCount' - The number entities that match the criteria for the specified events.
 --
--- * 'eEventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//EVENT_TYPE_PLUS_ID/ @ . Example: @arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331@
+-- * 'eEventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 entityAggregate
     :: EntityAggregate
 entityAggregate = EntityAggregate' {_eCount = Nothing, _eEventARN = Nothing}
@@ -180,7 +189,7 @@ entityAggregate = EntityAggregate' {_eCount = Nothing, _eEventARN = Nothing}
 eCount :: Lens' EntityAggregate (Maybe Int)
 eCount = lens _eCount (\ s a -> s{_eCount = a})
 
--- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//EVENT_TYPE_PLUS_ID/ @ . Example: @arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331@
+-- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 eEventARN :: Lens' EntityAggregate (Maybe Text)
 eEventARN = lens _eEventARN (\ s a -> s{_eEventARN = a})
 
@@ -224,7 +233,7 @@ data EntityFilter = EntityFilter'
 --
 -- * 'eLastUpdatedTimes' - A list of the most recent dates and times that the entity was updated.
 --
--- * 'eEventARNs' - A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331", "arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz"@
+-- * 'eEventARNs' - A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"@
 entityFilter
     :: NonEmpty Text -- ^ 'eEventARNs'
     -> EntityFilter
@@ -259,7 +268,7 @@ eTags = lens _eTags (\ s a -> s{_eTags = a}) . _Default . _Coerce
 eLastUpdatedTimes :: Lens' EntityFilter (Maybe (NonEmpty DateTimeRange))
 eLastUpdatedTimes = lens _eLastUpdatedTimes (\ s a -> s{_eLastUpdatedTimes = a}) . mapping _List1
 
--- | A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331", "arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz"@
+-- | A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"@
 eEventARNs :: Lens' EntityFilter (NonEmpty Text)
 eEventARNs = lens _eEventARNs (\ s a -> s{_eEventARNs = a}) . _List1
 
@@ -303,7 +312,7 @@ data Event = Event'
 --
 -- * 'eLastUpdatedTime' - The most recent date and time that the event was updated.
 --
--- * 'eArn' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//EVENT_TYPE_PLUS_ID/ @ . Example: @arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331@
+-- * 'eArn' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 --
 -- * 'eService' - The AWS service that is affected by the event. For example, @EC2@ , @RDS@ .
 --
@@ -311,7 +320,7 @@ data Event = Event'
 --
 -- * 'eEventTypeCode' - The unique identifier for the event type. The format is @AWS_/SERVICE/ _/DESCRIPTION/ @ ; for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ .
 --
--- * 'eEventTypeCategory' - The
+-- * 'eEventTypeCategory' - The category of the event. Possible values are @issue@ , @scheduledChange@ , and @accountNotification@ .
 --
 -- * 'eAvailabilityZone' - The AWS Availability Zone of the event. For example, us-east-1a.
 --
@@ -341,7 +350,7 @@ event =
 eLastUpdatedTime :: Lens' Event (Maybe UTCTime)
 eLastUpdatedTime = lens _eLastUpdatedTime (\ s a -> s{_eLastUpdatedTime = a}) . mapping _Time
 
--- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//EVENT_TYPE_PLUS_ID/ @ . Example: @arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331@
+-- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 eArn :: Lens' Event (Maybe Text)
 eArn = lens _eArn (\ s a -> s{_eArn = a})
 
@@ -357,7 +366,7 @@ eStartTime = lens _eStartTime (\ s a -> s{_eStartTime = a}) . mapping _Time
 eEventTypeCode :: Lens' Event (Maybe Text)
 eEventTypeCode = lens _eEventTypeCode (\ s a -> s{_eEventTypeCode = a})
 
--- | The
+-- | The category of the event. Possible values are @issue@ , @scheduledChange@ , and @accountNotification@ .
 eEventTypeCategory :: Lens' Event (Maybe EventTypeCategory)
 eEventTypeCategory = lens _eEventTypeCategory (\ s a -> s{_eEventTypeCategory = a})
 
@@ -544,7 +553,7 @@ data EventDetailsErrorItem = EventDetailsErrorItem'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'edeiEventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//EVENT_TYPE_PLUS_ID/ @ . Example: @arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331@
+-- * 'edeiEventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 --
 -- * 'edeiErrorName' - The name of the error.
 --
@@ -559,7 +568,7 @@ eventDetailsErrorItem =
     }
 
 
--- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//EVENT_TYPE_PLUS_ID/ @ . Example: @arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331@
+-- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 edeiEventARN :: Lens' EventDetailsErrorItem (Maybe Text)
 edeiEventARN = lens _edeiEventARN (\ s a -> s{_edeiEventARN = a})
 
@@ -609,7 +618,7 @@ data EventFilter = EventFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'efEventARNs' - A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331", "arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz"@
+-- * 'efEventARNs' - A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"@
 --
 -- * 'efEventTypeCategories' - A list of event type category codes (@issue@ , @scheduledChange@ , or @accountNotification@ ).
 --
@@ -654,7 +663,7 @@ eventFilter =
     }
 
 
--- | A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331", "arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz"@
+-- | A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"@
 efEventARNs :: Lens' EventFilter (Maybe (NonEmpty Text))
 efEventARNs = lens _efEventARNs (\ s a -> s{_efEventARNs = a}) . mapping _List1
 

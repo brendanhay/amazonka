@@ -104,6 +104,7 @@ module Network.AWS.AWSHealth
     , affectedEntity
     , aeLastUpdatedTime
     , aeEntityValue
+    , aeEntityURL
     , aeAwsAccountId
     , aeEventARN
     , aeEntityARN

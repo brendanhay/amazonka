@@ -32,6 +32,9 @@ module Network.AWS.FMS
     -- ** InvalidOperationException
     , _InvalidOperationException
 
+    -- ** InvalidTypeException
+    , _InvalidTypeException
+
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
 
@@ -44,7 +47,7 @@ module Network.AWS.FMS
     -- * Operations
     -- $operations
 
-    -- ** ListPolicies
+    -- ** ListPolicies (Paginated)
     , module Network.AWS.FMS.ListPolicies
 
     -- ** GetComplianceDetail
@@ -56,7 +59,7 @@ module Network.AWS.FMS
     -- ** GetAdminAccount
     , module Network.AWS.FMS.GetAdminAccount
 
-    -- ** ListComplianceStatus
+    -- ** ListComplianceStatus (Paginated)
     , module Network.AWS.FMS.ListComplianceStatus
 
     -- ** PutPolicy
@@ -77,10 +80,22 @@ module Network.AWS.FMS
     -- ** AssociateAdminAccount
     , module Network.AWS.FMS.AssociateAdminAccount
 
+    -- ** ListMemberAccounts (Paginated)
+    , module Network.AWS.FMS.ListMemberAccounts
+
     -- ** GetPolicy
     , module Network.AWS.FMS.GetPolicy
 
     -- * Types
+
+    -- ** AccountRoleStatus
+    , AccountRoleStatus (..)
+
+    -- ** CustomerPolicyScopeIdType
+    , CustomerPolicyScopeIdType (..)
+
+    -- ** DependentServiceName
+    , DependentServiceName (..)
 
     -- ** PolicyComplianceStatusType
     , PolicyComplianceStatusType (..)
@@ -111,6 +126,8 @@ module Network.AWS.FMS
     , pPolicyId
     , pResourceTags
     , pPolicyUpdateToken
+    , pExcludeMap
+    , pIncludeMap
     , pPolicyName
     , pSecurityServicePolicyData
     , pResourceType
@@ -124,6 +141,7 @@ module Network.AWS.FMS
     , pcdPolicyId
     , pcdViolators
     , pcdEvaluationLimitExceeded
+    , pcdIssueInfoMap
     , pcdPolicyOwner
     , pcdMemberAccount
 
@@ -134,6 +152,7 @@ module Network.AWS.FMS
     , pcsLastUpdated
     , pcsPolicyName
     , pcsPolicyId
+    , pcsIssueInfoMap
     , pcsPolicyOwner
     , pcsMemberAccount
 
@@ -169,6 +188,7 @@ import Network.AWS.FMS.GetComplianceDetail
 import Network.AWS.FMS.GetNotificationChannel
 import Network.AWS.FMS.GetPolicy
 import Network.AWS.FMS.ListComplianceStatus
+import Network.AWS.FMS.ListMemberAccounts
 import Network.AWS.FMS.ListPolicies
 import Network.AWS.FMS.PutNotificationChannel
 import Network.AWS.FMS.PutPolicy

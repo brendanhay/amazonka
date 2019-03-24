@@ -61,6 +61,9 @@ import Test.Tasty
 --         , requestAssociateAdminAccount $
 --             associateAdminAccount
 --
+--         , requestListMemberAccounts $
+--             listMemberAccounts
+--
 --         , requestGetPolicy $
 --             getPolicy
 --
@@ -99,6 +102,9 @@ import Test.Tasty
 --
 --         , responseAssociateAdminAccount $
 --             associateAdminAccountResponse
+--
+--         , responseListMemberAccounts $
+--             listMemberAccountsResponse
 --
 --         , responseGetPolicy $
 --             getPolicyResponse
@@ -162,6 +168,11 @@ requestAssociateAdminAccount :: AssociateAdminAccount -> TestTree
 requestAssociateAdminAccount = req
     "AssociateAdminAccount"
     "fixture/AssociateAdminAccount.yaml"
+
+requestListMemberAccounts :: ListMemberAccounts -> TestTree
+requestListMemberAccounts = req
+    "ListMemberAccounts"
+    "fixture/ListMemberAccounts.yaml"
 
 requestGetPolicy :: GetPolicy -> TestTree
 requestGetPolicy = req
@@ -246,6 +257,13 @@ responseAssociateAdminAccount = res
     "fixture/AssociateAdminAccountResponse.proto"
     fms
     (Proxy :: Proxy AssociateAdminAccount)
+
+responseListMemberAccounts :: ListMemberAccountsResponse -> TestTree
+responseListMemberAccounts = res
+    "ListMemberAccountsResponse"
+    "fixture/ListMemberAccountsResponse.proto"
+    fms
+    (Proxy :: Proxy ListMemberAccounts)
 
 responseGetPolicy :: GetPolicyResponse -> TestTree
 responseGetPolicy = res

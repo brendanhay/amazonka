@@ -21,6 +21,8 @@
 -- Returns an array of @PolicySummary@ objects in the response.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.FMS.ListPolicies
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.FMS.ListPolicies
 import Network.AWS.FMS.Types
 import Network.AWS.FMS.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,6 +75,13 @@ lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a})
 -- | Specifies the number of @PolicySummary@ objects that you want AWS Firewall Manager to return for this request. If you have more @PolicySummary@ objects than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of @PolicySummary@ objects.
 lpMaxResults :: Lens' ListPolicies (Maybe Natural)
 lpMaxResults = lens _lpMaxResults (\ s a -> s{_lpMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListPolicies where
+        page rq rs
+          | stop (rs ^. lprsNextToken) = Nothing
+          | stop (rs ^. lprsPolicyList) = Nothing
+          | otherwise =
+            Just $ rq & lpNextToken .~ rs ^. lprsNextToken
 
 instance AWSRequest ListPolicies where
         type Rs ListPolicies = ListPoliciesResponse

@@ -54,6 +54,7 @@ library
         , Network.AWS.FMS.GetNotificationChannel
         , Network.AWS.FMS.GetPolicy
         , Network.AWS.FMS.ListComplianceStatus
+        , Network.AWS.FMS.ListMemberAccounts
         , Network.AWS.FMS.ListPolicies
         , Network.AWS.FMS.PutNotificationChannel
         , Network.AWS.FMS.PutPolicy

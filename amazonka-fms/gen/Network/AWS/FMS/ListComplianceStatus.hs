@@ -21,6 +21,8 @@
 -- Returns an array of @PolicyComplianceStatus@ objects in the response. Use @PolicyComplianceStatus@ to get a summary of which member accounts are protected by the specified policy.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.FMS.ListComplianceStatus
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.FMS.ListComplianceStatus
 import Network.AWS.FMS.Types
 import Network.AWS.FMS.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -86,6 +89,14 @@ lcsMaxResults = lens _lcsMaxResults (\ s a -> s{_lcsMaxResults = a}) . mapping _
 -- | The ID of the AWS Firewall Manager policy that you want the details for.
 lcsPolicyId :: Lens' ListComplianceStatus Text
 lcsPolicyId = lens _lcsPolicyId (\ s a -> s{_lcsPolicyId = a})
+
+instance AWSPager ListComplianceStatus where
+        page rq rs
+          | stop (rs ^. lcsrsNextToken) = Nothing
+          | stop (rs ^. lcsrsPolicyComplianceStatusList) =
+            Nothing
+          | otherwise =
+            Just $ rq & lcsNextToken .~ rs ^. lcsrsNextToken
 
 instance AWSRequest ListComplianceStatus where
         type Rs ListComplianceStatus =

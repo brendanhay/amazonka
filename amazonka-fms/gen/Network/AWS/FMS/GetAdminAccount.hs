@@ -32,6 +32,7 @@ module Network.AWS.FMS.GetAdminAccount
     , GetAdminAccountResponse
     -- * Response Lenses
     , gaarsAdminAccount
+    , gaarsRoleStatus
     , gaarsResponseStatus
     ) where
 
@@ -62,7 +63,8 @@ instance AWSRequest GetAdminAccount where
           = receiveJSON
               (\ s h x ->
                  GetAdminAccountResponse' <$>
-                   (x .?> "AdminAccount") <*> (pure (fromEnum s)))
+                   (x .?> "AdminAccount") <*> (x .?> "RoleStatus") <*>
+                     (pure (fromEnum s)))
 
 instance Hashable GetAdminAccount where
 
@@ -89,6 +91,7 @@ instance ToQuery GetAdminAccount where
 -- | /See:/ 'getAdminAccountResponse' smart constructor.
 data GetAdminAccountResponse = GetAdminAccountResponse'
   { _gaarsAdminAccount   :: !(Maybe Text)
+  , _gaarsRoleStatus     :: !(Maybe AccountRoleStatus)
   , _gaarsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -99,18 +102,27 @@ data GetAdminAccountResponse = GetAdminAccountResponse'
 --
 -- * 'gaarsAdminAccount' - The AWS account that is set as the AWS Firewall Manager administrator.
 --
+-- * 'gaarsRoleStatus' - The status of the AWS account that you set as the AWS Firewall Manager administrator.
+--
 -- * 'gaarsResponseStatus' - -- | The response status code.
 getAdminAccountResponse
     :: Int -- ^ 'gaarsResponseStatus'
     -> GetAdminAccountResponse
 getAdminAccountResponse pResponseStatus_ =
   GetAdminAccountResponse'
-    {_gaarsAdminAccount = Nothing, _gaarsResponseStatus = pResponseStatus_}
+    { _gaarsAdminAccount = Nothing
+    , _gaarsRoleStatus = Nothing
+    , _gaarsResponseStatus = pResponseStatus_
+    }
 
 
 -- | The AWS account that is set as the AWS Firewall Manager administrator.
 gaarsAdminAccount :: Lens' GetAdminAccountResponse (Maybe Text)
 gaarsAdminAccount = lens _gaarsAdminAccount (\ s a -> s{_gaarsAdminAccount = a})
+
+-- | The status of the AWS account that you set as the AWS Firewall Manager administrator.
+gaarsRoleStatus :: Lens' GetAdminAccountResponse (Maybe AccountRoleStatus)
+gaarsRoleStatus = lens _gaarsRoleStatus (\ s a -> s{_gaarsRoleStatus = a})
 
 -- | -- | The response status code.
 gaarsResponseStatus :: Lens' GetAdminAccountResponse Int

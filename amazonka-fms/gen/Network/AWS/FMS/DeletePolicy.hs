@@ -27,6 +27,7 @@ module Network.AWS.FMS.DeletePolicy
       deletePolicy
     , DeletePolicy
     -- * Request Lenses
+    , dpDeleteAllPolicyResources
     , dpPolicyId
 
     -- * Destructuring the Response
@@ -42,8 +43,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'deletePolicy' smart constructor.
-newtype DeletePolicy = DeletePolicy'
-  { _dpPolicyId :: Text
+data DeletePolicy = DeletePolicy'
+  { _dpDeleteAllPolicyResources :: !(Maybe Bool)
+  , _dpPolicyId                 :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -51,12 +53,20 @@ newtype DeletePolicy = DeletePolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dpDeleteAllPolicyResources' - If @True@ , the request will also delete all web ACLs in this policy. Associated resources will no longer be protected by web ACLs in this policy.
+--
 -- * 'dpPolicyId' - The ID of the policy that you want to delete. @PolicyId@ is returned by @PutPolicy@ and by @ListPolicies@ .
 deletePolicy
     :: Text -- ^ 'dpPolicyId'
     -> DeletePolicy
-deletePolicy pPolicyId_ = DeletePolicy' {_dpPolicyId = pPolicyId_}
+deletePolicy pPolicyId_ =
+  DeletePolicy'
+    {_dpDeleteAllPolicyResources = Nothing, _dpPolicyId = pPolicyId_}
 
+
+-- | If @True@ , the request will also delete all web ACLs in this policy. Associated resources will no longer be protected by web ACLs in this policy.
+dpDeleteAllPolicyResources :: Lens' DeletePolicy (Maybe Bool)
+dpDeleteAllPolicyResources = lens _dpDeleteAllPolicyResources (\ s a -> s{_dpDeleteAllPolicyResources = a})
 
 -- | The ID of the policy that you want to delete. @PolicyId@ is returned by @PutPolicy@ and by @ListPolicies@ .
 dpPolicyId :: Lens' DeletePolicy Text
@@ -83,7 +93,10 @@ instance ToHeaders DeletePolicy where
 instance ToJSON DeletePolicy where
         toJSON DeletePolicy'{..}
           = object
-              (catMaybes [Just ("PolicyId" .= _dpPolicyId)])
+              (catMaybes
+                 [("DeleteAllPolicyResources" .=) <$>
+                    _dpDeleteAllPolicyResources,
+                  Just ("PolicyId" .= _dpPolicyId)])
 
 instance ToPath DeletePolicy where
         toPath = const "/"

@@ -19,8 +19,18 @@ module Network.AWS.FMS.Types
     , _InternalErrorException
     , _InvalidInputException
     , _InvalidOperationException
+    , _InvalidTypeException
     , _ResourceNotFoundException
     , _LimitExceededException
+
+    -- * AccountRoleStatus
+    , AccountRoleStatus (..)
+
+    -- * CustomerPolicyScopeIdType
+    , CustomerPolicyScopeIdType (..)
+
+    -- * DependentServiceName
+    , DependentServiceName (..)
 
     -- * PolicyComplianceStatusType
     , PolicyComplianceStatusType (..)
@@ -51,6 +61,8 @@ module Network.AWS.FMS.Types
     , pPolicyId
     , pResourceTags
     , pPolicyUpdateToken
+    , pExcludeMap
+    , pIncludeMap
     , pPolicyName
     , pSecurityServicePolicyData
     , pResourceType
@@ -64,6 +76,7 @@ module Network.AWS.FMS.Types
     , pcdPolicyId
     , pcdViolators
     , pcdEvaluationLimitExceeded
+    , pcdIssueInfoMap
     , pcdPolicyOwner
     , pcdMemberAccount
 
@@ -74,6 +87,7 @@ module Network.AWS.FMS.Types
     , pcsLastUpdated
     , pcsPolicyName
     , pcsPolicyId
+    , pcsIssueInfoMap
     , pcsPolicyOwner
     , pcsMemberAccount
 
@@ -164,6 +178,13 @@ _InvalidInputException = _MatchServiceError fms "InvalidInputException"
 --
 _InvalidOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidOperationException = _MatchServiceError fms "InvalidOperationException"
+
+
+-- | The value of the @Type@ parameter is invalid.
+--
+--
+_InvalidTypeException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidTypeException = _MatchServiceError fms "InvalidTypeException"
 
 
 -- | The specified resource was not found.

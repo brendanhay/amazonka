@@ -19,6 +19,96 @@ module Network.AWS.FMS.Types.Sum where
 
 import Network.AWS.Prelude
 
+data AccountRoleStatus
+  = Creating
+  | Deleted
+  | Deleting
+  | PendingDeletion
+  | Ready
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AccountRoleStatus where
+    parser = takeLowerText >>= \case
+        "creating" -> pure Creating
+        "deleted" -> pure Deleted
+        "deleting" -> pure Deleting
+        "pending_deletion" -> pure PendingDeletion
+        "ready" -> pure Ready
+        e -> fromTextError $ "Failure parsing AccountRoleStatus from value: '" <> e
+           <> "'. Accepted values: creating, deleted, deleting, pending_deletion, ready"
+
+instance ToText AccountRoleStatus where
+    toText = \case
+        Creating -> "CREATING"
+        Deleted -> "DELETED"
+        Deleting -> "DELETING"
+        PendingDeletion -> "PENDING_DELETION"
+        Ready -> "READY"
+
+instance Hashable     AccountRoleStatus
+instance NFData       AccountRoleStatus
+instance ToByteString AccountRoleStatus
+instance ToQuery      AccountRoleStatus
+instance ToHeader     AccountRoleStatus
+
+instance FromJSON AccountRoleStatus where
+    parseJSON = parseJSONText "AccountRoleStatus"
+
+data CustomerPolicyScopeIdType =
+  Account
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CustomerPolicyScopeIdType where
+    parser = takeLowerText >>= \case
+        "account" -> pure Account
+        e -> fromTextError $ "Failure parsing CustomerPolicyScopeIdType from value: '" <> e
+           <> "'. Accepted values: account"
+
+instance ToText CustomerPolicyScopeIdType where
+    toText = \case
+        Account -> "ACCOUNT"
+
+instance Hashable     CustomerPolicyScopeIdType
+instance NFData       CustomerPolicyScopeIdType
+instance ToByteString CustomerPolicyScopeIdType
+instance ToQuery      CustomerPolicyScopeIdType
+instance ToHeader     CustomerPolicyScopeIdType
+
+instance ToJSON CustomerPolicyScopeIdType where
+    toJSON = toJSONText
+
+instance FromJSON CustomerPolicyScopeIdType where
+    parseJSON = parseJSONText "CustomerPolicyScopeIdType"
+
+data DependentServiceName
+  = AWSconfig
+  | AWSwaf
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DependentServiceName where
+    parser = takeLowerText >>= \case
+        "awsconfig" -> pure AWSconfig
+        "awswaf" -> pure AWSwaf
+        e -> fromTextError $ "Failure parsing DependentServiceName from value: '" <> e
+           <> "'. Accepted values: awsconfig, awswaf"
+
+instance ToText DependentServiceName where
+    toText = \case
+        AWSconfig -> "AWSCONFIG"
+        AWSwaf -> "AWSWAF"
+
+instance Hashable     DependentServiceName
+instance NFData       DependentServiceName
+instance ToByteString DependentServiceName
+instance ToQuery      DependentServiceName
+instance ToHeader     DependentServiceName
+
+instance FromJSON DependentServiceName where
+    parseJSON = parseJSONText "DependentServiceName"
+
 data PolicyComplianceStatusType
   = Compliant
   | NonCompliant

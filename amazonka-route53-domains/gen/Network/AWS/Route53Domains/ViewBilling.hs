@@ -21,6 +21,8 @@
 -- Returns all the domain-related billing records for the current AWS account for a specified period
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Route53Domains.ViewBilling
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.Route53Domains.ViewBilling
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -98,6 +101,13 @@ vbMarker = lens _vbMarker (\ s a -> s{_vbMarker = a})
 -- | The number of billing records to be returned. Default: 20
 vbMaxItems :: Lens' ViewBilling (Maybe Int)
 vbMaxItems = lens _vbMaxItems (\ s a -> s{_vbMaxItems = a})
+
+instance AWSPager ViewBilling where
+        page rq rs
+          | stop (rs ^. vbrsNextPageMarker) = Nothing
+          | stop (rs ^. vbrsBillingRecords) = Nothing
+          | otherwise =
+            Just $ rq & vbMarker .~ rs ^. vbrsNextPageMarker
 
 instance AWSRequest ViewBilling where
         type Rs ViewBilling = ViewBillingResponse

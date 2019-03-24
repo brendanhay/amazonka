@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.Route53Domains
 import Test.AWS.Route53Domains.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "Route53Domains"

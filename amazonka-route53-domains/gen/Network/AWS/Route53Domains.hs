@@ -71,7 +71,7 @@ module Network.AWS.Route53Domains
     -- ** RenewDomain
     , module Network.AWS.Route53Domains.RenewDomain
 
-    -- ** ViewBilling
+    -- ** ViewBilling (Paginated)
     , module Network.AWS.Route53Domains.ViewBilling
 
     -- ** UpdateDomainContact

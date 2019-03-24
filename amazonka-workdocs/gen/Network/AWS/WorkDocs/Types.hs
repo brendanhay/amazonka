@@ -27,12 +27,15 @@ module Network.AWS.WorkDocs.Types
     , _FailedDependencyException
     , _DocumentLockedForCommentsException
     , _EntityNotExistsException
+    , _ConflictingOperationException
     , _DeactivatingLastSystemUserException
     , _IllegalUserStateException
     , _StorageLimitWillExceedException
     , _ConcurrentModificationException
+    , _RequestedEntityTooLargeException
     , _StorageLimitExceededException
     , _ServiceUnavailableException
+    , _InvalidCommentOperationException
     , _InvalidOperationException
     , _UnauthorizedOperationException
     , _DraftUploadOutOfSyncException
@@ -74,6 +77,9 @@ module Network.AWS.WorkDocs.Types
 
     -- * PrincipalType
     , PrincipalType (..)
+
+    -- * ResourceCollectionType
+    , ResourceCollectionType (..)
 
     -- * ResourceSortType
     , ResourceSortType (..)
@@ -118,6 +124,7 @@ module Network.AWS.WorkDocs.Types
     , Activity
     , activity
     , aResourceMetadata
+    , aIsIndirectActivity
     , aInitiator
     , aParticipants
     , aOriginalParent
@@ -257,6 +264,7 @@ module Network.AWS.WorkDocs.Types
     , shareResult
     , srStatus
     , srPrincipalId
+    , srInviteePrincipalId
     , srRole
     , srStatusMessage
     , srShareId
@@ -452,6 +460,14 @@ _EntityNotExistsException =
   _MatchServiceError workDocs "EntityNotExistsException" . hasStatus 404
 
 
+-- | Another operation is in progress on the resource that conflicts with the current operation.
+--
+--
+_ConflictingOperationException :: AsError a => Getting (First ServiceError) a ServiceError
+_ConflictingOperationException =
+  _MatchServiceError workDocs "ConflictingOperationException" . hasStatus 409
+
+
 -- | The last user in the organization is being deactivated.
 --
 --
@@ -485,6 +501,14 @@ _ConcurrentModificationException =
   _MatchServiceError workDocs "ConcurrentModificationException" . hasStatus 409
 
 
+-- | The response is too large to return. The request must include a filter to reduce the size of the response.
+--
+--
+_RequestedEntityTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
+_RequestedEntityTooLargeException =
+  _MatchServiceError workDocs "RequestedEntityTooLargeException" . hasStatus 413
+
+
 -- | The storage limit has been exceeded.
 --
 --
@@ -499,6 +523,14 @@ _StorageLimitExceededException =
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
   _MatchServiceError workDocs "ServiceUnavailableException" . hasStatus 503
+
+
+-- | The requested operation is not allowed on the specified comment object.
+--
+--
+_InvalidCommentOperationException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidCommentOperationException =
+  _MatchServiceError workDocs "InvalidCommentOperationException" . hasStatus 409
 
 
 -- | The operation is invalid.

@@ -38,7 +38,9 @@ data ActivityType
   | DocumentShared
   | DocumentUnshared
   | DocumentVersionDeleted
+  | DocumentVersionDownloaded
   | DocumentVersionUploaded
+  | DocumentVersionViewed
   | FolderCreated
   | FolderDeleted
   | FolderMoved
@@ -74,7 +76,9 @@ instance FromText ActivityType where
         "document_shared" -> pure DocumentShared
         "document_unshared" -> pure DocumentUnshared
         "document_version_deleted" -> pure DocumentVersionDeleted
+        "document_version_downloaded" -> pure DocumentVersionDownloaded
         "document_version_uploaded" -> pure DocumentVersionUploaded
+        "document_version_viewed" -> pure DocumentVersionViewed
         "folder_created" -> pure FolderCreated
         "folder_deleted" -> pure FolderDeleted
         "folder_moved" -> pure FolderMoved
@@ -88,7 +92,7 @@ instance FromText ActivityType where
         "folder_shared" -> pure FolderShared
         "folder_unshared" -> pure FolderUnshared
         e -> fromTextError $ "Failure parsing ActivityType from value: '" <> e
-           <> "'. Accepted values: document_annotation_added, document_annotation_deleted, document_checked_in, document_checked_out, document_comment_added, document_comment_deleted, document_moved, document_recycled, document_renamed, document_restored, document_reverted, document_share_permission_changed, document_shareable_link_created, document_shareable_link_permission_changed, document_shareable_link_removed, document_shared, document_unshared, document_version_deleted, document_version_uploaded, folder_created, folder_deleted, folder_moved, folder_recycled, folder_renamed, folder_restored, folder_share_permission_changed, folder_shareable_link_created, folder_shareable_link_permission_changed, folder_shareable_link_removed, folder_shared, folder_unshared"
+           <> "'. Accepted values: document_annotation_added, document_annotation_deleted, document_checked_in, document_checked_out, document_comment_added, document_comment_deleted, document_moved, document_recycled, document_renamed, document_restored, document_reverted, document_share_permission_changed, document_shareable_link_created, document_shareable_link_permission_changed, document_shareable_link_removed, document_shared, document_unshared, document_version_deleted, document_version_downloaded, document_version_uploaded, document_version_viewed, folder_created, folder_deleted, folder_moved, folder_recycled, folder_renamed, folder_restored, folder_share_permission_changed, folder_shareable_link_created, folder_shareable_link_permission_changed, folder_shareable_link_removed, folder_shared, folder_unshared"
 
 instance ToText ActivityType where
     toText = \case
@@ -110,7 +114,9 @@ instance ToText ActivityType where
         DocumentShared -> "DOCUMENT_SHARED"
         DocumentUnshared -> "DOCUMENT_UNSHARED"
         DocumentVersionDeleted -> "DOCUMENT_VERSION_DELETED"
+        DocumentVersionDownloaded -> "DOCUMENT_VERSION_DOWNLOADED"
         DocumentVersionUploaded -> "DOCUMENT_VERSION_UPLOADED"
+        DocumentVersionViewed -> "DOCUMENT_VERSION_VIEWED"
         FolderCreated -> "FOLDER_CREATED"
         FolderDeleted -> "FOLDER_DELETED"
         FolderMoved -> "FOLDER_MOVED"
@@ -480,6 +486,30 @@ instance ToJSON PrincipalType where
 
 instance FromJSON PrincipalType where
     parseJSON = parseJSONText "PrincipalType"
+
+data ResourceCollectionType =
+  SharedWithMe
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ResourceCollectionType where
+    parser = takeLowerText >>= \case
+        "shared_with_me" -> pure SharedWithMe
+        e -> fromTextError $ "Failure parsing ResourceCollectionType from value: '" <> e
+           <> "'. Accepted values: shared_with_me"
+
+instance ToText ResourceCollectionType where
+    toText = \case
+        SharedWithMe -> "SHARED_WITH_ME"
+
+instance Hashable     ResourceCollectionType
+instance NFData       ResourceCollectionType
+instance ToByteString ResourceCollectionType
+instance ToQuery      ResourceCollectionType
+instance ToHeader     ResourceCollectionType
+
+instance ToJSON ResourceCollectionType where
+    toJSON = toJSONText
 
 data ResourceSortType
   = Date

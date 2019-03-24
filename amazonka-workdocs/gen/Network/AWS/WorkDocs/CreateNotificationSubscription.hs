@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configure WorkDocs to use Amazon SNS notifications.
+-- Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a confirmation message, and must confirm the subscription.
 --
 --
--- The endpoint receives a confirmation message, and must confirm the subscription. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.confirm Confirm the Subscription> in the /Amazon Simple Notification Service Developer Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/workdocs/latest/developerguide/subscribe-notifications.html Subscribe to Notifications> in the /Amazon WorkDocs Developer Guide/ .
 --
 module Network.AWS.WorkDocs.CreateNotificationSubscription
     (
@@ -64,7 +64,7 @@ data CreateNotificationSubscription = CreateNotificationSubscription'
 --
 -- * 'cnsOrganizationId' - The ID of the organization.
 --
--- * 'cnsEndpoint' - The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint is a URL that begins with "https://".
+-- * 'cnsEndpoint' - The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint is a URL that begins with @https@ .
 --
 -- * 'cnsProtocol' - The protocol to use. The supported value is https, which delivers JSON-encoded messages using HTTPS POST.
 --
@@ -88,7 +88,7 @@ createNotificationSubscription pOrganizationId_ pEndpoint_ pProtocol_ pSubscript
 cnsOrganizationId :: Lens' CreateNotificationSubscription Text
 cnsOrganizationId = lens _cnsOrganizationId (\ s a -> s{_cnsOrganizationId = a})
 
--- | The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint is a URL that begins with "https://".
+-- | The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint is a URL that begins with @https@ .
 cnsEndpoint :: Lens' CreateNotificationSubscription Text
 cnsEndpoint = lens _cnsEndpoint (\ s a -> s{_cnsEndpoint = a})
 

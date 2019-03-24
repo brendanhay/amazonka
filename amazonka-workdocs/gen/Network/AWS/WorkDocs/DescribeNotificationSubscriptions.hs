@@ -21,6 +21,8 @@
 -- Lists the specified notification subscriptions.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WorkDocs.DescribeNotificationSubscriptions
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.WorkDocs.DescribeNotificationSubscriptions
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -83,6 +86,14 @@ dLimit = lens _dLimit (\ s a -> s{_dLimit = a}) . mapping _Nat
 -- | The ID of the organization.
 dOrganizationId :: Lens' DescribeNotificationSubscriptions Text
 dOrganizationId = lens _dOrganizationId (\ s a -> s{_dOrganizationId = a})
+
+instance AWSPager DescribeNotificationSubscriptions
+         where
+        page rq rs
+          | stop (rs ^. dnsrsMarker) = Nothing
+          | stop (rs ^. dnsrsSubscriptions) = Nothing
+          | otherwise =
+            Just $ rq & dMarker .~ rs ^. dnsrsMarker
 
 instance AWSRequest DescribeNotificationSubscriptions
          where

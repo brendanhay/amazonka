@@ -78,6 +78,7 @@ library
         , Network.AWS.WorkDocs.GetDocumentVersion
         , Network.AWS.WorkDocs.GetFolder
         , Network.AWS.WorkDocs.GetFolderPath
+        , Network.AWS.WorkDocs.GetResources
         , Network.AWS.WorkDocs.InitiateDocumentVersionUpload
         , Network.AWS.WorkDocs.RemoveAllResourcePermissions
         , Network.AWS.WorkDocs.RemoveResourcePermission

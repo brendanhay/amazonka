@@ -65,6 +65,9 @@ module Network.AWS.WorkDocs
     -- ** EntityNotExistsException
     , _EntityNotExistsException
 
+    -- ** ConflictingOperationException
+    , _ConflictingOperationException
+
     -- ** DeactivatingLastSystemUserException
     , _DeactivatingLastSystemUserException
 
@@ -77,11 +80,17 @@ module Network.AWS.WorkDocs
     -- ** ConcurrentModificationException
     , _ConcurrentModificationException
 
+    -- ** RequestedEntityTooLargeException
+    , _RequestedEntityTooLargeException
+
     -- ** StorageLimitExceededException
     , _StorageLimitExceededException
 
     -- ** ServiceUnavailableException
     , _ServiceUnavailableException
+
+    -- ** InvalidCommentOperationException
+    , _InvalidCommentOperationException
 
     -- ** InvalidOperationException
     , _InvalidOperationException
@@ -128,7 +137,7 @@ module Network.AWS.WorkDocs
     -- ** DeleteCustomMetadata
     , module Network.AWS.WorkDocs.DeleteCustomMetadata
 
-    -- ** DescribeResourcePermissions
+    -- ** DescribeResourcePermissions (Paginated)
     , module Network.AWS.WorkDocs.DescribeResourcePermissions
 
     -- ** DeleteNotificationSubscription
@@ -146,7 +155,7 @@ module Network.AWS.WorkDocs
     -- ** GetFolderPath
     , module Network.AWS.WorkDocs.GetFolderPath
 
-    -- ** DescribeComments
+    -- ** DescribeComments (Paginated)
     , module Network.AWS.WorkDocs.DescribeComments
 
     -- ** DeleteFolderContents
@@ -158,7 +167,7 @@ module Network.AWS.WorkDocs
     -- ** GetFolder
     , module Network.AWS.WorkDocs.GetFolder
 
-    -- ** DescribeNotificationSubscriptions
+    -- ** DescribeNotificationSubscriptions (Paginated)
     , module Network.AWS.WorkDocs.DescribeNotificationSubscriptions
 
     -- ** ActivateUser
@@ -170,10 +179,10 @@ module Network.AWS.WorkDocs
     -- ** GetDocumentVersion
     , module Network.AWS.WorkDocs.GetDocumentVersion
 
-    -- ** DescribeActivities
+    -- ** DescribeActivities (Paginated)
     , module Network.AWS.WorkDocs.DescribeActivities
 
-    -- ** DescribeRootFolders
+    -- ** DescribeRootFolders (Paginated)
     , module Network.AWS.WorkDocs.DescribeRootFolders
 
     -- ** GetCurrentUser
@@ -196,6 +205,9 @@ module Network.AWS.WorkDocs
 
     -- ** RemoveResourcePermission
     , module Network.AWS.WorkDocs.RemoveResourcePermission
+
+    -- ** GetResources
+    , module Network.AWS.WorkDocs.GetResources
 
     -- ** DeleteComment
     , module Network.AWS.WorkDocs.DeleteComment
@@ -221,7 +233,7 @@ module Network.AWS.WorkDocs
     -- ** DeleteDocument
     , module Network.AWS.WorkDocs.DeleteDocument
 
-    -- ** DescribeGroups
+    -- ** DescribeGroups (Paginated)
     , module Network.AWS.WorkDocs.DescribeGroups
 
     -- * Types
@@ -261,6 +273,9 @@ module Network.AWS.WorkDocs
 
     -- ** PrincipalType
     , PrincipalType (..)
+
+    -- ** ResourceCollectionType
+    , ResourceCollectionType (..)
 
     -- ** ResourceSortType
     , ResourceSortType (..)
@@ -305,6 +320,7 @@ module Network.AWS.WorkDocs
     , Activity
     , activity
     , aResourceMetadata
+    , aIsIndirectActivity
     , aInitiator
     , aParticipants
     , aOriginalParent
@@ -444,6 +460,7 @@ module Network.AWS.WorkDocs
     , shareResult
     , srStatus
     , srPrincipalId
+    , srInviteePrincipalId
     , srRole
     , srStatusMessage
     , srShareId
@@ -535,6 +552,7 @@ import Network.AWS.WorkDocs.GetDocumentPath
 import Network.AWS.WorkDocs.GetDocumentVersion
 import Network.AWS.WorkDocs.GetFolder
 import Network.AWS.WorkDocs.GetFolderPath
+import Network.AWS.WorkDocs.GetResources
 import Network.AWS.WorkDocs.InitiateDocumentVersionUpload
 import Network.AWS.WorkDocs.RemoveAllResourcePermissions
 import Network.AWS.WorkDocs.RemoveResourcePermission

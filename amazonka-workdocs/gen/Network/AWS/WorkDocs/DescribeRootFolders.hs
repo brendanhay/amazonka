@@ -21,6 +21,10 @@
 -- Describes the current user's special folders; the @RootFolder@ and the @RecycleBin@ . @RootFolder@ is the root of user's files and folders and @RecycleBin@ is the root of recycled items. This is not a valid action for SigV4 (administrative API) clients.
 --
 --
+-- This action requires an authentication token. To get an authentication token, register an application with Amazon WorkDocs. For more information, see <https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html Authentication and Access Control for User Applications> in the /Amazon WorkDocs Developer Guide/ .
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.WorkDocs.DescribeRootFolders
     (
     -- * Creating a Request
@@ -41,6 +45,7 @@ module Network.AWS.WorkDocs.DescribeRootFolders
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -86,6 +91,13 @@ drfLimit = lens _drfLimit (\ s a -> s{_drfLimit = a}) . mapping _Nat
 -- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 drfAuthenticationToken :: Lens' DescribeRootFolders Text
 drfAuthenticationToken = lens _drfAuthenticationToken (\ s a -> s{_drfAuthenticationToken = a}) . _Sensitive
+
+instance AWSPager DescribeRootFolders where
+        page rq rs
+          | stop (rs ^. drfrsMarker) = Nothing
+          | stop (rs ^. drfrsFolders) = Nothing
+          | otherwise =
+            Just $ rq & drfMarker .~ rs ^. drfrsMarker
 
 instance AWSRequest DescribeRootFolders where
         type Rs DescribeRootFolders =

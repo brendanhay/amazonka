@@ -21,6 +21,8 @@
 -- Describes the permissions of a specified resource.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WorkDocs.DescribeResourcePermissions
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.WorkDocs.DescribeResourcePermissions
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -104,6 +107,13 @@ drpLimit = lens _drpLimit (\ s a -> s{_drpLimit = a}) . mapping _Nat
 -- | The ID of the resource.
 drpResourceId :: Lens' DescribeResourcePermissions Text
 drpResourceId = lens _drpResourceId (\ s a -> s{_drpResourceId = a})
+
+instance AWSPager DescribeResourcePermissions where
+        page rq rs
+          | stop (rs ^. drprsMarker) = Nothing
+          | stop (rs ^. drprsPrincipals) = Nothing
+          | otherwise =
+            Just $ rq & drpMarker .~ rs ^. drprsMarker
 
 instance AWSRequest DescribeResourcePermissions where
         type Rs DescribeResourcePermissions =

@@ -27,14 +27,15 @@ import Network.AWS.WorkDocs.Types.Sum
 --
 -- /See:/ 'activity' smart constructor.
 data Activity = Activity'
-  { _aResourceMetadata :: !(Maybe ResourceMetadata)
-  , _aInitiator        :: !(Maybe UserMetadata)
-  , _aParticipants     :: !(Maybe Participants)
-  , _aOriginalParent   :: !(Maybe ResourceMetadata)
-  , _aType             :: !(Maybe ActivityType)
-  , _aCommentMetadata  :: !(Maybe CommentMetadata)
-  , _aTimeStamp        :: !(Maybe POSIX)
-  , _aOrganizationId   :: !(Maybe Text)
+  { _aResourceMetadata   :: !(Maybe ResourceMetadata)
+  , _aIsIndirectActivity :: !(Maybe Bool)
+  , _aInitiator          :: !(Maybe UserMetadata)
+  , _aParticipants       :: !(Maybe Participants)
+  , _aOriginalParent     :: !(Maybe ResourceMetadata)
+  , _aType               :: !(Maybe ActivityType)
+  , _aCommentMetadata    :: !(Maybe CommentMetadata)
+  , _aTimeStamp          :: !(Maybe POSIX)
+  , _aOrganizationId     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -43,6 +44,8 @@ data Activity = Activity'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'aResourceMetadata' - The metadata of the resource involved in the user action.
+--
+-- * 'aIsIndirectActivity' - Indicates whether an activity is indirect or direct. An indirect activity results from a direct activity performed on a parent resource. For example, sharing a parent folder (the direct activity) shares all of the subfolders and documents within the parent folder (the indirect activity).
 --
 -- * 'aInitiator' - The user who performed the action.
 --
@@ -62,6 +65,7 @@ activity
 activity =
   Activity'
     { _aResourceMetadata = Nothing
+    , _aIsIndirectActivity = Nothing
     , _aInitiator = Nothing
     , _aParticipants = Nothing
     , _aOriginalParent = Nothing
@@ -75,6 +79,10 @@ activity =
 -- | The metadata of the resource involved in the user action.
 aResourceMetadata :: Lens' Activity (Maybe ResourceMetadata)
 aResourceMetadata = lens _aResourceMetadata (\ s a -> s{_aResourceMetadata = a})
+
+-- | Indicates whether an activity is indirect or direct. An indirect activity results from a direct activity performed on a parent resource. For example, sharing a parent folder (the direct activity) shares all of the subfolders and documents within the parent folder (the indirect activity).
+aIsIndirectActivity :: Lens' Activity (Maybe Bool)
+aIsIndirectActivity = lens _aIsIndirectActivity (\ s a -> s{_aIsIndirectActivity = a})
 
 -- | The user who performed the action.
 aInitiator :: Lens' Activity (Maybe UserMetadata)
@@ -109,7 +117,9 @@ instance FromJSON Activity where
           = withObject "Activity"
               (\ x ->
                  Activity' <$>
-                   (x .:? "ResourceMetadata") <*> (x .:? "Initiator")
+                   (x .:? "ResourceMetadata") <*>
+                     (x .:? "IsIndirectActivity")
+                     <*> (x .:? "Initiator")
                      <*> (x .:? "Participants")
                      <*> (x .:? "OriginalParent")
                      <*> (x .:? "Type")
@@ -1123,11 +1133,12 @@ instance ToJSON SharePrincipal where
 --
 -- /See:/ 'shareResult' smart constructor.
 data ShareResult = ShareResult'
-  { _srStatus        :: !(Maybe ShareStatusType)
-  , _srPrincipalId   :: !(Maybe Text)
-  , _srRole          :: !(Maybe RoleType)
-  , _srStatusMessage :: !(Maybe (Sensitive Text))
-  , _srShareId       :: !(Maybe Text)
+  { _srStatus             :: !(Maybe ShareStatusType)
+  , _srPrincipalId        :: !(Maybe Text)
+  , _srInviteePrincipalId :: !(Maybe Text)
+  , _srRole               :: !(Maybe RoleType)
+  , _srStatusMessage      :: !(Maybe (Sensitive Text))
+  , _srShareId            :: !(Maybe Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -1138,6 +1149,8 @@ data ShareResult = ShareResult'
 -- * 'srStatus' - The status.
 --
 -- * 'srPrincipalId' - The ID of the principal.
+--
+-- * 'srInviteePrincipalId' - The ID of the invited user.
 --
 -- * 'srRole' - The role.
 --
@@ -1150,6 +1163,7 @@ shareResult =
   ShareResult'
     { _srStatus = Nothing
     , _srPrincipalId = Nothing
+    , _srInviteePrincipalId = Nothing
     , _srRole = Nothing
     , _srStatusMessage = Nothing
     , _srShareId = Nothing
@@ -1163,6 +1177,10 @@ srStatus = lens _srStatus (\ s a -> s{_srStatus = a})
 -- | The ID of the principal.
 srPrincipalId :: Lens' ShareResult (Maybe Text)
 srPrincipalId = lens _srPrincipalId (\ s a -> s{_srPrincipalId = a})
+
+-- | The ID of the invited user.
+srInviteePrincipalId :: Lens' ShareResult (Maybe Text)
+srInviteePrincipalId = lens _srInviteePrincipalId (\ s a -> s{_srInviteePrincipalId = a})
 
 -- | The role.
 srRole :: Lens' ShareResult (Maybe RoleType)
@@ -1182,7 +1200,8 @@ instance FromJSON ShareResult where
               (\ x ->
                  ShareResult' <$>
                    (x .:? "Status") <*> (x .:? "PrincipalId") <*>
-                     (x .:? "Role")
+                     (x .:? "InviteePrincipalId")
+                     <*> (x .:? "Role")
                      <*> (x .:? "StatusMessage")
                      <*> (x .:? "ShareId"))
 

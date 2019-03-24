@@ -21,6 +21,8 @@
 -- List all the comments for the specified document version.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WorkDocs.DescribeComments
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.WorkDocs.DescribeComments
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -105,6 +108,13 @@ dcDocumentId = lens _dcDocumentId (\ s a -> s{_dcDocumentId = a})
 -- | The ID of the document version.
 dcVersionId :: Lens' DescribeComments Text
 dcVersionId = lens _dcVersionId (\ s a -> s{_dcVersionId = a})
+
+instance AWSPager DescribeComments where
+        page rq rs
+          | stop (rs ^. dcrsMarker) = Nothing
+          | stop (rs ^. dcrsComments) = Nothing
+          | otherwise =
+            Just $ rq & dcMarker .~ rs ^. dcrsMarker
 
 instance AWSRequest DescribeComments where
         type Rs DescribeComments = DescribeCommentsResponse

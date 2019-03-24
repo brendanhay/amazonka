@@ -33,6 +33,8 @@
 --
 --
 --
+-- Percentile statistics are not available for metrics when any of the metric values are negative numbers.
+--
 -- Amazon CloudWatch retains metric data as follows:
 --
 --     * Data points with a period of less than 60 seconds are available for 3 hours. These data points are high-resolution metrics and are available only for custom metrics that have been defined with a @StorageResolution@ of 1.
@@ -49,7 +51,7 @@
 --
 -- CloudWatch started retaining 5-minute and 1-hour metric data as of July 9, 2016.
 --
--- For information about metrics and dimensions supported by AWS services, see the <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html Amazon CloudWatch Metrics and Dimensions Reference> in the /Amazon CloudWatch User Guide/ .
+-- For information about metrics and dimensions supported by AWS services, see the <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html Amazon CloudWatch Metrics and Dimensions Reference> in the /Amazon CloudWatch User Guide/ .
 --
 module Network.AWS.CloudWatch.GetMetricStatistics
     (
@@ -101,11 +103,11 @@ data GetMetricStatistics = GetMetricStatistics'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmsExtendedStatistics' - The percentile statistics. Specify values between p0.0 and p100. When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both.
+-- * 'gmsExtendedStatistics' - The percentile statistics. Specify values between p0.0 and p100. When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both. Percentile statistics are not available for metrics when any of the metric values are negative numbers.
 --
 -- * 'gmsStatistics' - The metric statistics, other than percentile. For percentile statistics, use @ExtendedStatistics@ . When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both.
 --
--- * 'gmsDimensions' - The dimensions. If the metric contains multiple dimensions, you must include a value for each dimension. CloudWatch treats each unique combination of dimensions as a separate metric. If a specific combination of dimensions was not published, you can't retrieve statistics for it. You must specify the same dimensions that were used when the metrics were created. For an example, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations Dimension Combinations> in the /Amazon CloudWatch User Guide/ . For more information about specifying dimensions, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publishing Metrics> in the /Amazon CloudWatch User Guide/ .
+-- * 'gmsDimensions' - The dimensions. If the metric contains multiple dimensions, you must include a value for each dimension. CloudWatch treats each unique combination of dimensions as a separate metric. If a specific combination of dimensions was not published, you can't retrieve statistics for it. You must specify the same dimensions that were used when the metrics were created. For an example, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations Dimension Combinations> in the /Amazon CloudWatch User Guide/ . For more information about specifying dimensions, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publishing Metrics> in the /Amazon CloudWatch User Guide/ .
 --
 -- * 'gmsUnit' - The unit for a given metric. Metrics may be reported in multiple units. Not supplying a unit results in all units being returned. If you specify only a unit that the metric does not report, the results of the call are null.
 --
@@ -139,7 +141,7 @@ getMetricStatistics pNamespace_ pMetricName_ pStartTime_ pEndTime_ pPeriod_ =
     }
 
 
--- | The percentile statistics. Specify values between p0.0 and p100. When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both.
+-- | The percentile statistics. Specify values between p0.0 and p100. When calling @GetMetricStatistics@ , you must specify either @Statistics@ or @ExtendedStatistics@ , but not both. Percentile statistics are not available for metrics when any of the metric values are negative numbers.
 gmsExtendedStatistics :: Lens' GetMetricStatistics (Maybe (NonEmpty Text))
 gmsExtendedStatistics = lens _gmsExtendedStatistics (\ s a -> s{_gmsExtendedStatistics = a}) . mapping _List1
 
@@ -147,7 +149,7 @@ gmsExtendedStatistics = lens _gmsExtendedStatistics (\ s a -> s{_gmsExtendedStat
 gmsStatistics :: Lens' GetMetricStatistics (Maybe (NonEmpty Statistic))
 gmsStatistics = lens _gmsStatistics (\ s a -> s{_gmsStatistics = a}) . mapping _List1
 
--- | The dimensions. If the metric contains multiple dimensions, you must include a value for each dimension. CloudWatch treats each unique combination of dimensions as a separate metric. If a specific combination of dimensions was not published, you can't retrieve statistics for it. You must specify the same dimensions that were used when the metrics were created. For an example, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations Dimension Combinations> in the /Amazon CloudWatch User Guide/ . For more information about specifying dimensions, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publishing Metrics> in the /Amazon CloudWatch User Guide/ .
+-- | The dimensions. If the metric contains multiple dimensions, you must include a value for each dimension. CloudWatch treats each unique combination of dimensions as a separate metric. If a specific combination of dimensions was not published, you can't retrieve statistics for it. You must specify the same dimensions that were used when the metrics were created. For an example, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations Dimension Combinations> in the /Amazon CloudWatch User Guide/ . For more information about specifying dimensions, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publishing Metrics> in the /Amazon CloudWatch User Guide/ .
 gmsDimensions :: Lens' GetMetricStatistics [Dimension]
 gmsDimensions = lens _gmsDimensions (\ s a -> s{_gmsDimensions = a}) . _Default . _Coerce
 

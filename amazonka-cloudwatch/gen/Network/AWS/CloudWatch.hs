@@ -71,7 +71,7 @@ module Network.AWS.CloudWatch
     -- ** GetDashboard
     , module Network.AWS.CloudWatch.GetDashboard
 
-    -- ** GetMetricData
+    -- ** GetMetricData (Paginated)
     , module Network.AWS.CloudWatch.GetMetricData
 
     -- ** PutMetricData
@@ -88,6 +88,9 @@ module Network.AWS.CloudWatch
 
     -- ** DeleteDashboards
     , module Network.AWS.CloudWatch.DeleteDashboards
+
+    -- ** GetMetricWidgetImage
+    , module Network.AWS.CloudWatch.GetMetricWidgetImage
 
     -- ** DeleteAlarms
     , module Network.AWS.CloudWatch.DeleteAlarms
@@ -201,6 +204,7 @@ module Network.AWS.CloudWatch
     , metricAlarm
     , maAlarmName
     , maStateUpdatedTimestamp
+    , maMetrics
     , maTreatMissingData
     , maPeriod
     , maAlarmDescription
@@ -247,6 +251,8 @@ module Network.AWS.CloudWatch
     -- ** MetricDatum
     , MetricDatum
     , metricDatum
+    , mdValues
+    , mdCounts
     , mdValue
     , mdStorageResolution
     , mdDimensions
@@ -282,6 +288,7 @@ import Network.AWS.CloudWatch.EnableAlarmActions
 import Network.AWS.CloudWatch.GetDashboard
 import Network.AWS.CloudWatch.GetMetricData
 import Network.AWS.CloudWatch.GetMetricStatistics
+import Network.AWS.CloudWatch.GetMetricWidgetImage
 import Network.AWS.CloudWatch.ListDashboards
 import Network.AWS.CloudWatch.ListMetrics
 import Network.AWS.CloudWatch.PutDashboard

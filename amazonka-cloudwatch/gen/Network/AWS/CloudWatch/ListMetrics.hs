@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List the specified metrics. You can use the returned metrics with 'GetMetricStatistics' to obtain statistical data.
+-- List the specified metrics. You can use the returned metrics with 'GetMetricData' or 'GetMetricStatistics' to obtain statistical data.
 --
 --
 -- Up to 500 results are returned for any one call. To retrieve additional results, use the returned token with subsequent calls.
 --
--- After you create a metric, allow up to fifteen minutes before the metric appears. Statistics about the metric, however, are available sooner using 'GetMetricStatistics' .
+-- After you create a metric, allow up to fifteen minutes before the metric appears. Statistics about the metric, however, are available sooner using 'GetMetricData' or 'GetMetricStatistics' .
 --
 --
 -- This operation returns paginated results.

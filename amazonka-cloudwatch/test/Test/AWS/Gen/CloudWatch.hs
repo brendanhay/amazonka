@@ -52,6 +52,9 @@ import Test.Tasty
 --         , requestDeleteDashboards $
 --             deleteDashboards
 --
+--         , requestGetMetricWidgetImage $
+--             getMetricWidgetImage
+--
 --         , requestDeleteAlarms $
 --             deleteAlarms
 --
@@ -102,6 +105,9 @@ import Test.Tasty
 --
 --         , responseDeleteDashboards $
 --             deleteDashboardsResponse
+--
+--         , responseGetMetricWidgetImage $
+--             getMetricWidgetImageResponse
 --
 --         , responseDeleteAlarms $
 --             deleteAlarmsResponse
@@ -171,6 +177,11 @@ requestDeleteDashboards :: DeleteDashboards -> TestTree
 requestDeleteDashboards = req
     "DeleteDashboards"
     "fixture/DeleteDashboards.yaml"
+
+requestGetMetricWidgetImage :: GetMetricWidgetImage -> TestTree
+requestGetMetricWidgetImage = req
+    "GetMetricWidgetImage"
+    "fixture/GetMetricWidgetImage.yaml"
 
 requestDeleteAlarms :: DeleteAlarms -> TestTree
 requestDeleteAlarms = req
@@ -269,6 +280,13 @@ responseDeleteDashboards = res
     "fixture/DeleteDashboardsResponse.proto"
     cloudWatch
     (Proxy :: Proxy DeleteDashboards)
+
+responseGetMetricWidgetImage :: GetMetricWidgetImageResponse -> TestTree
+responseGetMetricWidgetImage = res
+    "GetMetricWidgetImageResponse"
+    "fixture/GetMetricWidgetImageResponse.proto"
+    cloudWatch
+    (Proxy :: Proxy GetMetricWidgetImage)
 
 responseDeleteAlarms :: DeleteAlarmsResponse -> TestTree
 responseDeleteAlarms = res

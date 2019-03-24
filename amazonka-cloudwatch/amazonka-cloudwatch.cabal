@@ -55,6 +55,7 @@ library
         , Network.AWS.CloudWatch.GetDashboard
         , Network.AWS.CloudWatch.GetMetricData
         , Network.AWS.CloudWatch.GetMetricStatistics
+        , Network.AWS.CloudWatch.GetMetricWidgetImage
         , Network.AWS.CloudWatch.ListDashboards
         , Network.AWS.CloudWatch.ListMetrics
         , Network.AWS.CloudWatch.PutDashboard

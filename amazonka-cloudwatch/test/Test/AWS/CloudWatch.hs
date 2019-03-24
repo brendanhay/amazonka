@@ -15,9 +15,9 @@ module Test.AWS.CloudWatch
     , fixtures
     ) where
 
-import           Network.AWS.CloudWatch
-import           Test.AWS.Gen.CloudWatch
-import           Test.Tasty
+import Network.AWS.CloudWatch
+import Test.AWS.Gen.CloudWatch
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

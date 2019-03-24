@@ -21,7 +21,7 @@
 -- Creates a dashboard if it does not already exist, or updates an existing dashboard. If you update a dashboard, the entire contents are replaced with what you specify here.
 --
 --
--- You can have up to 500 dashboards per account. All dashboards in your account are global, not region-specific.
+-- There is no limit to the number of dashboards in your account. All dashboards in your account are global, not region-specific.
 --
 -- A simple way to create a dashboard using @PutDashboard@ is to copy an existing dashboard. To copy an existing dashboard using the console, you can load the dashboard and then use the View/edit source command in the Actions menu to display the JSON block for that dashboard. Another way to copy a dashboard is to use @GetDashboard@ , and then use the data returned within @DashboardBody@ as the template for the new dashboard when you call @PutDashboard@ .
 --

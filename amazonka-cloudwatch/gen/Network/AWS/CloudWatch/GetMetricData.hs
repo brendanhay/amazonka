@@ -18,11 +18,27 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- You can use the @GetMetricData@ API to retrieve as many as 100 different metrics in a single request, with a total of as many as 100,800 datapoints. You can also optionally perform math expressions on the values of the returned statistics, to create new time series that represent new insights into your data. For example, using Lambda metrics, you could divide the Errors metric by the Invocations metric to get an error rate time series. For more information about metric math expressions, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax Metric Math Syntax and Functions> in the /Amazon CloudWatch User Guide/ .
+-- You can use the @GetMetricData@ API to retrieve as many as 100 different metrics in a single request, with a total of as many as 100,800 datapoints. You can also optionally perform math expressions on the values of the returned statistics, to create new time series that represent new insights into your data. For example, using Lambda metrics, you could divide the Errors metric by the Invocations metric to get an error rate time series. For more information about metric math expressions, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax Metric Math Syntax and Functions> in the /Amazon CloudWatch User Guide/ .
 --
 --
 -- Calls to the @GetMetricData@ API have a different pricing structure than calls to @GetMetricStatistics@ . For more information about pricing, see <https://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing> .
 --
+-- Amazon CloudWatch retains metric data as follows:
+--
+--     * Data points with a period of less than 60 seconds are available for 3 hours. These data points are high-resolution metrics and are available only for custom metrics that have been defined with a @StorageResolution@ of 1.
+--
+--     * Data points with a period of 60 seconds (1-minute) are available for 15 days.
+--
+--     * Data points with a period of 300 seconds (5-minute) are available for 63 days.
+--
+--     * Data points with a period of 3600 seconds (1 hour) are available for 455 days (15 months).
+--
+--
+--
+-- Data points that are initially published with a shorter period are aggregated together for long-term storage. For example, if you collect data using a period of 1 minute, the data remains available for 15 days with 1-minute resolution. After 15 days, this data is still available, but is aggregated and retrievable only with a resolution of 5 minutes. After 63 days, the data is further aggregated and is available with a resolution of 1 hour.
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatch.GetMetricData
     (
     -- * Creating a Request
@@ -42,12 +58,14 @@ module Network.AWS.CloudWatch.GetMetricData
     -- * Response Lenses
     , gmdrsMetricDataResults
     , gmdrsNextToken
+    , gmdrsMessages
     , gmdrsResponseStatus
     ) where
 
 import Network.AWS.CloudWatch.Types
 import Network.AWS.CloudWatch.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -75,9 +93,9 @@ data GetMetricData = GetMetricData'
 --
 -- * 'gmdMetricDataQueries' - The metric queries to be returned. A single @GetMetricData@ call can include as many as 100 @MetricDataQuery@ structures. Each of these structures can specify either a metric to retrieve, or a math expression to perform on retrieved data.
 --
--- * 'gmdStartTime' - The time stamp indicating the earliest data to be returned.
+-- * 'gmdStartTime' - The time stamp indicating the earliest data to be returned. For better performance, specify @StartTime@ and @EndTime@ values that align with the value of the metric's @Period@ and sync up with the beginning and end of an hour. For example, if the @Period@ of a metric is 5 minutes, specifying 12:05 or 12:30 as @StartTime@ can get a faster response from CloudWatch then setting 12:07 or 12:29 as the @StartTime@ .
 --
--- * 'gmdEndTime' - The time stamp indicating the latest data to be returned.
+-- * 'gmdEndTime' - The time stamp indicating the latest data to be returned. For better performance, specify @StartTime@ and @EndTime@ values that align with the value of the metric's @Period@ and sync up with the beginning and end of an hour. For example, if the @Period@ of a metric is 5 minutes, specifying 12:05 or 12:30 as @EndTime@ can get a faster response from CloudWatch then setting 12:07 or 12:29 as the @EndTime@ .
 getMetricData
     :: UTCTime -- ^ 'gmdStartTime'
     -> UTCTime -- ^ 'gmdEndTime'
@@ -109,13 +127,21 @@ gmdScanBy = lens _gmdScanBy (\ s a -> s{_gmdScanBy = a})
 gmdMetricDataQueries :: Lens' GetMetricData [MetricDataQuery]
 gmdMetricDataQueries = lens _gmdMetricDataQueries (\ s a -> s{_gmdMetricDataQueries = a}) . _Coerce
 
--- | The time stamp indicating the earliest data to be returned.
+-- | The time stamp indicating the earliest data to be returned. For better performance, specify @StartTime@ and @EndTime@ values that align with the value of the metric's @Period@ and sync up with the beginning and end of an hour. For example, if the @Period@ of a metric is 5 minutes, specifying 12:05 or 12:30 as @StartTime@ can get a faster response from CloudWatch then setting 12:07 or 12:29 as the @StartTime@ .
 gmdStartTime :: Lens' GetMetricData UTCTime
 gmdStartTime = lens _gmdStartTime (\ s a -> s{_gmdStartTime = a}) . _Time
 
--- | The time stamp indicating the latest data to be returned.
+-- | The time stamp indicating the latest data to be returned. For better performance, specify @StartTime@ and @EndTime@ values that align with the value of the metric's @Period@ and sync up with the beginning and end of an hour. For example, if the @Period@ of a metric is 5 minutes, specifying 12:05 or 12:30 as @EndTime@ can get a faster response from CloudWatch then setting 12:07 or 12:29 as the @EndTime@ .
 gmdEndTime :: Lens' GetMetricData UTCTime
 gmdEndTime = lens _gmdEndTime (\ s a -> s{_gmdEndTime = a}) . _Time
+
+instance AWSPager GetMetricData where
+        page rq rs
+          | stop (rs ^. gmdrsNextToken) = Nothing
+          | stop (rs ^. gmdrsMetricDataResults) = Nothing
+          | stop (rs ^. gmdrsMessages) = Nothing
+          | otherwise =
+            Just $ rq & gmdNextToken .~ rs ^. gmdrsNextToken
 
 instance AWSRequest GetMetricData where
         type Rs GetMetricData = GetMetricDataResponse
@@ -127,6 +153,9 @@ instance AWSRequest GetMetricData where
                    (x .@? "MetricDataResults" .!@ mempty >>=
                       may (parseXMLList "member"))
                      <*> (x .@? "NextToken")
+                     <*>
+                     (x .@? "Messages" .!@ mempty >>=
+                        may (parseXMLList "member"))
                      <*> (pure (fromEnum s)))
 
 instance Hashable GetMetricData where
@@ -155,6 +184,7 @@ instance ToQuery GetMetricData where
 data GetMetricDataResponse = GetMetricDataResponse'
   { _gmdrsMetricDataResults :: !(Maybe [MetricDataResult])
   , _gmdrsNextToken         :: !(Maybe Text)
+  , _gmdrsMessages          :: !(Maybe [MessageData])
   , _gmdrsResponseStatus    :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -167,6 +197,8 @@ data GetMetricDataResponse = GetMetricDataResponse'
 --
 -- * 'gmdrsNextToken' - A token that marks the next batch of returned results.
 --
+-- * 'gmdrsMessages' - Contains a message about the operation or the results, if the operation results in such a message. Examples of messages that may be returned include @Maximum number of allowed metrics exceeded@ and @You are not authorized to search one or more metrics@ . If there is a message, as much of the operation as possible is still executed.
+--
 -- * 'gmdrsResponseStatus' - -- | The response status code.
 getMetricDataResponse
     :: Int -- ^ 'gmdrsResponseStatus'
@@ -175,6 +207,7 @@ getMetricDataResponse pResponseStatus_ =
   GetMetricDataResponse'
     { _gmdrsMetricDataResults = Nothing
     , _gmdrsNextToken = Nothing
+    , _gmdrsMessages = Nothing
     , _gmdrsResponseStatus = pResponseStatus_
     }
 
@@ -186,6 +219,10 @@ gmdrsMetricDataResults = lens _gmdrsMetricDataResults (\ s a -> s{_gmdrsMetricDa
 -- | A token that marks the next batch of returned results.
 gmdrsNextToken :: Lens' GetMetricDataResponse (Maybe Text)
 gmdrsNextToken = lens _gmdrsNextToken (\ s a -> s{_gmdrsNextToken = a})
+
+-- | Contains a message about the operation or the results, if the operation results in such a message. Examples of messages that may be returned include @Maximum number of allowed metrics exceeded@ and @You are not authorized to search one or more metrics@ . If there is a message, as much of the operation as possible is still executed.
+gmdrsMessages :: Lens' GetMetricDataResponse [MessageData]
+gmdrsMessages = lens _gmdrsMessages (\ s a -> s{_gmdrsMessages = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 gmdrsResponseStatus :: Lens' GetMetricDataResponse Int

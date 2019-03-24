@@ -21,6 +21,8 @@
 -- Lists all the security configurations visible to this account, providing their creation dates and times, and their names. This call returns a maximum of 50 clusters per call, but returns a marker to track the paging of the cluster list across multiple ListSecurityConfigurations calls.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EMR.ListSecurityConfigurations
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.EMR.ListSecurityConfigurations
 import Network.AWS.EMR.Types
 import Network.AWS.EMR.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -64,6 +67,13 @@ listSecurityConfigurations = ListSecurityConfigurations' {_lscMarker = Nothing}
 -- | The pagination token that indicates the set of results to retrieve.
 lscMarker :: Lens' ListSecurityConfigurations (Maybe Text)
 lscMarker = lens _lscMarker (\ s a -> s{_lscMarker = a})
+
+instance AWSPager ListSecurityConfigurations where
+        page rq rs
+          | stop (rs ^. lscrsMarker) = Nothing
+          | stop (rs ^. lscrsSecurityConfigurations) = Nothing
+          | otherwise =
+            Just $ rq & lscMarker .~ rs ^. lscrsMarker
 
 instance AWSRequest ListSecurityConfigurations where
         type Rs ListSecurityConfigurations =

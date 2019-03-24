@@ -15,9 +15,9 @@ module Test.AWS.EMR
     , fixtures
     ) where
 
-import           Network.AWS.EMR
-import           Test.AWS.Gen.EMR
-import           Test.Tasty
+import Network.AWS.EMR
+import Test.AWS.Gen.EMR
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

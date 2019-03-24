@@ -67,7 +67,7 @@ module Network.AWS.EMR
     -- ** DescribeCluster
     , module Network.AWS.EMR.DescribeCluster
 
-    -- ** ListSecurityConfigurations
+    -- ** ListSecurityConfigurations (Paginated)
     , module Network.AWS.EMR.ListSecurityConfigurations
 
     -- ** CancelSteps

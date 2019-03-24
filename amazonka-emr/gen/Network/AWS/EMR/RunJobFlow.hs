@@ -110,7 +110,7 @@ data RunJobFlow = RunJobFlow'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rjfAMIVersion' - For Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, the Linux AMI is determined by the @ReleaseLabel@ specified or by @CustomAmiID@ . The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances in the job flow. For details about the AMI versions currently supported in EMR version 3.x and 2.x, see <emr/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported AMI Versions Supported in EMR> in the /Amazon EMR Developer Guide/ .  If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20), you can use the 'JobFlowInstancesConfig' @HadoopVersion@ parameter to modify the version of Hadoop from the defaults shown above.
+-- * 'rjfAMIVersion' - Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, @ReleaseLabel@ is used. To specify a custom AMI, use @CustomAmiID@ .
 --
 -- * 'rjfEBSRootVolumeSize' - The size, in GiB, of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
 --
@@ -132,7 +132,7 @@ data RunJobFlow = RunJobFlow'
 --
 -- * 'rjfBootstrapActions' - A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
 --
--- * 'rjfReleaseLabel' - The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use @AmiVersion@ instead.
+-- * 'rjfReleaseLabel' - The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster. Release labels are in the form @emr-x.x.x@ , where x.x.x is an Amazon EMR release version, for example, @emr-5.14.0@ . For more information about Amazon EMR release versions and included application versions and features, see <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/ http://docs.aws.amazon.com/emr/latest/ReleaseGuide/> . The release label applies only to Amazon EMR releases versions 4.x and later. Earlier versions use @AmiVersion@ .
 --
 -- * 'rjfRepoUpgradeOnBoot' - Applies only when @CustomAmiID@ is used. Specifies which updates from the Amazon Linux AMI package repositories to apply automatically when the instance boots using the AMI. If omitted, the default is @SECURITY@ , which indicates that only security updates are applied. If @NONE@ is specified, no updates are applied, and all updates must be applied manually.
 --
@@ -146,7 +146,7 @@ data RunJobFlow = RunJobFlow'
 --
 -- * 'rjfSupportedProducts' - A list of strings that indicates third-party software to use. For more information, see the <http://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf Amazon EMR Developer Guide> . Currently supported values are:     * "mapr-m3" - launch the job flow using MapR M3 Edition.     * "mapr-m5" - launch the job flow using MapR M5 Edition.
 --
--- * 'rjfApplications' - For Amazon EMR releases 4.0 and later. A list of applications for the cluster. Valid values are: "Hadoop", "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
+-- * 'rjfApplications' - Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/ Amazon EMR Release Guide> .
 --
 -- * 'rjfTags' - A list of tags to associate with a cluster and propagate to Amazon EC2 instances.
 --
@@ -187,7 +187,7 @@ runJobFlow pName_ pInstances_ =
     }
 
 
--- | For Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, the Linux AMI is determined by the @ReleaseLabel@ specified or by @CustomAmiID@ . The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances in the job flow. For details about the AMI versions currently supported in EMR version 3.x and 2.x, see <emr/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported AMI Versions Supported in EMR> in the /Amazon EMR Developer Guide/ .  If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20), you can use the 'JobFlowInstancesConfig' @HadoopVersion@ parameter to modify the version of Hadoop from the defaults shown above.
+-- | Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, @ReleaseLabel@ is used. To specify a custom AMI, use @CustomAmiID@ .
 rjfAMIVersion :: Lens' RunJobFlow (Maybe Text)
 rjfAMIVersion = lens _rjfAMIVersion (\ s a -> s{_rjfAMIVersion = a})
 
@@ -231,7 +231,7 @@ rjfJobFlowRole = lens _rjfJobFlowRole (\ s a -> s{_rjfJobFlowRole = a})
 rjfBootstrapActions :: Lens' RunJobFlow [BootstrapActionConfig]
 rjfBootstrapActions = lens _rjfBootstrapActions (\ s a -> s{_rjfBootstrapActions = a}) . _Default . _Coerce
 
--- | The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use @AmiVersion@ instead.
+-- | The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster. Release labels are in the form @emr-x.x.x@ , where x.x.x is an Amazon EMR release version, for example, @emr-5.14.0@ . For more information about Amazon EMR release versions and included application versions and features, see <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/ http://docs.aws.amazon.com/emr/latest/ReleaseGuide/> . The release label applies only to Amazon EMR releases versions 4.x and later. Earlier versions use @AmiVersion@ .
 rjfReleaseLabel :: Lens' RunJobFlow (Maybe Text)
 rjfReleaseLabel = lens _rjfReleaseLabel (\ s a -> s{_rjfReleaseLabel = a})
 
@@ -259,7 +259,7 @@ rjfVisibleToAllUsers = lens _rjfVisibleToAllUsers (\ s a -> s{_rjfVisibleToAllUs
 rjfSupportedProducts :: Lens' RunJobFlow [Text]
 rjfSupportedProducts = lens _rjfSupportedProducts (\ s a -> s{_rjfSupportedProducts = a}) . _Default . _Coerce
 
--- | For Amazon EMR releases 4.0 and later. A list of applications for the cluster. Valid values are: "Hadoop", "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
+-- | Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/ Amazon EMR Release Guide> .
 rjfApplications :: Lens' RunJobFlow [Application]
 rjfApplications = lens _rjfApplications (\ s a -> s{_rjfApplications = a}) . _Default . _Coerce
 

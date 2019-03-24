@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the fleets associated with the specified stack.
+-- Retrieves the name of the fleet that is associated with the specified stack.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.AppStream.ListAssociatedFleets
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.AppStream.ListAssociatedFleets
 import Network.AWS.AppStream.Types
 import Network.AWS.AppStream.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -74,6 +77,13 @@ lafNextToken = lens _lafNextToken (\ s a -> s{_lafNextToken = a})
 -- | The name of the stack.
 lafStackName :: Lens' ListAssociatedFleets Text
 lafStackName = lens _lafStackName (\ s a -> s{_lafStackName = a})
+
+instance AWSPager ListAssociatedFleets where
+        page rq rs
+          | stop (rs ^. lafrsNextToken) = Nothing
+          | stop (rs ^. lafrsNames) = Nothing
+          | otherwise =
+            Just $ rq & lafNextToken .~ rs ^. lafrsNextToken
 
 instance AWSRequest ListAssociatedFleets where
         type Rs ListAssociatedFleets =
@@ -127,7 +137,7 @@ data ListAssociatedFleetsResponse = ListAssociatedFleetsResponse'
 --
 -- * 'lafrsNextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 --
--- * 'lafrsNames' - The names of the fleets.
+-- * 'lafrsNames' - The name of the fleet.
 --
 -- * 'lafrsResponseStatus' - -- | The response status code.
 listAssociatedFleetsResponse
@@ -145,7 +155,7 @@ listAssociatedFleetsResponse pResponseStatus_ =
 lafrsNextToken :: Lens' ListAssociatedFleetsResponse (Maybe Text)
 lafrsNextToken = lens _lafrsNextToken (\ s a -> s{_lafrsNextToken = a})
 
--- | The names of the fleets.
+-- | The name of the fleet.
 lafrsNames :: Lens' ListAssociatedFleetsResponse [Text]
 lafrsNames = lens _lafrsNames (\ s a -> s{_lafrsNames = a}) . _Default . _Coerce
 

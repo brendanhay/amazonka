@@ -25,7 +25,7 @@
 --
 -- To list the current tags for your resources, use 'ListTagsForResource' . To disassociate tags from your resources, use 'UntagResource' .
 --
--- For more information about tags, see <http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources> in the /Amazon AppStream 2.0 Developer Guide/ .
+-- For more information about tags, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources> in the /Amazon AppStream 2.0 Developer Guide/ .
 --
 module Network.AWS.AppStream.TagResource
     (
@@ -63,7 +63,7 @@ data TagResource = TagResource'
 --
 -- * 'trResourceARN' - The Amazon Resource Name (ARN) of the resource.
 --
--- * 'trTags' - The tags to associate. A tag is a key-value pair (the value is optional). For example, @Environment=Test@ , or, if you do not specify a value, @Environment=@ .  If you do not specify a value, we set the value to an empty string.
+-- * 'trTags' - The tags to associate. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.  If you do not specify a value, the value is set to an empty string.
 tagResource
     :: Text -- ^ 'trResourceARN'
     -> TagResource
@@ -75,7 +75,7 @@ tagResource pResourceARN_ =
 trResourceARN :: Lens' TagResource Text
 trResourceARN = lens _trResourceARN (\ s a -> s{_trResourceARN = a})
 
--- | The tags to associate. A tag is a key-value pair (the value is optional). For example, @Environment=Test@ , or, if you do not specify a value, @Environment=@ .  If you do not specify a value, we set the value to an empty string.
+-- | The tags to associate. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.  If you do not specify a value, the value is set to an empty string.
 trTags :: Lens' TagResource (HashMap Text Text)
 trTags = lens _trTags (\ s a -> s{_trTags = a}) . _Map
 

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the stacks associated with the specified fleet.
+-- Retrieves the name of the stack with which the specified fleet is associated.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.AppStream.ListAssociatedStacks
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.AppStream.ListAssociatedStacks
 import Network.AWS.AppStream.Types
 import Network.AWS.AppStream.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -74,6 +77,13 @@ lasNextToken = lens _lasNextToken (\ s a -> s{_lasNextToken = a})
 -- | The name of the fleet.
 lasFleetName :: Lens' ListAssociatedStacks Text
 lasFleetName = lens _lasFleetName (\ s a -> s{_lasFleetName = a})
+
+instance AWSPager ListAssociatedStacks where
+        page rq rs
+          | stop (rs ^. lasrsNextToken) = Nothing
+          | stop (rs ^. lasrsNames) = Nothing
+          | otherwise =
+            Just $ rq & lasNextToken .~ rs ^. lasrsNextToken
 
 instance AWSRequest ListAssociatedStacks where
         type Rs ListAssociatedStacks =
@@ -127,7 +137,7 @@ data ListAssociatedStacksResponse = ListAssociatedStacksResponse'
 --
 -- * 'lasrsNextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 --
--- * 'lasrsNames' - The names of the stacks.
+-- * 'lasrsNames' - The name of the stack.
 --
 -- * 'lasrsResponseStatus' - -- | The response status code.
 listAssociatedStacksResponse
@@ -145,7 +155,7 @@ listAssociatedStacksResponse pResponseStatus_ =
 lasrsNextToken :: Lens' ListAssociatedStacksResponse (Maybe Text)
 lasrsNextToken = lens _lasrsNextToken (\ s a -> s{_lasrsNextToken = a})
 
--- | The names of the stacks.
+-- | The name of the stack.
 lasrsNames :: Lens' ListAssociatedStacksResponse [Text]
 lasrsNames = lens _lasrsNames (\ s a -> s{_lasrsNames = a}) . _Default . _Coerce
 

@@ -46,6 +46,8 @@ library
     exposed-modules:
           Network.AWS.AppStream
         , Network.AWS.AppStream.AssociateFleet
+        , Network.AWS.AppStream.BatchAssociateUserStack
+        , Network.AWS.AppStream.BatchDisassociateUserStack
         , Network.AWS.AppStream.CopyImage
         , Network.AWS.AppStream.CreateDirectoryConfig
         , Network.AWS.AppStream.CreateFleet
@@ -53,18 +55,26 @@ library
         , Network.AWS.AppStream.CreateImageBuilderStreamingURL
         , Network.AWS.AppStream.CreateStack
         , Network.AWS.AppStream.CreateStreamingURL
+        , Network.AWS.AppStream.CreateUser
         , Network.AWS.AppStream.DeleteDirectoryConfig
         , Network.AWS.AppStream.DeleteFleet
         , Network.AWS.AppStream.DeleteImage
         , Network.AWS.AppStream.DeleteImageBuilder
+        , Network.AWS.AppStream.DeleteImagePermissions
         , Network.AWS.AppStream.DeleteStack
+        , Network.AWS.AppStream.DeleteUser
         , Network.AWS.AppStream.DescribeDirectoryConfigs
         , Network.AWS.AppStream.DescribeFleets
         , Network.AWS.AppStream.DescribeImageBuilders
+        , Network.AWS.AppStream.DescribeImagePermissions
         , Network.AWS.AppStream.DescribeImages
         , Network.AWS.AppStream.DescribeSessions
         , Network.AWS.AppStream.DescribeStacks
+        , Network.AWS.AppStream.DescribeUserStackAssociations
+        , Network.AWS.AppStream.DescribeUsers
+        , Network.AWS.AppStream.DisableUser
         , Network.AWS.AppStream.DisassociateFleet
+        , Network.AWS.AppStream.EnableUser
         , Network.AWS.AppStream.ExpireSession
         , Network.AWS.AppStream.ListAssociatedFleets
         , Network.AWS.AppStream.ListAssociatedStacks
@@ -78,6 +88,7 @@ library
         , Network.AWS.AppStream.UntagResource
         , Network.AWS.AppStream.UpdateDirectoryConfig
         , Network.AWS.AppStream.UpdateFleet
+        , Network.AWS.AppStream.UpdateImagePermissions
         , Network.AWS.AppStream.UpdateStack
         , Network.AWS.AppStream.Waiters
 

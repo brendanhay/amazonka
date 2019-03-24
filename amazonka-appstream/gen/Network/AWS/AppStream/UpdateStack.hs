@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the specified stack.
+-- Updates the specified fields for the specified stack.
 --
 --
 module Network.AWS.AppStream.UpdateStack
@@ -27,6 +27,8 @@ module Network.AWS.AppStream.UpdateStack
       updateStack
     , UpdateStack
     -- * Request Lenses
+    , usUserSettings
+    , usApplicationSettings
     , usFeedbackURL
     , usAttributesToDelete
     , usDeleteStorageConnectors
@@ -53,7 +55,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateStack' smart constructor.
 data UpdateStack = UpdateStack'
-  { _usFeedbackURL             :: !(Maybe Text)
+  { _usUserSettings            :: !(Maybe (List1 UserSetting))
+  , _usApplicationSettings     :: !(Maybe ApplicationSettings)
+  , _usFeedbackURL             :: !(Maybe Text)
   , _usAttributesToDelete      :: !(Maybe [StackAttribute])
   , _usDeleteStorageConnectors :: !(Maybe Bool)
   , _usStorageConnectors       :: !(Maybe [StorageConnector])
@@ -68,7 +72,11 @@ data UpdateStack = UpdateStack'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usFeedbackURL' - The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
+-- * 'usUserSettings' - The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+--
+-- * 'usApplicationSettings' - The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
+--
+-- * 'usFeedbackURL' - The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
 --
 -- * 'usAttributesToDelete' - The stack attributes to delete.
 --
@@ -76,9 +84,9 @@ data UpdateStack = UpdateStack'
 --
 -- * 'usStorageConnectors' - The storage connectors to enable.
 --
--- * 'usDisplayName' - The stack name for display.
+-- * 'usDisplayName' - The stack name to display.
 --
--- * 'usDescription' - The description for display.
+-- * 'usDescription' - The description to display.
 --
 -- * 'usRedirectURL' - The URL that users are redirected to after their streaming session ends.
 --
@@ -88,7 +96,9 @@ updateStack
     -> UpdateStack
 updateStack pName_ =
   UpdateStack'
-    { _usFeedbackURL = Nothing
+    { _usUserSettings = Nothing
+    , _usApplicationSettings = Nothing
+    , _usFeedbackURL = Nothing
     , _usAttributesToDelete = Nothing
     , _usDeleteStorageConnectors = Nothing
     , _usStorageConnectors = Nothing
@@ -99,7 +109,15 @@ updateStack pName_ =
     }
 
 
--- | The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
+-- | The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+usUserSettings :: Lens' UpdateStack (Maybe (NonEmpty UserSetting))
+usUserSettings = lens _usUserSettings (\ s a -> s{_usUserSettings = a}) . mapping _List1
+
+-- | The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
+usApplicationSettings :: Lens' UpdateStack (Maybe ApplicationSettings)
+usApplicationSettings = lens _usApplicationSettings (\ s a -> s{_usApplicationSettings = a})
+
+-- | The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
 usFeedbackURL :: Lens' UpdateStack (Maybe Text)
 usFeedbackURL = lens _usFeedbackURL (\ s a -> s{_usFeedbackURL = a})
 
@@ -115,11 +133,11 @@ usDeleteStorageConnectors = lens _usDeleteStorageConnectors (\ s a -> s{_usDelet
 usStorageConnectors :: Lens' UpdateStack [StorageConnector]
 usStorageConnectors = lens _usStorageConnectors (\ s a -> s{_usStorageConnectors = a}) . _Default . _Coerce
 
--- | The stack name for display.
+-- | The stack name to display.
 usDisplayName :: Lens' UpdateStack (Maybe Text)
 usDisplayName = lens _usDisplayName (\ s a -> s{_usDisplayName = a})
 
--- | The description for display.
+-- | The description to display.
 usDescription :: Lens' UpdateStack (Maybe Text)
 usDescription = lens _usDescription (\ s a -> s{_usDescription = a})
 
@@ -158,7 +176,10 @@ instance ToJSON UpdateStack where
         toJSON UpdateStack'{..}
           = object
               (catMaybes
-                 [("FeedbackURL" .=) <$> _usFeedbackURL,
+                 [("UserSettings" .=) <$> _usUserSettings,
+                  ("ApplicationSettings" .=) <$>
+                    _usApplicationSettings,
+                  ("FeedbackURL" .=) <$> _usFeedbackURL,
                   ("AttributesToDelete" .=) <$> _usAttributesToDelete,
                   ("DeleteStorageConnectors" .=) <$>
                     _usDeleteStorageConnectors,

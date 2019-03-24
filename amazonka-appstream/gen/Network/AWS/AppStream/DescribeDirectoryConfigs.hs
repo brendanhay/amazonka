@@ -18,9 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response.
+-- Retrieves a list that describes one or more specified Directory Config objects for AppStream 2.0, if the names for these objects are provided. Otherwise, all Directory Config objects in the account are described. These objects include the information required to join streaming instances to an Active Directory domain.
 --
 --
+-- Although the response syntax in this topic includes the account password, this password is not returned in the actual response.
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.AppStream.DescribeDirectoryConfigs
     (
     -- * Creating a Request
@@ -43,6 +47,7 @@ module Network.AWS.AppStream.DescribeDirectoryConfigs
 import Network.AWS.AppStream.Types
 import Network.AWS.AppStream.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -85,6 +90,13 @@ ddcDirectoryNames = lens _ddcDirectoryNames (\ s a -> s{_ddcDirectoryNames = a})
 -- | The maximum size of each page of results.
 ddcMaxResults :: Lens' DescribeDirectoryConfigs (Maybe Int)
 ddcMaxResults = lens _ddcMaxResults (\ s a -> s{_ddcMaxResults = a})
+
+instance AWSPager DescribeDirectoryConfigs where
+        page rq rs
+          | stop (rs ^. ddcrsNextToken) = Nothing
+          | stop (rs ^. ddcrsDirectoryConfigs) = Nothing
+          | otherwise =
+            Just $ rq & ddcNextToken .~ rs ^. ddcrsNextToken
 
 instance AWSRequest DescribeDirectoryConfigs where
         type Rs DescribeDirectoryConfigs =

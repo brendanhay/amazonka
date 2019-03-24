@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the streaming sessions for the specified stack and fleet. If a user ID is provided, only the streaming sessions for only that user are returned. If an authentication type is not provided, the default is to authenticate users using a streaming URL.
+-- Retrieves a list that describes the active streaming sessions for a specified stack and fleet. If a value for @UserId@ is provided for the stack and fleet, only streaming sessions for that user are described. If an authentication type is not provided, the default is to authenticate users using a streaming URL.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.AppStream.DescribeSessions
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.AppStream.DescribeSessions
 import Network.AWS.AppStream.Types
 import Network.AWS.AppStream.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -65,13 +68,13 @@ data DescribeSessions = DescribeSessions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsUserId' - The user ID.
+-- * 'dsUserId' - The user identifier.
 --
 -- * 'dsNextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
 --
 -- * 'dsLimit' - The size of each page of results. The default value is 20 and the maximum value is 50.
 --
--- * 'dsAuthenticationType' - The authentication method. Specify @API@ for a user authenticated using a streaming URL or @SAML@ for a SAML federated user. The default is to authenticate users using a streaming URL.
+-- * 'dsAuthenticationType' - The authentication method. Specify @API@ for a user authenticated using a streaming URL, @SAML@ for a SAML 2.0-federated user, or @USERPOOL@ for a user in the AppStream 2.0 user pool. The default is to authenticate users using a streaming URL.
 --
 -- * 'dsStackName' - The name of the stack. This value is case-sensitive.
 --
@@ -91,7 +94,7 @@ describeSessions pStackName_ pFleetName_ =
     }
 
 
--- | The user ID.
+-- | The user identifier.
 dsUserId :: Lens' DescribeSessions (Maybe Text)
 dsUserId = lens _dsUserId (\ s a -> s{_dsUserId = a})
 
@@ -103,7 +106,7 @@ dsNextToken = lens _dsNextToken (\ s a -> s{_dsNextToken = a})
 dsLimit :: Lens' DescribeSessions (Maybe Int)
 dsLimit = lens _dsLimit (\ s a -> s{_dsLimit = a})
 
--- | The authentication method. Specify @API@ for a user authenticated using a streaming URL or @SAML@ for a SAML federated user. The default is to authenticate users using a streaming URL.
+-- | The authentication method. Specify @API@ for a user authenticated using a streaming URL, @SAML@ for a SAML 2.0-federated user, or @USERPOOL@ for a user in the AppStream 2.0 user pool. The default is to authenticate users using a streaming URL.
 dsAuthenticationType :: Lens' DescribeSessions (Maybe AuthenticationType)
 dsAuthenticationType = lens _dsAuthenticationType (\ s a -> s{_dsAuthenticationType = a})
 
@@ -114,6 +117,13 @@ dsStackName = lens _dsStackName (\ s a -> s{_dsStackName = a})
 -- | The name of the fleet. This value is case-sensitive.
 dsFleetName :: Lens' DescribeSessions Text
 dsFleetName = lens _dsFleetName (\ s a -> s{_dsFleetName = a})
+
+instance AWSPager DescribeSessions where
+        page rq rs
+          | stop (rs ^. dssrsNextToken) = Nothing
+          | stop (rs ^. dssrsSessions) = Nothing
+          | otherwise =
+            Just $ rq & dsNextToken .~ rs ^. dssrsNextToken
 
 instance AWSRequest DescribeSessions where
         type Rs DescribeSessions = DescribeSessionsResponse

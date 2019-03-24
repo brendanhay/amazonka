@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified stacks or all stacks in the account.
+-- Retrieves a list that describes one or more specified stacks, if the stack names are provided. Otherwise, all stacks in the account are described.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.AppStream.DescribeStacks
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.AppStream.DescribeStacks
 import Network.AWS.AppStream.Types
 import Network.AWS.AppStream.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,6 +75,13 @@ dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a})
 -- | The names of the stacks to describe.
 dNames :: Lens' DescribeStacks [Text]
 dNames = lens _dNames (\ s a -> s{_dNames = a}) . _Default . _Coerce
+
+instance AWSPager DescribeStacks where
+        page rq rs
+          | stop (rs ^. desrsNextToken) = Nothing
+          | stop (rs ^. desrsStacks) = Nothing
+          | otherwise =
+            Just $ rq & dNextToken .~ rs ^. desrsNextToken
 
 instance AWSRequest DescribeStacks where
         type Rs DescribeStacks = DescribeStacksResponse

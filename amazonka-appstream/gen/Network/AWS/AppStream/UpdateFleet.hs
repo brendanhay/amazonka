@@ -36,12 +36,13 @@ module Network.AWS.AppStream.UpdateFleet
     , ufDeleteVPCConfig
     , ufInstanceType
     , ufVPCConfig
+    , ufName
+    , ufImageARN
     , ufDisplayName
     , ufEnableDefaultInternetAccess
     , ufImageName
     , ufDescription
     , ufComputeCapacity
-    , ufName
 
     -- * Destructuring the Response
     , updateFleetResponse
@@ -67,12 +68,13 @@ data UpdateFleet = UpdateFleet'
   , _ufDeleteVPCConfig             :: !(Maybe Bool)
   , _ufInstanceType                :: !(Maybe Text)
   , _ufVPCConfig                   :: !(Maybe VPCConfig)
+  , _ufName                        :: !(Maybe Text)
+  , _ufImageARN                    :: !(Maybe Text)
   , _ufDisplayName                 :: !(Maybe Text)
   , _ufEnableDefaultInternetAccess :: !(Maybe Bool)
   , _ufImageName                   :: !(Maybe Text)
   , _ufDescription                 :: !(Maybe Text)
   , _ufComputeCapacity             :: !(Maybe ComputeCapacity)
-  , _ufName                        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -80,11 +82,11 @@ data UpdateFleet = UpdateFleet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufDomainJoinInfo' - The information needed to join a Microsoft Active Directory domain.
+-- * 'ufDomainJoinInfo' - The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain.
 --
--- * 'ufDisconnectTimeoutInSeconds' - The time after disconnection when a session is considered to have ended, in seconds. If a user who was disconnected reconnects within this time interval, the user is connected to their previous session. Specify a value between 60 and 57600.
+-- * 'ufDisconnectTimeoutInSeconds' - The time after disconnection when a session is considered to have ended, in seconds. If a user who was disconnected reconnects within this time interval, the user is connected to their previous session. Specify a value between 60 and 360000. By default, the value is 900 seconds (15 minutes).
 --
--- * 'ufMaxUserDurationInSeconds' - The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 57600.
+-- * 'ufMaxUserDurationInSeconds' - The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 360000. By default, the value is 900 seconds (15 minutes).
 --
 -- * 'ufAttributesToDelete' - The fleet attributes to delete.
 --
@@ -94,21 +96,22 @@ data UpdateFleet = UpdateFleet'
 --
 -- * 'ufVPCConfig' - The VPC configuration for the fleet.
 --
--- * 'ufDisplayName' - The fleet name for display.
+-- * 'ufName' - A unique name for the fleet.
+--
+-- * 'ufImageARN' - The ARN of the public, private, or shared image to use.
+--
+-- * 'ufDisplayName' - The fleet name to display.
 --
 -- * 'ufEnableDefaultInternetAccess' - Enables or disables default internet access for the fleet.
 --
 -- * 'ufImageName' - The name of the image used to create the fleet.
 --
--- * 'ufDescription' - The description for display.
+-- * 'ufDescription' - The description to display.
 --
 -- * 'ufComputeCapacity' - The desired capacity for the fleet.
---
--- * 'ufName' - A unique name for the fleet.
 updateFleet
-    :: Text -- ^ 'ufName'
-    -> UpdateFleet
-updateFleet pName_ =
+    :: UpdateFleet
+updateFleet =
   UpdateFleet'
     { _ufDomainJoinInfo = Nothing
     , _ufDisconnectTimeoutInSeconds = Nothing
@@ -117,24 +120,25 @@ updateFleet pName_ =
     , _ufDeleteVPCConfig = Nothing
     , _ufInstanceType = Nothing
     , _ufVPCConfig = Nothing
+    , _ufName = Nothing
+    , _ufImageARN = Nothing
     , _ufDisplayName = Nothing
     , _ufEnableDefaultInternetAccess = Nothing
     , _ufImageName = Nothing
     , _ufDescription = Nothing
     , _ufComputeCapacity = Nothing
-    , _ufName = pName_
     }
 
 
--- | The information needed to join a Microsoft Active Directory domain.
+-- | The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain.
 ufDomainJoinInfo :: Lens' UpdateFleet (Maybe DomainJoinInfo)
 ufDomainJoinInfo = lens _ufDomainJoinInfo (\ s a -> s{_ufDomainJoinInfo = a})
 
--- | The time after disconnection when a session is considered to have ended, in seconds. If a user who was disconnected reconnects within this time interval, the user is connected to their previous session. Specify a value between 60 and 57600.
+-- | The time after disconnection when a session is considered to have ended, in seconds. If a user who was disconnected reconnects within this time interval, the user is connected to their previous session. Specify a value between 60 and 360000. By default, the value is 900 seconds (15 minutes).
 ufDisconnectTimeoutInSeconds :: Lens' UpdateFleet (Maybe Int)
 ufDisconnectTimeoutInSeconds = lens _ufDisconnectTimeoutInSeconds (\ s a -> s{_ufDisconnectTimeoutInSeconds = a})
 
--- | The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 57600.
+-- | The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 360000. By default, the value is 900 seconds (15 minutes).
 ufMaxUserDurationInSeconds :: Lens' UpdateFleet (Maybe Int)
 ufMaxUserDurationInSeconds = lens _ufMaxUserDurationInSeconds (\ s a -> s{_ufMaxUserDurationInSeconds = a})
 
@@ -154,7 +158,15 @@ ufInstanceType = lens _ufInstanceType (\ s a -> s{_ufInstanceType = a})
 ufVPCConfig :: Lens' UpdateFleet (Maybe VPCConfig)
 ufVPCConfig = lens _ufVPCConfig (\ s a -> s{_ufVPCConfig = a})
 
--- | The fleet name for display.
+-- | A unique name for the fleet.
+ufName :: Lens' UpdateFleet (Maybe Text)
+ufName = lens _ufName (\ s a -> s{_ufName = a})
+
+-- | The ARN of the public, private, or shared image to use.
+ufImageARN :: Lens' UpdateFleet (Maybe Text)
+ufImageARN = lens _ufImageARN (\ s a -> s{_ufImageARN = a})
+
+-- | The fleet name to display.
 ufDisplayName :: Lens' UpdateFleet (Maybe Text)
 ufDisplayName = lens _ufDisplayName (\ s a -> s{_ufDisplayName = a})
 
@@ -166,17 +178,13 @@ ufEnableDefaultInternetAccess = lens _ufEnableDefaultInternetAccess (\ s a -> s{
 ufImageName :: Lens' UpdateFleet (Maybe Text)
 ufImageName = lens _ufImageName (\ s a -> s{_ufImageName = a})
 
--- | The description for display.
+-- | The description to display.
 ufDescription :: Lens' UpdateFleet (Maybe Text)
 ufDescription = lens _ufDescription (\ s a -> s{_ufDescription = a})
 
 -- | The desired capacity for the fleet.
 ufComputeCapacity :: Lens' UpdateFleet (Maybe ComputeCapacity)
 ufComputeCapacity = lens _ufComputeCapacity (\ s a -> s{_ufComputeCapacity = a})
-
--- | A unique name for the fleet.
-ufName :: Lens' UpdateFleet Text
-ufName = lens _ufName (\ s a -> s{_ufName = a})
 
 instance AWSRequest UpdateFleet where
         type Rs UpdateFleet = UpdateFleetResponse
@@ -214,13 +222,14 @@ instance ToJSON UpdateFleet where
                   ("DeleteVpcConfig" .=) <$> _ufDeleteVPCConfig,
                   ("InstanceType" .=) <$> _ufInstanceType,
                   ("VpcConfig" .=) <$> _ufVPCConfig,
+                  ("Name" .=) <$> _ufName,
+                  ("ImageArn" .=) <$> _ufImageARN,
                   ("DisplayName" .=) <$> _ufDisplayName,
                   ("EnableDefaultInternetAccess" .=) <$>
                     _ufEnableDefaultInternetAccess,
                   ("ImageName" .=) <$> _ufImageName,
                   ("Description" .=) <$> _ufDescription,
-                  ("ComputeCapacity" .=) <$> _ufComputeCapacity,
-                  Just ("Name" .= _ufName)])
+                  ("ComputeCapacity" .=) <$> _ufComputeCapacity])
 
 instance ToPath UpdateFleet where
         toPath = const "/"

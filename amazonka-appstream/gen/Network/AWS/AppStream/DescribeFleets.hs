@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified fleets or all fleets in the account.
+-- Retrieves a list that describes one or more specified fleets, if the fleet names are provided. Otherwise, all fleets in the account are described.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.AppStream.DescribeFleets
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.AppStream.DescribeFleets
 import Network.AWS.AppStream.Types
 import Network.AWS.AppStream.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -72,6 +75,13 @@ dfNextToken = lens _dfNextToken (\ s a -> s{_dfNextToken = a})
 -- | The names of the fleets to describe.
 dfNames :: Lens' DescribeFleets [Text]
 dfNames = lens _dfNames (\ s a -> s{_dfNames = a}) . _Default . _Coerce
+
+instance AWSPager DescribeFleets where
+        page rq rs
+          | stop (rs ^. dfsrsNextToken) = Nothing
+          | stop (rs ^. dfsrsFleets) = Nothing
+          | otherwise =
+            Just $ rq & dfNextToken .~ rs ^. dfsrsNextToken
 
 instance AWSRequest DescribeFleets where
         type Rs DescribeFleets = DescribeFleetsResponse

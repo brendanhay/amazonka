@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a URL to start a streaming session for the specified user.
+-- Creates a temporary URL to start an AppStream 2.0 streaming session for the specified user. A streaming URL enables application streaming to be tested without user setup.
 --
 --
 module Network.AWS.AppStream.CreateStreamingURL
@@ -65,7 +65,7 @@ data CreateStreamingURL = CreateStreamingURL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csuSessionContext' - The session context. For more information, see <http://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context> in the /Amazon AppStream 2.0 Developer Guide/ .
+-- * 'csuSessionContext' - The session context. For more information, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context> in the /Amazon AppStream 2.0 Developer Guide/ .
 --
 -- * 'csuApplicationId' - The name of the application to launch after the session starts. This is the name that you specified as __Name__ in the Image Assistant.
 --
@@ -75,7 +75,7 @@ data CreateStreamingURL = CreateStreamingURL'
 --
 -- * 'csuFleetName' - The name of the fleet.
 --
--- * 'csuUserId' - The ID of the user.
+-- * 'csuUserId' - The identifier of the user.
 createStreamingURL
     :: Text -- ^ 'csuStackName'
     -> Text -- ^ 'csuFleetName'
@@ -92,7 +92,7 @@ createStreamingURL pStackName_ pFleetName_ pUserId_ =
     }
 
 
--- | The session context. For more information, see <http://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context> in the /Amazon AppStream 2.0 Developer Guide/ .
+-- | The session context. For more information, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context> in the /Amazon AppStream 2.0 Developer Guide/ .
 csuSessionContext :: Lens' CreateStreamingURL (Maybe Text)
 csuSessionContext = lens _csuSessionContext (\ s a -> s{_csuSessionContext = a})
 
@@ -112,7 +112,7 @@ csuStackName = lens _csuStackName (\ s a -> s{_csuStackName = a})
 csuFleetName :: Lens' CreateStreamingURL Text
 csuFleetName = lens _csuFleetName (\ s a -> s{_csuFleetName = a})
 
--- | The ID of the user.
+-- | The identifier of the user.
 csuUserId :: Lens' CreateStreamingURL Text
 csuUserId = lens _csuUserId (\ s a -> s{_csuUserId = a})
 

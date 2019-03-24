@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the specified directory configuration.
+-- Updates the specified Directory Config object in AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain.
 --
 --
 module Network.AWS.AppStream.UpdateDirectoryConfig
@@ -62,7 +62,7 @@ data UpdateDirectoryConfig = UpdateDirectoryConfig'
 --
 -- * 'udcOrganizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer accounts.
 --
--- * 'udcDirectoryName' - The name of the directory configuration.
+-- * 'udcDirectoryName' - The name of the Directory Config object.
 updateDirectoryConfig
     :: Text -- ^ 'udcDirectoryName'
     -> UpdateDirectoryConfig
@@ -82,7 +82,7 @@ udcServiceAccountCredentials = lens _udcServiceAccountCredentials (\ s a -> s{_u
 udcOrganizationalUnitDistinguishedNames :: Lens' UpdateDirectoryConfig [Text]
 udcOrganizationalUnitDistinguishedNames = lens _udcOrganizationalUnitDistinguishedNames (\ s a -> s{_udcOrganizationalUnitDistinguishedNames = a}) . _Default . _Coerce
 
--- | The name of the directory configuration.
+-- | The name of the Directory Config object.
 udcDirectoryName :: Lens' UpdateDirectoryConfig Text
 udcDirectoryName = lens _udcDirectoryName (\ s a -> s{_udcDirectoryName = a})
 
@@ -137,7 +137,7 @@ data UpdateDirectoryConfigResponse = UpdateDirectoryConfigResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udcrsDirectoryConfig' - Information about the directory configuration.
+-- * 'udcrsDirectoryConfig' - Information about the Directory Config object.
 --
 -- * 'udcrsResponseStatus' - -- | The response status code.
 updateDirectoryConfigResponse
@@ -148,7 +148,7 @@ updateDirectoryConfigResponse pResponseStatus_ =
     {_udcrsDirectoryConfig = Nothing, _udcrsResponseStatus = pResponseStatus_}
 
 
--- | Information about the directory configuration.
+-- | Information about the Directory Config object.
 udcrsDirectoryConfig :: Lens' UpdateDirectoryConfigResponse (Maybe DirectoryConfig)
 udcrsDirectoryConfig = lens _udcrsDirectoryConfig (\ s a -> s{_udcrsDirectoryConfig = a})
 

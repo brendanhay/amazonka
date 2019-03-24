@@ -19,6 +19,45 @@ module Network.AWS.AppStream.Types.Sum where
 
 import Network.AWS.Prelude
 
+data Action
+  = ClipboardCopyFromLocalDevice
+  | ClipboardCopyToLocalDevice
+  | FileDownload
+  | FileUpload
+  | PrintingToLocalDevice
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText Action where
+    parser = takeLowerText >>= \case
+        "clipboard_copy_from_local_device" -> pure ClipboardCopyFromLocalDevice
+        "clipboard_copy_to_local_device" -> pure ClipboardCopyToLocalDevice
+        "file_download" -> pure FileDownload
+        "file_upload" -> pure FileUpload
+        "printing_to_local_device" -> pure PrintingToLocalDevice
+        e -> fromTextError $ "Failure parsing Action from value: '" <> e
+           <> "'. Accepted values: clipboard_copy_from_local_device, clipboard_copy_to_local_device, file_download, file_upload, printing_to_local_device"
+
+instance ToText Action where
+    toText = \case
+        ClipboardCopyFromLocalDevice -> "CLIPBOARD_COPY_FROM_LOCAL_DEVICE"
+        ClipboardCopyToLocalDevice -> "CLIPBOARD_COPY_TO_LOCAL_DEVICE"
+        FileDownload -> "FILE_DOWNLOAD"
+        FileUpload -> "FILE_UPLOAD"
+        PrintingToLocalDevice -> "PRINTING_TO_LOCAL_DEVICE"
+
+instance Hashable     Action
+instance NFData       Action
+instance ToByteString Action
+instance ToQuery      Action
+instance ToHeader     Action
+
+instance ToJSON Action where
+    toJSON = toJSONText
+
+instance FromJSON Action where
+    parseJSON = parseJSONText "Action"
+
 data AuthenticationType
   = API
   | Saml
@@ -388,6 +427,63 @@ instance ToHeader     ImageStateChangeReasonCode
 instance FromJSON ImageStateChangeReasonCode where
     parseJSON = parseJSONText "ImageStateChangeReasonCode"
 
+data MessageAction
+  = Resend
+  | Suppress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText MessageAction where
+    parser = takeLowerText >>= \case
+        "resend" -> pure Resend
+        "suppress" -> pure Suppress
+        e -> fromTextError $ "Failure parsing MessageAction from value: '" <> e
+           <> "'. Accepted values: resend, suppress"
+
+instance ToText MessageAction where
+    toText = \case
+        Resend -> "RESEND"
+        Suppress -> "SUPPRESS"
+
+instance Hashable     MessageAction
+instance NFData       MessageAction
+instance ToByteString MessageAction
+instance ToQuery      MessageAction
+instance ToHeader     MessageAction
+
+instance ToJSON MessageAction where
+    toJSON = toJSONText
+
+data Permission
+  = Disabled
+  | Enabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText Permission where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure Disabled
+        "enabled" -> pure Enabled
+        e -> fromTextError $ "Failure parsing Permission from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText Permission where
+    toText = \case
+        Disabled -> "DISABLED"
+        Enabled -> "ENABLED"
+
+instance Hashable     Permission
+instance NFData       Permission
+instance ToByteString Permission
+instance ToQuery      Permission
+instance ToHeader     Permission
+
+instance ToJSON Permission where
+    toJSON = toJSONText
+
+instance FromJSON Permission where
+    parseJSON = parseJSONText "Permission"
+
 data PlatformType =
   Windows
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -412,9 +508,33 @@ instance ToHeader     PlatformType
 instance FromJSON PlatformType where
     parseJSON = parseJSONText "PlatformType"
 
--- | Possible values for the state of a streaming session.
---
---
+data SessionConnectionState
+  = Connected
+  | NotConnected
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText SessionConnectionState where
+    parser = takeLowerText >>= \case
+        "connected" -> pure Connected
+        "not_connected" -> pure NotConnected
+        e -> fromTextError $ "Failure parsing SessionConnectionState from value: '" <> e
+           <> "'. Accepted values: connected, not_connected"
+
+instance ToText SessionConnectionState where
+    toText = \case
+        Connected -> "CONNECTED"
+        NotConnected -> "NOT_CONNECTED"
+
+instance Hashable     SessionConnectionState
+instance NFData       SessionConnectionState
+instance ToByteString SessionConnectionState
+instance ToQuery      SessionConnectionState
+instance ToHeader     SessionConnectionState
+
+instance FromJSON SessionConnectionState where
+    parseJSON = parseJSONText "SessionConnectionState"
+
 data SessionState
   = Active
   | Expired
@@ -448,8 +568,12 @@ instance FromJSON SessionState where
 data StackAttribute
   = FeedbackURL
   | RedirectURL
+  | StorageConnectorGoogleDrive
+  | StorageConnectorHomefolders
+  | StorageConnectorOneDrive
   | StorageConnectors
   | ThemeName
+  | UserSettings
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -457,17 +581,25 @@ instance FromText StackAttribute where
     parser = takeLowerText >>= \case
         "feedback_url" -> pure FeedbackURL
         "redirect_url" -> pure RedirectURL
+        "storage_connector_google_drive" -> pure StorageConnectorGoogleDrive
+        "storage_connector_homefolders" -> pure StorageConnectorHomefolders
+        "storage_connector_one_drive" -> pure StorageConnectorOneDrive
         "storage_connectors" -> pure StorageConnectors
         "theme_name" -> pure ThemeName
+        "user_settings" -> pure UserSettings
         e -> fromTextError $ "Failure parsing StackAttribute from value: '" <> e
-           <> "'. Accepted values: feedback_url, redirect_url, storage_connectors, theme_name"
+           <> "'. Accepted values: feedback_url, redirect_url, storage_connector_google_drive, storage_connector_homefolders, storage_connector_one_drive, storage_connectors, theme_name, user_settings"
 
 instance ToText StackAttribute where
     toText = \case
         FeedbackURL -> "FEEDBACK_URL"
         RedirectURL -> "REDIRECT_URL"
+        StorageConnectorGoogleDrive -> "STORAGE_CONNECTOR_GOOGLE_DRIVE"
+        StorageConnectorHomefolders -> "STORAGE_CONNECTOR_HOMEFOLDERS"
+        StorageConnectorOneDrive -> "STORAGE_CONNECTOR_ONE_DRIVE"
         StorageConnectors -> "STORAGE_CONNECTORS"
         ThemeName -> "THEME_NAME"
+        UserSettings -> "USER_SETTINGS"
 
 instance Hashable     StackAttribute
 instance NFData       StackAttribute
@@ -508,20 +640,26 @@ instance FromJSON StackErrorCode where
 -- | The type of storage connector.
 --
 --
-data StorageConnectorType =
-  Homefolders
+data StorageConnectorType
+  = GoogleDrive
+  | Homefolders
+  | OneDrive
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText StorageConnectorType where
     parser = takeLowerText >>= \case
+        "google_drive" -> pure GoogleDrive
         "homefolders" -> pure Homefolders
+        "one_drive" -> pure OneDrive
         e -> fromTextError $ "Failure parsing StorageConnectorType from value: '" <> e
-           <> "'. Accepted values: homefolders"
+           <> "'. Accepted values: google_drive, homefolders, one_drive"
 
 instance ToText StorageConnectorType where
     toText = \case
+        GoogleDrive -> "GOOGLE_DRIVE"
         Homefolders -> "HOMEFOLDERS"
+        OneDrive -> "ONE_DRIVE"
 
 instance Hashable     StorageConnectorType
 instance NFData       StorageConnectorType
@@ -535,9 +673,40 @@ instance ToJSON StorageConnectorType where
 instance FromJSON StorageConnectorType where
     parseJSON = parseJSONText "StorageConnectorType"
 
+data UserStackAssociationErrorCode
+  = USAECInternalError
+  | USAECStackNotFound
+  | USAECUserNameNotFound
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText UserStackAssociationErrorCode where
+    parser = takeLowerText >>= \case
+        "internal_error" -> pure USAECInternalError
+        "stack_not_found" -> pure USAECStackNotFound
+        "user_name_not_found" -> pure USAECUserNameNotFound
+        e -> fromTextError $ "Failure parsing UserStackAssociationErrorCode from value: '" <> e
+           <> "'. Accepted values: internal_error, stack_not_found, user_name_not_found"
+
+instance ToText UserStackAssociationErrorCode where
+    toText = \case
+        USAECInternalError -> "INTERNAL_ERROR"
+        USAECStackNotFound -> "STACK_NOT_FOUND"
+        USAECUserNameNotFound -> "USER_NAME_NOT_FOUND"
+
+instance Hashable     UserStackAssociationErrorCode
+instance NFData       UserStackAssociationErrorCode
+instance ToByteString UserStackAssociationErrorCode
+instance ToQuery      UserStackAssociationErrorCode
+instance ToHeader     UserStackAssociationErrorCode
+
+instance FromJSON UserStackAssociationErrorCode where
+    parseJSON = parseJSONText "UserStackAssociationErrorCode"
+
 data VisibilityType
   = Private
   | Public
+  | Shared
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -545,19 +714,24 @@ instance FromText VisibilityType where
     parser = takeLowerText >>= \case
         "private" -> pure Private
         "public" -> pure Public
+        "shared" -> pure Shared
         e -> fromTextError $ "Failure parsing VisibilityType from value: '" <> e
-           <> "'. Accepted values: private, public"
+           <> "'. Accepted values: private, public, shared"
 
 instance ToText VisibilityType where
     toText = \case
         Private -> "PRIVATE"
         Public -> "PUBLIC"
+        Shared -> "SHARED"
 
 instance Hashable     VisibilityType
 instance NFData       VisibilityType
 instance ToByteString VisibilityType
 instance ToQuery      VisibilityType
 instance ToHeader     VisibilityType
+
+instance ToJSON VisibilityType where
+    toJSON = toJSONText
 
 instance FromJSON VisibilityType where
     parseJSON = parseJSONText "VisibilityType"

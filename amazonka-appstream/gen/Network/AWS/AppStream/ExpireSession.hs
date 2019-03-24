@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops the specified streaming session.
+-- Immediately stops the specified streaming session.
 --
 --
 module Network.AWS.AppStream.ExpireSession
@@ -53,14 +53,14 @@ newtype ExpireSession = ExpireSession'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'esSessionId' - The ID of the streaming session.
+-- * 'esSessionId' - The identifier of the streaming session.
 expireSession
     :: Text -- ^ 'esSessionId'
     -> ExpireSession
 expireSession pSessionId_ = ExpireSession' {_esSessionId = pSessionId_}
 
 
--- | The ID of the streaming session.
+-- | The identifier of the streaming session.
 esSessionId :: Lens' ExpireSession Text
 esSessionId = lens _esSessionId (\ s a -> s{_esSessionId = a})
 

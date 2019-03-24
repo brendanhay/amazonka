@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a stack.
+-- Creates a stack to start streaming applications to users. A stack consists of an associated fleet, user access policies, and storage configurations.
 --
 --
 module Network.AWS.AppStream.CreateStack
@@ -27,10 +27,13 @@ module Network.AWS.AppStream.CreateStack
       createStack
     , CreateStack
     -- * Request Lenses
+    , csUserSettings
+    , csApplicationSettings
     , csFeedbackURL
     , csStorageConnectors
     , csDisplayName
     , csDescription
+    , csTags
     , csRedirectURL
     , csName
 
@@ -51,12 +54,15 @@ import Network.AWS.Response
 
 -- | /See:/ 'createStack' smart constructor.
 data CreateStack = CreateStack'
-  { _csFeedbackURL       :: !(Maybe Text)
-  , _csStorageConnectors :: !(Maybe [StorageConnector])
-  , _csDisplayName       :: !(Maybe Text)
-  , _csDescription       :: !(Maybe Text)
-  , _csRedirectURL       :: !(Maybe Text)
-  , _csName              :: !Text
+  { _csUserSettings        :: !(Maybe (List1 UserSetting))
+  , _csApplicationSettings :: !(Maybe ApplicationSettings)
+  , _csFeedbackURL         :: !(Maybe Text)
+  , _csStorageConnectors   :: !(Maybe [StorageConnector])
+  , _csDisplayName         :: !(Maybe Text)
+  , _csDescription         :: !(Maybe Text)
+  , _csTags                :: !(Maybe (Map Text Text))
+  , _csRedirectURL         :: !(Maybe Text)
+  , _csName                :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -64,13 +70,19 @@ data CreateStack = CreateStack'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'csUserSettings' - The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+--
+-- * 'csApplicationSettings' - The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
+--
 -- * 'csFeedbackURL' - The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
 --
 -- * 'csStorageConnectors' - The storage connectors to enable.
 --
--- * 'csDisplayName' - The stack name for display.
+-- * 'csDisplayName' - The stack name to display.
 --
--- * 'csDescription' - The description for display.
+-- * 'csDescription' - The description to display.
+--
+-- * 'csTags' - The tags to associate with the stack. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.  If you do not specify a value, the value is set to an empty string. For more information about tags, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources> in the /Amazon AppStream 2.0 Developer Guide/ .
 --
 -- * 'csRedirectURL' - The URL that users are redirected to after their streaming session ends.
 --
@@ -80,14 +92,25 @@ createStack
     -> CreateStack
 createStack pName_ =
   CreateStack'
-    { _csFeedbackURL = Nothing
+    { _csUserSettings = Nothing
+    , _csApplicationSettings = Nothing
+    , _csFeedbackURL = Nothing
     , _csStorageConnectors = Nothing
     , _csDisplayName = Nothing
     , _csDescription = Nothing
+    , _csTags = Nothing
     , _csRedirectURL = Nothing
     , _csName = pName_
     }
 
+
+-- | The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+csUserSettings :: Lens' CreateStack (Maybe (NonEmpty UserSetting))
+csUserSettings = lens _csUserSettings (\ s a -> s{_csUserSettings = a}) . mapping _List1
+
+-- | The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
+csApplicationSettings :: Lens' CreateStack (Maybe ApplicationSettings)
+csApplicationSettings = lens _csApplicationSettings (\ s a -> s{_csApplicationSettings = a})
 
 -- | The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
 csFeedbackURL :: Lens' CreateStack (Maybe Text)
@@ -97,13 +120,17 @@ csFeedbackURL = lens _csFeedbackURL (\ s a -> s{_csFeedbackURL = a})
 csStorageConnectors :: Lens' CreateStack [StorageConnector]
 csStorageConnectors = lens _csStorageConnectors (\ s a -> s{_csStorageConnectors = a}) . _Default . _Coerce
 
--- | The stack name for display.
+-- | The stack name to display.
 csDisplayName :: Lens' CreateStack (Maybe Text)
 csDisplayName = lens _csDisplayName (\ s a -> s{_csDisplayName = a})
 
--- | The description for display.
+-- | The description to display.
 csDescription :: Lens' CreateStack (Maybe Text)
 csDescription = lens _csDescription (\ s a -> s{_csDescription = a})
+
+-- | The tags to associate with the stack. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.  If you do not specify a value, the value is set to an empty string. For more information about tags, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources> in the /Amazon AppStream 2.0 Developer Guide/ .
+csTags :: Lens' CreateStack (HashMap Text Text)
+csTags = lens _csTags (\ s a -> s{_csTags = a}) . _Default . _Map
 
 -- | The URL that users are redirected to after their streaming session ends.
 csRedirectURL :: Lens' CreateStack (Maybe Text)
@@ -140,10 +167,14 @@ instance ToJSON CreateStack where
         toJSON CreateStack'{..}
           = object
               (catMaybes
-                 [("FeedbackURL" .=) <$> _csFeedbackURL,
+                 [("UserSettings" .=) <$> _csUserSettings,
+                  ("ApplicationSettings" .=) <$>
+                    _csApplicationSettings,
+                  ("FeedbackURL" .=) <$> _csFeedbackURL,
                   ("StorageConnectors" .=) <$> _csStorageConnectors,
                   ("DisplayName" .=) <$> _csDisplayName,
                   ("Description" .=) <$> _csDescription,
+                  ("Tags" .=) <$> _csTags,
                   ("RedirectURL" .=) <$> _csRedirectURL,
                   Just ("Name" .= _csName)])
 

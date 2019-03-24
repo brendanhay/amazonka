@@ -28,6 +28,9 @@ module Network.AWS.AppStream.Types
     , _LimitExceededException
     , _ResourceInUseException
 
+    -- * Action
+    , Action (..)
+
     -- * AuthenticationType
     , AuthenticationType (..)
 
@@ -55,8 +58,17 @@ module Network.AWS.AppStream.Types
     -- * ImageStateChangeReasonCode
     , ImageStateChangeReasonCode (..)
 
+    -- * MessageAction
+    , MessageAction (..)
+
+    -- * Permission
+    , Permission (..)
+
     -- * PlatformType
     , PlatformType (..)
+
+    -- * SessionConnectionState
+    , SessionConnectionState (..)
 
     -- * SessionState
     , SessionState (..)
@@ -70,19 +82,35 @@ module Network.AWS.AppStream.Types
     -- * StorageConnectorType
     , StorageConnectorType (..)
 
+    -- * UserStackAssociationErrorCode
+    , UserStackAssociationErrorCode (..)
+
     -- * VisibilityType
     , VisibilityType (..)
 
     -- * Application
     , Application
     , application
+    , appEnabled
+    , appLaunchPath
+    , appLaunchParameters
+    , appName
+    , appDisplayName
+    , appMetadata
+    , appIconURL
+
+    -- * ApplicationSettings
+    , ApplicationSettings
+    , applicationSettings
+    , aSettingsGroup
     , aEnabled
-    , aLaunchPath
-    , aLaunchParameters
-    , aName
-    , aDisplayName
-    , aMetadata
-    , aIconURL
+
+    -- * ApplicationSettingsResponse
+    , ApplicationSettingsResponse
+    , applicationSettingsResponse
+    , asEnabled
+    , asSettingsGroup
+    , asS3BucketName
 
     -- * ComputeCapacity
     , ComputeCapacity
@@ -120,13 +148,14 @@ module Network.AWS.AppStream.Types
     , fCreatedTime
     , fFleetType
     , fVPCConfig
+    , fImageARN
     , fFleetErrors
     , fDisplayName
     , fEnableDefaultInternetAccess
+    , fImageName
     , fDescription
     , fARN
     , fName
-    , fImageName
     , fInstanceType
     , fComputeCapacityStatus
     , fState
@@ -141,6 +170,7 @@ module Network.AWS.AppStream.Types
     , Image
     , image
     , iState
+    , iImagePermissions
     , iPlatform
     , iPublicBaseImageReleasedDate
     , iStateChangeReason
@@ -180,11 +210,23 @@ module Network.AWS.AppStream.Types
     , ibscrCode
     , ibscrMessage
 
+    -- * ImagePermissions
+    , ImagePermissions
+    , imagePermissions
+    , ipAllowFleet
+    , ipAllowImageBuilder
+
     -- * ImageStateChangeReason
     , ImageStateChangeReason
     , imageStateChangeReason
     , iscrCode
     , iscrMessage
+
+    -- * NetworkAccessConfiguration
+    , NetworkAccessConfiguration
+    , networkAccessConfiguration
+    , nacEniId
+    , nacEniPrivateIPAddress
 
     -- * ResourceError
     , ResourceError
@@ -202,16 +244,28 @@ module Network.AWS.AppStream.Types
     -- * Session
     , Session
     , session
+    , sNetworkAccessConfiguration
+    , sMaxExpirationTime
+    , sStartTime
     , sAuthenticationType
+    , sConnectionState
     , sId
     , sUserId
     , sStackName
     , sFleetName
     , sState
 
+    -- * SharedImagePermissions
+    , SharedImagePermissions
+    , sharedImagePermissions
+    , sipSharedAccountId
+    , sipImagePermissions
+
     -- * Stack
     , Stack
     , stack
+    , sUserSettings
+    , sApplicationSettings
     , sFeedbackURL
     , sARN
     , sCreatedTime
@@ -231,8 +285,42 @@ module Network.AWS.AppStream.Types
     -- * StorageConnector
     , StorageConnector
     , storageConnector
+    , scDomains
     , scResourceIdentifier
     , scConnectorType
+
+    -- * User
+    , User
+    , user
+    , uStatus
+    , uEnabled
+    , uLastName
+    , uARN
+    , uCreatedTime
+    , uUserName
+    , uFirstName
+    , uAuthenticationType
+
+    -- * UserSetting
+    , UserSetting
+    , userSetting
+    , usAction
+    , usPermission
+
+    -- * UserStackAssociation
+    , UserStackAssociation
+    , userStackAssociation
+    , usaSendEmailNotification
+    , usaStackName
+    , usaUserName
+    , usaAuthenticationType
+
+    -- * UserStackAssociationError
+    , UserStackAssociationError
+    , userStackAssociationError
+    , usaeUserStackAssociation
+    , usaeErrorCode
+    , usaeErrorMessage
 
     -- * VPCConfig
     , VPCConfig

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified image builders or all image builders in the account.
+-- Retrieves a list that describes one or more specified image builders, if the image builder names are provided. Otherwise, all image builders in the account are described.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.AppStream.DescribeImageBuilders
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.AppStream.DescribeImageBuilders
 import Network.AWS.AppStream.Types
 import Network.AWS.AppStream.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -82,6 +85,13 @@ dibNames = lens _dibNames (\ s a -> s{_dibNames = a}) . _Default . _Coerce
 -- | The maximum size of each page of results.
 dibMaxResults :: Lens' DescribeImageBuilders (Maybe Int)
 dibMaxResults = lens _dibMaxResults (\ s a -> s{_dibMaxResults = a})
+
+instance AWSPager DescribeImageBuilders where
+        page rq rs
+          | stop (rs ^. dibsrsNextToken) = Nothing
+          | stop (rs ^. dibsrsImageBuilders) = Nothing
+          | otherwise =
+            Just $ rq & dibNextToken .~ rs ^. dibsrsNextToken
 
 instance AWSRequest DescribeImageBuilders where
         type Rs DescribeImageBuilders =

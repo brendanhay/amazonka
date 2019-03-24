@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the specified user pool with the specified attributes.
+-- Updates the specified user pool with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool settings with .
 --
 --
 module Network.AWS.CognitoIdentityProvider.UpdateUserPool
@@ -87,7 +87,7 @@ data UpdateUserPool = UpdateUserPool'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uupUserPoolTags' - The cost allocation tags for the user pool. For more information, see <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html Adding Cost Allocation Tags to Your User Pool>
+-- * 'uupUserPoolTags' - The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
 --
 -- * 'uupVerificationMessageTemplate' - The template for verification messages.
 --
@@ -142,7 +142,7 @@ updateUserPool pUserPoolId_ =
     }
 
 
--- | The cost allocation tags for the user pool. For more information, see <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html Adding Cost Allocation Tags to Your User Pool>
+-- | The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
 uupUserPoolTags :: Lens' UpdateUserPool (HashMap Text Text)
 uupUserPoolTags = lens _uupUserPoolTags (\ s a -> s{_uupUserPoolTags = a}) . _Default . _Map
 

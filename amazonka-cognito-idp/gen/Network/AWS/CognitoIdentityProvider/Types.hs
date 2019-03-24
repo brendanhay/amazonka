@@ -244,6 +244,11 @@ module Network.AWS.CognitoIdentityProvider.Types
     , cdtServerPath
     , cdtHTTPHeaders
 
+    -- * CustomDomainConfigType
+    , CustomDomainConfigType
+    , customDomainConfigType
+    , cdctCertificateARN
+
     -- * DeviceConfigurationType
     , DeviceConfigurationType
     , deviceConfigurationType
@@ -273,6 +278,7 @@ module Network.AWS.CognitoIdentityProvider.Types
     , ddtUserPoolId
     , ddtDomain
     , ddtAWSAccountId
+    , ddtCustomDomainConfig
     , ddtVersion
     , ddtS3Bucket
 
@@ -580,7 +586,9 @@ module Network.AWS.CognitoIdentityProvider.Types
     , uptLastModifiedDate
     , uptVerificationMessageTemplate
     , uptEstimatedNumberOfUsers
+    , uptARN
     , uptDomain
+    , uptCustomDomain
     , uptEmailVerificationMessage
     , uptSmsAuthenticationMessage
     , uptUserPoolAddOns

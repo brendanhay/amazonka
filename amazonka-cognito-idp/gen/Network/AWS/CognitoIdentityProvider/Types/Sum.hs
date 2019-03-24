@@ -614,6 +614,7 @@ data IdentityProviderTypeType
   = Facebook
   | Google
   | LoginWithAmazon
+  | Oidc
   | Saml
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -623,15 +624,17 @@ instance FromText IdentityProviderTypeType where
         "facebook" -> pure Facebook
         "google" -> pure Google
         "loginwithamazon" -> pure LoginWithAmazon
+        "oidc" -> pure Oidc
         "saml" -> pure Saml
         e -> fromTextError $ "Failure parsing IdentityProviderTypeType from value: '" <> e
-           <> "'. Accepted values: facebook, google, loginwithamazon, saml"
+           <> "'. Accepted values: facebook, google, loginwithamazon, oidc, saml"
 
 instance ToText IdentityProviderTypeType where
     toText = \case
         Facebook -> "Facebook"
         Google -> "Google"
         LoginWithAmazon -> "LoginWithAmazon"
+        Oidc -> "OIDC"
         Saml -> "SAML"
 
 instance Hashable     IdentityProviderTypeType

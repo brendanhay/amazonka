@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Client method for returning the configuration information and metadata of the specified user pool client.
+-- Client method for returning the configuration information and metadata of the specified user pool app client.
 --
 --
 module Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient

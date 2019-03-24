@@ -23,6 +23,8 @@
 --
 -- Requires developer credentials.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CognitoIdentityProvider.ListUsersInGroup
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.CognitoIdentityProvider.ListUsersInGroup
 import Network.AWS.CognitoIdentityProvider.Types
 import Network.AWS.CognitoIdentityProvider.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -98,6 +101,13 @@ luigUserPoolId = lens _luigUserPoolId (\ s a -> s{_luigUserPoolId = a})
 -- | The name of the group.
 luigGroupName :: Lens' ListUsersInGroup Text
 luigGroupName = lens _luigGroupName (\ s a -> s{_luigGroupName = a})
+
+instance AWSPager ListUsersInGroup where
+        page rq rs
+          | stop (rs ^. luigrsNextToken) = Nothing
+          | stop (rs ^. luigrsUsers) = Nothing
+          | otherwise =
+            Just $ rq & luigNextToken .~ rs ^. luigrsNextToken
 
 instance AWSRequest ListUsersInGroup where
         type Rs ListUsersInGroup = ListUsersInGroupResponse

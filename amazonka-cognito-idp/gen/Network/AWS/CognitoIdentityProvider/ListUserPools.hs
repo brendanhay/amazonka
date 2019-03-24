@@ -21,6 +21,8 @@
 -- Lists the user pools associated with an AWS account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CognitoIdentityProvider.ListUserPools
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.CognitoIdentityProvider.ListUserPools
 import Network.AWS.CognitoIdentityProvider.Types
 import Network.AWS.CognitoIdentityProvider.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -78,6 +81,13 @@ lupNextToken = lens _lupNextToken (\ s a -> s{_lupNextToken = a})
 -- | The maximum number of results you want the request to return when listing the user pools.
 lupMaxResults :: Lens' ListUserPools Natural
 lupMaxResults = lens _lupMaxResults (\ s a -> s{_lupMaxResults = a}) . _Nat
+
+instance AWSPager ListUserPools where
+        page rq rs
+          | stop (rs ^. luprsNextToken) = Nothing
+          | stop (rs ^. luprsUserPools) = Nothing
+          | otherwise =
+            Just $ rq & lupNextToken .~ rs ^. luprsNextToken
 
 instance AWSRequest ListUserPools where
         type Rs ListUserPools = ListUserPoolsResponse

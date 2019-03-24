@@ -13,4 +13,4 @@
 
 module Test.AWS.CognitoIdentityProvider.Internal where
 
-import           Test.AWS.Prelude
+import Test.AWS.Prelude

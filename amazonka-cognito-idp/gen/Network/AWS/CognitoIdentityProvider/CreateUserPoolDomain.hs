@@ -27,6 +27,7 @@ module Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain
       createUserPoolDomain
     , CreateUserPoolDomain
     -- * Request Lenses
+    , cupdCustomDomainConfig
     , cupdDomain
     , cupdUserPoolId
 
@@ -34,6 +35,7 @@ module Network.AWS.CognitoIdentityProvider.CreateUserPoolDomain
     , createUserPoolDomainResponse
     , CreateUserPoolDomainResponse
     -- * Response Lenses
+    , cupdrsCloudFrontDomain
     , cupdrsResponseStatus
     ) where
 
@@ -46,14 +48,17 @@ import Network.AWS.Response
 
 -- | /See:/ 'createUserPoolDomain' smart constructor.
 data CreateUserPoolDomain = CreateUserPoolDomain'
-  { _cupdDomain     :: !Text
-  , _cupdUserPoolId :: !Text
+  { _cupdCustomDomainConfig :: !(Maybe CustomDomainConfigType)
+  , _cupdDomain             :: !Text
+  , _cupdUserPoolId         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'CreateUserPoolDomain' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cupdCustomDomainConfig' - The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application. Provide this parameter only if you want to use a custom domain for your user pool. Otherwise, you can exclude this parameter and use the Amazon Cognito hosted domain instead. For more information about the hosted domain and custom domains, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html Configuring a User Pool Domain> .
 --
 -- * 'cupdDomain' - The domain string.
 --
@@ -63,8 +68,16 @@ createUserPoolDomain
     -> Text -- ^ 'cupdUserPoolId'
     -> CreateUserPoolDomain
 createUserPoolDomain pDomain_ pUserPoolId_ =
-  CreateUserPoolDomain' {_cupdDomain = pDomain_, _cupdUserPoolId = pUserPoolId_}
+  CreateUserPoolDomain'
+    { _cupdCustomDomainConfig = Nothing
+    , _cupdDomain = pDomain_
+    , _cupdUserPoolId = pUserPoolId_
+    }
 
+
+-- | The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application. Provide this parameter only if you want to use a custom domain for your user pool. Otherwise, you can exclude this parameter and use the Amazon Cognito hosted domain instead. For more information about the hosted domain and custom domains, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html Configuring a User Pool Domain> .
+cupdCustomDomainConfig :: Lens' CreateUserPoolDomain (Maybe CustomDomainConfigType)
+cupdCustomDomainConfig = lens _cupdCustomDomainConfig (\ s a -> s{_cupdCustomDomainConfig = a})
 
 -- | The domain string.
 cupdDomain :: Lens' CreateUserPoolDomain Text
@@ -79,10 +92,10 @@ instance AWSRequest CreateUserPoolDomain where
              CreateUserPoolDomainResponse
         request = postJSON cognitoIdentityProvider
         response
-          = receiveEmpty
+          = receiveJSON
               (\ s h x ->
                  CreateUserPoolDomainResponse' <$>
-                   (pure (fromEnum s)))
+                   (x .?> "CloudFrontDomain") <*> (pure (fromEnum s)))
 
 instance Hashable CreateUserPoolDomain where
 
@@ -102,7 +115,9 @@ instance ToJSON CreateUserPoolDomain where
         toJSON CreateUserPoolDomain'{..}
           = object
               (catMaybes
-                 [Just ("Domain" .= _cupdDomain),
+                 [("CustomDomainConfig" .=) <$>
+                    _cupdCustomDomainConfig,
+                  Just ("Domain" .= _cupdDomain),
                   Just ("UserPoolId" .= _cupdUserPoolId)])
 
 instance ToPath CreateUserPoolDomain where
@@ -112,8 +127,9 @@ instance ToQuery CreateUserPoolDomain where
         toQuery = const mempty
 
 -- | /See:/ 'createUserPoolDomainResponse' smart constructor.
-newtype CreateUserPoolDomainResponse = CreateUserPoolDomainResponse'
-  { _cupdrsResponseStatus :: Int
+data CreateUserPoolDomainResponse = CreateUserPoolDomainResponse'
+  { _cupdrsCloudFrontDomain :: !(Maybe Text)
+  , _cupdrsResponseStatus   :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -121,13 +137,22 @@ newtype CreateUserPoolDomainResponse = CreateUserPoolDomainResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'cupdrsCloudFrontDomain' - The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+--
 -- * 'cupdrsResponseStatus' - -- | The response status code.
 createUserPoolDomainResponse
     :: Int -- ^ 'cupdrsResponseStatus'
     -> CreateUserPoolDomainResponse
 createUserPoolDomainResponse pResponseStatus_ =
-  CreateUserPoolDomainResponse' {_cupdrsResponseStatus = pResponseStatus_}
+  CreateUserPoolDomainResponse'
+    { _cupdrsCloudFrontDomain = Nothing
+    , _cupdrsResponseStatus = pResponseStatus_
+    }
 
+
+-- | The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
+cupdrsCloudFrontDomain :: Lens' CreateUserPoolDomainResponse (Maybe Text)
+cupdrsCloudFrontDomain = lens _cupdrsCloudFrontDomain (\ s a -> s{_cupdrsCloudFrontDomain = a})
 
 -- | -- | The response status code.
 cupdrsResponseStatus :: Lens' CreateUserPoolDomainResponse Int

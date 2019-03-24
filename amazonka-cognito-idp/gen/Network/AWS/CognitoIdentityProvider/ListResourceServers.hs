@@ -21,6 +21,8 @@
 -- Lists the resource servers for a user pool.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CognitoIdentityProvider.ListResourceServers
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.CognitoIdentityProvider.ListResourceServers
 import Network.AWS.CognitoIdentityProvider.Types
 import Network.AWS.CognitoIdentityProvider.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -86,6 +89,13 @@ lrsMaxResults = lens _lrsMaxResults (\ s a -> s{_lrsMaxResults = a}) . mapping _
 -- | The user pool ID for the user pool.
 lrsUserPoolId :: Lens' ListResourceServers Text
 lrsUserPoolId = lens _lrsUserPoolId (\ s a -> s{_lrsUserPoolId = a})
+
+instance AWSPager ListResourceServers where
+        page rq rs
+          | stop (rs ^. lrsrsNextToken) = Nothing
+          | stop (rs ^. lrsrsResourceServers) = Nothing
+          | otherwise =
+            Just $ rq & lrsNextToken .~ rs ^. lrsrsNextToken
 
 instance AWSRequest ListResourceServers where
         type Rs ListResourceServers =

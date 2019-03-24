@@ -551,7 +551,7 @@ data AuthenticationResultType = AuthenticationResultType'
 --
 -- * 'artNewDeviceMetadata' - The new device metadata from an authentication result.
 --
--- * 'artExpiresIn' - The expiration period of the authentication result.
+-- * 'artExpiresIn' - The expiration period of the authentication result in seconds.
 --
 -- * 'artTokenType' - The token type.
 --
@@ -581,7 +581,7 @@ artRefreshToken = lens _artRefreshToken (\ s a -> s{_artRefreshToken = a}) . map
 artNewDeviceMetadata :: Lens' AuthenticationResultType (Maybe NewDeviceMetadataType)
 artNewDeviceMetadata = lens _artNewDeviceMetadata (\ s a -> s{_artNewDeviceMetadata = a})
 
--- | The expiration period of the authentication result.
+-- | The expiration period of the authentication result in seconds.
 artExpiresIn :: Lens' AuthenticationResultType (Maybe Int)
 artExpiresIn = lens _artExpiresIn (\ s a -> s{_artExpiresIn = a})
 
@@ -894,6 +894,48 @@ instance ToJSON ContextDataType where
                   Just ("ServerPath" .= _cdtServerPath),
                   Just ("HttpHeaders" .= _cdtHTTPHeaders)])
 
+-- | The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+--
+--
+--
+-- /See:/ 'customDomainConfigType' smart constructor.
+newtype CustomDomainConfigType = CustomDomainConfigType'
+  { _cdctCertificateARN :: Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CustomDomainConfigType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdctCertificateARN' - The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
+customDomainConfigType
+    :: Text -- ^ 'cdctCertificateARN'
+    -> CustomDomainConfigType
+customDomainConfigType pCertificateARN_ =
+  CustomDomainConfigType' {_cdctCertificateARN = pCertificateARN_}
+
+
+-- | The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
+cdctCertificateARN :: Lens' CustomDomainConfigType Text
+cdctCertificateARN = lens _cdctCertificateARN (\ s a -> s{_cdctCertificateARN = a})
+
+instance FromJSON CustomDomainConfigType where
+        parseJSON
+          = withObject "CustomDomainConfigType"
+              (\ x ->
+                 CustomDomainConfigType' <$> (x .: "CertificateArn"))
+
+instance Hashable CustomDomainConfigType where
+
+instance NFData CustomDomainConfigType where
+
+instance ToJSON CustomDomainConfigType where
+        toJSON CustomDomainConfigType'{..}
+          = object
+              (catMaybes
+                 [Just ("CertificateArn" .= _cdctCertificateARN)])
+
 -- | The configuration for the user pool's device tracking.
 --
 --
@@ -1080,6 +1122,7 @@ data DomainDescriptionType = DomainDescriptionType'
   , _ddtUserPoolId             :: !(Maybe Text)
   , _ddtDomain                 :: !(Maybe Text)
   , _ddtAWSAccountId           :: !(Maybe Text)
+  , _ddtCustomDomainConfig     :: !(Maybe CustomDomainConfigType)
   , _ddtVersion                :: !(Maybe Text)
   , _ddtS3Bucket               :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -1099,6 +1142,8 @@ data DomainDescriptionType = DomainDescriptionType'
 --
 -- * 'ddtAWSAccountId' - The AWS account ID for the user pool owner.
 --
+-- * 'ddtCustomDomainConfig' - The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+--
 -- * 'ddtVersion' - The app version.
 --
 -- * 'ddtS3Bucket' - The S3 bucket where the static files for this domain are stored.
@@ -1111,6 +1156,7 @@ domainDescriptionType =
     , _ddtUserPoolId = Nothing
     , _ddtDomain = Nothing
     , _ddtAWSAccountId = Nothing
+    , _ddtCustomDomainConfig = Nothing
     , _ddtVersion = Nothing
     , _ddtS3Bucket = Nothing
     }
@@ -1136,6 +1182,10 @@ ddtDomain = lens _ddtDomain (\ s a -> s{_ddtDomain = a})
 ddtAWSAccountId :: Lens' DomainDescriptionType (Maybe Text)
 ddtAWSAccountId = lens _ddtAWSAccountId (\ s a -> s{_ddtAWSAccountId = a})
 
+-- | The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+ddtCustomDomainConfig :: Lens' DomainDescriptionType (Maybe CustomDomainConfigType)
+ddtCustomDomainConfig = lens _ddtCustomDomainConfig (\ s a -> s{_ddtCustomDomainConfig = a})
+
 -- | The app version.
 ddtVersion :: Lens' DomainDescriptionType (Maybe Text)
 ddtVersion = lens _ddtVersion (\ s a -> s{_ddtVersion = a})
@@ -1153,6 +1203,7 @@ instance FromJSON DomainDescriptionType where
                      <*> (x .:? "UserPoolId")
                      <*> (x .:? "Domain")
                      <*> (x .:? "AWSAccountId")
+                     <*> (x .:? "CustomDomainConfig")
                      <*> (x .:? "Version")
                      <*> (x .:? "S3Bucket"))
 
@@ -2659,7 +2710,7 @@ data SchemaAttributeType = SchemaAttributeType'
 --
 -- * 'satDeveloperOnlyAttribute' - Specifies whether the attribute type is developer only.
 --
--- * 'satMutable' - Specifies whether the attribute can be changed once it has been created.
+-- * 'satMutable' - Specifies whether the value of the attribute can be changed. For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to @true@ . Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html Specifying Identity Provider Attribute Mappings for Your User Pool> .
 schemaAttributeType
     :: SchemaAttributeType
 schemaAttributeType =
@@ -2698,7 +2749,7 @@ satName = lens _satName (\ s a -> s{_satName = a})
 satDeveloperOnlyAttribute :: Lens' SchemaAttributeType (Maybe Bool)
 satDeveloperOnlyAttribute = lens _satDeveloperOnlyAttribute (\ s a -> s{_satDeveloperOnlyAttribute = a})
 
--- | Specifies whether the attribute can be changed once it has been created.
+-- | Specifies whether the value of the attribute can be changed. For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to @true@ . Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html Specifying Identity Provider Attribute Mappings for Your User Pool> .
 satMutable :: Lens' SchemaAttributeType (Maybe Bool)
 satMutable = lens _satMutable (\ s a -> s{_satMutable = a})
 
@@ -3394,7 +3445,7 @@ data UserPoolClientType = UserPoolClientType'
 --
 -- * 'upctUserPoolId' - The user pool ID for the user pool client.
 --
--- * 'upctDefaultRedirectURI' - The default redirect URI. Must be in the @CallbackURLs@ list.
+-- * 'upctDefaultRedirectURI' - The default redirect URI. Must be in the @CallbackURLs@ list. A redirect URI must:     * Be an absolute URI.     * Be registered with the authorization server.     * Not include a fragment component. See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> . Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only. App callback URLs such as myapp://example are also supported.
 --
 -- * 'upctWriteAttributes' - The writeable attributes.
 --
@@ -3410,7 +3461,7 @@ data UserPoolClientType = UserPoolClientType'
 --
 -- * 'upctClientName' - The client name from the user pool request of the client type.
 --
--- * 'upctCallbackURLs' - A list of allowed callback URLs for the identity providers.
+-- * 'upctCallbackURLs' - A list of allowed redirect (callback) URLs for the identity providers. A redirect URI must:     * Be an absolute URI.     * Be registered with the authorization server.     * Not include a fragment component. See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> . Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only. App callback URLs such as myapp://example are also supported.
 userPoolClientType
     :: UserPoolClientType
 userPoolClientType =
@@ -3472,7 +3523,7 @@ upctAllowedOAuthFlowsUserPoolClient = lens _upctAllowedOAuthFlowsUserPoolClient 
 upctUserPoolId :: Lens' UserPoolClientType (Maybe Text)
 upctUserPoolId = lens _upctUserPoolId (\ s a -> s{_upctUserPoolId = a})
 
--- | The default redirect URI. Must be in the @CallbackURLs@ list.
+-- | The default redirect URI. Must be in the @CallbackURLs@ list. A redirect URI must:     * Be an absolute URI.     * Be registered with the authorization server.     * Not include a fragment component. See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> . Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only. App callback URLs such as myapp://example are also supported.
 upctDefaultRedirectURI :: Lens' UserPoolClientType (Maybe Text)
 upctDefaultRedirectURI = lens _upctDefaultRedirectURI (\ s a -> s{_upctDefaultRedirectURI = a})
 
@@ -3504,7 +3555,7 @@ upctAnalyticsConfiguration = lens _upctAnalyticsConfiguration (\ s a -> s{_upctA
 upctClientName :: Lens' UserPoolClientType (Maybe Text)
 upctClientName = lens _upctClientName (\ s a -> s{_upctClientName = a})
 
--- | A list of allowed callback URLs for the identity providers.
+-- | A list of allowed redirect (callback) URLs for the identity providers. A redirect URI must:     * Be an absolute URI.     * Be registered with the authorization server.     * Not include a fragment component. See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> . Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only. App callback URLs such as myapp://example are also supported.
 upctCallbackURLs :: Lens' UserPoolClientType [Text]
 upctCallbackURLs = lens _upctCallbackURLs (\ s a -> s{_upctCallbackURLs = a}) . _Default . _Coerce
 
@@ -3669,7 +3720,9 @@ data UserPoolType = UserPoolType'
   , _uptLastModifiedDate            :: !(Maybe POSIX)
   , _uptVerificationMessageTemplate :: !(Maybe VerificationMessageTemplateType)
   , _uptEstimatedNumberOfUsers      :: !(Maybe Int)
+  , _uptARN                         :: !(Maybe Text)
   , _uptDomain                      :: !(Maybe Text)
+  , _uptCustomDomain                :: !(Maybe Text)
   , _uptEmailVerificationMessage    :: !(Maybe Text)
   , _uptSmsAuthenticationMessage    :: !(Maybe Text)
   , _uptUserPoolAddOns              :: !(Maybe UserPoolAddOnsType)
@@ -3699,7 +3752,7 @@ data UserPoolType = UserPoolType'
 --
 -- * 'uptStatus' - The status of a user pool.
 --
--- * 'uptUserPoolTags' - The cost allocation tags for the user pool. For more information, see <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html Adding Cost Allocation Tags to Your User Pool>
+-- * 'uptUserPoolTags' - The tags that are assigned to the user pool. A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
 --
 -- * 'uptEmailConfigurationFailure' - The reason why the email configuration cannot send the messages to your users.
 --
@@ -3709,7 +3762,11 @@ data UserPoolType = UserPoolType'
 --
 -- * 'uptEstimatedNumberOfUsers' - A number estimating the size of the user pool.
 --
+-- * 'uptARN' - The Amazon Resource Name (ARN) for the user pool.
+--
 -- * 'uptDomain' - Holds the domain prefix if the user pool has a domain associated with it.
+--
+-- * 'uptCustomDomain' - A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: @auth.example.com@ . For more information about adding a custom domain to your user pool, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html Using Your Own Domain for the Hosted UI> .
 --
 -- * 'uptEmailVerificationMessage' - The contents of the email verification message.
 --
@@ -3739,7 +3796,7 @@ data UserPoolType = UserPoolType'
 --
 -- * 'uptCreationDate' - The date the user pool was created.
 --
--- * 'uptLambdaConfig' - The AWS Lambda triggers associated with tue user pool.
+-- * 'uptLambdaConfig' - The AWS Lambda triggers associated with the user pool.
 --
 -- * 'uptSmsConfiguration' - The SMS configuration.
 --
@@ -3760,7 +3817,9 @@ userPoolType =
     , _uptLastModifiedDate = Nothing
     , _uptVerificationMessageTemplate = Nothing
     , _uptEstimatedNumberOfUsers = Nothing
+    , _uptARN = Nothing
     , _uptDomain = Nothing
+    , _uptCustomDomain = Nothing
     , _uptEmailVerificationMessage = Nothing
     , _uptSmsAuthenticationMessage = Nothing
     , _uptUserPoolAddOns = Nothing
@@ -3788,7 +3847,7 @@ userPoolType =
 uptStatus :: Lens' UserPoolType (Maybe StatusType)
 uptStatus = lens _uptStatus (\ s a -> s{_uptStatus = a})
 
--- | The cost allocation tags for the user pool. For more information, see <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html Adding Cost Allocation Tags to Your User Pool>
+-- | The tags that are assigned to the user pool. A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
 uptUserPoolTags :: Lens' UserPoolType (HashMap Text Text)
 uptUserPoolTags = lens _uptUserPoolTags (\ s a -> s{_uptUserPoolTags = a}) . _Default . _Map
 
@@ -3808,9 +3867,17 @@ uptVerificationMessageTemplate = lens _uptVerificationMessageTemplate (\ s a -> 
 uptEstimatedNumberOfUsers :: Lens' UserPoolType (Maybe Int)
 uptEstimatedNumberOfUsers = lens _uptEstimatedNumberOfUsers (\ s a -> s{_uptEstimatedNumberOfUsers = a})
 
+-- | The Amazon Resource Name (ARN) for the user pool.
+uptARN :: Lens' UserPoolType (Maybe Text)
+uptARN = lens _uptARN (\ s a -> s{_uptARN = a})
+
 -- | Holds the domain prefix if the user pool has a domain associated with it.
 uptDomain :: Lens' UserPoolType (Maybe Text)
 uptDomain = lens _uptDomain (\ s a -> s{_uptDomain = a})
+
+-- | A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: @auth.example.com@ . For more information about adding a custom domain to your user pool, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html Using Your Own Domain for the Hosted UI> .
+uptCustomDomain :: Lens' UserPoolType (Maybe Text)
+uptCustomDomain = lens _uptCustomDomain (\ s a -> s{_uptCustomDomain = a})
 
 -- | The contents of the email verification message.
 uptEmailVerificationMessage :: Lens' UserPoolType (Maybe Text)
@@ -3868,7 +3935,7 @@ uptSmsConfigurationFailure = lens _uptSmsConfigurationFailure (\ s a -> s{_uptSm
 uptCreationDate :: Lens' UserPoolType (Maybe UTCTime)
 uptCreationDate = lens _uptCreationDate (\ s a -> s{_uptCreationDate = a}) . mapping _Time
 
--- | The AWS Lambda triggers associated with tue user pool.
+-- | The AWS Lambda triggers associated with the user pool.
 uptLambdaConfig :: Lens' UserPoolType (Maybe LambdaConfigType)
 uptLambdaConfig = lens _uptLambdaConfig (\ s a -> s{_uptLambdaConfig = a})
 
@@ -3903,7 +3970,9 @@ instance FromJSON UserPoolType where
                      <*> (x .:? "LastModifiedDate")
                      <*> (x .:? "VerificationMessageTemplate")
                      <*> (x .:? "EstimatedNumberOfUsers")
+                     <*> (x .:? "Arn")
                      <*> (x .:? "Domain")
+                     <*> (x .:? "CustomDomain")
                      <*> (x .:? "EmailVerificationMessage")
                      <*> (x .:? "SmsAuthenticationMessage")
                      <*> (x .:? "UserPoolAddOns")

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allows the developer to update the specified user pool client and password policy.
+-- Updates the specified user pool app client with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool app client settings with .
 --
 --
 module Network.AWS.CognitoIdentityProvider.UpdateUserPoolClient
@@ -96,7 +96,7 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
 --
 -- * 'uupcAllowedOAuthFlowsUserPoolClient' - Set to TRUE if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
 --
--- * 'uupcDefaultRedirectURI' - The default redirect URI. Must be in the @CallbackURLs@ list.
+-- * 'uupcDefaultRedirectURI' - The default redirect URI. Must be in the @CallbackURLs@ list. A redirect URI must:     * Be an absolute URI.     * Be registered with the authorization server.     * Not include a fragment component. See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> . Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only. App callback URLs such as myapp://example are also supported.
 --
 -- * 'uupcWriteAttributes' - The writeable attributes of the user pool.
 --
@@ -110,7 +110,7 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
 --
 -- * 'uupcClientName' - The client name from the update user pool client request.
 --
--- * 'uupcCallbackURLs' - A list of allowed callback URLs for the identity providers.
+-- * 'uupcCallbackURLs' - A list of allowed redirect (callback) URLs for the identity providers. A redirect URI must:     * Be an absolute URI.     * Be registered with the authorization server.     * Not include a fragment component. See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> . Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only. App callback URLs such as myapp://example are also supported.
 --
 -- * 'uupcUserPoolId' - The user pool ID for the user pool where you want to update the user pool client.
 --
@@ -159,7 +159,7 @@ uupcLogoutURLs = lens _uupcLogoutURLs (\ s a -> s{_uupcLogoutURLs = a}) . _Defau
 uupcAllowedOAuthFlowsUserPoolClient :: Lens' UpdateUserPoolClient (Maybe Bool)
 uupcAllowedOAuthFlowsUserPoolClient = lens _uupcAllowedOAuthFlowsUserPoolClient (\ s a -> s{_uupcAllowedOAuthFlowsUserPoolClient = a})
 
--- | The default redirect URI. Must be in the @CallbackURLs@ list.
+-- | The default redirect URI. Must be in the @CallbackURLs@ list. A redirect URI must:     * Be an absolute URI.     * Be registered with the authorization server.     * Not include a fragment component. See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> . Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only. App callback URLs such as myapp://example are also supported.
 uupcDefaultRedirectURI :: Lens' UpdateUserPoolClient (Maybe Text)
 uupcDefaultRedirectURI = lens _uupcDefaultRedirectURI (\ s a -> s{_uupcDefaultRedirectURI = a})
 
@@ -187,7 +187,7 @@ uupcAnalyticsConfiguration = lens _uupcAnalyticsConfiguration (\ s a -> s{_uupcA
 uupcClientName :: Lens' UpdateUserPoolClient (Maybe Text)
 uupcClientName = lens _uupcClientName (\ s a -> s{_uupcClientName = a})
 
--- | A list of allowed callback URLs for the identity providers.
+-- | A list of allowed redirect (callback) URLs for the identity providers. A redirect URI must:     * Be an absolute URI.     * Be registered with the authorization server.     * Not include a fragment component. See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> . Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only. App callback URLs such as myapp://example are also supported.
 uupcCallbackURLs :: Lens' UpdateUserPoolClient [Text]
 uupcCallbackURLs = lens _uupcCallbackURLs (\ s a -> s{_uupcCallbackURLs = a}) . _Default . _Coerce
 

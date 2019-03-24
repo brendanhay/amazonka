@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Use this API to register a user's entered TOTP code and mark the user's software token MFA status as "verified" if successful,
+-- Use this API to register a user's entered TOTP code and mark the user's software token MFA status as "verified" if successful. The request takes an access token or a session string, but not both.
 --
 --
 module Network.AWS.CognitoIdentityProvider.VerifySoftwareToken

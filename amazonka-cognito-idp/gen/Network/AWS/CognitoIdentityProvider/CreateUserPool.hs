@@ -94,7 +94,7 @@ data CreateUserPool = CreateUserPool'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cupUserPoolTags' - The cost allocation tags for the user pool. For more information, see <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html Adding Cost Allocation Tags to Your User Pool>
+-- * 'cupUserPoolTags' - The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
 --
 -- * 'cupVerificationMessageTemplate' - The template for the verification message that the user sees when the app requests permission to access the user's information.
 --
@@ -158,7 +158,7 @@ createUserPool pPoolName_ =
     }
 
 
--- | The cost allocation tags for the user pool. For more information, see <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html Adding Cost Allocation Tags to Your User Pool>
+-- | The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
 cupUserPoolTags :: Lens' CreateUserPool (HashMap Text Text)
 cupUserPoolTags = lens _cupUserPoolTags (\ s a -> s{_cupUserPoolTags = a}) . _Default . _Map
 

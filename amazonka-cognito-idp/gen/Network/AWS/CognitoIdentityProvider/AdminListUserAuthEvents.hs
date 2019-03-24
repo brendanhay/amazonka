@@ -21,6 +21,8 @@
 -- Lists a history of user activity and any risks detected as part of Amazon Cognito advanced security.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CognitoIdentityProvider.AdminListUserAuthEvents
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.CognitoIdentityProvider.AdminListUserAuthEvents
 import Network.AWS.CognitoIdentityProvider.Types
 import Network.AWS.CognitoIdentityProvider.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -96,6 +99,13 @@ aluaeUserPoolId = lens _aluaeUserPoolId (\ s a -> s{_aluaeUserPoolId = a})
 -- | The user pool username or an alias.
 aluaeUsername :: Lens' AdminListUserAuthEvents Text
 aluaeUsername = lens _aluaeUsername (\ s a -> s{_aluaeUsername = a}) . _Sensitive
+
+instance AWSPager AdminListUserAuthEvents where
+        page rq rs
+          | stop (rs ^. aluaersNextToken) = Nothing
+          | stop (rs ^. aluaersAuthEvents) = Nothing
+          | otherwise =
+            Just $ rq & aluaeNextToken .~ rs ^. aluaersNextToken
 
 instance AWSRequest AdminListUserAuthEvents where
         type Rs AdminListUserAuthEvents =

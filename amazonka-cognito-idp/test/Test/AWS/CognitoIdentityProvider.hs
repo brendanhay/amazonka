@@ -15,9 +15,9 @@ module Test.AWS.CognitoIdentityProvider
     , fixtures
     ) where
 
-import           Network.AWS.CognitoIdentityProvider
-import           Test.AWS.Gen.CognitoIdentityProvider
-import           Test.Tasty
+import Network.AWS.CognitoIdentityProvider
+import Test.AWS.Gen.CognitoIdentityProvider
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

@@ -98,9 +98,9 @@ data CreateUserPoolClient = CreateUserPoolClient'
 --
 -- * 'cupcGenerateSecret' - Boolean to specify whether you want to generate a secret for the user pool client being created.
 --
--- * 'cupcDefaultRedirectURI' - The default redirect URI. Must be in the @CallbackURLs@ list.
+-- * 'cupcDefaultRedirectURI' - The default redirect URI. Must be in the @CallbackURLs@ list. A redirect URI must:     * Be an absolute URI.     * Be registered with the authorization server.     * Not include a fragment component. See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> . Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only. App callback URLs such as myapp://example are also supported.
 --
--- * 'cupcWriteAttributes' - The write attributes.
+-- * 'cupcWriteAttributes' - The user pool attributes that the app client can write to. If your app client allows users to sign in through an identity provider, this array must include all attributes that are mapped to identity provider attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If your app client lacks write access to a mapped attribute, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html Specifying Identity Provider Attribute Mappings for Your User Pool> .
 --
 -- * 'cupcReadAttributes' - The read attributes.
 --
@@ -110,7 +110,7 @@ data CreateUserPoolClient = CreateUserPoolClient'
 --
 -- * 'cupcAnalyticsConfiguration' - The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.
 --
--- * 'cupcCallbackURLs' - A list of allowed callback URLs for the identity providers.
+-- * 'cupcCallbackURLs' - A list of allowed redirect (callback) URLs for the identity providers. A redirect URI must:     * Be an absolute URI.     * Be registered with the authorization server.     * Not include a fragment component. See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> . Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only. App callback URLs such as myapp://example are also supported.
 --
 -- * 'cupcUserPoolId' - The user pool ID for the user pool where you want to create a user pool client.
 --
@@ -163,11 +163,11 @@ cupcAllowedOAuthFlowsUserPoolClient = lens _cupcAllowedOAuthFlowsUserPoolClient 
 cupcGenerateSecret :: Lens' CreateUserPoolClient (Maybe Bool)
 cupcGenerateSecret = lens _cupcGenerateSecret (\ s a -> s{_cupcGenerateSecret = a})
 
--- | The default redirect URI. Must be in the @CallbackURLs@ list.
+-- | The default redirect URI. Must be in the @CallbackURLs@ list. A redirect URI must:     * Be an absolute URI.     * Be registered with the authorization server.     * Not include a fragment component. See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> . Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only. App callback URLs such as myapp://example are also supported.
 cupcDefaultRedirectURI :: Lens' CreateUserPoolClient (Maybe Text)
 cupcDefaultRedirectURI = lens _cupcDefaultRedirectURI (\ s a -> s{_cupcDefaultRedirectURI = a})
 
--- | The write attributes.
+-- | The user pool attributes that the app client can write to. If your app client allows users to sign in through an identity provider, this array must include all attributes that are mapped to identity provider attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If your app client lacks write access to a mapped attribute, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html Specifying Identity Provider Attribute Mappings for Your User Pool> .
 cupcWriteAttributes :: Lens' CreateUserPoolClient [Text]
 cupcWriteAttributes = lens _cupcWriteAttributes (\ s a -> s{_cupcWriteAttributes = a}) . _Default . _Coerce
 
@@ -187,7 +187,7 @@ cupcAllowedOAuthFlows = lens _cupcAllowedOAuthFlows (\ s a -> s{_cupcAllowedOAut
 cupcAnalyticsConfiguration :: Lens' CreateUserPoolClient (Maybe AnalyticsConfigurationType)
 cupcAnalyticsConfiguration = lens _cupcAnalyticsConfiguration (\ s a -> s{_cupcAnalyticsConfiguration = a})
 
--- | A list of allowed callback URLs for the identity providers.
+-- | A list of allowed redirect (callback) URLs for the identity providers. A redirect URI must:     * Be an absolute URI.     * Be registered with the authorization server.     * Not include a fragment component. See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> . Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only. App callback URLs such as myapp://example are also supported.
 cupcCallbackURLs :: Lens' CreateUserPoolClient [Text]
 cupcCallbackURLs = lens _cupcCallbackURLs (\ s a -> s{_cupcCallbackURLs = a}) . _Default . _Coerce
 

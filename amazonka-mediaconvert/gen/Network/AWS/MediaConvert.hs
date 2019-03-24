@@ -50,7 +50,10 @@ module Network.AWS.MediaConvert
     -- ** UpdatePreset
     , module Network.AWS.MediaConvert.UpdatePreset
 
-    -- ** ListQueues
+    -- ** ListTagsForResource
+    , module Network.AWS.MediaConvert.ListTagsForResource
+
+    -- ** ListQueues (Paginated)
     , module Network.AWS.MediaConvert.ListQueues
 
     -- ** DeleteQueue
@@ -65,7 +68,7 @@ module Network.AWS.MediaConvert
     -- ** CreateJob
     , module Network.AWS.MediaConvert.CreateJob
 
-    -- ** ListJobs
+    -- ** ListJobs (Paginated)
     , module Network.AWS.MediaConvert.ListJobs
 
     -- ** GetJob
@@ -74,20 +77,29 @@ module Network.AWS.MediaConvert
     -- ** CreatePreset
     , module Network.AWS.MediaConvert.CreatePreset
 
-    -- ** ListPresets
+    -- ** ListPresets (Paginated)
     , module Network.AWS.MediaConvert.ListPresets
+
+    -- ** DisassociateCertificate
+    , module Network.AWS.MediaConvert.DisassociateCertificate
 
     -- ** GetQueue
     , module Network.AWS.MediaConvert.GetQueue
 
-    -- ** DescribeEndpoints
+    -- ** DescribeEndpoints (Paginated)
     , module Network.AWS.MediaConvert.DescribeEndpoints
 
     -- ** CreateQueue
     , module Network.AWS.MediaConvert.CreateQueue
 
+    -- ** TagResource
+    , module Network.AWS.MediaConvert.TagResource
+
     -- ** CreateJobTemplate
     , module Network.AWS.MediaConvert.CreateJobTemplate
+
+    -- ** UntagResource
+    , module Network.AWS.MediaConvert.UntagResource
 
     -- ** DeleteJobTemplate
     , module Network.AWS.MediaConvert.DeleteJobTemplate
@@ -95,11 +107,14 @@ module Network.AWS.MediaConvert
     -- ** UpdateJobTemplate
     , module Network.AWS.MediaConvert.UpdateJobTemplate
 
-    -- ** ListJobTemplates
+    -- ** ListJobTemplates (Paginated)
     , module Network.AWS.MediaConvert.ListJobTemplates
 
     -- ** GetJobTemplate
     , module Network.AWS.MediaConvert.GetJobTemplate
+
+    -- ** AssociateCertificate
+    , module Network.AWS.MediaConvert.AssociateCertificate
 
     -- ** CancelJob
     , module Network.AWS.MediaConvert.CancelJob
@@ -142,6 +157,9 @@ module Network.AWS.MediaConvert
     -- ** Ac3MetadataControl
     , Ac3MetadataControl (..)
 
+    -- ** AccelerationMode
+    , AccelerationMode (..)
+
     -- ** AfdSignaling
     , AfdSignaling (..)
 
@@ -175,6 +193,9 @@ module Network.AWS.MediaConvert
     -- ** AudioTypeControl
     , AudioTypeControl (..)
 
+    -- ** BillingTagsSource
+    , BillingTagsSource (..)
+
     -- ** BurninSubtitleAlignment
     , BurninSubtitleAlignment (..)
 
@@ -199,6 +220,39 @@ module Network.AWS.MediaConvert
     -- ** CaptionSourceType
     , CaptionSourceType (..)
 
+    -- ** CmafClientCache
+    , CmafClientCache (..)
+
+    -- ** CmafCodecSpecification
+    , CmafCodecSpecification (..)
+
+    -- ** CmafEncryptionType
+    , CmafEncryptionType (..)
+
+    -- ** CmafInitializationVectorInManifest
+    , CmafInitializationVectorInManifest (..)
+
+    -- ** CmafKeyProviderType
+    , CmafKeyProviderType (..)
+
+    -- ** CmafManifestCompression
+    , CmafManifestCompression (..)
+
+    -- ** CmafManifestDurationFormat
+    , CmafManifestDurationFormat (..)
+
+    -- ** CmafSegmentControl
+    , CmafSegmentControl (..)
+
+    -- ** CmafStreamInfResolution
+    , CmafStreamInfResolution (..)
+
+    -- ** CmafWriteDASHManifest
+    , CmafWriteDASHManifest (..)
+
+    -- ** CmafWriteHLSManifest
+    , CmafWriteHLSManifest (..)
+
     -- ** ColorMetadata
     , ColorMetadata (..)
 
@@ -211,6 +265,9 @@ module Network.AWS.MediaConvert
     -- ** ColorSpaceUsage
     , ColorSpaceUsage (..)
 
+    -- ** Commitment
+    , Commitment (..)
+
     -- ** ContainerType
     , ContainerType (..)
 
@@ -220,6 +277,12 @@ module Network.AWS.MediaConvert
     -- ** DashIsoSegmentControl
     , DashIsoSegmentControl (..)
 
+    -- ** DashIsoWriteSegmentTimelineInRepresentation
+    , DashIsoWriteSegmentTimelineInRepresentation (..)
+
+    -- ** DecryptionMode
+    , DecryptionMode (..)
+
     -- ** DeinterlaceAlgorithm
     , DeinterlaceAlgorithm (..)
 
@@ -228,6 +291,9 @@ module Network.AWS.MediaConvert
 
     -- ** DeinterlacerMode
     , DeinterlacerMode (..)
+
+    -- ** DescribeEndpointsMode
+    , DescribeEndpointsMode (..)
 
     -- ** DropFrameTimecode
     , DropFrameTimecode (..)
@@ -301,6 +367,9 @@ module Network.AWS.MediaConvert
     -- ** FileSourceConvert608To708
     , FileSourceConvert608To708 (..)
 
+    -- ** FontScript
+    , FontScript (..)
+
     -- ** H264AdaptiveQuantization
     , H264AdaptiveQuantization (..)
 
@@ -309,6 +378,9 @@ module Network.AWS.MediaConvert
 
     -- ** H264CodecProfile
     , H264CodecProfile (..)
+
+    -- ** H264DynamicSubGop
+    , H264DynamicSubGop (..)
 
     -- ** H264EntropyEncoding
     , H264EntropyEncoding (..)
@@ -379,6 +451,9 @@ module Network.AWS.MediaConvert
     -- ** H265CodecProfile
     , H265CodecProfile (..)
 
+    -- ** H265DynamicSubGop
+    , H265DynamicSubGop (..)
+
     -- ** H265FlickerAdaptiveQuantization
     , H265FlickerAdaptiveQuantization (..)
 
@@ -433,6 +508,9 @@ module Network.AWS.MediaConvert
     -- ** H265UnregisteredSeiTimecode
     , H265UnregisteredSeiTimecode (..)
 
+    -- ** H265WriteMp4PackagingType
+    , H265WriteMp4PackagingType (..)
+
     -- ** HlsAdMarkers
     , HlsAdMarkers (..)
 
@@ -469,6 +547,9 @@ module Network.AWS.MediaConvert
     -- ** HlsManifestDurationFormat
     , HlsManifestDurationFormat (..)
 
+    -- ** HlsOfflineEncrypted
+    , HlsOfflineEncrypted (..)
+
     -- ** HlsOutputSelection
     , HlsOutputSelection (..)
 
@@ -495,6 +576,9 @@ module Network.AWS.MediaConvert
 
     -- ** InputPsiControl
     , InputPsiControl (..)
+
+    -- ** InputRotate
+    , InputRotate (..)
 
     -- ** InputTimecodeSource
     , InputTimecodeSource (..)
@@ -523,6 +607,9 @@ module Network.AWS.MediaConvert
     -- ** M2tsEsRateInPes
     , M2tsEsRateInPes (..)
 
+    -- ** M2tsForceTsVideoEbpOrder
+    , M2tsForceTsVideoEbpOrder (..)
+
     -- ** M2tsNielsenId3
     , M2tsNielsenId3 (..)
 
@@ -549,6 +636,12 @@ module Network.AWS.MediaConvert
 
     -- ** M3u8Scte35Source
     , M3u8Scte35Source (..)
+
+    -- ** MotionImageInsertionMode
+    , MotionImageInsertionMode (..)
+
+    -- ** MotionImagePlayback
+    , MotionImagePlayback (..)
 
     -- ** MovClapAtom
     , MovClapAtom (..)
@@ -582,6 +675,9 @@ module Network.AWS.MediaConvert
 
     -- ** Mpeg2CodecProfile
     , Mpeg2CodecProfile (..)
+
+    -- ** Mpeg2DynamicSubGop
+    , Mpeg2DynamicSubGop (..)
 
     -- ** Mpeg2FramerateControl
     , Mpeg2FramerateControl (..)
@@ -646,6 +742,9 @@ module Network.AWS.MediaConvert
     -- ** PresetListBy
     , PresetListBy (..)
 
+    -- ** PricingPlan
+    , PricingPlan (..)
+
     -- ** ProresCodecProfile
     , ProresCodecProfile (..)
 
@@ -672,6 +771,12 @@ module Network.AWS.MediaConvert
 
     -- ** QueueStatus
     , QueueStatus (..)
+
+    -- ** RenewalType
+    , RenewalType (..)
+
+    -- ** ReservationPlanStatus
+    , ReservationPlanStatus (..)
 
     -- ** RespondToAfd
     , RespondToAfd (..)
@@ -703,6 +808,9 @@ module Network.AWS.MediaConvert
     -- ** VideoTimecodeInsertion
     , VideoTimecodeInsertion (..)
 
+    -- ** WavFormat
+    , WavFormat (..)
+
     -- ** AacSettings
     , AacSettings
     , aacSettings
@@ -727,6 +835,11 @@ module Network.AWS.MediaConvert
     , aDynamicRangeCompressionProfile
     , aBitrate
     , aDialnorm
+
+    -- ** AccelerationSettings
+    , AccelerationSettings
+    , accelerationSettings
+    , asMode
 
     -- ** AiffSettings
     , AiffSettings
@@ -755,6 +868,7 @@ module Network.AWS.MediaConvert
     , AudioDescription
     , audioDescription
     , adAudioSourceName
+    , adCustomLanguageCode
     , adLanguageCode
     , adAudioType
     , adAudioNormalizationSettings
@@ -778,6 +892,7 @@ module Network.AWS.MediaConvert
     , AudioSelector
     , audioSelector
     , asTracks
+    , asCustomLanguageCode
     , asProgramSelection
     , asLanguageCode
     , asOffset
@@ -810,6 +925,7 @@ module Network.AWS.MediaConvert
     , bdsFontSize
     , bdsXPosition
     , bdsTeletextSpacing
+    , bdsFontScript
     , bdsAlignment
     , bdsShadowOpacity
     , bdsOutlineColor
@@ -821,6 +937,7 @@ module Network.AWS.MediaConvert
     , CaptionDescription
     , captionDescription
     , cdCaptionSelectorName
+    , cdCustomLanguageCode
     , cdLanguageCode
     , cdDestinationSettings
     , cdLanguageDescription
@@ -828,6 +945,7 @@ module Network.AWS.MediaConvert
     -- ** CaptionDescriptionPreset
     , CaptionDescriptionPreset
     , captionDescriptionPreset
+    , cdpCustomLanguageCode
     , cdpLanguageCode
     , cdpDestinationSettings
     , cdpLanguageDescription
@@ -839,12 +957,14 @@ module Network.AWS.MediaConvert
     , cdsDvbSubDestinationSettings
     , cdsTtmlDestinationSettings
     , cdsDestinationType
+    , cdsEmbeddedDestinationSettings
     , cdsSccDestinationSettings
     , cdsBurninDestinationSettings
 
     -- ** CaptionSelector
     , CaptionSelector
     , captionSelector
+    , csCustomLanguageCode
     , csLanguageCode
     , csSourceSettings
 
@@ -855,6 +975,7 @@ module Network.AWS.MediaConvert
     , cssSourceType
     , cssFileSourceSettings
     , cssDvbSubSourceSettings
+    , cssTrackSourceSettings
     , cssAncillarySourceSettings
     , cssEmbeddedSourceSettings
 
@@ -862,6 +983,34 @@ module Network.AWS.MediaConvert
     , ChannelMapping
     , channelMapping
     , cmOutputChannels
+
+    -- ** CmafEncryptionSettings
+    , CmafEncryptionSettings
+    , cmafEncryptionSettings
+    , cesEncryptionMethod
+    , cesConstantInitializationVector
+    , cesType
+    , cesStaticKeyProvider
+    , cesInitializationVectorInManifest
+
+    -- ** CmafGroupSettings
+    , CmafGroupSettings
+    , cmafGroupSettings
+    , cgsFragmentLength
+    , cgsSegmentControl
+    , cgsDestination
+    , cgsMinBufferTime
+    , cgsWriteHlsManifest
+    , cgsCodecSpecification
+    , cgsBaseURL
+    , cgsMinFinalSegmentLength
+    , cgsWriteDashManifest
+    , cgsEncryption
+    , cgsSegmentLength
+    , cgsManifestDurationFormat
+    , cgsClientCache
+    , cgsStreamInfResolution
+    , cgsManifestCompression
 
     -- ** ColorCorrector
     , ColorCorrector
@@ -899,6 +1048,7 @@ module Network.AWS.MediaConvert
     , digsBaseURL
     , digsEncryption
     , digsSegmentLength
+    , digsWriteSegmentTimelineInRepresentation
 
     -- ** Deinterlacer
     , Deinterlacer
@@ -935,6 +1085,7 @@ module Network.AWS.MediaConvert
     , dsdsFontSize
     , dsdsXPosition
     , dsdsTeletextSpacing
+    , dsdsFontScript
     , dsdsAlignment
     , dsdsShadowOpacity
     , dsdsOutlineColor
@@ -977,6 +1128,11 @@ module Network.AWS.MediaConvert
     , esSurroundExMode
     , esDialnorm
 
+    -- ** EmbeddedDestinationSettings
+    , EmbeddedDestinationSettings
+    , embeddedDestinationSettings
+    , edsDestination608ChannelNumber
+
     -- ** EmbeddedSourceSettings
     , EmbeddedSourceSettings
     , embeddedSourceSettings
@@ -988,6 +1144,23 @@ module Network.AWS.MediaConvert
     , Endpoint
     , endpoint
     , eURL
+
+    -- ** EsamManifestConfirmConditionNotification
+    , EsamManifestConfirmConditionNotification
+    , esamManifestConfirmConditionNotification
+    , emccnMccXML
+
+    -- ** EsamSettings
+    , EsamSettings
+    , esamSettings
+    , esManifestConfirmConditionNotification
+    , esResponseSignalPreroll
+    , esSignalProcessingNotification
+
+    -- ** EsamSignalProcessingNotification
+    , EsamSignalProcessingNotification
+    , esamSignalProcessingNotification
+    , espnSccXML
 
     -- ** F4vSettings
     , F4vSettings
@@ -1014,46 +1187,60 @@ module Network.AWS.MediaConvert
     , fcsMaxCaptures
     , fcsFramerateNumerator
 
+    -- ** H264QvbrSettings
+    , H264QvbrSettings
+    , h264QvbrSettings
+    , hMaxAverageBitrate
+    , hQvbrQualityLevel
+
     -- ** H264Settings
     , H264Settings
     , h264Settings
-    , hUnregisteredSeiTimecode
-    , hQualityTuningLevel
-    , hTemporalAdaptiveQuantization
-    , hSceneChangeDetect
-    , hHrdBufferInitialFillPercentage
-    , hSlowPal
-    , hParNumerator
-    , hGopSize
-    , hNumberBFramesBetweenReferenceFrames
-    , hGopSizeUnits
-    , hHrdBufferSize
-    , hSlices
-    , hRateControlMode
-    , hNumberReferenceFrames
-    , hTelecine
-    , hMinIInterval
-    , hInterlaceMode
-    , hParControl
-    , hRepeatPps
-    , hFlickerAdaptiveQuantization
-    , hSoftness
-    , hCodecProfile
-    , hBitrate
-    , hFramerateDenominator
-    , hFramerateConversionAlgorithm
-    , hCodecLevel
-    , hEntropyEncoding
-    , hFramerateControl
-    , hAdaptiveQuantization
-    , hFramerateNumerator
-    , hGopBReference
-    , hMaxBitrate
-    , hSyntax
-    , hFieldEncoding
-    , hGopClosedCadence
-    , hParDenominator
-    , hSpatialAdaptiveQuantization
+    , hssUnregisteredSeiTimecode
+    , hssQualityTuningLevel
+    , hssTemporalAdaptiveQuantization
+    , hssSceneChangeDetect
+    , hssHrdBufferInitialFillPercentage
+    , hssSlowPal
+    , hssParNumerator
+    , hssGopSize
+    , hssNumberBFramesBetweenReferenceFrames
+    , hssGopSizeUnits
+    , hssHrdBufferSize
+    , hssSlices
+    , hssRateControlMode
+    , hssNumberReferenceFrames
+    , hssTelecine
+    , hssDynamicSubGop
+    , hssMinIInterval
+    , hssInterlaceMode
+    , hssParControl
+    , hssRepeatPps
+    , hssFlickerAdaptiveQuantization
+    , hssQvbrSettings
+    , hssSoftness
+    , hssCodecProfile
+    , hssBitrate
+    , hssFramerateDenominator
+    , hssFramerateConversionAlgorithm
+    , hssCodecLevel
+    , hssEntropyEncoding
+    , hssFramerateControl
+    , hssAdaptiveQuantization
+    , hssFramerateNumerator
+    , hssGopBReference
+    , hssMaxBitrate
+    , hssSyntax
+    , hssFieldEncoding
+    , hssGopClosedCadence
+    , hssParDenominator
+    , hssSpatialAdaptiveQuantization
+
+    -- ** H265QvbrSettings
+    , H265QvbrSettings
+    , h265QvbrSettings
+    , hqsMaxAverageBitrate
+    , hqsQvbrQualityLevel
 
     -- ** H265Settings
     , H265Settings
@@ -1076,10 +1263,12 @@ module Network.AWS.MediaConvert
     , hsRateControlMode
     , hsNumberReferenceFrames
     , hsTelecine
+    , hsDynamicSubGop
     , hsMinIInterval
     , hsInterlaceMode
     , hsParControl
     , hsFlickerAdaptiveQuantization
+    , hsQvbrSettings
     , hsSampleAdaptiveOffsetFilterMode
     , hsCodecProfile
     , hsBitrate
@@ -1087,6 +1276,7 @@ module Network.AWS.MediaConvert
     , hsFramerateConversionAlgorithm
     , hsCodecLevel
     , hsFramerateControl
+    , hsWriteMp4PackagingType
     , hsAdaptiveQuantization
     , hsFramerateNumerator
     , hsGopBReference
@@ -1114,6 +1304,7 @@ module Network.AWS.MediaConvert
     -- ** HlsCaptionLanguageMapping
     , HlsCaptionLanguageMapping
     , hlsCaptionLanguageMapping
+    , hclmCustomLanguageCode
     , hclmLanguageCode
     , hclmLanguageDescription
     , hclmCaptionChannel
@@ -1121,6 +1312,7 @@ module Network.AWS.MediaConvert
     -- ** HlsEncryptionSettings
     , HlsEncryptionSettings
     , hlsEncryptionSettings
+    , hesOfflineEncrypted
     , hesEncryptionMethod
     , hesConstantInitializationVector
     , hesType
@@ -1141,6 +1333,7 @@ module Network.AWS.MediaConvert
     , hgsCodecSpecification
     , hgsCaptionLanguageMappings
     , hgsBaseURL
+    , hgsMinFinalSegmentLength
     , hgsAdMarkers
     , hgsEncryption
     , hgsSegmentLength
@@ -1178,13 +1371,16 @@ module Network.AWS.MediaConvert
     , Input
     , input
     , iVideoSelector
+    , iSupplementalImps
     , iProgramNumber
     , iAudioSelectorGroups
     , iTimecodeSource
     , iAudioSelectors
+    , iDecryptionSettings
     , iDeblockFilter
     , iInputClippings
     , iDenoiseFilter
+    , iImageInserter
     , iFilterStrength
     , iPsiControl
     , iCaptionSelectors
@@ -1197,6 +1393,14 @@ module Network.AWS.MediaConvert
     , icEndTimecode
     , icStartTimecode
 
+    -- ** InputDecryptionSettings
+    , InputDecryptionSettings
+    , inputDecryptionSettings
+    , idsEncryptedDecryptionKey
+    , idsKMSKeyRegion
+    , idsDecryptionMode
+    , idsInitializationVector
+
     -- ** InputTemplate
     , InputTemplate
     , inputTemplate
@@ -1208,6 +1412,7 @@ module Network.AWS.MediaConvert
     , itDeblockFilter
     , itInputClippings
     , itDenoiseFilter
+    , itImageInserter
     , itFilterStrength
     , itPsiControl
     , itCaptionSelectors
@@ -1233,25 +1438,30 @@ module Network.AWS.MediaConvert
     , job
     , jStatus
     , jJobTemplate
-    , jSettings
+    , jAccelerationSettings
     , jARN
     , jCreatedAt
     , jQueue
     , jUserMetadata
-    , jRole
+    , jBillingTagsSource
     , jOutputGroupDetails
     , jErrorCode
     , jId
     , jTiming
     , jErrorMessage
+    , jStatusUpdateIntervalInSecs
+    , jRole
+    , jSettings
 
     -- ** JobSettings
     , JobSettings
     , jobSettings
+    , jsEsam
     , jsInputs
     , jsTimedMetadataInsertion
     , jsNielsenConfiguration
     , jsAvailBlanking
+    , jsMotionImageInserter
     , jsTimecodeConfig
     , jsOutputGroups
     , jsAdAvailOffset
@@ -1259,64 +1469,75 @@ module Network.AWS.MediaConvert
     -- ** JobTemplate
     , JobTemplate
     , jobTemplate
+    , jtAccelerationSettings
     , jtLastUpdated
-    , jtSettings
     , jtARN
     , jtCreatedAt
     , jtCategory
     , jtQueue
-    , jtName
     , jtType
+    , jtStatusUpdateIntervalInSecs
     , jtDescription
+    , jtSettings
+    , jtName
 
     -- ** JobTemplateSettings
     , JobTemplateSettings
     , jobTemplateSettings
+    , jtsEsam
     , jtsInputs
     , jtsTimedMetadataInsertion
     , jtsNielsenConfiguration
     , jtsAvailBlanking
+    , jtsMotionImageInserter
     , jtsTimecodeConfig
     , jtsOutputGroups
     , jtsAdAvailOffset
 
+    -- ** M2tsScte35Esam
+    , M2tsScte35Esam
+    , m2tsScte35Esam
+    , mseScte35EsamPid
+
     -- ** M2tsSettings
     , M2tsSettings
     , m2tsSettings
-    , mPmtPid
-    , mVideoPid
-    , mBufferModel
-    , mProgramNumber
-    , mScte35Pid
-    , mMinEbpInterval
-    , mTransportStreamId
-    , mMaxPcrInterval
-    , mFragmentTime
-    , mPrivateMetadataPid
-    , mPmtInterval
-    , mDvbSdtSettings
-    , mNullPacketBitrate
-    , mAudioBufferModel
-    , mTimedMetadataPid
-    , mAudioFramesPerPes
-    , mPcrPid
-    , mSegmentationMarkers
-    , mDvbSubPids
-    , mScte35Source
-    , mPatInterval
-    , mEsRateInPes
-    , mBitrate
-    , mAudioPids
-    , mDvbTeletextPid
-    , mNielsenId3
-    , mSegmentationTime
-    , mEbpAudioInterval
-    , mDvbNitSettings
-    , mPcrControl
-    , mEbpPlacement
-    , mRateMode
-    , mSegmentationStyle
-    , mDvbTdtSettings
+    , mssPmtPid
+    , mssVideoPid
+    , mssBufferModel
+    , mssProgramNumber
+    , mssScte35Pid
+    , mssMinEbpInterval
+    , mssTransportStreamId
+    , mssMaxPcrInterval
+    , mssFragmentTime
+    , mssPrivateMetadataPid
+    , mssScte35Esam
+    , mssPmtInterval
+    , mssDvbSdtSettings
+    , mssNullPacketBitrate
+    , mssAudioBufferModel
+    , mssTimedMetadataPid
+    , mssAudioFramesPerPes
+    , mssPcrPid
+    , mssSegmentationMarkers
+    , mssDvbSubPids
+    , mssScte35Source
+    , mssPatInterval
+    , mssForceTsVideoEbpOrder
+    , mssEsRateInPes
+    , mssBitrate
+    , mssAudioPids
+    , mssDvbTeletextPid
+    , mssNielsenId3
+    , mssSegmentationTime
+    , mssEbpAudioInterval
+    , mssDvbNitSettings
+    , mssPcrControl
+    , mssEbpPlacement
+    , mssRateMode
+    , mssSegmentationStyle
+    , mssDvbTdtSettings
 
     -- ** M3u8Settings
     , M3u8Settings
@@ -1338,6 +1559,28 @@ module Network.AWS.MediaConvert
     , msNielsenId3
     , msPcrControl
 
+    -- ** MotionImageInserter
+    , MotionImageInserter
+    , motionImageInserter
+    , miiFramerate
+    , miiStartTime
+    , miiOffset
+    , miiInput
+    , miiInsertionMode
+    , miiPlayback
+
+    -- ** MotionImageInsertionFramerate
+    , MotionImageInsertionFramerate
+    , motionImageInsertionFramerate
+    , miifFramerateDenominator
+    , miifFramerateNumerator
+
+    -- ** MotionImageInsertionOffset
+    , MotionImageInsertionOffset
+    , motionImageInsertionOffset
+    , miioImageX
+    , miioImageY
+
     -- ** MovSettings
     , MovSettings
     , movSettings
@@ -1350,9 +1593,9 @@ module Network.AWS.MediaConvert
     -- ** Mp2Settings
     , Mp2Settings
     , mp2Settings
-    , mssChannels
-    , mssSampleRate
-    , mssBitrate
+    , mChannels
+    , mSampleRate
+    , mBitrate
 
     -- ** Mp4Settings
     , Mp4Settings
@@ -1378,6 +1621,7 @@ module Network.AWS.MediaConvert
     , msRateControlMode
     , msTelecine
     , msIntraDcPrecision
+    , msDynamicSubGop
     , msMinIInterval
     , msInterlaceMode
     , msParControl
@@ -1475,6 +1719,7 @@ module Network.AWS.MediaConvert
     , OutputGroupSettings
     , outputGroupSettings
     , ogsFileGroupSettings
+    , ogsCmafGroupSettings
     , ogsMsSmoothGroupSettings
     , ogsHlsGroupSettings
     , ogsType
@@ -1489,13 +1734,13 @@ module Network.AWS.MediaConvert
     , Preset
     , preset
     , pLastUpdated
-    , pSettings
     , pARN
     , pCreatedAt
     , pCategory
-    , pName
     , pType
     , pDescription
+    , pSettings
+    , pName
 
     -- ** PresetSettings
     , PresetSettings
@@ -1527,9 +1772,13 @@ module Network.AWS.MediaConvert
     , qLastUpdated
     , qARN
     , qCreatedAt
-    , qName
+    , qReservationPlan
+    , qPricingPlan
+    , qSubmittedJobsCount
+    , qProgressingJobsCount
     , qType
     , qDescription
+    , qName
 
     -- ** Rectangle
     , Rectangle
@@ -1546,6 +1795,29 @@ module Network.AWS.MediaConvert
     , rsChannelsIn
     , rsChannelsOut
 
+    -- ** ReservationPlan
+    , ReservationPlan
+    , reservationPlan
+    , rpStatus
+    , rpExpiresAt
+    , rpPurchasedAt
+    , rpCommitment
+    , rpReservedSlots
+    , rpRenewalType
+
+    -- ** ReservationPlanSettings
+    , ReservationPlanSettings
+    , reservationPlanSettings
+    , rpsCommitment
+    , rpsReservedSlots
+    , rpsRenewalType
+
+    -- ** ResourceTags
+    , ResourceTags
+    , resourceTags
+    , rtARN
+    , rtTags
+
     -- ** SccDestinationSettings
     , SccDestinationSettings
     , sccDestinationSettings
@@ -1554,17 +1826,18 @@ module Network.AWS.MediaConvert
     -- ** SpekeKeyProvider
     , SpekeKeyProvider
     , spekeKeyProvider
-    , skpResourceId
-    , skpURL
-    , skpSystemIds
+    , sResourceId
+    , sCertificateARN
+    , sURL
+    , sSystemIds
 
     -- ** StaticKeyProvider
     , StaticKeyProvider
     , staticKeyProvider
-    , sStaticKeyValue
-    , sURL
-    , sKeyFormat
-    , sKeyFormatVersions
+    , skpStaticKeyValue
+    , skpURL
+    , skpKeyFormat
+    , skpKeyFormatVersions
 
     -- ** TeletextDestinationSettings
     , TeletextDestinationSettings
@@ -1602,6 +1875,11 @@ module Network.AWS.MediaConvert
     , tStartTime
     , tFinishTime
     , tSubmitTime
+
+    -- ** TrackSourceSettings
+    , TrackSourceSettings
+    , trackSourceSettings
+    , tssTrackNumber
 
     -- ** TtmlDestinationSettings
     , TtmlDestinationSettings
@@ -1659,6 +1937,7 @@ module Network.AWS.MediaConvert
     , vsColorSpaceUsage
     , vsHdr10Metadata
     , vsPid
+    , vsRotate
     , vsColorSpace
 
     -- ** WavSettings
@@ -1666,9 +1945,11 @@ module Network.AWS.MediaConvert
     , wavSettings
     , wsBitDepth
     , wsChannels
+    , wsFormat
     , wsSampleRate
     ) where
 
+import Network.AWS.MediaConvert.AssociateCertificate
 import Network.AWS.MediaConvert.CancelJob
 import Network.AWS.MediaConvert.CreateJob
 import Network.AWS.MediaConvert.CreateJobTemplate
@@ -1678,6 +1959,7 @@ import Network.AWS.MediaConvert.DeleteJobTemplate
 import Network.AWS.MediaConvert.DeletePreset
 import Network.AWS.MediaConvert.DeleteQueue
 import Network.AWS.MediaConvert.DescribeEndpoints
+import Network.AWS.MediaConvert.DisassociateCertificate
 import Network.AWS.MediaConvert.GetJob
 import Network.AWS.MediaConvert.GetJobTemplate
 import Network.AWS.MediaConvert.GetPreset
@@ -1686,7 +1968,10 @@ import Network.AWS.MediaConvert.ListJobs
 import Network.AWS.MediaConvert.ListJobTemplates
 import Network.AWS.MediaConvert.ListPresets
 import Network.AWS.MediaConvert.ListQueues
+import Network.AWS.MediaConvert.ListTagsForResource
+import Network.AWS.MediaConvert.TagResource
 import Network.AWS.MediaConvert.Types
+import Network.AWS.MediaConvert.UntagResource
 import Network.AWS.MediaConvert.UpdateJobTemplate
 import Network.AWS.MediaConvert.UpdatePreset
 import Network.AWS.MediaConvert.UpdateQueue

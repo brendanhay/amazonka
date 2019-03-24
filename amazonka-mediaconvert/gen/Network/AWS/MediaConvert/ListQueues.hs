@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieve a JSON array of up to twenty of your queues. This will return the queues themselves, not just a list of them. To retrieve the next twenty queues, use the nextToken string returned with the array.
+--
+-- This operation returns paginated results.
 module Network.AWS.MediaConvert.ListQueues
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.MediaConvert.ListQueues
 import Network.AWS.Lens
 import Network.AWS.MediaConvert.Types
 import Network.AWS.MediaConvert.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -51,7 +54,7 @@ data ListQueues = ListQueues'
   { _lqListBy     :: !(Maybe QueueListBy)
   , _lqNextToken  :: !(Maybe Text)
   , _lqOrder      :: !(Maybe Order)
-  , _lqMaxResults :: !(Maybe Int)
+  , _lqMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -90,8 +93,15 @@ lqOrder :: Lens' ListQueues (Maybe Order)
 lqOrder = lens _lqOrder (\ s a -> s{_lqOrder = a})
 
 -- | Optional. Number of queues, up to twenty, that will be returned at one time.
-lqMaxResults :: Lens' ListQueues (Maybe Int)
-lqMaxResults = lens _lqMaxResults (\ s a -> s{_lqMaxResults = a})
+lqMaxResults :: Lens' ListQueues (Maybe Natural)
+lqMaxResults = lens _lqMaxResults (\ s a -> s{_lqMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListQueues where
+        page rq rs
+          | stop (rs ^. lqrsNextToken) = Nothing
+          | stop (rs ^. lqrsQueues) = Nothing
+          | otherwise =
+            Just $ rq & lqNextToken .~ rs ^. lqrsNextToken
 
 instance AWSRequest ListQueues where
         type Rs ListQueues = ListQueuesResponse
@@ -135,7 +145,7 @@ data ListQueuesResponse = ListQueuesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lqrsQueues' - List of queues
+-- * 'lqrsQueues' - List of queues.
 --
 -- * 'lqrsNextToken' - Use this string to request the next batch of queues.
 --
@@ -151,7 +161,7 @@ listQueuesResponse pResponseStatus_ =
     }
 
 
--- | List of queues
+-- | List of queues.
 lqrsQueues :: Lens' ListQueuesResponse [Queue]
 lqrsQueues = lens _lqrsQueues (\ s a -> s{_lqrsQueues = a}) . _Default . _Coerce
 

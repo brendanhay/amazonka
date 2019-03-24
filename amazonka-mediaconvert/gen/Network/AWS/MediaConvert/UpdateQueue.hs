@@ -27,6 +27,7 @@ module Network.AWS.MediaConvert.UpdateQueue
     -- * Request Lenses
     , uqStatus
     , uqDescription
+    , uqReservationPlanSettings
     , uqName
 
     -- * Destructuring the Response
@@ -46,9 +47,10 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateQueue' smart constructor.
 data UpdateQueue = UpdateQueue'
-  { _uqStatus      :: !(Maybe QueueStatus)
-  , _uqDescription :: !(Maybe Text)
-  , _uqName        :: !Text
+  { _uqStatus                  :: !(Maybe QueueStatus)
+  , _uqDescription             :: !(Maybe Text)
+  , _uqReservationPlanSettings :: !(Maybe ReservationPlanSettings)
+  , _uqName                    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -56,19 +58,26 @@ data UpdateQueue = UpdateQueue'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uqStatus' - Undocumented member.
+-- * 'uqStatus' - Pause or activate a queue by changing its status between ACTIVE and PAUSED. If you pause a queue, jobs in that queue won't begin. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
 --
 -- * 'uqDescription' - The new description for the queue, if you are changing it.
 --
--- * 'uqName' - The name of the queue you are modifying.
+-- * 'uqReservationPlanSettings' - The new details of your pricing plan for your reserved queue. When you set up a new pricing plan to replace an expired one, you enter into another 12-month commitment. When you add capacity to your queue by increasing the number of RTS, you extend the term of your commitment to 12 months from when you add capacity. After you make these commitments, you can't cancel them.
+--
+-- * 'uqName' - The name of the queue that you are modifying.
 updateQueue
     :: Text -- ^ 'uqName'
     -> UpdateQueue
 updateQueue pName_ =
-  UpdateQueue' {_uqStatus = Nothing, _uqDescription = Nothing, _uqName = pName_}
+  UpdateQueue'
+    { _uqStatus = Nothing
+    , _uqDescription = Nothing
+    , _uqReservationPlanSettings = Nothing
+    , _uqName = pName_
+    }
 
 
--- | Undocumented member.
+-- | Pause or activate a queue by changing its status between ACTIVE and PAUSED. If you pause a queue, jobs in that queue won't begin. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
 uqStatus :: Lens' UpdateQueue (Maybe QueueStatus)
 uqStatus = lens _uqStatus (\ s a -> s{_uqStatus = a})
 
@@ -76,7 +85,11 @@ uqStatus = lens _uqStatus (\ s a -> s{_uqStatus = a})
 uqDescription :: Lens' UpdateQueue (Maybe Text)
 uqDescription = lens _uqDescription (\ s a -> s{_uqDescription = a})
 
--- | The name of the queue you are modifying.
+-- | The new details of your pricing plan for your reserved queue. When you set up a new pricing plan to replace an expired one, you enter into another 12-month commitment. When you add capacity to your queue by increasing the number of RTS, you extend the term of your commitment to 12 months from when you add capacity. After you make these commitments, you can't cancel them.
+uqReservationPlanSettings :: Lens' UpdateQueue (Maybe ReservationPlanSettings)
+uqReservationPlanSettings = lens _uqReservationPlanSettings (\ s a -> s{_uqReservationPlanSettings = a})
+
+-- | The name of the queue that you are modifying.
 uqName :: Lens' UpdateQueue Text
 uqName = lens _uqName (\ s a -> s{_uqName = a})
 
@@ -105,7 +118,9 @@ instance ToJSON UpdateQueue where
           = object
               (catMaybes
                  [("status" .=) <$> _uqStatus,
-                  ("description" .=) <$> _uqDescription])
+                  ("description" .=) <$> _uqDescription,
+                  ("reservationPlanSettings" .=) <$>
+                    _uqReservationPlanSettings])
 
 instance ToPath UpdateQueue where
         toPath UpdateQueue'{..}

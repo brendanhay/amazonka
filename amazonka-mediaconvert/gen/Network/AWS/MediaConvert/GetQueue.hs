@@ -52,14 +52,14 @@ newtype GetQueue = GetQueue'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gqName' - The name of the queue.
+-- * 'gqName' - The name of the queue that you want information about.
 getQueue
     :: Text -- ^ 'gqName'
     -> GetQueue
 getQueue pName_ = GetQueue' {_gqName = pName_}
 
 
--- | The name of the queue.
+-- | The name of the queue that you want information about.
 gqName :: Lens' GetQueue Text
 gqName = lens _gqName (\ s a -> s{_gqName = a})
 

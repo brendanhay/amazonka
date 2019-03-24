@@ -45,6 +45,7 @@ library
 
     exposed-modules:
           Network.AWS.MediaConvert
+        , Network.AWS.MediaConvert.AssociateCertificate
         , Network.AWS.MediaConvert.CancelJob
         , Network.AWS.MediaConvert.CreateJob
         , Network.AWS.MediaConvert.CreateJobTemplate
@@ -54,6 +55,7 @@ library
         , Network.AWS.MediaConvert.DeletePreset
         , Network.AWS.MediaConvert.DeleteQueue
         , Network.AWS.MediaConvert.DescribeEndpoints
+        , Network.AWS.MediaConvert.DisassociateCertificate
         , Network.AWS.MediaConvert.GetJob
         , Network.AWS.MediaConvert.GetJobTemplate
         , Network.AWS.MediaConvert.GetPreset
@@ -62,7 +64,10 @@ library
         , Network.AWS.MediaConvert.ListJobs
         , Network.AWS.MediaConvert.ListPresets
         , Network.AWS.MediaConvert.ListQueues
+        , Network.AWS.MediaConvert.ListTagsForResource
+        , Network.AWS.MediaConvert.TagResource
         , Network.AWS.MediaConvert.Types
+        , Network.AWS.MediaConvert.UntagResource
         , Network.AWS.MediaConvert.UpdateJobTemplate
         , Network.AWS.MediaConvert.UpdatePreset
         , Network.AWS.MediaConvert.UpdateQueue

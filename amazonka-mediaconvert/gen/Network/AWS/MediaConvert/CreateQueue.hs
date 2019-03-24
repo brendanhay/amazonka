@@ -18,15 +18,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new transcoding queue. For information about job templates see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+-- Create a new transcoding queue. For information about queues, see Working With Queues in the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html
 module Network.AWS.MediaConvert.CreateQueue
     (
     -- * Creating a Request
       createQueue
     , CreateQueue
     -- * Request Lenses
-    , cqName
+    , cqPricingPlan
     , cqDescription
+    , cqReservationPlanSettings
+    , cqTags
+    , cqName
 
     -- * Destructuring the Response
     , createQueueResponse
@@ -45,8 +48,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'createQueue' smart constructor.
 data CreateQueue = CreateQueue'
-  { _cqName        :: !(Maybe Text)
-  , _cqDescription :: !(Maybe Text)
+  { _cqPricingPlan             :: !(Maybe PricingPlan)
+  , _cqDescription             :: !(Maybe Text)
+  , _cqReservationPlanSettings :: !(Maybe ReservationPlanSettings)
+  , _cqTags                    :: !(Maybe (Map Text Text))
+  , _cqName                    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -54,21 +60,47 @@ data CreateQueue = CreateQueue'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cqName' - The name of the queue you are creating.
+-- * 'cqPricingPlan' - Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment. When you use the API to create a queue, the default is on-demand.
 --
--- * 'cqDescription' - Optional. A description of the queue you are creating.
+-- * 'cqDescription' - Optional. A description of the queue that you are creating.
+--
+-- * 'cqReservationPlanSettings' - Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
+--
+-- * 'cqTags' - The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
+--
+-- * 'cqName' - The name of the queue that you are creating.
 createQueue
-    :: CreateQueue
-createQueue = CreateQueue' {_cqName = Nothing, _cqDescription = Nothing}
+    :: Text -- ^ 'cqName'
+    -> CreateQueue
+createQueue pName_ =
+  CreateQueue'
+    { _cqPricingPlan = Nothing
+    , _cqDescription = Nothing
+    , _cqReservationPlanSettings = Nothing
+    , _cqTags = Nothing
+    , _cqName = pName_
+    }
 
 
--- | The name of the queue you are creating.
-cqName :: Lens' CreateQueue (Maybe Text)
-cqName = lens _cqName (\ s a -> s{_cqName = a})
+-- | Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment. When you use the API to create a queue, the default is on-demand.
+cqPricingPlan :: Lens' CreateQueue (Maybe PricingPlan)
+cqPricingPlan = lens _cqPricingPlan (\ s a -> s{_cqPricingPlan = a})
 
--- | Optional. A description of the queue you are creating.
+-- | Optional. A description of the queue that you are creating.
 cqDescription :: Lens' CreateQueue (Maybe Text)
 cqDescription = lens _cqDescription (\ s a -> s{_cqDescription = a})
+
+-- | Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
+cqReservationPlanSettings :: Lens' CreateQueue (Maybe ReservationPlanSettings)
+cqReservationPlanSettings = lens _cqReservationPlanSettings (\ s a -> s{_cqReservationPlanSettings = a})
+
+-- | The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
+cqTags :: Lens' CreateQueue (HashMap Text Text)
+cqTags = lens _cqTags (\ s a -> s{_cqTags = a}) . _Default . _Map
+
+-- | The name of the queue that you are creating.
+cqName :: Lens' CreateQueue Text
+cqName = lens _cqName (\ s a -> s{_cqName = a})
 
 instance AWSRequest CreateQueue where
         type Rs CreateQueue = CreateQueueResponse
@@ -94,8 +126,11 @@ instance ToJSON CreateQueue where
         toJSON CreateQueue'{..}
           = object
               (catMaybes
-                 [("name" .=) <$> _cqName,
-                  ("description" .=) <$> _cqDescription])
+                 [("pricingPlan" .=) <$> _cqPricingPlan,
+                  ("description" .=) <$> _cqDescription,
+                  ("reservationPlanSettings" .=) <$>
+                    _cqReservationPlanSettings,
+                  ("tags" .=) <$> _cqTags, Just ("name" .= _cqName)])
 
 instance ToPath CreateQueue where
         toPath = const "/2017-08-29/queues"

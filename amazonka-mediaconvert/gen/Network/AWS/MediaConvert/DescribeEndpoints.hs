@@ -19,12 +19,15 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Send an request with an empty body to the regional API endpoint to get your account API endpoint.
+--
+-- This operation returns paginated results.
 module Network.AWS.MediaConvert.DescribeEndpoints
     (
     -- * Creating a Request
       describeEndpoints
     , DescribeEndpoints
     -- * Request Lenses
+    , deMode
     , deNextToken
     , deMaxResults
 
@@ -40,6 +43,7 @@ module Network.AWS.MediaConvert.DescribeEndpoints
 import Network.AWS.Lens
 import Network.AWS.MediaConvert.Types
 import Network.AWS.MediaConvert.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -48,7 +52,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeEndpoints' smart constructor.
 data DescribeEndpoints = DescribeEndpoints'
-  { _deNextToken  :: !(Maybe Text)
+  { _deMode       :: !(Maybe DescribeEndpointsMode)
+  , _deNextToken  :: !(Maybe Text)
   , _deMaxResults :: !(Maybe Int)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -57,14 +62,21 @@ data DescribeEndpoints = DescribeEndpoints'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'deMode' - Undocumented member.
+--
 -- * 'deNextToken' - Use this string, provided with the response to a previous request, to request the next batch of endpoints.
 --
 -- * 'deMaxResults' - Optional. Max number of endpoints, up to twenty, that will be returned at one time.
 describeEndpoints
     :: DescribeEndpoints
 describeEndpoints =
-  DescribeEndpoints' {_deNextToken = Nothing, _deMaxResults = Nothing}
+  DescribeEndpoints'
+    {_deMode = Nothing, _deNextToken = Nothing, _deMaxResults = Nothing}
 
+
+-- | Undocumented member.
+deMode :: Lens' DescribeEndpoints (Maybe DescribeEndpointsMode)
+deMode = lens _deMode (\ s a -> s{_deMode = a})
 
 -- | Use this string, provided with the response to a previous request, to request the next batch of endpoints.
 deNextToken :: Lens' DescribeEndpoints (Maybe Text)
@@ -73,6 +85,13 @@ deNextToken = lens _deNextToken (\ s a -> s{_deNextToken = a})
 -- | Optional. Max number of endpoints, up to twenty, that will be returned at one time.
 deMaxResults :: Lens' DescribeEndpoints (Maybe Int)
 deMaxResults = lens _deMaxResults (\ s a -> s{_deMaxResults = a})
+
+instance AWSPager DescribeEndpoints where
+        page rq rs
+          | stop (rs ^. dersNextToken) = Nothing
+          | stop (rs ^. dersEndpoints) = Nothing
+          | otherwise =
+            Just $ rq & deNextToken .~ rs ^. dersNextToken
 
 instance AWSRequest DescribeEndpoints where
         type Rs DescribeEndpoints = DescribeEndpointsResponse
@@ -100,7 +119,8 @@ instance ToJSON DescribeEndpoints where
         toJSON DescribeEndpoints'{..}
           = object
               (catMaybes
-                 [("nextToken" .=) <$> _deNextToken,
+                 [("mode" .=) <$> _deMode,
+                  ("nextToken" .=) <$> _deNextToken,
                   ("maxResults" .=) <$> _deMaxResults])
 
 instance ToPath DescribeEndpoints where

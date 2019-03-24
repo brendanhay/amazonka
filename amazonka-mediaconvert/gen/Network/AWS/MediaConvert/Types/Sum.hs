@@ -52,25 +52,25 @@ instance FromJSON AacAudioDescriptionBroadcasterMix where
 
 -- | AAC Profile.
 data AacCodecProfile
-  = HEV1
-  | HEV2
-  | LC
+  = ACPHEV1
+  | ACPHEV2
+  | ACPLC
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText AacCodecProfile where
     parser = takeLowerText >>= \case
-        "hev1" -> pure HEV1
-        "hev2" -> pure HEV2
-        "lc" -> pure LC
+        "hev1" -> pure ACPHEV1
+        "hev2" -> pure ACPHEV2
+        "lc" -> pure ACPLC
         e -> fromTextError $ "Failure parsing AacCodecProfile from value: '" <> e
            <> "'. Accepted values: hev1, hev2, lc"
 
 instance ToText AacCodecProfile where
     toText = \case
-        HEV1 -> "HEV1"
-        HEV2 -> "HEV2"
-        LC -> "LC"
+        ACPHEV1 -> "HEV1"
+        ACPHEV2 -> "HEV2"
+        ACPLC -> "LC"
 
 instance Hashable     AacCodecProfile
 instance NFData       AacCodecProfile
@@ -433,7 +433,38 @@ instance ToJSON Ac3MetadataControl where
 instance FromJSON Ac3MetadataControl where
     parseJSON = parseJSONText "Ac3MetadataControl"
 
--- | This setting only applies to H.264 and MPEG2 outputs. Use Insert AFD signaling (AfdSignaling) to whether there are AFD values in the output video data and what those values are. * Choose None to remove all AFD values from this output. * Choose Fixed to ignore input AFD values and instead encode the value specified in the job. * Choose Auto to calculate output AFD values based on the input AFD scaler data.
+-- | Acceleration configuration for the job.
+data AccelerationMode
+  = AMDisabled
+  | AMEnabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AccelerationMode where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure AMDisabled
+        "enabled" -> pure AMEnabled
+        e -> fromTextError $ "Failure parsing AccelerationMode from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText AccelerationMode where
+    toText = \case
+        AMDisabled -> "DISABLED"
+        AMEnabled -> "ENABLED"
+
+instance Hashable     AccelerationMode
+instance NFData       AccelerationMode
+instance ToByteString AccelerationMode
+instance ToQuery      AccelerationMode
+instance ToHeader     AccelerationMode
+
+instance ToJSON AccelerationMode where
+    toJSON = toJSONText
+
+instance FromJSON AccelerationMode where
+    parseJSON = parseJSONText "AccelerationMode"
+
+-- | This setting only applies to H.264, H.265, and MPEG2 outputs. Use Insert AFD signaling (AfdSignaling) to specify whether the service includes AFD values in the output video data and what those values are. * Choose None to remove all AFD values from this output. * Choose Fixed to ignore input AFD values and instead encode the value specified in the job. * Choose Auto to calculate output AFD values based on the input AFD scaler data.
 data AfdSignaling
   = ASAuto
   | ASFixed
@@ -467,7 +498,7 @@ instance ToJSON AfdSignaling where
 instance FromJSON AfdSignaling where
     parseJSON = parseJSONText "AfdSignaling"
 
--- | Enable Anti-alias (AntiAlias) to enhance sharp edges in video output when your input resolution is much larger than your output resolution. Default is enabled.
+-- | You no longer need to specify the anti-alias filter. It's now automatically applied to all outputs. This property is deprecated.
 data AntiAlias
   = AADisabled
   | AAEnabled
@@ -544,24 +575,24 @@ instance ToJSON AudioCodec where
 instance FromJSON AudioCodec where
     parseJSON = parseJSONText "AudioCodec"
 
--- | When an "Audio Description":#audio_description specifies an AudioSelector or AudioSelectorGroup  for which no matching source is found in the input, then the audio selector marked as DEFAULT will be used.  If none are marked as default, silence will be inserted for the duration of the input.
+-- | Enable this setting on one audio selector to set it as the default for the job. The service uses this default for outputs where it can't find the specified input audio. If you don't set a default, those outputs have no audio.
 data AudioDefaultSelection
-  = Default
-  | NotDefault
+  = ADSDefault
+  | ADSNotDefault
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText AudioDefaultSelection where
     parser = takeLowerText >>= \case
-        "default" -> pure Default
-        "not_default" -> pure NotDefault
+        "default" -> pure ADSDefault
+        "not_default" -> pure ADSNotDefault
         e -> fromTextError $ "Failure parsing AudioDefaultSelection from value: '" <> e
            <> "'. Accepted values: default, not_default"
 
 instance ToText AudioDefaultSelection where
     toText = \case
-        Default -> "DEFAULT"
-        NotDefault -> "NOT_DEFAULT"
+        ADSDefault -> "DEFAULT"
+        ADSNotDefault -> "NOT_DEFAULT"
 
 instance Hashable     AudioDefaultSelection
 instance NFData       AudioDefaultSelection
@@ -795,6 +826,40 @@ instance ToJSON AudioTypeControl where
 instance FromJSON AudioTypeControl where
     parseJSON = parseJSONText "AudioTypeControl"
 
+-- | Optional. Choose a tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up. Any transcoding outputs that don't have an associated tag will appear in your billing report unsorted. If you don't choose a valid value for this field, your job outputs will appear on the billing report unsorted.
+data BillingTagsSource
+  = JobTemplate
+  | Preset
+  | Queue
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText BillingTagsSource where
+    parser = takeLowerText >>= \case
+        "job_template" -> pure JobTemplate
+        "preset" -> pure Preset
+        "queue" -> pure Queue
+        e -> fromTextError $ "Failure parsing BillingTagsSource from value: '" <> e
+           <> "'. Accepted values: job_template, preset, queue"
+
+instance ToText BillingTagsSource where
+    toText = \case
+        JobTemplate -> "JOB_TEMPLATE"
+        Preset -> "PRESET"
+        Queue -> "QUEUE"
+
+instance Hashable     BillingTagsSource
+instance NFData       BillingTagsSource
+instance ToByteString BillingTagsSource
+instance ToQuery      BillingTagsSource
+instance ToHeader     BillingTagsSource
+
+instance ToJSON BillingTagsSource where
+    toJSON = toJSONText
+
+instance FromJSON BillingTagsSource where
+    parseJSON = parseJSONText "BillingTagsSource"
+
 -- | If no explicit x_position or y_position is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
 data BurninSubtitleAlignment
   = BSACentered
@@ -984,7 +1049,7 @@ instance ToJSON BurninSubtitleShadowColor where
 instance FromJSON BurninSubtitleShadowColor where
     parseJSON = parseJSONText "BurninSubtitleShadowColor"
 
--- | Controls whether a fixed grid size or proportional font spacing will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+-- | Only applies to jobs with input captions in Teletext or STL formats. Specify whether the spacing between letters in your captions is set by the captions grid or varies depending on letter width. Choose fixed grid to conform to the spacing specified in the captions file more accurately. Choose proportional to make the text easier to read if the captions are closed caption.
 data BurninSubtitleTeletextSpacing
   = BSTSFixedGrid
   | BSTSProportional
@@ -1015,42 +1080,51 @@ instance ToJSON BurninSubtitleTeletextSpacing where
 instance FromJSON BurninSubtitleTeletextSpacing where
     parseJSON = parseJSONText "BurninSubtitleTeletextSpacing"
 
--- | Type of Caption output, including Burn-In, Embedded, SCC, SRT, TTML, WebVTT, DVB-Sub, Teletext.
+-- | Specify the format for this set of captions on this output. The default format is embedded without SCTE-20. Other options are embedded with SCTE-20, burn-in, DVB-sub, SCC, SRT, teletext, TTML, and web-VTT. If you are using SCTE-20, choose SCTE-20 plus embedded (SCTE20_PLUS_EMBEDDED) to create an output that complies with the SCTE-43 spec. To create a non-compliant output where the embedded captions come first, choose Embedded plus SCTE-20 (EMBEDDED_PLUS_SCTE20).
 data CaptionDestinationType
-  = CDTBurnIn
-  | CDTDvbSub
-  | CDTEmbedded
-  | CDTScc
-  | CDTSrt
-  | CDTTeletext
-  | CDTTtml
-  | CDTWebvtt
+  = BurnIn
+  | DvbSub
+  | Embedded
+  | EmbeddedPlusSCTE20
+  | SCTE20PlusEmbedded
+  | Scc
+  | Smi
+  | Srt
+  | Teletext
+  | Ttml
+  | Webvtt
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText CaptionDestinationType where
     parser = takeLowerText >>= \case
-        "burn_in" -> pure CDTBurnIn
-        "dvb_sub" -> pure CDTDvbSub
-        "embedded" -> pure CDTEmbedded
-        "scc" -> pure CDTScc
-        "srt" -> pure CDTSrt
-        "teletext" -> pure CDTTeletext
-        "ttml" -> pure CDTTtml
-        "webvtt" -> pure CDTWebvtt
+        "burn_in" -> pure BurnIn
+        "dvb_sub" -> pure DvbSub
+        "embedded" -> pure Embedded
+        "embedded_plus_scte20" -> pure EmbeddedPlusSCTE20
+        "scte20_plus_embedded" -> pure SCTE20PlusEmbedded
+        "scc" -> pure Scc
+        "smi" -> pure Smi
+        "srt" -> pure Srt
+        "teletext" -> pure Teletext
+        "ttml" -> pure Ttml
+        "webvtt" -> pure Webvtt
         e -> fromTextError $ "Failure parsing CaptionDestinationType from value: '" <> e
-           <> "'. Accepted values: burn_in, dvb_sub, embedded, scc, srt, teletext, ttml, webvtt"
+           <> "'. Accepted values: burn_in, dvb_sub, embedded, embedded_plus_scte20, scte20_plus_embedded, scc, smi, srt, teletext, ttml, webvtt"
 
 instance ToText CaptionDestinationType where
     toText = \case
-        CDTBurnIn -> "BURN_IN"
-        CDTDvbSub -> "DVB_SUB"
-        CDTEmbedded -> "EMBEDDED"
-        CDTScc -> "SCC"
-        CDTSrt -> "SRT"
-        CDTTeletext -> "TELETEXT"
-        CDTTtml -> "TTML"
-        CDTWebvtt -> "WEBVTT"
+        BurnIn -> "BURN_IN"
+        DvbSub -> "DVB_SUB"
+        Embedded -> "EMBEDDED"
+        EmbeddedPlusSCTE20 -> "EMBEDDED_PLUS_SCTE20"
+        SCTE20PlusEmbedded -> "SCTE20_PLUS_EMBEDDED"
+        Scc -> "SCC"
+        Smi -> "SMI"
+        Srt -> "SRT"
+        Teletext -> "TELETEXT"
+        Ttml -> "TTML"
+        Webvtt -> "WEBVTT"
 
 instance Hashable     CaptionDestinationType
 instance NFData       CaptionDestinationType
@@ -1069,8 +1143,11 @@ data CaptionSourceType
   = CSTAncillary
   | CSTDvbSub
   | CSTEmbedded
+  | CSTImsc
   | CSTNullSource
+  | CSTSCTE20
   | CSTScc
+  | CSTSmi
   | CSTSrt
   | CSTStl
   | CSTTeletext
@@ -1083,22 +1160,28 @@ instance FromText CaptionSourceType where
         "ancillary" -> pure CSTAncillary
         "dvb_sub" -> pure CSTDvbSub
         "embedded" -> pure CSTEmbedded
+        "imsc" -> pure CSTImsc
         "null_source" -> pure CSTNullSource
+        "scte20" -> pure CSTSCTE20
         "scc" -> pure CSTScc
+        "smi" -> pure CSTSmi
         "srt" -> pure CSTSrt
         "stl" -> pure CSTStl
         "teletext" -> pure CSTTeletext
         "ttml" -> pure CSTTtml
         e -> fromTextError $ "Failure parsing CaptionSourceType from value: '" <> e
-           <> "'. Accepted values: ancillary, dvb_sub, embedded, null_source, scc, srt, stl, teletext, ttml"
+           <> "'. Accepted values: ancillary, dvb_sub, embedded, imsc, null_source, scte20, scc, smi, srt, stl, teletext, ttml"
 
 instance ToText CaptionSourceType where
     toText = \case
         CSTAncillary -> "ANCILLARY"
         CSTDvbSub -> "DVB_SUB"
         CSTEmbedded -> "EMBEDDED"
+        CSTImsc -> "IMSC"
         CSTNullSource -> "NULL_SOURCE"
+        CSTSCTE20 -> "SCTE20"
         CSTScc -> "SCC"
+        CSTSmi -> "SMI"
         CSTSrt -> "SRT"
         CSTStl -> "STL"
         CSTTeletext -> "TELETEXT"
@@ -1115,6 +1198,341 @@ instance ToJSON CaptionSourceType where
 
 instance FromJSON CaptionSourceType where
     parseJSON = parseJSONText "CaptionSourceType"
+
+-- | When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client from saving media segments for later replay.
+data CmafClientCache
+  = CCCDisabled
+  | CCCEnabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CmafClientCache where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure CCCDisabled
+        "enabled" -> pure CCCEnabled
+        e -> fromTextError $ "Failure parsing CmafClientCache from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText CmafClientCache where
+    toText = \case
+        CCCDisabled -> "DISABLED"
+        CCCEnabled -> "ENABLED"
+
+instance Hashable     CmafClientCache
+instance NFData       CmafClientCache
+instance ToByteString CmafClientCache
+instance ToQuery      CmafClientCache
+instance ToHeader     CmafClientCache
+
+instance ToJSON CmafClientCache where
+    toJSON = toJSONText
+
+instance FromJSON CmafClientCache where
+    parseJSON = parseJSONText "CmafClientCache"
+
+-- | Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
+data CmafCodecSpecification
+  = Rfc4281
+  | Rfc6381
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CmafCodecSpecification where
+    parser = takeLowerText >>= \case
+        "rfc_4281" -> pure Rfc4281
+        "rfc_6381" -> pure Rfc6381
+        e -> fromTextError $ "Failure parsing CmafCodecSpecification from value: '" <> e
+           <> "'. Accepted values: rfc_4281, rfc_6381"
+
+instance ToText CmafCodecSpecification where
+    toText = \case
+        Rfc4281 -> "RFC_4281"
+        Rfc6381 -> "RFC_6381"
+
+instance Hashable     CmafCodecSpecification
+instance NFData       CmafCodecSpecification
+instance ToByteString CmafCodecSpecification
+instance ToQuery      CmafCodecSpecification
+instance ToHeader     CmafCodecSpecification
+
+instance ToJSON CmafCodecSpecification where
+    toJSON = toJSONText
+
+instance FromJSON CmafCodecSpecification where
+    parseJSON = parseJSONText "CmafCodecSpecification"
+
+-- | Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
+data CmafEncryptionType =
+  SampleAES
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CmafEncryptionType where
+    parser = takeLowerText >>= \case
+        "sample_aes" -> pure SampleAES
+        e -> fromTextError $ "Failure parsing CmafEncryptionType from value: '" <> e
+           <> "'. Accepted values: sample_aes"
+
+instance ToText CmafEncryptionType where
+    toText = \case
+        SampleAES -> "SAMPLE_AES"
+
+instance Hashable     CmafEncryptionType
+instance NFData       CmafEncryptionType
+instance ToByteString CmafEncryptionType
+instance ToQuery      CmafEncryptionType
+instance ToHeader     CmafEncryptionType
+
+instance ToJSON CmafEncryptionType where
+    toJSON = toJSONText
+
+instance FromJSON CmafEncryptionType where
+    parseJSON = parseJSONText "CmafEncryptionType"
+
+-- | The Initialization Vector is a 128-bit number used in conjunction with the key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed in the manifest. Otherwise Initialization Vector is not in the manifest.
+data CmafInitializationVectorInManifest
+  = CIVIMExclude
+  | CIVIMInclude
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CmafInitializationVectorInManifest where
+    parser = takeLowerText >>= \case
+        "exclude" -> pure CIVIMExclude
+        "include" -> pure CIVIMInclude
+        e -> fromTextError $ "Failure parsing CmafInitializationVectorInManifest from value: '" <> e
+           <> "'. Accepted values: exclude, include"
+
+instance ToText CmafInitializationVectorInManifest where
+    toText = \case
+        CIVIMExclude -> "EXCLUDE"
+        CIVIMInclude -> "INCLUDE"
+
+instance Hashable     CmafInitializationVectorInManifest
+instance NFData       CmafInitializationVectorInManifest
+instance ToByteString CmafInitializationVectorInManifest
+instance ToQuery      CmafInitializationVectorInManifest
+instance ToHeader     CmafInitializationVectorInManifest
+
+instance ToJSON CmafInitializationVectorInManifest where
+    toJSON = toJSONText
+
+instance FromJSON CmafInitializationVectorInManifest where
+    parseJSON = parseJSONText "CmafInitializationVectorInManifest"
+
+-- | Indicates which type of key provider is used for encryption.
+data CmafKeyProviderType =
+  StaticKey
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CmafKeyProviderType where
+    parser = takeLowerText >>= \case
+        "static_key" -> pure StaticKey
+        e -> fromTextError $ "Failure parsing CmafKeyProviderType from value: '" <> e
+           <> "'. Accepted values: static_key"
+
+instance ToText CmafKeyProviderType where
+    toText = \case
+        StaticKey -> "STATIC_KEY"
+
+instance Hashable     CmafKeyProviderType
+instance NFData       CmafKeyProviderType
+instance ToByteString CmafKeyProviderType
+instance ToQuery      CmafKeyProviderType
+instance ToHeader     CmafKeyProviderType
+
+instance ToJSON CmafKeyProviderType where
+    toJSON = toJSONText
+
+instance FromJSON CmafKeyProviderType where
+    parseJSON = parseJSONText "CmafKeyProviderType"
+
+-- | When set to GZIP, compresses HLS playlist.
+data CmafManifestCompression
+  = CMCGzip
+  | CMCNone
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CmafManifestCompression where
+    parser = takeLowerText >>= \case
+        "gzip" -> pure CMCGzip
+        "none" -> pure CMCNone
+        e -> fromTextError $ "Failure parsing CmafManifestCompression from value: '" <> e
+           <> "'. Accepted values: gzip, none"
+
+instance ToText CmafManifestCompression where
+    toText = \case
+        CMCGzip -> "GZIP"
+        CMCNone -> "NONE"
+
+instance Hashable     CmafManifestCompression
+instance NFData       CmafManifestCompression
+instance ToByteString CmafManifestCompression
+instance ToQuery      CmafManifestCompression
+instance ToHeader     CmafManifestCompression
+
+instance ToJSON CmafManifestCompression where
+    toJSON = toJSONText
+
+instance FromJSON CmafManifestCompression where
+    parseJSON = parseJSONText "CmafManifestCompression"
+
+-- | Indicates whether the output manifest should use floating point values for segment duration.
+data CmafManifestDurationFormat
+  = FloatingPoint
+  | Integer
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CmafManifestDurationFormat where
+    parser = takeLowerText >>= \case
+        "floating_point" -> pure FloatingPoint
+        "integer" -> pure Integer
+        e -> fromTextError $ "Failure parsing CmafManifestDurationFormat from value: '" <> e
+           <> "'. Accepted values: floating_point, integer"
+
+instance ToText CmafManifestDurationFormat where
+    toText = \case
+        FloatingPoint -> "FLOATING_POINT"
+        Integer -> "INTEGER"
+
+instance Hashable     CmafManifestDurationFormat
+instance NFData       CmafManifestDurationFormat
+instance ToByteString CmafManifestDurationFormat
+instance ToQuery      CmafManifestDurationFormat
+instance ToHeader     CmafManifestDurationFormat
+
+instance ToJSON CmafManifestDurationFormat where
+    toJSON = toJSONText
+
+instance FromJSON CmafManifestDurationFormat where
+    parseJSON = parseJSONText "CmafManifestDurationFormat"
+
+-- | When set to SINGLE_FILE, a single output file is generated, which is internally segmented using the Fragment Length and Segment Length. When set to SEGMENTED_FILES, separate segment files will be created.
+data CmafSegmentControl
+  = SegmentedFiles
+  | SingleFile
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CmafSegmentControl where
+    parser = takeLowerText >>= \case
+        "segmented_files" -> pure SegmentedFiles
+        "single_file" -> pure SingleFile
+        e -> fromTextError $ "Failure parsing CmafSegmentControl from value: '" <> e
+           <> "'. Accepted values: segmented_files, single_file"
+
+instance ToText CmafSegmentControl where
+    toText = \case
+        SegmentedFiles -> "SEGMENTED_FILES"
+        SingleFile -> "SINGLE_FILE"
+
+instance Hashable     CmafSegmentControl
+instance NFData       CmafSegmentControl
+instance ToByteString CmafSegmentControl
+instance ToQuery      CmafSegmentControl
+instance ToHeader     CmafSegmentControl
+
+instance ToJSON CmafSegmentControl where
+    toJSON = toJSONText
+
+instance FromJSON CmafSegmentControl where
+    parseJSON = parseJSONText "CmafSegmentControl"
+
+-- | Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
+data CmafStreamInfResolution
+  = CSIRExclude
+  | CSIRInclude
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CmafStreamInfResolution where
+    parser = takeLowerText >>= \case
+        "exclude" -> pure CSIRExclude
+        "include" -> pure CSIRInclude
+        e -> fromTextError $ "Failure parsing CmafStreamInfResolution from value: '" <> e
+           <> "'. Accepted values: exclude, include"
+
+instance ToText CmafStreamInfResolution where
+    toText = \case
+        CSIRExclude -> "EXCLUDE"
+        CSIRInclude -> "INCLUDE"
+
+instance Hashable     CmafStreamInfResolution
+instance NFData       CmafStreamInfResolution
+instance ToByteString CmafStreamInfResolution
+instance ToQuery      CmafStreamInfResolution
+instance ToHeader     CmafStreamInfResolution
+
+instance ToJSON CmafStreamInfResolution where
+    toJSON = toJSONText
+
+instance FromJSON CmafStreamInfResolution where
+    parseJSON = parseJSONText "CmafStreamInfResolution"
+
+-- | When set to ENABLED, a DASH MPD manifest will be generated for this output.
+data CmafWriteDASHManifest
+  = CWDASHMDisabled
+  | CWDASHMEnabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CmafWriteDASHManifest where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure CWDASHMDisabled
+        "enabled" -> pure CWDASHMEnabled
+        e -> fromTextError $ "Failure parsing CmafWriteDASHManifest from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText CmafWriteDASHManifest where
+    toText = \case
+        CWDASHMDisabled -> "DISABLED"
+        CWDASHMEnabled -> "ENABLED"
+
+instance Hashable     CmafWriteDASHManifest
+instance NFData       CmafWriteDASHManifest
+instance ToByteString CmafWriteDASHManifest
+instance ToQuery      CmafWriteDASHManifest
+instance ToHeader     CmafWriteDASHManifest
+
+instance ToJSON CmafWriteDASHManifest where
+    toJSON = toJSONText
+
+instance FromJSON CmafWriteDASHManifest where
+    parseJSON = parseJSONText "CmafWriteDASHManifest"
+
+-- | When set to ENABLED, an Apple HLS manifest will be generated for this output.
+data CmafWriteHLSManifest
+  = CWHLSMDisabled
+  | CWHLSMEnabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CmafWriteHLSManifest where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure CWHLSMDisabled
+        "enabled" -> pure CWHLSMEnabled
+        e -> fromTextError $ "Failure parsing CmafWriteHLSManifest from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText CmafWriteHLSManifest where
+    toText = \case
+        CWHLSMDisabled -> "DISABLED"
+        CWHLSMEnabled -> "ENABLED"
+
+instance Hashable     CmafWriteHLSManifest
+instance NFData       CmafWriteHLSManifest
+instance ToByteString CmafWriteHLSManifest
+instance ToQuery      CmafWriteHLSManifest
+instance ToHeader     CmafWriteHLSManifest
+
+instance ToJSON CmafWriteHLSManifest where
+    toJSON = toJSONText
+
+instance FromJSON CmafWriteHLSManifest where
+    parseJSON = parseJSONText "CmafWriteHLSManifest"
 
 -- | Enable Insert color metadata (ColorMetadata) to include color metadata in this output. This setting is enabled by default.
 data ColorMetadata
@@ -1147,7 +1565,7 @@ instance ToJSON ColorMetadata where
 instance FromJSON ColorMetadata where
     parseJSON = parseJSONText "ColorMetadata"
 
--- | Specifies the colorspace of an input. This setting works in tandem with "Color Corrector":#color_corrector > color_space_conversion to determine if any conversion will be performed.
+-- | If your input video has accurate color space metadata, or if you don't know about color space, leave this set to the default value FOLLOW. The service will automatically detect your input color space. If your input video has metadata indicating the wrong color space, or if your input video is missing color space metadata that should be there, specify the accurate color space here. If you choose HDR10, you can also correct inaccurate color space coefficients, using the HDR master display information controls. You must also set Color space usage (ColorSpaceUsage) to FORCE for the service to use these values.
 data ColorSpace
   = Follow
   | HDR10
@@ -1227,7 +1645,7 @@ instance ToJSON ColorSpaceConversion where
 instance FromJSON ColorSpaceConversion where
     parseJSON = parseJSONText "ColorSpaceConversion"
 
--- | There are two sources for color metadata, the input file and the job configuration. This enum controls which takes precedence. FORCE: System will use color metadata supplied by user, if any. If the user does not supply color metadata the system will use data from the source. FALLBACK: System will use color metadata from the source. If source has no color metadata, the system will use user-supplied color metadata values if available.
+-- | There are two sources for color metadata, the input file and the job configuration (in the Color space and HDR master display informaiton settings). The Color space usage setting controls which takes precedence. FORCE: The system will use color metadata supplied by user, if any. If the user does not supply color metadata, the system will use data from the source. FALLBACK: The system will use color metadata from the source. If source has no color metadata, the system will use user-supplied color metadata values if available.
 data ColorSpaceUsage
   = Fallback
   | Force
@@ -1258,9 +1676,38 @@ instance ToJSON ColorSpaceUsage where
 instance FromJSON ColorSpaceUsage where
     parseJSON = parseJSONText "ColorSpaceUsage"
 
+-- | The length of the term of your reserved queue pricing plan commitment.
+data Commitment =
+  OneYear
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText Commitment where
+    parser = takeLowerText >>= \case
+        "one_year" -> pure OneYear
+        e -> fromTextError $ "Failure parsing Commitment from value: '" <> e
+           <> "'. Accepted values: one_year"
+
+instance ToText Commitment where
+    toText = \case
+        OneYear -> "ONE_YEAR"
+
+instance Hashable     Commitment
+instance NFData       Commitment
+instance ToByteString Commitment
+instance ToQuery      Commitment
+instance ToHeader     Commitment
+
+instance ToJSON Commitment where
+    toJSON = toJSONText
+
+instance FromJSON Commitment where
+    parseJSON = parseJSONText "Commitment"
+
 -- | Container for this output. Some containers require a container settings object. If not specified, the default object will be created.
 data ContainerType
-  = F4V
+  = Cmfc
+  | F4V
   | Ismv
   | M2TS
   | M3U8
@@ -1274,6 +1721,7 @@ data ContainerType
 
 instance FromText ContainerType where
     parser = takeLowerText >>= \case
+        "cmfc" -> pure Cmfc
         "f4v" -> pure F4V
         "ismv" -> pure Ismv
         "m2ts" -> pure M2TS
@@ -1284,10 +1732,11 @@ instance FromText ContainerType where
         "mxf" -> pure Mxf
         "raw" -> pure Raw
         e -> fromTextError $ "Failure parsing ContainerType from value: '" <> e
-           <> "'. Accepted values: f4v, ismv, m2ts, m3u8, mp4, mov, mpd, mxf, raw"
+           <> "'. Accepted values: cmfc, f4v, ismv, m2ts, m3u8, mp4, mov, mpd, mxf, raw"
 
 instance ToText ContainerType where
     toText = \case
+        Cmfc -> "CMFC"
         F4V -> "F4V"
         Ismv -> "ISMV"
         M2TS -> "M2TS"
@@ -1372,6 +1821,71 @@ instance ToJSON DashIsoSegmentControl where
 instance FromJSON DashIsoSegmentControl where
     parseJSON = parseJSONText "DashIsoSegmentControl"
 
+-- | When you enable Precise segment duration in manifests (writeSegmentTimelineInRepresentation), your DASH manifest shows precise segment durations. The segment duration information appears inside the SegmentTimeline element, inside SegmentTemplate at the Representation level. When this feature isn't enabled, the segment durations in your DASH manifest are approximate. The segment duration information appears in the duration attribute of the SegmentTemplate element.
+data DashIsoWriteSegmentTimelineInRepresentation
+  = DIWSTIRDisabled
+  | DIWSTIREnabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DashIsoWriteSegmentTimelineInRepresentation where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure DIWSTIRDisabled
+        "enabled" -> pure DIWSTIREnabled
+        e -> fromTextError $ "Failure parsing DashIsoWriteSegmentTimelineInRepresentation from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText DashIsoWriteSegmentTimelineInRepresentation where
+    toText = \case
+        DIWSTIRDisabled -> "DISABLED"
+        DIWSTIREnabled -> "ENABLED"
+
+instance Hashable     DashIsoWriteSegmentTimelineInRepresentation
+instance NFData       DashIsoWriteSegmentTimelineInRepresentation
+instance ToByteString DashIsoWriteSegmentTimelineInRepresentation
+instance ToQuery      DashIsoWriteSegmentTimelineInRepresentation
+instance ToHeader     DashIsoWriteSegmentTimelineInRepresentation
+
+instance ToJSON DashIsoWriteSegmentTimelineInRepresentation where
+    toJSON = toJSONText
+
+instance FromJSON DashIsoWriteSegmentTimelineInRepresentation where
+    parseJSON = parseJSONText "DashIsoWriteSegmentTimelineInRepresentation"
+
+-- | This specifies how the encrypted file needs to be decrypted.
+data DecryptionMode
+  = AESCbc
+  | AESCtr
+  | AESGCM
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DecryptionMode where
+    parser = takeLowerText >>= \case
+        "aes_cbc" -> pure AESCbc
+        "aes_ctr" -> pure AESCtr
+        "aes_gcm" -> pure AESGCM
+        e -> fromTextError $ "Failure parsing DecryptionMode from value: '" <> e
+           <> "'. Accepted values: aes_cbc, aes_ctr, aes_gcm"
+
+instance ToText DecryptionMode where
+    toText = \case
+        AESCbc -> "AES_CBC"
+        AESCtr -> "AES_CTR"
+        AESGCM -> "AES_GCM"
+
+instance Hashable     DecryptionMode
+instance NFData       DecryptionMode
+instance ToByteString DecryptionMode
+instance ToQuery      DecryptionMode
+instance ToHeader     DecryptionMode
+
+instance ToJSON DecryptionMode where
+    toJSON = toJSONText
+
+instance FromJSON DecryptionMode where
+    parseJSON = parseJSONText "DecryptionMode"
+
 -- | Only applies when you set Deinterlacer (DeinterlaceMode) to Deinterlace (DEINTERLACE) or Adaptive (ADAPTIVE). Motion adaptive interpolate (INTERPOLATE) produces sharper pictures, while blend (BLEND) produces smoother motion. Use (INTERPOLATE_TICKER) OR (BLEND_TICKER) if your source file includes a ticker, such as a scrolling headline at the bottom of the frame.
 data DeinterlaceAlgorithm
   = DABlend
@@ -1442,25 +1956,25 @@ instance FromJSON DeinterlacerControl where
 
 -- | Use Deinterlacer (DeinterlaceMode) to choose how the service will do deinterlacing. Default is Deinterlace. - Deinterlace converts interlaced to progressive. - Inverse telecine converts Hard Telecine 29.97i to progressive 23.976p. - Adaptive auto-detects and converts to progressive.
 data DeinterlacerMode
-  = Adaptive
-  | Deinterlace
-  | InverseTelecine
+  = DMAdaptive
+  | DMDeinterlace
+  | DMInverseTelecine
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText DeinterlacerMode where
     parser = takeLowerText >>= \case
-        "adaptive" -> pure Adaptive
-        "deinterlace" -> pure Deinterlace
-        "inverse_telecine" -> pure InverseTelecine
+        "adaptive" -> pure DMAdaptive
+        "deinterlace" -> pure DMDeinterlace
+        "inverse_telecine" -> pure DMInverseTelecine
         e -> fromTextError $ "Failure parsing DeinterlacerMode from value: '" <> e
            <> "'. Accepted values: adaptive, deinterlace, inverse_telecine"
 
 instance ToText DeinterlacerMode where
     toText = \case
-        Adaptive -> "ADAPTIVE"
-        Deinterlace -> "DEINTERLACE"
-        InverseTelecine -> "INVERSE_TELECINE"
+        DMAdaptive -> "ADAPTIVE"
+        DMDeinterlace -> "DEINTERLACE"
+        DMInverseTelecine -> "INVERSE_TELECINE"
 
 instance Hashable     DeinterlacerMode
 instance NFData       DeinterlacerMode
@@ -1473,6 +1987,34 @@ instance ToJSON DeinterlacerMode where
 
 instance FromJSON DeinterlacerMode where
     parseJSON = parseJSONText "DeinterlacerMode"
+
+-- | Optional field, defaults to DEFAULT. Specify DEFAULT for this operation to return your endpoints if any exist, or to create an endpoint for you and return it if one doesn't already exist. Specify GET_ONLY to return your endpoints if any exist, or an empty list if none exist.
+data DescribeEndpointsMode
+  = DEMDefault
+  | DEMGetOnly
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DescribeEndpointsMode where
+    parser = takeLowerText >>= \case
+        "default" -> pure DEMDefault
+        "get_only" -> pure DEMGetOnly
+        e -> fromTextError $ "Failure parsing DescribeEndpointsMode from value: '" <> e
+           <> "'. Accepted values: default, get_only"
+
+instance ToText DescribeEndpointsMode where
+    toText = \case
+        DEMDefault -> "DEFAULT"
+        DEMGetOnly -> "GET_ONLY"
+
+instance Hashable     DescribeEndpointsMode
+instance NFData       DescribeEndpointsMode
+instance ToByteString DescribeEndpointsMode
+instance ToQuery      DescribeEndpointsMode
+instance ToHeader     DescribeEndpointsMode
+
+instance ToJSON DescribeEndpointsMode where
+    toJSON = toJSONText
 
 -- | Applies only to 29.97 fps outputs. When this feature is enabled, the service will use drop-frame timecode on outputs. If it is not possible to use drop-frame timecode, the system will fall back to non-drop-frame. This setting is enabled by default when Timecode insertion (TimecodeInsertion) is enabled.
 data DropFrameTimecode
@@ -1540,25 +2082,25 @@ instance FromJSON DvbSubtitleAlignment where
 --
 -- All burn-in and DVB-Sub font settings must match.
 data DvbSubtitleBackgroundColor
-  = DSBCBlack
-  | DSBCNone
-  | DSBCWhite
+  = Black
+  | None
+  | White
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText DvbSubtitleBackgroundColor where
     parser = takeLowerText >>= \case
-        "black" -> pure DSBCBlack
-        "none" -> pure DSBCNone
-        "white" -> pure DSBCWhite
+        "black" -> pure Black
+        "none" -> pure None
+        "white" -> pure White
         e -> fromTextError $ "Failure parsing DvbSubtitleBackgroundColor from value: '" <> e
            <> "'. Accepted values: black, none, white"
 
 instance ToText DvbSubtitleBackgroundColor where
     toText = \case
-        DSBCBlack -> "BLACK"
-        DSBCNone -> "NONE"
-        DSBCWhite -> "WHITE"
+        Black -> "BLACK"
+        None -> "NONE"
+        White -> "WHITE"
 
 instance Hashable     DvbSubtitleBackgroundColor
 instance NFData       DvbSubtitleBackgroundColor
@@ -1617,34 +2159,34 @@ instance FromJSON DvbSubtitleFontColor where
 
 -- | Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
 data DvbSubtitleOutlineColor
-  = Black
-  | Blue
-  | Green
-  | Red
-  | White
-  | Yellow
+  = DSOCBlack
+  | DSOCBlue
+  | DSOCGreen
+  | DSOCRed
+  | DSOCWhite
+  | DSOCYellow
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText DvbSubtitleOutlineColor where
     parser = takeLowerText >>= \case
-        "black" -> pure Black
-        "blue" -> pure Blue
-        "green" -> pure Green
-        "red" -> pure Red
-        "white" -> pure White
-        "yellow" -> pure Yellow
+        "black" -> pure DSOCBlack
+        "blue" -> pure DSOCBlue
+        "green" -> pure DSOCGreen
+        "red" -> pure DSOCRed
+        "white" -> pure DSOCWhite
+        "yellow" -> pure DSOCYellow
         e -> fromTextError $ "Failure parsing DvbSubtitleOutlineColor from value: '" <> e
            <> "'. Accepted values: black, blue, green, red, white, yellow"
 
 instance ToText DvbSubtitleOutlineColor where
     toText = \case
-        Black -> "BLACK"
-        Blue -> "BLUE"
-        Green -> "GREEN"
-        Red -> "RED"
-        White -> "WHITE"
-        Yellow -> "YELLOW"
+        DSOCBlack -> "BLACK"
+        DSOCBlue -> "BLUE"
+        DSOCGreen -> "GREEN"
+        DSOCRed -> "RED"
+        DSOCWhite -> "WHITE"
+        DSOCYellow -> "YELLOW"
 
 instance Hashable     DvbSubtitleOutlineColor
 instance NFData       DvbSubtitleOutlineColor
@@ -1694,7 +2236,7 @@ instance ToJSON DvbSubtitleShadowColor where
 instance FromJSON DvbSubtitleShadowColor where
     parseJSON = parseJSONText "DvbSubtitleShadowColor"
 
--- | Controls whether a fixed grid size or proportional font spacing will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+-- | Only applies to jobs with input captions in Teletext or STL formats. Specify whether the spacing between letters in your captions is set by the captions grid or varies depending on letter width. Choose fixed grid to conform to the spacing specified in the captions file more accurately. Choose proportional to make the text easier to read if the captions are closed caption.
 data DvbSubtitleTeletextSpacing
   = FixedGrid
   | Proportional
@@ -2300,6 +2842,40 @@ instance ToJSON FileSourceConvert608To708 where
 instance FromJSON FileSourceConvert608To708 where
     parseJSON = parseJSONText "FileSourceConvert608To708"
 
+-- | Provide the font script, using an ISO 15924 script code, if the LanguageCode is not sufficient for determining the script type. Where LanguageCode or CustomLanguageCode is sufficient, use "AUTOMATIC" or leave unset.
+data FontScript
+  = Automatic
+  | Hans
+  | Hant
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText FontScript where
+    parser = takeLowerText >>= \case
+        "automatic" -> pure Automatic
+        "hans" -> pure Hans
+        "hant" -> pure Hant
+        e -> fromTextError $ "Failure parsing FontScript from value: '" <> e
+           <> "'. Accepted values: automatic, hans, hant"
+
+instance ToText FontScript where
+    toText = \case
+        Automatic -> "AUTOMATIC"
+        Hans -> "HANS"
+        Hant -> "HANT"
+
+instance Hashable     FontScript
+instance NFData       FontScript
+instance ToByteString FontScript
+instance ToQuery      FontScript
+instance ToHeader     FontScript
+
+instance ToJSON FontScript where
+    toJSON = toJSONText
+
+instance FromJSON FontScript where
+    parseJSON = parseJSONText "FontScript"
+
 -- | Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
 data H264AdaptiveQuantization
   = HAQHigh
@@ -2343,69 +2919,69 @@ instance ToJSON H264AdaptiveQuantization where
 instance FromJSON H264AdaptiveQuantization where
     parseJSON = parseJSONText "H264AdaptiveQuantization"
 
--- | H.264 Level.
+-- | Specify an H.264 level that is consistent with your output video settings. If you aren't sure what level to specify, choose Auto (AUTO).
 data H264CodecLevel
-  = HCLAuto
-  | HCLLevel1
-  | HCLLevel11
-  | HCLLevel12
-  | HCLLevel13
-  | HCLLevel2
-  | HCLLevel21
-  | HCLLevel22
-  | HCLLevel3
-  | HCLLevel31
-  | HCLLevel32
-  | HCLLevel4
-  | HCLLevel41
-  | HCLLevel42
-  | HCLLevel5
-  | HCLLevel51
-  | HCLLevel52
+  = HAuto
+  | HLevel1
+  | HLevel11
+  | HLevel12
+  | HLevel13
+  | HLevel2
+  | HLevel21
+  | HLevel22
+  | HLevel3
+  | HLevel31
+  | HLevel32
+  | HLevel4
+  | HLevel41
+  | HLevel42
+  | HLevel5
+  | HLevel51
+  | HLevel52
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText H264CodecLevel where
     parser = takeLowerText >>= \case
-        "auto" -> pure HCLAuto
-        "level_1" -> pure HCLLevel1
-        "level_1_1" -> pure HCLLevel11
-        "level_1_2" -> pure HCLLevel12
-        "level_1_3" -> pure HCLLevel13
-        "level_2" -> pure HCLLevel2
-        "level_2_1" -> pure HCLLevel21
-        "level_2_2" -> pure HCLLevel22
-        "level_3" -> pure HCLLevel3
-        "level_3_1" -> pure HCLLevel31
-        "level_3_2" -> pure HCLLevel32
-        "level_4" -> pure HCLLevel4
-        "level_4_1" -> pure HCLLevel41
-        "level_4_2" -> pure HCLLevel42
-        "level_5" -> pure HCLLevel5
-        "level_5_1" -> pure HCLLevel51
-        "level_5_2" -> pure HCLLevel52
+        "auto" -> pure HAuto
+        "level_1" -> pure HLevel1
+        "level_1_1" -> pure HLevel11
+        "level_1_2" -> pure HLevel12
+        "level_1_3" -> pure HLevel13
+        "level_2" -> pure HLevel2
+        "level_2_1" -> pure HLevel21
+        "level_2_2" -> pure HLevel22
+        "level_3" -> pure HLevel3
+        "level_3_1" -> pure HLevel31
+        "level_3_2" -> pure HLevel32
+        "level_4" -> pure HLevel4
+        "level_4_1" -> pure HLevel41
+        "level_4_2" -> pure HLevel42
+        "level_5" -> pure HLevel5
+        "level_5_1" -> pure HLevel51
+        "level_5_2" -> pure HLevel52
         e -> fromTextError $ "Failure parsing H264CodecLevel from value: '" <> e
            <> "'. Accepted values: auto, level_1, level_1_1, level_1_2, level_1_3, level_2, level_2_1, level_2_2, level_3, level_3_1, level_3_2, level_4, level_4_1, level_4_2, level_5, level_5_1, level_5_2"
 
 instance ToText H264CodecLevel where
     toText = \case
-        HCLAuto -> "AUTO"
-        HCLLevel1 -> "LEVEL_1"
-        HCLLevel11 -> "LEVEL_1_1"
-        HCLLevel12 -> "LEVEL_1_2"
-        HCLLevel13 -> "LEVEL_1_3"
-        HCLLevel2 -> "LEVEL_2"
-        HCLLevel21 -> "LEVEL_2_1"
-        HCLLevel22 -> "LEVEL_2_2"
-        HCLLevel3 -> "LEVEL_3"
-        HCLLevel31 -> "LEVEL_3_1"
-        HCLLevel32 -> "LEVEL_3_2"
-        HCLLevel4 -> "LEVEL_4"
-        HCLLevel41 -> "LEVEL_4_1"
-        HCLLevel42 -> "LEVEL_4_2"
-        HCLLevel5 -> "LEVEL_5"
-        HCLLevel51 -> "LEVEL_5_1"
-        HCLLevel52 -> "LEVEL_5_2"
+        HAuto -> "AUTO"
+        HLevel1 -> "LEVEL_1"
+        HLevel11 -> "LEVEL_1_1"
+        HLevel12 -> "LEVEL_1_2"
+        HLevel13 -> "LEVEL_1_3"
+        HLevel2 -> "LEVEL_2"
+        HLevel21 -> "LEVEL_2_1"
+        HLevel22 -> "LEVEL_2_2"
+        HLevel3 -> "LEVEL_3"
+        HLevel31 -> "LEVEL_3_1"
+        HLevel32 -> "LEVEL_3_2"
+        HLevel4 -> "LEVEL_4"
+        HLevel41 -> "LEVEL_4_1"
+        HLevel42 -> "LEVEL_4_2"
+        HLevel5 -> "LEVEL_5"
+        HLevel51 -> "LEVEL_5_1"
+        HLevel52 -> "LEVEL_5_2"
 
 instance Hashable     H264CodecLevel
 instance NFData       H264CodecLevel
@@ -2461,6 +3037,37 @@ instance ToJSON H264CodecProfile where
 
 instance FromJSON H264CodecProfile where
     parseJSON = parseJSONText "H264CodecProfile"
+
+-- | Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+data H264DynamicSubGop
+  = HDSGAdaptive
+  | HDSGStatic
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText H264DynamicSubGop where
+    parser = takeLowerText >>= \case
+        "adaptive" -> pure HDSGAdaptive
+        "static" -> pure HDSGStatic
+        e -> fromTextError $ "Failure parsing H264DynamicSubGop from value: '" <> e
+           <> "'. Accepted values: adaptive, static"
+
+instance ToText H264DynamicSubGop where
+    toText = \case
+        HDSGAdaptive -> "ADAPTIVE"
+        HDSGStatic -> "STATIC"
+
+instance Hashable     H264DynamicSubGop
+instance NFData       H264DynamicSubGop
+instance ToByteString H264DynamicSubGop
+instance ToQuery      H264DynamicSubGop
+instance ToHeader     H264DynamicSubGop
+
+instance ToJSON H264DynamicSubGop where
+    toJSON = toJSONText
+
+instance FromJSON H264DynamicSubGop where
+    parseJSON = parseJSONText "H264DynamicSubGop"
 
 -- | Entropy encoding mode. Use CABAC (must be in Main or High profile) or CAVLC.
 data H264EntropyEncoding
@@ -2555,7 +3162,7 @@ instance ToJSON H264FlickerAdaptiveQuantization where
 instance FromJSON H264FlickerAdaptiveQuantization where
     parseJSON = parseJSONText "H264FlickerAdaptiveQuantization"
 
--- | Using the API, set FramerateControl to INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Using the console, do this by choosing INITIALIZE_FROM_SOURCE for Framerate.
+-- | If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction. If you are creating your transcoding job specification as a JSON file without the console, use FramerateControl to specify which value the service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate you specify in the settings FramerateNumerator and FramerateDenominator.
 data H264FramerateControl
   = HInitializeFromSource
   | HSpecified
@@ -2586,7 +3193,7 @@ instance ToJSON H264FramerateControl where
 instance FromJSON H264FramerateControl where
     parseJSON = parseJSONText "H264FramerateControl"
 
--- | When set to INTERPOLATE, produces smoother motion during framerate conversion.
+-- | When set to INTERPOLATE, produces smoother motion during frame rate conversion.
 data H264FramerateConversionAlgorithm
   = HFCADuplicateDrop
   | HFCAInterpolate
@@ -2679,7 +3286,10 @@ instance ToJSON H264GopSizeUnits where
 instance FromJSON H264GopSizeUnits where
     parseJSON = parseJSONText "H264GopSizeUnits"
 
--- | Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOw_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same  field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+-- | Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type, as follows.
+--
+--   - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first".
+--   - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
 data H264InterlaceMode
   = HIMBottomField
   | HIMFollowBottomField
@@ -2784,9 +3394,10 @@ instance ToJSON H264QualityTuningLevel where
 instance FromJSON H264QualityTuningLevel where
     parseJSON = parseJSONText "H264QualityTuningLevel"
 
--- | Rate control mode. CQ uses constant quantizer (qp), ABR (average bitrate) does not write HRD parameters.
+-- | Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or quality-defined variable bitrate (QVBR).
 data H264RateControlMode
   = HRCMCbr
+  | HRCMQvbr
   | HRCMVbr
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -2794,13 +3405,15 @@ data H264RateControlMode
 instance FromText H264RateControlMode where
     parser = takeLowerText >>= \case
         "cbr" -> pure HRCMCbr
+        "qvbr" -> pure HRCMQvbr
         "vbr" -> pure HRCMVbr
         e -> fromTextError $ "Failure parsing H264RateControlMode from value: '" <> e
-           <> "'. Accepted values: cbr, vbr"
+           <> "'. Accepted values: cbr, qvbr, vbr"
 
 instance ToText H264RateControlMode where
     toText = \case
         HRCMCbr -> "CBR"
+        HRCMQvbr -> "QVBR"
         HRCMVbr -> "VBR"
 
 instance Hashable     H264RateControlMode
@@ -3142,58 +3755,58 @@ instance FromJSON H265AlternateTransferFunctionSei where
 
 -- | H.265 Level.
 data H265CodecLevel
-  = Auto
-  | Level1
-  | Level2
-  | Level21
-  | Level3
-  | Level31
-  | Level4
-  | Level41
-  | Level5
-  | Level51
-  | Level52
-  | Level6
-  | Level61
-  | Level62
+  = HCLAuto
+  | HCLLevel1
+  | HCLLevel2
+  | HCLLevel21
+  | HCLLevel3
+  | HCLLevel31
+  | HCLLevel4
+  | HCLLevel41
+  | HCLLevel5
+  | HCLLevel51
+  | HCLLevel52
+  | HCLLevel6
+  | HCLLevel61
+  | HCLLevel62
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText H265CodecLevel where
     parser = takeLowerText >>= \case
-        "auto" -> pure Auto
-        "level_1" -> pure Level1
-        "level_2" -> pure Level2
-        "level_2_1" -> pure Level21
-        "level_3" -> pure Level3
-        "level_3_1" -> pure Level31
-        "level_4" -> pure Level4
-        "level_4_1" -> pure Level41
-        "level_5" -> pure Level5
-        "level_5_1" -> pure Level51
-        "level_5_2" -> pure Level52
-        "level_6" -> pure Level6
-        "level_6_1" -> pure Level61
-        "level_6_2" -> pure Level62
+        "auto" -> pure HCLAuto
+        "level_1" -> pure HCLLevel1
+        "level_2" -> pure HCLLevel2
+        "level_2_1" -> pure HCLLevel21
+        "level_3" -> pure HCLLevel3
+        "level_3_1" -> pure HCLLevel31
+        "level_4" -> pure HCLLevel4
+        "level_4_1" -> pure HCLLevel41
+        "level_5" -> pure HCLLevel5
+        "level_5_1" -> pure HCLLevel51
+        "level_5_2" -> pure HCLLevel52
+        "level_6" -> pure HCLLevel6
+        "level_6_1" -> pure HCLLevel61
+        "level_6_2" -> pure HCLLevel62
         e -> fromTextError $ "Failure parsing H265CodecLevel from value: '" <> e
            <> "'. Accepted values: auto, level_1, level_2, level_2_1, level_3, level_3_1, level_4, level_4_1, level_5, level_5_1, level_5_2, level_6, level_6_1, level_6_2"
 
 instance ToText H265CodecLevel where
     toText = \case
-        Auto -> "AUTO"
-        Level1 -> "LEVEL_1"
-        Level2 -> "LEVEL_2"
-        Level21 -> "LEVEL_2_1"
-        Level3 -> "LEVEL_3"
-        Level31 -> "LEVEL_3_1"
-        Level4 -> "LEVEL_4"
-        Level41 -> "LEVEL_4_1"
-        Level5 -> "LEVEL_5"
-        Level51 -> "LEVEL_5_1"
-        Level52 -> "LEVEL_5_2"
-        Level6 -> "LEVEL_6"
-        Level61 -> "LEVEL_6_1"
-        Level62 -> "LEVEL_6_2"
+        HCLAuto -> "AUTO"
+        HCLLevel1 -> "LEVEL_1"
+        HCLLevel2 -> "LEVEL_2"
+        HCLLevel21 -> "LEVEL_2_1"
+        HCLLevel3 -> "LEVEL_3"
+        HCLLevel31 -> "LEVEL_3_1"
+        HCLLevel4 -> "LEVEL_4"
+        HCLLevel41 -> "LEVEL_4_1"
+        HCLLevel5 -> "LEVEL_5"
+        HCLLevel51 -> "LEVEL_5_1"
+        HCLLevel52 -> "LEVEL_5_2"
+        HCLLevel6 -> "LEVEL_6"
+        HCLLevel61 -> "LEVEL_6_1"
+        HCLLevel62 -> "LEVEL_6_2"
 
 instance Hashable     H265CodecLevel
 instance NFData       H265CodecLevel
@@ -3256,6 +3869,37 @@ instance ToJSON H265CodecProfile where
 instance FromJSON H265CodecProfile where
     parseJSON = parseJSONText "H265CodecProfile"
 
+-- | Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+data H265DynamicSubGop
+  = Adaptive
+  | Static
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText H265DynamicSubGop where
+    parser = takeLowerText >>= \case
+        "adaptive" -> pure Adaptive
+        "static" -> pure Static
+        e -> fromTextError $ "Failure parsing H265DynamicSubGop from value: '" <> e
+           <> "'. Accepted values: adaptive, static"
+
+instance ToText H265DynamicSubGop where
+    toText = \case
+        Adaptive -> "ADAPTIVE"
+        Static -> "STATIC"
+
+instance Hashable     H265DynamicSubGop
+instance NFData       H265DynamicSubGop
+instance ToByteString H265DynamicSubGop
+instance ToQuery      H265DynamicSubGop
+instance ToHeader     H265DynamicSubGop
+
+instance ToJSON H265DynamicSubGop where
+    toJSON = toJSONText
+
+instance FromJSON H265DynamicSubGop where
+    parseJSON = parseJSONText "H265DynamicSubGop"
+
 -- | Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
 data H265FlickerAdaptiveQuantization
   = HFAQDisabled
@@ -3287,7 +3931,7 @@ instance ToJSON H265FlickerAdaptiveQuantization where
 instance FromJSON H265FlickerAdaptiveQuantization where
     parseJSON = parseJSONText "H265FlickerAdaptiveQuantization"
 
--- | Using the API, set FramerateControl to INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Using the console, do this by choosing INITIALIZE_FROM_SOURCE for Framerate.
+-- | If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate you specify in the settings FramerateNumerator and FramerateDenominator.
 data H265FramerateControl
   = HFCInitializeFromSource
   | HFCSpecified
@@ -3318,7 +3962,7 @@ instance ToJSON H265FramerateControl where
 instance FromJSON H265FramerateControl where
     parseJSON = parseJSONText "H265FramerateControl"
 
--- | When set to INTERPOLATE, produces smoother motion during framerate conversion.
+-- | When set to INTERPOLATE, produces smoother motion during frame rate conversion.
 data H265FramerateConversionAlgorithm
   = DuplicateDrop
   | Interpolate
@@ -3411,7 +4055,10 @@ instance ToJSON H265GopSizeUnits where
 instance FromJSON H265GopSizeUnits where
     parseJSON = parseJSONText "H265GopSizeUnits"
 
--- | Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOw_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same  field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+-- | Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type.
+--
+--   - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first".
+--   - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
 data H265InterlaceMode
   = BottomField
   | FollowBottomField
@@ -3516,9 +4163,10 @@ instance ToJSON H265QualityTuningLevel where
 instance FromJSON H265QualityTuningLevel where
     parseJSON = parseJSONText "H265QualityTuningLevel"
 
--- | Rate control mode. CQ uses constant quantizer (qp), ABR (average bitrate) does not write HRD parameters.
+-- | Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or quality-defined variable bitrate (QVBR).
 data H265RateControlMode
   = Cbr
+  | Qvbr
   | Vbr
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -3526,13 +4174,15 @@ data H265RateControlMode
 instance FromText H265RateControlMode where
     parser = takeLowerText >>= \case
         "cbr" -> pure Cbr
+        "qvbr" -> pure Qvbr
         "vbr" -> pure Vbr
         e -> fromTextError $ "Failure parsing H265RateControlMode from value: '" <> e
-           <> "'. Accepted values: cbr, vbr"
+           <> "'. Accepted values: cbr, qvbr, vbr"
 
 instance ToText H265RateControlMode where
     toText = \case
         Cbr -> "CBR"
+        Qvbr -> "QVBR"
         Vbr -> "VBR"
 
 instance Hashable     H265RateControlMode
@@ -3832,6 +4482,37 @@ instance ToJSON H265UnregisteredSeiTimecode where
 instance FromJSON H265UnregisteredSeiTimecode where
     parseJSON = parseJSONText "H265UnregisteredSeiTimecode"
 
+-- | Use this setting only for outputs encoded with H.265 that are in CMAF or DASH output groups. If you include writeMp4PackagingType in your JSON job specification for other outputs, your video might not work properly with downstream systems and video players. If the location of parameter set NAL units don't matter in your workflow, ignore this setting. The service defaults to marking your output as HEV1. Choose HVC1 to mark your output as HVC1. This makes your output compliant with this specification: ISO IECJTC1 SC29 N13798 Text ISO/IEC FDIS 14496-15 3rd Edition. For these outputs, the service stores parameter set NAL units in the sample headers but not in the samples directly. Keep the default HEV1 to mark your output as HEV1. For these outputs, the service writes parameter set NAL units directly into the samples.
+data H265WriteMp4PackagingType
+  = HEV1
+  | HVC1
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText H265WriteMp4PackagingType where
+    parser = takeLowerText >>= \case
+        "hev1" -> pure HEV1
+        "hvc1" -> pure HVC1
+        e -> fromTextError $ "Failure parsing H265WriteMp4PackagingType from value: '" <> e
+           <> "'. Accepted values: hev1, hvc1"
+
+instance ToText H265WriteMp4PackagingType where
+    toText = \case
+        HEV1 -> "HEV1"
+        HVC1 -> "HVC1"
+
+instance Hashable     H265WriteMp4PackagingType
+instance NFData       H265WriteMp4PackagingType
+instance ToByteString H265WriteMp4PackagingType
+instance ToQuery      H265WriteMp4PackagingType
+instance ToHeader     H265WriteMp4PackagingType
+
+instance ToJSON H265WriteMp4PackagingType where
+    toJSON = toJSONText
+
+instance FromJSON H265WriteMp4PackagingType where
+    parseJSON = parseJSONText "H265WriteMp4PackagingType"
+
 data HlsAdMarkers
   = Elemental
   | ElementalSCTE35
@@ -3966,22 +4647,22 @@ instance FromJSON HlsClientCache where
 
 -- | Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
 data HlsCodecSpecification
-  = Rfc4281
-  | Rfc6381
+  = HCSRfc4281
+  | HCSRfc6381
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText HlsCodecSpecification where
     parser = takeLowerText >>= \case
-        "rfc_4281" -> pure Rfc4281
-        "rfc_6381" -> pure Rfc6381
+        "rfc_4281" -> pure HCSRfc4281
+        "rfc_6381" -> pure HCSRfc6381
         e -> fromTextError $ "Failure parsing HlsCodecSpecification from value: '" <> e
            <> "'. Accepted values: rfc_4281, rfc_6381"
 
 instance ToText HlsCodecSpecification where
     toText = \case
-        Rfc4281 -> "RFC_4281"
-        Rfc6381 -> "RFC_6381"
+        HCSRfc4281 -> "RFC_4281"
+        HCSRfc6381 -> "RFC_6381"
 
 instance Hashable     HlsCodecSpecification
 instance NFData       HlsCodecSpecification
@@ -4028,22 +4709,22 @@ instance FromJSON HlsDirectoryStructure where
 
 -- | Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
 data HlsEncryptionType
-  = AES128
-  | SampleAES
+  = HETAES128
+  | HETSampleAES
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText HlsEncryptionType where
     parser = takeLowerText >>= \case
-        "aes128" -> pure AES128
-        "sample_aes" -> pure SampleAES
+        "aes128" -> pure HETAES128
+        "sample_aes" -> pure HETSampleAES
         e -> fromTextError $ "Failure parsing HlsEncryptionType from value: '" <> e
            <> "'. Accepted values: aes128, sample_aes"
 
 instance ToText HlsEncryptionType where
     toText = \case
-        AES128 -> "AES128"
-        SampleAES -> "SAMPLE_AES"
+        HETAES128 -> "AES128"
+        HETSampleAES -> "SAMPLE_AES"
 
 instance Hashable     HlsEncryptionType
 instance NFData       HlsEncryptionType
@@ -4121,22 +4802,22 @@ instance FromJSON HlsInitializationVectorInManifest where
 
 -- | Indicates which type of key provider is used for encryption.
 data HlsKeyProviderType
-  = Speke
-  | StaticKey
+  = HKPTSpeke
+  | HKPTStaticKey
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText HlsKeyProviderType where
     parser = takeLowerText >>= \case
-        "speke" -> pure Speke
-        "static_key" -> pure StaticKey
+        "speke" -> pure HKPTSpeke
+        "static_key" -> pure HKPTStaticKey
         e -> fromTextError $ "Failure parsing HlsKeyProviderType from value: '" <> e
            <> "'. Accepted values: speke, static_key"
 
 instance ToText HlsKeyProviderType where
     toText = \case
-        Speke -> "SPEKE"
-        StaticKey -> "STATIC_KEY"
+        HKPTSpeke -> "SPEKE"
+        HKPTStaticKey -> "STATIC_KEY"
 
 instance Hashable     HlsKeyProviderType
 instance NFData       HlsKeyProviderType
@@ -4183,22 +4864,22 @@ instance FromJSON HlsManifestCompression where
 
 -- | Indicates whether the output manifest should use floating point values for segment duration.
 data HlsManifestDurationFormat
-  = FloatingPoint
-  | Integer
+  = HMDFFloatingPoint
+  | HMDFInteger
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText HlsManifestDurationFormat where
     parser = takeLowerText >>= \case
-        "floating_point" -> pure FloatingPoint
-        "integer" -> pure Integer
+        "floating_point" -> pure HMDFFloatingPoint
+        "integer" -> pure HMDFInteger
         e -> fromTextError $ "Failure parsing HlsManifestDurationFormat from value: '" <> e
            <> "'. Accepted values: floating_point, integer"
 
 instance ToText HlsManifestDurationFormat where
     toText = \case
-        FloatingPoint -> "FLOATING_POINT"
-        Integer -> "INTEGER"
+        HMDFFloatingPoint -> "FLOATING_POINT"
+        HMDFInteger -> "INTEGER"
 
 instance Hashable     HlsManifestDurationFormat
 instance NFData       HlsManifestDurationFormat
@@ -4211,6 +4892,37 @@ instance ToJSON HlsManifestDurationFormat where
 
 instance FromJSON HlsManifestDurationFormat where
     parseJSON = parseJSONText "HlsManifestDurationFormat"
+
+-- | Enable this setting to insert the EXT-X-SESSION-KEY element into the master playlist. This allows for offline Apple HLS FairPlay content protection.
+data HlsOfflineEncrypted
+  = HOEDisabled
+  | HOEEnabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText HlsOfflineEncrypted where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure HOEDisabled
+        "enabled" -> pure HOEEnabled
+        e -> fromTextError $ "Failure parsing HlsOfflineEncrypted from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText HlsOfflineEncrypted where
+    toText = \case
+        HOEDisabled -> "DISABLED"
+        HOEEnabled -> "ENABLED"
+
+instance Hashable     HlsOfflineEncrypted
+instance NFData       HlsOfflineEncrypted
+instance ToByteString HlsOfflineEncrypted
+instance ToQuery      HlsOfflineEncrypted
+instance ToHeader     HlsOfflineEncrypted
+
+instance ToJSON HlsOfflineEncrypted where
+    toJSON = toJSONText
+
+instance FromJSON HlsOfflineEncrypted where
+    parseJSON = parseJSONText "HlsOfflineEncrypted"
 
 -- | Indicates whether the .m3u8 manifest file should be generated for this HLS output group.
 data HlsOutputSelection
@@ -4245,22 +4957,22 @@ instance FromJSON HlsOutputSelection where
 
 -- | Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestamp_offset.
 data HlsProgramDateTime
-  = Exclude
-  | Include
+  = HPDTExclude
+  | HPDTInclude
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText HlsProgramDateTime where
     parser = takeLowerText >>= \case
-        "exclude" -> pure Exclude
-        "include" -> pure Include
+        "exclude" -> pure HPDTExclude
+        "include" -> pure HPDTInclude
         e -> fromTextError $ "Failure parsing HlsProgramDateTime from value: '" <> e
            <> "'. Accepted values: exclude, include"
 
 instance ToText HlsProgramDateTime where
     toText = \case
-        Exclude -> "EXCLUDE"
-        Include -> "INCLUDE"
+        HPDTExclude -> "EXCLUDE"
+        HPDTInclude -> "INCLUDE"
 
 instance Hashable     HlsProgramDateTime
 instance NFData       HlsProgramDateTime
@@ -4276,22 +4988,22 @@ instance FromJSON HlsProgramDateTime where
 
 -- | When set to SINGLE_FILE, emits program as a single media resource (.ts) file, uses #EXT-X-BYTERANGE tags to index segment for playback.
 data HlsSegmentControl
-  = SegmentedFiles
-  | SingleFile
+  = HSCSegmentedFiles
+  | HSCSingleFile
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText HlsSegmentControl where
     parser = takeLowerText >>= \case
-        "segmented_files" -> pure SegmentedFiles
-        "single_file" -> pure SingleFile
+        "segmented_files" -> pure HSCSegmentedFiles
+        "single_file" -> pure HSCSingleFile
         e -> fromTextError $ "Failure parsing HlsSegmentControl from value: '" <> e
            <> "'. Accepted values: segmented_files, single_file"
 
 instance ToText HlsSegmentControl where
     toText = \case
-        SegmentedFiles -> "SEGMENTED_FILES"
-        SingleFile -> "SINGLE_FILE"
+        HSCSegmentedFiles -> "SEGMENTED_FILES"
+        HSCSingleFile -> "SINGLE_FILE"
 
 instance Hashable     HlsSegmentControl
 instance NFData       HlsSegmentControl
@@ -4372,22 +5084,22 @@ instance FromJSON HlsTimedMetadataId3Frame where
 
 -- | Enable Deblock (InputDeblockFilter) to produce smoother motion in the output. Default is disabled. Only manaully controllable for MPEG2 and uncompressed video inputs.
 data InputDeblockFilter
-  = Disabled
-  | Enabled
+  = IDFDisabled
+  | IDFEnabled
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText InputDeblockFilter where
     parser = takeLowerText >>= \case
-        "disabled" -> pure Disabled
-        "enabled" -> pure Enabled
+        "disabled" -> pure IDFDisabled
+        "enabled" -> pure IDFEnabled
         e -> fromTextError $ "Failure parsing InputDeblockFilter from value: '" <> e
            <> "'. Accepted values: disabled, enabled"
 
 instance ToText InputDeblockFilter where
     toText = \case
-        Disabled -> "DISABLED"
-        Enabled -> "ENABLED"
+        IDFDisabled -> "DISABLED"
+        IDFEnabled -> "ENABLED"
 
 instance Hashable     InputDeblockFilter
 instance NFData       InputDeblockFilter
@@ -4403,22 +5115,22 @@ instance FromJSON InputDeblockFilter where
 
 -- | Enable Denoise (InputDenoiseFilter) to filter noise from the input.  Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs.
 data InputDenoiseFilter
-  = IDFDisabled
-  | IDFEnabled
+  = IDisabled
+  | IEnabled
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText InputDenoiseFilter where
     parser = takeLowerText >>= \case
-        "disabled" -> pure IDFDisabled
-        "enabled" -> pure IDFEnabled
+        "disabled" -> pure IDisabled
+        "enabled" -> pure IEnabled
         e -> fromTextError $ "Failure parsing InputDenoiseFilter from value: '" <> e
            <> "'. Accepted values: disabled, enabled"
 
 instance ToText InputDenoiseFilter where
     toText = \case
-        IDFDisabled -> "DISABLED"
-        IDFEnabled -> "ENABLED"
+        IDisabled -> "DISABLED"
+        IEnabled -> "ENABLED"
 
 instance Hashable     InputDenoiseFilter
 instance NFData       InputDenoiseFilter
@@ -4497,27 +5209,67 @@ instance ToJSON InputPsiControl where
 instance FromJSON InputPsiControl where
     parseJSON = parseJSONText "InputPsiControl"
 
--- | Use Timecode source (InputTimecodeSource) to specify how timecode information from your input is adjusted and encoded in all outputs for the job. Default is embedded. Set to Embedded (EMBEDDED) to use the timecode that is in the input video. If no embedded timecode is in the source, will set the timecode for the first frame to 00:00:00:00. Set to Start at 0 (ZEROBASED) to set the timecode of the initial frame to 00:00:00:00. Set to Specified start (SPECIFIEDSTART) to provide the initial timecode yourself the setting (Start).
+-- | Use Rotate (InputRotate) to specify how the service rotates your video. You can choose automatic rotation or specify a rotation. You can specify a clockwise rotation of 0, 90, 180, or 270 degrees. If your input video container is .mov or .mp4 and your input has rotation metadata, you can choose Automatic to have the service rotate your video according to the rotation specified in the metadata. The rotation must be within one degree of 90, 180, or 270 degrees. If the rotation metadata specifies any other rotation, the service will default to no rotation. By default, the service does no rotation, even if your input video has rotation metadata. The service doesn't pass through rotation metadata.
+data InputRotate
+  = Auto
+  | Degree0
+  | Degrees180
+  | Degrees270
+  | Degrees90
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText InputRotate where
+    parser = takeLowerText >>= \case
+        "auto" -> pure Auto
+        "degree_0" -> pure Degree0
+        "degrees_180" -> pure Degrees180
+        "degrees_270" -> pure Degrees270
+        "degrees_90" -> pure Degrees90
+        e -> fromTextError $ "Failure parsing InputRotate from value: '" <> e
+           <> "'. Accepted values: auto, degree_0, degrees_180, degrees_270, degrees_90"
+
+instance ToText InputRotate where
+    toText = \case
+        Auto -> "AUTO"
+        Degree0 -> "DEGREE_0"
+        Degrees180 -> "DEGREES_180"
+        Degrees270 -> "DEGREES_270"
+        Degrees90 -> "DEGREES_90"
+
+instance Hashable     InputRotate
+instance NFData       InputRotate
+instance ToByteString InputRotate
+instance ToQuery      InputRotate
+instance ToHeader     InputRotate
+
+instance ToJSON InputRotate where
+    toJSON = toJSONText
+
+instance FromJSON InputRotate where
+    parseJSON = parseJSONText "InputRotate"
+
+-- | Timecode source under input settings (InputTimecodeSource) only affects the behavior of features that apply to a single input at a time, such as input clipping and synchronizing some captions formats. Use this setting to specify whether the service counts frames by timecodes embedded in the video (EMBEDDED) or by starting the first frame at zero (ZEROBASED). In both cases, the timecode format is HH:MM:SS:FF or HH:MM:SS;FF, where FF is the frame number. Only set this to EMBEDDED if your source video has embedded timecodes.
 data InputTimecodeSource
-  = Embedded
-  | Specifiedstart
-  | Zerobased
+  = ITSEmbedded
+  | ITSSpecifiedstart
+  | ITSZerobased
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText InputTimecodeSource where
     parser = takeLowerText >>= \case
-        "embedded" -> pure Embedded
-        "specifiedstart" -> pure Specifiedstart
-        "zerobased" -> pure Zerobased
+        "embedded" -> pure ITSEmbedded
+        "specifiedstart" -> pure ITSSpecifiedstart
+        "zerobased" -> pure ITSZerobased
         e -> fromTextError $ "Failure parsing InputTimecodeSource from value: '" <> e
            <> "'. Accepted values: embedded, specifiedstart, zerobased"
 
 instance ToText InputTimecodeSource where
     toText = \case
-        Embedded -> "EMBEDDED"
-        Specifiedstart -> "SPECIFIEDSTART"
-        Zerobased -> "ZEROBASED"
+        ITSEmbedded -> "EMBEDDED"
+        ITSSpecifiedstart -> "SPECIFIEDSTART"
+        ITSZerobased -> "ZEROBASED"
 
 instance Hashable     InputTimecodeSource
 instance NFData       InputTimecodeSource
@@ -4602,7 +5354,7 @@ instance ToHeader     JobTemplateListBy
 instance ToJSON JobTemplateListBy where
     toJSON = toJSONText
 
--- | Code to specify the language, following the specification "ISO 639-2 three-digit code":http://www.loc.gov/standards/iso639-2/
+-- | Specify the language, using the ISO 639-2 three-letter code listed at https://www.loc.gov/standards/iso639-2/php/code_list.php.
 data LanguageCode
   = Aar
   | Abk
@@ -5326,22 +6078,22 @@ instance FromJSON M2tsEbpPlacement where
 
 -- | Controls whether to include the ES Rate field in the PES header.
 data M2tsEsRateInPes
-  = MERIPExclude
-  | MERIPInclude
+  = Exclude
+  | Include
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText M2tsEsRateInPes where
     parser = takeLowerText >>= \case
-        "exclude" -> pure MERIPExclude
-        "include" -> pure MERIPInclude
+        "exclude" -> pure Exclude
+        "include" -> pure Include
         e -> fromTextError $ "Failure parsing M2tsEsRateInPes from value: '" <> e
            <> "'. Accepted values: exclude, include"
 
 instance ToText M2tsEsRateInPes where
     toText = \case
-        MERIPExclude -> "EXCLUDE"
-        MERIPInclude -> "INCLUDE"
+        Exclude -> "EXCLUDE"
+        Include -> "INCLUDE"
 
 instance Hashable     M2tsEsRateInPes
 instance NFData       M2tsEsRateInPes
@@ -5354,6 +6106,37 @@ instance ToJSON M2tsEsRateInPes where
 
 instance FromJSON M2tsEsRateInPes where
     parseJSON = parseJSONText "M2tsEsRateInPes"
+
+-- | Keep the default value (DEFAULT) unless you know that your audio EBP markers are incorrectly appearing before your video EBP markers. To correct this problem, set this value to Force (FORCE).
+data M2tsForceTsVideoEbpOrder
+  = MFTVEODefault
+  | MFTVEOForce
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText M2tsForceTsVideoEbpOrder where
+    parser = takeLowerText >>= \case
+        "default" -> pure MFTVEODefault
+        "force" -> pure MFTVEOForce
+        e -> fromTextError $ "Failure parsing M2tsForceTsVideoEbpOrder from value: '" <> e
+           <> "'. Accepted values: default, force"
+
+instance ToText M2tsForceTsVideoEbpOrder where
+    toText = \case
+        MFTVEODefault -> "DEFAULT"
+        MFTVEOForce -> "FORCE"
+
+instance Hashable     M2tsForceTsVideoEbpOrder
+instance NFData       M2tsForceTsVideoEbpOrder
+instance ToByteString M2tsForceTsVideoEbpOrder
+instance ToQuery      M2tsForceTsVideoEbpOrder
+instance ToHeader     M2tsForceTsVideoEbpOrder
+
+instance ToJSON M2tsForceTsVideoEbpOrder where
+    toJSON = toJSONText
+
+instance FromJSON M2tsForceTsVideoEbpOrder where
+    parseJSON = parseJSONText "M2tsForceTsVideoEbpOrder"
 
 -- | If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
 data M2tsNielsenId3
@@ -5646,6 +6429,68 @@ instance ToJSON M3u8Scte35Source where
 instance FromJSON M3u8Scte35Source where
     parseJSON = parseJSONText "M3u8Scte35Source"
 
+-- | Choose the type of motion graphic asset that you are providing for your overlay. You can choose either a .mov file or a series of .png files.
+data MotionImageInsertionMode
+  = MIIMMov
+  | MIIMPng
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText MotionImageInsertionMode where
+    parser = takeLowerText >>= \case
+        "mov" -> pure MIIMMov
+        "png" -> pure MIIMPng
+        e -> fromTextError $ "Failure parsing MotionImageInsertionMode from value: '" <> e
+           <> "'. Accepted values: mov, png"
+
+instance ToText MotionImageInsertionMode where
+    toText = \case
+        MIIMMov -> "MOV"
+        MIIMPng -> "PNG"
+
+instance Hashable     MotionImageInsertionMode
+instance NFData       MotionImageInsertionMode
+instance ToByteString MotionImageInsertionMode
+instance ToQuery      MotionImageInsertionMode
+instance ToHeader     MotionImageInsertionMode
+
+instance ToJSON MotionImageInsertionMode where
+    toJSON = toJSONText
+
+instance FromJSON MotionImageInsertionMode where
+    parseJSON = parseJSONText "MotionImageInsertionMode"
+
+-- | Specify whether your motion graphic overlay repeats on a loop or plays only once.
+data MotionImagePlayback
+  = Once
+  | Repeat
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText MotionImagePlayback where
+    parser = takeLowerText >>= \case
+        "once" -> pure Once
+        "repeat" -> pure Repeat
+        e -> fromTextError $ "Failure parsing MotionImagePlayback from value: '" <> e
+           <> "'. Accepted values: once, repeat"
+
+instance ToText MotionImagePlayback where
+    toText = \case
+        Once -> "ONCE"
+        Repeat -> "REPEAT"
+
+instance Hashable     MotionImagePlayback
+instance NFData       MotionImagePlayback
+instance ToByteString MotionImagePlayback
+instance ToQuery      MotionImagePlayback
+instance ToHeader     MotionImagePlayback
+
+instance ToJSON MotionImagePlayback where
+    toJSON = toJSONText
+
+instance FromJSON MotionImagePlayback where
+    parseJSON = parseJSONText "MotionImagePlayback"
+
 -- | When enabled, include 'clap' atom if appropriate for the video output settings.
 data MovClapAtom
   = MExclude
@@ -5770,7 +6615,7 @@ instance ToJSON MovPaddingControl where
 instance FromJSON MovPaddingControl where
     parseJSON = parseJSONText "MovPaddingControl"
 
--- | A value of 'external' creates separate media files and the wrapper file (.mov) contains references to these media files. A value of 'self_contained' creates only a wrapper (.mov) file and this file contains all of the media.
+-- | Always keep the default value (SELF_CONTAINED) for this setting.
 data MovReference
   = External
   | SelfContained
@@ -6002,7 +6847,38 @@ instance ToJSON Mpeg2CodecProfile where
 instance FromJSON Mpeg2CodecProfile where
     parseJSON = parseJSONText "Mpeg2CodecProfile"
 
--- | Using the API, set FramerateControl to INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Using the console, do this by choosing INITIALIZE_FROM_SOURCE for Framerate.
+-- | Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
+data Mpeg2DynamicSubGop
+  = MDSGAdaptive
+  | MDSGStatic
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText Mpeg2DynamicSubGop where
+    parser = takeLowerText >>= \case
+        "adaptive" -> pure MDSGAdaptive
+        "static" -> pure MDSGStatic
+        e -> fromTextError $ "Failure parsing Mpeg2DynamicSubGop from value: '" <> e
+           <> "'. Accepted values: adaptive, static"
+
+instance ToText Mpeg2DynamicSubGop where
+    toText = \case
+        MDSGAdaptive -> "ADAPTIVE"
+        MDSGStatic -> "STATIC"
+
+instance Hashable     Mpeg2DynamicSubGop
+instance NFData       Mpeg2DynamicSubGop
+instance ToByteString Mpeg2DynamicSubGop
+instance ToQuery      Mpeg2DynamicSubGop
+instance ToHeader     Mpeg2DynamicSubGop
+
+instance ToJSON Mpeg2DynamicSubGop where
+    toJSON = toJSONText
+
+instance FromJSON Mpeg2DynamicSubGop where
+    parseJSON = parseJSONText "Mpeg2DynamicSubGop"
+
+-- | If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate you specify in the settings FramerateNumerator and FramerateDenominator.
 data Mpeg2FramerateControl
   = MFCInitializeFromSource
   | MFCSpecified
@@ -6033,7 +6909,7 @@ instance ToJSON Mpeg2FramerateControl where
 instance FromJSON Mpeg2FramerateControl where
     parseJSON = parseJSONText "Mpeg2FramerateControl"
 
--- | When set to INTERPOLATE, produces smoother motion during framerate conversion.
+-- | When set to INTERPOLATE, produces smoother motion during frame rate conversion.
 data Mpeg2FramerateConversionAlgorithm
   = MFCADuplicateDrop
   | MFCAInterpolate
@@ -6095,7 +6971,10 @@ instance ToJSON Mpeg2GopSizeUnits where
 instance FromJSON Mpeg2GopSizeUnits where
     parseJSON = parseJSONText "Mpeg2GopSizeUnits"
 
--- | Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOw_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same  field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+-- | Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type.
+--
+--   - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first".
+--   - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
 data Mpeg2InterlaceMode
   = MIMBottomField
   | MIMFollowBottomField
@@ -6363,22 +7242,22 @@ instance FromJSON Mpeg2SpatialAdaptiveQuantization where
 
 -- | Produces a Type D-10 compatible bitstream (SMPTE 356M-2001).
 data Mpeg2Syntax
-  = MSD10
-  | MSDefault
+  = D10
+  | Default
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText Mpeg2Syntax where
     parser = takeLowerText >>= \case
-        "d_10" -> pure MSD10
-        "default" -> pure MSDefault
+        "d_10" -> pure D10
+        "default" -> pure Default
         e -> fromTextError $ "Failure parsing Mpeg2Syntax from value: '" <> e
            <> "'. Accepted values: d_10, default"
 
 instance ToText Mpeg2Syntax where
     toText = \case
-        MSD10 -> "D_10"
-        MSDefault -> "DEFAULT"
+        D10 -> "D_10"
+        Default -> "DEFAULT"
 
 instance Hashable     Mpeg2Syntax
 instance NFData       Mpeg2Syntax
@@ -6459,22 +7338,22 @@ instance FromJSON Mpeg2TemporalAdaptiveQuantization where
 
 -- | COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings across a Microsoft Smooth output group into a single audio stream.
 data MsSmoothAudioDeduplication
-  = CombineDuplicateStreams
-  | None
+  = MSADCombineDuplicateStreams
+  | MSADNone
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText MsSmoothAudioDeduplication where
     parser = takeLowerText >>= \case
-        "combine_duplicate_streams" -> pure CombineDuplicateStreams
-        "none" -> pure None
+        "combine_duplicate_streams" -> pure MSADCombineDuplicateStreams
+        "none" -> pure MSADNone
         e -> fromTextError $ "Failure parsing MsSmoothAudioDeduplication from value: '" <> e
            <> "'. Accepted values: combine_duplicate_streams, none"
 
 instance ToText MsSmoothAudioDeduplication where
     toText = \case
-        CombineDuplicateStreams -> "COMBINE_DUPLICATE_STREAMS"
-        None -> "NONE"
+        MSADCombineDuplicateStreams -> "COMBINE_DUPLICATE_STREAMS"
+        MSADNone -> "NONE"
 
 instance Hashable     MsSmoothAudioDeduplication
 instance NFData       MsSmoothAudioDeduplication
@@ -6519,7 +7398,7 @@ instance ToJSON MsSmoothManifestEncoding where
 instance FromJSON MsSmoothManifestEncoding where
     parseJSON = parseJSONText "MsSmoothManifestEncoding"
 
--- | Use Noise reducer filter (NoiseReducerFilter) to select one of the following spatial image filtering functions. To use this setting, you must also enable Noise reducer (NoiseReducer). * Bilateral is an edge preserving noise reduction filter * Mean (softest), Gaussian, Lanczos, and Sharpen (sharpest) are convolution filters * Conserve is a min/max noise reduction filter * Spatial is frequency-domain filter based on JND principles.
+-- | Use Noise reducer filter (NoiseReducerFilter) to select one of the following spatial image filtering functions. To use this setting, you must also enable Noise reducer (NoiseReducer). * Bilateral is an edge preserving noise reduction filter. * Mean (softest), Gaussian, Lanczos, and Sharpen (sharpest) are convolution filters. * Conserve is a min/max noise reduction filter. * Spatial is a frequency-domain filter based on JND principles.
 data NoiseReducerFilter
   = Bilateral
   | Conserve
@@ -6593,9 +7472,10 @@ instance ToHeader     Order
 instance ToJSON Order where
     toJSON = toJSONText
 
--- | Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth Streaming)
+-- | Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth Streaming, CMAF)
 data OutputGroupType
-  = DashIsoGroupSettings
+  = CmafGroupSettings
+  | DashIsoGroupSettings
   | FileGroupSettings
   | HlsGroupSettings
   | MsSmoothGroupSettings
@@ -6604,15 +7484,17 @@ data OutputGroupType
 
 instance FromText OutputGroupType where
     parser = takeLowerText >>= \case
+        "cmaf_group_settings" -> pure CmafGroupSettings
         "dash_iso_group_settings" -> pure DashIsoGroupSettings
         "file_group_settings" -> pure FileGroupSettings
         "hls_group_settings" -> pure HlsGroupSettings
         "ms_smooth_group_settings" -> pure MsSmoothGroupSettings
         e -> fromTextError $ "Failure parsing OutputGroupType from value: '" <> e
-           <> "'. Accepted values: dash_iso_group_settings, file_group_settings, hls_group_settings, ms_smooth_group_settings"
+           <> "'. Accepted values: cmaf_group_settings, dash_iso_group_settings, file_group_settings, hls_group_settings, ms_smooth_group_settings"
 
 instance ToText OutputGroupType where
     toText = \case
+        CmafGroupSettings -> "CMAF_GROUP_SETTINGS"
         DashIsoGroupSettings -> "DASH_ISO_GROUP_SETTINGS"
         FileGroupSettings -> "FILE_GROUP_SETTINGS"
         HlsGroupSettings -> "HLS_GROUP_SETTINGS"
@@ -6698,6 +7580,37 @@ instance ToHeader     PresetListBy
 instance ToJSON PresetListBy where
     toJSON = toJSONText
 
+-- | Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment.
+data PricingPlan
+  = OnDemand
+  | Reserved
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PricingPlan where
+    parser = takeLowerText >>= \case
+        "on_demand" -> pure OnDemand
+        "reserved" -> pure Reserved
+        e -> fromTextError $ "Failure parsing PricingPlan from value: '" <> e
+           <> "'. Accepted values: on_demand, reserved"
+
+instance ToText PricingPlan where
+    toText = \case
+        OnDemand -> "ON_DEMAND"
+        Reserved -> "RESERVED"
+
+instance Hashable     PricingPlan
+instance NFData       PricingPlan
+instance ToByteString PricingPlan
+instance ToQuery      PricingPlan
+instance ToHeader     PricingPlan
+
+instance ToJSON PricingPlan where
+    toJSON = toJSONText
+
+instance FromJSON PricingPlan where
+    parseJSON = parseJSONText "PricingPlan"
+
 -- | Use Profile (ProResCodecProfile) to specifiy the type of Apple ProRes codec to use for this output.
 data ProresCodecProfile
   = AppleProres422
@@ -6735,7 +7648,7 @@ instance ToJSON ProresCodecProfile where
 instance FromJSON ProresCodecProfile where
     parseJSON = parseJSONText "ProresCodecProfile"
 
--- | Using the API, set FramerateControl to INITIALIZE_FROM_SOURCE if you want the service to use the framerate from the input. Using the console, do this by choosing INITIALIZE_FROM_SOURCE for Framerate.
+-- | If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction. If you are creating your transcoding job sepecification as a JSON file without the console, use FramerateControl to specify which value the service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate you specify in the settings FramerateNumerator and FramerateDenominator.
 data ProresFramerateControl
   = PFCInitializeFromSource
   | PFCSpecified
@@ -6766,7 +7679,7 @@ instance ToJSON ProresFramerateControl where
 instance FromJSON ProresFramerateControl where
     parseJSON = parseJSONText "ProresFramerateControl"
 
--- | When set to INTERPOLATE, produces smoother motion during framerate conversion.
+-- | When set to INTERPOLATE, produces smoother motion during frame rate conversion.
 data ProresFramerateConversionAlgorithm
   = PFCADuplicateDrop
   | PFCAInterpolate
@@ -6797,7 +7710,10 @@ instance ToJSON ProresFramerateConversionAlgorithm where
 instance FromJSON ProresFramerateConversionAlgorithm where
     parseJSON = parseJSONText "ProresFramerateConversionAlgorithm"
 
--- | Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOw_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same  field polarity as the source. Therefore, behavior depends on the input scan type. - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first". - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
+-- | Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type.
+--
+--   - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first".
+--   - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
 data ProresInterlaceMode
   = PIMBottomField
   | PIMFollowBottomField
@@ -6958,24 +7874,24 @@ instance ToHeader     QueueListBy
 instance ToJSON QueueListBy where
     toJSON = toJSONText
 
--- | Queues can be ACTIVE or PAUSED. If you pause a queue, jobs in that queue will not begin. Jobs running when a queue is paused continue to run until they finish or error out.
+-- | Queues can be ACTIVE or PAUSED. If you pause a queue, jobs in that queue won't begin. Jobs that are running when you pause a queue continue to run until they finish or result in an error.
 data QueueStatus
-  = Active
-  | Paused
+  = QSActive
+  | QSPaused
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText QueueStatus where
     parser = takeLowerText >>= \case
-        "active" -> pure Active
-        "paused" -> pure Paused
+        "active" -> pure QSActive
+        "paused" -> pure QSPaused
         e -> fromTextError $ "Failure parsing QueueStatus from value: '" <> e
            <> "'. Accepted values: active, paused"
 
 instance ToText QueueStatus where
     toText = \case
-        Active -> "ACTIVE"
-        Paused -> "PAUSED"
+        QSActive -> "ACTIVE"
+        QSPaused -> "PAUSED"
 
 instance Hashable     QueueStatus
 instance NFData       QueueStatus
@@ -6988,6 +7904,65 @@ instance ToJSON QueueStatus where
 
 instance FromJSON QueueStatus where
     parseJSON = parseJSONText "QueueStatus"
+
+-- | Specifies whether the term of your reserved queue pricing plan is automatically extended (AUTO_RENEW) or expires (EXPIRE) at the end of the term.
+data RenewalType
+  = AutoRenew
+  | Expire
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText RenewalType where
+    parser = takeLowerText >>= \case
+        "auto_renew" -> pure AutoRenew
+        "expire" -> pure Expire
+        e -> fromTextError $ "Failure parsing RenewalType from value: '" <> e
+           <> "'. Accepted values: auto_renew, expire"
+
+instance ToText RenewalType where
+    toText = \case
+        AutoRenew -> "AUTO_RENEW"
+        Expire -> "EXPIRE"
+
+instance Hashable     RenewalType
+instance NFData       RenewalType
+instance ToByteString RenewalType
+instance ToQuery      RenewalType
+instance ToHeader     RenewalType
+
+instance ToJSON RenewalType where
+    toJSON = toJSONText
+
+instance FromJSON RenewalType where
+    parseJSON = parseJSONText "RenewalType"
+
+-- | Specifies whether the pricing plan for your reserved queue is ACTIVE or EXPIRED.
+data ReservationPlanStatus
+  = Active
+  | Expired
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ReservationPlanStatus where
+    parser = takeLowerText >>= \case
+        "active" -> pure Active
+        "expired" -> pure Expired
+        e -> fromTextError $ "Failure parsing ReservationPlanStatus from value: '" <> e
+           <> "'. Accepted values: active, expired"
+
+instance ToText ReservationPlanStatus where
+    toText = \case
+        Active -> "ACTIVE"
+        Expired -> "EXPIRED"
+
+instance Hashable     ReservationPlanStatus
+instance NFData       ReservationPlanStatus
+instance ToByteString ReservationPlanStatus
+instance ToQuery      ReservationPlanStatus
+instance ToHeader     ReservationPlanStatus
+
+instance FromJSON ReservationPlanStatus where
+    parseJSON = parseJSONText "ReservationPlanStatus"
 
 -- | Use Respond to AFD (RespondToAfd) to specify how the service changes the video itself in response to AFD values in the input. * Choose Respond to clip the input video frame according to the AFD value, input display aspect ratio, and output display aspect ratio. * Choose Passthrough to include the input AFD values. Do not choose this when AfdSignaling is set to (NONE). A preferred implementation of this workflow is to set RespondToAfd to (NONE) and set AfdSignaling to (AUTO). * Choose None to remove all input AFD values from this output.
 data RespondToAfd
@@ -7023,7 +7998,7 @@ instance ToJSON RespondToAfd where
 instance FromJSON RespondToAfd where
     parseJSON = parseJSONText "RespondToAfd"
 
--- | Applies only if your input aspect ratio is different from your output aspect ratio. Enable Stretch to output (StretchToOutput) to have the service stretch your video image to fit. Leave this setting disabled to allow the service to letterbox your video instead. This setting overrides any positioning value you specify elsewhere in the job.
+-- | Applies only if your input aspect ratio is different from your output aspect ratio. Choose "Stretch to output" to have the service stretch your video image to fit. Keep the setting "Default" to allow the service to letterbox your video instead. This setting overrides any positioning value you specify elsewhere in the job.
 data ScalingBehavior
   = SBDefault
   | SBStretchToOutput
@@ -7054,7 +8029,7 @@ instance ToJSON ScalingBehavior where
 instance FromJSON ScalingBehavior where
     parseJSON = parseJSONText "ScalingBehavior"
 
--- | Set Framerate (SccDestinationFramerate) to make sure that the captions and the video are synchronized in the output. Specify a framerate that matches the framerate of the associated video. If the video framerate is 29.97, choose 29.97 dropframe (FRAMERATE_29_97_DROPFRAME) only if the video has video_insertion=true and drop_frame_timecode=true; otherwise, choose 29.97 non-dropframe (FRAMERATE_29_97_NON_DROPFRAME).
+-- | Set Framerate (SccDestinationFramerate) to make sure that the captions and the video are synchronized in the output. Specify a frame rate that matches the frame rate of the associated video. If the video frame rate is 29.97, choose 29.97 dropframe (FRAMERATE_29_97_DROPFRAME) only if the video has video_insertion=true and drop_frame_timecode=true; otherwise, choose 29.97 non-dropframe (FRAMERATE_29_97_NON_DROPFRAME).
 data SccDestinationFramerate
   = Framerate2397
   | Framerate24
@@ -7143,7 +8118,7 @@ instance ToJSON TimecodeBurninPosition where
 instance FromJSON TimecodeBurninPosition where
     parseJSON = parseJSONText "TimecodeBurninPosition"
 
--- | Use Timecode source (TimecodeSource) to set how timecodes are handled within this input. To make sure that your video, audio, captions, and markers are synchronized and that time-based features, such as image inserter, work correctly, choose the Timecode source option that matches your assets. All timecodes are in a 24-hour format with frame number (HH:MM:SS:FF). * Embedded (EMBEDDED) - Use the timecode that is in the input video. If no embedded timecode is in the source, the service will use Start at 0 (ZEROBASED) instead. * Start at 0 (ZEROBASED) - Set the timecode of the initial frame to 00:00:00:00. * Specified Start (SPECIFIEDSTART) - Set the timecode of the initial frame to a value other than zero. You use Start timecode (Start) to provide this value.
+-- | Use Source (TimecodeSource) to set how timecodes are handled within this job. To make sure that your video, audio, captions, and markers are synchronized and that time-based features, such as image inserter, work correctly, choose the Timecode source option that matches your assets. All timecodes are in a 24-hour format with frame number (HH:MM:SS:FF). * Embedded (EMBEDDED) - Use the timecode that is in the input video. If no embedded timecode is in the source, the service will use Start at 0 (ZEROBASED) instead. * Start at 0 (ZEROBASED) - Set the timecode of the initial frame to 00:00:00:00. * Specified Start (SPECIFIEDSTART) - Set the timecode of the initial frame to a value other than zero. You use Start timecode (Start) to provide this value.
 data TimecodeSource
   = TSEmbedded
   | TSSpecifiedstart
@@ -7177,7 +8152,7 @@ instance ToJSON TimecodeSource where
 instance FromJSON TimecodeSource where
     parseJSON = parseJSONText "TimecodeSource"
 
--- | If PASSTHROUGH, inserts ID3 timed metadata from the timed_metadata REST command into this output.
+-- | Applies only to HLS outputs. Use this setting to specify whether the service inserts the ID3 timed metadata from the input in this output.
 data TimedMetadata
   = TMNone
   | TMPassthrough
@@ -7210,22 +8185,22 @@ instance FromJSON TimedMetadata where
 
 -- | Pass through style and position information from a TTML-like input source (TTML, SMPTE-TT, CFF-TT) to the CFF-TT output or TTML output.
 data TtmlStylePassthrough
-  = TSPDisabled
-  | TSPEnabled
+  = Disabled
+  | Enabled
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText TtmlStylePassthrough where
     parser = takeLowerText >>= \case
-        "disabled" -> pure TSPDisabled
-        "enabled" -> pure TSPEnabled
+        "disabled" -> pure Disabled
+        "enabled" -> pure Enabled
         e -> fromTextError $ "Failure parsing TtmlStylePassthrough from value: '" <> e
            <> "'. Accepted values: disabled, enabled"
 
 instance ToText TtmlStylePassthrough where
     toText = \case
-        TSPDisabled -> "DISABLED"
-        TSPEnabled -> "ENABLED"
+        Disabled -> "DISABLED"
+        Enabled -> "ENABLED"
 
 instance Hashable     TtmlStylePassthrough
 instance NFData       TtmlStylePassthrough
@@ -7306,7 +8281,7 @@ instance ToJSON VideoCodec where
 instance FromJSON VideoCodec where
     parseJSON = parseJSONText "VideoCodec"
 
--- | Enable Timecode insertion to include timecode information in this output. Do this in the API by setting (VideoTimecodeInsertion) to (PIC_TIMING_SEI). To get timecodes to appear correctly in your output, also set up the timecode configuration for your job in the input settings. Only enable Timecode insertion when the input framerate is identical to output framerate. Disable this setting to remove the timecode from the output. Default is disabled.
+-- | Applies only to H.264, H.265, MPEG2, and ProRes outputs. Only enable Timecode insertion when the input frame rate is identical to the output frame rate. To include timecodes in this output, set Timecode insertion (VideoTimecodeInsertion) to PIC_TIMING_SEI. To leave them out, set it to DISABLED. Default is DISABLED. When the service inserts timecodes in an output, by default, it uses any embedded timecodes from the input. If none are present, the service will set the timecode for the first output frame to zero. To change this default behavior, adjust the settings under Timecode configuration (TimecodeConfig). In the console, these settings are located under Job > Job settings > Timecode configuration. Note - Timecode source under input settings (InputTimecodeSource) does not affect the timecodes that are inserted in the output. Source under Job settings > Timecode configuration (TimecodeSource) does.
 data VideoTimecodeInsertion
   = VTIDisabled
   | VTIPicTimingSei
@@ -7336,3 +8311,34 @@ instance ToJSON VideoTimecodeInsertion where
 
 instance FromJSON VideoTimecodeInsertion where
     parseJSON = parseJSONText "VideoTimecodeInsertion"
+
+-- | The service defaults to using RIFF for WAV outputs. If your output audio is likely to exceed 4 GB in file size, or if you otherwise need the extended support of the RF64 format, set your output WAV file format to RF64.
+data WavFormat
+  = RF64
+  | Riff
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText WavFormat where
+    parser = takeLowerText >>= \case
+        "rf64" -> pure RF64
+        "riff" -> pure Riff
+        e -> fromTextError $ "Failure parsing WavFormat from value: '" <> e
+           <> "'. Accepted values: rf64, riff"
+
+instance ToText WavFormat where
+    toText = \case
+        RF64 -> "RF64"
+        Riff -> "RIFF"
+
+instance Hashable     WavFormat
+instance NFData       WavFormat
+instance ToByteString WavFormat
+instance ToQuery      WavFormat
+instance ToHeader     WavFormat
+
+instance ToJSON WavFormat where
+    toJSON = toJSONText
+
+instance FromJSON WavFormat where
+    parseJSON = parseJSONText "WavFormat"

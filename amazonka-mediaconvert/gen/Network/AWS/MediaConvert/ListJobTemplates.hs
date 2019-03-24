@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieve a JSON array of up to twenty of your job templates. This will return the templates themselves, not just a list of them. To retrieve the next twenty templates, use the nextToken string returned with the array
+--
+-- This operation returns paginated results.
 module Network.AWS.MediaConvert.ListJobTemplates
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.MediaConvert.ListJobTemplates
 import Network.AWS.Lens
 import Network.AWS.MediaConvert.Types
 import Network.AWS.MediaConvert.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -53,7 +56,7 @@ data ListJobTemplates = ListJobTemplates'
   , _ljtListBy     :: !(Maybe JobTemplateListBy)
   , _ljtNextToken  :: !(Maybe Text)
   , _ljtOrder      :: !(Maybe Order)
-  , _ljtMaxResults :: !(Maybe Int)
+  , _ljtMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -99,8 +102,15 @@ ljtOrder :: Lens' ListJobTemplates (Maybe Order)
 ljtOrder = lens _ljtOrder (\ s a -> s{_ljtOrder = a})
 
 -- | Optional. Number of job templates, up to twenty, that will be returned at one time.
-ljtMaxResults :: Lens' ListJobTemplates (Maybe Int)
-ljtMaxResults = lens _ljtMaxResults (\ s a -> s{_ljtMaxResults = a})
+ljtMaxResults :: Lens' ListJobTemplates (Maybe Natural)
+ljtMaxResults = lens _ljtMaxResults (\ s a -> s{_ljtMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListJobTemplates where
+        page rq rs
+          | stop (rs ^. ljtrsNextToken) = Nothing
+          | stop (rs ^. ljtrsJobTemplates) = Nothing
+          | otherwise =
+            Just $ rq & ljtNextToken .~ rs ^. ljtrsNextToken
 
 instance AWSRequest ListJobTemplates where
         type Rs ListJobTemplates = ListJobTemplatesResponse

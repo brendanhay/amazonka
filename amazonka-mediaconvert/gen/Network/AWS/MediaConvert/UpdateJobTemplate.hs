@@ -25,9 +25,11 @@ module Network.AWS.MediaConvert.UpdateJobTemplate
       updateJobTemplate
     , UpdateJobTemplate
     -- * Request Lenses
+    , ujtAccelerationSettings
     , ujtSettings
     , ujtCategory
     , ujtQueue
+    , ujtStatusUpdateIntervalInSecs
     , ujtDescription
     , ujtName
 
@@ -48,11 +50,13 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateJobTemplate' smart constructor.
 data UpdateJobTemplate = UpdateJobTemplate'
-  { _ujtSettings    :: !(Maybe JobTemplateSettings)
-  , _ujtCategory    :: !(Maybe Text)
-  , _ujtQueue       :: !(Maybe Text)
-  , _ujtDescription :: !(Maybe Text)
-  , _ujtName        :: !Text
+  { _ujtAccelerationSettings       :: !(Maybe AccelerationSettings)
+  , _ujtSettings                   :: !(Maybe JobTemplateSettings)
+  , _ujtCategory                   :: !(Maybe Text)
+  , _ujtQueue                      :: !(Maybe Text)
+  , _ujtStatusUpdateIntervalInSecs :: !(Maybe Nat)
+  , _ujtDescription                :: !(Maybe Text)
+  , _ujtName                       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -60,11 +64,15 @@ data UpdateJobTemplate = UpdateJobTemplate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'ujtAccelerationSettings' - This is a beta feature. If you are interested in using this feature, please contact AWS customer support.
+--
 -- * 'ujtSettings' - Undocumented member.
 --
 -- * 'ujtCategory' - The new category for the job template, if you are changing it.
 --
 -- * 'ujtQueue' - The new queue for the job template, if you are changing it.
+--
+-- * 'ujtStatusUpdateIntervalInSecs' - Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
 --
 -- * 'ujtDescription' - The new description for the job template, if you are changing it.
 --
@@ -74,13 +82,19 @@ updateJobTemplate
     -> UpdateJobTemplate
 updateJobTemplate pName_ =
   UpdateJobTemplate'
-    { _ujtSettings = Nothing
+    { _ujtAccelerationSettings = Nothing
+    , _ujtSettings = Nothing
     , _ujtCategory = Nothing
     , _ujtQueue = Nothing
+    , _ujtStatusUpdateIntervalInSecs = Nothing
     , _ujtDescription = Nothing
     , _ujtName = pName_
     }
 
+
+-- | This is a beta feature. If you are interested in using this feature, please contact AWS customer support.
+ujtAccelerationSettings :: Lens' UpdateJobTemplate (Maybe AccelerationSettings)
+ujtAccelerationSettings = lens _ujtAccelerationSettings (\ s a -> s{_ujtAccelerationSettings = a})
 
 -- | Undocumented member.
 ujtSettings :: Lens' UpdateJobTemplate (Maybe JobTemplateSettings)
@@ -93,6 +107,10 @@ ujtCategory = lens _ujtCategory (\ s a -> s{_ujtCategory = a})
 -- | The new queue for the job template, if you are changing it.
 ujtQueue :: Lens' UpdateJobTemplate (Maybe Text)
 ujtQueue = lens _ujtQueue (\ s a -> s{_ujtQueue = a})
+
+-- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
+ujtStatusUpdateIntervalInSecs :: Lens' UpdateJobTemplate (Maybe Natural)
+ujtStatusUpdateIntervalInSecs = lens _ujtStatusUpdateIntervalInSecs (\ s a -> s{_ujtStatusUpdateIntervalInSecs = a}) . mapping _Nat
 
 -- | The new description for the job template, if you are changing it.
 ujtDescription :: Lens' UpdateJobTemplate (Maybe Text)
@@ -126,9 +144,13 @@ instance ToJSON UpdateJobTemplate where
         toJSON UpdateJobTemplate'{..}
           = object
               (catMaybes
-                 [("settings" .=) <$> _ujtSettings,
+                 [("accelerationSettings" .=) <$>
+                    _ujtAccelerationSettings,
+                  ("settings" .=) <$> _ujtSettings,
                   ("category" .=) <$> _ujtCategory,
                   ("queue" .=) <$> _ujtQueue,
+                  ("statusUpdateIntervalInSecs" .=) <$>
+                    _ujtStatusUpdateIntervalInSecs,
                   ("description" .=) <$> _ujtDescription])
 
 instance ToPath UpdateJobTemplate where

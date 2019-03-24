@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieve a JSON array of up to twenty of your presets. This will return the presets themselves, not just a list of them. To retrieve the next twenty presets, use the nextToken string returned with the array.
+--
+-- This operation returns paginated results.
 module Network.AWS.MediaConvert.ListPresets
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.MediaConvert.ListPresets
 import Network.AWS.Lens
 import Network.AWS.MediaConvert.Types
 import Network.AWS.MediaConvert.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -53,7 +56,7 @@ data ListPresets = ListPresets'
   , _lpListBy     :: !(Maybe PresetListBy)
   , _lpNextToken  :: !(Maybe Text)
   , _lpOrder      :: !(Maybe Order)
-  , _lpMaxResults :: !(Maybe Int)
+  , _lpMaxResults :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -99,8 +102,15 @@ lpOrder :: Lens' ListPresets (Maybe Order)
 lpOrder = lens _lpOrder (\ s a -> s{_lpOrder = a})
 
 -- | Optional. Number of presets, up to twenty, that will be returned at one time
-lpMaxResults :: Lens' ListPresets (Maybe Int)
-lpMaxResults = lens _lpMaxResults (\ s a -> s{_lpMaxResults = a})
+lpMaxResults :: Lens' ListPresets (Maybe Natural)
+lpMaxResults = lens _lpMaxResults (\ s a -> s{_lpMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListPresets where
+        page rq rs
+          | stop (rs ^. lprsNextToken) = Nothing
+          | stop (rs ^. lprsPresets) = Nothing
+          | otherwise =
+            Just $ rq & lpNextToken .~ rs ^. lprsNextToken
 
 instance AWSRequest ListPresets where
         type Rs ListPresets = ListPresetsResponse

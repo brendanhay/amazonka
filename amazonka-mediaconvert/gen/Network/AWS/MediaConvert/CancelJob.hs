@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently remove a job from a queue. Once you have canceled a job, you can't start it again. You can't delete a running job.
+-- Permanently cancel a job. Once you have canceled a job, you can't start it again.
 module Network.AWS.MediaConvert.CancelJob
     (
     -- * Creating a Request

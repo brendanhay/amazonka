@@ -47,7 +47,8 @@ instance FromJSON Gender where
     parseJSON = parseJSONText "Gender"
 
 data LanguageCode
-  = CyGb
+  = CmnCn
+  | CyGb
   | DaDk
   | DeDe
   | EnAu
@@ -56,9 +57,11 @@ data LanguageCode
   | EnIn
   | EnUs
   | EsEs
+  | EsMx
   | EsUs
   | FrCa
   | FrFr
+  | HiIn
   | IsIs
   | ItIt
   | JaJp
@@ -77,6 +80,7 @@ data LanguageCode
 
 instance FromText LanguageCode where
     parser = takeLowerText >>= \case
+        "cmn-cn" -> pure CmnCn
         "cy-gb" -> pure CyGb
         "da-dk" -> pure DaDk
         "de-de" -> pure DeDe
@@ -86,9 +90,11 @@ instance FromText LanguageCode where
         "en-in" -> pure EnIn
         "en-us" -> pure EnUs
         "es-es" -> pure EsEs
+        "es-mx" -> pure EsMx
         "es-us" -> pure EsUs
         "fr-ca" -> pure FrCa
         "fr-fr" -> pure FrFr
+        "hi-in" -> pure HiIn
         "is-is" -> pure IsIs
         "it-it" -> pure ItIt
         "ja-jp" -> pure JaJp
@@ -103,10 +109,11 @@ instance FromText LanguageCode where
         "sv-se" -> pure SvSe
         "tr-tr" -> pure TrTr
         e -> fromTextError $ "Failure parsing LanguageCode from value: '" <> e
-           <> "'. Accepted values: cy-gb, da-dk, de-de, en-au, en-gb, en-gb-wls, en-in, en-us, es-es, es-us, fr-ca, fr-fr, is-is, it-it, ja-jp, ko-kr, nb-no, nl-nl, pl-pl, pt-br, pt-pt, ro-ro, ru-ru, sv-se, tr-tr"
+           <> "'. Accepted values: cmn-cn, cy-gb, da-dk, de-de, en-au, en-gb, en-gb-wls, en-in, en-us, es-es, es-mx, es-us, fr-ca, fr-fr, hi-in, is-is, it-it, ja-jp, ko-kr, nb-no, nl-nl, pl-pl, pt-br, pt-pt, ro-ro, ru-ru, sv-se, tr-tr"
 
 instance ToText LanguageCode where
     toText = \case
+        CmnCn -> "cmn-CN"
         CyGb -> "cy-GB"
         DaDk -> "da-DK"
         DeDe -> "de-DE"
@@ -116,9 +123,11 @@ instance ToText LanguageCode where
         EnIn -> "en-IN"
         EnUs -> "en-US"
         EsEs -> "es-ES"
+        EsMx -> "es-MX"
         EsUs -> "es-US"
         FrCa -> "fr-CA"
         FrFr -> "fr-FR"
+        HiIn -> "hi-IN"
         IsIs -> "is-IS"
         ItIt -> "it-IT"
         JaJp -> "ja-JP"
@@ -178,6 +187,9 @@ instance ToHeader     OutputFormat
 instance ToJSON OutputFormat where
     toJSON = toJSONText
 
+instance FromJSON OutputFormat where
+    parseJSON = parseJSONText "OutputFormat"
+
 data SpeechMarkType
   = Sentence
   | Ssml
@@ -211,6 +223,45 @@ instance ToHeader     SpeechMarkType
 instance ToJSON SpeechMarkType where
     toJSON = toJSONText
 
+instance FromJSON SpeechMarkType where
+    parseJSON = parseJSONText "SpeechMarkType"
+
+data TaskStatus
+  = Completed
+  | Failed
+  | InProgress
+  | Scheduled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText TaskStatus where
+    parser = takeLowerText >>= \case
+        "completed" -> pure Completed
+        "failed" -> pure Failed
+        "inprogress" -> pure InProgress
+        "scheduled" -> pure Scheduled
+        e -> fromTextError $ "Failure parsing TaskStatus from value: '" <> e
+           <> "'. Accepted values: completed, failed, inprogress, scheduled"
+
+instance ToText TaskStatus where
+    toText = \case
+        Completed -> "completed"
+        Failed -> "failed"
+        InProgress -> "inProgress"
+        Scheduled -> "scheduled"
+
+instance Hashable     TaskStatus
+instance NFData       TaskStatus
+instance ToByteString TaskStatus
+instance ToQuery      TaskStatus
+instance ToHeader     TaskStatus
+
+instance ToJSON TaskStatus where
+    toJSON = toJSONText
+
+instance FromJSON TaskStatus where
+    parseJSON = parseJSONText "TaskStatus"
+
 data TextType
   = TTSsml
   | TTText
@@ -238,10 +289,14 @@ instance ToHeader     TextType
 instance ToJSON TextType where
     toJSON = toJSONText
 
+instance FromJSON TextType where
+    parseJSON = parseJSONText "TextType"
+
 data VoiceId
   = Aditi
   | Amy
   | Astrid
+  | Bianca
   | Brian
   | Carla
   | Carmen
@@ -268,14 +323,17 @@ data VoiceId
   | Karl
   | Kendra
   | Kimberly
+  | Lea
   | Liv
   | Lotte
+  | Lucia
   | Mads
   | Maja
   | Marlene
   | Mathieu
   | Matthew
   | Maxim
+  | Mia
   | Miguel
   | Mizuki
   | Naja
@@ -291,6 +349,7 @@ data VoiceId
   | Tatyana
   | Vicki
   | Vitoria
+  | Zhiyu
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -299,6 +358,7 @@ instance FromText VoiceId where
         "aditi" -> pure Aditi
         "amy" -> pure Amy
         "astrid" -> pure Astrid
+        "bianca" -> pure Bianca
         "brian" -> pure Brian
         "carla" -> pure Carla
         "carmen" -> pure Carmen
@@ -325,14 +385,17 @@ instance FromText VoiceId where
         "karl" -> pure Karl
         "kendra" -> pure Kendra
         "kimberly" -> pure Kimberly
+        "lea" -> pure Lea
         "liv" -> pure Liv
         "lotte" -> pure Lotte
+        "lucia" -> pure Lucia
         "mads" -> pure Mads
         "maja" -> pure Maja
         "marlene" -> pure Marlene
         "mathieu" -> pure Mathieu
         "matthew" -> pure Matthew
         "maxim" -> pure Maxim
+        "mia" -> pure Mia
         "miguel" -> pure Miguel
         "mizuki" -> pure Mizuki
         "naja" -> pure Naja
@@ -348,14 +411,16 @@ instance FromText VoiceId where
         "tatyana" -> pure Tatyana
         "vicki" -> pure Vicki
         "vitoria" -> pure Vitoria
+        "zhiyu" -> pure Zhiyu
         e -> fromTextError $ "Failure parsing VoiceId from value: '" <> e
-           <> "'. Accepted values: aditi, amy, astrid, brian, carla, carmen, celine, chantal, conchita, cristiano, dora, emma, enrique, ewa, filiz, geraint, giorgio, gwyneth, hans, ines, ivy, jacek, jan, joanna, joey, justin, karl, kendra, kimberly, liv, lotte, mads, maja, marlene, mathieu, matthew, maxim, miguel, mizuki, naja, nicole, penelope, raveena, ricardo, ruben, russell, salli, seoyeon, takumi, tatyana, vicki, vitoria"
+           <> "'. Accepted values: aditi, amy, astrid, bianca, brian, carla, carmen, celine, chantal, conchita, cristiano, dora, emma, enrique, ewa, filiz, geraint, giorgio, gwyneth, hans, ines, ivy, jacek, jan, joanna, joey, justin, karl, kendra, kimberly, lea, liv, lotte, lucia, mads, maja, marlene, mathieu, matthew, maxim, mia, miguel, mizuki, naja, nicole, penelope, raveena, ricardo, ruben, russell, salli, seoyeon, takumi, tatyana, vicki, vitoria, zhiyu"
 
 instance ToText VoiceId where
     toText = \case
         Aditi -> "Aditi"
         Amy -> "Amy"
         Astrid -> "Astrid"
+        Bianca -> "Bianca"
         Brian -> "Brian"
         Carla -> "Carla"
         Carmen -> "Carmen"
@@ -382,14 +447,17 @@ instance ToText VoiceId where
         Karl -> "Karl"
         Kendra -> "Kendra"
         Kimberly -> "Kimberly"
+        Lea -> "Lea"
         Liv -> "Liv"
         Lotte -> "Lotte"
+        Lucia -> "Lucia"
         Mads -> "Mads"
         Maja -> "Maja"
         Marlene -> "Marlene"
         Mathieu -> "Mathieu"
         Matthew -> "Matthew"
         Maxim -> "Maxim"
+        Mia -> "Mia"
         Miguel -> "Miguel"
         Mizuki -> "Mizuki"
         Naja -> "Naja"
@@ -405,6 +473,7 @@ instance ToText VoiceId where
         Tatyana -> "Tatyana"
         Vicki -> "Vicki"
         Vitoria -> "Vitoria"
+        Zhiyu -> "Zhiyu"
 
 instance Hashable     VoiceId
 instance NFData       VoiceId

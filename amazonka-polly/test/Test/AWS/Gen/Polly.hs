@@ -31,6 +31,9 @@ import Test.Tasty
 --         [ requestGetLexicon $
 --             getLexicon
 --
+--         , requestGetSpeechSynthesisTask $
+--             getSpeechSynthesisTask
+--
 --         , requestDescribeVoices $
 --             describeVoices
 --
@@ -40,17 +43,26 @@ import Test.Tasty
 --         , requestSynthesizeSpeech $
 --             synthesizeSpeech
 --
+--         , requestListSpeechSynthesisTasks $
+--             listSpeechSynthesisTasks
+--
 --         , requestPutLexicon $
 --             putLexicon
 --
 --         , requestDeleteLexicon $
 --             deleteLexicon
 --
+--         , requestStartSpeechSynthesisTask $
+--             startSpeechSynthesisTask
+--
 --           ]
 
 --     , testGroup "response"
 --         [ responseGetLexicon $
 --             getLexiconResponse
+--
+--         , responseGetSpeechSynthesisTask $
+--             getSpeechSynthesisTaskResponse
 --
 --         , responseDescribeVoices $
 --             describeVoicesResponse
@@ -61,11 +73,17 @@ import Test.Tasty
 --         , responseSynthesizeSpeech $
 --             synthesizeSpeechResponse
 --
+--         , responseListSpeechSynthesisTasks $
+--             listSpeechSynthesisTasksResponse
+--
 --         , responsePutLexicon $
 --             putLexiconResponse
 --
 --         , responseDeleteLexicon $
 --             deleteLexiconResponse
+--
+--         , responseStartSpeechSynthesisTask $
+--             startSpeechSynthesisTaskResponse
 --
 --           ]
 --     ]
@@ -76,6 +94,11 @@ requestGetLexicon :: GetLexicon -> TestTree
 requestGetLexicon = req
     "GetLexicon"
     "fixture/GetLexicon.yaml"
+
+requestGetSpeechSynthesisTask :: GetSpeechSynthesisTask -> TestTree
+requestGetSpeechSynthesisTask = req
+    "GetSpeechSynthesisTask"
+    "fixture/GetSpeechSynthesisTask.yaml"
 
 requestDescribeVoices :: DescribeVoices -> TestTree
 requestDescribeVoices = req
@@ -92,6 +115,11 @@ requestSynthesizeSpeech = req
     "SynthesizeSpeech"
     "fixture/SynthesizeSpeech.yaml"
 
+requestListSpeechSynthesisTasks :: ListSpeechSynthesisTasks -> TestTree
+requestListSpeechSynthesisTasks = req
+    "ListSpeechSynthesisTasks"
+    "fixture/ListSpeechSynthesisTasks.yaml"
+
 requestPutLexicon :: PutLexicon -> TestTree
 requestPutLexicon = req
     "PutLexicon"
@@ -102,6 +130,11 @@ requestDeleteLexicon = req
     "DeleteLexicon"
     "fixture/DeleteLexicon.yaml"
 
+requestStartSpeechSynthesisTask :: StartSpeechSynthesisTask -> TestTree
+requestStartSpeechSynthesisTask = req
+    "StartSpeechSynthesisTask"
+    "fixture/StartSpeechSynthesisTask.yaml"
+
 -- Responses
 
 responseGetLexicon :: GetLexiconResponse -> TestTree
@@ -110,6 +143,13 @@ responseGetLexicon = res
     "fixture/GetLexiconResponse.proto"
     polly
     (Proxy :: Proxy GetLexicon)
+
+responseGetSpeechSynthesisTask :: GetSpeechSynthesisTaskResponse -> TestTree
+responseGetSpeechSynthesisTask = res
+    "GetSpeechSynthesisTaskResponse"
+    "fixture/GetSpeechSynthesisTaskResponse.proto"
+    polly
+    (Proxy :: Proxy GetSpeechSynthesisTask)
 
 responseDescribeVoices :: DescribeVoicesResponse -> TestTree
 responseDescribeVoices = res
@@ -125,6 +165,13 @@ responseListLexicons = res
     polly
     (Proxy :: Proxy ListLexicons)
 
+responseListSpeechSynthesisTasks :: ListSpeechSynthesisTasksResponse -> TestTree
+responseListSpeechSynthesisTasks = res
+    "ListSpeechSynthesisTasksResponse"
+    "fixture/ListSpeechSynthesisTasksResponse.proto"
+    polly
+    (Proxy :: Proxy ListSpeechSynthesisTasks)
+
 responsePutLexicon :: PutLexiconResponse -> TestTree
 responsePutLexicon = res
     "PutLexiconResponse"
@@ -138,3 +185,10 @@ responseDeleteLexicon = res
     "fixture/DeleteLexiconResponse.proto"
     polly
     (Proxy :: Proxy DeleteLexicon)
+
+responseStartSpeechSynthesisTask :: StartSpeechSynthesisTaskResponse -> TestTree
+responseStartSpeechSynthesisTask = res
+    "StartSpeechSynthesisTaskResponse"
+    "fixture/StartSpeechSynthesisTaskResponse.proto"
+    polly
+    (Proxy :: Proxy StartSpeechSynthesisTask)

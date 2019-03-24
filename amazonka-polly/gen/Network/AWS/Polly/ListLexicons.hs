@@ -21,6 +21,8 @@
 -- Returns a list of pronunciation lexicons stored in an AWS Region. For more information, see <http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html Managing Lexicons> .
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Polly.ListLexicons
     (
     -- * Creating a Request
@@ -39,6 +41,7 @@ module Network.AWS.Polly.ListLexicons
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Polly.Types
 import Network.AWS.Polly.Types.Product
 import Network.AWS.Prelude
@@ -64,6 +67,13 @@ listLexicons = ListLexicons' {_llNextToken = Nothing}
 -- | An opaque pagination token returned from previous @ListLexicons@ operation. If present, indicates where to continue the list of lexicons.
 llNextToken :: Lens' ListLexicons (Maybe Text)
 llNextToken = lens _llNextToken (\ s a -> s{_llNextToken = a})
+
+instance AWSPager ListLexicons where
+        page rq rs
+          | stop (rs ^. llrsNextToken) = Nothing
+          | stop (rs ^. llrsLexicons) = Nothing
+          | otherwise =
+            Just $ rq & llNextToken .~ rs ^. llrsNextToken
 
 instance AWSRequest ListLexicons where
         type Rs ListLexicons = ListLexiconsResponse

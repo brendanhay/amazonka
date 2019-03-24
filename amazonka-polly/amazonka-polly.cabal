@@ -48,8 +48,11 @@ library
         , Network.AWS.Polly.DeleteLexicon
         , Network.AWS.Polly.DescribeVoices
         , Network.AWS.Polly.GetLexicon
+        , Network.AWS.Polly.GetSpeechSynthesisTask
         , Network.AWS.Polly.ListLexicons
+        , Network.AWS.Polly.ListSpeechSynthesisTasks
         , Network.AWS.Polly.PutLexicon
+        , Network.AWS.Polly.StartSpeechSynthesisTask
         , Network.AWS.Polly.SynthesizeSpeech
         , Network.AWS.Polly.Types
         , Network.AWS.Polly.Waiters

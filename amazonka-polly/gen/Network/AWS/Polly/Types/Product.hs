@@ -187,17 +187,172 @@ instance Hashable LexiconDescription where
 
 instance NFData LexiconDescription where
 
+-- | SynthesisTask object that provides information about a speech synthesis task.
+--
+--
+--
+-- /See:/ 'synthesisTask' smart constructor.
+data SynthesisTask = SynthesisTask'
+  { _stCreationTime      :: !(Maybe POSIX)
+  , _stLanguageCode      :: !(Maybe LanguageCode)
+  , _stSNSTopicARN       :: !(Maybe Text)
+  , _stTaskStatusReason  :: !(Maybe Text)
+  , _stTaskId            :: !(Maybe Text)
+  , _stRequestCharacters :: !(Maybe Int)
+  , _stSpeechMarkTypes   :: !(Maybe [SpeechMarkType])
+  , _stSampleRate        :: !(Maybe Text)
+  , _stOutputFormat      :: !(Maybe OutputFormat)
+  , _stTextType          :: !(Maybe TextType)
+  , _stVoiceId           :: !(Maybe VoiceId)
+  , _stLexiconNames      :: !(Maybe [Sensitive Text])
+  , _stTaskStatus        :: !(Maybe TaskStatus)
+  , _stOutputURI         :: !(Maybe Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SynthesisTask' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'stCreationTime' - Timestamp for the time the synthesis task was started.
+--
+-- * 'stLanguageCode' - Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN).  If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html DescribeVoices> operation for the @LanguageCode@ parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.
+--
+-- * 'stSNSTopicARN' - ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.
+--
+-- * 'stTaskStatusReason' - Reason for the current status of a specific speech synthesis task, including errors if the task has failed.
+--
+-- * 'stTaskId' - The Amazon Polly generated identifier for a speech synthesis task.
+--
+-- * 'stRequestCharacters' - Number of billable characters synthesized.
+--
+-- * 'stSpeechMarkTypes' - The type of speech marks returned for the input text.
+--
+-- * 'stSampleRate' - The audio frequency specified in Hz. The valid values for mp3 and ogg_vorbis are "8000", "16000", and "22050". The default value is "22050". Valid values for pcm are "8000" and "16000" The default value is "16000".
+--
+-- * 'stOutputFormat' - The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json.
+--
+-- * 'stTextType' - Specifies whether the input text is plain text or SSML. The default value is plain text.
+--
+-- * 'stVoiceId' - Voice ID to use for the synthesis.
+--
+-- * 'stLexiconNames' - List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice.
+--
+-- * 'stTaskStatus' - Current status of the individual speech synthesis task.
+--
+-- * 'stOutputURI' - Pathway for the output speech file.
+synthesisTask
+    :: SynthesisTask
+synthesisTask =
+  SynthesisTask'
+    { _stCreationTime = Nothing
+    , _stLanguageCode = Nothing
+    , _stSNSTopicARN = Nothing
+    , _stTaskStatusReason = Nothing
+    , _stTaskId = Nothing
+    , _stRequestCharacters = Nothing
+    , _stSpeechMarkTypes = Nothing
+    , _stSampleRate = Nothing
+    , _stOutputFormat = Nothing
+    , _stTextType = Nothing
+    , _stVoiceId = Nothing
+    , _stLexiconNames = Nothing
+    , _stTaskStatus = Nothing
+    , _stOutputURI = Nothing
+    }
+
+
+-- | Timestamp for the time the synthesis task was started.
+stCreationTime :: Lens' SynthesisTask (Maybe UTCTime)
+stCreationTime = lens _stCreationTime (\ s a -> s{_stCreationTime = a}) . mapping _Time
+
+-- | Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN).  If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html DescribeVoices> operation for the @LanguageCode@ parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.
+stLanguageCode :: Lens' SynthesisTask (Maybe LanguageCode)
+stLanguageCode = lens _stLanguageCode (\ s a -> s{_stLanguageCode = a})
+
+-- | ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.
+stSNSTopicARN :: Lens' SynthesisTask (Maybe Text)
+stSNSTopicARN = lens _stSNSTopicARN (\ s a -> s{_stSNSTopicARN = a})
+
+-- | Reason for the current status of a specific speech synthesis task, including errors if the task has failed.
+stTaskStatusReason :: Lens' SynthesisTask (Maybe Text)
+stTaskStatusReason = lens _stTaskStatusReason (\ s a -> s{_stTaskStatusReason = a})
+
+-- | The Amazon Polly generated identifier for a speech synthesis task.
+stTaskId :: Lens' SynthesisTask (Maybe Text)
+stTaskId = lens _stTaskId (\ s a -> s{_stTaskId = a})
+
+-- | Number of billable characters synthesized.
+stRequestCharacters :: Lens' SynthesisTask (Maybe Int)
+stRequestCharacters = lens _stRequestCharacters (\ s a -> s{_stRequestCharacters = a})
+
+-- | The type of speech marks returned for the input text.
+stSpeechMarkTypes :: Lens' SynthesisTask [SpeechMarkType]
+stSpeechMarkTypes = lens _stSpeechMarkTypes (\ s a -> s{_stSpeechMarkTypes = a}) . _Default . _Coerce
+
+-- | The audio frequency specified in Hz. The valid values for mp3 and ogg_vorbis are "8000", "16000", and "22050". The default value is "22050". Valid values for pcm are "8000" and "16000" The default value is "16000".
+stSampleRate :: Lens' SynthesisTask (Maybe Text)
+stSampleRate = lens _stSampleRate (\ s a -> s{_stSampleRate = a})
+
+-- | The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json.
+stOutputFormat :: Lens' SynthesisTask (Maybe OutputFormat)
+stOutputFormat = lens _stOutputFormat (\ s a -> s{_stOutputFormat = a})
+
+-- | Specifies whether the input text is plain text or SSML. The default value is plain text.
+stTextType :: Lens' SynthesisTask (Maybe TextType)
+stTextType = lens _stTextType (\ s a -> s{_stTextType = a})
+
+-- | Voice ID to use for the synthesis.
+stVoiceId :: Lens' SynthesisTask (Maybe VoiceId)
+stVoiceId = lens _stVoiceId (\ s a -> s{_stVoiceId = a})
+
+-- | List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice.
+stLexiconNames :: Lens' SynthesisTask [Text]
+stLexiconNames = lens _stLexiconNames (\ s a -> s{_stLexiconNames = a}) . _Default . _Coerce
+
+-- | Current status of the individual speech synthesis task.
+stTaskStatus :: Lens' SynthesisTask (Maybe TaskStatus)
+stTaskStatus = lens _stTaskStatus (\ s a -> s{_stTaskStatus = a})
+
+-- | Pathway for the output speech file.
+stOutputURI :: Lens' SynthesisTask (Maybe Text)
+stOutputURI = lens _stOutputURI (\ s a -> s{_stOutputURI = a})
+
+instance FromJSON SynthesisTask where
+        parseJSON
+          = withObject "SynthesisTask"
+              (\ x ->
+                 SynthesisTask' <$>
+                   (x .:? "CreationTime") <*> (x .:? "LanguageCode") <*>
+                     (x .:? "SnsTopicArn")
+                     <*> (x .:? "TaskStatusReason")
+                     <*> (x .:? "TaskId")
+                     <*> (x .:? "RequestCharacters")
+                     <*> (x .:? "SpeechMarkTypes" .!= mempty)
+                     <*> (x .:? "SampleRate")
+                     <*> (x .:? "OutputFormat")
+                     <*> (x .:? "TextType")
+                     <*> (x .:? "VoiceId")
+                     <*> (x .:? "LexiconNames" .!= mempty)
+                     <*> (x .:? "TaskStatus")
+                     <*> (x .:? "OutputUri"))
+
+instance Hashable SynthesisTask where
+
+instance NFData SynthesisTask where
+
 -- | Description of the voice.
 --
 --
 --
 -- /See:/ 'voice' smart constructor.
 data Voice = Voice'
-  { _vLanguageCode :: !(Maybe LanguageCode)
-  , _vLanguageName :: !(Maybe Text)
-  , _vGender       :: !(Maybe Gender)
-  , _vName         :: !(Maybe Text)
-  , _vId           :: !(Maybe VoiceId)
+  { _vLanguageCode            :: !(Maybe LanguageCode)
+  , _vLanguageName            :: !(Maybe Text)
+  , _vGender                  :: !(Maybe Gender)
+  , _vName                    :: !(Maybe Text)
+  , _vId                      :: !(Maybe VoiceId)
+  , _vAdditionalLanguageCodes :: !(Maybe [LanguageCode])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -214,6 +369,8 @@ data Voice = Voice'
 -- * 'vName' - Name of the voice (for example, Salli, Kendra, etc.). This provides a human readable voice name that you might display in your application.
 --
 -- * 'vId' - Amazon Polly assigned voice ID. This is the ID that you specify when calling the @SynthesizeSpeech@ operation.
+--
+-- * 'vAdditionalLanguageCodes' - Additional codes for languages available for the specified voice in addition to its default language.  For example, the default language for Aditi is Indian English (en-IN) because it was first used for that language. Since Aditi is bilingual and fluent in both Indian English and Hindi, this parameter would show the code @hi-IN@ .
 voice
     :: Voice
 voice =
@@ -223,6 +380,7 @@ voice =
     , _vGender = Nothing
     , _vName = Nothing
     , _vId = Nothing
+    , _vAdditionalLanguageCodes = Nothing
     }
 
 
@@ -246,6 +404,10 @@ vName = lens _vName (\ s a -> s{_vName = a})
 vId :: Lens' Voice (Maybe VoiceId)
 vId = lens _vId (\ s a -> s{_vId = a})
 
+-- | Additional codes for languages available for the specified voice in addition to its default language.  For example, the default language for Aditi is Indian English (en-IN) because it was first used for that language. Since Aditi is bilingual and fluent in both Indian English and Hindi, this parameter would show the code @hi-IN@ .
+vAdditionalLanguageCodes :: Lens' Voice [LanguageCode]
+vAdditionalLanguageCodes = lens _vAdditionalLanguageCodes (\ s a -> s{_vAdditionalLanguageCodes = a}) . _Default . _Coerce
+
 instance FromJSON Voice where
         parseJSON
           = withObject "Voice"
@@ -254,7 +416,8 @@ instance FromJSON Voice where
                    (x .:? "LanguageCode") <*> (x .:? "LanguageName") <*>
                      (x .:? "Gender")
                      <*> (x .:? "Name")
-                     <*> (x .:? "Id"))
+                     <*> (x .:? "Id")
+                     <*> (x .:? "AdditionalLanguageCodes" .!= mempty))
 
 instance Hashable Voice where
 

@@ -39,6 +39,7 @@ module Network.AWS.Polly.DescribeVoices
     -- * Request Lenses
     , dvLanguageCode
     , dvNextToken
+    , dvIncludeAdditionalLanguageCodes
 
     -- * Destructuring the Response
     , describeVoicesResponse
@@ -59,8 +60,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'describeVoices' smart constructor.
 data DescribeVoices = DescribeVoices'
-  { _dvLanguageCode :: !(Maybe LanguageCode)
-  , _dvNextToken    :: !(Maybe Text)
+  { _dvLanguageCode                   :: !(Maybe LanguageCode)
+  , _dvNextToken                      :: !(Maybe Text)
+  , _dvIncludeAdditionalLanguageCodes :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -71,10 +73,16 @@ data DescribeVoices = DescribeVoices'
 -- * 'dvLanguageCode' - The language identification tag (ISO 639 code for the language name-ISO 3166 country code) for filtering the list of voices returned. If you don't specify this optional parameter, all available voices are returned.
 --
 -- * 'dvNextToken' - An opaque pagination token returned from the previous @DescribeVoices@ operation. If present, this indicates where to continue the listing.
+--
+-- * 'dvIncludeAdditionalLanguageCodes' - Boolean value indicating whether to return any bilingual voices that use the specified language as an additional language. For instance, if you request all languages that use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT) and US English, that voice will be included if you specify @yes@ but not if you specify @no@ .
 describeVoices
     :: DescribeVoices
 describeVoices =
-  DescribeVoices' {_dvLanguageCode = Nothing, _dvNextToken = Nothing}
+  DescribeVoices'
+    { _dvLanguageCode = Nothing
+    , _dvNextToken = Nothing
+    , _dvIncludeAdditionalLanguageCodes = Nothing
+    }
 
 
 -- | The language identification tag (ISO 639 code for the language name-ISO 3166 country code) for filtering the list of voices returned. If you don't specify this optional parameter, all available voices are returned.
@@ -84,6 +92,10 @@ dvLanguageCode = lens _dvLanguageCode (\ s a -> s{_dvLanguageCode = a})
 -- | An opaque pagination token returned from the previous @DescribeVoices@ operation. If present, this indicates where to continue the listing.
 dvNextToken :: Lens' DescribeVoices (Maybe Text)
 dvNextToken = lens _dvNextToken (\ s a -> s{_dvNextToken = a})
+
+-- | Boolean value indicating whether to return any bilingual voices that use the specified language as an additional language. For instance, if you request all languages that use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT) and US English, that voice will be included if you specify @yes@ but not if you specify @no@ .
+dvIncludeAdditionalLanguageCodes :: Lens' DescribeVoices (Maybe Bool)
+dvIncludeAdditionalLanguageCodes = lens _dvIncludeAdditionalLanguageCodes (\ s a -> s{_dvIncludeAdditionalLanguageCodes = a})
 
 instance AWSPager DescribeVoices where
         page rq rs
@@ -116,7 +128,9 @@ instance ToQuery DescribeVoices where
         toQuery DescribeVoices'{..}
           = mconcat
               ["LanguageCode" =: _dvLanguageCode,
-               "NextToken" =: _dvNextToken]
+               "NextToken" =: _dvNextToken,
+               "IncludeAdditionalLanguageCodes" =:
+                 _dvIncludeAdditionalLanguageCodes]
 
 -- | /See:/ 'describeVoicesResponse' smart constructor.
 data DescribeVoicesResponse = DescribeVoicesResponse'

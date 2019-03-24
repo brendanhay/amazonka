@@ -35,13 +35,13 @@ newtype Media = Media'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mMediaFileURI' - The S3 location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is: @https://<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey> @  For example: @https://s3-us-east-1.amazonaws.com/examplebucket/example.mp4@  @https://s3-us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4@  For more information about S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
+-- * 'mMediaFileURI' - The S3 location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is: @https://s3-<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey> @  For example: @https://s3-us-east-1.amazonaws.com/examplebucket/example.mp4@  @https://s3-us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4@  For more information about S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
 media
     :: Media
 media = Media' {_mMediaFileURI = Nothing}
 
 
--- | The S3 location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is: @https://<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey> @  For example: @https://s3-us-east-1.amazonaws.com/examplebucket/example.mp4@  @https://s3-us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4@  For more information about S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
+-- | The S3 location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is: @https://s3-<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey> @  For example: @https://s3-us-east-1.amazonaws.com/examplebucket/example.mp4@  @https://s3-us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4@  For more information about S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
 mMediaFileURI :: Lens' Media (Maybe Text)
 mMediaFileURI = lens _mMediaFileURI (\ s a -> s{_mMediaFileURI = a})
 
@@ -65,9 +65,10 @@ instance ToJSON Media where
 --
 -- /See:/ 'settings' smart constructor.
 data Settings = Settings'
-  { _sVocabularyName    :: !(Maybe Text)
-  , _sMaxSpeakerLabels  :: !(Maybe Nat)
-  , _sShowSpeakerLabels :: !(Maybe Bool)
+  { _sVocabularyName        :: !(Maybe Text)
+  , _sChannelIdentification :: !(Maybe Bool)
+  , _sMaxSpeakerLabels      :: !(Maybe Nat)
+  , _sShowSpeakerLabels     :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -77,14 +78,17 @@ data Settings = Settings'
 --
 -- * 'sVocabularyName' - The name of a vocabulary to use when processing the transcription job.
 --
+-- * 'sChannelIdentification' - Instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription.  Amazon Transcribe also produces a transcription of each item detected on an audio channel, including the start time and end time of the item and alternative transcriptions of the item including the confidence that Amazon Transcribe has in the transcription. You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@ .
+--
 -- * 'sMaxSpeakerLabels' - The maximum number of speakers to identify in the input audio. If there are more speakers in the audio than this number, multiple speakers will be identified as a single speaker. If you specify the @MaxSpeakerLabels@ field, you must set the @ShowSpeakerLabels@ field to true.
 --
--- * 'sShowSpeakerLabels' - Determines whether the transcription job should use speaker recognition to identify different speakers in the input audio. If you set the @ShowSpeakerLabels@ field to true, you must also set the maximum number of speaker labels @MaxSpeakerLabels@ field.
+-- * 'sShowSpeakerLabels' - Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio. Speaker recognition labels individual speakers in the audio file. If you set the @ShowSpeakerLabels@ field to true, you must also set the maximum number of speaker labels @MaxSpeakerLabels@ field. You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@ .
 settings
     :: Settings
 settings =
   Settings'
     { _sVocabularyName = Nothing
+    , _sChannelIdentification = Nothing
     , _sMaxSpeakerLabels = Nothing
     , _sShowSpeakerLabels = Nothing
     }
@@ -94,11 +98,15 @@ settings =
 sVocabularyName :: Lens' Settings (Maybe Text)
 sVocabularyName = lens _sVocabularyName (\ s a -> s{_sVocabularyName = a})
 
+-- | Instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription.  Amazon Transcribe also produces a transcription of each item detected on an audio channel, including the start time and end time of the item and alternative transcriptions of the item including the confidence that Amazon Transcribe has in the transcription. You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@ .
+sChannelIdentification :: Lens' Settings (Maybe Bool)
+sChannelIdentification = lens _sChannelIdentification (\ s a -> s{_sChannelIdentification = a})
+
 -- | The maximum number of speakers to identify in the input audio. If there are more speakers in the audio than this number, multiple speakers will be identified as a single speaker. If you specify the @MaxSpeakerLabels@ field, you must set the @ShowSpeakerLabels@ field to true.
 sMaxSpeakerLabels :: Lens' Settings (Maybe Natural)
 sMaxSpeakerLabels = lens _sMaxSpeakerLabels (\ s a -> s{_sMaxSpeakerLabels = a}) . mapping _Nat
 
--- | Determines whether the transcription job should use speaker recognition to identify different speakers in the input audio. If you set the @ShowSpeakerLabels@ field to true, you must also set the maximum number of speaker labels @MaxSpeakerLabels@ field.
+-- | Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio. Speaker recognition labels individual speakers in the audio file. If you set the @ShowSpeakerLabels@ field to true, you must also set the maximum number of speaker labels @MaxSpeakerLabels@ field. You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@ .
 sShowSpeakerLabels :: Lens' Settings (Maybe Bool)
 sShowSpeakerLabels = lens _sShowSpeakerLabels (\ s a -> s{_sShowSpeakerLabels = a})
 
@@ -108,7 +116,8 @@ instance FromJSON Settings where
               (\ x ->
                  Settings' <$>
                    (x .:? "VocabularyName") <*>
-                     (x .:? "MaxSpeakerLabels")
+                     (x .:? "ChannelIdentification")
+                     <*> (x .:? "MaxSpeakerLabels")
                      <*> (x .:? "ShowSpeakerLabels"))
 
 instance Hashable Settings where
@@ -120,10 +129,12 @@ instance ToJSON Settings where
           = object
               (catMaybes
                  [("VocabularyName" .=) <$> _sVocabularyName,
+                  ("ChannelIdentification" .=) <$>
+                    _sChannelIdentification,
                   ("MaxSpeakerLabels" .=) <$> _sMaxSpeakerLabels,
                   ("ShowSpeakerLabels" .=) <$> _sShowSpeakerLabels])
 
--- | Describes the output of a transcription job.
+-- | Identifies the location of a transcription.
 --
 --
 --
@@ -137,13 +148,13 @@ newtype Transcript = Transcript'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tTranscriptFileURI' - The S3 location where the transcription result is stored. Use this URI to access the results of the transcription job.
+-- * 'tTranscriptFileURI' - The location where the transcription is stored. Use this URI to access the transcription. If you specified an S3 bucket in the @OutputBucketName@ field when you created the job, this is the URI of that bucket. If you chose to store the transcription in Amazon Transcribe, this is a shareable URL that provides secure access to that location.
 transcript
     :: Transcript
 transcript = Transcript' {_tTranscriptFileURI = Nothing}
 
 
--- | The S3 location where the transcription result is stored. Use this URI to access the results of the transcription job.
+-- | The location where the transcription is stored. Use this URI to access the transcription. If you specified an S3 bucket in the @OutputBucketName@ field when you created the job, this is the URI of that bucket. If you chose to store the transcription in Amazon Transcribe, this is a shareable URL that provides secure access to that location.
 tTranscriptFileURI :: Lens' Transcript (Maybe Text)
 tTranscriptFileURI = lens _tTranscriptFileURI (\ s a -> s{_tTranscriptFileURI = a})
 
@@ -180,23 +191,23 @@ data TranscriptionJob = TranscriptionJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tjCreationTime' - Timestamp of the date and time that the job was created.
+-- * 'tjCreationTime' - A timestamp that shows when the job was created.
 --
--- * 'tjFailureReason' - If the @TranscriptionJobStatus@ field is @FAILED@ , this field contains information about why the job failed.
+-- * 'tjFailureReason' - If the @TranscriptionJobStatus@ field is @FAILED@ , this field contains information about why the job failed. The @FailureReason@ field can contain one of the following values:     * @Unsupported media format@ - The media format specified in the @MediaFormat@ field of the request isn't valid. See the description of the @MediaFormat@ field for a list of valid values.     * @The media format provided does not match the detected media format@ - The media format of the audio file doesn't match the format specified in the @MediaFormat@ field in the request. Check the media format of your media file and make sure that the two values match.     * @Invalid sample rate for audio file@ - The sample rate specified in the @MediaSampleRateHertz@ of the request isn't valid. The sample rate must be between 8000 and 48000 Hertz.     * @The sample rate provided does not match the detected sample rate@ - The sample rate in the audio file doesn't match the sample rate specified in the @MediaSampleRateHertz@ field in the request. Check the sample rate of your media file and make sure that the two values match.     * @Invalid file size: file size too large@ - The size of your audio file is larger than Amazon Transcribe can process. For more information, see <https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits Limits> in the /Amazon Transcribe Developer Guide/ .     * @Invalid number of channels: number of channels too large@ - Your audio contains more channels than Amazon Transcribe is configured to process. To request additional channels, see <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe Amazon Transcribe Limits> in the /Amazon Web Services General Reference/ .
 --
 -- * 'tjLanguageCode' - The language code for the input speech.
 --
--- * 'tjSettings' - Optional settings for the transcription job.
+-- * 'tjSettings' - Optional settings for the transcription job. Use these settings to turn on speaker recognition, to set the maximum number of speakers that should be identified and to specify a custom vocabulary to use when processing the transcription job.
 --
--- * 'tjCompletionTime' - Timestamp of the date and time that the job completed.
+-- * 'tjCompletionTime' - A timestamp that shows when the job was completed.
 --
--- * 'tjMedia' - An object that describes the input media for a transcription job.
+-- * 'tjMedia' - An object that describes the input media for the transcription job.
 --
 -- * 'tjMediaFormat' - The format of the input media file.
 --
 -- * 'tjTranscriptionJobStatus' - The status of the transcription job.
 --
--- * 'tjTranscriptionJobName' - A name to identify the transcription job.
+-- * 'tjTranscriptionJobName' - The name of the transcription job.
 --
 -- * 'tjTranscript' - An object that describes the output of the transcription job.
 --
@@ -219,11 +230,11 @@ transcriptionJob =
     }
 
 
--- | Timestamp of the date and time that the job was created.
+-- | A timestamp that shows when the job was created.
 tjCreationTime :: Lens' TranscriptionJob (Maybe UTCTime)
 tjCreationTime = lens _tjCreationTime (\ s a -> s{_tjCreationTime = a}) . mapping _Time
 
--- | If the @TranscriptionJobStatus@ field is @FAILED@ , this field contains information about why the job failed.
+-- | If the @TranscriptionJobStatus@ field is @FAILED@ , this field contains information about why the job failed. The @FailureReason@ field can contain one of the following values:     * @Unsupported media format@ - The media format specified in the @MediaFormat@ field of the request isn't valid. See the description of the @MediaFormat@ field for a list of valid values.     * @The media format provided does not match the detected media format@ - The media format of the audio file doesn't match the format specified in the @MediaFormat@ field in the request. Check the media format of your media file and make sure that the two values match.     * @Invalid sample rate for audio file@ - The sample rate specified in the @MediaSampleRateHertz@ of the request isn't valid. The sample rate must be between 8000 and 48000 Hertz.     * @The sample rate provided does not match the detected sample rate@ - The sample rate in the audio file doesn't match the sample rate specified in the @MediaSampleRateHertz@ field in the request. Check the sample rate of your media file and make sure that the two values match.     * @Invalid file size: file size too large@ - The size of your audio file is larger than Amazon Transcribe can process. For more information, see <https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits Limits> in the /Amazon Transcribe Developer Guide/ .     * @Invalid number of channels: number of channels too large@ - Your audio contains more channels than Amazon Transcribe is configured to process. To request additional channels, see <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe Amazon Transcribe Limits> in the /Amazon Web Services General Reference/ .
 tjFailureReason :: Lens' TranscriptionJob (Maybe Text)
 tjFailureReason = lens _tjFailureReason (\ s a -> s{_tjFailureReason = a})
 
@@ -231,15 +242,15 @@ tjFailureReason = lens _tjFailureReason (\ s a -> s{_tjFailureReason = a})
 tjLanguageCode :: Lens' TranscriptionJob (Maybe LanguageCode)
 tjLanguageCode = lens _tjLanguageCode (\ s a -> s{_tjLanguageCode = a})
 
--- | Optional settings for the transcription job.
+-- | Optional settings for the transcription job. Use these settings to turn on speaker recognition, to set the maximum number of speakers that should be identified and to specify a custom vocabulary to use when processing the transcription job.
 tjSettings :: Lens' TranscriptionJob (Maybe Settings)
 tjSettings = lens _tjSettings (\ s a -> s{_tjSettings = a})
 
--- | Timestamp of the date and time that the job completed.
+-- | A timestamp that shows when the job was completed.
 tjCompletionTime :: Lens' TranscriptionJob (Maybe UTCTime)
 tjCompletionTime = lens _tjCompletionTime (\ s a -> s{_tjCompletionTime = a}) . mapping _Time
 
--- | An object that describes the input media for a transcription job.
+-- | An object that describes the input media for the transcription job.
 tjMedia :: Lens' TranscriptionJob (Maybe Media)
 tjMedia = lens _tjMedia (\ s a -> s{_tjMedia = a})
 
@@ -251,7 +262,7 @@ tjMediaFormat = lens _tjMediaFormat (\ s a -> s{_tjMediaFormat = a})
 tjTranscriptionJobStatus :: Lens' TranscriptionJob (Maybe TranscriptionJobStatus)
 tjTranscriptionJobStatus = lens _tjTranscriptionJobStatus (\ s a -> s{_tjTranscriptionJobStatus = a})
 
--- | A name to identify the transcription job.
+-- | The name of the transcription job.
 tjTranscriptionJobName :: Lens' TranscriptionJob (Maybe Text)
 tjTranscriptionJobName = lens _tjTranscriptionJobName (\ s a -> s{_tjTranscriptionJobName = a})
 
@@ -283,7 +294,7 @@ instance Hashable TranscriptionJob where
 
 instance NFData TranscriptionJob where
 
--- | Provides a summary of information about a transcription job.
+-- | Provides a summary of information about a transcription job. .
 --
 --
 --
@@ -292,6 +303,7 @@ data TranscriptionJobSummary = TranscriptionJobSummary'
   { _tjsCreationTime           :: !(Maybe POSIX)
   , _tjsFailureReason          :: !(Maybe Text)
   , _tjsLanguageCode           :: !(Maybe LanguageCode)
+  , _tjsOutputLocationType     :: !(Maybe OutputLocationType)
   , _tjsCompletionTime         :: !(Maybe POSIX)
   , _tjsTranscriptionJobStatus :: !(Maybe TranscriptionJobStatus)
   , _tjsTranscriptionJobName   :: !(Maybe Text)
@@ -302,17 +314,19 @@ data TranscriptionJobSummary = TranscriptionJobSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tjsCreationTime' - Timestamp of the date and time that the job was created.
+-- * 'tjsCreationTime' - A timestamp that shows when the job was created.
 --
--- * 'tjsFailureReason' - If the @TranscriptionJobStatus@ field is @FAILED@ , this field contains a description of the error.
+-- * 'tjsFailureReason' - If the @TranscriptionJobStatus@ field is @FAILED@ , a description of the error.
 --
 -- * 'tjsLanguageCode' - The language code for the input speech.
 --
--- * 'tjsCompletionTime' - Timestamp of the date and time that the job completed.
+-- * 'tjsOutputLocationType' - Indicates the location of the output of the transcription job. If the value is @CUSTOMER_BUCKET@ then the location is the S3 bucket specified in the @outputBucketName@ field when the transcription job was started with the @StartTranscriptionJob@ operation. If the value is @SERVICE_BUCKET@ then the output is stored by Amazon Transcribe and can be retrieved using the URI in the @GetTranscriptionJob@ response's @TranscriptFileUri@ field.
+--
+-- * 'tjsCompletionTime' - A timestamp that shows when the job was completed.
 --
 -- * 'tjsTranscriptionJobStatus' - The status of the transcription job. When the status is @COMPLETED@ , use the @GetTranscriptionJob@ operation to get the results of the transcription.
 --
--- * 'tjsTranscriptionJobName' - The name assigned to the transcription job when it was created.
+-- * 'tjsTranscriptionJobName' - The name of the transcription job.
 transcriptionJobSummary
     :: TranscriptionJobSummary
 transcriptionJobSummary =
@@ -320,17 +334,18 @@ transcriptionJobSummary =
     { _tjsCreationTime = Nothing
     , _tjsFailureReason = Nothing
     , _tjsLanguageCode = Nothing
+    , _tjsOutputLocationType = Nothing
     , _tjsCompletionTime = Nothing
     , _tjsTranscriptionJobStatus = Nothing
     , _tjsTranscriptionJobName = Nothing
     }
 
 
--- | Timestamp of the date and time that the job was created.
+-- | A timestamp that shows when the job was created.
 tjsCreationTime :: Lens' TranscriptionJobSummary (Maybe UTCTime)
 tjsCreationTime = lens _tjsCreationTime (\ s a -> s{_tjsCreationTime = a}) . mapping _Time
 
--- | If the @TranscriptionJobStatus@ field is @FAILED@ , this field contains a description of the error.
+-- | If the @TranscriptionJobStatus@ field is @FAILED@ , a description of the error.
 tjsFailureReason :: Lens' TranscriptionJobSummary (Maybe Text)
 tjsFailureReason = lens _tjsFailureReason (\ s a -> s{_tjsFailureReason = a})
 
@@ -338,7 +353,11 @@ tjsFailureReason = lens _tjsFailureReason (\ s a -> s{_tjsFailureReason = a})
 tjsLanguageCode :: Lens' TranscriptionJobSummary (Maybe LanguageCode)
 tjsLanguageCode = lens _tjsLanguageCode (\ s a -> s{_tjsLanguageCode = a})
 
--- | Timestamp of the date and time that the job completed.
+-- | Indicates the location of the output of the transcription job. If the value is @CUSTOMER_BUCKET@ then the location is the S3 bucket specified in the @outputBucketName@ field when the transcription job was started with the @StartTranscriptionJob@ operation. If the value is @SERVICE_BUCKET@ then the output is stored by Amazon Transcribe and can be retrieved using the URI in the @GetTranscriptionJob@ response's @TranscriptFileUri@ field.
+tjsOutputLocationType :: Lens' TranscriptionJobSummary (Maybe OutputLocationType)
+tjsOutputLocationType = lens _tjsOutputLocationType (\ s a -> s{_tjsOutputLocationType = a})
+
+-- | A timestamp that shows when the job was completed.
 tjsCompletionTime :: Lens' TranscriptionJobSummary (Maybe UTCTime)
 tjsCompletionTime = lens _tjsCompletionTime (\ s a -> s{_tjsCompletionTime = a}) . mapping _Time
 
@@ -346,7 +365,7 @@ tjsCompletionTime = lens _tjsCompletionTime (\ s a -> s{_tjsCompletionTime = a})
 tjsTranscriptionJobStatus :: Lens' TranscriptionJobSummary (Maybe TranscriptionJobStatus)
 tjsTranscriptionJobStatus = lens _tjsTranscriptionJobStatus (\ s a -> s{_tjsTranscriptionJobStatus = a})
 
--- | The name assigned to the transcription job when it was created.
+-- | The name of the transcription job.
 tjsTranscriptionJobName :: Lens' TranscriptionJobSummary (Maybe Text)
 tjsTranscriptionJobName = lens _tjsTranscriptionJobName (\ s a -> s{_tjsTranscriptionJobName = a})
 
@@ -357,6 +376,7 @@ instance FromJSON TranscriptionJobSummary where
                  TranscriptionJobSummary' <$>
                    (x .:? "CreationTime") <*> (x .:? "FailureReason")
                      <*> (x .:? "LanguageCode")
+                     <*> (x .:? "OutputLocationType")
                      <*> (x .:? "CompletionTime")
                      <*> (x .:? "TranscriptionJobStatus")
                      <*> (x .:? "TranscriptionJobName"))

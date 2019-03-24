@@ -46,6 +46,7 @@ library
     exposed-modules:
           Network.AWS.Transcribe
         , Network.AWS.Transcribe.CreateVocabulary
+        , Network.AWS.Transcribe.DeleteTranscriptionJob
         , Network.AWS.Transcribe.DeleteVocabulary
         , Network.AWS.Transcribe.GetTranscriptionJob
         , Network.AWS.Transcribe.GetVocabulary

@@ -28,6 +28,9 @@ module Network.AWS.Transcribe.Types
     -- * MediaFormat
     , MediaFormat (..)
 
+    -- * OutputLocationType
+    , OutputLocationType (..)
+
     -- * TranscriptionJobStatus
     , TranscriptionJobStatus (..)
 
@@ -43,6 +46,7 @@ module Network.AWS.Transcribe.Types
     , Settings
     , settings
     , sVocabularyName
+    , sChannelIdentification
     , sMaxSpeakerLabels
     , sShowSpeakerLabels
 
@@ -72,6 +76,7 @@ module Network.AWS.Transcribe.Types
     , tjsCreationTime
     , tjsFailureReason
     , tjsLanguageCode
+    , tjsOutputLocationType
     , tjsCompletionTime
     , tjsTranscriptionJobStatus
     , tjsTranscriptionJobName
@@ -130,14 +135,16 @@ transcribe =
       | otherwise = Nothing
 
 
--- | The @JobName@ field is a duplicate of a previously entered job name. Resend your request with a different name.
+-- | When you are using the @StartTranscriptionJob@ operation, the @JobName@ field is a duplicate of a previously entered job name. Resend your request with a different name.
 --
+--
+-- When you are using the @UpdateVocabulary@ operation, there are two jobs running at the same time. Resend the second request later.
 --
 _ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConflictException = _MatchServiceError transcribe "ConflictException"
 
 
--- | We can't find the requested transcription job or custom vocabulary. Check the name and try your request again.
+-- | We can't find the requested resource. Check the name and try your request again.
 --
 --
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -152,7 +159,7 @@ _InternalFailureException =
   _MatchServiceError transcribe "InternalFailureException"
 
 
--- | Your request didn't pass one or more validation tests. For example, a name already exists when createing a resource or a name may not exist when getting a transcription job or custom vocabulary. See the exception @Message@ field for more information.
+-- | Your request didn't pass one or more validation tests. For example, if the transcription you're trying to delete doesn't exist or if it is in a non-terminal state (for example, it's "in progress"). See the exception @Message@ field for more information.
 --
 --
 _BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError

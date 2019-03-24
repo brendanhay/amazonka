@@ -28,6 +28,7 @@ module Network.AWS.Transcribe.StartTranscriptionJob
     , StartTranscriptionJob
     -- * Request Lenses
     , stjSettings
+    , stjOutputBucketName
     , stjMediaSampleRateHertz
     , stjTranscriptionJobName
     , stjLanguageCode
@@ -52,6 +53,7 @@ import Network.AWS.Transcribe.Types.Product
 -- | /See:/ 'startTranscriptionJob' smart constructor.
 data StartTranscriptionJob = StartTranscriptionJob'
   { _stjSettings             :: !(Maybe Settings)
+  , _stjOutputBucketName     :: !(Maybe Text)
   , _stjMediaSampleRateHertz :: !(Maybe Nat)
   , _stjTranscriptionJobName :: !Text
   , _stjLanguageCode         :: !LanguageCode
@@ -66,9 +68,11 @@ data StartTranscriptionJob = StartTranscriptionJob'
 --
 -- * 'stjSettings' - A @Settings@ object that provides optional settings for a transcription job.
 --
+-- * 'stjOutputBucketName' - The location where the transcription is stored. If you set the @OutputBucketName@ , Amazon Transcribe puts the transcription in the specified S3 bucket. When you call the 'GetTranscriptionJob' operation, the operation returns this location in the @TranscriptFileUri@ field. The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket. For more information, see <https://docs.aws.amazon.com/transcribe/latest/dg/access-control-managing-permissions.html#auth-role-iam-user Permissions Required for IAM User Roles> . Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are placed in your S3 bucket. You can't specify your own encryption key. If you don't set the @OutputBucketName@ , Amazon Transcribe generates a pre-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the @TranscriptFileUri@ field. Use this URL to download the transcription.
+--
 -- * 'stjMediaSampleRateHertz' - The sample rate, in Hertz, of the audio track in the input media file.
 --
--- * 'stjTranscriptionJobName' - The name of the job. The name must be unique within an AWS account.
+-- * 'stjTranscriptionJobName' - The name of the job. Note that you can't use the strings "." or ".." by themselves as the job name. The name must also be unique within an AWS account.
 --
 -- * 'stjLanguageCode' - The language code for the language used in the input media file.
 --
@@ -84,6 +88,7 @@ startTranscriptionJob
 startTranscriptionJob pTranscriptionJobName_ pLanguageCode_ pMediaFormat_ pMedia_ =
   StartTranscriptionJob'
     { _stjSettings = Nothing
+    , _stjOutputBucketName = Nothing
     , _stjMediaSampleRateHertz = Nothing
     , _stjTranscriptionJobName = pTranscriptionJobName_
     , _stjLanguageCode = pLanguageCode_
@@ -96,11 +101,15 @@ startTranscriptionJob pTranscriptionJobName_ pLanguageCode_ pMediaFormat_ pMedia
 stjSettings :: Lens' StartTranscriptionJob (Maybe Settings)
 stjSettings = lens _stjSettings (\ s a -> s{_stjSettings = a})
 
+-- | The location where the transcription is stored. If you set the @OutputBucketName@ , Amazon Transcribe puts the transcription in the specified S3 bucket. When you call the 'GetTranscriptionJob' operation, the operation returns this location in the @TranscriptFileUri@ field. The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket. For more information, see <https://docs.aws.amazon.com/transcribe/latest/dg/access-control-managing-permissions.html#auth-role-iam-user Permissions Required for IAM User Roles> . Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are placed in your S3 bucket. You can't specify your own encryption key. If you don't set the @OutputBucketName@ , Amazon Transcribe generates a pre-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the @TranscriptFileUri@ field. Use this URL to download the transcription.
+stjOutputBucketName :: Lens' StartTranscriptionJob (Maybe Text)
+stjOutputBucketName = lens _stjOutputBucketName (\ s a -> s{_stjOutputBucketName = a})
+
 -- | The sample rate, in Hertz, of the audio track in the input media file.
 stjMediaSampleRateHertz :: Lens' StartTranscriptionJob (Maybe Natural)
 stjMediaSampleRateHertz = lens _stjMediaSampleRateHertz (\ s a -> s{_stjMediaSampleRateHertz = a}) . mapping _Nat
 
--- | The name of the job. The name must be unique within an AWS account.
+-- | The name of the job. Note that you can't use the strings "." or ".." by themselves as the job name. The name must also be unique within an AWS account.
 stjTranscriptionJobName :: Lens' StartTranscriptionJob Text
 stjTranscriptionJobName = lens _stjTranscriptionJobName (\ s a -> s{_stjTranscriptionJobName = a})
 
@@ -144,6 +153,7 @@ instance ToJSON StartTranscriptionJob where
           = object
               (catMaybes
                  [("Settings" .=) <$> _stjSettings,
+                  ("OutputBucketName" .=) <$> _stjOutputBucketName,
                   ("MediaSampleRateHertz" .=) <$>
                     _stjMediaSampleRateHertz,
                   Just

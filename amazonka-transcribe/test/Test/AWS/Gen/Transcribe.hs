@@ -34,6 +34,9 @@ import Test.Tasty
 --         , requestGetTranscriptionJob $
 --             getTranscriptionJob
 --
+--         , requestDeleteTranscriptionJob $
+--             deleteTranscriptionJob
+--
 --         , requestDeleteVocabulary $
 --             deleteVocabulary
 --
@@ -60,6 +63,9 @@ import Test.Tasty
 --
 --         , responseGetTranscriptionJob $
 --             getTranscriptionJobResponse
+--
+--         , responseDeleteTranscriptionJob $
+--             deleteTranscriptionJobResponse
 --
 --         , responseDeleteVocabulary $
 --             deleteVocabularyResponse
@@ -93,6 +99,11 @@ requestGetTranscriptionJob :: GetTranscriptionJob -> TestTree
 requestGetTranscriptionJob = req
     "GetTranscriptionJob"
     "fixture/GetTranscriptionJob.yaml"
+
+requestDeleteTranscriptionJob :: DeleteTranscriptionJob -> TestTree
+requestDeleteTranscriptionJob = req
+    "DeleteTranscriptionJob"
+    "fixture/DeleteTranscriptionJob.yaml"
 
 requestDeleteVocabulary :: DeleteVocabulary -> TestTree
 requestDeleteVocabulary = req
@@ -139,6 +150,13 @@ responseGetTranscriptionJob = res
     "fixture/GetTranscriptionJobResponse.proto"
     transcribe
     (Proxy :: Proxy GetTranscriptionJob)
+
+responseDeleteTranscriptionJob :: DeleteTranscriptionJobResponse -> TestTree
+responseDeleteTranscriptionJob = res
+    "DeleteTranscriptionJobResponse"
+    "fixture/DeleteTranscriptionJobResponse.proto"
+    transcribe
+    (Proxy :: Proxy DeleteTranscriptionJob)
 
 responseDeleteVocabulary :: DeleteVocabularyResponse -> TestTree
 responseDeleteVocabulary = res

@@ -20,22 +20,46 @@ module Network.AWS.Transcribe.Types.Sum where
 import Network.AWS.Prelude
 
 data LanguageCode
-  = EnUs
+  = DeDe
+  | EnAu
+  | EnGb
+  | EnUs
   | EsUs
+  | FrCa
+  | FrFr
+  | ItIt
+  | KoKr
+  | PtBr
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText LanguageCode where
     parser = takeLowerText >>= \case
+        "de-de" -> pure DeDe
+        "en-au" -> pure EnAu
+        "en-gb" -> pure EnGb
         "en-us" -> pure EnUs
         "es-us" -> pure EsUs
+        "fr-ca" -> pure FrCa
+        "fr-fr" -> pure FrFr
+        "it-it" -> pure ItIt
+        "ko-kr" -> pure KoKr
+        "pt-br" -> pure PtBr
         e -> fromTextError $ "Failure parsing LanguageCode from value: '" <> e
-           <> "'. Accepted values: en-us, es-us"
+           <> "'. Accepted values: de-de, en-au, en-gb, en-us, es-us, fr-ca, fr-fr, it-it, ko-kr, pt-br"
 
 instance ToText LanguageCode where
     toText = \case
+        DeDe -> "de-DE"
+        EnAu -> "en-AU"
+        EnGb -> "en-GB"
         EnUs -> "en-US"
         EsUs -> "es-US"
+        FrCa -> "fr-CA"
+        FrFr -> "fr-FR"
+        ItIt -> "it-IT"
+        KoKr -> "ko-KR"
+        PtBr -> "pt-BR"
 
 instance Hashable     LanguageCode
 instance NFData       LanguageCode
@@ -84,6 +108,33 @@ instance ToJSON MediaFormat where
 
 instance FromJSON MediaFormat where
     parseJSON = parseJSONText "MediaFormat"
+
+data OutputLocationType
+  = CustomerBucket
+  | ServiceBucket
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText OutputLocationType where
+    parser = takeLowerText >>= \case
+        "customer_bucket" -> pure CustomerBucket
+        "service_bucket" -> pure ServiceBucket
+        e -> fromTextError $ "Failure parsing OutputLocationType from value: '" <> e
+           <> "'. Accepted values: customer_bucket, service_bucket"
+
+instance ToText OutputLocationType where
+    toText = \case
+        CustomerBucket -> "CUSTOMER_BUCKET"
+        ServiceBucket -> "SERVICE_BUCKET"
+
+instance Hashable     OutputLocationType
+instance NFData       OutputLocationType
+instance ToByteString OutputLocationType
+instance ToQuery      OutputLocationType
+instance ToHeader     OutputLocationType
+
+instance FromJSON OutputLocationType where
+    parseJSON = parseJSONText "OutputLocationType"
 
 data TranscriptionJobStatus
   = TJSCompleted

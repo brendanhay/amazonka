@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.Transcribe
 import Test.AWS.Transcribe.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "Transcribe"

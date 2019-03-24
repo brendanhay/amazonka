@@ -49,6 +49,9 @@ module Network.AWS.Transcribe
     -- ** GetTranscriptionJob
     , module Network.AWS.Transcribe.GetTranscriptionJob
 
+    -- ** DeleteTranscriptionJob
+    , module Network.AWS.Transcribe.DeleteTranscriptionJob
+
     -- ** DeleteVocabulary
     , module Network.AWS.Transcribe.DeleteVocabulary
 
@@ -75,6 +78,9 @@ module Network.AWS.Transcribe
     -- ** MediaFormat
     , MediaFormat (..)
 
+    -- ** OutputLocationType
+    , OutputLocationType (..)
+
     -- ** TranscriptionJobStatus
     , TranscriptionJobStatus (..)
 
@@ -90,6 +96,7 @@ module Network.AWS.Transcribe
     , Settings
     , settings
     , sVocabularyName
+    , sChannelIdentification
     , sMaxSpeakerLabels
     , sShowSpeakerLabels
 
@@ -119,6 +126,7 @@ module Network.AWS.Transcribe
     , tjsCreationTime
     , tjsFailureReason
     , tjsLanguageCode
+    , tjsOutputLocationType
     , tjsCompletionTime
     , tjsTranscriptionJobStatus
     , tjsTranscriptionJobName
@@ -133,6 +141,7 @@ module Network.AWS.Transcribe
     ) where
 
 import Network.AWS.Transcribe.CreateVocabulary
+import Network.AWS.Transcribe.DeleteTranscriptionJob
 import Network.AWS.Transcribe.DeleteVocabulary
 import Network.AWS.Transcribe.GetTranscriptionJob
 import Network.AWS.Transcribe.GetVocabulary

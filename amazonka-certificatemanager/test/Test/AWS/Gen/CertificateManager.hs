@@ -14,11 +14,11 @@
 module Test.AWS.Gen.CertificateManager where
 
 import Data.Proxy
-import Network.AWS.CertificateManager
-import Test.AWS.CertificateManager.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.CertificateManager
+import Test.AWS.CertificateManager.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -61,6 +61,9 @@ import Test.Tasty
 --         , requestDescribeCertificate $
 --             describeCertificate
 --
+--         , requestRenewCertificate $
+--             renewCertificate
+--
 --         , requestExportCertificate $
 --             exportCertificate
 --
@@ -99,6 +102,9 @@ import Test.Tasty
 --
 --         , responseDescribeCertificate $
 --             describeCertificateResponse
+--
+--         , responseRenewCertificate $
+--             renewCertificateResponse
 --
 --         , responseExportCertificate $
 --             exportCertificateResponse
@@ -162,6 +168,11 @@ requestDescribeCertificate :: DescribeCertificate -> TestTree
 requestDescribeCertificate = req
     "DescribeCertificate"
     "fixture/DescribeCertificate.yaml"
+
+requestRenewCertificate :: RenewCertificate -> TestTree
+requestRenewCertificate = req
+    "RenewCertificate"
+    "fixture/RenewCertificate.yaml"
 
 requestExportCertificate :: ExportCertificate -> TestTree
 requestExportCertificate = req
@@ -246,6 +257,13 @@ responseDescribeCertificate = res
     "fixture/DescribeCertificateResponse.proto"
     certificateManager
     (Proxy :: Proxy DescribeCertificate)
+
+responseRenewCertificate :: RenewCertificateResponse -> TestTree
+responseRenewCertificate = res
+    "RenewCertificateResponse"
+    "fixture/RenewCertificateResponse.proto"
+    certificateManager
+    (Proxy :: Proxy RenewCertificate)
 
 responseExportCertificate :: ExportCertificateResponse -> TestTree
 responseExportCertificate = res

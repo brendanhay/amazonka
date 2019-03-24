@@ -48,9 +48,9 @@ import Network.AWS.XRay.Types.Product
 
 -- | /See:/ 'putTelemetryRecords' smart constructor.
 data PutTelemetryRecords = PutTelemetryRecords'
-  { _ptrHostname         :: !(Maybe Text)
-  , _ptrEC2InstanceId    :: !(Maybe Text)
-  , _ptrResourceARN      :: !(Maybe Text)
+  { _ptrHostname :: !(Maybe Text)
+  , _ptrEC2InstanceId :: !(Maybe Text)
+  , _ptrResourceARN :: !(Maybe Text)
   , _ptrTelemetryRecords :: ![TelemetryRecord]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -59,13 +59,13 @@ data PutTelemetryRecords = PutTelemetryRecords'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ptrHostname' -
+-- * 'ptrHostname' - 
 --
--- * 'ptrEC2InstanceId' -
+-- * 'ptrEC2InstanceId' - 
 --
--- * 'ptrResourceARN' -
+-- * 'ptrResourceARN' - 
 --
--- * 'ptrTelemetryRecords' -
+-- * 'ptrTelemetryRecords' - 
 putTelemetryRecords
     :: PutTelemetryRecords
 putTelemetryRecords =
@@ -77,19 +77,19 @@ putTelemetryRecords =
     }
 
 
--- |
+-- | 
 ptrHostname :: Lens' PutTelemetryRecords (Maybe Text)
 ptrHostname = lens _ptrHostname (\ s a -> s{_ptrHostname = a})
 
--- |
+-- | 
 ptrEC2InstanceId :: Lens' PutTelemetryRecords (Maybe Text)
 ptrEC2InstanceId = lens _ptrEC2InstanceId (\ s a -> s{_ptrEC2InstanceId = a})
 
--- |
+-- | 
 ptrResourceARN :: Lens' PutTelemetryRecords (Maybe Text)
 ptrResourceARN = lens _ptrResourceARN (\ s a -> s{_ptrResourceARN = a})
 
--- |
+-- | 
 ptrTelemetryRecords :: Lens' PutTelemetryRecords [TelemetryRecord]
 ptrTelemetryRecords = lens _ptrTelemetryRecords (\ s a -> s{_ptrTelemetryRecords = a}) . _Coerce
 

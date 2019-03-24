@@ -54,7 +54,7 @@ newtype DescribeCertificate = DescribeCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dCertificateARN' - The Amazon Resource Name (ARN) of the ACM certificate. The ARN must have the following form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- * 'dCertificateARN' - The Amazon Resource Name (ARN) of the ACM certificate. The ARN must have the following form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 describeCertificate
     :: Text -- ^ 'dCertificateARN'
     -> DescribeCertificate
@@ -62,7 +62,7 @@ describeCertificate pCertificateARN_ =
   DescribeCertificate' {_dCertificateARN = pCertificateARN_}
 
 
--- | The Amazon Resource Name (ARN) of the ACM certificate. The ARN must have the following form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- | The Amazon Resource Name (ARN) of the ACM certificate. The ARN must have the following form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 dCertificateARN :: Lens' DescribeCertificate Text
 dCertificateARN = lens _dCertificateARN (\ s a -> s{_dCertificateARN = a})
 
@@ -104,7 +104,7 @@ instance ToQuery DescribeCertificate where
 
 -- | /See:/ 'describeCertificateResponse' smart constructor.
 data DescribeCertificateResponse = DescribeCertificateResponse'
-  { _dcrsCertificate    :: !(Maybe CertificateDetail)
+  { _dcrsCertificate :: !(Maybe CertificateDetail)
   , _dcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 

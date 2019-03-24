@@ -15,7 +15,39 @@
 --
 module Network.AWS.CertificateManager.Waiters where
 
+import Network.AWS.CertificateManager.DescribeCertificate
 import Network.AWS.CertificateManager.Types
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Waiter
+
+-- | Polls 'Network.AWS.CertificateManager.DescribeCertificate' every 60 seconds until a successful state is reached. An error is returned after 40 failed checks.
+certificateValidated :: Wait DescribeCertificate
+certificateValidated =
+  Wait
+    { _waitName = "CertificateValidated"
+    , _waitAttempts = 40
+    , _waitDelay = 60
+    , _waitAcceptors =
+        [ matchAll
+            "SUCCESS"
+            AcceptSuccess
+            (dcrsCertificate .
+             _Just .
+             folding (concatOf cdDomainValidationOptions) .
+             dvValidationStatus . _Just . to toTextCI)
+        , matchAny
+            "PENDING_VALIDATION"
+            AcceptRetry
+            (dcrsCertificate .
+             _Just .
+             folding (concatOf cdDomainValidationOptions) .
+             dvValidationStatus . _Just . to toTextCI)
+        , matchAll
+            "FAILED"
+            AcceptFailure
+            (dcrsCertificate . _Just . cdStatus . _Just . to toTextCI)
+        , matchError "ResourceNotFoundException" AcceptFailure
+        ]
+    }
+

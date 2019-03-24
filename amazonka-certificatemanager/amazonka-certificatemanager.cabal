@@ -54,6 +54,7 @@ library
         , Network.AWS.CertificateManager.ListCertificates
         , Network.AWS.CertificateManager.ListTagsForCertificate
         , Network.AWS.CertificateManager.RemoveTagsFromCertificate
+        , Network.AWS.CertificateManager.RenewCertificate
         , Network.AWS.CertificateManager.RequestCertificate
         , Network.AWS.CertificateManager.ResendValidationEmail
         , Network.AWS.CertificateManager.Types

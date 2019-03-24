@@ -53,7 +53,7 @@ import Network.AWS.XRay.Types.Product
 -- | /See:/ 'batchGetTraces' smart constructor.
 data BatchGetTraces = BatchGetTraces'
   { _bgtNextToken :: !(Maybe Text)
-  , _bgtTraceIds  :: ![Text]
+  , _bgtTraceIds :: ![Text]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -118,10 +118,10 @@ instance ToQuery BatchGetTraces where
 
 -- | /See:/ 'batchGetTracesResponse' smart constructor.
 data BatchGetTracesResponse = BatchGetTracesResponse'
-  { _bgtrsNextToken           :: !(Maybe Text)
-  , _bgtrsTraces              :: !(Maybe [Trace])
+  { _bgtrsNextToken :: !(Maybe Text)
+  , _bgtrsTraces :: !(Maybe [Trace])
   , _bgtrsUnprocessedTraceIds :: !(Maybe [Text])
-  , _bgtrsResponseStatus      :: !Int
+  , _bgtrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

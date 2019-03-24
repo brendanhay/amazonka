@@ -11,11 +11,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __AWS Certificate Manager__
+-- __AWS Certificate Manager__ 
 --
 -- Welcome to the AWS Certificate Manager (ACM) API documentation.
 --
--- You can use ACM to manage SSL/TLS certificates for your AWS-based websites and applications. For general information about using ACM, see the <http://docs.aws.amazon.com/acm/latest/userguide/ /AWS Certificate Manager User Guide/ > .
+-- You can use ACM to manage SSL/TLS certificates for your AWS-based websites and applications. For general information about using ACM, see the <https://docs.aws.amazon.com/acm/latest/userguide/ /AWS Certificate Manager User Guide/ > .
 --
 module Network.AWS.CertificateManager
     (
@@ -33,6 +33,9 @@ module Network.AWS.CertificateManager
 
     -- ** TooManyTagsException
     , _TooManyTagsException
+
+    -- ** InvalidArgsException
+    , _InvalidArgsException
 
     -- ** RequestInProgressException
     , _RequestInProgressException
@@ -55,43 +58,49 @@ module Network.AWS.CertificateManager
     -- * Waiters
     -- $waiters
 
+    -- ** CertificateValidated
+    , certificateValidated
+
     -- * Operations
     -- $operations
 
-    -- ** ResendValidationEmail
+    -- ** ResendValidationEmail 
     , module Network.AWS.CertificateManager.ResendValidationEmail
 
-    -- ** UpdateCertificateOptions
+    -- ** UpdateCertificateOptions 
     , module Network.AWS.CertificateManager.UpdateCertificateOptions
 
-    -- ** ListTagsForCertificate
+    -- ** ListTagsForCertificate 
     , module Network.AWS.CertificateManager.ListTagsForCertificate
 
-    -- ** GetCertificate
+    -- ** GetCertificate 
     , module Network.AWS.CertificateManager.GetCertificate
 
-    -- ** AddTagsToCertificate
+    -- ** AddTagsToCertificate 
     , module Network.AWS.CertificateManager.AddTagsToCertificate
 
-    -- ** RequestCertificate
+    -- ** RequestCertificate 
     , module Network.AWS.CertificateManager.RequestCertificate
 
     -- ** ListCertificates (Paginated)
     , module Network.AWS.CertificateManager.ListCertificates
 
-    -- ** DeleteCertificate
+    -- ** DeleteCertificate 
     , module Network.AWS.CertificateManager.DeleteCertificate
 
-    -- ** RemoveTagsFromCertificate
+    -- ** RemoveTagsFromCertificate 
     , module Network.AWS.CertificateManager.RemoveTagsFromCertificate
 
-    -- ** ImportCertificate
+    -- ** ImportCertificate 
     , module Network.AWS.CertificateManager.ImportCertificate
 
-    -- ** DescribeCertificate
+    -- ** DescribeCertificate 
     , module Network.AWS.CertificateManager.DescribeCertificate
 
-    -- ** ExportCertificate
+    -- ** RenewCertificate 
+    , module Network.AWS.CertificateManager.RenewCertificate
+
+    -- ** ExportCertificate 
     , module Network.AWS.CertificateManager.ExportCertificate
 
     -- * Types
@@ -213,8 +222,10 @@ module Network.AWS.CertificateManager
     -- ** RenewalSummary
     , RenewalSummary
     , renewalSummary
+    , rsRenewalStatusReason
     , rsRenewalStatus
     , rsDomainValidationOptions
+    , rsUpdatedAt
 
     -- ** ResourceRecord
     , ResourceRecord
@@ -239,6 +250,7 @@ import Network.AWS.CertificateManager.ImportCertificate
 import Network.AWS.CertificateManager.ListCertificates
 import Network.AWS.CertificateManager.ListTagsForCertificate
 import Network.AWS.CertificateManager.RemoveTagsFromCertificate
+import Network.AWS.CertificateManager.RenewCertificate
 import Network.AWS.CertificateManager.RequestCertificate
 import Network.AWS.CertificateManager.ResendValidationEmail
 import Network.AWS.CertificateManager.Types

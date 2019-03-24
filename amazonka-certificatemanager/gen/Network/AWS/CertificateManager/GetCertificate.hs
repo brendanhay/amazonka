@@ -55,7 +55,7 @@ newtype GetCertificate = GetCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcCertificateARN' - String that contains a certificate ARN in the following format: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- * 'gcCertificateARN' - String that contains a certificate ARN in the following format: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 getCertificate
     :: Text -- ^ 'gcCertificateARN'
     -> GetCertificate
@@ -63,7 +63,7 @@ getCertificate pCertificateARN_ =
   GetCertificate' {_gcCertificateARN = pCertificateARN_}
 
 
--- | String that contains a certificate ARN in the following format: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- | String that contains a certificate ARN in the following format: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 gcCertificateARN :: Lens' GetCertificate Text
 gcCertificateARN = lens _gcCertificateARN (\ s a -> s{_gcCertificateARN = a})
 
@@ -104,9 +104,9 @@ instance ToQuery GetCertificate where
 
 -- | /See:/ 'getCertificateResponse' smart constructor.
 data GetCertificateResponse = GetCertificateResponse'
-  { _gcrsCertificate      :: !(Maybe Text)
+  { _gcrsCertificate :: !(Maybe Text)
   , _gcrsCertificateChain :: !(Maybe Text)
-  , _gcrsResponseStatus   :: !Int
+  , _gcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

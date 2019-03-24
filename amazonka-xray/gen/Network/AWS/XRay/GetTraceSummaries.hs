@@ -23,11 +23,11 @@
 --
 -- A filter expression can target traced requests that hit specific service nodes or edges, have errors, or come from a known user. For example, the following filter expression targets traces that pass through @api.example.com@ :
 --
--- @service("api.example.com")@
+-- @service("api.example.com")@ 
 --
 -- This filter expression finds traces that have an annotation named @account@ with the value @12345@ :
 --
--- @annotation.account = "12345"@
+-- @annotation.account = "12345"@ 
 --
 -- For a full list of indexed fields and keywords that you can use in filter expressions, see <http://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html Using Filter Expressions> in the /AWS X-Ray Developer Guide/ .
 --
@@ -67,10 +67,10 @@ import Network.AWS.XRay.Types.Product
 -- | /See:/ 'getTraceSummaries' smart constructor.
 data GetTraceSummaries = GetTraceSummaries'
   { _gtsFilterExpression :: !(Maybe Text)
-  , _gtsNextToken        :: !(Maybe Text)
-  , _gtsSampling         :: !(Maybe Bool)
-  , _gtsStartTime        :: !POSIX
-  , _gtsEndTime          :: !POSIX
+  , _gtsNextToken :: !(Maybe Text)
+  , _gtsSampling :: !(Maybe Bool)
+  , _gtsStartTime :: !POSIX
+  , _gtsEndTime :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -167,10 +167,10 @@ instance ToQuery GetTraceSummaries where
 -- | /See:/ 'getTraceSummariesResponse' smart constructor.
 data GetTraceSummariesResponse = GetTraceSummariesResponse'
   { _gtsrsTracesProcessedCount :: !(Maybe Integer)
-  , _gtsrsNextToken            :: !(Maybe Text)
-  , _gtsrsApproximateTime      :: !(Maybe POSIX)
-  , _gtsrsTraceSummaries       :: !(Maybe [TraceSummary])
-  , _gtsrsResponseStatus       :: !Int
+  , _gtsrsNextToken :: !(Maybe Text)
+  , _gtsrsApproximateTime :: !(Maybe POSIX)
+  , _gtsrsTraceSummaries :: !(Maybe [TraceSummary])
+  , _gtsrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

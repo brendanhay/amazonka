@@ -1,4 +1,4 @@
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE OverloadedStrings  #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -19,6 +19,7 @@ module Network.AWS.CertificateManager.Types
     , _InvalidTagException
     , _InvalidDomainValidationOptionsException
     , _TooManyTagsException
+    , _InvalidArgsException
     , _RequestInProgressException
     , _InvalidARNException
     , _ResourceNotFoundException
@@ -143,8 +144,10 @@ module Network.AWS.CertificateManager.Types
     -- * RenewalSummary
     , RenewalSummary
     , renewalSummary
+    , rsRenewalStatusReason
     , rsRenewalStatus
     , rsDomainValidationOptions
+    , rsUpdatedAt
 
     -- * ResourceRecord
     , ResourceRecord
@@ -229,6 +232,12 @@ _InvalidDomainValidationOptionsException =
 _TooManyTagsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyTagsException =
   _MatchServiceError certificateManager "TooManyTagsException"
+
+
+-- | Prism for InvalidArgsException' errors.
+_InvalidArgsException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidArgsException =
+  _MatchServiceError certificateManager "InvalidArgsException"
 
 
 -- | The certificate request is in process and the certificate in your account has not yet been issued.

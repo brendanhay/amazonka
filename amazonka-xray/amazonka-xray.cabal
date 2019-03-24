@@ -46,7 +46,16 @@ library
     exposed-modules:
           Network.AWS.XRay
         , Network.AWS.XRay.BatchGetTraces
+        , Network.AWS.XRay.CreateGroup
+        , Network.AWS.XRay.CreateSamplingRule
+        , Network.AWS.XRay.DeleteGroup
+        , Network.AWS.XRay.DeleteSamplingRule
         , Network.AWS.XRay.GetEncryptionConfig
+        , Network.AWS.XRay.GetGroup
+        , Network.AWS.XRay.GetGroups
+        , Network.AWS.XRay.GetSamplingRules
+        , Network.AWS.XRay.GetSamplingStatisticSummaries
+        , Network.AWS.XRay.GetSamplingTargets
         , Network.AWS.XRay.GetServiceGraph
         , Network.AWS.XRay.GetTraceGraph
         , Network.AWS.XRay.GetTraceSummaries
@@ -54,6 +63,8 @@ library
         , Network.AWS.XRay.PutTelemetryRecords
         , Network.AWS.XRay.PutTraceSegments
         , Network.AWS.XRay.Types
+        , Network.AWS.XRay.UpdateGroup
+        , Network.AWS.XRay.UpdateSamplingRule
         , Network.AWS.XRay.Waiters
 
     other-modules:

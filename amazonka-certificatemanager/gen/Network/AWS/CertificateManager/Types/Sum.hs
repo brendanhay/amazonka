@@ -218,11 +218,14 @@ data FailureReason
   = AdditionalVerificationRequired
   | CaaError
   | DomainNotAllowed
+  | DomainValidationDenied
   | InvalidPublicDomain
   | NoAvailableContacts
   | Other
+  | PcaAccessDenied
   | PcaInvalidARN
   | PcaInvalidArgs
+  | PcaInvalidDuration
   | PcaInvalidState
   | PcaLimitExceeded
   | PcaRequestFailed
@@ -235,28 +238,34 @@ instance FromText FailureReason where
         "additional_verification_required" -> pure AdditionalVerificationRequired
         "caa_error" -> pure CaaError
         "domain_not_allowed" -> pure DomainNotAllowed
+        "domain_validation_denied" -> pure DomainValidationDenied
         "invalid_public_domain" -> pure InvalidPublicDomain
         "no_available_contacts" -> pure NoAvailableContacts
         "other" -> pure Other
+        "pca_access_denied" -> pure PcaAccessDenied
         "pca_invalid_arn" -> pure PcaInvalidARN
         "pca_invalid_args" -> pure PcaInvalidArgs
+        "pca_invalid_duration" -> pure PcaInvalidDuration
         "pca_invalid_state" -> pure PcaInvalidState
         "pca_limit_exceeded" -> pure PcaLimitExceeded
         "pca_request_failed" -> pure PcaRequestFailed
         "pca_resource_not_found" -> pure PcaResourceNotFound
         e -> fromTextError $ "Failure parsing FailureReason from value: '" <> e
-           <> "'. Accepted values: additional_verification_required, caa_error, domain_not_allowed, invalid_public_domain, no_available_contacts, other, pca_invalid_arn, pca_invalid_args, pca_invalid_state, pca_limit_exceeded, pca_request_failed, pca_resource_not_found"
+           <> "'. Accepted values: additional_verification_required, caa_error, domain_not_allowed, domain_validation_denied, invalid_public_domain, no_available_contacts, other, pca_access_denied, pca_invalid_arn, pca_invalid_args, pca_invalid_duration, pca_invalid_state, pca_limit_exceeded, pca_request_failed, pca_resource_not_found"
 
 instance ToText FailureReason where
     toText = \case
         AdditionalVerificationRequired -> "ADDITIONAL_VERIFICATION_REQUIRED"
         CaaError -> "CAA_ERROR"
         DomainNotAllowed -> "DOMAIN_NOT_ALLOWED"
+        DomainValidationDenied -> "DOMAIN_VALIDATION_DENIED"
         InvalidPublicDomain -> "INVALID_PUBLIC_DOMAIN"
         NoAvailableContacts -> "NO_AVAILABLE_CONTACTS"
         Other -> "OTHER"
+        PcaAccessDenied -> "PCA_ACCESS_DENIED"
         PcaInvalidARN -> "PCA_INVALID_ARN"
         PcaInvalidArgs -> "PCA_INVALID_ARGS"
+        PcaInvalidDuration -> "PCA_INVALID_DURATION"
         PcaInvalidState -> "PCA_INVALID_STATE"
         PcaLimitExceeded -> "PCA_LIMIT_EXCEEDED"
         PcaRequestFailed -> "PCA_REQUEST_FAILED"

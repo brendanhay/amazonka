@@ -21,37 +21,37 @@ import Network.AWS.CertificateManager.Types.Sum
 import Network.AWS.Lens
 import Network.AWS.Prelude
 
--- | Contains metadata about an ACM certificate. This structure is returned in the response to a 'DescribeCertificate' request.
+-- | Contains metadata about an ACM certificate. This structure is returned in the response to a 'DescribeCertificate' request. 
 --
 --
 --
 -- /See:/ 'certificateDetail' smart constructor.
 data CertificateDetail = CertificateDetail'
-  { _cdSubject                 :: !(Maybe Text)
-  , _cdStatus                  :: !(Maybe CertificateStatus)
-  , _cdFailureReason           :: !(Maybe FailureReason)
+  { _cdSubject :: !(Maybe Text)
+  , _cdStatus :: !(Maybe CertificateStatus)
+  , _cdFailureReason :: !(Maybe FailureReason)
   , _cdSubjectAlternativeNames :: !(Maybe (List1 Text))
-  , _cdInUseBy                 :: !(Maybe [Text])
-  , _cdCreatedAt               :: !(Maybe POSIX)
-  , _cdCertificateARN          :: !(Maybe Text)
-  , _cdSerial                  :: !(Maybe Text)
-  , _cdRenewalEligibility      :: !(Maybe RenewalEligibility)
-  , _cdExtendedKeyUsages       :: !(Maybe [ExtendedKeyUsage])
-  , _cdImportedAt              :: !(Maybe POSIX)
-  , _cdKeyUsages               :: !(Maybe [KeyUsage])
-  , _cdRevokedAt               :: !(Maybe POSIX)
-  , _cdNotBefore               :: !(Maybe POSIX)
-  , _cdRevocationReason        :: !(Maybe RevocationReason)
-  , _cdDomainName              :: !(Maybe Text)
-  , _cdRenewalSummary          :: !(Maybe RenewalSummary)
-  , _cdKeyAlgorithm            :: !(Maybe KeyAlgorithm)
-  , _cdType                    :: !(Maybe CertificateType)
-  , _cdOptions                 :: !(Maybe CertificateOptions)
-  , _cdIssuedAt                :: !(Maybe POSIX)
-  , _cdSignatureAlgorithm      :: !(Maybe Text)
+  , _cdInUseBy :: !(Maybe [Text])
+  , _cdCreatedAt :: !(Maybe POSIX)
+  , _cdCertificateARN :: !(Maybe Text)
+  , _cdSerial :: !(Maybe Text)
+  , _cdRenewalEligibility :: !(Maybe RenewalEligibility)
+  , _cdExtendedKeyUsages :: !(Maybe [ExtendedKeyUsage])
+  , _cdImportedAt :: !(Maybe POSIX)
+  , _cdKeyUsages :: !(Maybe [KeyUsage])
+  , _cdRevokedAt :: !(Maybe POSIX)
+  , _cdNotBefore :: !(Maybe POSIX)
+  , _cdRevocationReason :: !(Maybe RevocationReason)
+  , _cdDomainName :: !(Maybe Text)
+  , _cdRenewalSummary :: !(Maybe RenewalSummary)
+  , _cdKeyAlgorithm :: !(Maybe KeyAlgorithm)
+  , _cdType :: !(Maybe CertificateType)
+  , _cdOptions :: !(Maybe CertificateOptions)
+  , _cdIssuedAt :: !(Maybe POSIX)
+  , _cdSignatureAlgorithm :: !(Maybe Text)
   , _cdDomainValidationOptions :: !(Maybe (List1 DomainValidation))
-  , _cdIssuer                  :: !(Maybe Text)
-  , _cdNotAfter                :: !(Maybe POSIX)
+  , _cdIssuer :: !(Maybe Text)
+  , _cdNotAfter :: !(Maybe POSIX)
   , _cdCertificateAuthorityARN :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -64,53 +64,53 @@ data CertificateDetail = CertificateDetail'
 --
 -- * 'cdStatus' - The status of the certificate.
 --
--- * 'cdFailureReason' - The reason the certificate request failed. This value exists only when the certificate status is @FAILED@ . For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed> in the /AWS Certificate Manager User Guide/ .
+-- * 'cdFailureReason' - The reason the certificate request failed. This value exists only when the certificate status is @FAILED@ . For more information, see <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed> in the /AWS Certificate Manager User Guide/ . 
 --
--- * 'cdSubjectAlternativeNames' - One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website.
+-- * 'cdSubjectAlternativeNames' - One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website. 
 --
--- * 'cdInUseBy' - A list of ARNs for the AWS resources that are using the certificate. A certificate can be used by multiple AWS resources.
+-- * 'cdInUseBy' - A list of ARNs for the AWS resources that are using the certificate. A certificate can be used by multiple AWS resources. 
 --
--- * 'cdCreatedAt' - The time at which the certificate was requested. This value exists only when the certificate type is @AMAZON_ISSUED@ .
+-- * 'cdCreatedAt' - The time at which the certificate was requested. This value exists only when the certificate type is @AMAZON_ISSUED@ . 
 --
--- * 'cdCertificateARN' - The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+-- * 'cdCertificateARN' - The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 --
 -- * 'cdSerial' - The serial number of the certificate.
 --
--- * 'cdRenewalEligibility' - Specifies whether the certificate is eligible for renewal.
+-- * 'cdRenewalEligibility' - Specifies whether the certificate is eligible for renewal. At this time, only exported private certificates can be renewed with the 'RenewCertificate' command.
 --
--- * 'cdExtendedKeyUsages' - Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID).
+-- * 'cdExtendedKeyUsages' - Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID). 
 --
--- * 'cdImportedAt' - The date and time at which the certificate was imported. This value exists only when the certificate type is @IMPORTED@ .
+-- * 'cdImportedAt' - The date and time at which the certificate was imported. This value exists only when the certificate type is @IMPORTED@ . 
 --
 -- * 'cdKeyUsages' - A list of Key Usage X.509 v3 extension objects. Each object is a string value that identifies the purpose of the public key contained in the certificate. Possible extension values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.
 --
--- * 'cdRevokedAt' - The time at which the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
+-- * 'cdRevokedAt' - The time at which the certificate was revoked. This value exists only when the certificate status is @REVOKED@ . 
 --
 -- * 'cdNotBefore' - The time before which the certificate is not valid.
 --
--- * 'cdRevocationReason' - The reason the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
+-- * 'cdRevocationReason' - The reason the certificate was revoked. This value exists only when the certificate status is @REVOKED@ . 
 --
 -- * 'cdDomainName' - The fully qualified domain name for the certificate, such as www.example.com or example.com.
 --
--- * 'cdRenewalSummary' - Contains information about the status of ACM's <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for the certificate. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+-- * 'cdRenewalSummary' - Contains information about the status of ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for the certificate. This field exists only when the certificate type is @AMAZON_ISSUED@ .
 --
 -- * 'cdKeyAlgorithm' - The algorithm that was used to generate the public-private key pair.
 --
--- * 'cdType' - The source of the certificate. For certificates provided by ACM, this value is @AMAZON_ISSUED@ . For certificates that you imported with 'ImportCertificate' , this value is @IMPORTED@ . ACM does not provide <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see <http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates> in the /AWS Certificate Manager User Guide/ .
+-- * 'cdType' - The source of the certificate. For certificates provided by ACM, this value is @AMAZON_ISSUED@ . For certificates that you imported with 'ImportCertificate' , this value is @IMPORTED@ . ACM does not provide <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see <https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates> in the /AWS Certificate Manager User Guide/ . 
 --
--- * 'cdOptions' - Value that specifies whether to add the certificate to a transparency log. Certificate transparency makes it possible to detect SSL certificates that have been mistakenly or maliciously issued. A browser might respond to certificate that has not been logged by showing an error message. The logs are cryptographically secure.
+-- * 'cdOptions' - Value that specifies whether to add the certificate to a transparency log. Certificate transparency makes it possible to detect SSL certificates that have been mistakenly or maliciously issued. A browser might respond to certificate that has not been logged by showing an error message. The logs are cryptographically secure. 
 --
--- * 'cdIssuedAt' - The time at which the certificate was issued. This value exists only when the certificate type is @AMAZON_ISSUED@ .
+-- * 'cdIssuedAt' - The time at which the certificate was issued. This value exists only when the certificate type is @AMAZON_ISSUED@ . 
 --
 -- * 'cdSignatureAlgorithm' - The algorithm that was used to sign the certificate.
 --
--- * 'cdDomainValidationOptions' - Contains information about the initial validation of each domain name that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+-- * 'cdDomainValidationOptions' - Contains information about the initial validation of each domain name that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ . 
 --
 -- * 'cdIssuer' - The name of the certificate authority that issued and signed the certificate.
 --
 -- * 'cdNotAfter' - The time after which the certificate is not valid.
 --
--- * 'cdCertificateAuthorityARN' - The Amazon Resource Name (ARN) of the ACM PCA private certificate authority (CA) that issued the certificate. This has the following format:  @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@
+-- * 'cdCertificateAuthorityARN' - The Amazon Resource Name (ARN) of the ACM PCA private certificate authority (CA) that issued the certificate. This has the following format:  @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@ 
 certificateDetail
     :: CertificateDetail
 certificateDetail =
@@ -152,23 +152,23 @@ cdSubject = lens _cdSubject (\ s a -> s{_cdSubject = a})
 cdStatus :: Lens' CertificateDetail (Maybe CertificateStatus)
 cdStatus = lens _cdStatus (\ s a -> s{_cdStatus = a})
 
--- | The reason the certificate request failed. This value exists only when the certificate status is @FAILED@ . For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed> in the /AWS Certificate Manager User Guide/ .
+-- | The reason the certificate request failed. This value exists only when the certificate status is @FAILED@ . For more information, see <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed> in the /AWS Certificate Manager User Guide/ . 
 cdFailureReason :: Lens' CertificateDetail (Maybe FailureReason)
 cdFailureReason = lens _cdFailureReason (\ s a -> s{_cdFailureReason = a})
 
--- | One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website.
+-- | One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website. 
 cdSubjectAlternativeNames :: Lens' CertificateDetail (Maybe (NonEmpty Text))
 cdSubjectAlternativeNames = lens _cdSubjectAlternativeNames (\ s a -> s{_cdSubjectAlternativeNames = a}) . mapping _List1
 
--- | A list of ARNs for the AWS resources that are using the certificate. A certificate can be used by multiple AWS resources.
+-- | A list of ARNs for the AWS resources that are using the certificate. A certificate can be used by multiple AWS resources. 
 cdInUseBy :: Lens' CertificateDetail [Text]
 cdInUseBy = lens _cdInUseBy (\ s a -> s{_cdInUseBy = a}) . _Default . _Coerce
 
--- | The time at which the certificate was requested. This value exists only when the certificate type is @AMAZON_ISSUED@ .
+-- | The time at which the certificate was requested. This value exists only when the certificate type is @AMAZON_ISSUED@ . 
 cdCreatedAt :: Lens' CertificateDetail (Maybe UTCTime)
 cdCreatedAt = lens _cdCreatedAt (\ s a -> s{_cdCreatedAt = a}) . mapping _Time
 
--- | The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+-- | The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 cdCertificateARN :: Lens' CertificateDetail (Maybe Text)
 cdCertificateARN = lens _cdCertificateARN (\ s a -> s{_cdCertificateARN = a})
 
@@ -176,15 +176,15 @@ cdCertificateARN = lens _cdCertificateARN (\ s a -> s{_cdCertificateARN = a})
 cdSerial :: Lens' CertificateDetail (Maybe Text)
 cdSerial = lens _cdSerial (\ s a -> s{_cdSerial = a})
 
--- | Specifies whether the certificate is eligible for renewal.
+-- | Specifies whether the certificate is eligible for renewal. At this time, only exported private certificates can be renewed with the 'RenewCertificate' command.
 cdRenewalEligibility :: Lens' CertificateDetail (Maybe RenewalEligibility)
 cdRenewalEligibility = lens _cdRenewalEligibility (\ s a -> s{_cdRenewalEligibility = a})
 
--- | Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID).
+-- | Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID). 
 cdExtendedKeyUsages :: Lens' CertificateDetail [ExtendedKeyUsage]
 cdExtendedKeyUsages = lens _cdExtendedKeyUsages (\ s a -> s{_cdExtendedKeyUsages = a}) . _Default . _Coerce
 
--- | The date and time at which the certificate was imported. This value exists only when the certificate type is @IMPORTED@ .
+-- | The date and time at which the certificate was imported. This value exists only when the certificate type is @IMPORTED@ . 
 cdImportedAt :: Lens' CertificateDetail (Maybe UTCTime)
 cdImportedAt = lens _cdImportedAt (\ s a -> s{_cdImportedAt = a}) . mapping _Time
 
@@ -192,7 +192,7 @@ cdImportedAt = lens _cdImportedAt (\ s a -> s{_cdImportedAt = a}) . mapping _Tim
 cdKeyUsages :: Lens' CertificateDetail [KeyUsage]
 cdKeyUsages = lens _cdKeyUsages (\ s a -> s{_cdKeyUsages = a}) . _Default . _Coerce
 
--- | The time at which the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
+-- | The time at which the certificate was revoked. This value exists only when the certificate status is @REVOKED@ . 
 cdRevokedAt :: Lens' CertificateDetail (Maybe UTCTime)
 cdRevokedAt = lens _cdRevokedAt (\ s a -> s{_cdRevokedAt = a}) . mapping _Time
 
@@ -200,7 +200,7 @@ cdRevokedAt = lens _cdRevokedAt (\ s a -> s{_cdRevokedAt = a}) . mapping _Time
 cdNotBefore :: Lens' CertificateDetail (Maybe UTCTime)
 cdNotBefore = lens _cdNotBefore (\ s a -> s{_cdNotBefore = a}) . mapping _Time
 
--- | The reason the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
+-- | The reason the certificate was revoked. This value exists only when the certificate status is @REVOKED@ . 
 cdRevocationReason :: Lens' CertificateDetail (Maybe RevocationReason)
 cdRevocationReason = lens _cdRevocationReason (\ s a -> s{_cdRevocationReason = a})
 
@@ -208,7 +208,7 @@ cdRevocationReason = lens _cdRevocationReason (\ s a -> s{_cdRevocationReason = 
 cdDomainName :: Lens' CertificateDetail (Maybe Text)
 cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a})
 
--- | Contains information about the status of ACM's <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for the certificate. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+-- | Contains information about the status of ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for the certificate. This field exists only when the certificate type is @AMAZON_ISSUED@ .
 cdRenewalSummary :: Lens' CertificateDetail (Maybe RenewalSummary)
 cdRenewalSummary = lens _cdRenewalSummary (\ s a -> s{_cdRenewalSummary = a})
 
@@ -216,15 +216,15 @@ cdRenewalSummary = lens _cdRenewalSummary (\ s a -> s{_cdRenewalSummary = a})
 cdKeyAlgorithm :: Lens' CertificateDetail (Maybe KeyAlgorithm)
 cdKeyAlgorithm = lens _cdKeyAlgorithm (\ s a -> s{_cdKeyAlgorithm = a})
 
--- | The source of the certificate. For certificates provided by ACM, this value is @AMAZON_ISSUED@ . For certificates that you imported with 'ImportCertificate' , this value is @IMPORTED@ . ACM does not provide <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see <http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates> in the /AWS Certificate Manager User Guide/ .
+-- | The source of the certificate. For certificates provided by ACM, this value is @AMAZON_ISSUED@ . For certificates that you imported with 'ImportCertificate' , this value is @IMPORTED@ . ACM does not provide <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see <https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates> in the /AWS Certificate Manager User Guide/ . 
 cdType :: Lens' CertificateDetail (Maybe CertificateType)
 cdType = lens _cdType (\ s a -> s{_cdType = a})
 
--- | Value that specifies whether to add the certificate to a transparency log. Certificate transparency makes it possible to detect SSL certificates that have been mistakenly or maliciously issued. A browser might respond to certificate that has not been logged by showing an error message. The logs are cryptographically secure.
+-- | Value that specifies whether to add the certificate to a transparency log. Certificate transparency makes it possible to detect SSL certificates that have been mistakenly or maliciously issued. A browser might respond to certificate that has not been logged by showing an error message. The logs are cryptographically secure. 
 cdOptions :: Lens' CertificateDetail (Maybe CertificateOptions)
 cdOptions = lens _cdOptions (\ s a -> s{_cdOptions = a})
 
--- | The time at which the certificate was issued. This value exists only when the certificate type is @AMAZON_ISSUED@ .
+-- | The time at which the certificate was issued. This value exists only when the certificate type is @AMAZON_ISSUED@ . 
 cdIssuedAt :: Lens' CertificateDetail (Maybe UTCTime)
 cdIssuedAt = lens _cdIssuedAt (\ s a -> s{_cdIssuedAt = a}) . mapping _Time
 
@@ -232,7 +232,7 @@ cdIssuedAt = lens _cdIssuedAt (\ s a -> s{_cdIssuedAt = a}) . mapping _Time
 cdSignatureAlgorithm :: Lens' CertificateDetail (Maybe Text)
 cdSignatureAlgorithm = lens _cdSignatureAlgorithm (\ s a -> s{_cdSignatureAlgorithm = a})
 
--- | Contains information about the initial validation of each domain name that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+-- | Contains information about the initial validation of each domain name that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ . 
 cdDomainValidationOptions :: Lens' CertificateDetail (Maybe (NonEmpty DomainValidation))
 cdDomainValidationOptions = lens _cdDomainValidationOptions (\ s a -> s{_cdDomainValidationOptions = a}) . mapping _List1
 
@@ -244,7 +244,7 @@ cdIssuer = lens _cdIssuer (\ s a -> s{_cdIssuer = a})
 cdNotAfter :: Lens' CertificateDetail (Maybe UTCTime)
 cdNotAfter = lens _cdNotAfter (\ s a -> s{_cdNotAfter = a}) . mapping _Time
 
--- | The Amazon Resource Name (ARN) of the ACM PCA private certificate authority (CA) that issued the certificate. This has the following format:  @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@
+-- | The Amazon Resource Name (ARN) of the ACM PCA private certificate authority (CA) that issued the certificate. This has the following format:  @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@ 
 cdCertificateAuthorityARN :: Lens' CertificateDetail (Maybe Text)
 cdCertificateAuthorityARN = lens _cdCertificateAuthorityARN (\ s a -> s{_cdCertificateAuthorityARN = a})
 
@@ -283,7 +283,7 @@ instance Hashable CertificateDetail where
 
 instance NFData CertificateDetail where
 
--- | Structure that contains options for your certificate. Currently, you can use this only to specify whether to opt in to or out of certificate transparency logging. Some browsers require that public certificates issued for your domain be recorded in a log. Certificates that are not logged typically generate a browser error. Transparency makes it possible for you to detect SSL/TLS certificates that have been mistakenly or maliciously issued for your domain. For general information, see <http://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency Certificate Transparency Logging> .
+-- | Structure that contains options for your certificate. Currently, you can use this only to specify whether to opt in to or out of certificate transparency logging. Some browsers require that public certificates issued for your domain be recorded in a log. Certificates that are not logged typically generate a browser error. Transparency makes it possible for you to detect SSL/TLS certificates that have been mistakenly or maliciously issued for your domain. For general information, see <https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency Certificate Transparency Logging> . 
 --
 --
 --
@@ -297,14 +297,14 @@ newtype CertificateOptions = CertificateOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'coCertificateTransparencyLoggingPreference' - You can opt out of certificate transparency logging by specifying the @DISABLED@ option. Opt in by specifying @ENABLED@ .
+-- * 'coCertificateTransparencyLoggingPreference' - You can opt out of certificate transparency logging by specifying the @DISABLED@ option. Opt in by specifying @ENABLED@ . 
 certificateOptions
     :: CertificateOptions
 certificateOptions =
   CertificateOptions' {_coCertificateTransparencyLoggingPreference = Nothing}
 
 
--- | You can opt out of certificate transparency logging by specifying the @DISABLED@ option. Opt in by specifying @ENABLED@ .
+-- | You can opt out of certificate transparency logging by specifying the @DISABLED@ option. Opt in by specifying @ENABLED@ . 
 coCertificateTransparencyLoggingPreference :: Lens' CertificateOptions (Maybe CertificateTransparencyLoggingPreference)
 coCertificateTransparencyLoggingPreference = lens _coCertificateTransparencyLoggingPreference (\ s a -> s{_coCertificateTransparencyLoggingPreference = a})
 
@@ -326,14 +326,14 @@ instance ToJSON CertificateOptions where
                  [("CertificateTransparencyLoggingPreference" .=) <$>
                     _coCertificateTransparencyLoggingPreference])
 
--- | This structure is returned in the response object of 'ListCertificates' action.
+-- | This structure is returned in the response object of 'ListCertificates' action. 
 --
 --
 --
 -- /See:/ 'certificateSummary' smart constructor.
 data CertificateSummary = CertificateSummary'
   { _csCertificateARN :: !(Maybe Text)
-  , _csDomainName     :: !(Maybe Text)
+  , _csDomainName :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -341,7 +341,7 @@ data CertificateSummary = CertificateSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csCertificateARN' - Amazon Resource Name (ARN) of the certificate. This is of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- * 'csCertificateARN' - Amazon Resource Name (ARN) of the certificate. This is of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> . 
 --
 -- * 'csDomainName' - Fully qualified domain name (FQDN), such as www.example.com or example.com, for the certificate.
 certificateSummary
@@ -350,7 +350,7 @@ certificateSummary =
   CertificateSummary' {_csCertificateARN = Nothing, _csDomainName = Nothing}
 
 
--- | Amazon Resource Name (ARN) of the certificate. This is of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- | Amazon Resource Name (ARN) of the certificate. This is of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> . 
 csCertificateARN :: Lens' CertificateSummary (Maybe Text)
 csCertificateARN = lens _csCertificateARN (\ s a -> s{_csCertificateARN = a})
 
@@ -377,10 +377,10 @@ instance NFData CertificateSummary where
 data DomainValidation = DomainValidation'
   { _dvValidationEmails :: !(Maybe [Text])
   , _dvValidationMethod :: !(Maybe ValidationMethod)
-  , _dvResourceRecord   :: !(Maybe ResourceRecord)
+  , _dvResourceRecord :: !(Maybe ResourceRecord)
   , _dvValidationStatus :: !(Maybe DomainStatus)
   , _dvValidationDomain :: !(Maybe Text)
-  , _dvDomainName       :: !Text
+  , _dvDomainName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -392,13 +392,13 @@ data DomainValidation = DomainValidation'
 --
 -- * 'dvValidationMethod' - Specifies the domain validation method.
 --
--- * 'dvResourceRecord' - Contains the CNAME record that you add to your DNS database for domain validation. For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html Use DNS to Validate Domain Ownership> .
+-- * 'dvResourceRecord' - Contains the CNAME record that you add to your DNS database for domain validation. For more information, see <https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html Use DNS to Validate Domain Ownership> .
 --
 -- * 'dvValidationStatus' - The validation status of the domain name. This can be one of the following values:     * @PENDING_VALIDATION@      * SUCCESS     * FAILED
 --
 -- * 'dvValidationDomain' - The domain name that ACM used to send domain validation emails.
 --
--- * 'dvDomainName' - A fully qualified domain name (FQDN) in the certificate. For example, @www.example.com@ or @example.com@ .
+-- * 'dvDomainName' - A fully qualified domain name (FQDN) in the certificate. For example, @www.example.com@ or @example.com@ . 
 domainValidation
     :: Text -- ^ 'dvDomainName'
     -> DomainValidation
@@ -421,7 +421,7 @@ dvValidationEmails = lens _dvValidationEmails (\ s a -> s{_dvValidationEmails = 
 dvValidationMethod :: Lens' DomainValidation (Maybe ValidationMethod)
 dvValidationMethod = lens _dvValidationMethod (\ s a -> s{_dvValidationMethod = a})
 
--- | Contains the CNAME record that you add to your DNS database for domain validation. For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html Use DNS to Validate Domain Ownership> .
+-- | Contains the CNAME record that you add to your DNS database for domain validation. For more information, see <https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html Use DNS to Validate Domain Ownership> .
 dvResourceRecord :: Lens' DomainValidation (Maybe ResourceRecord)
 dvResourceRecord = lens _dvResourceRecord (\ s a -> s{_dvResourceRecord = a})
 
@@ -433,7 +433,7 @@ dvValidationStatus = lens _dvValidationStatus (\ s a -> s{_dvValidationStatus = 
 dvValidationDomain :: Lens' DomainValidation (Maybe Text)
 dvValidationDomain = lens _dvValidationDomain (\ s a -> s{_dvValidationDomain = a})
 
--- | A fully qualified domain name (FQDN) in the certificate. For example, @www.example.com@ or @example.com@ .
+-- | A fully qualified domain name (FQDN) in the certificate. For example, @www.example.com@ or @example.com@ . 
 dvDomainName :: Lens' DomainValidation Text
 dvDomainName = lens _dvDomainName (\ s a -> s{_dvDomainName = a})
 
@@ -459,7 +459,7 @@ instance NFData DomainValidation where
 --
 -- /See:/ 'domainValidationOption' smart constructor.
 data DomainValidationOption = DomainValidationOption'
-  { _dvoDomainName       :: !Text
+  { _dvoDomainName :: !Text
   , _dvoValidationDomain :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -499,13 +499,13 @@ instance ToJSON DomainValidationOption where
                  [Just ("DomainName" .= _dvoDomainName),
                   Just ("ValidationDomain" .= _dvoValidationDomain)])
 
--- | The Extended Key Usage X.509 v3 extension defines one or more purposes for which the public key can be used. This is in addition to or in place of the basic purposes specified by the Key Usage extension.
+-- | The Extended Key Usage X.509 v3 extension defines one or more purposes for which the public key can be used. This is in addition to or in place of the basic purposes specified by the Key Usage extension. 
 --
 --
 --
 -- /See:/ 'extendedKeyUsage' smart constructor.
 data ExtendedKeyUsage = ExtendedKeyUsage'
-  { _ekuOId  :: !(Maybe Text)
+  { _ekuOId :: !(Maybe Text)
   , _ekuName :: !(Maybe ExtendedKeyUsageName)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -514,7 +514,7 @@ data ExtendedKeyUsage = ExtendedKeyUsage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ekuOId' - An object identifier (OID) for the extension value. OIDs are strings of numbers separated by periods. The following OIDs are defined in RFC 3280 and RFC 5280.      * @1.3.6.1.5.5.7.3.1 (TLS_WEB_SERVER_AUTHENTICATION)@      * @1.3.6.1.5.5.7.3.2 (TLS_WEB_CLIENT_AUTHENTICATION)@      * @1.3.6.1.5.5.7.3.3 (CODE_SIGNING)@      * @1.3.6.1.5.5.7.3.4 (EMAIL_PROTECTION)@      * @1.3.6.1.5.5.7.3.8 (TIME_STAMPING)@      * @1.3.6.1.5.5.7.3.9 (OCSP_SIGNING)@      * @1.3.6.1.5.5.7.3.5 (IPSEC_END_SYSTEM)@      * @1.3.6.1.5.5.7.3.6 (IPSEC_TUNNEL)@      * @1.3.6.1.5.5.7.3.7 (IPSEC_USER)@
+-- * 'ekuOId' - An object identifier (OID) for the extension value. OIDs are strings of numbers separated by periods. The following OIDs are defined in RFC 3280 and RFC 5280.      * @1.3.6.1.5.5.7.3.1 (TLS_WEB_SERVER_AUTHENTICATION)@      * @1.3.6.1.5.5.7.3.2 (TLS_WEB_CLIENT_AUTHENTICATION)@      * @1.3.6.1.5.5.7.3.3 (CODE_SIGNING)@      * @1.3.6.1.5.5.7.3.4 (EMAIL_PROTECTION)@      * @1.3.6.1.5.5.7.3.8 (TIME_STAMPING)@      * @1.3.6.1.5.5.7.3.9 (OCSP_SIGNING)@      * @1.3.6.1.5.5.7.3.5 (IPSEC_END_SYSTEM)@      * @1.3.6.1.5.5.7.3.6 (IPSEC_TUNNEL)@      * @1.3.6.1.5.5.7.3.7 (IPSEC_USER)@ 
 --
 -- * 'ekuName' - The name of an Extended Key Usage value.
 extendedKeyUsage
@@ -522,7 +522,7 @@ extendedKeyUsage
 extendedKeyUsage = ExtendedKeyUsage' {_ekuOId = Nothing, _ekuName = Nothing}
 
 
--- | An object identifier (OID) for the extension value. OIDs are strings of numbers separated by periods. The following OIDs are defined in RFC 3280 and RFC 5280.      * @1.3.6.1.5.5.7.3.1 (TLS_WEB_SERVER_AUTHENTICATION)@      * @1.3.6.1.5.5.7.3.2 (TLS_WEB_CLIENT_AUTHENTICATION)@      * @1.3.6.1.5.5.7.3.3 (CODE_SIGNING)@      * @1.3.6.1.5.5.7.3.4 (EMAIL_PROTECTION)@      * @1.3.6.1.5.5.7.3.8 (TIME_STAMPING)@      * @1.3.6.1.5.5.7.3.9 (OCSP_SIGNING)@      * @1.3.6.1.5.5.7.3.5 (IPSEC_END_SYSTEM)@      * @1.3.6.1.5.5.7.3.6 (IPSEC_TUNNEL)@      * @1.3.6.1.5.5.7.3.7 (IPSEC_USER)@
+-- | An object identifier (OID) for the extension value. OIDs are strings of numbers separated by periods. The following OIDs are defined in RFC 3280 and RFC 5280.      * @1.3.6.1.5.5.7.3.1 (TLS_WEB_SERVER_AUTHENTICATION)@      * @1.3.6.1.5.5.7.3.2 (TLS_WEB_CLIENT_AUTHENTICATION)@      * @1.3.6.1.5.5.7.3.3 (CODE_SIGNING)@      * @1.3.6.1.5.5.7.3.4 (EMAIL_PROTECTION)@      * @1.3.6.1.5.5.7.3.8 (TIME_STAMPING)@      * @1.3.6.1.5.5.7.3.9 (OCSP_SIGNING)@      * @1.3.6.1.5.5.7.3.5 (IPSEC_END_SYSTEM)@      * @1.3.6.1.5.5.7.3.6 (IPSEC_TUNNEL)@      * @1.3.6.1.5.5.7.3.7 (IPSEC_USER)@ 
 ekuOId :: Lens' ExtendedKeyUsage (Maybe Text)
 ekuOId = lens _ekuOId (\ s a -> s{_ekuOId = a})
 
@@ -541,14 +541,14 @@ instance Hashable ExtendedKeyUsage where
 
 instance NFData ExtendedKeyUsage where
 
--- | This structure can be used in the 'ListCertificates' action to filter the output of the certificate list.
+-- | This structure can be used in the 'ListCertificates' action to filter the output of the certificate list. 
 --
 --
 --
 -- /See:/ 'filters' smart constructor.
 data Filters = Filters'
-  { _fKeyTypes         :: !(Maybe [KeyAlgorithm])
-  , _fKeyUsage         :: !(Maybe [KeyUsageName])
+  { _fKeyTypes :: !(Maybe [KeyAlgorithm])
+  , _fKeyUsage :: !(Maybe [KeyUsageName])
   , _fExtendedKeyUsage :: !(Maybe [ExtendedKeyUsageName])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -626,14 +626,16 @@ instance Hashable KeyUsage where
 
 instance NFData KeyUsage where
 
--- | Contains information about the status of ACM's <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for the certificate. This structure exists only when the certificate type is @AMAZON_ISSUED@ .
+-- | Contains information about the status of ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for the certificate. This structure exists only when the certificate type is @AMAZON_ISSUED@ .
 --
 --
 --
 -- /See:/ 'renewalSummary' smart constructor.
 data RenewalSummary = RenewalSummary'
-  { _rsRenewalStatus           :: !RenewalStatus
+  { _rsRenewalStatusReason :: !(Maybe FailureReason)
+  , _rsRenewalStatus :: !RenewalStatus
   , _rsDomainValidationOptions :: !(List1 DomainValidation)
+  , _rsUpdatedAt :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -641,48 +643,65 @@ data RenewalSummary = RenewalSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsRenewalStatus' - The status of ACM's <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> of the certificate.
+-- * 'rsRenewalStatusReason' - The reason that a renewal request was unsuccessful.
 --
--- * 'rsDomainValidationOptions' - Contains information about the validation of each domain name in the certificate, as it pertains to ACM's <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> . This is different from the initial validation that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+-- * 'rsRenewalStatus' - The status of ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> of the certificate.
+--
+-- * 'rsDomainValidationOptions' - Contains information about the validation of each domain name in the certificate, as it pertains to ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> . This is different from the initial validation that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+--
+-- * 'rsUpdatedAt' - The time at which the renewal summary was last updated.
 renewalSummary
     :: RenewalStatus -- ^ 'rsRenewalStatus'
     -> NonEmpty DomainValidation -- ^ 'rsDomainValidationOptions'
+    -> UTCTime -- ^ 'rsUpdatedAt'
     -> RenewalSummary
-renewalSummary pRenewalStatus_ pDomainValidationOptions_ =
+renewalSummary pRenewalStatus_ pDomainValidationOptions_ pUpdatedAt_ =
   RenewalSummary'
-    { _rsRenewalStatus = pRenewalStatus_
+    { _rsRenewalStatusReason = Nothing
+    , _rsRenewalStatus = pRenewalStatus_
     , _rsDomainValidationOptions = _List1 # pDomainValidationOptions_
+    , _rsUpdatedAt = _Time # pUpdatedAt_
     }
 
 
--- | The status of ACM's <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> of the certificate.
+-- | The reason that a renewal request was unsuccessful.
+rsRenewalStatusReason :: Lens' RenewalSummary (Maybe FailureReason)
+rsRenewalStatusReason = lens _rsRenewalStatusReason (\ s a -> s{_rsRenewalStatusReason = a})
+
+-- | The status of ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> of the certificate.
 rsRenewalStatus :: Lens' RenewalSummary RenewalStatus
 rsRenewalStatus = lens _rsRenewalStatus (\ s a -> s{_rsRenewalStatus = a})
 
--- | Contains information about the validation of each domain name in the certificate, as it pertains to ACM's <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> . This is different from the initial validation that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+-- | Contains information about the validation of each domain name in the certificate, as it pertains to ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> . This is different from the initial validation that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
 rsDomainValidationOptions :: Lens' RenewalSummary (NonEmpty DomainValidation)
 rsDomainValidationOptions = lens _rsDomainValidationOptions (\ s a -> s{_rsDomainValidationOptions = a}) . _List1
+
+-- | The time at which the renewal summary was last updated.
+rsUpdatedAt :: Lens' RenewalSummary UTCTime
+rsUpdatedAt = lens _rsUpdatedAt (\ s a -> s{_rsUpdatedAt = a}) . _Time
 
 instance FromJSON RenewalSummary where
         parseJSON
           = withObject "RenewalSummary"
               (\ x ->
                  RenewalSummary' <$>
-                   (x .: "RenewalStatus") <*>
-                     (x .: "DomainValidationOptions"))
+                   (x .:? "RenewalStatusReason") <*>
+                     (x .: "RenewalStatus")
+                     <*> (x .: "DomainValidationOptions")
+                     <*> (x .: "UpdatedAt"))
 
 instance Hashable RenewalSummary where
 
 instance NFData RenewalSummary where
 
--- | Contains a DNS record value that you can use to can use to validate ownership or control of a domain. This is used by the 'DescribeCertificate' action.
+-- | Contains a DNS record value that you can use to can use to validate ownership or control of a domain. This is used by the 'DescribeCertificate' action. 
 --
 --
 --
 -- /See:/ 'resourceRecord' smart constructor.
 data ResourceRecord = ResourceRecord'
-  { _rrName  :: !Text
-  , _rrType  :: !RecordType
+  { _rrName :: !Text
+  , _rrType :: !RecordType
   , _rrValue :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -735,7 +754,7 @@ instance NFData ResourceRecord where
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
   { _tagValue :: !(Maybe Text)
-  , _tagKey   :: !Text
+  , _tagKey :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

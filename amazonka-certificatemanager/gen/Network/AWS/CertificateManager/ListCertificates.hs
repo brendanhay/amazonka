@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of certificate ARNs and domain names. You can request that only certificates that match a specific status be listed. You can also filter by specific attributes of the certificate.
+-- Retrieves a list of certificate ARNs and domain names. You can request that only certificates that match a specific status be listed. You can also filter by specific attributes of the certificate. 
 --
 --
 --
@@ -54,9 +54,9 @@ import Network.AWS.Response
 -- | /See:/ 'listCertificates' smart constructor.
 data ListCertificates = ListCertificates'
   { _lcCertificateStatuses :: !(Maybe [CertificateStatus])
-  , _lcNextToken           :: !(Maybe Text)
-  , _lcIncludes            :: !(Maybe Filters)
-  , _lcMaxItems            :: !(Maybe Nat)
+  , _lcNextToken :: !(Maybe Text)
+  , _lcIncludes :: !(Maybe Filters)
+  , _lcMaxItems :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -149,8 +149,8 @@ instance ToQuery ListCertificates where
 -- | /See:/ 'listCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
   { _lcrsCertificateSummaryList :: !(Maybe [CertificateSummary])
-  , _lcrsNextToken              :: !(Maybe Text)
-  , _lcrsResponseStatus         :: !Int
+  , _lcrsNextToken :: !(Maybe Text)
+  , _lcrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 

@@ -21,6 +21,8 @@
 -- Returns the details of one or more configuration aggregators. If the configuration aggregator is not specified, this action returns the details for all the configuration aggregators associated with the account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.DescribeConfigurationAggregators
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.Config.DescribeConfigurationAggregators
 import Network.AWS.Config.Types
 import Network.AWS.Config.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -85,6 +88,15 @@ dcaLimit = lens _dcaLimit (\ s a -> s{_dcaLimit = a}) . mapping _Nat
 -- | The name of the configuration aggregators.
 dcaConfigurationAggregatorNames :: Lens' DescribeConfigurationAggregators [Text]
 dcaConfigurationAggregatorNames = lens _dcaConfigurationAggregatorNames (\ s a -> s{_dcaConfigurationAggregatorNames = a}) . _Default . _Coerce
+
+instance AWSPager DescribeConfigurationAggregators
+         where
+        page rq rs
+          | stop (rs ^. dcarsNextToken) = Nothing
+          | stop (rs ^. dcarsConfigurationAggregators) =
+            Nothing
+          | otherwise =
+            Just $ rq & dcaNextToken .~ rs ^. dcarsNextToken
 
 instance AWSRequest DescribeConfigurationAggregators
          where

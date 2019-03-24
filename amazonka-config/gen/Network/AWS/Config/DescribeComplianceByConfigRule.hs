@@ -80,7 +80,7 @@ data DescribeComplianceByConfigRule = DescribeComplianceByConfigRule'
 --
 -- * 'dcbcrConfigRuleNames' - Specify one or more AWS Config rule names to filter the results by rule.
 --
--- * 'dcbcrComplianceTypes' - Filters the results by compliance. The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @INSUFFICIENT_DATA@ .
+-- * 'dcbcrComplianceTypes' - Filters the results by compliance. The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
 --
 -- * 'dcbcrNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 describeComplianceByConfigRule
@@ -97,7 +97,7 @@ describeComplianceByConfigRule =
 dcbcrConfigRuleNames :: Lens' DescribeComplianceByConfigRule [Text]
 dcbcrConfigRuleNames = lens _dcbcrConfigRuleNames (\ s a -> s{_dcbcrConfigRuleNames = a}) . _Default . _Coerce
 
--- | Filters the results by compliance. The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @INSUFFICIENT_DATA@ .
+-- | Filters the results by compliance. The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
 dcbcrComplianceTypes :: Lens' DescribeComplianceByConfigRule [ComplianceType]
 dcbcrComplianceTypes = lens _dcbcrComplianceTypes (\ s a -> s{_dcbcrComplianceTypes = a}) . _Default . _Coerce
 

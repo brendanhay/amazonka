@@ -39,7 +39,7 @@ data AccountAggregationSource = AccountAggregationSource'
 --
 -- * 'aasAWSRegions' - The source regions being aggregated.
 --
--- * 'aasAllAWSRegions' - If true, aggreagate existing AWS Config regions and future regions.
+-- * 'aasAllAWSRegions' - If true, aggregate existing AWS Config regions and future regions.
 --
 -- * 'aasAccountIds' - The 12-digit account ID of the account being aggregated.
 accountAggregationSource
@@ -57,7 +57,7 @@ accountAggregationSource pAccountIds_ =
 aasAWSRegions :: Lens' AccountAggregationSource (Maybe (NonEmpty Text))
 aasAWSRegions = lens _aasAWSRegions (\ s a -> s{_aasAWSRegions = a}) . mapping _List1
 
--- | If true, aggreagate existing AWS Config regions and future regions.
+-- | If true, aggregate existing AWS Config regions and future regions.
 aasAllAWSRegions :: Lens' AccountAggregationSource (Maybe Bool)
 aasAllAWSRegions = lens _aasAllAWSRegions (\ s a -> s{_aasAllAWSRegions = a})
 
@@ -289,6 +289,93 @@ instance Hashable AggregateEvaluationResult where
 
 instance NFData AggregateEvaluationResult where
 
+-- | The details that identify a resource that is collected by AWS Config aggregator, including the resource type, ID, (if available) the custom resource name, the source account, and source region.
+--
+--
+--
+-- /See:/ 'aggregateResourceIdentifier' smart constructor.
+data AggregateResourceIdentifier = AggregateResourceIdentifier'
+  { _ariResourceName    :: !(Maybe Text)
+  , _ariSourceAccountId :: !Text
+  , _ariSourceRegion    :: !Text
+  , _ariResourceId      :: !Text
+  , _ariResourceType    :: !ResourceType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AggregateResourceIdentifier' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ariResourceName' - The name of the AWS resource.
+--
+-- * 'ariSourceAccountId' - The 12-digit account ID of the source account.
+--
+-- * 'ariSourceRegion' - The source region where data is aggregated.
+--
+-- * 'ariResourceId' - The ID of the AWS resource.
+--
+-- * 'ariResourceType' - The type of the AWS resource.
+aggregateResourceIdentifier
+    :: Text -- ^ 'ariSourceAccountId'
+    -> Text -- ^ 'ariSourceRegion'
+    -> Text -- ^ 'ariResourceId'
+    -> ResourceType -- ^ 'ariResourceType'
+    -> AggregateResourceIdentifier
+aggregateResourceIdentifier pSourceAccountId_ pSourceRegion_ pResourceId_ pResourceType_ =
+  AggregateResourceIdentifier'
+    { _ariResourceName = Nothing
+    , _ariSourceAccountId = pSourceAccountId_
+    , _ariSourceRegion = pSourceRegion_
+    , _ariResourceId = pResourceId_
+    , _ariResourceType = pResourceType_
+    }
+
+
+-- | The name of the AWS resource.
+ariResourceName :: Lens' AggregateResourceIdentifier (Maybe Text)
+ariResourceName = lens _ariResourceName (\ s a -> s{_ariResourceName = a})
+
+-- | The 12-digit account ID of the source account.
+ariSourceAccountId :: Lens' AggregateResourceIdentifier Text
+ariSourceAccountId = lens _ariSourceAccountId (\ s a -> s{_ariSourceAccountId = a})
+
+-- | The source region where data is aggregated.
+ariSourceRegion :: Lens' AggregateResourceIdentifier Text
+ariSourceRegion = lens _ariSourceRegion (\ s a -> s{_ariSourceRegion = a})
+
+-- | The ID of the AWS resource.
+ariResourceId :: Lens' AggregateResourceIdentifier Text
+ariResourceId = lens _ariResourceId (\ s a -> s{_ariResourceId = a})
+
+-- | The type of the AWS resource.
+ariResourceType :: Lens' AggregateResourceIdentifier ResourceType
+ariResourceType = lens _ariResourceType (\ s a -> s{_ariResourceType = a})
+
+instance FromJSON AggregateResourceIdentifier where
+        parseJSON
+          = withObject "AggregateResourceIdentifier"
+              (\ x ->
+                 AggregateResourceIdentifier' <$>
+                   (x .:? "ResourceName") <*> (x .: "SourceAccountId")
+                     <*> (x .: "SourceRegion")
+                     <*> (x .: "ResourceId")
+                     <*> (x .: "ResourceType"))
+
+instance Hashable AggregateResourceIdentifier where
+
+instance NFData AggregateResourceIdentifier where
+
+instance ToJSON AggregateResourceIdentifier where
+        toJSON AggregateResourceIdentifier'{..}
+          = object
+              (catMaybes
+                 [("ResourceName" .=) <$> _ariResourceName,
+                  Just ("SourceAccountId" .= _ariSourceAccountId),
+                  Just ("SourceRegion" .= _ariSourceRegion),
+                  Just ("ResourceId" .= _ariResourceId),
+                  Just ("ResourceType" .= _ariResourceType)])
+
 -- | The current sync status between the source and the aggregator account.
 --
 --
@@ -489,7 +576,7 @@ data BaseConfigurationItem = BaseConfigurationItem'
 --
 -- * 'bciConfigurationItemCaptureTime' - The time when the configuration recording was initiated.
 --
--- * 'bciAccountId' - The 12 digit AWS account ID associated with the resource.
+-- * 'bciAccountId' - The 12-digit AWS account ID associated with the resource.
 --
 -- * 'bciSupplementaryConfiguration' - Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the configuration parameter.
 --
@@ -553,7 +640,7 @@ bciConfigurationItemStatus = lens _bciConfigurationItemStatus (\ s a -> s{_bciCo
 bciConfigurationItemCaptureTime :: Lens' BaseConfigurationItem (Maybe UTCTime)
 bciConfigurationItemCaptureTime = lens _bciConfigurationItemCaptureTime (\ s a -> s{_bciConfigurationItemCaptureTime = a}) . mapping _Time
 
--- | The 12 digit AWS account ID associated with the resource.
+-- | The 12-digit AWS account ID associated with the resource.
 bciAccountId :: Lens' BaseConfigurationItem (Maybe Text)
 bciAccountId = lens _bciAccountId (\ s a -> s{_bciAccountId = a})
 
@@ -976,13 +1063,14 @@ instance NFData ConfigExportDeliveryInfo where
 -- | An AWS Config rule represents an AWS Lambda function that you create for a custom rule or a predefined function for an AWS managed rule. The function evaluates configuration items to assess whether your AWS resources comply with your desired configurations. This function can run when AWS Config detects a configuration change to an AWS resource and at a periodic frequency that you choose (for example, every 24 hours).
 --
 --
--- For more information about developing and using AWS Config rules, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html Evaluating AWS Resource Configurations with AWS Config> in the /AWS Config Developer Guide/ .
+-- For more information about developing and using AWS Config rules, see <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html Evaluating AWS Resource Configurations with AWS Config> in the /AWS Config Developer Guide/ .
 --
 --
 -- /See:/ 'configRule' smart constructor.
 data ConfigRule = ConfigRule'
   { _crInputParameters           :: !(Maybe Text)
   , _crConfigRuleName            :: !(Maybe Text)
+  , _crCreatedBy                 :: !(Maybe Text)
   , _crMaximumExecutionFrequency :: !(Maybe MaximumExecutionFrequency)
   , _crConfigRuleId              :: !(Maybe Text)
   , _crScope                     :: !(Maybe Scope)
@@ -1000,6 +1088,8 @@ data ConfigRule = ConfigRule'
 -- * 'crInputParameters' - A string, in JSON format, that is passed to the AWS Config rule Lambda function.
 --
 -- * 'crConfigRuleName' - The name that you assign to the AWS Config rule. The name is required if you are adding a new rule.
+--
+-- * 'crCreatedBy' - Service principal name of the service that created the rule.
 --
 -- * 'crMaximumExecutionFrequency' - The maximum frequency with which AWS Config runs evaluations for a rule. You can specify a value for @MaximumExecutionFrequency@ when:     * You are using an AWS managed rule that is triggered at a periodic frequency.     * Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see 'ConfigSnapshotDeliveryProperties' .
 --
@@ -1021,6 +1111,7 @@ configRule pSource_ =
   ConfigRule'
     { _crInputParameters = Nothing
     , _crConfigRuleName = Nothing
+    , _crCreatedBy = Nothing
     , _crMaximumExecutionFrequency = Nothing
     , _crConfigRuleId = Nothing
     , _crScope = Nothing
@@ -1038,6 +1129,10 @@ crInputParameters = lens _crInputParameters (\ s a -> s{_crInputParameters = a})
 -- | The name that you assign to the AWS Config rule. The name is required if you are adding a new rule.
 crConfigRuleName :: Lens' ConfigRule (Maybe Text)
 crConfigRuleName = lens _crConfigRuleName (\ s a -> s{_crConfigRuleName = a})
+
+-- | Service principal name of the service that created the rule.
+crCreatedBy :: Lens' ConfigRule (Maybe Text)
+crCreatedBy = lens _crCreatedBy (\ s a -> s{_crCreatedBy = a})
 
 -- | The maximum frequency with which AWS Config runs evaluations for a rule. You can specify a value for @MaximumExecutionFrequency@ when:     * You are using an AWS managed rule that is triggered at a periodic frequency.     * Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see 'ConfigSnapshotDeliveryProperties' .
 crMaximumExecutionFrequency :: Lens' ConfigRule (Maybe MaximumExecutionFrequency)
@@ -1074,6 +1169,7 @@ instance FromJSON ConfigRule where
                  ConfigRule' <$>
                    (x .:? "InputParameters") <*>
                      (x .:? "ConfigRuleName")
+                     <*> (x .:? "CreatedBy")
                      <*> (x .:? "MaximumExecutionFrequency")
                      <*> (x .:? "ConfigRuleId")
                      <*> (x .:? "Scope")
@@ -1092,6 +1188,7 @@ instance ToJSON ConfigRule where
               (catMaybes
                  [("InputParameters" .=) <$> _crInputParameters,
                   ("ConfigRuleName" .=) <$> _crConfigRuleName,
+                  ("CreatedBy" .=) <$> _crCreatedBy,
                   ("MaximumExecutionFrequency" .=) <$>
                     _crMaximumExecutionFrequency,
                   ("ConfigRuleId" .=) <$> _crConfigRuleId,
@@ -1434,7 +1531,7 @@ data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo'
 --
 -- * 'csdiLastStatusChangeTime' - The time from the last status change.
 --
--- * 'csdiLastStatus' - Status of the last attempted delivery. __Note__ Providing an SNS topic on a <http://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html DeliveryChannel> for AWS Config is optional. If the SNS delivery is turned off, the last status will be __Not_Applicable__ .
+-- * 'csdiLastStatus' - Status of the last attempted delivery. __Note__ Providing an SNS topic on a <https://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html DeliveryChannel> for AWS Config is optional. If the SNS delivery is turned off, the last status will be __Not_Applicable__ .
 --
 -- * 'csdiLastErrorMessage' - The error message from the last attempted delivery.
 configStreamDeliveryInfo
@@ -1456,7 +1553,7 @@ csdiLastErrorCode = lens _csdiLastErrorCode (\ s a -> s{_csdiLastErrorCode = a})
 csdiLastStatusChangeTime :: Lens' ConfigStreamDeliveryInfo (Maybe UTCTime)
 csdiLastStatusChangeTime = lens _csdiLastStatusChangeTime (\ s a -> s{_csdiLastStatusChangeTime = a}) . mapping _Time
 
--- | Status of the last attempted delivery. __Note__ Providing an SNS topic on a <http://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html DeliveryChannel> for AWS Config is optional. If the SNS delivery is turned off, the last status will be __Not_Applicable__ .
+-- | Status of the last attempted delivery. __Note__ Providing an SNS topic on a <https://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html DeliveryChannel> for AWS Config is optional. If the SNS delivery is turned off, the last status will be __Not_Applicable__ .
 csdiLastStatus :: Lens' ConfigStreamDeliveryInfo (Maybe DeliveryStatus)
 csdiLastStatus = lens _csdiLastStatus (\ s a -> s{_csdiLastStatus = a})
 
@@ -1598,7 +1695,7 @@ data ConfigurationItem = ConfigurationItem'
 --
 -- * 'ciConfigurationStateId' - An identifier that indicates the ordering of the configuration items of a resource.
 --
--- * 'ciArn' - The Amazon Resource Name (ARN) of the resource.
+-- * 'ciArn' - accoun
 --
 -- * 'ciResourceName' - The custom name of the resource, if available.
 --
@@ -1620,7 +1717,7 @@ data ConfigurationItem = ConfigurationItem'
 --
 -- * 'ciAwsRegion' - The region where the resource resides.
 --
--- * 'ciRelatedEvents' - A list of CloudTrail event IDs. A populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What Is AWS CloudTrail> . An empty field indicates that the current configuration was not initiated by any event.
+-- * 'ciRelatedEvents' - A list of CloudTrail event IDs. A populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What Is AWS CloudTrail> . An empty field indicates that the current configuration was not initiated by any event.
 --
 -- * 'ciConfiguration' - The description of the resource configuration.
 --
@@ -1664,7 +1761,7 @@ ciResourceType = lens _ciResourceType (\ s a -> s{_ciResourceType = a})
 ciConfigurationStateId :: Lens' ConfigurationItem (Maybe Text)
 ciConfigurationStateId = lens _ciConfigurationStateId (\ s a -> s{_ciConfigurationStateId = a})
 
--- | The Amazon Resource Name (ARN) of the resource.
+-- | accoun
 ciArn :: Lens' ConfigurationItem (Maybe Text)
 ciArn = lens _ciArn (\ s a -> s{_ciArn = a})
 
@@ -1708,7 +1805,7 @@ ciVersion = lens _ciVersion (\ s a -> s{_ciVersion = a})
 ciAwsRegion :: Lens' ConfigurationItem (Maybe Text)
 ciAwsRegion = lens _ciAwsRegion (\ s a -> s{_ciAwsRegion = a})
 
--- | A list of CloudTrail event IDs. A populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What Is AWS CloudTrail> . An empty field indicates that the current configuration was not initiated by any event.
+-- | A list of CloudTrail event IDs. A populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What Is AWS CloudTrail> . An empty field indicates that the current configuration was not initiated by any event.
 ciRelatedEvents :: Lens' ConfigurationItem [Text]
 ciRelatedEvents = lens _ciRelatedEvents (\ s a -> s{_ciRelatedEvents = a}) . _Default . _Coerce
 
@@ -1931,13 +2028,13 @@ data DeliveryChannel = DeliveryChannel'
 --
 -- * 'dcS3KeyPrefix' - The prefix for the specified Amazon S3 bucket.
 --
--- * 'dcSnsTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes. If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config. For more information, see <http://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html Permissions for the Amazon SNS Topic> in the AWS Config Developer Guide.
+-- * 'dcSnsTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes. If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config. For more information, see <https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html Permissions for the Amazon SNS Topic> in the AWS Config Developer Guide.
 --
 -- * 'dcName' - The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
 --
 -- * 'dcConfigSnapshotDeliveryProperties' - The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
 --
--- * 'dcS3BucketName' - The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files. If you specify a bucket that belongs to another AWS account, that bucket must have policies that grant access permissions to AWS Config. For more information, see <http://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html Permissions for the Amazon S3 Bucket> in the AWS Config Developer Guide.
+-- * 'dcS3BucketName' - The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files. If you specify a bucket that belongs to another AWS account, that bucket must have policies that grant access permissions to AWS Config. For more information, see <https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html Permissions for the Amazon S3 Bucket> in the AWS Config Developer Guide.
 deliveryChannel
     :: DeliveryChannel
 deliveryChannel =
@@ -1954,7 +2051,7 @@ deliveryChannel =
 dcS3KeyPrefix :: Lens' DeliveryChannel (Maybe Text)
 dcS3KeyPrefix = lens _dcS3KeyPrefix (\ s a -> s{_dcS3KeyPrefix = a})
 
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes. If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config. For more information, see <http://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html Permissions for the Amazon SNS Topic> in the AWS Config Developer Guide.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes. If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config. For more information, see <https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html Permissions for the Amazon SNS Topic> in the AWS Config Developer Guide.
 dcSnsTopicARN :: Lens' DeliveryChannel (Maybe Text)
 dcSnsTopicARN = lens _dcSnsTopicARN (\ s a -> s{_dcSnsTopicARN = a})
 
@@ -1966,7 +2063,7 @@ dcName = lens _dcName (\ s a -> s{_dcName = a})
 dcConfigSnapshotDeliveryProperties :: Lens' DeliveryChannel (Maybe ConfigSnapshotDeliveryProperties)
 dcConfigSnapshotDeliveryProperties = lens _dcConfigSnapshotDeliveryProperties (\ s a -> s{_dcConfigSnapshotDeliveryProperties = a})
 
--- | The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files. If you specify a bucket that belongs to another AWS account, that bucket must have policies that grant access permissions to AWS Config. For more information, see <http://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html Permissions for the Amazon S3 Bucket> in the AWS Config Developer Guide.
+-- | The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files. If you specify a bucket that belongs to another AWS account, that bucket must have policies that grant access permissions to AWS Config. For more information, see <https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html Permissions for the Amazon S3 Bucket> in the AWS Config Developer Guide.
 dcS3BucketName :: Lens' DeliveryChannel (Maybe Text)
 dcS3BucketName = lens _dcS3BucketName (\ s a -> s{_dcS3BucketName = a})
 
@@ -2336,6 +2433,130 @@ instance Hashable EvaluationResultQualifier where
 
 instance NFData EvaluationResultQualifier where
 
+-- | List of each of the failed remediations with specific reasons.
+--
+--
+--
+-- /See:/ 'failedRemediationBatch' smart constructor.
+data FailedRemediationBatch = FailedRemediationBatch'
+  { _frbFailureMessage :: !(Maybe Text)
+  , _frbFailedItems    :: !(Maybe [RemediationConfiguration])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'FailedRemediationBatch' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'frbFailureMessage' - Returns a failure message. For example, the resource is already compliant.
+--
+-- * 'frbFailedItems' - Returns remediation configurations of the failed items.
+failedRemediationBatch
+    :: FailedRemediationBatch
+failedRemediationBatch =
+  FailedRemediationBatch'
+    {_frbFailureMessage = Nothing, _frbFailedItems = Nothing}
+
+
+-- | Returns a failure message. For example, the resource is already compliant.
+frbFailureMessage :: Lens' FailedRemediationBatch (Maybe Text)
+frbFailureMessage = lens _frbFailureMessage (\ s a -> s{_frbFailureMessage = a})
+
+-- | Returns remediation configurations of the failed items.
+frbFailedItems :: Lens' FailedRemediationBatch [RemediationConfiguration]
+frbFailedItems = lens _frbFailedItems (\ s a -> s{_frbFailedItems = a}) . _Default . _Coerce
+
+instance FromJSON FailedRemediationBatch where
+        parseJSON
+          = withObject "FailedRemediationBatch"
+              (\ x ->
+                 FailedRemediationBatch' <$>
+                   (x .:? "FailureMessage") <*>
+                     (x .:? "FailedItems" .!= mempty))
+
+instance Hashable FailedRemediationBatch where
+
+instance NFData FailedRemediationBatch where
+
+-- | Details about the fields such as name of the field.
+--
+--
+--
+-- /See:/ 'fieldInfo' smart constructor.
+newtype FieldInfo = FieldInfo'
+  { _fiName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'FieldInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fiName' - Name of the field.
+fieldInfo
+    :: FieldInfo
+fieldInfo = FieldInfo' {_fiName = Nothing}
+
+
+-- | Name of the field.
+fiName :: Lens' FieldInfo (Maybe Text)
+fiName = lens _fiName (\ s a -> s{_fiName = a})
+
+instance FromJSON FieldInfo where
+        parseJSON
+          = withObject "FieldInfo"
+              (\ x -> FieldInfo' <$> (x .:? "Name"))
+
+instance Hashable FieldInfo where
+
+instance NFData FieldInfo where
+
+-- | The count of resources that are grouped by the group name.
+--
+--
+--
+-- /See:/ 'groupedResourceCount' smart constructor.
+data GroupedResourceCount = GroupedResourceCount'
+  { _grcGroupName     :: !Text
+  , _grcResourceCount :: !Integer
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'GroupedResourceCount' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'grcGroupName' - The name of the group that can be region, account ID, or resource type. For example, region1, region2 if the region was chosen as @GroupByKey@ .
+--
+-- * 'grcResourceCount' - The number of resources in the group.
+groupedResourceCount
+    :: Text -- ^ 'grcGroupName'
+    -> Integer -- ^ 'grcResourceCount'
+    -> GroupedResourceCount
+groupedResourceCount pGroupName_ pResourceCount_ =
+  GroupedResourceCount'
+    {_grcGroupName = pGroupName_, _grcResourceCount = pResourceCount_}
+
+
+-- | The name of the group that can be region, account ID, or resource type. For example, region1, region2 if the region was chosen as @GroupByKey@ .
+grcGroupName :: Lens' GroupedResourceCount Text
+grcGroupName = lens _grcGroupName (\ s a -> s{_grcGroupName = a})
+
+-- | The number of resources in the group.
+grcResourceCount :: Lens' GroupedResourceCount Integer
+grcResourceCount = lens _grcResourceCount (\ s a -> s{_grcResourceCount = a})
+
+instance FromJSON GroupedResourceCount where
+        parseJSON
+          = withObject "GroupedResourceCount"
+              (\ x ->
+                 GroupedResourceCount' <$>
+                   (x .: "GroupName") <*> (x .: "ResourceCount"))
+
+instance Hashable GroupedResourceCount where
+
+instance NFData GroupedResourceCount where
+
 -- | This object contains regions to setup the aggregator and an IAM role to retrieve organization details.
 --
 --
@@ -2354,7 +2575,7 @@ data OrganizationAggregationSource = OrganizationAggregationSource'
 --
 -- * 'oasAWSRegions' - The source regions being aggregated.
 --
--- * 'oasAllAWSRegions' - If true, aggreagate existing AWS Config regions and future regions.
+-- * 'oasAllAWSRegions' - If true, aggregate existing AWS Config regions and future regions.
 --
 -- * 'oasRoleARN' - ARN of the IAM role used to retreive AWS Organization details associated with the aggregator account.
 organizationAggregationSource
@@ -2372,7 +2593,7 @@ organizationAggregationSource pRoleARN_ =
 oasAWSRegions :: Lens' OrganizationAggregationSource (Maybe (NonEmpty Text))
 oasAWSRegions = lens _oasAWSRegions (\ s a -> s{_oasAWSRegions = a}) . mapping _List1
 
--- | If true, aggreagate existing AWS Config regions and future regions.
+-- | If true, aggregate existing AWS Config regions and future regions.
 oasAllAWSRegions :: Lens' OrganizationAggregationSource (Maybe Bool)
 oasAllAWSRegions = lens _oasAllAWSRegions (\ s a -> s{_oasAllAWSRegions = a})
 
@@ -2445,6 +2666,40 @@ instance Hashable PendingAggregationRequest where
 
 instance NFData PendingAggregationRequest where
 
+-- | Details about the query.
+--
+--
+--
+-- /See:/ 'queryInfo' smart constructor.
+newtype QueryInfo = QueryInfo'
+  { _qiSelectFields :: Maybe [FieldInfo]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'QueryInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'qiSelectFields' - Returns a @FieldInfo@ object.
+queryInfo
+    :: QueryInfo
+queryInfo = QueryInfo' {_qiSelectFields = Nothing}
+
+
+-- | Returns a @FieldInfo@ object.
+qiSelectFields :: Lens' QueryInfo [FieldInfo]
+qiSelectFields = lens _qiSelectFields (\ s a -> s{_qiSelectFields = a}) . _Default . _Coerce
+
+instance FromJSON QueryInfo where
+        parseJSON
+          = withObject "QueryInfo"
+              (\ x ->
+                 QueryInfo' <$> (x .:? "SelectFields" .!= mempty))
+
+instance Hashable QueryInfo where
+
+instance NFData QueryInfo where
+
 -- | Specifies the types of AWS resource for which AWS Config records configuration changes.
 --
 --
@@ -2458,9 +2713,9 @@ instance NFData PendingAggregationRequest where
 --
 -- If you don't want AWS Config to record all resources, you can specify which types of resources it will record with the @resourceTypes@ parameter.
 --
--- For a list of supported resource types, see <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported Resource Types> .
+-- For a list of supported resource types, see <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported Resource Types> .
 --
--- For more information, see <http://docs.aws.amazon.com/config/latest/developerguide/select-resources.html Selecting Which Resources AWS Config Records> .
+-- For more information, see <https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html Selecting Which Resources AWS Config Records> .
 --
 --
 -- /See:/ 'recordingGroup' smart constructor.
@@ -2479,7 +2734,7 @@ data RecordingGroup = RecordingGroup'
 --
 -- * 'rgIncludeGlobalResourceTypes' - Specifies whether AWS Config includes all supported types of global resources (for example, IAM resources) with the resources that it records. Before you can set this option to @true@ , you must set the @allSupported@ option to @true@ . If you set this option to @true@ , when AWS Config adds support for a new type of global resource, it starts recording resources of that type automatically. The configuration details for any global resource are the same in all regions. To prevent duplicate configuration items, you should consider customizing AWS Config in only one region to record global resources.
 --
--- * 'rgResourceTypes' - A comma-separated list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, @AWS::EC2::Instance@ or @AWS::CloudTrail::Trail@ ). Before you can set this option to @true@ , you must set the @allSupported@ option to @false@ . If you set this option to @true@ , when AWS Config adds support for a new type of resource, it will not record resources of that type unless you manually add that type to your recording group. For a list of valid @resourceTypes@ values, see the __resourceType Value__ column in <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resource Types> .
+-- * 'rgResourceTypes' - A comma-separated list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, @AWS::EC2::Instance@ or @AWS::CloudTrail::Trail@ ). Before you can set this option to @true@ , you must set the @allSupported@ option to @false@ . If you set this option to @true@ , when AWS Config adds support for a new type of resource, it will not record resources of that type unless you manually add that type to your recording group. For a list of valid @resourceTypes@ values, see the __resourceType Value__ column in <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resource Types> .
 recordingGroup
     :: RecordingGroup
 recordingGroup =
@@ -2498,7 +2753,7 @@ rgAllSupported = lens _rgAllSupported (\ s a -> s{_rgAllSupported = a})
 rgIncludeGlobalResourceTypes :: Lens' RecordingGroup (Maybe Bool)
 rgIncludeGlobalResourceTypes = lens _rgIncludeGlobalResourceTypes (\ s a -> s{_rgIncludeGlobalResourceTypes = a})
 
--- | A comma-separated list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, @AWS::EC2::Instance@ or @AWS::CloudTrail::Trail@ ). Before you can set this option to @true@ , you must set the @allSupported@ option to @false@ . If you set this option to @true@ , when AWS Config adds support for a new type of resource, it will not record resources of that type unless you manually add that type to your recording group. For a list of valid @resourceTypes@ values, see the __resourceType Value__ column in <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resource Types> .
+-- | A comma-separated list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, @AWS::EC2::Instance@ or @AWS::CloudTrail::Trail@ ). Before you can set this option to @true@ , you must set the @allSupported@ option to @false@ . If you set this option to @true@ , when AWS Config adds support for a new type of resource, it will not record resources of that type unless you manually add that type to your recording group. For a list of valid @resourceTypes@ values, see the __resourceType Value__ column in <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resource Types> .
 rgResourceTypes :: Lens' RecordingGroup [ResourceType]
 rgResourceTypes = lens _rgResourceTypes (\ s a -> s{_rgResourceTypes = a}) . _Default . _Coerce
 
@@ -2588,14 +2843,308 @@ instance Hashable Relationship where
 
 instance NFData Relationship where
 
+-- | An object that represents the details about the remediation configuration that includes the remediation action, parameters, and data to execute the action.
+--
+--
+--
+-- /See:/ 'remediationConfiguration' smart constructor.
+data RemediationConfiguration = RemediationConfiguration'
+  { _rcResourceType   :: !(Maybe Text)
+  , _rcParameters     :: !(Maybe (Map Text RemediationParameterValue))
+  , _rcTargetVersion  :: !(Maybe Text)
+  , _rcConfigRuleName :: !Text
+  , _rcTargetType     :: !RemediationTargetType
+  , _rcTargetId       :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RemediationConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcResourceType' - The type of a resource.
+--
+-- * 'rcParameters' - An object of the RemediationParameterValue.
+--
+-- * 'rcTargetVersion' - Version of the target. For example, version of the SSM document.
+--
+-- * 'rcConfigRuleName' - The name of the AWS Config rule.
+--
+-- * 'rcTargetType' - The type of the target. Target executes remediation. For example, SSM document.
+--
+-- * 'rcTargetId' - Target ID is the name of the public document.
+remediationConfiguration
+    :: Text -- ^ 'rcConfigRuleName'
+    -> RemediationTargetType -- ^ 'rcTargetType'
+    -> Text -- ^ 'rcTargetId'
+    -> RemediationConfiguration
+remediationConfiguration pConfigRuleName_ pTargetType_ pTargetId_ =
+  RemediationConfiguration'
+    { _rcResourceType = Nothing
+    , _rcParameters = Nothing
+    , _rcTargetVersion = Nothing
+    , _rcConfigRuleName = pConfigRuleName_
+    , _rcTargetType = pTargetType_
+    , _rcTargetId = pTargetId_
+    }
+
+
+-- | The type of a resource.
+rcResourceType :: Lens' RemediationConfiguration (Maybe Text)
+rcResourceType = lens _rcResourceType (\ s a -> s{_rcResourceType = a})
+
+-- | An object of the RemediationParameterValue.
+rcParameters :: Lens' RemediationConfiguration (HashMap Text RemediationParameterValue)
+rcParameters = lens _rcParameters (\ s a -> s{_rcParameters = a}) . _Default . _Map
+
+-- | Version of the target. For example, version of the SSM document.
+rcTargetVersion :: Lens' RemediationConfiguration (Maybe Text)
+rcTargetVersion = lens _rcTargetVersion (\ s a -> s{_rcTargetVersion = a})
+
+-- | The name of the AWS Config rule.
+rcConfigRuleName :: Lens' RemediationConfiguration Text
+rcConfigRuleName = lens _rcConfigRuleName (\ s a -> s{_rcConfigRuleName = a})
+
+-- | The type of the target. Target executes remediation. For example, SSM document.
+rcTargetType :: Lens' RemediationConfiguration RemediationTargetType
+rcTargetType = lens _rcTargetType (\ s a -> s{_rcTargetType = a})
+
+-- | Target ID is the name of the public document.
+rcTargetId :: Lens' RemediationConfiguration Text
+rcTargetId = lens _rcTargetId (\ s a -> s{_rcTargetId = a})
+
+instance FromJSON RemediationConfiguration where
+        parseJSON
+          = withObject "RemediationConfiguration"
+              (\ x ->
+                 RemediationConfiguration' <$>
+                   (x .:? "ResourceType") <*>
+                     (x .:? "Parameters" .!= mempty)
+                     <*> (x .:? "TargetVersion")
+                     <*> (x .: "ConfigRuleName")
+                     <*> (x .: "TargetType")
+                     <*> (x .: "TargetId"))
+
+instance Hashable RemediationConfiguration where
+
+instance NFData RemediationConfiguration where
+
+instance ToJSON RemediationConfiguration where
+        toJSON RemediationConfiguration'{..}
+          = object
+              (catMaybes
+                 [("ResourceType" .=) <$> _rcResourceType,
+                  ("Parameters" .=) <$> _rcParameters,
+                  ("TargetVersion" .=) <$> _rcTargetVersion,
+                  Just ("ConfigRuleName" .= _rcConfigRuleName),
+                  Just ("TargetType" .= _rcTargetType),
+                  Just ("TargetId" .= _rcTargetId)])
+
+-- | Provides details of the current status of the invoked remediation action for that resource.
+--
+--
+--
+-- /See:/ 'remediationExecutionStatus' smart constructor.
+data RemediationExecutionStatus = RemediationExecutionStatus'
+  { _rState           :: !(Maybe RemediationExecutionState)
+  , _rLastUpdatedTime :: !(Maybe POSIX)
+  , _rResourceKey     :: !(Maybe ResourceKey)
+  , _rStepDetails     :: !(Maybe [RemediationExecutionStep])
+  , _rInvocationTime  :: !(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RemediationExecutionStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rState' - ENUM of the values.
+--
+-- * 'rLastUpdatedTime' - The time when the remediation execution was last updated.
+--
+-- * 'rResourceKey' - Undocumented member.
+--
+-- * 'rStepDetails' - Details of every step.
+--
+-- * 'rInvocationTime' - Start time when the remediation was executed.
+remediationExecutionStatus
+    :: RemediationExecutionStatus
+remediationExecutionStatus =
+  RemediationExecutionStatus'
+    { _rState = Nothing
+    , _rLastUpdatedTime = Nothing
+    , _rResourceKey = Nothing
+    , _rStepDetails = Nothing
+    , _rInvocationTime = Nothing
+    }
+
+
+-- | ENUM of the values.
+rState :: Lens' RemediationExecutionStatus (Maybe RemediationExecutionState)
+rState = lens _rState (\ s a -> s{_rState = a})
+
+-- | The time when the remediation execution was last updated.
+rLastUpdatedTime :: Lens' RemediationExecutionStatus (Maybe UTCTime)
+rLastUpdatedTime = lens _rLastUpdatedTime (\ s a -> s{_rLastUpdatedTime = a}) . mapping _Time
+
+-- | Undocumented member.
+rResourceKey :: Lens' RemediationExecutionStatus (Maybe ResourceKey)
+rResourceKey = lens _rResourceKey (\ s a -> s{_rResourceKey = a})
+
+-- | Details of every step.
+rStepDetails :: Lens' RemediationExecutionStatus [RemediationExecutionStep]
+rStepDetails = lens _rStepDetails (\ s a -> s{_rStepDetails = a}) . _Default . _Coerce
+
+-- | Start time when the remediation was executed.
+rInvocationTime :: Lens' RemediationExecutionStatus (Maybe UTCTime)
+rInvocationTime = lens _rInvocationTime (\ s a -> s{_rInvocationTime = a}) . mapping _Time
+
+instance FromJSON RemediationExecutionStatus where
+        parseJSON
+          = withObject "RemediationExecutionStatus"
+              (\ x ->
+                 RemediationExecutionStatus' <$>
+                   (x .:? "State") <*> (x .:? "LastUpdatedTime") <*>
+                     (x .:? "ResourceKey")
+                     <*> (x .:? "StepDetails" .!= mempty)
+                     <*> (x .:? "InvocationTime"))
+
+instance Hashable RemediationExecutionStatus where
+
+instance NFData RemediationExecutionStatus where
+
+-- | Name of the step from the SSM document.
+--
+--
+--
+-- /See:/ 'remediationExecutionStep' smart constructor.
+data RemediationExecutionStep = RemediationExecutionStep'
+  { _resState        :: !(Maybe RemediationExecutionStepState)
+  , _resStartTime    :: !(Maybe POSIX)
+  , _resName         :: !(Maybe Text)
+  , _resStopTime     :: !(Maybe POSIX)
+  , _resErrorMessage :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RemediationExecutionStep' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'resState' - The valid status of the step.
+--
+-- * 'resStartTime' - The time when the step started.
+--
+-- * 'resName' - The details of the step.
+--
+-- * 'resStopTime' - The time when the step stopped.
+--
+-- * 'resErrorMessage' - An error message if the step was interrupted during execution.
+remediationExecutionStep
+    :: RemediationExecutionStep
+remediationExecutionStep =
+  RemediationExecutionStep'
+    { _resState = Nothing
+    , _resStartTime = Nothing
+    , _resName = Nothing
+    , _resStopTime = Nothing
+    , _resErrorMessage = Nothing
+    }
+
+
+-- | The valid status of the step.
+resState :: Lens' RemediationExecutionStep (Maybe RemediationExecutionStepState)
+resState = lens _resState (\ s a -> s{_resState = a})
+
+-- | The time when the step started.
+resStartTime :: Lens' RemediationExecutionStep (Maybe UTCTime)
+resStartTime = lens _resStartTime (\ s a -> s{_resStartTime = a}) . mapping _Time
+
+-- | The details of the step.
+resName :: Lens' RemediationExecutionStep (Maybe Text)
+resName = lens _resName (\ s a -> s{_resName = a})
+
+-- | The time when the step stopped.
+resStopTime :: Lens' RemediationExecutionStep (Maybe UTCTime)
+resStopTime = lens _resStopTime (\ s a -> s{_resStopTime = a}) . mapping _Time
+
+-- | An error message if the step was interrupted during execution.
+resErrorMessage :: Lens' RemediationExecutionStep (Maybe Text)
+resErrorMessage = lens _resErrorMessage (\ s a -> s{_resErrorMessage = a})
+
+instance FromJSON RemediationExecutionStep where
+        parseJSON
+          = withObject "RemediationExecutionStep"
+              (\ x ->
+                 RemediationExecutionStep' <$>
+                   (x .:? "State") <*> (x .:? "StartTime") <*>
+                     (x .:? "Name")
+                     <*> (x .:? "StopTime")
+                     <*> (x .:? "ErrorMessage"))
+
+instance Hashable RemediationExecutionStep where
+
+instance NFData RemediationExecutionStep where
+
+-- | The value is either a dynamic (resource) value or a static value. You must select either a dynamic value or a static value.
+--
+--
+--
+-- /See:/ 'remediationParameterValue' smart constructor.
+data RemediationParameterValue = RemediationParameterValue'
+  { _rpvStaticValue   :: !(Maybe StaticValue)
+  , _rpvResourceValue :: !(Maybe ResourceValue)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RemediationParameterValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rpvStaticValue' - The value is static and does not change at run-time.
+--
+-- * 'rpvResourceValue' - The value is dynamic and changes at run-time.
+remediationParameterValue
+    :: RemediationParameterValue
+remediationParameterValue =
+  RemediationParameterValue'
+    {_rpvStaticValue = Nothing, _rpvResourceValue = Nothing}
+
+
+-- | The value is static and does not change at run-time.
+rpvStaticValue :: Lens' RemediationParameterValue (Maybe StaticValue)
+rpvStaticValue = lens _rpvStaticValue (\ s a -> s{_rpvStaticValue = a})
+
+-- | The value is dynamic and changes at run-time.
+rpvResourceValue :: Lens' RemediationParameterValue (Maybe ResourceValue)
+rpvResourceValue = lens _rpvResourceValue (\ s a -> s{_rpvResourceValue = a})
+
+instance FromJSON RemediationParameterValue where
+        parseJSON
+          = withObject "RemediationParameterValue"
+              (\ x ->
+                 RemediationParameterValue' <$>
+                   (x .:? "StaticValue") <*> (x .:? "ResourceValue"))
+
+instance Hashable RemediationParameterValue where
+
+instance NFData RemediationParameterValue where
+
+instance ToJSON RemediationParameterValue where
+        toJSON RemediationParameterValue'{..}
+          = object
+              (catMaybes
+                 [("StaticValue" .=) <$> _rpvStaticValue,
+                  ("ResourceValue" .=) <$> _rpvResourceValue])
+
 -- | An object that contains the resource type and the number of resources.
 --
 --
 --
 -- /See:/ 'resourceCount' smart constructor.
 data ResourceCount = ResourceCount'
-  { _rcResourceType :: !(Maybe ResourceType)
-  , _rcCount        :: !(Maybe Integer)
+  { _resResourceType :: !(Maybe ResourceType)
+  , _resCount        :: !(Maybe Integer)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2603,21 +3152,21 @@ data ResourceCount = ResourceCount'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcResourceType' - The resource type (for example, @"AWS::EC2::Instance"@ ).
+-- * 'resResourceType' - The resource type (for example, @"AWS::EC2::Instance"@ ).
 --
--- * 'rcCount' - The number of resources.
+-- * 'resCount' - The number of resources.
 resourceCount
     :: ResourceCount
-resourceCount = ResourceCount' {_rcResourceType = Nothing, _rcCount = Nothing}
+resourceCount = ResourceCount' {_resResourceType = Nothing, _resCount = Nothing}
 
 
 -- | The resource type (for example, @"AWS::EC2::Instance"@ ).
-rcResourceType :: Lens' ResourceCount (Maybe ResourceType)
-rcResourceType = lens _rcResourceType (\ s a -> s{_rcResourceType = a})
+resResourceType :: Lens' ResourceCount (Maybe ResourceType)
+resResourceType = lens _resResourceType (\ s a -> s{_resResourceType = a})
 
 -- | The number of resources.
-rcCount :: Lens' ResourceCount (Maybe Integer)
-rcCount = lens _rcCount (\ s a -> s{_rcCount = a})
+resCount :: Lens' ResourceCount (Maybe Integer)
+resCount = lens _resCount (\ s a -> s{_resCount = a})
 
 instance FromJSON ResourceCount where
         parseJSON
@@ -2629,6 +3178,122 @@ instance FromJSON ResourceCount where
 instance Hashable ResourceCount where
 
 instance NFData ResourceCount where
+
+-- | Filters the resource count based on account ID, region, and resource type.
+--
+--
+--
+-- /See:/ 'resourceCountFilters' smart constructor.
+data ResourceCountFilters = ResourceCountFilters'
+  { _rcfResourceType :: !(Maybe ResourceType)
+  , _rcfAccountId    :: !(Maybe Text)
+  , _rcfRegion       :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ResourceCountFilters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcfResourceType' - The type of the AWS resource.
+--
+-- * 'rcfAccountId' - The 12-digit ID of the account.
+--
+-- * 'rcfRegion' - The region where the account is located.
+resourceCountFilters
+    :: ResourceCountFilters
+resourceCountFilters =
+  ResourceCountFilters'
+    {_rcfResourceType = Nothing, _rcfAccountId = Nothing, _rcfRegion = Nothing}
+
+
+-- | The type of the AWS resource.
+rcfResourceType :: Lens' ResourceCountFilters (Maybe ResourceType)
+rcfResourceType = lens _rcfResourceType (\ s a -> s{_rcfResourceType = a})
+
+-- | The 12-digit ID of the account.
+rcfAccountId :: Lens' ResourceCountFilters (Maybe Text)
+rcfAccountId = lens _rcfAccountId (\ s a -> s{_rcfAccountId = a})
+
+-- | The region where the account is located.
+rcfRegion :: Lens' ResourceCountFilters (Maybe Text)
+rcfRegion = lens _rcfRegion (\ s a -> s{_rcfRegion = a})
+
+instance Hashable ResourceCountFilters where
+
+instance NFData ResourceCountFilters where
+
+instance ToJSON ResourceCountFilters where
+        toJSON ResourceCountFilters'{..}
+          = object
+              (catMaybes
+                 [("ResourceType" .=) <$> _rcfResourceType,
+                  ("AccountId" .=) <$> _rcfAccountId,
+                  ("Region" .=) <$> _rcfRegion])
+
+-- | Filters the results by resource account ID, region, resource ID, and resource name.
+--
+--
+--
+-- /See:/ 'resourceFilters' smart constructor.
+data ResourceFilters = ResourceFilters'
+  { _rfResourceId   :: !(Maybe Text)
+  , _rfResourceName :: !(Maybe Text)
+  , _rfAccountId    :: !(Maybe Text)
+  , _rfRegion       :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ResourceFilters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rfResourceId' - The ID of the resource.
+--
+-- * 'rfResourceName' - The name of the resource.
+--
+-- * 'rfAccountId' - The 12-digit source account ID.
+--
+-- * 'rfRegion' - The source region.
+resourceFilters
+    :: ResourceFilters
+resourceFilters =
+  ResourceFilters'
+    { _rfResourceId = Nothing
+    , _rfResourceName = Nothing
+    , _rfAccountId = Nothing
+    , _rfRegion = Nothing
+    }
+
+
+-- | The ID of the resource.
+rfResourceId :: Lens' ResourceFilters (Maybe Text)
+rfResourceId = lens _rfResourceId (\ s a -> s{_rfResourceId = a})
+
+-- | The name of the resource.
+rfResourceName :: Lens' ResourceFilters (Maybe Text)
+rfResourceName = lens _rfResourceName (\ s a -> s{_rfResourceName = a})
+
+-- | The 12-digit source account ID.
+rfAccountId :: Lens' ResourceFilters (Maybe Text)
+rfAccountId = lens _rfAccountId (\ s a -> s{_rfAccountId = a})
+
+-- | The source region.
+rfRegion :: Lens' ResourceFilters (Maybe Text)
+rfRegion = lens _rfRegion (\ s a -> s{_rfRegion = a})
+
+instance Hashable ResourceFilters where
+
+instance NFData ResourceFilters where
+
+instance ToJSON ResourceFilters where
+        toJSON ResourceFilters'{..}
+          = object
+              (catMaybes
+                 [("ResourceId" .=) <$> _rfResourceId,
+                  ("ResourceName" .=) <$> _rfResourceName,
+                  ("AccountId" .=) <$> _rfAccountId,
+                  ("Region" .=) <$> _rfRegion])
 
 -- | The details that identify a resource that is discovered by AWS Config, including the resource type, ID, and (if available) the custom resource name.
 --
@@ -2746,6 +3411,91 @@ instance ToJSON ResourceKey where
                  [Just ("resourceType" .= _rkResourceType),
                   Just ("resourceId" .= _rkResourceId)])
 
+-- | The dynamic value of the resource.
+--
+--
+--
+-- /See:/ 'resourceValue' smart constructor.
+newtype ResourceValue = ResourceValue'
+  { _rvValue :: Maybe ResourceValueType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ResourceValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rvValue' - The value is a resource ID.
+resourceValue
+    :: ResourceValue
+resourceValue = ResourceValue' {_rvValue = Nothing}
+
+
+-- | The value is a resource ID.
+rvValue :: Lens' ResourceValue (Maybe ResourceValueType)
+rvValue = lens _rvValue (\ s a -> s{_rvValue = a})
+
+instance FromJSON ResourceValue where
+        parseJSON
+          = withObject "ResourceValue"
+              (\ x -> ResourceValue' <$> (x .:? "Value"))
+
+instance Hashable ResourceValue where
+
+instance NFData ResourceValue where
+
+instance ToJSON ResourceValue where
+        toJSON ResourceValue'{..}
+          = object (catMaybes [("Value" .=) <$> _rvValue])
+
+-- | An object with the name of the retention configuration and the retention period in days. The object stores the configuration for data retention in AWS Config.
+--
+--
+--
+-- /See:/ 'retentionConfiguration' smart constructor.
+data RetentionConfiguration = RetentionConfiguration'
+  { _rcName                  :: !Text
+  , _rcRetentionPeriodInDays :: !Nat
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RetentionConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcName' - The name of the retention configuration object.
+--
+-- * 'rcRetentionPeriodInDays' - Number of days AWS Config stores your historical information.
+retentionConfiguration
+    :: Text -- ^ 'rcName'
+    -> Natural -- ^ 'rcRetentionPeriodInDays'
+    -> RetentionConfiguration
+retentionConfiguration pName_ pRetentionPeriodInDays_ =
+  RetentionConfiguration'
+    { _rcName = pName_
+    , _rcRetentionPeriodInDays = _Nat # pRetentionPeriodInDays_
+    }
+
+
+-- | The name of the retention configuration object.
+rcName :: Lens' RetentionConfiguration Text
+rcName = lens _rcName (\ s a -> s{_rcName = a})
+
+-- | Number of days AWS Config stores your historical information.
+rcRetentionPeriodInDays :: Lens' RetentionConfiguration Natural
+rcRetentionPeriodInDays = lens _rcRetentionPeriodInDays (\ s a -> s{_rcRetentionPeriodInDays = a}) . _Nat
+
+instance FromJSON RetentionConfiguration where
+        parseJSON
+          = withObject "RetentionConfiguration"
+              (\ x ->
+                 RetentionConfiguration' <$>
+                   (x .: "Name") <*> (x .: "RetentionPeriodInDays"))
+
+instance Hashable RetentionConfiguration where
+
+instance NFData RetentionConfiguration where
+
 -- | Defines which resources trigger an evaluation for an AWS Config rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
 --
 --
@@ -2842,7 +3592,7 @@ data Source = Source'
 --
 -- * 'sOwner' - Indicates whether AWS or the customer owns and manages the AWS Config rule.
 --
--- * 'sSourceIdentifier' - For AWS Config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> . For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@ .
+-- * 'sSourceIdentifier' - For AWS Config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> . For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@ .
 source
     :: Owner -- ^ 'sOwner'
     -> Text -- ^ 'sSourceIdentifier'
@@ -2863,7 +3613,7 @@ sSourceDetails = lens _sSourceDetails (\ s a -> s{_sSourceDetails = a}) . _Defau
 sOwner :: Lens' Source Owner
 sOwner = lens _sOwner (\ s a -> s{_sOwner = a})
 
--- | For AWS Config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> . For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@ .
+-- | For AWS Config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> . For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@ .
 sSourceIdentifier :: Lens' Source Text
 sSourceIdentifier = lens _sSourceIdentifier (\ s a -> s{_sSourceIdentifier = a})
 
@@ -2951,3 +3701,86 @@ instance ToJSON SourceDetail where
                   ("MaximumExecutionFrequency" .=) <$>
                     _sdMaximumExecutionFrequency,
                   ("EventSource" .=) <$> _sdEventSource])
+
+-- | The static value of the resource.
+--
+--
+--
+-- /See:/ 'staticValue' smart constructor.
+newtype StaticValue = StaticValue'
+  { _svValues :: Maybe [Text]
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'StaticValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'svValues' - A list of values. For example, the ARN of the assumed role.
+staticValue
+    :: StaticValue
+staticValue = StaticValue' {_svValues = Nothing}
+
+
+-- | A list of values. For example, the ARN of the assumed role.
+svValues :: Lens' StaticValue [Text]
+svValues = lens _svValues (\ s a -> s{_svValues = a}) . _Default . _Coerce
+
+instance FromJSON StaticValue where
+        parseJSON
+          = withObject "StaticValue"
+              (\ x -> StaticValue' <$> (x .:? "Values" .!= mempty))
+
+instance Hashable StaticValue where
+
+instance NFData StaticValue where
+
+instance ToJSON StaticValue where
+        toJSON StaticValue'{..}
+          = object (catMaybes [("Values" .=) <$> _svValues])
+
+-- | The tags for the resource. The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+--
+--
+--
+-- /See:/ 'tag' smart constructor.
+data Tag = Tag'
+  { _tagValue :: !(Maybe Text)
+  , _tagKey   :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue' - The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+--
+-- * 'tagKey' - One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+tag
+    :: Tag
+tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
+
+
+-- | The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+tagValue :: Lens' Tag (Maybe Text)
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
+
+-- | One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+tagKey :: Lens' Tag (Maybe Text)
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
+
+instance FromJSON Tag where
+        parseJSON
+          = withObject "Tag"
+              (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
+
+instance Hashable Tag where
+
+instance NFData Tag where
+
+instance ToJSON Tag where
+        toJSON Tag'{..}
+          = object
+              (catMaybes
+                 [("Value" .=) <$> _tagValue, ("Key" .=) <$> _tagKey])

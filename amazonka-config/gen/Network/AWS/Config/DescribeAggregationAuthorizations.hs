@@ -21,6 +21,8 @@
 -- Returns a list of authorizations granted to various aggregator accounts and regions.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.DescribeAggregationAuthorizations
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.Config.DescribeAggregationAuthorizations
 import Network.AWS.Config.Types
 import Network.AWS.Config.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -74,6 +77,15 @@ daaNextToken = lens _daaNextToken (\ s a -> s{_daaNextToken = a})
 -- | The maximum number of AggregationAuthorizations returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
 daaLimit :: Lens' DescribeAggregationAuthorizations (Maybe Natural)
 daaLimit = lens _daaLimit (\ s a -> s{_daaLimit = a}) . mapping _Nat
+
+instance AWSPager DescribeAggregationAuthorizations
+         where
+        page rq rs
+          | stop (rs ^. daarsNextToken) = Nothing
+          | stop (rs ^. daarsAggregationAuthorizations) =
+            Nothing
+          | otherwise =
+            Just $ rq & daaNextToken .~ rs ^. daarsNextToken
 
 instance AWSRequest DescribeAggregationAuthorizations
          where

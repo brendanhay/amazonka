@@ -21,6 +21,8 @@
 -- Returns a list of compliant and noncompliant rules with the number of resources for compliant and noncompliant rules.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.DescribeAggregateComplianceByConfigRules
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.Config.DescribeAggregateComplianceByConfigRules
 import Network.AWS.Config.Types
 import Network.AWS.Config.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -95,6 +98,18 @@ dacbcrLimit = lens _dacbcrLimit (\ s a -> s{_dacbcrLimit = a}) . mapping _Nat
 -- | The name of the configuration aggregator.
 dacbcrConfigurationAggregatorName :: Lens' DescribeAggregateComplianceByConfigRules Text
 dacbcrConfigurationAggregatorName = lens _dacbcrConfigurationAggregatorName (\ s a -> s{_dacbcrConfigurationAggregatorName = a})
+
+instance AWSPager
+           DescribeAggregateComplianceByConfigRules
+         where
+        page rq rs
+          | stop (rs ^. dacbcrrsNextToken) = Nothing
+          | stop
+              (rs ^. dacbcrrsAggregateComplianceByConfigRules)
+            = Nothing
+          | otherwise =
+            Just $ rq &
+              dacbcrNextToken .~ rs ^. dacbcrrsNextToken
 
 instance AWSRequest
            DescribeAggregateComplianceByConfigRules

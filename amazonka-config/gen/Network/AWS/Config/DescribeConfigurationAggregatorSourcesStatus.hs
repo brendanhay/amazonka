@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns status information for sources within an aggregator. The status includes information about the last time AWS Config aggregated data from source accounts or AWS Config failed to aggregate data from source accounts with the related error code or message.
+-- Returns status information for sources within an aggregator. The status includes information about the last time AWS Config verified authorization between the source account and an aggregator account. In case of a failure, the status contains the related error code or message.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.DescribeConfigurationAggregatorSourcesStatus
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.Config.DescribeConfigurationAggregatorSourcesStatus
 import Network.AWS.Config.Types
 import Network.AWS.Config.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -95,6 +98,16 @@ dcassUpdateStatus = lens _dcassUpdateStatus (\ s a -> s{_dcassUpdateStatus = a})
 -- | The name of the configuration aggregator.
 dcassConfigurationAggregatorName :: Lens' DescribeConfigurationAggregatorSourcesStatus Text
 dcassConfigurationAggregatorName = lens _dcassConfigurationAggregatorName (\ s a -> s{_dcassConfigurationAggregatorName = a})
+
+instance AWSPager
+           DescribeConfigurationAggregatorSourcesStatus
+         where
+        page rq rs
+          | stop (rs ^. dcassrsNextToken) = Nothing
+          | stop (rs ^. dcassrsAggregatedSourceStatusList) =
+            Nothing
+          | otherwise =
+            Just $ rq & dcassNextToken .~ rs ^. dcassrsNextToken
 
 instance AWSRequest
            DescribeConfigurationAggregatorSourcesStatus
@@ -168,7 +181,7 @@ data DescribeConfigurationAggregatorSourcesStatusResponse = DescribeConfiguratio
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcassrsAggregatedSourceStatusList' - Retuns an AggregatedSourceStatus object.
+-- * 'dcassrsAggregatedSourceStatusList' - Returns an AggregatedSourceStatus object.
 --
 -- * 'dcassrsNextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 --
@@ -184,7 +197,7 @@ describeConfigurationAggregatorSourcesStatusResponse pResponseStatus_ =
     }
 
 
--- | Retuns an AggregatedSourceStatus object.
+-- | Returns an AggregatedSourceStatus object.
 dcassrsAggregatedSourceStatusList :: Lens' DescribeConfigurationAggregatorSourcesStatusResponse [AggregatedSourceStatus]
 dcassrsAggregatedSourceStatusList = lens _dcassrsAggregatedSourceStatusList (\ s a -> s{_dcassrsAggregatedSourceStatusList = a}) . _Default . _Coerce
 

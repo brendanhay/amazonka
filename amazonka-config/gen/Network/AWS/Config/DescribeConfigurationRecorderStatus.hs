@@ -33,8 +33,8 @@ module Network.AWS.Config.DescribeConfigurationRecorderStatus
     , describeConfigurationRecorderStatusResponse
     , DescribeConfigurationRecorderStatusResponse
     -- * Response Lenses
-    , dcrsrsConfigurationRecordersStatus
-    , dcrsrsResponseStatus
+    , dcrssrsConfigurationRecordersStatus
+    , dcrssrsResponseStatus
     ) where
 
 import Network.AWS.Config.Types
@@ -123,8 +123,8 @@ instance ToQuery DescribeConfigurationRecorderStatus
 --
 -- /See:/ 'describeConfigurationRecorderStatusResponse' smart constructor.
 data DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'
-  { _dcrsrsConfigurationRecordersStatus :: !(Maybe [ConfigurationRecorderStatus])
-  , _dcrsrsResponseStatus :: !Int
+  { _dcrssrsConfigurationRecordersStatus :: !(Maybe [ConfigurationRecorderStatus])
+  , _dcrssrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -132,26 +132,26 @@ data DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorder
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrsrsConfigurationRecordersStatus' - A list that contains status of the specified recorders.
+-- * 'dcrssrsConfigurationRecordersStatus' - A list that contains status of the specified recorders.
 --
--- * 'dcrsrsResponseStatus' - -- | The response status code.
+-- * 'dcrssrsResponseStatus' - -- | The response status code.
 describeConfigurationRecorderStatusResponse
-    :: Int -- ^ 'dcrsrsResponseStatus'
+    :: Int -- ^ 'dcrssrsResponseStatus'
     -> DescribeConfigurationRecorderStatusResponse
 describeConfigurationRecorderStatusResponse pResponseStatus_ =
   DescribeConfigurationRecorderStatusResponse'
-    { _dcrsrsConfigurationRecordersStatus = Nothing
-    , _dcrsrsResponseStatus = pResponseStatus_
+    { _dcrssrsConfigurationRecordersStatus = Nothing
+    , _dcrssrsResponseStatus = pResponseStatus_
     }
 
 
 -- | A list that contains status of the specified recorders.
-dcrsrsConfigurationRecordersStatus :: Lens' DescribeConfigurationRecorderStatusResponse [ConfigurationRecorderStatus]
-dcrsrsConfigurationRecordersStatus = lens _dcrsrsConfigurationRecordersStatus (\ s a -> s{_dcrsrsConfigurationRecordersStatus = a}) . _Default . _Coerce
+dcrssrsConfigurationRecordersStatus :: Lens' DescribeConfigurationRecorderStatusResponse [ConfigurationRecorderStatus]
+dcrssrsConfigurationRecordersStatus = lens _dcrssrsConfigurationRecordersStatus (\ s a -> s{_dcrssrsConfigurationRecordersStatus = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
-dcrsrsResponseStatus :: Lens' DescribeConfigurationRecorderStatusResponse Int
-dcrsrsResponseStatus = lens _dcrsrsResponseStatus (\ s a -> s{_dcrsrsResponseStatus = a})
+dcrssrsResponseStatus :: Lens' DescribeConfigurationRecorderStatusResponse Int
+dcrssrsResponseStatus = lens _dcrssrsResponseStatus (\ s a -> s{_dcrssrsResponseStatus = a})
 
 instance NFData
            DescribeConfigurationRecorderStatusResponse

@@ -16,25 +16,31 @@ module Network.AWS.Config.Types
       config
 
     -- * Errors
+    , _NoSuchRemediationConfigurationException
     , _InvalidTimeRangeException
     , _InvalidSNSTopicARNException
     , _InvalidRecordingGroupException
+    , _InvalidExpressionException
     , _NoAvailableOrganizationException
     , _ValidationException
     , _OrganizationAccessDeniedException
     , _NoSuchConfigurationAggregatorException
     , _InvalidRoleException
+    , _OversizedConfigurationItemException
     , _LastDeliveryChannelDeleteFailedException
     , _InvalidLimitException
     , _InvalidDeliveryChannelNameException
+    , _TooManyTagsException
     , _InvalidParameterValueException
     , _InvalidResultTokenException
     , _NoSuchDeliveryChannelException
     , _NoSuchConfigRuleException
+    , _NoSuchRetentionConfigurationException
     , _OrganizationAllFeaturesNotEnabledException
     , _InsufficientPermissionsException
     , _ResourceNotDiscoveredException
     , _InvalidNextTokenException
+    , _MaxNumberOfRetentionConfigurationsExceededException
     , _MaxNumberOfConfigRulesExceededException
     , _NoAvailableConfigurationRecorderException
     , _NoSuchBucketException
@@ -44,6 +50,7 @@ module Network.AWS.Config.Types
     , _MaxNumberOfConfigurationRecordersExceededException
     , _InsufficientDeliveryPolicyException
     , _MaxNumberOfDeliveryChannelsExceededException
+    , _ResourceNotFoundException
     , _NoSuchConfigurationRecorderException
     , _InvalidS3KeyPrefixException
     , _LimitExceededException
@@ -88,8 +95,23 @@ module Network.AWS.Config.Types
     -- * RecorderStatus
     , RecorderStatus (..)
 
+    -- * RemediationExecutionState
+    , RemediationExecutionState (..)
+
+    -- * RemediationExecutionStepState
+    , RemediationExecutionStepState (..)
+
+    -- * RemediationTargetType
+    , RemediationTargetType (..)
+
+    -- * ResourceCountGroupKey
+    , ResourceCountGroupKey (..)
+
     -- * ResourceType
     , ResourceType (..)
+
+    -- * ResourceValueType
+    , ResourceValueType (..)
 
     -- * AccountAggregationSource
     , AccountAggregationSource
@@ -122,6 +144,15 @@ module Network.AWS.Config.Types
     , aerAccountId
     , aerComplianceType
     , aerAWSRegion
+
+    -- * AggregateResourceIdentifier
+    , AggregateResourceIdentifier
+    , aggregateResourceIdentifier
+    , ariResourceName
+    , ariSourceAccountId
+    , ariSourceRegion
+    , ariResourceId
+    , ariResourceType
 
     -- * AggregatedSourceStatus
     , AggregatedSourceStatus
@@ -213,6 +244,7 @@ module Network.AWS.Config.Types
     , configRule
     , crInputParameters
     , crConfigRuleName
+    , crCreatedBy
     , crMaximumExecutionFrequency
     , crConfigRuleId
     , crScope
@@ -363,6 +395,23 @@ module Network.AWS.Config.Types
     , erqResourceType
     , erqConfigRuleName
 
+    -- * FailedRemediationBatch
+    , FailedRemediationBatch
+    , failedRemediationBatch
+    , frbFailureMessage
+    , frbFailedItems
+
+    -- * FieldInfo
+    , FieldInfo
+    , fieldInfo
+    , fiName
+
+    -- * GroupedResourceCount
+    , GroupedResourceCount
+    , groupedResourceCount
+    , grcGroupName
+    , grcResourceCount
+
     -- * OrganizationAggregationSource
     , OrganizationAggregationSource
     , organizationAggregationSource
@@ -375,6 +424,11 @@ module Network.AWS.Config.Types
     , pendingAggregationRequest
     , parRequesterAccountId
     , parRequesterAWSRegion
+
+    -- * QueryInfo
+    , QueryInfo
+    , queryInfo
+    , qiSelectFields
 
     -- * RecordingGroup
     , RecordingGroup
@@ -391,11 +445,60 @@ module Network.AWS.Config.Types
     , rResourceName
     , rRelationshipName
 
+    -- * RemediationConfiguration
+    , RemediationConfiguration
+    , remediationConfiguration
+    , rcResourceType
+    , rcParameters
+    , rcTargetVersion
+    , rcConfigRuleName
+    , rcTargetType
+    , rcTargetId
+
+    -- * RemediationExecutionStatus
+    , RemediationExecutionStatus
+    , remediationExecutionStatus
+    , rState
+    , rLastUpdatedTime
+    , rResourceKey
+    , rStepDetails
+    , rInvocationTime
+
+    -- * RemediationExecutionStep
+    , RemediationExecutionStep
+    , remediationExecutionStep
+    , resState
+    , resStartTime
+    , resName
+    , resStopTime
+    , resErrorMessage
+
+    -- * RemediationParameterValue
+    , RemediationParameterValue
+    , remediationParameterValue
+    , rpvStaticValue
+    , rpvResourceValue
+
     -- * ResourceCount
     , ResourceCount
     , resourceCount
-    , rcResourceType
-    , rcCount
+    , resResourceType
+    , resCount
+
+    -- * ResourceCountFilters
+    , ResourceCountFilters
+    , resourceCountFilters
+    , rcfResourceType
+    , rcfAccountId
+    , rcfRegion
+
+    -- * ResourceFilters
+    , ResourceFilters
+    , resourceFilters
+    , rfResourceId
+    , rfResourceName
+    , rfAccountId
+    , rfRegion
 
     -- * ResourceIdentifier
     , ResourceIdentifier
@@ -410,6 +513,17 @@ module Network.AWS.Config.Types
     , resourceKey
     , rkResourceType
     , rkResourceId
+
+    -- * ResourceValue
+    , ResourceValue
+    , resourceValue
+    , rvValue
+
+    -- * RetentionConfiguration
+    , RetentionConfiguration
+    , retentionConfiguration
+    , rcName
+    , rcRetentionPeriodInDays
 
     -- * Scope
     , Scope
@@ -432,6 +546,17 @@ module Network.AWS.Config.Types
     , sdMessageType
     , sdMaximumExecutionFrequency
     , sdEventSource
+
+    -- * StaticValue
+    , StaticValue
+    , staticValue
+    , svValues
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
     ) where
 
 import Network.AWS.Config.Types.Product
@@ -479,6 +604,14 @@ config =
       | otherwise = Nothing
 
 
+-- | You specified an AWS Config rule without a remediation configuration.
+--
+--
+_NoSuchRemediationConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
+_NoSuchRemediationConfigurationException =
+  _MatchServiceError config "NoSuchRemediationConfigurationException"
+
+
 -- | The specified time range is not valid. The earlier time is not chronologically before the later time.
 --
 --
@@ -501,6 +634,14 @@ _InvalidSNSTopicARNException =
 _InvalidRecordingGroupException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRecordingGroupException =
   _MatchServiceError config "InvalidRecordingGroupException"
+
+
+-- | The syntax of the query is incorrect.
+--
+--
+_InvalidExpressionException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidExpressionException =
+  _MatchServiceError config "InvalidExpressionException"
 
 
 -- | Organization does is no longer available.
@@ -541,6 +682,14 @@ _InvalidRoleException :: AsError a => Getting (First ServiceError) a ServiceErro
 _InvalidRoleException = _MatchServiceError config "InvalidRoleException"
 
 
+-- | The configuration item size is outside the allowable range.
+--
+--
+_OversizedConfigurationItemException :: AsError a => Getting (First ServiceError) a ServiceError
+_OversizedConfigurationItemException =
+  _MatchServiceError config "OversizedConfigurationItemException"
+
+
 -- | You cannot delete the delivery channel you specified because the configuration recorder is running.
 --
 --
@@ -562,6 +711,13 @@ _InvalidLimitException = _MatchServiceError config "InvalidLimitException"
 _InvalidDeliveryChannelNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDeliveryChannelNameException =
   _MatchServiceError config "InvalidDeliveryChannelNameException"
+
+
+-- | You have reached the limit of the number of tags you can use. You have more than 50 tags.
+--
+--
+_TooManyTagsException :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyTagsException = _MatchServiceError config "TooManyTagsException"
 
 
 -- | One or more of the specified parameters are invalid. Verify that your parameters are valid and try again.
@@ -594,6 +750,14 @@ _NoSuchDeliveryChannelException =
 _NoSuchConfigRuleException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchConfigRuleException =
   _MatchServiceError config "NoSuchConfigRuleException"
+
+
+-- | You have specified a retention configuration that does not exist.
+--
+--
+_NoSuchRetentionConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
+_NoSuchRetentionConfigurationException =
+  _MatchServiceError config "NoSuchRetentionConfigurationException"
 
 
 -- | The configuration aggregator cannot be created because organization does not have all features enabled.
@@ -632,6 +796,16 @@ _ResourceNotDiscoveredException =
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
   _MatchServiceError config "InvalidNextTokenException"
+
+
+-- | Failed to add the retention configuration because a retention configuration with that name already exists.
+--
+--
+_MaxNumberOfRetentionConfigurationsExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_MaxNumberOfRetentionConfigurationsExceededException =
+  _MatchServiceError
+    config
+    "MaxNumberOfRetentionConfigurationsExceededException"
 
 
 -- | Failed to add the AWS Config rule because the account already contains the maximum number of 50 rules. Consider deleting any deactivated rules before you add new rules.
@@ -705,6 +879,14 @@ _MaxNumberOfDeliveryChannelsExceededException =
   _MatchServiceError config "MaxNumberOfDeliveryChannelsExceededException"
 
 
+-- | You have specified a resource that does not exist.
+--
+--
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException =
+  _MatchServiceError config "ResourceNotFoundException"
+
+
 -- | You have specified a configuration recorder that does not exist.
 --
 --
@@ -721,8 +903,10 @@ _InvalidS3KeyPrefixException =
   _MatchServiceError config "InvalidS3KeyPrefixException"
 
 
--- | This exception is thrown if an evaluation is in progress or if you call the 'StartConfigRulesEvaluation' API more than once per minute.
+-- | For @StartConfigRulesEvaluation@ API, this exception is thrown if an evaluation is in progress or if you call the 'StartConfigRulesEvaluation' API more than once per minute.
 --
+--
+-- For @PutConfigurationAggregator@ API, this exception is thrown if the number of accounts and aggregators exceeds the limit.
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _MatchServiceError config "LimitExceededException"

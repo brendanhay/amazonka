@@ -13,9 +13,9 @@
 --
 -- __AWS Config__
 --
--- AWS Config provides a way to keep track of the configurations of all the AWS resources associated with your AWS account. You can use AWS Config to get the current and historical configurations of each AWS resource and also to get information about the relationship between the resources. An AWS resource can be an Amazon Compute Cloud (Amazon EC2) instance, an Elastic Block Store (EBS) volume, an elastic network Interface (ENI), or a security group. For a complete list of resources currently supported by AWS Config, see <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resources> .
+-- AWS Config provides a way to keep track of the configurations of all the AWS resources associated with your AWS account. You can use AWS Config to get the current and historical configurations of each AWS resource and also to get information about the relationship between the resources. An AWS resource can be an Amazon Compute Cloud (Amazon EC2) instance, an Elastic Block Store (EBS) volume, an elastic network Interface (ENI), or a security group. For a complete list of resources currently supported by AWS Config, see <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resources> .
 --
--- You can access and manage AWS Config through the AWS Management Console, the AWS Command Line Interface (AWS CLI), the AWS Config API, or the AWS SDKs for AWS Config. This reference guide contains documentation for the AWS Config API and the AWS CLI commands that you can use to manage AWS Config. The AWS Config API uses the Signature Version 4 protocol for signing requests. For more information about how to sign a request with this protocol, see <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> . For detailed information about AWS Config features and their associated actions or commands, as well as how to work with AWS Management Console, see <http://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html What Is AWS Config> in the /AWS Config Developer Guide/ .
+-- You can access and manage AWS Config through the AWS Management Console, the AWS Command Line Interface (AWS CLI), the AWS Config API, or the AWS SDKs for AWS Config. This reference guide contains documentation for the AWS Config API and the AWS CLI commands that you can use to manage AWS Config. The AWS Config API uses the Signature Version 4 protocol for signing requests. For more information about how to sign a request with this protocol, see <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> . For detailed information about AWS Config features and their associated actions or commands, as well as how to work with AWS Management Console, see <https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html What Is AWS Config> in the /AWS Config Developer Guide/ .
 --
 module Network.AWS.Config
     (
@@ -25,6 +25,9 @@ module Network.AWS.Config
     -- * Errors
     -- $errors
 
+    -- ** NoSuchRemediationConfigurationException
+    , _NoSuchRemediationConfigurationException
+
     -- ** InvalidTimeRangeException
     , _InvalidTimeRangeException
 
@@ -33,6 +36,9 @@ module Network.AWS.Config
 
     -- ** InvalidRecordingGroupException
     , _InvalidRecordingGroupException
+
+    -- ** InvalidExpressionException
+    , _InvalidExpressionException
 
     -- ** NoAvailableOrganizationException
     , _NoAvailableOrganizationException
@@ -49,6 +55,9 @@ module Network.AWS.Config
     -- ** InvalidRoleException
     , _InvalidRoleException
 
+    -- ** OversizedConfigurationItemException
+    , _OversizedConfigurationItemException
+
     -- ** LastDeliveryChannelDeleteFailedException
     , _LastDeliveryChannelDeleteFailedException
 
@@ -57,6 +66,9 @@ module Network.AWS.Config
 
     -- ** InvalidDeliveryChannelNameException
     , _InvalidDeliveryChannelNameException
+
+    -- ** TooManyTagsException
+    , _TooManyTagsException
 
     -- ** InvalidParameterValueException
     , _InvalidParameterValueException
@@ -70,6 +82,9 @@ module Network.AWS.Config
     -- ** NoSuchConfigRuleException
     , _NoSuchConfigRuleException
 
+    -- ** NoSuchRetentionConfigurationException
+    , _NoSuchRetentionConfigurationException
+
     -- ** OrganizationAllFeaturesNotEnabledException
     , _OrganizationAllFeaturesNotEnabledException
 
@@ -81,6 +96,9 @@ module Network.AWS.Config
 
     -- ** InvalidNextTokenException
     , _InvalidNextTokenException
+
+    -- ** MaxNumberOfRetentionConfigurationsExceededException
+    , _MaxNumberOfRetentionConfigurationsExceededException
 
     -- ** MaxNumberOfConfigRulesExceededException
     , _MaxNumberOfConfigRulesExceededException
@@ -109,6 +127,9 @@ module Network.AWS.Config
     -- ** MaxNumberOfDeliveryChannelsExceededException
     , _MaxNumberOfDeliveryChannelsExceededException
 
+    -- ** ResourceNotFoundException
+    , _ResourceNotFoundException
+
     -- ** NoSuchConfigurationRecorderException
     , _NoSuchConfigurationRecorderException
 
@@ -127,17 +148,26 @@ module Network.AWS.Config
     -- * Operations
     -- $operations
 
-    -- ** DescribePendingAggregationRequests
+    -- ** DescribePendingAggregationRequests (Paginated)
     , module Network.AWS.Config.DescribePendingAggregationRequests
+
+    -- ** DescribeRemediationExecutionStatus (Paginated)
+    , module Network.AWS.Config.DescribeRemediationExecutionStatus
 
     -- ** GetResourceConfigHistory (Paginated)
     , module Network.AWS.Config.GetResourceConfigHistory
 
-    -- ** DescribeConfigurationAggregators
+    -- ** GetAggregateResourceConfig
+    , module Network.AWS.Config.GetAggregateResourceConfig
+
+    -- ** DescribeConfigurationAggregators (Paginated)
     , module Network.AWS.Config.DescribeConfigurationAggregators
 
     -- ** DescribeComplianceByConfigRule (Paginated)
     , module Network.AWS.Config.DescribeComplianceByConfigRule
+
+    -- ** DescribeRetentionConfigurations (Paginated)
+    , module Network.AWS.Config.DescribeRetentionConfigurations
 
     -- ** StopConfigurationRecorder
     , module Network.AWS.Config.StopConfigurationRecorder
@@ -145,13 +175,19 @@ module Network.AWS.Config
     -- ** GetAggregateConfigRuleComplianceSummary
     , module Network.AWS.Config.GetAggregateConfigRuleComplianceSummary
 
+    -- ** ListTagsForResource
+    , module Network.AWS.Config.ListTagsForResource
+
     -- ** BatchGetResourceConfig
     , module Network.AWS.Config.BatchGetResourceConfig
 
     -- ** DescribeConfigRules (Paginated)
     , module Network.AWS.Config.DescribeConfigRules
 
-    -- ** DescribeAggregateComplianceByConfigRules
+    -- ** PutRetentionConfiguration
+    , module Network.AWS.Config.PutRetentionConfiguration
+
+    -- ** DescribeAggregateComplianceByConfigRules (Paginated)
     , module Network.AWS.Config.DescribeAggregateComplianceByConfigRules
 
     -- ** DeleteEvaluationResults
@@ -163,6 +199,15 @@ module Network.AWS.Config
     -- ** DeleteConfigRule
     , module Network.AWS.Config.DeleteConfigRule
 
+    -- ** DeleteRetentionConfiguration
+    , module Network.AWS.Config.DeleteRetentionConfiguration
+
+    -- ** SelectResourceConfig
+    , module Network.AWS.Config.SelectResourceConfig
+
+    -- ** ListAggregateDiscoveredResources (Paginated)
+    , module Network.AWS.Config.ListAggregateDiscoveredResources
+
     -- ** GetComplianceDetailsByResource (Paginated)
     , module Network.AWS.Config.GetComplianceDetailsByResource
 
@@ -172,7 +217,10 @@ module Network.AWS.Config
     -- ** DeliverConfigSnapshot
     , module Network.AWS.Config.DeliverConfigSnapshot
 
-    -- ** DescribeConfigRuleEvaluationStatus
+    -- ** BatchGetAggregateResourceConfig
+    , module Network.AWS.Config.BatchGetAggregateResourceConfig
+
+    -- ** DescribeConfigRuleEvaluationStatus (Paginated)
     , module Network.AWS.Config.DescribeConfigRuleEvaluationStatus
 
     -- ** GetDiscoveredResourceCounts
@@ -190,17 +238,29 @@ module Network.AWS.Config
     -- ** DescribeConfigurationRecorders
     , module Network.AWS.Config.DescribeConfigurationRecorders
 
-    -- ** GetAggregateComplianceDetailsByConfigRule
+    -- ** GetAggregateComplianceDetailsByConfigRule (Paginated)
     , module Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule
+
+    -- ** GetAggregateDiscoveredResourceCounts
+    , module Network.AWS.Config.GetAggregateDiscoveredResourceCounts
 
     -- ** StartConfigurationRecorder
     , module Network.AWS.Config.StartConfigurationRecorder
+
+    -- ** PutRemediationConfigurations
+    , module Network.AWS.Config.PutRemediationConfigurations
+
+    -- ** StartRemediationExecution
+    , module Network.AWS.Config.StartRemediationExecution
 
     -- ** GetComplianceSummaryByConfigRule
     , module Network.AWS.Config.GetComplianceSummaryByConfigRule
 
     -- ** PutConfigurationAggregator
     , module Network.AWS.Config.PutConfigurationAggregator
+
+    -- ** TagResource
+    , module Network.AWS.Config.TagResource
 
     -- ** DeleteConfigurationAggregator
     , module Network.AWS.Config.DeleteConfigurationAggregator
@@ -210,6 +270,9 @@ module Network.AWS.Config
 
     -- ** PutConfigurationRecorder
     , module Network.AWS.Config.PutConfigurationRecorder
+
+    -- ** UntagResource
+    , module Network.AWS.Config.UntagResource
 
     -- ** DeleteConfigurationRecorder
     , module Network.AWS.Config.DeleteConfigurationRecorder
@@ -232,19 +295,25 @@ module Network.AWS.Config
     -- ** DeleteDeliveryChannel
     , module Network.AWS.Config.DeleteDeliveryChannel
 
+    -- ** DeleteRemediationConfiguration
+    , module Network.AWS.Config.DeleteRemediationConfiguration
+
     -- ** PutAggregationAuthorization
     , module Network.AWS.Config.PutAggregationAuthorization
 
-    -- ** DescribeConfigurationAggregatorSourcesStatus
+    -- ** DescribeConfigurationAggregatorSourcesStatus (Paginated)
     , module Network.AWS.Config.DescribeConfigurationAggregatorSourcesStatus
 
     -- ** ListDiscoveredResources (Paginated)
     , module Network.AWS.Config.ListDiscoveredResources
 
+    -- ** DescribeRemediationConfigurations
+    , module Network.AWS.Config.DescribeRemediationConfigurations
+
     -- ** DescribeDeliveryChannels
     , module Network.AWS.Config.DescribeDeliveryChannels
 
-    -- ** DescribeAggregationAuthorizations
+    -- ** DescribeAggregationAuthorizations (Paginated)
     , module Network.AWS.Config.DescribeAggregationAuthorizations
 
     -- * Types
@@ -288,8 +357,23 @@ module Network.AWS.Config
     -- ** RecorderStatus
     , RecorderStatus (..)
 
+    -- ** RemediationExecutionState
+    , RemediationExecutionState (..)
+
+    -- ** RemediationExecutionStepState
+    , RemediationExecutionStepState (..)
+
+    -- ** RemediationTargetType
+    , RemediationTargetType (..)
+
+    -- ** ResourceCountGroupKey
+    , ResourceCountGroupKey (..)
+
     -- ** ResourceType
     , ResourceType (..)
+
+    -- ** ResourceValueType
+    , ResourceValueType (..)
 
     -- ** AccountAggregationSource
     , AccountAggregationSource
@@ -322,6 +406,15 @@ module Network.AWS.Config
     , aerAccountId
     , aerComplianceType
     , aerAWSRegion
+
+    -- ** AggregateResourceIdentifier
+    , AggregateResourceIdentifier
+    , aggregateResourceIdentifier
+    , ariResourceName
+    , ariSourceAccountId
+    , ariSourceRegion
+    , ariResourceId
+    , ariResourceType
 
     -- ** AggregatedSourceStatus
     , AggregatedSourceStatus
@@ -413,6 +506,7 @@ module Network.AWS.Config
     , configRule
     , crInputParameters
     , crConfigRuleName
+    , crCreatedBy
     , crMaximumExecutionFrequency
     , crConfigRuleId
     , crScope
@@ -563,6 +657,23 @@ module Network.AWS.Config
     , erqResourceType
     , erqConfigRuleName
 
+    -- ** FailedRemediationBatch
+    , FailedRemediationBatch
+    , failedRemediationBatch
+    , frbFailureMessage
+    , frbFailedItems
+
+    -- ** FieldInfo
+    , FieldInfo
+    , fieldInfo
+    , fiName
+
+    -- ** GroupedResourceCount
+    , GroupedResourceCount
+    , groupedResourceCount
+    , grcGroupName
+    , grcResourceCount
+
     -- ** OrganizationAggregationSource
     , OrganizationAggregationSource
     , organizationAggregationSource
@@ -575,6 +686,11 @@ module Network.AWS.Config
     , pendingAggregationRequest
     , parRequesterAccountId
     , parRequesterAWSRegion
+
+    -- ** QueryInfo
+    , QueryInfo
+    , queryInfo
+    , qiSelectFields
 
     -- ** RecordingGroup
     , RecordingGroup
@@ -591,11 +707,60 @@ module Network.AWS.Config
     , rResourceName
     , rRelationshipName
 
+    -- ** RemediationConfiguration
+    , RemediationConfiguration
+    , remediationConfiguration
+    , rcResourceType
+    , rcParameters
+    , rcTargetVersion
+    , rcConfigRuleName
+    , rcTargetType
+    , rcTargetId
+
+    -- ** RemediationExecutionStatus
+    , RemediationExecutionStatus
+    , remediationExecutionStatus
+    , rState
+    , rLastUpdatedTime
+    , rResourceKey
+    , rStepDetails
+    , rInvocationTime
+
+    -- ** RemediationExecutionStep
+    , RemediationExecutionStep
+    , remediationExecutionStep
+    , resState
+    , resStartTime
+    , resName
+    , resStopTime
+    , resErrorMessage
+
+    -- ** RemediationParameterValue
+    , RemediationParameterValue
+    , remediationParameterValue
+    , rpvStaticValue
+    , rpvResourceValue
+
     -- ** ResourceCount
     , ResourceCount
     , resourceCount
-    , rcResourceType
-    , rcCount
+    , resResourceType
+    , resCount
+
+    -- ** ResourceCountFilters
+    , ResourceCountFilters
+    , resourceCountFilters
+    , rcfResourceType
+    , rcfAccountId
+    , rcfRegion
+
+    -- ** ResourceFilters
+    , ResourceFilters
+    , resourceFilters
+    , rfResourceId
+    , rfResourceName
+    , rfAccountId
+    , rfRegion
 
     -- ** ResourceIdentifier
     , ResourceIdentifier
@@ -610,6 +775,17 @@ module Network.AWS.Config
     , resourceKey
     , rkResourceType
     , rkResourceId
+
+    -- ** ResourceValue
+    , ResourceValue
+    , resourceValue
+    , rvValue
+
+    -- ** RetentionConfiguration
+    , RetentionConfiguration
+    , retentionConfiguration
+    , rcName
+    , rcRetentionPeriodInDays
 
     -- ** Scope
     , Scope
@@ -632,8 +808,20 @@ module Network.AWS.Config
     , sdMessageType
     , sdMaximumExecutionFrequency
     , sdEventSource
+
+    -- ** StaticValue
+    , StaticValue
+    , staticValue
+    , svValues
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
     ) where
 
+import Network.AWS.Config.BatchGetAggregateResourceConfig
 import Network.AWS.Config.BatchGetResourceConfig
 import Network.AWS.Config.DeleteAggregationAuthorization
 import Network.AWS.Config.DeleteConfigRule
@@ -642,6 +830,8 @@ import Network.AWS.Config.DeleteConfigurationRecorder
 import Network.AWS.Config.DeleteDeliveryChannel
 import Network.AWS.Config.DeleteEvaluationResults
 import Network.AWS.Config.DeletePendingAggregationRequest
+import Network.AWS.Config.DeleteRemediationConfiguration
+import Network.AWS.Config.DeleteRetentionConfiguration
 import Network.AWS.Config.DeliverConfigSnapshot
 import Network.AWS.Config.DescribeAggregateComplianceByConfigRules
 import Network.AWS.Config.DescribeAggregationAuthorizations
@@ -656,25 +846,38 @@ import Network.AWS.Config.DescribeConfigurationRecorderStatus
 import Network.AWS.Config.DescribeDeliveryChannels
 import Network.AWS.Config.DescribeDeliveryChannelStatus
 import Network.AWS.Config.DescribePendingAggregationRequests
+import Network.AWS.Config.DescribeRemediationConfigurations
+import Network.AWS.Config.DescribeRemediationExecutionStatus
+import Network.AWS.Config.DescribeRetentionConfigurations
 import Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule
 import Network.AWS.Config.GetAggregateConfigRuleComplianceSummary
+import Network.AWS.Config.GetAggregateDiscoveredResourceCounts
+import Network.AWS.Config.GetAggregateResourceConfig
 import Network.AWS.Config.GetComplianceDetailsByConfigRule
 import Network.AWS.Config.GetComplianceDetailsByResource
 import Network.AWS.Config.GetComplianceSummaryByConfigRule
 import Network.AWS.Config.GetComplianceSummaryByResourceType
 import Network.AWS.Config.GetDiscoveredResourceCounts
 import Network.AWS.Config.GetResourceConfigHistory
+import Network.AWS.Config.ListAggregateDiscoveredResources
 import Network.AWS.Config.ListDiscoveredResources
+import Network.AWS.Config.ListTagsForResource
 import Network.AWS.Config.PutAggregationAuthorization
 import Network.AWS.Config.PutConfigRule
 import Network.AWS.Config.PutConfigurationAggregator
 import Network.AWS.Config.PutConfigurationRecorder
 import Network.AWS.Config.PutDeliveryChannel
 import Network.AWS.Config.PutEvaluations
+import Network.AWS.Config.PutRemediationConfigurations
+import Network.AWS.Config.PutRetentionConfiguration
+import Network.AWS.Config.SelectResourceConfig
 import Network.AWS.Config.StartConfigRulesEvaluation
 import Network.AWS.Config.StartConfigurationRecorder
+import Network.AWS.Config.StartRemediationExecution
 import Network.AWS.Config.StopConfigurationRecorder
+import Network.AWS.Config.TagResource
 import Network.AWS.Config.Types
+import Network.AWS.Config.UntagResource
 import Network.AWS.Config.Waiters
 
 {- $errors

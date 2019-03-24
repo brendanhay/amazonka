@@ -21,6 +21,8 @@
 -- Returns the evaluation results for the specified AWS Config rule for a specific resource in a rule. The results indicate which AWS resources were evaluated by the rule, when each resource was last evaluated, and whether each resource complies with the rule.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule
     (
     -- * Creating a Request
@@ -47,6 +49,7 @@ module Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule
 import Network.AWS.Config.Types
 import Network.AWS.Config.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -125,6 +128,17 @@ gacdbcrAccountId = lens _gacdbcrAccountId (\ s a -> s{_gacdbcrAccountId = a})
 -- | The source region from where the data is aggregated.
 gacdbcrAWSRegion :: Lens' GetAggregateComplianceDetailsByConfigRule Text
 gacdbcrAWSRegion = lens _gacdbcrAWSRegion (\ s a -> s{_gacdbcrAWSRegion = a})
+
+instance AWSPager
+           GetAggregateComplianceDetailsByConfigRule
+         where
+        page rq rs
+          | stop (rs ^. gacdbcrrsNextToken) = Nothing
+          | stop (rs ^. gacdbcrrsAggregateEvaluationResults) =
+            Nothing
+          | otherwise =
+            Just $ rq &
+              gacdbcrNextToken .~ rs ^. gacdbcrrsNextToken
 
 instance AWSRequest
            GetAggregateComplianceDetailsByConfigRule

@@ -21,6 +21,8 @@
 -- Returns status information for each of your AWS managed Config rules. The status includes information such as the last time AWS Config invoked the rule, the last time AWS Config failed to invoke the rule, and the related error for the last failure.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.DescribeConfigRuleEvaluationStatus
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.Config.DescribeConfigRuleEvaluationStatus
 import Network.AWS.Config.Types
 import Network.AWS.Config.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -89,6 +92,15 @@ dcresNextToken = lens _dcresNextToken (\ s a -> s{_dcresNextToken = a})
 -- | The number of rule evaluation results that you want returned. This parameter is required if the rule limit for your account is more than the default of 50 rules. For information about requesting a rule limit increase, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config AWS Config Limits> in the /AWS General Reference Guide/ .
 dcresLimit :: Lens' DescribeConfigRuleEvaluationStatus (Maybe Natural)
 dcresLimit = lens _dcresLimit (\ s a -> s{_dcresLimit = a}) . mapping _Nat
+
+instance AWSPager DescribeConfigRuleEvaluationStatus
+         where
+        page rq rs
+          | stop (rs ^. dcresrsNextToken) = Nothing
+          | stop (rs ^. dcresrsConfigRulesEvaluationStatus) =
+            Nothing
+          | otherwise =
+            Just $ rq & dcresNextToken .~ rs ^. dcresrsNextToken
 
 instance AWSRequest
            DescribeConfigRuleEvaluationStatus

@@ -20,25 +20,25 @@ module Network.AWS.Config.Types.Sum where
 import Network.AWS.Prelude
 
 data AggregatedSourceStatusType
-  = Failed
-  | Outdated
-  | Succeeded
+  = ASSTFailed
+  | ASSTOutdated
+  | ASSTSucceeded
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText AggregatedSourceStatusType where
     parser = takeLowerText >>= \case
-        "failed" -> pure Failed
-        "outdated" -> pure Outdated
-        "succeeded" -> pure Succeeded
+        "failed" -> pure ASSTFailed
+        "outdated" -> pure ASSTOutdated
+        "succeeded" -> pure ASSTSucceeded
         e -> fromTextError $ "Failure parsing AggregatedSourceStatusType from value: '" <> e
            <> "'. Accepted values: failed, outdated, succeeded"
 
 instance ToText AggregatedSourceStatusType where
     toText = \case
-        Failed -> "FAILED"
-        Outdated -> "OUTDATED"
-        Succeeded -> "SUCCEEDED"
+        ASSTFailed -> "FAILED"
+        ASSTOutdated -> "OUTDATED"
+        ASSTSucceeded -> "SUCCEEDED"
 
 instance Hashable     AggregatedSourceStatusType
 instance NFData       AggregatedSourceStatusType
@@ -404,25 +404,25 @@ instance FromJSON Owner where
     parseJSON = parseJSONText "Owner"
 
 data RecorderStatus
-  = Failure
-  | Pending
-  | Success
+  = RSFailure
+  | RSPending
+  | RSSuccess
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText RecorderStatus where
     parser = takeLowerText >>= \case
-        "failure" -> pure Failure
-        "pending" -> pure Pending
-        "success" -> pure Success
+        "failure" -> pure RSFailure
+        "pending" -> pure RSPending
+        "success" -> pure RSSuccess
         e -> fromTextError $ "Failure parsing RecorderStatus from value: '" <> e
            <> "'. Accepted values: failure, pending, success"
 
 instance ToText RecorderStatus where
     toText = \case
-        Failure -> "Failure"
-        Pending -> "Pending"
-        Success -> "Success"
+        RSFailure -> "Failure"
+        RSPending -> "Pending"
+        RSSuccess -> "Success"
 
 instance Hashable     RecorderStatus
 instance NFData       RecorderStatus
@@ -432,6 +432,126 @@ instance ToHeader     RecorderStatus
 
 instance FromJSON RecorderStatus where
     parseJSON = parseJSONText "RecorderStatus"
+
+data RemediationExecutionState
+  = RESFailed
+  | RESInProgress
+  | RESQueued
+  | RESSucceeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText RemediationExecutionState where
+    parser = takeLowerText >>= \case
+        "failed" -> pure RESFailed
+        "in_progress" -> pure RESInProgress
+        "queued" -> pure RESQueued
+        "succeeded" -> pure RESSucceeded
+        e -> fromTextError $ "Failure parsing RemediationExecutionState from value: '" <> e
+           <> "'. Accepted values: failed, in_progress, queued, succeeded"
+
+instance ToText RemediationExecutionState where
+    toText = \case
+        RESFailed -> "FAILED"
+        RESInProgress -> "IN_PROGRESS"
+        RESQueued -> "QUEUED"
+        RESSucceeded -> "SUCCEEDED"
+
+instance Hashable     RemediationExecutionState
+instance NFData       RemediationExecutionState
+instance ToByteString RemediationExecutionState
+instance ToQuery      RemediationExecutionState
+instance ToHeader     RemediationExecutionState
+
+instance FromJSON RemediationExecutionState where
+    parseJSON = parseJSONText "RemediationExecutionState"
+
+data RemediationExecutionStepState
+  = Failed
+  | Pending
+  | Succeeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText RemediationExecutionStepState where
+    parser = takeLowerText >>= \case
+        "failed" -> pure Failed
+        "pending" -> pure Pending
+        "succeeded" -> pure Succeeded
+        e -> fromTextError $ "Failure parsing RemediationExecutionStepState from value: '" <> e
+           <> "'. Accepted values: failed, pending, succeeded"
+
+instance ToText RemediationExecutionStepState where
+    toText = \case
+        Failed -> "FAILED"
+        Pending -> "PENDING"
+        Succeeded -> "SUCCEEDED"
+
+instance Hashable     RemediationExecutionStepState
+instance NFData       RemediationExecutionStepState
+instance ToByteString RemediationExecutionStepState
+instance ToQuery      RemediationExecutionStepState
+instance ToHeader     RemediationExecutionStepState
+
+instance FromJSON RemediationExecutionStepState where
+    parseJSON = parseJSONText "RemediationExecutionStepState"
+
+data RemediationTargetType =
+  SsmDocument
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText RemediationTargetType where
+    parser = takeLowerText >>= \case
+        "ssm_document" -> pure SsmDocument
+        e -> fromTextError $ "Failure parsing RemediationTargetType from value: '" <> e
+           <> "'. Accepted values: ssm_document"
+
+instance ToText RemediationTargetType where
+    toText = \case
+        SsmDocument -> "SSM_DOCUMENT"
+
+instance Hashable     RemediationTargetType
+instance NFData       RemediationTargetType
+instance ToByteString RemediationTargetType
+instance ToQuery      RemediationTargetType
+instance ToHeader     RemediationTargetType
+
+instance ToJSON RemediationTargetType where
+    toJSON = toJSONText
+
+instance FromJSON RemediationTargetType where
+    parseJSON = parseJSONText "RemediationTargetType"
+
+data ResourceCountGroupKey
+  = RCGKAWSRegion
+  | RCGKAccountId
+  | RCGKResourceType
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ResourceCountGroupKey where
+    parser = takeLowerText >>= \case
+        "aws_region" -> pure RCGKAWSRegion
+        "account_id" -> pure RCGKAccountId
+        "resource_type" -> pure RCGKResourceType
+        e -> fromTextError $ "Failure parsing ResourceCountGroupKey from value: '" <> e
+           <> "'. Accepted values: aws_region, account_id, resource_type"
+
+instance ToText ResourceCountGroupKey where
+    toText = \case
+        RCGKAWSRegion -> "AWS_REGION"
+        RCGKAccountId -> "ACCOUNT_ID"
+        RCGKResourceType -> "RESOURCE_TYPE"
+
+instance Hashable     ResourceCountGroupKey
+instance NFData       ResourceCountGroupKey
+instance ToByteString ResourceCountGroupKey
+instance ToQuery      ResourceCountGroupKey
+instance ToHeader     ResourceCountGroupKey
+
+instance ToJSON ResourceCountGroupKey where
+    toJSON = toJSONText
 
 data ResourceType
   = AWSAcmCertificate
@@ -445,6 +565,8 @@ data ResourceType
   | AWSCloudTrailTrail
   | AWSCloudWatchAlarm
   | AWSCodeBuildProject
+  | AWSCodePipelinePipeline
+  | AWSConfigResourceCompliance
   | AWSDynamoDBTable
   | AWSEC2CustomerGateway
   | AWSEC2EIP
@@ -482,7 +604,11 @@ data ResourceType
   | AWSRedshiftClusterSubnetGroup
   | AWSRedshiftEventSubscription
   | AWSS3Bucket
+  | AWSShieldProtection
+  | AWSShieldRegionalProtection
+  | AWSSsmAssociationCompliance
   | AWSSsmManagedInstanceInventory
+  | AWSSsmPatchCompliance
   | AWSWAFRegionalRateBasedRule
   | AWSWAFRegionalRule
   | AWSWAFRegionalRuleGroup
@@ -491,6 +617,7 @@ data ResourceType
   | AWSWafRule
   | AWSWafRuleGroup
   | AWSWafWebACL
+  | AWSXRayEncryptionConfig
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -507,6 +634,8 @@ instance FromText ResourceType where
         "aws::cloudtrail::trail" -> pure AWSCloudTrailTrail
         "aws::cloudwatch::alarm" -> pure AWSCloudWatchAlarm
         "aws::codebuild::project" -> pure AWSCodeBuildProject
+        "aws::codepipeline::pipeline" -> pure AWSCodePipelinePipeline
+        "aws::config::resourcecompliance" -> pure AWSConfigResourceCompliance
         "aws::dynamodb::table" -> pure AWSDynamoDBTable
         "aws::ec2::customergateway" -> pure AWSEC2CustomerGateway
         "aws::ec2::eip" -> pure AWSEC2EIP
@@ -544,7 +673,11 @@ instance FromText ResourceType where
         "aws::redshift::clustersubnetgroup" -> pure AWSRedshiftClusterSubnetGroup
         "aws::redshift::eventsubscription" -> pure AWSRedshiftEventSubscription
         "aws::s3::bucket" -> pure AWSS3Bucket
+        "aws::shield::protection" -> pure AWSShieldProtection
+        "aws::shieldregional::protection" -> pure AWSShieldRegionalProtection
+        "aws::ssm::associationcompliance" -> pure AWSSsmAssociationCompliance
         "aws::ssm::managedinstanceinventory" -> pure AWSSsmManagedInstanceInventory
+        "aws::ssm::patchcompliance" -> pure AWSSsmPatchCompliance
         "aws::wafregional::ratebasedrule" -> pure AWSWAFRegionalRateBasedRule
         "aws::wafregional::rule" -> pure AWSWAFRegionalRule
         "aws::wafregional::rulegroup" -> pure AWSWAFRegionalRuleGroup
@@ -553,8 +686,9 @@ instance FromText ResourceType where
         "aws::waf::rule" -> pure AWSWafRule
         "aws::waf::rulegroup" -> pure AWSWafRuleGroup
         "aws::waf::webacl" -> pure AWSWafWebACL
+        "aws::xray::encryptionconfig" -> pure AWSXRayEncryptionConfig
         e -> fromTextError $ "Failure parsing ResourceType from value: '" <> e
-           <> "'. Accepted values: aws::acm::certificate, aws::autoscaling::autoscalinggroup, aws::autoscaling::launchconfiguration, aws::autoscaling::scalingpolicy, aws::autoscaling::scheduledaction, aws::cloudformation::stack, aws::cloudfront::distribution, aws::cloudfront::streamingdistribution, aws::cloudtrail::trail, aws::cloudwatch::alarm, aws::codebuild::project, aws::dynamodb::table, aws::ec2::customergateway, aws::ec2::eip, aws::ec2::host, aws::ec2::instance, aws::ec2::internetgateway, aws::ec2::networkacl, aws::ec2::networkinterface, aws::ec2::routetable, aws::ec2::securitygroup, aws::ec2::subnet, aws::ec2::vpc, aws::ec2::vpnconnection, aws::ec2::vpngateway, aws::ec2::volume, aws::elasticloadbalancingv2::loadbalancer, aws::elasticbeanstalk::application, aws::elasticbeanstalk::applicationversion, aws::elasticbeanstalk::environment, aws::elasticloadbalancing::loadbalancer, aws::iam::group, aws::iam::policy, aws::iam::role, aws::iam::user, aws::lambda::function, aws::rds::dbinstance, aws::rds::dbsecuritygroup, aws::rds::dbsnapshot, aws::rds::dbsubnetgroup, aws::rds::eventsubscription, aws::redshift::cluster, aws::redshift::clusterparametergroup, aws::redshift::clustersecuritygroup, aws::redshift::clustersnapshot, aws::redshift::clustersubnetgroup, aws::redshift::eventsubscription, aws::s3::bucket, aws::ssm::managedinstanceinventory, aws::wafregional::ratebasedrule, aws::wafregional::rule, aws::wafregional::rulegroup, aws::wafregional::webacl, aws::waf::ratebasedrule, aws::waf::rule, aws::waf::rulegroup, aws::waf::webacl"
+           <> "'. Accepted values: aws::acm::certificate, aws::autoscaling::autoscalinggroup, aws::autoscaling::launchconfiguration, aws::autoscaling::scalingpolicy, aws::autoscaling::scheduledaction, aws::cloudformation::stack, aws::cloudfront::distribution, aws::cloudfront::streamingdistribution, aws::cloudtrail::trail, aws::cloudwatch::alarm, aws::codebuild::project, aws::codepipeline::pipeline, aws::config::resourcecompliance, aws::dynamodb::table, aws::ec2::customergateway, aws::ec2::eip, aws::ec2::host, aws::ec2::instance, aws::ec2::internetgateway, aws::ec2::networkacl, aws::ec2::networkinterface, aws::ec2::routetable, aws::ec2::securitygroup, aws::ec2::subnet, aws::ec2::vpc, aws::ec2::vpnconnection, aws::ec2::vpngateway, aws::ec2::volume, aws::elasticloadbalancingv2::loadbalancer, aws::elasticbeanstalk::application, aws::elasticbeanstalk::applicationversion, aws::elasticbeanstalk::environment, aws::elasticloadbalancing::loadbalancer, aws::iam::group, aws::iam::policy, aws::iam::role, aws::iam::user, aws::lambda::function, aws::rds::dbinstance, aws::rds::dbsecuritygroup, aws::rds::dbsnapshot, aws::rds::dbsubnetgroup, aws::rds::eventsubscription, aws::redshift::cluster, aws::redshift::clusterparametergroup, aws::redshift::clustersecuritygroup, aws::redshift::clustersnapshot, aws::redshift::clustersubnetgroup, aws::redshift::eventsubscription, aws::s3::bucket, aws::shield::protection, aws::shieldregional::protection, aws::ssm::associationcompliance, aws::ssm::managedinstanceinventory, aws::ssm::patchcompliance, aws::wafregional::ratebasedrule, aws::wafregional::rule, aws::wafregional::rulegroup, aws::wafregional::webacl, aws::waf::ratebasedrule, aws::waf::rule, aws::waf::rulegroup, aws::waf::webacl, aws::xray::encryptionconfig"
 
 instance ToText ResourceType where
     toText = \case
@@ -569,6 +703,8 @@ instance ToText ResourceType where
         AWSCloudTrailTrail -> "AWS::CloudTrail::Trail"
         AWSCloudWatchAlarm -> "AWS::CloudWatch::Alarm"
         AWSCodeBuildProject -> "AWS::CodeBuild::Project"
+        AWSCodePipelinePipeline -> "AWS::CodePipeline::Pipeline"
+        AWSConfigResourceCompliance -> "AWS::Config::ResourceCompliance"
         AWSDynamoDBTable -> "AWS::DynamoDB::Table"
         AWSEC2CustomerGateway -> "AWS::EC2::CustomerGateway"
         AWSEC2EIP -> "AWS::EC2::EIP"
@@ -606,7 +742,11 @@ instance ToText ResourceType where
         AWSRedshiftClusterSubnetGroup -> "AWS::Redshift::ClusterSubnetGroup"
         AWSRedshiftEventSubscription -> "AWS::Redshift::EventSubscription"
         AWSS3Bucket -> "AWS::S3::Bucket"
+        AWSShieldProtection -> "AWS::Shield::Protection"
+        AWSShieldRegionalProtection -> "AWS::ShieldRegional::Protection"
+        AWSSsmAssociationCompliance -> "AWS::SSM::AssociationCompliance"
         AWSSsmManagedInstanceInventory -> "AWS::SSM::ManagedInstanceInventory"
+        AWSSsmPatchCompliance -> "AWS::SSM::PatchCompliance"
         AWSWAFRegionalRateBasedRule -> "AWS::WAFRegional::RateBasedRule"
         AWSWAFRegionalRule -> "AWS::WAFRegional::Rule"
         AWSWAFRegionalRuleGroup -> "AWS::WAFRegional::RuleGroup"
@@ -615,6 +755,7 @@ instance ToText ResourceType where
         AWSWafRule -> "AWS::WAF::Rule"
         AWSWafRuleGroup -> "AWS::WAF::RuleGroup"
         AWSWafWebACL -> "AWS::WAF::WebACL"
+        AWSXRayEncryptionConfig -> "AWS::XRay::EncryptionConfig"
 
 instance Hashable     ResourceType
 instance NFData       ResourceType
@@ -627,3 +768,30 @@ instance ToJSON ResourceType where
 
 instance FromJSON ResourceType where
     parseJSON = parseJSONText "ResourceType"
+
+data ResourceValueType =
+  ResourceId
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ResourceValueType where
+    parser = takeLowerText >>= \case
+        "resource_id" -> pure ResourceId
+        e -> fromTextError $ "Failure parsing ResourceValueType from value: '" <> e
+           <> "'. Accepted values: resource_id"
+
+instance ToText ResourceValueType where
+    toText = \case
+        ResourceId -> "RESOURCE_ID"
+
+instance Hashable     ResourceValueType
+instance NFData       ResourceValueType
+instance ToByteString ResourceValueType
+instance ToQuery      ResourceValueType
+instance ToHeader     ResourceValueType
+
+instance ToJSON ResourceValueType where
+    toJSON = toJSONText
+
+instance FromJSON ResourceValueType where
+    parseJSON = parseJSONText "ResourceValueType"

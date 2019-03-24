@@ -21,7 +21,7 @@
 -- Deletes a subscriber.
 --
 --
--- __Deleting the last subscriber to a notification also deletes the notification.__
+-- /Important:/ Deleting the last subscriber to a notification also deletes the notification.
 --
 module Network.AWS.Budgets.DeleteSubscriber
     (
@@ -58,7 +58,7 @@ data DeleteSubscriber = DeleteSubscriber'
   , _dsBudgetName   :: !Text
   , _dsNotification :: !Notification
   , _dsSubscriber   :: !Subscriber
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'DeleteSubscriber' with the minimum fields required to make a request.

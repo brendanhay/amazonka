@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the notifications associated with a budget.
+-- Lists the notifications that are associated with a budget.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Budgets.DescribeNotificationsForBudget
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.Budgets.DescribeNotificationsForBudget
 import Network.AWS.Budgets.Types
 import Network.AWS.Budgets.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -65,9 +68,9 @@ data DescribeNotificationsForBudget = DescribeNotificationsForBudget'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dnfbNextToken' - The pagination token that indicates the next set of results to retrieve.
+-- * 'dnfbNextToken' - The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
 --
--- * 'dnfbMaxResults' - Optional integer. Specifies the maximum number of results to return in response.
+-- * 'dnfbMaxResults' - An optional integer that represents how many entries a paginated response contains. The maximum is 100.
 --
 -- * 'dnfbAccountId' - The @accountId@ that is associated with the budget whose notifications you want descriptions of.
 --
@@ -85,11 +88,11 @@ describeNotificationsForBudget pAccountId_ pBudgetName_ =
     }
 
 
--- | The pagination token that indicates the next set of results to retrieve.
+-- | The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
 dnfbNextToken :: Lens' DescribeNotificationsForBudget (Maybe Text)
 dnfbNextToken = lens _dnfbNextToken (\ s a -> s{_dnfbNextToken = a})
 
--- | Optional integer. Specifies the maximum number of results to return in response.
+-- | An optional integer that represents how many entries a paginated response contains. The maximum is 100.
 dnfbMaxResults :: Lens' DescribeNotificationsForBudget (Maybe Natural)
 dnfbMaxResults = lens _dnfbMaxResults (\ s a -> s{_dnfbMaxResults = a}) . mapping _Nat
 
@@ -100,6 +103,14 @@ dnfbAccountId = lens _dnfbAccountId (\ s a -> s{_dnfbAccountId = a})
 -- | The name of the budget whose notifications you want descriptions of.
 dnfbBudgetName :: Lens' DescribeNotificationsForBudget Text
 dnfbBudgetName = lens _dnfbBudgetName (\ s a -> s{_dnfbBudgetName = a})
+
+instance AWSPager DescribeNotificationsForBudget
+         where
+        page rq rs
+          | stop (rs ^. dnfbrsNextToken) = Nothing
+          | stop (rs ^. dnfbrsNotifications) = Nothing
+          | otherwise =
+            Just $ rq & dnfbNextToken .~ rs ^. dnfbrsNextToken
 
 instance AWSRequest DescribeNotificationsForBudget
          where
@@ -161,9 +172,9 @@ data DescribeNotificationsForBudgetResponse = DescribeNotificationsForBudgetResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dnfbrsNextToken' - The pagination token that indicates the next set of results that you can retrieve.
+-- * 'dnfbrsNextToken' - The pagination token in the service response that indicates the next set of results that you can retrieve.
 --
--- * 'dnfbrsNotifications' - A list of notifications associated with a budget.
+-- * 'dnfbrsNotifications' - A list of notifications that are associated with a budget.
 --
 -- * 'dnfbrsResponseStatus' - -- | The response status code.
 describeNotificationsForBudgetResponse
@@ -177,11 +188,11 @@ describeNotificationsForBudgetResponse pResponseStatus_ =
     }
 
 
--- | The pagination token that indicates the next set of results that you can retrieve.
+-- | The pagination token in the service response that indicates the next set of results that you can retrieve.
 dnfbrsNextToken :: Lens' DescribeNotificationsForBudgetResponse (Maybe Text)
 dnfbrsNextToken = lens _dnfbrsNextToken (\ s a -> s{_dnfbrsNextToken = a})
 
--- | A list of notifications associated with a budget.
+-- | A list of notifications that are associated with a budget.
 dnfbrsNotifications :: Lens' DescribeNotificationsForBudgetResponse [Notification]
 dnfbrsNotifications = lens _dnfbrsNotifications (\ s a -> s{_dnfbrsNotifications = a}) . _Default . _Coerce
 

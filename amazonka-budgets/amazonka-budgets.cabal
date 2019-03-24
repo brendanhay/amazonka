@@ -52,6 +52,7 @@ library
         , Network.AWS.Budgets.DeleteNotification
         , Network.AWS.Budgets.DeleteSubscriber
         , Network.AWS.Budgets.DescribeBudget
+        , Network.AWS.Budgets.DescribeBudgetPerformanceHistory
         , Network.AWS.Budgets.DescribeBudgets
         , Network.AWS.Budgets.DescribeNotificationsForBudget
         , Network.AWS.Budgets.DescribeSubscribersForNotification

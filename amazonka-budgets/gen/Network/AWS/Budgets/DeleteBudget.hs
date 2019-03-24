@@ -21,7 +21,7 @@
 -- Deletes a budget. You can delete your budget at any time.
 --
 --
--- __Deleting a budget also deletes the notifications and subscribers associated with that budget.__
+-- /Important:/ Deleting a budget also deletes the notifications and subscribers that are associated with that budget.
 --
 module Network.AWS.Budgets.DeleteBudget
     (

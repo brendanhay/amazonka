@@ -21,15 +21,18 @@ import Network.AWS.Budgets.Types.Sum
 import Network.AWS.Lens
 import Network.AWS.Prelude
 
--- | Represents the output of the @CreateBudget@ operation. The content consists of the detailed metadata and data file information, and the current status of the @budget@ .
+-- | Represents the output of the @CreateBudget@ operation. The content consists of the detailed metadata and data file information, and the current status of the @budget@ object.
 --
 --
--- The ARN pattern for a budget is: @arn:aws:budgetservice::AccountId:budget/budgetName@
+-- This is the ARN pattern for a budget:
+--
+-- @arn:aws:budgetservice::AccountId:budget/budgetName@
 --
 --
 -- /See:/ 'budget' smart constructor.
 data Budget = Budget'
   { _bCalculatedSpend :: !(Maybe CalculatedSpend)
+  , _bLastUpdatedTime :: !(Maybe POSIX)
   , _bBudgetLimit     :: !(Maybe Spend)
   , _bTimePeriod      :: !(Maybe TimePeriod)
   , _bCostTypes       :: !(Maybe CostTypes)
@@ -44,21 +47,23 @@ data Budget = Budget'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bCalculatedSpend' - The actual and forecasted cost or usage being tracked by a budget.
+-- * 'bCalculatedSpend' - The actual and forecasted cost or usage that the budget tracks.
 --
--- * 'bBudgetLimit' - The total amount of cost, usage, or RI utilization that you want to track with your budget. @BudgetLimit@ is required for cost or usage budgets, but optional for RI utilization budgets. RI utilization budgets default to the only valid value for RI utilization budgets, which is @100@ .
+-- * 'bLastUpdatedTime' - The last time that you updated this budget.
 --
--- * 'bTimePeriod' - The period of time covered by a budget. Has a start date and an end date. The start date must come before the end date. There are no restrictions on the end date.  If you created your budget and didn't specify a start date, AWS defaults to the start of your chosen time period (i.e. DAILY, MONTHLY, QUARTERLY, ANNUALLY). For example, if you created your budget on January 24th 2018, chose @DAILY@ , and didn't set a start date, AWS set your start date to @01/24/18 00:00 UTC@ . If you chose @MONTHLY@ , AWS set your start date to @01/01/18 00:00 UTC@ . If you didn't specify an end date, AWS set your end date to @06/15/87 00:00 UTC@ . The defaults are the same for the AWS Billing and Cost Management console and the API.  You can change either date with the @UpdateBudget@ operation. After the end date, AWS deletes the budget and all associated notifications and subscribers.
+-- * 'bBudgetLimit' - The total amount of cost, usage, RI utilization, or RI coverage that you want to track with your budget. @BudgetLimit@ is required for cost or usage budgets, but optional for RI utilization or coverage budgets. RI utilization or coverage budgets default to @100@ , which is the only valid value for RI utilization or coverage budgets.
 --
--- * 'bCostTypes' - The types of costs included in this budget.
+-- * 'bTimePeriod' - The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. The end date must come before @06/15/87 00:00 UTC@ .  If you create your budget and don't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose @DAILY@ , and didn't set a start date, AWS set your start date to @01/24/18 00:00 UTC@ . If you chose @MONTHLY@ , AWS set your start date to @01/01/18 00:00 UTC@ . If you didn't specify an end date, AWS set your end date to @06/15/87 00:00 UTC@ . The defaults are the same for the AWS Billing and Cost Management console and the API.  You can change either date with the @UpdateBudget@ operation. After the end date, AWS deletes the budget and all associated notifications and subscribers.
 --
--- * 'bCostFilters' - The cost filters applied to a budget, such as service or region.
+-- * 'bCostTypes' - The types of costs that are included in this @COST@ budget. @USAGE@ , @RI_UTILIZATION@ , and @RI_COVERAGE@ budgets do not have @CostTypes@ .
 --
--- * 'bBudgetName' - The name of a budget. Unique within accounts. @:@ and @\@ characters are not allowed in the @BudgetName@ .
+-- * 'bCostFilters' - The cost filters, such as service or region, that are applied to a budget. AWS Budgets supports the following services as a filter for RI budgets:     * Amazon Elastic Compute Cloud - Compute     * Amazon Redshift     * Amazon Relational Database Service     * Amazon ElastiCache     * Amazon Elasticsearch Service
 --
--- * 'bTimeUnit' - The length of time until a budget resets the actual and forecasted spend.
+-- * 'bBudgetName' - The name of a budget. The name must be unique within accounts. The @:@ and @\@ characters aren't allowed in @BudgetName@ .
 --
--- * 'bBudgetType' - Whether this budget tracks monetary costs, usage, or RI utilization.
+-- * 'bTimeUnit' - The length of time until a budget resets the actual and forecasted spend. @DAILY@ is available only for @RI_UTILIZATION@ and @RI_COVERAGE@ budgets.
+--
+-- * 'bBudgetType' - Whether this budget tracks monetary costs, usage, RI utilization, or RI coverage.
 budget
     :: Text -- ^ 'bBudgetName'
     -> TimeUnit -- ^ 'bTimeUnit'
@@ -67,6 +72,7 @@ budget
 budget pBudgetName_ pTimeUnit_ pBudgetType_ =
   Budget'
     { _bCalculatedSpend = Nothing
+    , _bLastUpdatedTime = Nothing
     , _bBudgetLimit = Nothing
     , _bTimePeriod = Nothing
     , _bCostTypes = Nothing
@@ -77,35 +83,39 @@ budget pBudgetName_ pTimeUnit_ pBudgetType_ =
     }
 
 
--- | The actual and forecasted cost or usage being tracked by a budget.
+-- | The actual and forecasted cost or usage that the budget tracks.
 bCalculatedSpend :: Lens' Budget (Maybe CalculatedSpend)
 bCalculatedSpend = lens _bCalculatedSpend (\ s a -> s{_bCalculatedSpend = a})
 
--- | The total amount of cost, usage, or RI utilization that you want to track with your budget. @BudgetLimit@ is required for cost or usage budgets, but optional for RI utilization budgets. RI utilization budgets default to the only valid value for RI utilization budgets, which is @100@ .
+-- | The last time that you updated this budget.
+bLastUpdatedTime :: Lens' Budget (Maybe UTCTime)
+bLastUpdatedTime = lens _bLastUpdatedTime (\ s a -> s{_bLastUpdatedTime = a}) . mapping _Time
+
+-- | The total amount of cost, usage, RI utilization, or RI coverage that you want to track with your budget. @BudgetLimit@ is required for cost or usage budgets, but optional for RI utilization or coverage budgets. RI utilization or coverage budgets default to @100@ , which is the only valid value for RI utilization or coverage budgets.
 bBudgetLimit :: Lens' Budget (Maybe Spend)
 bBudgetLimit = lens _bBudgetLimit (\ s a -> s{_bBudgetLimit = a})
 
--- | The period of time covered by a budget. Has a start date and an end date. The start date must come before the end date. There are no restrictions on the end date.  If you created your budget and didn't specify a start date, AWS defaults to the start of your chosen time period (i.e. DAILY, MONTHLY, QUARTERLY, ANNUALLY). For example, if you created your budget on January 24th 2018, chose @DAILY@ , and didn't set a start date, AWS set your start date to @01/24/18 00:00 UTC@ . If you chose @MONTHLY@ , AWS set your start date to @01/01/18 00:00 UTC@ . If you didn't specify an end date, AWS set your end date to @06/15/87 00:00 UTC@ . The defaults are the same for the AWS Billing and Cost Management console and the API.  You can change either date with the @UpdateBudget@ operation. After the end date, AWS deletes the budget and all associated notifications and subscribers.
+-- | The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. The end date must come before @06/15/87 00:00 UTC@ .  If you create your budget and don't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose @DAILY@ , and didn't set a start date, AWS set your start date to @01/24/18 00:00 UTC@ . If you chose @MONTHLY@ , AWS set your start date to @01/01/18 00:00 UTC@ . If you didn't specify an end date, AWS set your end date to @06/15/87 00:00 UTC@ . The defaults are the same for the AWS Billing and Cost Management console and the API.  You can change either date with the @UpdateBudget@ operation. After the end date, AWS deletes the budget and all associated notifications and subscribers.
 bTimePeriod :: Lens' Budget (Maybe TimePeriod)
 bTimePeriod = lens _bTimePeriod (\ s a -> s{_bTimePeriod = a})
 
--- | The types of costs included in this budget.
+-- | The types of costs that are included in this @COST@ budget. @USAGE@ , @RI_UTILIZATION@ , and @RI_COVERAGE@ budgets do not have @CostTypes@ .
 bCostTypes :: Lens' Budget (Maybe CostTypes)
 bCostTypes = lens _bCostTypes (\ s a -> s{_bCostTypes = a})
 
--- | The cost filters applied to a budget, such as service or region.
+-- | The cost filters, such as service or region, that are applied to a budget. AWS Budgets supports the following services as a filter for RI budgets:     * Amazon Elastic Compute Cloud - Compute     * Amazon Redshift     * Amazon Relational Database Service     * Amazon ElastiCache     * Amazon Elasticsearch Service
 bCostFilters :: Lens' Budget (HashMap Text [Text])
 bCostFilters = lens _bCostFilters (\ s a -> s{_bCostFilters = a}) . _Default . _Map
 
--- | The name of a budget. Unique within accounts. @:@ and @\@ characters are not allowed in the @BudgetName@ .
+-- | The name of a budget. The name must be unique within accounts. The @:@ and @\@ characters aren't allowed in @BudgetName@ .
 bBudgetName :: Lens' Budget Text
 bBudgetName = lens _bBudgetName (\ s a -> s{_bBudgetName = a})
 
--- | The length of time until a budget resets the actual and forecasted spend.
+-- | The length of time until a budget resets the actual and forecasted spend. @DAILY@ is available only for @RI_UTILIZATION@ and @RI_COVERAGE@ budgets.
 bTimeUnit :: Lens' Budget TimeUnit
 bTimeUnit = lens _bTimeUnit (\ s a -> s{_bTimeUnit = a})
 
--- | Whether this budget tracks monetary costs, usage, or RI utilization.
+-- | Whether this budget tracks monetary costs, usage, RI utilization, or RI coverage.
 bBudgetType :: Lens' Budget BudgetType
 bBudgetType = lens _bBudgetType (\ s a -> s{_bBudgetType = a})
 
@@ -114,7 +124,9 @@ instance FromJSON Budget where
           = withObject "Budget"
               (\ x ->
                  Budget' <$>
-                   (x .:? "CalculatedSpend") <*> (x .:? "BudgetLimit")
+                   (x .:? "CalculatedSpend") <*>
+                     (x .:? "LastUpdatedTime")
+                     <*> (x .:? "BudgetLimit")
                      <*> (x .:? "TimePeriod")
                      <*> (x .:? "CostTypes")
                      <*> (x .:? "CostFilters" .!= mempty)
@@ -131,6 +143,7 @@ instance ToJSON Budget where
           = object
               (catMaybes
                  [("CalculatedSpend" .=) <$> _bCalculatedSpend,
+                  ("LastUpdatedTime" .=) <$> _bLastUpdatedTime,
                   ("BudgetLimit" .=) <$> _bBudgetLimit,
                   ("TimePeriod" .=) <$> _bTimePeriod,
                   ("CostTypes" .=) <$> _bCostTypes,
@@ -139,7 +152,145 @@ instance ToJSON Budget where
                   Just ("TimeUnit" .= _bTimeUnit),
                   Just ("BudgetType" .= _bBudgetType)])
 
--- | The spend objects associated with this budget. The @actualSpend@ tracks how much you've used, cost, usage, or RI units, and the @forecastedSpend@ tracks how much you are predicted to spend if your current usage remains steady.
+-- | A history of the state of a budget at the end of the budget's specified time period.
+--
+--
+--
+-- /See:/ 'budgetPerformanceHistory' smart constructor.
+data BudgetPerformanceHistory = BudgetPerformanceHistory'
+  { _bphBudgetedAndActualAmountsList :: !(Maybe [BudgetedAndActualAmounts])
+  , _bphTimeUnit                     :: !(Maybe TimeUnit)
+  , _bphBudgetName                   :: !(Maybe Text)
+  , _bphBudgetType                   :: !(Maybe BudgetType)
+  , _bphCostTypes                    :: !(Maybe CostTypes)
+  , _bphCostFilters                  :: !(Maybe (Map Text [Text]))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'BudgetPerformanceHistory' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bphBudgetedAndActualAmountsList' - A list of amounts of cost or usage that you created budgets for, compared to your actual costs or usage.
+--
+-- * 'bphTimeUnit' - Undocumented member.
+--
+-- * 'bphBudgetName' - Undocumented member.
+--
+-- * 'bphBudgetType' - Undocumented member.
+--
+-- * 'bphCostTypes' - The history of the cost types for a budget during the specified time period.
+--
+-- * 'bphCostFilters' - The history of the cost filters for a budget during the specified time period.
+budgetPerformanceHistory
+    :: BudgetPerformanceHistory
+budgetPerformanceHistory =
+  BudgetPerformanceHistory'
+    { _bphBudgetedAndActualAmountsList = Nothing
+    , _bphTimeUnit = Nothing
+    , _bphBudgetName = Nothing
+    , _bphBudgetType = Nothing
+    , _bphCostTypes = Nothing
+    , _bphCostFilters = Nothing
+    }
+
+
+-- | A list of amounts of cost or usage that you created budgets for, compared to your actual costs or usage.
+bphBudgetedAndActualAmountsList :: Lens' BudgetPerformanceHistory [BudgetedAndActualAmounts]
+bphBudgetedAndActualAmountsList = lens _bphBudgetedAndActualAmountsList (\ s a -> s{_bphBudgetedAndActualAmountsList = a}) . _Default . _Coerce
+
+-- | Undocumented member.
+bphTimeUnit :: Lens' BudgetPerformanceHistory (Maybe TimeUnit)
+bphTimeUnit = lens _bphTimeUnit (\ s a -> s{_bphTimeUnit = a})
+
+-- | Undocumented member.
+bphBudgetName :: Lens' BudgetPerformanceHistory (Maybe Text)
+bphBudgetName = lens _bphBudgetName (\ s a -> s{_bphBudgetName = a})
+
+-- | Undocumented member.
+bphBudgetType :: Lens' BudgetPerformanceHistory (Maybe BudgetType)
+bphBudgetType = lens _bphBudgetType (\ s a -> s{_bphBudgetType = a})
+
+-- | The history of the cost types for a budget during the specified time period.
+bphCostTypes :: Lens' BudgetPerformanceHistory (Maybe CostTypes)
+bphCostTypes = lens _bphCostTypes (\ s a -> s{_bphCostTypes = a})
+
+-- | The history of the cost filters for a budget during the specified time period.
+bphCostFilters :: Lens' BudgetPerformanceHistory (HashMap Text [Text])
+bphCostFilters = lens _bphCostFilters (\ s a -> s{_bphCostFilters = a}) . _Default . _Map
+
+instance FromJSON BudgetPerformanceHistory where
+        parseJSON
+          = withObject "BudgetPerformanceHistory"
+              (\ x ->
+                 BudgetPerformanceHistory' <$>
+                   (x .:? "BudgetedAndActualAmountsList" .!= mempty) <*>
+                     (x .:? "TimeUnit")
+                     <*> (x .:? "BudgetName")
+                     <*> (x .:? "BudgetType")
+                     <*> (x .:? "CostTypes")
+                     <*> (x .:? "CostFilters" .!= mempty))
+
+instance Hashable BudgetPerformanceHistory where
+
+instance NFData BudgetPerformanceHistory where
+
+-- | The amount of cost or usage that you created the budget for, compared to your actual costs or usage.
+--
+--
+--
+-- /See:/ 'budgetedAndActualAmounts' smart constructor.
+data BudgetedAndActualAmounts = BudgetedAndActualAmounts'
+  { _baaaTimePeriod     :: !(Maybe TimePeriod)
+  , _baaaActualAmount   :: !(Maybe Spend)
+  , _baaaBudgetedAmount :: !(Maybe Spend)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'BudgetedAndActualAmounts' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'baaaTimePeriod' - The time period covered by this budget comparison.
+--
+-- * 'baaaActualAmount' - Your actual costs or usage for a budget period.
+--
+-- * 'baaaBudgetedAmount' - The amount of cost or usage that you created the budget for.
+budgetedAndActualAmounts
+    :: BudgetedAndActualAmounts
+budgetedAndActualAmounts =
+  BudgetedAndActualAmounts'
+    { _baaaTimePeriod = Nothing
+    , _baaaActualAmount = Nothing
+    , _baaaBudgetedAmount = Nothing
+    }
+
+
+-- | The time period covered by this budget comparison.
+baaaTimePeriod :: Lens' BudgetedAndActualAmounts (Maybe TimePeriod)
+baaaTimePeriod = lens _baaaTimePeriod (\ s a -> s{_baaaTimePeriod = a})
+
+-- | Your actual costs or usage for a budget period.
+baaaActualAmount :: Lens' BudgetedAndActualAmounts (Maybe Spend)
+baaaActualAmount = lens _baaaActualAmount (\ s a -> s{_baaaActualAmount = a})
+
+-- | The amount of cost or usage that you created the budget for.
+baaaBudgetedAmount :: Lens' BudgetedAndActualAmounts (Maybe Spend)
+baaaBudgetedAmount = lens _baaaBudgetedAmount (\ s a -> s{_baaaBudgetedAmount = a})
+
+instance FromJSON BudgetedAndActualAmounts where
+        parseJSON
+          = withObject "BudgetedAndActualAmounts"
+              (\ x ->
+                 BudgetedAndActualAmounts' <$>
+                   (x .:? "TimePeriod") <*> (x .:? "ActualAmount") <*>
+                     (x .:? "BudgetedAmount"))
+
+instance Hashable BudgetedAndActualAmounts where
+
+instance NFData BudgetedAndActualAmounts where
+
+-- | The spend objects that are associated with this budget. The @actualSpend@ tracks how much you've used, cost, usage, or RI units, and the @forecastedSpend@ tracks how much you are predicted to spend if your current usage remains steady.
 --
 --
 -- For example, if it is the 20th of the month and you have spent @50@ dollars on Amazon EC2, your @actualSpend@ is @50 USD@ , and your @forecastedSpend@ is @75 USD@ .
@@ -193,8 +344,10 @@ instance ToJSON CalculatedSpend where
                  [("ForecastedSpend" .=) <$> _csForecastedSpend,
                   Just ("ActualSpend" .= _csActualSpend)])
 
--- | The types of cost included in a budget, such as tax and subscriptions.
+-- | The types of cost that are included in a @COST@ budget, such as tax and subscriptions.
 --
+--
+-- @USAGE@ , @RI_UTILIZATION@ , and @RI_COVERAGE@ budgets do not have @CostTypes@ .
 --
 --
 -- /See:/ 'costTypes' smart constructor.
@@ -221,7 +374,7 @@ data CostTypes = CostTypes'
 --
 -- * 'ctIncludeRecurring' - Specifies whether a budget includes recurring fees such as monthly RI fees. The default value is @true@ .
 --
--- * 'ctUseBlended' - Specifies whether a budget uses blended rate. The default value is @false@ .
+-- * 'ctUseBlended' - Specifies whether a budget uses a blended rate. The default value is @false@ .
 --
 -- * 'ctIncludeSupport' - Specifies whether a budget includes support subscription fees. The default value is @true@ .
 --
@@ -264,7 +417,7 @@ ctUseAmortized = lens _ctUseAmortized (\ s a -> s{_ctUseAmortized = a})
 ctIncludeRecurring :: Lens' CostTypes (Maybe Bool)
 ctIncludeRecurring = lens _ctIncludeRecurring (\ s a -> s{_ctIncludeRecurring = a})
 
--- | Specifies whether a budget uses blended rate. The default value is @false@ .
+-- | Specifies whether a budget uses a blended rate. The default value is @false@ .
 ctUseBlended :: Lens' CostTypes (Maybe Bool)
 ctUseBlended = lens _ctUseBlended (\ s a -> s{_ctUseBlended = a})
 
@@ -338,18 +491,20 @@ instance ToJSON CostTypes where
                   ("IncludeTax" .=) <$> _ctIncludeTax,
                   ("IncludeCredit" .=) <$> _ctIncludeCredit])
 
--- | A notification associated with a budget. A budget can have up to five notifications.
+-- | A notification that is associated with a budget. A budget can have up to five notifications.
 --
 --
--- Each notification must have at least one subscriber. A notification can have one SNS subscriber and up to ten email subscribers, for a total of 11 subscribers.
+-- Each notification must have at least one subscriber. A notification can have one SNS subscriber and up to 10 email subscribers, for a total of 11 subscribers.
 --
 -- For example, if you have a budget for 200 dollars and you want to be notified when you go over 160 dollars, create a notification with the following parameters:
 --
 --     * A notificationType of @ACTUAL@
 --
---     * A comparisonOperator of @GREATER_THAN@
+--     * A @thresholdType@ of @PERCENTAGE@
 --
---     * A notification threshold of @80@
+--     * A @comparisonOperator@ of @GREATER_THAN@
+--
+--     * A notification @threshold@ of @80@
 --
 --
 --
@@ -357,6 +512,7 @@ instance ToJSON CostTypes where
 -- /See:/ 'notification' smart constructor.
 data Notification = Notification'
   { _nThresholdType      :: !(Maybe ThresholdType)
+  , _nNotificationState  :: !(Maybe NotificationState)
   , _nNotificationType   :: !NotificationType
   , _nComparisonOperator :: !ComparisonOperator
   , _nThreshold          :: !Double
@@ -367,13 +523,15 @@ data Notification = Notification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'nThresholdType' - The type of threshold for a notification. For @ACTUAL@ thresholds, AWS notifies you when you go over the threshold, and for @FORECASTED@ thresholds AWS notifies you when you are forecasted to go over the threshold.
+-- * 'nThresholdType' - The type of threshold for a notification. For @ABSOLUTE_VALUE@ thresholds, AWS notifies you when you go over or are forecasted to go over your total cost threshold. For @PERCENTAGE@ thresholds, AWS notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a @PERCENTAGE@ threshold of 80%, AWS notifies you when you go over 160 dollars.
 --
--- * 'nNotificationType' - Whether the notification is for how much you have spent (@ACTUAL@ ) or for how much you are forecasted to spend (@FORECASTED@ ).
+-- * 'nNotificationState' - Whether this notification is in alarm. If a budget notification is in the @ALARM@ state, you have passed the set threshold for the budget.
 --
--- * 'nComparisonOperator' - The comparison used for this notification.
+-- * 'nNotificationType' - Whether the notification is for how much you have spent (@ACTUAL@ ) or for how much you're forecasted to spend (@FORECASTED@ ).
 --
--- * 'nThreshold' - The threshold associated with a notification. Thresholds are always a percentage.
+-- * 'nComparisonOperator' - The comparison that is used for this notification.
+--
+-- * 'nThreshold' - The threshold that is associated with a notification. Thresholds are always a percentage.
 notification
     :: NotificationType -- ^ 'nNotificationType'
     -> ComparisonOperator -- ^ 'nComparisonOperator'
@@ -382,25 +540,30 @@ notification
 notification pNotificationType_ pComparisonOperator_ pThreshold_ =
   Notification'
     { _nThresholdType = Nothing
+    , _nNotificationState = Nothing
     , _nNotificationType = pNotificationType_
     , _nComparisonOperator = pComparisonOperator_
     , _nThreshold = pThreshold_
     }
 
 
--- | The type of threshold for a notification. For @ACTUAL@ thresholds, AWS notifies you when you go over the threshold, and for @FORECASTED@ thresholds AWS notifies you when you are forecasted to go over the threshold.
+-- | The type of threshold for a notification. For @ABSOLUTE_VALUE@ thresholds, AWS notifies you when you go over or are forecasted to go over your total cost threshold. For @PERCENTAGE@ thresholds, AWS notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a @PERCENTAGE@ threshold of 80%, AWS notifies you when you go over 160 dollars.
 nThresholdType :: Lens' Notification (Maybe ThresholdType)
 nThresholdType = lens _nThresholdType (\ s a -> s{_nThresholdType = a})
 
--- | Whether the notification is for how much you have spent (@ACTUAL@ ) or for how much you are forecasted to spend (@FORECASTED@ ).
+-- | Whether this notification is in alarm. If a budget notification is in the @ALARM@ state, you have passed the set threshold for the budget.
+nNotificationState :: Lens' Notification (Maybe NotificationState)
+nNotificationState = lens _nNotificationState (\ s a -> s{_nNotificationState = a})
+
+-- | Whether the notification is for how much you have spent (@ACTUAL@ ) or for how much you're forecasted to spend (@FORECASTED@ ).
 nNotificationType :: Lens' Notification NotificationType
 nNotificationType = lens _nNotificationType (\ s a -> s{_nNotificationType = a})
 
--- | The comparison used for this notification.
+-- | The comparison that is used for this notification.
 nComparisonOperator :: Lens' Notification ComparisonOperator
 nComparisonOperator = lens _nComparisonOperator (\ s a -> s{_nComparisonOperator = a})
 
--- | The threshold associated with a notification. Thresholds are always a percentage.
+-- | The threshold that is associated with a notification. Thresholds are always a percentage.
 nThreshold :: Lens' Notification Double
 nThreshold = lens _nThreshold (\ s a -> s{_nThreshold = a})
 
@@ -409,7 +572,9 @@ instance FromJSON Notification where
           = withObject "Notification"
               (\ x ->
                  Notification' <$>
-                   (x .:? "ThresholdType") <*> (x .: "NotificationType")
+                   (x .:? "ThresholdType") <*>
+                     (x .:? "NotificationState")
+                     <*> (x .: "NotificationType")
                      <*> (x .: "ComparisonOperator")
                      <*> (x .: "Threshold"))
 
@@ -422,11 +587,12 @@ instance ToJSON Notification where
           = object
               (catMaybes
                  [("ThresholdType" .=) <$> _nThresholdType,
+                  ("NotificationState" .=) <$> _nNotificationState,
                   Just ("NotificationType" .= _nNotificationType),
                   Just ("ComparisonOperator" .= _nComparisonOperator),
                   Just ("Threshold" .= _nThreshold)])
 
--- | A notification with subscribers. A notification can have one SNS subscriber and up to ten email subscribers, for a total of 11 subscribers.
+-- | A notification with subscribers. A notification can have one SNS subscriber and up to 10 email subscribers, for a total of 11 subscribers.
 --
 --
 --
@@ -434,14 +600,14 @@ instance ToJSON Notification where
 data NotificationWithSubscribers = NotificationWithSubscribers'
   { _nwsNotification :: !Notification
   , _nwsSubscribers  :: !(List1 Subscriber)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'NotificationWithSubscribers' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'nwsNotification' - The notification associated with a budget.
+-- * 'nwsNotification' - The notification that is associated with a budget.
 --
 -- * 'nwsSubscribers' - A list of subscribers who are subscribed to this notification.
 notificationWithSubscribers
@@ -455,7 +621,7 @@ notificationWithSubscribers pNotification_ pSubscribers_ =
     }
 
 
--- | The notification associated with a budget.
+-- | The notification that is associated with a budget.
 nwsNotification :: Lens' NotificationWithSubscribers Notification
 nwsNotification = lens _nwsNotification (\ s a -> s{_nwsNotification = a})
 
@@ -474,7 +640,7 @@ instance ToJSON NotificationWithSubscribers where
                  [Just ("Notification" .= _nwsNotification),
                   Just ("Subscribers" .= _nwsSubscribers)])
 
--- | The amount of cost or usage being measured for a budget.
+-- | The amount of cost or usage that is measured for a budget.
 --
 --
 -- For example, a @Spend@ for @3 GB@ of S3 usage would have the following parameters:
@@ -497,9 +663,9 @@ data Spend = Spend'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sAmount' - The cost or usage amount associated with a budget forecast, actual spend, or budget threshold.
+-- * 'sAmount' - The cost or usage amount that is associated with a budget forecast, actual spend, or budget threshold.
 --
--- * 'sUnit' - The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB.
+-- * 'sUnit' - The unit of measurement that is used for the budget forecast, actual spend, or budget threshold, such as dollars or GB.
 spend
     :: Text -- ^ 'sAmount'
     -> Text -- ^ 'sUnit'
@@ -507,11 +673,11 @@ spend
 spend pAmount_ pUnit_ = Spend' {_sAmount = pAmount_, _sUnit = pUnit_}
 
 
--- | The cost or usage amount associated with a budget forecast, actual spend, or budget threshold.
+-- | The cost or usage amount that is associated with a budget forecast, actual spend, or budget threshold.
 sAmount :: Lens' Spend Text
 sAmount = lens _sAmount (\ s a -> s{_sAmount = a})
 
--- | The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB.
+-- | The unit of measurement that is used for the budget forecast, actual spend, or budget threshold, such as dollars or GB.
 sUnit :: Lens' Spend Text
 sUnit = lens _sUnit (\ s a -> s{_sUnit = a})
 
@@ -531,7 +697,7 @@ instance ToJSON Spend where
                  [Just ("Amount" .= _sAmount),
                   Just ("Unit" .= _sUnit)])
 
--- | The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon Simple Notification Service topic or an email address.
+-- | The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
 --
 --
 -- For example, an email subscriber would have the following parameters:
@@ -546,8 +712,8 @@ instance ToJSON Spend where
 -- /See:/ 'subscriber' smart constructor.
 data Subscriber = Subscriber'
   { _sSubscriptionType :: !SubscriptionType
-  , _sAddress          :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  , _sAddress          :: !(Sensitive Text)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'Subscriber' with the minimum fields required to make a request.
@@ -562,7 +728,10 @@ subscriber
     -> Text -- ^ 'sAddress'
     -> Subscriber
 subscriber pSubscriptionType_ pAddress_ =
-  Subscriber' {_sSubscriptionType = pSubscriptionType_, _sAddress = pAddress_}
+  Subscriber'
+    { _sSubscriptionType = pSubscriptionType_
+    , _sAddress = _Sensitive # pAddress_
+    }
 
 
 -- | The type of notification that AWS sends to a subscriber.
@@ -571,7 +740,7 @@ sSubscriptionType = lens _sSubscriptionType (\ s a -> s{_sSubscriptionType = a})
 
 -- | The address that AWS sends budget notifications to, either an SNS topic or an email.
 sAddress :: Lens' Subscriber Text
-sAddress = lens _sAddress (\ s a -> s{_sAddress = a})
+sAddress = lens _sAddress (\ s a -> s{_sAddress = a}) . _Sensitive
 
 instance FromJSON Subscriber where
         parseJSON
@@ -591,7 +760,7 @@ instance ToJSON Subscriber where
                  [Just ("SubscriptionType" .= _sSubscriptionType),
                   Just ("Address" .= _sAddress)])
 
--- | The period of time covered by a budget. Has a start date and an end date. The start date must come before the end date. There are no restrictions on the end date.
+-- | The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. There are no restrictions on the end date.
 --
 --
 --
@@ -606,7 +775,7 @@ data TimePeriod = TimePeriod'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tpStart' - The start date for a budget. If you created your budget and didn't specify a start date, AWS defaults to the start of your chosen time period (i.e. DAILY, MONTHLY, QUARTERLY, ANNUALLY). For example, if you created your budget on January 24th 2018, chose @DAILY@ , and didn't set a start date, AWS set your start date to @01/24/18 00:00 UTC@ . If you chose @MONTHLY@ , AWS set your start date to @01/01/18 00:00 UTC@ . The defaults are the same for the AWS Billing and Cost Management console and the API. You can change your start date with the @UpdateBudget@ operation.
+-- * 'tpStart' - The start date for a budget. If you created your budget and didn't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose @DAILY@ , and didn't set a start date, AWS set your start date to @01/24/18 00:00 UTC@ . If you chose @MONTHLY@ , AWS set your start date to @01/01/18 00:00 UTC@ . The defaults are the same for the AWS Billing and Cost Management console and the API. You can change your start date with the @UpdateBudget@ operation.
 --
 -- * 'tpEnd' - The end date for a budget. If you didn't specify an end date, AWS set your end date to @06/15/87 00:00 UTC@ . The defaults are the same for the AWS Billing and Cost Management console and the API. After the end date, AWS deletes the budget and all associated notifications and subscribers. You can change your end date with the @UpdateBudget@ operation.
 timePeriod
@@ -614,7 +783,7 @@ timePeriod
 timePeriod = TimePeriod' {_tpStart = Nothing, _tpEnd = Nothing}
 
 
--- | The start date for a budget. If you created your budget and didn't specify a start date, AWS defaults to the start of your chosen time period (i.e. DAILY, MONTHLY, QUARTERLY, ANNUALLY). For example, if you created your budget on January 24th 2018, chose @DAILY@ , and didn't set a start date, AWS set your start date to @01/24/18 00:00 UTC@ . If you chose @MONTHLY@ , AWS set your start date to @01/01/18 00:00 UTC@ . The defaults are the same for the AWS Billing and Cost Management console and the API. You can change your start date with the @UpdateBudget@ operation.
+-- | The start date for a budget. If you created your budget and didn't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose @DAILY@ , and didn't set a start date, AWS set your start date to @01/24/18 00:00 UTC@ . If you chose @MONTHLY@ , AWS set your start date to @01/01/18 00:00 UTC@ . The defaults are the same for the AWS Billing and Cost Management console and the API. You can change your start date with the @UpdateBudget@ operation.
 tpStart :: Lens' TimePeriod (Maybe UTCTime)
 tpStart = lens _tpStart (\ s a -> s{_tpStart = a}) . mapping _Time
 

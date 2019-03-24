@@ -30,6 +30,9 @@ module Network.AWS.Budgets.Types
     -- * ComparisonOperator
     , ComparisonOperator (..)
 
+    -- * NotificationState
+    , NotificationState (..)
+
     -- * NotificationType
     , NotificationType (..)
 
@@ -46,6 +49,7 @@ module Network.AWS.Budgets.Types
     , Budget
     , budget
     , bCalculatedSpend
+    , bLastUpdatedTime
     , bBudgetLimit
     , bTimePeriod
     , bCostTypes
@@ -53,6 +57,23 @@ module Network.AWS.Budgets.Types
     , bBudgetName
     , bTimeUnit
     , bBudgetType
+
+    -- * BudgetPerformanceHistory
+    , BudgetPerformanceHistory
+    , budgetPerformanceHistory
+    , bphBudgetedAndActualAmountsList
+    , bphTimeUnit
+    , bphBudgetName
+    , bphBudgetType
+    , bphCostTypes
+    , bphCostFilters
+
+    -- * BudgetedAndActualAmounts
+    , BudgetedAndActualAmounts
+    , budgetedAndActualAmounts
+    , baaaTimePeriod
+    , baaaActualAmount
+    , baaaBudgetedAmount
 
     -- * CalculatedSpend
     , CalculatedSpend
@@ -79,6 +100,7 @@ module Network.AWS.Budgets.Types
     , Notification
     , notification
     , nThresholdType
+    , nNotificationState
     , nNotificationType
     , nComparisonOperator
     , nThreshold
@@ -176,33 +198,4 @@ _ExpiredNextTokenException =
   _MatchServiceError budgets "ExpiredNextTokenException"
 
 
--- | We can’t locate the resource that you specified.
---
---
-_NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotFoundException = _MatchServiceError budgets "NotFoundException"
-
-
--- | The pagination token is invalid.
---
---
-_InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNextTokenException =
-  _MatchServiceError budgets "InvalidNextTokenException"
-
-
--- | The budget name already exists. Budget names must be unique within an account.
---
---
-_DuplicateRecordException :: AsError a => Getting (First ServiceError) a ServiceError
-_DuplicateRecordException =
-  _MatchServiceError budgets "DuplicateRecordException"
-
-
--- | You've exceeded the notification or subscriber limit.
---
---
-_CreationLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_CreationLimitExceededException =
-  _MatchServiceError budgets "CreationLimitExceededException"
-
+-- | We can

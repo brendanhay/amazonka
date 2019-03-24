@@ -67,7 +67,7 @@ data UpdateNotification = UpdateNotification'
 --
 -- * 'unBudgetName' - The name of the budget whose notification you want to update.
 --
--- * 'unOldNotification' - The previous notification associated with a budget.
+-- * 'unOldNotification' - The previous notification that is associated with a budget.
 --
 -- * 'unNewNotification' - The updated notification to be associated with a budget.
 updateNotification
@@ -93,7 +93,7 @@ unAccountId = lens _unAccountId (\ s a -> s{_unAccountId = a})
 unBudgetName :: Lens' UpdateNotification Text
 unBudgetName = lens _unBudgetName (\ s a -> s{_unBudgetName = a})
 
--- | The previous notification associated with a budget.
+-- | The previous notification that is associated with a budget.
 unOldNotification :: Lens' UpdateNotification Notification
 unOldNotification = lens _unOldNotification (\ s a -> s{_unOldNotification = a})
 

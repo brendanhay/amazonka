@@ -52,6 +52,9 @@ import Test.Tasty
 --         , requestUpdateNotification $
 --             updateNotification
 --
+--         , requestDescribeBudgetPerformanceHistory $
+--             describeBudgetPerformanceHistory
+--
 --         , requestDescribeBudget $
 --             describeBudget
 --
@@ -93,6 +96,9 @@ import Test.Tasty
 --
 --         , responseUpdateNotification $
 --             updateNotificationResponse
+--
+--         , responseDescribeBudgetPerformanceHistory $
+--             describeBudgetPerformanceHistoryResponse
 --
 --         , responseDescribeBudget $
 --             describeBudgetResponse
@@ -153,6 +159,11 @@ requestUpdateNotification :: UpdateNotification -> TestTree
 requestUpdateNotification = req
     "UpdateNotification"
     "fixture/UpdateNotification.yaml"
+
+requestDescribeBudgetPerformanceHistory :: DescribeBudgetPerformanceHistory -> TestTree
+requestDescribeBudgetPerformanceHistory = req
+    "DescribeBudgetPerformanceHistory"
+    "fixture/DescribeBudgetPerformanceHistory.yaml"
 
 requestDescribeBudget :: DescribeBudget -> TestTree
 requestDescribeBudget = req
@@ -236,6 +247,13 @@ responseUpdateNotification = res
     "fixture/UpdateNotificationResponse.proto"
     budgets
     (Proxy :: Proxy UpdateNotification)
+
+responseDescribeBudgetPerformanceHistory :: DescribeBudgetPerformanceHistoryResponse -> TestTree
+responseDescribeBudgetPerformanceHistory = res
+    "DescribeBudgetPerformanceHistoryResponse"
+    "fixture/DescribeBudgetPerformanceHistoryResponse.proto"
+    budgets
+    (Proxy :: Proxy DescribeBudgetPerformanceHistory)
 
 responseDescribeBudget :: DescribeBudgetResponse -> TestTree
 responseDescribeBudget = res

@@ -54,14 +54,14 @@ data CreateBudget = CreateBudget'
   { _cbNotificationsWithSubscribers :: !(Maybe [NotificationWithSubscribers])
   , _cbAccountId                    :: !Text
   , _cbBudget                       :: !Budget
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'CreateBudget' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbNotificationsWithSubscribers' - A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to ten email subscribers. If you include notifications and subscribers in your @CreateBudget@ call, AWS creates the notifications and subscribers for you.
+-- * 'cbNotificationsWithSubscribers' - A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your @CreateBudget@ call, AWS creates the notifications and subscribers for you.
 --
 -- * 'cbAccountId' - The @accountId@ that is associated with the budget.
 --
@@ -78,7 +78,7 @@ createBudget pAccountId_ pBudget_ =
     }
 
 
--- | A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to ten email subscribers. If you include notifications and subscribers in your @CreateBudget@ call, AWS creates the notifications and subscribers for you.
+-- | A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your @CreateBudget@ call, AWS creates the notifications and subscribers for you.
 cbNotificationsWithSubscribers :: Lens' CreateBudget [NotificationWithSubscribers]
 cbNotificationsWithSubscribers = lens _cbNotificationsWithSubscribers (\ s a -> s{_cbNotificationsWithSubscribers = a}) . _Default . _Coerce
 

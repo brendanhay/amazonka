@@ -19,8 +19,10 @@ module Network.AWS.Budgets.Types.Sum where
 
 import Network.AWS.Prelude
 
--- | The type of a budget. It should be COST, USAGE, or RI_UTILIZATION.
+-- | The type of a budget. It must be one of the following types:
 --
+--
+-- @COST@ , @USAGE@ , @RI_UTILIZATION@ , or @RI_COVERAGE@ .
 --
 data BudgetType
   = Cost
@@ -58,8 +60,10 @@ instance ToJSON BudgetType where
 instance FromJSON BudgetType where
     parseJSON = parseJSONText "BudgetType"
 
--- | The comparison operator of a notification. Currently we support less than, equal to and greater than.
+-- | The comparison operator of a notification. Currently the service supports the following operators:
 --
+--
+-- @GREATER_THAN@ , @LESS_THAN@ , @EQUAL_TO@
 --
 data ComparisonOperator
   = EqualTo
@@ -94,7 +98,37 @@ instance ToJSON ComparisonOperator where
 instance FromJSON ComparisonOperator where
     parseJSON = parseJSONText "ComparisonOperator"
 
--- | The type of a notification. It should be ACTUAL or FORECASTED.
+data NotificationState
+  = Alarm
+  | OK
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText NotificationState where
+    parser = takeLowerText >>= \case
+        "alarm" -> pure Alarm
+        "ok" -> pure OK
+        e -> fromTextError $ "Failure parsing NotificationState from value: '" <> e
+           <> "'. Accepted values: alarm, ok"
+
+instance ToText NotificationState where
+    toText = \case
+        Alarm -> "ALARM"
+        OK -> "OK"
+
+instance Hashable     NotificationState
+instance NFData       NotificationState
+instance ToByteString NotificationState
+instance ToQuery      NotificationState
+instance ToHeader     NotificationState
+
+instance ToJSON NotificationState where
+    toJSON = toJSONText
+
+instance FromJSON NotificationState where
+    parseJSON = parseJSONText "NotificationState"
+
+-- | The type of a notification. It must be ACTUAL or FORECASTED.
 --
 --
 data NotificationType
@@ -193,7 +227,7 @@ instance ToJSON ThresholdType where
 instance FromJSON ThresholdType where
     parseJSON = parseJSONText "ThresholdType"
 
--- | The time unit of the budget. e.g. MONTHLY, QUARTERLY, etc.
+-- | The time unit of the budget, such as MONTHLY or QUARTERLY.
 --
 --
 data TimeUnit

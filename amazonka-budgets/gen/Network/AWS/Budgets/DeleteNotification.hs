@@ -21,7 +21,7 @@
 -- Deletes a notification.
 --
 --
--- __Deleting a notification also deletes the subscribers associated with the notification.__
+-- /Important:/ Deleting a notification also deletes the subscribers that are associated with the notification.
 --
 module Network.AWS.Budgets.DeleteNotification
     (

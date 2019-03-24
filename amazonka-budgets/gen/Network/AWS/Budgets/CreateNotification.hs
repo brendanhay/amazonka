@@ -56,7 +56,7 @@ data CreateNotification = CreateNotification'
   , _cnBudgetName   :: !Text
   , _cnNotification :: !Notification
   , _cnSubscribers  :: !(List1 Subscriber)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'CreateNotification' with the minimum fields required to make a request.
@@ -65,11 +65,11 @@ data CreateNotification = CreateNotification'
 --
 -- * 'cnAccountId' - The @accountId@ that is associated with the budget that you want to create a notification for.
 --
--- * 'cnBudgetName' - The name of the budget that you want AWS to notified you about. Budget names must be unique within an account.
+-- * 'cnBudgetName' - The name of the budget that you want AWS to notify you about. Budget names must be unique within an account.
 --
 -- * 'cnNotification' - The notification that you want to create.
 --
--- * 'cnSubscribers' - A list of subscribers that you want to associate with the notification. Each notification can have one SNS subscriber and up to ten email subscribers.
+-- * 'cnSubscribers' - A list of subscribers that you want to associate with the notification. Each notification can have one SNS subscriber and up to 10 email subscribers.
 createNotification
     :: Text -- ^ 'cnAccountId'
     -> Text -- ^ 'cnBudgetName'
@@ -89,7 +89,7 @@ createNotification pAccountId_ pBudgetName_ pNotification_ pSubscribers_ =
 cnAccountId :: Lens' CreateNotification Text
 cnAccountId = lens _cnAccountId (\ s a -> s{_cnAccountId = a})
 
--- | The name of the budget that you want AWS to notified you about. Budget names must be unique within an account.
+-- | The name of the budget that you want AWS to notify you about. Budget names must be unique within an account.
 cnBudgetName :: Lens' CreateNotification Text
 cnBudgetName = lens _cnBudgetName (\ s a -> s{_cnBudgetName = a})
 
@@ -97,7 +97,7 @@ cnBudgetName = lens _cnBudgetName (\ s a -> s{_cnBudgetName = a})
 cnNotification :: Lens' CreateNotification Notification
 cnNotification = lens _cnNotification (\ s a -> s{_cnNotification = a})
 
--- | A list of subscribers that you want to associate with the notification. Each notification can have one SNS subscriber and up to ten email subscribers.
+-- | A list of subscribers that you want to associate with the notification. Each notification can have one SNS subscriber and up to 10 email subscribers.
 cnSubscribers :: Lens' CreateNotification (NonEmpty Subscriber)
 cnSubscribers = lens _cnSubscribers (\ s a -> s{_cnSubscribers = a}) . _List1
 

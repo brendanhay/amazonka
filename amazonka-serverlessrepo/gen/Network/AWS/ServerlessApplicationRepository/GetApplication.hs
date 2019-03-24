@@ -68,7 +68,7 @@ data GetApplication = GetApplication'
 --
 -- * 'gaSemanticVersion' - The semantic version of the application to get.
 --
--- * 'gaApplicationId' - The ID of the application to get.
+-- * 'gaApplicationId' - The Amazon Resource Name (ARN) of the application.
 getApplication
     :: Text -- ^ 'gaApplicationId'
     -> GetApplication
@@ -81,7 +81,7 @@ getApplication pApplicationId_ =
 gaSemanticVersion :: Lens' GetApplication (Maybe Text)
 gaSemanticVersion = lens _gaSemanticVersion (\ s a -> s{_gaSemanticVersion = a})
 
--- | The ID of the application to get.
+-- | The Amazon Resource Name (ARN) of the application.
 gaApplicationId :: Lens' GetApplication Text
 gaApplicationId = lens _gaApplicationId (\ s a -> s{_gaApplicationId = a})
 
@@ -144,25 +144,25 @@ data GetApplicationResponse = GetApplicationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'garsCreationTime' - The date/time this resource was created.
+-- * 'garsCreationTime' - The date and time this resource was created.
 --
--- * 'garsHomePageURL' - A URL with more information about the application, for example  the location of your GitHub repository for the application.
+-- * 'garsHomePageURL' - A URL with more information about the application, for example the location of your GitHub repository for the application.
 --
--- * 'garsLicenseURL' - A link to a license file of the app that matches the spdxLicenseID of your application. Max size 5 MB
+-- * 'garsLicenseURL' - A link to a license file of the app that matches the spdxLicenseID value of your application. Maximum size 5 MB
 --
--- * 'garsReadmeURL' - A link to the readme file that contains a more detailed description of the application and how it works in Markdown language. Max size 5 MB
+-- * 'garsReadmeURL' - A link to the readme file in Markdown language that contains a more detailed description of the application and how it works. Maximum size 5 MB
 --
 -- * 'garsApplicationId' - The application Amazon Resource Name (ARN).
 --
--- * 'garsName' - The name of the application. Min Length=1. Max Length=140 Pattern: "[a-zA-Z0-9\\-]+";
+-- * 'garsName' - The name of the application. Minimum length=1. Maximum length=140 Pattern: "[a-zA-Z0-9\\-]+";
 --
 -- * 'garsVersion' - Version information about the application.
 --
--- * 'garsAuthor' - The name of the author publishing the app. Min Length=1. Max Length=127. Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+-- * 'garsAuthor' - The name of the author publishing the app. Minimum length=1. Maximum length=127. Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
 --
--- * 'garsLabels' - Labels to improve discovery of apps in search results. Min Length=1. Max Length=127. Maximum number of labels: 10 Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+-- * 'garsLabels' - Labels to improve discovery of apps in search results. Minimum length=1. Maximum length=127. Maximum number of labels: 10 Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
 --
--- * 'garsDescription' - The description of the application. Min Length=1. Max Length=256
+-- * 'garsDescription' - The description of the application. Minimum length=1. Maximum length=256
 --
 -- * 'garsSpdxLicenseId' - A valid identifier from https://spdx.org/licenses/.
 --
@@ -187,19 +187,19 @@ getApplicationResponse pResponseStatus_ =
     }
 
 
--- | The date/time this resource was created.
+-- | The date and time this resource was created.
 garsCreationTime :: Lens' GetApplicationResponse (Maybe Text)
 garsCreationTime = lens _garsCreationTime (\ s a -> s{_garsCreationTime = a})
 
--- | A URL with more information about the application, for example  the location of your GitHub repository for the application.
+-- | A URL with more information about the application, for example the location of your GitHub repository for the application.
 garsHomePageURL :: Lens' GetApplicationResponse (Maybe Text)
 garsHomePageURL = lens _garsHomePageURL (\ s a -> s{_garsHomePageURL = a})
 
--- | A link to a license file of the app that matches the spdxLicenseID of your application. Max size 5 MB
+-- | A link to a license file of the app that matches the spdxLicenseID value of your application. Maximum size 5 MB
 garsLicenseURL :: Lens' GetApplicationResponse (Maybe Text)
 garsLicenseURL = lens _garsLicenseURL (\ s a -> s{_garsLicenseURL = a})
 
--- | A link to the readme file that contains a more detailed description of the application and how it works in Markdown language. Max size 5 MB
+-- | A link to the readme file in Markdown language that contains a more detailed description of the application and how it works. Maximum size 5 MB
 garsReadmeURL :: Lens' GetApplicationResponse (Maybe Text)
 garsReadmeURL = lens _garsReadmeURL (\ s a -> s{_garsReadmeURL = a})
 
@@ -207,7 +207,7 @@ garsReadmeURL = lens _garsReadmeURL (\ s a -> s{_garsReadmeURL = a})
 garsApplicationId :: Lens' GetApplicationResponse (Maybe Text)
 garsApplicationId = lens _garsApplicationId (\ s a -> s{_garsApplicationId = a})
 
--- | The name of the application. Min Length=1. Max Length=140 Pattern: "[a-zA-Z0-9\\-]+";
+-- | The name of the application. Minimum length=1. Maximum length=140 Pattern: "[a-zA-Z0-9\\-]+";
 garsName :: Lens' GetApplicationResponse (Maybe Text)
 garsName = lens _garsName (\ s a -> s{_garsName = a})
 
@@ -215,15 +215,15 @@ garsName = lens _garsName (\ s a -> s{_garsName = a})
 garsVersion :: Lens' GetApplicationResponse (Maybe Version)
 garsVersion = lens _garsVersion (\ s a -> s{_garsVersion = a})
 
--- | The name of the author publishing the app. Min Length=1. Max Length=127. Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+-- | The name of the author publishing the app. Minimum length=1. Maximum length=127. Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
 garsAuthor :: Lens' GetApplicationResponse (Maybe Text)
 garsAuthor = lens _garsAuthor (\ s a -> s{_garsAuthor = a})
 
--- | Labels to improve discovery of apps in search results. Min Length=1. Max Length=127. Maximum number of labels: 10 Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+-- | Labels to improve discovery of apps in search results. Minimum length=1. Maximum length=127. Maximum number of labels: 10 Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
 garsLabels :: Lens' GetApplicationResponse [Text]
 garsLabels = lens _garsLabels (\ s a -> s{_garsLabels = a}) . _Default . _Coerce
 
--- | The description of the application. Min Length=1. Max Length=256
+-- | The description of the application. Minimum length=1. Maximum length=256
 garsDescription :: Lens' GetApplicationResponse (Maybe Text)
 garsDescription = lens _garsDescription (\ s a -> s{_garsDescription = a})
 

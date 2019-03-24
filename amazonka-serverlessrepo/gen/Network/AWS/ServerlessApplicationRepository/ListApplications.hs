@@ -21,6 +21,8 @@
 -- Lists applications owned by the requester.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ServerlessApplicationRepository.ListApplications
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.ServerlessApplicationRepository.ListApplications
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -73,6 +76,13 @@ laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a})
 -- | The total number of items to return.
 laMaxItems :: Lens' ListApplications (Maybe Natural)
 laMaxItems = lens _laMaxItems (\ s a -> s{_laMaxItems = a}) . mapping _Nat
+
+instance AWSPager ListApplications where
+        page rq rs
+          | stop (rs ^. larsNextToken) = Nothing
+          | stop (rs ^. larsApplications) = Nothing
+          | otherwise =
+            Just $ rq & laNextToken .~ rs ^. larsNextToken
 
 instance AWSRequest ListApplications where
         type Rs ListApplications = ListApplicationsResponse
@@ -119,7 +129,7 @@ data ListApplicationsResponse = ListApplicationsResponse'
 --
 -- * 'larsNextToken' - The token to request the next page of results.
 --
--- * 'larsApplications' - Array of application summaries.
+-- * 'larsApplications' - An array of application summaries.
 --
 -- * 'larsResponseStatus' - -- | The response status code.
 listApplicationsResponse
@@ -137,7 +147,7 @@ listApplicationsResponse pResponseStatus_ =
 larsNextToken :: Lens' ListApplicationsResponse (Maybe Text)
 larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a})
 
--- | Array of application summaries.
+-- | An array of application summaries.
 larsApplications :: Lens' ListApplicationsResponse [ApplicationSummary]
 larsApplications = lens _larsApplications (\ s a -> s{_larsApplications = a}) . _Default . _Coerce
 

@@ -21,6 +21,8 @@
 -- Lists versions for the specified application.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ServerlessApplicationRepository.ListApplicationVersions
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.ServerlessApplicationRepository.ListApplicationVersions
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -63,7 +66,7 @@ data ListApplicationVersions = ListApplicationVersions'
 --
 -- * 'lavMaxItems' - The total number of items to return.
 --
--- * 'lavApplicationId' - The ID of the application to get.
+-- * 'lavApplicationId' - The Amazon Resource Name (ARN) of the application.
 listApplicationVersions
     :: Text -- ^ 'lavApplicationId'
     -> ListApplicationVersions
@@ -83,9 +86,16 @@ lavNextToken = lens _lavNextToken (\ s a -> s{_lavNextToken = a})
 lavMaxItems :: Lens' ListApplicationVersions (Maybe Natural)
 lavMaxItems = lens _lavMaxItems (\ s a -> s{_lavMaxItems = a}) . mapping _Nat
 
--- | The ID of the application to get.
+-- | The Amazon Resource Name (ARN) of the application.
 lavApplicationId :: Lens' ListApplicationVersions Text
 lavApplicationId = lens _lavApplicationId (\ s a -> s{_lavApplicationId = a})
+
+instance AWSPager ListApplicationVersions where
+        page rq rs
+          | stop (rs ^. lavrsNextToken) = Nothing
+          | stop (rs ^. lavrsVersions) = Nothing
+          | otherwise =
+            Just $ rq & lavNextToken .~ rs ^. lavrsNextToken
 
 instance AWSRequest ListApplicationVersions where
         type Rs ListApplicationVersions =
@@ -133,7 +143,7 @@ data ListApplicationVersionsResponse = ListApplicationVersionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lavrsVersions' - Array of version summaries for the application.
+-- * 'lavrsVersions' - An array of version summaries for the application.
 --
 -- * 'lavrsNextToken' - The token to request the next page of results.
 --
@@ -149,7 +159,7 @@ listApplicationVersionsResponse pResponseStatus_ =
     }
 
 
--- | Array of version summaries for the application.
+-- | An array of version summaries for the application.
 lavrsVersions :: Lens' ListApplicationVersionsResponse [VersionSummary]
 lavrsVersions = lens _lavrsVersions (\ s a -> s{_lavrsVersions = a}) . _Default . _Coerce
 

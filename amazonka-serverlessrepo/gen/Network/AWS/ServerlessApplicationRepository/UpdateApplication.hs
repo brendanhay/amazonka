@@ -76,19 +76,19 @@ data UpdateApplication = UpdateApplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaHomePageURL' - A URL with more information about the application, for example  the location of your GitHub repository for the application.
+-- * 'uaHomePageURL' - A URL with more information about the application, for example the location of your GitHub repository for the application.
 --
--- * 'uaReadmeBody' - A raw text Readme file that contains a more detailed description of the application and how it works in markdown language. Max size 5 MB
+-- * 'uaReadmeBody' - A text readme file in Markdown language that contains a more detailed description of the application and how it works. Maximum size 5 MB
 --
--- * 'uaReadmeURL' - A link to the Readme file that contains a more detailed description of the application and how it works in markdown language. Max size 5 MB
+-- * 'uaReadmeURL' - A link to the readme file in Markdown language that contains a more detailed description of the application and how it works. Maximum size 5 MB
 --
--- * 'uaAuthor' - The name of the author publishing the app. Min Length=1. Max Length=127. Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+-- * 'uaAuthor' - The name of the author publishing the app. Minimum length=1. Maximum length=127. Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
 --
--- * 'uaLabels' - Labels to improve discovery of apps in search results. Min Length=1. Max Length=127. Maximum number of labels: 10 Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+-- * 'uaLabels' - Labels to improve discovery of apps in search results. Minimum length=1. Maximum length=127. Maximum number of labels: 10 Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
 --
--- * 'uaDescription' - The description of the application. Min Length=1. Max Length=256
+-- * 'uaDescription' - The description of the application. Minimum length=1. Maximum length=256
 --
--- * 'uaApplicationId' - The ID of the application to get.
+-- * 'uaApplicationId' - The Amazon Resource Name (ARN) of the application.
 updateApplication
     :: Text -- ^ 'uaApplicationId'
     -> UpdateApplication
@@ -104,31 +104,31 @@ updateApplication pApplicationId_ =
     }
 
 
--- | A URL with more information about the application, for example  the location of your GitHub repository for the application.
+-- | A URL with more information about the application, for example the location of your GitHub repository for the application.
 uaHomePageURL :: Lens' UpdateApplication (Maybe Text)
 uaHomePageURL = lens _uaHomePageURL (\ s a -> s{_uaHomePageURL = a})
 
--- | A raw text Readme file that contains a more detailed description of the application and how it works in markdown language. Max size 5 MB
+-- | A text readme file in Markdown language that contains a more detailed description of the application and how it works. Maximum size 5 MB
 uaReadmeBody :: Lens' UpdateApplication (Maybe Text)
 uaReadmeBody = lens _uaReadmeBody (\ s a -> s{_uaReadmeBody = a})
 
--- | A link to the Readme file that contains a more detailed description of the application and how it works in markdown language. Max size 5 MB
+-- | A link to the readme file in Markdown language that contains a more detailed description of the application and how it works. Maximum size 5 MB
 uaReadmeURL :: Lens' UpdateApplication (Maybe Text)
 uaReadmeURL = lens _uaReadmeURL (\ s a -> s{_uaReadmeURL = a})
 
--- | The name of the author publishing the app. Min Length=1. Max Length=127. Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+-- | The name of the author publishing the app. Minimum length=1. Maximum length=127. Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
 uaAuthor :: Lens' UpdateApplication (Maybe Text)
 uaAuthor = lens _uaAuthor (\ s a -> s{_uaAuthor = a})
 
--- | Labels to improve discovery of apps in search results. Min Length=1. Max Length=127. Maximum number of labels: 10 Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+-- | Labels to improve discovery of apps in search results. Minimum length=1. Maximum length=127. Maximum number of labels: 10 Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
 uaLabels :: Lens' UpdateApplication [Text]
 uaLabels = lens _uaLabels (\ s a -> s{_uaLabels = a}) . _Default . _Coerce
 
--- | The description of the application. Min Length=1. Max Length=256
+-- | The description of the application. Minimum length=1. Maximum length=256
 uaDescription :: Lens' UpdateApplication (Maybe Text)
 uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a})
 
--- | The ID of the application to get.
+-- | The Amazon Resource Name (ARN) of the application.
 uaApplicationId :: Lens' UpdateApplication Text
 uaApplicationId = lens _uaApplicationId (\ s a -> s{_uaApplicationId = a})
 
@@ -201,25 +201,25 @@ data UpdateApplicationResponse = UpdateApplicationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uarsCreationTime' - The date/time this resource was created.
+-- * 'uarsCreationTime' - The date and time this resource was created.
 --
--- * 'uarsHomePageURL' - A URL with more information about the application, for example  the location of your GitHub repository for the application.
+-- * 'uarsHomePageURL' - A URL with more information about the application, for example the location of your GitHub repository for the application.
 --
--- * 'uarsLicenseURL' - A link to a license file of the app that matches the spdxLicenseID of your application. Max size 5 MB
+-- * 'uarsLicenseURL' - A link to a license file of the app that matches the spdxLicenseID value of your application. Maximum size 5 MB
 --
--- * 'uarsReadmeURL' - A link to the readme file that contains a more detailed description of the application and how it works in Markdown language. Max size 5 MB
+-- * 'uarsReadmeURL' - A link to the readme file in Markdown language that contains a more detailed description of the application and how it works. Maximum size 5 MB
 --
 -- * 'uarsApplicationId' - The application Amazon Resource Name (ARN).
 --
--- * 'uarsName' - The name of the application. Min Length=1. Max Length=140 Pattern: "[a-zA-Z0-9\\-]+";
+-- * 'uarsName' - The name of the application. Minimum length=1. Maximum length=140 Pattern: "[a-zA-Z0-9\\-]+";
 --
 -- * 'uarsVersion' - Version information about the application.
 --
--- * 'uarsAuthor' - The name of the author publishing the app. Min Length=1. Max Length=127. Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+-- * 'uarsAuthor' - The name of the author publishing the app. Minimum length=1. Maximum length=127. Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
 --
--- * 'uarsLabels' - Labels to improve discovery of apps in search results. Min Length=1. Max Length=127. Maximum number of labels: 10 Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+-- * 'uarsLabels' - Labels to improve discovery of apps in search results. Minimum length=1. Maximum length=127. Maximum number of labels: 10 Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
 --
--- * 'uarsDescription' - The description of the application. Min Length=1. Max Length=256
+-- * 'uarsDescription' - The description of the application. Minimum length=1. Maximum length=256
 --
 -- * 'uarsSpdxLicenseId' - A valid identifier from https://spdx.org/licenses/.
 --
@@ -244,19 +244,19 @@ updateApplicationResponse pResponseStatus_ =
     }
 
 
--- | The date/time this resource was created.
+-- | The date and time this resource was created.
 uarsCreationTime :: Lens' UpdateApplicationResponse (Maybe Text)
 uarsCreationTime = lens _uarsCreationTime (\ s a -> s{_uarsCreationTime = a})
 
--- | A URL with more information about the application, for example  the location of your GitHub repository for the application.
+-- | A URL with more information about the application, for example the location of your GitHub repository for the application.
 uarsHomePageURL :: Lens' UpdateApplicationResponse (Maybe Text)
 uarsHomePageURL = lens _uarsHomePageURL (\ s a -> s{_uarsHomePageURL = a})
 
--- | A link to a license file of the app that matches the spdxLicenseID of your application. Max size 5 MB
+-- | A link to a license file of the app that matches the spdxLicenseID value of your application. Maximum size 5 MB
 uarsLicenseURL :: Lens' UpdateApplicationResponse (Maybe Text)
 uarsLicenseURL = lens _uarsLicenseURL (\ s a -> s{_uarsLicenseURL = a})
 
--- | A link to the readme file that contains a more detailed description of the application and how it works in Markdown language. Max size 5 MB
+-- | A link to the readme file in Markdown language that contains a more detailed description of the application and how it works. Maximum size 5 MB
 uarsReadmeURL :: Lens' UpdateApplicationResponse (Maybe Text)
 uarsReadmeURL = lens _uarsReadmeURL (\ s a -> s{_uarsReadmeURL = a})
 
@@ -264,7 +264,7 @@ uarsReadmeURL = lens _uarsReadmeURL (\ s a -> s{_uarsReadmeURL = a})
 uarsApplicationId :: Lens' UpdateApplicationResponse (Maybe Text)
 uarsApplicationId = lens _uarsApplicationId (\ s a -> s{_uarsApplicationId = a})
 
--- | The name of the application. Min Length=1. Max Length=140 Pattern: "[a-zA-Z0-9\\-]+";
+-- | The name of the application. Minimum length=1. Maximum length=140 Pattern: "[a-zA-Z0-9\\-]+";
 uarsName :: Lens' UpdateApplicationResponse (Maybe Text)
 uarsName = lens _uarsName (\ s a -> s{_uarsName = a})
 
@@ -272,15 +272,15 @@ uarsName = lens _uarsName (\ s a -> s{_uarsName = a})
 uarsVersion :: Lens' UpdateApplicationResponse (Maybe Version)
 uarsVersion = lens _uarsVersion (\ s a -> s{_uarsVersion = a})
 
--- | The name of the author publishing the app. Min Length=1. Max Length=127. Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+-- | The name of the author publishing the app. Minimum length=1. Maximum length=127. Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
 uarsAuthor :: Lens' UpdateApplicationResponse (Maybe Text)
 uarsAuthor = lens _uarsAuthor (\ s a -> s{_uarsAuthor = a})
 
--- | Labels to improve discovery of apps in search results. Min Length=1. Max Length=127. Maximum number of labels: 10 Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+-- | Labels to improve discovery of apps in search results. Minimum length=1. Maximum length=127. Maximum number of labels: 10 Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
 uarsLabels :: Lens' UpdateApplicationResponse [Text]
 uarsLabels = lens _uarsLabels (\ s a -> s{_uarsLabels = a}) . _Default . _Coerce
 
--- | The description of the application. Min Length=1. Max Length=256
+-- | The description of the application. Minimum length=1. Maximum length=256
 uarsDescription :: Lens' UpdateApplicationResponse (Maybe Text)
 uarsDescription = lens _uarsDescription (\ s a -> s{_uarsDescription = a})
 

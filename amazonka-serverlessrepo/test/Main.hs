@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.ServerlessApplicationRepository
 import Test.AWS.ServerlessApplicationRepository.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "ServerlessApplicationRepository"

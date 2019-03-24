@@ -18,8 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Puts the policy for the specified application.
+-- Sets the permission policy for an application. For the list of actions supported for this operation, see
 --
+--  <https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions Application
+--  Permissions>
+--  .
 --
 module Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy
     (
@@ -27,8 +30,8 @@ module Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy
       putApplicationPolicy
     , PutApplicationPolicy
     -- * Request Lenses
-    , papStatements
     , papApplicationId
+    , papStatements
 
     -- * Destructuring the Response
     , putApplicationPolicyResponse
@@ -47,8 +50,8 @@ import Network.AWS.ServerlessApplicationRepository.Types.Product
 
 -- | /See:/ 'putApplicationPolicy' smart constructor.
 data PutApplicationPolicy = PutApplicationPolicy'
-  { _papStatements    :: !(Maybe [ApplicationPolicyStatement])
-  , _papApplicationId :: !Text
+  { _papApplicationId :: !Text
+  , _papStatements    :: ![ApplicationPolicyStatement]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -56,24 +59,24 @@ data PutApplicationPolicy = PutApplicationPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'papStatements' - Array of policy statements applied to the application.
+-- * 'papApplicationId' - The Amazon Resource Name (ARN) of the application.
 --
--- * 'papApplicationId' - The ID of the application to get.
+-- * 'papStatements' - An array of policy statements applied to the application.
 putApplicationPolicy
     :: Text -- ^ 'papApplicationId'
     -> PutApplicationPolicy
 putApplicationPolicy pApplicationId_ =
   PutApplicationPolicy'
-    {_papStatements = Nothing, _papApplicationId = pApplicationId_}
+    {_papApplicationId = pApplicationId_, _papStatements = mempty}
 
 
--- | Array of policy statements applied to the application.
-papStatements :: Lens' PutApplicationPolicy [ApplicationPolicyStatement]
-papStatements = lens _papStatements (\ s a -> s{_papStatements = a}) . _Default . _Coerce
-
--- | The ID of the application to get.
+-- | The Amazon Resource Name (ARN) of the application.
 papApplicationId :: Lens' PutApplicationPolicy Text
 papApplicationId = lens _papApplicationId (\ s a -> s{_papApplicationId = a})
+
+-- | An array of policy statements applied to the application.
+papStatements :: Lens' PutApplicationPolicy [ApplicationPolicyStatement]
+papStatements = lens _papStatements (\ s a -> s{_papStatements = a}) . _Coerce
 
 instance AWSRequest PutApplicationPolicy where
         type Rs PutApplicationPolicy =
@@ -100,7 +103,7 @@ instance ToHeaders PutApplicationPolicy where
 instance ToJSON PutApplicationPolicy where
         toJSON PutApplicationPolicy'{..}
           = object
-              (catMaybes [("statements" .=) <$> _papStatements])
+              (catMaybes [Just ("statements" .= _papStatements)])
 
 instance ToPath PutApplicationPolicy where
         toPath PutApplicationPolicy'{..}
@@ -121,7 +124,7 @@ data PutApplicationPolicyResponse = PutApplicationPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'paprsStatements' - Array of policy statements applied to the application.
+-- * 'paprsStatements' - An array of policy statements applied to the application.
 --
 -- * 'paprsResponseStatus' - -- | The response status code.
 putApplicationPolicyResponse
@@ -132,7 +135,7 @@ putApplicationPolicyResponse pResponseStatus_ =
     {_paprsStatements = Nothing, _paprsResponseStatus = pResponseStatus_}
 
 
--- | Array of policy statements applied to the application.
+-- | An array of policy statements applied to the application.
 paprsStatements :: Lens' PutApplicationPolicyResponse [ApplicationPolicyStatement]
 paprsStatements = lens _paprsStatements (\ s a -> s{_paprsStatements = a}) . _Default . _Coerce
 

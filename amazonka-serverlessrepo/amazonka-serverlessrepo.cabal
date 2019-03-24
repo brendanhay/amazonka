@@ -48,9 +48,12 @@ library
         , Network.AWS.ServerlessApplicationRepository.CreateApplication
         , Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion
         , Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet
+        , Network.AWS.ServerlessApplicationRepository.CreateCloudFormationTemplate
         , Network.AWS.ServerlessApplicationRepository.DeleteApplication
         , Network.AWS.ServerlessApplicationRepository.GetApplication
         , Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy
+        , Network.AWS.ServerlessApplicationRepository.GetCloudFormationTemplate
+        , Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies
         , Network.AWS.ServerlessApplicationRepository.ListApplicationVersions
         , Network.AWS.ServerlessApplicationRepository.ListApplications
         , Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy

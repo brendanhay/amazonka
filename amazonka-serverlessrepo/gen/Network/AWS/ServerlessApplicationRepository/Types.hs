@@ -23,6 +23,18 @@ module Network.AWS.ServerlessApplicationRepository.Types
     , _InternalServerErrorException
     , _BadRequestException
 
+    -- * Capability
+    , Capability (..)
+
+    -- * Status
+    , Status (..)
+
+    -- * ApplicationDependencySummary
+    , ApplicationDependencySummary
+    , applicationDependencySummary
+    , adsApplicationId
+    , adsSemanticVersion
+
     -- * ApplicationPolicyStatement
     , ApplicationPolicyStatement
     , applicationPolicyStatement
@@ -65,13 +77,34 @@ module Network.AWS.ServerlessApplicationRepository.Types
     , pvValue
     , pvName
 
+    -- * RollbackConfiguration
+    , RollbackConfiguration
+    , rollbackConfiguration
+    , rcRollbackTriggers
+    , rcMonitoringTimeInMinutes
+
+    -- * RollbackTrigger
+    , RollbackTrigger
+    , rollbackTrigger
+    , rtType
+    , rtARN
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
+
     -- * Version
     , Version
     , version
     , vSourceCodeURL
+    , vSourceCodeArchiveURL
     , vTemplateURL
     , vParameterDefinitions
+    , vResourcesSupported
     , vCreationTime
+    , vRequiredCapabilities
     , vApplicationId
     , vSemanticVersion
 
@@ -147,7 +180,7 @@ _ForbiddenException =
   hasStatus 403
 
 
--- | The resource (for example, an access policy statement) specified in the request does not exist.
+-- | The resource (for example, an access policy statement) specified in the request doesn't exist.
 --
 --
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -156,7 +189,7 @@ _NotFoundException =
   hasStatus 404
 
 
--- | The client is sending more than the allowed number of requests per unit time.
+-- | The client is sending more than the allowed number of requests per unit of time.
 --
 --
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError

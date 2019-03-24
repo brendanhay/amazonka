@@ -11,10 +11,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- With Application Auto Scaling, you can configure automatic scaling for your scalable AWS resources. You can use Application Auto Scaling to accomplish the following tasks:
+-- With Application Auto Scaling, you can configure automatic scaling for your scalable resources. You can use Application Auto Scaling to accomplish the following tasks:
 --
 --
---     * Define scaling policies to automatically scale your AWS resources
+--     * Define scaling policies to automatically scale your AWS or custom resources
 --
 --     * Scale your resources in response to CloudWatch alarms
 --
@@ -24,27 +24,27 @@
 --
 --
 --
--- Application Auto Scaling can scale the following AWS resources:
+-- Application Auto Scaling can scale the following resources:
 --
---     * Amazon ECS services. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html Service Auto Scaling> in the /Amazon Elastic Container Service Developer Guide/ .
+--     * Amazon ECS services. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html Service Auto Scaling> in the /Amazon Elastic Container Service Developer Guide/ .
 --
---     * Amazon EC2 Spot fleets. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-auto-scaling.html Automatic Scaling for Spot Fleet> in the /Amazon EC2 User Guide/ .
+--     * Amazon EC2 Spot fleets. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-auto-scaling.html Automatic Scaling for Spot Fleet> in the /Amazon EC2 User Guide/ .
 --
---     * Amazon EMR clusters. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-automatic-scaling.html Using Automatic Scaling in Amazon EMR> in the /Amazon EMR Management Guide/ .
+--     * Amazon EMR clusters. For more information, see <https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-automatic-scaling.html Using Automatic Scaling in Amazon EMR> in the /Amazon EMR Management Guide/ .
 --
---     * AppStream 2.0 fleets. For more information, see <http://docs.aws.amazon.com/appstream2/latest/developerguide/autoscaling.html Fleet Auto Scaling for Amazon AppStream 2.0> in the /Amazon AppStream 2.0 Developer Guide/ .
+--     * AppStream 2.0 fleets. For more information, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/autoscaling.html Fleet Auto Scaling for Amazon AppStream 2.0> in the /Amazon AppStream 2.0 Developer Guide/ .
 --
---     * Provisioned read and write capacity for Amazon DynamoDB tables and global secondary indexes. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html Managing Throughput Capacity Automatically with DynamoDB Auto Scaling> in the /Amazon DynamoDB Developer Guide/ .
+--     * Provisioned read and write capacity for Amazon DynamoDB tables and global secondary indexes. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html Managing Throughput Capacity Automatically with DynamoDB Auto Scaling> in the /Amazon DynamoDB Developer Guide/ .
 --
---     * Amazon Aurora Replicas. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Integrating.AutoScaling.html Using Amazon Aurora Auto Scaling with Aurora Replicas> .
+--     * Amazon Aurora Replicas. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Integrating.AutoScaling.html Using Amazon Aurora Auto Scaling with Aurora Replicas> .
 --
---     * Amazon SageMaker endpoints. For more information, see <http://docs.aws.amazon.com/sagemaker/latest/dg/endpoint-auto-scaling.html Automatically Scaling Amazon SageMaker Models> .
+--     * Amazon SageMaker endpoint variants. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/endpoint-auto-scaling.html Automatically Scaling Amazon SageMaker Models> .
+--
+--     * Custom resources provided by your own applications or services. More information is available in our <https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository> .
 --
 --
 --
--- To configure automatic scaling for multiple resources across multiple services, use AWS Auto Scaling to create a scaling plan for your application. For more information, see <http://aws.amazon.com/autoscaling AWS Auto Scaling> .
---
--- For a list of supported regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#as-app_region AWS Regions and Endpoints: Application Auto Scaling> in the /AWS General Reference/ .
+-- To learn more about Application Auto Scaling, including information about granting IAM users required permissions for Application Auto Scaling actions, see the <https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html Application Auto Scaling User Guide> .
 --
 module Network.AWS.ApplicationAutoScaling
     (
@@ -99,7 +99,7 @@ module Network.AWS.ApplicationAutoScaling
     -- ** DeleteScheduledAction
     , module Network.AWS.ApplicationAutoScaling.DeleteScheduledAction
 
-    -- ** DescribeScheduledActions
+    -- ** DescribeScheduledActions (Paginated)
     , module Network.AWS.ApplicationAutoScaling.DescribeScheduledActions
 
     -- ** DescribeScalableTargets (Paginated)

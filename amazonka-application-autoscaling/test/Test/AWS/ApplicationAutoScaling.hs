@@ -16,9 +16,9 @@ module Test.AWS.ApplicationAutoScaling
     , fixtures
     ) where
 
-import           Network.AWS.ApplicationAutoScaling
-import           Test.AWS.Gen.ApplicationAutoScaling
-import           Test.Tasty
+import Network.AWS.ApplicationAutoScaling
+import Test.AWS.Gen.ApplicationAutoScaling
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

@@ -213,6 +213,7 @@ instance FromJSON PolicyType where
 
 data ScalableDimension
   = AppstreamFleetDesiredCapacity
+  | CustomResourceResourceTypeProperty
   | DynamodbIndexReadCapacityUnits
   | DynamodbIndexWriteCapacityUnits
   | DynamodbTableReadCapacityUnits
@@ -228,6 +229,7 @@ data ScalableDimension
 instance FromText ScalableDimension where
     parser = takeLowerText >>= \case
         "appstream:fleet:desiredcapacity" -> pure AppstreamFleetDesiredCapacity
+        "custom-resource:resourcetype:property" -> pure CustomResourceResourceTypeProperty
         "dynamodb:index:readcapacityunits" -> pure DynamodbIndexReadCapacityUnits
         "dynamodb:index:writecapacityunits" -> pure DynamodbIndexWriteCapacityUnits
         "dynamodb:table:readcapacityunits" -> pure DynamodbTableReadCapacityUnits
@@ -238,11 +240,12 @@ instance FromText ScalableDimension where
         "rds:cluster:readreplicacount" -> pure RDSClusterReadReplicaCount
         "sagemaker:variant:desiredinstancecount" -> pure SagemakerVariantDesiredInstanceCount
         e -> fromTextError $ "Failure parsing ScalableDimension from value: '" <> e
-           <> "'. Accepted values: appstream:fleet:desiredcapacity, dynamodb:index:readcapacityunits, dynamodb:index:writecapacityunits, dynamodb:table:readcapacityunits, dynamodb:table:writecapacityunits, ec2:spot-fleet-request:targetcapacity, ecs:service:desiredcount, elasticmapreduce:instancegroup:instancecount, rds:cluster:readreplicacount, sagemaker:variant:desiredinstancecount"
+           <> "'. Accepted values: appstream:fleet:desiredcapacity, custom-resource:resourcetype:property, dynamodb:index:readcapacityunits, dynamodb:index:writecapacityunits, dynamodb:table:readcapacityunits, dynamodb:table:writecapacityunits, ec2:spot-fleet-request:targetcapacity, ecs:service:desiredcount, elasticmapreduce:instancegroup:instancecount, rds:cluster:readreplicacount, sagemaker:variant:desiredinstancecount"
 
 instance ToText ScalableDimension where
     toText = \case
         AppstreamFleetDesiredCapacity -> "appstream:fleet:DesiredCapacity"
+        CustomResourceResourceTypeProperty -> "custom-resource:ResourceType:Property"
         DynamodbIndexReadCapacityUnits -> "dynamodb:index:ReadCapacityUnits"
         DynamodbIndexWriteCapacityUnits -> "dynamodb:index:WriteCapacityUnits"
         DynamodbTableReadCapacityUnits -> "dynamodb:table:ReadCapacityUnits"
@@ -306,6 +309,7 @@ instance FromJSON ScalingActivityStatusCode where
 
 data ServiceNamespace
   = Appstream
+  | CustomResource
   | Dynamodb
   | EC2
   | Ecs
@@ -318,6 +322,7 @@ data ServiceNamespace
 instance FromText ServiceNamespace where
     parser = takeLowerText >>= \case
         "appstream" -> pure Appstream
+        "custom-resource" -> pure CustomResource
         "dynamodb" -> pure Dynamodb
         "ec2" -> pure EC2
         "ecs" -> pure Ecs
@@ -325,11 +330,12 @@ instance FromText ServiceNamespace where
         "rds" -> pure RDS
         "sagemaker" -> pure Sagemaker
         e -> fromTextError $ "Failure parsing ServiceNamespace from value: '" <> e
-           <> "'. Accepted values: appstream, dynamodb, ec2, ecs, elasticmapreduce, rds, sagemaker"
+           <> "'. Accepted values: appstream, custom-resource, dynamodb, ec2, ecs, elasticmapreduce, rds, sagemaker"
 
 instance ToText ServiceNamespace where
     toText = \case
         Appstream -> "appstream"
+        CustomResource -> "custom-resource"
         Dynamodb -> "dynamodb"
         EC2 -> "ec2"
         Ecs -> "ecs"

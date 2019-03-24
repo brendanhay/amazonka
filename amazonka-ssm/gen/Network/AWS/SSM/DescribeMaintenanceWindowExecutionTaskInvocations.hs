@@ -21,6 +21,8 @@
 -- Retrieves the individual task executions (one per target) for a particular task executed as part of a Maintenance Window execution.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeMaintenanceWindowExecutionTaskInvocations
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.SSM.DescribeMaintenanceWindowExecutionTaskInvocations
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -105,6 +108,19 @@ dmwetiWindowExecutionId = lens _dmwetiWindowExecutionId (\ s a -> s{_dmwetiWindo
 -- | The ID of the specific task in the Maintenance Window task that should be retrieved.
 dmwetiTaskId :: Lens' DescribeMaintenanceWindowExecutionTaskInvocations Text
 dmwetiTaskId = lens _dmwetiTaskId (\ s a -> s{_dmwetiTaskId = a})
+
+instance AWSPager
+           DescribeMaintenanceWindowExecutionTaskInvocations
+         where
+        page rq rs
+          | stop (rs ^. dmwetirsNextToken) = Nothing
+          | stop
+              (rs ^.
+                 dmwetirsWindowExecutionTaskInvocationIdentities)
+            = Nothing
+          | otherwise =
+            Just $ rq &
+              dmwetiNextToken .~ rs ^. dmwetirsNextToken
 
 instance AWSRequest
            DescribeMaintenanceWindowExecutionTaskInvocations

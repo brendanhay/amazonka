@@ -35,6 +35,10 @@ module Network.AWS.SSM.GetMaintenanceWindow
     -- * Response Lenses
     , gmwrsEnabled
     , gmwrsSchedule
+    , gmwrsNextExecutionTime
+    , gmwrsEndDate
+    , gmwrsScheduleTimezone
+    , gmwrsStartDate
     , gmwrsCreatedDate
     , gmwrsName
     , gmwrsModifiedDate
@@ -84,7 +88,11 @@ instance AWSRequest GetMaintenanceWindow where
               (\ s h x ->
                  GetMaintenanceWindowResponse' <$>
                    (x .?> "Enabled") <*> (x .?> "Schedule") <*>
-                     (x .?> "CreatedDate")
+                     (x .?> "NextExecutionTime")
+                     <*> (x .?> "EndDate")
+                     <*> (x .?> "ScheduleTimezone")
+                     <*> (x .?> "StartDate")
+                     <*> (x .?> "CreatedDate")
                      <*> (x .?> "Name")
                      <*> (x .?> "ModifiedDate")
                      <*> (x .?> "Cutoff")
@@ -122,6 +130,10 @@ instance ToQuery GetMaintenanceWindow where
 data GetMaintenanceWindowResponse = GetMaintenanceWindowResponse'
   { _gmwrsEnabled                  :: !(Maybe Bool)
   , _gmwrsSchedule                 :: !(Maybe Text)
+  , _gmwrsNextExecutionTime        :: !(Maybe Text)
+  , _gmwrsEndDate                  :: !(Maybe Text)
+  , _gmwrsScheduleTimezone         :: !(Maybe Text)
+  , _gmwrsStartDate                :: !(Maybe Text)
   , _gmwrsCreatedDate              :: !(Maybe POSIX)
   , _gmwrsName                     :: !(Maybe Text)
   , _gmwrsModifiedDate             :: !(Maybe POSIX)
@@ -141,6 +153,14 @@ data GetMaintenanceWindowResponse = GetMaintenanceWindowResponse'
 -- * 'gmwrsEnabled' - Whether the Maintenance Windows is enabled.
 --
 -- * 'gmwrsSchedule' - The schedule of the Maintenance Window in the form of a cron or rate expression.
+--
+-- * 'gmwrsNextExecutionTime' - The next time the Maintenance Window will actually run, taking into account any specified times for the Maintenance Window to become active or inactive.
+--
+-- * 'gmwrsEndDate' - The date and time, in ISO-8601 Extended format, for when the Maintenance Window is scheduled to become inactive. The Maintenance Window will not run after this specified time.
+--
+-- * 'gmwrsScheduleTimezone' - The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
+--
+-- * 'gmwrsStartDate' - The date and time, in ISO-8601 Extended format, for when the Maintenance Window is scheduled to become active. The Maintenance Window will not run before this specified time.
 --
 -- * 'gmwrsCreatedDate' - The date the Maintenance Window was created.
 --
@@ -166,6 +186,10 @@ getMaintenanceWindowResponse pResponseStatus_ =
   GetMaintenanceWindowResponse'
     { _gmwrsEnabled = Nothing
     , _gmwrsSchedule = Nothing
+    , _gmwrsNextExecutionTime = Nothing
+    , _gmwrsEndDate = Nothing
+    , _gmwrsScheduleTimezone = Nothing
+    , _gmwrsStartDate = Nothing
     , _gmwrsCreatedDate = Nothing
     , _gmwrsName = Nothing
     , _gmwrsModifiedDate = Nothing
@@ -185,6 +209,22 @@ gmwrsEnabled = lens _gmwrsEnabled (\ s a -> s{_gmwrsEnabled = a})
 -- | The schedule of the Maintenance Window in the form of a cron or rate expression.
 gmwrsSchedule :: Lens' GetMaintenanceWindowResponse (Maybe Text)
 gmwrsSchedule = lens _gmwrsSchedule (\ s a -> s{_gmwrsSchedule = a})
+
+-- | The next time the Maintenance Window will actually run, taking into account any specified times for the Maintenance Window to become active or inactive.
+gmwrsNextExecutionTime :: Lens' GetMaintenanceWindowResponse (Maybe Text)
+gmwrsNextExecutionTime = lens _gmwrsNextExecutionTime (\ s a -> s{_gmwrsNextExecutionTime = a})
+
+-- | The date and time, in ISO-8601 Extended format, for when the Maintenance Window is scheduled to become inactive. The Maintenance Window will not run after this specified time.
+gmwrsEndDate :: Lens' GetMaintenanceWindowResponse (Maybe Text)
+gmwrsEndDate = lens _gmwrsEndDate (\ s a -> s{_gmwrsEndDate = a})
+
+-- | The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
+gmwrsScheduleTimezone :: Lens' GetMaintenanceWindowResponse (Maybe Text)
+gmwrsScheduleTimezone = lens _gmwrsScheduleTimezone (\ s a -> s{_gmwrsScheduleTimezone = a})
+
+-- | The date and time, in ISO-8601 Extended format, for when the Maintenance Window is scheduled to become active. The Maintenance Window will not run before this specified time.
+gmwrsStartDate :: Lens' GetMaintenanceWindowResponse (Maybe Text)
+gmwrsStartDate = lens _gmwrsStartDate (\ s a -> s{_gmwrsStartDate = a})
 
 -- | The date the Maintenance Window was created.
 gmwrsCreatedDate :: Lens' GetMaintenanceWindowResponse (Maybe UTCTime)

@@ -32,11 +32,13 @@ module Network.AWS.SSM.CreatePatchBaseline
     , cpbOperatingSystem
     , cpbGlobalFilters
     , cpbApprovedPatchesComplianceLevel
+    , cpbRejectedPatchesAction
     , cpbApprovedPatches
     , cpbApprovedPatchesEnableNonSecurity
     , cpbRejectedPatches
     , cpbSources
     , cpbDescription
+    , cpbTags
     , cpbName
 
     -- * Destructuring the Response
@@ -61,11 +63,13 @@ data CreatePatchBaseline = CreatePatchBaseline'
   , _cpbOperatingSystem                  :: !(Maybe OperatingSystem)
   , _cpbGlobalFilters                    :: !(Maybe PatchFilterGroup)
   , _cpbApprovedPatchesComplianceLevel   :: !(Maybe PatchComplianceLevel)
+  , _cpbRejectedPatchesAction            :: !(Maybe PatchAction)
   , _cpbApprovedPatches                  :: !(Maybe [Text])
   , _cpbApprovedPatchesEnableNonSecurity :: !(Maybe Bool)
   , _cpbRejectedPatches                  :: !(Maybe [Text])
   , _cpbSources                          :: !(Maybe [PatchSource])
   , _cpbDescription                      :: !(Maybe Text)
+  , _cpbTags                             :: !(Maybe [Tag])
   , _cpbName                             :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
@@ -80,9 +84,11 @@ data CreatePatchBaseline = CreatePatchBaseline'
 --
 -- * 'cpbOperatingSystem' - Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
 --
--- * 'cpbGlobalFilters' - A set of global filters used to exclude patches from the baseline.
+-- * 'cpbGlobalFilters' - A set of global filters used to include patches in the baseline.
 --
 -- * 'cpbApprovedPatchesComplianceLevel' - Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
+--
+-- * 'cpbRejectedPatchesAction' - The action for Patch Manager to take on patches included in the RejectedPackages list.     * __ALLOW_AS_DEPENDENCY__ : A package in the Rejected patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as /InstalledOther/ . This is the default action if no option is specified.     * __BLOCK__ : Packages in the RejectedPatches list, and packages that include them as dependencies, are not installed under any circumstances. If a package was installed before it was added to the Rejected patches list, it is considered non-compliant with the patch baseline, and its status is reported as /InstalledRejected/ .
 --
 -- * 'cpbApprovedPatches' - A list of explicitly approved patches for the baseline. For information about accepted formats for lists of approved patches and rejected patches, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html Package Name Formats for Approved and Rejected Patch Lists> in the /AWS Systems Manager User Guide/ .
 --
@@ -93,6 +99,8 @@ data CreatePatchBaseline = CreatePatchBaseline'
 -- * 'cpbSources' - Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
 --
 -- * 'cpbDescription' - A description of the patch baseline.
+--
+-- * 'cpbTags' - Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a patch baseline to identify the severity level of patches it specifies and the operating system family it applies to. In this case, you could specify the following key name/value pairs:     * @Key=PatchSeverity,Value=Critical@      * @Key=OS,Value=Windows@
 --
 -- * 'cpbName' - The name of the patch baseline.
 createPatchBaseline
@@ -105,11 +113,13 @@ createPatchBaseline pName_ =
     , _cpbOperatingSystem = Nothing
     , _cpbGlobalFilters = Nothing
     , _cpbApprovedPatchesComplianceLevel = Nothing
+    , _cpbRejectedPatchesAction = Nothing
     , _cpbApprovedPatches = Nothing
     , _cpbApprovedPatchesEnableNonSecurity = Nothing
     , _cpbRejectedPatches = Nothing
     , _cpbSources = Nothing
     , _cpbDescription = Nothing
+    , _cpbTags = Nothing
     , _cpbName = pName_
     }
 
@@ -126,13 +136,17 @@ cpbClientToken = lens _cpbClientToken (\ s a -> s{_cpbClientToken = a})
 cpbOperatingSystem :: Lens' CreatePatchBaseline (Maybe OperatingSystem)
 cpbOperatingSystem = lens _cpbOperatingSystem (\ s a -> s{_cpbOperatingSystem = a})
 
--- | A set of global filters used to exclude patches from the baseline.
+-- | A set of global filters used to include patches in the baseline.
 cpbGlobalFilters :: Lens' CreatePatchBaseline (Maybe PatchFilterGroup)
 cpbGlobalFilters = lens _cpbGlobalFilters (\ s a -> s{_cpbGlobalFilters = a})
 
 -- | Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
 cpbApprovedPatchesComplianceLevel :: Lens' CreatePatchBaseline (Maybe PatchComplianceLevel)
 cpbApprovedPatchesComplianceLevel = lens _cpbApprovedPatchesComplianceLevel (\ s a -> s{_cpbApprovedPatchesComplianceLevel = a})
+
+-- | The action for Patch Manager to take on patches included in the RejectedPackages list.     * __ALLOW_AS_DEPENDENCY__ : A package in the Rejected patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as /InstalledOther/ . This is the default action if no option is specified.     * __BLOCK__ : Packages in the RejectedPatches list, and packages that include them as dependencies, are not installed under any circumstances. If a package was installed before it was added to the Rejected patches list, it is considered non-compliant with the patch baseline, and its status is reported as /InstalledRejected/ .
+cpbRejectedPatchesAction :: Lens' CreatePatchBaseline (Maybe PatchAction)
+cpbRejectedPatchesAction = lens _cpbRejectedPatchesAction (\ s a -> s{_cpbRejectedPatchesAction = a})
 
 -- | A list of explicitly approved patches for the baseline. For information about accepted formats for lists of approved patches and rejected patches, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html Package Name Formats for Approved and Rejected Patch Lists> in the /AWS Systems Manager User Guide/ .
 cpbApprovedPatches :: Lens' CreatePatchBaseline [Text]
@@ -153,6 +167,10 @@ cpbSources = lens _cpbSources (\ s a -> s{_cpbSources = a}) . _Default . _Coerce
 -- | A description of the patch baseline.
 cpbDescription :: Lens' CreatePatchBaseline (Maybe Text)
 cpbDescription = lens _cpbDescription (\ s a -> s{_cpbDescription = a})
+
+-- | Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a patch baseline to identify the severity level of patches it specifies and the operating system family it applies to. In this case, you could specify the following key name/value pairs:     * @Key=PatchSeverity,Value=Critical@      * @Key=OS,Value=Windows@
+cpbTags :: Lens' CreatePatchBaseline [Tag]
+cpbTags = lens _cpbTags (\ s a -> s{_cpbTags = a}) . _Default . _Coerce
 
 -- | The name of the patch baseline.
 cpbName :: Lens' CreatePatchBaseline Text
@@ -191,13 +209,15 @@ instance ToJSON CreatePatchBaseline where
                   ("GlobalFilters" .=) <$> _cpbGlobalFilters,
                   ("ApprovedPatchesComplianceLevel" .=) <$>
                     _cpbApprovedPatchesComplianceLevel,
+                  ("RejectedPatchesAction" .=) <$>
+                    _cpbRejectedPatchesAction,
                   ("ApprovedPatches" .=) <$> _cpbApprovedPatches,
                   ("ApprovedPatchesEnableNonSecurity" .=) <$>
                     _cpbApprovedPatchesEnableNonSecurity,
                   ("RejectedPatches" .=) <$> _cpbRejectedPatches,
                   ("Sources" .=) <$> _cpbSources,
                   ("Description" .=) <$> _cpbDescription,
-                  Just ("Name" .= _cpbName)])
+                  ("Tags" .=) <$> _cpbTags, Just ("Name" .= _cpbName)])
 
 instance ToPath CreatePatchBaseline where
         toPath = const "/"

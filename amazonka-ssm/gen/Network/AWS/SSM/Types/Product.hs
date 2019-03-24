@@ -34,6 +34,7 @@ data Activation = Activation'
   , _aRegistrationLimit   :: !(Maybe Nat)
   , _aExpirationDate      :: !(Maybe POSIX)
   , _aDescription         :: !(Maybe Text)
+  , _aTags                :: !(Maybe [Tag])
   , _aRegistrationsCount  :: !(Maybe Nat)
   , _aIAMRole             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -57,6 +58,8 @@ data Activation = Activation'
 --
 -- * 'aDescription' - A user defined description of the activation.
 --
+-- * 'aTags' - Tags assigned to the activation.
+--
 -- * 'aRegistrationsCount' - The number of managed instances already registered with this activation.
 --
 -- * 'aIAMRole' - The Amazon Identity and Access Management (IAM) role to assign to the managed instance.
@@ -71,6 +74,7 @@ activation =
     , _aRegistrationLimit = Nothing
     , _aExpirationDate = Nothing
     , _aDescription = Nothing
+    , _aTags = Nothing
     , _aRegistrationsCount = Nothing
     , _aIAMRole = Nothing
     }
@@ -104,6 +108,10 @@ aExpirationDate = lens _aExpirationDate (\ s a -> s{_aExpirationDate = a}) . map
 aDescription :: Lens' Activation (Maybe Text)
 aDescription = lens _aDescription (\ s a -> s{_aDescription = a})
 
+-- | Tags assigned to the activation.
+aTags :: Lens' Activation [Tag]
+aTags = lens _aTags (\ s a -> s{_aTags = a}) . _Default . _Coerce
+
 -- | The number of managed instances already registered with this activation.
 aRegistrationsCount :: Lens' Activation (Maybe Natural)
 aRegistrationsCount = lens _aRegistrationsCount (\ s a -> s{_aRegistrationsCount = a}) . mapping _Nat
@@ -123,6 +131,7 @@ instance FromJSON Activation where
                      <*> (x .:? "RegistrationLimit")
                      <*> (x .:? "ExpirationDate")
                      <*> (x .:? "Description")
+                     <*> (x .:? "Tags" .!= mempty)
                      <*> (x .:? "RegistrationsCount")
                      <*> (x .:? "IamRole"))
 
@@ -254,22 +263,26 @@ instance NFData Association where
 --
 -- /See:/ 'associationDescription' smart constructor.
 data AssociationDescription = AssociationDescription'
-  { _adAssociationId               :: !(Maybe Text)
-  , _adInstanceId                  :: !(Maybe Text)
-  , _adStatus                      :: !(Maybe AssociationStatus)
+  { _adAssociationId :: !(Maybe Text)
+  , _adInstanceId :: !(Maybe Text)
+  , _adStatus :: !(Maybe AssociationStatus)
   , _adLastSuccessfulExecutionDate :: !(Maybe POSIX)
-  , _adOverview                    :: !(Maybe AssociationOverview)
-  , _adLastUpdateAssociationDate   :: !(Maybe POSIX)
-  , _adDate                        :: !(Maybe POSIX)
-  , _adLastExecutionDate           :: !(Maybe POSIX)
-  , _adScheduleExpression          :: !(Maybe Text)
-  , _adName                        :: !(Maybe Text)
-  , _adOutputLocation              :: !(Maybe InstanceAssociationOutputLocation)
-  , _adTargets                     :: !(Maybe [Target])
-  , _adParameters                  :: !(Maybe (Map Text [Text]))
-  , _adDocumentVersion             :: !(Maybe Text)
-  , _adAssociationVersion          :: !(Maybe Text)
-  , _adAssociationName             :: !(Maybe Text)
+  , _adOverview :: !(Maybe AssociationOverview)
+  , _adLastUpdateAssociationDate :: !(Maybe POSIX)
+  , _adDate :: !(Maybe POSIX)
+  , _adLastExecutionDate :: !(Maybe POSIX)
+  , _adMaxErrors :: !(Maybe Text)
+  , _adScheduleExpression :: !(Maybe Text)
+  , _adName :: !(Maybe Text)
+  , _adOutputLocation :: !(Maybe InstanceAssociationOutputLocation)
+  , _adTargets :: !(Maybe [Target])
+  , _adParameters :: !(Maybe (Map Text [Text]))
+  , _adDocumentVersion :: !(Maybe Text)
+  , _adAutomationTargetParameterName :: !(Maybe Text)
+  , _adAssociationVersion :: !(Maybe Text)
+  , _adAssociationName :: !(Maybe Text)
+  , _adComplianceSeverity :: !(Maybe AssociationComplianceSeverity)
+  , _adMaxConcurrency :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -293,6 +306,8 @@ data AssociationDescription = AssociationDescription'
 --
 -- * 'adLastExecutionDate' - The date on which the association was last run.
 --
+-- * 'adMaxErrors' - The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received. Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+--
 -- * 'adScheduleExpression' - A cron expression that specifies a schedule when the association runs.
 --
 -- * 'adName' - The name of the Systems Manager document.
@@ -305,9 +320,15 @@ data AssociationDescription = AssociationDescription'
 --
 -- * 'adDocumentVersion' - The document version.
 --
+-- * 'adAutomationTargetParameterName' - Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.
+--
 -- * 'adAssociationVersion' - The association version.
 --
 -- * 'adAssociationName' - The association name.
+--
+-- * 'adComplianceSeverity' - The severity level that is assigned to the association.
+--
+-- * 'adMaxConcurrency' - The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time. If a new instance starts and attempts to execute an association while Systems Manager is executing MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
 associationDescription
     :: AssociationDescription
 associationDescription =
@@ -320,14 +341,18 @@ associationDescription =
     , _adLastUpdateAssociationDate = Nothing
     , _adDate = Nothing
     , _adLastExecutionDate = Nothing
+    , _adMaxErrors = Nothing
     , _adScheduleExpression = Nothing
     , _adName = Nothing
     , _adOutputLocation = Nothing
     , _adTargets = Nothing
     , _adParameters = Nothing
     , _adDocumentVersion = Nothing
+    , _adAutomationTargetParameterName = Nothing
     , _adAssociationVersion = Nothing
     , _adAssociationName = Nothing
+    , _adComplianceSeverity = Nothing
+    , _adMaxConcurrency = Nothing
     }
 
 
@@ -363,6 +388,10 @@ adDate = lens _adDate (\ s a -> s{_adDate = a}) . mapping _Time
 adLastExecutionDate :: Lens' AssociationDescription (Maybe UTCTime)
 adLastExecutionDate = lens _adLastExecutionDate (\ s a -> s{_adLastExecutionDate = a}) . mapping _Time
 
+-- | The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received. Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+adMaxErrors :: Lens' AssociationDescription (Maybe Text)
+adMaxErrors = lens _adMaxErrors (\ s a -> s{_adMaxErrors = a})
+
 -- | A cron expression that specifies a schedule when the association runs.
 adScheduleExpression :: Lens' AssociationDescription (Maybe Text)
 adScheduleExpression = lens _adScheduleExpression (\ s a -> s{_adScheduleExpression = a})
@@ -387,6 +416,10 @@ adParameters = lens _adParameters (\ s a -> s{_adParameters = a}) . _Default . _
 adDocumentVersion :: Lens' AssociationDescription (Maybe Text)
 adDocumentVersion = lens _adDocumentVersion (\ s a -> s{_adDocumentVersion = a})
 
+-- | Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.
+adAutomationTargetParameterName :: Lens' AssociationDescription (Maybe Text)
+adAutomationTargetParameterName = lens _adAutomationTargetParameterName (\ s a -> s{_adAutomationTargetParameterName = a})
+
 -- | The association version.
 adAssociationVersion :: Lens' AssociationDescription (Maybe Text)
 adAssociationVersion = lens _adAssociationVersion (\ s a -> s{_adAssociationVersion = a})
@@ -394,6 +427,14 @@ adAssociationVersion = lens _adAssociationVersion (\ s a -> s{_adAssociationVers
 -- | The association name.
 adAssociationName :: Lens' AssociationDescription (Maybe Text)
 adAssociationName = lens _adAssociationName (\ s a -> s{_adAssociationName = a})
+
+-- | The severity level that is assigned to the association.
+adComplianceSeverity :: Lens' AssociationDescription (Maybe AssociationComplianceSeverity)
+adComplianceSeverity = lens _adComplianceSeverity (\ s a -> s{_adComplianceSeverity = a})
+
+-- | The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time. If a new instance starts and attempts to execute an association while Systems Manager is executing MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
+adMaxConcurrency :: Lens' AssociationDescription (Maybe Text)
+adMaxConcurrency = lens _adMaxConcurrency (\ s a -> s{_adMaxConcurrency = a})
 
 instance FromJSON AssociationDescription where
         parseJSON
@@ -407,18 +448,334 @@ instance FromJSON AssociationDescription where
                      <*> (x .:? "LastUpdateAssociationDate")
                      <*> (x .:? "Date")
                      <*> (x .:? "LastExecutionDate")
+                     <*> (x .:? "MaxErrors")
                      <*> (x .:? "ScheduleExpression")
                      <*> (x .:? "Name")
                      <*> (x .:? "OutputLocation")
                      <*> (x .:? "Targets" .!= mempty)
                      <*> (x .:? "Parameters" .!= mempty)
                      <*> (x .:? "DocumentVersion")
+                     <*> (x .:? "AutomationTargetParameterName")
                      <*> (x .:? "AssociationVersion")
-                     <*> (x .:? "AssociationName"))
+                     <*> (x .:? "AssociationName")
+                     <*> (x .:? "ComplianceSeverity")
+                     <*> (x .:? "MaxConcurrency"))
 
 instance Hashable AssociationDescription where
 
 instance NFData AssociationDescription where
+
+-- | Includes information about the specified association.
+--
+--
+--
+-- /See:/ 'associationExecution' smart constructor.
+data AssociationExecution = AssociationExecution'
+  { _aeAssociationId         :: !(Maybe Text)
+  , _aeDetailedStatus        :: !(Maybe Text)
+  , _aeStatus                :: !(Maybe Text)
+  , _aeExecutionId           :: !(Maybe Text)
+  , _aeCreatedTime           :: !(Maybe POSIX)
+  , _aeResourceCountByStatus :: !(Maybe Text)
+  , _aeLastExecutionDate     :: !(Maybe POSIX)
+  , _aeAssociationVersion    :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AssociationExecution' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aeAssociationId' - The association ID.
+--
+-- * 'aeDetailedStatus' - Detailed status information about the execution.
+--
+-- * 'aeStatus' - The status of the association execution.
+--
+-- * 'aeExecutionId' - The execution ID for the association. If the association does not run at intervals or according to a schedule, then the ExecutionID is the same as the AssociationID.
+--
+-- * 'aeCreatedTime' - The time the execution started.
+--
+-- * 'aeResourceCountByStatus' - An aggregate status of the resources in the execution based on the status type.
+--
+-- * 'aeLastExecutionDate' - The date of the last execution.
+--
+-- * 'aeAssociationVersion' - The association version.
+associationExecution
+    :: AssociationExecution
+associationExecution =
+  AssociationExecution'
+    { _aeAssociationId = Nothing
+    , _aeDetailedStatus = Nothing
+    , _aeStatus = Nothing
+    , _aeExecutionId = Nothing
+    , _aeCreatedTime = Nothing
+    , _aeResourceCountByStatus = Nothing
+    , _aeLastExecutionDate = Nothing
+    , _aeAssociationVersion = Nothing
+    }
+
+
+-- | The association ID.
+aeAssociationId :: Lens' AssociationExecution (Maybe Text)
+aeAssociationId = lens _aeAssociationId (\ s a -> s{_aeAssociationId = a})
+
+-- | Detailed status information about the execution.
+aeDetailedStatus :: Lens' AssociationExecution (Maybe Text)
+aeDetailedStatus = lens _aeDetailedStatus (\ s a -> s{_aeDetailedStatus = a})
+
+-- | The status of the association execution.
+aeStatus :: Lens' AssociationExecution (Maybe Text)
+aeStatus = lens _aeStatus (\ s a -> s{_aeStatus = a})
+
+-- | The execution ID for the association. If the association does not run at intervals or according to a schedule, then the ExecutionID is the same as the AssociationID.
+aeExecutionId :: Lens' AssociationExecution (Maybe Text)
+aeExecutionId = lens _aeExecutionId (\ s a -> s{_aeExecutionId = a})
+
+-- | The time the execution started.
+aeCreatedTime :: Lens' AssociationExecution (Maybe UTCTime)
+aeCreatedTime = lens _aeCreatedTime (\ s a -> s{_aeCreatedTime = a}) . mapping _Time
+
+-- | An aggregate status of the resources in the execution based on the status type.
+aeResourceCountByStatus :: Lens' AssociationExecution (Maybe Text)
+aeResourceCountByStatus = lens _aeResourceCountByStatus (\ s a -> s{_aeResourceCountByStatus = a})
+
+-- | The date of the last execution.
+aeLastExecutionDate :: Lens' AssociationExecution (Maybe UTCTime)
+aeLastExecutionDate = lens _aeLastExecutionDate (\ s a -> s{_aeLastExecutionDate = a}) . mapping _Time
+
+-- | The association version.
+aeAssociationVersion :: Lens' AssociationExecution (Maybe Text)
+aeAssociationVersion = lens _aeAssociationVersion (\ s a -> s{_aeAssociationVersion = a})
+
+instance FromJSON AssociationExecution where
+        parseJSON
+          = withObject "AssociationExecution"
+              (\ x ->
+                 AssociationExecution' <$>
+                   (x .:? "AssociationId") <*> (x .:? "DetailedStatus")
+                     <*> (x .:? "Status")
+                     <*> (x .:? "ExecutionId")
+                     <*> (x .:? "CreatedTime")
+                     <*> (x .:? "ResourceCountByStatus")
+                     <*> (x .:? "LastExecutionDate")
+                     <*> (x .:? "AssociationVersion"))
+
+instance Hashable AssociationExecution where
+
+instance NFData AssociationExecution where
+
+-- | Filters used in the request.
+--
+--
+--
+-- /See:/ 'associationExecutionFilter' smart constructor.
+data AssociationExecutionFilter = AssociationExecutionFilter'
+  { _aefKey   :: !AssociationExecutionFilterKey
+  , _aefValue :: !Text
+  , _aefType  :: !AssociationFilterOperatorType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AssociationExecutionFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aefKey' - The key value used in the request.
+--
+-- * 'aefValue' - The value specified for the key.
+--
+-- * 'aefType' - The filter type specified in the request.
+associationExecutionFilter
+    :: AssociationExecutionFilterKey -- ^ 'aefKey'
+    -> Text -- ^ 'aefValue'
+    -> AssociationFilterOperatorType -- ^ 'aefType'
+    -> AssociationExecutionFilter
+associationExecutionFilter pKey_ pValue_ pType_ =
+  AssociationExecutionFilter'
+    {_aefKey = pKey_, _aefValue = pValue_, _aefType = pType_}
+
+
+-- | The key value used in the request.
+aefKey :: Lens' AssociationExecutionFilter AssociationExecutionFilterKey
+aefKey = lens _aefKey (\ s a -> s{_aefKey = a})
+
+-- | The value specified for the key.
+aefValue :: Lens' AssociationExecutionFilter Text
+aefValue = lens _aefValue (\ s a -> s{_aefValue = a})
+
+-- | The filter type specified in the request.
+aefType :: Lens' AssociationExecutionFilter AssociationFilterOperatorType
+aefType = lens _aefType (\ s a -> s{_aefType = a})
+
+instance Hashable AssociationExecutionFilter where
+
+instance NFData AssociationExecutionFilter where
+
+instance ToJSON AssociationExecutionFilter where
+        toJSON AssociationExecutionFilter'{..}
+          = object
+              (catMaybes
+                 [Just ("Key" .= _aefKey),
+                  Just ("Value" .= _aefValue),
+                  Just ("Type" .= _aefType)])
+
+-- | Includes information about the specified association execution.
+--
+--
+--
+-- /See:/ 'associationExecutionTarget' smart constructor.
+data AssociationExecutionTarget = AssociationExecutionTarget'
+  { _aetAssociationId      :: !(Maybe Text)
+  , _aetDetailedStatus     :: !(Maybe Text)
+  , _aetStatus             :: !(Maybe Text)
+  , _aetExecutionId        :: !(Maybe Text)
+  , _aetResourceId         :: !(Maybe Text)
+  , _aetResourceType       :: !(Maybe Text)
+  , _aetOutputSource       :: !(Maybe OutputSource)
+  , _aetLastExecutionDate  :: !(Maybe POSIX)
+  , _aetAssociationVersion :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AssociationExecutionTarget' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aetAssociationId' - The association ID.
+--
+-- * 'aetDetailedStatus' - Detailed information about the execution status.
+--
+-- * 'aetStatus' - The association execution status.
+--
+-- * 'aetExecutionId' - The execution ID. If the association does not run at intervals or according to a schedule, then the ExecutionID is the same as the AssociationID.
+--
+-- * 'aetResourceId' - The resource ID, for example, the instance ID where the association ran.
+--
+-- * 'aetResourceType' - The resource type, for example, instance.
+--
+-- * 'aetOutputSource' - The location where the association details are saved.
+--
+-- * 'aetLastExecutionDate' - The date of the last execution.
+--
+-- * 'aetAssociationVersion' - The association version.
+associationExecutionTarget
+    :: AssociationExecutionTarget
+associationExecutionTarget =
+  AssociationExecutionTarget'
+    { _aetAssociationId = Nothing
+    , _aetDetailedStatus = Nothing
+    , _aetStatus = Nothing
+    , _aetExecutionId = Nothing
+    , _aetResourceId = Nothing
+    , _aetResourceType = Nothing
+    , _aetOutputSource = Nothing
+    , _aetLastExecutionDate = Nothing
+    , _aetAssociationVersion = Nothing
+    }
+
+
+-- | The association ID.
+aetAssociationId :: Lens' AssociationExecutionTarget (Maybe Text)
+aetAssociationId = lens _aetAssociationId (\ s a -> s{_aetAssociationId = a})
+
+-- | Detailed information about the execution status.
+aetDetailedStatus :: Lens' AssociationExecutionTarget (Maybe Text)
+aetDetailedStatus = lens _aetDetailedStatus (\ s a -> s{_aetDetailedStatus = a})
+
+-- | The association execution status.
+aetStatus :: Lens' AssociationExecutionTarget (Maybe Text)
+aetStatus = lens _aetStatus (\ s a -> s{_aetStatus = a})
+
+-- | The execution ID. If the association does not run at intervals or according to a schedule, then the ExecutionID is the same as the AssociationID.
+aetExecutionId :: Lens' AssociationExecutionTarget (Maybe Text)
+aetExecutionId = lens _aetExecutionId (\ s a -> s{_aetExecutionId = a})
+
+-- | The resource ID, for example, the instance ID where the association ran.
+aetResourceId :: Lens' AssociationExecutionTarget (Maybe Text)
+aetResourceId = lens _aetResourceId (\ s a -> s{_aetResourceId = a})
+
+-- | The resource type, for example, instance.
+aetResourceType :: Lens' AssociationExecutionTarget (Maybe Text)
+aetResourceType = lens _aetResourceType (\ s a -> s{_aetResourceType = a})
+
+-- | The location where the association details are saved.
+aetOutputSource :: Lens' AssociationExecutionTarget (Maybe OutputSource)
+aetOutputSource = lens _aetOutputSource (\ s a -> s{_aetOutputSource = a})
+
+-- | The date of the last execution.
+aetLastExecutionDate :: Lens' AssociationExecutionTarget (Maybe UTCTime)
+aetLastExecutionDate = lens _aetLastExecutionDate (\ s a -> s{_aetLastExecutionDate = a}) . mapping _Time
+
+-- | The association version.
+aetAssociationVersion :: Lens' AssociationExecutionTarget (Maybe Text)
+aetAssociationVersion = lens _aetAssociationVersion (\ s a -> s{_aetAssociationVersion = a})
+
+instance FromJSON AssociationExecutionTarget where
+        parseJSON
+          = withObject "AssociationExecutionTarget"
+              (\ x ->
+                 AssociationExecutionTarget' <$>
+                   (x .:? "AssociationId") <*> (x .:? "DetailedStatus")
+                     <*> (x .:? "Status")
+                     <*> (x .:? "ExecutionId")
+                     <*> (x .:? "ResourceId")
+                     <*> (x .:? "ResourceType")
+                     <*> (x .:? "OutputSource")
+                     <*> (x .:? "LastExecutionDate")
+                     <*> (x .:? "AssociationVersion"))
+
+instance Hashable AssociationExecutionTarget where
+
+instance NFData AssociationExecutionTarget where
+
+-- | Filters for the association execution.
+--
+--
+--
+-- /See:/ 'associationExecutionTargetsFilter' smart constructor.
+data AssociationExecutionTargetsFilter = AssociationExecutionTargetsFilter'
+  { _aetfKey   :: !AssociationExecutionTargetsFilterKey
+  , _aetfValue :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AssociationExecutionTargetsFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aetfKey' - The key value used in the request.
+--
+-- * 'aetfValue' - The value specified for the key.
+associationExecutionTargetsFilter
+    :: AssociationExecutionTargetsFilterKey -- ^ 'aetfKey'
+    -> Text -- ^ 'aetfValue'
+    -> AssociationExecutionTargetsFilter
+associationExecutionTargetsFilter pKey_ pValue_ =
+  AssociationExecutionTargetsFilter' {_aetfKey = pKey_, _aetfValue = pValue_}
+
+
+-- | The key value used in the request.
+aetfKey :: Lens' AssociationExecutionTargetsFilter AssociationExecutionTargetsFilterKey
+aetfKey = lens _aetfKey (\ s a -> s{_aetfKey = a})
+
+-- | The value specified for the key.
+aetfValue :: Lens' AssociationExecutionTargetsFilter Text
+aetfValue = lens _aetfValue (\ s a -> s{_aetfValue = a})
+
+instance Hashable AssociationExecutionTargetsFilter
+         where
+
+instance NFData AssociationExecutionTargetsFilter
+         where
+
+instance ToJSON AssociationExecutionTargetsFilter
+         where
+        toJSON AssociationExecutionTargetsFilter'{..}
+          = object
+              (catMaybes
+                 [Just ("Key" .= _aetfKey),
+                  Just ("Value" .= _aetfValue)])
 
 -- | Describes a filter.
 --
@@ -603,6 +960,7 @@ instance ToJSON AssociationStatus where
 data AssociationVersionInfo = AssociationVersionInfo'
   { _aviAssociationId      :: !(Maybe Text)
   , _aviCreatedDate        :: !(Maybe POSIX)
+  , _aviMaxErrors          :: !(Maybe Text)
   , _aviScheduleExpression :: !(Maybe Text)
   , _aviName               :: !(Maybe Text)
   , _aviOutputLocation     :: !(Maybe InstanceAssociationOutputLocation)
@@ -611,6 +969,8 @@ data AssociationVersionInfo = AssociationVersionInfo'
   , _aviDocumentVersion    :: !(Maybe Text)
   , _aviAssociationVersion :: !(Maybe Text)
   , _aviAssociationName    :: !(Maybe Text)
+  , _aviComplianceSeverity :: !(Maybe AssociationComplianceSeverity)
+  , _aviMaxConcurrency     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -621,6 +981,8 @@ data AssociationVersionInfo = AssociationVersionInfo'
 -- * 'aviAssociationId' - The ID created by the system when the association was created.
 --
 -- * 'aviCreatedDate' - The date the association version was created.
+--
+-- * 'aviMaxErrors' - The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received. Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
 --
 -- * 'aviScheduleExpression' - The cron or rate schedule specified for the association when the association version was created.
 --
@@ -637,12 +999,17 @@ data AssociationVersionInfo = AssociationVersionInfo'
 -- * 'aviAssociationVersion' - The association version.
 --
 -- * 'aviAssociationName' - The name specified for the association version when the association version was created.
+--
+-- * 'aviComplianceSeverity' - The severity level that is assigned to the association.
+--
+-- * 'aviMaxConcurrency' - The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time. If a new instance starts and attempts to execute an association while Systems Manager is executing MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
 associationVersionInfo
     :: AssociationVersionInfo
 associationVersionInfo =
   AssociationVersionInfo'
     { _aviAssociationId = Nothing
     , _aviCreatedDate = Nothing
+    , _aviMaxErrors = Nothing
     , _aviScheduleExpression = Nothing
     , _aviName = Nothing
     , _aviOutputLocation = Nothing
@@ -651,6 +1018,8 @@ associationVersionInfo =
     , _aviDocumentVersion = Nothing
     , _aviAssociationVersion = Nothing
     , _aviAssociationName = Nothing
+    , _aviComplianceSeverity = Nothing
+    , _aviMaxConcurrency = Nothing
     }
 
 
@@ -661,6 +1030,10 @@ aviAssociationId = lens _aviAssociationId (\ s a -> s{_aviAssociationId = a})
 -- | The date the association version was created.
 aviCreatedDate :: Lens' AssociationVersionInfo (Maybe UTCTime)
 aviCreatedDate = lens _aviCreatedDate (\ s a -> s{_aviCreatedDate = a}) . mapping _Time
+
+-- | The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received. Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+aviMaxErrors :: Lens' AssociationVersionInfo (Maybe Text)
+aviMaxErrors = lens _aviMaxErrors (\ s a -> s{_aviMaxErrors = a})
 
 -- | The cron or rate schedule specified for the association when the association version was created.
 aviScheduleExpression :: Lens' AssociationVersionInfo (Maybe Text)
@@ -694,24 +1067,181 @@ aviAssociationVersion = lens _aviAssociationVersion (\ s a -> s{_aviAssociationV
 aviAssociationName :: Lens' AssociationVersionInfo (Maybe Text)
 aviAssociationName = lens _aviAssociationName (\ s a -> s{_aviAssociationName = a})
 
+-- | The severity level that is assigned to the association.
+aviComplianceSeverity :: Lens' AssociationVersionInfo (Maybe AssociationComplianceSeverity)
+aviComplianceSeverity = lens _aviComplianceSeverity (\ s a -> s{_aviComplianceSeverity = a})
+
+-- | The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time. If a new instance starts and attempts to execute an association while Systems Manager is executing MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
+aviMaxConcurrency :: Lens' AssociationVersionInfo (Maybe Text)
+aviMaxConcurrency = lens _aviMaxConcurrency (\ s a -> s{_aviMaxConcurrency = a})
+
 instance FromJSON AssociationVersionInfo where
         parseJSON
           = withObject "AssociationVersionInfo"
               (\ x ->
                  AssociationVersionInfo' <$>
                    (x .:? "AssociationId") <*> (x .:? "CreatedDate") <*>
-                     (x .:? "ScheduleExpression")
+                     (x .:? "MaxErrors")
+                     <*> (x .:? "ScheduleExpression")
                      <*> (x .:? "Name")
                      <*> (x .:? "OutputLocation")
                      <*> (x .:? "Targets" .!= mempty)
                      <*> (x .:? "Parameters" .!= mempty)
                      <*> (x .:? "DocumentVersion")
                      <*> (x .:? "AssociationVersion")
-                     <*> (x .:? "AssociationName"))
+                     <*> (x .:? "AssociationName")
+                     <*> (x .:? "ComplianceSeverity")
+                     <*> (x .:? "MaxConcurrency"))
 
 instance Hashable AssociationVersionInfo where
 
 instance NFData AssociationVersionInfo where
+
+-- | A structure that includes attributes that describe a document attachment.
+--
+--
+--
+-- /See:/ 'attachmentContent' smart constructor.
+data AttachmentContent = AttachmentContent'
+  { _acHash     :: !(Maybe Text)
+  , _acSize     :: !(Maybe Integer)
+  , _acURL      :: !(Maybe Text)
+  , _acName     :: !(Maybe Text)
+  , _acHashType :: !(Maybe AttachmentHashType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AttachmentContent' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acHash' - The cryptographic hash value of the document content.
+--
+-- * 'acSize' - The size of an attachment in bytes.
+--
+-- * 'acURL' - The URL location of the attachment content.
+--
+-- * 'acName' - The name of an attachment.
+--
+-- * 'acHashType' - The hash algorithm used to calculate the hash value.
+attachmentContent
+    :: AttachmentContent
+attachmentContent =
+  AttachmentContent'
+    { _acHash = Nothing
+    , _acSize = Nothing
+    , _acURL = Nothing
+    , _acName = Nothing
+    , _acHashType = Nothing
+    }
+
+
+-- | The cryptographic hash value of the document content.
+acHash :: Lens' AttachmentContent (Maybe Text)
+acHash = lens _acHash (\ s a -> s{_acHash = a})
+
+-- | The size of an attachment in bytes.
+acSize :: Lens' AttachmentContent (Maybe Integer)
+acSize = lens _acSize (\ s a -> s{_acSize = a})
+
+-- | The URL location of the attachment content.
+acURL :: Lens' AttachmentContent (Maybe Text)
+acURL = lens _acURL (\ s a -> s{_acURL = a})
+
+-- | The name of an attachment.
+acName :: Lens' AttachmentContent (Maybe Text)
+acName = lens _acName (\ s a -> s{_acName = a})
+
+-- | The hash algorithm used to calculate the hash value.
+acHashType :: Lens' AttachmentContent (Maybe AttachmentHashType)
+acHashType = lens _acHashType (\ s a -> s{_acHashType = a})
+
+instance FromJSON AttachmentContent where
+        parseJSON
+          = withObject "AttachmentContent"
+              (\ x ->
+                 AttachmentContent' <$>
+                   (x .:? "Hash") <*> (x .:? "Size") <*> (x .:? "Url")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "HashType"))
+
+instance Hashable AttachmentContent where
+
+instance NFData AttachmentContent where
+
+-- | An attribute of an attachment, such as the attachment name.
+--
+--
+--
+-- /See:/ 'attachmentInformation' smart constructor.
+newtype AttachmentInformation = AttachmentInformation'
+  { _aiName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AttachmentInformation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aiName' - The name of the attachment.
+attachmentInformation
+    :: AttachmentInformation
+attachmentInformation = AttachmentInformation' {_aiName = Nothing}
+
+
+-- | The name of the attachment.
+aiName :: Lens' AttachmentInformation (Maybe Text)
+aiName = lens _aiName (\ s a -> s{_aiName = a})
+
+instance FromJSON AttachmentInformation where
+        parseJSON
+          = withObject "AttachmentInformation"
+              (\ x -> AttachmentInformation' <$> (x .:? "Name"))
+
+instance Hashable AttachmentInformation where
+
+instance NFData AttachmentInformation where
+
+-- | A key and value pair that identifies the location of an attachment to a document.
+--
+--
+--
+-- /See:/ 'attachmentsSource' smart constructor.
+data AttachmentsSource = AttachmentsSource'
+  { _asValues :: !(Maybe (List1 Text))
+  , _asKey    :: !(Maybe AttachmentsSourceKey)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AttachmentsSource' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asValues' - The URL of the location of a document attachment, such as the URL of an Amazon S3 bucket.
+--
+-- * 'asKey' - The key of a key and value pair that identifies the location of an attachment to a document.
+attachmentsSource
+    :: AttachmentsSource
+attachmentsSource = AttachmentsSource' {_asValues = Nothing, _asKey = Nothing}
+
+
+-- | The URL of the location of a document attachment, such as the URL of an Amazon S3 bucket.
+asValues :: Lens' AttachmentsSource (Maybe (NonEmpty Text))
+asValues = lens _asValues (\ s a -> s{_asValues = a}) . mapping _List1
+
+-- | The key of a key and value pair that identifies the location of an attachment to a document.
+asKey :: Lens' AttachmentsSource (Maybe AttachmentsSourceKey)
+asKey = lens _asKey (\ s a -> s{_asKey = a})
+
+instance Hashable AttachmentsSource where
+
+instance NFData AttachmentsSource where
+
+instance ToJSON AttachmentsSource where
+        toJSON AttachmentsSource'{..}
+          = object
+              (catMaybes
+                 [("Values" .=) <$> _asValues, ("Key" .=) <$> _asKey])
 
 -- | Detailed information about the current state of an individual Automation execution.
 --
@@ -721,11 +1251,14 @@ instance NFData AssociationVersionInfo where
 data AutomationExecution = AutomationExecution'
   { _aeCurrentStepName             :: !(Maybe Text)
   , _aeTargetParameterName         :: !(Maybe Text)
+  , _aeTargetLocations             :: !(Maybe (List1 TargetLocation))
+  , _aeProgressCounters            :: !(Maybe ProgressCounters)
   , _aeExecutedBy                  :: !(Maybe Text)
   , _aeDocumentName                :: !(Maybe Text)
   , _aeExecutionEndTime            :: !(Maybe POSIX)
   , _aeFailureMessage              :: !(Maybe Text)
   , _aeMode                        :: !(Maybe ExecutionMode)
+  , _aeTargetMaps                  :: !(Maybe [Map Text [Text]])
   , _aeStepExecutionsTruncated     :: !(Maybe Bool)
   , _aeAutomationExecutionStatus   :: !(Maybe AutomationExecutionStatus)
   , _aeParentAutomationExecutionId :: !(Maybe Text)
@@ -752,6 +1285,10 @@ data AutomationExecution = AutomationExecution'
 --
 -- * 'aeTargetParameterName' - The parameter name.
 --
+-- * 'aeTargetLocations' - The combination of AWS Regions and/or AWS accounts where you want to execute the Automation.
+--
+-- * 'aeProgressCounters' - An aggregate of step execution statuses displayed in the AWS Console for a multi-Region and multi-account Automation execution.
+--
 -- * 'aeExecutedBy' - The Amazon Resource Name (ARN) of the user who executed the automation.
 --
 -- * 'aeDocumentName' - The name of the Automation document used during the execution.
@@ -761,6 +1298,8 @@ data AutomationExecution = AutomationExecution'
 -- * 'aeFailureMessage' - A message describing why an execution has failed, if the status is set to Failed.
 --
 -- * 'aeMode' - The automation execution mode.
+--
+-- * 'aeTargetMaps' - The specified key-value mapping of document parameters to target resources.
 --
 -- * 'aeStepExecutionsTruncated' - A boolean value that indicates if the response contains the full list of the Automation step executions. If true, use the DescribeAutomationStepExecutions API action to get the full list of step executions.
 --
@@ -797,11 +1336,14 @@ automationExecution =
   AutomationExecution'
     { _aeCurrentStepName = Nothing
     , _aeTargetParameterName = Nothing
+    , _aeTargetLocations = Nothing
+    , _aeProgressCounters = Nothing
     , _aeExecutedBy = Nothing
     , _aeDocumentName = Nothing
     , _aeExecutionEndTime = Nothing
     , _aeFailureMessage = Nothing
     , _aeMode = Nothing
+    , _aeTargetMaps = Nothing
     , _aeStepExecutionsTruncated = Nothing
     , _aeAutomationExecutionStatus = Nothing
     , _aeParentAutomationExecutionId = Nothing
@@ -828,6 +1370,14 @@ aeCurrentStepName = lens _aeCurrentStepName (\ s a -> s{_aeCurrentStepName = a})
 aeTargetParameterName :: Lens' AutomationExecution (Maybe Text)
 aeTargetParameterName = lens _aeTargetParameterName (\ s a -> s{_aeTargetParameterName = a})
 
+-- | The combination of AWS Regions and/or AWS accounts where you want to execute the Automation.
+aeTargetLocations :: Lens' AutomationExecution (Maybe (NonEmpty TargetLocation))
+aeTargetLocations = lens _aeTargetLocations (\ s a -> s{_aeTargetLocations = a}) . mapping _List1
+
+-- | An aggregate of step execution statuses displayed in the AWS Console for a multi-Region and multi-account Automation execution.
+aeProgressCounters :: Lens' AutomationExecution (Maybe ProgressCounters)
+aeProgressCounters = lens _aeProgressCounters (\ s a -> s{_aeProgressCounters = a})
+
 -- | The Amazon Resource Name (ARN) of the user who executed the automation.
 aeExecutedBy :: Lens' AutomationExecution (Maybe Text)
 aeExecutedBy = lens _aeExecutedBy (\ s a -> s{_aeExecutedBy = a})
@@ -847,6 +1397,10 @@ aeFailureMessage = lens _aeFailureMessage (\ s a -> s{_aeFailureMessage = a})
 -- | The automation execution mode.
 aeMode :: Lens' AutomationExecution (Maybe ExecutionMode)
 aeMode = lens _aeMode (\ s a -> s{_aeMode = a})
+
+-- | The specified key-value mapping of document parameters to target resources.
+aeTargetMaps :: Lens' AutomationExecution [HashMap Text [Text]]
+aeTargetMaps = lens _aeTargetMaps (\ s a -> s{_aeTargetMaps = a}) . _Default . _Coerce
 
 -- | A boolean value that indicates if the response contains the full list of the Automation step executions. If true, use the DescribeAutomationStepExecutions API action to get the full list of step executions.
 aeStepExecutionsTruncated :: Lens' AutomationExecution (Maybe Bool)
@@ -915,11 +1469,14 @@ instance FromJSON AutomationExecution where
                  AutomationExecution' <$>
                    (x .:? "CurrentStepName") <*>
                      (x .:? "TargetParameterName")
+                     <*> (x .:? "TargetLocations")
+                     <*> (x .:? "ProgressCounters")
                      <*> (x .:? "ExecutedBy")
                      <*> (x .:? "DocumentName")
                      <*> (x .:? "ExecutionEndTime")
                      <*> (x .:? "FailureMessage")
                      <*> (x .:? "Mode")
+                     <*> (x .:? "TargetMaps" .!= mempty)
                      <*> (x .:? "StepExecutionsTruncated")
                      <*> (x .:? "AutomationExecutionStatus")
                      <*> (x .:? "ParentAutomationExecutionId")
@@ -946,8 +1503,8 @@ instance NFData AutomationExecution where
 --
 -- /See:/ 'automationExecutionFilter' smart constructor.
 data AutomationExecutionFilter = AutomationExecutionFilter'
-  { _aefKey    :: !AutomationExecutionFilterKey
-  , _aefValues :: !(List1 Text)
+  { _aKey    :: !AutomationExecutionFilterKey
+  , _aValues :: !(List1 Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -955,24 +1512,24 @@ data AutomationExecutionFilter = AutomationExecutionFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aefKey' - One or more keys to limit the results. Valid filter keys include the following: DocumentNamePrefix, ExecutionStatus, ExecutionId, ParentExecutionId, CurrentAction, StartTimeBefore, StartTimeAfter.
+-- * 'aKey' - One or more keys to limit the results. Valid filter keys include the following: DocumentNamePrefix, ExecutionStatus, ExecutionId, ParentExecutionId, CurrentAction, StartTimeBefore, StartTimeAfter.
 --
--- * 'aefValues' - The values used to limit the execution information associated with the filter's key.
+-- * 'aValues' - The values used to limit the execution information associated with the filter's key.
 automationExecutionFilter
-    :: AutomationExecutionFilterKey -- ^ 'aefKey'
-    -> NonEmpty Text -- ^ 'aefValues'
+    :: AutomationExecutionFilterKey -- ^ 'aKey'
+    -> NonEmpty Text -- ^ 'aValues'
     -> AutomationExecutionFilter
 automationExecutionFilter pKey_ pValues_ =
-  AutomationExecutionFilter' {_aefKey = pKey_, _aefValues = _List1 # pValues_}
+  AutomationExecutionFilter' {_aKey = pKey_, _aValues = _List1 # pValues_}
 
 
 -- | One or more keys to limit the results. Valid filter keys include the following: DocumentNamePrefix, ExecutionStatus, ExecutionId, ParentExecutionId, CurrentAction, StartTimeBefore, StartTimeAfter.
-aefKey :: Lens' AutomationExecutionFilter AutomationExecutionFilterKey
-aefKey = lens _aefKey (\ s a -> s{_aefKey = a})
+aKey :: Lens' AutomationExecutionFilter AutomationExecutionFilterKey
+aKey = lens _aKey (\ s a -> s{_aKey = a})
 
 -- | The values used to limit the execution information associated with the filter's key.
-aefValues :: Lens' AutomationExecutionFilter (NonEmpty Text)
-aefValues = lens _aefValues (\ s a -> s{_aefValues = a}) . _List1
+aValues :: Lens' AutomationExecutionFilter (NonEmpty Text)
+aValues = lens _aValues (\ s a -> s{_aValues = a}) . _List1
 
 instance Hashable AutomationExecutionFilter where
 
@@ -982,8 +1539,7 @@ instance ToJSON AutomationExecutionFilter where
         toJSON AutomationExecutionFilter'{..}
           = object
               (catMaybes
-                 [Just ("Key" .= _aefKey),
-                  Just ("Values" .= _aefValues)])
+                 [Just ("Key" .= _aKey), Just ("Values" .= _aValues)])
 
 -- | Details about a specific Automation execution.
 --
@@ -999,11 +1555,13 @@ data AutomationExecutionMetadata = AutomationExecutionMetadata'
   , _aemExecutionEndTime            :: !(Maybe POSIX)
   , _aemFailureMessage              :: !(Maybe Text)
   , _aemMode                        :: !(Maybe ExecutionMode)
+  , _aemTargetMaps                  :: !(Maybe [Map Text [Text]])
   , _aemAutomationExecutionStatus   :: !(Maybe AutomationExecutionStatus)
   , _aemParentAutomationExecutionId :: !(Maybe Text)
   , _aemOutputs                     :: !(Maybe (Map Text [Text]))
   , _aemMaxErrors                   :: !(Maybe Text)
   , _aemExecutionStartTime          :: !(Maybe POSIX)
+  , _aemAutomationType              :: !(Maybe AutomationType)
   , _aemCurrentAction               :: !(Maybe Text)
   , _aemTargets                     :: !(Maybe [Target])
   , _aemResolvedTargets             :: !(Maybe ResolvedTargets)
@@ -1034,6 +1592,8 @@ data AutomationExecutionMetadata = AutomationExecutionMetadata'
 --
 -- * 'aemMode' - The Automation execution mode.
 --
+-- * 'aemTargetMaps' - The specified key-value mapping of document parameters to target resources.
+--
 -- * 'aemAutomationExecutionStatus' - The status of the execution. Valid values include: Running, Succeeded, Failed, Timed out, or Cancelled.
 --
 -- * 'aemParentAutomationExecutionId' - The ExecutionId of the parent Automation.
@@ -1043,6 +1603,8 @@ data AutomationExecutionMetadata = AutomationExecutionMetadata'
 -- * 'aemMaxErrors' - The MaxErrors value specified by the user when starting the Automation.
 --
 -- * 'aemExecutionStartTime' - The time the execution started.>
+--
+-- * 'aemAutomationType' - Use this filter with 'DescribeAutomationExecutions' . Specify either Local or CrossAccount. CrossAccount is an Automation that executes in multiple AWS Regions and accounts. For more information, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Concurrently Executing Automations in Multiple AWS Regions and Accounts> in the /AWS Systems Manager User Guide/ .
 --
 -- * 'aemCurrentAction' - The action of the currently executing step.
 --
@@ -1069,11 +1631,13 @@ automationExecutionMetadata =
     , _aemExecutionEndTime = Nothing
     , _aemFailureMessage = Nothing
     , _aemMode = Nothing
+    , _aemTargetMaps = Nothing
     , _aemAutomationExecutionStatus = Nothing
     , _aemParentAutomationExecutionId = Nothing
     , _aemOutputs = Nothing
     , _aemMaxErrors = Nothing
     , _aemExecutionStartTime = Nothing
+    , _aemAutomationType = Nothing
     , _aemCurrentAction = Nothing
     , _aemTargets = Nothing
     , _aemResolvedTargets = Nothing
@@ -1116,6 +1680,10 @@ aemFailureMessage = lens _aemFailureMessage (\ s a -> s{_aemFailureMessage = a})
 aemMode :: Lens' AutomationExecutionMetadata (Maybe ExecutionMode)
 aemMode = lens _aemMode (\ s a -> s{_aemMode = a})
 
+-- | The specified key-value mapping of document parameters to target resources.
+aemTargetMaps :: Lens' AutomationExecutionMetadata [HashMap Text [Text]]
+aemTargetMaps = lens _aemTargetMaps (\ s a -> s{_aemTargetMaps = a}) . _Default . _Coerce
+
 -- | The status of the execution. Valid values include: Running, Succeeded, Failed, Timed out, or Cancelled.
 aemAutomationExecutionStatus :: Lens' AutomationExecutionMetadata (Maybe AutomationExecutionStatus)
 aemAutomationExecutionStatus = lens _aemAutomationExecutionStatus (\ s a -> s{_aemAutomationExecutionStatus = a})
@@ -1135,6 +1703,10 @@ aemMaxErrors = lens _aemMaxErrors (\ s a -> s{_aemMaxErrors = a})
 -- | The time the execution started.>
 aemExecutionStartTime :: Lens' AutomationExecutionMetadata (Maybe UTCTime)
 aemExecutionStartTime = lens _aemExecutionStartTime (\ s a -> s{_aemExecutionStartTime = a}) . mapping _Time
+
+-- | Use this filter with 'DescribeAutomationExecutions' . Specify either Local or CrossAccount. CrossAccount is an Automation that executes in multiple AWS Regions and accounts. For more information, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Concurrently Executing Automations in Multiple AWS Regions and Accounts> in the /AWS Systems Manager User Guide/ .
+aemAutomationType :: Lens' AutomationExecutionMetadata (Maybe AutomationType)
+aemAutomationType = lens _aemAutomationType (\ s a -> s{_aemAutomationType = a})
 
 -- | The action of the currently executing step.
 aemCurrentAction :: Lens' AutomationExecutionMetadata (Maybe Text)
@@ -1177,11 +1749,13 @@ instance FromJSON AutomationExecutionMetadata where
                      <*> (x .:? "ExecutionEndTime")
                      <*> (x .:? "FailureMessage")
                      <*> (x .:? "Mode")
+                     <*> (x .:? "TargetMaps" .!= mempty)
                      <*> (x .:? "AutomationExecutionStatus")
                      <*> (x .:? "ParentAutomationExecutionId")
                      <*> (x .:? "Outputs" .!= mempty)
                      <*> (x .:? "MaxErrors")
                      <*> (x .:? "ExecutionStartTime")
+                     <*> (x .:? "AutomationType")
                      <*> (x .:? "CurrentAction")
                      <*> (x .:? "Targets" .!= mempty)
                      <*> (x .:? "ResolvedTargets")
@@ -1194,33 +1768,91 @@ instance Hashable AutomationExecutionMetadata where
 
 instance NFData AutomationExecutionMetadata where
 
+-- | Configuration options for sending command output to CloudWatch Logs.
+--
+--
+--
+-- /See:/ 'cloudWatchOutputConfig' smart constructor.
+data CloudWatchOutputConfig = CloudWatchOutputConfig'
+  { _cwocCloudWatchLogGroupName  :: !(Maybe Text)
+  , _cwocCloudWatchOutputEnabled :: !(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CloudWatchOutputConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cwocCloudWatchLogGroupName' - The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm//SystemsManagerDocumentName/ .
+--
+-- * 'cwocCloudWatchOutputEnabled' - Enables Systems Manager to send command output to CloudWatch Logs.
+cloudWatchOutputConfig
+    :: CloudWatchOutputConfig
+cloudWatchOutputConfig =
+  CloudWatchOutputConfig'
+    { _cwocCloudWatchLogGroupName = Nothing
+    , _cwocCloudWatchOutputEnabled = Nothing
+    }
+
+
+-- | The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm//SystemsManagerDocumentName/ .
+cwocCloudWatchLogGroupName :: Lens' CloudWatchOutputConfig (Maybe Text)
+cwocCloudWatchLogGroupName = lens _cwocCloudWatchLogGroupName (\ s a -> s{_cwocCloudWatchLogGroupName = a})
+
+-- | Enables Systems Manager to send command output to CloudWatch Logs.
+cwocCloudWatchOutputEnabled :: Lens' CloudWatchOutputConfig (Maybe Bool)
+cwocCloudWatchOutputEnabled = lens _cwocCloudWatchOutputEnabled (\ s a -> s{_cwocCloudWatchOutputEnabled = a})
+
+instance FromJSON CloudWatchOutputConfig where
+        parseJSON
+          = withObject "CloudWatchOutputConfig"
+              (\ x ->
+                 CloudWatchOutputConfig' <$>
+                   (x .:? "CloudWatchLogGroupName") <*>
+                     (x .:? "CloudWatchOutputEnabled"))
+
+instance Hashable CloudWatchOutputConfig where
+
+instance NFData CloudWatchOutputConfig where
+
+instance ToJSON CloudWatchOutputConfig where
+        toJSON CloudWatchOutputConfig'{..}
+          = object
+              (catMaybes
+                 [("CloudWatchLogGroupName" .=) <$>
+                    _cwocCloudWatchLogGroupName,
+                  ("CloudWatchOutputEnabled" .=) <$>
+                    _cwocCloudWatchOutputEnabled])
+
 -- | Describes a command request.
 --
 --
 --
 -- /See:/ 'command' smart constructor.
 data Command = Command'
-  { _cStatus             :: !(Maybe CommandStatus)
-  , _cExpiresAfter       :: !(Maybe POSIX)
-  , _cNotificationConfig :: !(Maybe NotificationConfig)
-  , _cTargetCount        :: !(Maybe Int)
-  , _cOutputS3KeyPrefix  :: !(Maybe Text)
-  , _cDocumentName       :: !(Maybe Text)
-  , _cErrorCount         :: !(Maybe Int)
-  , _cStatusDetails      :: !(Maybe Text)
-  , _cMaxErrors          :: !(Maybe Text)
-  , _cInstanceIds        :: !(Maybe [Text])
-  , _cOutputS3Region     :: !(Maybe Text)
-  , _cTargets            :: !(Maybe [Target])
-  , _cCommandId          :: !(Maybe Text)
-  , _cParameters         :: !(Maybe (Map Text [Text]))
-  , _cDocumentVersion    :: !(Maybe Text)
-  , _cComment            :: !(Maybe Text)
-  , _cCompletedCount     :: !(Maybe Int)
-  , _cOutputS3BucketName :: !(Maybe Text)
-  , _cMaxConcurrency     :: !(Maybe Text)
-  , _cRequestedDateTime  :: !(Maybe POSIX)
-  , _cServiceRole        :: !(Maybe Text)
+  { _cStatus                 :: !(Maybe CommandStatus)
+  , _cExpiresAfter           :: !(Maybe POSIX)
+  , _cNotificationConfig     :: !(Maybe NotificationConfig)
+  , _cTargetCount            :: !(Maybe Int)
+  , _cCloudWatchOutputConfig :: !(Maybe CloudWatchOutputConfig)
+  , _cDeliveryTimedOutCount  :: !(Maybe Int)
+  , _cOutputS3KeyPrefix      :: !(Maybe Text)
+  , _cDocumentName           :: !(Maybe Text)
+  , _cErrorCount             :: !(Maybe Int)
+  , _cStatusDetails          :: !(Maybe Text)
+  , _cMaxErrors              :: !(Maybe Text)
+  , _cInstanceIds            :: !(Maybe [Text])
+  , _cOutputS3Region         :: !(Maybe Text)
+  , _cTargets                :: !(Maybe [Target])
+  , _cCommandId              :: !(Maybe Text)
+  , _cParameters             :: !(Maybe (Map Text [Text]))
+  , _cDocumentVersion        :: !(Maybe Text)
+  , _cComment                :: !(Maybe Text)
+  , _cCompletedCount         :: !(Maybe Int)
+  , _cOutputS3BucketName     :: !(Maybe Text)
+  , _cMaxConcurrency         :: !(Maybe Text)
+  , _cRequestedDateTime      :: !(Maybe POSIX)
+  , _cServiceRole            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1236,15 +1868,19 @@ data Command = Command'
 --
 -- * 'cTargetCount' - The number of targets for the command.
 --
+-- * 'cCloudWatchOutputConfig' - CloudWatch Logs information where you want Systems Manager to send the command output.
+--
+-- * 'cDeliveryTimedOutCount' - The number of targets for which the status is Delivery Timed Out.
+--
 -- * 'cOutputS3KeyPrefix' - The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command.
 --
 -- * 'cDocumentName' - The name of the document requested for execution.
 --
 -- * 'cErrorCount' - The number of targets for which the status is Failed or Execution Timed Out.
 --
--- * 'cStatusDetails' - A detailed status of the command execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html Run Command Status> . StatusDetails can be one of the following values:     * Pending: The command has not been sent to any instances.     * In Progress: The command has been sent to at least one instance but has not reached a final state on all instances.     * Success: The command successfully executed on all invocations. This is a terminal state.     * Delivery Timed Out: The value of MaxErrors or more command invocations shows a status of Delivery Timed Out. This is a terminal state.     * Execution Timed Out: The value of MaxErrors or more command invocations shows a status of Execution Timed Out. This is a terminal state.     * Failed: The value of MaxErrors or more command invocations shows a status of Failed. This is a terminal state.     * Incomplete: The command was attempted on all instances and one or more invocations does not have a value of Success but not enough invocations failed for the status to be Failed. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Rate Exceeded: The number of instances targeted by the command exceeded the account limit for pending invocations. The system has canceled the command before executing it on any instance. This is a terminal state.
+-- * 'cStatusDetails' - A detailed status of the command execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding Command Statuses> in the /AWS Systems Manager User Guide/ . StatusDetails can be one of the following values:     * Pending: The command has not been sent to any instances.     * In Progress: The command has been sent to at least one instance but has not reached a final state on all instances.     * Success: The command successfully executed on all invocations. This is a terminal state.     * Delivery Timed Out: The value of MaxErrors or more command invocations shows a status of Delivery Timed Out. This is a terminal state.     * Execution Timed Out: The value of MaxErrors or more command invocations shows a status of Execution Timed Out. This is a terminal state.     * Failed: The value of MaxErrors or more command invocations shows a status of Failed. This is a terminal state.     * Incomplete: The command was attempted on all instances and one or more invocations does not have a value of Success but not enough invocations failed for the status to be Failed. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Rate Exceeded: The number of instances targeted by the command exceeded the account limit for pending invocations. The system has canceled the command before executing it on any instance. This is a terminal state.
 --
--- * 'cMaxErrors' - The maximum number of errors allowed before the system stops sending the command to additional targets. You can specify a number of errors, such as 10, or a percentage or errors, such as 10%. The default value is 0. For more information about how to use MaxErrors, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Executing a Command Using Systems Manager Run Command> .
+-- * 'cMaxErrors' - The maximum number of errors allowed before the system stops sending the command to additional targets. You can specify a number of errors, such as 10, or a percentage or errors, such as 10%. The default value is 0. For more information about how to use MaxErrors, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Executing Commands Using Systems Manager Run Command> in the /AWS Systems Manager User Guide/ .
 --
 -- * 'cInstanceIds' - The instance IDs against which this command was requested.
 --
@@ -1264,7 +1900,7 @@ data Command = Command'
 --
 -- * 'cOutputS3BucketName' - The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command.
 --
--- * 'cMaxConcurrency' - The maximum number of instances that are allowed to execute the command at the same time. You can specify a number of instances, such as 10, or a percentage of instances, such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Executing a Command Using Systems Manager Run Command> .
+-- * 'cMaxConcurrency' - The maximum number of instances that are allowed to execute the command at the same time. You can specify a number of instances, such as 10, or a percentage of instances, such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Executing Commands Using Systems Manager Run Command> in the /AWS Systems Manager User Guide/ .
 --
 -- * 'cRequestedDateTime' - The date and time the command was requested.
 --
@@ -1277,6 +1913,8 @@ command =
     , _cExpiresAfter = Nothing
     , _cNotificationConfig = Nothing
     , _cTargetCount = Nothing
+    , _cCloudWatchOutputConfig = Nothing
+    , _cDeliveryTimedOutCount = Nothing
     , _cOutputS3KeyPrefix = Nothing
     , _cDocumentName = Nothing
     , _cErrorCount = Nothing
@@ -1313,6 +1951,14 @@ cNotificationConfig = lens _cNotificationConfig (\ s a -> s{_cNotificationConfig
 cTargetCount :: Lens' Command (Maybe Int)
 cTargetCount = lens _cTargetCount (\ s a -> s{_cTargetCount = a})
 
+-- | CloudWatch Logs information where you want Systems Manager to send the command output.
+cCloudWatchOutputConfig :: Lens' Command (Maybe CloudWatchOutputConfig)
+cCloudWatchOutputConfig = lens _cCloudWatchOutputConfig (\ s a -> s{_cCloudWatchOutputConfig = a})
+
+-- | The number of targets for which the status is Delivery Timed Out.
+cDeliveryTimedOutCount :: Lens' Command (Maybe Int)
+cDeliveryTimedOutCount = lens _cDeliveryTimedOutCount (\ s a -> s{_cDeliveryTimedOutCount = a})
+
 -- | The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command.
 cOutputS3KeyPrefix :: Lens' Command (Maybe Text)
 cOutputS3KeyPrefix = lens _cOutputS3KeyPrefix (\ s a -> s{_cOutputS3KeyPrefix = a})
@@ -1325,11 +1971,11 @@ cDocumentName = lens _cDocumentName (\ s a -> s{_cDocumentName = a})
 cErrorCount :: Lens' Command (Maybe Int)
 cErrorCount = lens _cErrorCount (\ s a -> s{_cErrorCount = a})
 
--- | A detailed status of the command execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html Run Command Status> . StatusDetails can be one of the following values:     * Pending: The command has not been sent to any instances.     * In Progress: The command has been sent to at least one instance but has not reached a final state on all instances.     * Success: The command successfully executed on all invocations. This is a terminal state.     * Delivery Timed Out: The value of MaxErrors or more command invocations shows a status of Delivery Timed Out. This is a terminal state.     * Execution Timed Out: The value of MaxErrors or more command invocations shows a status of Execution Timed Out. This is a terminal state.     * Failed: The value of MaxErrors or more command invocations shows a status of Failed. This is a terminal state.     * Incomplete: The command was attempted on all instances and one or more invocations does not have a value of Success but not enough invocations failed for the status to be Failed. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Rate Exceeded: The number of instances targeted by the command exceeded the account limit for pending invocations. The system has canceled the command before executing it on any instance. This is a terminal state.
+-- | A detailed status of the command execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding Command Statuses> in the /AWS Systems Manager User Guide/ . StatusDetails can be one of the following values:     * Pending: The command has not been sent to any instances.     * In Progress: The command has been sent to at least one instance but has not reached a final state on all instances.     * Success: The command successfully executed on all invocations. This is a terminal state.     * Delivery Timed Out: The value of MaxErrors or more command invocations shows a status of Delivery Timed Out. This is a terminal state.     * Execution Timed Out: The value of MaxErrors or more command invocations shows a status of Execution Timed Out. This is a terminal state.     * Failed: The value of MaxErrors or more command invocations shows a status of Failed. This is a terminal state.     * Incomplete: The command was attempted on all instances and one or more invocations does not have a value of Success but not enough invocations failed for the status to be Failed. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Rate Exceeded: The number of instances targeted by the command exceeded the account limit for pending invocations. The system has canceled the command before executing it on any instance. This is a terminal state.
 cStatusDetails :: Lens' Command (Maybe Text)
 cStatusDetails = lens _cStatusDetails (\ s a -> s{_cStatusDetails = a})
 
--- | The maximum number of errors allowed before the system stops sending the command to additional targets. You can specify a number of errors, such as 10, or a percentage or errors, such as 10%. The default value is 0. For more information about how to use MaxErrors, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Executing a Command Using Systems Manager Run Command> .
+-- | The maximum number of errors allowed before the system stops sending the command to additional targets. You can specify a number of errors, such as 10, or a percentage or errors, such as 10%. The default value is 0. For more information about how to use MaxErrors, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Executing Commands Using Systems Manager Run Command> in the /AWS Systems Manager User Guide/ .
 cMaxErrors :: Lens' Command (Maybe Text)
 cMaxErrors = lens _cMaxErrors (\ s a -> s{_cMaxErrors = a})
 
@@ -1369,7 +2015,7 @@ cCompletedCount = lens _cCompletedCount (\ s a -> s{_cCompletedCount = a})
 cOutputS3BucketName :: Lens' Command (Maybe Text)
 cOutputS3BucketName = lens _cOutputS3BucketName (\ s a -> s{_cOutputS3BucketName = a})
 
--- | The maximum number of instances that are allowed to execute the command at the same time. You can specify a number of instances, such as 10, or a percentage of instances, such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Executing a Command Using Systems Manager Run Command> .
+-- | The maximum number of instances that are allowed to execute the command at the same time. You can specify a number of instances, such as 10, or a percentage of instances, such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Executing Commands Using Systems Manager Run Command> in the /AWS Systems Manager User Guide/ .
 cMaxConcurrency :: Lens' Command (Maybe Text)
 cMaxConcurrency = lens _cMaxConcurrency (\ s a -> s{_cMaxConcurrency = a})
 
@@ -1389,6 +2035,8 @@ instance FromJSON Command where
                    (x .:? "Status") <*> (x .:? "ExpiresAfter") <*>
                      (x .:? "NotificationConfig")
                      <*> (x .:? "TargetCount")
+                     <*> (x .:? "CloudWatchOutputConfig")
+                     <*> (x .:? "DeliveryTimedOutCount")
                      <*> (x .:? "OutputS3KeyPrefix")
                      <*> (x .:? "DocumentName")
                      <*> (x .:? "ErrorCount")
@@ -1428,7 +2076,7 @@ data CommandFilter = CommandFilter'
 --
 -- * 'cfKey' - The name of the filter.
 --
--- * 'cfValue' - The filter value.
+-- * 'cfValue' - The filter value. Valid values for each filter key are as follows:     * __InvokedAfter__ : Specify a timestamp to limit your results. For example, specify @2018-07-07T00:00:00Z@ to see a list of command executions occurring July 7, 2018, and later.     * __InvokedBefore__ : Specify a timestamp to limit your results. For example, specify @2018-07-07T00:00:00Z@ to see a list of command executions from before July 7, 2018.     * __Status__ : Specify a valid command status to see a list of all command executions with that status. Status values you can specify include:     * @Pending@      * @InProgress@      * @Success@      * @Cancelled@      * @Failed@      * @TimedOut@      * @Cancelling@      * __DocumentName__ : Specify name of the SSM document for which you want to see command execution results. For example, specify @AWS-RunPatchBaseline@ to see command executions that used this SSM document to perform security patching operations on instances.      * __ExecutionStage__ : Specify one of the following values:     * @Executing@ : Returns a list of command executions that are currently still running.     * @Complete@ : Returns a list of command executions that have already completed.
 commandFilter
     :: CommandFilterKey -- ^ 'cfKey'
     -> Text -- ^ 'cfValue'
@@ -1441,7 +2089,7 @@ commandFilter pKey_ pValue_ =
 cfKey :: Lens' CommandFilter CommandFilterKey
 cfKey = lens _cfKey (\ s a -> s{_cfKey = a})
 
--- | The filter value.
+-- | The filter value. Valid values for each filter key are as follows:     * __InvokedAfter__ : Specify a timestamp to limit your results. For example, specify @2018-07-07T00:00:00Z@ to see a list of command executions occurring July 7, 2018, and later.     * __InvokedBefore__ : Specify a timestamp to limit your results. For example, specify @2018-07-07T00:00:00Z@ to see a list of command executions from before July 7, 2018.     * __Status__ : Specify a valid command status to see a list of all command executions with that status. Status values you can specify include:     * @Pending@      * @InProgress@      * @Success@      * @Cancelled@      * @Failed@      * @TimedOut@      * @Cancelling@      * __DocumentName__ : Specify name of the SSM document for which you want to see command execution results. For example, specify @AWS-RunPatchBaseline@ to see command executions that used this SSM document to perform security patching operations on instances.      * __ExecutionStage__ : Specify one of the following values:     * @Executing@ : Returns a list of command executions that are currently still running.     * @Complete@ : Returns a list of command executions that have already completed.
 cfValue :: Lens' CommandFilter Text
 cfValue = lens _cfValue (\ s a -> s{_cfValue = a})
 
@@ -1461,21 +2109,22 @@ instance ToJSON CommandFilter where
 --
 -- /See:/ 'commandInvocation' smart constructor.
 data CommandInvocation = CommandInvocation'
-  { _comInstanceId         :: !(Maybe Text)
-  , _comStatus             :: !(Maybe CommandInvocationStatus)
-  , _comNotificationConfig :: !(Maybe NotificationConfig)
-  , _comCommandPlugins     :: !(Maybe [CommandPlugin])
-  , _comDocumentName       :: !(Maybe Text)
-  , _comStandardErrorURL   :: !(Maybe Text)
-  , _comStatusDetails      :: !(Maybe Text)
-  , _comStandardOutputURL  :: !(Maybe Text)
-  , _comCommandId          :: !(Maybe Text)
-  , _comDocumentVersion    :: !(Maybe Text)
-  , _comComment            :: !(Maybe Text)
-  , _comTraceOutput        :: !(Maybe Text)
-  , _comInstanceName       :: !(Maybe Text)
-  , _comRequestedDateTime  :: !(Maybe POSIX)
-  , _comServiceRole        :: !(Maybe Text)
+  { _comInstanceId             :: !(Maybe Text)
+  , _comStatus                 :: !(Maybe CommandInvocationStatus)
+  , _comNotificationConfig     :: !(Maybe NotificationConfig)
+  , _comCommandPlugins         :: !(Maybe [CommandPlugin])
+  , _comCloudWatchOutputConfig :: !(Maybe CloudWatchOutputConfig)
+  , _comDocumentName           :: !(Maybe Text)
+  , _comStandardErrorURL       :: !(Maybe Text)
+  , _comStatusDetails          :: !(Maybe Text)
+  , _comStandardOutputURL      :: !(Maybe Text)
+  , _comCommandId              :: !(Maybe Text)
+  , _comDocumentVersion        :: !(Maybe Text)
+  , _comComment                :: !(Maybe Text)
+  , _comTraceOutput            :: !(Maybe Text)
+  , _comInstanceName           :: !(Maybe Text)
+  , _comRequestedDateTime      :: !(Maybe POSIX)
+  , _comServiceRole            :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1491,11 +2140,13 @@ data CommandInvocation = CommandInvocation'
 --
 -- * 'comCommandPlugins' - Undocumented member.
 --
+-- * 'comCloudWatchOutputConfig' - CloudWatch Logs information where you want Systems Manager to send the command output.
+--
 -- * 'comDocumentName' - The document name that was requested for execution.
 --
 -- * 'comStandardErrorURL' - The URL to the plugin's StdErr file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, StandardErrorUrl is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
 --
--- * 'comStatusDetails' - A detailed status of the command execution for each invocation (each instance targeted by the command). StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html Run Command Status> . StatusDetails can be one of the following values:     * Pending: The command has not been sent to the instance.     * In Progress: The command has been sent to the instance but has not reached a terminal state.     * Success: The execution of the command or plugin was successfully completed. This is a terminal state.     * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.     * Failed: The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Undeliverable: The command can't be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit and don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.
+-- * 'comStatusDetails' - A detailed status of the command execution for each invocation (each instance targeted by the command). StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding Command Statuses> in the /AWS Systems Manager User Guide/ . StatusDetails can be one of the following values:     * Pending: The command has not been sent to the instance.     * In Progress: The command has been sent to the instance but has not reached a terminal state.     * Success: The execution of the command or plugin was successfully completed. This is a terminal state.     * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.     * Failed: The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Undeliverable: The command can't be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit and don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.
 --
 -- * 'comStandardOutputURL' - The URL to the plugin's StdOut file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, StandardOutputUrl is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
 --
@@ -1520,6 +2171,7 @@ commandInvocation =
     , _comStatus = Nothing
     , _comNotificationConfig = Nothing
     , _comCommandPlugins = Nothing
+    , _comCloudWatchOutputConfig = Nothing
     , _comDocumentName = Nothing
     , _comStandardErrorURL = Nothing
     , _comStatusDetails = Nothing
@@ -1550,6 +2202,10 @@ comNotificationConfig = lens _comNotificationConfig (\ s a -> s{_comNotification
 comCommandPlugins :: Lens' CommandInvocation [CommandPlugin]
 comCommandPlugins = lens _comCommandPlugins (\ s a -> s{_comCommandPlugins = a}) . _Default . _Coerce
 
+-- | CloudWatch Logs information where you want Systems Manager to send the command output.
+comCloudWatchOutputConfig :: Lens' CommandInvocation (Maybe CloudWatchOutputConfig)
+comCloudWatchOutputConfig = lens _comCloudWatchOutputConfig (\ s a -> s{_comCloudWatchOutputConfig = a})
+
 -- | The document name that was requested for execution.
 comDocumentName :: Lens' CommandInvocation (Maybe Text)
 comDocumentName = lens _comDocumentName (\ s a -> s{_comDocumentName = a})
@@ -1558,7 +2214,7 @@ comDocumentName = lens _comDocumentName (\ s a -> s{_comDocumentName = a})
 comStandardErrorURL :: Lens' CommandInvocation (Maybe Text)
 comStandardErrorURL = lens _comStandardErrorURL (\ s a -> s{_comStandardErrorURL = a})
 
--- | A detailed status of the command execution for each invocation (each instance targeted by the command). StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html Run Command Status> . StatusDetails can be one of the following values:     * Pending: The command has not been sent to the instance.     * In Progress: The command has been sent to the instance but has not reached a terminal state.     * Success: The execution of the command or plugin was successfully completed. This is a terminal state.     * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.     * Failed: The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Undeliverable: The command can't be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit and don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.
+-- | A detailed status of the command execution for each invocation (each instance targeted by the command). StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding Command Statuses> in the /AWS Systems Manager User Guide/ . StatusDetails can be one of the following values:     * Pending: The command has not been sent to the instance.     * In Progress: The command has been sent to the instance but has not reached a terminal state.     * Success: The execution of the command or plugin was successfully completed. This is a terminal state.     * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.     * Failed: The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Undeliverable: The command can't be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit and don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.
 comStatusDetails :: Lens' CommandInvocation (Maybe Text)
 comStatusDetails = lens _comStatusDetails (\ s a -> s{_comStatusDetails = a})
 
@@ -1602,6 +2258,7 @@ instance FromJSON CommandInvocation where
                    (x .:? "InstanceId") <*> (x .:? "Status") <*>
                      (x .:? "NotificationConfig")
                      <*> (x .:? "CommandPlugins" .!= mempty)
+                     <*> (x .:? "CloudWatchOutputConfig")
                      <*> (x .:? "DocumentName")
                      <*> (x .:? "StandardErrorUrl")
                      <*> (x .:? "StatusDetails")
@@ -1653,7 +2310,7 @@ data CommandPlugin = CommandPlugin'
 --
 -- * 'cpResponseCode' - A numeric response code generated after executing the plugin.
 --
--- * 'cpStatusDetails' - A detailed status of the plugin execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html Run Command Status> . StatusDetails can be one of the following values:     * Pending: The command has not been sent to the instance.     * In Progress: The command has been sent to the instance but has not reached a terminal state.     * Success: The execution of the command or plugin was successfully completed. This is a terminal state.     * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.     * Failed: The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Undeliverable: The command can't be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit, and they don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.
+-- * 'cpStatusDetails' - A detailed status of the plugin execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding Command Statuses> in the /AWS Systems Manager User Guide/ . StatusDetails can be one of the following values:     * Pending: The command has not been sent to the instance.     * In Progress: The command has been sent to the instance but has not reached a terminal state.     * Success: The execution of the command or plugin was successfully completed. This is a terminal state.     * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.     * Failed: The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Undeliverable: The command can't be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit, and they don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.
 --
 -- * 'cpOutput' - Output of the plugin execution.
 --
@@ -1705,7 +2362,7 @@ cpStandardErrorURL = lens _cpStandardErrorURL (\ s a -> s{_cpStandardErrorURL = 
 cpResponseCode :: Lens' CommandPlugin (Maybe Int)
 cpResponseCode = lens _cpResponseCode (\ s a -> s{_cpResponseCode = a})
 
--- | A detailed status of the plugin execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-about-status.html Run Command Status> . StatusDetails can be one of the following values:     * Pending: The command has not been sent to the instance.     * In Progress: The command has been sent to the instance but has not reached a terminal state.     * Success: The execution of the command or plugin was successfully completed. This is a terminal state.     * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.     * Failed: The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Undeliverable: The command can't be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit, and they don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.
+-- | A detailed status of the plugin execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding Command Statuses> in the /AWS Systems Manager User Guide/ . StatusDetails can be one of the following values:     * Pending: The command has not been sent to the instance.     * In Progress: The command has been sent to the instance but has not reached a terminal state.     * Success: The execution of the command or plugin was successfully completed. This is a terminal state.     * Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.     * Failed: The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.     * Canceled: The command was terminated before it was completed. This is a terminal state.     * Undeliverable: The command can't be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit, and they don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.     * Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.
 cpStatusDetails :: Lens' CommandPlugin (Maybe Text)
 cpStatusDetails = lens _cpStatusDetails (\ s a -> s{_cpStatusDetails = a})
 
@@ -2152,20 +2809,24 @@ instance Hashable CompliantSummary where
 
 instance NFData CompliantSummary where
 
--- | Describes the association of a Systems Manager document and an instance.
+-- | Describes the association of a Systems Manager SSM document and an instance.
 --
 --
 --
 -- /See:/ 'createAssociationBatchRequestEntry' smart constructor.
 data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
-  { _cabreInstanceId         :: !(Maybe Text)
+  { _cabreInstanceId :: !(Maybe Text)
+  , _cabreMaxErrors :: !(Maybe Text)
   , _cabreScheduleExpression :: !(Maybe Text)
-  , _cabreOutputLocation     :: !(Maybe InstanceAssociationOutputLocation)
-  , _cabreTargets            :: !(Maybe [Target])
-  , _cabreParameters         :: !(Maybe (Map Text [Text]))
-  , _cabreDocumentVersion    :: !(Maybe Text)
-  , _cabreAssociationName    :: !(Maybe Text)
-  , _cabreName               :: !Text
+  , _cabreOutputLocation :: !(Maybe InstanceAssociationOutputLocation)
+  , _cabreTargets :: !(Maybe [Target])
+  , _cabreParameters :: !(Maybe (Map Text [Text]))
+  , _cabreDocumentVersion :: !(Maybe Text)
+  , _cabreAutomationTargetParameterName :: !(Maybe Text)
+  , _cabreAssociationName :: !(Maybe Text)
+  , _cabreComplianceSeverity :: !(Maybe AssociationComplianceSeverity)
+  , _cabreMaxConcurrency :: !(Maybe Text)
+  , _cabreName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2174,6 +2835,8 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cabreInstanceId' - The ID of the instance.
+--
+-- * 'cabreMaxErrors' - The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received. Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
 --
 -- * 'cabreScheduleExpression' - A cron expression that specifies a schedule when the association runs.
 --
@@ -2185,21 +2848,31 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
 --
 -- * 'cabreDocumentVersion' - The document version.
 --
+-- * 'cabreAutomationTargetParameterName' - Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.
+--
 -- * 'cabreAssociationName' - Specify a descriptive name for the association.
 --
--- * 'cabreName' - The name of the configuration document.
+-- * 'cabreComplianceSeverity' - The severity level to assign to the association.
+--
+-- * 'cabreMaxConcurrency' - The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time. If a new instance starts and attempts to execute an association while Systems Manager is executing MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
+--
+-- * 'cabreName' - The name of the SSM document that contains the configuration information for the instance. You can specify Command, Policy, or Automation documents. You can specify AWS-predefined documents, documents you created, or a document that is shared with you from another account. For SSM documents that are shared with you from other AWS accounts, you must specify the complete SSM document ARN, in the following format: @arn:aws:ssm:/region/ :/account-id/ :document//document-name/ @  For example: @arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document@  For AWS-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, @AWS-ApplyPatchBaseline@ or @My-Document@ .
 createAssociationBatchRequestEntry
     :: Text -- ^ 'cabreName'
     -> CreateAssociationBatchRequestEntry
 createAssociationBatchRequestEntry pName_ =
   CreateAssociationBatchRequestEntry'
     { _cabreInstanceId = Nothing
+    , _cabreMaxErrors = Nothing
     , _cabreScheduleExpression = Nothing
     , _cabreOutputLocation = Nothing
     , _cabreTargets = Nothing
     , _cabreParameters = Nothing
     , _cabreDocumentVersion = Nothing
+    , _cabreAutomationTargetParameterName = Nothing
     , _cabreAssociationName = Nothing
+    , _cabreComplianceSeverity = Nothing
+    , _cabreMaxConcurrency = Nothing
     , _cabreName = pName_
     }
 
@@ -2207,6 +2880,10 @@ createAssociationBatchRequestEntry pName_ =
 -- | The ID of the instance.
 cabreInstanceId :: Lens' CreateAssociationBatchRequestEntry (Maybe Text)
 cabreInstanceId = lens _cabreInstanceId (\ s a -> s{_cabreInstanceId = a})
+
+-- | The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received. Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+cabreMaxErrors :: Lens' CreateAssociationBatchRequestEntry (Maybe Text)
+cabreMaxErrors = lens _cabreMaxErrors (\ s a -> s{_cabreMaxErrors = a})
 
 -- | A cron expression that specifies a schedule when the association runs.
 cabreScheduleExpression :: Lens' CreateAssociationBatchRequestEntry (Maybe Text)
@@ -2228,11 +2905,23 @@ cabreParameters = lens _cabreParameters (\ s a -> s{_cabreParameters = a}) . _De
 cabreDocumentVersion :: Lens' CreateAssociationBatchRequestEntry (Maybe Text)
 cabreDocumentVersion = lens _cabreDocumentVersion (\ s a -> s{_cabreDocumentVersion = a})
 
+-- | Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.
+cabreAutomationTargetParameterName :: Lens' CreateAssociationBatchRequestEntry (Maybe Text)
+cabreAutomationTargetParameterName = lens _cabreAutomationTargetParameterName (\ s a -> s{_cabreAutomationTargetParameterName = a})
+
 -- | Specify a descriptive name for the association.
 cabreAssociationName :: Lens' CreateAssociationBatchRequestEntry (Maybe Text)
 cabreAssociationName = lens _cabreAssociationName (\ s a -> s{_cabreAssociationName = a})
 
--- | The name of the configuration document.
+-- | The severity level to assign to the association.
+cabreComplianceSeverity :: Lens' CreateAssociationBatchRequestEntry (Maybe AssociationComplianceSeverity)
+cabreComplianceSeverity = lens _cabreComplianceSeverity (\ s a -> s{_cabreComplianceSeverity = a})
+
+-- | The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time. If a new instance starts and attempts to execute an association while Systems Manager is executing MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
+cabreMaxConcurrency :: Lens' CreateAssociationBatchRequestEntry (Maybe Text)
+cabreMaxConcurrency = lens _cabreMaxConcurrency (\ s a -> s{_cabreMaxConcurrency = a})
+
+-- | The name of the SSM document that contains the configuration information for the instance. You can specify Command, Policy, or Automation documents. You can specify AWS-predefined documents, documents you created, or a document that is shared with you from another account. For SSM documents that are shared with you from other AWS accounts, you must specify the complete SSM document ARN, in the following format: @arn:aws:ssm:/region/ :/account-id/ :document//document-name/ @  For example: @arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document@  For AWS-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, @AWS-ApplyPatchBaseline@ or @My-Document@ .
 cabreName :: Lens' CreateAssociationBatchRequestEntry Text
 cabreName = lens _cabreName (\ s a -> s{_cabreName = a})
 
@@ -2242,12 +2931,16 @@ instance FromJSON CreateAssociationBatchRequestEntry
           = withObject "CreateAssociationBatchRequestEntry"
               (\ x ->
                  CreateAssociationBatchRequestEntry' <$>
-                   (x .:? "InstanceId") <*> (x .:? "ScheduleExpression")
+                   (x .:? "InstanceId") <*> (x .:? "MaxErrors") <*>
+                     (x .:? "ScheduleExpression")
                      <*> (x .:? "OutputLocation")
                      <*> (x .:? "Targets" .!= mempty)
                      <*> (x .:? "Parameters" .!= mempty)
                      <*> (x .:? "DocumentVersion")
+                     <*> (x .:? "AutomationTargetParameterName")
                      <*> (x .:? "AssociationName")
+                     <*> (x .:? "ComplianceSeverity")
+                     <*> (x .:? "MaxConcurrency")
                      <*> (x .: "Name"))
 
 instance Hashable CreateAssociationBatchRequestEntry
@@ -2262,13 +2955,19 @@ instance ToJSON CreateAssociationBatchRequestEntry
           = object
               (catMaybes
                  [("InstanceId" .=) <$> _cabreInstanceId,
+                  ("MaxErrors" .=) <$> _cabreMaxErrors,
                   ("ScheduleExpression" .=) <$>
                     _cabreScheduleExpression,
                   ("OutputLocation" .=) <$> _cabreOutputLocation,
                   ("Targets" .=) <$> _cabreTargets,
                   ("Parameters" .=) <$> _cabreParameters,
                   ("DocumentVersion" .=) <$> _cabreDocumentVersion,
+                  ("AutomationTargetParameterName" .=) <$>
+                    _cabreAutomationTargetParameterName,
                   ("AssociationName" .=) <$> _cabreAssociationName,
+                  ("ComplianceSeverity" .=) <$>
+                    _cabreComplianceSeverity,
+                  ("MaxConcurrency" .=) <$> _cabreMaxConcurrency,
                   Just ("Name" .= _cabreName)])
 
 -- | Filter for the DescribeActivation API.
@@ -2321,14 +3020,17 @@ instance ToJSON DescribeActivationsFilter where
 --
 -- /See:/ 'documentDefaultVersionDescription' smart constructor.
 data DocumentDefaultVersionDescription = DocumentDefaultVersionDescription'
-  { _ddvdDefaultVersion :: !(Maybe Text)
-  , _ddvdName           :: !(Maybe Text)
+  { _ddvdDefaultVersionName :: !(Maybe Text)
+  , _ddvdDefaultVersion     :: !(Maybe Text)
+  , _ddvdName               :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'DocumentDefaultVersionDescription' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddvdDefaultVersionName' - The default version of the artifact associated with the document.
 --
 -- * 'ddvdDefaultVersion' - The default version of the document.
 --
@@ -2337,8 +3039,15 @@ documentDefaultVersionDescription
     :: DocumentDefaultVersionDescription
 documentDefaultVersionDescription =
   DocumentDefaultVersionDescription'
-    {_ddvdDefaultVersion = Nothing, _ddvdName = Nothing}
+    { _ddvdDefaultVersionName = Nothing
+    , _ddvdDefaultVersion = Nothing
+    , _ddvdName = Nothing
+    }
 
+
+-- | The default version of the artifact associated with the document.
+ddvdDefaultVersionName :: Lens' DocumentDefaultVersionDescription (Maybe Text)
+ddvdDefaultVersionName = lens _ddvdDefaultVersionName (\ s a -> s{_ddvdDefaultVersionName = a})
 
 -- | The default version of the document.
 ddvdDefaultVersion :: Lens' DocumentDefaultVersionDescription (Maybe Text)
@@ -2354,7 +3063,9 @@ instance FromJSON DocumentDefaultVersionDescription
           = withObject "DocumentDefaultVersionDescription"
               (\ x ->
                  DocumentDefaultVersionDescription' <$>
-                   (x .:? "DefaultVersion") <*> (x .:? "Name"))
+                   (x .:? "DefaultVersionName") <*>
+                     (x .:? "DefaultVersion")
+                     <*> (x .:? "Name"))
 
 instance Hashable DocumentDefaultVersionDescription
          where
@@ -2368,24 +3079,27 @@ instance NFData DocumentDefaultVersionDescription
 --
 -- /See:/ 'documentDescription' smart constructor.
 data DocumentDescription = DocumentDescription'
-  { _dStatus          :: !(Maybe DocumentStatus)
-  , _dDocumentType    :: !(Maybe DocumentType)
-  , _dHash            :: !(Maybe Text)
-  , _dSchemaVersion   :: !(Maybe Text)
-  , _dSha1            :: !(Maybe Text)
-  , _dDefaultVersion  :: !(Maybe Text)
-  , _dTargetType      :: !(Maybe Text)
-  , _dOwner           :: !(Maybe Text)
-  , _dPlatformTypes   :: !(Maybe [PlatformType])
-  , _dCreatedDate     :: !(Maybe POSIX)
-  , _dDocumentFormat  :: !(Maybe DocumentFormat)
-  , _dName            :: !(Maybe Text)
-  , _dHashType        :: !(Maybe DocumentHashType)
-  , _dParameters      :: !(Maybe [DocumentParameter])
-  , _dDocumentVersion :: !(Maybe Text)
-  , _dDescription     :: !(Maybe Text)
-  , _dTags            :: !(Maybe [Tag])
-  , _dLatestVersion   :: !(Maybe Text)
+  { _dStatus                 :: !(Maybe DocumentStatus)
+  , _dDocumentType           :: !(Maybe DocumentType)
+  , _dHash                   :: !(Maybe Text)
+  , _dVersionName            :: !(Maybe Text)
+  , _dSchemaVersion          :: !(Maybe Text)
+  , _dSha1                   :: !(Maybe Text)
+  , _dAttachmentsInformation :: !(Maybe [AttachmentInformation])
+  , _dDefaultVersion         :: !(Maybe Text)
+  , _dTargetType             :: !(Maybe Text)
+  , _dOwner                  :: !(Maybe Text)
+  , _dPlatformTypes          :: !(Maybe [PlatformType])
+  , _dCreatedDate            :: !(Maybe POSIX)
+  , _dDocumentFormat         :: !(Maybe DocumentFormat)
+  , _dName                   :: !(Maybe Text)
+  , _dHashType               :: !(Maybe DocumentHashType)
+  , _dParameters             :: !(Maybe [DocumentParameter])
+  , _dDocumentVersion        :: !(Maybe Text)
+  , _dStatusInformation      :: !(Maybe Text)
+  , _dDescription            :: !(Maybe Text)
+  , _dTags                   :: !(Maybe [Tag])
+  , _dLatestVersion          :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2399,9 +3113,13 @@ data DocumentDescription = DocumentDescription'
 --
 -- * 'dHash' - The Sha256 or Sha1 hash created by the system when the document was created.
 --
+-- * 'dVersionName' - The version of the artifact associated with the document.
+--
 -- * 'dSchemaVersion' - The schema version.
 --
 -- * 'dSha1' - The SHA1 hash of the document, which you can use for verification.
+--
+-- * 'dAttachmentsInformation' - Details about the document attachments, including names, locations, sizes, etc.
 --
 -- * 'dDefaultVersion' - The default version.
 --
@@ -2417,11 +3135,13 @@ data DocumentDescription = DocumentDescription'
 --
 -- * 'dName' - The name of the Systems Manager document.
 --
--- * 'dHashType' - Sha256 or Sha1.
+-- * 'dHashType' - The hash type of the document. Valid values include @Sha256@ or @Sha1@ .
 --
 -- * 'dParameters' - A description of the parameters for a document.
 --
 -- * 'dDocumentVersion' - The document version.
+--
+-- * 'dStatusInformation' - A message returned by AWS Systems Manager that explains the @Status@ value. For example, a @Failed@ status might be explained by the @StatusInformation@ message, "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."
 --
 -- * 'dDescription' - A description of the document.
 --
@@ -2435,8 +3155,10 @@ documentDescription =
     { _dStatus = Nothing
     , _dDocumentType = Nothing
     , _dHash = Nothing
+    , _dVersionName = Nothing
     , _dSchemaVersion = Nothing
     , _dSha1 = Nothing
+    , _dAttachmentsInformation = Nothing
     , _dDefaultVersion = Nothing
     , _dTargetType = Nothing
     , _dOwner = Nothing
@@ -2447,6 +3169,7 @@ documentDescription =
     , _dHashType = Nothing
     , _dParameters = Nothing
     , _dDocumentVersion = Nothing
+    , _dStatusInformation = Nothing
     , _dDescription = Nothing
     , _dTags = Nothing
     , _dLatestVersion = Nothing
@@ -2465,6 +3188,10 @@ dDocumentType = lens _dDocumentType (\ s a -> s{_dDocumentType = a})
 dHash :: Lens' DocumentDescription (Maybe Text)
 dHash = lens _dHash (\ s a -> s{_dHash = a})
 
+-- | The version of the artifact associated with the document.
+dVersionName :: Lens' DocumentDescription (Maybe Text)
+dVersionName = lens _dVersionName (\ s a -> s{_dVersionName = a})
+
 -- | The schema version.
 dSchemaVersion :: Lens' DocumentDescription (Maybe Text)
 dSchemaVersion = lens _dSchemaVersion (\ s a -> s{_dSchemaVersion = a})
@@ -2472,6 +3199,10 @@ dSchemaVersion = lens _dSchemaVersion (\ s a -> s{_dSchemaVersion = a})
 -- | The SHA1 hash of the document, which you can use for verification.
 dSha1 :: Lens' DocumentDescription (Maybe Text)
 dSha1 = lens _dSha1 (\ s a -> s{_dSha1 = a})
+
+-- | Details about the document attachments, including names, locations, sizes, etc.
+dAttachmentsInformation :: Lens' DocumentDescription [AttachmentInformation]
+dAttachmentsInformation = lens _dAttachmentsInformation (\ s a -> s{_dAttachmentsInformation = a}) . _Default . _Coerce
 
 -- | The default version.
 dDefaultVersion :: Lens' DocumentDescription (Maybe Text)
@@ -2501,7 +3232,7 @@ dDocumentFormat = lens _dDocumentFormat (\ s a -> s{_dDocumentFormat = a})
 dName :: Lens' DocumentDescription (Maybe Text)
 dName = lens _dName (\ s a -> s{_dName = a})
 
--- | Sha256 or Sha1.
+-- | The hash type of the document. Valid values include @Sha256@ or @Sha1@ .
 dHashType :: Lens' DocumentDescription (Maybe DocumentHashType)
 dHashType = lens _dHashType (\ s a -> s{_dHashType = a})
 
@@ -2512,6 +3243,10 @@ dParameters = lens _dParameters (\ s a -> s{_dParameters = a}) . _Default . _Coe
 -- | The document version.
 dDocumentVersion :: Lens' DocumentDescription (Maybe Text)
 dDocumentVersion = lens _dDocumentVersion (\ s a -> s{_dDocumentVersion = a})
+
+-- | A message returned by AWS Systems Manager that explains the @Status@ value. For example, a @Failed@ status might be explained by the @StatusInformation@ message, "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."
+dStatusInformation :: Lens' DocumentDescription (Maybe Text)
+dStatusInformation = lens _dStatusInformation (\ s a -> s{_dStatusInformation = a})
 
 -- | A description of the document.
 dDescription :: Lens' DocumentDescription (Maybe Text)
@@ -2532,8 +3267,10 @@ instance FromJSON DocumentDescription where
                  DocumentDescription' <$>
                    (x .:? "Status") <*> (x .:? "DocumentType") <*>
                      (x .:? "Hash")
+                     <*> (x .:? "VersionName")
                      <*> (x .:? "SchemaVersion")
                      <*> (x .:? "Sha1")
+                     <*> (x .:? "AttachmentsInformation" .!= mempty)
                      <*> (x .:? "DefaultVersion")
                      <*> (x .:? "TargetType")
                      <*> (x .:? "Owner")
@@ -2544,6 +3281,7 @@ instance FromJSON DocumentDescription where
                      <*> (x .:? "HashType")
                      <*> (x .:? "Parameters" .!= mempty)
                      <*> (x .:? "DocumentVersion")
+                     <*> (x .:? "StatusInformation")
                      <*> (x .:? "Description")
                      <*> (x .:? "Tags" .!= mempty)
                      <*> (x .:? "LatestVersion"))
@@ -2603,6 +3341,7 @@ instance ToJSON DocumentFilter where
 -- /See:/ 'documentIdentifier' smart constructor.
 data DocumentIdentifier = DocumentIdentifier'
   { _diDocumentType    :: !(Maybe DocumentType)
+  , _diVersionName     :: !(Maybe Text)
   , _diSchemaVersion   :: !(Maybe Text)
   , _diTargetType      :: !(Maybe Text)
   , _diOwner           :: !(Maybe Text)
@@ -2619,6 +3358,8 @@ data DocumentIdentifier = DocumentIdentifier'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'diDocumentType' - The document type.
+--
+-- * 'diVersionName' - An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
 --
 -- * 'diSchemaVersion' - The schema version.
 --
@@ -2640,6 +3381,7 @@ documentIdentifier
 documentIdentifier =
   DocumentIdentifier'
     { _diDocumentType = Nothing
+    , _diVersionName = Nothing
     , _diSchemaVersion = Nothing
     , _diTargetType = Nothing
     , _diOwner = Nothing
@@ -2654,6 +3396,10 @@ documentIdentifier =
 -- | The document type.
 diDocumentType :: Lens' DocumentIdentifier (Maybe DocumentType)
 diDocumentType = lens _diDocumentType (\ s a -> s{_diDocumentType = a})
+
+-- | An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
+diVersionName :: Lens' DocumentIdentifier (Maybe Text)
+diVersionName = lens _diVersionName (\ s a -> s{_diVersionName = a})
 
 -- | The schema version.
 diSchemaVersion :: Lens' DocumentIdentifier (Maybe Text)
@@ -2692,7 +3438,8 @@ instance FromJSON DocumentIdentifier where
           = withObject "DocumentIdentifier"
               (\ x ->
                  DocumentIdentifier' <$>
-                   (x .:? "DocumentType") <*> (x .:? "SchemaVersion")
+                   (x .:? "DocumentType") <*> (x .:? "VersionName") <*>
+                     (x .:? "SchemaVersion")
                      <*> (x .:? "TargetType")
                      <*> (x .:? "Owner")
                      <*> (x .:? "PlatformTypes" .!= mempty)
@@ -2836,17 +3583,24 @@ instance NFData DocumentParameter where
 --
 -- /See:/ 'documentVersionInfo' smart constructor.
 data DocumentVersionInfo = DocumentVersionInfo'
-  { _dviCreatedDate      :: !(Maybe POSIX)
-  , _dviDocumentFormat   :: !(Maybe DocumentFormat)
-  , _dviName             :: !(Maybe Text)
-  , _dviDocumentVersion  :: !(Maybe Text)
-  , _dviIsDefaultVersion :: !(Maybe Bool)
+  { _dviStatus            :: !(Maybe DocumentStatus)
+  , _dviVersionName       :: !(Maybe Text)
+  , _dviCreatedDate       :: !(Maybe POSIX)
+  , _dviDocumentFormat    :: !(Maybe DocumentFormat)
+  , _dviName              :: !(Maybe Text)
+  , _dviDocumentVersion   :: !(Maybe Text)
+  , _dviStatusInformation :: !(Maybe Text)
+  , _dviIsDefaultVersion  :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'DocumentVersionInfo' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dviStatus' - The status of the Systems Manager document, such as @Creating@ , @Active@ , @Failed@ , and @Deleting@ .
+--
+-- * 'dviVersionName' - The version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
 --
 -- * 'dviCreatedDate' - The date the document was created.
 --
@@ -2856,18 +3610,31 @@ data DocumentVersionInfo = DocumentVersionInfo'
 --
 -- * 'dviDocumentVersion' - The document version.
 --
+-- * 'dviStatusInformation' - A message returned by AWS Systems Manager that explains the @Status@ value. For example, a @Failed@ status might be explained by the @StatusInformation@ message, "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."
+--
 -- * 'dviIsDefaultVersion' - An identifier for the default version of the document.
 documentVersionInfo
     :: DocumentVersionInfo
 documentVersionInfo =
   DocumentVersionInfo'
-    { _dviCreatedDate = Nothing
+    { _dviStatus = Nothing
+    , _dviVersionName = Nothing
+    , _dviCreatedDate = Nothing
     , _dviDocumentFormat = Nothing
     , _dviName = Nothing
     , _dviDocumentVersion = Nothing
+    , _dviStatusInformation = Nothing
     , _dviIsDefaultVersion = Nothing
     }
 
+
+-- | The status of the Systems Manager document, such as @Creating@ , @Active@ , @Failed@ , and @Deleting@ .
+dviStatus :: Lens' DocumentVersionInfo (Maybe DocumentStatus)
+dviStatus = lens _dviStatus (\ s a -> s{_dviStatus = a})
+
+-- | The version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
+dviVersionName :: Lens' DocumentVersionInfo (Maybe Text)
+dviVersionName = lens _dviVersionName (\ s a -> s{_dviVersionName = a})
 
 -- | The date the document was created.
 dviCreatedDate :: Lens' DocumentVersionInfo (Maybe UTCTime)
@@ -2885,6 +3652,10 @@ dviName = lens _dviName (\ s a -> s{_dviName = a})
 dviDocumentVersion :: Lens' DocumentVersionInfo (Maybe Text)
 dviDocumentVersion = lens _dviDocumentVersion (\ s a -> s{_dviDocumentVersion = a})
 
+-- | A message returned by AWS Systems Manager that explains the @Status@ value. For example, a @Failed@ status might be explained by the @StatusInformation@ message, "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."
+dviStatusInformation :: Lens' DocumentVersionInfo (Maybe Text)
+dviStatusInformation = lens _dviStatusInformation (\ s a -> s{_dviStatusInformation = a})
+
 -- | An identifier for the default version of the document.
 dviIsDefaultVersion :: Lens' DocumentVersionInfo (Maybe Bool)
 dviIsDefaultVersion = lens _dviIsDefaultVersion (\ s a -> s{_dviIsDefaultVersion = a})
@@ -2894,9 +3665,12 @@ instance FromJSON DocumentVersionInfo where
           = withObject "DocumentVersionInfo"
               (\ x ->
                  DocumentVersionInfo' <$>
-                   (x .:? "CreatedDate") <*> (x .:? "DocumentFormat")
+                   (x .:? "Status") <*> (x .:? "VersionName") <*>
+                     (x .:? "CreatedDate")
+                     <*> (x .:? "DocumentFormat")
                      <*> (x .:? "Name")
                      <*> (x .:? "DocumentVersion")
+                     <*> (x .:? "StatusInformation")
                      <*> (x .:? "IsDefaultVersion"))
 
 instance Hashable DocumentVersionInfo where
@@ -3417,7 +4191,7 @@ data InstanceInformation = InstanceInformation'
 --
 -- * 'iiInstanceId' - The instance ID.
 --
--- * 'iiPingStatus' - Connection status of the SSM Agent.
+-- * 'iiPingStatus' - Connection status of SSM Agent.
 --
 -- * 'iiIPAddress' - The IP address of the managed instance.
 --
@@ -3427,9 +4201,9 @@ data InstanceInformation = InstanceInformation'
 --
 -- * 'iiPlatformVersion' - The version of the OS platform running on your instance.
 --
--- * 'iiIsLatestVersion' - Indicates whether latest version of the SSM Agent is running on your instance. Some older versions of Windows Server use the EC2Config service to process SSM requests. For this reason, this field does not indicate whether or not the latest version is installed on Windows managed instances.
+-- * 'iiIsLatestVersion' - Indicates whether latest version of SSM Agent is running on your instance. Some older versions of Windows Server use the EC2Config service to process SSM requests. For this reason, this field does not indicate whether or not the latest version is installed on Windows managed instances.
 --
--- * 'iiAgentVersion' - The version of the SSM Agent running on your Linux instance.
+-- * 'iiAgentVersion' - The version of SSM Agent running on your Linux instance.
 --
 -- * 'iiLastPingDateTime' - The date and time when agent last pinged Systems Manager service.
 --
@@ -3451,7 +4225,7 @@ data InstanceInformation = InstanceInformation'
 --
 -- * 'iiComputerName' - The fully qualified host name of the managed instance.
 --
--- * 'iiIAMRole' - The Amazon Identity and Access Management (IAM) role assigned to EC2 instances or managed instances.
+-- * 'iiIAMRole' - The Amazon Identity and Access Management (IAM) role assigned to the on-premises Systems Manager managed instances. This call does not return the IAM role for Amazon EC2 instances.
 instanceInformation
     :: InstanceInformation
 instanceInformation =
@@ -3482,7 +4256,7 @@ instanceInformation =
 iiInstanceId :: Lens' InstanceInformation (Maybe Text)
 iiInstanceId = lens _iiInstanceId (\ s a -> s{_iiInstanceId = a})
 
--- | Connection status of the SSM Agent.
+-- | Connection status of SSM Agent.
 iiPingStatus :: Lens' InstanceInformation (Maybe PingStatus)
 iiPingStatus = lens _iiPingStatus (\ s a -> s{_iiPingStatus = a})
 
@@ -3502,11 +4276,11 @@ iiRegistrationDate = lens _iiRegistrationDate (\ s a -> s{_iiRegistrationDate = 
 iiPlatformVersion :: Lens' InstanceInformation (Maybe Text)
 iiPlatformVersion = lens _iiPlatformVersion (\ s a -> s{_iiPlatformVersion = a})
 
--- | Indicates whether latest version of the SSM Agent is running on your instance. Some older versions of Windows Server use the EC2Config service to process SSM requests. For this reason, this field does not indicate whether or not the latest version is installed on Windows managed instances.
+-- | Indicates whether latest version of SSM Agent is running on your instance. Some older versions of Windows Server use the EC2Config service to process SSM requests. For this reason, this field does not indicate whether or not the latest version is installed on Windows managed instances.
 iiIsLatestVersion :: Lens' InstanceInformation (Maybe Bool)
 iiIsLatestVersion = lens _iiIsLatestVersion (\ s a -> s{_iiIsLatestVersion = a})
 
--- | The version of the SSM Agent running on your Linux instance.
+-- | The version of SSM Agent running on your Linux instance.
 iiAgentVersion :: Lens' InstanceInformation (Maybe Text)
 iiAgentVersion = lens _iiAgentVersion (\ s a -> s{_iiAgentVersion = a})
 
@@ -3550,7 +4324,7 @@ iiPlatformName = lens _iiPlatformName (\ s a -> s{_iiPlatformName = a})
 iiComputerName :: Lens' InstanceInformation (Maybe Text)
 iiComputerName = lens _iiComputerName (\ s a -> s{_iiComputerName = a})
 
--- | The Amazon Identity and Access Management (IAM) role assigned to EC2 instances or managed instances.
+-- | The Amazon Identity and Access Management (IAM) role assigned to the on-premises Systems Manager managed instances. This call does not return the IAM role for Amazon EC2 instances.
 iiIAMRole :: Lens' InstanceInformation (Maybe Text)
 iiIAMRole = lens _iiIAMRole (\ s a -> s{_iiIAMRole = a})
 
@@ -3582,8 +4356,10 @@ instance Hashable InstanceInformation where
 
 instance NFData InstanceInformation where
 
--- | Describes a filter for a specific list of instances.
+-- | Describes a filter for a specific list of instances. You can filter instances information by using tags. You specify tags by using a key-value mapping.
 --
+--
+-- Use this action instead of the 'DescribeInstanceInformationRequest$InstanceInformationFilterList' method. The @InstanceInformationFilterList@ method is a legacy method and does not support tags.
 --
 --
 -- /See:/ 'instanceInformationFilter' smart constructor.
@@ -3681,19 +4457,21 @@ instance ToJSON InstanceInformationStringFilter where
 --
 -- /See:/ 'instancePatchState' smart constructor.
 data InstancePatchState = InstancePatchState'
-  { _ipsOwnerInformation    :: !(Maybe (Sensitive Text))
-  , _ipsFailedCount         :: !(Maybe Int)
-  , _ipsInstalledOtherCount :: !(Maybe Int)
-  , _ipsMissingCount        :: !(Maybe Int)
-  , _ipsNotApplicableCount  :: !(Maybe Int)
-  , _ipsInstalledCount      :: !(Maybe Int)
-  , _ipsSnapshotId          :: !(Maybe Text)
-  , _ipsInstanceId          :: !Text
-  , _ipsPatchGroup          :: !Text
-  , _ipsBaselineId          :: !Text
-  , _ipsOperationStartTime  :: !POSIX
-  , _ipsOperationEndTime    :: !POSIX
-  , _ipsOperation           :: !PatchOperationType
+  { _ipsOwnerInformation       :: !(Maybe (Sensitive Text))
+  , _ipsInstalledRejectedCount :: !(Maybe Int)
+  , _ipsFailedCount            :: !(Maybe Int)
+  , _ipsInstalledOtherCount    :: !(Maybe Int)
+  , _ipsMissingCount           :: !(Maybe Int)
+  , _ipsInstallOverrideList    :: !(Maybe Text)
+  , _ipsNotApplicableCount     :: !(Maybe Int)
+  , _ipsInstalledCount         :: !(Maybe Int)
+  , _ipsSnapshotId             :: !(Maybe Text)
+  , _ipsInstanceId             :: !Text
+  , _ipsPatchGroup             :: !Text
+  , _ipsBaselineId             :: !Text
+  , _ipsOperationStartTime     :: !POSIX
+  , _ipsOperationEndTime       :: !POSIX
+  , _ipsOperation              :: !PatchOperationType
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -3703,11 +4481,15 @@ data InstancePatchState = InstancePatchState'
 --
 -- * 'ipsOwnerInformation' - Placeholder information. This field will always be empty in the current release of the service.
 --
+-- * 'ipsInstalledRejectedCount' - The number of instances with patches installed that are specified in a RejectedPatches list. Patches with a status of /InstalledRejected/ were typically installed before they were added to a RejectedPatches list.
+--
 -- * 'ipsFailedCount' - The number of patches from the patch baseline that were attempted to be installed during the last patching operation, but failed to install.
 --
 -- * 'ipsInstalledOtherCount' - The number of patches not specified in the patch baseline that are installed on the instance.
 --
 -- * 'ipsMissingCount' - The number of patches from the patch baseline that are applicable for the instance but aren't currently installed.
+--
+-- * 'ipsInstallOverrideList' - An https URL or an Amazon S3 path-style URL to a list of patches to be installed. This patch installation list, which you maintain in an Amazon S3 bucket in YAML format and specify in the SSM document @AWS-RunPatchBaseline@ , overrides the patches specified by the default patch baseline. For more information about the @InstallOverrideList@ parameter, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-about-aws-runpatchbaseline.html About the SSM Document AWS-RunPatchBaseline> in the /AWS Systems Manager User Guide/ .
 --
 -- * 'ipsNotApplicableCount' - The number of patches from the patch baseline that aren't applicable for the instance and hence aren't installed on the instance.
 --
@@ -3737,9 +4519,11 @@ instancePatchState
 instancePatchState pInstanceId_ pPatchGroup_ pBaselineId_ pOperationStartTime_ pOperationEndTime_ pOperation_ =
   InstancePatchState'
     { _ipsOwnerInformation = Nothing
+    , _ipsInstalledRejectedCount = Nothing
     , _ipsFailedCount = Nothing
     , _ipsInstalledOtherCount = Nothing
     , _ipsMissingCount = Nothing
+    , _ipsInstallOverrideList = Nothing
     , _ipsNotApplicableCount = Nothing
     , _ipsInstalledCount = Nothing
     , _ipsSnapshotId = Nothing
@@ -3756,6 +4540,10 @@ instancePatchState pInstanceId_ pPatchGroup_ pBaselineId_ pOperationStartTime_ p
 ipsOwnerInformation :: Lens' InstancePatchState (Maybe Text)
 ipsOwnerInformation = lens _ipsOwnerInformation (\ s a -> s{_ipsOwnerInformation = a}) . mapping _Sensitive
 
+-- | The number of instances with patches installed that are specified in a RejectedPatches list. Patches with a status of /InstalledRejected/ were typically installed before they were added to a RejectedPatches list.
+ipsInstalledRejectedCount :: Lens' InstancePatchState (Maybe Int)
+ipsInstalledRejectedCount = lens _ipsInstalledRejectedCount (\ s a -> s{_ipsInstalledRejectedCount = a})
+
 -- | The number of patches from the patch baseline that were attempted to be installed during the last patching operation, but failed to install.
 ipsFailedCount :: Lens' InstancePatchState (Maybe Int)
 ipsFailedCount = lens _ipsFailedCount (\ s a -> s{_ipsFailedCount = a})
@@ -3767,6 +4555,10 @@ ipsInstalledOtherCount = lens _ipsInstalledOtherCount (\ s a -> s{_ipsInstalledO
 -- | The number of patches from the patch baseline that are applicable for the instance but aren't currently installed.
 ipsMissingCount :: Lens' InstancePatchState (Maybe Int)
 ipsMissingCount = lens _ipsMissingCount (\ s a -> s{_ipsMissingCount = a})
+
+-- | An https URL or an Amazon S3 path-style URL to a list of patches to be installed. This patch installation list, which you maintain in an Amazon S3 bucket in YAML format and specify in the SSM document @AWS-RunPatchBaseline@ , overrides the patches specified by the default patch baseline. For more information about the @InstallOverrideList@ parameter, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-about-aws-runpatchbaseline.html About the SSM Document AWS-RunPatchBaseline> in the /AWS Systems Manager User Guide/ .
+ipsInstallOverrideList :: Lens' InstancePatchState (Maybe Text)
+ipsInstallOverrideList = lens _ipsInstallOverrideList (\ s a -> s{_ipsInstallOverrideList = a})
 
 -- | The number of patches from the patch baseline that aren't applicable for the instance and hence aren't installed on the instance.
 ipsNotApplicableCount :: Lens' InstancePatchState (Maybe Int)
@@ -3809,9 +4601,12 @@ instance FromJSON InstancePatchState where
           = withObject "InstancePatchState"
               (\ x ->
                  InstancePatchState' <$>
-                   (x .:? "OwnerInformation") <*> (x .:? "FailedCount")
+                   (x .:? "OwnerInformation") <*>
+                     (x .:? "InstalledRejectedCount")
+                     <*> (x .:? "FailedCount")
                      <*> (x .:? "InstalledOtherCount")
                      <*> (x .:? "MissingCount")
+                     <*> (x .:? "InstallOverrideList")
                      <*> (x .:? "NotApplicableCount")
                      <*> (x .:? "InstalledCount")
                      <*> (x .:? "SnapshotId")
@@ -3887,7 +4682,8 @@ instance ToJSON InstancePatchStateFilter where
 --
 -- /See:/ 'inventoryAggregator' smart constructor.
 data InventoryAggregator = InventoryAggregator'
-  { _iaAggregators :: !(Maybe (List1 InventoryAggregator))
+  { _iaGroups      :: !(Maybe (List1 InventoryGroup))
+  , _iaAggregators :: !(Maybe (List1 InventoryAggregator))
   , _iaExpression  :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -3896,14 +4692,21 @@ data InventoryAggregator = InventoryAggregator'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'iaGroups' - A user-defined set of one or more filters on which to aggregate inventory data. Groups return a count of resources that match and don't match the specified criteria.
+--
 -- * 'iaAggregators' - Nested aggregators to further refine aggregation for an inventory type.
 --
 -- * 'iaExpression' - The inventory type and attribute name for aggregation.
 inventoryAggregator
     :: InventoryAggregator
 inventoryAggregator =
-  InventoryAggregator' {_iaAggregators = Nothing, _iaExpression = Nothing}
+  InventoryAggregator'
+    {_iaGroups = Nothing, _iaAggregators = Nothing, _iaExpression = Nothing}
 
+
+-- | A user-defined set of one or more filters on which to aggregate inventory data. Groups return a count of resources that match and don't match the specified criteria.
+iaGroups :: Lens' InventoryAggregator (Maybe (NonEmpty InventoryGroup))
+iaGroups = lens _iaGroups (\ s a -> s{_iaGroups = a}) . mapping _List1
 
 -- | Nested aggregators to further refine aggregation for an inventory type.
 iaAggregators :: Lens' InventoryAggregator (Maybe (NonEmpty InventoryAggregator))
@@ -3921,7 +4724,8 @@ instance ToJSON InventoryAggregator where
         toJSON InventoryAggregator'{..}
           = object
               (catMaybes
-                 [("Aggregators" .=) <$> _iaAggregators,
+                 [("Groups" .=) <$> _iaGroups,
+                  ("Aggregators" .=) <$> _iaAggregators,
                   ("Expression" .=) <$> _iaExpression])
 
 -- | Status information returned by the @DeleteInventory@ action.
@@ -3950,7 +4754,7 @@ data InventoryDeletionStatusItem = InventoryDeletionStatusItem'
 --
 -- * 'idsiLastStatusMessage' - Information about the status.
 --
--- * 'idsiDeletionSummary' - Information about the delete operation. For more information about this summary, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-delete.html#sysman-inventory-delete-summary Understanding the Delete Inventory Summary> .
+-- * 'idsiDeletionSummary' - Information about the delete operation. For more information about this summary, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-delete.html#sysman-inventory-delete-summary Understanding the Delete Inventory Summary> in the /AWS Systems Manager User Guide/ .
 --
 -- * 'idsiLastStatus' - The status of the operation. Possible values are InProgress and Complete.
 --
@@ -3983,7 +4787,7 @@ idsiLastStatusUpdateTime = lens _idsiLastStatusUpdateTime (\ s a -> s{_idsiLastS
 idsiLastStatusMessage :: Lens' InventoryDeletionStatusItem (Maybe Text)
 idsiLastStatusMessage = lens _idsiLastStatusMessage (\ s a -> s{_idsiLastStatusMessage = a})
 
--- | Information about the delete operation. For more information about this summary, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-delete.html#sysman-inventory-delete-summary Understanding the Delete Inventory Summary> .
+-- | Information about the delete operation. For more information about this summary, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-delete.html#sysman-inventory-delete-summary Understanding the Delete Inventory Summary> in the /AWS Systems Manager User Guide/ .
 idsiDeletionSummary :: Lens' InventoryDeletionStatusItem (Maybe InventoryDeletionSummary)
 idsiDeletionSummary = lens _idsiDeletionSummary (\ s a -> s{_idsiDeletionSummary = a})
 
@@ -4178,6 +4982,51 @@ instance ToJSON InventoryFilter where
               (catMaybes
                  [("Type" .=) <$> _ifType, Just ("Key" .= _ifKey),
                   Just ("Values" .= _ifValues)])
+
+-- | A user-defined set of one or more filters on which to aggregate inventory data. Groups return a count of resources that match and don't match the specified criteria.
+--
+--
+--
+-- /See:/ 'inventoryGroup' smart constructor.
+data InventoryGroup = InventoryGroup'
+  { _igName    :: !Text
+  , _igFilters :: !(List1 InventoryFilter)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'InventoryGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'igName' - The name of the group.
+--
+-- * 'igFilters' - Filters define the criteria for the group. The @matchingCount@ field displays the number of resources that match the criteria. The @notMatchingCount@ field displays the number of resources that don't match the criteria.
+inventoryGroup
+    :: Text -- ^ 'igName'
+    -> NonEmpty InventoryFilter -- ^ 'igFilters'
+    -> InventoryGroup
+inventoryGroup pName_ pFilters_ =
+  InventoryGroup' {_igName = pName_, _igFilters = _List1 # pFilters_}
+
+
+-- | The name of the group.
+igName :: Lens' InventoryGroup Text
+igName = lens _igName (\ s a -> s{_igName = a})
+
+-- | Filters define the criteria for the group. The @matchingCount@ field displays the number of resources that match the criteria. The @notMatchingCount@ field displays the number of resources that don't match the criteria.
+igFilters :: Lens' InventoryGroup (NonEmpty InventoryFilter)
+igFilters = lens _igFilters (\ s a -> s{_igFilters = a}) . _List1
+
+instance Hashable InventoryGroup where
+
+instance NFData InventoryGroup where
+
+instance ToJSON InventoryGroup where
+        toJSON InventoryGroup'{..}
+          = object
+              (catMaybes
+                 [Just ("Name" .= _igName),
+                  Just ("Filters" .= _igFilters)])
 
 -- | Information collected from managed instances based on your inventory policy document
 --
@@ -4947,7 +5796,7 @@ instance NFData
            MaintenanceWindowExecutionTaskInvocationIdentity
          where
 
--- | Filter used in the request.
+-- | Filter used in the request. Supported filter keys are Name and Enabled.
 --
 --
 --
@@ -4996,12 +5845,17 @@ instance ToJSON MaintenanceWindowFilter where
 --
 -- /See:/ 'maintenanceWindowIdentity' smart constructor.
 data MaintenanceWindowIdentity = MaintenanceWindowIdentity'
-  { _mwiEnabled     :: !(Maybe Bool)
-  , _mwiName        :: !(Maybe Text)
-  , _mwiCutoff      :: !(Maybe Nat)
-  , _mwiDescription :: !(Maybe (Sensitive Text))
-  , _mwiDuration    :: !(Maybe Nat)
-  , _mwiWindowId    :: !(Maybe Text)
+  { _mwiEnabled           :: !(Maybe Bool)
+  , _mwiSchedule          :: !(Maybe Text)
+  , _mwiNextExecutionTime :: !(Maybe Text)
+  , _mwiEndDate           :: !(Maybe Text)
+  , _mwiScheduleTimezone  :: !(Maybe Text)
+  , _mwiStartDate         :: !(Maybe Text)
+  , _mwiName              :: !(Maybe Text)
+  , _mwiCutoff            :: !(Maybe Nat)
+  , _mwiDescription       :: !(Maybe (Sensitive Text))
+  , _mwiDuration          :: !(Maybe Nat)
+  , _mwiWindowId          :: !(Maybe Text)
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -5010,6 +5864,16 @@ data MaintenanceWindowIdentity = MaintenanceWindowIdentity'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mwiEnabled' - Whether the Maintenance Window is enabled.
+--
+-- * 'mwiSchedule' - The schedule of the Maintenance Window in the form of a cron or rate expression.
+--
+-- * 'mwiNextExecutionTime' - The next time the Maintenance Window will actually run, taking into account any specified times for the Maintenance Window to become active or inactive.
+--
+-- * 'mwiEndDate' - The date and time, in ISO-8601 Extended format, for when the Maintenance Window is scheduled to become inactive.
+--
+-- * 'mwiScheduleTimezone' - The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format.
+--
+-- * 'mwiStartDate' - The date and time, in ISO-8601 Extended format, for when the Maintenance Window is scheduled to become active.
 --
 -- * 'mwiName' - The name of the Maintenance Window.
 --
@@ -5025,6 +5889,11 @@ maintenanceWindowIdentity
 maintenanceWindowIdentity =
   MaintenanceWindowIdentity'
     { _mwiEnabled = Nothing
+    , _mwiSchedule = Nothing
+    , _mwiNextExecutionTime = Nothing
+    , _mwiEndDate = Nothing
+    , _mwiScheduleTimezone = Nothing
+    , _mwiStartDate = Nothing
     , _mwiName = Nothing
     , _mwiCutoff = Nothing
     , _mwiDescription = Nothing
@@ -5036,6 +5905,26 @@ maintenanceWindowIdentity =
 -- | Whether the Maintenance Window is enabled.
 mwiEnabled :: Lens' MaintenanceWindowIdentity (Maybe Bool)
 mwiEnabled = lens _mwiEnabled (\ s a -> s{_mwiEnabled = a})
+
+-- | The schedule of the Maintenance Window in the form of a cron or rate expression.
+mwiSchedule :: Lens' MaintenanceWindowIdentity (Maybe Text)
+mwiSchedule = lens _mwiSchedule (\ s a -> s{_mwiSchedule = a})
+
+-- | The next time the Maintenance Window will actually run, taking into account any specified times for the Maintenance Window to become active or inactive.
+mwiNextExecutionTime :: Lens' MaintenanceWindowIdentity (Maybe Text)
+mwiNextExecutionTime = lens _mwiNextExecutionTime (\ s a -> s{_mwiNextExecutionTime = a})
+
+-- | The date and time, in ISO-8601 Extended format, for when the Maintenance Window is scheduled to become inactive.
+mwiEndDate :: Lens' MaintenanceWindowIdentity (Maybe Text)
+mwiEndDate = lens _mwiEndDate (\ s a -> s{_mwiEndDate = a})
+
+-- | The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format.
+mwiScheduleTimezone :: Lens' MaintenanceWindowIdentity (Maybe Text)
+mwiScheduleTimezone = lens _mwiScheduleTimezone (\ s a -> s{_mwiScheduleTimezone = a})
+
+-- | The date and time, in ISO-8601 Extended format, for when the Maintenance Window is scheduled to become active.
+mwiStartDate :: Lens' MaintenanceWindowIdentity (Maybe Text)
+mwiStartDate = lens _mwiStartDate (\ s a -> s{_mwiStartDate = a})
 
 -- | The name of the Maintenance Window.
 mwiName :: Lens' MaintenanceWindowIdentity (Maybe Text)
@@ -5062,8 +5951,13 @@ instance FromJSON MaintenanceWindowIdentity where
           = withObject "MaintenanceWindowIdentity"
               (\ x ->
                  MaintenanceWindowIdentity' <$>
-                   (x .:? "Enabled") <*> (x .:? "Name") <*>
-                     (x .:? "Cutoff")
+                   (x .:? "Enabled") <*> (x .:? "Schedule") <*>
+                     (x .:? "NextExecutionTime")
+                     <*> (x .:? "EndDate")
+                     <*> (x .:? "ScheduleTimezone")
+                     <*> (x .:? "StartDate")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "Cutoff")
                      <*> (x .:? "Description")
                      <*> (x .:? "Duration")
                      <*> (x .:? "WindowId"))
@@ -5071,6 +5965,53 @@ instance FromJSON MaintenanceWindowIdentity where
 instance Hashable MaintenanceWindowIdentity where
 
 instance NFData MaintenanceWindowIdentity where
+
+-- | The Maintenance Window to which the specified target belongs.
+--
+--
+--
+-- /See:/ 'maintenanceWindowIdentityForTarget' smart constructor.
+data MaintenanceWindowIdentityForTarget = MaintenanceWindowIdentityForTarget'
+  { _mwiftName     :: !(Maybe Text)
+  , _mwiftWindowId :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'MaintenanceWindowIdentityForTarget' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mwiftName' - The name of the Maintenance Window.
+--
+-- * 'mwiftWindowId' - The ID of the Maintenance Window.
+maintenanceWindowIdentityForTarget
+    :: MaintenanceWindowIdentityForTarget
+maintenanceWindowIdentityForTarget =
+  MaintenanceWindowIdentityForTarget'
+    {_mwiftName = Nothing, _mwiftWindowId = Nothing}
+
+
+-- | The name of the Maintenance Window.
+mwiftName :: Lens' MaintenanceWindowIdentityForTarget (Maybe Text)
+mwiftName = lens _mwiftName (\ s a -> s{_mwiftName = a})
+
+-- | The ID of the Maintenance Window.
+mwiftWindowId :: Lens' MaintenanceWindowIdentityForTarget (Maybe Text)
+mwiftWindowId = lens _mwiftWindowId (\ s a -> s{_mwiftWindowId = a})
+
+instance FromJSON MaintenanceWindowIdentityForTarget
+         where
+        parseJSON
+          = withObject "MaintenanceWindowIdentityForTarget"
+              (\ x ->
+                 MaintenanceWindowIdentityForTarget' <$>
+                   (x .:? "Name") <*> (x .:? "WindowId"))
+
+instance Hashable MaintenanceWindowIdentityForTarget
+         where
+
+instance NFData MaintenanceWindowIdentityForTarget
+         where
 
 -- | The parameters for a LAMBDA task type.
 --
@@ -5177,7 +6118,7 @@ data MaintenanceWindowRunCommandParameters = MaintenanceWindowRunCommandParamete
 --
 -- * 'mwrcpDocumentHash' - The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
 --
--- * 'mwrcpTimeoutSeconds' - If this time is reached and the command has not already started executing, it doesn not execute.
+-- * 'mwrcpTimeoutSeconds' - If this time is reached and the command has not already started executing, it doesn't run.
 --
 -- * 'mwrcpComment' - Information about the command(s) to execute.
 --
@@ -5222,7 +6163,7 @@ mwrcpParameters = lens _mwrcpParameters (\ s a -> s{_mwrcpParameters = a}) . _De
 mwrcpDocumentHash :: Lens' MaintenanceWindowRunCommandParameters (Maybe Text)
 mwrcpDocumentHash = lens _mwrcpDocumentHash (\ s a -> s{_mwrcpDocumentHash = a})
 
--- | If this time is reached and the command has not already started executing, it doesn not execute.
+-- | If this time is reached and the command has not already started executing, it doesn't run.
 mwrcpTimeoutSeconds :: Lens' MaintenanceWindowRunCommandParameters (Maybe Natural)
 mwrcpTimeoutSeconds = lens _mwrcpTimeoutSeconds (\ s a -> s{_mwrcpTimeoutSeconds = a}) . mapping _Nat
 
@@ -5767,7 +6708,7 @@ data NotificationConfig = NotificationConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ncNotificationEvents' - The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Setting Up Events and Notifications> in the /AWS Systems Manager User Guide/ .
+-- * 'ncNotificationEvents' - The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html Configuring Amazon SNS Notifications for Run Command> in the /AWS Systems Manager User Guide/ .
 --
 -- * 'ncNotificationType' - Command: Receive notification when the status of a command changes. Invocation: For commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes.
 --
@@ -5782,7 +6723,7 @@ notificationConfig =
     }
 
 
--- | The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Setting Up Events and Notifications> in the /AWS Systems Manager User Guide/ .
+-- | The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html Configuring Amazon SNS Notifications for Run Command> in the /AWS Systems Manager User Guide/ .
 ncNotificationEvents :: Lens' NotificationConfig [NotificationEvent]
 ncNotificationEvents = lens _ncNotificationEvents (\ s a -> s{_ncNotificationEvents = a}) . _Default . _Coerce
 
@@ -5815,16 +6756,64 @@ instance ToJSON NotificationConfig where
                   ("NotificationType" .=) <$> _ncNotificationType,
                   ("NotificationArn" .=) <$> _ncNotificationARN])
 
+-- | Information about the source where the association execution details are stored.
+--
+--
+--
+-- /See:/ 'outputSource' smart constructor.
+data OutputSource = OutputSource'
+  { _osOutputSourceId   :: !(Maybe Text)
+  , _osOutputSourceType :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'OutputSource' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'osOutputSourceId' - The ID of the output source, for example the URL of an Amazon S3 bucket.
+--
+-- * 'osOutputSourceType' - The type of source where the association execution details are stored, for example, Amazon S3.
+outputSource
+    :: OutputSource
+outputSource =
+  OutputSource' {_osOutputSourceId = Nothing, _osOutputSourceType = Nothing}
+
+
+-- | The ID of the output source, for example the URL of an Amazon S3 bucket.
+osOutputSourceId :: Lens' OutputSource (Maybe Text)
+osOutputSourceId = lens _osOutputSourceId (\ s a -> s{_osOutputSourceId = a})
+
+-- | The type of source where the association execution details are stored, for example, Amazon S3.
+osOutputSourceType :: Lens' OutputSource (Maybe Text)
+osOutputSourceType = lens _osOutputSourceType (\ s a -> s{_osOutputSourceType = a})
+
+instance FromJSON OutputSource where
+        parseJSON
+          = withObject "OutputSource"
+              (\ x ->
+                 OutputSource' <$>
+                   (x .:? "OutputSourceId") <*>
+                     (x .:? "OutputSourceType"))
+
+instance Hashable OutputSource where
+
+instance NFData OutputSource where
+
 -- | An Amazon EC2 Systems Manager parameter in Parameter Store.
 --
 --
 --
 -- /See:/ 'parameter' smart constructor.
 data Parameter = Parameter'
-  { _pValue   :: !(Maybe Text)
-  , _pName    :: !(Maybe Text)
-  , _pVersion :: !(Maybe Integer)
-  , _pType    :: !(Maybe ParameterType)
+  { _pLastModifiedDate :: !(Maybe POSIX)
+  , _pSelector         :: !(Maybe Text)
+  , _pARN              :: !(Maybe Text)
+  , _pValue            :: !(Maybe Text)
+  , _pSourceResult     :: !(Maybe Text)
+  , _pName             :: !(Maybe Text)
+  , _pVersion          :: !(Maybe Integer)
+  , _pType             :: !(Maybe ParameterType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5832,7 +6821,15 @@ data Parameter = Parameter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'pLastModifiedDate' - Date the parameter was last changed or updated and the parameter version was created.
+--
+-- * 'pSelector' - Either the version number or the label used to retrieve the parameter value. Specify selectors by using one of the following formats: parameter_name:version parameter_name:label
+--
+-- * 'pARN' - The Amazon Resource Name (ARN) of the parameter.
+--
 -- * 'pValue' - The parameter value.
+--
+-- * 'pSourceResult' - Applies to parameters that reference information in other AWS services. SourceResult is the raw result or response from the source.
 --
 -- * 'pName' - The name of the parameter.
 --
@@ -5843,12 +6840,36 @@ parameter
     :: Parameter
 parameter =
   Parameter'
-    {_pValue = Nothing, _pName = Nothing, _pVersion = Nothing, _pType = Nothing}
+    { _pLastModifiedDate = Nothing
+    , _pSelector = Nothing
+    , _pARN = Nothing
+    , _pValue = Nothing
+    , _pSourceResult = Nothing
+    , _pName = Nothing
+    , _pVersion = Nothing
+    , _pType = Nothing
+    }
 
+
+-- | Date the parameter was last changed or updated and the parameter version was created.
+pLastModifiedDate :: Lens' Parameter (Maybe UTCTime)
+pLastModifiedDate = lens _pLastModifiedDate (\ s a -> s{_pLastModifiedDate = a}) . mapping _Time
+
+-- | Either the version number or the label used to retrieve the parameter value. Specify selectors by using one of the following formats: parameter_name:version parameter_name:label
+pSelector :: Lens' Parameter (Maybe Text)
+pSelector = lens _pSelector (\ s a -> s{_pSelector = a})
+
+-- | The Amazon Resource Name (ARN) of the parameter.
+pARN :: Lens' Parameter (Maybe Text)
+pARN = lens _pARN (\ s a -> s{_pARN = a})
 
 -- | The parameter value.
 pValue :: Lens' Parameter (Maybe Text)
 pValue = lens _pValue (\ s a -> s{_pValue = a})
+
+-- | Applies to parameters that reference information in other AWS services. SourceResult is the raw result or response from the source.
+pSourceResult :: Lens' Parameter (Maybe Text)
+pSourceResult = lens _pSourceResult (\ s a -> s{_pSourceResult = a})
 
 -- | The name of the parameter.
 pName :: Lens' Parameter (Maybe Text)
@@ -5867,8 +6888,12 @@ instance FromJSON Parameter where
           = withObject "Parameter"
               (\ x ->
                  Parameter' <$>
-                   (x .:? "Value") <*> (x .:? "Name") <*>
-                     (x .:? "Version")
+                   (x .:? "LastModifiedDate") <*> (x .:? "Selector") <*>
+                     (x .:? "ARN")
+                     <*> (x .:? "Value")
+                     <*> (x .:? "SourceResult")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "Version")
                      <*> (x .:? "Type"))
 
 instance Hashable Parameter where
@@ -5887,6 +6912,7 @@ data ParameterHistory = ParameterHistory'
   , _phName             :: !(Maybe Text)
   , _phVersion          :: !(Maybe Integer)
   , _phLastModifiedUser :: !(Maybe Text)
+  , _phLabels           :: !(Maybe (List1 Text))
   , _phAllowedPattern   :: !(Maybe Text)
   , _phType             :: !(Maybe ParameterType)
   , _phDescription      :: !(Maybe Text)
@@ -5909,6 +6935,8 @@ data ParameterHistory = ParameterHistory'
 --
 -- * 'phLastModifiedUser' - Amazon Resource Name (ARN) of the AWS user who last changed the parameter.
 --
+-- * 'phLabels' - Labels assigned to the parameter version.
+--
 -- * 'phAllowedPattern' - Parameter names can include the following letters and symbols. a-zA-Z0-9_.-
 --
 -- * 'phType' - The type of parameter used.
@@ -5924,6 +6952,7 @@ parameterHistory =
     , _phName = Nothing
     , _phVersion = Nothing
     , _phLastModifiedUser = Nothing
+    , _phLabels = Nothing
     , _phAllowedPattern = Nothing
     , _phType = Nothing
     , _phDescription = Nothing
@@ -5954,6 +6983,10 @@ phVersion = lens _phVersion (\ s a -> s{_phVersion = a})
 phLastModifiedUser :: Lens' ParameterHistory (Maybe Text)
 phLastModifiedUser = lens _phLastModifiedUser (\ s a -> s{_phLastModifiedUser = a})
 
+-- | Labels assigned to the parameter version.
+phLabels :: Lens' ParameterHistory (Maybe (NonEmpty Text))
+phLabels = lens _phLabels (\ s a -> s{_phLabels = a}) . mapping _List1
+
 -- | Parameter names can include the following letters and symbols. a-zA-Z0-9_.-
 phAllowedPattern :: Lens' ParameterHistory (Maybe Text)
 phAllowedPattern = lens _phAllowedPattern (\ s a -> s{_phAllowedPattern = a})
@@ -5976,6 +7009,7 @@ instance FromJSON ParameterHistory where
                      <*> (x .:? "Name")
                      <*> (x .:? "Version")
                      <*> (x .:? "LastModifiedUser")
+                     <*> (x .:? "Labels")
                      <*> (x .:? "AllowedPattern")
                      <*> (x .:? "Type")
                      <*> (x .:? "Description"))
@@ -6427,7 +7461,7 @@ data PatchComplianceData = PatchComplianceData'
 --
 -- * 'pcdSeverity' - The severity of the patch (for example, Critical, Important, Moderate).
 --
--- * 'pcdState' - The state of the patch on the instance (INSTALLED, INSTALLED_OTHER, MISSING, NOT_APPLICABLE or FAILED).
+-- * 'pcdState' - The state of the patch on the instance, such as INSTALLED or FAILED. For descriptions of each patch state, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-monitor-patch About Patch Compliance> in the /AWS Systems Manager User Guide/ .
 --
 -- * 'pcdInstalledTime' - The date/time the patch was installed on the instance. Note that not all operating systems provide this level of information.
 patchComplianceData
@@ -6465,7 +7499,7 @@ pcdClassification = lens _pcdClassification (\ s a -> s{_pcdClassification = a})
 pcdSeverity :: Lens' PatchComplianceData Text
 pcdSeverity = lens _pcdSeverity (\ s a -> s{_pcdSeverity = a})
 
--- | The state of the patch on the instance (INSTALLED, INSTALLED_OTHER, MISSING, NOT_APPLICABLE or FAILED).
+-- | The state of the patch on the instance, such as INSTALLED or FAILED. For descriptions of each patch state, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-monitor-patch About Patch Compliance> in the /AWS Systems Manager User Guide/ .
 pcdState :: Lens' PatchComplianceData PatchComplianceDataState
 pcdState = lens _pcdState (\ s a -> s{_pcdState = a})
 
@@ -6525,6 +7559,12 @@ instance NFData PatchComplianceData where
 --
 --     * @WindowsServer2016@
 --
+--     * @WindowsServer2019@
+--
+--     * @*@
+--
+-- /Use a wildcard character (*) to target all supported operating system versions./
+--
 --
 --
 -- /Supported key:/ @CLASSIFICATION@
@@ -6581,6 +7621,10 @@ instance NFData PatchComplianceData where
 --
 --     * @Ubuntu16.04@
 --
+--     * @*@
+--
+-- /Use a wildcard character (*) to target all supported operating system versions./
+--
 --
 --
 -- /Supported key:/ @PRIORITY@
@@ -6634,6 +7678,58 @@ instance NFData PatchComplianceData where
 --     * @AmazonLinux2017.03@
 --
 --     * @AmazonLinux2017.09@
+--
+--     * @*@
+--
+-- /Use a wildcard character (*) to target all supported operating system versions./
+--
+--
+--
+-- /Supported key:/ @CLASSIFICATION@
+--
+-- /Supported values:/
+--
+--     * @Security@
+--
+--     * @Bugfix@
+--
+--     * @Enhancement@
+--
+--     * @Recommended@
+--
+--     * @Newpackage@
+--
+--
+--
+-- /Supported key:/ @SEVERITY@
+--
+-- /Supported values:/
+--
+--     * @Critical@
+--
+--     * @Important@
+--
+--     * @Medium@
+--
+--     * @Low@
+--
+--
+--
+-- __Amazon Linux 2 Operating Systems__
+--
+-- The supported keys for Amazon Linux 2 operating systems are @PRODUCT@ , @CLASSIFICATION@ , and @SEVERITY@ . See the following lists for valid values for each of these keys.
+--
+-- /Supported key:/ @PRODUCT@
+--
+-- /Supported values:/
+--
+--     * @AmazonLinux2@
+--
+--     * @AmazonLinux2.0@
+--
+--     * @*@
+--
+-- /Use a wildcard character (*) to target all supported operating system versions./
 --
 --
 --
@@ -6695,6 +7791,14 @@ instance NFData PatchComplianceData where
 --
 --     * @RedhatEnterpriseLinux7.4@
 --
+--     * @RedhatEnterpriseLinux7.5@
+--
+--     * @RedhatEnterpriseLinux7.6@
+--
+--     * @*@
+--
+-- /Use a wildcard character (*) to target all supported operating system versions./
+--
 --
 --
 -- /Supported key:/ @CLASSIFICATION@
@@ -6754,6 +7858,10 @@ instance NFData PatchComplianceData where
 --     * @Suse12.8@
 --
 --     * @Suse12.9@
+--
+--     * @*@
+--
+-- /Use a wildcard character (*) to target all supported operating system versions./
 --
 --
 --
@@ -6816,6 +7924,14 @@ instance NFData PatchComplianceData where
 --     * @CentOS7.3@
 --
 --     * @CentOS7.4@
+--
+--     * @CentOS7.5@
+--
+--     * @CentOS7.6@
+--
+--     * @*@
+--
+-- /Use a wildcard character (*) to target all supported operating system versions./
 --
 --
 --
@@ -7050,7 +8166,7 @@ data PatchRule = PatchRule'
 --
 -- * 'prPatchFilterGroup' - The patch filter group that defines the criteria for the rule.
 --
--- * 'prApproveAfterDays' - The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+-- * 'prApproveAfterDays' - The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of @7@ means that patches are approved seven days after they are released.
 patchRule
     :: PatchFilterGroup -- ^ 'prPatchFilterGroup'
     -> Natural -- ^ 'prApproveAfterDays'
@@ -7076,7 +8192,7 @@ prComplianceLevel = lens _prComplianceLevel (\ s a -> s{_prComplianceLevel = a})
 prPatchFilterGroup :: Lens' PatchRule PatchFilterGroup
 prPatchFilterGroup = lens _prPatchFilterGroup (\ s a -> s{_prPatchFilterGroup = a})
 
--- | The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+-- | The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of @7@ means that patches are approved seven days after they are released.
 prApproveAfterDays :: Lens' PatchRule Natural
 prApproveAfterDays = lens _prApproveAfterDays (\ s a -> s{_prApproveAfterDays = a}) . _Nat
 
@@ -7162,7 +8278,7 @@ data PatchSource = PatchSource'
 --
 -- * 'psProducts' - The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "AmazonLinux2016.09", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see 'PatchFilter' .
 --
--- * 'psConfiguration' - The value of the yum repo configuration. For example: @cachedir=/var/cache/yum/$basesearch@  @> releasever@  @keepcache=0@  @debualevel=2@
+-- * 'psConfiguration' - The value of the yum repo configuration. For example: @[main]@  @cachedir=/var/cache/yum/$basesearch$releasever@  @keepcache=0@  @debuglevel=2@
 patchSource
     :: Text -- ^ 'psName'
     -> NonEmpty Text -- ^ 'psProducts'
@@ -7184,7 +8300,7 @@ psName = lens _psName (\ s a -> s{_psName = a})
 psProducts :: Lens' PatchSource (NonEmpty Text)
 psProducts = lens _psProducts (\ s a -> s{_psProducts = a}) . _List1
 
--- | The value of the yum repo configuration. For example: @cachedir=/var/cache/yum/$basesearch@  @> releasever@  @keepcache=0@  @debualevel=2@
+-- | The value of the yum repo configuration. For example: @[main]@  @cachedir=/var/cache/yum/$basesearch$releasever@  @keepcache=0@  @debuglevel=2@
 psConfiguration :: Lens' PatchSource Text
 psConfiguration = lens _psConfiguration (\ s a -> s{_psConfiguration = a}) . _Sensitive
 
@@ -7262,6 +8378,79 @@ instance FromJSON PatchStatus where
 instance Hashable PatchStatus where
 
 instance NFData PatchStatus where
+
+-- | An aggregate of step execution statuses displayed in the AWS Console for a multi-Region and multi-account Automation execution.
+--
+--
+--
+-- /See:/ 'progressCounters' smart constructor.
+data ProgressCounters = ProgressCounters'
+  { _pcFailedSteps    :: !(Maybe Int)
+  , _pcCancelledSteps :: !(Maybe Int)
+  , _pcSuccessSteps   :: !(Maybe Int)
+  , _pcTotalSteps     :: !(Maybe Int)
+  , _pcTimedOutSteps  :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ProgressCounters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pcFailedSteps' - The total number of steps that failed to execute in all specified AWS Regions and accounts for the current Automation execution.
+--
+-- * 'pcCancelledSteps' - The total number of steps that the system cancelled in all specified AWS Regions and accounts for the current Automation execution.
+--
+-- * 'pcSuccessSteps' - The total number of steps that successfully completed in all specified AWS Regions and accounts for the current Automation execution.
+--
+-- * 'pcTotalSteps' - The total number of steps executed in all specified AWS Regions and accounts for the current Automation execution.
+--
+-- * 'pcTimedOutSteps' - The total number of steps that timed out in all specified AWS Regions and accounts for the current Automation execution.
+progressCounters
+    :: ProgressCounters
+progressCounters =
+  ProgressCounters'
+    { _pcFailedSteps = Nothing
+    , _pcCancelledSteps = Nothing
+    , _pcSuccessSteps = Nothing
+    , _pcTotalSteps = Nothing
+    , _pcTimedOutSteps = Nothing
+    }
+
+
+-- | The total number of steps that failed to execute in all specified AWS Regions and accounts for the current Automation execution.
+pcFailedSteps :: Lens' ProgressCounters (Maybe Int)
+pcFailedSteps = lens _pcFailedSteps (\ s a -> s{_pcFailedSteps = a})
+
+-- | The total number of steps that the system cancelled in all specified AWS Regions and accounts for the current Automation execution.
+pcCancelledSteps :: Lens' ProgressCounters (Maybe Int)
+pcCancelledSteps = lens _pcCancelledSteps (\ s a -> s{_pcCancelledSteps = a})
+
+-- | The total number of steps that successfully completed in all specified AWS Regions and accounts for the current Automation execution.
+pcSuccessSteps :: Lens' ProgressCounters (Maybe Int)
+pcSuccessSteps = lens _pcSuccessSteps (\ s a -> s{_pcSuccessSteps = a})
+
+-- | The total number of steps executed in all specified AWS Regions and accounts for the current Automation execution.
+pcTotalSteps :: Lens' ProgressCounters (Maybe Int)
+pcTotalSteps = lens _pcTotalSteps (\ s a -> s{_pcTotalSteps = a})
+
+-- | The total number of steps that timed out in all specified AWS Regions and accounts for the current Automation execution.
+pcTimedOutSteps :: Lens' ProgressCounters (Maybe Int)
+pcTimedOutSteps = lens _pcTimedOutSteps (\ s a -> s{_pcTimedOutSteps = a})
+
+instance FromJSON ProgressCounters where
+        parseJSON
+          = withObject "ProgressCounters"
+              (\ x ->
+                 ProgressCounters' <$>
+                   (x .:? "FailedSteps") <*> (x .:? "CancelledSteps")
+                     <*> (x .:? "SuccessSteps")
+                     <*> (x .:? "TotalSteps")
+                     <*> (x .:? "TimedOutSteps"))
+
+instance Hashable ProgressCounters where
+
+instance NFData ProgressCounters where
 
 -- | Information about targets that resolved during the Automation execution.
 --
@@ -7717,6 +8906,342 @@ instance Hashable S3OutputURL where
 
 instance NFData S3OutputURL where
 
+-- | Information about a scheduled execution for a Maintenance Window.
+--
+--
+--
+-- /See:/ 'scheduledWindowExecution' smart constructor.
+data ScheduledWindowExecution = ScheduledWindowExecution'
+  { _sweExecutionTime :: !(Maybe Text)
+  , _sweName          :: !(Maybe Text)
+  , _sweWindowId      :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ScheduledWindowExecution' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sweExecutionTime' - The time, in ISO-8601 Extended format, that the Maintenance Window is scheduled to be run.
+--
+-- * 'sweName' - The name of the Maintenance Window to be run.
+--
+-- * 'sweWindowId' - The ID of the Maintenance Window to be run.
+scheduledWindowExecution
+    :: ScheduledWindowExecution
+scheduledWindowExecution =
+  ScheduledWindowExecution'
+    {_sweExecutionTime = Nothing, _sweName = Nothing, _sweWindowId = Nothing}
+
+
+-- | The time, in ISO-8601 Extended format, that the Maintenance Window is scheduled to be run.
+sweExecutionTime :: Lens' ScheduledWindowExecution (Maybe Text)
+sweExecutionTime = lens _sweExecutionTime (\ s a -> s{_sweExecutionTime = a})
+
+-- | The name of the Maintenance Window to be run.
+sweName :: Lens' ScheduledWindowExecution (Maybe Text)
+sweName = lens _sweName (\ s a -> s{_sweName = a})
+
+-- | The ID of the Maintenance Window to be run.
+sweWindowId :: Lens' ScheduledWindowExecution (Maybe Text)
+sweWindowId = lens _sweWindowId (\ s a -> s{_sweWindowId = a})
+
+instance FromJSON ScheduledWindowExecution where
+        parseJSON
+          = withObject "ScheduledWindowExecution"
+              (\ x ->
+                 ScheduledWindowExecution' <$>
+                   (x .:? "ExecutionTime") <*> (x .:? "Name") <*>
+                     (x .:? "WindowId"))
+
+instance Hashable ScheduledWindowExecution where
+
+instance NFData ScheduledWindowExecution where
+
+-- | The service setting data structure.
+--
+--
+-- @ServiceSetting@ is an account-level setting for an AWS service. This setting defines how a user interacts with or uses a service or a feature of a service. For example, if an AWS service charges money to the account based on feature or service usage, then the AWS service team might create a default setting of "false". This means the user can't use this feature unless they change the setting to "true" and intentionally opt in for a paid feature.
+--
+-- Services map a @SettingId@ object to a setting value. AWS services teams define the default value for a @SettingId@ . You can't create a new @SettingId@ , but you can overwrite the default value if you have the @ssm:UpdateServiceSetting@ permission for the setting. Use the 'UpdateServiceSetting' API action to change the default setting. Or, use the 'ResetServiceSetting' to change the value back to the original value defined by the AWS service team.
+--
+--
+-- /See:/ 'serviceSetting' smart constructor.
+data ServiceSetting = ServiceSetting'
+  { _ssStatus           :: !(Maybe Text)
+  , _ssLastModifiedDate :: !(Maybe POSIX)
+  , _ssARN              :: !(Maybe Text)
+  , _ssSettingId        :: !(Maybe Text)
+  , _ssLastModifiedUser :: !(Maybe Text)
+  , _ssSettingValue     :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ServiceSetting' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssStatus' - The status of the service setting. The value can be Default, Customized or PendingUpdate.     * Default: The current setting uses a default value provisioned by the AWS service team.     * Customized: The current setting use a custom value specified by the customer.     * PendingUpdate: The current setting uses a default or custom value, but a setting change request is pending approval.
+--
+-- * 'ssLastModifiedDate' - The last time the service setting was modified.
+--
+-- * 'ssARN' - The ARN of the service setting.
+--
+-- * 'ssSettingId' - The ID of the service setting.
+--
+-- * 'ssLastModifiedUser' - The ARN of the last modified user. This field is populated only if the setting value was overwritten.
+--
+-- * 'ssSettingValue' - The value of the service setting.
+serviceSetting
+    :: ServiceSetting
+serviceSetting =
+  ServiceSetting'
+    { _ssStatus = Nothing
+    , _ssLastModifiedDate = Nothing
+    , _ssARN = Nothing
+    , _ssSettingId = Nothing
+    , _ssLastModifiedUser = Nothing
+    , _ssSettingValue = Nothing
+    }
+
+
+-- | The status of the service setting. The value can be Default, Customized or PendingUpdate.     * Default: The current setting uses a default value provisioned by the AWS service team.     * Customized: The current setting use a custom value specified by the customer.     * PendingUpdate: The current setting uses a default or custom value, but a setting change request is pending approval.
+ssStatus :: Lens' ServiceSetting (Maybe Text)
+ssStatus = lens _ssStatus (\ s a -> s{_ssStatus = a})
+
+-- | The last time the service setting was modified.
+ssLastModifiedDate :: Lens' ServiceSetting (Maybe UTCTime)
+ssLastModifiedDate = lens _ssLastModifiedDate (\ s a -> s{_ssLastModifiedDate = a}) . mapping _Time
+
+-- | The ARN of the service setting.
+ssARN :: Lens' ServiceSetting (Maybe Text)
+ssARN = lens _ssARN (\ s a -> s{_ssARN = a})
+
+-- | The ID of the service setting.
+ssSettingId :: Lens' ServiceSetting (Maybe Text)
+ssSettingId = lens _ssSettingId (\ s a -> s{_ssSettingId = a})
+
+-- | The ARN of the last modified user. This field is populated only if the setting value was overwritten.
+ssLastModifiedUser :: Lens' ServiceSetting (Maybe Text)
+ssLastModifiedUser = lens _ssLastModifiedUser (\ s a -> s{_ssLastModifiedUser = a})
+
+-- | The value of the service setting.
+ssSettingValue :: Lens' ServiceSetting (Maybe Text)
+ssSettingValue = lens _ssSettingValue (\ s a -> s{_ssSettingValue = a})
+
+instance FromJSON ServiceSetting where
+        parseJSON
+          = withObject "ServiceSetting"
+              (\ x ->
+                 ServiceSetting' <$>
+                   (x .:? "Status") <*> (x .:? "LastModifiedDate") <*>
+                     (x .:? "ARN")
+                     <*> (x .:? "SettingId")
+                     <*> (x .:? "LastModifiedUser")
+                     <*> (x .:? "SettingValue"))
+
+instance Hashable ServiceSetting where
+
+instance NFData ServiceSetting where
+
+-- | Information about a Session Manager connection to an instance.
+--
+--
+--
+-- /See:/ 'session' smart constructor.
+data Session = Session'
+  { _sesStatus       :: !(Maybe SessionStatus)
+  , _sesOutputURL    :: !(Maybe SessionManagerOutputURL)
+  , _sesDocumentName :: !(Maybe Text)
+  , _sesEndDate      :: !(Maybe POSIX)
+  , _sesOwner        :: !(Maybe Text)
+  , _sesStartDate    :: !(Maybe POSIX)
+  , _sesDetails      :: !(Maybe Text)
+  , _sesSessionId    :: !(Maybe Text)
+  , _sesTarget       :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Session' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sesStatus' - The status of the session. For example, "Connected" or "Terminated".
+--
+-- * 'sesOutputURL' - Reserved for future use.
+--
+-- * 'sesDocumentName' - The name of the Session Manager SSM document used to define the parameters and plugin settings for the session. For example, @SSM-SessionManagerRunShell@ .
+--
+-- * 'sesEndDate' - The date and time, in ISO-8601 Extended format, when the session was terminated.
+--
+-- * 'sesOwner' - The ID of the AWS user account that started the session.
+--
+-- * 'sesStartDate' - The date and time, in ISO-8601 Extended format, when the session began.
+--
+-- * 'sesDetails' - Reserved for future use.
+--
+-- * 'sesSessionId' - The ID of the session.
+--
+-- * 'sesTarget' - The instance that the Session Manager session connected to.
+session
+    :: Session
+session =
+  Session'
+    { _sesStatus = Nothing
+    , _sesOutputURL = Nothing
+    , _sesDocumentName = Nothing
+    , _sesEndDate = Nothing
+    , _sesOwner = Nothing
+    , _sesStartDate = Nothing
+    , _sesDetails = Nothing
+    , _sesSessionId = Nothing
+    , _sesTarget = Nothing
+    }
+
+
+-- | The status of the session. For example, "Connected" or "Terminated".
+sesStatus :: Lens' Session (Maybe SessionStatus)
+sesStatus = lens _sesStatus (\ s a -> s{_sesStatus = a})
+
+-- | Reserved for future use.
+sesOutputURL :: Lens' Session (Maybe SessionManagerOutputURL)
+sesOutputURL = lens _sesOutputURL (\ s a -> s{_sesOutputURL = a})
+
+-- | The name of the Session Manager SSM document used to define the parameters and plugin settings for the session. For example, @SSM-SessionManagerRunShell@ .
+sesDocumentName :: Lens' Session (Maybe Text)
+sesDocumentName = lens _sesDocumentName (\ s a -> s{_sesDocumentName = a})
+
+-- | The date and time, in ISO-8601 Extended format, when the session was terminated.
+sesEndDate :: Lens' Session (Maybe UTCTime)
+sesEndDate = lens _sesEndDate (\ s a -> s{_sesEndDate = a}) . mapping _Time
+
+-- | The ID of the AWS user account that started the session.
+sesOwner :: Lens' Session (Maybe Text)
+sesOwner = lens _sesOwner (\ s a -> s{_sesOwner = a})
+
+-- | The date and time, in ISO-8601 Extended format, when the session began.
+sesStartDate :: Lens' Session (Maybe UTCTime)
+sesStartDate = lens _sesStartDate (\ s a -> s{_sesStartDate = a}) . mapping _Time
+
+-- | Reserved for future use.
+sesDetails :: Lens' Session (Maybe Text)
+sesDetails = lens _sesDetails (\ s a -> s{_sesDetails = a})
+
+-- | The ID of the session.
+sesSessionId :: Lens' Session (Maybe Text)
+sesSessionId = lens _sesSessionId (\ s a -> s{_sesSessionId = a})
+
+-- | The instance that the Session Manager session connected to.
+sesTarget :: Lens' Session (Maybe Text)
+sesTarget = lens _sesTarget (\ s a -> s{_sesTarget = a})
+
+instance FromJSON Session where
+        parseJSON
+          = withObject "Session"
+              (\ x ->
+                 Session' <$>
+                   (x .:? "Status") <*> (x .:? "OutputUrl") <*>
+                     (x .:? "DocumentName")
+                     <*> (x .:? "EndDate")
+                     <*> (x .:? "Owner")
+                     <*> (x .:? "StartDate")
+                     <*> (x .:? "Details")
+                     <*> (x .:? "SessionId")
+                     <*> (x .:? "Target"))
+
+instance Hashable Session where
+
+instance NFData Session where
+
+-- | Describes a filter for Session Manager information.
+--
+--
+--
+-- /See:/ 'sessionFilter' smart constructor.
+data SessionFilter = SessionFilter'
+  { _sfKey   :: !SessionFilterKey
+  , _sfValue :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SessionFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sfKey' - The name of the filter.
+--
+-- * 'sfValue' - The filter value. Valid values for each filter key are as follows:     * InvokedAfter: Specify a timestamp to limit your results. For example, specify 2018-08-29T00:00:00Z to see sessions that started August 29, 2018, and later.     * InvokedBefore: Specify a timestamp to limit your results. For example, specify 2018-08-29T00:00:00Z to see sessions that started before August 29, 2018.     * Target: Specify an instance to which session connections have been made.     * Owner: Specify an AWS user account to see a list of sessions started by that user.     * Status: Specify a valid session status to see a list of all sessions with that status. Status values you can specify include:     * Connected     * Connecting     * Disconnected     * Terminated     * Terminating     * Failed
+sessionFilter
+    :: SessionFilterKey -- ^ 'sfKey'
+    -> Text -- ^ 'sfValue'
+    -> SessionFilter
+sessionFilter pKey_ pValue_ =
+  SessionFilter' {_sfKey = pKey_, _sfValue = pValue_}
+
+
+-- | The name of the filter.
+sfKey :: Lens' SessionFilter SessionFilterKey
+sfKey = lens _sfKey (\ s a -> s{_sfKey = a})
+
+-- | The filter value. Valid values for each filter key are as follows:     * InvokedAfter: Specify a timestamp to limit your results. For example, specify 2018-08-29T00:00:00Z to see sessions that started August 29, 2018, and later.     * InvokedBefore: Specify a timestamp to limit your results. For example, specify 2018-08-29T00:00:00Z to see sessions that started before August 29, 2018.     * Target: Specify an instance to which session connections have been made.     * Owner: Specify an AWS user account to see a list of sessions started by that user.     * Status: Specify a valid session status to see a list of all sessions with that status. Status values you can specify include:     * Connected     * Connecting     * Disconnected     * Terminated     * Terminating     * Failed
+sfValue :: Lens' SessionFilter Text
+sfValue = lens _sfValue (\ s a -> s{_sfValue = a})
+
+instance Hashable SessionFilter where
+
+instance NFData SessionFilter where
+
+instance ToJSON SessionFilter where
+        toJSON SessionFilter'{..}
+          = object
+              (catMaybes
+                 [Just ("key" .= _sfKey), Just ("value" .= _sfValue)])
+
+-- | Reserved for future use.
+--
+--
+--
+-- /See:/ 'sessionManagerOutputURL' smart constructor.
+data SessionManagerOutputURL = SessionManagerOutputURL'
+  { _smouS3OutputURL         :: !(Maybe Text)
+  , _smouCloudWatchOutputURL :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SessionManagerOutputURL' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'smouS3OutputURL' - Reserved for future use.
+--
+-- * 'smouCloudWatchOutputURL' - Reserved for future use.
+sessionManagerOutputURL
+    :: SessionManagerOutputURL
+sessionManagerOutputURL =
+  SessionManagerOutputURL'
+    {_smouS3OutputURL = Nothing, _smouCloudWatchOutputURL = Nothing}
+
+
+-- | Reserved for future use.
+smouS3OutputURL :: Lens' SessionManagerOutputURL (Maybe Text)
+smouS3OutputURL = lens _smouS3OutputURL (\ s a -> s{_smouS3OutputURL = a})
+
+-- | Reserved for future use.
+smouCloudWatchOutputURL :: Lens' SessionManagerOutputURL (Maybe Text)
+smouCloudWatchOutputURL = lens _smouCloudWatchOutputURL (\ s a -> s{_smouCloudWatchOutputURL = a})
+
+instance FromJSON SessionManagerOutputURL where
+        parseJSON
+          = withObject "SessionManagerOutputURL"
+              (\ x ->
+                 SessionManagerOutputURL' <$>
+                   (x .:? "S3OutputUrl") <*>
+                     (x .:? "CloudWatchOutputUrl"))
+
+instance Hashable SessionManagerOutputURL where
+
+instance NFData SessionManagerOutputURL where
+
 -- | The number of managed instances found for each patch severity level defined in the request filter.
 --
 --
@@ -7806,6 +9331,7 @@ instance NFData SeveritySummary where
 -- /See:/ 'stepExecution' smart constructor.
 data StepExecution = StepExecution'
   { _seFailureDetails       :: !(Maybe FailureDetails)
+  , _seIsEnd                :: !(Maybe Bool)
   , _seInputs               :: !(Maybe (Map Text Text))
   , _seStepName             :: !(Maybe Text)
   , _seExecutionEndTime     :: !(Maybe POSIX)
@@ -7814,13 +9340,18 @@ data StepExecution = StepExecution'
   , _seAction               :: !(Maybe Text)
   , _seResponseCode         :: !(Maybe Text)
   , _seStepStatus           :: !(Maybe AutomationExecutionStatus)
+  , _seTargetLocation       :: !(Maybe TargetLocation)
   , _seOverriddenParameters :: !(Maybe (Map Text [Text]))
   , _seOutputs              :: !(Maybe (Map Text [Text]))
   , _seExecutionStartTime   :: !(Maybe POSIX)
   , _seMaxAttempts          :: !(Maybe Int)
+  , _seTargets              :: !(Maybe [Target])
+  , _seNextStep             :: !(Maybe Text)
   , _seStepExecutionId      :: !(Maybe Text)
+  , _seValidNextSteps       :: !(Maybe [Text])
   , _seTimeoutSeconds       :: !(Maybe Integer)
   , _seOnFailure            :: !(Maybe Text)
+  , _seIsCritical           :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -7829,6 +9360,8 @@ data StepExecution = StepExecution'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'seFailureDetails' - Information about the Automation failure.
+--
+-- * 'seIsEnd' - The flag which can be used to end automation no matter whether the step succeeds or fails.
 --
 -- * 'seInputs' - Fully-resolved values passed into the step before execution.
 --
@@ -7846,6 +9379,8 @@ data StepExecution = StepExecution'
 --
 -- * 'seStepStatus' - The execution status for this step. Valid values include: Pending, InProgress, Success, Cancelled, Failed, and TimedOut.
 --
+-- * 'seTargetLocation' - The combination of AWS Regions and accounts targeted by the current Automation execution.
+--
 -- * 'seOverriddenParameters' - A user-specified list of parameters to override when executing a step.
 --
 -- * 'seOutputs' - Returned values from the execution of the step.
@@ -7854,16 +9389,25 @@ data StepExecution = StepExecution'
 --
 -- * 'seMaxAttempts' - The maximum number of tries to run the action of the step. The default value is 1.
 --
+-- * 'seTargets' - The targets for the step execution.
+--
+-- * 'seNextStep' - The next step after the step succeeds.
+--
 -- * 'seStepExecutionId' - The unique ID of a step execution.
+--
+-- * 'seValidNextSteps' - Strategies used when step fails, we support Continue and Abort. Abort will fail the automation when the step fails. Continue will ignore the failure of current step and allow automation to execute the next step. With conditional branching, we add step:stepName to support the automation to go to another specific step.
 --
 -- * 'seTimeoutSeconds' - The timeout seconds of the step.
 --
 -- * 'seOnFailure' - The action to take if the step fails. The default value is Abort.
+--
+-- * 'seIsCritical' - The flag which can be used to help decide whether the failure of current step leads to the Automation failure.
 stepExecution
     :: StepExecution
 stepExecution =
   StepExecution'
     { _seFailureDetails = Nothing
+    , _seIsEnd = Nothing
     , _seInputs = Nothing
     , _seStepName = Nothing
     , _seExecutionEndTime = Nothing
@@ -7872,19 +9416,28 @@ stepExecution =
     , _seAction = Nothing
     , _seResponseCode = Nothing
     , _seStepStatus = Nothing
+    , _seTargetLocation = Nothing
     , _seOverriddenParameters = Nothing
     , _seOutputs = Nothing
     , _seExecutionStartTime = Nothing
     , _seMaxAttempts = Nothing
+    , _seTargets = Nothing
+    , _seNextStep = Nothing
     , _seStepExecutionId = Nothing
+    , _seValidNextSteps = Nothing
     , _seTimeoutSeconds = Nothing
     , _seOnFailure = Nothing
+    , _seIsCritical = Nothing
     }
 
 
 -- | Information about the Automation failure.
 seFailureDetails :: Lens' StepExecution (Maybe FailureDetails)
 seFailureDetails = lens _seFailureDetails (\ s a -> s{_seFailureDetails = a})
+
+-- | The flag which can be used to end automation no matter whether the step succeeds or fails.
+seIsEnd :: Lens' StepExecution (Maybe Bool)
+seIsEnd = lens _seIsEnd (\ s a -> s{_seIsEnd = a})
 
 -- | Fully-resolved values passed into the step before execution.
 seInputs :: Lens' StepExecution (HashMap Text Text)
@@ -7918,6 +9471,10 @@ seResponseCode = lens _seResponseCode (\ s a -> s{_seResponseCode = a})
 seStepStatus :: Lens' StepExecution (Maybe AutomationExecutionStatus)
 seStepStatus = lens _seStepStatus (\ s a -> s{_seStepStatus = a})
 
+-- | The combination of AWS Regions and accounts targeted by the current Automation execution.
+seTargetLocation :: Lens' StepExecution (Maybe TargetLocation)
+seTargetLocation = lens _seTargetLocation (\ s a -> s{_seTargetLocation = a})
+
 -- | A user-specified list of parameters to override when executing a step.
 seOverriddenParameters :: Lens' StepExecution (HashMap Text [Text])
 seOverriddenParameters = lens _seOverriddenParameters (\ s a -> s{_seOverriddenParameters = a}) . _Default . _Map
@@ -7934,9 +9491,21 @@ seExecutionStartTime = lens _seExecutionStartTime (\ s a -> s{_seExecutionStartT
 seMaxAttempts :: Lens' StepExecution (Maybe Int)
 seMaxAttempts = lens _seMaxAttempts (\ s a -> s{_seMaxAttempts = a})
 
+-- | The targets for the step execution.
+seTargets :: Lens' StepExecution [Target]
+seTargets = lens _seTargets (\ s a -> s{_seTargets = a}) . _Default . _Coerce
+
+-- | The next step after the step succeeds.
+seNextStep :: Lens' StepExecution (Maybe Text)
+seNextStep = lens _seNextStep (\ s a -> s{_seNextStep = a})
+
 -- | The unique ID of a step execution.
 seStepExecutionId :: Lens' StepExecution (Maybe Text)
 seStepExecutionId = lens _seStepExecutionId (\ s a -> s{_seStepExecutionId = a})
+
+-- | Strategies used when step fails, we support Continue and Abort. Abort will fail the automation when the step fails. Continue will ignore the failure of current step and allow automation to execute the next step. With conditional branching, we add step:stepName to support the automation to go to another specific step.
+seValidNextSteps :: Lens' StepExecution [Text]
+seValidNextSteps = lens _seValidNextSteps (\ s a -> s{_seValidNextSteps = a}) . _Default . _Coerce
 
 -- | The timeout seconds of the step.
 seTimeoutSeconds :: Lens' StepExecution (Maybe Integer)
@@ -7946,12 +9515,16 @@ seTimeoutSeconds = lens _seTimeoutSeconds (\ s a -> s{_seTimeoutSeconds = a})
 seOnFailure :: Lens' StepExecution (Maybe Text)
 seOnFailure = lens _seOnFailure (\ s a -> s{_seOnFailure = a})
 
+-- | The flag which can be used to help decide whether the failure of current step leads to the Automation failure.
+seIsCritical :: Lens' StepExecution (Maybe Bool)
+seIsCritical = lens _seIsCritical (\ s a -> s{_seIsCritical = a})
+
 instance FromJSON StepExecution where
         parseJSON
           = withObject "StepExecution"
               (\ x ->
                  StepExecution' <$>
-                   (x .:? "FailureDetails") <*>
+                   (x .:? "FailureDetails") <*> (x .:? "IsEnd") <*>
                      (x .:? "Inputs" .!= mempty)
                      <*> (x .:? "StepName")
                      <*> (x .:? "ExecutionEndTime")
@@ -7960,13 +9533,18 @@ instance FromJSON StepExecution where
                      <*> (x .:? "Action")
                      <*> (x .:? "ResponseCode")
                      <*> (x .:? "StepStatus")
+                     <*> (x .:? "TargetLocation")
                      <*> (x .:? "OverriddenParameters" .!= mempty)
                      <*> (x .:? "Outputs" .!= mempty)
                      <*> (x .:? "ExecutionStartTime")
                      <*> (x .:? "MaxAttempts")
+                     <*> (x .:? "Targets" .!= mempty)
+                     <*> (x .:? "NextStep")
                      <*> (x .:? "StepExecutionId")
+                     <*> (x .:? "ValidNextSteps" .!= mempty)
                      <*> (x .:? "TimeoutSeconds")
-                     <*> (x .:? "OnFailure"))
+                     <*> (x .:? "OnFailure")
+                     <*> (x .:? "IsCritical"))
 
 instance Hashable StepExecution where
 
@@ -8083,19 +9661,19 @@ data Target = Target'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tValues' - User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Executing a Command Using Systems Manager Run Command> .
+-- * 'tValues' - User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending Commands to a Fleet> in the /AWS Systems Manager User Guide/ .
 --
--- * 'tKey' - User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:<Amazon EC2 tag> or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Executing a Command Using Systems Manager Run Command> .
+-- * 'tKey' - User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:<Amazon EC2 tag> or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting Targeting Multiple Instances> in the /AWS Systems Manager User Guide/ .
 target
     :: Target
 target = Target' {_tValues = Nothing, _tKey = Nothing}
 
 
--- | User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Executing a Command Using Systems Manager Run Command> .
+-- | User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending Commands to a Fleet> in the /AWS Systems Manager User Guide/ .
 tValues :: Lens' Target [Text]
 tValues = lens _tValues (\ s a -> s{_tValues = a}) . _Default . _Coerce
 
--- | User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:<Amazon EC2 tag> or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Executing a Command Using Systems Manager Run Command> .
+-- | User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:<Amazon EC2 tag> or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting Targeting Multiple Instances> in the /AWS Systems Manager User Guide/ .
 tKey :: Lens' Target (Maybe Text)
 tKey = lens _tKey (\ s a -> s{_tKey = a})
 
@@ -8115,3 +9693,89 @@ instance ToJSON Target where
           = object
               (catMaybes
                  [("Values" .=) <$> _tValues, ("Key" .=) <$> _tKey])
+
+-- | The combination of AWS Regions and accounts targeted by the current Automation execution.
+--
+--
+--
+-- /See:/ 'targetLocation' smart constructor.
+data TargetLocation = TargetLocation'
+  { _tlAccounts                     :: !(Maybe (List1 Text))
+  , _tlTargetLocationMaxConcurrency :: !(Maybe Text)
+  , _tlTargetLocationMaxErrors      :: !(Maybe Text)
+  , _tlRegions                      :: !(Maybe (List1 Text))
+  , _tlExecutionRoleName            :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'TargetLocation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tlAccounts' - The AWS accounts targeted by the current Automation execution.
+--
+-- * 'tlTargetLocationMaxConcurrency' - The maxium number of AWS accounts and AWS regions allowed to run the Automation concurrently
+--
+-- * 'tlTargetLocationMaxErrors' - The maxium number of errors allowed before the system stops queueing additional Automation executions for the currently executing Automation.
+--
+-- * 'tlRegions' - The AWS Regions targeted by the current Automation execution.
+--
+-- * 'tlExecutionRoleName' - The Automation execution role used by the currently executing Automation.
+targetLocation
+    :: TargetLocation
+targetLocation =
+  TargetLocation'
+    { _tlAccounts = Nothing
+    , _tlTargetLocationMaxConcurrency = Nothing
+    , _tlTargetLocationMaxErrors = Nothing
+    , _tlRegions = Nothing
+    , _tlExecutionRoleName = Nothing
+    }
+
+
+-- | The AWS accounts targeted by the current Automation execution.
+tlAccounts :: Lens' TargetLocation (Maybe (NonEmpty Text))
+tlAccounts = lens _tlAccounts (\ s a -> s{_tlAccounts = a}) . mapping _List1
+
+-- | The maxium number of AWS accounts and AWS regions allowed to run the Automation concurrently
+tlTargetLocationMaxConcurrency :: Lens' TargetLocation (Maybe Text)
+tlTargetLocationMaxConcurrency = lens _tlTargetLocationMaxConcurrency (\ s a -> s{_tlTargetLocationMaxConcurrency = a})
+
+-- | The maxium number of errors allowed before the system stops queueing additional Automation executions for the currently executing Automation.
+tlTargetLocationMaxErrors :: Lens' TargetLocation (Maybe Text)
+tlTargetLocationMaxErrors = lens _tlTargetLocationMaxErrors (\ s a -> s{_tlTargetLocationMaxErrors = a})
+
+-- | The AWS Regions targeted by the current Automation execution.
+tlRegions :: Lens' TargetLocation (Maybe (NonEmpty Text))
+tlRegions = lens _tlRegions (\ s a -> s{_tlRegions = a}) . mapping _List1
+
+-- | The Automation execution role used by the currently executing Automation.
+tlExecutionRoleName :: Lens' TargetLocation (Maybe Text)
+tlExecutionRoleName = lens _tlExecutionRoleName (\ s a -> s{_tlExecutionRoleName = a})
+
+instance FromJSON TargetLocation where
+        parseJSON
+          = withObject "TargetLocation"
+              (\ x ->
+                 TargetLocation' <$>
+                   (x .:? "Accounts") <*>
+                     (x .:? "TargetLocationMaxConcurrency")
+                     <*> (x .:? "TargetLocationMaxErrors")
+                     <*> (x .:? "Regions")
+                     <*> (x .:? "ExecutionRoleName"))
+
+instance Hashable TargetLocation where
+
+instance NFData TargetLocation where
+
+instance ToJSON TargetLocation where
+        toJSON TargetLocation'{..}
+          = object
+              (catMaybes
+                 [("Accounts" .=) <$> _tlAccounts,
+                  ("TargetLocationMaxConcurrency" .=) <$>
+                    _tlTargetLocationMaxConcurrency,
+                  ("TargetLocationMaxErrors" .=) <$>
+                    _tlTargetLocationMaxErrors,
+                  ("Regions" .=) <$> _tlRegions,
+                  ("ExecutionRoleName" .=) <$> _tlExecutionRoleName])

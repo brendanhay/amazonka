@@ -21,6 +21,8 @@
 -- Lists the executions of a Maintenance Window. This includes information about when the Maintenance Window was scheduled to be active, and information about tasks registered and run with the Maintenance Window.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeMaintenanceWindowExecutions
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.SSM.DescribeMaintenanceWindowExecutions
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -95,6 +98,14 @@ dmweMaxResults = lens _dmweMaxResults (\ s a -> s{_dmweMaxResults = a}) . mappin
 -- | The ID of the Maintenance Window whose executions should be retrieved.
 dmweWindowId :: Lens' DescribeMaintenanceWindowExecutions Text
 dmweWindowId = lens _dmweWindowId (\ s a -> s{_dmweWindowId = a})
+
+instance AWSPager DescribeMaintenanceWindowExecutions
+         where
+        page rq rs
+          | stop (rs ^. dmwersNextToken) = Nothing
+          | stop (rs ^. dmwersWindowExecutions) = Nothing
+          | otherwise =
+            Just $ rq & dmweNextToken .~ rs ^. dmwersNextToken
 
 instance AWSRequest
            DescribeMaintenanceWindowExecutions

@@ -23,6 +23,8 @@
 --
 -- The number of sync configurations might be too large to return using a single call to @ListResourceDataSync@ . You can limit the number of sync configurations returned by using the @MaxResults@ parameter. To determine whether there are more sync configurations to list, check the value of @NextToken@ in the output. If there are more sync configurations to list, you can request them by specifying the @NextToken@ returned in the call to the parameter of a subsequent call.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.ListResourceDataSync
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.SSM.ListResourceDataSync
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -75,6 +78,13 @@ lrdsNextToken = lens _lrdsNextToken (\ s a -> s{_lrdsNextToken = a})
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 lrdsMaxResults :: Lens' ListResourceDataSync (Maybe Natural)
 lrdsMaxResults = lens _lrdsMaxResults (\ s a -> s{_lrdsMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListResourceDataSync where
+        page rq rs
+          | stop (rs ^. lrdsrsNextToken) = Nothing
+          | stop (rs ^. lrdsrsResourceDataSyncItems) = Nothing
+          | otherwise =
+            Just $ rq & lrdsNextToken .~ rs ^. lrdsrsNextToken
 
 instance AWSRequest ListResourceDataSync where
         type Rs ListResourceDataSync =

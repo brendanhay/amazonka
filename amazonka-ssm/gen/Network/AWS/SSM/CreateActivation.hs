@@ -31,6 +31,7 @@ module Network.AWS.SSM.CreateActivation
     , caRegistrationLimit
     , caExpirationDate
     , caDescription
+    , caTags
     , caIAMRole
 
     -- * Destructuring the Response
@@ -55,6 +56,7 @@ data CreateActivation = CreateActivation'
   , _caRegistrationLimit   :: !(Maybe Nat)
   , _caExpirationDate      :: !(Maybe POSIX)
   , _caDescription         :: !(Maybe Text)
+  , _caTags                :: !(Maybe [Tag])
   , _caIAMRole             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -71,6 +73,8 @@ data CreateActivation = CreateActivation'
 --
 -- * 'caDescription' - A user-defined description of the resource that you want to register with Amazon EC2.  /Important:/ Do not enter personally identifiable information in this field.
 --
+-- * 'caTags' - Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an activation to identify which servers or virtual machines (VMs) in your on-premises environment you intend to activate. In this case, you could specify the following key name/value pairs:     * @Key=OS,Value=Windows@      * @Key=Environment,Value=Production@  /Important:/ When you install SSM Agent on your on-premises servers and VMs, you specify an activation ID and code. When you specify the activation ID and code, tags assigned to the activation are automatically applied to the on-premises servers or VMs. You can't add tags to or delete tags from an existing activation. You can tag your on-premises servers and VMs after they connect to Systems Manager for the first time and are assigned a managed instance ID. This means they are listed in the AWS Systems Manager console with an ID that is prefixed with "mi-". For information about how to add tags to your managed instances, see 'AddTagsToResource' . For information about how to remove tags from your managed instances, see 'RemoveTagsFromResource' .
+--
 -- * 'caIAMRole' - The Amazon Identity and Access Management (IAM) role that you want to assign to the managed instance.
 createActivation
     :: Text -- ^ 'caIAMRole'
@@ -81,6 +85,7 @@ createActivation pIAMRole_ =
     , _caRegistrationLimit = Nothing
     , _caExpirationDate = Nothing
     , _caDescription = Nothing
+    , _caTags = Nothing
     , _caIAMRole = pIAMRole_
     }
 
@@ -100,6 +105,10 @@ caExpirationDate = lens _caExpirationDate (\ s a -> s{_caExpirationDate = a}) . 
 -- | A user-defined description of the resource that you want to register with Amazon EC2.  /Important:/ Do not enter personally identifiable information in this field.
 caDescription :: Lens' CreateActivation (Maybe Text)
 caDescription = lens _caDescription (\ s a -> s{_caDescription = a})
+
+-- | Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an activation to identify which servers or virtual machines (VMs) in your on-premises environment you intend to activate. In this case, you could specify the following key name/value pairs:     * @Key=OS,Value=Windows@      * @Key=Environment,Value=Production@  /Important:/ When you install SSM Agent on your on-premises servers and VMs, you specify an activation ID and code. When you specify the activation ID and code, tags assigned to the activation are automatically applied to the on-premises servers or VMs. You can't add tags to or delete tags from an existing activation. You can tag your on-premises servers and VMs after they connect to Systems Manager for the first time and are assigned a managed instance ID. This means they are listed in the AWS Systems Manager console with an ID that is prefixed with "mi-". For information about how to add tags to your managed instances, see 'AddTagsToResource' . For information about how to remove tags from your managed instances, see 'RemoveTagsFromResource' .
+caTags :: Lens' CreateActivation [Tag]
+caTags = lens _caTags (\ s a -> s{_caTags = a}) . _Default . _Coerce
 
 -- | The Amazon Identity and Access Management (IAM) role that you want to assign to the managed instance.
 caIAMRole :: Lens' CreateActivation Text
@@ -137,6 +146,7 @@ instance ToJSON CreateActivation where
                   ("RegistrationLimit" .=) <$> _caRegistrationLimit,
                   ("ExpirationDate" .=) <$> _caExpirationDate,
                   ("Description" .=) <$> _caDescription,
+                  ("Tags" .=) <$> _caTags,
                   Just ("IamRole" .= _caIAMRole)])
 
 instance ToPath CreateActivation where

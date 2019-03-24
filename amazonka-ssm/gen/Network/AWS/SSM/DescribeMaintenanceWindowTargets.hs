@@ -21,6 +21,8 @@
 -- Lists the targets registered with the Maintenance Window.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeMaintenanceWindowTargets
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.SSM.DescribeMaintenanceWindowTargets
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -95,6 +98,14 @@ dmwtMaxResults = lens _dmwtMaxResults (\ s a -> s{_dmwtMaxResults = a}) . mappin
 -- | The ID of the Maintenance Window whose targets should be retrieved.
 dmwtWindowId :: Lens' DescribeMaintenanceWindowTargets Text
 dmwtWindowId = lens _dmwtWindowId (\ s a -> s{_dmwtWindowId = a})
+
+instance AWSPager DescribeMaintenanceWindowTargets
+         where
+        page rq rs
+          | stop (rs ^. dmwtrsNextToken) = Nothing
+          | stop (rs ^. dmwtrsTargets) = Nothing
+          | otherwise =
+            Just $ rq & dmwtNextToken .~ rs ^. dmwtrsNextToken
 
 instance AWSRequest DescribeMaintenanceWindowTargets
          where

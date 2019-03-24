@@ -21,6 +21,8 @@
 -- Returns a summary count of compliant and non-compliant resources for a compliance type. For example, this call can return State Manager associations, patches, or custom compliance types according to the filter criteria that you specify.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.ListComplianceSummaries
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.SSM.ListComplianceSummaries
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -82,6 +85,13 @@ lcsNextToken = lens _lcsNextToken (\ s a -> s{_lcsNextToken = a})
 -- | The maximum number of items to return for this call. Currently, you can specify null or 50. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 lcsMaxResults :: Lens' ListComplianceSummaries (Maybe Natural)
 lcsMaxResults = lens _lcsMaxResults (\ s a -> s{_lcsMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListComplianceSummaries where
+        page rq rs
+          | stop (rs ^. lcsrsNextToken) = Nothing
+          | stop (rs ^. lcsrsComplianceSummaryItems) = Nothing
+          | otherwise =
+            Just $ rq & lcsNextToken .~ rs ^. lcsrsNextToken
 
 instance AWSRequest ListComplianceSummaries where
         type Rs ListComplianceSummaries =

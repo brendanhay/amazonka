@@ -21,6 +21,8 @@
 -- Retrieves the current effective patches (the patch and the approval state) for the specified patch baseline. Note that this API applies only to Windows patch baselines.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeEffectivePatchesForPatchBaseline
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.SSM.DescribeEffectivePatchesForPatchBaseline
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -86,6 +89,16 @@ depfpbMaxResults = lens _depfpbMaxResults (\ s a -> s{_depfpbMaxResults = a}) . 
 -- | The ID of the patch baseline to retrieve the effective patches for.
 depfpbBaselineId :: Lens' DescribeEffectivePatchesForPatchBaseline Text
 depfpbBaselineId = lens _depfpbBaselineId (\ s a -> s{_depfpbBaselineId = a})
+
+instance AWSPager
+           DescribeEffectivePatchesForPatchBaseline
+         where
+        page rq rs
+          | stop (rs ^. depfpbrsNextToken) = Nothing
+          | stop (rs ^. depfpbrsEffectivePatches) = Nothing
+          | otherwise =
+            Just $ rq &
+              depfpbNextToken .~ rs ^. depfpbrsNextToken
 
 instance AWSRequest
            DescribeEffectivePatchesForPatchBaseline

@@ -27,6 +27,7 @@ module Network.AWS.SSM.RegisterTaskWithMaintenanceWindow
       registerTaskWithMaintenanceWindow
     , RegisterTaskWithMaintenanceWindow
     -- * Request Lenses
+    , rtwmwServiceRoleARN
     , rtwmwTaskParameters
     , rtwmwPriority
     , rtwmwClientToken
@@ -37,7 +38,6 @@ module Network.AWS.SSM.RegisterTaskWithMaintenanceWindow
     , rtwmwWindowId
     , rtwmwTargets
     , rtwmwTaskARN
-    , rtwmwServiceRoleARN
     , rtwmwTaskType
     , rtwmwMaxConcurrency
     , rtwmwMaxErrors
@@ -59,7 +59,8 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'registerTaskWithMaintenanceWindow' smart constructor.
 data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
-  { _rtwmwTaskParameters :: !(Maybe (Sensitive (Map Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
+  { _rtwmwServiceRoleARN :: !(Maybe Text)
+  , _rtwmwTaskParameters :: !(Maybe (Sensitive (Map Text (Sensitive MaintenanceWindowTaskParameterValueExpression))))
   , _rtwmwPriority :: !(Maybe Nat)
   , _rtwmwClientToken :: !(Maybe Text)
   , _rtwmwTaskInvocationParameters :: !(Maybe MaintenanceWindowTaskInvocationParameters)
@@ -69,7 +70,6 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
   , _rtwmwWindowId :: !Text
   , _rtwmwTargets :: ![Target]
   , _rtwmwTaskARN :: !Text
-  , _rtwmwServiceRoleARN :: !Text
   , _rtwmwTaskType :: !MaintenanceWindowTaskType
   , _rtwmwMaxConcurrency :: !Text
   , _rtwmwMaxErrors :: !Text
@@ -79,6 +79,8 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
 -- | Creates a value of 'RegisterTaskWithMaintenanceWindow' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtwmwServiceRoleARN' - The role to assume when running the Maintenance Window task. If you do not specify a service role ARN, Systems Manager will use your account's service-linked role for Systems Manager by default. If no service-linked role for Systems Manager exists in your account, it will be created when you run @RegisterTaskWithMaintenanceWindow@ without specifying a service role ARN. For more information, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Service-Linked Role Permissions for Systems Manager> and <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I Use a Service-Linked Role or a Custom Service Role to Run Maintenance Window Tasks? > in the /AWS Systems Manager User Guide/ .
 --
 -- * 'rtwmwTaskParameters' - The parameters that should be passed to the task when it is executed.
 --
@@ -100,8 +102,6 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
 --
 -- * 'rtwmwTaskARN' - The ARN of the task to execute
 --
--- * 'rtwmwServiceRoleARN' - The role that should be assumed when executing the task.
---
 -- * 'rtwmwTaskType' - The type of task being registered.
 --
 -- * 'rtwmwMaxConcurrency' - The maximum number of targets this task can be run for in parallel.
@@ -110,14 +110,14 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
 registerTaskWithMaintenanceWindow
     :: Text -- ^ 'rtwmwWindowId'
     -> Text -- ^ 'rtwmwTaskARN'
-    -> Text -- ^ 'rtwmwServiceRoleARN'
     -> MaintenanceWindowTaskType -- ^ 'rtwmwTaskType'
     -> Text -- ^ 'rtwmwMaxConcurrency'
     -> Text -- ^ 'rtwmwMaxErrors'
     -> RegisterTaskWithMaintenanceWindow
-registerTaskWithMaintenanceWindow pWindowId_ pTaskARN_ pServiceRoleARN_ pTaskType_ pMaxConcurrency_ pMaxErrors_ =
+registerTaskWithMaintenanceWindow pWindowId_ pTaskARN_ pTaskType_ pMaxConcurrency_ pMaxErrors_ =
   RegisterTaskWithMaintenanceWindow'
-    { _rtwmwTaskParameters = Nothing
+    { _rtwmwServiceRoleARN = Nothing
+    , _rtwmwTaskParameters = Nothing
     , _rtwmwPriority = Nothing
     , _rtwmwClientToken = Nothing
     , _rtwmwTaskInvocationParameters = Nothing
@@ -127,12 +127,15 @@ registerTaskWithMaintenanceWindow pWindowId_ pTaskARN_ pServiceRoleARN_ pTaskTyp
     , _rtwmwWindowId = pWindowId_
     , _rtwmwTargets = mempty
     , _rtwmwTaskARN = pTaskARN_
-    , _rtwmwServiceRoleARN = pServiceRoleARN_
     , _rtwmwTaskType = pTaskType_
     , _rtwmwMaxConcurrency = pMaxConcurrency_
     , _rtwmwMaxErrors = pMaxErrors_
     }
 
+
+-- | The role to assume when running the Maintenance Window task. If you do not specify a service role ARN, Systems Manager will use your account's service-linked role for Systems Manager by default. If no service-linked role for Systems Manager exists in your account, it will be created when you run @RegisterTaskWithMaintenanceWindow@ without specifying a service role ARN. For more information, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Service-Linked Role Permissions for Systems Manager> and <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I Use a Service-Linked Role or a Custom Service Role to Run Maintenance Window Tasks? > in the /AWS Systems Manager User Guide/ .
+rtwmwServiceRoleARN :: Lens' RegisterTaskWithMaintenanceWindow (Maybe Text)
+rtwmwServiceRoleARN = lens _rtwmwServiceRoleARN (\ s a -> s{_rtwmwServiceRoleARN = a})
 
 -- | The parameters that should be passed to the task when it is executed.
 rtwmwTaskParameters :: Lens' RegisterTaskWithMaintenanceWindow (Maybe (HashMap Text MaintenanceWindowTaskParameterValueExpression))
@@ -173,10 +176,6 @@ rtwmwTargets = lens _rtwmwTargets (\ s a -> s{_rtwmwTargets = a}) . _Coerce
 -- | The ARN of the task to execute
 rtwmwTaskARN :: Lens' RegisterTaskWithMaintenanceWindow Text
 rtwmwTaskARN = lens _rtwmwTaskARN (\ s a -> s{_rtwmwTaskARN = a})
-
--- | The role that should be assumed when executing the task.
-rtwmwServiceRoleARN :: Lens' RegisterTaskWithMaintenanceWindow Text
-rtwmwServiceRoleARN = lens _rtwmwServiceRoleARN (\ s a -> s{_rtwmwServiceRoleARN = a})
 
 -- | The type of task being registered.
 rtwmwTaskType :: Lens' RegisterTaskWithMaintenanceWindow MaintenanceWindowTaskType
@@ -223,7 +222,8 @@ instance ToJSON RegisterTaskWithMaintenanceWindow
         toJSON RegisterTaskWithMaintenanceWindow'{..}
           = object
               (catMaybes
-                 [("TaskParameters" .=) <$> _rtwmwTaskParameters,
+                 [("ServiceRoleArn" .=) <$> _rtwmwServiceRoleARN,
+                  ("TaskParameters" .=) <$> _rtwmwTaskParameters,
                   ("Priority" .=) <$> _rtwmwPriority,
                   ("ClientToken" .=) <$> _rtwmwClientToken,
                   ("TaskInvocationParameters" .=) <$>
@@ -234,7 +234,6 @@ instance ToJSON RegisterTaskWithMaintenanceWindow
                   Just ("WindowId" .= _rtwmwWindowId),
                   Just ("Targets" .= _rtwmwTargets),
                   Just ("TaskArn" .= _rtwmwTaskARN),
-                  Just ("ServiceRoleArn" .= _rtwmwServiceRoleARN),
                   Just ("TaskType" .= _rtwmwTaskType),
                   Just ("MaxConcurrency" .= _rtwmwMaxConcurrency),
                   Just ("MaxErrors" .= _rtwmwMaxErrors)])
@@ -258,7 +257,7 @@ data RegisterTaskWithMaintenanceWindowResponse = RegisterTaskWithMaintenanceWind
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtwmwrsWindowTaskId' - The id of the task in the Maintenance Window.
+-- * 'rtwmwrsWindowTaskId' - The ID of the task in the Maintenance Window.
 --
 -- * 'rtwmwrsResponseStatus' - -- | The response status code.
 registerTaskWithMaintenanceWindowResponse
@@ -269,7 +268,7 @@ registerTaskWithMaintenanceWindowResponse pResponseStatus_ =
     {_rtwmwrsWindowTaskId = Nothing, _rtwmwrsResponseStatus = pResponseStatus_}
 
 
--- | The id of the task in the Maintenance Window.
+-- | The ID of the task in the Maintenance Window.
 rtwmwrsWindowTaskId :: Lens' RegisterTaskWithMaintenanceWindowResponse (Maybe Text)
 rtwmwrsWindowTaskId = lens _rtwmwrsWindowTaskId (\ s a -> s{_rtwmwrsWindowTaskId = a})
 

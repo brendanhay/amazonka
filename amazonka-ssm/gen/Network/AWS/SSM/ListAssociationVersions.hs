@@ -21,6 +21,8 @@
 -- Retrieves all versions of an association for a specific association ID.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.ListAssociationVersions
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.SSM.ListAssociationVersions
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -86,6 +89,13 @@ lavMaxResults = lens _lavMaxResults (\ s a -> s{_lavMaxResults = a}) . mapping _
 -- | The association ID for which you want to view all versions.
 lavAssociationId :: Lens' ListAssociationVersions Text
 lavAssociationId = lens _lavAssociationId (\ s a -> s{_lavAssociationId = a})
+
+instance AWSPager ListAssociationVersions where
+        page rq rs
+          | stop (rs ^. lavrsNextToken) = Nothing
+          | stop (rs ^. lavrsAssociationVersions) = Nothing
+          | otherwise =
+            Just $ rq & lavNextToken .~ rs ^. lavrsNextToken
 
 instance AWSRequest ListAssociationVersions where
         type Rs ListAssociationVersions =

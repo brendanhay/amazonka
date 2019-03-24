@@ -21,9 +21,9 @@
 -- Associates the specified Systems Manager document with the specified instances or targets.
 --
 --
--- When you associate a document with one or more instances using instance IDs or tags, the SSM Agent running on the instance processes the document and configures the instance as specified.
+-- When you associate a document with one or more instances using instance IDs or tags, SSM Agent running on the instance processes the document and configures the instance as specified.
 --
--- If you associate a document with an instance that already has an associated document, the system throws the AssociationAlreadyExists exception.
+-- If you associate a document with an instance that already has an associated document, the system returns the AssociationAlreadyExists exception.
 --
 module Network.AWS.SSM.CreateAssociation
     (
@@ -32,12 +32,16 @@ module Network.AWS.SSM.CreateAssociation
     , CreateAssociation
     -- * Request Lenses
     , caInstanceId
+    , caMaxErrors
     , caScheduleExpression
     , caOutputLocation
     , caTargets
     , caParameters
     , caDocumentVersion
+    , caAutomationTargetParameterName
     , caAssociationName
+    , caComplianceSeverity
+    , caMaxConcurrency
     , caName
 
     -- * Destructuring the Response
@@ -57,14 +61,18 @@ import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createAssociation' smart constructor.
 data CreateAssociation = CreateAssociation'
-  { _caInstanceId         :: !(Maybe Text)
+  { _caInstanceId :: !(Maybe Text)
+  , _caMaxErrors :: !(Maybe Text)
   , _caScheduleExpression :: !(Maybe Text)
-  , _caOutputLocation     :: !(Maybe InstanceAssociationOutputLocation)
-  , _caTargets            :: !(Maybe [Target])
-  , _caParameters         :: !(Maybe (Map Text [Text]))
-  , _caDocumentVersion    :: !(Maybe Text)
-  , _caAssociationName    :: !(Maybe Text)
-  , _caName               :: !Text
+  , _caOutputLocation :: !(Maybe InstanceAssociationOutputLocation)
+  , _caTargets :: !(Maybe [Target])
+  , _caParameters :: !(Maybe (Map Text [Text]))
+  , _caDocumentVersion :: !(Maybe Text)
+  , _caAutomationTargetParameterName :: !(Maybe Text)
+  , _caAssociationName :: !(Maybe Text)
+  , _caComplianceSeverity :: !(Maybe AssociationComplianceSeverity)
+  , _caMaxConcurrency :: !(Maybe Text)
+  , _caName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -73,6 +81,8 @@ data CreateAssociation = CreateAssociation'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'caInstanceId' - The instance ID.
+--
+-- * 'caMaxErrors' - The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received. Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
 --
 -- * 'caScheduleExpression' - A cron expression when the association will be applied to the target(s).
 --
@@ -84,21 +94,31 @@ data CreateAssociation = CreateAssociation'
 --
 -- * 'caDocumentVersion' - The document version you want to associate with the target(s). Can be a specific version or the default version.
 --
+-- * 'caAutomationTargetParameterName' - Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.
+--
 -- * 'caAssociationName' - Specify a descriptive name for the association.
 --
--- * 'caName' - The name of the Systems Manager document.
+-- * 'caComplianceSeverity' - The severity level to assign to the association.
+--
+-- * 'caMaxConcurrency' - The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time. If a new instance starts and attempts to execute an association while Systems Manager is executing MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
+--
+-- * 'caName' - The name of the SSM document that contains the configuration information for the instance. You can specify Command, Policy, or Automation documents. You can specify AWS-predefined documents, documents you created, or a document that is shared with you from another account. For SSM documents that are shared with you from other AWS accounts, you must specify the complete SSM document ARN, in the following format: @arn:/partition/ :ssm:/region/ :/account-id/ :document//document-name/ @  For example: @arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document@  For AWS-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, @AWS-ApplyPatchBaseline@ or @My-Document@ .
 createAssociation
     :: Text -- ^ 'caName'
     -> CreateAssociation
 createAssociation pName_ =
   CreateAssociation'
     { _caInstanceId = Nothing
+    , _caMaxErrors = Nothing
     , _caScheduleExpression = Nothing
     , _caOutputLocation = Nothing
     , _caTargets = Nothing
     , _caParameters = Nothing
     , _caDocumentVersion = Nothing
+    , _caAutomationTargetParameterName = Nothing
     , _caAssociationName = Nothing
+    , _caComplianceSeverity = Nothing
+    , _caMaxConcurrency = Nothing
     , _caName = pName_
     }
 
@@ -106,6 +126,10 @@ createAssociation pName_ =
 -- | The instance ID.
 caInstanceId :: Lens' CreateAssociation (Maybe Text)
 caInstanceId = lens _caInstanceId (\ s a -> s{_caInstanceId = a})
+
+-- | The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received. Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+caMaxErrors :: Lens' CreateAssociation (Maybe Text)
+caMaxErrors = lens _caMaxErrors (\ s a -> s{_caMaxErrors = a})
 
 -- | A cron expression when the association will be applied to the target(s).
 caScheduleExpression :: Lens' CreateAssociation (Maybe Text)
@@ -127,11 +151,23 @@ caParameters = lens _caParameters (\ s a -> s{_caParameters = a}) . _Default . _
 caDocumentVersion :: Lens' CreateAssociation (Maybe Text)
 caDocumentVersion = lens _caDocumentVersion (\ s a -> s{_caDocumentVersion = a})
 
+-- | Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.
+caAutomationTargetParameterName :: Lens' CreateAssociation (Maybe Text)
+caAutomationTargetParameterName = lens _caAutomationTargetParameterName (\ s a -> s{_caAutomationTargetParameterName = a})
+
 -- | Specify a descriptive name for the association.
 caAssociationName :: Lens' CreateAssociation (Maybe Text)
 caAssociationName = lens _caAssociationName (\ s a -> s{_caAssociationName = a})
 
--- | The name of the Systems Manager document.
+-- | The severity level to assign to the association.
+caComplianceSeverity :: Lens' CreateAssociation (Maybe AssociationComplianceSeverity)
+caComplianceSeverity = lens _caComplianceSeverity (\ s a -> s{_caComplianceSeverity = a})
+
+-- | The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time. If a new instance starts and attempts to execute an association while Systems Manager is executing MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
+caMaxConcurrency :: Lens' CreateAssociation (Maybe Text)
+caMaxConcurrency = lens _caMaxConcurrency (\ s a -> s{_caMaxConcurrency = a})
+
+-- | The name of the SSM document that contains the configuration information for the instance. You can specify Command, Policy, or Automation documents. You can specify AWS-predefined documents, documents you created, or a document that is shared with you from another account. For SSM documents that are shared with you from other AWS accounts, you must specify the complete SSM document ARN, in the following format: @arn:/partition/ :ssm:/region/ :/account-id/ :document//document-name/ @  For example: @arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document@  For AWS-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, @AWS-ApplyPatchBaseline@ or @My-Document@ .
 caName :: Lens' CreateAssociation Text
 caName = lens _caName (\ s a -> s{_caName = a})
 
@@ -163,12 +199,17 @@ instance ToJSON CreateAssociation where
           = object
               (catMaybes
                  [("InstanceId" .=) <$> _caInstanceId,
+                  ("MaxErrors" .=) <$> _caMaxErrors,
                   ("ScheduleExpression" .=) <$> _caScheduleExpression,
                   ("OutputLocation" .=) <$> _caOutputLocation,
                   ("Targets" .=) <$> _caTargets,
                   ("Parameters" .=) <$> _caParameters,
                   ("DocumentVersion" .=) <$> _caDocumentVersion,
+                  ("AutomationTargetParameterName" .=) <$>
+                    _caAutomationTargetParameterName,
                   ("AssociationName" .=) <$> _caAssociationName,
+                  ("ComplianceSeverity" .=) <$> _caComplianceSeverity,
+                  ("MaxConcurrency" .=) <$> _caMaxConcurrency,
                   Just ("Name" .= _caName)])
 
 instance ToPath CreateAssociation where

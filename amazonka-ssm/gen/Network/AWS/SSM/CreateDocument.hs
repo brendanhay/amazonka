@@ -30,8 +30,11 @@ module Network.AWS.SSM.CreateDocument
     , CreateDocument
     -- * Request Lenses
     , cdDocumentType
+    , cdAttachments
+    , cdVersionName
     , cdTargetType
     , cdDocumentFormat
+    , cdTags
     , cdContent
     , cdName
 
@@ -53,8 +56,11 @@ import Network.AWS.SSM.Types.Product
 -- | /See:/ 'createDocument' smart constructor.
 data CreateDocument = CreateDocument'
   { _cdDocumentType   :: !(Maybe DocumentType)
+  , _cdAttachments    :: !(Maybe [AttachmentsSource])
+  , _cdVersionName    :: !(Maybe Text)
   , _cdTargetType     :: !(Maybe Text)
   , _cdDocumentFormat :: !(Maybe DocumentFormat)
+  , _cdTags           :: !(Maybe [Tag])
   , _cdContent        :: !Text
   , _cdName           :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -64,11 +70,17 @@ data CreateDocument = CreateDocument'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdDocumentType' - The type of document to create. Valid document types include: Policy, Automation, and Command.
+-- * 'cdDocumentType' - The type of document to create. Valid document types include: @Command@ , @Policy@ , @Automation@ , @Session@ , and @Package@ .
+--
+-- * 'cdAttachments' - A list of key and value pairs that describe attachments to a version of a document.
+--
+-- * 'cdVersionName' - An optional field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
 --
 -- * 'cdTargetType' - Specify a target type to define the kinds of resources the document can run on. For example, to run a document on EC2 instances, specify the following value: /AWS::EC2::Instance. If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> in the /AWS CloudFormation User Guide/ .
 --
 -- * 'cdDocumentFormat' - Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
+--
+-- * 'cdTags' - Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an SSM document to identify the types of targets or the environment where it will run. In this case, you could specify the following key name/value pairs:     * @Key=OS,Value=Windows@      * @Key=Environment,Value=Production@
 --
 -- * 'cdContent' - A valid JSON or YAML string.
 --
@@ -80,16 +92,27 @@ createDocument
 createDocument pContent_ pName_ =
   CreateDocument'
     { _cdDocumentType = Nothing
+    , _cdAttachments = Nothing
+    , _cdVersionName = Nothing
     , _cdTargetType = Nothing
     , _cdDocumentFormat = Nothing
+    , _cdTags = Nothing
     , _cdContent = pContent_
     , _cdName = pName_
     }
 
 
--- | The type of document to create. Valid document types include: Policy, Automation, and Command.
+-- | The type of document to create. Valid document types include: @Command@ , @Policy@ , @Automation@ , @Session@ , and @Package@ .
 cdDocumentType :: Lens' CreateDocument (Maybe DocumentType)
 cdDocumentType = lens _cdDocumentType (\ s a -> s{_cdDocumentType = a})
+
+-- | A list of key and value pairs that describe attachments to a version of a document.
+cdAttachments :: Lens' CreateDocument [AttachmentsSource]
+cdAttachments = lens _cdAttachments (\ s a -> s{_cdAttachments = a}) . _Default . _Coerce
+
+-- | An optional field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
+cdVersionName :: Lens' CreateDocument (Maybe Text)
+cdVersionName = lens _cdVersionName (\ s a -> s{_cdVersionName = a})
 
 -- | Specify a target type to define the kinds of resources the document can run on. For example, to run a document on EC2 instances, specify the following value: /AWS::EC2::Instance. If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> in the /AWS CloudFormation User Guide/ .
 cdTargetType :: Lens' CreateDocument (Maybe Text)
@@ -98,6 +121,10 @@ cdTargetType = lens _cdTargetType (\ s a -> s{_cdTargetType = a})
 -- | Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
 cdDocumentFormat :: Lens' CreateDocument (Maybe DocumentFormat)
 cdDocumentFormat = lens _cdDocumentFormat (\ s a -> s{_cdDocumentFormat = a})
+
+-- | Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an SSM document to identify the types of targets or the environment where it will run. In this case, you could specify the following key name/value pairs:     * @Key=OS,Value=Windows@      * @Key=Environment,Value=Production@
+cdTags :: Lens' CreateDocument [Tag]
+cdTags = lens _cdTags (\ s a -> s{_cdTags = a}) . _Default . _Coerce
 
 -- | A valid JSON or YAML string.
 cdContent :: Lens' CreateDocument Text
@@ -135,8 +162,11 @@ instance ToJSON CreateDocument where
           = object
               (catMaybes
                  [("DocumentType" .=) <$> _cdDocumentType,
+                  ("Attachments" .=) <$> _cdAttachments,
+                  ("VersionName" .=) <$> _cdVersionName,
                   ("TargetType" .=) <$> _cdTargetType,
                   ("DocumentFormat" .=) <$> _cdDocumentFormat,
+                  ("Tags" .=) <$> _cdTags,
                   Just ("Content" .= _cdContent),
                   Just ("Name" .= _cdName)])
 

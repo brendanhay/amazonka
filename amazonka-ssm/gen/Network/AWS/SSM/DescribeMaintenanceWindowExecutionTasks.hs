@@ -21,6 +21,8 @@
 -- For a given Maintenance Window execution, lists the tasks that were executed.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeMaintenanceWindowExecutionTasks
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.SSM.DescribeMaintenanceWindowExecutionTasks
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -95,6 +98,16 @@ dmwetMaxResults = lens _dmwetMaxResults (\ s a -> s{_dmwetMaxResults = a}) . map
 -- | The ID of the Maintenance Window execution whose task executions should be retrieved.
 dmwetWindowExecutionId :: Lens' DescribeMaintenanceWindowExecutionTasks Text
 dmwetWindowExecutionId = lens _dmwetWindowExecutionId (\ s a -> s{_dmwetWindowExecutionId = a})
+
+instance AWSPager
+           DescribeMaintenanceWindowExecutionTasks
+         where
+        page rq rs
+          | stop (rs ^. dmwetrsNextToken) = Nothing
+          | stop (rs ^. dmwetrsWindowExecutionTaskIdentities) =
+            Nothing
+          | otherwise =
+            Just $ rq & dmwetNextToken .~ rs ^. dmwetrsNextToken
 
 instance AWSRequest
            DescribeMaintenanceWindowExecutionTasks

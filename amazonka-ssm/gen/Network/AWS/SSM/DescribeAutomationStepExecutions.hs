@@ -21,6 +21,8 @@
 -- Information about all active and terminated step executions in an Automation workflow.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeAutomationStepExecutions
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.SSM.DescribeAutomationStepExecutions
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -104,6 +107,14 @@ daseMaxResults = lens _daseMaxResults (\ s a -> s{_daseMaxResults = a}) . mappin
 -- | The Automation execution ID for which you want step execution descriptions.
 daseAutomationExecutionId :: Lens' DescribeAutomationStepExecutions Text
 daseAutomationExecutionId = lens _daseAutomationExecutionId (\ s a -> s{_daseAutomationExecutionId = a})
+
+instance AWSPager DescribeAutomationStepExecutions
+         where
+        page rq rs
+          | stop (rs ^. dasersNextToken) = Nothing
+          | stop (rs ^. dasersStepExecutions) = Nothing
+          | otherwise =
+            Just $ rq & daseNextToken .~ rs ^. dasersNextToken
 
 instance AWSRequest DescribeAutomationStepExecutions
          where

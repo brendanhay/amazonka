@@ -21,6 +21,8 @@
 -- Lists all patches that could possibly be included in a patch baseline.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeAvailablePatches
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.SSM.DescribeAvailablePatches
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -82,6 +85,13 @@ dapNextToken = lens _dapNextToken (\ s a -> s{_dapNextToken = a})
 -- | The maximum number of patches to return (per page).
 dapMaxResults :: Lens' DescribeAvailablePatches (Maybe Natural)
 dapMaxResults = lens _dapMaxResults (\ s a -> s{_dapMaxResults = a}) . mapping _Nat
+
+instance AWSPager DescribeAvailablePatches where
+        page rq rs
+          | stop (rs ^. daprsNextToken) = Nothing
+          | stop (rs ^. daprsPatches) = Nothing
+          | otherwise =
+            Just $ rq & dapNextToken .~ rs ^. daprsNextToken
 
 instance AWSRequest DescribeAvailablePatches where
         type Rs DescribeAvailablePatches =

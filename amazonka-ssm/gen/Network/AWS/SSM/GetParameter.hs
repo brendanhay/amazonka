@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get information about a parameter by using the parameter name.
+-- Get information about a parameter by using the parameter name. Don't confuse this API action with the 'GetParameters' API action.
 --
 --
 module Network.AWS.SSM.GetParameter

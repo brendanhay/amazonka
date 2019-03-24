@@ -21,6 +21,8 @@
 -- Lists the patch baselines in your AWS account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribePatchBaselines
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.SSM.DescribePatchBaselines
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -82,6 +85,13 @@ dpbNextToken = lens _dpbNextToken (\ s a -> s{_dpbNextToken = a})
 -- | The maximum number of patch baselines to return (per page).
 dpbMaxResults :: Lens' DescribePatchBaselines (Maybe Natural)
 dpbMaxResults = lens _dpbMaxResults (\ s a -> s{_dpbMaxResults = a}) . mapping _Nat
+
+instance AWSPager DescribePatchBaselines where
+        page rq rs
+          | stop (rs ^. dpbsrsNextToken) = Nothing
+          | stop (rs ^. dpbsrsBaselineIdentities) = Nothing
+          | otherwise =
+            Just $ rq & dpbNextToken .~ rs ^. dpbsrsNextToken
 
 instance AWSRequest DescribePatchBaselines where
         type Rs DescribePatchBaselines =

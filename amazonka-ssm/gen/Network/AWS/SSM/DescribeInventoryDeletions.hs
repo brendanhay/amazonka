@@ -21,6 +21,8 @@
 -- Describes a specific delete inventory operation.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeInventoryDeletions
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.SSM.DescribeInventoryDeletions
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -85,6 +88,13 @@ didMaxResults = lens _didMaxResults (\ s a -> s{_didMaxResults = a}) . mapping _
 -- | Specify the delete inventory ID for which you want information. This ID was returned by the @DeleteInventory@ action.
 didDeletionId :: Lens' DescribeInventoryDeletions (Maybe Text)
 didDeletionId = lens _didDeletionId (\ s a -> s{_didDeletionId = a})
+
+instance AWSPager DescribeInventoryDeletions where
+        page rq rs
+          | stop (rs ^. didrsNextToken) = Nothing
+          | stop (rs ^. didrsInventoryDeletions) = Nothing
+          | otherwise =
+            Just $ rq & didNextToken .~ rs ^. didrsNextToken
 
 instance AWSRequest DescribeInventoryDeletions where
         type Rs DescribeInventoryDeletions =

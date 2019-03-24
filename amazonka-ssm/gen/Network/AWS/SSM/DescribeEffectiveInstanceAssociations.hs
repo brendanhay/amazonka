@@ -21,6 +21,8 @@
 -- All associations for the instance(s).
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeEffectiveInstanceAssociations
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.SSM.DescribeEffectiveInstanceAssociations
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -86,6 +89,15 @@ deiaMaxResults = lens _deiaMaxResults (\ s a -> s{_deiaMaxResults = a}) . mappin
 -- | The instance ID for which you want to view all associations.
 deiaInstanceId :: Lens' DescribeEffectiveInstanceAssociations Text
 deiaInstanceId = lens _deiaInstanceId (\ s a -> s{_deiaInstanceId = a})
+
+instance AWSPager
+           DescribeEffectiveInstanceAssociations
+         where
+        page rq rs
+          | stop (rs ^. deiarsNextToken) = Nothing
+          | stop (rs ^. deiarsAssociations) = Nothing
+          | otherwise =
+            Just $ rq & deiaNextToken .~ rs ^. deiarsNextToken
 
 instance AWSRequest
            DescribeEffectiveInstanceAssociations

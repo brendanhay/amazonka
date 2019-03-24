@@ -21,6 +21,8 @@
 -- The status of the associations for the instance(s).
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeInstanceAssociationsStatus
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.SSM.DescribeInstanceAssociationsStatus
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -86,6 +89,15 @@ diasMaxResults = lens _diasMaxResults (\ s a -> s{_diasMaxResults = a}) . mappin
 -- | The instance IDs for which you want association status information.
 diasInstanceId :: Lens' DescribeInstanceAssociationsStatus Text
 diasInstanceId = lens _diasInstanceId (\ s a -> s{_diasInstanceId = a})
+
+instance AWSPager DescribeInstanceAssociationsStatus
+         where
+        page rq rs
+          | stop (rs ^. diasrsNextToken) = Nothing
+          | stop (rs ^. diasrsInstanceAssociationStatusInfos) =
+            Nothing
+          | otherwise =
+            Just $ rq & diasNextToken .~ rs ^. diasrsNextToken
 
 instance AWSRequest
            DescribeInstanceAssociationsStatus

@@ -37,6 +37,7 @@ module Network.AWS.SSM.GetPatchBaseline
     , gpbrsOperatingSystem
     , gpbrsGlobalFilters
     , gpbrsApprovedPatchesComplianceLevel
+    , gpbrsRejectedPatchesAction
     , gpbrsApprovedPatches
     , gpbrsApprovedPatchesEnableNonSecurity
     , gpbrsRejectedPatches
@@ -89,6 +90,7 @@ instance AWSRequest GetPatchBaseline where
                    (x .?> "ApprovalRules") <*> (x .?> "OperatingSystem")
                      <*> (x .?> "GlobalFilters")
                      <*> (x .?> "ApprovedPatchesComplianceLevel")
+                     <*> (x .?> "RejectedPatchesAction")
                      <*> (x .?> "ApprovedPatches" .!@ mempty)
                      <*> (x .?> "ApprovedPatchesEnableNonSecurity")
                      <*> (x .?> "RejectedPatches" .!@ mempty)
@@ -131,6 +133,7 @@ data GetPatchBaselineResponse = GetPatchBaselineResponse'
   , _gpbrsOperatingSystem                  :: !(Maybe OperatingSystem)
   , _gpbrsGlobalFilters                    :: !(Maybe PatchFilterGroup)
   , _gpbrsApprovedPatchesComplianceLevel   :: !(Maybe PatchComplianceLevel)
+  , _gpbrsRejectedPatchesAction            :: !(Maybe PatchAction)
   , _gpbrsApprovedPatches                  :: !(Maybe [Text])
   , _gpbrsApprovedPatchesEnableNonSecurity :: !(Maybe Bool)
   , _gpbrsRejectedPatches                  :: !(Maybe [Text])
@@ -156,6 +159,8 @@ data GetPatchBaselineResponse = GetPatchBaselineResponse'
 -- * 'gpbrsGlobalFilters' - A set of global filters used to exclude patches from the baseline.
 --
 -- * 'gpbrsApprovedPatchesComplianceLevel' - Returns the specified compliance severity level for approved patches in the patch baseline.
+--
+-- * 'gpbrsRejectedPatchesAction' - The action specified to take on patches included in the RejectedPatches list. A patch can be allowed only if it is a dependency of another package, or blocked entirely along with packages that include it as a dependency.
 --
 -- * 'gpbrsApprovedPatches' - A list of explicitly approved patches for the baseline.
 --
@@ -187,6 +192,7 @@ getPatchBaselineResponse pResponseStatus_ =
     , _gpbrsOperatingSystem = Nothing
     , _gpbrsGlobalFilters = Nothing
     , _gpbrsApprovedPatchesComplianceLevel = Nothing
+    , _gpbrsRejectedPatchesAction = Nothing
     , _gpbrsApprovedPatches = Nothing
     , _gpbrsApprovedPatchesEnableNonSecurity = Nothing
     , _gpbrsRejectedPatches = Nothing
@@ -216,6 +222,10 @@ gpbrsGlobalFilters = lens _gpbrsGlobalFilters (\ s a -> s{_gpbrsGlobalFilters = 
 -- | Returns the specified compliance severity level for approved patches in the patch baseline.
 gpbrsApprovedPatchesComplianceLevel :: Lens' GetPatchBaselineResponse (Maybe PatchComplianceLevel)
 gpbrsApprovedPatchesComplianceLevel = lens _gpbrsApprovedPatchesComplianceLevel (\ s a -> s{_gpbrsApprovedPatchesComplianceLevel = a})
+
+-- | The action specified to take on patches included in the RejectedPatches list. A patch can be allowed only if it is a dependency of another package, or blocked entirely along with packages that include it as a dependency.
+gpbrsRejectedPatchesAction :: Lens' GetPatchBaselineResponse (Maybe PatchAction)
+gpbrsRejectedPatchesAction = lens _gpbrsRejectedPatchesAction (\ s a -> s{_gpbrsRejectedPatchesAction = a})
 
 -- | A list of explicitly approved patches for the baseline.
 gpbrsApprovedPatches :: Lens' GetPatchBaselineResponse [Text]

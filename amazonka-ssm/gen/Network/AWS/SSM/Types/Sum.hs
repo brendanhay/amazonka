@@ -19,6 +19,105 @@ module Network.AWS.SSM.Types.Sum where
 
 import Network.AWS.Prelude
 
+data AssociationComplianceSeverity
+  = ACSCritical
+  | ACSHigh
+  | ACSLow
+  | ACSMedium
+  | ACSUnspecified
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AssociationComplianceSeverity where
+    parser = takeLowerText >>= \case
+        "critical" -> pure ACSCritical
+        "high" -> pure ACSHigh
+        "low" -> pure ACSLow
+        "medium" -> pure ACSMedium
+        "unspecified" -> pure ACSUnspecified
+        e -> fromTextError $ "Failure parsing AssociationComplianceSeverity from value: '" <> e
+           <> "'. Accepted values: critical, high, low, medium, unspecified"
+
+instance ToText AssociationComplianceSeverity where
+    toText = \case
+        ACSCritical -> "CRITICAL"
+        ACSHigh -> "HIGH"
+        ACSLow -> "LOW"
+        ACSMedium -> "MEDIUM"
+        ACSUnspecified -> "UNSPECIFIED"
+
+instance Hashable     AssociationComplianceSeverity
+instance NFData       AssociationComplianceSeverity
+instance ToByteString AssociationComplianceSeverity
+instance ToQuery      AssociationComplianceSeverity
+instance ToHeader     AssociationComplianceSeverity
+
+instance ToJSON AssociationComplianceSeverity where
+    toJSON = toJSONText
+
+instance FromJSON AssociationComplianceSeverity where
+    parseJSON = parseJSONText "AssociationComplianceSeverity"
+
+data AssociationExecutionFilterKey
+  = CreatedTime
+  | ExecutionId
+  | Status
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AssociationExecutionFilterKey where
+    parser = takeLowerText >>= \case
+        "createdtime" -> pure CreatedTime
+        "executionid" -> pure ExecutionId
+        "status" -> pure Status
+        e -> fromTextError $ "Failure parsing AssociationExecutionFilterKey from value: '" <> e
+           <> "'. Accepted values: createdtime, executionid, status"
+
+instance ToText AssociationExecutionFilterKey where
+    toText = \case
+        CreatedTime -> "CreatedTime"
+        ExecutionId -> "ExecutionId"
+        Status -> "Status"
+
+instance Hashable     AssociationExecutionFilterKey
+instance NFData       AssociationExecutionFilterKey
+instance ToByteString AssociationExecutionFilterKey
+instance ToQuery      AssociationExecutionFilterKey
+instance ToHeader     AssociationExecutionFilterKey
+
+instance ToJSON AssociationExecutionFilterKey where
+    toJSON = toJSONText
+
+data AssociationExecutionTargetsFilterKey
+  = AETFKResourceId
+  | AETFKResourceType
+  | AETFKStatus
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AssociationExecutionTargetsFilterKey where
+    parser = takeLowerText >>= \case
+        "resourceid" -> pure AETFKResourceId
+        "resourcetype" -> pure AETFKResourceType
+        "status" -> pure AETFKStatus
+        e -> fromTextError $ "Failure parsing AssociationExecutionTargetsFilterKey from value: '" <> e
+           <> "'. Accepted values: resourceid, resourcetype, status"
+
+instance ToText AssociationExecutionTargetsFilterKey where
+    toText = \case
+        AETFKResourceId -> "ResourceId"
+        AETFKResourceType -> "ResourceType"
+        AETFKStatus -> "Status"
+
+instance Hashable     AssociationExecutionTargetsFilterKey
+instance NFData       AssociationExecutionTargetsFilterKey
+instance ToByteString AssociationExecutionTargetsFilterKey
+instance ToQuery      AssociationExecutionTargetsFilterKey
+instance ToHeader     AssociationExecutionTargetsFilterKey
+
+instance ToJSON AssociationExecutionTargetsFilterKey where
+    toJSON = toJSONText
+
 data AssociationFilterKey
   = AFKAssociationId
   | AFKAssociationName
@@ -61,6 +160,36 @@ instance ToHeader     AssociationFilterKey
 instance ToJSON AssociationFilterKey where
     toJSON = toJSONText
 
+data AssociationFilterOperatorType
+  = AFOTEqual
+  | AFOTGreaterThan
+  | AFOTLessThan
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AssociationFilterOperatorType where
+    parser = takeLowerText >>= \case
+        "equal" -> pure AFOTEqual
+        "greater_than" -> pure AFOTGreaterThan
+        "less_than" -> pure AFOTLessThan
+        e -> fromTextError $ "Failure parsing AssociationFilterOperatorType from value: '" <> e
+           <> "'. Accepted values: equal, greater_than, less_than"
+
+instance ToText AssociationFilterOperatorType where
+    toText = \case
+        AFOTEqual -> "EQUAL"
+        AFOTGreaterThan -> "GREATER_THAN"
+        AFOTLessThan -> "LESS_THAN"
+
+instance Hashable     AssociationFilterOperatorType
+instance NFData       AssociationFilterOperatorType
+instance ToByteString AssociationFilterOperatorType
+instance ToQuery      AssociationFilterOperatorType
+instance ToHeader     AssociationFilterOperatorType
+
+instance ToJSON AssociationFilterOperatorType where
+    toJSON = toJSONText
+
 data AssociationStatusName
   = ASNFailed
   | ASNPending
@@ -94,8 +223,57 @@ instance ToJSON AssociationStatusName where
 instance FromJSON AssociationStatusName where
     parseJSON = parseJSONText "AssociationStatusName"
 
+data AttachmentHashType =
+  SHA256
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AttachmentHashType where
+    parser = takeLowerText >>= \case
+        "sha256" -> pure SHA256
+        e -> fromTextError $ "Failure parsing AttachmentHashType from value: '" <> e
+           <> "'. Accepted values: sha256"
+
+instance ToText AttachmentHashType where
+    toText = \case
+        SHA256 -> "Sha256"
+
+instance Hashable     AttachmentHashType
+instance NFData       AttachmentHashType
+instance ToByteString AttachmentHashType
+instance ToQuery      AttachmentHashType
+instance ToHeader     AttachmentHashType
+
+instance FromJSON AttachmentHashType where
+    parseJSON = parseJSONText "AttachmentHashType"
+
+data AttachmentsSourceKey =
+  SourceURL
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AttachmentsSourceKey where
+    parser = takeLowerText >>= \case
+        "sourceurl" -> pure SourceURL
+        e -> fromTextError $ "Failure parsing AttachmentsSourceKey from value: '" <> e
+           <> "'. Accepted values: sourceurl"
+
+instance ToText AttachmentsSourceKey where
+    toText = \case
+        SourceURL -> "SourceUrl"
+
+instance Hashable     AttachmentsSourceKey
+instance NFData       AttachmentsSourceKey
+instance ToByteString AttachmentsSourceKey
+instance ToQuery      AttachmentsSourceKey
+instance ToHeader     AttachmentsSourceKey
+
+instance ToJSON AttachmentsSourceKey where
+    toJSON = toJSONText
+
 data AutomationExecutionFilterKey
-  = AEFKCurrentAction
+  = AEFKAutomationType
+  | AEFKCurrentAction
   | AEFKDocumentNamePrefix
   | AEFKExecutionId
   | AEFKExecutionStatus
@@ -107,6 +285,7 @@ data AutomationExecutionFilterKey
 
 instance FromText AutomationExecutionFilterKey where
     parser = takeLowerText >>= \case
+        "automationtype" -> pure AEFKAutomationType
         "currentaction" -> pure AEFKCurrentAction
         "documentnameprefix" -> pure AEFKDocumentNamePrefix
         "executionid" -> pure AEFKExecutionId
@@ -115,10 +294,11 @@ instance FromText AutomationExecutionFilterKey where
         "starttimeafter" -> pure AEFKStartTimeAfter
         "starttimebefore" -> pure AEFKStartTimeBefore
         e -> fromTextError $ "Failure parsing AutomationExecutionFilterKey from value: '" <> e
-           <> "'. Accepted values: currentaction, documentnameprefix, executionid, executionstatus, parentexecutionid, starttimeafter, starttimebefore"
+           <> "'. Accepted values: automationtype, currentaction, documentnameprefix, executionid, executionstatus, parentexecutionid, starttimeafter, starttimebefore"
 
 instance ToText AutomationExecutionFilterKey where
     toText = \case
+        AEFKAutomationType -> "AutomationType"
         AEFKCurrentAction -> "CurrentAction"
         AEFKDocumentNamePrefix -> "DocumentNamePrefix"
         AEFKExecutionId -> "ExecutionId"
@@ -181,8 +361,37 @@ instance ToHeader     AutomationExecutionStatus
 instance FromJSON AutomationExecutionStatus where
     parseJSON = parseJSONText "AutomationExecutionStatus"
 
+data AutomationType
+  = CrossAccount
+  | Local
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AutomationType where
+    parser = takeLowerText >>= \case
+        "crossaccount" -> pure CrossAccount
+        "local" -> pure Local
+        e -> fromTextError $ "Failure parsing AutomationType from value: '" <> e
+           <> "'. Accepted values: crossaccount, local"
+
+instance ToText AutomationType where
+    toText = \case
+        CrossAccount -> "CrossAccount"
+        Local -> "Local"
+
+instance Hashable     AutomationType
+instance NFData       AutomationType
+instance ToByteString AutomationType
+instance ToQuery      AutomationType
+instance ToHeader     AutomationType
+
+instance FromJSON AutomationType where
+    parseJSON = parseJSONText "AutomationType"
+
 data CommandFilterKey
-  = CommandInvokedAfter
+  = CommandDocumentName
+  | CommandExecutionStage
+  | CommandInvokedAfter
   | CommandInvokedBefore
   | CommandStatus
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -190,14 +399,18 @@ data CommandFilterKey
 
 instance FromText CommandFilterKey where
     parser = takeLowerText >>= \case
+        "documentname" -> pure CommandDocumentName
+        "executionstage" -> pure CommandExecutionStage
         "invokedafter" -> pure CommandInvokedAfter
         "invokedbefore" -> pure CommandInvokedBefore
         "status" -> pure CommandStatus
         e -> fromTextError $ "Failure parsing CommandFilterKey from value: '" <> e
-           <> "'. Accepted values: invokedafter, invokedbefore, status"
+           <> "'. Accepted values: documentname, executionstage, invokedafter, invokedbefore, status"
 
 instance ToText CommandFilterKey where
     toText = \case
+        CommandDocumentName -> "DocumentName"
+        CommandExecutionStage -> "ExecutionStage"
         CommandInvokedAfter -> "InvokedAfter"
         CommandInvokedBefore -> "InvokedBefore"
         CommandStatus -> "Status"
@@ -445,6 +658,33 @@ instance ToJSON ComplianceStatus where
 instance FromJSON ComplianceStatus where
     parseJSON = parseJSONText "ComplianceStatus"
 
+data ConnectionStatus
+  = Connected
+  | NotConnected
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ConnectionStatus where
+    parser = takeLowerText >>= \case
+        "connected" -> pure Connected
+        "notconnected" -> pure NotConnected
+        e -> fromTextError $ "Failure parsing ConnectionStatus from value: '" <> e
+           <> "'. Accepted values: connected, notconnected"
+
+instance ToText ConnectionStatus where
+    toText = \case
+        Connected -> "Connected"
+        NotConnected -> "NotConnected"
+
+instance Hashable     ConnectionStatus
+instance NFData       ConnectionStatus
+instance ToByteString ConnectionStatus
+instance ToQuery      ConnectionStatus
+instance ToHeader     ConnectionStatus
+
+instance FromJSON ConnectionStatus where
+    parseJSON = parseJSONText "ConnectionStatus"
+
 data DescribeActivationsFilterKeys
   = ActivationIds
   | DefaultInstanceName
@@ -619,29 +859,35 @@ instance ToHeader     DocumentPermissionType
 instance ToJSON DocumentPermissionType where
     toJSON = toJSONText
 
+-- | The status of a document.
+--
+--
 data DocumentStatus
-  = Active
-  | Creating
-  | Deleting
-  | Updating
+  = DSActive
+  | DSCreating
+  | DSDeleting
+  | DSFailed
+  | DSUpdating
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText DocumentStatus where
     parser = takeLowerText >>= \case
-        "active" -> pure Active
-        "creating" -> pure Creating
-        "deleting" -> pure Deleting
-        "updating" -> pure Updating
+        "active" -> pure DSActive
+        "creating" -> pure DSCreating
+        "deleting" -> pure DSDeleting
+        "failed" -> pure DSFailed
+        "updating" -> pure DSUpdating
         e -> fromTextError $ "Failure parsing DocumentStatus from value: '" <> e
-           <> "'. Accepted values: active, creating, deleting, updating"
+           <> "'. Accepted values: active, creating, deleting, failed, updating"
 
 instance ToText DocumentStatus where
     toText = \case
-        Active -> "Active"
-        Creating -> "Creating"
-        Deleting -> "Deleting"
-        Updating -> "Updating"
+        DSActive -> "Active"
+        DSCreating -> "Creating"
+        DSDeleting -> "Deleting"
+        DSFailed -> "Failed"
+        DSUpdating -> "Updating"
 
 instance Hashable     DocumentStatus
 instance NFData       DocumentStatus
@@ -655,7 +901,9 @@ instance FromJSON DocumentStatus where
 data DocumentType
   = DTAutomation
   | DTCommand
+  | DTPackage
   | DTPolicy
+  | DTSession
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -663,15 +911,19 @@ instance FromText DocumentType where
     parser = takeLowerText >>= \case
         "automation" -> pure DTAutomation
         "command" -> pure DTCommand
+        "package" -> pure DTPackage
         "policy" -> pure DTPolicy
+        "session" -> pure DTSession
         e -> fromTextError $ "Failure parsing DocumentType from value: '" <> e
-           <> "'. Accepted values: automation, command, policy"
+           <> "'. Accepted values: automation, command, package, policy, session"
 
 instance ToText DocumentType where
     toText = \case
         DTAutomation -> "Automation"
         DTCommand -> "Command"
+        DTPackage -> "Package"
         DTPolicy -> "Policy"
+        DTSession -> "Session"
 
 instance Hashable     DocumentType
 instance NFData       DocumentType
@@ -880,6 +1132,7 @@ instance FromJSON InventoryDeletionStatus where
 data InventoryQueryOperatorType
   = BeginWith
   | Equal
+  | Exists
   | GreaterThan
   | LessThan
   | NotEqual
@@ -890,16 +1143,18 @@ instance FromText InventoryQueryOperatorType where
     parser = takeLowerText >>= \case
         "beginwith" -> pure BeginWith
         "equal" -> pure Equal
+        "exists" -> pure Exists
         "greaterthan" -> pure GreaterThan
         "lessthan" -> pure LessThan
         "notequal" -> pure NotEqual
         e -> fromTextError $ "Failure parsing InventoryQueryOperatorType from value: '" <> e
-           <> "'. Accepted values: beginwith, equal, greaterthan, lessthan, notequal"
+           <> "'. Accepted values: beginwith, equal, exists, greaterthan, lessthan, notequal"
 
 instance ToText InventoryQueryOperatorType where
     toText = \case
         BeginWith -> "BeginWith"
         Equal -> "Equal"
+        Exists -> "Exists"
         GreaterThan -> "GreaterThan"
         LessThan -> "LessThan"
         NotEqual -> "NotEqual"
@@ -1152,6 +1407,7 @@ instance FromJSON NotificationType where
 
 data OperatingSystem
   = AmazonLinux
+  | AmazonLinux2
   | Centos
   | RedhatEnterpriseLinux
   | Suse
@@ -1163,17 +1419,19 @@ data OperatingSystem
 instance FromText OperatingSystem where
     parser = takeLowerText >>= \case
         "amazon_linux" -> pure AmazonLinux
+        "amazon_linux_2" -> pure AmazonLinux2
         "centos" -> pure Centos
         "redhat_enterprise_linux" -> pure RedhatEnterpriseLinux
         "suse" -> pure Suse
         "ubuntu" -> pure Ubuntu
         "windows" -> pure Windows
         e -> fromTextError $ "Failure parsing OperatingSystem from value: '" <> e
-           <> "'. Accepted values: amazon_linux, centos, redhat_enterprise_linux, suse, ubuntu, windows"
+           <> "'. Accepted values: amazon_linux, amazon_linux_2, centos, redhat_enterprise_linux, suse, ubuntu, windows"
 
 instance ToText OperatingSystem where
     toText = \case
         AmazonLinux -> "AMAZON_LINUX"
+        AmazonLinux2 -> "AMAZON_LINUX_2"
         Centos -> "CENTOS"
         RedhatEnterpriseLinux -> "REDHAT_ENTERPRISE_LINUX"
         Suse -> "SUSE"
@@ -1255,10 +1513,41 @@ instance ToHeader     ParametersFilterKey
 instance ToJSON ParametersFilterKey where
     toJSON = toJSONText
 
+data PatchAction
+  = AllowAsDependency
+  | Block
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PatchAction where
+    parser = takeLowerText >>= \case
+        "allow_as_dependency" -> pure AllowAsDependency
+        "block" -> pure Block
+        e -> fromTextError $ "Failure parsing PatchAction from value: '" <> e
+           <> "'. Accepted values: allow_as_dependency, block"
+
+instance ToText PatchAction where
+    toText = \case
+        AllowAsDependency -> "ALLOW_AS_DEPENDENCY"
+        Block -> "BLOCK"
+
+instance Hashable     PatchAction
+instance NFData       PatchAction
+instance ToByteString PatchAction
+instance ToQuery      PatchAction
+instance ToHeader     PatchAction
+
+instance ToJSON PatchAction where
+    toJSON = toJSONText
+
+instance FromJSON PatchAction where
+    parseJSON = parseJSONText "PatchAction"
+
 data PatchComplianceDataState
   = Failed
   | Installed
   | InstalledOther
+  | InstalledRejected
   | Missing
   | NotApplicable
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -1269,16 +1558,18 @@ instance FromText PatchComplianceDataState where
         "failed" -> pure Failed
         "installed" -> pure Installed
         "installed_other" -> pure InstalledOther
+        "installed_rejected" -> pure InstalledRejected
         "missing" -> pure Missing
         "not_applicable" -> pure NotApplicable
         e -> fromTextError $ "Failure parsing PatchComplianceDataState from value: '" <> e
-           <> "'. Accepted values: failed, installed, installed_other, missing, not_applicable"
+           <> "'. Accepted values: failed, installed, installed_other, installed_rejected, missing, not_applicable"
 
 instance ToText PatchComplianceDataState where
     toText = \case
         Failed -> "FAILED"
         Installed -> "INSTALLED"
         InstalledOther -> "INSTALLED_OTHER"
+        InstalledRejected -> "INSTALLED_REJECTED"
         Missing -> "MISSING"
         NotApplicable -> "NOT_APPLICABLE"
 
@@ -1587,6 +1878,108 @@ instance ToHeader     ResourceTypeForTagging
 
 instance ToJSON ResourceTypeForTagging where
     toJSON = toJSONText
+
+data SessionFilterKey
+  = SFKInvokedAfter
+  | SFKInvokedBefore
+  | SFKOwner
+  | SFKStatus
+  | SFKTarget
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText SessionFilterKey where
+    parser = takeLowerText >>= \case
+        "invokedafter" -> pure SFKInvokedAfter
+        "invokedbefore" -> pure SFKInvokedBefore
+        "owner" -> pure SFKOwner
+        "status" -> pure SFKStatus
+        "target" -> pure SFKTarget
+        e -> fromTextError $ "Failure parsing SessionFilterKey from value: '" <> e
+           <> "'. Accepted values: invokedafter, invokedbefore, owner, status, target"
+
+instance ToText SessionFilterKey where
+    toText = \case
+        SFKInvokedAfter -> "InvokedAfter"
+        SFKInvokedBefore -> "InvokedBefore"
+        SFKOwner -> "Owner"
+        SFKStatus -> "Status"
+        SFKTarget -> "Target"
+
+instance Hashable     SessionFilterKey
+instance NFData       SessionFilterKey
+instance ToByteString SessionFilterKey
+instance ToQuery      SessionFilterKey
+instance ToHeader     SessionFilterKey
+
+instance ToJSON SessionFilterKey where
+    toJSON = toJSONText
+
+data SessionState
+  = Active
+  | History
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText SessionState where
+    parser = takeLowerText >>= \case
+        "active" -> pure Active
+        "history" -> pure History
+        e -> fromTextError $ "Failure parsing SessionState from value: '" <> e
+           <> "'. Accepted values: active, history"
+
+instance ToText SessionState where
+    toText = \case
+        Active -> "Active"
+        History -> "History"
+
+instance Hashable     SessionState
+instance NFData       SessionState
+instance ToByteString SessionState
+instance ToQuery      SessionState
+instance ToHeader     SessionState
+
+instance ToJSON SessionState where
+    toJSON = toJSONText
+
+data SessionStatus
+  = SSConnected
+  | SSConnecting
+  | SSDisconnected
+  | SSFailed
+  | SSTerminated
+  | SSTerminating
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText SessionStatus where
+    parser = takeLowerText >>= \case
+        "connected" -> pure SSConnected
+        "connecting" -> pure SSConnecting
+        "disconnected" -> pure SSDisconnected
+        "failed" -> pure SSFailed
+        "terminated" -> pure SSTerminated
+        "terminating" -> pure SSTerminating
+        e -> fromTextError $ "Failure parsing SessionStatus from value: '" <> e
+           <> "'. Accepted values: connected, connecting, disconnected, failed, terminated, terminating"
+
+instance ToText SessionStatus where
+    toText = \case
+        SSConnected -> "Connected"
+        SSConnecting -> "Connecting"
+        SSDisconnected -> "Disconnected"
+        SSFailed -> "Failed"
+        SSTerminated -> "Terminated"
+        SSTerminating -> "Terminating"
+
+instance Hashable     SessionStatus
+instance NFData       SessionStatus
+instance ToByteString SessionStatus
+instance ToQuery      SessionStatus
+instance ToHeader     SessionStatus
+
+instance FromJSON SessionStatus where
+    parseJSON = parseJSONText "SessionStatus"
 
 data SignalType
   = Approve

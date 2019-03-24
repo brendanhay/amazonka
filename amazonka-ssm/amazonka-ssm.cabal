@@ -47,6 +47,7 @@ library
           Network.AWS.SSM
         , Network.AWS.SSM.AddTagsToResource
         , Network.AWS.SSM.CancelCommand
+        , Network.AWS.SSM.CancelMaintenanceWindowExecution
         , Network.AWS.SSM.CreateActivation
         , Network.AWS.SSM.CreateAssociation
         , Network.AWS.SSM.CreateAssociationBatch
@@ -69,6 +70,8 @@ library
         , Network.AWS.SSM.DeregisterTaskFromMaintenanceWindow
         , Network.AWS.SSM.DescribeActivations
         , Network.AWS.SSM.DescribeAssociation
+        , Network.AWS.SSM.DescribeAssociationExecutionTargets
+        , Network.AWS.SSM.DescribeAssociationExecutions
         , Network.AWS.SSM.DescribeAutomationExecutions
         , Network.AWS.SSM.DescribeAutomationStepExecutions
         , Network.AWS.SSM.DescribeAvailablePatches
@@ -85,15 +88,19 @@ library
         , Network.AWS.SSM.DescribeMaintenanceWindowExecutionTaskInvocations
         , Network.AWS.SSM.DescribeMaintenanceWindowExecutionTasks
         , Network.AWS.SSM.DescribeMaintenanceWindowExecutions
+        , Network.AWS.SSM.DescribeMaintenanceWindowSchedule
         , Network.AWS.SSM.DescribeMaintenanceWindowTargets
         , Network.AWS.SSM.DescribeMaintenanceWindowTasks
         , Network.AWS.SSM.DescribeMaintenanceWindows
+        , Network.AWS.SSM.DescribeMaintenanceWindowsForTarget
         , Network.AWS.SSM.DescribeParameters
         , Network.AWS.SSM.DescribePatchBaselines
         , Network.AWS.SSM.DescribePatchGroupState
         , Network.AWS.SSM.DescribePatchGroups
+        , Network.AWS.SSM.DescribeSessions
         , Network.AWS.SSM.GetAutomationExecution
         , Network.AWS.SSM.GetCommandInvocation
+        , Network.AWS.SSM.GetConnectionStatus
         , Network.AWS.SSM.GetDefaultPatchBaseline
         , Network.AWS.SSM.GetDeployablePatchSnapshotForInstance
         , Network.AWS.SSM.GetDocument
@@ -110,6 +117,8 @@ library
         , Network.AWS.SSM.GetParametersByPath
         , Network.AWS.SSM.GetPatchBaseline
         , Network.AWS.SSM.GetPatchBaselineForPatchGroup
+        , Network.AWS.SSM.GetServiceSetting
+        , Network.AWS.SSM.LabelParameterVersion
         , Network.AWS.SSM.ListAssociationVersions
         , Network.AWS.SSM.ListAssociations
         , Network.AWS.SSM.ListCommandInvocations
@@ -131,10 +140,15 @@ library
         , Network.AWS.SSM.RegisterTargetWithMaintenanceWindow
         , Network.AWS.SSM.RegisterTaskWithMaintenanceWindow
         , Network.AWS.SSM.RemoveTagsFromResource
+        , Network.AWS.SSM.ResetServiceSetting
+        , Network.AWS.SSM.ResumeSession
         , Network.AWS.SSM.SendAutomationSignal
         , Network.AWS.SSM.SendCommand
+        , Network.AWS.SSM.StartAssociationsOnce
         , Network.AWS.SSM.StartAutomationExecution
+        , Network.AWS.SSM.StartSession
         , Network.AWS.SSM.StopAutomationExecution
+        , Network.AWS.SSM.TerminateSession
         , Network.AWS.SSM.Types
         , Network.AWS.SSM.UpdateAssociation
         , Network.AWS.SSM.UpdateAssociationStatus
@@ -145,6 +159,7 @@ library
         , Network.AWS.SSM.UpdateMaintenanceWindowTask
         , Network.AWS.SSM.UpdateManagedInstanceRole
         , Network.AWS.SSM.UpdatePatchBaseline
+        , Network.AWS.SSM.UpdateServiceSetting
         , Network.AWS.SSM.Waiters
 
     other-modules:

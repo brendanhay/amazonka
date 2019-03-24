@@ -21,6 +21,8 @@
 -- Query inventory information.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.GetInventory
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.SSM.GetInventory
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -103,6 +106,13 @@ giNextToken = lens _giNextToken (\ s a -> s{_giNextToken = a})
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 giMaxResults :: Lens' GetInventory (Maybe Natural)
 giMaxResults = lens _giMaxResults (\ s a -> s{_giMaxResults = a}) . mapping _Nat
+
+instance AWSPager GetInventory where
+        page rq rs
+          | stop (rs ^. girsNextToken) = Nothing
+          | stop (rs ^. girsEntities) = Nothing
+          | otherwise =
+            Just $ rq & giNextToken .~ rs ^. girsNextToken
 
 instance AWSRequest GetInventory where
         type Rs GetInventory = GetInventoryResponse

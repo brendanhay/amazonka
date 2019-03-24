@@ -28,7 +28,11 @@ module Network.AWS.SSM.CreateMaintenanceWindow
     , CreateMaintenanceWindow
     -- * Request Lenses
     , cmwClientToken
+    , cmwEndDate
+    , cmwScheduleTimezone
+    , cmwStartDate
     , cmwDescription
+    , cmwTags
     , cmwName
     , cmwSchedule
     , cmwDuration
@@ -53,7 +57,11 @@ import Network.AWS.SSM.Types.Product
 -- | /See:/ 'createMaintenanceWindow' smart constructor.
 data CreateMaintenanceWindow = CreateMaintenanceWindow'
   { _cmwClientToken              :: !(Maybe Text)
+  , _cmwEndDate                  :: !(Maybe Text)
+  , _cmwScheduleTimezone         :: !(Maybe Text)
+  , _cmwStartDate                :: !(Maybe Text)
   , _cmwDescription              :: !(Maybe (Sensitive Text))
+  , _cmwTags                     :: !(Maybe [Tag])
   , _cmwName                     :: !Text
   , _cmwSchedule                 :: !Text
   , _cmwDuration                 :: !Nat
@@ -68,7 +76,15 @@ data CreateMaintenanceWindow = CreateMaintenanceWindow'
 --
 -- * 'cmwClientToken' - User-provided idempotency token.
 --
+-- * 'cmwEndDate' - The date and time, in ISO-8601 Extended format, for when you want the Maintenance Window to become inactive. EndDate allows you to set a date and time in the future when the Maintenance Window will no longer run.
+--
+-- * 'cmwScheduleTimezone' - The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
+--
+-- * 'cmwStartDate' - The date and time, in ISO-8601 Extended format, for when you want the Maintenance Window to become active. StartDate allows you to delay activation of the Maintenance Window until the specified future date.
+--
 -- * 'cmwDescription' - An optional description for the Maintenance Window. We recommend specifying a description to help you organize your Maintenance Windows.
+--
+-- * 'cmwTags' - Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a Maintenance Window to identify the type of tasks it will run, the types of targets, and the environment it will run in. In this case, you could specify the following key name/value pairs:     * @Key=TaskType,Value=AgentUpdate@      * @Key=OS,Value=Windows@      * @Key=Environment,Value=Production@
 --
 -- * 'cmwName' - The name of the Maintenance Window.
 --
@@ -89,7 +105,11 @@ createMaintenanceWindow
 createMaintenanceWindow pName_ pSchedule_ pDuration_ pCutoff_ pAllowUnassociatedTargets_ =
   CreateMaintenanceWindow'
     { _cmwClientToken = Nothing
+    , _cmwEndDate = Nothing
+    , _cmwScheduleTimezone = Nothing
+    , _cmwStartDate = Nothing
     , _cmwDescription = Nothing
+    , _cmwTags = Nothing
     , _cmwName = pName_
     , _cmwSchedule = pSchedule_
     , _cmwDuration = _Nat # pDuration_
@@ -102,9 +122,25 @@ createMaintenanceWindow pName_ pSchedule_ pDuration_ pCutoff_ pAllowUnassociated
 cmwClientToken :: Lens' CreateMaintenanceWindow (Maybe Text)
 cmwClientToken = lens _cmwClientToken (\ s a -> s{_cmwClientToken = a})
 
+-- | The date and time, in ISO-8601 Extended format, for when you want the Maintenance Window to become inactive. EndDate allows you to set a date and time in the future when the Maintenance Window will no longer run.
+cmwEndDate :: Lens' CreateMaintenanceWindow (Maybe Text)
+cmwEndDate = lens _cmwEndDate (\ s a -> s{_cmwEndDate = a})
+
+-- | The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
+cmwScheduleTimezone :: Lens' CreateMaintenanceWindow (Maybe Text)
+cmwScheduleTimezone = lens _cmwScheduleTimezone (\ s a -> s{_cmwScheduleTimezone = a})
+
+-- | The date and time, in ISO-8601 Extended format, for when you want the Maintenance Window to become active. StartDate allows you to delay activation of the Maintenance Window until the specified future date.
+cmwStartDate :: Lens' CreateMaintenanceWindow (Maybe Text)
+cmwStartDate = lens _cmwStartDate (\ s a -> s{_cmwStartDate = a})
+
 -- | An optional description for the Maintenance Window. We recommend specifying a description to help you organize your Maintenance Windows.
 cmwDescription :: Lens' CreateMaintenanceWindow (Maybe Text)
 cmwDescription = lens _cmwDescription (\ s a -> s{_cmwDescription = a}) . mapping _Sensitive
+
+-- | Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a Maintenance Window to identify the type of tasks it will run, the types of targets, and the environment it will run in. In this case, you could specify the following key name/value pairs:     * @Key=TaskType,Value=AgentUpdate@      * @Key=OS,Value=Windows@      * @Key=Environment,Value=Production@
+cmwTags :: Lens' CreateMaintenanceWindow [Tag]
+cmwTags = lens _cmwTags (\ s a -> s{_cmwTags = a}) . _Default . _Coerce
 
 -- | The name of the Maintenance Window.
 cmwName :: Lens' CreateMaintenanceWindow Text
@@ -154,8 +190,11 @@ instance ToJSON CreateMaintenanceWindow where
           = object
               (catMaybes
                  [("ClientToken" .=) <$> _cmwClientToken,
+                  ("EndDate" .=) <$> _cmwEndDate,
+                  ("ScheduleTimezone" .=) <$> _cmwScheduleTimezone,
+                  ("StartDate" .=) <$> _cmwStartDate,
                   ("Description" .=) <$> _cmwDescription,
-                  Just ("Name" .= _cmwName),
+                  ("Tags" .=) <$> _cmwTags, Just ("Name" .= _cmwName),
                   Just ("Schedule" .= _cmwSchedule),
                   Just ("Duration" .= _cmwDuration),
                   Just ("Cutoff" .= _cmwCutoff),

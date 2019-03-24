@@ -21,6 +21,8 @@
 -- Retrieves information about the patches on the specified instance and their state relative to the patch baseline being used for the instance.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeInstancePatches
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.SSM.DescribeInstancePatches
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -96,6 +99,13 @@ dipMaxResults = lens _dipMaxResults (\ s a -> s{_dipMaxResults = a}) . mapping _
 dipInstanceId :: Lens' DescribeInstancePatches Text
 dipInstanceId = lens _dipInstanceId (\ s a -> s{_dipInstanceId = a})
 
+instance AWSPager DescribeInstancePatches where
+        page rq rs
+          | stop (rs ^. diprsNextToken) = Nothing
+          | stop (rs ^. diprsPatches) = Nothing
+          | otherwise =
+            Just $ rq & dipNextToken .~ rs ^. diprsNextToken
+
 instance AWSRequest DescribeInstancePatches where
         type Rs DescribeInstancePatches =
              DescribeInstancePatchesResponse
@@ -147,7 +157,7 @@ data DescribeInstancePatchesResponse = DescribeInstancePatchesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diprsPatches' - Each entry in the array is a structure containing: Title (string) KBId (string) Classification (string) Severity (string) State (string: "INSTALLED", "INSTALLED OTHER", "MISSING", "NOT APPLICABLE", "FAILED") InstalledTime (DateTime) InstalledBy (string)
+-- * 'diprsPatches' - Each entry in the array is a structure containing: Title (string) KBId (string) Classification (string) Severity (string) State (string, such as "INSTALLED" or "FAILED") InstalledTime (DateTime) InstalledBy (string)
 --
 -- * 'diprsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
@@ -163,7 +173,7 @@ describeInstancePatchesResponse pResponseStatus_ =
     }
 
 
--- | Each entry in the array is a structure containing: Title (string) KBId (string) Classification (string) Severity (string) State (string: "INSTALLED", "INSTALLED OTHER", "MISSING", "NOT APPLICABLE", "FAILED") InstalledTime (DateTime) InstalledBy (string)
+-- | Each entry in the array is a structure containing: Title (string) KBId (string) Classification (string) Severity (string) State (string, such as "INSTALLED" or "FAILED") InstalledTime (DateTime) InstalledBy (string)
 diprsPatches :: Lens' DescribeInstancePatchesResponse [PatchComplianceData]
 diprsPatches = lens _diprsPatches (\ s a -> s{_diprsPatches = a}) . _Default . _Coerce
 

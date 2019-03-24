@@ -21,6 +21,8 @@
 -- Retrieves the high-level patch state for the instances in the specified patch group.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -95,6 +98,16 @@ dipsfpgMaxResults = lens _dipsfpgMaxResults (\ s a -> s{_dipsfpgMaxResults = a})
 -- | The name of the patch group for which the patch state information should be retrieved.
 dipsfpgPatchGroup :: Lens' DescribeInstancePatchStatesForPatchGroup Text
 dipsfpgPatchGroup = lens _dipsfpgPatchGroup (\ s a -> s{_dipsfpgPatchGroup = a})
+
+instance AWSPager
+           DescribeInstancePatchStatesForPatchGroup
+         where
+        page rq rs
+          | stop (rs ^. dipsfpgrsNextToken) = Nothing
+          | stop (rs ^. dipsfpgrsInstancePatchStates) = Nothing
+          | otherwise =
+            Just $ rq &
+              dipsfpgNextToken .~ rs ^. dipsfpgrsNextToken
 
 instance AWSRequest
            DescribeInstancePatchStatesForPatchGroup

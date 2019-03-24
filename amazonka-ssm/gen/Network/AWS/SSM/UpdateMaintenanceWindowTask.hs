@@ -108,7 +108,7 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'umwtServiceRoleARN' - The IAM service role ARN to modify. The system assumes this role during task execution.
+-- * 'umwtServiceRoleARN' - The IAM service role ARN to modify. The system assumes this role during task execution. If you do not specify a service role ARN, Systems Manager will use your account's service-linked role for Systems Manager by default. If no service-linked role for Systems Manager exists in your account, it will be created when you run @RegisterTaskWithMaintenanceWindow@ without specifying a service role ARN. For more information, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Service-Linked Role Permissions for Systems Manager> and <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I Use a Service-Linked Role or a Custom Service Role to Run Maintenance Window Tasks? > in the /AWS Systems Manager User Guide/ .
 --
 -- * 'umwtReplace' - If True, then all fields that are required by the RegisterTaskWithMaintenanceWndow action are also required for this API request. Optional fields that are not specified are set to null.
 --
@@ -158,7 +158,7 @@ updateMaintenanceWindowTask pWindowId_ pWindowTaskId_ =
     }
 
 
--- | The IAM service role ARN to modify. The system assumes this role during task execution.
+-- | The IAM service role ARN to modify. The system assumes this role during task execution. If you do not specify a service role ARN, Systems Manager will use your account's service-linked role for Systems Manager by default. If no service-linked role for Systems Manager exists in your account, it will be created when you run @RegisterTaskWithMaintenanceWindow@ without specifying a service role ARN. For more information, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Service-Linked Role Permissions for Systems Manager> and <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I Use a Service-Linked Role or a Custom Service Role to Run Maintenance Window Tasks? > in the /AWS Systems Manager User Guide/ .
 umwtServiceRoleARN :: Lens' UpdateMaintenanceWindowTask (Maybe Text)
 umwtServiceRoleARN = lens _umwtServiceRoleARN (\ s a -> s{_umwtServiceRoleARN = a})
 

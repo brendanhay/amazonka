@@ -21,6 +21,8 @@
 -- Lists the tasks in a Maintenance Window.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeMaintenanceWindowTasks
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.SSM.DescribeMaintenanceWindowTasks
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -95,6 +98,14 @@ dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a}) . mapping _Nat
 -- | The ID of the Maintenance Window whose tasks should be retrieved.
 dWindowId :: Lens' DescribeMaintenanceWindowTasks Text
 dWindowId = lens _dWindowId (\ s a -> s{_dWindowId = a})
+
+instance AWSPager DescribeMaintenanceWindowTasks
+         where
+        page rq rs
+          | stop (rs ^. dmwtsrsNextToken) = Nothing
+          | stop (rs ^. dmwtsrsTasks) = Nothing
+          | otherwise =
+            Just $ rq & dNextToken .~ rs ^. dmwtsrsNextToken
 
 instance AWSRequest DescribeMaintenanceWindowTasks
          where

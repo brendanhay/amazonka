@@ -21,6 +21,8 @@
 -- Lists all patch groups that have been registered with patch baselines.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribePatchGroups
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.SSM.DescribePatchGroups
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -82,6 +85,13 @@ dpgNextToken = lens _dpgNextToken (\ s a -> s{_dpgNextToken = a})
 -- | The maximum number of patch groups to return (per page).
 dpgMaxResults :: Lens' DescribePatchGroups (Maybe Natural)
 dpgMaxResults = lens _dpgMaxResults (\ s a -> s{_dpgMaxResults = a}) . mapping _Nat
+
+instance AWSPager DescribePatchGroups where
+        page rq rs
+          | stop (rs ^. dpgrsNextToken) = Nothing
+          | stop (rs ^. dpgrsMappings) = Nothing
+          | otherwise =
+            Just $ rq & dpgNextToken .~ rs ^. dpgrsNextToken
 
 instance AWSRequest DescribePatchGroups where
         type Rs DescribePatchGroups =

@@ -31,6 +31,7 @@ module Network.AWS.SSM.UpdatePatchBaseline
     , upbApprovalRules
     , upbGlobalFilters
     , upbApprovedPatchesComplianceLevel
+    , upbRejectedPatchesAction
     , upbApprovedPatches
     , upbApprovedPatchesEnableNonSecurity
     , upbRejectedPatches
@@ -47,6 +48,7 @@ module Network.AWS.SSM.UpdatePatchBaseline
     , upbrsOperatingSystem
     , upbrsGlobalFilters
     , upbrsApprovedPatchesComplianceLevel
+    , upbrsRejectedPatchesAction
     , upbrsApprovedPatches
     , upbrsApprovedPatchesEnableNonSecurity
     , upbrsRejectedPatches
@@ -72,6 +74,7 @@ data UpdatePatchBaseline = UpdatePatchBaseline'
   , _upbApprovalRules                    :: !(Maybe PatchRuleGroup)
   , _upbGlobalFilters                    :: !(Maybe PatchFilterGroup)
   , _upbApprovedPatchesComplianceLevel   :: !(Maybe PatchComplianceLevel)
+  , _upbRejectedPatchesAction            :: !(Maybe PatchAction)
   , _upbApprovedPatches                  :: !(Maybe [Text])
   , _upbApprovedPatchesEnableNonSecurity :: !(Maybe Bool)
   , _upbRejectedPatches                  :: !(Maybe [Text])
@@ -90,9 +93,11 @@ data UpdatePatchBaseline = UpdatePatchBaseline'
 --
 -- * 'upbApprovalRules' - A set of rules used to include patches in the baseline.
 --
--- * 'upbGlobalFilters' - A set of global filters used to exclude patches from the baseline.
+-- * 'upbGlobalFilters' - A set of global filters used to include patches in the baseline.
 --
 -- * 'upbApprovedPatchesComplianceLevel' - Assigns a new compliance severity level to an existing patch baseline.
+--
+-- * 'upbRejectedPatchesAction' - The action for Patch Manager to take on patches included in the RejectedPackages list.     * __ALLOW_AS_DEPENDENCY__ : A package in the Rejected patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as /InstalledOther/ . This is the default action if no option is specified.     * __BLOCK__ : Packages in the RejectedPatches list, and packages that include them as dependencies, are not installed under any circumstances. If a package was installed before it was added to the Rejected patches list, it is considered non-compliant with the patch baseline, and its status is reported as /InstalledRejected/ .
 --
 -- * 'upbApprovedPatches' - A list of explicitly approved patches for the baseline. For information about accepted formats for lists of approved patches and rejected patches, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html Package Name Formats for Approved and Rejected Patch Lists> in the /AWS Systems Manager User Guide/ .
 --
@@ -116,6 +121,7 @@ updatePatchBaseline pBaselineId_ =
     , _upbApprovalRules = Nothing
     , _upbGlobalFilters = Nothing
     , _upbApprovedPatchesComplianceLevel = Nothing
+    , _upbRejectedPatchesAction = Nothing
     , _upbApprovedPatches = Nothing
     , _upbApprovedPatchesEnableNonSecurity = Nothing
     , _upbRejectedPatches = Nothing
@@ -134,13 +140,17 @@ upbReplace = lens _upbReplace (\ s a -> s{_upbReplace = a})
 upbApprovalRules :: Lens' UpdatePatchBaseline (Maybe PatchRuleGroup)
 upbApprovalRules = lens _upbApprovalRules (\ s a -> s{_upbApprovalRules = a})
 
--- | A set of global filters used to exclude patches from the baseline.
+-- | A set of global filters used to include patches in the baseline.
 upbGlobalFilters :: Lens' UpdatePatchBaseline (Maybe PatchFilterGroup)
 upbGlobalFilters = lens _upbGlobalFilters (\ s a -> s{_upbGlobalFilters = a})
 
 -- | Assigns a new compliance severity level to an existing patch baseline.
 upbApprovedPatchesComplianceLevel :: Lens' UpdatePatchBaseline (Maybe PatchComplianceLevel)
 upbApprovedPatchesComplianceLevel = lens _upbApprovedPatchesComplianceLevel (\ s a -> s{_upbApprovedPatchesComplianceLevel = a})
+
+-- | The action for Patch Manager to take on patches included in the RejectedPackages list.     * __ALLOW_AS_DEPENDENCY__ : A package in the Rejected patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as /InstalledOther/ . This is the default action if no option is specified.     * __BLOCK__ : Packages in the RejectedPatches list, and packages that include them as dependencies, are not installed under any circumstances. If a package was installed before it was added to the Rejected patches list, it is considered non-compliant with the patch baseline, and its status is reported as /InstalledRejected/ .
+upbRejectedPatchesAction :: Lens' UpdatePatchBaseline (Maybe PatchAction)
+upbRejectedPatchesAction = lens _upbRejectedPatchesAction (\ s a -> s{_upbRejectedPatchesAction = a})
 
 -- | A list of explicitly approved patches for the baseline. For information about accepted formats for lists of approved patches and rejected patches, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html Package Name Formats for Approved and Rejected Patch Lists> in the /AWS Systems Manager User Guide/ .
 upbApprovedPatches :: Lens' UpdatePatchBaseline [Text]
@@ -181,6 +191,7 @@ instance AWSRequest UpdatePatchBaseline where
                    (x .?> "ApprovalRules") <*> (x .?> "OperatingSystem")
                      <*> (x .?> "GlobalFilters")
                      <*> (x .?> "ApprovedPatchesComplianceLevel")
+                     <*> (x .?> "RejectedPatchesAction")
                      <*> (x .?> "ApprovedPatches" .!@ mempty)
                      <*> (x .?> "ApprovedPatchesEnableNonSecurity")
                      <*> (x .?> "RejectedPatches" .!@ mempty)
@@ -214,6 +225,8 @@ instance ToJSON UpdatePatchBaseline where
                   ("GlobalFilters" .=) <$> _upbGlobalFilters,
                   ("ApprovedPatchesComplianceLevel" .=) <$>
                     _upbApprovedPatchesComplianceLevel,
+                  ("RejectedPatchesAction" .=) <$>
+                    _upbRejectedPatchesAction,
                   ("ApprovedPatches" .=) <$> _upbApprovedPatches,
                   ("ApprovedPatchesEnableNonSecurity" .=) <$>
                     _upbApprovedPatchesEnableNonSecurity,
@@ -235,6 +248,7 @@ data UpdatePatchBaselineResponse = UpdatePatchBaselineResponse'
   , _upbrsOperatingSystem                  :: !(Maybe OperatingSystem)
   , _upbrsGlobalFilters                    :: !(Maybe PatchFilterGroup)
   , _upbrsApprovedPatchesComplianceLevel   :: !(Maybe PatchComplianceLevel)
+  , _upbrsRejectedPatchesAction            :: !(Maybe PatchAction)
   , _upbrsApprovedPatches                  :: !(Maybe [Text])
   , _upbrsApprovedPatchesEnableNonSecurity :: !(Maybe Bool)
   , _upbrsRejectedPatches                  :: !(Maybe [Text])
@@ -259,6 +273,8 @@ data UpdatePatchBaselineResponse = UpdatePatchBaselineResponse'
 -- * 'upbrsGlobalFilters' - A set of global filters used to exclude patches from the baseline.
 --
 -- * 'upbrsApprovedPatchesComplianceLevel' - The compliance severity level assigned to the patch baseline after the update completed.
+--
+-- * 'upbrsRejectedPatchesAction' - The action specified to take on patches included in the RejectedPatches list. A patch can be allowed only if it is a dependency of another package, or blocked entirely along with packages that include it as a dependency.
 --
 -- * 'upbrsApprovedPatches' - A list of explicitly approved patches for the baseline.
 --
@@ -288,6 +304,7 @@ updatePatchBaselineResponse pResponseStatus_ =
     , _upbrsOperatingSystem = Nothing
     , _upbrsGlobalFilters = Nothing
     , _upbrsApprovedPatchesComplianceLevel = Nothing
+    , _upbrsRejectedPatchesAction = Nothing
     , _upbrsApprovedPatches = Nothing
     , _upbrsApprovedPatchesEnableNonSecurity = Nothing
     , _upbrsRejectedPatches = Nothing
@@ -316,6 +333,10 @@ upbrsGlobalFilters = lens _upbrsGlobalFilters (\ s a -> s{_upbrsGlobalFilters = 
 -- | The compliance severity level assigned to the patch baseline after the update completed.
 upbrsApprovedPatchesComplianceLevel :: Lens' UpdatePatchBaselineResponse (Maybe PatchComplianceLevel)
 upbrsApprovedPatchesComplianceLevel = lens _upbrsApprovedPatchesComplianceLevel (\ s a -> s{_upbrsApprovedPatchesComplianceLevel = a})
+
+-- | The action specified to take on patches included in the RejectedPatches list. A patch can be allowed only if it is a dependency of another package, or blocked entirely along with packages that include it as a dependency.
+upbrsRejectedPatchesAction :: Lens' UpdatePatchBaselineResponse (Maybe PatchAction)
+upbrsRejectedPatchesAction = lens _upbrsRejectedPatchesAction (\ s a -> s{_upbrsRejectedPatchesAction = a})
 
 -- | A list of explicitly approved patches for the baseline.
 upbrsApprovedPatches :: Lens' UpdatePatchBaselineResponse [Text]

@@ -21,6 +21,8 @@
 -- Return a list of inventory type names for the account, or return a list of attribute names for a specific Inventory item type.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.GetInventorySchema
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.SSM.GetInventorySchema
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -103,6 +106,13 @@ gisSubType = lens _gisSubType (\ s a -> s{_gisSubType = a})
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 gisMaxResults :: Lens' GetInventorySchema (Maybe Natural)
 gisMaxResults = lens _gisMaxResults (\ s a -> s{_gisMaxResults = a}) . mapping _Nat
+
+instance AWSPager GetInventorySchema where
+        page rq rs
+          | stop (rs ^. gisrsNextToken) = Nothing
+          | stop (rs ^. gisrsSchemas) = Nothing
+          | otherwise =
+            Just $ rq & gisNextToken .~ rs ^. gisrsNextToken
 
 instance AWSRequest GetInventorySchema where
         type Rs GetInventorySchema =

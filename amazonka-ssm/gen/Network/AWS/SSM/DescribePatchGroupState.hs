@@ -37,6 +37,7 @@ module Network.AWS.SSM.DescribePatchGroupState
     , dpgsrsInstancesWithInstalledOtherPatches
     , dpgsrsInstancesWithNotApplicablePatches
     , dpgsrsInstancesWithInstalledPatches
+    , dpgsrsInstancesWithInstalledRejectedPatches
     , dpgsrsInstances
     , dpgsrsInstancesWithFailedPatches
     , dpgsrsResponseStatus
@@ -83,6 +84,7 @@ instance AWSRequest DescribePatchGroupState where
                      (x .?> "InstancesWithInstalledOtherPatches")
                      <*> (x .?> "InstancesWithNotApplicablePatches")
                      <*> (x .?> "InstancesWithInstalledPatches")
+                     <*> (x .?> "InstancesWithInstalledRejectedPatches")
                      <*> (x .?> "Instances")
                      <*> (x .?> "InstancesWithFailedPatches")
                      <*> (pure (fromEnum s)))
@@ -113,13 +115,14 @@ instance ToQuery DescribePatchGroupState where
 
 -- | /See:/ 'describePatchGroupStateResponse' smart constructor.
 data DescribePatchGroupStateResponse = DescribePatchGroupStateResponse'
-  { _dpgsrsInstancesWithMissingPatches        :: !(Maybe Int)
-  , _dpgsrsInstancesWithInstalledOtherPatches :: !(Maybe Int)
-  , _dpgsrsInstancesWithNotApplicablePatches  :: !(Maybe Int)
-  , _dpgsrsInstancesWithInstalledPatches      :: !(Maybe Int)
-  , _dpgsrsInstances                          :: !(Maybe Int)
-  , _dpgsrsInstancesWithFailedPatches         :: !(Maybe Int)
-  , _dpgsrsResponseStatus                     :: !Int
+  { _dpgsrsInstancesWithMissingPatches           :: !(Maybe Int)
+  , _dpgsrsInstancesWithInstalledOtherPatches    :: !(Maybe Int)
+  , _dpgsrsInstancesWithNotApplicablePatches     :: !(Maybe Int)
+  , _dpgsrsInstancesWithInstalledPatches         :: !(Maybe Int)
+  , _dpgsrsInstancesWithInstalledRejectedPatches :: !(Maybe Int)
+  , _dpgsrsInstances                             :: !(Maybe Int)
+  , _dpgsrsInstancesWithFailedPatches            :: !(Maybe Int)
+  , _dpgsrsResponseStatus                        :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -135,6 +138,8 @@ data DescribePatchGroupStateResponse = DescribePatchGroupStateResponse'
 --
 -- * 'dpgsrsInstancesWithInstalledPatches' - The number of instances with installed patches.
 --
+-- * 'dpgsrsInstancesWithInstalledRejectedPatches' - The number of instances with patches installed that are specified in a RejectedPatches list. Patches with a status of /INSTALLED_REJECTED/ were typically installed before they were added to a RejectedPatches list.
+--
 -- * 'dpgsrsInstances' - The number of instances in the patch group.
 --
 -- * 'dpgsrsInstancesWithFailedPatches' - The number of instances with patches from the patch baseline that failed to install.
@@ -149,6 +154,7 @@ describePatchGroupStateResponse pResponseStatus_ =
     , _dpgsrsInstancesWithInstalledOtherPatches = Nothing
     , _dpgsrsInstancesWithNotApplicablePatches = Nothing
     , _dpgsrsInstancesWithInstalledPatches = Nothing
+    , _dpgsrsInstancesWithInstalledRejectedPatches = Nothing
     , _dpgsrsInstances = Nothing
     , _dpgsrsInstancesWithFailedPatches = Nothing
     , _dpgsrsResponseStatus = pResponseStatus_
@@ -170,6 +176,10 @@ dpgsrsInstancesWithNotApplicablePatches = lens _dpgsrsInstancesWithNotApplicable
 -- | The number of instances with installed patches.
 dpgsrsInstancesWithInstalledPatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
 dpgsrsInstancesWithInstalledPatches = lens _dpgsrsInstancesWithInstalledPatches (\ s a -> s{_dpgsrsInstancesWithInstalledPatches = a})
+
+-- | The number of instances with patches installed that are specified in a RejectedPatches list. Patches with a status of /INSTALLED_REJECTED/ were typically installed before they were added to a RejectedPatches list.
+dpgsrsInstancesWithInstalledRejectedPatches :: Lens' DescribePatchGroupStateResponse (Maybe Int)
+dpgsrsInstancesWithInstalledRejectedPatches = lens _dpgsrsInstancesWithInstalledRejectedPatches (\ s a -> s{_dpgsrsInstancesWithInstalledRejectedPatches = a})
 
 -- | The number of instances in the patch group.
 dpgsrsInstances :: Lens' DescribePatchGroupStateResponse (Maybe Int)

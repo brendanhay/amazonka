@@ -64,9 +64,9 @@ data DescribeInstanceInformation = DescribeInstanceInformation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diiInstanceInformationFilterList' - One or more filters. Use a filter to return a more specific list of instances.
+-- * 'diiInstanceInformationFilterList' - This is a legacy method. We recommend that you don't use this method. Instead, use the 'InstanceInformationFilter' action. The @InstanceInformationFilter@ action enables you to return instance information by using tags that are specified as a key-value mapping.  If you do use this method, then you can't use the @InstanceInformationFilter@ action. Using this method and the @InstanceInformationFilter@ action causes an exception error.
 --
--- * 'diiFilters' - One or more filters. Use a filter to return a more specific list of instances.
+-- * 'diiFilters' - One or more filters. Use a filter to return a more specific list of instances. You can filter on Amazon EC2 tag. Specify tags by using a key-value mapping.
 --
 -- * 'diiNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
@@ -82,11 +82,11 @@ describeInstanceInformation =
     }
 
 
--- | One or more filters. Use a filter to return a more specific list of instances.
+-- | This is a legacy method. We recommend that you don't use this method. Instead, use the 'InstanceInformationFilter' action. The @InstanceInformationFilter@ action enables you to return instance information by using tags that are specified as a key-value mapping.  If you do use this method, then you can't use the @InstanceInformationFilter@ action. Using this method and the @InstanceInformationFilter@ action causes an exception error.
 diiInstanceInformationFilterList :: Lens' DescribeInstanceInformation [InstanceInformationFilter]
 diiInstanceInformationFilterList = lens _diiInstanceInformationFilterList (\ s a -> s{_diiInstanceInformationFilterList = a}) . _Default . _Coerce
 
--- | One or more filters. Use a filter to return a more specific list of instances.
+-- | One or more filters. Use a filter to return a more specific list of instances. You can filter on Amazon EC2 tag. Specify tags by using a key-value mapping.
 diiFilters :: Lens' DescribeInstanceInformation [InstanceInformationStringFilter]
 diiFilters = lens _diiFilters (\ s a -> s{_diiFilters = a}) . _Default . _Coerce
 

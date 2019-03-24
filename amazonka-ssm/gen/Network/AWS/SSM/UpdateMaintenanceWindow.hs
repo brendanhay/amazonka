@@ -30,6 +30,9 @@ module Network.AWS.SSM.UpdateMaintenanceWindow
     , umwReplace
     , umwEnabled
     , umwSchedule
+    , umwEndDate
+    , umwScheduleTimezone
+    , umwStartDate
     , umwName
     , umwCutoff
     , umwAllowUnassociatedTargets
@@ -43,6 +46,9 @@ module Network.AWS.SSM.UpdateMaintenanceWindow
     -- * Response Lenses
     , umwrsEnabled
     , umwrsSchedule
+    , umwrsEndDate
+    , umwrsScheduleTimezone
+    , umwrsStartDate
     , umwrsName
     , umwrsCutoff
     , umwrsAllowUnassociatedTargets
@@ -64,6 +70,9 @@ data UpdateMaintenanceWindow = UpdateMaintenanceWindow'
   { _umwReplace                  :: !(Maybe Bool)
   , _umwEnabled                  :: !(Maybe Bool)
   , _umwSchedule                 :: !(Maybe Text)
+  , _umwEndDate                  :: !(Maybe Text)
+  , _umwScheduleTimezone         :: !(Maybe Text)
+  , _umwStartDate                :: !(Maybe Text)
   , _umwName                     :: !(Maybe Text)
   , _umwCutoff                   :: !(Maybe Nat)
   , _umwAllowUnassociatedTargets :: !(Maybe Bool)
@@ -82,6 +91,12 @@ data UpdateMaintenanceWindow = UpdateMaintenanceWindow'
 -- * 'umwEnabled' - Whether the Maintenance Window is enabled.
 --
 -- * 'umwSchedule' - The schedule of the Maintenance Window in the form of a cron or rate expression.
+--
+-- * 'umwEndDate' - The date and time, in ISO-8601 Extended format, for when you want the Maintenance Window to become inactive. EndDate allows you to set a date and time in the future when the Maintenance Window will no longer run.
+--
+-- * 'umwScheduleTimezone' - The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
+--
+-- * 'umwStartDate' - The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
 --
 -- * 'umwName' - The name of the Maintenance Window.
 --
@@ -102,6 +117,9 @@ updateMaintenanceWindow pWindowId_ =
     { _umwReplace = Nothing
     , _umwEnabled = Nothing
     , _umwSchedule = Nothing
+    , _umwEndDate = Nothing
+    , _umwScheduleTimezone = Nothing
+    , _umwStartDate = Nothing
     , _umwName = Nothing
     , _umwCutoff = Nothing
     , _umwAllowUnassociatedTargets = Nothing
@@ -122,6 +140,18 @@ umwEnabled = lens _umwEnabled (\ s a -> s{_umwEnabled = a})
 -- | The schedule of the Maintenance Window in the form of a cron or rate expression.
 umwSchedule :: Lens' UpdateMaintenanceWindow (Maybe Text)
 umwSchedule = lens _umwSchedule (\ s a -> s{_umwSchedule = a})
+
+-- | The date and time, in ISO-8601 Extended format, for when you want the Maintenance Window to become inactive. EndDate allows you to set a date and time in the future when the Maintenance Window will no longer run.
+umwEndDate :: Lens' UpdateMaintenanceWindow (Maybe Text)
+umwEndDate = lens _umwEndDate (\ s a -> s{_umwEndDate = a})
+
+-- | The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
+umwScheduleTimezone :: Lens' UpdateMaintenanceWindow (Maybe Text)
+umwScheduleTimezone = lens _umwScheduleTimezone (\ s a -> s{_umwScheduleTimezone = a})
+
+-- | The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
+umwStartDate :: Lens' UpdateMaintenanceWindow (Maybe Text)
+umwStartDate = lens _umwStartDate (\ s a -> s{_umwStartDate = a})
 
 -- | The name of the Maintenance Window.
 umwName :: Lens' UpdateMaintenanceWindow (Maybe Text)
@@ -156,7 +186,10 @@ instance AWSRequest UpdateMaintenanceWindow where
               (\ s h x ->
                  UpdateMaintenanceWindowResponse' <$>
                    (x .?> "Enabled") <*> (x .?> "Schedule") <*>
-                     (x .?> "Name")
+                     (x .?> "EndDate")
+                     <*> (x .?> "ScheduleTimezone")
+                     <*> (x .?> "StartDate")
+                     <*> (x .?> "Name")
                      <*> (x .?> "Cutoff")
                      <*> (x .?> "AllowUnassociatedTargets")
                      <*> (x .?> "Description")
@@ -184,6 +217,9 @@ instance ToJSON UpdateMaintenanceWindow where
                  [("Replace" .=) <$> _umwReplace,
                   ("Enabled" .=) <$> _umwEnabled,
                   ("Schedule" .=) <$> _umwSchedule,
+                  ("EndDate" .=) <$> _umwEndDate,
+                  ("ScheduleTimezone" .=) <$> _umwScheduleTimezone,
+                  ("StartDate" .=) <$> _umwStartDate,
                   ("Name" .=) <$> _umwName,
                   ("Cutoff" .=) <$> _umwCutoff,
                   ("AllowUnassociatedTargets" .=) <$>
@@ -202,6 +238,9 @@ instance ToQuery UpdateMaintenanceWindow where
 data UpdateMaintenanceWindowResponse = UpdateMaintenanceWindowResponse'
   { _umwrsEnabled                  :: !(Maybe Bool)
   , _umwrsSchedule                 :: !(Maybe Text)
+  , _umwrsEndDate                  :: !(Maybe Text)
+  , _umwrsScheduleTimezone         :: !(Maybe Text)
+  , _umwrsStartDate                :: !(Maybe Text)
   , _umwrsName                     :: !(Maybe Text)
   , _umwrsCutoff                   :: !(Maybe Nat)
   , _umwrsAllowUnassociatedTargets :: !(Maybe Bool)
@@ -219,6 +258,12 @@ data UpdateMaintenanceWindowResponse = UpdateMaintenanceWindowResponse'
 -- * 'umwrsEnabled' - Whether the Maintenance Window is enabled.
 --
 -- * 'umwrsSchedule' - The schedule of the Maintenance Window in the form of a cron or rate expression.
+--
+-- * 'umwrsEndDate' - The date and time, in ISO-8601 Extended format, for when the Maintenance Window is scheduled to become inactive. The Maintenance Window will not run after this specified time.
+--
+-- * 'umwrsScheduleTimezone' - The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
+--
+-- * 'umwrsStartDate' - The date and time, in ISO-8601 Extended format, for when the Maintenance Window is scheduled to become active. The Maintenance Window will not run before this specified time.
 --
 -- * 'umwrsName' - The name of the Maintenance Window.
 --
@@ -240,6 +285,9 @@ updateMaintenanceWindowResponse pResponseStatus_ =
   UpdateMaintenanceWindowResponse'
     { _umwrsEnabled = Nothing
     , _umwrsSchedule = Nothing
+    , _umwrsEndDate = Nothing
+    , _umwrsScheduleTimezone = Nothing
+    , _umwrsStartDate = Nothing
     , _umwrsName = Nothing
     , _umwrsCutoff = Nothing
     , _umwrsAllowUnassociatedTargets = Nothing
@@ -257,6 +305,18 @@ umwrsEnabled = lens _umwrsEnabled (\ s a -> s{_umwrsEnabled = a})
 -- | The schedule of the Maintenance Window in the form of a cron or rate expression.
 umwrsSchedule :: Lens' UpdateMaintenanceWindowResponse (Maybe Text)
 umwrsSchedule = lens _umwrsSchedule (\ s a -> s{_umwrsSchedule = a})
+
+-- | The date and time, in ISO-8601 Extended format, for when the Maintenance Window is scheduled to become inactive. The Maintenance Window will not run after this specified time.
+umwrsEndDate :: Lens' UpdateMaintenanceWindowResponse (Maybe Text)
+umwrsEndDate = lens _umwrsEndDate (\ s a -> s{_umwrsEndDate = a})
+
+-- | The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
+umwrsScheduleTimezone :: Lens' UpdateMaintenanceWindowResponse (Maybe Text)
+umwrsScheduleTimezone = lens _umwrsScheduleTimezone (\ s a -> s{_umwrsScheduleTimezone = a})
+
+-- | The date and time, in ISO-8601 Extended format, for when the Maintenance Window is scheduled to become active. The Maintenance Window will not run before this specified time.
+umwrsStartDate :: Lens' UpdateMaintenanceWindowResponse (Maybe Text)
+umwrsStartDate = lens _umwrsStartDate (\ s a -> s{_umwrsStartDate = a})
 
 -- | The name of the Maintenance Window.
 umwrsName :: Lens' UpdateMaintenanceWindowResponse (Maybe Text)

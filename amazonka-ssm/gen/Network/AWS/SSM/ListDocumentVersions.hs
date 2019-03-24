@@ -21,6 +21,8 @@
 -- List all versions for a document.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.ListDocumentVersions
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.SSM.ListDocumentVersions
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -83,6 +86,13 @@ ldvMaxResults = lens _ldvMaxResults (\ s a -> s{_ldvMaxResults = a}) . mapping _
 -- | The name of the document about which you want version information.
 ldvName :: Lens' ListDocumentVersions Text
 ldvName = lens _ldvName (\ s a -> s{_ldvName = a})
+
+instance AWSPager ListDocumentVersions where
+        page rq rs
+          | stop (rs ^. ldvrsNextToken) = Nothing
+          | stop (rs ^. ldvrsDocumentVersions) = Nothing
+          | otherwise =
+            Just $ rq & ldvNextToken .~ rs ^. ldvrsNextToken
 
 instance AWSRequest ListDocumentVersions where
         type Rs ListDocumentVersions =

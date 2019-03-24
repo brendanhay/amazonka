@@ -151,7 +151,7 @@ data DeleteInventoryResponse = DeleteInventoryResponse'
 --
 -- * 'dirsTypeName' - The name of the inventory data type specified in the request.
 --
--- * 'dirsDeletionSummary' - A summary of the delete operation. For more information about this summary, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-delete.html#sysman-inventory-delete-summary Understanding the Delete Inventory Summary> .
+-- * 'dirsDeletionSummary' - A summary of the delete operation. For more information about this summary, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-delete.html#sysman-inventory-delete-summary Understanding the Delete Inventory Summary> in the /AWS Systems Manager User Guide/ .
 --
 -- * 'dirsDeletionId' - Every @DeleteInventory@ action is assigned a unique ID. This option returns a unique ID. You can use this ID to query the status of a delete operation. This option is useful for ensuring that a delete operation has completed before you begin other actions.
 --
@@ -172,7 +172,7 @@ deleteInventoryResponse pResponseStatus_ =
 dirsTypeName :: Lens' DeleteInventoryResponse (Maybe Text)
 dirsTypeName = lens _dirsTypeName (\ s a -> s{_dirsTypeName = a})
 
--- | A summary of the delete operation. For more information about this summary, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-delete.html#sysman-inventory-delete-summary Understanding the Delete Inventory Summary> .
+-- | A summary of the delete operation. For more information about this summary, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-delete.html#sysman-inventory-delete-summary Understanding the Delete Inventory Summary> in the /AWS Systems Manager User Guide/ .
 dirsDeletionSummary :: Lens' DeleteInventoryResponse (Maybe InventoryDeletionSummary)
 dirsDeletionSummary = lens _dirsDeletionSummary (\ s a -> s{_dirsDeletionSummary = a})
 

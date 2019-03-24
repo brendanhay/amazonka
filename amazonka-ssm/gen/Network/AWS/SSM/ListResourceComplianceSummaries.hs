@@ -21,6 +21,8 @@
 -- Returns a resource-level summary count. The summary includes information about compliant and non-compliant statuses and detailed compliance-item severity counts, according to the filter criteria you specify.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.ListResourceComplianceSummaries
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.SSM.ListResourceComplianceSummaries
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -85,6 +88,15 @@ lrcsNextToken = lens _lrcsNextToken (\ s a -> s{_lrcsNextToken = a})
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 lrcsMaxResults :: Lens' ListResourceComplianceSummaries (Maybe Natural)
 lrcsMaxResults = lens _lrcsMaxResults (\ s a -> s{_lrcsMaxResults = a}) . mapping _Nat
+
+instance AWSPager ListResourceComplianceSummaries
+         where
+        page rq rs
+          | stop (rs ^. lrcsrsNextToken) = Nothing
+          | stop (rs ^. lrcsrsResourceComplianceSummaryItems) =
+            Nothing
+          | otherwise =
+            Just $ rq & lrcsNextToken .~ rs ^. lrcsrsNextToken
 
 instance AWSRequest ListResourceComplianceSummaries
          where

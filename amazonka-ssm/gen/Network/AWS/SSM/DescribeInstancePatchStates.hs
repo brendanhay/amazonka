@@ -21,6 +21,8 @@
 -- Retrieves the high-level patch state of one or more instances.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeInstancePatchStates
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.SSM.DescribeInstancePatchStates
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -85,6 +88,13 @@ dipsMaxResults = lens _dipsMaxResults (\ s a -> s{_dipsMaxResults = a}) . mappin
 -- | The ID of the instance whose patch state information should be retrieved.
 dipsInstanceIds :: Lens' DescribeInstancePatchStates [Text]
 dipsInstanceIds = lens _dipsInstanceIds (\ s a -> s{_dipsInstanceIds = a}) . _Coerce
+
+instance AWSPager DescribeInstancePatchStates where
+        page rq rs
+          | stop (rs ^. dipsrsNextToken) = Nothing
+          | stop (rs ^. dipsrsInstancePatchStates) = Nothing
+          | otherwise =
+            Just $ rq & dipsNextToken .~ rs ^. dipsrsNextToken
 
 instance AWSRequest DescribeInstancePatchStates where
         type Rs DescribeInstancePatchStates =

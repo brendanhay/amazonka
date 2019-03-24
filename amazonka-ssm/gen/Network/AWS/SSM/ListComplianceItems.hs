@@ -21,6 +21,8 @@
 -- For a specified resource ID, this API action returns a list of compliance statuses for different resource types. Currently, you can only specify one resource ID per call. List results depend on the criteria specified in the filter.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.ListComplianceItems
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.SSM.ListComplianceItems
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -103,6 +106,13 @@ lMaxResults = lens _lMaxResults (\ s a -> s{_lMaxResults = a}) . mapping _Nat
 -- | The type of resource from which to get compliance information. Currently, the only supported resource type is @ManagedInstance@ .
 lResourceTypes :: Lens' ListComplianceItems (Maybe (NonEmpty Text))
 lResourceTypes = lens _lResourceTypes (\ s a -> s{_lResourceTypes = a}) . mapping _List1
+
+instance AWSPager ListComplianceItems where
+        page rq rs
+          | stop (rs ^. lcirsNextToken) = Nothing
+          | stop (rs ^. lcirsComplianceItems) = Nothing
+          | otherwise =
+            Just $ rq & lNextToken .~ rs ^. lcirsNextToken
 
 instance AWSRequest ListComplianceItems where
         type Rs ListComplianceItems =

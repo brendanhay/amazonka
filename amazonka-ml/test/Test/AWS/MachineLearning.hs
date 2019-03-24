@@ -15,9 +15,9 @@ module Test.AWS.MachineLearning
     , fixtures
     ) where
 
-import           Network.AWS.MachineLearning
-import           Test.AWS.Gen.MachineLearning
-import           Test.Tasty
+import Network.AWS.MachineLearning
+import Test.AWS.Gen.MachineLearning
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

@@ -15,9 +15,9 @@ module Test.AWS.DataPipeline
     , fixtures
     ) where
 
-import           Network.AWS.DataPipeline
-import           Test.AWS.Gen.DataPipeline
-import           Test.Tasty
+import Network.AWS.DataPipeline
+import Test.AWS.Gen.DataPipeline
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

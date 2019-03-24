@@ -26,6 +26,9 @@ module Network.AWS.Firehose.Types
     -- * CompressionFormat
     , CompressionFormat (..)
 
+    -- * DeliveryStreamEncryptionStatus
+    , DeliveryStreamEncryptionStatus (..)
+
     -- * DeliveryStreamStatus
     , DeliveryStreamStatus (..)
 
@@ -102,6 +105,7 @@ module Network.AWS.Firehose.Types
     -- * DeliveryStreamDescription
     , DeliveryStreamDescription
     , deliveryStreamDescription
+    , dsdDeliveryStreamEncryptionConfiguration
     , dsdCreateTimestamp
     , dsdSource
     , dsdLastUpdateTimestamp
@@ -112,6 +116,11 @@ module Network.AWS.Firehose.Types
     , dsdVersionId
     , dsdDestinations
     , dsdHasMoreDestinations
+
+    -- * DeliveryStreamEncryptionConfiguration
+    , DeliveryStreamEncryptionConfiguration
+    , deliveryStreamEncryptionConfiguration
+    , dsecStatus
 
     -- * Deserializer
     , Deserializer
@@ -197,6 +206,7 @@ module Network.AWS.Firehose.Types
     , esdcPrefix
     , esdcCloudWatchLoggingOptions
     , esdcS3BackupConfiguration
+    , esdcErrorOutputPrefix
     , esdcEncryptionConfiguration
     , esdcCompressionFormat
     , esdcBufferingHints
@@ -212,6 +222,7 @@ module Network.AWS.Firehose.Types
     , esddS3BackupDescription
     , esddPrefix
     , esddCloudWatchLoggingOptions
+    , esddErrorOutputPrefix
     , esddDataFormatConversionConfiguration
     , esddProcessingConfiguration
     , esddRoleARN
@@ -226,6 +237,7 @@ module Network.AWS.Firehose.Types
     , esduS3BackupMode
     , esduPrefix
     , esduCloudWatchLoggingOptions
+    , esduErrorOutputPrefix
     , esduS3BackupUpdate
     , esduEncryptionConfiguration
     , esduCompressionFormat
@@ -383,6 +395,7 @@ module Network.AWS.Firehose.Types
     , s3DestinationConfiguration
     , sdcPrefix
     , sdcCloudWatchLoggingOptions
+    , sdcErrorOutputPrefix
     , sdcEncryptionConfiguration
     , sdcCompressionFormat
     , sdcBufferingHints
@@ -394,6 +407,7 @@ module Network.AWS.Firehose.Types
     , s3DestinationDescription
     , s3Prefix
     , s3CloudWatchLoggingOptions
+    , s3ErrorOutputPrefix
     , s3RoleARN
     , s3BucketARN
     , s3BufferingHints
@@ -405,6 +419,7 @@ module Network.AWS.Firehose.Types
     , s3DestinationUpdate
     , sPrefix
     , sCloudWatchLoggingOptions
+    , sErrorOutputPrefix
     , sEncryptionConfiguration
     , sCompressionFormat
     , sBufferingHints
@@ -536,7 +551,7 @@ _InvalidArgumentException =
   _MatchServiceError firehose "InvalidArgumentException"
 
 
--- | Another modification has already happened. Fetch __VersionId__ again and use it to update the destination.
+-- | Another modification has already happened. Fetch @VersionId@ again and use it to update the destination.
 --
 --
 _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError

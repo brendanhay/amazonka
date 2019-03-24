@@ -50,6 +50,9 @@ module Network.AWS.Firehose
     -- ** PutRecord
     , module Network.AWS.Firehose.PutRecord
 
+    -- ** StopDeliveryStreamEncryption
+    , module Network.AWS.Firehose.StopDeliveryStreamEncryption
+
     -- ** TagDeliveryStream
     , module Network.AWS.Firehose.TagDeliveryStream
 
@@ -64,6 +67,9 @@ module Network.AWS.Firehose
 
     -- ** CreateDeliveryStream
     , module Network.AWS.Firehose.CreateDeliveryStream
+
+    -- ** StartDeliveryStreamEncryption
+    , module Network.AWS.Firehose.StartDeliveryStreamEncryption
 
     -- ** DescribeDeliveryStream
     , module Network.AWS.Firehose.DescribeDeliveryStream
@@ -81,6 +87,9 @@ module Network.AWS.Firehose
 
     -- ** CompressionFormat
     , CompressionFormat (..)
+
+    -- ** DeliveryStreamEncryptionStatus
+    , DeliveryStreamEncryptionStatus (..)
 
     -- ** DeliveryStreamStatus
     , DeliveryStreamStatus (..)
@@ -158,6 +167,7 @@ module Network.AWS.Firehose
     -- ** DeliveryStreamDescription
     , DeliveryStreamDescription
     , deliveryStreamDescription
+    , dsdDeliveryStreamEncryptionConfiguration
     , dsdCreateTimestamp
     , dsdSource
     , dsdLastUpdateTimestamp
@@ -168,6 +178,11 @@ module Network.AWS.Firehose
     , dsdVersionId
     , dsdDestinations
     , dsdHasMoreDestinations
+
+    -- ** DeliveryStreamEncryptionConfiguration
+    , DeliveryStreamEncryptionConfiguration
+    , deliveryStreamEncryptionConfiguration
+    , dsecStatus
 
     -- ** Deserializer
     , Deserializer
@@ -253,6 +268,7 @@ module Network.AWS.Firehose
     , esdcPrefix
     , esdcCloudWatchLoggingOptions
     , esdcS3BackupConfiguration
+    , esdcErrorOutputPrefix
     , esdcEncryptionConfiguration
     , esdcCompressionFormat
     , esdcBufferingHints
@@ -268,6 +284,7 @@ module Network.AWS.Firehose
     , esddS3BackupDescription
     , esddPrefix
     , esddCloudWatchLoggingOptions
+    , esddErrorOutputPrefix
     , esddDataFormatConversionConfiguration
     , esddProcessingConfiguration
     , esddRoleARN
@@ -282,6 +299,7 @@ module Network.AWS.Firehose
     , esduS3BackupMode
     , esduPrefix
     , esduCloudWatchLoggingOptions
+    , esduErrorOutputPrefix
     , esduS3BackupUpdate
     , esduEncryptionConfiguration
     , esduCompressionFormat
@@ -439,6 +457,7 @@ module Network.AWS.Firehose
     , s3DestinationConfiguration
     , sdcPrefix
     , sdcCloudWatchLoggingOptions
+    , sdcErrorOutputPrefix
     , sdcEncryptionConfiguration
     , sdcCompressionFormat
     , sdcBufferingHints
@@ -450,6 +469,7 @@ module Network.AWS.Firehose
     , s3DestinationDescription
     , s3Prefix
     , s3CloudWatchLoggingOptions
+    , s3ErrorOutputPrefix
     , s3RoleARN
     , s3BucketARN
     , s3BufferingHints
@@ -461,6 +481,7 @@ module Network.AWS.Firehose
     , s3DestinationUpdate
     , sPrefix
     , sCloudWatchLoggingOptions
+    , sErrorOutputPrefix
     , sEncryptionConfiguration
     , sCompressionFormat
     , sBufferingHints
@@ -546,6 +567,8 @@ import Network.AWS.Firehose.ListDeliveryStreams
 import Network.AWS.Firehose.ListTagsForDeliveryStream
 import Network.AWS.Firehose.PutRecord
 import Network.AWS.Firehose.PutRecordBatch
+import Network.AWS.Firehose.StartDeliveryStreamEncryption
+import Network.AWS.Firehose.StopDeliveryStreamEncryption
 import Network.AWS.Firehose.TagDeliveryStream
 import Network.AWS.Firehose.Types
 import Network.AWS.Firehose.UntagDeliveryStream

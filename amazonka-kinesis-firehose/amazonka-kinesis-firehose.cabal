@@ -52,6 +52,8 @@ library
         , Network.AWS.Firehose.ListTagsForDeliveryStream
         , Network.AWS.Firehose.PutRecord
         , Network.AWS.Firehose.PutRecordBatch
+        , Network.AWS.Firehose.StartDeliveryStreamEncryption
+        , Network.AWS.Firehose.StopDeliveryStreamEncryption
         , Network.AWS.Firehose.TagDeliveryStream
         , Network.AWS.Firehose.Types
         , Network.AWS.Firehose.UntagDeliveryStream

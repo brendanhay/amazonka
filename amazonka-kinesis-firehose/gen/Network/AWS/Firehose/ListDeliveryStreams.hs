@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists your delivery streams.
+-- Lists your delivery streams in alphabetical order of their names.
 --
 --
--- The number of delivery streams might be too large to return using a single call to @ListDeliveryStreams@ . You can limit the number of delivery streams returned, using the __Limit__ parameter. To determine whether there are more delivery streams to list, check the value of @HasMoreDeliveryStreams@ in the output. If there are more delivery streams to list, you can request them by specifying the name of the last delivery stream returned in the call in the @ExclusiveStartDeliveryStreamName@ parameter of a subsequent call.
+-- The number of delivery streams might be too large to return using a single call to @ListDeliveryStreams@ . You can limit the number of delivery streams returned, using the @Limit@ parameter. To determine whether there are more delivery streams to list, check the value of @HasMoreDeliveryStreams@ in the output. If there are more delivery streams to list, you can request them by calling this operation again and setting the @ExclusiveStartDeliveryStreamName@ parameter to the name of the last delivery stream returned in the last call.
 --
 module Network.AWS.Firehose.ListDeliveryStreams
     (
@@ -65,7 +65,7 @@ data ListDeliveryStreams = ListDeliveryStreams'
 --
 -- * 'ldsDeliveryStreamType' - The delivery stream type. This can be one of the following values:     * @DirectPut@ : Provider applications access the delivery stream directly.     * @KinesisStreamAsSource@ : The delivery stream uses a Kinesis data stream as a source. This parameter is optional. If this parameter is omitted, delivery streams of all types are returned.
 --
--- * 'ldsExclusiveStartDeliveryStreamName' - The name of the delivery stream to start the list with.
+-- * 'ldsExclusiveStartDeliveryStreamName' - The list of delivery streams returned by this call to @ListDeliveryStreams@ will start with the delivery stream whose name comes alphabetically immediately after the name you specify in @ExclusiveStartDeliveryStreamName@ .
 listDeliveryStreams
     :: ListDeliveryStreams
 listDeliveryStreams =
@@ -84,7 +84,7 @@ ldsLimit = lens _ldsLimit (\ s a -> s{_ldsLimit = a}) . mapping _Nat
 ldsDeliveryStreamType :: Lens' ListDeliveryStreams (Maybe DeliveryStreamType)
 ldsDeliveryStreamType = lens _ldsDeliveryStreamType (\ s a -> s{_ldsDeliveryStreamType = a})
 
--- | The name of the delivery stream to start the list with.
+-- | The list of delivery streams returned by this call to @ListDeliveryStreams@ will start with the delivery stream whose name comes alphabetically immediately after the name you specify in @ExclusiveStartDeliveryStreamName@ .
 ldsExclusiveStartDeliveryStreamName :: Lens' ListDeliveryStreams (Maybe Text)
 ldsExclusiveStartDeliveryStreamName = lens _ldsExclusiveStartDeliveryStreamName (\ s a -> s{_ldsExclusiveStartDeliveryStreamName = a})
 

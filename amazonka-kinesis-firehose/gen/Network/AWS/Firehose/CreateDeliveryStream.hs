@@ -27,13 +27,13 @@
 --
 -- A Kinesis Data Firehose delivery stream can be configured to receive records directly from providers using 'PutRecord' or 'PutRecordBatch' , or it can be configured to use an existing Kinesis stream as its source. To specify a Kinesis data stream as input, set the @DeliveryStreamType@ parameter to @KinesisStreamAsSource@ , and provide the Kinesis stream Amazon Resource Name (ARN) and role ARN in the @KinesisStreamSourceConfiguration@ parameter.
 --
--- A delivery stream is configured with a single destination: Amazon S3, Amazon ES, Amazon Redshift, or Splunk. You must specify only one of the following destination configuration parameters: __ExtendedS3DestinationConfiguration__ , __S3DestinationConfiguration__ , __ElasticsearchDestinationConfiguration__ , __RedshiftDestinationConfiguration__ , or __SplunkDestinationConfiguration__ .
+-- A delivery stream is configured with a single destination: Amazon S3, Amazon ES, Amazon Redshift, or Splunk. You must specify only one of the following destination configuration parameters: @ExtendedS3DestinationConfiguration@ , @S3DestinationConfiguration@ , @ElasticsearchDestinationConfiguration@ , @RedshiftDestinationConfiguration@ , or @SplunkDestinationConfiguration@ .
 --
--- When you specify __S3DestinationConfiguration__ , you can also provide the following optional values: __BufferingHints__ , __EncryptionConfiguration__ , and __CompressionFormat__ . By default, if no __BufferingHints__ value is provided, Kinesis Data Firehose buffers data up to 5 MB or for 5 minutes, whichever condition is satisfied first. __BufferingHints__ is a hint, so there are some cases where the service cannot adhere to these conditions strictly. For example, record boundaries might be such that the size is a little over or under the configured buffering size. By default, no encryption is performed. We strongly recommend that you enable encryption to ensure secure data storage in Amazon S3.
+-- When you specify @S3DestinationConfiguration@ , you can also provide the following optional values: BufferingHints, @EncryptionConfiguration@ , and @CompressionFormat@ . By default, if no @BufferingHints@ value is provided, Kinesis Data Firehose buffers data up to 5 MB or for 5 minutes, whichever condition is satisfied first. @BufferingHints@ is a hint, so there are some cases where the service cannot adhere to these conditions strictly. For example, record boundaries might be such that the size is a little over or under the configured buffering size. By default, no encryption is performed. We strongly recommend that you enable encryption to ensure secure data storage in Amazon S3.
 --
 -- A few notes about Amazon Redshift as a destination:
 --
---     * An Amazon Redshift destination requires an S3 bucket as intermediate location. Kinesis Data Firehose first delivers data to Amazon S3 and then uses @COPY@ syntax to load data into an Amazon Redshift table. This is specified in the __RedshiftDestinationConfiguration.S3Configuration__ parameter.
+--     * An Amazon Redshift destination requires an S3 bucket as intermediate location. Kinesis Data Firehose first delivers data to Amazon S3 and then uses @COPY@ syntax to load data into an Amazon Redshift table. This is specified in the @RedshiftDestinationConfiguration.S3Configuration@ parameter.
 --
 --     * The compression formats @SNAPPY@ or @ZIP@ cannot be specified in @RedshiftDestinationConfiguration.S3Configuration@ because the Amazon Redshift @COPY@ operation that reads from the S3 bucket doesn't support these compression formats.
 --
@@ -56,6 +56,7 @@ module Network.AWS.Firehose.CreateDeliveryStream
     , cdsKinesisStreamSourceConfiguration
     , cdsDeliveryStreamType
     , cdsSplunkDestinationConfiguration
+    , cdsTags
     , cdsDeliveryStreamName
 
     -- * Destructuring the Response
@@ -82,6 +83,7 @@ data CreateDeliveryStream = CreateDeliveryStream'
   , _cdsKinesisStreamSourceConfiguration :: !(Maybe KinesisStreamSourceConfiguration)
   , _cdsDeliveryStreamType :: !(Maybe DeliveryStreamType)
   , _cdsSplunkDestinationConfiguration :: !(Maybe SplunkDestinationConfiguration)
+  , _cdsTags :: !(Maybe (List1 Tag))
   , _cdsDeliveryStreamName :: !Text
   } deriving (Eq, Show, Data, Typeable, Generic)
 
@@ -104,6 +106,8 @@ data CreateDeliveryStream = CreateDeliveryStream'
 --
 -- * 'cdsSplunkDestinationConfiguration' - The destination in Splunk. You can specify only one destination.
 --
+-- * 'cdsTags' - A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags> in the AWS Billing and Cost Management User Guide. You can specify up to 50 tags when creating a delivery stream.
+--
 -- * 'cdsDeliveryStreamName' - The name of the delivery stream. This name must be unique per AWS account in the same AWS Region. If the delivery streams are in different accounts or different Regions, you can have multiple delivery streams with the same name.
 createDeliveryStream
     :: Text -- ^ 'cdsDeliveryStreamName'
@@ -117,6 +121,7 @@ createDeliveryStream pDeliveryStreamName_ =
     , _cdsKinesisStreamSourceConfiguration = Nothing
     , _cdsDeliveryStreamType = Nothing
     , _cdsSplunkDestinationConfiguration = Nothing
+    , _cdsTags = Nothing
     , _cdsDeliveryStreamName = pDeliveryStreamName_
     }
 
@@ -148,6 +153,10 @@ cdsDeliveryStreamType = lens _cdsDeliveryStreamType (\ s a -> s{_cdsDeliveryStre
 -- | The destination in Splunk. You can specify only one destination.
 cdsSplunkDestinationConfiguration :: Lens' CreateDeliveryStream (Maybe SplunkDestinationConfiguration)
 cdsSplunkDestinationConfiguration = lens _cdsSplunkDestinationConfiguration (\ s a -> s{_cdsSplunkDestinationConfiguration = a})
+
+-- | A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags> in the AWS Billing and Cost Management User Guide. You can specify up to 50 tags when creating a delivery stream.
+cdsTags :: Lens' CreateDeliveryStream (Maybe (NonEmpty Tag))
+cdsTags = lens _cdsTags (\ s a -> s{_cdsTags = a}) . mapping _List1
 
 -- | The name of the delivery stream. This name must be unique per AWS account in the same AWS Region. If the delivery streams are in different accounts or different Regions, you can have multiple delivery streams with the same name.
 cdsDeliveryStreamName :: Lens' CreateDeliveryStream Text
@@ -194,6 +203,7 @@ instance ToJSON CreateDeliveryStream where
                   ("DeliveryStreamType" .=) <$> _cdsDeliveryStreamType,
                   ("SplunkDestinationConfiguration" .=) <$>
                     _cdsSplunkDestinationConfiguration,
+                  ("Tags" .=) <$> _cdsTags,
                   Just
                     ("DeliveryStreamName" .= _cdsDeliveryStreamName)])
 

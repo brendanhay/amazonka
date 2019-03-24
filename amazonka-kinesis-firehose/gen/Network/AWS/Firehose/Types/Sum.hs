@@ -55,6 +55,39 @@ instance ToJSON CompressionFormat where
 instance FromJSON CompressionFormat where
     parseJSON = parseJSONText "CompressionFormat"
 
+data DeliveryStreamEncryptionStatus
+  = DSESDisabled
+  | DSESDisabling
+  | DSESEnabled
+  | DSESEnabling
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DeliveryStreamEncryptionStatus where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure DSESDisabled
+        "disabling" -> pure DSESDisabling
+        "enabled" -> pure DSESEnabled
+        "enabling" -> pure DSESEnabling
+        e -> fromTextError $ "Failure parsing DeliveryStreamEncryptionStatus from value: '" <> e
+           <> "'. Accepted values: disabled, disabling, enabled, enabling"
+
+instance ToText DeliveryStreamEncryptionStatus where
+    toText = \case
+        DSESDisabled -> "DISABLED"
+        DSESDisabling -> "DISABLING"
+        DSESEnabled -> "ENABLED"
+        DSESEnabling -> "ENABLING"
+
+instance Hashable     DeliveryStreamEncryptionStatus
+instance NFData       DeliveryStreamEncryptionStatus
+instance ToByteString DeliveryStreamEncryptionStatus
+instance ToQuery      DeliveryStreamEncryptionStatus
+instance ToHeader     DeliveryStreamEncryptionStatus
+
+instance FromJSON DeliveryStreamEncryptionStatus where
+    parseJSON = parseJSONText "DeliveryStreamEncryptionStatus"
+
 data DeliveryStreamStatus
   = Active
   | Creating

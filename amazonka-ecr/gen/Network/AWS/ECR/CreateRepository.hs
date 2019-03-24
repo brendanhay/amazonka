@@ -27,6 +27,7 @@ module Network.AWS.ECR.CreateRepository
       createRepository
     , CreateRepository
     -- * Request Lenses
+    , crTags
     , crRepositoryName
 
     -- * Destructuring the Response
@@ -45,8 +46,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'createRepository' smart constructor.
-newtype CreateRepository = CreateRepository'
-  { _crRepositoryName :: Text
+data CreateRepository = CreateRepository'
+  { _crTags           :: !(Maybe [Tag])
+  , _crRepositoryName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -54,13 +56,19 @@ newtype CreateRepository = CreateRepository'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'crTags' -
+--
 -- * 'crRepositoryName' - The name to use for the repository. The repository name may be specified on its own (such as @nginx-web-app@ ) or it can be prepended with a namespace to group the repository into a category (such as @project-a/nginx-web-app@ ).
 createRepository
     :: Text -- ^ 'crRepositoryName'
     -> CreateRepository
 createRepository pRepositoryName_ =
-  CreateRepository' {_crRepositoryName = pRepositoryName_}
+  CreateRepository' {_crTags = Nothing, _crRepositoryName = pRepositoryName_}
 
+
+-- |
+crTags :: Lens' CreateRepository [Tag]
+crTags = lens _crTags (\ s a -> s{_crTags = a}) . _Default . _Coerce
 
 -- | The name to use for the repository. The repository name may be specified on its own (such as @nginx-web-app@ ) or it can be prepended with a namespace to group the repository into a category (such as @project-a/nginx-web-app@ ).
 crRepositoryName :: Lens' CreateRepository Text
@@ -93,7 +101,8 @@ instance ToJSON CreateRepository where
         toJSON CreateRepository'{..}
           = object
               (catMaybes
-                 [Just ("repositoryName" .= _crRepositoryName)])
+                 [("tags" .=) <$> _crTags,
+                  Just ("repositoryName" .= _crRepositoryName)])
 
 instance ToPath CreateRepository where
         toPath = const "/"

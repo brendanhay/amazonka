@@ -27,10 +27,12 @@ module Network.AWS.ECR.Types
     , _ImageNotFoundException
     , _ImageAlreadyExistsException
     , _RepositoryNotFoundException
+    , _TooManyTagsException
     , _LifecyclePolicyPreviewInProgressException
     , _UploadNotFoundException
     , _LifecyclePolicyNotFoundException
     , _InvalidLayerPartException
+    , _InvalidTagParameterException
     , _RepositoryNotEmptyException
     , _RepositoryAlreadyExistsException
     , _RepositoryPolicyNotFoundException
@@ -150,6 +152,12 @@ module Network.AWS.ECR.Types
     , rRegistryId
     , rRepositoryURI
     , rRepositoryName
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
     ) where
 
 import Network.AWS.ECR.Types.Product
@@ -164,7 +172,7 @@ ecr =
   Service
     { _svcAbbrev = "ECR"
     , _svcSigner = v4
-    , _svcPrefix = "ecr"
+    , _svcPrefix = "api.ecr"
     , _svcVersion = "2015-09-21"
     , _svcEndpoint = defaultEndpoint ecr
     , _svcTimeout = Just 70
@@ -280,6 +288,13 @@ _RepositoryNotFoundException =
   _MatchServiceError ecr "RepositoryNotFoundException"
 
 
+-- | The list of tags on the repository is over the limit. The maximum number of tags that can be applied to a repository is 50.
+--
+--
+_TooManyTagsException :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyTagsException = _MatchServiceError ecr "TooManyTagsException"
+
+
 -- | The previous lifecycle policy preview request has not completed. Please try again later.
 --
 --
@@ -308,6 +323,14 @@ _LifecyclePolicyNotFoundException =
 --
 _InvalidLayerPartException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidLayerPartException = _MatchServiceError ecr "InvalidLayerPartException"
+
+
+-- | An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+--
+--
+_InvalidTagParameterException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidTagParameterException =
+  _MatchServiceError ecr "InvalidTagParameterException"
 
 
 -- | The specified repository contains images. To delete a repository that contains images, you must force the deletion with the @force@ parameter.

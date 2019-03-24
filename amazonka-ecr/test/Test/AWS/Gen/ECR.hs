@@ -40,6 +40,9 @@ import Test.Tasty
 --         , requestBatchDeleteImage $
 --             batchDeleteImage
 --
+--         , requestListTagsForResource $
+--             listTagsForResource
+--
 --         , requestGetLifecyclePolicyPreview $
 --             getLifecyclePolicyPreview
 --
@@ -70,11 +73,17 @@ import Test.Tasty
 --         , requestGetLifecyclePolicy $
 --             getLifecyclePolicy
 --
+--         , requestTagResource $
+--             tagResource
+--
 --         , requestSetRepositoryPolicy $
 --             setRepositoryPolicy
 --
 --         , requestInitiateLayerUpload $
 --             initiateLayerUpload
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestDeleteRepository $
 --             deleteRepository
@@ -109,6 +118,9 @@ import Test.Tasty
 --         , responseBatchDeleteImage $
 --             batchDeleteImageResponse
 --
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
+--
 --         , responseGetLifecyclePolicyPreview $
 --             getLifecyclePolicyPreviewResponse
 --
@@ -139,11 +151,17 @@ import Test.Tasty
 --         , responseGetLifecyclePolicy $
 --             getLifecyclePolicyResponse
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
 --         , responseSetRepositoryPolicy $
 --             setRepositoryPolicyResponse
 --
 --         , responseInitiateLayerUpload $
 --             initiateLayerUploadResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responseDeleteRepository $
 --             deleteRepositoryResponse
@@ -187,6 +205,11 @@ requestBatchDeleteImage :: BatchDeleteImage -> TestTree
 requestBatchDeleteImage = req
     "BatchDeleteImage"
     "fixture/BatchDeleteImage.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource = req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestGetLifecyclePolicyPreview :: GetLifecyclePolicyPreview -> TestTree
 requestGetLifecyclePolicyPreview = req
@@ -238,6 +261,11 @@ requestGetLifecyclePolicy = req
     "GetLifecyclePolicy"
     "fixture/GetLifecyclePolicy.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestSetRepositoryPolicy :: SetRepositoryPolicy -> TestTree
 requestSetRepositoryPolicy = req
     "SetRepositoryPolicy"
@@ -247,6 +275,11 @@ requestInitiateLayerUpload :: InitiateLayerUpload -> TestTree
 requestInitiateLayerUpload = req
     "InitiateLayerUpload"
     "fixture/InitiateLayerUpload.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestDeleteRepository :: DeleteRepository -> TestTree
 requestDeleteRepository = req
@@ -307,6 +340,13 @@ responseBatchDeleteImage = res
     "fixture/BatchDeleteImageResponse.proto"
     ecr
     (Proxy :: Proxy BatchDeleteImage)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource = res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    ecr
+    (Proxy :: Proxy ListTagsForResource)
 
 responseGetLifecyclePolicyPreview :: GetLifecyclePolicyPreviewResponse -> TestTree
 responseGetLifecyclePolicyPreview = res
@@ -378,6 +418,13 @@ responseGetLifecyclePolicy = res
     ecr
     (Proxy :: Proxy GetLifecyclePolicy)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    ecr
+    (Proxy :: Proxy TagResource)
+
 responseSetRepositoryPolicy :: SetRepositoryPolicyResponse -> TestTree
 responseSetRepositoryPolicy = res
     "SetRepositoryPolicyResponse"
@@ -391,6 +438,13 @@ responseInitiateLayerUpload = res
     "fixture/InitiateLayerUploadResponse.proto"
     ecr
     (Proxy :: Proxy InitiateLayerUpload)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    ecr
+    (Proxy :: Proxy UntagResource)
 
 responseDeleteRepository :: DeleteRepositoryResponse -> TestTree
 responseDeleteRepository = res

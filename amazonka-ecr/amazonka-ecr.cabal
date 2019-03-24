@@ -62,11 +62,14 @@ library
         , Network.AWS.ECR.GetRepositoryPolicy
         , Network.AWS.ECR.InitiateLayerUpload
         , Network.AWS.ECR.ListImages
+        , Network.AWS.ECR.ListTagsForResource
         , Network.AWS.ECR.PutImage
         , Network.AWS.ECR.PutLifecyclePolicy
         , Network.AWS.ECR.SetRepositoryPolicy
         , Network.AWS.ECR.StartLifecyclePolicyPreview
+        , Network.AWS.ECR.TagResource
         , Network.AWS.ECR.Types
+        , Network.AWS.ECR.UntagResource
         , Network.AWS.ECR.UploadLayerPart
         , Network.AWS.ECR.Waiters
 

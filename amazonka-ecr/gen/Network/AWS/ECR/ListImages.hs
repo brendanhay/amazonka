@@ -74,7 +74,7 @@ data ListImages = ListImages'
 --
 -- * 'liFilter' - The filter key and value with which to filter your @ListImages@ results.
 --
--- * 'liMaxResults' - The maximum number of image results returned by @ListImages@ in paginated output. When this parameter is used, @ListImages@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListImages@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListImages@ returns up to 100 results and a @nextToken@ value, if applicable.
+-- * 'liMaxResults' - The maximum number of image results returned by @ListImages@ in paginated output. When this parameter is used, @ListImages@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListImages@ request with the returned @nextToken@ value. This value can be between 1 and 1000. If this parameter is not used, then @ListImages@ returns up to 100 results and a @nextToken@ value, if applicable.
 --
 -- * 'liRepositoryName' - The repository with image IDs to be listed.
 listImages
@@ -102,7 +102,7 @@ liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a})
 liFilter :: Lens' ListImages (Maybe ListImagesFilter)
 liFilter = lens _liFilter (\ s a -> s{_liFilter = a})
 
--- | The maximum number of image results returned by @ListImages@ in paginated output. When this parameter is used, @ListImages@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListImages@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListImages@ returns up to 100 results and a @nextToken@ value, if applicable.
+-- | The maximum number of image results returned by @ListImages@ in paginated output. When this parameter is used, @ListImages@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListImages@ request with the returned @nextToken@ value. This value can be between 1 and 1000. If this parameter is not used, then @ListImages@ returns up to 100 results and a @nextToken@ value, if applicable.
 liMaxResults :: Lens' ListImages (Maybe Natural)
 liMaxResults = lens _liMaxResults (\ s a -> s{_liMaxResults = a}) . mapping _Nat
 

@@ -55,6 +55,9 @@ module Network.AWS.ECR
     -- ** RepositoryNotFoundException
     , _RepositoryNotFoundException
 
+    -- ** TooManyTagsException
+    , _TooManyTagsException
+
     -- ** LifecyclePolicyPreviewInProgressException
     , _LifecyclePolicyPreviewInProgressException
 
@@ -66,6 +69,9 @@ module Network.AWS.ECR
 
     -- ** InvalidLayerPartException
     , _InvalidLayerPartException
+
+    -- ** InvalidTagParameterException
+    , _InvalidTagParameterException
 
     -- ** RepositoryNotEmptyException
     , _RepositoryNotEmptyException
@@ -100,6 +106,9 @@ module Network.AWS.ECR
     -- ** BatchDeleteImage
     , module Network.AWS.ECR.BatchDeleteImage
 
+    -- ** ListTagsForResource
+    , module Network.AWS.ECR.ListTagsForResource
+
     -- ** GetLifecyclePolicyPreview
     , module Network.AWS.ECR.GetLifecyclePolicyPreview
 
@@ -130,11 +139,17 @@ module Network.AWS.ECR
     -- ** GetLifecyclePolicy
     , module Network.AWS.ECR.GetLifecyclePolicy
 
+    -- ** TagResource
+    , module Network.AWS.ECR.TagResource
+
     -- ** SetRepositoryPolicy
     , module Network.AWS.ECR.SetRepositoryPolicy
 
     -- ** InitiateLayerUpload
     , module Network.AWS.ECR.InitiateLayerUpload
+
+    -- ** UntagResource
+    , module Network.AWS.ECR.UntagResource
 
     -- ** DeleteRepository
     , module Network.AWS.ECR.DeleteRepository
@@ -269,6 +284,12 @@ module Network.AWS.ECR
     , rRegistryId
     , rRepositoryURI
     , rRepositoryName
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
     ) where
 
 import Network.AWS.ECR.BatchCheckLayerAvailability
@@ -288,11 +309,14 @@ import Network.AWS.ECR.GetLifecyclePolicyPreview
 import Network.AWS.ECR.GetRepositoryPolicy
 import Network.AWS.ECR.InitiateLayerUpload
 import Network.AWS.ECR.ListImages
+import Network.AWS.ECR.ListTagsForResource
 import Network.AWS.ECR.PutImage
 import Network.AWS.ECR.PutLifecyclePolicy
 import Network.AWS.ECR.SetRepositoryPolicy
 import Network.AWS.ECR.StartLifecyclePolicyPreview
+import Network.AWS.ECR.TagResource
 import Network.AWS.ECR.Types
+import Network.AWS.ECR.UntagResource
 import Network.AWS.ECR.UploadLayerPart
 import Network.AWS.ECR.Waiters
 

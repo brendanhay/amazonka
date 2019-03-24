@@ -167,20 +167,23 @@ instance FromJSON LifecyclePolicyPreviewStatus where
     parseJSON = parseJSONText "LifecyclePolicyPreviewStatus"
 
 data TagStatus
-  = Tagged
+  = Any
+  | Tagged
   | Untagged
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText TagStatus where
     parser = takeLowerText >>= \case
+        "any" -> pure Any
         "tagged" -> pure Tagged
         "untagged" -> pure Untagged
         e -> fromTextError $ "Failure parsing TagStatus from value: '" <> e
-           <> "'. Accepted values: tagged, untagged"
+           <> "'. Accepted values: any, tagged, untagged"
 
 instance ToText TagStatus where
     toText = \case
+        Any -> "ANY"
         Tagged -> "TAGGED"
         Untagged -> "UNTAGGED"
 

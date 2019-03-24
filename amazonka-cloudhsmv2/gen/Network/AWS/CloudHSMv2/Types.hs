@@ -37,8 +37,13 @@ module Network.AWS.CloudHSMv2.Types
     -- * Backup
     , Backup
     , backup
+    , bDeleteTimestamp
+    , bSourceCluster
+    , bSourceRegion
+    , bSourceBackup
     , bClusterId
     , bCreateTimestamp
+    , bCopyTimestamp
     , bBackupState
     , bBackupId
 
@@ -67,6 +72,14 @@ module Network.AWS.CloudHSMv2.Types
     , cCreateTimestamp
     , cBackupPolicy
     , cHSMType
+
+    -- * DestinationBackup
+    , DestinationBackup
+    , destinationBackup
+    , dbSourceCluster
+    , dbSourceRegion
+    , dbSourceBackup
+    , dbCreateTimestamp
 
     -- * HSM
     , HSM

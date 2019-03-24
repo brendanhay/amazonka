@@ -31,6 +31,9 @@ import Test.Tasty
 --         [ requestDescribeClusters $
 --             describeClusters
 --
+--         , requestDeleteBackup $
+--             deleteBackup
+--
 --         , requestInitializeCluster $
 --             initializeCluster
 --
@@ -40,11 +43,17 @@ import Test.Tasty
 --         , requestDescribeBackups $
 --             describeBackups
 --
+--         , requestCopyBackupToRegion $
+--             copyBackupToRegion
+--
 --         , requestDeleteCluster $
 --             deleteCluster
 --
 --         , requestCreateCluster $
 --             createCluster
+--
+--         , requestRestoreBackup $
+--             restoreBackup
 --
 --         , requestDeleteHSM $
 --             deleteHSM
@@ -64,6 +73,9 @@ import Test.Tasty
 --         [ responseDescribeClusters $
 --             describeClustersResponse
 --
+--         , responseDeleteBackup $
+--             deleteBackupResponse
+--
 --         , responseInitializeCluster $
 --             initializeClusterResponse
 --
@@ -73,11 +85,17 @@ import Test.Tasty
 --         , responseDescribeBackups $
 --             describeBackupsResponse
 --
+--         , responseCopyBackupToRegion $
+--             copyBackupToRegionResponse
+--
 --         , responseDeleteCluster $
 --             deleteClusterResponse
 --
 --         , responseCreateCluster $
 --             createClusterResponse
+--
+--         , responseRestoreBackup $
+--             restoreBackupResponse
 --
 --         , responseDeleteHSM $
 --             deleteHSMResponse
@@ -101,6 +119,11 @@ requestDescribeClusters = req
     "DescribeClusters"
     "fixture/DescribeClusters.yaml"
 
+requestDeleteBackup :: DeleteBackup -> TestTree
+requestDeleteBackup = req
+    "DeleteBackup"
+    "fixture/DeleteBackup.yaml"
+
 requestInitializeCluster :: InitializeCluster -> TestTree
 requestInitializeCluster = req
     "InitializeCluster"
@@ -116,6 +139,11 @@ requestDescribeBackups = req
     "DescribeBackups"
     "fixture/DescribeBackups.yaml"
 
+requestCopyBackupToRegion :: CopyBackupToRegion -> TestTree
+requestCopyBackupToRegion = req
+    "CopyBackupToRegion"
+    "fixture/CopyBackupToRegion.yaml"
+
 requestDeleteCluster :: DeleteCluster -> TestTree
 requestDeleteCluster = req
     "DeleteCluster"
@@ -125,6 +153,11 @@ requestCreateCluster :: CreateCluster -> TestTree
 requestCreateCluster = req
     "CreateCluster"
     "fixture/CreateCluster.yaml"
+
+requestRestoreBackup :: RestoreBackup -> TestTree
+requestRestoreBackup = req
+    "RestoreBackup"
+    "fixture/RestoreBackup.yaml"
 
 requestDeleteHSM :: DeleteHSM -> TestTree
 requestDeleteHSM = req
@@ -155,6 +188,13 @@ responseDescribeClusters = res
     cloudHSMv2
     (Proxy :: Proxy DescribeClusters)
 
+responseDeleteBackup :: DeleteBackupResponse -> TestTree
+responseDeleteBackup = res
+    "DeleteBackupResponse"
+    "fixture/DeleteBackupResponse.proto"
+    cloudHSMv2
+    (Proxy :: Proxy DeleteBackup)
+
 responseInitializeCluster :: InitializeClusterResponse -> TestTree
 responseInitializeCluster = res
     "InitializeClusterResponse"
@@ -176,6 +216,13 @@ responseDescribeBackups = res
     cloudHSMv2
     (Proxy :: Proxy DescribeBackups)
 
+responseCopyBackupToRegion :: CopyBackupToRegionResponse -> TestTree
+responseCopyBackupToRegion = res
+    "CopyBackupToRegionResponse"
+    "fixture/CopyBackupToRegionResponse.proto"
+    cloudHSMv2
+    (Proxy :: Proxy CopyBackupToRegion)
+
 responseDeleteCluster :: DeleteClusterResponse -> TestTree
 responseDeleteCluster = res
     "DeleteClusterResponse"
@@ -189,6 +236,13 @@ responseCreateCluster = res
     "fixture/CreateClusterResponse.proto"
     cloudHSMv2
     (Proxy :: Proxy CreateCluster)
+
+responseRestoreBackup :: RestoreBackupResponse -> TestTree
+responseRestoreBackup = res
+    "RestoreBackupResponse"
+    "fixture/RestoreBackupResponse.proto"
+    cloudHSMv2
+    (Proxy :: Proxy RestoreBackup)
 
 responseDeleteHSM :: DeleteHSMResponse -> TestTree
 responseDeleteHSM = res

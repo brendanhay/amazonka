@@ -44,25 +44,28 @@ instance FromJSON BackupPolicy where
     parseJSON = parseJSONText "BackupPolicy"
 
 data BackupState
-  = BSCreateInProgress
-  | BSDeleted
-  | BSReady
+  = CreateInProgress
+  | Deleted
+  | PendingDeletion
+  | Ready
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText BackupState where
     parser = takeLowerText >>= \case
-        "create_in_progress" -> pure BSCreateInProgress
-        "deleted" -> pure BSDeleted
-        "ready" -> pure BSReady
+        "create_in_progress" -> pure CreateInProgress
+        "deleted" -> pure Deleted
+        "pending_deletion" -> pure PendingDeletion
+        "ready" -> pure Ready
         e -> fromTextError $ "Failure parsing BackupState from value: '" <> e
-           <> "'. Accepted values: create_in_progress, deleted, ready"
+           <> "'. Accepted values: create_in_progress, deleted, pending_deletion, ready"
 
 instance ToText BackupState where
     toText = \case
-        BSCreateInProgress -> "CREATE_IN_PROGRESS"
-        BSDeleted -> "DELETED"
-        BSReady -> "READY"
+        CreateInProgress -> "CREATE_IN_PROGRESS"
+        Deleted -> "DELETED"
+        PendingDeletion -> "PENDING_DELETION"
+        Ready -> "READY"
 
 instance Hashable     BackupState
 instance NFData       BackupState
@@ -74,43 +77,43 @@ instance FromJSON BackupState where
     parseJSON = parseJSONText "BackupState"
 
 data ClusterState
-  = Active
-  | CreateInProgress
-  | Degraded
-  | DeleteInProgress
-  | Deleted
-  | InitializeInProgress
-  | Initialized
-  | Uninitialized
-  | UpdateInProgress
+  = CSActive
+  | CSCreateInProgress
+  | CSDegraded
+  | CSDeleteInProgress
+  | CSDeleted
+  | CSInitializeInProgress
+  | CSInitialized
+  | CSUninitialized
+  | CSUpdateInProgress
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ClusterState where
     parser = takeLowerText >>= \case
-        "active" -> pure Active
-        "create_in_progress" -> pure CreateInProgress
-        "degraded" -> pure Degraded
-        "delete_in_progress" -> pure DeleteInProgress
-        "deleted" -> pure Deleted
-        "initialize_in_progress" -> pure InitializeInProgress
-        "initialized" -> pure Initialized
-        "uninitialized" -> pure Uninitialized
-        "update_in_progress" -> pure UpdateInProgress
+        "active" -> pure CSActive
+        "create_in_progress" -> pure CSCreateInProgress
+        "degraded" -> pure CSDegraded
+        "delete_in_progress" -> pure CSDeleteInProgress
+        "deleted" -> pure CSDeleted
+        "initialize_in_progress" -> pure CSInitializeInProgress
+        "initialized" -> pure CSInitialized
+        "uninitialized" -> pure CSUninitialized
+        "update_in_progress" -> pure CSUpdateInProgress
         e -> fromTextError $ "Failure parsing ClusterState from value: '" <> e
            <> "'. Accepted values: active, create_in_progress, degraded, delete_in_progress, deleted, initialize_in_progress, initialized, uninitialized, update_in_progress"
 
 instance ToText ClusterState where
     toText = \case
-        Active -> "ACTIVE"
-        CreateInProgress -> "CREATE_IN_PROGRESS"
-        Degraded -> "DEGRADED"
-        DeleteInProgress -> "DELETE_IN_PROGRESS"
-        Deleted -> "DELETED"
-        InitializeInProgress -> "INITIALIZE_IN_PROGRESS"
-        Initialized -> "INITIALIZED"
-        Uninitialized -> "UNINITIALIZED"
-        UpdateInProgress -> "UPDATE_IN_PROGRESS"
+        CSActive -> "ACTIVE"
+        CSCreateInProgress -> "CREATE_IN_PROGRESS"
+        CSDegraded -> "DEGRADED"
+        CSDeleteInProgress -> "DELETE_IN_PROGRESS"
+        CSDeleted -> "DELETED"
+        CSInitializeInProgress -> "INITIALIZE_IN_PROGRESS"
+        CSInitialized -> "INITIALIZED"
+        CSUninitialized -> "UNINITIALIZED"
+        CSUpdateInProgress -> "UPDATE_IN_PROGRESS"
 
 instance Hashable     ClusterState
 instance NFData       ClusterState

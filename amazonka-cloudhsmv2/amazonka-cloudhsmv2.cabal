@@ -45,14 +45,17 @@ library
 
     exposed-modules:
           Network.AWS.CloudHSMv2
+        , Network.AWS.CloudHSMv2.CopyBackupToRegion
         , Network.AWS.CloudHSMv2.CreateCluster
         , Network.AWS.CloudHSMv2.CreateHSM
+        , Network.AWS.CloudHSMv2.DeleteBackup
         , Network.AWS.CloudHSMv2.DeleteCluster
         , Network.AWS.CloudHSMv2.DeleteHSM
         , Network.AWS.CloudHSMv2.DescribeBackups
         , Network.AWS.CloudHSMv2.DescribeClusters
         , Network.AWS.CloudHSMv2.InitializeCluster
         , Network.AWS.CloudHSMv2.ListTags
+        , Network.AWS.CloudHSMv2.RestoreBackup
         , Network.AWS.CloudHSMv2.TagResource
         , Network.AWS.CloudHSMv2.Types
         , Network.AWS.CloudHSMv2.UntagResource

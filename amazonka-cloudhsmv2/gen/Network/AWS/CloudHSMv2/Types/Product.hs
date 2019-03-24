@@ -27,8 +27,13 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'backup' smart constructor.
 data Backup = Backup'
-  { _bClusterId       :: !(Maybe Text)
+  { _bDeleteTimestamp :: !(Maybe POSIX)
+  , _bSourceCluster   :: !(Maybe Text)
+  , _bSourceRegion    :: !(Maybe Text)
+  , _bSourceBackup    :: !(Maybe Text)
+  , _bClusterId       :: !(Maybe Text)
   , _bCreateTimestamp :: !(Maybe POSIX)
+  , _bCopyTimestamp   :: !(Maybe POSIX)
   , _bBackupState     :: !(Maybe BackupState)
   , _bBackupId        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -38,9 +43,19 @@ data Backup = Backup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'bDeleteTimestamp' - The date and time when the backup will be permanently deleted.
+--
+-- * 'bSourceCluster' - Undocumented member.
+--
+-- * 'bSourceRegion' - Undocumented member.
+--
+-- * 'bSourceBackup' - Undocumented member.
+--
 -- * 'bClusterId' - The identifier (ID) of the cluster that was backed up.
 --
 -- * 'bCreateTimestamp' - The date and time when the backup was created.
+--
+-- * 'bCopyTimestamp' - Undocumented member.
 --
 -- * 'bBackupState' - The state of the backup.
 --
@@ -50,12 +65,33 @@ backup
     -> Backup
 backup pBackupId_ =
   Backup'
-    { _bClusterId = Nothing
+    { _bDeleteTimestamp = Nothing
+    , _bSourceCluster = Nothing
+    , _bSourceRegion = Nothing
+    , _bSourceBackup = Nothing
+    , _bClusterId = Nothing
     , _bCreateTimestamp = Nothing
+    , _bCopyTimestamp = Nothing
     , _bBackupState = Nothing
     , _bBackupId = pBackupId_
     }
 
+
+-- | The date and time when the backup will be permanently deleted.
+bDeleteTimestamp :: Lens' Backup (Maybe UTCTime)
+bDeleteTimestamp = lens _bDeleteTimestamp (\ s a -> s{_bDeleteTimestamp = a}) . mapping _Time
+
+-- | Undocumented member.
+bSourceCluster :: Lens' Backup (Maybe Text)
+bSourceCluster = lens _bSourceCluster (\ s a -> s{_bSourceCluster = a})
+
+-- | Undocumented member.
+bSourceRegion :: Lens' Backup (Maybe Text)
+bSourceRegion = lens _bSourceRegion (\ s a -> s{_bSourceRegion = a})
+
+-- | Undocumented member.
+bSourceBackup :: Lens' Backup (Maybe Text)
+bSourceBackup = lens _bSourceBackup (\ s a -> s{_bSourceBackup = a})
 
 -- | The identifier (ID) of the cluster that was backed up.
 bClusterId :: Lens' Backup (Maybe Text)
@@ -64,6 +100,10 @@ bClusterId = lens _bClusterId (\ s a -> s{_bClusterId = a})
 -- | The date and time when the backup was created.
 bCreateTimestamp :: Lens' Backup (Maybe UTCTime)
 bCreateTimestamp = lens _bCreateTimestamp (\ s a -> s{_bCreateTimestamp = a}) . mapping _Time
+
+-- | Undocumented member.
+bCopyTimestamp :: Lens' Backup (Maybe UTCTime)
+bCopyTimestamp = lens _bCopyTimestamp (\ s a -> s{_bCopyTimestamp = a}) . mapping _Time
 
 -- | The state of the backup.
 bBackupState :: Lens' Backup (Maybe BackupState)
@@ -78,8 +118,13 @@ instance FromJSON Backup where
           = withObject "Backup"
               (\ x ->
                  Backup' <$>
-                   (x .:? "ClusterId") <*> (x .:? "CreateTimestamp") <*>
-                     (x .:? "BackupState")
+                   (x .:? "DeleteTimestamp") <*> (x .:? "SourceCluster")
+                     <*> (x .:? "SourceRegion")
+                     <*> (x .:? "SourceBackup")
+                     <*> (x .:? "ClusterId")
+                     <*> (x .:? "CreateTimestamp")
+                     <*> (x .:? "CopyTimestamp")
+                     <*> (x .:? "BackupState")
                      <*> (x .: "BackupId"))
 
 instance Hashable Backup where
@@ -304,6 +349,66 @@ instance FromJSON Cluster where
 instance Hashable Cluster where
 
 instance NFData Cluster where
+
+-- | /See:/ 'destinationBackup' smart constructor.
+data DestinationBackup = DestinationBackup'
+  { _dbSourceCluster   :: !(Maybe Text)
+  , _dbSourceRegion    :: !(Maybe Text)
+  , _dbSourceBackup    :: !(Maybe Text)
+  , _dbCreateTimestamp :: !(Maybe POSIX)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DestinationBackup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dbSourceCluster' - Undocumented member.
+--
+-- * 'dbSourceRegion' - Undocumented member.
+--
+-- * 'dbSourceBackup' - Undocumented member.
+--
+-- * 'dbCreateTimestamp' - Undocumented member.
+destinationBackup
+    :: DestinationBackup
+destinationBackup =
+  DestinationBackup'
+    { _dbSourceCluster = Nothing
+    , _dbSourceRegion = Nothing
+    , _dbSourceBackup = Nothing
+    , _dbCreateTimestamp = Nothing
+    }
+
+
+-- | Undocumented member.
+dbSourceCluster :: Lens' DestinationBackup (Maybe Text)
+dbSourceCluster = lens _dbSourceCluster (\ s a -> s{_dbSourceCluster = a})
+
+-- | Undocumented member.
+dbSourceRegion :: Lens' DestinationBackup (Maybe Text)
+dbSourceRegion = lens _dbSourceRegion (\ s a -> s{_dbSourceRegion = a})
+
+-- | Undocumented member.
+dbSourceBackup :: Lens' DestinationBackup (Maybe Text)
+dbSourceBackup = lens _dbSourceBackup (\ s a -> s{_dbSourceBackup = a})
+
+-- | Undocumented member.
+dbCreateTimestamp :: Lens' DestinationBackup (Maybe UTCTime)
+dbCreateTimestamp = lens _dbCreateTimestamp (\ s a -> s{_dbCreateTimestamp = a}) . mapping _Time
+
+instance FromJSON DestinationBackup where
+        parseJSON
+          = withObject "DestinationBackup"
+              (\ x ->
+                 DestinationBackup' <$>
+                   (x .:? "SourceCluster") <*> (x .:? "SourceRegion")
+                     <*> (x .:? "SourceBackup")
+                     <*> (x .:? "CreateTimestamp"))
+
+instance Hashable DestinationBackup where
+
+instance NFData DestinationBackup where
 
 -- | Contains information about a hardware security module (HSM) in an AWS CloudHSM cluster.
 --

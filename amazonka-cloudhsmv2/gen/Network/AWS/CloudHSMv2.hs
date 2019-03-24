@@ -46,6 +46,9 @@ module Network.AWS.CloudHSMv2
     -- ** DescribeClusters (Paginated)
     , module Network.AWS.CloudHSMv2.DescribeClusters
 
+    -- ** DeleteBackup
+    , module Network.AWS.CloudHSMv2.DeleteBackup
+
     -- ** InitializeCluster
     , module Network.AWS.CloudHSMv2.InitializeCluster
 
@@ -55,11 +58,17 @@ module Network.AWS.CloudHSMv2
     -- ** DescribeBackups (Paginated)
     , module Network.AWS.CloudHSMv2.DescribeBackups
 
+    -- ** CopyBackupToRegion
+    , module Network.AWS.CloudHSMv2.CopyBackupToRegion
+
     -- ** DeleteCluster
     , module Network.AWS.CloudHSMv2.DeleteCluster
 
     -- ** CreateCluster
     , module Network.AWS.CloudHSMv2.CreateCluster
+
+    -- ** RestoreBackup
+    , module Network.AWS.CloudHSMv2.RestoreBackup
 
     -- ** DeleteHSM
     , module Network.AWS.CloudHSMv2.DeleteHSM
@@ -90,8 +99,13 @@ module Network.AWS.CloudHSMv2
     -- ** Backup
     , Backup
     , backup
+    , bDeleteTimestamp
+    , bSourceCluster
+    , bSourceRegion
+    , bSourceBackup
     , bClusterId
     , bCreateTimestamp
+    , bCopyTimestamp
     , bBackupState
     , bBackupId
 
@@ -121,6 +135,14 @@ module Network.AWS.CloudHSMv2
     , cBackupPolicy
     , cHSMType
 
+    -- ** DestinationBackup
+    , DestinationBackup
+    , destinationBackup
+    , dbSourceCluster
+    , dbSourceRegion
+    , dbSourceBackup
+    , dbCreateTimestamp
+
     -- ** HSM
     , HSM
     , hsm
@@ -140,14 +162,17 @@ module Network.AWS.CloudHSMv2
     , tagValue
     ) where
 
+import Network.AWS.CloudHSMv2.CopyBackupToRegion
 import Network.AWS.CloudHSMv2.CreateCluster
 import Network.AWS.CloudHSMv2.CreateHSM
+import Network.AWS.CloudHSMv2.DeleteBackup
 import Network.AWS.CloudHSMv2.DeleteCluster
 import Network.AWS.CloudHSMv2.DeleteHSM
 import Network.AWS.CloudHSMv2.DescribeBackups
 import Network.AWS.CloudHSMv2.DescribeClusters
 import Network.AWS.CloudHSMv2.InitializeCluster
 import Network.AWS.CloudHSMv2.ListTags
+import Network.AWS.CloudHSMv2.RestoreBackup
 import Network.AWS.CloudHSMv2.TagResource
 import Network.AWS.CloudHSMv2.Types
 import Network.AWS.CloudHSMv2.UntagResource

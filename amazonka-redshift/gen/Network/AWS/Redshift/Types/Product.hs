@@ -22,6 +22,49 @@ import Network.AWS.Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.Sum
 
+-- | A name value pair that describes an aspect of an account.
+--
+--
+--
+-- /See:/ 'accountAttribute' smart constructor.
+data AccountAttribute = AccountAttribute'
+  { _aaAttributeValues :: !(Maybe [AttributeValueTarget])
+  , _aaAttributeName   :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AccountAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aaAttributeValues' - A list of attribute values.
+--
+-- * 'aaAttributeName' - The name of the attribute.
+accountAttribute
+    :: AccountAttribute
+accountAttribute =
+  AccountAttribute' {_aaAttributeValues = Nothing, _aaAttributeName = Nothing}
+
+
+-- | A list of attribute values.
+aaAttributeValues :: Lens' AccountAttribute [AttributeValueTarget]
+aaAttributeValues = lens _aaAttributeValues (\ s a -> s{_aaAttributeValues = a}) . _Default . _Coerce
+
+-- | The name of the attribute.
+aaAttributeName :: Lens' AccountAttribute (Maybe Text)
+aaAttributeName = lens _aaAttributeName (\ s a -> s{_aaAttributeName = a})
+
+instance FromXML AccountAttribute where
+        parseXML x
+          = AccountAttribute' <$>
+              (x .@? "AttributeValues" .!@ mempty >>=
+                 may (parseXMLList "AttributeValueTarget"))
+                <*> (x .@? "AttributeName")
+
+instance Hashable AccountAttribute where
+
+instance NFData AccountAttribute where
+
 -- | Describes an AWS customer account authorized to restore a snapshot.
 --
 --
@@ -63,6 +106,38 @@ instance FromXML AccountWithRestoreAccess where
 instance Hashable AccountWithRestoreAccess where
 
 instance NFData AccountWithRestoreAccess where
+
+-- | Describes an attribute value.
+--
+--
+--
+-- /See:/ 'attributeValueTarget' smart constructor.
+newtype AttributeValueTarget = AttributeValueTarget'
+  { _avtAttributeValue :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AttributeValueTarget' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'avtAttributeValue' - The value of the attribute.
+attributeValueTarget
+    :: AttributeValueTarget
+attributeValueTarget = AttributeValueTarget' {_avtAttributeValue = Nothing}
+
+
+-- | The value of the attribute.
+avtAttributeValue :: Lens' AttributeValueTarget (Maybe Text)
+avtAttributeValue = lens _avtAttributeValue (\ s a -> s{_avtAttributeValue = a})
+
+instance FromXML AttributeValueTarget where
+        parseXML x
+          = AttributeValueTarget' <$> (x .@? "AttributeValue")
+
+instance Hashable AttributeValueTarget where
+
+instance NFData AttributeValueTarget where
 
 -- | Describes an availability zone.
 --
@@ -113,18 +188,26 @@ instance NFData AvailabilityZone where
 --
 -- /See:/ 'cluster' smart constructor.
 data Cluster = Cluster'
-  { _cRestoreStatus :: !(Maybe RestoreStatus)
+  { _cResizeInfo :: !(Maybe ResizeInfo)
+  , _cRestoreStatus :: !(Maybe RestoreStatus)
+  , _cManualSnapshotRetentionPeriod :: !(Maybe Int)
   , _cEnhancedVPCRouting :: !(Maybe Bool)
   , _cClusterSnapshotCopyStatus :: !(Maybe ClusterSnapshotCopyStatus)
   , _cClusterRevisionNumber :: !(Maybe Text)
+  , _cSnapshotScheduleIdentifier :: !(Maybe Text)
   , _cPubliclyAccessible :: !(Maybe Bool)
   , _cMasterUsername :: !(Maybe Text)
+  , _cMaintenanceTrackName :: !(Maybe Text)
+  , _cElasticResizeNumberOfNodeOptions :: !(Maybe Text)
   , _cVPCId :: !(Maybe Text)
   , _cClusterSecurityGroups :: !(Maybe [ClusterSecurityGroupMembership])
   , _cAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+  , _cSnapshotScheduleState :: !(Maybe ScheduleState)
+  , _cDataTransferProgress :: !(Maybe DataTransferProgress)
   , _cEncrypted :: !(Maybe Bool)
   , _cClusterSubnetGroupName :: !(Maybe Text)
   , _cClusterIdentifier :: !(Maybe Text)
+  , _cDeferredMaintenanceWindows :: !(Maybe [DeferredMaintenanceWindow])
   , _cNumberOfNodes :: !(Maybe Int)
   , _cClusterPublicKey :: !(Maybe Text)
   , _cPreferredMaintenanceWindow :: !(Maybe Text)
@@ -135,6 +218,7 @@ data Cluster = Cluster'
   , _cVPCSecurityGroups :: !(Maybe [VPCSecurityGroupMembership])
   , _cHSMStatus :: !(Maybe HSMStatus)
   , _cIAMRoles :: !(Maybe [ClusterIAMRole])
+  , _cPendingActions :: !(Maybe [Text])
   , _cElasticIPStatus :: !(Maybe ElasticIPStatus)
   , _cClusterVersion :: !(Maybe Text)
   , _cNodeType :: !(Maybe Text)
@@ -153,7 +237,11 @@ data Cluster = Cluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'cResizeInfo' - Returns the following:     * AllowCancelResize: a boolean value indicating if the resize operation can be cancelled.     * ResizeType: Returns ClassicResize
+--
 -- * 'cRestoreStatus' - A value that describes the status of a cluster restore action. This parameter returns null if the cluster was not created by restoring a snapshot.
+--
+-- * 'cManualSnapshotRetentionPeriod' - The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. The value must be either -1 or an integer between 1 and 3,653.
 --
 -- * 'cEnhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 --
@@ -161,9 +249,15 @@ data Cluster = Cluster'
 --
 -- * 'cClusterRevisionNumber' - The specific revision number of the database in the cluster.
 --
--- * 'cPubliclyAccessible' - A Boolean value that, if @true@ , indicates that the cluster can be accessed from a public network.
+-- * 'cSnapshotScheduleIdentifier' - A unique identifier for the cluster snapshot schedule.
+--
+-- * 'cPubliclyAccessible' - A boolean value that, if @true@ , indicates that the cluster can be accessed from a public network.
 --
 -- * 'cMasterUsername' - The master user name for the cluster. This name is used to connect to the database that is specified in the __DBName__ parameter.
+--
+-- * 'cMaintenanceTrackName' - The name of the maintenance track for the cluster.
+--
+-- * 'cElasticResizeNumberOfNodeOptions' - The number of nodes that you can resize the cluster to with the elastic resize method.
 --
 -- * 'cVPCId' - The identifier of the VPC the cluster is in, if the cluster is in a VPC.
 --
@@ -171,11 +265,17 @@ data Cluster = Cluster'
 --
 -- * 'cAutomatedSnapshotRetentionPeriod' - The number of days that automatic cluster snapshots are retained.
 --
--- * 'cEncrypted' - A Boolean value that, if @true@ , indicates that data in the cluster is encrypted at rest.
+-- * 'cSnapshotScheduleState' - The current state of the cluster snapshot schedule.
+--
+-- * 'cDataTransferProgress' - Undocumented member.
+--
+-- * 'cEncrypted' - A boolean value that, if @true@ , indicates that data in the cluster is encrypted at rest.
 --
 -- * 'cClusterSubnetGroupName' - The name of the subnet group that is associated with the cluster. This parameter is valid only when the cluster is in a VPC.
 --
 -- * 'cClusterIdentifier' - The unique identifier of the cluster.
+--
+-- * 'cDeferredMaintenanceWindows' - Describes a group of @DeferredMaintenanceWindow@ objects.
 --
 -- * 'cNumberOfNodes' - The number of compute nodes in the cluster.
 --
@@ -197,6 +297,8 @@ data Cluster = Cluster'
 --
 -- * 'cIAMRoles' - A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services.
 --
+-- * 'cPendingActions' - Cluster operations that are waiting to be started.
+--
 -- * 'cElasticIPStatus' - The status of the elastic IP (EIP) address.
 --
 -- * 'cClusterVersion' - The version ID of the Amazon Redshift engine that is running on the cluster.
@@ -207,9 +309,9 @@ data Cluster = Cluster'
 --
 -- * 'cEndpoint' - The connection endpoint.
 --
--- * 'cAllowVersionUpgrade' - A Boolean value that, if @true@ , indicates that major version upgrades will be applied automatically to the cluster during the maintenance window.
+-- * 'cAllowVersionUpgrade' - A boolean value that, if @true@ , indicates that major version upgrades will be applied automatically to the cluster during the maintenance window.
 --
--- * 'cClusterStatus' - The current state of the cluster. Possible values are the following:     * @available@      * @creating@      * @deleting@      * @final-snapshot@      * @hardware-failure@      * @incompatible-hsm@      * @incompatible-network@      * @incompatible-parameters@      * @incompatible-restore@      * @modifying@      * @rebooting@      * @renaming@      * @resizing@      * @rotating-keys@      * @storage-full@      * @updating-hsm@
+-- * 'cClusterStatus' - The current state of the cluster. Possible values are the following:     * @available@      * @available, prep-for-resize@      * @available, resize-cleanup@      * @cancelling-resize@      * @creating@      * @deleting@      * @final-snapshot@      * @hardware-failure@      * @incompatible-hsm@      * @incompatible-network@      * @incompatible-parameters@      * @incompatible-restore@      * @modifying@      * @rebooting@      * @renaming@      * @resizing@      * @rotating-keys@      * @storage-full@      * @updating-hsm@
 --
 -- * 'cPendingModifiedValues' - A value that, if present, indicates that changes to the cluster are pending. Specific pending changes are identified by subelements.
 --
@@ -222,18 +324,26 @@ cluster
     :: Cluster
 cluster =
   Cluster'
-    { _cRestoreStatus = Nothing
+    { _cResizeInfo = Nothing
+    , _cRestoreStatus = Nothing
+    , _cManualSnapshotRetentionPeriod = Nothing
     , _cEnhancedVPCRouting = Nothing
     , _cClusterSnapshotCopyStatus = Nothing
     , _cClusterRevisionNumber = Nothing
+    , _cSnapshotScheduleIdentifier = Nothing
     , _cPubliclyAccessible = Nothing
     , _cMasterUsername = Nothing
+    , _cMaintenanceTrackName = Nothing
+    , _cElasticResizeNumberOfNodeOptions = Nothing
     , _cVPCId = Nothing
     , _cClusterSecurityGroups = Nothing
     , _cAutomatedSnapshotRetentionPeriod = Nothing
+    , _cSnapshotScheduleState = Nothing
+    , _cDataTransferProgress = Nothing
     , _cEncrypted = Nothing
     , _cClusterSubnetGroupName = Nothing
     , _cClusterIdentifier = Nothing
+    , _cDeferredMaintenanceWindows = Nothing
     , _cNumberOfNodes = Nothing
     , _cClusterPublicKey = Nothing
     , _cPreferredMaintenanceWindow = Nothing
@@ -244,6 +354,7 @@ cluster =
     , _cVPCSecurityGroups = Nothing
     , _cHSMStatus = Nothing
     , _cIAMRoles = Nothing
+    , _cPendingActions = Nothing
     , _cElasticIPStatus = Nothing
     , _cClusterVersion = Nothing
     , _cNodeType = Nothing
@@ -258,9 +369,17 @@ cluster =
     }
 
 
+-- | Returns the following:     * AllowCancelResize: a boolean value indicating if the resize operation can be cancelled.     * ResizeType: Returns ClassicResize
+cResizeInfo :: Lens' Cluster (Maybe ResizeInfo)
+cResizeInfo = lens _cResizeInfo (\ s a -> s{_cResizeInfo = a})
+
 -- | A value that describes the status of a cluster restore action. This parameter returns null if the cluster was not created by restoring a snapshot.
 cRestoreStatus :: Lens' Cluster (Maybe RestoreStatus)
 cRestoreStatus = lens _cRestoreStatus (\ s a -> s{_cRestoreStatus = a})
+
+-- | The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. The value must be either -1 or an integer between 1 and 3,653.
+cManualSnapshotRetentionPeriod :: Lens' Cluster (Maybe Int)
+cManualSnapshotRetentionPeriod = lens _cManualSnapshotRetentionPeriod (\ s a -> s{_cManualSnapshotRetentionPeriod = a})
 
 -- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 cEnhancedVPCRouting :: Lens' Cluster (Maybe Bool)
@@ -274,13 +393,25 @@ cClusterSnapshotCopyStatus = lens _cClusterSnapshotCopyStatus (\ s a -> s{_cClus
 cClusterRevisionNumber :: Lens' Cluster (Maybe Text)
 cClusterRevisionNumber = lens _cClusterRevisionNumber (\ s a -> s{_cClusterRevisionNumber = a})
 
--- | A Boolean value that, if @true@ , indicates that the cluster can be accessed from a public network.
+-- | A unique identifier for the cluster snapshot schedule.
+cSnapshotScheduleIdentifier :: Lens' Cluster (Maybe Text)
+cSnapshotScheduleIdentifier = lens _cSnapshotScheduleIdentifier (\ s a -> s{_cSnapshotScheduleIdentifier = a})
+
+-- | A boolean value that, if @true@ , indicates that the cluster can be accessed from a public network.
 cPubliclyAccessible :: Lens' Cluster (Maybe Bool)
 cPubliclyAccessible = lens _cPubliclyAccessible (\ s a -> s{_cPubliclyAccessible = a})
 
 -- | The master user name for the cluster. This name is used to connect to the database that is specified in the __DBName__ parameter.
 cMasterUsername :: Lens' Cluster (Maybe Text)
 cMasterUsername = lens _cMasterUsername (\ s a -> s{_cMasterUsername = a})
+
+-- | The name of the maintenance track for the cluster.
+cMaintenanceTrackName :: Lens' Cluster (Maybe Text)
+cMaintenanceTrackName = lens _cMaintenanceTrackName (\ s a -> s{_cMaintenanceTrackName = a})
+
+-- | The number of nodes that you can resize the cluster to with the elastic resize method.
+cElasticResizeNumberOfNodeOptions :: Lens' Cluster (Maybe Text)
+cElasticResizeNumberOfNodeOptions = lens _cElasticResizeNumberOfNodeOptions (\ s a -> s{_cElasticResizeNumberOfNodeOptions = a})
 
 -- | The identifier of the VPC the cluster is in, if the cluster is in a VPC.
 cVPCId :: Lens' Cluster (Maybe Text)
@@ -294,7 +425,15 @@ cClusterSecurityGroups = lens _cClusterSecurityGroups (\ s a -> s{_cClusterSecur
 cAutomatedSnapshotRetentionPeriod :: Lens' Cluster (Maybe Int)
 cAutomatedSnapshotRetentionPeriod = lens _cAutomatedSnapshotRetentionPeriod (\ s a -> s{_cAutomatedSnapshotRetentionPeriod = a})
 
--- | A Boolean value that, if @true@ , indicates that data in the cluster is encrypted at rest.
+-- | The current state of the cluster snapshot schedule.
+cSnapshotScheduleState :: Lens' Cluster (Maybe ScheduleState)
+cSnapshotScheduleState = lens _cSnapshotScheduleState (\ s a -> s{_cSnapshotScheduleState = a})
+
+-- | Undocumented member.
+cDataTransferProgress :: Lens' Cluster (Maybe DataTransferProgress)
+cDataTransferProgress = lens _cDataTransferProgress (\ s a -> s{_cDataTransferProgress = a})
+
+-- | A boolean value that, if @true@ , indicates that data in the cluster is encrypted at rest.
 cEncrypted :: Lens' Cluster (Maybe Bool)
 cEncrypted = lens _cEncrypted (\ s a -> s{_cEncrypted = a})
 
@@ -305,6 +444,10 @@ cClusterSubnetGroupName = lens _cClusterSubnetGroupName (\ s a -> s{_cClusterSub
 -- | The unique identifier of the cluster.
 cClusterIdentifier :: Lens' Cluster (Maybe Text)
 cClusterIdentifier = lens _cClusterIdentifier (\ s a -> s{_cClusterIdentifier = a})
+
+-- | Describes a group of @DeferredMaintenanceWindow@ objects.
+cDeferredMaintenanceWindows :: Lens' Cluster [DeferredMaintenanceWindow]
+cDeferredMaintenanceWindows = lens _cDeferredMaintenanceWindows (\ s a -> s{_cDeferredMaintenanceWindows = a}) . _Default . _Coerce
 
 -- | The number of compute nodes in the cluster.
 cNumberOfNodes :: Lens' Cluster (Maybe Int)
@@ -346,6 +489,10 @@ cHSMStatus = lens _cHSMStatus (\ s a -> s{_cHSMStatus = a})
 cIAMRoles :: Lens' Cluster [ClusterIAMRole]
 cIAMRoles = lens _cIAMRoles (\ s a -> s{_cIAMRoles = a}) . _Default . _Coerce
 
+-- | Cluster operations that are waiting to be started.
+cPendingActions :: Lens' Cluster [Text]
+cPendingActions = lens _cPendingActions (\ s a -> s{_cPendingActions = a}) . _Default . _Coerce
+
 -- | The status of the elastic IP (EIP) address.
 cElasticIPStatus :: Lens' Cluster (Maybe ElasticIPStatus)
 cElasticIPStatus = lens _cElasticIPStatus (\ s a -> s{_cElasticIPStatus = a})
@@ -366,11 +513,11 @@ cClusterCreateTime = lens _cClusterCreateTime (\ s a -> s{_cClusterCreateTime = 
 cEndpoint :: Lens' Cluster (Maybe Endpoint)
 cEndpoint = lens _cEndpoint (\ s a -> s{_cEndpoint = a})
 
--- | A Boolean value that, if @true@ , indicates that major version upgrades will be applied automatically to the cluster during the maintenance window.
+-- | A boolean value that, if @true@ , indicates that major version upgrades will be applied automatically to the cluster during the maintenance window.
 cAllowVersionUpgrade :: Lens' Cluster (Maybe Bool)
 cAllowVersionUpgrade = lens _cAllowVersionUpgrade (\ s a -> s{_cAllowVersionUpgrade = a})
 
--- | The current state of the cluster. Possible values are the following:     * @available@      * @creating@      * @deleting@      * @final-snapshot@      * @hardware-failure@      * @incompatible-hsm@      * @incompatible-network@      * @incompatible-parameters@      * @incompatible-restore@      * @modifying@      * @rebooting@      * @renaming@      * @resizing@      * @rotating-keys@      * @storage-full@      * @updating-hsm@
+-- | The current state of the cluster. Possible values are the following:     * @available@      * @available, prep-for-resize@      * @available, resize-cleanup@      * @cancelling-resize@      * @creating@      * @deleting@      * @final-snapshot@      * @hardware-failure@      * @incompatible-hsm@      * @incompatible-network@      * @incompatible-parameters@      * @incompatible-restore@      * @modifying@      * @rebooting@      * @renaming@      * @resizing@      * @rotating-keys@      * @storage-full@      * @updating-hsm@
 cClusterStatus :: Lens' Cluster (Maybe Text)
 cClusterStatus = lens _cClusterStatus (\ s a -> s{_cClusterStatus = a})
 
@@ -393,20 +540,29 @@ cDBName = lens _cDBName (\ s a -> s{_cDBName = a})
 instance FromXML Cluster where
         parseXML x
           = Cluster' <$>
-              (x .@? "RestoreStatus") <*>
-                (x .@? "EnhancedVpcRouting")
+              (x .@? "ResizeInfo") <*> (x .@? "RestoreStatus") <*>
+                (x .@? "ManualSnapshotRetentionPeriod")
+                <*> (x .@? "EnhancedVpcRouting")
                 <*> (x .@? "ClusterSnapshotCopyStatus")
                 <*> (x .@? "ClusterRevisionNumber")
+                <*> (x .@? "SnapshotScheduleIdentifier")
                 <*> (x .@? "PubliclyAccessible")
                 <*> (x .@? "MasterUsername")
+                <*> (x .@? "MaintenanceTrackName")
+                <*> (x .@? "ElasticResizeNumberOfNodeOptions")
                 <*> (x .@? "VpcId")
                 <*>
                 (x .@? "ClusterSecurityGroups" .!@ mempty >>=
                    may (parseXMLList "ClusterSecurityGroup"))
                 <*> (x .@? "AutomatedSnapshotRetentionPeriod")
+                <*> (x .@? "SnapshotScheduleState")
+                <*> (x .@? "DataTransferProgress")
                 <*> (x .@? "Encrypted")
                 <*> (x .@? "ClusterSubnetGroupName")
                 <*> (x .@? "ClusterIdentifier")
+                <*>
+                (x .@? "DeferredMaintenanceWindows" .!@ mempty >>=
+                   may (parseXMLList "DeferredMaintenanceWindow"))
                 <*> (x .@? "NumberOfNodes")
                 <*> (x .@? "ClusterPublicKey")
                 <*> (x .@? "PreferredMaintenanceWindow")
@@ -423,6 +579,9 @@ instance FromXML Cluster where
                 <*>
                 (x .@? "IamRoles" .!@ mempty >>=
                    may (parseXMLList "ClusterIamRole"))
+                <*>
+                (x .@? "PendingActions" .!@ mempty >>=
+                   may (parseXMLList "member"))
                 <*> (x .@? "ElasticIpStatus")
                 <*> (x .@? "ClusterVersion")
                 <*> (x .@? "NodeType")
@@ -442,6 +601,110 @@ instance FromXML Cluster where
 instance Hashable Cluster where
 
 instance NFData Cluster where
+
+-- | /See:/ 'clusterAssociatedToSchedule' smart constructor.
+data ClusterAssociatedToSchedule = ClusterAssociatedToSchedule'
+  { _catsScheduleAssociationState :: !(Maybe ScheduleState)
+  , _catsClusterIdentifier        :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ClusterAssociatedToSchedule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'catsScheduleAssociationState' - Undocumented member.
+--
+-- * 'catsClusterIdentifier' - Undocumented member.
+clusterAssociatedToSchedule
+    :: ClusterAssociatedToSchedule
+clusterAssociatedToSchedule =
+  ClusterAssociatedToSchedule'
+    {_catsScheduleAssociationState = Nothing, _catsClusterIdentifier = Nothing}
+
+
+-- | Undocumented member.
+catsScheduleAssociationState :: Lens' ClusterAssociatedToSchedule (Maybe ScheduleState)
+catsScheduleAssociationState = lens _catsScheduleAssociationState (\ s a -> s{_catsScheduleAssociationState = a})
+
+-- | Undocumented member.
+catsClusterIdentifier :: Lens' ClusterAssociatedToSchedule (Maybe Text)
+catsClusterIdentifier = lens _catsClusterIdentifier (\ s a -> s{_catsClusterIdentifier = a})
+
+instance FromXML ClusterAssociatedToSchedule where
+        parseXML x
+          = ClusterAssociatedToSchedule' <$>
+              (x .@? "ScheduleAssociationState") <*>
+                (x .@? "ClusterIdentifier")
+
+instance Hashable ClusterAssociatedToSchedule where
+
+instance NFData ClusterAssociatedToSchedule where
+
+-- | Describes a @ClusterDbRevision@ .
+--
+--
+--
+-- /See:/ 'clusterDBRevision' smart constructor.
+data ClusterDBRevision = ClusterDBRevision'
+  { _cdrDatabaseRevisionReleaseDate :: !(Maybe ISO8601)
+  , _cdrClusterIdentifier           :: !(Maybe Text)
+  , _cdrCurrentDatabaseRevision     :: !(Maybe Text)
+  , _cdrRevisionTargets             :: !(Maybe [RevisionTarget])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ClusterDBRevision' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdrDatabaseRevisionReleaseDate' - The date on which the database revision was released.
+--
+-- * 'cdrClusterIdentifier' - The unique identifier of the cluster.
+--
+-- * 'cdrCurrentDatabaseRevision' - A string representing the current cluster version.
+--
+-- * 'cdrRevisionTargets' - A list of @RevisionTarget@ objects, where each object describes the database revision that a cluster can be updated to.
+clusterDBRevision
+    :: ClusterDBRevision
+clusterDBRevision =
+  ClusterDBRevision'
+    { _cdrDatabaseRevisionReleaseDate = Nothing
+    , _cdrClusterIdentifier = Nothing
+    , _cdrCurrentDatabaseRevision = Nothing
+    , _cdrRevisionTargets = Nothing
+    }
+
+
+-- | The date on which the database revision was released.
+cdrDatabaseRevisionReleaseDate :: Lens' ClusterDBRevision (Maybe UTCTime)
+cdrDatabaseRevisionReleaseDate = lens _cdrDatabaseRevisionReleaseDate (\ s a -> s{_cdrDatabaseRevisionReleaseDate = a}) . mapping _Time
+
+-- | The unique identifier of the cluster.
+cdrClusterIdentifier :: Lens' ClusterDBRevision (Maybe Text)
+cdrClusterIdentifier = lens _cdrClusterIdentifier (\ s a -> s{_cdrClusterIdentifier = a})
+
+-- | A string representing the current cluster version.
+cdrCurrentDatabaseRevision :: Lens' ClusterDBRevision (Maybe Text)
+cdrCurrentDatabaseRevision = lens _cdrCurrentDatabaseRevision (\ s a -> s{_cdrCurrentDatabaseRevision = a})
+
+-- | A list of @RevisionTarget@ objects, where each object describes the database revision that a cluster can be updated to.
+cdrRevisionTargets :: Lens' ClusterDBRevision [RevisionTarget]
+cdrRevisionTargets = lens _cdrRevisionTargets (\ s a -> s{_cdrRevisionTargets = a}) . _Default . _Coerce
+
+instance FromXML ClusterDBRevision where
+        parseXML x
+          = ClusterDBRevision' <$>
+              (x .@? "DatabaseRevisionReleaseDate") <*>
+                (x .@? "ClusterIdentifier")
+                <*> (x .@? "CurrentDatabaseRevision")
+                <*>
+                (x .@? "RevisionTargets" .!@ mempty >>=
+                   may (parseXMLList "RevisionTarget"))
+
+instance Hashable ClusterDBRevision where
+
+instance NFData ClusterDBRevision where
 
 -- | An AWS Identity and Access Management (IAM) role that can be used by the associated Amazon Redshift cluster to access other AWS services.
 --
@@ -884,15 +1147,18 @@ instance NFData ClusterSecurityGroupMembership where
 --
 -- /See:/ 'clusterSnapshotCopyStatus' smart constructor.
 data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus'
-  { _cscsRetentionPeriod       :: !(Maybe Integer)
-  , _cscsDestinationRegion     :: !(Maybe Text)
-  , _cscsSnapshotCopyGrantName :: !(Maybe Text)
+  { _cscsManualSnapshotRetentionPeriod :: !(Maybe Int)
+  , _cscsRetentionPeriod               :: !(Maybe Integer)
+  , _cscsDestinationRegion             :: !(Maybe Text)
+  , _cscsSnapshotCopyGrantName         :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'ClusterSnapshotCopyStatus' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cscsManualSnapshotRetentionPeriod' - The number of days that automated snapshots are retained in the destination region after they are copied from a source region. If the value is -1, the manual snapshot is retained indefinitely.  The value must be either -1 or an integer between 1 and 3,653.
 --
 -- * 'cscsRetentionPeriod' - The number of days that automated snapshots are retained in the destination region after they are copied from a source region.
 --
@@ -903,11 +1169,16 @@ clusterSnapshotCopyStatus
     :: ClusterSnapshotCopyStatus
 clusterSnapshotCopyStatus =
   ClusterSnapshotCopyStatus'
-    { _cscsRetentionPeriod = Nothing
+    { _cscsManualSnapshotRetentionPeriod = Nothing
+    , _cscsRetentionPeriod = Nothing
     , _cscsDestinationRegion = Nothing
     , _cscsSnapshotCopyGrantName = Nothing
     }
 
+
+-- | The number of days that automated snapshots are retained in the destination region after they are copied from a source region. If the value is -1, the manual snapshot is retained indefinitely.  The value must be either -1 or an integer between 1 and 3,653.
+cscsManualSnapshotRetentionPeriod :: Lens' ClusterSnapshotCopyStatus (Maybe Int)
+cscsManualSnapshotRetentionPeriod = lens _cscsManualSnapshotRetentionPeriod (\ s a -> s{_cscsManualSnapshotRetentionPeriod = a})
 
 -- | The number of days that automated snapshots are retained in the destination region after they are copied from a source region.
 cscsRetentionPeriod :: Lens' ClusterSnapshotCopyStatus (Maybe Integer)
@@ -924,8 +1195,9 @@ cscsSnapshotCopyGrantName = lens _cscsSnapshotCopyGrantName (\ s a -> s{_cscsSna
 instance FromXML ClusterSnapshotCopyStatus where
         parseXML x
           = ClusterSnapshotCopyStatus' <$>
-              (x .@? "RetentionPeriod") <*>
-                (x .@? "DestinationRegion")
+              (x .@? "ManualSnapshotRetentionPeriod") <*>
+                (x .@? "RetentionPeriod")
+                <*> (x .@? "DestinationRegion")
                 <*> (x .@? "SnapshotCopyGrantName")
 
 instance Hashable ClusterSnapshotCopyStatus where
@@ -1070,6 +1342,87 @@ instance Hashable ClusterVersion where
 
 instance NFData ClusterVersion where
 
+-- | Describes the status of a cluster while it is in the process of resizing with an incremental resize.
+--
+--
+--
+-- /See:/ 'dataTransferProgress' smart constructor.
+data DataTransferProgress = DataTransferProgress'
+  { _dtpCurrentRateInMegaBytesPerSecond    :: !(Maybe Double)
+  , _dtpStatus                             :: !(Maybe Text)
+  , _dtpEstimatedTimeToCompletionInSeconds :: !(Maybe Integer)
+  , _dtpDataTransferredInMegaBytes         :: !(Maybe Integer)
+  , _dtpTotalDataInMegaBytes               :: !(Maybe Integer)
+  , _dtpElapsedTimeInSeconds               :: !(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DataTransferProgress' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtpCurrentRateInMegaBytesPerSecond' - Describes the data transfer rate in MB's per second.
+--
+-- * 'dtpStatus' - Describes the status of the cluster. While the transfer is in progress the status is @transferringdata@ .
+--
+-- * 'dtpEstimatedTimeToCompletionInSeconds' - Describes the estimated number of seconds remaining to complete the transfer.
+--
+-- * 'dtpDataTransferredInMegaBytes' - Describes the total amount of data that has been transfered in MB's.
+--
+-- * 'dtpTotalDataInMegaBytes' - Describes the total amount of data to be transfered in megabytes.
+--
+-- * 'dtpElapsedTimeInSeconds' - Describes the number of seconds that have elapsed during the data transfer.
+dataTransferProgress
+    :: DataTransferProgress
+dataTransferProgress =
+  DataTransferProgress'
+    { _dtpCurrentRateInMegaBytesPerSecond = Nothing
+    , _dtpStatus = Nothing
+    , _dtpEstimatedTimeToCompletionInSeconds = Nothing
+    , _dtpDataTransferredInMegaBytes = Nothing
+    , _dtpTotalDataInMegaBytes = Nothing
+    , _dtpElapsedTimeInSeconds = Nothing
+    }
+
+
+-- | Describes the data transfer rate in MB's per second.
+dtpCurrentRateInMegaBytesPerSecond :: Lens' DataTransferProgress (Maybe Double)
+dtpCurrentRateInMegaBytesPerSecond = lens _dtpCurrentRateInMegaBytesPerSecond (\ s a -> s{_dtpCurrentRateInMegaBytesPerSecond = a})
+
+-- | Describes the status of the cluster. While the transfer is in progress the status is @transferringdata@ .
+dtpStatus :: Lens' DataTransferProgress (Maybe Text)
+dtpStatus = lens _dtpStatus (\ s a -> s{_dtpStatus = a})
+
+-- | Describes the estimated number of seconds remaining to complete the transfer.
+dtpEstimatedTimeToCompletionInSeconds :: Lens' DataTransferProgress (Maybe Integer)
+dtpEstimatedTimeToCompletionInSeconds = lens _dtpEstimatedTimeToCompletionInSeconds (\ s a -> s{_dtpEstimatedTimeToCompletionInSeconds = a})
+
+-- | Describes the total amount of data that has been transfered in MB's.
+dtpDataTransferredInMegaBytes :: Lens' DataTransferProgress (Maybe Integer)
+dtpDataTransferredInMegaBytes = lens _dtpDataTransferredInMegaBytes (\ s a -> s{_dtpDataTransferredInMegaBytes = a})
+
+-- | Describes the total amount of data to be transfered in megabytes.
+dtpTotalDataInMegaBytes :: Lens' DataTransferProgress (Maybe Integer)
+dtpTotalDataInMegaBytes = lens _dtpTotalDataInMegaBytes (\ s a -> s{_dtpTotalDataInMegaBytes = a})
+
+-- | Describes the number of seconds that have elapsed during the data transfer.
+dtpElapsedTimeInSeconds :: Lens' DataTransferProgress (Maybe Integer)
+dtpElapsedTimeInSeconds = lens _dtpElapsedTimeInSeconds (\ s a -> s{_dtpElapsedTimeInSeconds = a})
+
+instance FromXML DataTransferProgress where
+        parseXML x
+          = DataTransferProgress' <$>
+              (x .@? "CurrentRateInMegaBytesPerSecond") <*>
+                (x .@? "Status")
+                <*> (x .@? "EstimatedTimeToCompletionInSeconds")
+                <*> (x .@? "DataTransferredInMegaBytes")
+                <*> (x .@? "TotalDataInMegaBytes")
+                <*> (x .@? "ElapsedTimeInSeconds")
+
+instance Hashable DataTransferProgress where
+
+instance NFData DataTransferProgress where
+
 -- | Describes the default cluster parameters for a parameter group family.
 --
 --
@@ -1124,6 +1477,107 @@ instance FromXML DefaultClusterParameters where
 instance Hashable DefaultClusterParameters where
 
 instance NFData DefaultClusterParameters where
+
+-- | Describes a deferred maintenance window
+--
+--
+--
+-- /See:/ 'deferredMaintenanceWindow' smart constructor.
+data DeferredMaintenanceWindow = DeferredMaintenanceWindow'
+  { _dmwDeferMaintenanceEndTime    :: !(Maybe ISO8601)
+  , _dmwDeferMaintenanceStartTime  :: !(Maybe ISO8601)
+  , _dmwDeferMaintenanceIdentifier :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DeferredMaintenanceWindow' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmwDeferMaintenanceEndTime' - A timestamp for the end of the time period when we defer maintenance.
+--
+-- * 'dmwDeferMaintenanceStartTime' - A timestamp for the beginning of the time period when we defer maintenance.
+--
+-- * 'dmwDeferMaintenanceIdentifier' - A unique identifier for the maintenance window.
+deferredMaintenanceWindow
+    :: DeferredMaintenanceWindow
+deferredMaintenanceWindow =
+  DeferredMaintenanceWindow'
+    { _dmwDeferMaintenanceEndTime = Nothing
+    , _dmwDeferMaintenanceStartTime = Nothing
+    , _dmwDeferMaintenanceIdentifier = Nothing
+    }
+
+
+-- | A timestamp for the end of the time period when we defer maintenance.
+dmwDeferMaintenanceEndTime :: Lens' DeferredMaintenanceWindow (Maybe UTCTime)
+dmwDeferMaintenanceEndTime = lens _dmwDeferMaintenanceEndTime (\ s a -> s{_dmwDeferMaintenanceEndTime = a}) . mapping _Time
+
+-- | A timestamp for the beginning of the time period when we defer maintenance.
+dmwDeferMaintenanceStartTime :: Lens' DeferredMaintenanceWindow (Maybe UTCTime)
+dmwDeferMaintenanceStartTime = lens _dmwDeferMaintenanceStartTime (\ s a -> s{_dmwDeferMaintenanceStartTime = a}) . mapping _Time
+
+-- | A unique identifier for the maintenance window.
+dmwDeferMaintenanceIdentifier :: Lens' DeferredMaintenanceWindow (Maybe Text)
+dmwDeferMaintenanceIdentifier = lens _dmwDeferMaintenanceIdentifier (\ s a -> s{_dmwDeferMaintenanceIdentifier = a})
+
+instance FromXML DeferredMaintenanceWindow where
+        parseXML x
+          = DeferredMaintenanceWindow' <$>
+              (x .@? "DeferMaintenanceEndTime") <*>
+                (x .@? "DeferMaintenanceStartTime")
+                <*> (x .@? "DeferMaintenanceIdentifier")
+
+instance Hashable DeferredMaintenanceWindow where
+
+instance NFData DeferredMaintenanceWindow where
+
+-- |
+--
+--
+--
+-- /See:/ 'deleteClusterSnapshotMessage' smart constructor.
+data DeleteClusterSnapshotMessage = DeleteClusterSnapshotMessage'
+  { _dcsmSnapshotClusterIdentifier :: !(Maybe Text)
+  , _dcsmSnapshotIdentifier        :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DeleteClusterSnapshotMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsmSnapshotClusterIdentifier' - The unique identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name. Constraints: Must be the name of valid cluster.
+--
+-- * 'dcsmSnapshotIdentifier' - The unique identifier of the manual snapshot to be deleted. Constraints: Must be the name of an existing snapshot that is in the @available@ , @failed@ , or @cancelled@ state.
+deleteClusterSnapshotMessage
+    :: Text -- ^ 'dcsmSnapshotIdentifier'
+    -> DeleteClusterSnapshotMessage
+deleteClusterSnapshotMessage pSnapshotIdentifier_ =
+  DeleteClusterSnapshotMessage'
+    { _dcsmSnapshotClusterIdentifier = Nothing
+    , _dcsmSnapshotIdentifier = pSnapshotIdentifier_
+    }
+
+
+-- | The unique identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name. Constraints: Must be the name of valid cluster.
+dcsmSnapshotClusterIdentifier :: Lens' DeleteClusterSnapshotMessage (Maybe Text)
+dcsmSnapshotClusterIdentifier = lens _dcsmSnapshotClusterIdentifier (\ s a -> s{_dcsmSnapshotClusterIdentifier = a})
+
+-- | The unique identifier of the manual snapshot to be deleted. Constraints: Must be the name of an existing snapshot that is in the @available@ , @failed@ , or @cancelled@ state.
+dcsmSnapshotIdentifier :: Lens' DeleteClusterSnapshotMessage Text
+dcsmSnapshotIdentifier = lens _dcsmSnapshotIdentifier (\ s a -> s{_dcsmSnapshotIdentifier = a})
+
+instance Hashable DeleteClusterSnapshotMessage where
+
+instance NFData DeleteClusterSnapshotMessage where
+
+instance ToQuery DeleteClusterSnapshotMessage where
+        toQuery DeleteClusterSnapshotMessage'{..}
+          = mconcat
+              ["SnapshotClusterIdentifier" =:
+                 _dcsmSnapshotClusterIdentifier,
+               "SnapshotIdentifier" =: _dcsmSnapshotIdentifier]
 
 -- | Describes an Amazon EC2 security group.
 --
@@ -1499,7 +1953,7 @@ data EventSubscription = EventSubscription'
 --
 -- * 'esSNSTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic used by the event notification subscription.
 --
--- * 'esEnabled' - A Boolean value indicating whether the subscription is enabled. @true@ indicates the subscription is enabled.
+-- * 'esEnabled' - A boolean value indicating whether the subscription is enabled; @true@ indicates that the subscription is enabled.
 --
 -- * 'esSourceType' - The source type of the events returned the Amazon Redshift event notification, such as cluster, or cluster-snapshot.
 --
@@ -1546,7 +2000,7 @@ esCustSubscriptionId = lens _esCustSubscriptionId (\ s a -> s{_esCustSubscriptio
 esSNSTopicARN :: Lens' EventSubscription (Maybe Text)
 esSNSTopicARN = lens _esSNSTopicARN (\ s a -> s{_esSNSTopicARN = a})
 
--- | A Boolean value indicating whether the subscription is enabled. @true@ indicates the subscription is enabled.
+-- | A boolean value indicating whether the subscription is enabled; @true@ indicates that the subscription is enabled.
 esEnabled :: Lens' EventSubscription (Maybe Bool)
 esEnabled = lens _esEnabled (\ s a -> s{_esEnabled = a})
 
@@ -1912,6 +2366,62 @@ instance Hashable LoggingStatus where
 
 instance NFData LoggingStatus where
 
+-- | Defines a maintenance track that determines which Amazon Redshift version to apply during a maintenance window. If the value for @MaintenanceTrack@ is @current@ , the cluster is updated to the most recently certified maintenance release. If the value is @trailing@ , the cluster is updated to the previously certified maintenance release.
+--
+--
+--
+-- /See:/ 'maintenanceTrack' smart constructor.
+data MaintenanceTrack = MaintenanceTrack'
+  { _mtDatabaseVersion      :: !(Maybe Text)
+  , _mtMaintenanceTrackName :: !(Maybe Text)
+  , _mtUpdateTargets        :: !(Maybe [UpdateTarget])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'MaintenanceTrack' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mtDatabaseVersion' - The version number for the cluster release.
+--
+-- * 'mtMaintenanceTrackName' - The name of the maintenance track. Possible values are @current@ and @trailing@ .
+--
+-- * 'mtUpdateTargets' - An array of 'UpdateTarget' objects to update with the maintenance track.
+maintenanceTrack
+    :: MaintenanceTrack
+maintenanceTrack =
+  MaintenanceTrack'
+    { _mtDatabaseVersion = Nothing
+    , _mtMaintenanceTrackName = Nothing
+    , _mtUpdateTargets = Nothing
+    }
+
+
+-- | The version number for the cluster release.
+mtDatabaseVersion :: Lens' MaintenanceTrack (Maybe Text)
+mtDatabaseVersion = lens _mtDatabaseVersion (\ s a -> s{_mtDatabaseVersion = a})
+
+-- | The name of the maintenance track. Possible values are @current@ and @trailing@ .
+mtMaintenanceTrackName :: Lens' MaintenanceTrack (Maybe Text)
+mtMaintenanceTrackName = lens _mtMaintenanceTrackName (\ s a -> s{_mtMaintenanceTrackName = a})
+
+-- | An array of 'UpdateTarget' objects to update with the maintenance track.
+mtUpdateTargets :: Lens' MaintenanceTrack [UpdateTarget]
+mtUpdateTargets = lens _mtUpdateTargets (\ s a -> s{_mtUpdateTargets = a}) . _Default . _Coerce
+
+instance FromXML MaintenanceTrack where
+        parseXML x
+          = MaintenanceTrack' <$>
+              (x .@? "DatabaseVersion") <*>
+                (x .@? "MaintenanceTrackName")
+                <*>
+                (x .@? "UpdateTargets" .!@ mempty >>=
+                   may (parseXMLList "UpdateTarget"))
+
+instance Hashable MaintenanceTrack where
+
+instance NFData MaintenanceTrack where
+
 -- | Describes an orderable cluster option.
 --
 --
@@ -2102,9 +2612,11 @@ instance ToQuery Parameter where
 --
 -- /See:/ 'pendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
-  { _pmvEnhancedVPCRouting               :: !(Maybe Bool)
+  { _pmvEncryptionType                   :: !(Maybe Text)
+  , _pmvEnhancedVPCRouting               :: !(Maybe Bool)
   , _pmvMasterUserPassword               :: !(Maybe Text)
   , _pmvPubliclyAccessible               :: !(Maybe Bool)
+  , _pmvMaintenanceTrackName             :: !(Maybe Text)
   , _pmvAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
   , _pmvClusterIdentifier                :: !(Maybe Text)
   , _pmvNumberOfNodes                    :: !(Maybe Int)
@@ -2118,11 +2630,15 @@ data PendingModifiedValues = PendingModifiedValues'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'pmvEncryptionType' - The encryption type for a cluster. Possible values are: KMS and None. For the China region the possible values are None, and Legacy.
+--
 -- * 'pmvEnhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 --
 -- * 'pmvMasterUserPassword' - The pending or in-progress change of the master user password for the cluster.
 --
 -- * 'pmvPubliclyAccessible' - The pending or in-progress change of the ability to connect to the cluster from the public network.
+--
+-- * 'pmvMaintenanceTrackName' - The name of the maintenance track that the cluster will change to during the next maintenance window.
 --
 -- * 'pmvAutomatedSnapshotRetentionPeriod' - The pending or in-progress change of the automated snapshot retention period.
 --
@@ -2139,9 +2655,11 @@ pendingModifiedValues
     :: PendingModifiedValues
 pendingModifiedValues =
   PendingModifiedValues'
-    { _pmvEnhancedVPCRouting = Nothing
+    { _pmvEncryptionType = Nothing
+    , _pmvEnhancedVPCRouting = Nothing
     , _pmvMasterUserPassword = Nothing
     , _pmvPubliclyAccessible = Nothing
+    , _pmvMaintenanceTrackName = Nothing
     , _pmvAutomatedSnapshotRetentionPeriod = Nothing
     , _pmvClusterIdentifier = Nothing
     , _pmvNumberOfNodes = Nothing
@@ -2150,6 +2668,10 @@ pendingModifiedValues =
     , _pmvNodeType = Nothing
     }
 
+
+-- | The encryption type for a cluster. Possible values are: KMS and None. For the China region the possible values are None, and Legacy.
+pmvEncryptionType :: Lens' PendingModifiedValues (Maybe Text)
+pmvEncryptionType = lens _pmvEncryptionType (\ s a -> s{_pmvEncryptionType = a})
 
 -- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 pmvEnhancedVPCRouting :: Lens' PendingModifiedValues (Maybe Bool)
@@ -2162,6 +2684,10 @@ pmvMasterUserPassword = lens _pmvMasterUserPassword (\ s a -> s{_pmvMasterUserPa
 -- | The pending or in-progress change of the ability to connect to the cluster from the public network.
 pmvPubliclyAccessible :: Lens' PendingModifiedValues (Maybe Bool)
 pmvPubliclyAccessible = lens _pmvPubliclyAccessible (\ s a -> s{_pmvPubliclyAccessible = a})
+
+-- | The name of the maintenance track that the cluster will change to during the next maintenance window.
+pmvMaintenanceTrackName :: Lens' PendingModifiedValues (Maybe Text)
+pmvMaintenanceTrackName = lens _pmvMaintenanceTrackName (\ s a -> s{_pmvMaintenanceTrackName = a})
 
 -- | The pending or in-progress change of the automated snapshot retention period.
 pmvAutomatedSnapshotRetentionPeriod :: Lens' PendingModifiedValues (Maybe Int)
@@ -2190,9 +2716,11 @@ pmvNodeType = lens _pmvNodeType (\ s a -> s{_pmvNodeType = a})
 instance FromXML PendingModifiedValues where
         parseXML x
           = PendingModifiedValues' <$>
-              (x .@? "EnhancedVpcRouting") <*>
-                (x .@? "MasterUserPassword")
+              (x .@? "EncryptionType") <*>
+                (x .@? "EnhancedVpcRouting")
+                <*> (x .@? "MasterUserPassword")
                 <*> (x .@? "PubliclyAccessible")
+                <*> (x .@? "MaintenanceTrackName")
                 <*> (x .@? "AutomatedSnapshotRetentionPeriod")
                 <*> (x .@? "ClusterIdentifier")
                 <*> (x .@? "NumberOfNodes")
@@ -2275,7 +2803,7 @@ data ReservedNode = ReservedNode'
 --
 -- * 'rnReservedNodeOfferingType' - Undocumented member.
 --
--- * 'rnState' - The state of the reserved compute node. Possible Values:     * pending-payment-This reserved node has recently been purchased, and the sale has been approved, but payment has not yet been confirmed.     * active-This reserved node is owned by the caller and is available for use.     * payment-failed-Payment failed for the purchase attempt.
+-- * 'rnState' - The state of the reserved compute node. Possible Values:     * pending-payment-This reserved node has recently been purchased, and the sale has been approved, but payment has not yet been confirmed.     * active-This reserved node is owned by the caller and is available for use.     * payment-failed-Payment failed for the purchase attempt.     * retired-The reserved node is no longer available.      * exchanging-The owner is exchanging the reserved node for another reserved node.
 --
 -- * 'rnCurrencyCode' - The currency code for the reserved cluster.
 --
@@ -2322,7 +2850,7 @@ reservedNode =
 rnReservedNodeOfferingType :: Lens' ReservedNode (Maybe ReservedNodeOfferingType)
 rnReservedNodeOfferingType = lens _rnReservedNodeOfferingType (\ s a -> s{_rnReservedNodeOfferingType = a})
 
--- | The state of the reserved compute node. Possible Values:     * pending-payment-This reserved node has recently been purchased, and the sale has been approved, but payment has not yet been confirmed.     * active-This reserved node is owned by the caller and is available for use.     * payment-failed-Payment failed for the purchase attempt.
+-- | The state of the reserved compute node. Possible Values:     * pending-payment-This reserved node has recently been purchased, and the sale has been approved, but payment has not yet been confirmed.     * active-This reserved node is owned by the caller and is available for use.     * payment-failed-Payment failed for the purchase attempt.     * retired-The reserved node is no longer available.      * exchanging-The owner is exchanging the reserved node for another reserved node.
 rnState :: Lens' ReservedNode (Maybe Text)
 rnState = lens _rnState (\ s a -> s{_rnState = a})
 
@@ -2503,6 +3031,214 @@ instance Hashable ReservedNodeOffering where
 
 instance NFData ReservedNodeOffering where
 
+-- | Describes a resize operation.
+--
+--
+--
+-- /See:/ 'resizeInfo' smart constructor.
+data ResizeInfo = ResizeInfo'
+  { _riAllowCancelResize :: !(Maybe Bool)
+  , _riResizeType        :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ResizeInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'riAllowCancelResize' - A boolean value indicating if the resize operation can be cancelled.
+--
+-- * 'riResizeType' - Returns the value @ClassicResize@ .
+resizeInfo
+    :: ResizeInfo
+resizeInfo =
+  ResizeInfo' {_riAllowCancelResize = Nothing, _riResizeType = Nothing}
+
+
+-- | A boolean value indicating if the resize operation can be cancelled.
+riAllowCancelResize :: Lens' ResizeInfo (Maybe Bool)
+riAllowCancelResize = lens _riAllowCancelResize (\ s a -> s{_riAllowCancelResize = a})
+
+-- | Returns the value @ClassicResize@ .
+riResizeType :: Lens' ResizeInfo (Maybe Text)
+riResizeType = lens _riResizeType (\ s a -> s{_riResizeType = a})
+
+instance FromXML ResizeInfo where
+        parseXML x
+          = ResizeInfo' <$>
+              (x .@? "AllowCancelResize") <*> (x .@? "ResizeType")
+
+instance Hashable ResizeInfo where
+
+instance NFData ResizeInfo where
+
+-- | Describes the result of a cluster resize operation.
+--
+--
+--
+-- /See:/ 'resizeProgressMessage' smart constructor.
+data ResizeProgressMessage = ResizeProgressMessage'
+  { _rpmImportTablesNotStarted             :: !(Maybe [Text])
+  , _rpmStatus                             :: !(Maybe Text)
+  , _rpmEstimatedTimeToCompletionInSeconds :: !(Maybe Integer)
+  , _rpmAvgResizeRateInMegaBytesPerSecond  :: !(Maybe Double)
+  , _rpmTargetNumberOfNodes                :: !(Maybe Int)
+  , _rpmTargetEncryptionType               :: !(Maybe Text)
+  , _rpmTargetNodeType                     :: !(Maybe Text)
+  , _rpmImportTablesInProgress             :: !(Maybe [Text])
+  , _rpmResizeType                         :: !(Maybe Text)
+  , _rpmImportTablesCompleted              :: !(Maybe [Text])
+  , _rpmProgressInMegaBytes                :: !(Maybe Integer)
+  , _rpmTotalResizeDataInMegaBytes         :: !(Maybe Integer)
+  , _rpmTargetClusterType                  :: !(Maybe Text)
+  , _rpmMessage                            :: !(Maybe Text)
+  , _rpmElapsedTimeInSeconds               :: !(Maybe Integer)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ResizeProgressMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rpmImportTablesNotStarted' - The names of tables that have not been yet imported. Valid Values: List of table names
+--
+-- * 'rpmStatus' - The status of the resize operation. Valid Values: @NONE@ | @IN_PROGRESS@ | @FAILED@ | @SUCCEEDED@ | @CANCELLING@
+--
+-- * 'rpmEstimatedTimeToCompletionInSeconds' - The estimated time remaining, in seconds, until the resize operation is complete. This value is calculated based on the average resize rate and the estimated amount of data remaining to be processed. Once the resize operation is complete, this value will be 0.
+--
+-- * 'rpmAvgResizeRateInMegaBytesPerSecond' - The average rate of the resize operation over the last few minutes, measured in megabytes per second. After the resize operation completes, this value shows the average rate of the entire resize operation.
+--
+-- * 'rpmTargetNumberOfNodes' - The number of nodes that the cluster will have after the resize operation is complete.
+--
+-- * 'rpmTargetEncryptionType' - The type of encryption for the cluster after the resize is complete. Possible values are @KMS@ and @None@ . In the China region possible values are: @Legacy@ and @None@ .
+--
+-- * 'rpmTargetNodeType' - The node type that the cluster will have after the resize operation is complete.
+--
+-- * 'rpmImportTablesInProgress' - The names of tables that are being currently imported. Valid Values: List of table names.
+--
+-- * 'rpmResizeType' - An enum with possible values of @ClassicResize@ and @ElasticResize@ . These values describe the type of resize operation being performed.
+--
+-- * 'rpmImportTablesCompleted' - The names of tables that have been completely imported . Valid Values: List of table names.
+--
+-- * 'rpmProgressInMegaBytes' - While the resize operation is in progress, this value shows the current amount of data, in megabytes, that has been processed so far. When the resize operation is complete, this value shows the total amount of data, in megabytes, on the cluster, which may be more or less than TotalResizeDataInMegaBytes (the estimated total amount of data before resize).
+--
+-- * 'rpmTotalResizeDataInMegaBytes' - The estimated total amount of data, in megabytes, on the cluster before the resize operation began.
+--
+-- * 'rpmTargetClusterType' - The cluster type after the resize operation is complete. Valid Values: @multi-node@ | @single-node@
+--
+-- * 'rpmMessage' - An optional string to provide additional details about the resize action.
+--
+-- * 'rpmElapsedTimeInSeconds' - The amount of seconds that have elapsed since the resize operation began. After the resize operation completes, this value shows the total actual time, in seconds, for the resize operation.
+resizeProgressMessage
+    :: ResizeProgressMessage
+resizeProgressMessage =
+  ResizeProgressMessage'
+    { _rpmImportTablesNotStarted = Nothing
+    , _rpmStatus = Nothing
+    , _rpmEstimatedTimeToCompletionInSeconds = Nothing
+    , _rpmAvgResizeRateInMegaBytesPerSecond = Nothing
+    , _rpmTargetNumberOfNodes = Nothing
+    , _rpmTargetEncryptionType = Nothing
+    , _rpmTargetNodeType = Nothing
+    , _rpmImportTablesInProgress = Nothing
+    , _rpmResizeType = Nothing
+    , _rpmImportTablesCompleted = Nothing
+    , _rpmProgressInMegaBytes = Nothing
+    , _rpmTotalResizeDataInMegaBytes = Nothing
+    , _rpmTargetClusterType = Nothing
+    , _rpmMessage = Nothing
+    , _rpmElapsedTimeInSeconds = Nothing
+    }
+
+
+-- | The names of tables that have not been yet imported. Valid Values: List of table names
+rpmImportTablesNotStarted :: Lens' ResizeProgressMessage [Text]
+rpmImportTablesNotStarted = lens _rpmImportTablesNotStarted (\ s a -> s{_rpmImportTablesNotStarted = a}) . _Default . _Coerce
+
+-- | The status of the resize operation. Valid Values: @NONE@ | @IN_PROGRESS@ | @FAILED@ | @SUCCEEDED@ | @CANCELLING@
+rpmStatus :: Lens' ResizeProgressMessage (Maybe Text)
+rpmStatus = lens _rpmStatus (\ s a -> s{_rpmStatus = a})
+
+-- | The estimated time remaining, in seconds, until the resize operation is complete. This value is calculated based on the average resize rate and the estimated amount of data remaining to be processed. Once the resize operation is complete, this value will be 0.
+rpmEstimatedTimeToCompletionInSeconds :: Lens' ResizeProgressMessage (Maybe Integer)
+rpmEstimatedTimeToCompletionInSeconds = lens _rpmEstimatedTimeToCompletionInSeconds (\ s a -> s{_rpmEstimatedTimeToCompletionInSeconds = a})
+
+-- | The average rate of the resize operation over the last few minutes, measured in megabytes per second. After the resize operation completes, this value shows the average rate of the entire resize operation.
+rpmAvgResizeRateInMegaBytesPerSecond :: Lens' ResizeProgressMessage (Maybe Double)
+rpmAvgResizeRateInMegaBytesPerSecond = lens _rpmAvgResizeRateInMegaBytesPerSecond (\ s a -> s{_rpmAvgResizeRateInMegaBytesPerSecond = a})
+
+-- | The number of nodes that the cluster will have after the resize operation is complete.
+rpmTargetNumberOfNodes :: Lens' ResizeProgressMessage (Maybe Int)
+rpmTargetNumberOfNodes = lens _rpmTargetNumberOfNodes (\ s a -> s{_rpmTargetNumberOfNodes = a})
+
+-- | The type of encryption for the cluster after the resize is complete. Possible values are @KMS@ and @None@ . In the China region possible values are: @Legacy@ and @None@ .
+rpmTargetEncryptionType :: Lens' ResizeProgressMessage (Maybe Text)
+rpmTargetEncryptionType = lens _rpmTargetEncryptionType (\ s a -> s{_rpmTargetEncryptionType = a})
+
+-- | The node type that the cluster will have after the resize operation is complete.
+rpmTargetNodeType :: Lens' ResizeProgressMessage (Maybe Text)
+rpmTargetNodeType = lens _rpmTargetNodeType (\ s a -> s{_rpmTargetNodeType = a})
+
+-- | The names of tables that are being currently imported. Valid Values: List of table names.
+rpmImportTablesInProgress :: Lens' ResizeProgressMessage [Text]
+rpmImportTablesInProgress = lens _rpmImportTablesInProgress (\ s a -> s{_rpmImportTablesInProgress = a}) . _Default . _Coerce
+
+-- | An enum with possible values of @ClassicResize@ and @ElasticResize@ . These values describe the type of resize operation being performed.
+rpmResizeType :: Lens' ResizeProgressMessage (Maybe Text)
+rpmResizeType = lens _rpmResizeType (\ s a -> s{_rpmResizeType = a})
+
+-- | The names of tables that have been completely imported . Valid Values: List of table names.
+rpmImportTablesCompleted :: Lens' ResizeProgressMessage [Text]
+rpmImportTablesCompleted = lens _rpmImportTablesCompleted (\ s a -> s{_rpmImportTablesCompleted = a}) . _Default . _Coerce
+
+-- | While the resize operation is in progress, this value shows the current amount of data, in megabytes, that has been processed so far. When the resize operation is complete, this value shows the total amount of data, in megabytes, on the cluster, which may be more or less than TotalResizeDataInMegaBytes (the estimated total amount of data before resize).
+rpmProgressInMegaBytes :: Lens' ResizeProgressMessage (Maybe Integer)
+rpmProgressInMegaBytes = lens _rpmProgressInMegaBytes (\ s a -> s{_rpmProgressInMegaBytes = a})
+
+-- | The estimated total amount of data, in megabytes, on the cluster before the resize operation began.
+rpmTotalResizeDataInMegaBytes :: Lens' ResizeProgressMessage (Maybe Integer)
+rpmTotalResizeDataInMegaBytes = lens _rpmTotalResizeDataInMegaBytes (\ s a -> s{_rpmTotalResizeDataInMegaBytes = a})
+
+-- | The cluster type after the resize operation is complete. Valid Values: @multi-node@ | @single-node@
+rpmTargetClusterType :: Lens' ResizeProgressMessage (Maybe Text)
+rpmTargetClusterType = lens _rpmTargetClusterType (\ s a -> s{_rpmTargetClusterType = a})
+
+-- | An optional string to provide additional details about the resize action.
+rpmMessage :: Lens' ResizeProgressMessage (Maybe Text)
+rpmMessage = lens _rpmMessage (\ s a -> s{_rpmMessage = a})
+
+-- | The amount of seconds that have elapsed since the resize operation began. After the resize operation completes, this value shows the total actual time, in seconds, for the resize operation.
+rpmElapsedTimeInSeconds :: Lens' ResizeProgressMessage (Maybe Integer)
+rpmElapsedTimeInSeconds = lens _rpmElapsedTimeInSeconds (\ s a -> s{_rpmElapsedTimeInSeconds = a})
+
+instance FromXML ResizeProgressMessage where
+        parseXML x
+          = ResizeProgressMessage' <$>
+              (x .@? "ImportTablesNotStarted" .!@ mempty >>=
+                 may (parseXMLList "member"))
+                <*> (x .@? "Status")
+                <*> (x .@? "EstimatedTimeToCompletionInSeconds")
+                <*> (x .@? "AvgResizeRateInMegaBytesPerSecond")
+                <*> (x .@? "TargetNumberOfNodes")
+                <*> (x .@? "TargetEncryptionType")
+                <*> (x .@? "TargetNodeType")
+                <*>
+                (x .@? "ImportTablesInProgress" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*> (x .@? "ResizeType")
+                <*>
+                (x .@? "ImportTablesCompleted" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*> (x .@? "ProgressInMegaBytes")
+                <*> (x .@? "TotalResizeDataInMegaBytes")
+                <*> (x .@? "TargetClusterType")
+                <*> (x .@? "Message")
+                <*> (x .@? "ElapsedTimeInSeconds")
+
+instance Hashable ResizeProgressMessage where
+
+instance NFData ResizeProgressMessage where
+
 -- | Describes the status of a cluster restore action. Returns null if the cluster was not created by restoring a snapshot.
 --
 --
@@ -2584,6 +3320,60 @@ instance Hashable RestoreStatus where
 
 instance NFData RestoreStatus where
 
+-- | Describes a @RevisionTarget@ .
+--
+--
+--
+-- /See:/ 'revisionTarget' smart constructor.
+data RevisionTarget = RevisionTarget'
+  { _rtDatabaseRevisionReleaseDate :: !(Maybe ISO8601)
+  , _rtDatabaseRevision            :: !(Maybe Text)
+  , _rtDescription                 :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RevisionTarget' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtDatabaseRevisionReleaseDate' - The date on which the database revision was released.
+--
+-- * 'rtDatabaseRevision' - A unique string that identifies the version to update the cluster to. You can use this value in 'ModifyClusterDbRevision' .
+--
+-- * 'rtDescription' - A string that describes the changes and features that will be applied to the cluster when it is updated to the corresponding 'ClusterDbRevision' .
+revisionTarget
+    :: RevisionTarget
+revisionTarget =
+  RevisionTarget'
+    { _rtDatabaseRevisionReleaseDate = Nothing
+    , _rtDatabaseRevision = Nothing
+    , _rtDescription = Nothing
+    }
+
+
+-- | The date on which the database revision was released.
+rtDatabaseRevisionReleaseDate :: Lens' RevisionTarget (Maybe UTCTime)
+rtDatabaseRevisionReleaseDate = lens _rtDatabaseRevisionReleaseDate (\ s a -> s{_rtDatabaseRevisionReleaseDate = a}) . mapping _Time
+
+-- | A unique string that identifies the version to update the cluster to. You can use this value in 'ModifyClusterDbRevision' .
+rtDatabaseRevision :: Lens' RevisionTarget (Maybe Text)
+rtDatabaseRevision = lens _rtDatabaseRevision (\ s a -> s{_rtDatabaseRevision = a})
+
+-- | A string that describes the changes and features that will be applied to the cluster when it is updated to the corresponding 'ClusterDbRevision' .
+rtDescription :: Lens' RevisionTarget (Maybe Text)
+rtDescription = lens _rtDescription (\ s a -> s{_rtDescription = a})
+
+instance FromXML RevisionTarget where
+        parseXML x
+          = RevisionTarget' <$>
+              (x .@? "DatabaseRevisionReleaseDate") <*>
+                (x .@? "DatabaseRevision")
+                <*> (x .@? "Description")
+
+instance Hashable RevisionTarget where
+
+instance NFData RevisionTarget where
+
 -- | Describes a snapshot.
 --
 --
@@ -2593,11 +3383,15 @@ data Snapshot = Snapshot'
   { _sStatus :: !(Maybe Text)
   , _sRestorableNodeTypes :: !(Maybe [Text])
   , _sAccountsWithRestoreAccess :: !(Maybe [AccountWithRestoreAccess])
+  , _sManualSnapshotRetentionPeriod :: !(Maybe Int)
   , _sEnhancedVPCRouting :: !(Maybe Bool)
   , _sSnapshotIdentifier :: !(Maybe Text)
   , _sEncryptedWithHSM :: !(Maybe Bool)
   , _sMasterUsername :: !(Maybe Text)
   , _sSourceRegion :: !(Maybe Text)
+  , _sMaintenanceTrackName :: !(Maybe Text)
+  , _sSnapshotRetentionStartTime :: !(Maybe ISO8601)
+  , _sManualSnapshotRemainingDays :: !(Maybe Int)
   , _sVPCId :: !(Maybe Text)
   , _sBackupProgressInMegaBytes :: !(Maybe Double)
   , _sEncrypted :: !(Maybe Bool)
@@ -2626,11 +3420,13 @@ data Snapshot = Snapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sStatus' - The snapshot status. The value of the status depends on the API operation used.      * 'CreateClusterSnapshot' and 'CopyClusterSnapshot' returns status as "creating".      * 'DescribeClusterSnapshots' returns status as "creating", "available", "final snapshot", or "failed".     * 'DeleteClusterSnapshot' returns status as "deleted".
+-- * 'sStatus' - The snapshot status. The value of the status depends on the API operation used:      * 'CreateClusterSnapshot' and 'CopyClusterSnapshot' returns status as "creating".      * 'DescribeClusterSnapshots' returns status as "creating", "available", "final snapshot", or "failed".     * 'DeleteClusterSnapshot' returns status as "deleted".
 --
 -- * 'sRestorableNodeTypes' - The list of node types that this cluster snapshot is able to restore into.
 --
 -- * 'sAccountsWithRestoreAccess' - A list of the AWS customer accounts authorized to restore the snapshot. Returns @null@ if no accounts are authorized. Visible only to the snapshot owner.
+--
+-- * 'sManualSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.  The value must be either -1 or an integer between 1 and 3,653.
 --
 -- * 'sEnhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 --
@@ -2642,6 +3438,12 @@ data Snapshot = Snapshot'
 --
 -- * 'sSourceRegion' - The source region from which the snapshot was copied.
 --
+-- * 'sMaintenanceTrackName' - The name of the maintenance track for the snapshot.
+--
+-- * 'sSnapshotRetentionStartTime' - A timestamp representing the start of the retention period for the snapshot.
+--
+-- * 'sManualSnapshotRemainingDays' - The number of days until a manual snapshot will pass its retention period.
+--
 -- * 'sVPCId' - The VPC identifier of the cluster if the snapshot is from a cluster in a VPC. Otherwise, this field is not in the output.
 --
 -- * 'sBackupProgressInMegaBytes' - The number of megabytes that have been transferred to the snapshot backup.
@@ -2652,7 +3454,7 @@ data Snapshot = Snapshot'
 --
 -- * 'sNumberOfNodes' - The number of nodes in the cluster.
 --
--- * 'sSnapshotType' - The snapshot type. Snapshots created using 'CreateClusterSnapshot' and 'CopyClusterSnapshot' will be of type "manual".
+-- * 'sSnapshotType' - The snapshot type. Snapshots created using 'CreateClusterSnapshot' and 'CopyClusterSnapshot' are of type "manual".
 --
 -- * 'sKMSKeyId' - The AWS Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
 --
@@ -2660,7 +3462,7 @@ data Snapshot = Snapshot'
 --
 -- * 'sCurrentBackupRateInMegaBytesPerSecond' - The number of megabytes per second being transferred to the snapshot backup. Returns @0@ for a completed backup.
 --
--- * 'sSnapshotCreateTime' - The time (UTC) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as of this exact time.
+-- * 'sSnapshotCreateTime' - The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as of this exact time.
 --
 -- * 'sClusterVersion' - The version ID of the Amazon Redshift engine that is running on the cluster.
 --
@@ -2690,11 +3492,15 @@ snapshot =
     { _sStatus = Nothing
     , _sRestorableNodeTypes = Nothing
     , _sAccountsWithRestoreAccess = Nothing
+    , _sManualSnapshotRetentionPeriod = Nothing
     , _sEnhancedVPCRouting = Nothing
     , _sSnapshotIdentifier = Nothing
     , _sEncryptedWithHSM = Nothing
     , _sMasterUsername = Nothing
     , _sSourceRegion = Nothing
+    , _sMaintenanceTrackName = Nothing
+    , _sSnapshotRetentionStartTime = Nothing
+    , _sManualSnapshotRemainingDays = Nothing
     , _sVPCId = Nothing
     , _sBackupProgressInMegaBytes = Nothing
     , _sEncrypted = Nothing
@@ -2719,7 +3525,7 @@ snapshot =
     }
 
 
--- | The snapshot status. The value of the status depends on the API operation used.      * 'CreateClusterSnapshot' and 'CopyClusterSnapshot' returns status as "creating".      * 'DescribeClusterSnapshots' returns status as "creating", "available", "final snapshot", or "failed".     * 'DeleteClusterSnapshot' returns status as "deleted".
+-- | The snapshot status. The value of the status depends on the API operation used:      * 'CreateClusterSnapshot' and 'CopyClusterSnapshot' returns status as "creating".      * 'DescribeClusterSnapshots' returns status as "creating", "available", "final snapshot", or "failed".     * 'DeleteClusterSnapshot' returns status as "deleted".
 sStatus :: Lens' Snapshot (Maybe Text)
 sStatus = lens _sStatus (\ s a -> s{_sStatus = a})
 
@@ -2730,6 +3536,10 @@ sRestorableNodeTypes = lens _sRestorableNodeTypes (\ s a -> s{_sRestorableNodeTy
 -- | A list of the AWS customer accounts authorized to restore the snapshot. Returns @null@ if no accounts are authorized. Visible only to the snapshot owner.
 sAccountsWithRestoreAccess :: Lens' Snapshot [AccountWithRestoreAccess]
 sAccountsWithRestoreAccess = lens _sAccountsWithRestoreAccess (\ s a -> s{_sAccountsWithRestoreAccess = a}) . _Default . _Coerce
+
+-- | The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.  The value must be either -1 or an integer between 1 and 3,653.
+sManualSnapshotRetentionPeriod :: Lens' Snapshot (Maybe Int)
+sManualSnapshotRetentionPeriod = lens _sManualSnapshotRetentionPeriod (\ s a -> s{_sManualSnapshotRetentionPeriod = a})
 
 -- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 sEnhancedVPCRouting :: Lens' Snapshot (Maybe Bool)
@@ -2751,6 +3561,18 @@ sMasterUsername = lens _sMasterUsername (\ s a -> s{_sMasterUsername = a})
 sSourceRegion :: Lens' Snapshot (Maybe Text)
 sSourceRegion = lens _sSourceRegion (\ s a -> s{_sSourceRegion = a})
 
+-- | The name of the maintenance track for the snapshot.
+sMaintenanceTrackName :: Lens' Snapshot (Maybe Text)
+sMaintenanceTrackName = lens _sMaintenanceTrackName (\ s a -> s{_sMaintenanceTrackName = a})
+
+-- | A timestamp representing the start of the retention period for the snapshot.
+sSnapshotRetentionStartTime :: Lens' Snapshot (Maybe UTCTime)
+sSnapshotRetentionStartTime = lens _sSnapshotRetentionStartTime (\ s a -> s{_sSnapshotRetentionStartTime = a}) . mapping _Time
+
+-- | The number of days until a manual snapshot will pass its retention period.
+sManualSnapshotRemainingDays :: Lens' Snapshot (Maybe Int)
+sManualSnapshotRemainingDays = lens _sManualSnapshotRemainingDays (\ s a -> s{_sManualSnapshotRemainingDays = a})
+
 -- | The VPC identifier of the cluster if the snapshot is from a cluster in a VPC. Otherwise, this field is not in the output.
 sVPCId :: Lens' Snapshot (Maybe Text)
 sVPCId = lens _sVPCId (\ s a -> s{_sVPCId = a})
@@ -2771,7 +3593,7 @@ sClusterIdentifier = lens _sClusterIdentifier (\ s a -> s{_sClusterIdentifier = 
 sNumberOfNodes :: Lens' Snapshot (Maybe Int)
 sNumberOfNodes = lens _sNumberOfNodes (\ s a -> s{_sNumberOfNodes = a})
 
--- | The snapshot type. Snapshots created using 'CreateClusterSnapshot' and 'CopyClusterSnapshot' will be of type "manual".
+-- | The snapshot type. Snapshots created using 'CreateClusterSnapshot' and 'CopyClusterSnapshot' are of type "manual".
 sSnapshotType :: Lens' Snapshot (Maybe Text)
 sSnapshotType = lens _sSnapshotType (\ s a -> s{_sSnapshotType = a})
 
@@ -2787,7 +3609,7 @@ sAvailabilityZone = lens _sAvailabilityZone (\ s a -> s{_sAvailabilityZone = a})
 sCurrentBackupRateInMegaBytesPerSecond :: Lens' Snapshot (Maybe Double)
 sCurrentBackupRateInMegaBytesPerSecond = lens _sCurrentBackupRateInMegaBytesPerSecond (\ s a -> s{_sCurrentBackupRateInMegaBytesPerSecond = a})
 
--- | The time (UTC) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as of this exact time.
+-- | The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as of this exact time.
 sSnapshotCreateTime :: Lens' Snapshot (Maybe UTCTime)
 sSnapshotCreateTime = lens _sSnapshotCreateTime (\ s a -> s{_sSnapshotCreateTime = a}) . mapping _Time
 
@@ -2844,11 +3666,15 @@ instance FromXML Snapshot where
                 <*>
                 (x .@? "AccountsWithRestoreAccess" .!@ mempty >>=
                    may (parseXMLList "AccountWithRestoreAccess"))
+                <*> (x .@? "ManualSnapshotRetentionPeriod")
                 <*> (x .@? "EnhancedVpcRouting")
                 <*> (x .@? "SnapshotIdentifier")
                 <*> (x .@? "EncryptedWithHSM")
                 <*> (x .@? "MasterUsername")
                 <*> (x .@? "SourceRegion")
+                <*> (x .@? "MaintenanceTrackName")
+                <*> (x .@? "SnapshotRetentionStartTime")
+                <*> (x .@? "ManualSnapshotRemainingDays")
                 <*> (x .@? "VpcId")
                 <*> (x .@? "BackupProgressInMegaBytes")
                 <*> (x .@? "Encrypted")
@@ -2935,6 +3761,209 @@ instance Hashable SnapshotCopyGrant where
 
 instance NFData SnapshotCopyGrant where
 
+-- | Describes the errors returned by a snapshot.
+--
+--
+--
+-- /See:/ 'snapshotErrorMessage' smart constructor.
+data SnapshotErrorMessage = SnapshotErrorMessage'
+  { _semFailureReason             :: !(Maybe Text)
+  , _semSnapshotIdentifier        :: !(Maybe Text)
+  , _semSnapshotClusterIdentifier :: !(Maybe Text)
+  , _semFailureCode               :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SnapshotErrorMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'semFailureReason' - The text message describing the error.
+--
+-- * 'semSnapshotIdentifier' - A unique identifier for the snapshot returning the error.
+--
+-- * 'semSnapshotClusterIdentifier' - A unique identifier for the cluster.
+--
+-- * 'semFailureCode' - The failure code for the error.
+snapshotErrorMessage
+    :: SnapshotErrorMessage
+snapshotErrorMessage =
+  SnapshotErrorMessage'
+    { _semFailureReason = Nothing
+    , _semSnapshotIdentifier = Nothing
+    , _semSnapshotClusterIdentifier = Nothing
+    , _semFailureCode = Nothing
+    }
+
+
+-- | The text message describing the error.
+semFailureReason :: Lens' SnapshotErrorMessage (Maybe Text)
+semFailureReason = lens _semFailureReason (\ s a -> s{_semFailureReason = a})
+
+-- | A unique identifier for the snapshot returning the error.
+semSnapshotIdentifier :: Lens' SnapshotErrorMessage (Maybe Text)
+semSnapshotIdentifier = lens _semSnapshotIdentifier (\ s a -> s{_semSnapshotIdentifier = a})
+
+-- | A unique identifier for the cluster.
+semSnapshotClusterIdentifier :: Lens' SnapshotErrorMessage (Maybe Text)
+semSnapshotClusterIdentifier = lens _semSnapshotClusterIdentifier (\ s a -> s{_semSnapshotClusterIdentifier = a})
+
+-- | The failure code for the error.
+semFailureCode :: Lens' SnapshotErrorMessage (Maybe Text)
+semFailureCode = lens _semFailureCode (\ s a -> s{_semFailureCode = a})
+
+instance FromXML SnapshotErrorMessage where
+        parseXML x
+          = SnapshotErrorMessage' <$>
+              (x .@? "FailureReason") <*>
+                (x .@? "SnapshotIdentifier")
+                <*> (x .@? "SnapshotClusterIdentifier")
+                <*> (x .@? "FailureCode")
+
+instance Hashable SnapshotErrorMessage where
+
+instance NFData SnapshotErrorMessage where
+
+-- | Describes a snapshot schedule. You can set a regular interval for creating snapshots of a cluster. You can also schedule snapshots for specific dates.
+--
+--
+--
+-- /See:/ 'snapshotSchedule' smart constructor.
+data SnapshotSchedule = SnapshotSchedule'
+  { _ssAssociatedClusters     :: !(Maybe [ClusterAssociatedToSchedule])
+  , _ssNextInvocations        :: !(Maybe [ISO8601])
+  , _ssScheduleDefinitions    :: !(Maybe [Text])
+  , _ssScheduleDescription    :: !(Maybe Text)
+  , _ssScheduleIdentifier     :: !(Maybe Text)
+  , _ssAssociatedClusterCount :: !(Maybe Int)
+  , _ssTags                   :: !(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SnapshotSchedule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssAssociatedClusters' - Undocumented member.
+--
+-- * 'ssNextInvocations' - Undocumented member.
+--
+-- * 'ssScheduleDefinitions' - A list of ScheduleDefinitions
+--
+-- * 'ssScheduleDescription' - The description of the schedule.
+--
+-- * 'ssScheduleIdentifier' - A unique identifier for the schedule.
+--
+-- * 'ssAssociatedClusterCount' - Undocumented member.
+--
+-- * 'ssTags' - An optional set of tags describing the schedule.
+snapshotSchedule
+    :: SnapshotSchedule
+snapshotSchedule =
+  SnapshotSchedule'
+    { _ssAssociatedClusters = Nothing
+    , _ssNextInvocations = Nothing
+    , _ssScheduleDefinitions = Nothing
+    , _ssScheduleDescription = Nothing
+    , _ssScheduleIdentifier = Nothing
+    , _ssAssociatedClusterCount = Nothing
+    , _ssTags = Nothing
+    }
+
+
+-- | Undocumented member.
+ssAssociatedClusters :: Lens' SnapshotSchedule [ClusterAssociatedToSchedule]
+ssAssociatedClusters = lens _ssAssociatedClusters (\ s a -> s{_ssAssociatedClusters = a}) . _Default . _Coerce
+
+-- | Undocumented member.
+ssNextInvocations :: Lens' SnapshotSchedule [UTCTime]
+ssNextInvocations = lens _ssNextInvocations (\ s a -> s{_ssNextInvocations = a}) . _Default . _Coerce
+
+-- | A list of ScheduleDefinitions
+ssScheduleDefinitions :: Lens' SnapshotSchedule [Text]
+ssScheduleDefinitions = lens _ssScheduleDefinitions (\ s a -> s{_ssScheduleDefinitions = a}) . _Default . _Coerce
+
+-- | The description of the schedule.
+ssScheduleDescription :: Lens' SnapshotSchedule (Maybe Text)
+ssScheduleDescription = lens _ssScheduleDescription (\ s a -> s{_ssScheduleDescription = a})
+
+-- | A unique identifier for the schedule.
+ssScheduleIdentifier :: Lens' SnapshotSchedule (Maybe Text)
+ssScheduleIdentifier = lens _ssScheduleIdentifier (\ s a -> s{_ssScheduleIdentifier = a})
+
+-- | Undocumented member.
+ssAssociatedClusterCount :: Lens' SnapshotSchedule (Maybe Int)
+ssAssociatedClusterCount = lens _ssAssociatedClusterCount (\ s a -> s{_ssAssociatedClusterCount = a})
+
+-- | An optional set of tags describing the schedule.
+ssTags :: Lens' SnapshotSchedule [Tag]
+ssTags = lens _ssTags (\ s a -> s{_ssTags = a}) . _Default . _Coerce
+
+instance FromXML SnapshotSchedule where
+        parseXML x
+          = SnapshotSchedule' <$>
+              (x .@? "AssociatedClusters" .!@ mempty >>=
+                 may (parseXMLList "ClusterAssociatedToSchedule"))
+                <*>
+                (x .@? "NextInvocations" .!@ mempty >>=
+                   may (parseXMLList "SnapshotTime"))
+                <*>
+                (x .@? "ScheduleDefinitions" .!@ mempty >>=
+                   may (parseXMLList "ScheduleDefinition"))
+                <*> (x .@? "ScheduleDescription")
+                <*> (x .@? "ScheduleIdentifier")
+                <*> (x .@? "AssociatedClusterCount")
+                <*>
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList "Tag"))
+
+instance Hashable SnapshotSchedule where
+
+instance NFData SnapshotSchedule where
+
+-- | Describes a sorting entity
+--
+--
+--
+-- /See:/ 'snapshotSortingEntity' smart constructor.
+data SnapshotSortingEntity = SnapshotSortingEntity'
+  { _sseSortOrder :: !(Maybe SortByOrder)
+  , _sseAttribute :: !SnapshotAttributeToSortBy
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SnapshotSortingEntity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sseSortOrder' - The order for listing the attributes.
+--
+-- * 'sseAttribute' - The category for sorting the snapshots.
+snapshotSortingEntity
+    :: SnapshotAttributeToSortBy -- ^ 'sseAttribute'
+    -> SnapshotSortingEntity
+snapshotSortingEntity pAttribute_ =
+  SnapshotSortingEntity' {_sseSortOrder = Nothing, _sseAttribute = pAttribute_}
+
+
+-- | The order for listing the attributes.
+sseSortOrder :: Lens' SnapshotSortingEntity (Maybe SortByOrder)
+sseSortOrder = lens _sseSortOrder (\ s a -> s{_sseSortOrder = a})
+
+-- | The category for sorting the snapshots.
+sseAttribute :: Lens' SnapshotSortingEntity SnapshotAttributeToSortBy
+sseAttribute = lens _sseAttribute (\ s a -> s{_sseAttribute = a})
+
+instance Hashable SnapshotSortingEntity where
+
+instance NFData SnapshotSortingEntity where
+
+instance ToQuery SnapshotSortingEntity where
+        toQuery SnapshotSortingEntity'{..}
+          = mconcat
+              ["SortOrder" =: _sseSortOrder,
+               "Attribute" =: _sseAttribute]
+
 -- | Describes a subnet.
 --
 --
@@ -2987,6 +4016,38 @@ instance FromXML Subnet where
 instance Hashable Subnet where
 
 instance NFData Subnet where
+
+-- | Describes the operations that are allowed on a maintenance track.
+--
+--
+--
+-- /See:/ 'supportedOperation' smart constructor.
+newtype SupportedOperation = SupportedOperation'
+  { _soOperationName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'SupportedOperation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'soOperationName' - A list of the supported operations.
+supportedOperation
+    :: SupportedOperation
+supportedOperation = SupportedOperation' {_soOperationName = Nothing}
+
+
+-- | A list of the supported operations.
+soOperationName :: Lens' SupportedOperation (Maybe Text)
+soOperationName = lens _soOperationName (\ s a -> s{_soOperationName = a})
+
+instance FromXML SupportedOperation where
+        parseXML x
+          = SupportedOperation' <$> (x .@? "OperationName")
+
+instance Hashable SupportedOperation where
+
+instance NFData SupportedOperation where
 
 -- | A list of supported platforms for orderable clusters.
 --
@@ -3234,7 +4295,7 @@ data TaggedResource = TaggedResource'
 --
 -- * 'trResourceType' - The type of resource with which the tag is associated. Valid resource types are:      * Cluster     * CIDR/IP     * EC2 security group     * Snapshot     * Cluster security group     * Subnet group     * HSM connection     * HSM certificate     * Parameter group For more information about Amazon Redshift resource types and constructing ARNs, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the Amazon Redshift Cluster Management Guide.
 --
--- * 'trResourceName' - The Amazon Resource Name (ARN) with which the tag is associated. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@ .
+-- * 'trResourceName' - The Amazon Resource Name (ARN) with which the tag is associated, for example: @arn:aws:redshift:us-east-1:123456789:cluster:t1@ .
 taggedResource
     :: TaggedResource
 taggedResource =
@@ -3250,7 +4311,7 @@ trTag = lens _trTag (\ s a -> s{_trTag = a})
 trResourceType :: Lens' TaggedResource (Maybe Text)
 trResourceType = lens _trResourceType (\ s a -> s{_trResourceType = a})
 
--- | The Amazon Resource Name (ARN) with which the tag is associated. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@ .
+-- | The Amazon Resource Name (ARN) with which the tag is associated, for example: @arn:aws:redshift:us-east-1:123456789:cluster:t1@ .
 trResourceName :: Lens' TaggedResource (Maybe Text)
 trResourceName = lens _trResourceName (\ s a -> s{_trResourceName = a})
 
@@ -3263,6 +4324,62 @@ instance FromXML TaggedResource where
 instance Hashable TaggedResource where
 
 instance NFData TaggedResource where
+
+-- | A maintenance track that you can switch the current track to.
+--
+--
+--
+-- /See:/ 'updateTarget' smart constructor.
+data UpdateTarget = UpdateTarget'
+  { _utDatabaseVersion      :: !(Maybe Text)
+  , _utMaintenanceTrackName :: !(Maybe Text)
+  , _utSupportedOperations  :: !(Maybe [SupportedOperation])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'UpdateTarget' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'utDatabaseVersion' - The cluster version for the new maintenance track.
+--
+-- * 'utMaintenanceTrackName' - The name of the new maintenance track.
+--
+-- * 'utSupportedOperations' - A list of operations supported by the maintenance track.
+updateTarget
+    :: UpdateTarget
+updateTarget =
+  UpdateTarget'
+    { _utDatabaseVersion = Nothing
+    , _utMaintenanceTrackName = Nothing
+    , _utSupportedOperations = Nothing
+    }
+
+
+-- | The cluster version for the new maintenance track.
+utDatabaseVersion :: Lens' UpdateTarget (Maybe Text)
+utDatabaseVersion = lens _utDatabaseVersion (\ s a -> s{_utDatabaseVersion = a})
+
+-- | The name of the new maintenance track.
+utMaintenanceTrackName :: Lens' UpdateTarget (Maybe Text)
+utMaintenanceTrackName = lens _utMaintenanceTrackName (\ s a -> s{_utMaintenanceTrackName = a})
+
+-- | A list of operations supported by the maintenance track.
+utSupportedOperations :: Lens' UpdateTarget [SupportedOperation]
+utSupportedOperations = lens _utSupportedOperations (\ s a -> s{_utSupportedOperations = a}) . _Default . _Coerce
+
+instance FromXML UpdateTarget where
+        parseXML x
+          = UpdateTarget' <$>
+              (x .@? "DatabaseVersion") <*>
+                (x .@? "MaintenanceTrackName")
+                <*>
+                (x .@? "SupportedOperations" .!@ mempty >>=
+                   may (parseXMLList "SupportedOperation"))
+
+instance Hashable UpdateTarget where
+
+instance NFData UpdateTarget where
 
 -- | Describes the members of a VPC security group.
 --

@@ -28,7 +28,13 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeClusters $
+--         [ requestCancelResize $
+--             cancelResize
+--
+--         , requestDescribeStorage $
+--             describeStorage
+--
+--         , requestDescribeClusters $
 --             describeClusters
 --
 --         , requestDescribeTags $
@@ -40,8 +46,14 @@ import Test.Tasty
 --         , requestDisableLogging $
 --             disableLogging
 --
+--         , requestDescribeSnapshotSchedules $
+--             describeSnapshotSchedules
+--
 --         , requestModifyEventSubscription $
 --             modifyEventSubscription
+--
+--         , requestModifyClusterDBRevision $
+--             modifyClusterDBRevision
 --
 --         , requestDeleteClusterSnapshot $
 --             deleteClusterSnapshot
@@ -57,6 +69,9 @@ import Test.Tasty
 --
 --         , requestDescribeReservedNodes $
 --             describeReservedNodes
+--
+--         , requestGetReservedNodeExchangeOfferings $
+--             getReservedNodeExchangeOfferings
 --
 --         , requestDescribeClusterParameterGroups $
 --             describeClusterParameterGroups
@@ -82,11 +97,17 @@ import Test.Tasty
 --         , requestDescribeClusterSnapshots $
 --             describeClusterSnapshots
 --
+--         , requestBatchDeleteClusterSnapshots $
+--             batchDeleteClusterSnapshots
+--
 --         , requestDeleteTags $
 --             deleteTags
 --
 --         , requestDescribeClusterSubnetGroups $
 --             describeClusterSubnetGroups
+--
+--         , requestResizeCluster $
+--             resizeCluster
 --
 --         , requestModifySnapshotCopyRetentionPeriod $
 --             modifySnapshotCopyRetentionPeriod
@@ -109,6 +130,9 @@ import Test.Tasty
 --         , requestDescribeOrderableClusterOptions $
 --             describeOrderableClusterOptions
 --
+--         , requestDescribeClusterTracks $
+--             describeClusterTracks
+--
 --         , requestCreateCluster $
 --             createCluster
 --
@@ -124,11 +148,20 @@ import Test.Tasty
 --         , requestDeleteEventSubscription $
 --             deleteEventSubscription
 --
+--         , requestModifyClusterSnapshot $
+--             modifyClusterSnapshot
+--
 --         , requestResetClusterParameterGroup $
 --             resetClusterParameterGroup
 --
 --         , requestDescribeEventSubscriptions $
 --             describeEventSubscriptions
+--
+--         , requestDescribeClusterDBRevisions $
+--             describeClusterDBRevisions
+--
+--         , requestBatchModifyClusterSnapshots $
+--             batchModifyClusterSnapshots
 --
 --         , requestRevokeClusterSecurityGroupIngress $
 --             revokeClusterSecurityGroupIngress
@@ -142,6 +175,9 @@ import Test.Tasty
 --         , requestGetClusterCredentials $
 --             getClusterCredentials
 --
+--         , requestModifyClusterMaintenance $
+--             modifyClusterMaintenance
+--
 --         , requestCreateClusterSecurityGroup $
 --             createClusterSecurityGroup
 --
@@ -153,6 +189,9 @@ import Test.Tasty
 --
 --         , requestDeleteHSMConfiguration $
 --             deleteHSMConfiguration
+--
+--         , requestAcceptReservedNodeExchange $
+--             acceptReservedNodeExchange
 --
 --         , requestAuthorizeClusterSecurityGroupIngress $
 --             authorizeClusterSecurityGroupIngress
@@ -175,11 +214,17 @@ import Test.Tasty
 --         , requestDeleteClusterSecurityGroup $
 --             deleteClusterSecurityGroup
 --
+--         , requestCreateSnapshotSchedule $
+--             createSnapshotSchedule
+--
 --         , requestDisableSnapshotCopy $
 --             disableSnapshotCopy
 --
 --         , requestDescribeClusterParameters $
 --             describeClusterParameters
+--
+--         , requestDeleteSnapshotSchedule $
+--             deleteSnapshotSchedule
 --
 --         , requestRestoreFromClusterSnapshot $
 --             restoreFromClusterSnapshot
@@ -193,6 +238,9 @@ import Test.Tasty
 --         , requestDescribeHSMConfigurations $
 --             describeHSMConfigurations
 --
+--         , requestDescribeAccountAttributes $
+--             describeAccountAttributes
+--
 --         , requestCreateSnapshotCopyGrant $
 --             createSnapshotCopyGrant
 --
@@ -201,6 +249,9 @@ import Test.Tasty
 --
 --         , requestDeleteHSMClientCertificate $
 --             deleteHSMClientCertificate
+--
+--         , requestModifyClusterSnapshotSchedule $
+--             modifyClusterSnapshotSchedule
 --
 --         , requestDeleteSnapshotCopyGrant $
 --             deleteSnapshotCopyGrant
@@ -211,6 +262,9 @@ import Test.Tasty
 --         , requestModifyClusterSubnetGroup $
 --             modifyClusterSubnetGroup
 --
+--         , requestModifySnapshotSchedule $
+--             modifySnapshotSchedule
+--
 --         , requestRotateEncryptionKey $
 --             rotateEncryptionKey
 --
@@ -220,7 +274,13 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeClusters $
+--         [ responseCancelResize $
+--             resizeProgressMessage
+--
+--         , responseDescribeStorage $
+--             describeStorageResponse
+--
+--         , responseDescribeClusters $
 --             describeClustersResponse
 --
 --         , responseDescribeTags $
@@ -232,8 +292,14 @@ import Test.Tasty
 --         , responseDisableLogging $
 --             loggingStatus
 --
+--         , responseDescribeSnapshotSchedules $
+--             describeSnapshotSchedulesResponse
+--
 --         , responseModifyEventSubscription $
 --             modifyEventSubscriptionResponse
+--
+--         , responseModifyClusterDBRevision $
+--             modifyClusterDBRevisionResponse
 --
 --         , responseDeleteClusterSnapshot $
 --             deleteClusterSnapshotResponse
@@ -249,6 +315,9 @@ import Test.Tasty
 --
 --         , responseDescribeReservedNodes $
 --             describeReservedNodesResponse
+--
+--         , responseGetReservedNodeExchangeOfferings $
+--             getReservedNodeExchangeOfferingsResponse
 --
 --         , responseDescribeClusterParameterGroups $
 --             describeClusterParameterGroupsResponse
@@ -274,11 +343,17 @@ import Test.Tasty
 --         , responseDescribeClusterSnapshots $
 --             describeClusterSnapshotsResponse
 --
+--         , responseBatchDeleteClusterSnapshots $
+--             batchDeleteClusterSnapshotsResponse
+--
 --         , responseDeleteTags $
 --             deleteTagsResponse
 --
 --         , responseDescribeClusterSubnetGroups $
 --             describeClusterSubnetGroupsResponse
+--
+--         , responseResizeCluster $
+--             resizeClusterResponse
 --
 --         , responseModifySnapshotCopyRetentionPeriod $
 --             modifySnapshotCopyRetentionPeriodResponse
@@ -301,6 +376,9 @@ import Test.Tasty
 --         , responseDescribeOrderableClusterOptions $
 --             describeOrderableClusterOptionsResponse
 --
+--         , responseDescribeClusterTracks $
+--             describeClusterTracksResponse
+--
 --         , responseCreateCluster $
 --             createClusterResponse
 --
@@ -316,11 +394,20 @@ import Test.Tasty
 --         , responseDeleteEventSubscription $
 --             deleteEventSubscriptionResponse
 --
+--         , responseModifyClusterSnapshot $
+--             modifyClusterSnapshotResponse
+--
 --         , responseResetClusterParameterGroup $
 --             clusterParameterGroupNameMessage
 --
 --         , responseDescribeEventSubscriptions $
 --             describeEventSubscriptionsResponse
+--
+--         , responseDescribeClusterDBRevisions $
+--             describeClusterDBRevisionsResponse
+--
+--         , responseBatchModifyClusterSnapshots $
+--             batchModifyClusterSnapshotsResponse
 --
 --         , responseRevokeClusterSecurityGroupIngress $
 --             revokeClusterSecurityGroupIngressResponse
@@ -334,6 +421,9 @@ import Test.Tasty
 --         , responseGetClusterCredentials $
 --             getClusterCredentialsResponse
 --
+--         , responseModifyClusterMaintenance $
+--             modifyClusterMaintenanceResponse
+--
 --         , responseCreateClusterSecurityGroup $
 --             createClusterSecurityGroupResponse
 --
@@ -341,10 +431,13 @@ import Test.Tasty
 --             describeEventCategoriesResponse
 --
 --         , responseDescribeResize $
---             describeResizeResponse
+--             resizeProgressMessage
 --
 --         , responseDeleteHSMConfiguration $
 --             deleteHSMConfigurationResponse
+--
+--         , responseAcceptReservedNodeExchange $
+--             acceptReservedNodeExchangeResponse
 --
 --         , responseAuthorizeClusterSecurityGroupIngress $
 --             authorizeClusterSecurityGroupIngressResponse
@@ -367,11 +460,17 @@ import Test.Tasty
 --         , responseDeleteClusterSecurityGroup $
 --             deleteClusterSecurityGroupResponse
 --
+--         , responseCreateSnapshotSchedule $
+--             snapshotSchedule
+--
 --         , responseDisableSnapshotCopy $
 --             disableSnapshotCopyResponse
 --
 --         , responseDescribeClusterParameters $
 --             describeClusterParametersResponse
+--
+--         , responseDeleteSnapshotSchedule $
+--             deleteSnapshotScheduleResponse
 --
 --         , responseRestoreFromClusterSnapshot $
 --             restoreFromClusterSnapshotResponse
@@ -385,6 +484,9 @@ import Test.Tasty
 --         , responseDescribeHSMConfigurations $
 --             describeHSMConfigurationsResponse
 --
+--         , responseDescribeAccountAttributes $
+--             describeAccountAttributesResponse
+--
 --         , responseCreateSnapshotCopyGrant $
 --             createSnapshotCopyGrantResponse
 --
@@ -394,6 +496,9 @@ import Test.Tasty
 --         , responseDeleteHSMClientCertificate $
 --             deleteHSMClientCertificateResponse
 --
+--         , responseModifyClusterSnapshotSchedule $
+--             modifyClusterSnapshotScheduleResponse
+--
 --         , responseDeleteSnapshotCopyGrant $
 --             deleteSnapshotCopyGrantResponse
 --
@@ -402,6 +507,9 @@ import Test.Tasty
 --
 --         , responseModifyClusterSubnetGroup $
 --             modifyClusterSubnetGroupResponse
+--
+--         , responseModifySnapshotSchedule $
+--             snapshotSchedule
 --
 --         , responseRotateEncryptionKey $
 --             rotateEncryptionKeyResponse
@@ -413,6 +521,16 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestCancelResize :: CancelResize -> TestTree
+requestCancelResize = req
+    "CancelResize"
+    "fixture/CancelResize.yaml"
+
+requestDescribeStorage :: DescribeStorage -> TestTree
+requestDescribeStorage = req
+    "DescribeStorage"
+    "fixture/DescribeStorage.yaml"
 
 requestDescribeClusters :: DescribeClusters -> TestTree
 requestDescribeClusters = req
@@ -434,10 +552,20 @@ requestDisableLogging = req
     "DisableLogging"
     "fixture/DisableLogging.yaml"
 
+requestDescribeSnapshotSchedules :: DescribeSnapshotSchedules -> TestTree
+requestDescribeSnapshotSchedules = req
+    "DescribeSnapshotSchedules"
+    "fixture/DescribeSnapshotSchedules.yaml"
+
 requestModifyEventSubscription :: ModifyEventSubscription -> TestTree
 requestModifyEventSubscription = req
     "ModifyEventSubscription"
     "fixture/ModifyEventSubscription.yaml"
+
+requestModifyClusterDBRevision :: ModifyClusterDBRevision -> TestTree
+requestModifyClusterDBRevision = req
+    "ModifyClusterDBRevision"
+    "fixture/ModifyClusterDBRevision.yaml"
 
 requestDeleteClusterSnapshot :: DeleteClusterSnapshot -> TestTree
 requestDeleteClusterSnapshot = req
@@ -463,6 +591,11 @@ requestDescribeReservedNodes :: DescribeReservedNodes -> TestTree
 requestDescribeReservedNodes = req
     "DescribeReservedNodes"
     "fixture/DescribeReservedNodes.yaml"
+
+requestGetReservedNodeExchangeOfferings :: GetReservedNodeExchangeOfferings -> TestTree
+requestGetReservedNodeExchangeOfferings = req
+    "GetReservedNodeExchangeOfferings"
+    "fixture/GetReservedNodeExchangeOfferings.yaml"
 
 requestDescribeClusterParameterGroups :: DescribeClusterParameterGroups -> TestTree
 requestDescribeClusterParameterGroups = req
@@ -504,6 +637,11 @@ requestDescribeClusterSnapshots = req
     "DescribeClusterSnapshots"
     "fixture/DescribeClusterSnapshots.yaml"
 
+requestBatchDeleteClusterSnapshots :: BatchDeleteClusterSnapshots -> TestTree
+requestBatchDeleteClusterSnapshots = req
+    "BatchDeleteClusterSnapshots"
+    "fixture/BatchDeleteClusterSnapshots.yaml"
+
 requestDeleteTags :: DeleteTags -> TestTree
 requestDeleteTags = req
     "DeleteTags"
@@ -513,6 +651,11 @@ requestDescribeClusterSubnetGroups :: DescribeClusterSubnetGroups -> TestTree
 requestDescribeClusterSubnetGroups = req
     "DescribeClusterSubnetGroups"
     "fixture/DescribeClusterSubnetGroups.yaml"
+
+requestResizeCluster :: ResizeCluster -> TestTree
+requestResizeCluster = req
+    "ResizeCluster"
+    "fixture/ResizeCluster.yaml"
 
 requestModifySnapshotCopyRetentionPeriod :: ModifySnapshotCopyRetentionPeriod -> TestTree
 requestModifySnapshotCopyRetentionPeriod = req
@@ -549,6 +692,11 @@ requestDescribeOrderableClusterOptions = req
     "DescribeOrderableClusterOptions"
     "fixture/DescribeOrderableClusterOptions.yaml"
 
+requestDescribeClusterTracks :: DescribeClusterTracks -> TestTree
+requestDescribeClusterTracks = req
+    "DescribeClusterTracks"
+    "fixture/DescribeClusterTracks.yaml"
+
 requestCreateCluster :: CreateCluster -> TestTree
 requestCreateCluster = req
     "CreateCluster"
@@ -574,6 +722,11 @@ requestDeleteEventSubscription = req
     "DeleteEventSubscription"
     "fixture/DeleteEventSubscription.yaml"
 
+requestModifyClusterSnapshot :: ModifyClusterSnapshot -> TestTree
+requestModifyClusterSnapshot = req
+    "ModifyClusterSnapshot"
+    "fixture/ModifyClusterSnapshot.yaml"
+
 requestResetClusterParameterGroup :: ResetClusterParameterGroup -> TestTree
 requestResetClusterParameterGroup = req
     "ResetClusterParameterGroup"
@@ -583,6 +736,16 @@ requestDescribeEventSubscriptions :: DescribeEventSubscriptions -> TestTree
 requestDescribeEventSubscriptions = req
     "DescribeEventSubscriptions"
     "fixture/DescribeEventSubscriptions.yaml"
+
+requestDescribeClusterDBRevisions :: DescribeClusterDBRevisions -> TestTree
+requestDescribeClusterDBRevisions = req
+    "DescribeClusterDBRevisions"
+    "fixture/DescribeClusterDBRevisions.yaml"
+
+requestBatchModifyClusterSnapshots :: BatchModifyClusterSnapshots -> TestTree
+requestBatchModifyClusterSnapshots = req
+    "BatchModifyClusterSnapshots"
+    "fixture/BatchModifyClusterSnapshots.yaml"
 
 requestRevokeClusterSecurityGroupIngress :: RevokeClusterSecurityGroupIngress -> TestTree
 requestRevokeClusterSecurityGroupIngress = req
@@ -604,6 +767,11 @@ requestGetClusterCredentials = req
     "GetClusterCredentials"
     "fixture/GetClusterCredentials.yaml"
 
+requestModifyClusterMaintenance :: ModifyClusterMaintenance -> TestTree
+requestModifyClusterMaintenance = req
+    "ModifyClusterMaintenance"
+    "fixture/ModifyClusterMaintenance.yaml"
+
 requestCreateClusterSecurityGroup :: CreateClusterSecurityGroup -> TestTree
 requestCreateClusterSecurityGroup = req
     "CreateClusterSecurityGroup"
@@ -623,6 +791,11 @@ requestDeleteHSMConfiguration :: DeleteHSMConfiguration -> TestTree
 requestDeleteHSMConfiguration = req
     "DeleteHSMConfiguration"
     "fixture/DeleteHSMConfiguration.yaml"
+
+requestAcceptReservedNodeExchange :: AcceptReservedNodeExchange -> TestTree
+requestAcceptReservedNodeExchange = req
+    "AcceptReservedNodeExchange"
+    "fixture/AcceptReservedNodeExchange.yaml"
 
 requestAuthorizeClusterSecurityGroupIngress :: AuthorizeClusterSecurityGroupIngress -> TestTree
 requestAuthorizeClusterSecurityGroupIngress = req
@@ -659,6 +832,11 @@ requestDeleteClusterSecurityGroup = req
     "DeleteClusterSecurityGroup"
     "fixture/DeleteClusterSecurityGroup.yaml"
 
+requestCreateSnapshotSchedule :: CreateSnapshotSchedule -> TestTree
+requestCreateSnapshotSchedule = req
+    "CreateSnapshotSchedule"
+    "fixture/CreateSnapshotSchedule.yaml"
+
 requestDisableSnapshotCopy :: DisableSnapshotCopy -> TestTree
 requestDisableSnapshotCopy = req
     "DisableSnapshotCopy"
@@ -668,6 +846,11 @@ requestDescribeClusterParameters :: DescribeClusterParameters -> TestTree
 requestDescribeClusterParameters = req
     "DescribeClusterParameters"
     "fixture/DescribeClusterParameters.yaml"
+
+requestDeleteSnapshotSchedule :: DeleteSnapshotSchedule -> TestTree
+requestDeleteSnapshotSchedule = req
+    "DeleteSnapshotSchedule"
+    "fixture/DeleteSnapshotSchedule.yaml"
 
 requestRestoreFromClusterSnapshot :: RestoreFromClusterSnapshot -> TestTree
 requestRestoreFromClusterSnapshot = req
@@ -689,6 +872,11 @@ requestDescribeHSMConfigurations = req
     "DescribeHSMConfigurations"
     "fixture/DescribeHSMConfigurations.yaml"
 
+requestDescribeAccountAttributes :: DescribeAccountAttributes -> TestTree
+requestDescribeAccountAttributes = req
+    "DescribeAccountAttributes"
+    "fixture/DescribeAccountAttributes.yaml"
+
 requestCreateSnapshotCopyGrant :: CreateSnapshotCopyGrant -> TestTree
 requestCreateSnapshotCopyGrant = req
     "CreateSnapshotCopyGrant"
@@ -703,6 +891,11 @@ requestDeleteHSMClientCertificate :: DeleteHSMClientCertificate -> TestTree
 requestDeleteHSMClientCertificate = req
     "DeleteHSMClientCertificate"
     "fixture/DeleteHSMClientCertificate.yaml"
+
+requestModifyClusterSnapshotSchedule :: ModifyClusterSnapshotSchedule -> TestTree
+requestModifyClusterSnapshotSchedule = req
+    "ModifyClusterSnapshotSchedule"
+    "fixture/ModifyClusterSnapshotSchedule.yaml"
 
 requestDeleteSnapshotCopyGrant :: DeleteSnapshotCopyGrant -> TestTree
 requestDeleteSnapshotCopyGrant = req
@@ -719,6 +912,11 @@ requestModifyClusterSubnetGroup = req
     "ModifyClusterSubnetGroup"
     "fixture/ModifyClusterSubnetGroup.yaml"
 
+requestModifySnapshotSchedule :: ModifySnapshotSchedule -> TestTree
+requestModifySnapshotSchedule = req
+    "ModifySnapshotSchedule"
+    "fixture/ModifySnapshotSchedule.yaml"
+
 requestRotateEncryptionKey :: RotateEncryptionKey -> TestTree
 requestRotateEncryptionKey = req
     "RotateEncryptionKey"
@@ -730,6 +928,20 @@ requestDescribeSnapshotCopyGrants = req
     "fixture/DescribeSnapshotCopyGrants.yaml"
 
 -- Responses
+
+responseCancelResize :: ResizeProgressMessage -> TestTree
+responseCancelResize = res
+    "CancelResizeResponse"
+    "fixture/CancelResizeResponse.proto"
+    redshift
+    (Proxy :: Proxy CancelResize)
+
+responseDescribeStorage :: DescribeStorageResponse -> TestTree
+responseDescribeStorage = res
+    "DescribeStorageResponse"
+    "fixture/DescribeStorageResponse.proto"
+    redshift
+    (Proxy :: Proxy DescribeStorage)
 
 responseDescribeClusters :: DescribeClustersResponse -> TestTree
 responseDescribeClusters = res
@@ -759,12 +971,26 @@ responseDisableLogging = res
     redshift
     (Proxy :: Proxy DisableLogging)
 
+responseDescribeSnapshotSchedules :: DescribeSnapshotSchedulesResponse -> TestTree
+responseDescribeSnapshotSchedules = res
+    "DescribeSnapshotSchedulesResponse"
+    "fixture/DescribeSnapshotSchedulesResponse.proto"
+    redshift
+    (Proxy :: Proxy DescribeSnapshotSchedules)
+
 responseModifyEventSubscription :: ModifyEventSubscriptionResponse -> TestTree
 responseModifyEventSubscription = res
     "ModifyEventSubscriptionResponse"
     "fixture/ModifyEventSubscriptionResponse.proto"
     redshift
     (Proxy :: Proxy ModifyEventSubscription)
+
+responseModifyClusterDBRevision :: ModifyClusterDBRevisionResponse -> TestTree
+responseModifyClusterDBRevision = res
+    "ModifyClusterDBRevisionResponse"
+    "fixture/ModifyClusterDBRevisionResponse.proto"
+    redshift
+    (Proxy :: Proxy ModifyClusterDBRevision)
 
 responseDeleteClusterSnapshot :: DeleteClusterSnapshotResponse -> TestTree
 responseDeleteClusterSnapshot = res
@@ -800,6 +1026,13 @@ responseDescribeReservedNodes = res
     "fixture/DescribeReservedNodesResponse.proto"
     redshift
     (Proxy :: Proxy DescribeReservedNodes)
+
+responseGetReservedNodeExchangeOfferings :: GetReservedNodeExchangeOfferingsResponse -> TestTree
+responseGetReservedNodeExchangeOfferings = res
+    "GetReservedNodeExchangeOfferingsResponse"
+    "fixture/GetReservedNodeExchangeOfferingsResponse.proto"
+    redshift
+    (Proxy :: Proxy GetReservedNodeExchangeOfferings)
 
 responseDescribeClusterParameterGroups :: DescribeClusterParameterGroupsResponse -> TestTree
 responseDescribeClusterParameterGroups = res
@@ -857,6 +1090,13 @@ responseDescribeClusterSnapshots = res
     redshift
     (Proxy :: Proxy DescribeClusterSnapshots)
 
+responseBatchDeleteClusterSnapshots :: BatchDeleteClusterSnapshotsResponse -> TestTree
+responseBatchDeleteClusterSnapshots = res
+    "BatchDeleteClusterSnapshotsResponse"
+    "fixture/BatchDeleteClusterSnapshotsResponse.proto"
+    redshift
+    (Proxy :: Proxy BatchDeleteClusterSnapshots)
+
 responseDeleteTags :: DeleteTagsResponse -> TestTree
 responseDeleteTags = res
     "DeleteTagsResponse"
@@ -870,6 +1110,13 @@ responseDescribeClusterSubnetGroups = res
     "fixture/DescribeClusterSubnetGroupsResponse.proto"
     redshift
     (Proxy :: Proxy DescribeClusterSubnetGroups)
+
+responseResizeCluster :: ResizeClusterResponse -> TestTree
+responseResizeCluster = res
+    "ResizeClusterResponse"
+    "fixture/ResizeClusterResponse.proto"
+    redshift
+    (Proxy :: Proxy ResizeCluster)
 
 responseModifySnapshotCopyRetentionPeriod :: ModifySnapshotCopyRetentionPeriodResponse -> TestTree
 responseModifySnapshotCopyRetentionPeriod = res
@@ -920,6 +1167,13 @@ responseDescribeOrderableClusterOptions = res
     redshift
     (Proxy :: Proxy DescribeOrderableClusterOptions)
 
+responseDescribeClusterTracks :: DescribeClusterTracksResponse -> TestTree
+responseDescribeClusterTracks = res
+    "DescribeClusterTracksResponse"
+    "fixture/DescribeClusterTracksResponse.proto"
+    redshift
+    (Proxy :: Proxy DescribeClusterTracks)
+
 responseCreateCluster :: CreateClusterResponse -> TestTree
 responseCreateCluster = res
     "CreateClusterResponse"
@@ -955,6 +1209,13 @@ responseDeleteEventSubscription = res
     redshift
     (Proxy :: Proxy DeleteEventSubscription)
 
+responseModifyClusterSnapshot :: ModifyClusterSnapshotResponse -> TestTree
+responseModifyClusterSnapshot = res
+    "ModifyClusterSnapshotResponse"
+    "fixture/ModifyClusterSnapshotResponse.proto"
+    redshift
+    (Proxy :: Proxy ModifyClusterSnapshot)
+
 responseResetClusterParameterGroup :: ClusterParameterGroupNameMessage -> TestTree
 responseResetClusterParameterGroup = res
     "ResetClusterParameterGroupResponse"
@@ -968,6 +1229,20 @@ responseDescribeEventSubscriptions = res
     "fixture/DescribeEventSubscriptionsResponse.proto"
     redshift
     (Proxy :: Proxy DescribeEventSubscriptions)
+
+responseDescribeClusterDBRevisions :: DescribeClusterDBRevisionsResponse -> TestTree
+responseDescribeClusterDBRevisions = res
+    "DescribeClusterDBRevisionsResponse"
+    "fixture/DescribeClusterDBRevisionsResponse.proto"
+    redshift
+    (Proxy :: Proxy DescribeClusterDBRevisions)
+
+responseBatchModifyClusterSnapshots :: BatchModifyClusterSnapshotsResponse -> TestTree
+responseBatchModifyClusterSnapshots = res
+    "BatchModifyClusterSnapshotsResponse"
+    "fixture/BatchModifyClusterSnapshotsResponse.proto"
+    redshift
+    (Proxy :: Proxy BatchModifyClusterSnapshots)
 
 responseRevokeClusterSecurityGroupIngress :: RevokeClusterSecurityGroupIngressResponse -> TestTree
 responseRevokeClusterSecurityGroupIngress = res
@@ -997,6 +1272,13 @@ responseGetClusterCredentials = res
     redshift
     (Proxy :: Proxy GetClusterCredentials)
 
+responseModifyClusterMaintenance :: ModifyClusterMaintenanceResponse -> TestTree
+responseModifyClusterMaintenance = res
+    "ModifyClusterMaintenanceResponse"
+    "fixture/ModifyClusterMaintenanceResponse.proto"
+    redshift
+    (Proxy :: Proxy ModifyClusterMaintenance)
+
 responseCreateClusterSecurityGroup :: CreateClusterSecurityGroupResponse -> TestTree
 responseCreateClusterSecurityGroup = res
     "CreateClusterSecurityGroupResponse"
@@ -1011,7 +1293,7 @@ responseDescribeEventCategories = res
     redshift
     (Proxy :: Proxy DescribeEventCategories)
 
-responseDescribeResize :: DescribeResizeResponse -> TestTree
+responseDescribeResize :: ResizeProgressMessage -> TestTree
 responseDescribeResize = res
     "DescribeResizeResponse"
     "fixture/DescribeResizeResponse.proto"
@@ -1024,6 +1306,13 @@ responseDeleteHSMConfiguration = res
     "fixture/DeleteHSMConfigurationResponse.proto"
     redshift
     (Proxy :: Proxy DeleteHSMConfiguration)
+
+responseAcceptReservedNodeExchange :: AcceptReservedNodeExchangeResponse -> TestTree
+responseAcceptReservedNodeExchange = res
+    "AcceptReservedNodeExchangeResponse"
+    "fixture/AcceptReservedNodeExchangeResponse.proto"
+    redshift
+    (Proxy :: Proxy AcceptReservedNodeExchange)
 
 responseAuthorizeClusterSecurityGroupIngress :: AuthorizeClusterSecurityGroupIngressResponse -> TestTree
 responseAuthorizeClusterSecurityGroupIngress = res
@@ -1074,6 +1363,13 @@ responseDeleteClusterSecurityGroup = res
     redshift
     (Proxy :: Proxy DeleteClusterSecurityGroup)
 
+responseCreateSnapshotSchedule :: SnapshotSchedule -> TestTree
+responseCreateSnapshotSchedule = res
+    "CreateSnapshotScheduleResponse"
+    "fixture/CreateSnapshotScheduleResponse.proto"
+    redshift
+    (Proxy :: Proxy CreateSnapshotSchedule)
+
 responseDisableSnapshotCopy :: DisableSnapshotCopyResponse -> TestTree
 responseDisableSnapshotCopy = res
     "DisableSnapshotCopyResponse"
@@ -1087,6 +1383,13 @@ responseDescribeClusterParameters = res
     "fixture/DescribeClusterParametersResponse.proto"
     redshift
     (Proxy :: Proxy DescribeClusterParameters)
+
+responseDeleteSnapshotSchedule :: DeleteSnapshotScheduleResponse -> TestTree
+responseDeleteSnapshotSchedule = res
+    "DeleteSnapshotScheduleResponse"
+    "fixture/DeleteSnapshotScheduleResponse.proto"
+    redshift
+    (Proxy :: Proxy DeleteSnapshotSchedule)
 
 responseRestoreFromClusterSnapshot :: RestoreFromClusterSnapshotResponse -> TestTree
 responseRestoreFromClusterSnapshot = res
@@ -1116,6 +1419,13 @@ responseDescribeHSMConfigurations = res
     redshift
     (Proxy :: Proxy DescribeHSMConfigurations)
 
+responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
+responseDescribeAccountAttributes = res
+    "DescribeAccountAttributesResponse"
+    "fixture/DescribeAccountAttributesResponse.proto"
+    redshift
+    (Proxy :: Proxy DescribeAccountAttributes)
+
 responseCreateSnapshotCopyGrant :: CreateSnapshotCopyGrantResponse -> TestTree
 responseCreateSnapshotCopyGrant = res
     "CreateSnapshotCopyGrantResponse"
@@ -1137,6 +1447,13 @@ responseDeleteHSMClientCertificate = res
     redshift
     (Proxy :: Proxy DeleteHSMClientCertificate)
 
+responseModifyClusterSnapshotSchedule :: ModifyClusterSnapshotScheduleResponse -> TestTree
+responseModifyClusterSnapshotSchedule = res
+    "ModifyClusterSnapshotScheduleResponse"
+    "fixture/ModifyClusterSnapshotScheduleResponse.proto"
+    redshift
+    (Proxy :: Proxy ModifyClusterSnapshotSchedule)
+
 responseDeleteSnapshotCopyGrant :: DeleteSnapshotCopyGrantResponse -> TestTree
 responseDeleteSnapshotCopyGrant = res
     "DeleteSnapshotCopyGrantResponse"
@@ -1157,6 +1474,13 @@ responseModifyClusterSubnetGroup = res
     "fixture/ModifyClusterSubnetGroupResponse.proto"
     redshift
     (Proxy :: Proxy ModifyClusterSubnetGroup)
+
+responseModifySnapshotSchedule :: SnapshotSchedule -> TestTree
+responseModifySnapshotSchedule = res
+    "ModifySnapshotScheduleResponse"
+    "fixture/ModifySnapshotScheduleResponse.proto"
+    redshift
+    (Proxy :: Proxy ModifySnapshotSchedule)
 
 responseRotateEncryptionKey :: RotateEncryptionKeyResponse -> TestTree
 responseRotateEncryptionKey = res

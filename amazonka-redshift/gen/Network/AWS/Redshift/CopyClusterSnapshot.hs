@@ -31,9 +31,10 @@ module Network.AWS.Redshift.CopyClusterSnapshot
       copyClusterSnapshot
     , CopyClusterSnapshot
     -- * Request Lenses
-    , ccsSourceSnapshotClusterIdentifier
-    , ccsSourceSnapshotIdentifier
-    , ccsTargetSnapshotIdentifier
+    , copManualSnapshotRetentionPeriod
+    , copSourceSnapshotClusterIdentifier
+    , copSourceSnapshotIdentifier
+    , copTargetSnapshotIdentifier
 
     -- * Destructuring the Response
     , copyClusterSnapshotResponse
@@ -56,9 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'copyClusterSnapshot' smart constructor.
 data CopyClusterSnapshot = CopyClusterSnapshot'
-  { _ccsSourceSnapshotClusterIdentifier :: !(Maybe Text)
-  , _ccsSourceSnapshotIdentifier        :: !Text
-  , _ccsTargetSnapshotIdentifier        :: !Text
+  { _copManualSnapshotRetentionPeriod   :: !(Maybe Int)
+  , _copSourceSnapshotClusterIdentifier :: !(Maybe Text)
+  , _copSourceSnapshotIdentifier        :: !Text
+  , _copTargetSnapshotIdentifier        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -66,34 +68,41 @@ data CopyClusterSnapshot = CopyClusterSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccsSourceSnapshotClusterIdentifier' - The identifier of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name. Constraints:     * Must be the identifier for a valid cluster.
+-- * 'copManualSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.  The value must be either -1 or an integer between 1 and 3,653. The default value is -1.
 --
--- * 'ccsSourceSnapshotIdentifier' - The identifier for the source snapshot. Constraints:     * Must be the identifier for a valid automated snapshot whose state is @available@ .
+-- * 'copSourceSnapshotClusterIdentifier' - The identifier of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name. Constraints:     * Must be the identifier for a valid cluster.
 --
--- * 'ccsTargetSnapshotIdentifier' - The identifier given to the new manual snapshot. Constraints:     * Cannot be null, empty, or blank.     * Must contain from 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for the AWS account that is making the request.
+-- * 'copSourceSnapshotIdentifier' - The identifier for the source snapshot. Constraints:     * Must be the identifier for a valid automated snapshot whose state is @available@ .
+--
+-- * 'copTargetSnapshotIdentifier' - The identifier given to the new manual snapshot. Constraints:     * Cannot be null, empty, or blank.     * Must contain from 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for the AWS account that is making the request.
 copyClusterSnapshot
-    :: Text -- ^ 'ccsSourceSnapshotIdentifier'
-    -> Text -- ^ 'ccsTargetSnapshotIdentifier'
+    :: Text -- ^ 'copSourceSnapshotIdentifier'
+    -> Text -- ^ 'copTargetSnapshotIdentifier'
     -> CopyClusterSnapshot
 copyClusterSnapshot pSourceSnapshotIdentifier_ pTargetSnapshotIdentifier_ =
   CopyClusterSnapshot'
-    { _ccsSourceSnapshotClusterIdentifier = Nothing
-    , _ccsSourceSnapshotIdentifier = pSourceSnapshotIdentifier_
-    , _ccsTargetSnapshotIdentifier = pTargetSnapshotIdentifier_
+    { _copManualSnapshotRetentionPeriod = Nothing
+    , _copSourceSnapshotClusterIdentifier = Nothing
+    , _copSourceSnapshotIdentifier = pSourceSnapshotIdentifier_
+    , _copTargetSnapshotIdentifier = pTargetSnapshotIdentifier_
     }
 
 
+-- | The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.  The value must be either -1 or an integer between 1 and 3,653. The default value is -1.
+copManualSnapshotRetentionPeriod :: Lens' CopyClusterSnapshot (Maybe Int)
+copManualSnapshotRetentionPeriod = lens _copManualSnapshotRetentionPeriod (\ s a -> s{_copManualSnapshotRetentionPeriod = a})
+
 -- | The identifier of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name. Constraints:     * Must be the identifier for a valid cluster.
-ccsSourceSnapshotClusterIdentifier :: Lens' CopyClusterSnapshot (Maybe Text)
-ccsSourceSnapshotClusterIdentifier = lens _ccsSourceSnapshotClusterIdentifier (\ s a -> s{_ccsSourceSnapshotClusterIdentifier = a})
+copSourceSnapshotClusterIdentifier :: Lens' CopyClusterSnapshot (Maybe Text)
+copSourceSnapshotClusterIdentifier = lens _copSourceSnapshotClusterIdentifier (\ s a -> s{_copSourceSnapshotClusterIdentifier = a})
 
 -- | The identifier for the source snapshot. Constraints:     * Must be the identifier for a valid automated snapshot whose state is @available@ .
-ccsSourceSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
-ccsSourceSnapshotIdentifier = lens _ccsSourceSnapshotIdentifier (\ s a -> s{_ccsSourceSnapshotIdentifier = a})
+copSourceSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
+copSourceSnapshotIdentifier = lens _copSourceSnapshotIdentifier (\ s a -> s{_copSourceSnapshotIdentifier = a})
 
 -- | The identifier given to the new manual snapshot. Constraints:     * Cannot be null, empty, or blank.     * Must contain from 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for the AWS account that is making the request.
-ccsTargetSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
-ccsTargetSnapshotIdentifier = lens _ccsTargetSnapshotIdentifier (\ s a -> s{_ccsTargetSnapshotIdentifier = a})
+copTargetSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
+copTargetSnapshotIdentifier = lens _copTargetSnapshotIdentifier (\ s a -> s{_copTargetSnapshotIdentifier = a})
 
 instance AWSRequest CopyClusterSnapshot where
         type Rs CopyClusterSnapshot =
@@ -120,12 +129,14 @@ instance ToQuery CopyClusterSnapshot where
           = mconcat
               ["Action" =: ("CopyClusterSnapshot" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
+               "ManualSnapshotRetentionPeriod" =:
+                 _copManualSnapshotRetentionPeriod,
                "SourceSnapshotClusterIdentifier" =:
-                 _ccsSourceSnapshotClusterIdentifier,
+                 _copSourceSnapshotClusterIdentifier,
                "SourceSnapshotIdentifier" =:
-                 _ccsSourceSnapshotIdentifier,
+                 _copSourceSnapshotIdentifier,
                "TargetSnapshotIdentifier" =:
-                 _ccsTargetSnapshotIdentifier]
+                 _copTargetSnapshotIdentifier]
 
 -- | /See:/ 'copyClusterSnapshotResponse' smart constructor.
 data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'

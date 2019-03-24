@@ -31,10 +31,13 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
       restoreFromClusterSnapshot
     , RestoreFromClusterSnapshot
     -- * Request Lenses
+    , rfcsManualSnapshotRetentionPeriod
     , rfcsEnhancedVPCRouting
     , rfcsAdditionalInfo
+    , rfcsSnapshotScheduleIdentifier
     , rfcsPubliclyAccessible
     , rfcsSnapshotClusterIdentifier
+    , rfcsMaintenanceTrackName
     , rfcsHSMConfigurationIdentifier
     , rfcsClusterSecurityGroups
     , rfcsAutomatedSnapshotRetentionPeriod
@@ -75,10 +78,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'restoreFromClusterSnapshot' smart constructor.
 data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
-  { _rfcsEnhancedVPCRouting               :: !(Maybe Bool)
+  { _rfcsManualSnapshotRetentionPeriod    :: !(Maybe Int)
+  , _rfcsEnhancedVPCRouting               :: !(Maybe Bool)
   , _rfcsAdditionalInfo                   :: !(Maybe Text)
+  , _rfcsSnapshotScheduleIdentifier       :: !(Maybe Text)
   , _rfcsPubliclyAccessible               :: !(Maybe Bool)
   , _rfcsSnapshotClusterIdentifier        :: !(Maybe Text)
+  , _rfcsMaintenanceTrackName             :: !(Maybe Text)
   , _rfcsHSMConfigurationIdentifier       :: !(Maybe Text)
   , _rfcsClusterSecurityGroups            :: !(Maybe [Text])
   , _rfcsAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
@@ -104,13 +110,19 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'rfcsManualSnapshotRetentionPeriod' - Undocumented member.
+--
 -- * 'rfcsEnhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 --
 -- * 'rfcsAdditionalInfo' - Reserved.
 --
+-- * 'rfcsSnapshotScheduleIdentifier' - A unique identifier for the snapshot schedule.
+--
 -- * 'rfcsPubliclyAccessible' - If @true@ , the cluster can be accessed from a public network.
 --
 -- * 'rfcsSnapshotClusterIdentifier' - The name of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
+--
+-- * 'rfcsMaintenanceTrackName' - The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the @MaintenanceTrack@ value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks.
 --
 -- * 'rfcsHSMConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
 --
@@ -153,10 +165,13 @@ restoreFromClusterSnapshot
     -> RestoreFromClusterSnapshot
 restoreFromClusterSnapshot pClusterIdentifier_ pSnapshotIdentifier_ =
   RestoreFromClusterSnapshot'
-    { _rfcsEnhancedVPCRouting = Nothing
+    { _rfcsManualSnapshotRetentionPeriod = Nothing
+    , _rfcsEnhancedVPCRouting = Nothing
     , _rfcsAdditionalInfo = Nothing
+    , _rfcsSnapshotScheduleIdentifier = Nothing
     , _rfcsPubliclyAccessible = Nothing
     , _rfcsSnapshotClusterIdentifier = Nothing
+    , _rfcsMaintenanceTrackName = Nothing
     , _rfcsHSMConfigurationIdentifier = Nothing
     , _rfcsClusterSecurityGroups = Nothing
     , _rfcsAutomatedSnapshotRetentionPeriod = Nothing
@@ -178,6 +193,10 @@ restoreFromClusterSnapshot pClusterIdentifier_ pSnapshotIdentifier_ =
     }
 
 
+-- | Undocumented member.
+rfcsManualSnapshotRetentionPeriod :: Lens' RestoreFromClusterSnapshot (Maybe Int)
+rfcsManualSnapshotRetentionPeriod = lens _rfcsManualSnapshotRetentionPeriod (\ s a -> s{_rfcsManualSnapshotRetentionPeriod = a})
+
 -- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 rfcsEnhancedVPCRouting :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
 rfcsEnhancedVPCRouting = lens _rfcsEnhancedVPCRouting (\ s a -> s{_rfcsEnhancedVPCRouting = a})
@@ -186,6 +205,10 @@ rfcsEnhancedVPCRouting = lens _rfcsEnhancedVPCRouting (\ s a -> s{_rfcsEnhancedV
 rfcsAdditionalInfo :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsAdditionalInfo = lens _rfcsAdditionalInfo (\ s a -> s{_rfcsAdditionalInfo = a})
 
+-- | A unique identifier for the snapshot schedule.
+rfcsSnapshotScheduleIdentifier :: Lens' RestoreFromClusterSnapshot (Maybe Text)
+rfcsSnapshotScheduleIdentifier = lens _rfcsSnapshotScheduleIdentifier (\ s a -> s{_rfcsSnapshotScheduleIdentifier = a})
+
 -- | If @true@ , the cluster can be accessed from a public network.
 rfcsPubliclyAccessible :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
 rfcsPubliclyAccessible = lens _rfcsPubliclyAccessible (\ s a -> s{_rfcsPubliclyAccessible = a})
@@ -193,6 +216,10 @@ rfcsPubliclyAccessible = lens _rfcsPubliclyAccessible (\ s a -> s{_rfcsPubliclyA
 -- | The name of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
 rfcsSnapshotClusterIdentifier :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsSnapshotClusterIdentifier = lens _rfcsSnapshotClusterIdentifier (\ s a -> s{_rfcsSnapshotClusterIdentifier = a})
+
+-- | The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the @MaintenanceTrack@ value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks.
+rfcsMaintenanceTrackName :: Lens' RestoreFromClusterSnapshot (Maybe Text)
+rfcsMaintenanceTrackName = lens _rfcsMaintenanceTrackName (\ s a -> s{_rfcsMaintenanceTrackName = a})
 
 -- | Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
 rfcsHSMConfigurationIdentifier :: Lens' RestoreFromClusterSnapshot (Maybe Text)
@@ -293,11 +320,16 @@ instance ToQuery RestoreFromClusterSnapshot where
               ["Action" =:
                  ("RestoreFromClusterSnapshot" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
+               "ManualSnapshotRetentionPeriod" =:
+                 _rfcsManualSnapshotRetentionPeriod,
                "EnhancedVpcRouting" =: _rfcsEnhancedVPCRouting,
                "AdditionalInfo" =: _rfcsAdditionalInfo,
+               "SnapshotScheduleIdentifier" =:
+                 _rfcsSnapshotScheduleIdentifier,
                "PubliclyAccessible" =: _rfcsPubliclyAccessible,
                "SnapshotClusterIdentifier" =:
                  _rfcsSnapshotClusterIdentifier,
+               "MaintenanceTrackName" =: _rfcsMaintenanceTrackName,
                "HsmConfigurationIdentifier" =:
                  _rfcsHSMConfigurationIdentifier,
                "ClusterSecurityGroups" =:

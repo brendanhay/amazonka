@@ -29,16 +29,20 @@ module Network.AWS.Redshift.ModifyCluster
       modifyCluster
     , ModifyCluster
     -- * Request Lenses
+    , mcManualSnapshotRetentionPeriod
     , mcEnhancedVPCRouting
     , mcMasterUserPassword
     , mcPubliclyAccessible
+    , mcMaintenanceTrackName
     , mcHSMConfigurationIdentifier
     , mcClusterSecurityGroups
     , mcAutomatedSnapshotRetentionPeriod
+    , mcEncrypted
     , mcHSMClientCertificateIdentifier
     , mcNumberOfNodes
     , mcElasticIP
     , mcPreferredMaintenanceWindow
+    , mcKMSKeyId
     , mcVPCSecurityGroupIds
     , mcClusterType
     , mcNewClusterIdentifier
@@ -69,16 +73,20 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyCluster' smart constructor.
 data ModifyCluster = ModifyCluster'
-  { _mcEnhancedVPCRouting               :: !(Maybe Bool)
+  { _mcManualSnapshotRetentionPeriod    :: !(Maybe Int)
+  , _mcEnhancedVPCRouting               :: !(Maybe Bool)
   , _mcMasterUserPassword               :: !(Maybe Text)
   , _mcPubliclyAccessible               :: !(Maybe Bool)
+  , _mcMaintenanceTrackName             :: !(Maybe Text)
   , _mcHSMConfigurationIdentifier       :: !(Maybe Text)
   , _mcClusterSecurityGroups            :: !(Maybe [Text])
   , _mcAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+  , _mcEncrypted                        :: !(Maybe Bool)
   , _mcHSMClientCertificateIdentifier   :: !(Maybe Text)
   , _mcNumberOfNodes                    :: !(Maybe Int)
   , _mcElasticIP                        :: !(Maybe Text)
   , _mcPreferredMaintenanceWindow       :: !(Maybe Text)
+  , _mcKMSKeyId                         :: !(Maybe Text)
   , _mcVPCSecurityGroupIds              :: !(Maybe [Text])
   , _mcClusterType                      :: !(Maybe Text)
   , _mcNewClusterIdentifier             :: !(Maybe Text)
@@ -94,17 +102,23 @@ data ModifyCluster = ModifyCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'mcManualSnapshotRetentionPeriod' - The default for number of days that a newly created manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely. This value doesn't retroactively change the retention periods of existing manual snapshots. The value must be either -1 or an integer between 1 and 3,653. The default value is -1.
+--
 -- * 'mcEnhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 --
 -- * 'mcMasterUserPassword' - The new password for the cluster master user. This change is asynchronously applied as soon as possible. Between the time of the request and the completion of the request, the @MasterUserPassword@ element exists in the @PendingModifiedValues@ element of the operation response.  Default: Uses existing setting. Constraints:     * Must be between 8 and 64 characters in length.     * Must contain at least one uppercase letter.     * Must contain at least one lowercase letter.     * Must contain one number.     * Can be any printable ASCII character (ASCII code 33 to 126) except ' (single quote), " (double quote), \, /, @, or space.
 --
 -- * 'mcPubliclyAccessible' - If @true@ , the cluster can be accessed from a public network. Only clusters in VPCs can be set to be publicly available.
 --
+-- * 'mcMaintenanceTrackName' - The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the @PendingModifiedValues@ for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
+--
 -- * 'mcHSMConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
 --
 -- * 'mcClusterSecurityGroups' - A list of cluster security groups to be authorized on this cluster. This change is asynchronously applied as soon as possible. Security groups currently associated with the cluster, and not in the list of groups to apply, will be revoked from the cluster. Constraints:     * Must be 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- * 'mcAutomatedSnapshotRetentionPeriod' - The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with 'CreateClusterSnapshot' .  If you decrease the automated snapshot retention period from its current value, existing automated snapshots that fall outside of the new retention period will be immediately deleted. Default: Uses existing setting. Constraints: Must be a value from 0 to 35.
+--
+-- * 'mcEncrypted' - Indicates whether the cluster is encrypted. If the cluster is encrypted and you provide a value for the @KmsKeyId@ parameter, we will encrypt the cluster with the provided @KmsKeyId@ . If you don't provide a @KmsKeyId@ , we will encrypt with the default key. In the China region we will use legacy encryption if you specify that the cluster is encrypted.
 --
 -- * 'mcHSMClientCertificateIdentifier' - Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
 --
@@ -114,7 +128,9 @@ data ModifyCluster = ModifyCluster'
 --
 -- * 'mcPreferredMaintenanceWindow' - The weekly time range (in UTC) during which system maintenance can occur, if necessary. If system maintenance is necessary during the window, it may result in an outage. This maintenance window change is made immediately. If the new maintenance window indicates the current time, there must be at least 120 minutes between the current time and end of the window in order to ensure that pending changes are applied. Default: Uses existing setting. Format: ddd:hh24:mi-ddd:hh24:mi, for example @wed:07:30-wed:08:00@ . Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Must be at least 30 minutes.
 --
--- * 'mcVPCSecurityGroupIds' - A list of virtual private cloud (VPC) security groups to be associated with the cluster.
+-- * 'mcKMSKeyId' - The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
+--
+-- * 'mcVPCSecurityGroupIds' - A list of virtual private cloud (VPC) security groups to be associated with the cluster. This change is asynchronously applied as soon as possible.
 --
 -- * 'mcClusterType' - The new cluster type. When you submit your cluster resize request, your existing cluster goes into a read-only mode. After Amazon Redshift provisions a new cluster based on your resize requirements, there will be outage for a period while the old cluster is deleted and your connection is switched to the new cluster. You can use 'DescribeResize' to track the progress of the resize request.  Valid Values: @multi-node | single-node @
 --
@@ -134,16 +150,20 @@ modifyCluster
     -> ModifyCluster
 modifyCluster pClusterIdentifier_ =
   ModifyCluster'
-    { _mcEnhancedVPCRouting = Nothing
+    { _mcManualSnapshotRetentionPeriod = Nothing
+    , _mcEnhancedVPCRouting = Nothing
     , _mcMasterUserPassword = Nothing
     , _mcPubliclyAccessible = Nothing
+    , _mcMaintenanceTrackName = Nothing
     , _mcHSMConfigurationIdentifier = Nothing
     , _mcClusterSecurityGroups = Nothing
     , _mcAutomatedSnapshotRetentionPeriod = Nothing
+    , _mcEncrypted = Nothing
     , _mcHSMClientCertificateIdentifier = Nothing
     , _mcNumberOfNodes = Nothing
     , _mcElasticIP = Nothing
     , _mcPreferredMaintenanceWindow = Nothing
+    , _mcKMSKeyId = Nothing
     , _mcVPCSecurityGroupIds = Nothing
     , _mcClusterType = Nothing
     , _mcNewClusterIdentifier = Nothing
@@ -154,6 +174,10 @@ modifyCluster pClusterIdentifier_ =
     , _mcClusterIdentifier = pClusterIdentifier_
     }
 
+
+-- | The default for number of days that a newly created manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely. This value doesn't retroactively change the retention periods of existing manual snapshots. The value must be either -1 or an integer between 1 and 3,653. The default value is -1.
+mcManualSnapshotRetentionPeriod :: Lens' ModifyCluster (Maybe Int)
+mcManualSnapshotRetentionPeriod = lens _mcManualSnapshotRetentionPeriod (\ s a -> s{_mcManualSnapshotRetentionPeriod = a})
 
 -- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 mcEnhancedVPCRouting :: Lens' ModifyCluster (Maybe Bool)
@@ -167,6 +191,10 @@ mcMasterUserPassword = lens _mcMasterUserPassword (\ s a -> s{_mcMasterUserPassw
 mcPubliclyAccessible :: Lens' ModifyCluster (Maybe Bool)
 mcPubliclyAccessible = lens _mcPubliclyAccessible (\ s a -> s{_mcPubliclyAccessible = a})
 
+-- | The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the @PendingModifiedValues@ for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
+mcMaintenanceTrackName :: Lens' ModifyCluster (Maybe Text)
+mcMaintenanceTrackName = lens _mcMaintenanceTrackName (\ s a -> s{_mcMaintenanceTrackName = a})
+
 -- | Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
 mcHSMConfigurationIdentifier :: Lens' ModifyCluster (Maybe Text)
 mcHSMConfigurationIdentifier = lens _mcHSMConfigurationIdentifier (\ s a -> s{_mcHSMConfigurationIdentifier = a})
@@ -178,6 +206,10 @@ mcClusterSecurityGroups = lens _mcClusterSecurityGroups (\ s a -> s{_mcClusterSe
 -- | The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with 'CreateClusterSnapshot' .  If you decrease the automated snapshot retention period from its current value, existing automated snapshots that fall outside of the new retention period will be immediately deleted. Default: Uses existing setting. Constraints: Must be a value from 0 to 35.
 mcAutomatedSnapshotRetentionPeriod :: Lens' ModifyCluster (Maybe Int)
 mcAutomatedSnapshotRetentionPeriod = lens _mcAutomatedSnapshotRetentionPeriod (\ s a -> s{_mcAutomatedSnapshotRetentionPeriod = a})
+
+-- | Indicates whether the cluster is encrypted. If the cluster is encrypted and you provide a value for the @KmsKeyId@ parameter, we will encrypt the cluster with the provided @KmsKeyId@ . If you don't provide a @KmsKeyId@ , we will encrypt with the default key. In the China region we will use legacy encryption if you specify that the cluster is encrypted.
+mcEncrypted :: Lens' ModifyCluster (Maybe Bool)
+mcEncrypted = lens _mcEncrypted (\ s a -> s{_mcEncrypted = a})
 
 -- | Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
 mcHSMClientCertificateIdentifier :: Lens' ModifyCluster (Maybe Text)
@@ -195,7 +227,11 @@ mcElasticIP = lens _mcElasticIP (\ s a -> s{_mcElasticIP = a})
 mcPreferredMaintenanceWindow :: Lens' ModifyCluster (Maybe Text)
 mcPreferredMaintenanceWindow = lens _mcPreferredMaintenanceWindow (\ s a -> s{_mcPreferredMaintenanceWindow = a})
 
--- | A list of virtual private cloud (VPC) security groups to be associated with the cluster.
+-- | The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
+mcKMSKeyId :: Lens' ModifyCluster (Maybe Text)
+mcKMSKeyId = lens _mcKMSKeyId (\ s a -> s{_mcKMSKeyId = a})
+
+-- | A list of virtual private cloud (VPC) security groups to be associated with the cluster. This change is asynchronously applied as soon as possible.
 mcVPCSecurityGroupIds :: Lens' ModifyCluster [Text]
 mcVPCSecurityGroupIds = lens _mcVPCSecurityGroupIds (\ s a -> s{_mcVPCSecurityGroupIds = a}) . _Default . _Coerce
 
@@ -251,9 +287,12 @@ instance ToQuery ModifyCluster where
           = mconcat
               ["Action" =: ("ModifyCluster" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
+               "ManualSnapshotRetentionPeriod" =:
+                 _mcManualSnapshotRetentionPeriod,
                "EnhancedVpcRouting" =: _mcEnhancedVPCRouting,
                "MasterUserPassword" =: _mcMasterUserPassword,
                "PubliclyAccessible" =: _mcPubliclyAccessible,
+               "MaintenanceTrackName" =: _mcMaintenanceTrackName,
                "HsmConfigurationIdentifier" =:
                  _mcHSMConfigurationIdentifier,
                "ClusterSecurityGroups" =:
@@ -262,12 +301,14 @@ instance ToQuery ModifyCluster where
                       _mcClusterSecurityGroups),
                "AutomatedSnapshotRetentionPeriod" =:
                  _mcAutomatedSnapshotRetentionPeriod,
+               "Encrypted" =: _mcEncrypted,
                "HsmClientCertificateIdentifier" =:
                  _mcHSMClientCertificateIdentifier,
                "NumberOfNodes" =: _mcNumberOfNodes,
                "ElasticIp" =: _mcElasticIP,
                "PreferredMaintenanceWindow" =:
                  _mcPreferredMaintenanceWindow,
+               "KmsKeyId" =: _mcKMSKeyId,
                "VpcSecurityGroupIds" =:
                  toQuery
                    (toQueryList "VpcSecurityGroupId" <$>

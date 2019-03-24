@@ -27,6 +27,7 @@ module Network.AWS.Redshift.EnableSnapshotCopy
       enableSnapshotCopy
     , EnableSnapshotCopy
     -- * Request Lenses
+    , escManualSnapshotRetentionPeriod
     , escRetentionPeriod
     , escSnapshotCopyGrantName
     , escClusterIdentifier
@@ -53,10 +54,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'enableSnapshotCopy' smart constructor.
 data EnableSnapshotCopy = EnableSnapshotCopy'
-  { _escRetentionPeriod       :: !(Maybe Int)
-  , _escSnapshotCopyGrantName :: !(Maybe Text)
-  , _escClusterIdentifier     :: !Text
-  , _escDestinationRegion     :: !Text
+  { _escManualSnapshotRetentionPeriod :: !(Maybe Int)
+  , _escRetentionPeriod               :: !(Maybe Int)
+  , _escSnapshotCopyGrantName         :: !(Maybe Text)
+  , _escClusterIdentifier             :: !Text
+  , _escDestinationRegion             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -64,25 +66,32 @@ data EnableSnapshotCopy = EnableSnapshotCopy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'escManualSnapshotRetentionPeriod' - The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.  The value must be either -1 or an integer between 1 and 3,653.
+--
 -- * 'escRetentionPeriod' - The number of days to retain automated snapshots in the destination region after they are copied from the source region. Default: 7. Constraints: Must be at least 1 and no more than 35.
 --
 -- * 'escSnapshotCopyGrantName' - The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
 --
 -- * 'escClusterIdentifier' - The unique identifier of the source cluster to copy snapshots from. Constraints: Must be the valid name of an existing cluster that does not already have cross-region snapshot copy enabled.
 --
--- * 'escDestinationRegion' - The destination region that you want to copy snapshots to. Constraints: Must be the name of a valid region. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints> in the Amazon Web Services General Reference.
+-- * 'escDestinationRegion' - The destination AWS Region that you want to copy snapshots to. Constraints: Must be the name of a valid AWS Region. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints> in the Amazon Web Services General Reference.
 enableSnapshotCopy
     :: Text -- ^ 'escClusterIdentifier'
     -> Text -- ^ 'escDestinationRegion'
     -> EnableSnapshotCopy
 enableSnapshotCopy pClusterIdentifier_ pDestinationRegion_ =
   EnableSnapshotCopy'
-    { _escRetentionPeriod = Nothing
+    { _escManualSnapshotRetentionPeriod = Nothing
+    , _escRetentionPeriod = Nothing
     , _escSnapshotCopyGrantName = Nothing
     , _escClusterIdentifier = pClusterIdentifier_
     , _escDestinationRegion = pDestinationRegion_
     }
 
+
+-- | The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.  The value must be either -1 or an integer between 1 and 3,653.
+escManualSnapshotRetentionPeriod :: Lens' EnableSnapshotCopy (Maybe Int)
+escManualSnapshotRetentionPeriod = lens _escManualSnapshotRetentionPeriod (\ s a -> s{_escManualSnapshotRetentionPeriod = a})
 
 -- | The number of days to retain automated snapshots in the destination region after they are copied from the source region. Default: 7. Constraints: Must be at least 1 and no more than 35.
 escRetentionPeriod :: Lens' EnableSnapshotCopy (Maybe Int)
@@ -96,7 +105,7 @@ escSnapshotCopyGrantName = lens _escSnapshotCopyGrantName (\ s a -> s{_escSnapsh
 escClusterIdentifier :: Lens' EnableSnapshotCopy Text
 escClusterIdentifier = lens _escClusterIdentifier (\ s a -> s{_escClusterIdentifier = a})
 
--- | The destination region that you want to copy snapshots to. Constraints: Must be the name of a valid region. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints> in the Amazon Web Services General Reference.
+-- | The destination AWS Region that you want to copy snapshots to. Constraints: Must be the name of a valid AWS Region. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints> in the Amazon Web Services General Reference.
 escDestinationRegion :: Lens' EnableSnapshotCopy Text
 escDestinationRegion = lens _escDestinationRegion (\ s a -> s{_escDestinationRegion = a})
 
@@ -125,6 +134,8 @@ instance ToQuery EnableSnapshotCopy where
           = mconcat
               ["Action" =: ("EnableSnapshotCopy" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
+               "ManualSnapshotRetentionPeriod" =:
+                 _escManualSnapshotRetentionPeriod,
                "RetentionPeriod" =: _escRetentionPeriod,
                "SnapshotCopyGrantName" =: _escSnapshotCopyGrantName,
                "ClusterIdentifier" =: _escClusterIdentifier,

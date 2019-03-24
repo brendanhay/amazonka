@@ -23,6 +23,8 @@
 --
 -- For more information about managing snapshot copy grants, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption> in the /Amazon Redshift Cluster Management Guide/ .
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeSnapshotCopyGrants
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.Redshift.DescribeSnapshotCopyGrants
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Redshift.Types.Product
@@ -109,6 +112,13 @@ dscgsMaxRecords = lens _dscgsMaxRecords (\ s a -> s{_dscgsMaxRecords = a})
 -- | The name of the snapshot copy grant.
 dscgsSnapshotCopyGrantName :: Lens' DescribeSnapshotCopyGrants (Maybe Text)
 dscgsSnapshotCopyGrantName = lens _dscgsSnapshotCopyGrantName (\ s a -> s{_dscgsSnapshotCopyGrantName = a})
+
+instance AWSPager DescribeSnapshotCopyGrants where
+        page rq rs
+          | stop (rs ^. dscgrsMarker) = Nothing
+          | stop (rs ^. dscgrsSnapshotCopyGrants) = Nothing
+          | otherwise =
+            Just $ rq & dscgsMarker .~ rs ^. dscgrsMarker
 
 instance AWSRequest DescribeSnapshotCopyGrants where
         type Rs DescribeSnapshotCopyGrants =

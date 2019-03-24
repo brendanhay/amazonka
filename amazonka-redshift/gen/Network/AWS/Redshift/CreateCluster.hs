@@ -21,7 +21,7 @@
 -- Creates a new cluster.
 --
 --
--- To create the cluster in Virtual Private Cloud (VPC), you must provide a cluster subnet group name. The cluster subnet group identifies the subnets of your VPC that Amazon Redshift uses when creating the cluster. For more information about managing clusters, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/ .
+-- To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster subnet group name. The cluster subnet group identifies the subnets of your VPC that Amazon Redshift uses when creating the cluster. For more information about managing clusters, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/ .
 --
 module Network.AWS.Redshift.CreateCluster
     (
@@ -29,9 +29,12 @@ module Network.AWS.Redshift.CreateCluster
       createCluster
     , CreateCluster
     -- * Request Lenses
+    , ccManualSnapshotRetentionPeriod
     , ccEnhancedVPCRouting
     , ccAdditionalInfo
+    , ccSnapshotScheduleIdentifier
     , ccPubliclyAccessible
+    , ccMaintenanceTrackName
     , ccHSMConfigurationIdentifier
     , ccClusterSecurityGroups
     , ccAutomatedSnapshotRetentionPeriod
@@ -78,9 +81,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'createCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { _ccEnhancedVPCRouting               :: !(Maybe Bool)
+  { _ccManualSnapshotRetentionPeriod    :: !(Maybe Int)
+  , _ccEnhancedVPCRouting               :: !(Maybe Bool)
   , _ccAdditionalInfo                   :: !(Maybe Text)
+  , _ccSnapshotScheduleIdentifier       :: !(Maybe Text)
   , _ccPubliclyAccessible               :: !(Maybe Bool)
+  , _ccMaintenanceTrackName             :: !(Maybe Text)
   , _ccHSMConfigurationIdentifier       :: !(Maybe Text)
   , _ccClusterSecurityGroups            :: !(Maybe [Text])
   , _ccAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
@@ -112,11 +118,17 @@ data CreateCluster = CreateCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'ccManualSnapshotRetentionPeriod' - The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. The value must be either -1 or an integer between 1 and 3,653.
+--
 -- * 'ccEnhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 --
 -- * 'ccAdditionalInfo' - Reserved.
 --
+-- * 'ccSnapshotScheduleIdentifier' - A unique identifier for the snapshot schedule.
+--
 -- * 'ccPubliclyAccessible' - If @true@ , the cluster can be accessed from a public network.
+--
+-- * 'ccMaintenanceTrackName' - An optional parameter for the name of the maintenance track for the cluster. If you don't provide a maintenance track name, the cluster is assigned to the @current@ track.
 --
 -- * 'ccHSMConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
 --
@@ -173,9 +185,12 @@ createCluster
     -> CreateCluster
 createCluster pClusterIdentifier_ pNodeType_ pMasterUsername_ pMasterUserPassword_ =
   CreateCluster'
-    { _ccEnhancedVPCRouting = Nothing
+    { _ccManualSnapshotRetentionPeriod = Nothing
+    , _ccEnhancedVPCRouting = Nothing
     , _ccAdditionalInfo = Nothing
+    , _ccSnapshotScheduleIdentifier = Nothing
     , _ccPubliclyAccessible = Nothing
+    , _ccMaintenanceTrackName = Nothing
     , _ccHSMConfigurationIdentifier = Nothing
     , _ccClusterSecurityGroups = Nothing
     , _ccAutomatedSnapshotRetentionPeriod = Nothing
@@ -203,6 +218,10 @@ createCluster pClusterIdentifier_ pNodeType_ pMasterUsername_ pMasterUserPasswor
     }
 
 
+-- | The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. The value must be either -1 or an integer between 1 and 3,653.
+ccManualSnapshotRetentionPeriod :: Lens' CreateCluster (Maybe Int)
+ccManualSnapshotRetentionPeriod = lens _ccManualSnapshotRetentionPeriod (\ s a -> s{_ccManualSnapshotRetentionPeriod = a})
+
 -- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 ccEnhancedVPCRouting :: Lens' CreateCluster (Maybe Bool)
 ccEnhancedVPCRouting = lens _ccEnhancedVPCRouting (\ s a -> s{_ccEnhancedVPCRouting = a})
@@ -211,9 +230,17 @@ ccEnhancedVPCRouting = lens _ccEnhancedVPCRouting (\ s a -> s{_ccEnhancedVPCRout
 ccAdditionalInfo :: Lens' CreateCluster (Maybe Text)
 ccAdditionalInfo = lens _ccAdditionalInfo (\ s a -> s{_ccAdditionalInfo = a})
 
+-- | A unique identifier for the snapshot schedule.
+ccSnapshotScheduleIdentifier :: Lens' CreateCluster (Maybe Text)
+ccSnapshotScheduleIdentifier = lens _ccSnapshotScheduleIdentifier (\ s a -> s{_ccSnapshotScheduleIdentifier = a})
+
 -- | If @true@ , the cluster can be accessed from a public network.
 ccPubliclyAccessible :: Lens' CreateCluster (Maybe Bool)
 ccPubliclyAccessible = lens _ccPubliclyAccessible (\ s a -> s{_ccPubliclyAccessible = a})
+
+-- | An optional parameter for the name of the maintenance track for the cluster. If you don't provide a maintenance track name, the cluster is assigned to the @current@ track.
+ccMaintenanceTrackName :: Lens' CreateCluster (Maybe Text)
+ccMaintenanceTrackName = lens _ccMaintenanceTrackName (\ s a -> s{_ccMaintenanceTrackName = a})
 
 -- | Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
 ccHSMConfigurationIdentifier :: Lens' CreateCluster (Maybe Text)
@@ -335,9 +362,14 @@ instance ToQuery CreateCluster where
           = mconcat
               ["Action" =: ("CreateCluster" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
+               "ManualSnapshotRetentionPeriod" =:
+                 _ccManualSnapshotRetentionPeriod,
                "EnhancedVpcRouting" =: _ccEnhancedVPCRouting,
                "AdditionalInfo" =: _ccAdditionalInfo,
+               "SnapshotScheduleIdentifier" =:
+                 _ccSnapshotScheduleIdentifier,
                "PubliclyAccessible" =: _ccPubliclyAccessible,
+               "MaintenanceTrackName" =: _ccMaintenanceTrackName,
                "HsmConfigurationIdentifier" =:
                  _ccHSMConfigurationIdentifier,
                "ClusterSecurityGroups" =:

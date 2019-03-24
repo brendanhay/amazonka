@@ -67,11 +67,17 @@ module Network.AWS.Redshift
     -- ** HSMConfigurationNotFoundFault
     , _HSMConfigurationNotFoundFault
 
+    -- ** ScheduleDefinitionTypeUnsupportedFault
+    , _ScheduleDefinitionTypeUnsupportedFault
+
     -- ** AuthorizationAlreadyExistsFault
     , _AuthorizationAlreadyExistsFault
 
     -- ** SubscriptionCategoryNotFoundFault
     , _SubscriptionCategoryNotFoundFault
+
+    -- ** InvalidRetentionPeriodFault
+    , _InvalidRetentionPeriodFault
 
     -- ** HSMConfigurationAlreadyExistsFault
     , _HSMConfigurationAlreadyExistsFault
@@ -88,6 +94,9 @@ module Network.AWS.Redshift
     -- ** InvalidSubnet
     , _InvalidSubnet
 
+    -- ** TableLimitExceededFault
+    , _TableLimitExceededFault
+
     -- ** InvalidHSMConfigurationStateFault
     , _InvalidHSMConfigurationStateFault
 
@@ -99,6 +108,12 @@ module Network.AWS.Redshift
 
     -- ** HSMClientCertificateQuotaExceededFault
     , _HSMClientCertificateQuotaExceededFault
+
+    -- ** SnapshotScheduleAlreadyExistsFault
+    , _SnapshotScheduleAlreadyExistsFault
+
+    -- ** BatchModifyClusterSnapshotsLimitExceededFault
+    , _BatchModifyClusterSnapshotsLimitExceededFault
 
     -- ** ClusterParameterGroupNotFoundFault
     , _ClusterParameterGroupNotFoundFault
@@ -114,6 +129,9 @@ module Network.AWS.Redshift
 
     -- ** ClusterParameterGroupAlreadyExistsFault
     , _ClusterParameterGroupAlreadyExistsFault
+
+    -- ** BatchDeleteRequestSizeExceededFault
+    , _BatchDeleteRequestSizeExceededFault
 
     -- ** SnapshotCopyDisabledFault
     , _SnapshotCopyDisabledFault
@@ -148,6 +166,12 @@ module Network.AWS.Redshift
     -- ** SnapshotCopyGrantNotFoundFault
     , _SnapshotCopyGrantNotFoundFault
 
+    -- ** InvalidScheduleFault
+    , _InvalidScheduleFault
+
+    -- ** InvalidClusterTrackFault
+    , _InvalidClusterTrackFault
+
     -- ** HSMConfigurationQuotaExceededFault
     , _HSMConfigurationQuotaExceededFault
 
@@ -168,6 +192,9 @@ module Network.AWS.Redshift
 
     -- ** SubscriptionAlreadyExistFault
     , _SubscriptionAlreadyExistFault
+
+    -- ** InvalidClusterSnapshotScheduleStateFault
+    , _InvalidClusterSnapshotScheduleStateFault
 
     -- ** InvalidVPCNetworkStateFault
     , _InvalidVPCNetworkStateFault
@@ -214,14 +241,26 @@ module Network.AWS.Redshift
     -- ** IncompatibleOrderableOptions
     , _IncompatibleOrderableOptions
 
+    -- ** ReservedNodeAlreadyMigratedFault
+    , _ReservedNodeAlreadyMigratedFault
+
     -- ** EventSubscriptionQuotaExceededFault
     , _EventSubscriptionQuotaExceededFault
+
+    -- ** SnapshotScheduleNotFoundFault
+    , _SnapshotScheduleNotFoundFault
 
     -- ** InvalidClusterParameterGroupStateFault
     , _InvalidClusterParameterGroupStateFault
 
+    -- ** InvalidReservedNodeStateFault
+    , _InvalidReservedNodeStateFault
+
     -- ** ReservedNodeAlreadyExistsFault
     , _ReservedNodeAlreadyExistsFault
+
+    -- ** SnapshotScheduleUpdateInProgressFault
+    , _SnapshotScheduleUpdateInProgressFault
 
     -- ** InProgressTableRestoreQuotaExceededFault
     , _InProgressTableRestoreQuotaExceededFault
@@ -262,8 +301,14 @@ module Network.AWS.Redshift
     -- ** HSMClientCertificateAlreadyExistsFault
     , _HSMClientCertificateAlreadyExistsFault
 
+    -- ** SnapshotScheduleQuotaExceededFault
+    , _SnapshotScheduleQuotaExceededFault
+
     -- ** InvalidHSMClientCertificateStateFault
     , _InvalidHSMClientCertificateStateFault
+
+    -- ** ClusterOnLatestRevisionFault
+    , _ClusterOnLatestRevisionFault
 
     -- ** SubnetAlreadyInUse
     , _SubnetAlreadyInUse
@@ -301,10 +346,16 @@ module Network.AWS.Redshift
     -- * Operations
     -- $operations
 
+    -- ** CancelResize
+    , module Network.AWS.Redshift.CancelResize
+
+    -- ** DescribeStorage
+    , module Network.AWS.Redshift.DescribeStorage
+
     -- ** DescribeClusters (Paginated)
     , module Network.AWS.Redshift.DescribeClusters
 
-    -- ** DescribeTags
+    -- ** DescribeTags (Paginated)
     , module Network.AWS.Redshift.DescribeTags
 
     -- ** DeleteClusterSubnetGroup
@@ -313,8 +364,14 @@ module Network.AWS.Redshift
     -- ** DisableLogging
     , module Network.AWS.Redshift.DisableLogging
 
+    -- ** DescribeSnapshotSchedules (Paginated)
+    , module Network.AWS.Redshift.DescribeSnapshotSchedules
+
     -- ** ModifyEventSubscription
     , module Network.AWS.Redshift.ModifyEventSubscription
+
+    -- ** ModifyClusterDBRevision
+    , module Network.AWS.Redshift.ModifyClusterDBRevision
 
     -- ** DeleteClusterSnapshot
     , module Network.AWS.Redshift.DeleteClusterSnapshot
@@ -330,6 +387,9 @@ module Network.AWS.Redshift
 
     -- ** DescribeReservedNodes (Paginated)
     , module Network.AWS.Redshift.DescribeReservedNodes
+
+    -- ** GetReservedNodeExchangeOfferings (Paginated)
+    , module Network.AWS.Redshift.GetReservedNodeExchangeOfferings
 
     -- ** DescribeClusterParameterGroups (Paginated)
     , module Network.AWS.Redshift.DescribeClusterParameterGroups
@@ -355,11 +415,17 @@ module Network.AWS.Redshift
     -- ** DescribeClusterSnapshots (Paginated)
     , module Network.AWS.Redshift.DescribeClusterSnapshots
 
+    -- ** BatchDeleteClusterSnapshots
+    , module Network.AWS.Redshift.BatchDeleteClusterSnapshots
+
     -- ** DeleteTags
     , module Network.AWS.Redshift.DeleteTags
 
     -- ** DescribeClusterSubnetGroups (Paginated)
     , module Network.AWS.Redshift.DescribeClusterSubnetGroups
+
+    -- ** ResizeCluster
+    , module Network.AWS.Redshift.ResizeCluster
 
     -- ** ModifySnapshotCopyRetentionPeriod
     , module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
@@ -382,6 +448,9 @@ module Network.AWS.Redshift
     -- ** DescribeOrderableClusterOptions (Paginated)
     , module Network.AWS.Redshift.DescribeOrderableClusterOptions
 
+    -- ** DescribeClusterTracks (Paginated)
+    , module Network.AWS.Redshift.DescribeClusterTracks
+
     -- ** CreateCluster
     , module Network.AWS.Redshift.CreateCluster
 
@@ -397,11 +466,20 @@ module Network.AWS.Redshift
     -- ** DeleteEventSubscription
     , module Network.AWS.Redshift.DeleteEventSubscription
 
+    -- ** ModifyClusterSnapshot
+    , module Network.AWS.Redshift.ModifyClusterSnapshot
+
     -- ** ResetClusterParameterGroup
     , module Network.AWS.Redshift.ResetClusterParameterGroup
 
     -- ** DescribeEventSubscriptions (Paginated)
     , module Network.AWS.Redshift.DescribeEventSubscriptions
+
+    -- ** DescribeClusterDBRevisions (Paginated)
+    , module Network.AWS.Redshift.DescribeClusterDBRevisions
+
+    -- ** BatchModifyClusterSnapshots
+    , module Network.AWS.Redshift.BatchModifyClusterSnapshots
 
     -- ** RevokeClusterSecurityGroupIngress
     , module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
@@ -415,6 +493,9 @@ module Network.AWS.Redshift
     -- ** GetClusterCredentials
     , module Network.AWS.Redshift.GetClusterCredentials
 
+    -- ** ModifyClusterMaintenance
+    , module Network.AWS.Redshift.ModifyClusterMaintenance
+
     -- ** CreateClusterSecurityGroup
     , module Network.AWS.Redshift.CreateClusterSecurityGroup
 
@@ -427,10 +508,13 @@ module Network.AWS.Redshift
     -- ** DeleteHSMConfiguration
     , module Network.AWS.Redshift.DeleteHSMConfiguration
 
+    -- ** AcceptReservedNodeExchange
+    , module Network.AWS.Redshift.AcceptReservedNodeExchange
+
     -- ** AuthorizeClusterSecurityGroupIngress
     , module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
 
-    -- ** DescribeTableRestoreStatus
+    -- ** DescribeTableRestoreStatus (Paginated)
     , module Network.AWS.Redshift.DescribeTableRestoreStatus
 
     -- ** CreateClusterSnapshot
@@ -448,11 +532,17 @@ module Network.AWS.Redshift
     -- ** DeleteClusterSecurityGroup
     , module Network.AWS.Redshift.DeleteClusterSecurityGroup
 
+    -- ** CreateSnapshotSchedule
+    , module Network.AWS.Redshift.CreateSnapshotSchedule
+
     -- ** DisableSnapshotCopy
     , module Network.AWS.Redshift.DisableSnapshotCopy
 
     -- ** DescribeClusterParameters (Paginated)
     , module Network.AWS.Redshift.DescribeClusterParameters
+
+    -- ** DeleteSnapshotSchedule
+    , module Network.AWS.Redshift.DeleteSnapshotSchedule
 
     -- ** RestoreFromClusterSnapshot
     , module Network.AWS.Redshift.RestoreFromClusterSnapshot
@@ -466,6 +556,9 @@ module Network.AWS.Redshift
     -- ** DescribeHSMConfigurations (Paginated)
     , module Network.AWS.Redshift.DescribeHSMConfigurations
 
+    -- ** DescribeAccountAttributes
+    , module Network.AWS.Redshift.DescribeAccountAttributes
+
     -- ** CreateSnapshotCopyGrant
     , module Network.AWS.Redshift.CreateSnapshotCopyGrant
 
@@ -474,6 +567,9 @@ module Network.AWS.Redshift
 
     -- ** DeleteHSMClientCertificate
     , module Network.AWS.Redshift.DeleteHSMClientCertificate
+
+    -- ** ModifyClusterSnapshotSchedule
+    , module Network.AWS.Redshift.ModifyClusterSnapshotSchedule
 
     -- ** DeleteSnapshotCopyGrant
     , module Network.AWS.Redshift.DeleteSnapshotCopyGrant
@@ -484,10 +580,13 @@ module Network.AWS.Redshift
     -- ** ModifyClusterSubnetGroup
     , module Network.AWS.Redshift.ModifyClusterSubnetGroup
 
+    -- ** ModifySnapshotSchedule
+    , module Network.AWS.Redshift.ModifySnapshotSchedule
+
     -- ** RotateEncryptionKey
     , module Network.AWS.Redshift.RotateEncryptionKey
 
-    -- ** DescribeSnapshotCopyGrants
+    -- ** DescribeSnapshotCopyGrants (Paginated)
     , module Network.AWS.Redshift.DescribeSnapshotCopyGrants
 
     -- * Types
@@ -501,17 +600,37 @@ module Network.AWS.Redshift
     -- ** ReservedNodeOfferingType
     , ReservedNodeOfferingType (..)
 
+    -- ** ScheduleState
+    , ScheduleState (..)
+
+    -- ** SnapshotAttributeToSortBy
+    , SnapshotAttributeToSortBy (..)
+
+    -- ** SortByOrder
+    , SortByOrder (..)
+
     -- ** SourceType
     , SourceType (..)
 
     -- ** TableRestoreStatusType
     , TableRestoreStatusType (..)
 
+    -- ** AccountAttribute
+    , AccountAttribute
+    , accountAttribute
+    , aaAttributeValues
+    , aaAttributeName
+
     -- ** AccountWithRestoreAccess
     , AccountWithRestoreAccess
     , accountWithRestoreAccess
     , awraAccountAlias
     , awraAccountId
+
+    -- ** AttributeValueTarget
+    , AttributeValueTarget
+    , attributeValueTarget
+    , avtAttributeValue
 
     -- ** AvailabilityZone
     , AvailabilityZone
@@ -522,18 +641,26 @@ module Network.AWS.Redshift
     -- ** Cluster
     , Cluster
     , cluster
+    , cResizeInfo
     , cRestoreStatus
+    , cManualSnapshotRetentionPeriod
     , cEnhancedVPCRouting
     , cClusterSnapshotCopyStatus
     , cClusterRevisionNumber
+    , cSnapshotScheduleIdentifier
     , cPubliclyAccessible
     , cMasterUsername
+    , cMaintenanceTrackName
+    , cElasticResizeNumberOfNodeOptions
     , cVPCId
     , cClusterSecurityGroups
     , cAutomatedSnapshotRetentionPeriod
+    , cSnapshotScheduleState
+    , cDataTransferProgress
     , cEncrypted
     , cClusterSubnetGroupName
     , cClusterIdentifier
+    , cDeferredMaintenanceWindows
     , cNumberOfNodes
     , cClusterPublicKey
     , cPreferredMaintenanceWindow
@@ -544,6 +671,7 @@ module Network.AWS.Redshift
     , cVPCSecurityGroups
     , cHSMStatus
     , cIAMRoles
+    , cPendingActions
     , cElasticIPStatus
     , cClusterVersion
     , cNodeType
@@ -555,6 +683,20 @@ module Network.AWS.Redshift
     , cTags
     , cClusterNodes
     , cDBName
+
+    -- ** ClusterAssociatedToSchedule
+    , ClusterAssociatedToSchedule
+    , clusterAssociatedToSchedule
+    , catsScheduleAssociationState
+    , catsClusterIdentifier
+
+    -- ** ClusterDBRevision
+    , ClusterDBRevision
+    , clusterDBRevision
+    , cdrDatabaseRevisionReleaseDate
+    , cdrClusterIdentifier
+    , cdrCurrentDatabaseRevision
+    , cdrRevisionTargets
 
     -- ** ClusterIAMRole
     , ClusterIAMRole
@@ -615,6 +757,7 @@ module Network.AWS.Redshift
     -- ** ClusterSnapshotCopyStatus
     , ClusterSnapshotCopyStatus
     , clusterSnapshotCopyStatus
+    , cscsManualSnapshotRetentionPeriod
     , cscsRetentionPeriod
     , cscsDestinationRegion
     , cscsSnapshotCopyGrantName
@@ -636,12 +779,35 @@ module Network.AWS.Redshift
     , cvClusterVersion
     , cvDescription
 
+    -- ** DataTransferProgress
+    , DataTransferProgress
+    , dataTransferProgress
+    , dtpCurrentRateInMegaBytesPerSecond
+    , dtpStatus
+    , dtpEstimatedTimeToCompletionInSeconds
+    , dtpDataTransferredInMegaBytes
+    , dtpTotalDataInMegaBytes
+    , dtpElapsedTimeInSeconds
+
     -- ** DefaultClusterParameters
     , DefaultClusterParameters
     , defaultClusterParameters
     , dcpMarker
     , dcpParameters
     , dcpParameterGroupFamily
+
+    -- ** DeferredMaintenanceWindow
+    , DeferredMaintenanceWindow
+    , deferredMaintenanceWindow
+    , dmwDeferMaintenanceEndTime
+    , dmwDeferMaintenanceStartTime
+    , dmwDeferMaintenanceIdentifier
+
+    -- ** DeleteClusterSnapshotMessage
+    , DeleteClusterSnapshotMessage
+    , deleteClusterSnapshotMessage
+    , dcsmSnapshotClusterIdentifier
+    , dcsmSnapshotIdentifier
 
     -- ** EC2SecurityGroup
     , EC2SecurityGroup
@@ -743,6 +909,13 @@ module Network.AWS.Redshift
     , lsLoggingEnabled
     , lsLastFailureMessage
 
+    -- ** MaintenanceTrack
+    , MaintenanceTrack
+    , maintenanceTrack
+    , mtDatabaseVersion
+    , mtMaintenanceTrackName
+    , mtUpdateTargets
+
     -- ** OrderableClusterOption
     , OrderableClusterOption
     , orderableClusterOption
@@ -767,9 +940,11 @@ module Network.AWS.Redshift
     -- ** PendingModifiedValues
     , PendingModifiedValues
     , pendingModifiedValues
+    , pmvEncryptionType
     , pmvEnhancedVPCRouting
     , pmvMasterUserPassword
     , pmvPubliclyAccessible
+    , pmvMaintenanceTrackName
     , pmvAutomatedSnapshotRetentionPeriod
     , pmvClusterIdentifier
     , pmvNumberOfNodes
@@ -813,6 +988,31 @@ module Network.AWS.Redshift
     , rnoFixedPrice
     , rnoDuration
 
+    -- ** ResizeInfo
+    , ResizeInfo
+    , resizeInfo
+    , riAllowCancelResize
+    , riResizeType
+
+    -- ** ResizeProgressMessage
+    , ResizeProgressMessage
+    , resizeProgressMessage
+    , rpmImportTablesNotStarted
+    , rpmStatus
+    , rpmEstimatedTimeToCompletionInSeconds
+    , rpmAvgResizeRateInMegaBytesPerSecond
+    , rpmTargetNumberOfNodes
+    , rpmTargetEncryptionType
+    , rpmTargetNodeType
+    , rpmImportTablesInProgress
+    , rpmResizeType
+    , rpmImportTablesCompleted
+    , rpmProgressInMegaBytes
+    , rpmTotalResizeDataInMegaBytes
+    , rpmTargetClusterType
+    , rpmMessage
+    , rpmElapsedTimeInSeconds
+
     -- ** RestoreStatus
     , RestoreStatus
     , restoreStatus
@@ -823,17 +1023,28 @@ module Network.AWS.Redshift
     , rsElapsedTimeInSeconds
     , rsSnapshotSizeInMegaBytes
 
+    -- ** RevisionTarget
+    , RevisionTarget
+    , revisionTarget
+    , rtDatabaseRevisionReleaseDate
+    , rtDatabaseRevision
+    , rtDescription
+
     -- ** Snapshot
     , Snapshot
     , snapshot
     , sStatus
     , sRestorableNodeTypes
     , sAccountsWithRestoreAccess
+    , sManualSnapshotRetentionPeriod
     , sEnhancedVPCRouting
     , sSnapshotIdentifier
     , sEncryptedWithHSM
     , sMasterUsername
     , sSourceRegion
+    , sMaintenanceTrackName
+    , sSnapshotRetentionStartTime
+    , sManualSnapshotRemainingDays
     , sVPCId
     , sBackupProgressInMegaBytes
     , sEncrypted
@@ -863,12 +1074,42 @@ module Network.AWS.Redshift
     , scgSnapshotCopyGrantName
     , scgTags
 
+    -- ** SnapshotErrorMessage
+    , SnapshotErrorMessage
+    , snapshotErrorMessage
+    , semFailureReason
+    , semSnapshotIdentifier
+    , semSnapshotClusterIdentifier
+    , semFailureCode
+
+    -- ** SnapshotSchedule
+    , SnapshotSchedule
+    , snapshotSchedule
+    , ssAssociatedClusters
+    , ssNextInvocations
+    , ssScheduleDefinitions
+    , ssScheduleDescription
+    , ssScheduleIdentifier
+    , ssAssociatedClusterCount
+    , ssTags
+
+    -- ** SnapshotSortingEntity
+    , SnapshotSortingEntity
+    , snapshotSortingEntity
+    , sseSortOrder
+    , sseAttribute
+
     -- ** Subnet
     , Subnet
     , subnet
     , sSubnetStatus
     , sSubnetIdentifier
     , sSubnetAvailabilityZone
+
+    -- ** SupportedOperation
+    , SupportedOperation
+    , supportedOperation
+    , soOperationName
 
     -- ** SupportedPlatform
     , SupportedPlatform
@@ -906,6 +1147,13 @@ module Network.AWS.Redshift
     , trResourceType
     , trResourceName
 
+    -- ** UpdateTarget
+    , UpdateTarget
+    , updateTarget
+    , utDatabaseVersion
+    , utMaintenanceTrackName
+    , utSupportedOperations
+
     -- ** VPCSecurityGroupMembership
     , VPCSecurityGroupMembership
     , vpcSecurityGroupMembership
@@ -913,8 +1161,12 @@ module Network.AWS.Redshift
     , vsgmVPCSecurityGroupId
     ) where
 
+import Network.AWS.Redshift.AcceptReservedNodeExchange
 import Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
 import Network.AWS.Redshift.AuthorizeSnapshotAccess
+import Network.AWS.Redshift.BatchDeleteClusterSnapshots
+import Network.AWS.Redshift.BatchModifyClusterSnapshots
+import Network.AWS.Redshift.CancelResize
 import Network.AWS.Redshift.CopyClusterSnapshot
 import Network.AWS.Redshift.CreateCluster
 import Network.AWS.Redshift.CreateClusterParameterGroup
@@ -925,6 +1177,7 @@ import Network.AWS.Redshift.CreateEventSubscription
 import Network.AWS.Redshift.CreateHSMClientCertificate
 import Network.AWS.Redshift.CreateHSMConfiguration
 import Network.AWS.Redshift.CreateSnapshotCopyGrant
+import Network.AWS.Redshift.CreateSnapshotSchedule
 import Network.AWS.Redshift.CreateTags
 import Network.AWS.Redshift.DeleteCluster
 import Network.AWS.Redshift.DeleteClusterParameterGroup
@@ -935,13 +1188,17 @@ import Network.AWS.Redshift.DeleteEventSubscription
 import Network.AWS.Redshift.DeleteHSMClientCertificate
 import Network.AWS.Redshift.DeleteHSMConfiguration
 import Network.AWS.Redshift.DeleteSnapshotCopyGrant
+import Network.AWS.Redshift.DeleteSnapshotSchedule
 import Network.AWS.Redshift.DeleteTags
+import Network.AWS.Redshift.DescribeAccountAttributes
+import Network.AWS.Redshift.DescribeClusterDBRevisions
 import Network.AWS.Redshift.DescribeClusterParameterGroups
 import Network.AWS.Redshift.DescribeClusterParameters
 import Network.AWS.Redshift.DescribeClusters
 import Network.AWS.Redshift.DescribeClusterSecurityGroups
 import Network.AWS.Redshift.DescribeClusterSnapshots
 import Network.AWS.Redshift.DescribeClusterSubnetGroups
+import Network.AWS.Redshift.DescribeClusterTracks
 import Network.AWS.Redshift.DescribeClusterVersions
 import Network.AWS.Redshift.DescribeDefaultClusterParameters
 import Network.AWS.Redshift.DescribeEventCategories
@@ -955,6 +1212,8 @@ import Network.AWS.Redshift.DescribeReservedNodeOfferings
 import Network.AWS.Redshift.DescribeReservedNodes
 import Network.AWS.Redshift.DescribeResize
 import Network.AWS.Redshift.DescribeSnapshotCopyGrants
+import Network.AWS.Redshift.DescribeSnapshotSchedules
+import Network.AWS.Redshift.DescribeStorage
 import Network.AWS.Redshift.DescribeTableRestoreStatus
 import Network.AWS.Redshift.DescribeTags
 import Network.AWS.Redshift.DisableLogging
@@ -962,16 +1221,23 @@ import Network.AWS.Redshift.DisableSnapshotCopy
 import Network.AWS.Redshift.EnableLogging
 import Network.AWS.Redshift.EnableSnapshotCopy
 import Network.AWS.Redshift.GetClusterCredentials
+import Network.AWS.Redshift.GetReservedNodeExchangeOfferings
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.ModifyCluster
+import Network.AWS.Redshift.ModifyClusterDBRevision
 import Network.AWS.Redshift.ModifyClusterIAMRoles
+import Network.AWS.Redshift.ModifyClusterMaintenance
 import Network.AWS.Redshift.ModifyClusterParameterGroup
+import Network.AWS.Redshift.ModifyClusterSnapshot
+import Network.AWS.Redshift.ModifyClusterSnapshotSchedule
 import Network.AWS.Redshift.ModifyClusterSubnetGroup
 import Network.AWS.Redshift.ModifyEventSubscription
 import Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
+import Network.AWS.Redshift.ModifySnapshotSchedule
 import Network.AWS.Redshift.PurchaseReservedNodeOffering
 import Network.AWS.Redshift.RebootCluster
 import Network.AWS.Redshift.ResetClusterParameterGroup
+import Network.AWS.Redshift.ResizeCluster
 import Network.AWS.Redshift.RestoreFromClusterSnapshot
 import Network.AWS.Redshift.RestoreTableFromClusterSnapshot
 import Network.AWS.Redshift.RevokeClusterSecurityGroupIngress

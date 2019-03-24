@@ -32,6 +32,7 @@ module Network.AWS.Redshift.DeleteCluster
     , DeleteCluster
     -- * Request Lenses
     , delSkipFinalClusterSnapshot
+    , delFinalClusterSnapshotRetentionPeriod
     , delFinalClusterSnapshotIdentifier
     , delClusterIdentifier
 
@@ -56,9 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteCluster' smart constructor.
 data DeleteCluster = DeleteCluster'
-  { _delSkipFinalClusterSnapshot       :: !(Maybe Bool)
-  , _delFinalClusterSnapshotIdentifier :: !(Maybe Text)
-  , _delClusterIdentifier              :: !Text
+  { _delSkipFinalClusterSnapshot            :: !(Maybe Bool)
+  , _delFinalClusterSnapshotRetentionPeriod :: !(Maybe Int)
+  , _delFinalClusterSnapshotIdentifier      :: !(Maybe Text)
+  , _delClusterIdentifier                   :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -67,6 +69,8 @@ data DeleteCluster = DeleteCluster'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'delSkipFinalClusterSnapshot' - Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If @true@ , a final cluster snapshot is not created. If @false@ , a final cluster snapshot is created before the cluster is deleted.  Default: @false@
+--
+-- * 'delFinalClusterSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely. The value must be either -1 or an integer between 1 and 3,653. The default value is -1.
 --
 -- * 'delFinalClusterSnapshotIdentifier' - The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, /SkipFinalClusterSnapshot/ must be @false@ .  Constraints:     * Must be 1 to 255 alphanumeric characters.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 --
@@ -77,6 +81,7 @@ deleteCluster
 deleteCluster pClusterIdentifier_ =
   DeleteCluster'
     { _delSkipFinalClusterSnapshot = Nothing
+    , _delFinalClusterSnapshotRetentionPeriod = Nothing
     , _delFinalClusterSnapshotIdentifier = Nothing
     , _delClusterIdentifier = pClusterIdentifier_
     }
@@ -85,6 +90,10 @@ deleteCluster pClusterIdentifier_ =
 -- | Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If @true@ , a final cluster snapshot is not created. If @false@ , a final cluster snapshot is created before the cluster is deleted.  Default: @false@
 delSkipFinalClusterSnapshot :: Lens' DeleteCluster (Maybe Bool)
 delSkipFinalClusterSnapshot = lens _delSkipFinalClusterSnapshot (\ s a -> s{_delSkipFinalClusterSnapshot = a})
+
+-- | The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely. The value must be either -1 or an integer between 1 and 3,653. The default value is -1.
+delFinalClusterSnapshotRetentionPeriod :: Lens' DeleteCluster (Maybe Int)
+delFinalClusterSnapshotRetentionPeriod = lens _delFinalClusterSnapshotRetentionPeriod (\ s a -> s{_delFinalClusterSnapshotRetentionPeriod = a})
 
 -- | The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, /SkipFinalClusterSnapshot/ must be @false@ .  Constraints:     * Must be 1 to 255 alphanumeric characters.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 delFinalClusterSnapshotIdentifier :: Lens' DeleteCluster (Maybe Text)
@@ -120,6 +129,8 @@ instance ToQuery DeleteCluster where
                "Version" =: ("2012-12-01" :: ByteString),
                "SkipFinalClusterSnapshot" =:
                  _delSkipFinalClusterSnapshot,
+               "FinalClusterSnapshotRetentionPeriod" =:
+                 _delFinalClusterSnapshotRetentionPeriod,
                "FinalClusterSnapshotIdentifier" =:
                  _delFinalClusterSnapshotIdentifier,
                "ClusterIdentifier" =: _delClusterIdentifier]

@@ -45,8 +45,12 @@ library
 
     exposed-modules:
           Network.AWS.Redshift
+        , Network.AWS.Redshift.AcceptReservedNodeExchange
         , Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
         , Network.AWS.Redshift.AuthorizeSnapshotAccess
+        , Network.AWS.Redshift.BatchDeleteClusterSnapshots
+        , Network.AWS.Redshift.BatchModifyClusterSnapshots
+        , Network.AWS.Redshift.CancelResize
         , Network.AWS.Redshift.CopyClusterSnapshot
         , Network.AWS.Redshift.CreateCluster
         , Network.AWS.Redshift.CreateClusterParameterGroup
@@ -57,6 +61,7 @@ library
         , Network.AWS.Redshift.CreateHSMClientCertificate
         , Network.AWS.Redshift.CreateHSMConfiguration
         , Network.AWS.Redshift.CreateSnapshotCopyGrant
+        , Network.AWS.Redshift.CreateSnapshotSchedule
         , Network.AWS.Redshift.CreateTags
         , Network.AWS.Redshift.DeleteCluster
         , Network.AWS.Redshift.DeleteClusterParameterGroup
@@ -67,12 +72,16 @@ library
         , Network.AWS.Redshift.DeleteHSMClientCertificate
         , Network.AWS.Redshift.DeleteHSMConfiguration
         , Network.AWS.Redshift.DeleteSnapshotCopyGrant
+        , Network.AWS.Redshift.DeleteSnapshotSchedule
         , Network.AWS.Redshift.DeleteTags
+        , Network.AWS.Redshift.DescribeAccountAttributes
+        , Network.AWS.Redshift.DescribeClusterDBRevisions
         , Network.AWS.Redshift.DescribeClusterParameterGroups
         , Network.AWS.Redshift.DescribeClusterParameters
         , Network.AWS.Redshift.DescribeClusterSecurityGroups
         , Network.AWS.Redshift.DescribeClusterSnapshots
         , Network.AWS.Redshift.DescribeClusterSubnetGroups
+        , Network.AWS.Redshift.DescribeClusterTracks
         , Network.AWS.Redshift.DescribeClusterVersions
         , Network.AWS.Redshift.DescribeClusters
         , Network.AWS.Redshift.DescribeDefaultClusterParameters
@@ -87,6 +96,8 @@ library
         , Network.AWS.Redshift.DescribeReservedNodes
         , Network.AWS.Redshift.DescribeResize
         , Network.AWS.Redshift.DescribeSnapshotCopyGrants
+        , Network.AWS.Redshift.DescribeSnapshotSchedules
+        , Network.AWS.Redshift.DescribeStorage
         , Network.AWS.Redshift.DescribeTableRestoreStatus
         , Network.AWS.Redshift.DescribeTags
         , Network.AWS.Redshift.DisableLogging
@@ -94,15 +105,22 @@ library
         , Network.AWS.Redshift.EnableLogging
         , Network.AWS.Redshift.EnableSnapshotCopy
         , Network.AWS.Redshift.GetClusterCredentials
+        , Network.AWS.Redshift.GetReservedNodeExchangeOfferings
         , Network.AWS.Redshift.ModifyCluster
+        , Network.AWS.Redshift.ModifyClusterDBRevision
         , Network.AWS.Redshift.ModifyClusterIAMRoles
+        , Network.AWS.Redshift.ModifyClusterMaintenance
         , Network.AWS.Redshift.ModifyClusterParameterGroup
+        , Network.AWS.Redshift.ModifyClusterSnapshot
+        , Network.AWS.Redshift.ModifyClusterSnapshotSchedule
         , Network.AWS.Redshift.ModifyClusterSubnetGroup
         , Network.AWS.Redshift.ModifyEventSubscription
         , Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
+        , Network.AWS.Redshift.ModifySnapshotSchedule
         , Network.AWS.Redshift.PurchaseReservedNodeOffering
         , Network.AWS.Redshift.RebootCluster
         , Network.AWS.Redshift.ResetClusterParameterGroup
+        , Network.AWS.Redshift.ResizeCluster
         , Network.AWS.Redshift.RestoreFromClusterSnapshot
         , Network.AWS.Redshift.RestoreTableFromClusterSnapshot
         , Network.AWS.Redshift.RevokeClusterSecurityGroupIngress

@@ -21,6 +21,8 @@
 -- Lists the status of one or more table restore requests made using the 'RestoreTableFromClusterSnapshot' API action. If you don't specify a value for the @TableRestoreRequestId@ parameter, then @DescribeTableRestoreStatus@ returns the status of all table restore requests ordered by the date and time of the request in ascending order. Otherwise @DescribeTableRestoreStatus@ returns the status of the table specified by @TableRestoreRequestId@ .
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeTableRestoreStatus
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.Redshift.DescribeTableRestoreStatus
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Redshift.Types.Product
@@ -98,6 +101,14 @@ dtrssMarker = lens _dtrssMarker (\ s a -> s{_dtrssMarker = a})
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 dtrssMaxRecords :: Lens' DescribeTableRestoreStatus (Maybe Int)
 dtrssMaxRecords = lens _dtrssMaxRecords (\ s a -> s{_dtrssMaxRecords = a})
+
+instance AWSPager DescribeTableRestoreStatus where
+        page rq rs
+          | stop (rs ^. dtrsrsMarker) = Nothing
+          | stop (rs ^. dtrsrsTableRestoreStatusDetails) =
+            Nothing
+          | otherwise =
+            Just $ rq & dtrssMarker .~ rs ^. dtrsrsMarker
 
 instance AWSRequest DescribeTableRestoreStatus where
         type Rs DescribeTableRestoreStatus =

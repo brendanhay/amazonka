@@ -35,6 +35,8 @@
 --
 -- If both tag keys and values are omitted from the request, resources are returned regardless of whether they have tag keys or values associated with them.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeTags
     (
     -- * Creating a Request
@@ -58,6 +60,7 @@ module Network.AWS.Redshift.DescribeTags
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Redshift.Types
 import Network.AWS.Redshift.Types.Product
@@ -130,6 +133,13 @@ dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a})
 -- | The maximum number or response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned @marker@ value.
 dtMaxRecords :: Lens' DescribeTags (Maybe Int)
 dtMaxRecords = lens _dtMaxRecords (\ s a -> s{_dtMaxRecords = a})
+
+instance AWSPager DescribeTags where
+        page rq rs
+          | stop (rs ^. dtrsMarker) = Nothing
+          | stop (rs ^. dtrsTaggedResources) = Nothing
+          | otherwise =
+            Just $ rq & dtMarker .~ rs ^. dtrsMarker
 
 instance AWSRequest DescribeTags where
         type Rs DescribeTags = DescribeTagsResponse

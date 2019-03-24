@@ -28,22 +28,28 @@ module Network.AWS.Redshift.Types
     , _InvalidElasticIPFault
     , _TableRestoreNotFoundFault
     , _HSMConfigurationNotFoundFault
+    , _ScheduleDefinitionTypeUnsupportedFault
     , _AuthorizationAlreadyExistsFault
     , _SubscriptionCategoryNotFoundFault
+    , _InvalidRetentionPeriodFault
     , _HSMConfigurationAlreadyExistsFault
     , _SubscriptionNotFoundFault
     , _InvalidS3BucketNameFault
     , _ClusterSnapshotAlreadyExistsFault
     , _InvalidSubnet
+    , _TableLimitExceededFault
     , _InvalidHSMConfigurationStateFault
     , _SnapshotCopyAlreadyDisabledFault
     , _ClusterQuotaExceededFault
     , _HSMClientCertificateQuotaExceededFault
+    , _SnapshotScheduleAlreadyExistsFault
+    , _BatchModifyClusterSnapshotsLimitExceededFault
     , _ClusterParameterGroupNotFoundFault
     , _SnapshotCopyGrantQuotaExceededFault
     , _NumberOfNodesPerClusterLimitExceededFault
     , _SnapshotCopyAlreadyEnabledFault
     , _ClusterParameterGroupAlreadyExistsFault
+    , _BatchDeleteRequestSizeExceededFault
     , _SnapshotCopyDisabledFault
     , _ResizeNotFoundFault
     , _HSMClientCertificateNotFoundFault
@@ -55,6 +61,8 @@ module Network.AWS.Redshift.Types
     , _InvalidClusterStateFault
     , _InvalidTableRestoreArgumentFault
     , _SnapshotCopyGrantNotFoundFault
+    , _InvalidScheduleFault
+    , _InvalidClusterTrackFault
     , _HSMConfigurationQuotaExceededFault
     , _ClusterSnapshotQuotaExceededFault
     , _InsufficientClusterCapacityFault
@@ -62,6 +70,7 @@ module Network.AWS.Redshift.Types
     , _DependentServiceUnavailableFault
     , _UnsupportedOptionFault
     , _SubscriptionAlreadyExistFault
+    , _InvalidClusterSnapshotScheduleStateFault
     , _InvalidVPCNetworkStateFault
     , _ClusterSubnetGroupNotFoundFault
     , _BucketNotFoundFault
@@ -77,9 +86,13 @@ module Network.AWS.Redshift.Types
     , _ReservedNodeOfferingNotFoundFault
     , _InvalidClusterSubnetStateFault
     , _IncompatibleOrderableOptions
+    , _ReservedNodeAlreadyMigratedFault
     , _EventSubscriptionQuotaExceededFault
+    , _SnapshotScheduleNotFoundFault
     , _InvalidClusterParameterGroupStateFault
+    , _InvalidReservedNodeStateFault
     , _ReservedNodeAlreadyExistsFault
+    , _SnapshotScheduleUpdateInProgressFault
     , _InProgressTableRestoreQuotaExceededFault
     , _InvalidRestoreFault
     , _ResourceNotFoundFault
@@ -93,7 +106,9 @@ module Network.AWS.Redshift.Types
     , _TagLimitExceededFault
     , _NumberOfNodesQuotaExceededFault
     , _HSMClientCertificateAlreadyExistsFault
+    , _SnapshotScheduleQuotaExceededFault
     , _InvalidHSMClientCertificateStateFault
+    , _ClusterOnLatestRevisionFault
     , _SubnetAlreadyInUse
     , _SubscriptionSeverityNotFoundFault
     , _UnauthorizedOperation
@@ -110,17 +125,37 @@ module Network.AWS.Redshift.Types
     -- * ReservedNodeOfferingType
     , ReservedNodeOfferingType (..)
 
+    -- * ScheduleState
+    , ScheduleState (..)
+
+    -- * SnapshotAttributeToSortBy
+    , SnapshotAttributeToSortBy (..)
+
+    -- * SortByOrder
+    , SortByOrder (..)
+
     -- * SourceType
     , SourceType (..)
 
     -- * TableRestoreStatusType
     , TableRestoreStatusType (..)
 
+    -- * AccountAttribute
+    , AccountAttribute
+    , accountAttribute
+    , aaAttributeValues
+    , aaAttributeName
+
     -- * AccountWithRestoreAccess
     , AccountWithRestoreAccess
     , accountWithRestoreAccess
     , awraAccountAlias
     , awraAccountId
+
+    -- * AttributeValueTarget
+    , AttributeValueTarget
+    , attributeValueTarget
+    , avtAttributeValue
 
     -- * AvailabilityZone
     , AvailabilityZone
@@ -131,18 +166,26 @@ module Network.AWS.Redshift.Types
     -- * Cluster
     , Cluster
     , cluster
+    , cResizeInfo
     , cRestoreStatus
+    , cManualSnapshotRetentionPeriod
     , cEnhancedVPCRouting
     , cClusterSnapshotCopyStatus
     , cClusterRevisionNumber
+    , cSnapshotScheduleIdentifier
     , cPubliclyAccessible
     , cMasterUsername
+    , cMaintenanceTrackName
+    , cElasticResizeNumberOfNodeOptions
     , cVPCId
     , cClusterSecurityGroups
     , cAutomatedSnapshotRetentionPeriod
+    , cSnapshotScheduleState
+    , cDataTransferProgress
     , cEncrypted
     , cClusterSubnetGroupName
     , cClusterIdentifier
+    , cDeferredMaintenanceWindows
     , cNumberOfNodes
     , cClusterPublicKey
     , cPreferredMaintenanceWindow
@@ -153,6 +196,7 @@ module Network.AWS.Redshift.Types
     , cVPCSecurityGroups
     , cHSMStatus
     , cIAMRoles
+    , cPendingActions
     , cElasticIPStatus
     , cClusterVersion
     , cNodeType
@@ -164,6 +208,20 @@ module Network.AWS.Redshift.Types
     , cTags
     , cClusterNodes
     , cDBName
+
+    -- * ClusterAssociatedToSchedule
+    , ClusterAssociatedToSchedule
+    , clusterAssociatedToSchedule
+    , catsScheduleAssociationState
+    , catsClusterIdentifier
+
+    -- * ClusterDBRevision
+    , ClusterDBRevision
+    , clusterDBRevision
+    , cdrDatabaseRevisionReleaseDate
+    , cdrClusterIdentifier
+    , cdrCurrentDatabaseRevision
+    , cdrRevisionTargets
 
     -- * ClusterIAMRole
     , ClusterIAMRole
@@ -224,6 +282,7 @@ module Network.AWS.Redshift.Types
     -- * ClusterSnapshotCopyStatus
     , ClusterSnapshotCopyStatus
     , clusterSnapshotCopyStatus
+    , cscsManualSnapshotRetentionPeriod
     , cscsRetentionPeriod
     , cscsDestinationRegion
     , cscsSnapshotCopyGrantName
@@ -245,12 +304,35 @@ module Network.AWS.Redshift.Types
     , cvClusterVersion
     , cvDescription
 
+    -- * DataTransferProgress
+    , DataTransferProgress
+    , dataTransferProgress
+    , dtpCurrentRateInMegaBytesPerSecond
+    , dtpStatus
+    , dtpEstimatedTimeToCompletionInSeconds
+    , dtpDataTransferredInMegaBytes
+    , dtpTotalDataInMegaBytes
+    , dtpElapsedTimeInSeconds
+
     -- * DefaultClusterParameters
     , DefaultClusterParameters
     , defaultClusterParameters
     , dcpMarker
     , dcpParameters
     , dcpParameterGroupFamily
+
+    -- * DeferredMaintenanceWindow
+    , DeferredMaintenanceWindow
+    , deferredMaintenanceWindow
+    , dmwDeferMaintenanceEndTime
+    , dmwDeferMaintenanceStartTime
+    , dmwDeferMaintenanceIdentifier
+
+    -- * DeleteClusterSnapshotMessage
+    , DeleteClusterSnapshotMessage
+    , deleteClusterSnapshotMessage
+    , dcsmSnapshotClusterIdentifier
+    , dcsmSnapshotIdentifier
 
     -- * EC2SecurityGroup
     , EC2SecurityGroup
@@ -352,6 +434,13 @@ module Network.AWS.Redshift.Types
     , lsLoggingEnabled
     , lsLastFailureMessage
 
+    -- * MaintenanceTrack
+    , MaintenanceTrack
+    , maintenanceTrack
+    , mtDatabaseVersion
+    , mtMaintenanceTrackName
+    , mtUpdateTargets
+
     -- * OrderableClusterOption
     , OrderableClusterOption
     , orderableClusterOption
@@ -376,9 +465,11 @@ module Network.AWS.Redshift.Types
     -- * PendingModifiedValues
     , PendingModifiedValues
     , pendingModifiedValues
+    , pmvEncryptionType
     , pmvEnhancedVPCRouting
     , pmvMasterUserPassword
     , pmvPubliclyAccessible
+    , pmvMaintenanceTrackName
     , pmvAutomatedSnapshotRetentionPeriod
     , pmvClusterIdentifier
     , pmvNumberOfNodes
@@ -422,6 +513,31 @@ module Network.AWS.Redshift.Types
     , rnoFixedPrice
     , rnoDuration
 
+    -- * ResizeInfo
+    , ResizeInfo
+    , resizeInfo
+    , riAllowCancelResize
+    , riResizeType
+
+    -- * ResizeProgressMessage
+    , ResizeProgressMessage
+    , resizeProgressMessage
+    , rpmImportTablesNotStarted
+    , rpmStatus
+    , rpmEstimatedTimeToCompletionInSeconds
+    , rpmAvgResizeRateInMegaBytesPerSecond
+    , rpmTargetNumberOfNodes
+    , rpmTargetEncryptionType
+    , rpmTargetNodeType
+    , rpmImportTablesInProgress
+    , rpmResizeType
+    , rpmImportTablesCompleted
+    , rpmProgressInMegaBytes
+    , rpmTotalResizeDataInMegaBytes
+    , rpmTargetClusterType
+    , rpmMessage
+    , rpmElapsedTimeInSeconds
+
     -- * RestoreStatus
     , RestoreStatus
     , restoreStatus
@@ -432,17 +548,28 @@ module Network.AWS.Redshift.Types
     , rsElapsedTimeInSeconds
     , rsSnapshotSizeInMegaBytes
 
+    -- * RevisionTarget
+    , RevisionTarget
+    , revisionTarget
+    , rtDatabaseRevisionReleaseDate
+    , rtDatabaseRevision
+    , rtDescription
+
     -- * Snapshot
     , Snapshot
     , snapshot
     , sStatus
     , sRestorableNodeTypes
     , sAccountsWithRestoreAccess
+    , sManualSnapshotRetentionPeriod
     , sEnhancedVPCRouting
     , sSnapshotIdentifier
     , sEncryptedWithHSM
     , sMasterUsername
     , sSourceRegion
+    , sMaintenanceTrackName
+    , sSnapshotRetentionStartTime
+    , sManualSnapshotRemainingDays
     , sVPCId
     , sBackupProgressInMegaBytes
     , sEncrypted
@@ -472,12 +599,42 @@ module Network.AWS.Redshift.Types
     , scgSnapshotCopyGrantName
     , scgTags
 
+    -- * SnapshotErrorMessage
+    , SnapshotErrorMessage
+    , snapshotErrorMessage
+    , semFailureReason
+    , semSnapshotIdentifier
+    , semSnapshotClusterIdentifier
+    , semFailureCode
+
+    -- * SnapshotSchedule
+    , SnapshotSchedule
+    , snapshotSchedule
+    , ssAssociatedClusters
+    , ssNextInvocations
+    , ssScheduleDefinitions
+    , ssScheduleDescription
+    , ssScheduleIdentifier
+    , ssAssociatedClusterCount
+    , ssTags
+
+    -- * SnapshotSortingEntity
+    , SnapshotSortingEntity
+    , snapshotSortingEntity
+    , sseSortOrder
+    , sseAttribute
+
     -- * Subnet
     , Subnet
     , subnet
     , sSubnetStatus
     , sSubnetIdentifier
     , sSubnetAvailabilityZone
+
+    -- * SupportedOperation
+    , SupportedOperation
+    , supportedOperation
+    , soOperationName
 
     -- * SupportedPlatform
     , SupportedPlatform
@@ -514,6 +671,13 @@ module Network.AWS.Redshift.Types
     , trTag
     , trResourceType
     , trResourceName
+
+    -- * UpdateTarget
+    , UpdateTarget
+    , updateTarget
+    , utDatabaseVersion
+    , utMaintenanceTrackName
+    , utSupportedOperations
 
     -- * VPCSecurityGroupMembership
     , VPCSecurityGroupMembership
@@ -666,6 +830,15 @@ _HSMConfigurationNotFoundFault =
   _MatchServiceError redshift "HsmConfigurationNotFoundFault" . hasStatus 400
 
 
+-- | The definition you submitted is not supported.
+--
+--
+_ScheduleDefinitionTypeUnsupportedFault :: AsError a => Getting (First ServiceError) a ServiceError
+_ScheduleDefinitionTypeUnsupportedFault =
+  _MatchServiceError redshift "ScheduleDefinitionTypeUnsupported" .
+  hasStatus 400
+
+
 -- | The specified CIDR block or EC2 security group is already authorized for the specified cluster security group.
 --
 --
@@ -680,6 +853,16 @@ _AuthorizationAlreadyExistsFault =
 _SubscriptionCategoryNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SubscriptionCategoryNotFoundFault =
   _MatchServiceError redshift "SubscriptionCategoryNotFound" . hasStatus 404
+
+
+-- | The retention period specified is either in the past or is not a valid value.
+--
+--
+-- The value must be either -1 or an integer between 1 and 3,653.
+--
+_InvalidRetentionPeriodFault :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidRetentionPeriodFault =
+  _MatchServiceError redshift "InvalidRetentionPeriodFault" . hasStatus 400
 
 
 -- | There is already an existing Amazon Redshift HSM configuration with the specified identifier.
@@ -722,6 +905,14 @@ _InvalidSubnet :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSubnet = _MatchServiceError redshift "InvalidSubnet" . hasStatus 400
 
 
+-- | The number of tables in the cluster exceeds the limit for the requested new cluster node type.
+--
+--
+_TableLimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
+_TableLimitExceededFault =
+  _MatchServiceError redshift "TableLimitExceeded" . hasStatus 400
+
+
 -- | The specified HSM configuration is not in the @available@ state, or it is still in use by one or more Amazon Redshift clusters.
 --
 --
@@ -753,6 +944,23 @@ _ClusterQuotaExceededFault =
 _HSMClientCertificateQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _HSMClientCertificateQuotaExceededFault =
   _MatchServiceError redshift "HsmClientCertificateQuotaExceededFault" .
+  hasStatus 400
+
+
+-- | The specified snapshot schedule already exists.
+--
+--
+_SnapshotScheduleAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
+_SnapshotScheduleAlreadyExistsFault =
+  _MatchServiceError redshift "SnapshotScheduleAlreadyExists" . hasStatus 400
+
+
+-- | The maximum number for snapshot identifiers has been reached. The limit is 100.
+--
+--
+_BatchModifyClusterSnapshotsLimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
+_BatchModifyClusterSnapshotsLimitExceededFault =
+  _MatchServiceError redshift "BatchModifyClusterSnapshotsLimitExceededFault" .
   hasStatus 400
 
 
@@ -797,6 +1005,14 @@ _ClusterParameterGroupAlreadyExistsFault :: AsError a => Getting (First ServiceE
 _ClusterParameterGroupAlreadyExistsFault =
   _MatchServiceError redshift "ClusterParameterGroupAlreadyExists" .
   hasStatus 400
+
+
+-- | The maximum number for a batch delete of snapshots has been reached. The limit is 100.
+--
+--
+_BatchDeleteRequestSizeExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
+_BatchDeleteRequestSizeExceededFault =
+  _MatchServiceError redshift "BatchDeleteRequestSizeExceeded" . hasStatus 400
 
 
 -- | Cross-region snapshot copy was temporarily disabled. Try your request again.
@@ -890,6 +1106,22 @@ _SnapshotCopyGrantNotFoundFault =
   _MatchServiceError redshift "SnapshotCopyGrantNotFoundFault" . hasStatus 400
 
 
+-- | The schedule you submitted isn't valid.
+--
+--
+_InvalidScheduleFault :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidScheduleFault =
+  _MatchServiceError redshift "InvalidSchedule" . hasStatus 400
+
+
+-- | The provided cluster track name is not valid.
+--
+--
+_InvalidClusterTrackFault :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidClusterTrackFault =
+  _MatchServiceError redshift "InvalidClusterTrack" . hasStatus 400
+
+
 -- | The quota for HSM configurations has been reached. For information about increasing your quota, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift> in the /Amazon Redshift Cluster Management Guide/ .
 --
 --
@@ -945,6 +1177,15 @@ _UnsupportedOptionFault =
 _SubscriptionAlreadyExistFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SubscriptionAlreadyExistFault =
   _MatchServiceError redshift "SubscriptionAlreadyExist" . hasStatus 400
+
+
+-- | The cluster snapshot schedule state is not valid.
+--
+--
+_InvalidClusterSnapshotScheduleStateFault :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidClusterSnapshotScheduleStateFault =
+  _MatchServiceError redshift "InvalidClusterSnapshotScheduleState" .
+  hasStatus 400
 
 
 -- | The cluster subnet group does not cover all Availability Zones.
@@ -1069,12 +1310,28 @@ _IncompatibleOrderableOptions =
   _MatchServiceError redshift "IncompatibleOrderableOptions" . hasStatus 400
 
 
+-- | Indicates that the reserved node has already been exchanged.
+--
+--
+_ReservedNodeAlreadyMigratedFault :: AsError a => Getting (First ServiceError) a ServiceError
+_ReservedNodeAlreadyMigratedFault =
+  _MatchServiceError redshift "ReservedNodeAlreadyMigrated" . hasStatus 400
+
+
 -- | The request would exceed the allowed number of event subscriptions for this account. For information about increasing your quota, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift> in the /Amazon Redshift Cluster Management Guide/ .
 --
 --
 _EventSubscriptionQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _EventSubscriptionQuotaExceededFault =
   _MatchServiceError redshift "EventSubscriptionQuotaExceeded" . hasStatus 400
+
+
+-- | We could not find the specified snapshot schedule.
+--
+--
+_SnapshotScheduleNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
+_SnapshotScheduleNotFoundFault =
+  _MatchServiceError redshift "SnapshotScheduleNotFound" . hasStatus 400
 
 
 -- | The cluster parameter group action can not be completed because another task is in progress that involves the parameter group. Wait a few moments and try the operation again.
@@ -1086,12 +1343,28 @@ _InvalidClusterParameterGroupStateFault =
   hasStatus 400
 
 
+-- | Indicates that the Reserved Node being exchanged is not in an active state.
+--
+--
+_InvalidReservedNodeStateFault :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidReservedNodeStateFault =
+  _MatchServiceError redshift "InvalidReservedNodeState" . hasStatus 400
+
+
 -- | User already has a reservation with the given identifier.
 --
 --
 _ReservedNodeAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ReservedNodeAlreadyExistsFault =
   _MatchServiceError redshift "ReservedNodeAlreadyExists" . hasStatus 404
+
+
+-- | The specified snapshot schedule is already being updated.
+--
+--
+_SnapshotScheduleUpdateInProgressFault :: AsError a => Getting (First ServiceError) a ServiceError
+_SnapshotScheduleUpdateInProgressFault =
+  _MatchServiceError redshift "SnapshotScheduleUpdateInProgress" . hasStatus 400
 
 
 -- | You have exceeded the allowed number of table restore requests. Wait for your current table restore requests to complete before making a new request.
@@ -1176,7 +1449,7 @@ _AccessToSnapshotDeniedFault =
   _MatchServiceError redshift "AccessToSnapshotDenied" . hasStatus 400
 
 
--- | The request exceeds the limit of 10 tags for the resource.
+-- | You have exceeded the number of tags allowed.
 --
 --
 _TagLimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
@@ -1201,6 +1474,14 @@ _HSMClientCertificateAlreadyExistsFault =
   hasStatus 400
 
 
+-- | You have exceeded the quota of snapshot schedules.
+--
+--
+_SnapshotScheduleQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
+_SnapshotScheduleQuotaExceededFault =
+  _MatchServiceError redshift "SnapshotScheduleQuotaExceeded" . hasStatus 400
+
+
 -- | The specified HSM client certificate is not in the @available@ state, or it is still in use by one or more Amazon Redshift clusters.
 --
 --
@@ -1208,6 +1489,14 @@ _InvalidHSMClientCertificateStateFault :: AsError a => Getting (First ServiceErr
 _InvalidHSMClientCertificateStateFault =
   _MatchServiceError redshift "InvalidHsmClientCertificateStateFault" .
   hasStatus 400
+
+
+-- | Cluster is already on the latest database revision.
+--
+--
+_ClusterOnLatestRevisionFault :: AsError a => Getting (First ServiceError) a ServiceError
+_ClusterOnLatestRevisionFault =
+  _MatchServiceError redshift "ClusterOnLatestRevision" . hasStatus 400
 
 
 -- | A specified subnet is already in use by another cluster.

@@ -15,9 +15,9 @@ module Test.AWS.Redshift
     , fixtures
     ) where
 
-import           Network.AWS.Redshift
-import           Test.AWS.Gen.Redshift
-import           Test.Tasty
+import Network.AWS.Redshift
+import Test.AWS.Gen.Redshift
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

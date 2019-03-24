@@ -15,9 +15,9 @@ module Test.AWS.Support
     , fixtures
     ) where
 
-import           Network.AWS.Support
-import           Test.AWS.Gen.Support
-import           Test.Tasty
+import Network.AWS.Support
+import Test.AWS.Gen.Support
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

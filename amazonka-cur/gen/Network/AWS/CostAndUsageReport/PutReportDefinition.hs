@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new report definition
+-- Creates a new report using the description that you provide.
+--
+--
 module Network.AWS.CostAndUsageReport.PutReportDefinition
     (
     -- * Creating a Request
@@ -41,7 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Request of PutReportDefinition
+-- | Creates a Cost and Usage Report.
+--
+--
 --
 -- /See:/ 'putReportDefinition' smart constructor.
 newtype PutReportDefinition = PutReportDefinition'
@@ -53,7 +57,7 @@ newtype PutReportDefinition = PutReportDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prdReportDefinition' - Undocumented member.
+-- * 'prdReportDefinition' - Represents the output of the PutReportDefinition operation. The content consists of the detailed metadata and data file information.
 putReportDefinition
     :: ReportDefinition -- ^ 'prdReportDefinition'
     -> PutReportDefinition
@@ -61,7 +65,7 @@ putReportDefinition pReportDefinition_ =
   PutReportDefinition' {_prdReportDefinition = pReportDefinition_}
 
 
--- | Undocumented member.
+-- | Represents the output of the PutReportDefinition operation. The content consists of the detailed metadata and data file information.
 prdReportDefinition :: Lens' PutReportDefinition ReportDefinition
 prdReportDefinition = lens _prdReportDefinition (\ s a -> s{_prdReportDefinition = a})
 
@@ -100,7 +104,9 @@ instance ToPath PutReportDefinition where
 instance ToQuery PutReportDefinition where
         toQuery = const mempty
 
--- | Response of PutReportDefinition
+-- | If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.
+--
+--
 --
 -- /See:/ 'putReportDefinitionResponse' smart constructor.
 newtype PutReportDefinitionResponse = PutReportDefinitionResponse'

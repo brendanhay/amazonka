@@ -21,11 +21,15 @@ import Network.AWS.CostAndUsageReport.Types.Sum
 import Network.AWS.Lens
 import Network.AWS.Prelude
 
--- | The definition of AWS Cost and Usage Report. Customer can specify the report name, time unit, report format, compression format, S3 bucket and additional artifacts and schema elements in the definition.
+-- | The definition of AWS Cost and Usage Report. You can specify the report name, time unit, report format, compression format, S3 bucket, additional artifacts, and schema elements in the definition.
+--
+--
 --
 -- /See:/ 'reportDefinition' smart constructor.
 data ReportDefinition = ReportDefinition'
-  { _rdAdditionalArtifacts      :: !(Maybe [AdditionalArtifact])
+  { _rdReportVersioning         :: !(Maybe ReportVersioning)
+  , _rdAdditionalArtifacts      :: !(Maybe [AdditionalArtifact])
+  , _rdRefreshClosedReports     :: !(Maybe Bool)
   , _rdReportName               :: !Text
   , _rdTimeUnit                 :: !TimeUnit
   , _rdFormat                   :: !ReportFormat
@@ -41,7 +45,11 @@ data ReportDefinition = ReportDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdAdditionalArtifacts' - Undocumented member.
+-- * 'rdReportVersioning' - Whether you want Amazon Web Services to overwrite the previous version of each report or to deliver the report in addition to the previous versions.
+--
+-- * 'rdAdditionalArtifacts' - A list of manifests that you want Amazon Web Services to create for this report.
+--
+-- * 'rdRefreshClosedReports' - Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to previous months. These charges can include refunds, credits, or support fees.
 --
 -- * 'rdReportName' - Undocumented member.
 --
@@ -51,7 +59,7 @@ data ReportDefinition = ReportDefinition'
 --
 -- * 'rdCompression' - Undocumented member.
 --
--- * 'rdAdditionalSchemaElements' - Undocumented member.
+-- * 'rdAdditionalSchemaElements' - A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs.
 --
 -- * 'rdS3Bucket' - Undocumented member.
 --
@@ -69,7 +77,9 @@ reportDefinition
     -> ReportDefinition
 reportDefinition pReportName_ pTimeUnit_ pFormat_ pCompression_ pS3Bucket_ pS3Prefix_ pS3Region_ =
   ReportDefinition'
-    { _rdAdditionalArtifacts = Nothing
+    { _rdReportVersioning = Nothing
+    , _rdAdditionalArtifacts = Nothing
+    , _rdRefreshClosedReports = Nothing
     , _rdReportName = pReportName_
     , _rdTimeUnit = pTimeUnit_
     , _rdFormat = pFormat_
@@ -81,9 +91,17 @@ reportDefinition pReportName_ pTimeUnit_ pFormat_ pCompression_ pS3Bucket_ pS3Pr
     }
 
 
--- | Undocumented member.
+-- | Whether you want Amazon Web Services to overwrite the previous version of each report or to deliver the report in addition to the previous versions.
+rdReportVersioning :: Lens' ReportDefinition (Maybe ReportVersioning)
+rdReportVersioning = lens _rdReportVersioning (\ s a -> s{_rdReportVersioning = a})
+
+-- | A list of manifests that you want Amazon Web Services to create for this report.
 rdAdditionalArtifacts :: Lens' ReportDefinition [AdditionalArtifact]
 rdAdditionalArtifacts = lens _rdAdditionalArtifacts (\ s a -> s{_rdAdditionalArtifacts = a}) . _Default . _Coerce
+
+-- | Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to previous months. These charges can include refunds, credits, or support fees.
+rdRefreshClosedReports :: Lens' ReportDefinition (Maybe Bool)
+rdRefreshClosedReports = lens _rdRefreshClosedReports (\ s a -> s{_rdRefreshClosedReports = a})
 
 -- | Undocumented member.
 rdReportName :: Lens' ReportDefinition Text
@@ -101,7 +119,7 @@ rdFormat = lens _rdFormat (\ s a -> s{_rdFormat = a})
 rdCompression :: Lens' ReportDefinition CompressionFormat
 rdCompression = lens _rdCompression (\ s a -> s{_rdCompression = a})
 
--- | Undocumented member.
+-- | A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs.
 rdAdditionalSchemaElements :: Lens' ReportDefinition [SchemaElement]
 rdAdditionalSchemaElements = lens _rdAdditionalSchemaElements (\ s a -> s{_rdAdditionalSchemaElements = a}) . _Coerce
 
@@ -122,8 +140,10 @@ instance FromJSON ReportDefinition where
           = withObject "ReportDefinition"
               (\ x ->
                  ReportDefinition' <$>
-                   (x .:? "AdditionalArtifacts" .!= mempty) <*>
-                     (x .: "ReportName")
+                   (x .:? "ReportVersioning") <*>
+                     (x .:? "AdditionalArtifacts" .!= mempty)
+                     <*> (x .:? "RefreshClosedReports")
+                     <*> (x .: "ReportName")
                      <*> (x .: "TimeUnit")
                      <*> (x .: "Format")
                      <*> (x .: "Compression")
@@ -140,8 +160,11 @@ instance ToJSON ReportDefinition where
         toJSON ReportDefinition'{..}
           = object
               (catMaybes
-                 [("AdditionalArtifacts" .=) <$>
+                 [("ReportVersioning" .=) <$> _rdReportVersioning,
+                  ("AdditionalArtifacts" .=) <$>
                     _rdAdditionalArtifacts,
+                  ("RefreshClosedReports" .=) <$>
+                    _rdRefreshClosedReports,
                   Just ("ReportName" .= _rdReportName),
                   Just ("TimeUnit" .= _rdTimeUnit),
                   Just ("Format" .= _rdFormat),

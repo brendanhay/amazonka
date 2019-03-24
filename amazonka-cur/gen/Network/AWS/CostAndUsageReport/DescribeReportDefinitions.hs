@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describe a list of report definitions owned by the account
+-- Lists the AWS Cost and Usage reports available to this account.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.CostAndUsageReport.DescribeReportDefinitions
@@ -47,7 +49,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Request of DescribeReportDefinitions
+-- | Requests a list of AWS Cost and Usage reports owned by the account.
+--
+--
 --
 -- /See:/ 'describeReportDefinitions' smart constructor.
 data DescribeReportDefinitions = DescribeReportDefinitions'
@@ -123,7 +127,9 @@ instance ToPath DescribeReportDefinitions where
 instance ToQuery DescribeReportDefinitions where
         toQuery = const mempty
 
--- | Response of DescribeReportDefinitions
+-- | If the action is successful, the service sends back an HTTP 200 response.
+--
+--
 --
 -- /See:/ 'describeReportDefinitionsResponse' smart constructor.
 data DescribeReportDefinitionsResponse = DescribeReportDefinitionsResponse'
@@ -139,7 +145,7 @@ data DescribeReportDefinitionsResponse = DescribeReportDefinitionsResponse'
 --
 -- * 'drdrsNextToken' - Undocumented member.
 --
--- * 'drdrsReportDefinitions' - Undocumented member.
+-- * 'drdrsReportDefinitions' - A list of AWS Cost and Usage reports owned by the account.
 --
 -- * 'drdrsResponseStatus' - -- | The response status code.
 describeReportDefinitionsResponse
@@ -157,7 +163,7 @@ describeReportDefinitionsResponse pResponseStatus_ =
 drdrsNextToken :: Lens' DescribeReportDefinitionsResponse (Maybe Text)
 drdrsNextToken = lens _drdrsNextToken (\ s a -> s{_drdrsNextToken = a})
 
--- | Undocumented member.
+-- | A list of AWS Cost and Usage reports owned by the account.
 drdrsReportDefinitions :: Lens' DescribeReportDefinitionsResponse [ReportDefinition]
 drdrsReportDefinitions = lens _drdrsReportDefinitions (\ s a -> s{_drdrsReportDefinitions = a}) . _Default . _Coerce
 

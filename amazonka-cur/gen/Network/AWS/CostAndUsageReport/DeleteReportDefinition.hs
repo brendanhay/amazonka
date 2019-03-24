@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete a specified report definition
+-- Deletes the specified report.
+--
+--
 module Network.AWS.CostAndUsageReport.DeleteReportDefinition
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Request of DeleteReportDefinition
+-- | Deletes the specified report.
+--
+--
 --
 -- /See:/ 'deleteReportDefinition' smart constructor.
 newtype DeleteReportDefinition = DeleteReportDefinition'
@@ -99,7 +103,9 @@ instance ToPath DeleteReportDefinition where
 instance ToQuery DeleteReportDefinition where
         toQuery = const mempty
 
--- | Response of DeleteReportDefinition
+-- | If the action is successful, the service sends back an HTTP 200 response.
+--
+--
 --
 -- /See:/ 'deleteReportDefinitionResponse' smart constructor.
 data DeleteReportDefinitionResponse = DeleteReportDefinitionResponse'

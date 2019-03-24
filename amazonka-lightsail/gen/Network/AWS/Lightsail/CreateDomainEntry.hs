@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates one of the following entry records associated with the domain: A record, CNAME record, TXT record, or MX record.
+-- Creates one of the following entry records associated with the domain: Address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA), service locator (SRV), or text (TXT).
 --
+--
+-- The @create domain entry@ operation supports tag-based access control via resource tags applied to the resource identified by domainName. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 --
 module Network.AWS.Lightsail.CreateDomainEntry
     (

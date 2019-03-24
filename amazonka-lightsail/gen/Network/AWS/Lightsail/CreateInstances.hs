@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates one or more Amazon Lightsail virtual private servers, or /instances/ .
+-- Creates one or more Amazon Lightsail virtual private servers, or /instances/ . Create instances using active blueprints. Inactive blueprints are listed to support customers with existing instances but are not necessarily available for launch of new instances. Blueprints are marked inactive when they become outdated due to operating system updates or new application releases. Use the get blueprints operation to return a list of available blueprints.
 --
+--
+-- The @create instances@ operation supports tag-based access control via request tags. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 --
 module Network.AWS.Lightsail.CreateInstances
     (
@@ -30,6 +32,7 @@ module Network.AWS.Lightsail.CreateInstances
     , ciCustomImageName
     , ciUserData
     , ciKeyPairName
+    , ciTags
     , ciInstanceNames
     , ciAvailabilityZone
     , ciBlueprintId
@@ -55,6 +58,7 @@ data CreateInstances = CreateInstances'
   { _ciCustomImageName  :: !(Maybe Text)
   , _ciUserData         :: !(Maybe Text)
   , _ciKeyPairName      :: !(Maybe Text)
+  , _ciTags             :: !(Maybe [Tag])
   , _ciInstanceNames    :: ![Text]
   , _ciAvailabilityZone :: !Text
   , _ciBlueprintId      :: !Text
@@ -72,9 +76,11 @@ data CreateInstances = CreateInstances'
 --
 -- * 'ciKeyPairName' - The name of your key pair.
 --
+-- * 'ciTags' - The tag keys and optional values to add to the resource during create. To tag a resource after it has been created, see the @tag resource@ operation.
+--
 -- * 'ciInstanceNames' - The names to use for your new Lightsail instances. Separate multiple values using quotation marks and commas, for example: @["MyFirstInstance","MySecondInstance"]@
 --
--- * 'ciAvailabilityZone' - The Availability Zone in which to create your instance. Use the following format: @us-east-2a@ (case sensitive). You can get a list of availability zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include availability zones@ parameter to your request.
+-- * 'ciAvailabilityZone' - The Availability Zone in which to create your instance. Use the following format: @us-east-2a@ (case sensitive). You can get a list of Availability Zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include Availability Zones@ parameter to your request.
 --
 -- * 'ciBlueprintId' - The ID for a virtual private server image (e.g., @app_wordpress_4_4@ or @app_lamp_7_0@ ). Use the get blueprints operation to return a list of available images (or /blueprints/ ).
 --
@@ -89,6 +95,7 @@ createInstances pAvailabilityZone_ pBlueprintId_ pBundleId_ =
     { _ciCustomImageName = Nothing
     , _ciUserData = Nothing
     , _ciKeyPairName = Nothing
+    , _ciTags = Nothing
     , _ciInstanceNames = mempty
     , _ciAvailabilityZone = pAvailabilityZone_
     , _ciBlueprintId = pBlueprintId_
@@ -108,11 +115,15 @@ ciUserData = lens _ciUserData (\ s a -> s{_ciUserData = a})
 ciKeyPairName :: Lens' CreateInstances (Maybe Text)
 ciKeyPairName = lens _ciKeyPairName (\ s a -> s{_ciKeyPairName = a})
 
+-- | The tag keys and optional values to add to the resource during create. To tag a resource after it has been created, see the @tag resource@ operation.
+ciTags :: Lens' CreateInstances [Tag]
+ciTags = lens _ciTags (\ s a -> s{_ciTags = a}) . _Default . _Coerce
+
 -- | The names to use for your new Lightsail instances. Separate multiple values using quotation marks and commas, for example: @["MyFirstInstance","MySecondInstance"]@
 ciInstanceNames :: Lens' CreateInstances [Text]
 ciInstanceNames = lens _ciInstanceNames (\ s a -> s{_ciInstanceNames = a}) . _Coerce
 
--- | The Availability Zone in which to create your instance. Use the following format: @us-east-2a@ (case sensitive). You can get a list of availability zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include availability zones@ parameter to your request.
+-- | The Availability Zone in which to create your instance. Use the following format: @us-east-2a@ (case sensitive). You can get a list of Availability Zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include Availability Zones@ parameter to your request.
 ciAvailabilityZone :: Lens' CreateInstances Text
 ciAvailabilityZone = lens _ciAvailabilityZone (\ s a -> s{_ciAvailabilityZone = a})
 
@@ -154,6 +165,7 @@ instance ToJSON CreateInstances where
                  [("customImageName" .=) <$> _ciCustomImageName,
                   ("userData" .=) <$> _ciUserData,
                   ("keyPairName" .=) <$> _ciKeyPairName,
+                  ("tags" .=) <$> _ciTags,
                   Just ("instanceNames" .= _ciInstanceNames),
                   Just ("availabilityZone" .= _ciAvailabilityZone),
                   Just ("blueprintId" .= _ciBlueprintId),

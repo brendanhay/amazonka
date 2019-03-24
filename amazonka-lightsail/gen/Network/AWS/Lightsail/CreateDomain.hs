@@ -21,12 +21,15 @@
 -- Creates a domain resource for the specified domain (e.g., example.com).
 --
 --
+-- The @create domain@ operation supports tag-based access control via request tags. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
+--
 module Network.AWS.Lightsail.CreateDomain
     (
     -- * Creating a Request
       createDomain
     , CreateDomain
     -- * Request Lenses
+    , cdTags
     , cdDomainName
 
     -- * Destructuring the Response
@@ -45,8 +48,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'createDomain' smart constructor.
-newtype CreateDomain = CreateDomain'
-  { _cdDomainName :: Text
+data CreateDomain = CreateDomain'
+  { _cdTags       :: !(Maybe [Tag])
+  , _cdDomainName :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -54,12 +58,19 @@ newtype CreateDomain = CreateDomain'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'cdTags' - The tag keys and optional values to add to the resource during create. To tag a resource after it has been created, see the @tag resource@ operation.
+--
 -- * 'cdDomainName' - The domain name to manage (e.g., @example.com@ ).
 createDomain
     :: Text -- ^ 'cdDomainName'
     -> CreateDomain
-createDomain pDomainName_ = CreateDomain' {_cdDomainName = pDomainName_}
+createDomain pDomainName_ =
+  CreateDomain' {_cdTags = Nothing, _cdDomainName = pDomainName_}
 
+
+-- | The tag keys and optional values to add to the resource during create. To tag a resource after it has been created, see the @tag resource@ operation.
+cdTags :: Lens' CreateDomain [Tag]
+cdTags = lens _cdTags (\ s a -> s{_cdTags = a}) . _Default . _Coerce
 
 -- | The domain name to manage (e.g., @example.com@ ).
 cdDomainName :: Lens' CreateDomain Text
@@ -90,7 +101,9 @@ instance ToHeaders CreateDomain where
 instance ToJSON CreateDomain where
         toJSON CreateDomain'{..}
           = object
-              (catMaybes [Just ("domainName" .= _cdDomainName)])
+              (catMaybes
+                 [("tags" .=) <$> _cdTags,
+                  Just ("domainName" .= _cdDomainName)])
 
 instance ToPath CreateDomain where
         toPath = const "/"

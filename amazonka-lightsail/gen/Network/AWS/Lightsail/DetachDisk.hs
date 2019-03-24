@@ -21,6 +21,8 @@
 -- Detaches a stopped block storage disk from a Lightsail instance. Make sure to unmount any file systems on the device within your operating system before stopping the instance and detaching the disk.
 --
 --
+-- The @detach disk@ operation supports tag-based access control via resource tags applied to the resource identified by diskName. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
+--
 module Network.AWS.Lightsail.DetachDisk
     (
     -- * Creating a Request

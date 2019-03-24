@@ -73,6 +73,30 @@ instance ToHeader     BlueprintType
 instance FromJSON BlueprintType where
     parseJSON = parseJSONText "BlueprintType"
 
+data CloudFormationStackRecordSourceType =
+  CFSRSTExportSnapshotRecord
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText CloudFormationStackRecordSourceType where
+    parser = takeLowerText >>= \case
+        "exportsnapshotrecord" -> pure CFSRSTExportSnapshotRecord
+        e -> fromTextError $ "Failure parsing CloudFormationStackRecordSourceType from value: '" <> e
+           <> "'. Accepted values: exportsnapshotrecord"
+
+instance ToText CloudFormationStackRecordSourceType where
+    toText = \case
+        CFSRSTExportSnapshotRecord -> "ExportSnapshotRecord"
+
+instance Hashable     CloudFormationStackRecordSourceType
+instance NFData       CloudFormationStackRecordSourceType
+instance ToByteString CloudFormationStackRecordSourceType
+instance ToQuery      CloudFormationStackRecordSourceType
+instance ToHeader     CloudFormationStackRecordSourceType
+
+instance FromJSON CloudFormationStackRecordSourceType where
+    parseJSON = parseJSONText "CloudFormationStackRecordSourceType"
+
 data DiskSnapshotState
   = DSSCompleted
   | DSSError'
@@ -141,6 +165,33 @@ instance ToHeader     DiskState
 
 instance FromJSON DiskState where
     parseJSON = parseJSONText "DiskState"
+
+data ExportSnapshotRecordSourceType
+  = ESRSTDiskSnapshot
+  | ESRSTInstanceSnapshot
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ExportSnapshotRecordSourceType where
+    parser = takeLowerText >>= \case
+        "disksnapshot" -> pure ESRSTDiskSnapshot
+        "instancesnapshot" -> pure ESRSTInstanceSnapshot
+        e -> fromTextError $ "Failure parsing ExportSnapshotRecordSourceType from value: '" <> e
+           <> "'. Accepted values: disksnapshot, instancesnapshot"
+
+instance ToText ExportSnapshotRecordSourceType where
+    toText = \case
+        ESRSTDiskSnapshot -> "DiskSnapshot"
+        ESRSTInstanceSnapshot -> "InstanceSnapshot"
+
+instance Hashable     ExportSnapshotRecordSourceType
+instance NFData       ExportSnapshotRecordSourceType
+instance ToByteString ExportSnapshotRecordSourceType
+instance ToQuery      ExportSnapshotRecordSourceType
+instance ToHeader     ExportSnapshotRecordSourceType
+
+instance FromJSON ExportSnapshotRecordSourceType where
+    parseJSON = parseJSONText "ExportSnapshotRecordSourceType"
 
 data InstanceAccessProtocol
   = Rdp
@@ -266,34 +317,34 @@ instance FromJSON InstanceHealthState where
     parseJSON = parseJSONText "InstanceHealthState"
 
 data InstanceMetricName
-  = CPUUtilization
-  | NetworkIn
-  | NetworkOut
-  | StatusCheckFailed
-  | StatusCheckFailedInstance
-  | StatusCheckFailedSystem
+  = IMNCPUUtilization
+  | IMNNetworkIn
+  | IMNNetworkOut
+  | IMNStatusCheckFailed
+  | IMNStatusCheckFailedInstance
+  | IMNStatusCheckFailedSystem
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText InstanceMetricName where
     parser = takeLowerText >>= \case
-        "cpuutilization" -> pure CPUUtilization
-        "networkin" -> pure NetworkIn
-        "networkout" -> pure NetworkOut
-        "statuscheckfailed" -> pure StatusCheckFailed
-        "statuscheckfailed_instance" -> pure StatusCheckFailedInstance
-        "statuscheckfailed_system" -> pure StatusCheckFailedSystem
+        "cpuutilization" -> pure IMNCPUUtilization
+        "networkin" -> pure IMNNetworkIn
+        "networkout" -> pure IMNNetworkOut
+        "statuscheckfailed" -> pure IMNStatusCheckFailed
+        "statuscheckfailed_instance" -> pure IMNStatusCheckFailedInstance
+        "statuscheckfailed_system" -> pure IMNStatusCheckFailedSystem
         e -> fromTextError $ "Failure parsing InstanceMetricName from value: '" <> e
            <> "'. Accepted values: cpuutilization, networkin, networkout, statuscheckfailed, statuscheckfailed_instance, statuscheckfailed_system"
 
 instance ToText InstanceMetricName where
     toText = \case
-        CPUUtilization -> "CPUUtilization"
-        NetworkIn -> "NetworkIn"
-        NetworkOut -> "NetworkOut"
-        StatusCheckFailed -> "StatusCheckFailed"
-        StatusCheckFailedInstance -> "StatusCheckFailed_Instance"
-        StatusCheckFailedSystem -> "StatusCheckFailed_System"
+        IMNCPUUtilization -> "CPUUtilization"
+        IMNNetworkIn -> "NetworkIn"
+        IMNNetworkOut -> "NetworkOut"
+        IMNStatusCheckFailed -> "StatusCheckFailed"
+        IMNStatusCheckFailedInstance -> "StatusCheckFailed_Instance"
+        IMNStatusCheckFailedSystem -> "StatusCheckFailed_System"
 
 instance Hashable     InstanceMetricName
 instance NFData       InstanceMetricName
@@ -941,25 +992,36 @@ data OperationType
   | CreateInstancesFromSnapshot
   | CreateLoadBalancer
   | CreateLoadBalancerTLSCertificate
+  | CreateRelationalDatabase
+  | CreateRelationalDatabaseFromSnapshot
+  | CreateRelationalDatabaseSnapshot
   | DeleteDisk
   | DeleteDiskSnapshot
   | DeleteDomain
   | DeleteDomainEntry
   | DeleteInstance
   | DeleteInstanceSnapshot
+  | DeleteKnownHostKeys
   | DeleteLoadBalancer
   | DeleteLoadBalancerTLSCertificate
+  | DeleteRelationalDatabase
+  | DeleteRelationalDatabaseSnapshot
   | DetachDisk
   | DetachInstancesFromLoadBalancer
   | DetachStaticIP
   | OpenInstancePublicPorts
   | PutInstancePublicPorts
   | RebootInstance
+  | RebootRelationalDatabase
   | ReleaseStaticIP
   | StartInstance
+  | StartRelationalDatabase
   | StopInstance
+  | StopRelationalDatabase
   | UpdateDomainEntry
   | UpdateLoadBalancerAttribute
+  | UpdateRelationalDatabase
+  | UpdateRelationalDatabaseParameters
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -980,27 +1042,38 @@ instance FromText OperationType where
         "createinstancesfromsnapshot" -> pure CreateInstancesFromSnapshot
         "createloadbalancer" -> pure CreateLoadBalancer
         "createloadbalancertlscertificate" -> pure CreateLoadBalancerTLSCertificate
+        "createrelationaldatabase" -> pure CreateRelationalDatabase
+        "createrelationaldatabasefromsnapshot" -> pure CreateRelationalDatabaseFromSnapshot
+        "createrelationaldatabasesnapshot" -> pure CreateRelationalDatabaseSnapshot
         "deletedisk" -> pure DeleteDisk
         "deletedisksnapshot" -> pure DeleteDiskSnapshot
         "deletedomain" -> pure DeleteDomain
         "deletedomainentry" -> pure DeleteDomainEntry
         "deleteinstance" -> pure DeleteInstance
         "deleteinstancesnapshot" -> pure DeleteInstanceSnapshot
+        "deleteknownhostkeys" -> pure DeleteKnownHostKeys
         "deleteloadbalancer" -> pure DeleteLoadBalancer
         "deleteloadbalancertlscertificate" -> pure DeleteLoadBalancerTLSCertificate
+        "deleterelationaldatabase" -> pure DeleteRelationalDatabase
+        "deleterelationaldatabasesnapshot" -> pure DeleteRelationalDatabaseSnapshot
         "detachdisk" -> pure DetachDisk
         "detachinstancesfromloadbalancer" -> pure DetachInstancesFromLoadBalancer
         "detachstaticip" -> pure DetachStaticIP
         "openinstancepublicports" -> pure OpenInstancePublicPorts
         "putinstancepublicports" -> pure PutInstancePublicPorts
         "rebootinstance" -> pure RebootInstance
+        "rebootrelationaldatabase" -> pure RebootRelationalDatabase
         "releasestaticip" -> pure ReleaseStaticIP
         "startinstance" -> pure StartInstance
+        "startrelationaldatabase" -> pure StartRelationalDatabase
         "stopinstance" -> pure StopInstance
+        "stoprelationaldatabase" -> pure StopRelationalDatabase
         "updatedomainentry" -> pure UpdateDomainEntry
         "updateloadbalancerattribute" -> pure UpdateLoadBalancerAttribute
+        "updaterelationaldatabase" -> pure UpdateRelationalDatabase
+        "updaterelationaldatabaseparameters" -> pure UpdateRelationalDatabaseParameters
         e -> fromTextError $ "Failure parsing OperationType from value: '" <> e
-           <> "'. Accepted values: allocatestaticip, attachdisk, attachinstancestoloadbalancer, attachloadbalancertlscertificate, attachstaticip, closeinstancepublicports, createdisk, creatediskfromsnapshot, createdisksnapshot, createdomain, createinstance, createinstancesnapshot, createinstancesfromsnapshot, createloadbalancer, createloadbalancertlscertificate, deletedisk, deletedisksnapshot, deletedomain, deletedomainentry, deleteinstance, deleteinstancesnapshot, deleteloadbalancer, deleteloadbalancertlscertificate, detachdisk, detachinstancesfromloadbalancer, detachstaticip, openinstancepublicports, putinstancepublicports, rebootinstance, releasestaticip, startinstance, stopinstance, updatedomainentry, updateloadbalancerattribute"
+           <> "'. Accepted values: allocatestaticip, attachdisk, attachinstancestoloadbalancer, attachloadbalancertlscertificate, attachstaticip, closeinstancepublicports, createdisk, creatediskfromsnapshot, createdisksnapshot, createdomain, createinstance, createinstancesnapshot, createinstancesfromsnapshot, createloadbalancer, createloadbalancertlscertificate, createrelationaldatabase, createrelationaldatabasefromsnapshot, createrelationaldatabasesnapshot, deletedisk, deletedisksnapshot, deletedomain, deletedomainentry, deleteinstance, deleteinstancesnapshot, deleteknownhostkeys, deleteloadbalancer, deleteloadbalancertlscertificate, deleterelationaldatabase, deleterelationaldatabasesnapshot, detachdisk, detachinstancesfromloadbalancer, detachstaticip, openinstancepublicports, putinstancepublicports, rebootinstance, rebootrelationaldatabase, releasestaticip, startinstance, startrelationaldatabase, stopinstance, stoprelationaldatabase, updatedomainentry, updateloadbalancerattribute, updaterelationaldatabase, updaterelationaldatabaseparameters"
 
 instance ToText OperationType where
     toText = \case
@@ -1019,25 +1092,36 @@ instance ToText OperationType where
         CreateInstancesFromSnapshot -> "CreateInstancesFromSnapshot"
         CreateLoadBalancer -> "CreateLoadBalancer"
         CreateLoadBalancerTLSCertificate -> "CreateLoadBalancerTlsCertificate"
+        CreateRelationalDatabase -> "CreateRelationalDatabase"
+        CreateRelationalDatabaseFromSnapshot -> "CreateRelationalDatabaseFromSnapshot"
+        CreateRelationalDatabaseSnapshot -> "CreateRelationalDatabaseSnapshot"
         DeleteDisk -> "DeleteDisk"
         DeleteDiskSnapshot -> "DeleteDiskSnapshot"
         DeleteDomain -> "DeleteDomain"
         DeleteDomainEntry -> "DeleteDomainEntry"
         DeleteInstance -> "DeleteInstance"
         DeleteInstanceSnapshot -> "DeleteInstanceSnapshot"
+        DeleteKnownHostKeys -> "DeleteKnownHostKeys"
         DeleteLoadBalancer -> "DeleteLoadBalancer"
         DeleteLoadBalancerTLSCertificate -> "DeleteLoadBalancerTlsCertificate"
+        DeleteRelationalDatabase -> "DeleteRelationalDatabase"
+        DeleteRelationalDatabaseSnapshot -> "DeleteRelationalDatabaseSnapshot"
         DetachDisk -> "DetachDisk"
         DetachInstancesFromLoadBalancer -> "DetachInstancesFromLoadBalancer"
         DetachStaticIP -> "DetachStaticIp"
         OpenInstancePublicPorts -> "OpenInstancePublicPorts"
         PutInstancePublicPorts -> "PutInstancePublicPorts"
         RebootInstance -> "RebootInstance"
+        RebootRelationalDatabase -> "RebootRelationalDatabase"
         ReleaseStaticIP -> "ReleaseStaticIp"
         StartInstance -> "StartInstance"
+        StartRelationalDatabase -> "StartRelationalDatabase"
         StopInstance -> "StopInstance"
+        StopRelationalDatabase -> "StopRelationalDatabase"
         UpdateDomainEntry -> "UpdateDomainEntry"
         UpdateLoadBalancerAttribute -> "UpdateLoadBalancerAttribute"
+        UpdateRelationalDatabase -> "UpdateRelationalDatabase"
+        UpdateRelationalDatabaseParameters -> "UpdateRelationalDatabaseParameters"
 
 instance Hashable     OperationType
 instance NFData       OperationType
@@ -1075,6 +1159,39 @@ instance ToHeader     PortAccessType
 instance FromJSON PortAccessType where
     parseJSON = parseJSONText "PortAccessType"
 
+data PortInfoSourceType
+  = PISTClosed
+  | PISTDefault
+  | PISTInstance
+  | PISTNone
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PortInfoSourceType where
+    parser = takeLowerText >>= \case
+        "closed" -> pure PISTClosed
+        "default" -> pure PISTDefault
+        "instance" -> pure PISTInstance
+        "none" -> pure PISTNone
+        e -> fromTextError $ "Failure parsing PortInfoSourceType from value: '" <> e
+           <> "'. Accepted values: closed, default, instance, none"
+
+instance ToText PortInfoSourceType where
+    toText = \case
+        PISTClosed -> "CLOSED"
+        PISTDefault -> "DEFAULT"
+        PISTInstance -> "INSTANCE"
+        PISTNone -> "NONE"
+
+instance Hashable     PortInfoSourceType
+instance NFData       PortInfoSourceType
+instance ToByteString PortInfoSourceType
+instance ToQuery      PortInfoSourceType
+instance ToHeader     PortInfoSourceType
+
+instance ToJSON PortInfoSourceType where
+    toJSON = toJSONText
+
 data PortState
   = Closed
   | Open
@@ -1102,15 +1219,47 @@ instance ToHeader     PortState
 instance FromJSON PortState where
     parseJSON = parseJSONText "PortState"
 
+data RecordState
+  = RSFailed
+  | RSStarted
+  | RSSucceeded
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText RecordState where
+    parser = takeLowerText >>= \case
+        "failed" -> pure RSFailed
+        "started" -> pure RSStarted
+        "succeeded" -> pure RSSucceeded
+        e -> fromTextError $ "Failure parsing RecordState from value: '" <> e
+           <> "'. Accepted values: failed, started, succeeded"
+
+instance ToText RecordState where
+    toText = \case
+        RSFailed -> "Failed"
+        RSStarted -> "Started"
+        RSSucceeded -> "Succeeded"
+
+instance Hashable     RecordState
+instance NFData       RecordState
+instance ToByteString RecordState
+instance ToQuery      RecordState
+instance ToHeader     RecordState
+
+instance FromJSON RecordState where
+    parseJSON = parseJSONText "RecordState"
+
 data RegionName
   = ApNortheast1
   | ApNortheast2
   | ApSouth1
   | ApSoutheast1
   | ApSoutheast2
+  | CaCentral1
   | EuCentral1
   | EuWest1
   | EuWest2
+  | EuWest3
   | UsEast1
   | UsEast2
   | UsWest1
@@ -1125,15 +1274,17 @@ instance FromText RegionName where
         "ap-south-1" -> pure ApSouth1
         "ap-southeast-1" -> pure ApSoutheast1
         "ap-southeast-2" -> pure ApSoutheast2
+        "ca-central-1" -> pure CaCentral1
         "eu-central-1" -> pure EuCentral1
         "eu-west-1" -> pure EuWest1
         "eu-west-2" -> pure EuWest2
+        "eu-west-3" -> pure EuWest3
         "us-east-1" -> pure UsEast1
         "us-east-2" -> pure UsEast2
         "us-west-1" -> pure UsWest1
         "us-west-2" -> pure UsWest2
         e -> fromTextError $ "Failure parsing RegionName from value: '" <> e
-           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, eu-west-2, us-east-1, us-east-2, us-west-1, us-west-2"
+           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, ca-central-1, eu-central-1, eu-west-1, eu-west-2, eu-west-3, us-east-1, us-east-2, us-west-1, us-west-2"
 
 instance ToText RegionName where
     toText = \case
@@ -1142,9 +1293,11 @@ instance ToText RegionName where
         ApSouth1 -> "ap-south-1"
         ApSoutheast1 -> "ap-southeast-1"
         ApSoutheast2 -> "ap-southeast-2"
+        CaCentral1 -> "ca-central-1"
         EuCentral1 -> "eu-central-1"
         EuWest1 -> "eu-west-1"
         EuWest2 -> "eu-west-2"
+        EuWest3 -> "eu-west-3"
         UsEast1 -> "us-east-1"
         UsEast2 -> "us-east-2"
         UsWest1 -> "us-west-1"
@@ -1156,49 +1309,160 @@ instance ToByteString RegionName
 instance ToQuery      RegionName
 instance ToHeader     RegionName
 
+instance ToJSON RegionName where
+    toJSON = toJSONText
+
 instance FromJSON RegionName where
     parseJSON = parseJSONText "RegionName"
 
+data RelationalDatabaseEngine =
+  Mysql
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText RelationalDatabaseEngine where
+    parser = takeLowerText >>= \case
+        "mysql" -> pure Mysql
+        e -> fromTextError $ "Failure parsing RelationalDatabaseEngine from value: '" <> e
+           <> "'. Accepted values: mysql"
+
+instance ToText RelationalDatabaseEngine where
+    toText = \case
+        Mysql -> "mysql"
+
+instance Hashable     RelationalDatabaseEngine
+instance NFData       RelationalDatabaseEngine
+instance ToByteString RelationalDatabaseEngine
+instance ToQuery      RelationalDatabaseEngine
+instance ToHeader     RelationalDatabaseEngine
+
+instance FromJSON RelationalDatabaseEngine where
+    parseJSON = parseJSONText "RelationalDatabaseEngine"
+
+data RelationalDatabaseMetricName
+  = CPUUtilization
+  | DatabaseConnections
+  | DiskQueueDepth
+  | FreeStorageSpace
+  | NetworkReceiveThroughput
+  | NetworkTransmitThroughput
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText RelationalDatabaseMetricName where
+    parser = takeLowerText >>= \case
+        "cpuutilization" -> pure CPUUtilization
+        "databaseconnections" -> pure DatabaseConnections
+        "diskqueuedepth" -> pure DiskQueueDepth
+        "freestoragespace" -> pure FreeStorageSpace
+        "networkreceivethroughput" -> pure NetworkReceiveThroughput
+        "networktransmitthroughput" -> pure NetworkTransmitThroughput
+        e -> fromTextError $ "Failure parsing RelationalDatabaseMetricName from value: '" <> e
+           <> "'. Accepted values: cpuutilization, databaseconnections, diskqueuedepth, freestoragespace, networkreceivethroughput, networktransmitthroughput"
+
+instance ToText RelationalDatabaseMetricName where
+    toText = \case
+        CPUUtilization -> "CPUUtilization"
+        DatabaseConnections -> "DatabaseConnections"
+        DiskQueueDepth -> "DiskQueueDepth"
+        FreeStorageSpace -> "FreeStorageSpace"
+        NetworkReceiveThroughput -> "NetworkReceiveThroughput"
+        NetworkTransmitThroughput -> "NetworkTransmitThroughput"
+
+instance Hashable     RelationalDatabaseMetricName
+instance NFData       RelationalDatabaseMetricName
+instance ToByteString RelationalDatabaseMetricName
+instance ToQuery      RelationalDatabaseMetricName
+instance ToHeader     RelationalDatabaseMetricName
+
+instance ToJSON RelationalDatabaseMetricName where
+    toJSON = toJSONText
+
+instance FromJSON RelationalDatabaseMetricName where
+    parseJSON = parseJSONText "RelationalDatabaseMetricName"
+
+data RelationalDatabasePasswordVersion
+  = RDPVCurrent
+  | RDPVPending
+  | RDPVPrevious
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText RelationalDatabasePasswordVersion where
+    parser = takeLowerText >>= \case
+        "current" -> pure RDPVCurrent
+        "pending" -> pure RDPVPending
+        "previous" -> pure RDPVPrevious
+        e -> fromTextError $ "Failure parsing RelationalDatabasePasswordVersion from value: '" <> e
+           <> "'. Accepted values: current, pending, previous"
+
+instance ToText RelationalDatabasePasswordVersion where
+    toText = \case
+        RDPVCurrent -> "CURRENT"
+        RDPVPending -> "PENDING"
+        RDPVPrevious -> "PREVIOUS"
+
+instance Hashable     RelationalDatabasePasswordVersion
+instance NFData       RelationalDatabasePasswordVersion
+instance ToByteString RelationalDatabasePasswordVersion
+instance ToQuery      RelationalDatabasePasswordVersion
+instance ToHeader     RelationalDatabasePasswordVersion
+
+instance ToJSON RelationalDatabasePasswordVersion where
+    toJSON = toJSONText
+
 data ResourceType
-  = Disk
+  = CloudFormationStackRecord
+  | Disk
   | DiskSnapshot
   | Domain
+  | ExportSnapshotRecord
   | Instance
   | InstanceSnapshot
   | KeyPair
   | LoadBalancer
   | LoadBalancerTLSCertificate
   | PeeredVPC
+  | RelationalDatabase
+  | RelationalDatabaseSnapshot
   | StaticIP
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ResourceType where
     parser = takeLowerText >>= \case
+        "cloudformationstackrecord" -> pure CloudFormationStackRecord
         "disk" -> pure Disk
         "disksnapshot" -> pure DiskSnapshot
         "domain" -> pure Domain
+        "exportsnapshotrecord" -> pure ExportSnapshotRecord
         "instance" -> pure Instance
         "instancesnapshot" -> pure InstanceSnapshot
         "keypair" -> pure KeyPair
         "loadbalancer" -> pure LoadBalancer
         "loadbalancertlscertificate" -> pure LoadBalancerTLSCertificate
         "peeredvpc" -> pure PeeredVPC
+        "relationaldatabase" -> pure RelationalDatabase
+        "relationaldatabasesnapshot" -> pure RelationalDatabaseSnapshot
         "staticip" -> pure StaticIP
         e -> fromTextError $ "Failure parsing ResourceType from value: '" <> e
-           <> "'. Accepted values: disk, disksnapshot, domain, instance, instancesnapshot, keypair, loadbalancer, loadbalancertlscertificate, peeredvpc, staticip"
+           <> "'. Accepted values: cloudformationstackrecord, disk, disksnapshot, domain, exportsnapshotrecord, instance, instancesnapshot, keypair, loadbalancer, loadbalancertlscertificate, peeredvpc, relationaldatabase, relationaldatabasesnapshot, staticip"
 
 instance ToText ResourceType where
     toText = \case
+        CloudFormationStackRecord -> "CloudFormationStackRecord"
         Disk -> "Disk"
         DiskSnapshot -> "DiskSnapshot"
         Domain -> "Domain"
+        ExportSnapshotRecord -> "ExportSnapshotRecord"
         Instance -> "Instance"
         InstanceSnapshot -> "InstanceSnapshot"
         KeyPair -> "KeyPair"
         LoadBalancer -> "LoadBalancer"
         LoadBalancerTLSCertificate -> "LoadBalancerTlsCertificate"
         PeeredVPC -> "PeeredVpc"
+        RelationalDatabase -> "RelationalDatabase"
+        RelationalDatabaseSnapshot -> "RelationalDatabaseSnapshot"
         StaticIP -> "StaticIp"
 
 instance Hashable     ResourceType

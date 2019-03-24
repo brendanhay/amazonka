@@ -51,6 +51,8 @@ library
         , Network.AWS.Lightsail.AttachLoadBalancerTLSCertificate
         , Network.AWS.Lightsail.AttachStaticIP
         , Network.AWS.Lightsail.CloseInstancePublicPorts
+        , Network.AWS.Lightsail.CopySnapshot
+        , Network.AWS.Lightsail.CreateCloudFormationStack
         , Network.AWS.Lightsail.CreateDisk
         , Network.AWS.Lightsail.CreateDiskFromSnapshot
         , Network.AWS.Lightsail.CreateDiskSnapshot
@@ -62,6 +64,9 @@ library
         , Network.AWS.Lightsail.CreateKeyPair
         , Network.AWS.Lightsail.CreateLoadBalancer
         , Network.AWS.Lightsail.CreateLoadBalancerTLSCertificate
+        , Network.AWS.Lightsail.CreateRelationalDatabase
+        , Network.AWS.Lightsail.CreateRelationalDatabaseFromSnapshot
+        , Network.AWS.Lightsail.CreateRelationalDatabaseSnapshot
         , Network.AWS.Lightsail.DeleteDisk
         , Network.AWS.Lightsail.DeleteDiskSnapshot
         , Network.AWS.Lightsail.DeleteDomain
@@ -69,21 +74,27 @@ library
         , Network.AWS.Lightsail.DeleteInstance
         , Network.AWS.Lightsail.DeleteInstanceSnapshot
         , Network.AWS.Lightsail.DeleteKeyPair
+        , Network.AWS.Lightsail.DeleteKnownHostKeys
         , Network.AWS.Lightsail.DeleteLoadBalancer
         , Network.AWS.Lightsail.DeleteLoadBalancerTLSCertificate
+        , Network.AWS.Lightsail.DeleteRelationalDatabase
+        , Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot
         , Network.AWS.Lightsail.DetachDisk
         , Network.AWS.Lightsail.DetachInstancesFromLoadBalancer
         , Network.AWS.Lightsail.DetachStaticIP
         , Network.AWS.Lightsail.DownloadDefaultKeyPair
+        , Network.AWS.Lightsail.ExportSnapshot
         , Network.AWS.Lightsail.GetActiveNames
         , Network.AWS.Lightsail.GetBlueprints
         , Network.AWS.Lightsail.GetBundles
+        , Network.AWS.Lightsail.GetCloudFormationStackRecords
         , Network.AWS.Lightsail.GetDisk
         , Network.AWS.Lightsail.GetDiskSnapshot
         , Network.AWS.Lightsail.GetDiskSnapshots
         , Network.AWS.Lightsail.GetDisks
         , Network.AWS.Lightsail.GetDomain
         , Network.AWS.Lightsail.GetDomains
+        , Network.AWS.Lightsail.GetExportSnapshotRecords
         , Network.AWS.Lightsail.GetInstance
         , Network.AWS.Lightsail.GetInstanceAccessDetails
         , Network.AWS.Lightsail.GetInstanceMetricData
@@ -102,6 +113,18 @@ library
         , Network.AWS.Lightsail.GetOperations
         , Network.AWS.Lightsail.GetOperationsForResource
         , Network.AWS.Lightsail.GetRegions
+        , Network.AWS.Lightsail.GetRelationalDatabase
+        , Network.AWS.Lightsail.GetRelationalDatabaseBlueprints
+        , Network.AWS.Lightsail.GetRelationalDatabaseBundles
+        , Network.AWS.Lightsail.GetRelationalDatabaseEvents
+        , Network.AWS.Lightsail.GetRelationalDatabaseLogEvents
+        , Network.AWS.Lightsail.GetRelationalDatabaseLogStreams
+        , Network.AWS.Lightsail.GetRelationalDatabaseMasterUserPassword
+        , Network.AWS.Lightsail.GetRelationalDatabaseMetricData
+        , Network.AWS.Lightsail.GetRelationalDatabaseParameters
+        , Network.AWS.Lightsail.GetRelationalDatabaseSnapshot
+        , Network.AWS.Lightsail.GetRelationalDatabaseSnapshots
+        , Network.AWS.Lightsail.GetRelationalDatabases
         , Network.AWS.Lightsail.GetStaticIP
         , Network.AWS.Lightsail.GetStaticIPs
         , Network.AWS.Lightsail.ImportKeyPair
@@ -110,13 +133,20 @@ library
         , Network.AWS.Lightsail.PeerVPC
         , Network.AWS.Lightsail.PutInstancePublicPorts
         , Network.AWS.Lightsail.RebootInstance
+        , Network.AWS.Lightsail.RebootRelationalDatabase
         , Network.AWS.Lightsail.ReleaseStaticIP
         , Network.AWS.Lightsail.StartInstance
+        , Network.AWS.Lightsail.StartRelationalDatabase
         , Network.AWS.Lightsail.StopInstance
+        , Network.AWS.Lightsail.StopRelationalDatabase
+        , Network.AWS.Lightsail.TagResource
         , Network.AWS.Lightsail.Types
         , Network.AWS.Lightsail.UnpeerVPC
+        , Network.AWS.Lightsail.UntagResource
         , Network.AWS.Lightsail.UpdateDomainEntry
         , Network.AWS.Lightsail.UpdateLoadBalancerAttribute
+        , Network.AWS.Lightsail.UpdateRelationalDatabase
+        , Network.AWS.Lightsail.UpdateRelationalDatabaseParameters
         , Network.AWS.Lightsail.Waiters
 
     other-modules:

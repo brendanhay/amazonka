@@ -31,6 +31,9 @@ import Test.Tasty
 --         [ requestCloseInstancePublicPorts $
 --             closeInstancePublicPorts
 --
+--         , requestGetRelationalDatabaseMetricData $
+--             getRelationalDatabaseMetricData
+--
 --         , requestAllocateStaticIP $
 --             allocateStaticIP
 --
@@ -49,8 +52,17 @@ import Test.Tasty
 --         , requestGetInstance $
 --             getInstance
 --
+--         , requestGetRelationalDatabaseEvents $
+--             getRelationalDatabaseEvents
+--
+--         , requestGetRelationalDatabaseSnapshots $
+--             getRelationalDatabaseSnapshots
+--
 --         , requestAttachStaticIP $
 --             attachStaticIP
+--
+--         , requestGetRelationalDatabaseParameters $
+--             getRelationalDatabaseParameters
 --
 --         , requestDetachDisk $
 --             detachDisk
@@ -64,6 +76,9 @@ import Test.Tasty
 --         , requestGetDomains $
 --             getDomains
 --
+--         , requestUpdateRelationalDatabaseParameters $
+--             updateRelationalDatabaseParameters
+--
 --         , requestCreateLoadBalancerTLSCertificate $
 --             createLoadBalancerTLSCertificate
 --
@@ -75,6 +90,18 @@ import Test.Tasty
 --
 --         , requestGetInstanceSnapshots $
 --             getInstanceSnapshots
+--
+--         , requestExportSnapshot $
+--             exportSnapshot
+--
+--         , requestCreateRelationalDatabaseFromSnapshot $
+--             createRelationalDatabaseFromSnapshot
+--
+--         , requestCreateCloudFormationStack $
+--             createCloudFormationStack
+--
+--         , requestGetExportSnapshotRecords $
+--             getExportSnapshotRecords
 --
 --         , requestReleaseStaticIP $
 --             releaseStaticIP
@@ -91,14 +118,29 @@ import Test.Tasty
 --         , requestCreateDiskFromSnapshot $
 --             createDiskFromSnapshot
 --
+--         , requestGetRelationalDatabases $
+--             getRelationalDatabases
+--
 --         , requestGetInstanceSnapshot $
 --             getInstanceSnapshot
+--
+--         , requestGetRelationalDatabaseLogEvents $
+--             getRelationalDatabaseLogEvents
+--
+--         , requestGetRelationalDatabaseLogStreams $
+--             getRelationalDatabaseLogStreams
 --
 --         , requestGetDomain $
 --             getDomain
 --
 --         , requestGetActiveNames $
 --             getActiveNames
+--
+--         , requestStopRelationalDatabase $
+--             stopRelationalDatabase
+--
+--         , requestCreateRelationalDatabaseSnapshot $
+--             createRelationalDatabaseSnapshot
 --
 --         , requestGetInstanceAccessDetails $
 --             getInstanceAccessDetails
@@ -111,6 +153,12 @@ import Test.Tasty
 --
 --         , requestCreateInstanceSnapshot $
 --             createInstanceSnapshot
+--
+--         , requestCopySnapshot $
+--             copySnapshot
+--
+--         , requestGetRelationalDatabaseSnapshot $
+--             getRelationalDatabaseSnapshot
 --
 --         , requestIsVPCPeered $
 --             isVPCPeered
@@ -127,8 +175,14 @@ import Test.Tasty
 --         , requestCreateInstancesFromSnapshot $
 --             createInstancesFromSnapshot
 --
+--         , requestGetCloudFormationStackRecords $
+--             getCloudFormationStackRecords
+--
 --         , requestCreateDomain $
 --             createDomain
+--
+--         , requestGetRelationalDatabaseBlueprints $
+--             getRelationalDatabaseBlueprints
 --
 --         , requestGetDiskSnapshots $
 --             getDiskSnapshots
@@ -136,8 +190,14 @@ import Test.Tasty
 --         , requestPeerVPC $
 --             peerVPC
 --
+--         , requestGetRelationalDatabaseBundles $
+--             getRelationalDatabaseBundles
+--
 --         , requestGetLoadBalancers $
 --             getLoadBalancers
+--
+--         , requestRebootRelationalDatabase $
+--             rebootRelationalDatabase
 --
 --         , requestAttachLoadBalancerTLSCertificate $
 --             attachLoadBalancerTLSCertificate
@@ -145,17 +205,29 @@ import Test.Tasty
 --         , requestUpdateLoadBalancerAttribute $
 --             updateLoadBalancerAttribute
 --
+--         , requestDeleteRelationalDatabase $
+--             deleteRelationalDatabase
+--
 --         , requestGetDiskSnapshot $
 --             getDiskSnapshot
 --
+--         , requestUpdateRelationalDatabase $
+--             updateRelationalDatabase
+--
 --         , requestGetStaticIP $
 --             getStaticIP
+--
+--         , requestGetRelationalDatabaseMasterUserPassword $
+--             getRelationalDatabaseMasterUserPassword
 --
 --         , requestGetBlueprints $
 --             getBlueprints
 --
 --         , requestGetInstancePortStates $
 --             getInstancePortStates
+--
+--         , requestCreateRelationalDatabase $
+--             createRelationalDatabase
 --
 --         , requestCreateDiskSnapshot $
 --             createDiskSnapshot
@@ -187,17 +259,29 @@ import Test.Tasty
 --         , requestGetDisks $
 --             getDisks
 --
+--         , requestGetRelationalDatabase $
+--             getRelationalDatabase
+--
 --         , requestAttachInstancesToLoadBalancer $
 --             attachInstancesToLoadBalancer
 --
+--         , requestTagResource $
+--             tagResource
+--
 --         , requestGetOperation $
 --             getOperation
+--
+--         , requestDeleteRelationalDatabaseSnapshot $
+--             deleteRelationalDatabaseSnapshot
 --
 --         , requestGetInstanceMetricData $
 --             getInstanceMetricData
 --
 --         , requestGetKeyPair $
 --             getKeyPair
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestPutInstancePublicPorts $
 --             putInstancePublicPorts
@@ -207,6 +291,9 @@ import Test.Tasty
 --
 --         , requestCreateLoadBalancer $
 --             createLoadBalancer
+--
+--         , requestDeleteKnownHostKeys $
+--             deleteKnownHostKeys
 --
 --         , requestAttachDisk $
 --             attachDisk
@@ -219,6 +306,9 @@ import Test.Tasty
 --
 --         , requestOpenInstancePublicPorts $
 --             openInstancePublicPorts
+--
+--         , requestStartRelationalDatabase $
+--             startRelationalDatabase
 --
 --         , requestGetBundles $
 --             getBundles
@@ -247,6 +337,9 @@ import Test.Tasty
 --         [ responseCloseInstancePublicPorts $
 --             closeInstancePublicPortsResponse
 --
+--         , responseGetRelationalDatabaseMetricData $
+--             getRelationalDatabaseMetricDataResponse
+--
 --         , responseAllocateStaticIP $
 --             allocateStaticIPResponse
 --
@@ -265,8 +358,17 @@ import Test.Tasty
 --         , responseGetInstance $
 --             getInstanceResponse
 --
+--         , responseGetRelationalDatabaseEvents $
+--             getRelationalDatabaseEventsResponse
+--
+--         , responseGetRelationalDatabaseSnapshots $
+--             getRelationalDatabaseSnapshotsResponse
+--
 --         , responseAttachStaticIP $
 --             attachStaticIPResponse
+--
+--         , responseGetRelationalDatabaseParameters $
+--             getRelationalDatabaseParametersResponse
 --
 --         , responseDetachDisk $
 --             detachDiskResponse
@@ -280,6 +382,9 @@ import Test.Tasty
 --         , responseGetDomains $
 --             getDomainsResponse
 --
+--         , responseUpdateRelationalDatabaseParameters $
+--             updateRelationalDatabaseParametersResponse
+--
 --         , responseCreateLoadBalancerTLSCertificate $
 --             createLoadBalancerTLSCertificateResponse
 --
@@ -291,6 +396,18 @@ import Test.Tasty
 --
 --         , responseGetInstanceSnapshots $
 --             getInstanceSnapshotsResponse
+--
+--         , responseExportSnapshot $
+--             exportSnapshotResponse
+--
+--         , responseCreateRelationalDatabaseFromSnapshot $
+--             createRelationalDatabaseFromSnapshotResponse
+--
+--         , responseCreateCloudFormationStack $
+--             createCloudFormationStackResponse
+--
+--         , responseGetExportSnapshotRecords $
+--             getExportSnapshotRecordsResponse
 --
 --         , responseReleaseStaticIP $
 --             releaseStaticIPResponse
@@ -307,14 +424,29 @@ import Test.Tasty
 --         , responseCreateDiskFromSnapshot $
 --             createDiskFromSnapshotResponse
 --
+--         , responseGetRelationalDatabases $
+--             getRelationalDatabasesResponse
+--
 --         , responseGetInstanceSnapshot $
 --             getInstanceSnapshotResponse
+--
+--         , responseGetRelationalDatabaseLogEvents $
+--             getRelationalDatabaseLogEventsResponse
+--
+--         , responseGetRelationalDatabaseLogStreams $
+--             getRelationalDatabaseLogStreamsResponse
 --
 --         , responseGetDomain $
 --             getDomainResponse
 --
 --         , responseGetActiveNames $
 --             getActiveNamesResponse
+--
+--         , responseStopRelationalDatabase $
+--             stopRelationalDatabaseResponse
+--
+--         , responseCreateRelationalDatabaseSnapshot $
+--             createRelationalDatabaseSnapshotResponse
 --
 --         , responseGetInstanceAccessDetails $
 --             getInstanceAccessDetailsResponse
@@ -327,6 +459,12 @@ import Test.Tasty
 --
 --         , responseCreateInstanceSnapshot $
 --             createInstanceSnapshotResponse
+--
+--         , responseCopySnapshot $
+--             copySnapshotResponse
+--
+--         , responseGetRelationalDatabaseSnapshot $
+--             getRelationalDatabaseSnapshotResponse
 --
 --         , responseIsVPCPeered $
 --             isVPCPeeredResponse
@@ -343,8 +481,14 @@ import Test.Tasty
 --         , responseCreateInstancesFromSnapshot $
 --             createInstancesFromSnapshotResponse
 --
+--         , responseGetCloudFormationStackRecords $
+--             getCloudFormationStackRecordsResponse
+--
 --         , responseCreateDomain $
 --             createDomainResponse
+--
+--         , responseGetRelationalDatabaseBlueprints $
+--             getRelationalDatabaseBlueprintsResponse
 --
 --         , responseGetDiskSnapshots $
 --             getDiskSnapshotsResponse
@@ -352,8 +496,14 @@ import Test.Tasty
 --         , responsePeerVPC $
 --             peerVPCResponse
 --
+--         , responseGetRelationalDatabaseBundles $
+--             getRelationalDatabaseBundlesResponse
+--
 --         , responseGetLoadBalancers $
 --             getLoadBalancersResponse
+--
+--         , responseRebootRelationalDatabase $
+--             rebootRelationalDatabaseResponse
 --
 --         , responseAttachLoadBalancerTLSCertificate $
 --             attachLoadBalancerTLSCertificateResponse
@@ -361,17 +511,29 @@ import Test.Tasty
 --         , responseUpdateLoadBalancerAttribute $
 --             updateLoadBalancerAttributeResponse
 --
+--         , responseDeleteRelationalDatabase $
+--             deleteRelationalDatabaseResponse
+--
 --         , responseGetDiskSnapshot $
 --             getDiskSnapshotResponse
 --
+--         , responseUpdateRelationalDatabase $
+--             updateRelationalDatabaseResponse
+--
 --         , responseGetStaticIP $
 --             getStaticIPResponse
+--
+--         , responseGetRelationalDatabaseMasterUserPassword $
+--             getRelationalDatabaseMasterUserPasswordResponse
 --
 --         , responseGetBlueprints $
 --             getBlueprintsResponse
 --
 --         , responseGetInstancePortStates $
 --             getInstancePortStatesResponse
+--
+--         , responseCreateRelationalDatabase $
+--             createRelationalDatabaseResponse
 --
 --         , responseCreateDiskSnapshot $
 --             createDiskSnapshotResponse
@@ -403,17 +565,29 @@ import Test.Tasty
 --         , responseGetDisks $
 --             getDisksResponse
 --
+--         , responseGetRelationalDatabase $
+--             getRelationalDatabaseResponse
+--
 --         , responseAttachInstancesToLoadBalancer $
 --             attachInstancesToLoadBalancerResponse
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
 --         , responseGetOperation $
 --             getOperationResponse
+--
+--         , responseDeleteRelationalDatabaseSnapshot $
+--             deleteRelationalDatabaseSnapshotResponse
 --
 --         , responseGetInstanceMetricData $
 --             getInstanceMetricDataResponse
 --
 --         , responseGetKeyPair $
 --             getKeyPairResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responsePutInstancePublicPorts $
 --             putInstancePublicPortsResponse
@@ -423,6 +597,9 @@ import Test.Tasty
 --
 --         , responseCreateLoadBalancer $
 --             createLoadBalancerResponse
+--
+--         , responseDeleteKnownHostKeys $
+--             deleteKnownHostKeysResponse
 --
 --         , responseAttachDisk $
 --             attachDiskResponse
@@ -435,6 +612,9 @@ import Test.Tasty
 --
 --         , responseOpenInstancePublicPorts $
 --             openInstancePublicPortsResponse
+--
+--         , responseStartRelationalDatabase $
+--             startRelationalDatabaseResponse
 --
 --         , responseGetBundles $
 --             getBundlesResponse
@@ -467,6 +647,11 @@ requestCloseInstancePublicPorts = req
     "CloseInstancePublicPorts"
     "fixture/CloseInstancePublicPorts.yaml"
 
+requestGetRelationalDatabaseMetricData :: GetRelationalDatabaseMetricData -> TestTree
+requestGetRelationalDatabaseMetricData = req
+    "GetRelationalDatabaseMetricData"
+    "fixture/GetRelationalDatabaseMetricData.yaml"
+
 requestAllocateStaticIP :: AllocateStaticIP -> TestTree
 requestAllocateStaticIP = req
     "AllocateStaticIP"
@@ -497,10 +682,25 @@ requestGetInstance = req
     "GetInstance"
     "fixture/GetInstance.yaml"
 
+requestGetRelationalDatabaseEvents :: GetRelationalDatabaseEvents -> TestTree
+requestGetRelationalDatabaseEvents = req
+    "GetRelationalDatabaseEvents"
+    "fixture/GetRelationalDatabaseEvents.yaml"
+
+requestGetRelationalDatabaseSnapshots :: GetRelationalDatabaseSnapshots -> TestTree
+requestGetRelationalDatabaseSnapshots = req
+    "GetRelationalDatabaseSnapshots"
+    "fixture/GetRelationalDatabaseSnapshots.yaml"
+
 requestAttachStaticIP :: AttachStaticIP -> TestTree
 requestAttachStaticIP = req
     "AttachStaticIP"
     "fixture/AttachStaticIP.yaml"
+
+requestGetRelationalDatabaseParameters :: GetRelationalDatabaseParameters -> TestTree
+requestGetRelationalDatabaseParameters = req
+    "GetRelationalDatabaseParameters"
+    "fixture/GetRelationalDatabaseParameters.yaml"
 
 requestDetachDisk :: DetachDisk -> TestTree
 requestDetachDisk = req
@@ -522,6 +722,11 @@ requestGetDomains = req
     "GetDomains"
     "fixture/GetDomains.yaml"
 
+requestUpdateRelationalDatabaseParameters :: UpdateRelationalDatabaseParameters -> TestTree
+requestUpdateRelationalDatabaseParameters = req
+    "UpdateRelationalDatabaseParameters"
+    "fixture/UpdateRelationalDatabaseParameters.yaml"
+
 requestCreateLoadBalancerTLSCertificate :: CreateLoadBalancerTLSCertificate -> TestTree
 requestCreateLoadBalancerTLSCertificate = req
     "CreateLoadBalancerTLSCertificate"
@@ -541,6 +746,26 @@ requestGetInstanceSnapshots :: GetInstanceSnapshots -> TestTree
 requestGetInstanceSnapshots = req
     "GetInstanceSnapshots"
     "fixture/GetInstanceSnapshots.yaml"
+
+requestExportSnapshot :: ExportSnapshot -> TestTree
+requestExportSnapshot = req
+    "ExportSnapshot"
+    "fixture/ExportSnapshot.yaml"
+
+requestCreateRelationalDatabaseFromSnapshot :: CreateRelationalDatabaseFromSnapshot -> TestTree
+requestCreateRelationalDatabaseFromSnapshot = req
+    "CreateRelationalDatabaseFromSnapshot"
+    "fixture/CreateRelationalDatabaseFromSnapshot.yaml"
+
+requestCreateCloudFormationStack :: CreateCloudFormationStack -> TestTree
+requestCreateCloudFormationStack = req
+    "CreateCloudFormationStack"
+    "fixture/CreateCloudFormationStack.yaml"
+
+requestGetExportSnapshotRecords :: GetExportSnapshotRecords -> TestTree
+requestGetExportSnapshotRecords = req
+    "GetExportSnapshotRecords"
+    "fixture/GetExportSnapshotRecords.yaml"
 
 requestReleaseStaticIP :: ReleaseStaticIP -> TestTree
 requestReleaseStaticIP = req
@@ -567,10 +792,25 @@ requestCreateDiskFromSnapshot = req
     "CreateDiskFromSnapshot"
     "fixture/CreateDiskFromSnapshot.yaml"
 
+requestGetRelationalDatabases :: GetRelationalDatabases -> TestTree
+requestGetRelationalDatabases = req
+    "GetRelationalDatabases"
+    "fixture/GetRelationalDatabases.yaml"
+
 requestGetInstanceSnapshot :: GetInstanceSnapshot -> TestTree
 requestGetInstanceSnapshot = req
     "GetInstanceSnapshot"
     "fixture/GetInstanceSnapshot.yaml"
+
+requestGetRelationalDatabaseLogEvents :: GetRelationalDatabaseLogEvents -> TestTree
+requestGetRelationalDatabaseLogEvents = req
+    "GetRelationalDatabaseLogEvents"
+    "fixture/GetRelationalDatabaseLogEvents.yaml"
+
+requestGetRelationalDatabaseLogStreams :: GetRelationalDatabaseLogStreams -> TestTree
+requestGetRelationalDatabaseLogStreams = req
+    "GetRelationalDatabaseLogStreams"
+    "fixture/GetRelationalDatabaseLogStreams.yaml"
 
 requestGetDomain :: GetDomain -> TestTree
 requestGetDomain = req
@@ -581,6 +821,16 @@ requestGetActiveNames :: GetActiveNames -> TestTree
 requestGetActiveNames = req
     "GetActiveNames"
     "fixture/GetActiveNames.yaml"
+
+requestStopRelationalDatabase :: StopRelationalDatabase -> TestTree
+requestStopRelationalDatabase = req
+    "StopRelationalDatabase"
+    "fixture/StopRelationalDatabase.yaml"
+
+requestCreateRelationalDatabaseSnapshot :: CreateRelationalDatabaseSnapshot -> TestTree
+requestCreateRelationalDatabaseSnapshot = req
+    "CreateRelationalDatabaseSnapshot"
+    "fixture/CreateRelationalDatabaseSnapshot.yaml"
 
 requestGetInstanceAccessDetails :: GetInstanceAccessDetails -> TestTree
 requestGetInstanceAccessDetails = req
@@ -601,6 +851,16 @@ requestCreateInstanceSnapshot :: CreateInstanceSnapshot -> TestTree
 requestCreateInstanceSnapshot = req
     "CreateInstanceSnapshot"
     "fixture/CreateInstanceSnapshot.yaml"
+
+requestCopySnapshot :: CopySnapshot -> TestTree
+requestCopySnapshot = req
+    "CopySnapshot"
+    "fixture/CopySnapshot.yaml"
+
+requestGetRelationalDatabaseSnapshot :: GetRelationalDatabaseSnapshot -> TestTree
+requestGetRelationalDatabaseSnapshot = req
+    "GetRelationalDatabaseSnapshot"
+    "fixture/GetRelationalDatabaseSnapshot.yaml"
 
 requestIsVPCPeered :: IsVPCPeered -> TestTree
 requestIsVPCPeered = req
@@ -627,10 +887,20 @@ requestCreateInstancesFromSnapshot = req
     "CreateInstancesFromSnapshot"
     "fixture/CreateInstancesFromSnapshot.yaml"
 
+requestGetCloudFormationStackRecords :: GetCloudFormationStackRecords -> TestTree
+requestGetCloudFormationStackRecords = req
+    "GetCloudFormationStackRecords"
+    "fixture/GetCloudFormationStackRecords.yaml"
+
 requestCreateDomain :: CreateDomain -> TestTree
 requestCreateDomain = req
     "CreateDomain"
     "fixture/CreateDomain.yaml"
+
+requestGetRelationalDatabaseBlueprints :: GetRelationalDatabaseBlueprints -> TestTree
+requestGetRelationalDatabaseBlueprints = req
+    "GetRelationalDatabaseBlueprints"
+    "fixture/GetRelationalDatabaseBlueprints.yaml"
 
 requestGetDiskSnapshots :: GetDiskSnapshots -> TestTree
 requestGetDiskSnapshots = req
@@ -642,10 +912,20 @@ requestPeerVPC = req
     "PeerVPC"
     "fixture/PeerVPC.yaml"
 
+requestGetRelationalDatabaseBundles :: GetRelationalDatabaseBundles -> TestTree
+requestGetRelationalDatabaseBundles = req
+    "GetRelationalDatabaseBundles"
+    "fixture/GetRelationalDatabaseBundles.yaml"
+
 requestGetLoadBalancers :: GetLoadBalancers -> TestTree
 requestGetLoadBalancers = req
     "GetLoadBalancers"
     "fixture/GetLoadBalancers.yaml"
+
+requestRebootRelationalDatabase :: RebootRelationalDatabase -> TestTree
+requestRebootRelationalDatabase = req
+    "RebootRelationalDatabase"
+    "fixture/RebootRelationalDatabase.yaml"
 
 requestAttachLoadBalancerTLSCertificate :: AttachLoadBalancerTLSCertificate -> TestTree
 requestAttachLoadBalancerTLSCertificate = req
@@ -657,15 +937,30 @@ requestUpdateLoadBalancerAttribute = req
     "UpdateLoadBalancerAttribute"
     "fixture/UpdateLoadBalancerAttribute.yaml"
 
+requestDeleteRelationalDatabase :: DeleteRelationalDatabase -> TestTree
+requestDeleteRelationalDatabase = req
+    "DeleteRelationalDatabase"
+    "fixture/DeleteRelationalDatabase.yaml"
+
 requestGetDiskSnapshot :: GetDiskSnapshot -> TestTree
 requestGetDiskSnapshot = req
     "GetDiskSnapshot"
     "fixture/GetDiskSnapshot.yaml"
 
+requestUpdateRelationalDatabase :: UpdateRelationalDatabase -> TestTree
+requestUpdateRelationalDatabase = req
+    "UpdateRelationalDatabase"
+    "fixture/UpdateRelationalDatabase.yaml"
+
 requestGetStaticIP :: GetStaticIP -> TestTree
 requestGetStaticIP = req
     "GetStaticIP"
     "fixture/GetStaticIP.yaml"
+
+requestGetRelationalDatabaseMasterUserPassword :: GetRelationalDatabaseMasterUserPassword -> TestTree
+requestGetRelationalDatabaseMasterUserPassword = req
+    "GetRelationalDatabaseMasterUserPassword"
+    "fixture/GetRelationalDatabaseMasterUserPassword.yaml"
 
 requestGetBlueprints :: GetBlueprints -> TestTree
 requestGetBlueprints = req
@@ -676,6 +971,11 @@ requestGetInstancePortStates :: GetInstancePortStates -> TestTree
 requestGetInstancePortStates = req
     "GetInstancePortStates"
     "fixture/GetInstancePortStates.yaml"
+
+requestCreateRelationalDatabase :: CreateRelationalDatabase -> TestTree
+requestCreateRelationalDatabase = req
+    "CreateRelationalDatabase"
+    "fixture/CreateRelationalDatabase.yaml"
 
 requestCreateDiskSnapshot :: CreateDiskSnapshot -> TestTree
 requestCreateDiskSnapshot = req
@@ -727,15 +1027,30 @@ requestGetDisks = req
     "GetDisks"
     "fixture/GetDisks.yaml"
 
+requestGetRelationalDatabase :: GetRelationalDatabase -> TestTree
+requestGetRelationalDatabase = req
+    "GetRelationalDatabase"
+    "fixture/GetRelationalDatabase.yaml"
+
 requestAttachInstancesToLoadBalancer :: AttachInstancesToLoadBalancer -> TestTree
 requestAttachInstancesToLoadBalancer = req
     "AttachInstancesToLoadBalancer"
     "fixture/AttachInstancesToLoadBalancer.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestGetOperation :: GetOperation -> TestTree
 requestGetOperation = req
     "GetOperation"
     "fixture/GetOperation.yaml"
+
+requestDeleteRelationalDatabaseSnapshot :: DeleteRelationalDatabaseSnapshot -> TestTree
+requestDeleteRelationalDatabaseSnapshot = req
+    "DeleteRelationalDatabaseSnapshot"
+    "fixture/DeleteRelationalDatabaseSnapshot.yaml"
 
 requestGetInstanceMetricData :: GetInstanceMetricData -> TestTree
 requestGetInstanceMetricData = req
@@ -746,6 +1061,11 @@ requestGetKeyPair :: GetKeyPair -> TestTree
 requestGetKeyPair = req
     "GetKeyPair"
     "fixture/GetKeyPair.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestPutInstancePublicPorts :: PutInstancePublicPorts -> TestTree
 requestPutInstancePublicPorts = req
@@ -761,6 +1081,11 @@ requestCreateLoadBalancer :: CreateLoadBalancer -> TestTree
 requestCreateLoadBalancer = req
     "CreateLoadBalancer"
     "fixture/CreateLoadBalancer.yaml"
+
+requestDeleteKnownHostKeys :: DeleteKnownHostKeys -> TestTree
+requestDeleteKnownHostKeys = req
+    "DeleteKnownHostKeys"
+    "fixture/DeleteKnownHostKeys.yaml"
 
 requestAttachDisk :: AttachDisk -> TestTree
 requestAttachDisk = req
@@ -781,6 +1106,11 @@ requestOpenInstancePublicPorts :: OpenInstancePublicPorts -> TestTree
 requestOpenInstancePublicPorts = req
     "OpenInstancePublicPorts"
     "fixture/OpenInstancePublicPorts.yaml"
+
+requestStartRelationalDatabase :: StartRelationalDatabase -> TestTree
+requestStartRelationalDatabase = req
+    "StartRelationalDatabase"
+    "fixture/StartRelationalDatabase.yaml"
 
 requestGetBundles :: GetBundles -> TestTree
 requestGetBundles = req
@@ -826,6 +1156,13 @@ responseCloseInstancePublicPorts = res
     lightsail
     (Proxy :: Proxy CloseInstancePublicPorts)
 
+responseGetRelationalDatabaseMetricData :: GetRelationalDatabaseMetricDataResponse -> TestTree
+responseGetRelationalDatabaseMetricData = res
+    "GetRelationalDatabaseMetricDataResponse"
+    "fixture/GetRelationalDatabaseMetricDataResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetRelationalDatabaseMetricData)
+
 responseAllocateStaticIP :: AllocateStaticIPResponse -> TestTree
 responseAllocateStaticIP = res
     "AllocateStaticIPResponse"
@@ -868,12 +1205,33 @@ responseGetInstance = res
     lightsail
     (Proxy :: Proxy GetInstance)
 
+responseGetRelationalDatabaseEvents :: GetRelationalDatabaseEventsResponse -> TestTree
+responseGetRelationalDatabaseEvents = res
+    "GetRelationalDatabaseEventsResponse"
+    "fixture/GetRelationalDatabaseEventsResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetRelationalDatabaseEvents)
+
+responseGetRelationalDatabaseSnapshots :: GetRelationalDatabaseSnapshotsResponse -> TestTree
+responseGetRelationalDatabaseSnapshots = res
+    "GetRelationalDatabaseSnapshotsResponse"
+    "fixture/GetRelationalDatabaseSnapshotsResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetRelationalDatabaseSnapshots)
+
 responseAttachStaticIP :: AttachStaticIPResponse -> TestTree
 responseAttachStaticIP = res
     "AttachStaticIPResponse"
     "fixture/AttachStaticIPResponse.proto"
     lightsail
     (Proxy :: Proxy AttachStaticIP)
+
+responseGetRelationalDatabaseParameters :: GetRelationalDatabaseParametersResponse -> TestTree
+responseGetRelationalDatabaseParameters = res
+    "GetRelationalDatabaseParametersResponse"
+    "fixture/GetRelationalDatabaseParametersResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetRelationalDatabaseParameters)
 
 responseDetachDisk :: DetachDiskResponse -> TestTree
 responseDetachDisk = res
@@ -903,6 +1261,13 @@ responseGetDomains = res
     lightsail
     (Proxy :: Proxy GetDomains)
 
+responseUpdateRelationalDatabaseParameters :: UpdateRelationalDatabaseParametersResponse -> TestTree
+responseUpdateRelationalDatabaseParameters = res
+    "UpdateRelationalDatabaseParametersResponse"
+    "fixture/UpdateRelationalDatabaseParametersResponse.proto"
+    lightsail
+    (Proxy :: Proxy UpdateRelationalDatabaseParameters)
+
 responseCreateLoadBalancerTLSCertificate :: CreateLoadBalancerTLSCertificateResponse -> TestTree
 responseCreateLoadBalancerTLSCertificate = res
     "CreateLoadBalancerTLSCertificateResponse"
@@ -930,6 +1295,34 @@ responseGetInstanceSnapshots = res
     "fixture/GetInstanceSnapshotsResponse.proto"
     lightsail
     (Proxy :: Proxy GetInstanceSnapshots)
+
+responseExportSnapshot :: ExportSnapshotResponse -> TestTree
+responseExportSnapshot = res
+    "ExportSnapshotResponse"
+    "fixture/ExportSnapshotResponse.proto"
+    lightsail
+    (Proxy :: Proxy ExportSnapshot)
+
+responseCreateRelationalDatabaseFromSnapshot :: CreateRelationalDatabaseFromSnapshotResponse -> TestTree
+responseCreateRelationalDatabaseFromSnapshot = res
+    "CreateRelationalDatabaseFromSnapshotResponse"
+    "fixture/CreateRelationalDatabaseFromSnapshotResponse.proto"
+    lightsail
+    (Proxy :: Proxy CreateRelationalDatabaseFromSnapshot)
+
+responseCreateCloudFormationStack :: CreateCloudFormationStackResponse -> TestTree
+responseCreateCloudFormationStack = res
+    "CreateCloudFormationStackResponse"
+    "fixture/CreateCloudFormationStackResponse.proto"
+    lightsail
+    (Proxy :: Proxy CreateCloudFormationStack)
+
+responseGetExportSnapshotRecords :: GetExportSnapshotRecordsResponse -> TestTree
+responseGetExportSnapshotRecords = res
+    "GetExportSnapshotRecordsResponse"
+    "fixture/GetExportSnapshotRecordsResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetExportSnapshotRecords)
 
 responseReleaseStaticIP :: ReleaseStaticIPResponse -> TestTree
 responseReleaseStaticIP = res
@@ -966,12 +1359,33 @@ responseCreateDiskFromSnapshot = res
     lightsail
     (Proxy :: Proxy CreateDiskFromSnapshot)
 
+responseGetRelationalDatabases :: GetRelationalDatabasesResponse -> TestTree
+responseGetRelationalDatabases = res
+    "GetRelationalDatabasesResponse"
+    "fixture/GetRelationalDatabasesResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetRelationalDatabases)
+
 responseGetInstanceSnapshot :: GetInstanceSnapshotResponse -> TestTree
 responseGetInstanceSnapshot = res
     "GetInstanceSnapshotResponse"
     "fixture/GetInstanceSnapshotResponse.proto"
     lightsail
     (Proxy :: Proxy GetInstanceSnapshot)
+
+responseGetRelationalDatabaseLogEvents :: GetRelationalDatabaseLogEventsResponse -> TestTree
+responseGetRelationalDatabaseLogEvents = res
+    "GetRelationalDatabaseLogEventsResponse"
+    "fixture/GetRelationalDatabaseLogEventsResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetRelationalDatabaseLogEvents)
+
+responseGetRelationalDatabaseLogStreams :: GetRelationalDatabaseLogStreamsResponse -> TestTree
+responseGetRelationalDatabaseLogStreams = res
+    "GetRelationalDatabaseLogStreamsResponse"
+    "fixture/GetRelationalDatabaseLogStreamsResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetRelationalDatabaseLogStreams)
 
 responseGetDomain :: GetDomainResponse -> TestTree
 responseGetDomain = res
@@ -986,6 +1400,20 @@ responseGetActiveNames = res
     "fixture/GetActiveNamesResponse.proto"
     lightsail
     (Proxy :: Proxy GetActiveNames)
+
+responseStopRelationalDatabase :: StopRelationalDatabaseResponse -> TestTree
+responseStopRelationalDatabase = res
+    "StopRelationalDatabaseResponse"
+    "fixture/StopRelationalDatabaseResponse.proto"
+    lightsail
+    (Proxy :: Proxy StopRelationalDatabase)
+
+responseCreateRelationalDatabaseSnapshot :: CreateRelationalDatabaseSnapshotResponse -> TestTree
+responseCreateRelationalDatabaseSnapshot = res
+    "CreateRelationalDatabaseSnapshotResponse"
+    "fixture/CreateRelationalDatabaseSnapshotResponse.proto"
+    lightsail
+    (Proxy :: Proxy CreateRelationalDatabaseSnapshot)
 
 responseGetInstanceAccessDetails :: GetInstanceAccessDetailsResponse -> TestTree
 responseGetInstanceAccessDetails = res
@@ -1014,6 +1442,20 @@ responseCreateInstanceSnapshot = res
     "fixture/CreateInstanceSnapshotResponse.proto"
     lightsail
     (Proxy :: Proxy CreateInstanceSnapshot)
+
+responseCopySnapshot :: CopySnapshotResponse -> TestTree
+responseCopySnapshot = res
+    "CopySnapshotResponse"
+    "fixture/CopySnapshotResponse.proto"
+    lightsail
+    (Proxy :: Proxy CopySnapshot)
+
+responseGetRelationalDatabaseSnapshot :: GetRelationalDatabaseSnapshotResponse -> TestTree
+responseGetRelationalDatabaseSnapshot = res
+    "GetRelationalDatabaseSnapshotResponse"
+    "fixture/GetRelationalDatabaseSnapshotResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetRelationalDatabaseSnapshot)
 
 responseIsVPCPeered :: IsVPCPeeredResponse -> TestTree
 responseIsVPCPeered = res
@@ -1050,12 +1492,26 @@ responseCreateInstancesFromSnapshot = res
     lightsail
     (Proxy :: Proxy CreateInstancesFromSnapshot)
 
+responseGetCloudFormationStackRecords :: GetCloudFormationStackRecordsResponse -> TestTree
+responseGetCloudFormationStackRecords = res
+    "GetCloudFormationStackRecordsResponse"
+    "fixture/GetCloudFormationStackRecordsResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetCloudFormationStackRecords)
+
 responseCreateDomain :: CreateDomainResponse -> TestTree
 responseCreateDomain = res
     "CreateDomainResponse"
     "fixture/CreateDomainResponse.proto"
     lightsail
     (Proxy :: Proxy CreateDomain)
+
+responseGetRelationalDatabaseBlueprints :: GetRelationalDatabaseBlueprintsResponse -> TestTree
+responseGetRelationalDatabaseBlueprints = res
+    "GetRelationalDatabaseBlueprintsResponse"
+    "fixture/GetRelationalDatabaseBlueprintsResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetRelationalDatabaseBlueprints)
 
 responseGetDiskSnapshots :: GetDiskSnapshotsResponse -> TestTree
 responseGetDiskSnapshots = res
@@ -1071,12 +1527,26 @@ responsePeerVPC = res
     lightsail
     (Proxy :: Proxy PeerVPC)
 
+responseGetRelationalDatabaseBundles :: GetRelationalDatabaseBundlesResponse -> TestTree
+responseGetRelationalDatabaseBundles = res
+    "GetRelationalDatabaseBundlesResponse"
+    "fixture/GetRelationalDatabaseBundlesResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetRelationalDatabaseBundles)
+
 responseGetLoadBalancers :: GetLoadBalancersResponse -> TestTree
 responseGetLoadBalancers = res
     "GetLoadBalancersResponse"
     "fixture/GetLoadBalancersResponse.proto"
     lightsail
     (Proxy :: Proxy GetLoadBalancers)
+
+responseRebootRelationalDatabase :: RebootRelationalDatabaseResponse -> TestTree
+responseRebootRelationalDatabase = res
+    "RebootRelationalDatabaseResponse"
+    "fixture/RebootRelationalDatabaseResponse.proto"
+    lightsail
+    (Proxy :: Proxy RebootRelationalDatabase)
 
 responseAttachLoadBalancerTLSCertificate :: AttachLoadBalancerTLSCertificateResponse -> TestTree
 responseAttachLoadBalancerTLSCertificate = res
@@ -1092,6 +1562,13 @@ responseUpdateLoadBalancerAttribute = res
     lightsail
     (Proxy :: Proxy UpdateLoadBalancerAttribute)
 
+responseDeleteRelationalDatabase :: DeleteRelationalDatabaseResponse -> TestTree
+responseDeleteRelationalDatabase = res
+    "DeleteRelationalDatabaseResponse"
+    "fixture/DeleteRelationalDatabaseResponse.proto"
+    lightsail
+    (Proxy :: Proxy DeleteRelationalDatabase)
+
 responseGetDiskSnapshot :: GetDiskSnapshotResponse -> TestTree
 responseGetDiskSnapshot = res
     "GetDiskSnapshotResponse"
@@ -1099,12 +1576,26 @@ responseGetDiskSnapshot = res
     lightsail
     (Proxy :: Proxy GetDiskSnapshot)
 
+responseUpdateRelationalDatabase :: UpdateRelationalDatabaseResponse -> TestTree
+responseUpdateRelationalDatabase = res
+    "UpdateRelationalDatabaseResponse"
+    "fixture/UpdateRelationalDatabaseResponse.proto"
+    lightsail
+    (Proxy :: Proxy UpdateRelationalDatabase)
+
 responseGetStaticIP :: GetStaticIPResponse -> TestTree
 responseGetStaticIP = res
     "GetStaticIPResponse"
     "fixture/GetStaticIPResponse.proto"
     lightsail
     (Proxy :: Proxy GetStaticIP)
+
+responseGetRelationalDatabaseMasterUserPassword :: GetRelationalDatabaseMasterUserPasswordResponse -> TestTree
+responseGetRelationalDatabaseMasterUserPassword = res
+    "GetRelationalDatabaseMasterUserPasswordResponse"
+    "fixture/GetRelationalDatabaseMasterUserPasswordResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetRelationalDatabaseMasterUserPassword)
 
 responseGetBlueprints :: GetBlueprintsResponse -> TestTree
 responseGetBlueprints = res
@@ -1119,6 +1610,13 @@ responseGetInstancePortStates = res
     "fixture/GetInstancePortStatesResponse.proto"
     lightsail
     (Proxy :: Proxy GetInstancePortStates)
+
+responseCreateRelationalDatabase :: CreateRelationalDatabaseResponse -> TestTree
+responseCreateRelationalDatabase = res
+    "CreateRelationalDatabaseResponse"
+    "fixture/CreateRelationalDatabaseResponse.proto"
+    lightsail
+    (Proxy :: Proxy CreateRelationalDatabase)
 
 responseCreateDiskSnapshot :: CreateDiskSnapshotResponse -> TestTree
 responseCreateDiskSnapshot = res
@@ -1190,6 +1688,13 @@ responseGetDisks = res
     lightsail
     (Proxy :: Proxy GetDisks)
 
+responseGetRelationalDatabase :: GetRelationalDatabaseResponse -> TestTree
+responseGetRelationalDatabase = res
+    "GetRelationalDatabaseResponse"
+    "fixture/GetRelationalDatabaseResponse.proto"
+    lightsail
+    (Proxy :: Proxy GetRelationalDatabase)
+
 responseAttachInstancesToLoadBalancer :: AttachInstancesToLoadBalancerResponse -> TestTree
 responseAttachInstancesToLoadBalancer = res
     "AttachInstancesToLoadBalancerResponse"
@@ -1197,12 +1702,26 @@ responseAttachInstancesToLoadBalancer = res
     lightsail
     (Proxy :: Proxy AttachInstancesToLoadBalancer)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    lightsail
+    (Proxy :: Proxy TagResource)
+
 responseGetOperation :: GetOperationResponse -> TestTree
 responseGetOperation = res
     "GetOperationResponse"
     "fixture/GetOperationResponse.proto"
     lightsail
     (Proxy :: Proxy GetOperation)
+
+responseDeleteRelationalDatabaseSnapshot :: DeleteRelationalDatabaseSnapshotResponse -> TestTree
+responseDeleteRelationalDatabaseSnapshot = res
+    "DeleteRelationalDatabaseSnapshotResponse"
+    "fixture/DeleteRelationalDatabaseSnapshotResponse.proto"
+    lightsail
+    (Proxy :: Proxy DeleteRelationalDatabaseSnapshot)
 
 responseGetInstanceMetricData :: GetInstanceMetricDataResponse -> TestTree
 responseGetInstanceMetricData = res
@@ -1217,6 +1736,13 @@ responseGetKeyPair = res
     "fixture/GetKeyPairResponse.proto"
     lightsail
     (Proxy :: Proxy GetKeyPair)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    lightsail
+    (Proxy :: Proxy UntagResource)
 
 responsePutInstancePublicPorts :: PutInstancePublicPortsResponse -> TestTree
 responsePutInstancePublicPorts = res
@@ -1238,6 +1764,13 @@ responseCreateLoadBalancer = res
     "fixture/CreateLoadBalancerResponse.proto"
     lightsail
     (Proxy :: Proxy CreateLoadBalancer)
+
+responseDeleteKnownHostKeys :: DeleteKnownHostKeysResponse -> TestTree
+responseDeleteKnownHostKeys = res
+    "DeleteKnownHostKeysResponse"
+    "fixture/DeleteKnownHostKeysResponse.proto"
+    lightsail
+    (Proxy :: Proxy DeleteKnownHostKeys)
 
 responseAttachDisk :: AttachDiskResponse -> TestTree
 responseAttachDisk = res
@@ -1266,6 +1799,13 @@ responseOpenInstancePublicPorts = res
     "fixture/OpenInstancePublicPortsResponse.proto"
     lightsail
     (Proxy :: Proxy OpenInstancePublicPorts)
+
+responseStartRelationalDatabase :: StartRelationalDatabaseResponse -> TestTree
+responseStartRelationalDatabase = res
+    "StartRelationalDatabaseResponse"
+    "fixture/StartRelationalDatabaseResponse.proto"
+    lightsail
+    (Proxy :: Proxy StartRelationalDatabase)
 
 responseGetBundles :: GetBundlesResponse -> TestTree
 responseGetBundles = res

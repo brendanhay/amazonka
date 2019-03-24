@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of all valid regions for Amazon Lightsail. Use the @include availability zones@ parameter to also return the availability zones in a region.
+-- Returns a list of all valid regions for Amazon Lightsail. Use the @include availability zones@ parameter to also return the Availability Zones in a region.
 --
 --
 module Network.AWS.Lightsail.GetRegions
@@ -27,6 +27,7 @@ module Network.AWS.Lightsail.GetRegions
       getRegions
     , GetRegions
     -- * Request Lenses
+    , grIncludeRelationalDatabaseAvailabilityZones
     , grIncludeAvailabilityZones
 
     -- * Destructuring the Response
@@ -45,8 +46,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'getRegions' smart constructor.
-newtype GetRegions = GetRegions'
-  { _grIncludeAvailabilityZones :: Maybe Bool
+data GetRegions = GetRegions'
+  { _grIncludeRelationalDatabaseAvailabilityZones :: !(Maybe Bool)
+  , _grIncludeAvailabilityZones                   :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -54,11 +56,21 @@ newtype GetRegions = GetRegions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'grIncludeRelationalDatabaseAvailabilityZones' - >A Boolean value indicating whether to also include Availability Zones for databases in your get regions request. Availability Zones are indicated with a letter (e.g., @us-east-2a@ ).
+--
 -- * 'grIncludeAvailabilityZones' - A Boolean value indicating whether to also include Availability Zones in your get regions request. Availability Zones are indicated with a letter: e.g., @us-east-2a@ .
 getRegions
     :: GetRegions
-getRegions = GetRegions' {_grIncludeAvailabilityZones = Nothing}
+getRegions =
+  GetRegions'
+    { _grIncludeRelationalDatabaseAvailabilityZones = Nothing
+    , _grIncludeAvailabilityZones = Nothing
+    }
 
+
+-- | >A Boolean value indicating whether to also include Availability Zones for databases in your get regions request. Availability Zones are indicated with a letter (e.g., @us-east-2a@ ).
+grIncludeRelationalDatabaseAvailabilityZones :: Lens' GetRegions (Maybe Bool)
+grIncludeRelationalDatabaseAvailabilityZones = lens _grIncludeRelationalDatabaseAvailabilityZones (\ s a -> s{_grIncludeRelationalDatabaseAvailabilityZones = a})
 
 -- | A Boolean value indicating whether to also include Availability Zones in your get regions request. Availability Zones are indicated with a letter: e.g., @us-east-2a@ .
 grIncludeAvailabilityZones :: Lens' GetRegions (Maybe Bool)
@@ -90,7 +102,9 @@ instance ToJSON GetRegions where
         toJSON GetRegions'{..}
           = object
               (catMaybes
-                 [("includeAvailabilityZones" .=) <$>
+                 [("includeRelationalDatabaseAvailabilityZones" .=)
+                    <$> _grIncludeRelationalDatabaseAvailabilityZones,
+                  ("includeAvailabilityZones" .=) <$>
                     _grIncludeAvailabilityZones])
 
 instance ToPath GetRegions where

@@ -21,6 +21,8 @@
 -- Deletes the specified block storage disk. The disk must be in the @available@ state (not attached to a Lightsail instance).
 --
 --
+-- The @delete disk@ operation supports tag-based access control via resource tags applied to the resource identified by diskName. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
+--
 module Network.AWS.Lightsail.DeleteDisk
     (
     -- * Creating a Request

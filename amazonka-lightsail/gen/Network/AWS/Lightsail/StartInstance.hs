@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts a specific Amazon Lightsail instance from a stopped state. To restart an instance, use the reboot instance operation.
+-- Starts a specific Amazon Lightsail instance from a stopped state. To restart an instance, use the @reboot instance@ operation.
 --
+--
+-- The @start instance@ operation supports tag-based access control via resource tags applied to the resource identified by instanceName. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 --
 module Network.AWS.Lightsail.StartInstance
     (

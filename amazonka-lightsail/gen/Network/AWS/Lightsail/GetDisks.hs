@@ -23,33 +23,36 @@
 --
 -- If you are describing a long list of disks, you can paginate the output to make the list more manageable. You can use the pageToken and nextPageToken values to retrieve the next items in the list.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Lightsail.GetDisks
     (
     -- * Creating a Request
       getDisks
     , GetDisks
     -- * Request Lenses
-    , gPageToken
+    , getPageToken
 
     -- * Destructuring the Response
     , getDisksResponse
     , GetDisksResponse
     -- * Response Lenses
-    , gddrsNextPageToken
-    , gddrsDisks
-    , gddrsResponseStatus
+    , ggrsNextPageToken
+    , ggrsDisks
+    , ggrsResponseStatus
     ) where
 
 import Network.AWS.Lens
 import Network.AWS.Lightsail.Types
 import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'getDisks' smart constructor.
 newtype GetDisks = GetDisks'
-  { _gPageToken :: Maybe Text
+  { _getPageToken :: Maybe Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -57,15 +60,22 @@ newtype GetDisks = GetDisks'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gPageToken' - A token used for advancing to the next page of results from your GetDisks request.
+-- * 'getPageToken' - A token used for advancing to the next page of results from your GetDisks request.
 getDisks
     :: GetDisks
-getDisks = GetDisks' {_gPageToken = Nothing}
+getDisks = GetDisks' {_getPageToken = Nothing}
 
 
 -- | A token used for advancing to the next page of results from your GetDisks request.
-gPageToken :: Lens' GetDisks (Maybe Text)
-gPageToken = lens _gPageToken (\ s a -> s{_gPageToken = a})
+getPageToken :: Lens' GetDisks (Maybe Text)
+getPageToken = lens _getPageToken (\ s a -> s{_getPageToken = a})
+
+instance AWSPager GetDisks where
+        page rq rs
+          | stop (rs ^. ggrsNextPageToken) = Nothing
+          | stop (rs ^. ggrsDisks) = Nothing
+          | otherwise =
+            Just $ rq & getPageToken .~ rs ^. ggrsNextPageToken
 
 instance AWSRequest GetDisks where
         type Rs GetDisks = GetDisksResponse
@@ -94,7 +104,7 @@ instance ToHeaders GetDisks where
 instance ToJSON GetDisks where
         toJSON GetDisks'{..}
           = object
-              (catMaybes [("pageToken" .=) <$> _gPageToken])
+              (catMaybes [("pageToken" .=) <$> _getPageToken])
 
 instance ToPath GetDisks where
         toPath = const "/"
@@ -104,9 +114,9 @@ instance ToQuery GetDisks where
 
 -- | /See:/ 'getDisksResponse' smart constructor.
 data GetDisksResponse = GetDisksResponse'
-  { _gddrsNextPageToken  :: !(Maybe Text)
-  , _gddrsDisks          :: !(Maybe [Disk])
-  , _gddrsResponseStatus :: !Int
+  { _ggrsNextPageToken  :: !(Maybe Text)
+  , _ggrsDisks          :: !(Maybe [Disk])
+  , _ggrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -114,32 +124,32 @@ data GetDisksResponse = GetDisksResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gddrsNextPageToken' - A token used for advancing to the next page of results from your GetDisks request.
+-- * 'ggrsNextPageToken' - A token used for advancing to the next page of results from your GetDisks request.
 --
--- * 'gddrsDisks' - An array of objects containing information about all block storage disks.
+-- * 'ggrsDisks' - An array of objects containing information about all block storage disks.
 --
--- * 'gddrsResponseStatus' - -- | The response status code.
+-- * 'ggrsResponseStatus' - -- | The response status code.
 getDisksResponse
-    :: Int -- ^ 'gddrsResponseStatus'
+    :: Int -- ^ 'ggrsResponseStatus'
     -> GetDisksResponse
 getDisksResponse pResponseStatus_ =
   GetDisksResponse'
-    { _gddrsNextPageToken = Nothing
-    , _gddrsDisks = Nothing
-    , _gddrsResponseStatus = pResponseStatus_
+    { _ggrsNextPageToken = Nothing
+    , _ggrsDisks = Nothing
+    , _ggrsResponseStatus = pResponseStatus_
     }
 
 
 -- | A token used for advancing to the next page of results from your GetDisks request.
-gddrsNextPageToken :: Lens' GetDisksResponse (Maybe Text)
-gddrsNextPageToken = lens _gddrsNextPageToken (\ s a -> s{_gddrsNextPageToken = a})
+ggrsNextPageToken :: Lens' GetDisksResponse (Maybe Text)
+ggrsNextPageToken = lens _ggrsNextPageToken (\ s a -> s{_ggrsNextPageToken = a})
 
 -- | An array of objects containing information about all block storage disks.
-gddrsDisks :: Lens' GetDisksResponse [Disk]
-gddrsDisks = lens _gddrsDisks (\ s a -> s{_gddrsDisks = a}) . _Default . _Coerce
+ggrsDisks :: Lens' GetDisksResponse [Disk]
+ggrsDisks = lens _ggrsDisks (\ s a -> s{_ggrsDisks = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
-gddrsResponseStatus :: Lens' GetDisksResponse Int
-gddrsResponseStatus = lens _gddrsResponseStatus (\ s a -> s{_gddrsResponseStatus = a})
+ggrsResponseStatus :: Lens' GetDisksResponse Int
+ggrsResponseStatus = lens _ggrsResponseStatus (\ s a -> s{_ggrsResponseStatus = a})
 
 instance NFData GetDisksResponse where

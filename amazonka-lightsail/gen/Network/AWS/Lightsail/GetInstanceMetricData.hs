@@ -71,7 +71,7 @@ data GetInstanceMetricData = GetInstanceMetricData'
 --
 -- * 'gimdMetricName' - The metric name to get data about.
 --
--- * 'gimdPeriod' - The time period for which you are requesting data.
+-- * 'gimdPeriod' - The granularity, in seconds, of the returned data points.
 --
 -- * 'gimdStartTime' - The start time of the time period.
 --
@@ -108,7 +108,7 @@ gimdInstanceName = lens _gimdInstanceName (\ s a -> s{_gimdInstanceName = a})
 gimdMetricName :: Lens' GetInstanceMetricData InstanceMetricName
 gimdMetricName = lens _gimdMetricName (\ s a -> s{_gimdMetricName = a})
 
--- | The time period for which you are requesting data.
+-- | The granularity, in seconds, of the returned data points.
 gimdPeriod :: Lens' GetInstanceMetricData Natural
 gimdPeriod = lens _gimdPeriod (\ s a -> s{_gimdPeriod = a}) . _Nat
 

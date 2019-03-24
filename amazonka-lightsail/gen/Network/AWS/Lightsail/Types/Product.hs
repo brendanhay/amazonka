@@ -108,7 +108,7 @@ data Blueprint = Blueprint'
 --
 -- * 'bType' - The type of the blueprint (e.g., @os@ or @app@ ).
 --
--- * 'bIsActive' - A Boolean value indicating whether the blueprint is active. When you update your blueprints, you will inactivate old blueprints and keep the most recent versions active.
+-- * 'bIsActive' - A Boolean value indicating whether the blueprint is active. Inactive blueprints are listed to support customers with existing instances but are not necessarily available for launch of new instances. Blueprints are marked inactive when they become outdated due to operating system updates or new application releases.
 --
 -- * 'bDescription' - The description of the blueprint.
 blueprint
@@ -170,7 +170,7 @@ bBlueprintId = lens _bBlueprintId (\ s a -> s{_bBlueprintId = a})
 bType :: Lens' Blueprint (Maybe BlueprintType)
 bType = lens _bType (\ s a -> s{_bType = a})
 
--- | A Boolean value indicating whether the blueprint is active. When you update your blueprints, you will inactivate old blueprints and keep the most recent versions active.
+-- | A Boolean value indicating whether the blueprint is active. Inactive blueprints are listed to support customers with existing instances but are not necessarily available for launch of new instances. Blueprints are marked inactive when they become outdated due to operating system updates or new application releases.
 bIsActive :: Lens' Blueprint (Maybe Bool)
 bIsActive = lens _bIsActive (\ s a -> s{_bIsActive = a})
 
@@ -326,6 +326,205 @@ instance Hashable Bundle where
 
 instance NFData Bundle where
 
+-- | Describes a CloudFormation stack record created as a result of the @create cloud formation stack@ operation.
+--
+--
+-- A CloudFormation stack record provides information about the AWS CloudFormation stack used to create a new Amazon Elastic Compute Cloud instance from an exported Lightsail instance snapshot.
+--
+--
+-- /See:/ 'cloudFormationStackRecord' smart constructor.
+data CloudFormationStackRecord = CloudFormationStackRecord'
+  { _cfsrState           :: !(Maybe RecordState)
+  , _cfsrDestinationInfo :: !(Maybe DestinationInfo)
+  , _cfsrResourceType    :: !(Maybe ResourceType)
+  , _cfsrArn             :: !(Maybe Text)
+  , _cfsrCreatedAt       :: !(Maybe POSIX)
+  , _cfsrLocation        :: !(Maybe ResourceLocation)
+  , _cfsrName            :: !(Maybe Text)
+  , _cfsrSourceInfo      :: !(Maybe [CloudFormationStackRecordSourceInfo])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CloudFormationStackRecord' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cfsrState' - The current state of the CloudFormation stack record.
+--
+-- * 'cfsrDestinationInfo' - A list of objects describing the destination service, which is AWS CloudFormation, and the Amazon Resource Name (ARN) of the AWS CloudFormation stack.
+--
+-- * 'cfsrResourceType' - The Lightsail resource type (e.g., @CloudFormationStackRecord@ ).
+--
+-- * 'cfsrArn' - The Amazon Resource Name (ARN) of the CloudFormation stack record.
+--
+-- * 'cfsrCreatedAt' - The date when the CloudFormation stack record was created.
+--
+-- * 'cfsrLocation' - A list of objects describing the Availability Zone and AWS Region of the CloudFormation stack record.
+--
+-- * 'cfsrName' - The name of the CloudFormation stack record. It starts with @CloudFormationStackRecord@ followed by a GUID.
+--
+-- * 'cfsrSourceInfo' - A list of objects describing the source of the CloudFormation stack record.
+cloudFormationStackRecord
+    :: CloudFormationStackRecord
+cloudFormationStackRecord =
+  CloudFormationStackRecord'
+    { _cfsrState = Nothing
+    , _cfsrDestinationInfo = Nothing
+    , _cfsrResourceType = Nothing
+    , _cfsrArn = Nothing
+    , _cfsrCreatedAt = Nothing
+    , _cfsrLocation = Nothing
+    , _cfsrName = Nothing
+    , _cfsrSourceInfo = Nothing
+    }
+
+
+-- | The current state of the CloudFormation stack record.
+cfsrState :: Lens' CloudFormationStackRecord (Maybe RecordState)
+cfsrState = lens _cfsrState (\ s a -> s{_cfsrState = a})
+
+-- | A list of objects describing the destination service, which is AWS CloudFormation, and the Amazon Resource Name (ARN) of the AWS CloudFormation stack.
+cfsrDestinationInfo :: Lens' CloudFormationStackRecord (Maybe DestinationInfo)
+cfsrDestinationInfo = lens _cfsrDestinationInfo (\ s a -> s{_cfsrDestinationInfo = a})
+
+-- | The Lightsail resource type (e.g., @CloudFormationStackRecord@ ).
+cfsrResourceType :: Lens' CloudFormationStackRecord (Maybe ResourceType)
+cfsrResourceType = lens _cfsrResourceType (\ s a -> s{_cfsrResourceType = a})
+
+-- | The Amazon Resource Name (ARN) of the CloudFormation stack record.
+cfsrArn :: Lens' CloudFormationStackRecord (Maybe Text)
+cfsrArn = lens _cfsrArn (\ s a -> s{_cfsrArn = a})
+
+-- | The date when the CloudFormation stack record was created.
+cfsrCreatedAt :: Lens' CloudFormationStackRecord (Maybe UTCTime)
+cfsrCreatedAt = lens _cfsrCreatedAt (\ s a -> s{_cfsrCreatedAt = a}) . mapping _Time
+
+-- | A list of objects describing the Availability Zone and AWS Region of the CloudFormation stack record.
+cfsrLocation :: Lens' CloudFormationStackRecord (Maybe ResourceLocation)
+cfsrLocation = lens _cfsrLocation (\ s a -> s{_cfsrLocation = a})
+
+-- | The name of the CloudFormation stack record. It starts with @CloudFormationStackRecord@ followed by a GUID.
+cfsrName :: Lens' CloudFormationStackRecord (Maybe Text)
+cfsrName = lens _cfsrName (\ s a -> s{_cfsrName = a})
+
+-- | A list of objects describing the source of the CloudFormation stack record.
+cfsrSourceInfo :: Lens' CloudFormationStackRecord [CloudFormationStackRecordSourceInfo]
+cfsrSourceInfo = lens _cfsrSourceInfo (\ s a -> s{_cfsrSourceInfo = a}) . _Default . _Coerce
+
+instance FromJSON CloudFormationStackRecord where
+        parseJSON
+          = withObject "CloudFormationStackRecord"
+              (\ x ->
+                 CloudFormationStackRecord' <$>
+                   (x .:? "state") <*> (x .:? "destinationInfo") <*>
+                     (x .:? "resourceType")
+                     <*> (x .:? "arn")
+                     <*> (x .:? "createdAt")
+                     <*> (x .:? "location")
+                     <*> (x .:? "name")
+                     <*> (x .:? "sourceInfo" .!= mempty))
+
+instance Hashable CloudFormationStackRecord where
+
+instance NFData CloudFormationStackRecord where
+
+-- | Describes the source of a CloudFormation stack record (i.e., the export snapshot record).
+--
+--
+--
+-- /See:/ 'cloudFormationStackRecordSourceInfo' smart constructor.
+data CloudFormationStackRecordSourceInfo = CloudFormationStackRecordSourceInfo'
+  { _cfsrsiResourceType :: !(Maybe CloudFormationStackRecordSourceType)
+  , _cfsrsiArn          :: !(Maybe Text)
+  , _cfsrsiName         :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'CloudFormationStackRecordSourceInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cfsrsiResourceType' - The Lightsail resource type (e.g., @ExportSnapshotRecord@ ).
+--
+-- * 'cfsrsiArn' - The Amazon Resource Name (ARN) of the export snapshot record.
+--
+-- * 'cfsrsiName' - The name of the record.
+cloudFormationStackRecordSourceInfo
+    :: CloudFormationStackRecordSourceInfo
+cloudFormationStackRecordSourceInfo =
+  CloudFormationStackRecordSourceInfo'
+    {_cfsrsiResourceType = Nothing, _cfsrsiArn = Nothing, _cfsrsiName = Nothing}
+
+
+-- | The Lightsail resource type (e.g., @ExportSnapshotRecord@ ).
+cfsrsiResourceType :: Lens' CloudFormationStackRecordSourceInfo (Maybe CloudFormationStackRecordSourceType)
+cfsrsiResourceType = lens _cfsrsiResourceType (\ s a -> s{_cfsrsiResourceType = a})
+
+-- | The Amazon Resource Name (ARN) of the export snapshot record.
+cfsrsiArn :: Lens' CloudFormationStackRecordSourceInfo (Maybe Text)
+cfsrsiArn = lens _cfsrsiArn (\ s a -> s{_cfsrsiArn = a})
+
+-- | The name of the record.
+cfsrsiName :: Lens' CloudFormationStackRecordSourceInfo (Maybe Text)
+cfsrsiName = lens _cfsrsiName (\ s a -> s{_cfsrsiName = a})
+
+instance FromJSON CloudFormationStackRecordSourceInfo
+         where
+        parseJSON
+          = withObject "CloudFormationStackRecordSourceInfo"
+              (\ x ->
+                 CloudFormationStackRecordSourceInfo' <$>
+                   (x .:? "resourceType") <*> (x .:? "arn") <*>
+                     (x .:? "name"))
+
+instance Hashable CloudFormationStackRecordSourceInfo
+         where
+
+instance NFData CloudFormationStackRecordSourceInfo
+         where
+
+-- | Describes the destination of a record.
+--
+--
+--
+-- /See:/ 'destinationInfo' smart constructor.
+data DestinationInfo = DestinationInfo'
+  { _diService :: !(Maybe Text)
+  , _diId      :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DestinationInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diService' - The destination service of the record.
+--
+-- * 'diId' - The ID of the resource created at the destination.
+destinationInfo
+    :: DestinationInfo
+destinationInfo = DestinationInfo' {_diService = Nothing, _diId = Nothing}
+
+
+-- | The destination service of the record.
+diService :: Lens' DestinationInfo (Maybe Text)
+diService = lens _diService (\ s a -> s{_diService = a})
+
+-- | The ID of the resource created at the destination.
+diId :: Lens' DestinationInfo (Maybe Text)
+diId = lens _diId (\ s a -> s{_diId = a})
+
+instance FromJSON DestinationInfo where
+        parseJSON
+          = withObject "DestinationInfo"
+              (\ x ->
+                 DestinationInfo' <$>
+                   (x .:? "service") <*> (x .:? "id"))
+
+instance Hashable DestinationInfo where
+
+instance NFData DestinationInfo where
+
 -- | Describes a system disk or an block storage disk.
 --
 --
@@ -347,6 +546,7 @@ data Disk = Disk'
   , _dIsSystemDisk    :: !(Maybe Bool)
   , _dAttachedTo      :: !(Maybe Text)
   , _dGbInUse         :: !(Maybe Int)
+  , _dTags            :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -383,6 +583,8 @@ data Disk = Disk'
 -- * 'dAttachedTo' - The resources to which the disk is attached.
 --
 -- * 'dGbInUse' - (Deprecated) The number of GB in use by the disk.
+--
+-- * 'dTags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 disk
     :: Disk
 disk =
@@ -402,6 +604,7 @@ disk =
     , _dIsSystemDisk = Nothing
     , _dAttachedTo = Nothing
     , _dGbInUse = Nothing
+    , _dTags = Nothing
     }
 
 
@@ -465,6 +668,10 @@ dAttachedTo = lens _dAttachedTo (\ s a -> s{_dAttachedTo = a})
 dGbInUse :: Lens' Disk (Maybe Int)
 dGbInUse = lens _dGbInUse (\ s a -> s{_dGbInUse = a})
 
+-- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
+dTags :: Lens' Disk [Tag]
+dTags = lens _dTags (\ s a -> s{_dTags = a}) . _Default . _Coerce
+
 instance FromJSON Disk where
         parseJSON
           = withObject "Disk"
@@ -483,11 +690,76 @@ instance FromJSON Disk where
                      <*> (x .:? "supportCode")
                      <*> (x .:? "isSystemDisk")
                      <*> (x .:? "attachedTo")
-                     <*> (x .:? "gbInUse"))
+                     <*> (x .:? "gbInUse")
+                     <*> (x .:? "tags" .!= mempty))
 
 instance Hashable Disk where
 
 instance NFData Disk where
+
+-- | Describes a disk.
+--
+--
+--
+-- /See:/ 'diskInfo' smart constructor.
+data DiskInfo = DiskInfo'
+  { _diPath         :: !(Maybe Text)
+  , _diName         :: !(Maybe Text)
+  , _diSizeInGb     :: !(Maybe Int)
+  , _diIsSystemDisk :: !(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DiskInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diPath' - The disk path.
+--
+-- * 'diName' - The disk name.
+--
+-- * 'diSizeInGb' - The size of the disk in GB (e.g., @32@ ).
+--
+-- * 'diIsSystemDisk' - A Boolean value indicating whether this disk is a system disk (has an operating system loaded on it).
+diskInfo
+    :: DiskInfo
+diskInfo =
+  DiskInfo'
+    { _diPath = Nothing
+    , _diName = Nothing
+    , _diSizeInGb = Nothing
+    , _diIsSystemDisk = Nothing
+    }
+
+
+-- | The disk path.
+diPath :: Lens' DiskInfo (Maybe Text)
+diPath = lens _diPath (\ s a -> s{_diPath = a})
+
+-- | The disk name.
+diName :: Lens' DiskInfo (Maybe Text)
+diName = lens _diName (\ s a -> s{_diName = a})
+
+-- | The size of the disk in GB (e.g., @32@ ).
+diSizeInGb :: Lens' DiskInfo (Maybe Int)
+diSizeInGb = lens _diSizeInGb (\ s a -> s{_diSizeInGb = a})
+
+-- | A Boolean value indicating whether this disk is a system disk (has an operating system loaded on it).
+diIsSystemDisk :: Lens' DiskInfo (Maybe Bool)
+diIsSystemDisk = lens _diIsSystemDisk (\ s a -> s{_diIsSystemDisk = a})
+
+instance FromJSON DiskInfo where
+        parseJSON
+          = withObject "DiskInfo"
+              (\ x ->
+                 DiskInfo' <$>
+                   (x .:? "path") <*> (x .:? "name") <*>
+                     (x .:? "sizeInGb")
+                     <*> (x .:? "isSystemDisk"))
+
+instance Hashable DiskInfo where
+
+instance NFData DiskInfo where
 
 -- | Describes a block storage disk mapping.
 --
@@ -537,17 +809,20 @@ instance ToJSON DiskMap where
 --
 -- /See:/ 'diskSnapshot' smart constructor.
 data DiskSnapshot = DiskSnapshot'
-  { _dsFromDiskName :: !(Maybe Text)
-  , _dsState        :: !(Maybe DiskSnapshotState)
-  , _dsResourceType :: !(Maybe ResourceType)
-  , _dsArn          :: !(Maybe Text)
-  , _dsCreatedAt    :: !(Maybe POSIX)
-  , _dsLocation     :: !(Maybe ResourceLocation)
-  , _dsProgress     :: !(Maybe Text)
-  , _dsName         :: !(Maybe Text)
-  , _dsSizeInGb     :: !(Maybe Int)
-  , _dsSupportCode  :: !(Maybe Text)
-  , _dsFromDiskARN  :: !(Maybe Text)
+  { _dsFromDiskName     :: !(Maybe Text)
+  , _dsState            :: !(Maybe DiskSnapshotState)
+  , _dsResourceType     :: !(Maybe ResourceType)
+  , _dsArn              :: !(Maybe Text)
+  , _dsCreatedAt        :: !(Maybe POSIX)
+  , _dsLocation         :: !(Maybe ResourceLocation)
+  , _dsProgress         :: !(Maybe Text)
+  , _dsName             :: !(Maybe Text)
+  , _dsSizeInGb         :: !(Maybe Int)
+  , _dsSupportCode      :: !(Maybe Text)
+  , _dsFromInstanceARN  :: !(Maybe Text)
+  , _dsFromInstanceName :: !(Maybe Text)
+  , _dsFromDiskARN      :: !(Maybe Text)
+  , _dsTags             :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -555,7 +830,7 @@ data DiskSnapshot = DiskSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsFromDiskName' - The unique name of the source disk from which you are creating the disk snapshot.
+-- * 'dsFromDiskName' - The unique name of the source disk from which the disk snapshot was created.
 --
 -- * 'dsState' - The status of the disk snapshot operation.
 --
@@ -575,7 +850,13 @@ data DiskSnapshot = DiskSnapshot'
 --
 -- * 'dsSupportCode' - The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 --
--- * 'dsFromDiskARN' - The Amazon Resource Name (ARN) of the source disk from which you are creating the disk snapshot.
+-- * 'dsFromInstanceARN' - The Amazon Resource Name (ARN) of the source instance from which the disk (system volume) snapshot was created.
+--
+-- * 'dsFromInstanceName' - The unique name of the source instance from which the disk (system volume) snapshot was created.
+--
+-- * 'dsFromDiskARN' - The Amazon Resource Name (ARN) of the source disk from which the disk snapshot was created.
+--
+-- * 'dsTags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 diskSnapshot
     :: DiskSnapshot
 diskSnapshot =
@@ -590,11 +871,14 @@ diskSnapshot =
     , _dsName = Nothing
     , _dsSizeInGb = Nothing
     , _dsSupportCode = Nothing
+    , _dsFromInstanceARN = Nothing
+    , _dsFromInstanceName = Nothing
     , _dsFromDiskARN = Nothing
+    , _dsTags = Nothing
     }
 
 
--- | The unique name of the source disk from which you are creating the disk snapshot.
+-- | The unique name of the source disk from which the disk snapshot was created.
 dsFromDiskName :: Lens' DiskSnapshot (Maybe Text)
 dsFromDiskName = lens _dsFromDiskName (\ s a -> s{_dsFromDiskName = a})
 
@@ -634,9 +918,21 @@ dsSizeInGb = lens _dsSizeInGb (\ s a -> s{_dsSizeInGb = a})
 dsSupportCode :: Lens' DiskSnapshot (Maybe Text)
 dsSupportCode = lens _dsSupportCode (\ s a -> s{_dsSupportCode = a})
 
--- | The Amazon Resource Name (ARN) of the source disk from which you are creating the disk snapshot.
+-- | The Amazon Resource Name (ARN) of the source instance from which the disk (system volume) snapshot was created.
+dsFromInstanceARN :: Lens' DiskSnapshot (Maybe Text)
+dsFromInstanceARN = lens _dsFromInstanceARN (\ s a -> s{_dsFromInstanceARN = a})
+
+-- | The unique name of the source instance from which the disk (system volume) snapshot was created.
+dsFromInstanceName :: Lens' DiskSnapshot (Maybe Text)
+dsFromInstanceName = lens _dsFromInstanceName (\ s a -> s{_dsFromInstanceName = a})
+
+-- | The Amazon Resource Name (ARN) of the source disk from which the disk snapshot was created.
 dsFromDiskARN :: Lens' DiskSnapshot (Maybe Text)
 dsFromDiskARN = lens _dsFromDiskARN (\ s a -> s{_dsFromDiskARN = a})
+
+-- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
+dsTags :: Lens' DiskSnapshot [Tag]
+dsTags = lens _dsTags (\ s a -> s{_dsTags = a}) . _Default . _Coerce
 
 instance FromJSON DiskSnapshot where
         parseJSON
@@ -652,11 +948,47 @@ instance FromJSON DiskSnapshot where
                      <*> (x .:? "name")
                      <*> (x .:? "sizeInGb")
                      <*> (x .:? "supportCode")
-                     <*> (x .:? "fromDiskArn"))
+                     <*> (x .:? "fromInstanceArn")
+                     <*> (x .:? "fromInstanceName")
+                     <*> (x .:? "fromDiskArn")
+                     <*> (x .:? "tags" .!= mempty))
 
 instance Hashable DiskSnapshot where
 
 instance NFData DiskSnapshot where
+
+-- | Describes a disk snapshot.
+--
+--
+--
+-- /See:/ 'diskSnapshotInfo' smart constructor.
+newtype DiskSnapshotInfo = DiskSnapshotInfo'
+  { _dsiSizeInGb :: Maybe Int
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DiskSnapshotInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsiSizeInGb' - The size of the disk in GB (e.g., @32@ ).
+diskSnapshotInfo
+    :: DiskSnapshotInfo
+diskSnapshotInfo = DiskSnapshotInfo' {_dsiSizeInGb = Nothing}
+
+
+-- | The size of the disk in GB (e.g., @32@ ).
+dsiSizeInGb :: Lens' DiskSnapshotInfo (Maybe Int)
+dsiSizeInGb = lens _dsiSizeInGb (\ s a -> s{_dsiSizeInGb = a})
+
+instance FromJSON DiskSnapshotInfo where
+        parseJSON
+          = withObject "DiskSnapshotInfo"
+              (\ x -> DiskSnapshotInfo' <$> (x .:? "sizeInGb"))
+
+instance Hashable DiskSnapshotInfo where
+
+instance NFData DiskSnapshotInfo where
 
 -- | Describes a domain where you are storing recordsets in Lightsail.
 --
@@ -671,6 +1003,7 @@ data Domain = Domain'
   , _domLocation      :: !(Maybe ResourceLocation)
   , _domName          :: !(Maybe Text)
   , _domSupportCode   :: !(Maybe Text)
+  , _domTags          :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -691,6 +1024,8 @@ data Domain = Domain'
 -- * 'domName' - The name of the domain.
 --
 -- * 'domSupportCode' - The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+--
+-- * 'domTags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 domain
     :: Domain
 domain =
@@ -702,6 +1037,7 @@ domain =
     , _domLocation = Nothing
     , _domName = Nothing
     , _domSupportCode = Nothing
+    , _domTags = Nothing
     }
 
 
@@ -733,6 +1069,10 @@ domName = lens _domName (\ s a -> s{_domName = a})
 domSupportCode :: Lens' Domain (Maybe Text)
 domSupportCode = lens _domSupportCode (\ s a -> s{_domSupportCode = a})
 
+-- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
+domTags :: Lens' Domain [Tag]
+domTags = lens _domTags (\ s a -> s{_domTags = a}) . _Default . _Coerce
+
 instance FromJSON Domain where
         parseJSON
           = withObject "Domain"
@@ -744,7 +1084,8 @@ instance FromJSON Domain where
                      <*> (x .:? "createdAt")
                      <*> (x .:? "location")
                      <*> (x .:? "name")
-                     <*> (x .:? "supportCode"))
+                     <*> (x .:? "supportCode")
+                     <*> (x .:? "tags" .!= mempty))
 
 instance Hashable Domain where
 
@@ -777,7 +1118,7 @@ data DomainEntry = DomainEntry'
 --
 -- * 'deOptions' - (Deprecated) The options for the domain entry.
 --
--- * 'deType' - The type of domain entry (e.g., @SOA@ or @NS@ ).
+-- * 'deType' - The type of domain entry, such as address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA), service locator (SRV), or text (TXT). The following domain entry types can be used:     * @A@      * @CNAME@      * @MX@      * @NS@      * @SOA@      * @SRV@      * @TXT@
 --
 -- * 'deTarget' - The target AWS name server (e.g., @ns-111.awsdns-22.com.@ ). For Lightsail load balancers, the value looks like @ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com@ . Be sure to also set @isAlias@ to @true@ when setting up an A record for a load balancer.
 domainEntry
@@ -809,7 +1150,7 @@ deId = lens _deId (\ s a -> s{_deId = a})
 deOptions :: Lens' DomainEntry (HashMap Text Text)
 deOptions = lens _deOptions (\ s a -> s{_deOptions = a}) . _Default . _Map
 
--- | The type of domain entry (e.g., @SOA@ or @NS@ ).
+-- | The type of domain entry, such as address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA), service locator (SRV), or text (TXT). The following domain entry types can be used:     * @A@      * @CNAME@      * @MX@      * @NS@      * @SOA@      * @SRV@      * @TXT@
 deType :: Lens' DomainEntry (Maybe Text)
 deType = lens _deType (\ s a -> s{_deType = a})
 
@@ -841,6 +1182,299 @@ instance ToJSON DomainEntry where
                   ("type" .=) <$> _deType,
                   ("target" .=) <$> _deTarget])
 
+-- | Describes an export snapshot record.
+--
+--
+--
+-- /See:/ 'exportSnapshotRecord' smart constructor.
+data ExportSnapshotRecord = ExportSnapshotRecord'
+  { _esrState           :: !(Maybe RecordState)
+  , _esrDestinationInfo :: !(Maybe DestinationInfo)
+  , _esrResourceType    :: !(Maybe ResourceType)
+  , _esrArn             :: !(Maybe Text)
+  , _esrCreatedAt       :: !(Maybe POSIX)
+  , _esrLocation        :: !(Maybe ResourceLocation)
+  , _esrName            :: !(Maybe Text)
+  , _esrSourceInfo      :: !(Maybe ExportSnapshotRecordSourceInfo)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ExportSnapshotRecord' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'esrState' - The state of the export snapshot record.
+--
+-- * 'esrDestinationInfo' - A list of objects describing the destination of the export snapshot record.
+--
+-- * 'esrResourceType' - The Lightsail resource type (e.g., @ExportSnapshotRecord@ ).
+--
+-- * 'esrArn' - The Amazon Resource Name (ARN) of the export snapshot record.
+--
+-- * 'esrCreatedAt' - The date when the export snapshot record was created.
+--
+-- * 'esrLocation' - The AWS Region and Availability Zone where the export snapshot record is located.
+--
+-- * 'esrName' - The export snapshot record name.
+--
+-- * 'esrSourceInfo' - A list of objects describing the source of the export snapshot record.
+exportSnapshotRecord
+    :: ExportSnapshotRecord
+exportSnapshotRecord =
+  ExportSnapshotRecord'
+    { _esrState = Nothing
+    , _esrDestinationInfo = Nothing
+    , _esrResourceType = Nothing
+    , _esrArn = Nothing
+    , _esrCreatedAt = Nothing
+    , _esrLocation = Nothing
+    , _esrName = Nothing
+    , _esrSourceInfo = Nothing
+    }
+
+
+-- | The state of the export snapshot record.
+esrState :: Lens' ExportSnapshotRecord (Maybe RecordState)
+esrState = lens _esrState (\ s a -> s{_esrState = a})
+
+-- | A list of objects describing the destination of the export snapshot record.
+esrDestinationInfo :: Lens' ExportSnapshotRecord (Maybe DestinationInfo)
+esrDestinationInfo = lens _esrDestinationInfo (\ s a -> s{_esrDestinationInfo = a})
+
+-- | The Lightsail resource type (e.g., @ExportSnapshotRecord@ ).
+esrResourceType :: Lens' ExportSnapshotRecord (Maybe ResourceType)
+esrResourceType = lens _esrResourceType (\ s a -> s{_esrResourceType = a})
+
+-- | The Amazon Resource Name (ARN) of the export snapshot record.
+esrArn :: Lens' ExportSnapshotRecord (Maybe Text)
+esrArn = lens _esrArn (\ s a -> s{_esrArn = a})
+
+-- | The date when the export snapshot record was created.
+esrCreatedAt :: Lens' ExportSnapshotRecord (Maybe UTCTime)
+esrCreatedAt = lens _esrCreatedAt (\ s a -> s{_esrCreatedAt = a}) . mapping _Time
+
+-- | The AWS Region and Availability Zone where the export snapshot record is located.
+esrLocation :: Lens' ExportSnapshotRecord (Maybe ResourceLocation)
+esrLocation = lens _esrLocation (\ s a -> s{_esrLocation = a})
+
+-- | The export snapshot record name.
+esrName :: Lens' ExportSnapshotRecord (Maybe Text)
+esrName = lens _esrName (\ s a -> s{_esrName = a})
+
+-- | A list of objects describing the source of the export snapshot record.
+esrSourceInfo :: Lens' ExportSnapshotRecord (Maybe ExportSnapshotRecordSourceInfo)
+esrSourceInfo = lens _esrSourceInfo (\ s a -> s{_esrSourceInfo = a})
+
+instance FromJSON ExportSnapshotRecord where
+        parseJSON
+          = withObject "ExportSnapshotRecord"
+              (\ x ->
+                 ExportSnapshotRecord' <$>
+                   (x .:? "state") <*> (x .:? "destinationInfo") <*>
+                     (x .:? "resourceType")
+                     <*> (x .:? "arn")
+                     <*> (x .:? "createdAt")
+                     <*> (x .:? "location")
+                     <*> (x .:? "name")
+                     <*> (x .:? "sourceInfo"))
+
+instance Hashable ExportSnapshotRecord where
+
+instance NFData ExportSnapshotRecord where
+
+-- | Describes the source of an export snapshot record.
+--
+--
+--
+-- /See:/ 'exportSnapshotRecordSourceInfo' smart constructor.
+data ExportSnapshotRecordSourceInfo = ExportSnapshotRecordSourceInfo'
+  { _esrsiDiskSnapshotInfo     :: !(Maybe DiskSnapshotInfo)
+  , _esrsiResourceType         :: !(Maybe ExportSnapshotRecordSourceType)
+  , _esrsiArn                  :: !(Maybe Text)
+  , _esrsiCreatedAt            :: !(Maybe POSIX)
+  , _esrsiFromResourceARN      :: !(Maybe Text)
+  , _esrsiName                 :: !(Maybe Text)
+  , _esrsiInstanceSnapshotInfo :: !(Maybe InstanceSnapshotInfo)
+  , _esrsiFromResourceName     :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ExportSnapshotRecordSourceInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'esrsiDiskSnapshotInfo' - A list of objects describing a disk snapshot.
+--
+-- * 'esrsiResourceType' - The Lightsail resource type (e.g., @InstanceSnapshot@ or @DiskSnapshot@ ).
+--
+-- * 'esrsiArn' - The Amazon Resource Name (ARN) of the source instance or disk snapshot.
+--
+-- * 'esrsiCreatedAt' - The date when the source instance or disk snapshot was created.
+--
+-- * 'esrsiFromResourceARN' - The Amazon Resource Name (ARN) of the snapshot's source instance or disk.
+--
+-- * 'esrsiName' - The name of the source instance or disk snapshot.
+--
+-- * 'esrsiInstanceSnapshotInfo' - A list of objects describing an instance snapshot.
+--
+-- * 'esrsiFromResourceName' - The name of the snapshot's source instance or disk.
+exportSnapshotRecordSourceInfo
+    :: ExportSnapshotRecordSourceInfo
+exportSnapshotRecordSourceInfo =
+  ExportSnapshotRecordSourceInfo'
+    { _esrsiDiskSnapshotInfo = Nothing
+    , _esrsiResourceType = Nothing
+    , _esrsiArn = Nothing
+    , _esrsiCreatedAt = Nothing
+    , _esrsiFromResourceARN = Nothing
+    , _esrsiName = Nothing
+    , _esrsiInstanceSnapshotInfo = Nothing
+    , _esrsiFromResourceName = Nothing
+    }
+
+
+-- | A list of objects describing a disk snapshot.
+esrsiDiskSnapshotInfo :: Lens' ExportSnapshotRecordSourceInfo (Maybe DiskSnapshotInfo)
+esrsiDiskSnapshotInfo = lens _esrsiDiskSnapshotInfo (\ s a -> s{_esrsiDiskSnapshotInfo = a})
+
+-- | The Lightsail resource type (e.g., @InstanceSnapshot@ or @DiskSnapshot@ ).
+esrsiResourceType :: Lens' ExportSnapshotRecordSourceInfo (Maybe ExportSnapshotRecordSourceType)
+esrsiResourceType = lens _esrsiResourceType (\ s a -> s{_esrsiResourceType = a})
+
+-- | The Amazon Resource Name (ARN) of the source instance or disk snapshot.
+esrsiArn :: Lens' ExportSnapshotRecordSourceInfo (Maybe Text)
+esrsiArn = lens _esrsiArn (\ s a -> s{_esrsiArn = a})
+
+-- | The date when the source instance or disk snapshot was created.
+esrsiCreatedAt :: Lens' ExportSnapshotRecordSourceInfo (Maybe UTCTime)
+esrsiCreatedAt = lens _esrsiCreatedAt (\ s a -> s{_esrsiCreatedAt = a}) . mapping _Time
+
+-- | The Amazon Resource Name (ARN) of the snapshot's source instance or disk.
+esrsiFromResourceARN :: Lens' ExportSnapshotRecordSourceInfo (Maybe Text)
+esrsiFromResourceARN = lens _esrsiFromResourceARN (\ s a -> s{_esrsiFromResourceARN = a})
+
+-- | The name of the source instance or disk snapshot.
+esrsiName :: Lens' ExportSnapshotRecordSourceInfo (Maybe Text)
+esrsiName = lens _esrsiName (\ s a -> s{_esrsiName = a})
+
+-- | A list of objects describing an instance snapshot.
+esrsiInstanceSnapshotInfo :: Lens' ExportSnapshotRecordSourceInfo (Maybe InstanceSnapshotInfo)
+esrsiInstanceSnapshotInfo = lens _esrsiInstanceSnapshotInfo (\ s a -> s{_esrsiInstanceSnapshotInfo = a})
+
+-- | The name of the snapshot's source instance or disk.
+esrsiFromResourceName :: Lens' ExportSnapshotRecordSourceInfo (Maybe Text)
+esrsiFromResourceName = lens _esrsiFromResourceName (\ s a -> s{_esrsiFromResourceName = a})
+
+instance FromJSON ExportSnapshotRecordSourceInfo
+         where
+        parseJSON
+          = withObject "ExportSnapshotRecordSourceInfo"
+              (\ x ->
+                 ExportSnapshotRecordSourceInfo' <$>
+                   (x .:? "diskSnapshotInfo") <*> (x .:? "resourceType")
+                     <*> (x .:? "arn")
+                     <*> (x .:? "createdAt")
+                     <*> (x .:? "fromResourceArn")
+                     <*> (x .:? "name")
+                     <*> (x .:? "instanceSnapshotInfo")
+                     <*> (x .:? "fromResourceName"))
+
+instance Hashable ExportSnapshotRecordSourceInfo
+         where
+
+instance NFData ExportSnapshotRecordSourceInfo where
+
+-- | Describes the public SSH host keys or the RDP certificate.
+--
+--
+--
+-- /See:/ 'hostKeyAttributes' smart constructor.
+data HostKeyAttributes = HostKeyAttributes'
+  { _hkaNotValidAfter     :: !(Maybe POSIX)
+  , _hkaNotValidBefore    :: !(Maybe POSIX)
+  , _hkaFingerprintSHA1   :: !(Maybe Text)
+  , _hkaPublicKey         :: !(Maybe Text)
+  , _hkaAlgorithm         :: !(Maybe Text)
+  , _hkaWitnessedAt       :: !(Maybe POSIX)
+  , _hkaFingerprintSHA256 :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'HostKeyAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'hkaNotValidAfter' - The returned RDP certificate is not valid after this point in time. This value is listed only for RDP certificates.
+--
+-- * 'hkaNotValidBefore' - The returned RDP certificate is valid after this point in time. This value is listed only for RDP certificates.
+--
+-- * 'hkaFingerprintSHA1' - The SHA-1 fingerprint of the returned SSH host key or RDP certificate.     * Example of an SHA-1 SSH fingerprint: @SHA1:1CHH6FaAaXjtFOsR/t83vf91SR0@      * Example of an SHA-1 RDP fingerprint: @af:34:51:fe:09:f0:e0:da:b8:4e:56:ca:60:c2:10:ff:38:06:db:45@
+--
+-- * 'hkaPublicKey' - The public SSH host key or the RDP certificate.
+--
+-- * 'hkaAlgorithm' - The SSH host key algorithm or the RDP certificate format. For SSH host keys, the algorithm may be @ssh-rsa@ , @ecdsa-sha2-nistp256@ , @ssh-ed25519@ , etc. For RDP certificates, the algorithm is always @x509-cert@ .
+--
+-- * 'hkaWitnessedAt' - The time that the SSH host key or RDP certificate was recorded by Lightsail.
+--
+-- * 'hkaFingerprintSHA256' - The SHA-256 fingerprint of the returned SSH host key or RDP certificate.     * Example of an SHA-256 SSH fingerprint: @SHA256:KTsMnRBh1IhD17HpdfsbzeGA4jOijm5tyXsMjKVbB8o@      * Example of an SHA-256 RDP fingerprint: @03:9b:36:9f:4b:de:4e:61:70:fc:7c:c9:78:e7:d2:1a:1c:25:a8:0c:91:f6:7c:e4:d6:a0:85:c8:b4:53:99:68@
+hostKeyAttributes
+    :: HostKeyAttributes
+hostKeyAttributes =
+  HostKeyAttributes'
+    { _hkaNotValidAfter = Nothing
+    , _hkaNotValidBefore = Nothing
+    , _hkaFingerprintSHA1 = Nothing
+    , _hkaPublicKey = Nothing
+    , _hkaAlgorithm = Nothing
+    , _hkaWitnessedAt = Nothing
+    , _hkaFingerprintSHA256 = Nothing
+    }
+
+
+-- | The returned RDP certificate is not valid after this point in time. This value is listed only for RDP certificates.
+hkaNotValidAfter :: Lens' HostKeyAttributes (Maybe UTCTime)
+hkaNotValidAfter = lens _hkaNotValidAfter (\ s a -> s{_hkaNotValidAfter = a}) . mapping _Time
+
+-- | The returned RDP certificate is valid after this point in time. This value is listed only for RDP certificates.
+hkaNotValidBefore :: Lens' HostKeyAttributes (Maybe UTCTime)
+hkaNotValidBefore = lens _hkaNotValidBefore (\ s a -> s{_hkaNotValidBefore = a}) . mapping _Time
+
+-- | The SHA-1 fingerprint of the returned SSH host key or RDP certificate.     * Example of an SHA-1 SSH fingerprint: @SHA1:1CHH6FaAaXjtFOsR/t83vf91SR0@      * Example of an SHA-1 RDP fingerprint: @af:34:51:fe:09:f0:e0:da:b8:4e:56:ca:60:c2:10:ff:38:06:db:45@
+hkaFingerprintSHA1 :: Lens' HostKeyAttributes (Maybe Text)
+hkaFingerprintSHA1 = lens _hkaFingerprintSHA1 (\ s a -> s{_hkaFingerprintSHA1 = a})
+
+-- | The public SSH host key or the RDP certificate.
+hkaPublicKey :: Lens' HostKeyAttributes (Maybe Text)
+hkaPublicKey = lens _hkaPublicKey (\ s a -> s{_hkaPublicKey = a})
+
+-- | The SSH host key algorithm or the RDP certificate format. For SSH host keys, the algorithm may be @ssh-rsa@ , @ecdsa-sha2-nistp256@ , @ssh-ed25519@ , etc. For RDP certificates, the algorithm is always @x509-cert@ .
+hkaAlgorithm :: Lens' HostKeyAttributes (Maybe Text)
+hkaAlgorithm = lens _hkaAlgorithm (\ s a -> s{_hkaAlgorithm = a})
+
+-- | The time that the SSH host key or RDP certificate was recorded by Lightsail.
+hkaWitnessedAt :: Lens' HostKeyAttributes (Maybe UTCTime)
+hkaWitnessedAt = lens _hkaWitnessedAt (\ s a -> s{_hkaWitnessedAt = a}) . mapping _Time
+
+-- | The SHA-256 fingerprint of the returned SSH host key or RDP certificate.     * Example of an SHA-256 SSH fingerprint: @SHA256:KTsMnRBh1IhD17HpdfsbzeGA4jOijm5tyXsMjKVbB8o@      * Example of an SHA-256 RDP fingerprint: @03:9b:36:9f:4b:de:4e:61:70:fc:7c:c9:78:e7:d2:1a:1c:25:a8:0c:91:f6:7c:e4:d6:a0:85:c8:b4:53:99:68@
+hkaFingerprintSHA256 :: Lens' HostKeyAttributes (Maybe Text)
+hkaFingerprintSHA256 = lens _hkaFingerprintSHA256 (\ s a -> s{_hkaFingerprintSHA256 = a})
+
+instance FromJSON HostKeyAttributes where
+        parseJSON
+          = withObject "HostKeyAttributes"
+              (\ x ->
+                 HostKeyAttributes' <$>
+                   (x .:? "notValidAfter") <*> (x .:? "notValidBefore")
+                     <*> (x .:? "fingerprintSHA1")
+                     <*> (x .:? "publicKey")
+                     <*> (x .:? "algorithm")
+                     <*> (x .:? "witnessedAt")
+                     <*> (x .:? "fingerprintSHA256"))
+
+instance Hashable HostKeyAttributes where
+
+instance NFData HostKeyAttributes where
+
 -- | Describes an instance (a virtual private server).
 --
 --
@@ -865,6 +1499,7 @@ data Instance = Instance'
   , _iIsStaticIP       :: !(Maybe Bool)
   , _iPublicIPAddress  :: !(Maybe Text)
   , _iHardware         :: !(Maybe InstanceHardware)
+  , _iTags             :: !(Maybe [Tag])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -882,7 +1517,7 @@ data Instance = Instance'
 --
 -- * 'iCreatedAt' - The timestamp when the instance was created (e.g., @1479734909.17@ ).
 --
--- * 'iLocation' - The region name and availability zone where the instance is located.
+-- * 'iLocation' - The region name and Availability Zone where the instance is located.
 --
 -- * 'iSshKeyName' - The name of the SSH key being used to connect to the instance (e.g., @LightsailDefaultKeyPair@ ).
 --
@@ -907,6 +1542,8 @@ data Instance = Instance'
 -- * 'iPublicIPAddress' - The public IP address of the instance.
 --
 -- * 'iHardware' - The size of the vCPU and the amount of RAM for the instance.
+--
+-- * 'iTags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 instance'
     :: Instance
 instance' =
@@ -929,6 +1566,7 @@ instance' =
     , _iIsStaticIP = Nothing
     , _iPublicIPAddress = Nothing
     , _iHardware = Nothing
+    , _iTags = Nothing
     }
 
 
@@ -952,7 +1590,7 @@ iArn = lens _iArn (\ s a -> s{_iArn = a})
 iCreatedAt :: Lens' Instance (Maybe UTCTime)
 iCreatedAt = lens _iCreatedAt (\ s a -> s{_iCreatedAt = a}) . mapping _Time
 
--- | The region name and availability zone where the instance is located.
+-- | The region name and Availability Zone where the instance is located.
 iLocation :: Lens' Instance (Maybe ResourceLocation)
 iLocation = lens _iLocation (\ s a -> s{_iLocation = a})
 
@@ -1004,6 +1642,10 @@ iPublicIPAddress = lens _iPublicIPAddress (\ s a -> s{_iPublicIPAddress = a})
 iHardware :: Lens' Instance (Maybe InstanceHardware)
 iHardware = lens _iHardware (\ s a -> s{_iHardware = a})
 
+-- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
+iTags :: Lens' Instance [Tag]
+iTags = lens _iTags (\ s a -> s{_iTags = a}) . _Default . _Coerce
+
 instance FromJSON Instance where
         parseJSON
           = withObject "Instance"
@@ -1025,7 +1667,8 @@ instance FromJSON Instance where
                      <*> (x .:? "blueprintName")
                      <*> (x .:? "isStaticIp")
                      <*> (x .:? "publicIpAddress")
-                     <*> (x .:? "hardware"))
+                     <*> (x .:? "hardware")
+                     <*> (x .:? "tags" .!= mempty))
 
 instance Hashable Instance where
 
@@ -1037,7 +1680,8 @@ instance NFData Instance where
 --
 -- /See:/ 'instanceAccessDetails' smart constructor.
 data InstanceAccessDetails = InstanceAccessDetails'
-  { _iadCertKey      :: !(Maybe Text)
+  { _iadHostKeys     :: !(Maybe [HostKeyAttributes])
+  , _iadCertKey      :: !(Maybe Text)
   , _iadIpAddress    :: !(Maybe Text)
   , _iadPrivateKey   :: !(Maybe Text)
   , _iadExpiresAt    :: !(Maybe POSIX)
@@ -1052,6 +1696,8 @@ data InstanceAccessDetails = InstanceAccessDetails'
 -- | Creates a value of 'InstanceAccessDetails' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iadHostKeys' - Describes the public SSH host keys or the RDP certificate.
 --
 -- * 'iadCertKey' - For SSH access, the public key to use when accessing your instance For OpenSSH clients (e.g., command line SSH), you should save this value to @tempkey-cert.pub@ .
 --
@@ -1074,7 +1720,8 @@ instanceAccessDetails
     :: InstanceAccessDetails
 instanceAccessDetails =
   InstanceAccessDetails'
-    { _iadCertKey = Nothing
+    { _iadHostKeys = Nothing
+    , _iadCertKey = Nothing
     , _iadIpAddress = Nothing
     , _iadPrivateKey = Nothing
     , _iadExpiresAt = Nothing
@@ -1085,6 +1732,10 @@ instanceAccessDetails =
     , _iadInstanceName = Nothing
     }
 
+
+-- | Describes the public SSH host keys or the RDP certificate.
+iadHostKeys :: Lens' InstanceAccessDetails [HostKeyAttributes]
+iadHostKeys = lens _iadHostKeys (\ s a -> s{_iadHostKeys = a}) . _Default . _Coerce
 
 -- | For SSH access, the public key to use when accessing your instance For OpenSSH clients (e.g., command line SSH), you should save this value to @tempkey-cert.pub@ .
 iadCertKey :: Lens' InstanceAccessDetails (Maybe Text)
@@ -1127,8 +1778,9 @@ instance FromJSON InstanceAccessDetails where
           = withObject "InstanceAccessDetails"
               (\ x ->
                  InstanceAccessDetails' <$>
-                   (x .:? "certKey") <*> (x .:? "ipAddress") <*>
-                     (x .:? "privateKey")
+                   (x .:? "hostKeys" .!= mempty) <*> (x .:? "certKey")
+                     <*> (x .:? "ipAddress")
+                     <*> (x .:? "privateKey")
                      <*> (x .:? "expiresAt")
                      <*> (x .:? "username")
                      <*> (x .:? "protocol")
@@ -1140,1813 +1792,28 @@ instance Hashable InstanceAccessDetails where
 
 instance NFData InstanceAccessDetails where
 
--- | Describes the hardware for the instance.
+-- | Describes the Amazon Elastic Compute Cloud instance and related resources to be created using the @create cloud formation stack@ operation.
 --
 --
 --
--- /See:/ 'instanceHardware' smart constructor.
-data InstanceHardware = InstanceHardware'
-  { _ihCpuCount    :: !(Maybe Int)
-  , _ihDisks       :: !(Maybe [Disk])
-  , _ihRamSizeInGb :: !(Maybe Double)
+-- /See:/ 'instanceEntry' smart constructor.
+data InstanceEntry = InstanceEntry'
+  { _ieUserData         :: !(Maybe Text)
+  , _ieSourceName       :: !Text
+  , _ieInstanceType     :: !Text
+  , _iePortInfoSource   :: !PortInfoSourceType
+  , _ieAvailabilityZone :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
--- | Creates a value of 'InstanceHardware' with the minimum fields required to make a request.
+-- | Creates a value of 'InstanceEntry' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ihCpuCount' - The number of vCPUs the instance has.
+-- * 'ieUserData' - A launch script you can create that configures a server with additional user data. For example, you might want to run @apt-get -y update@ .
 --
--- * 'ihDisks' - The disks attached to the instance.
+-- * 'ieSourceName' - The name of the export snapshot record, which contains the exported Lightsail instance snapshot that will be used as the source of the new Amazon EC2 instance. Use the @get export snapshot records@ operation to get a list of export snapshot records that you can use to create a CloudFormation stack.
 --
--- * 'ihRamSizeInGb' - The amount of RAM in GB on the instance (e.g., @1.0@ ).
-instanceHardware
-    :: InstanceHardware
-instanceHardware =
-  InstanceHardware'
-    {_ihCpuCount = Nothing, _ihDisks = Nothing, _ihRamSizeInGb = Nothing}
-
-
--- | The number of vCPUs the instance has.
-ihCpuCount :: Lens' InstanceHardware (Maybe Int)
-ihCpuCount = lens _ihCpuCount (\ s a -> s{_ihCpuCount = a})
-
--- | The disks attached to the instance.
-ihDisks :: Lens' InstanceHardware [Disk]
-ihDisks = lens _ihDisks (\ s a -> s{_ihDisks = a}) . _Default . _Coerce
-
--- | The amount of RAM in GB on the instance (e.g., @1.0@ ).
-ihRamSizeInGb :: Lens' InstanceHardware (Maybe Double)
-ihRamSizeInGb = lens _ihRamSizeInGb (\ s a -> s{_ihRamSizeInGb = a})
-
-instance FromJSON InstanceHardware where
-        parseJSON
-          = withObject "InstanceHardware"
-              (\ x ->
-                 InstanceHardware' <$>
-                   (x .:? "cpuCount") <*> (x .:? "disks" .!= mempty) <*>
-                     (x .:? "ramSizeInGb"))
-
-instance Hashable InstanceHardware where
-
-instance NFData InstanceHardware where
-
--- | Describes information about the health of the instance.
+-- * 'ieInstanceType' - The instance type (e.g., @t2.micro@ ) to use for the new Amazon EC2 instance.
 --
---
---
--- /See:/ 'instanceHealthSummary' smart constructor.
-data InstanceHealthSummary = InstanceHealthSummary'
-  { _ihsInstanceHealth       :: !(Maybe InstanceHealthState)
-  , _ihsInstanceName         :: !(Maybe Text)
-  , _ihsInstanceHealthReason :: !(Maybe InstanceHealthReason)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'InstanceHealthSummary' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ihsInstanceHealth' - Describes the overall instance health. Valid values are below.
---
--- * 'ihsInstanceName' - The name of the Lightsail instance for which you are requesting health check data.
---
--- * 'ihsInstanceHealthReason' - More information about the instance health. If the @instanceHealth@ is @healthy@ , then an @instanceHealthReason@ value is not provided. If __@instanceHealth@ __ is @initial@ , the __@instanceHealthReason@ __ value can be one of the following:     * __@Lb.RegistrationInProgress@ __ - The target instance is in the process of being registered with the load balancer.     * __@Lb.InitialHealthChecking@ __ - The Lightsail load balancer is still sending the target instance the minimum number of health checks required to determine its health status. If __@instanceHealth@ __ is @unhealthy@ , the __@instanceHealthReason@ __ value can be one of the following:     * __@Instance.ResponseCodeMismatch@ __ - The health checks did not return an expected HTTP code.     * __@Instance.Timeout@ __ - The health check requests timed out.     * __@Instance.FailedHealthChecks@ __ - The health checks failed because the connection to the target instance timed out, the target instance response was malformed, or the target instance failed the health check for an unknown reason.     * __@Lb.InternalError@ __ - The health checks failed due to an internal error. If __@instanceHealth@ __ is @unused@ , the __@instanceHealthReason@ __ value can be one of the following:     * __@Instance.NotRegistered@ __ - The target instance is not registered with the target group.     * __@Instance.NotInUse@ __ - The target group is not used by any load balancer, or the target instance is in an Availability Zone that is not enabled for its load balancer.     * __@Instance.IpUnusable@ __ - The target IP address is reserved for use by a Lightsail load balancer.     * __@Instance.InvalidState@ __ - The target is in the stopped or terminated state. If __@instanceHealth@ __ is @draining@ , the __@instanceHealthReason@ __ value can be one of the following:     * __@Instance.DeregistrationInProgress@ __ - The target instance is in the process of being deregistered and the deregistration delay period has not expired.
-instanceHealthSummary
-    :: InstanceHealthSummary
-instanceHealthSummary =
-  InstanceHealthSummary'
-    { _ihsInstanceHealth = Nothing
-    , _ihsInstanceName = Nothing
-    , _ihsInstanceHealthReason = Nothing
-    }
-
-
--- | Describes the overall instance health. Valid values are below.
-ihsInstanceHealth :: Lens' InstanceHealthSummary (Maybe InstanceHealthState)
-ihsInstanceHealth = lens _ihsInstanceHealth (\ s a -> s{_ihsInstanceHealth = a})
-
--- | The name of the Lightsail instance for which you are requesting health check data.
-ihsInstanceName :: Lens' InstanceHealthSummary (Maybe Text)
-ihsInstanceName = lens _ihsInstanceName (\ s a -> s{_ihsInstanceName = a})
-
--- | More information about the instance health. If the @instanceHealth@ is @healthy@ , then an @instanceHealthReason@ value is not provided. If __@instanceHealth@ __ is @initial@ , the __@instanceHealthReason@ __ value can be one of the following:     * __@Lb.RegistrationInProgress@ __ - The target instance is in the process of being registered with the load balancer.     * __@Lb.InitialHealthChecking@ __ - The Lightsail load balancer is still sending the target instance the minimum number of health checks required to determine its health status. If __@instanceHealth@ __ is @unhealthy@ , the __@instanceHealthReason@ __ value can be one of the following:     * __@Instance.ResponseCodeMismatch@ __ - The health checks did not return an expected HTTP code.     * __@Instance.Timeout@ __ - The health check requests timed out.     * __@Instance.FailedHealthChecks@ __ - The health checks failed because the connection to the target instance timed out, the target instance response was malformed, or the target instance failed the health check for an unknown reason.     * __@Lb.InternalError@ __ - The health checks failed due to an internal error. If __@instanceHealth@ __ is @unused@ , the __@instanceHealthReason@ __ value can be one of the following:     * __@Instance.NotRegistered@ __ - The target instance is not registered with the target group.     * __@Instance.NotInUse@ __ - The target group is not used by any load balancer, or the target instance is in an Availability Zone that is not enabled for its load balancer.     * __@Instance.IpUnusable@ __ - The target IP address is reserved for use by a Lightsail load balancer.     * __@Instance.InvalidState@ __ - The target is in the stopped or terminated state. If __@instanceHealth@ __ is @draining@ , the __@instanceHealthReason@ __ value can be one of the following:     * __@Instance.DeregistrationInProgress@ __ - The target instance is in the process of being deregistered and the deregistration delay period has not expired.
-ihsInstanceHealthReason :: Lens' InstanceHealthSummary (Maybe InstanceHealthReason)
-ihsInstanceHealthReason = lens _ihsInstanceHealthReason (\ s a -> s{_ihsInstanceHealthReason = a})
-
-instance FromJSON InstanceHealthSummary where
-        parseJSON
-          = withObject "InstanceHealthSummary"
-              (\ x ->
-                 InstanceHealthSummary' <$>
-                   (x .:? "instanceHealth") <*> (x .:? "instanceName")
-                     <*> (x .:? "instanceHealthReason"))
-
-instance Hashable InstanceHealthSummary where
-
-instance NFData InstanceHealthSummary where
-
--- | Describes monthly data transfer rates and port information for an instance.
---
---
---
--- /See:/ 'instanceNetworking' smart constructor.
-data InstanceNetworking = InstanceNetworking'
-  { _inMonthlyTransfer :: !(Maybe MonthlyTransfer)
-  , _inPorts           :: !(Maybe [InstancePortInfo])
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'InstanceNetworking' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'inMonthlyTransfer' - The amount of data in GB allocated for monthly data transfers.
---
--- * 'inPorts' - An array of key-value pairs containing information about the ports on the instance.
-instanceNetworking
-    :: InstanceNetworking
-instanceNetworking =
-  InstanceNetworking' {_inMonthlyTransfer = Nothing, _inPorts = Nothing}
-
-
--- | The amount of data in GB allocated for monthly data transfers.
-inMonthlyTransfer :: Lens' InstanceNetworking (Maybe MonthlyTransfer)
-inMonthlyTransfer = lens _inMonthlyTransfer (\ s a -> s{_inMonthlyTransfer = a})
-
--- | An array of key-value pairs containing information about the ports on the instance.
-inPorts :: Lens' InstanceNetworking [InstancePortInfo]
-inPorts = lens _inPorts (\ s a -> s{_inPorts = a}) . _Default . _Coerce
-
-instance FromJSON InstanceNetworking where
-        parseJSON
-          = withObject "InstanceNetworking"
-              (\ x ->
-                 InstanceNetworking' <$>
-                   (x .:? "monthlyTransfer") <*>
-                     (x .:? "ports" .!= mempty))
-
-instance Hashable InstanceNetworking where
-
-instance NFData InstanceNetworking where
-
--- | Describes information about the instance ports.
---
---
---
--- /See:/ 'instancePortInfo' smart constructor.
-data InstancePortInfo = InstancePortInfo'
-  { _ipiFromPort        :: !(Maybe Nat)
-  , _ipiCommonName      :: !(Maybe Text)
-  , _ipiProtocol        :: !(Maybe NetworkProtocol)
-  , _ipiAccessDirection :: !(Maybe AccessDirection)
-  , _ipiAccessType      :: !(Maybe PortAccessType)
-  , _ipiToPort          :: !(Maybe Nat)
-  , _ipiAccessFrom      :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'InstancePortInfo' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ipiFromPort' - The first port in the range.
---
--- * 'ipiCommonName' - The common name.
---
--- * 'ipiProtocol' - The protocol being used. Can be one of the following.     * @tcp@ - Transmission Control Protocol (TCP) provides reliable, ordered, and error-checked delivery of streamed data between applications running on hosts communicating by an IP network. If you have an application that doesn't require reliable data stream service, use UDP instead.     * @all@ - All transport layer protocol types. For more general information, see <https://en.wikipedia.org/wiki/Transport_layer Transport layer> on Wikipedia.     * @udp@ - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don't require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead.
---
--- * 'ipiAccessDirection' - The access direction (@inbound@ or @outbound@ ).
---
--- * 'ipiAccessType' - The type of access (@Public@ or @Private@ ).
---
--- * 'ipiToPort' - The last port in the range.
---
--- * 'ipiAccessFrom' - The location from which access is allowed (e.g., @Anywhere (0.0.0.0/0)@ ).
-instancePortInfo
-    :: InstancePortInfo
-instancePortInfo =
-  InstancePortInfo'
-    { _ipiFromPort = Nothing
-    , _ipiCommonName = Nothing
-    , _ipiProtocol = Nothing
-    , _ipiAccessDirection = Nothing
-    , _ipiAccessType = Nothing
-    , _ipiToPort = Nothing
-    , _ipiAccessFrom = Nothing
-    }
-
-
--- | The first port in the range.
-ipiFromPort :: Lens' InstancePortInfo (Maybe Natural)
-ipiFromPort = lens _ipiFromPort (\ s a -> s{_ipiFromPort = a}) . mapping _Nat
-
--- | The common name.
-ipiCommonName :: Lens' InstancePortInfo (Maybe Text)
-ipiCommonName = lens _ipiCommonName (\ s a -> s{_ipiCommonName = a})
-
--- | The protocol being used. Can be one of the following.     * @tcp@ - Transmission Control Protocol (TCP) provides reliable, ordered, and error-checked delivery of streamed data between applications running on hosts communicating by an IP network. If you have an application that doesn't require reliable data stream service, use UDP instead.     * @all@ - All transport layer protocol types. For more general information, see <https://en.wikipedia.org/wiki/Transport_layer Transport layer> on Wikipedia.     * @udp@ - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don't require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead.
-ipiProtocol :: Lens' InstancePortInfo (Maybe NetworkProtocol)
-ipiProtocol = lens _ipiProtocol (\ s a -> s{_ipiProtocol = a})
-
--- | The access direction (@inbound@ or @outbound@ ).
-ipiAccessDirection :: Lens' InstancePortInfo (Maybe AccessDirection)
-ipiAccessDirection = lens _ipiAccessDirection (\ s a -> s{_ipiAccessDirection = a})
-
--- | The type of access (@Public@ or @Private@ ).
-ipiAccessType :: Lens' InstancePortInfo (Maybe PortAccessType)
-ipiAccessType = lens _ipiAccessType (\ s a -> s{_ipiAccessType = a})
-
--- | The last port in the range.
-ipiToPort :: Lens' InstancePortInfo (Maybe Natural)
-ipiToPort = lens _ipiToPort (\ s a -> s{_ipiToPort = a}) . mapping _Nat
-
--- | The location from which access is allowed (e.g., @Anywhere (0.0.0.0/0)@ ).
-ipiAccessFrom :: Lens' InstancePortInfo (Maybe Text)
-ipiAccessFrom = lens _ipiAccessFrom (\ s a -> s{_ipiAccessFrom = a})
-
-instance FromJSON InstancePortInfo where
-        parseJSON
-          = withObject "InstancePortInfo"
-              (\ x ->
-                 InstancePortInfo' <$>
-                   (x .:? "fromPort") <*> (x .:? "commonName") <*>
-                     (x .:? "protocol")
-                     <*> (x .:? "accessDirection")
-                     <*> (x .:? "accessType")
-                     <*> (x .:? "toPort")
-                     <*> (x .:? "accessFrom"))
-
-instance Hashable InstancePortInfo where
-
-instance NFData InstancePortInfo where
-
--- | Describes the port state.
---
---
---
--- /See:/ 'instancePortState' smart constructor.
-data InstancePortState = InstancePortState'
-  { _ipsFromPort :: !(Maybe Nat)
-  , _ipsState    :: !(Maybe PortState)
-  , _ipsProtocol :: !(Maybe NetworkProtocol)
-  , _ipsToPort   :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'InstancePortState' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ipsFromPort' - The first port in the range.
---
--- * 'ipsState' - Specifies whether the instance port is @open@ or @closed@ .
---
--- * 'ipsProtocol' - The protocol being used. Can be one of the following.     * @tcp@ - Transmission Control Protocol (TCP) provides reliable, ordered, and error-checked delivery of streamed data between applications running on hosts communicating by an IP network. If you have an application that doesn't require reliable data stream service, use UDP instead.     * @all@ - All transport layer protocol types. For more general information, see <https://en.wikipedia.org/wiki/Transport_layer Transport layer> on Wikipedia.     * @udp@ - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don't require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead.
---
--- * 'ipsToPort' - The last port in the range.
-instancePortState
-    :: InstancePortState
-instancePortState =
-  InstancePortState'
-    { _ipsFromPort = Nothing
-    , _ipsState = Nothing
-    , _ipsProtocol = Nothing
-    , _ipsToPort = Nothing
-    }
-
-
--- | The first port in the range.
-ipsFromPort :: Lens' InstancePortState (Maybe Natural)
-ipsFromPort = lens _ipsFromPort (\ s a -> s{_ipsFromPort = a}) . mapping _Nat
-
--- | Specifies whether the instance port is @open@ or @closed@ .
-ipsState :: Lens' InstancePortState (Maybe PortState)
-ipsState = lens _ipsState (\ s a -> s{_ipsState = a})
-
--- | The protocol being used. Can be one of the following.     * @tcp@ - Transmission Control Protocol (TCP) provides reliable, ordered, and error-checked delivery of streamed data between applications running on hosts communicating by an IP network. If you have an application that doesn't require reliable data stream service, use UDP instead.     * @all@ - All transport layer protocol types. For more general information, see <https://en.wikipedia.org/wiki/Transport_layer Transport layer> on Wikipedia.     * @udp@ - With User Datagram Protocol (UDP), computer applications can send messages (or datagrams) to other hosts on an Internet Protocol (IP) network. Prior communications are not required to set up transmission channels or data paths. Applications that don't require reliable data stream service can use UDP, which provides a connectionless datagram service that emphasizes reduced latency over reliability. If you do require reliable data stream service, use TCP instead.
-ipsProtocol :: Lens' InstancePortState (Maybe NetworkProtocol)
-ipsProtocol = lens _ipsProtocol (\ s a -> s{_ipsProtocol = a})
-
--- | The last port in the range.
-ipsToPort :: Lens' InstancePortState (Maybe Natural)
-ipsToPort = lens _ipsToPort (\ s a -> s{_ipsToPort = a}) . mapping _Nat
-
-instance FromJSON InstancePortState where
-        parseJSON
-          = withObject "InstancePortState"
-              (\ x ->
-                 InstancePortState' <$>
-                   (x .:? "fromPort") <*> (x .:? "state") <*>
-                     (x .:? "protocol")
-                     <*> (x .:? "toPort"))
-
-instance Hashable InstancePortState where
-
-instance NFData InstancePortState where
-
--- | Describes the snapshot of the virtual private server, or /instance/ .
---
---
---
--- /See:/ 'instanceSnapshot' smart constructor.
-data InstanceSnapshot = InstanceSnapshot'
-  { _insFromBlueprintId   :: !(Maybe Text)
-  , _insState             :: !(Maybe InstanceSnapshotState)
-  , _insResourceType      :: !(Maybe ResourceType)
-  , _insFromAttachedDisks :: !(Maybe [Disk])
-  , _insArn               :: !(Maybe Text)
-  , _insCreatedAt         :: !(Maybe POSIX)
-  , _insLocation          :: !(Maybe ResourceLocation)
-  , _insProgress          :: !(Maybe Text)
-  , _insName              :: !(Maybe Text)
-  , _insFromBundleId      :: !(Maybe Text)
-  , _insSizeInGb          :: !(Maybe Int)
-  , _insSupportCode       :: !(Maybe Text)
-  , _insFromInstanceARN   :: !(Maybe Text)
-  , _insFromInstanceName  :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'InstanceSnapshot' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'insFromBlueprintId' - The blueprint ID from which you created the snapshot (e.g., @os_debian_8_3@ ). A blueprint is a virtual private server (or /instance/ ) image used to create instances quickly.
---
--- * 'insState' - The state the snapshot is in.
---
--- * 'insResourceType' - The type of resource (usually @InstanceSnapshot@ ).
---
--- * 'insFromAttachedDisks' - An array of disk objects containing information about all block storage disks.
---
--- * 'insArn' - The Amazon Resource Name (ARN) of the snapshot (e.g., @arn:aws:lightsail:us-east-2:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE@ ).
---
--- * 'insCreatedAt' - The timestamp when the snapshot was created (e.g., @1479907467.024@ ).
---
--- * 'insLocation' - The region name and availability zone where you created the snapshot.
---
--- * 'insProgress' - The progress of the snapshot.
---
--- * 'insName' - The name of the snapshot.
---
--- * 'insFromBundleId' - The bundle ID from which you created the snapshot (e.g., @micro_1_0@ ).
---
--- * 'insSizeInGb' - The size in GB of the SSD.
---
--- * 'insSupportCode' - The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
---
--- * 'insFromInstanceARN' - The Amazon Resource Name (ARN) of the instance from which the snapshot was created (e.g., @arn:aws:lightsail:us-east-2:123456789101:Instance/64b8404c-ccb1-430b-8daf-12345EXAMPLE@ ).
---
--- * 'insFromInstanceName' - The instance from which the snapshot was created.
-instanceSnapshot
-    :: InstanceSnapshot
-instanceSnapshot =
-  InstanceSnapshot'
-    { _insFromBlueprintId = Nothing
-    , _insState = Nothing
-    , _insResourceType = Nothing
-    , _insFromAttachedDisks = Nothing
-    , _insArn = Nothing
-    , _insCreatedAt = Nothing
-    , _insLocation = Nothing
-    , _insProgress = Nothing
-    , _insName = Nothing
-    , _insFromBundleId = Nothing
-    , _insSizeInGb = Nothing
-    , _insSupportCode = Nothing
-    , _insFromInstanceARN = Nothing
-    , _insFromInstanceName = Nothing
-    }
-
-
--- | The blueprint ID from which you created the snapshot (e.g., @os_debian_8_3@ ). A blueprint is a virtual private server (or /instance/ ) image used to create instances quickly.
-insFromBlueprintId :: Lens' InstanceSnapshot (Maybe Text)
-insFromBlueprintId = lens _insFromBlueprintId (\ s a -> s{_insFromBlueprintId = a})
-
--- | The state the snapshot is in.
-insState :: Lens' InstanceSnapshot (Maybe InstanceSnapshotState)
-insState = lens _insState (\ s a -> s{_insState = a})
-
--- | The type of resource (usually @InstanceSnapshot@ ).
-insResourceType :: Lens' InstanceSnapshot (Maybe ResourceType)
-insResourceType = lens _insResourceType (\ s a -> s{_insResourceType = a})
-
--- | An array of disk objects containing information about all block storage disks.
-insFromAttachedDisks :: Lens' InstanceSnapshot [Disk]
-insFromAttachedDisks = lens _insFromAttachedDisks (\ s a -> s{_insFromAttachedDisks = a}) . _Default . _Coerce
-
--- | The Amazon Resource Name (ARN) of the snapshot (e.g., @arn:aws:lightsail:us-east-2:123456789101:InstanceSnapshot/d23b5706-3322-4d83-81e5-12345EXAMPLE@ ).
-insArn :: Lens' InstanceSnapshot (Maybe Text)
-insArn = lens _insArn (\ s a -> s{_insArn = a})
-
--- | The timestamp when the snapshot was created (e.g., @1479907467.024@ ).
-insCreatedAt :: Lens' InstanceSnapshot (Maybe UTCTime)
-insCreatedAt = lens _insCreatedAt (\ s a -> s{_insCreatedAt = a}) . mapping _Time
-
--- | The region name and availability zone where you created the snapshot.
-insLocation :: Lens' InstanceSnapshot (Maybe ResourceLocation)
-insLocation = lens _insLocation (\ s a -> s{_insLocation = a})
-
--- | The progress of the snapshot.
-insProgress :: Lens' InstanceSnapshot (Maybe Text)
-insProgress = lens _insProgress (\ s a -> s{_insProgress = a})
-
--- | The name of the snapshot.
-insName :: Lens' InstanceSnapshot (Maybe Text)
-insName = lens _insName (\ s a -> s{_insName = a})
-
--- | The bundle ID from which you created the snapshot (e.g., @micro_1_0@ ).
-insFromBundleId :: Lens' InstanceSnapshot (Maybe Text)
-insFromBundleId = lens _insFromBundleId (\ s a -> s{_insFromBundleId = a})
-
--- | The size in GB of the SSD.
-insSizeInGb :: Lens' InstanceSnapshot (Maybe Int)
-insSizeInGb = lens _insSizeInGb (\ s a -> s{_insSizeInGb = a})
-
--- | The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-insSupportCode :: Lens' InstanceSnapshot (Maybe Text)
-insSupportCode = lens _insSupportCode (\ s a -> s{_insSupportCode = a})
-
--- | The Amazon Resource Name (ARN) of the instance from which the snapshot was created (e.g., @arn:aws:lightsail:us-east-2:123456789101:Instance/64b8404c-ccb1-430b-8daf-12345EXAMPLE@ ).
-insFromInstanceARN :: Lens' InstanceSnapshot (Maybe Text)
-insFromInstanceARN = lens _insFromInstanceARN (\ s a -> s{_insFromInstanceARN = a})
-
--- | The instance from which the snapshot was created.
-insFromInstanceName :: Lens' InstanceSnapshot (Maybe Text)
-insFromInstanceName = lens _insFromInstanceName (\ s a -> s{_insFromInstanceName = a})
-
-instance FromJSON InstanceSnapshot where
-        parseJSON
-          = withObject "InstanceSnapshot"
-              (\ x ->
-                 InstanceSnapshot' <$>
-                   (x .:? "fromBlueprintId") <*> (x .:? "state") <*>
-                     (x .:? "resourceType")
-                     <*> (x .:? "fromAttachedDisks" .!= mempty)
-                     <*> (x .:? "arn")
-                     <*> (x .:? "createdAt")
-                     <*> (x .:? "location")
-                     <*> (x .:? "progress")
-                     <*> (x .:? "name")
-                     <*> (x .:? "fromBundleId")
-                     <*> (x .:? "sizeInGb")
-                     <*> (x .:? "supportCode")
-                     <*> (x .:? "fromInstanceArn")
-                     <*> (x .:? "fromInstanceName"))
-
-instance Hashable InstanceSnapshot where
-
-instance NFData InstanceSnapshot where
-
--- | Describes the virtual private server (or /instance/ ) status.
---
---
---
--- /See:/ 'instanceState' smart constructor.
-data InstanceState = InstanceState'
-  { _isName :: !(Maybe Text)
-  , _isCode :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'InstanceState' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'isName' - The state of the instance (e.g., @running@ or @pending@ ).
---
--- * 'isCode' - The status code for the instance.
-instanceState
-    :: InstanceState
-instanceState = InstanceState' {_isName = Nothing, _isCode = Nothing}
-
-
--- | The state of the instance (e.g., @running@ or @pending@ ).
-isName :: Lens' InstanceState (Maybe Text)
-isName = lens _isName (\ s a -> s{_isName = a})
-
--- | The status code for the instance.
-isCode :: Lens' InstanceState (Maybe Int)
-isCode = lens _isCode (\ s a -> s{_isCode = a})
-
-instance FromJSON InstanceState where
-        parseJSON
-          = withObject "InstanceState"
-              (\ x ->
-                 InstanceState' <$> (x .:? "name") <*> (x .:? "code"))
-
-instance Hashable InstanceState where
-
-instance NFData InstanceState where
-
--- | Describes the SSH key pair.
---
---
---
--- /See:/ 'keyPair' smart constructor.
-data KeyPair = KeyPair'
-  { _kpResourceType :: !(Maybe ResourceType)
-  , _kpArn          :: !(Maybe Text)
-  , _kpCreatedAt    :: !(Maybe POSIX)
-  , _kpLocation     :: !(Maybe ResourceLocation)
-  , _kpFingerprint  :: !(Maybe Text)
-  , _kpName         :: !(Maybe Text)
-  , _kpSupportCode  :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'KeyPair' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'kpResourceType' - The resource type (usually @KeyPair@ ).
---
--- * 'kpArn' - The Amazon Resource Name (ARN) of the key pair (e.g., @arn:aws:lightsail:us-east-2:123456789101:KeyPair/05859e3d-331d-48ba-9034-12345EXAMPLE@ ).
---
--- * 'kpCreatedAt' - The timestamp when the key pair was created (e.g., @1479816991.349@ ).
---
--- * 'kpLocation' - The region name and Availability Zone where the key pair was created.
---
--- * 'kpFingerprint' - The RSA fingerprint of the key pair.
---
--- * 'kpName' - The friendly name of the SSH key pair.
---
--- * 'kpSupportCode' - The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-keyPair
-    :: KeyPair
-keyPair =
-  KeyPair'
-    { _kpResourceType = Nothing
-    , _kpArn = Nothing
-    , _kpCreatedAt = Nothing
-    , _kpLocation = Nothing
-    , _kpFingerprint = Nothing
-    , _kpName = Nothing
-    , _kpSupportCode = Nothing
-    }
-
-
--- | The resource type (usually @KeyPair@ ).
-kpResourceType :: Lens' KeyPair (Maybe ResourceType)
-kpResourceType = lens _kpResourceType (\ s a -> s{_kpResourceType = a})
-
--- | The Amazon Resource Name (ARN) of the key pair (e.g., @arn:aws:lightsail:us-east-2:123456789101:KeyPair/05859e3d-331d-48ba-9034-12345EXAMPLE@ ).
-kpArn :: Lens' KeyPair (Maybe Text)
-kpArn = lens _kpArn (\ s a -> s{_kpArn = a})
-
--- | The timestamp when the key pair was created (e.g., @1479816991.349@ ).
-kpCreatedAt :: Lens' KeyPair (Maybe UTCTime)
-kpCreatedAt = lens _kpCreatedAt (\ s a -> s{_kpCreatedAt = a}) . mapping _Time
-
--- | The region name and Availability Zone where the key pair was created.
-kpLocation :: Lens' KeyPair (Maybe ResourceLocation)
-kpLocation = lens _kpLocation (\ s a -> s{_kpLocation = a})
-
--- | The RSA fingerprint of the key pair.
-kpFingerprint :: Lens' KeyPair (Maybe Text)
-kpFingerprint = lens _kpFingerprint (\ s a -> s{_kpFingerprint = a})
-
--- | The friendly name of the SSH key pair.
-kpName :: Lens' KeyPair (Maybe Text)
-kpName = lens _kpName (\ s a -> s{_kpName = a})
-
--- | The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-kpSupportCode :: Lens' KeyPair (Maybe Text)
-kpSupportCode = lens _kpSupportCode (\ s a -> s{_kpSupportCode = a})
-
-instance FromJSON KeyPair where
-        parseJSON
-          = withObject "KeyPair"
-              (\ x ->
-                 KeyPair' <$>
-                   (x .:? "resourceType") <*> (x .:? "arn") <*>
-                     (x .:? "createdAt")
-                     <*> (x .:? "location")
-                     <*> (x .:? "fingerprint")
-                     <*> (x .:? "name")
-                     <*> (x .:? "supportCode"))
-
-instance Hashable KeyPair where
-
-instance NFData KeyPair where
-
--- | Describes the Lightsail load balancer.
---
---
---
--- /See:/ 'loadBalancer' smart constructor.
-data LoadBalancer = LoadBalancer'
-  { _lbHealthCheckPath         :: !(Maybe Text)
-  , _lbState                   :: !(Maybe LoadBalancerState)
-  , _lbResourceType            :: !(Maybe ResourceType)
-  , _lbArn                     :: !(Maybe Text)
-  , _lbCreatedAt               :: !(Maybe POSIX)
-  , _lbLocation                :: !(Maybe ResourceLocation)
-  , _lbInstancePort            :: !(Maybe Int)
-  , _lbConfigurationOptions    :: !(Maybe (Map LoadBalancerAttributeName Text))
-  , _lbProtocol                :: !(Maybe LoadBalancerProtocol)
-  , _lbTlsCertificateSummaries :: !(Maybe [LoadBalancerTLSCertificateSummary])
-  , _lbName                    :: !(Maybe Text)
-  , _lbSupportCode             :: !(Maybe Text)
-  , _lbPublicPorts             :: !(Maybe [Nat])
-  , _lbDnsName                 :: !(Maybe Text)
-  , _lbInstanceHealthSummary   :: !(Maybe [InstanceHealthSummary])
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'LoadBalancer' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbHealthCheckPath' - The path you specified to perform your health checks. If no path is specified, the load balancer tries to make a request to the default (root) page.
---
--- * 'lbState' - The status of your load balancer. Valid values are below.
---
--- * 'lbResourceType' - The resource type (e.g., @LoadBalancer@ .
---
--- * 'lbArn' - The Amazon Resource Name (ARN) of the load balancer.
---
--- * 'lbCreatedAt' - The date when your load balancer was created.
---
--- * 'lbLocation' - The AWS Region where your load balancer was created (e.g., @us-east-2a@ ). Lightsail automatically creates your load balancer across Availability Zones.
---
--- * 'lbInstancePort' - The port where the load balancer will direct traffic to your Lightsail instances. For HTTP traffic, it's port 80. For HTTPS traffic, it's port 443.
---
--- * 'lbConfigurationOptions' - A string to string map of the configuration options for your load balancer. Valid values are listed below.
---
--- * 'lbProtocol' - The protocol you have enabled for your load balancer. Valid values are below. You can't just have @HTTP_HTTPS@ , but you can have just @HTTP@ .
---
--- * 'lbTlsCertificateSummaries' - An array of LoadBalancerTlsCertificateSummary objects that provide additional information about the SSL/TLS certificates. For example, if @true@ , the certificate is attached to the load balancer.
---
--- * 'lbName' - The name of the load balancer (e.g., @my-load-balancer@ ).
---
--- * 'lbSupportCode' - The support code. Include this code in your email to support when you have questions about your Lightsail load balancer. This code enables our support team to look up your Lightsail information more easily.
---
--- * 'lbPublicPorts' - An array of public port settings for your load balancer. For HTTP, use port 80. For HTTPS, use port 443.
---
--- * 'lbDnsName' - The DNS name of your Lightsail load balancer.
---
--- * 'lbInstanceHealthSummary' - An array of InstanceHealthSummary objects describing the health of the load balancer.
-loadBalancer
-    :: LoadBalancer
-loadBalancer =
-  LoadBalancer'
-    { _lbHealthCheckPath = Nothing
-    , _lbState = Nothing
-    , _lbResourceType = Nothing
-    , _lbArn = Nothing
-    , _lbCreatedAt = Nothing
-    , _lbLocation = Nothing
-    , _lbInstancePort = Nothing
-    , _lbConfigurationOptions = Nothing
-    , _lbProtocol = Nothing
-    , _lbTlsCertificateSummaries = Nothing
-    , _lbName = Nothing
-    , _lbSupportCode = Nothing
-    , _lbPublicPorts = Nothing
-    , _lbDnsName = Nothing
-    , _lbInstanceHealthSummary = Nothing
-    }
-
-
--- | The path you specified to perform your health checks. If no path is specified, the load balancer tries to make a request to the default (root) page.
-lbHealthCheckPath :: Lens' LoadBalancer (Maybe Text)
-lbHealthCheckPath = lens _lbHealthCheckPath (\ s a -> s{_lbHealthCheckPath = a})
-
--- | The status of your load balancer. Valid values are below.
-lbState :: Lens' LoadBalancer (Maybe LoadBalancerState)
-lbState = lens _lbState (\ s a -> s{_lbState = a})
-
--- | The resource type (e.g., @LoadBalancer@ .
-lbResourceType :: Lens' LoadBalancer (Maybe ResourceType)
-lbResourceType = lens _lbResourceType (\ s a -> s{_lbResourceType = a})
-
--- | The Amazon Resource Name (ARN) of the load balancer.
-lbArn :: Lens' LoadBalancer (Maybe Text)
-lbArn = lens _lbArn (\ s a -> s{_lbArn = a})
-
--- | The date when your load balancer was created.
-lbCreatedAt :: Lens' LoadBalancer (Maybe UTCTime)
-lbCreatedAt = lens _lbCreatedAt (\ s a -> s{_lbCreatedAt = a}) . mapping _Time
-
--- | The AWS Region where your load balancer was created (e.g., @us-east-2a@ ). Lightsail automatically creates your load balancer across Availability Zones.
-lbLocation :: Lens' LoadBalancer (Maybe ResourceLocation)
-lbLocation = lens _lbLocation (\ s a -> s{_lbLocation = a})
-
--- | The port where the load balancer will direct traffic to your Lightsail instances. For HTTP traffic, it's port 80. For HTTPS traffic, it's port 443.
-lbInstancePort :: Lens' LoadBalancer (Maybe Int)
-lbInstancePort = lens _lbInstancePort (\ s a -> s{_lbInstancePort = a})
-
--- | A string to string map of the configuration options for your load balancer. Valid values are listed below.
-lbConfigurationOptions :: Lens' LoadBalancer (HashMap LoadBalancerAttributeName Text)
-lbConfigurationOptions = lens _lbConfigurationOptions (\ s a -> s{_lbConfigurationOptions = a}) . _Default . _Map
-
--- | The protocol you have enabled for your load balancer. Valid values are below. You can't just have @HTTP_HTTPS@ , but you can have just @HTTP@ .
-lbProtocol :: Lens' LoadBalancer (Maybe LoadBalancerProtocol)
-lbProtocol = lens _lbProtocol (\ s a -> s{_lbProtocol = a})
-
--- | An array of LoadBalancerTlsCertificateSummary objects that provide additional information about the SSL/TLS certificates. For example, if @true@ , the certificate is attached to the load balancer.
-lbTlsCertificateSummaries :: Lens' LoadBalancer [LoadBalancerTLSCertificateSummary]
-lbTlsCertificateSummaries = lens _lbTlsCertificateSummaries (\ s a -> s{_lbTlsCertificateSummaries = a}) . _Default . _Coerce
-
--- | The name of the load balancer (e.g., @my-load-balancer@ ).
-lbName :: Lens' LoadBalancer (Maybe Text)
-lbName = lens _lbName (\ s a -> s{_lbName = a})
-
--- | The support code. Include this code in your email to support when you have questions about your Lightsail load balancer. This code enables our support team to look up your Lightsail information more easily.
-lbSupportCode :: Lens' LoadBalancer (Maybe Text)
-lbSupportCode = lens _lbSupportCode (\ s a -> s{_lbSupportCode = a})
-
--- | An array of public port settings for your load balancer. For HTTP, use port 80. For HTTPS, use port 443.
-lbPublicPorts :: Lens' LoadBalancer [Natural]
-lbPublicPorts = lens _lbPublicPorts (\ s a -> s{_lbPublicPorts = a}) . _Default . _Coerce
-
--- | The DNS name of your Lightsail load balancer.
-lbDnsName :: Lens' LoadBalancer (Maybe Text)
-lbDnsName = lens _lbDnsName (\ s a -> s{_lbDnsName = a})
-
--- | An array of InstanceHealthSummary objects describing the health of the load balancer.
-lbInstanceHealthSummary :: Lens' LoadBalancer [InstanceHealthSummary]
-lbInstanceHealthSummary = lens _lbInstanceHealthSummary (\ s a -> s{_lbInstanceHealthSummary = a}) . _Default . _Coerce
-
-instance FromJSON LoadBalancer where
-        parseJSON
-          = withObject "LoadBalancer"
-              (\ x ->
-                 LoadBalancer' <$>
-                   (x .:? "healthCheckPath") <*> (x .:? "state") <*>
-                     (x .:? "resourceType")
-                     <*> (x .:? "arn")
-                     <*> (x .:? "createdAt")
-                     <*> (x .:? "location")
-                     <*> (x .:? "instancePort")
-                     <*> (x .:? "configurationOptions" .!= mempty)
-                     <*> (x .:? "protocol")
-                     <*> (x .:? "tlsCertificateSummaries" .!= mempty)
-                     <*> (x .:? "name")
-                     <*> (x .:? "supportCode")
-                     <*> (x .:? "publicPorts" .!= mempty)
-                     <*> (x .:? "dnsName")
-                     <*> (x .:? "instanceHealthSummary" .!= mempty))
-
-instance Hashable LoadBalancer where
-
-instance NFData LoadBalancer where
-
--- | Describes a load balancer SSL/TLS certificate.
---
---
--- TLS is just an updated, more secure version of Secure Socket Layer (SSL).
---
---
--- /See:/ 'loadBalancerTLSCertificate' smart constructor.
-data LoadBalancerTLSCertificate = LoadBalancerTLSCertificate'
-  { _lbtcFailureReason :: !(Maybe LoadBalancerTLSCertificateFailureReason)
-  , _lbtcSubject :: !(Maybe Text)
-  , _lbtcStatus :: !(Maybe LoadBalancerTLSCertificateStatus)
-  , _lbtcSubjectAlternativeNames :: !(Maybe [Text])
-  , _lbtcResourceType :: !(Maybe ResourceType)
-  , _lbtcArn :: !(Maybe Text)
-  , _lbtcCreatedAt :: !(Maybe POSIX)
-  , _lbtcLocation :: !(Maybe ResourceLocation)
-  , _lbtcLoadBalancerName :: !(Maybe Text)
-  , _lbtcSerial :: !(Maybe Text)
-  , _lbtcIsAttached :: !(Maybe Bool)
-  , _lbtcRevokedAt :: !(Maybe POSIX)
-  , _lbtcNotBefore :: !(Maybe POSIX)
-  , _lbtcRevocationReason :: !(Maybe LoadBalancerTLSCertificateRevocationReason)
-  , _lbtcDomainName :: !(Maybe Text)
-  , _lbtcName :: !(Maybe Text)
-  , _lbtcRenewalSummary :: !(Maybe LoadBalancerTLSCertificateRenewalSummary)
-  , _lbtcSupportCode :: !(Maybe Text)
-  , _lbtcDomainValidationRecords :: !(Maybe [LoadBalancerTLSCertificateDomainValidationRecord])
-  , _lbtcIssuedAt :: !(Maybe POSIX)
-  , _lbtcKeyAlgorithm :: !(Maybe Text)
-  , _lbtcSignatureAlgorithm :: !(Maybe Text)
-  , _lbtcIssuer :: !(Maybe Text)
-  , _lbtcNotAfter :: !(Maybe POSIX)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'LoadBalancerTLSCertificate' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbtcFailureReason' - The reason for the SSL/TLS certificate validation failure.
---
--- * 'lbtcSubject' - The name of the entity that is associated with the public key contained in the certificate.
---
--- * 'lbtcStatus' - The status of the SSL/TLS certificate. Valid values are below.
---
--- * 'lbtcSubjectAlternativeNames' - One or more domains or subdomains included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CNAME) of the certificate and additional domain names that can be used to connect to the website, such as @example.com@ , @www.example.com@ , or @m.example.com@ .
---
--- * 'lbtcResourceType' - The resource type (e.g., @LoadBalancerTlsCertificate@ ).     * __@Instance@ __ - A Lightsail instance (a virtual private server)     * __@StaticIp@ __ - A static IP address     * __@KeyPair@ __ - The key pair used to connect to a Lightsail instance     * __@InstanceSnapshot@ __ - A Lightsail instance snapshot     * __@Domain@ __ - A DNS zone     * __@PeeredVpc@ __ - A peered VPC     * __@LoadBalancer@ __ - A Lightsail load balancer     * __@LoadBalancerTlsCertificate@ __ - An SSL/TLS certificate associated with a Lightsail load balancer     * __@Disk@ __ - A Lightsail block storage disk     * __@DiskSnapshot@ __ - A block storage disk snapshot
---
--- * 'lbtcArn' - The Amazon Resource Name (ARN) of the SSL/TLS certificate.
---
--- * 'lbtcCreatedAt' - The time when you created your SSL/TLS certificate.
---
--- * 'lbtcLocation' - The AWS Region and Availability Zone where you created your certificate.
---
--- * 'lbtcLoadBalancerName' - The load balancer name where your SSL/TLS certificate is attached.
---
--- * 'lbtcSerial' - The serial number of the certificate.
---
--- * 'lbtcIsAttached' - When @true@ , the SSL/TLS certificate is attached to the Lightsail load balancer.
---
--- * 'lbtcRevokedAt' - The timestamp when the SSL/TLS certificate was revoked.
---
--- * 'lbtcNotBefore' - The timestamp when the SSL/TLS certificate is first valid.
---
--- * 'lbtcRevocationReason' - The reason the certificate was revoked. Valid values are below.
---
--- * 'lbtcDomainName' - The domain name for your SSL/TLS certificate.
---
--- * 'lbtcName' - The name of the SSL/TLS certificate (e.g., @my-certificate@ ).
---
--- * 'lbtcRenewalSummary' - An object containing information about the status of Lightsail's managed renewal for the certificate.
---
--- * 'lbtcSupportCode' - The support code. Include this code in your email to support when you have questions about your Lightsail load balancer or SSL/TLS certificate. This code enables our support team to look up your Lightsail information more easily.
---
--- * 'lbtcDomainValidationRecords' - An array of LoadBalancerTlsCertificateDomainValidationRecord objects describing the records.
---
--- * 'lbtcIssuedAt' - The time when the SSL/TLS certificate was issued.
---
--- * 'lbtcKeyAlgorithm' - The algorithm that was used to generate the key pair (the public and private key).
---
--- * 'lbtcSignatureAlgorithm' - The algorithm that was used to sign the certificate.
---
--- * 'lbtcIssuer' - The issuer of the certificate.
---
--- * 'lbtcNotAfter' - The timestamp when the SSL/TLS certificate expires.
-loadBalancerTLSCertificate
-    :: LoadBalancerTLSCertificate
-loadBalancerTLSCertificate =
-  LoadBalancerTLSCertificate'
-    { _lbtcFailureReason = Nothing
-    , _lbtcSubject = Nothing
-    , _lbtcStatus = Nothing
-    , _lbtcSubjectAlternativeNames = Nothing
-    , _lbtcResourceType = Nothing
-    , _lbtcArn = Nothing
-    , _lbtcCreatedAt = Nothing
-    , _lbtcLocation = Nothing
-    , _lbtcLoadBalancerName = Nothing
-    , _lbtcSerial = Nothing
-    , _lbtcIsAttached = Nothing
-    , _lbtcRevokedAt = Nothing
-    , _lbtcNotBefore = Nothing
-    , _lbtcRevocationReason = Nothing
-    , _lbtcDomainName = Nothing
-    , _lbtcName = Nothing
-    , _lbtcRenewalSummary = Nothing
-    , _lbtcSupportCode = Nothing
-    , _lbtcDomainValidationRecords = Nothing
-    , _lbtcIssuedAt = Nothing
-    , _lbtcKeyAlgorithm = Nothing
-    , _lbtcSignatureAlgorithm = Nothing
-    , _lbtcIssuer = Nothing
-    , _lbtcNotAfter = Nothing
-    }
-
-
--- | The reason for the SSL/TLS certificate validation failure.
-lbtcFailureReason :: Lens' LoadBalancerTLSCertificate (Maybe LoadBalancerTLSCertificateFailureReason)
-lbtcFailureReason = lens _lbtcFailureReason (\ s a -> s{_lbtcFailureReason = a})
-
--- | The name of the entity that is associated with the public key contained in the certificate.
-lbtcSubject :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcSubject = lens _lbtcSubject (\ s a -> s{_lbtcSubject = a})
-
--- | The status of the SSL/TLS certificate. Valid values are below.
-lbtcStatus :: Lens' LoadBalancerTLSCertificate (Maybe LoadBalancerTLSCertificateStatus)
-lbtcStatus = lens _lbtcStatus (\ s a -> s{_lbtcStatus = a})
-
--- | One or more domains or subdomains included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CNAME) of the certificate and additional domain names that can be used to connect to the website, such as @example.com@ , @www.example.com@ , or @m.example.com@ .
-lbtcSubjectAlternativeNames :: Lens' LoadBalancerTLSCertificate [Text]
-lbtcSubjectAlternativeNames = lens _lbtcSubjectAlternativeNames (\ s a -> s{_lbtcSubjectAlternativeNames = a}) . _Default . _Coerce
-
--- | The resource type (e.g., @LoadBalancerTlsCertificate@ ).     * __@Instance@ __ - A Lightsail instance (a virtual private server)     * __@StaticIp@ __ - A static IP address     * __@KeyPair@ __ - The key pair used to connect to a Lightsail instance     * __@InstanceSnapshot@ __ - A Lightsail instance snapshot     * __@Domain@ __ - A DNS zone     * __@PeeredVpc@ __ - A peered VPC     * __@LoadBalancer@ __ - A Lightsail load balancer     * __@LoadBalancerTlsCertificate@ __ - An SSL/TLS certificate associated with a Lightsail load balancer     * __@Disk@ __ - A Lightsail block storage disk     * __@DiskSnapshot@ __ - A block storage disk snapshot
-lbtcResourceType :: Lens' LoadBalancerTLSCertificate (Maybe ResourceType)
-lbtcResourceType = lens _lbtcResourceType (\ s a -> s{_lbtcResourceType = a})
-
--- | The Amazon Resource Name (ARN) of the SSL/TLS certificate.
-lbtcArn :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcArn = lens _lbtcArn (\ s a -> s{_lbtcArn = a})
-
--- | The time when you created your SSL/TLS certificate.
-lbtcCreatedAt :: Lens' LoadBalancerTLSCertificate (Maybe UTCTime)
-lbtcCreatedAt = lens _lbtcCreatedAt (\ s a -> s{_lbtcCreatedAt = a}) . mapping _Time
-
--- | The AWS Region and Availability Zone where you created your certificate.
-lbtcLocation :: Lens' LoadBalancerTLSCertificate (Maybe ResourceLocation)
-lbtcLocation = lens _lbtcLocation (\ s a -> s{_lbtcLocation = a})
-
--- | The load balancer name where your SSL/TLS certificate is attached.
-lbtcLoadBalancerName :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcLoadBalancerName = lens _lbtcLoadBalancerName (\ s a -> s{_lbtcLoadBalancerName = a})
-
--- | The serial number of the certificate.
-lbtcSerial :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcSerial = lens _lbtcSerial (\ s a -> s{_lbtcSerial = a})
-
--- | When @true@ , the SSL/TLS certificate is attached to the Lightsail load balancer.
-lbtcIsAttached :: Lens' LoadBalancerTLSCertificate (Maybe Bool)
-lbtcIsAttached = lens _lbtcIsAttached (\ s a -> s{_lbtcIsAttached = a})
-
--- | The timestamp when the SSL/TLS certificate was revoked.
-lbtcRevokedAt :: Lens' LoadBalancerTLSCertificate (Maybe UTCTime)
-lbtcRevokedAt = lens _lbtcRevokedAt (\ s a -> s{_lbtcRevokedAt = a}) . mapping _Time
-
--- | The timestamp when the SSL/TLS certificate is first valid.
-lbtcNotBefore :: Lens' LoadBalancerTLSCertificate (Maybe UTCTime)
-lbtcNotBefore = lens _lbtcNotBefore (\ s a -> s{_lbtcNotBefore = a}) . mapping _Time
-
--- | The reason the certificate was revoked. Valid values are below.
-lbtcRevocationReason :: Lens' LoadBalancerTLSCertificate (Maybe LoadBalancerTLSCertificateRevocationReason)
-lbtcRevocationReason = lens _lbtcRevocationReason (\ s a -> s{_lbtcRevocationReason = a})
-
--- | The domain name for your SSL/TLS certificate.
-lbtcDomainName :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcDomainName = lens _lbtcDomainName (\ s a -> s{_lbtcDomainName = a})
-
--- | The name of the SSL/TLS certificate (e.g., @my-certificate@ ).
-lbtcName :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcName = lens _lbtcName (\ s a -> s{_lbtcName = a})
-
--- | An object containing information about the status of Lightsail's managed renewal for the certificate.
-lbtcRenewalSummary :: Lens' LoadBalancerTLSCertificate (Maybe LoadBalancerTLSCertificateRenewalSummary)
-lbtcRenewalSummary = lens _lbtcRenewalSummary (\ s a -> s{_lbtcRenewalSummary = a})
-
--- | The support code. Include this code in your email to support when you have questions about your Lightsail load balancer or SSL/TLS certificate. This code enables our support team to look up your Lightsail information more easily.
-lbtcSupportCode :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcSupportCode = lens _lbtcSupportCode (\ s a -> s{_lbtcSupportCode = a})
-
--- | An array of LoadBalancerTlsCertificateDomainValidationRecord objects describing the records.
-lbtcDomainValidationRecords :: Lens' LoadBalancerTLSCertificate [LoadBalancerTLSCertificateDomainValidationRecord]
-lbtcDomainValidationRecords = lens _lbtcDomainValidationRecords (\ s a -> s{_lbtcDomainValidationRecords = a}) . _Default . _Coerce
-
--- | The time when the SSL/TLS certificate was issued.
-lbtcIssuedAt :: Lens' LoadBalancerTLSCertificate (Maybe UTCTime)
-lbtcIssuedAt = lens _lbtcIssuedAt (\ s a -> s{_lbtcIssuedAt = a}) . mapping _Time
-
--- | The algorithm that was used to generate the key pair (the public and private key).
-lbtcKeyAlgorithm :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcKeyAlgorithm = lens _lbtcKeyAlgorithm (\ s a -> s{_lbtcKeyAlgorithm = a})
-
--- | The algorithm that was used to sign the certificate.
-lbtcSignatureAlgorithm :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcSignatureAlgorithm = lens _lbtcSignatureAlgorithm (\ s a -> s{_lbtcSignatureAlgorithm = a})
-
--- | The issuer of the certificate.
-lbtcIssuer :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcIssuer = lens _lbtcIssuer (\ s a -> s{_lbtcIssuer = a})
-
--- | The timestamp when the SSL/TLS certificate expires.
-lbtcNotAfter :: Lens' LoadBalancerTLSCertificate (Maybe UTCTime)
-lbtcNotAfter = lens _lbtcNotAfter (\ s a -> s{_lbtcNotAfter = a}) . mapping _Time
-
-instance FromJSON LoadBalancerTLSCertificate where
-        parseJSON
-          = withObject "LoadBalancerTLSCertificate"
-              (\ x ->
-                 LoadBalancerTLSCertificate' <$>
-                   (x .:? "failureReason") <*> (x .:? "subject") <*>
-                     (x .:? "status")
-                     <*> (x .:? "subjectAlternativeNames" .!= mempty)
-                     <*> (x .:? "resourceType")
-                     <*> (x .:? "arn")
-                     <*> (x .:? "createdAt")
-                     <*> (x .:? "location")
-                     <*> (x .:? "loadBalancerName")
-                     <*> (x .:? "serial")
-                     <*> (x .:? "isAttached")
-                     <*> (x .:? "revokedAt")
-                     <*> (x .:? "notBefore")
-                     <*> (x .:? "revocationReason")
-                     <*> (x .:? "domainName")
-                     <*> (x .:? "name")
-                     <*> (x .:? "renewalSummary")
-                     <*> (x .:? "supportCode")
-                     <*> (x .:? "domainValidationRecords" .!= mempty)
-                     <*> (x .:? "issuedAt")
-                     <*> (x .:? "keyAlgorithm")
-                     <*> (x .:? "signatureAlgorithm")
-                     <*> (x .:? "issuer")
-                     <*> (x .:? "notAfter"))
-
-instance Hashable LoadBalancerTLSCertificate where
-
-instance NFData LoadBalancerTLSCertificate where
-
--- | Contains information about the domain names on an SSL/TLS certificate that you will use to validate domain ownership.
---
---
---
--- /See:/ 'loadBalancerTLSCertificateDomainValidationOption' smart constructor.
-data LoadBalancerTLSCertificateDomainValidationOption = LoadBalancerTLSCertificateDomainValidationOption'
-  { _lbtcdvoDomainName       :: !(Maybe Text)
-  , _lbtcdvoValidationStatus :: !(Maybe LoadBalancerTLSCertificateDomainStatus)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'LoadBalancerTLSCertificateDomainValidationOption' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbtcdvoDomainName' - The fully qualified domain name in the certificate request.
---
--- * 'lbtcdvoValidationStatus' - The status of the domain validation. Valid values are listed below.
-loadBalancerTLSCertificateDomainValidationOption
-    :: LoadBalancerTLSCertificateDomainValidationOption
-loadBalancerTLSCertificateDomainValidationOption =
-  LoadBalancerTLSCertificateDomainValidationOption'
-    {_lbtcdvoDomainName = Nothing, _lbtcdvoValidationStatus = Nothing}
-
-
--- | The fully qualified domain name in the certificate request.
-lbtcdvoDomainName :: Lens' LoadBalancerTLSCertificateDomainValidationOption (Maybe Text)
-lbtcdvoDomainName = lens _lbtcdvoDomainName (\ s a -> s{_lbtcdvoDomainName = a})
-
--- | The status of the domain validation. Valid values are listed below.
-lbtcdvoValidationStatus :: Lens' LoadBalancerTLSCertificateDomainValidationOption (Maybe LoadBalancerTLSCertificateDomainStatus)
-lbtcdvoValidationStatus = lens _lbtcdvoValidationStatus (\ s a -> s{_lbtcdvoValidationStatus = a})
-
-instance FromJSON
-           LoadBalancerTLSCertificateDomainValidationOption
-         where
-        parseJSON
-          = withObject
-              "LoadBalancerTLSCertificateDomainValidationOption"
-              (\ x ->
-                 LoadBalancerTLSCertificateDomainValidationOption' <$>
-                   (x .:? "domainName") <*> (x .:? "validationStatus"))
-
-instance Hashable
-           LoadBalancerTLSCertificateDomainValidationOption
-         where
-
-instance NFData
-           LoadBalancerTLSCertificateDomainValidationOption
-         where
-
--- | Describes the validation record of each domain name in the SSL/TLS certificate.
---
---
---
--- /See:/ 'loadBalancerTLSCertificateDomainValidationRecord' smart constructor.
-data LoadBalancerTLSCertificateDomainValidationRecord = LoadBalancerTLSCertificateDomainValidationRecord'
-  { _lbtcdvrValue            :: !(Maybe Text)
-  , _lbtcdvrDomainName       :: !(Maybe Text)
-  , _lbtcdvrName             :: !(Maybe Text)
-  , _lbtcdvrValidationStatus :: !(Maybe LoadBalancerTLSCertificateDomainStatus)
-  , _lbtcdvrType             :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'LoadBalancerTLSCertificateDomainValidationRecord' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbtcdvrValue' - The value for that type.
---
--- * 'lbtcdvrDomainName' - The domain name against which your SSL/TLS certificate was validated.
---
--- * 'lbtcdvrName' - A fully qualified domain name in the certificate. For example, @example.com@ .
---
--- * 'lbtcdvrValidationStatus' - The validation status. Valid values are listed below.
---
--- * 'lbtcdvrType' - The type of validation record. For example, @CNAME@ for domain validation.
-loadBalancerTLSCertificateDomainValidationRecord
-    :: LoadBalancerTLSCertificateDomainValidationRecord
-loadBalancerTLSCertificateDomainValidationRecord =
-  LoadBalancerTLSCertificateDomainValidationRecord'
-    { _lbtcdvrValue = Nothing
-    , _lbtcdvrDomainName = Nothing
-    , _lbtcdvrName = Nothing
-    , _lbtcdvrValidationStatus = Nothing
-    , _lbtcdvrType = Nothing
-    }
-
-
--- | The value for that type.
-lbtcdvrValue :: Lens' LoadBalancerTLSCertificateDomainValidationRecord (Maybe Text)
-lbtcdvrValue = lens _lbtcdvrValue (\ s a -> s{_lbtcdvrValue = a})
-
--- | The domain name against which your SSL/TLS certificate was validated.
-lbtcdvrDomainName :: Lens' LoadBalancerTLSCertificateDomainValidationRecord (Maybe Text)
-lbtcdvrDomainName = lens _lbtcdvrDomainName (\ s a -> s{_lbtcdvrDomainName = a})
-
--- | A fully qualified domain name in the certificate. For example, @example.com@ .
-lbtcdvrName :: Lens' LoadBalancerTLSCertificateDomainValidationRecord (Maybe Text)
-lbtcdvrName = lens _lbtcdvrName (\ s a -> s{_lbtcdvrName = a})
-
--- | The validation status. Valid values are listed below.
-lbtcdvrValidationStatus :: Lens' LoadBalancerTLSCertificateDomainValidationRecord (Maybe LoadBalancerTLSCertificateDomainStatus)
-lbtcdvrValidationStatus = lens _lbtcdvrValidationStatus (\ s a -> s{_lbtcdvrValidationStatus = a})
-
--- | The type of validation record. For example, @CNAME@ for domain validation.
-lbtcdvrType :: Lens' LoadBalancerTLSCertificateDomainValidationRecord (Maybe Text)
-lbtcdvrType = lens _lbtcdvrType (\ s a -> s{_lbtcdvrType = a})
-
-instance FromJSON
-           LoadBalancerTLSCertificateDomainValidationRecord
-         where
-        parseJSON
-          = withObject
-              "LoadBalancerTLSCertificateDomainValidationRecord"
-              (\ x ->
-                 LoadBalancerTLSCertificateDomainValidationRecord' <$>
-                   (x .:? "value") <*> (x .:? "domainName") <*>
-                     (x .:? "name")
-                     <*> (x .:? "validationStatus")
-                     <*> (x .:? "type"))
-
-instance Hashable
-           LoadBalancerTLSCertificateDomainValidationRecord
-         where
-
-instance NFData
-           LoadBalancerTLSCertificateDomainValidationRecord
-         where
-
--- | Contains information about the status of Lightsail's managed renewal for the certificate.
---
---
---
--- /See:/ 'loadBalancerTLSCertificateRenewalSummary' smart constructor.
-data LoadBalancerTLSCertificateRenewalSummary = LoadBalancerTLSCertificateRenewalSummary'
-  { _lbtcrsRenewalStatus :: !(Maybe LoadBalancerTLSCertificateRenewalStatus)
-  , _lbtcrsDomainValidationOptions :: !(Maybe [LoadBalancerTLSCertificateDomainValidationOption])
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'LoadBalancerTLSCertificateRenewalSummary' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbtcrsRenewalStatus' - The status of Lightsail's managed renewal of the certificate. Valid values are listed below.
---
--- * 'lbtcrsDomainValidationOptions' - Contains information about the validation of each domain name in the certificate, as it pertains to Lightsail's managed renewal. This is different from the initial validation that occurs as a result of the RequestCertificate request.
-loadBalancerTLSCertificateRenewalSummary
-    :: LoadBalancerTLSCertificateRenewalSummary
-loadBalancerTLSCertificateRenewalSummary =
-  LoadBalancerTLSCertificateRenewalSummary'
-    {_lbtcrsRenewalStatus = Nothing, _lbtcrsDomainValidationOptions = Nothing}
-
-
--- | The status of Lightsail's managed renewal of the certificate. Valid values are listed below.
-lbtcrsRenewalStatus :: Lens' LoadBalancerTLSCertificateRenewalSummary (Maybe LoadBalancerTLSCertificateRenewalStatus)
-lbtcrsRenewalStatus = lens _lbtcrsRenewalStatus (\ s a -> s{_lbtcrsRenewalStatus = a})
-
--- | Contains information about the validation of each domain name in the certificate, as it pertains to Lightsail's managed renewal. This is different from the initial validation that occurs as a result of the RequestCertificate request.
-lbtcrsDomainValidationOptions :: Lens' LoadBalancerTLSCertificateRenewalSummary [LoadBalancerTLSCertificateDomainValidationOption]
-lbtcrsDomainValidationOptions = lens _lbtcrsDomainValidationOptions (\ s a -> s{_lbtcrsDomainValidationOptions = a}) . _Default . _Coerce
-
-instance FromJSON
-           LoadBalancerTLSCertificateRenewalSummary
-         where
-        parseJSON
-          = withObject
-              "LoadBalancerTLSCertificateRenewalSummary"
-              (\ x ->
-                 LoadBalancerTLSCertificateRenewalSummary' <$>
-                   (x .:? "renewalStatus") <*>
-                     (x .:? "domainValidationOptions" .!= mempty))
-
-instance Hashable
-           LoadBalancerTLSCertificateRenewalSummary
-         where
-
-instance NFData
-           LoadBalancerTLSCertificateRenewalSummary
-         where
-
--- | Provides a summary of SSL/TLS certificate metadata.
---
---
---
--- /See:/ 'loadBalancerTLSCertificateSummary' smart constructor.
-data LoadBalancerTLSCertificateSummary = LoadBalancerTLSCertificateSummary'
-  { _lbtcsIsAttached :: !(Maybe Bool)
-  , _lbtcsName       :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'LoadBalancerTLSCertificateSummary' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbtcsIsAttached' - When @true@ , the SSL/TLS certificate is attached to the Lightsail load balancer.
---
--- * 'lbtcsName' - The name of the SSL/TLS certificate.
-loadBalancerTLSCertificateSummary
-    :: LoadBalancerTLSCertificateSummary
-loadBalancerTLSCertificateSummary =
-  LoadBalancerTLSCertificateSummary'
-    {_lbtcsIsAttached = Nothing, _lbtcsName = Nothing}
-
-
--- | When @true@ , the SSL/TLS certificate is attached to the Lightsail load balancer.
-lbtcsIsAttached :: Lens' LoadBalancerTLSCertificateSummary (Maybe Bool)
-lbtcsIsAttached = lens _lbtcsIsAttached (\ s a -> s{_lbtcsIsAttached = a})
-
--- | The name of the SSL/TLS certificate.
-lbtcsName :: Lens' LoadBalancerTLSCertificateSummary (Maybe Text)
-lbtcsName = lens _lbtcsName (\ s a -> s{_lbtcsName = a})
-
-instance FromJSON LoadBalancerTLSCertificateSummary
-         where
-        parseJSON
-          = withObject "LoadBalancerTLSCertificateSummary"
-              (\ x ->
-                 LoadBalancerTLSCertificateSummary' <$>
-                   (x .:? "isAttached") <*> (x .:? "name"))
-
-instance Hashable LoadBalancerTLSCertificateSummary
-         where
-
-instance NFData LoadBalancerTLSCertificateSummary
-         where
-
--- | Describes the metric data point.
---
---
---
--- /See:/ 'metricDatapoint' smart constructor.
-data MetricDatapoint = MetricDatapoint'
-  { _mdSampleCount :: !(Maybe Double)
-  , _mdMaximum     :: !(Maybe Double)
-  , _mdAverage     :: !(Maybe Double)
-  , _mdMinimum     :: !(Maybe Double)
-  , _mdSum         :: !(Maybe Double)
-  , _mdTimestamp   :: !(Maybe POSIX)
-  , _mdUnit        :: !(Maybe MetricUnit)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'MetricDatapoint' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mdSampleCount' - The sample count.
---
--- * 'mdMaximum' - The maximum.
---
--- * 'mdAverage' - The average.
---
--- * 'mdMinimum' - The minimum.
---
--- * 'mdSum' - The sum.
---
--- * 'mdTimestamp' - The timestamp (e.g., @1479816991.349@ ).
---
--- * 'mdUnit' - The unit.
-metricDatapoint
-    :: MetricDatapoint
-metricDatapoint =
-  MetricDatapoint'
-    { _mdSampleCount = Nothing
-    , _mdMaximum = Nothing
-    , _mdAverage = Nothing
-    , _mdMinimum = Nothing
-    , _mdSum = Nothing
-    , _mdTimestamp = Nothing
-    , _mdUnit = Nothing
-    }
-
-
--- | The sample count.
-mdSampleCount :: Lens' MetricDatapoint (Maybe Double)
-mdSampleCount = lens _mdSampleCount (\ s a -> s{_mdSampleCount = a})
-
--- | The maximum.
-mdMaximum :: Lens' MetricDatapoint (Maybe Double)
-mdMaximum = lens _mdMaximum (\ s a -> s{_mdMaximum = a})
-
--- | The average.
-mdAverage :: Lens' MetricDatapoint (Maybe Double)
-mdAverage = lens _mdAverage (\ s a -> s{_mdAverage = a})
-
--- | The minimum.
-mdMinimum :: Lens' MetricDatapoint (Maybe Double)
-mdMinimum = lens _mdMinimum (\ s a -> s{_mdMinimum = a})
-
--- | The sum.
-mdSum :: Lens' MetricDatapoint (Maybe Double)
-mdSum = lens _mdSum (\ s a -> s{_mdSum = a})
-
--- | The timestamp (e.g., @1479816991.349@ ).
-mdTimestamp :: Lens' MetricDatapoint (Maybe UTCTime)
-mdTimestamp = lens _mdTimestamp (\ s a -> s{_mdTimestamp = a}) . mapping _Time
-
--- | The unit.
-mdUnit :: Lens' MetricDatapoint (Maybe MetricUnit)
-mdUnit = lens _mdUnit (\ s a -> s{_mdUnit = a})
-
-instance FromJSON MetricDatapoint where
-        parseJSON
-          = withObject "MetricDatapoint"
-              (\ x ->
-                 MetricDatapoint' <$>
-                   (x .:? "sampleCount") <*> (x .:? "maximum") <*>
-                     (x .:? "average")
-                     <*> (x .:? "minimum")
-                     <*> (x .:? "sum")
-                     <*> (x .:? "timestamp")
-                     <*> (x .:? "unit"))
-
-instance Hashable MetricDatapoint where
-
-instance NFData MetricDatapoint where
-
--- | Describes the monthly data transfer in and out of your virtual private server (or /instance/ ).
---
---
---
--- /See:/ 'monthlyTransfer' smart constructor.
-newtype MonthlyTransfer = MonthlyTransfer'
-  { _mtGbPerMonthAllocated :: Maybe Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'MonthlyTransfer' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mtGbPerMonthAllocated' - The amount allocated per month (in GB).
-monthlyTransfer
-    :: MonthlyTransfer
-monthlyTransfer = MonthlyTransfer' {_mtGbPerMonthAllocated = Nothing}
-
-
--- | The amount allocated per month (in GB).
-mtGbPerMonthAllocated :: Lens' MonthlyTransfer (Maybe Int)
-mtGbPerMonthAllocated = lens _mtGbPerMonthAllocated (\ s a -> s{_mtGbPerMonthAllocated = a})
-
-instance FromJSON MonthlyTransfer where
-        parseJSON
-          = withObject "MonthlyTransfer"
-              (\ x ->
-                 MonthlyTransfer' <$> (x .:? "gbPerMonthAllocated"))
-
-instance Hashable MonthlyTransfer where
-
-instance NFData MonthlyTransfer where
-
--- | Describes the API operation.
---
---
---
--- /See:/ 'operation' smart constructor.
-data Operation = Operation'
-  { _oStatus           :: !(Maybe OperationStatus)
-  , _oOperationDetails :: !(Maybe Text)
-  , _oResourceType     :: !(Maybe ResourceType)
-  , _oCreatedAt        :: !(Maybe POSIX)
-  , _oResourceName     :: !(Maybe Text)
-  , _oLocation         :: !(Maybe ResourceLocation)
-  , _oStatusChangedAt  :: !(Maybe POSIX)
-  , _oErrorDetails     :: !(Maybe Text)
-  , _oErrorCode        :: !(Maybe Text)
-  , _oId               :: !(Maybe Text)
-  , _oOperationType    :: !(Maybe OperationType)
-  , _oIsTerminal       :: !(Maybe Bool)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'Operation' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oStatus' - The status of the operation.
---
--- * 'oOperationDetails' - Details about the operation (e.g., @Debian-1GB-Ohio-1@ ).
---
--- * 'oResourceType' - The resource type.
---
--- * 'oCreatedAt' - The timestamp when the operation was initialized (e.g., @1479816991.349@ ).
---
--- * 'oResourceName' - The resource name.
---
--- * 'oLocation' - The region and Availability Zone.
---
--- * 'oStatusChangedAt' - The timestamp when the status was changed (e.g., @1479816991.349@ ).
---
--- * 'oErrorDetails' - The error details.
---
--- * 'oErrorCode' - The error code.
---
--- * 'oId' - The ID of the operation.
---
--- * 'oOperationType' - The type of operation.
---
--- * 'oIsTerminal' - A Boolean value indicating whether the operation is terminal.
-operation
-    :: Operation
-operation =
-  Operation'
-    { _oStatus = Nothing
-    , _oOperationDetails = Nothing
-    , _oResourceType = Nothing
-    , _oCreatedAt = Nothing
-    , _oResourceName = Nothing
-    , _oLocation = Nothing
-    , _oStatusChangedAt = Nothing
-    , _oErrorDetails = Nothing
-    , _oErrorCode = Nothing
-    , _oId = Nothing
-    , _oOperationType = Nothing
-    , _oIsTerminal = Nothing
-    }
-
-
--- | The status of the operation.
-oStatus :: Lens' Operation (Maybe OperationStatus)
-oStatus = lens _oStatus (\ s a -> s{_oStatus = a})
-
--- | Details about the operation (e.g., @Debian-1GB-Ohio-1@ ).
-oOperationDetails :: Lens' Operation (Maybe Text)
-oOperationDetails = lens _oOperationDetails (\ s a -> s{_oOperationDetails = a})
-
--- | The resource type.
-oResourceType :: Lens' Operation (Maybe ResourceType)
-oResourceType = lens _oResourceType (\ s a -> s{_oResourceType = a})
-
--- | The timestamp when the operation was initialized (e.g., @1479816991.349@ ).
-oCreatedAt :: Lens' Operation (Maybe UTCTime)
-oCreatedAt = lens _oCreatedAt (\ s a -> s{_oCreatedAt = a}) . mapping _Time
-
--- | The resource name.
-oResourceName :: Lens' Operation (Maybe Text)
-oResourceName = lens _oResourceName (\ s a -> s{_oResourceName = a})
-
--- | The region and Availability Zone.
-oLocation :: Lens' Operation (Maybe ResourceLocation)
-oLocation = lens _oLocation (\ s a -> s{_oLocation = a})
-
--- | The timestamp when the status was changed (e.g., @1479816991.349@ ).
-oStatusChangedAt :: Lens' Operation (Maybe UTCTime)
-oStatusChangedAt = lens _oStatusChangedAt (\ s a -> s{_oStatusChangedAt = a}) . mapping _Time
-
--- | The error details.
-oErrorDetails :: Lens' Operation (Maybe Text)
-oErrorDetails = lens _oErrorDetails (\ s a -> s{_oErrorDetails = a})
-
--- | The error code.
-oErrorCode :: Lens' Operation (Maybe Text)
-oErrorCode = lens _oErrorCode (\ s a -> s{_oErrorCode = a})
-
--- | The ID of the operation.
-oId :: Lens' Operation (Maybe Text)
-oId = lens _oId (\ s a -> s{_oId = a})
-
--- | The type of operation.
-oOperationType :: Lens' Operation (Maybe OperationType)
-oOperationType = lens _oOperationType (\ s a -> s{_oOperationType = a})
-
--- | A Boolean value indicating whether the operation is terminal.
-oIsTerminal :: Lens' Operation (Maybe Bool)
-oIsTerminal = lens _oIsTerminal (\ s a -> s{_oIsTerminal = a})
-
-instance FromJSON Operation where
-        parseJSON
-          = withObject "Operation"
-              (\ x ->
-                 Operation' <$>
-                   (x .:? "status") <*> (x .:? "operationDetails") <*>
-                     (x .:? "resourceType")
-                     <*> (x .:? "createdAt")
-                     <*> (x .:? "resourceName")
-                     <*> (x .:? "location")
-                     <*> (x .:? "statusChangedAt")
-                     <*> (x .:? "errorDetails")
-                     <*> (x .:? "errorCode")
-                     <*> (x .:? "id")
-                     <*> (x .:? "operationType")
-                     <*> (x .:? "isTerminal"))
-
-instance Hashable Operation where
-
-instance NFData Operation where
-
--- | The password data for the Windows Server-based instance, including the ciphertext and the key pair name.
---
---
---
--- /See:/ 'passwordData' smart constructor.
-data PasswordData = PasswordData'
-  { _pdKeyPairName :: !(Maybe Text)
-  , _pdCiphertext  :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'PasswordData' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pdKeyPairName' - The name of the key pair that you used when creating your instance. If no key pair name was specified when creating the instance, Lightsail uses the default key pair (@LightsailDefaultKeyPair@ ). If you are using a custom key pair, you need to use your own means of decrypting your password using the @ciphertext@ . Lightsail creates the ciphertext by encrypting your password with the public key part of this key pair.
---
--- * 'pdCiphertext' - The encrypted password. Ciphertext will be an empty string if access to your new instance is not ready yet. When you create an instance, it can take up to 15 minutes for the instance to be ready.
-passwordData
-    :: PasswordData
-passwordData = PasswordData' {_pdKeyPairName = Nothing, _pdCiphertext = Nothing}
-
-
--- | The name of the key pair that you used when creating your instance. If no key pair name was specified when creating the instance, Lightsail uses the default key pair (@LightsailDefaultKeyPair@ ). If you are using a custom key pair, you need to use your own means of decrypting your password using the @ciphertext@ . Lightsail creates the ciphertext by encrypting your password with the public key part of this key pair.
-pdKeyPairName :: Lens' PasswordData (Maybe Text)
-pdKeyPairName = lens _pdKeyPairName (\ s a -> s{_pdKeyPairName = a})
-
--- | The encrypted password. Ciphertext will be an empty string if access to your new instance is not ready yet. When you create an instance, it can take up to 15 minutes for the instance to be ready.
-pdCiphertext :: Lens' PasswordData (Maybe Text)
-pdCiphertext = lens _pdCiphertext (\ s a -> s{_pdCiphertext = a})
-
-instance FromJSON PasswordData where
-        parseJSON
-          = withObject "PasswordData"
-              (\ x ->
-                 PasswordData' <$>
-                   (x .:? "keyPairName") <*> (x .:? "ciphertext"))
-
-instance Hashable PasswordData where
-
-instance NFData PasswordData where
-
--- | Describes information about the ports on your virtual private server (or /instance/ ).
---
---
---
--- /See:/ 'portInfo' smart constructor.
-data PortInfo = PortInfo'
-  { _piFromPort :: !(Maybe Nat)
-  , _piProtocol :: !(Maybe NetworkProtocol)
-  , _piToPort   :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'PortInfo' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'piFromPort' - The first port in the range.
---
--- * 'piProtocol' - The protocol.
---
--- * 'piToPort' - The last port in the range.
-portInfo
-    :: PortInfo
-portInfo =
-  PortInfo' {_piFromPort = Nothing, _piProtocol = Nothing, _piToPort = Nothing}
-
-
--- | The first port in the range.
-piFromPort :: Lens' PortInfo (Maybe Natural)
-piFromPort = lens _piFromPort (\ s a -> s{_piFromPort = a}) . mapping _Nat
-
--- | The protocol.
-piProtocol :: Lens' PortInfo (Maybe NetworkProtocol)
-piProtocol = lens _piProtocol (\ s a -> s{_piProtocol = a})
-
--- | The last port in the range.
-piToPort :: Lens' PortInfo (Maybe Natural)
-piToPort = lens _piToPort (\ s a -> s{_piToPort = a}) . mapping _Nat
-
-instance Hashable PortInfo where
-
-instance NFData PortInfo where
-
-instance ToJSON PortInfo where
-        toJSON PortInfo'{..}
-          = object
-              (catMaybes
-                 [("fromPort" .=) <$> _piFromPort,
-                  ("protocol" .=) <$> _piProtocol,
-                  ("toPort" .=) <$> _piToPort])
-
--- | Describes the AWS Region.
---
---
---
--- /See:/ 'regionInfo' smart constructor.
-data RegionInfo = RegionInfo'
-  { _riAvailabilityZones :: !(Maybe [AvailabilityZone])
-  , _riName              :: !(Maybe RegionName)
-  , _riDisplayName       :: !(Maybe Text)
-  , _riContinentCode     :: !(Maybe Text)
-  , _riDescription       :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'RegionInfo' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'riAvailabilityZones' - The Availability Zones. Follows the format @us-east-2a@ (case-sensitive).
---
--- * 'riName' - The region name (e.g., @us-east-2@ ).
---
--- * 'riDisplayName' - The display name (e.g., @Ohio@ ).
---
--- * 'riContinentCode' - The continent code (e.g., @NA@ , meaning North America).
---
--- * 'riDescription' - The description of the AWS Region (e.g., @This region is recommended to serve users in the eastern United States and eastern Canada@ ).
-regionInfo
-    :: RegionInfo
-regionInfo =
-  RegionInfo'
-    { _riAvailabilityZones = Nothing
-    , _riName = Nothing
-    , _riDisplayName = Nothing
-    , _riContinentCode = Nothing
-    , _riDescription = Nothing
-    }
-
-
--- | The Availability Zones. Follows the format @us-east-2a@ (case-sensitive).
-riAvailabilityZones :: Lens' RegionInfo [AvailabilityZone]
-riAvailabilityZones = lens _riAvailabilityZones (\ s a -> s{_riAvailabilityZones = a}) . _Default . _Coerce
-
--- | The region name (e.g., @us-east-2@ ).
-riName :: Lens' RegionInfo (Maybe RegionName)
-riName = lens _riName (\ s a -> s{_riName = a})
-
--- | The display name (e.g., @Ohio@ ).
-riDisplayName :: Lens' RegionInfo (Maybe Text)
-riDisplayName = lens _riDisplayName (\ s a -> s{_riDisplayName = a})
-
--- | The continent code (e.g., @NA@ , meaning North America).
-riContinentCode :: Lens' RegionInfo (Maybe Text)
-riContinentCode = lens _riContinentCode (\ s a -> s{_riContinentCode = a})
-
--- | The description of the AWS Region (e.g., @This region is recommended to serve users in the eastern United States and eastern Canada@ ).
-riDescription :: Lens' RegionInfo (Maybe Text)
-riDescription = lens _riDescription (\ s a -> s{_riDescription = a})
-
-instance FromJSON RegionInfo where
-        parseJSON
-          = withObject "RegionInfo"
-              (\ x ->
-                 RegionInfo' <$>
-                   (x .:? "availabilityZones" .!= mempty) <*>
-                     (x .:? "name")
-                     <*> (x .:? "displayName")
-                     <*> (x .:? "continentCode")
-                     <*> (x .:? "description"))
-
-instance Hashable RegionInfo where
-
-instance NFData RegionInfo where
-
--- | Describes the resource location.
---
---
---
--- /See:/ 'resourceLocation' smart constructor.
-data ResourceLocation = ResourceLocation'
-  { _rlRegionName       :: !(Maybe RegionName)
-  , _rlAvailabilityZone :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ResourceLocation' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rlRegionName' - The AWS Region name.
---
--- * 'rlAvailabilityZone' - The Availability Zone. Follows the format @us-east-2a@ (case-sensitive).
-resourceLocation
-    :: ResourceLocation
-resourceLocation =
-  ResourceLocation' {_rlRegionName = Nothing, _rlAvailabilityZone = Nothing}
-
-
--- | The AWS Region name.
-rlRegionName :: Lens' ResourceLocation (Maybe RegionName)
-rlRegionName = lens _rlRegionName (\ s a -> s{_rlRegionName = a})
-
--- | The Availability Zone. Follows the format @us-east-2a@ (case-sensitive).
-rlAvailabilityZone :: Lens' ResourceLocation (Maybe Text)
-rlAvailabilityZone = lens _rlAvailabilityZone (\ s a -> s{_rlAvailabilityZone = a})
-
-instance FromJSON ResourceLocation where
-        parseJSON
-          = withObject "ResourceLocation"
-              (\ x ->
-                 ResourceLocation' <$>
-                   (x .:? "regionName") <*> (x .:? "availabilityZone"))
-
-instance Hashable ResourceLocation where
-
-instance NFData ResourceLocation where
-
--- | Describes the static IP.
---
---
---
--- /See:/ 'staticIP' smart constructor.
-data StaticIP = StaticIP'
-  { _siIpAddress    :: !(Maybe Text)
-  , _siResourceType :: !(Maybe ResourceType)
-  , _siArn          :: !(Maybe Text)
-  , _siCreatedAt    :: !(Maybe POSIX)
-  , _siLocation     :: !(Maybe ResourceLocation)
-  , _siIsAttached   :: !(Maybe Bool)
-  , _siName         :: !(Maybe Text)
-  , _siSupportCode  :: !(Maybe Text)
-  , _siAttachedTo   :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'StaticIP' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'siIpAddress' - The static IP address.
---
--- * 'siResourceType' - The resource type (usually @StaticIp@ ).
---
--- * 'siArn' - The Amazon Resource Name (ARN) of the static IP (e.g., @arn:aws:lightsail:us-east-2:123456789101:StaticIp/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE@ ).
---
--- * 'siCreatedAt' - The timestamp when the static IP was created (e.g., @1479735304.222@ ).
---
--- * 'siLocation' - The region and Availability Zone where the static IP was created.
---
--- * 'siIsAttached' - A Boolean value indicating whether the static IP is attached.
---
--- * 'siName' - The name of the static IP (e.g., @StaticIP-Ohio-EXAMPLE@ ).
---
--- * 'siSupportCode' - The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
---
--- * 'siAttachedTo' - The instance where the static IP is attached (e.g., @Amazon_Linux-1GB-Ohio-1@ ).
-staticIP
-    :: StaticIP
-staticIP =
-  StaticIP'
-    { _siIpAddress = Nothing
-    , _siResourceType = Nothing
-    , _siArn = Nothing
-    , _siCreatedAt = Nothing
-    , _siLocation = Nothing
-    , _siIsAttached = Nothing
-    , _siName = Nothing
-    , _siSupportCode = Nothing
-    , _siAttachedTo = Nothing
-    }
-
-
--- | The static IP address.
-siIpAddress :: Lens' StaticIP (Maybe Text)
-siIpAddress = lens _siIpAddress (\ s a -> s{_siIpAddress = a})
-
--- | The resource type (usually @StaticIp@ ).
-siResourceType :: Lens' StaticIP (Maybe ResourceType)
-siResourceType = lens _siResourceType (\ s a -> s{_siResourceType = a})
-
--- | The Amazon Resource Name (ARN) of the static IP (e.g., @arn:aws:lightsail:us-east-2:123456789101:StaticIp/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE@ ).
-siArn :: Lens' StaticIP (Maybe Text)
-siArn = lens _siArn (\ s a -> s{_siArn = a})
-
--- | The timestamp when the static IP was created (e.g., @1479735304.222@ ).
-siCreatedAt :: Lens' StaticIP (Maybe UTCTime)
-siCreatedAt = lens _siCreatedAt (\ s a -> s{_siCreatedAt = a}) . mapping _Time
-
--- | The region and Availability Zone where the static IP was created.
-siLocation :: Lens' StaticIP (Maybe ResourceLocation)
-siLocation = lens _siLocation (\ s a -> s{_siLocation = a})
-
--- | A Boolean value indicating whether the static IP is attached.
-siIsAttached :: Lens' StaticIP (Maybe Bool)
-siIsAttached = lens _siIsAttached (\ s a -> s{_siIsAttached = a})
-
--- | The name of the static IP (e.g., @StaticIP-Ohio-EXAMPLE@ ).
-siName :: Lens' StaticIP (Maybe Text)
-siName = lens _siName (\ s a -> s{_siName = a})
-
--- | The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-siSupportCode :: Lens' StaticIP (Maybe Text)
-siSupportCode = lens _siSupportCode (\ s a -> s{_siSupportCode = a})
-
--- | The instance where the static IP is attached (e.g., @Amazon_Linux-1GB-Ohio-1@ ).
-siAttachedTo :: Lens' StaticIP (Maybe Text)
-siAttachedTo = lens _siAttachedTo (\ s a -> s{_siAttachedTo = a})
-
-instance FromJSON StaticIP where
-        parseJSON
-          = withObject "StaticIP"
-              (\ x ->
-                 StaticIP' <$>
-                   (x .:? "ipAddress") <*> (x .:? "resourceType") <*>
-                     (x .:? "arn")
-                     <*> (x .:? "createdAt")
-                     <*> (x .:? "location")
-                     <*> (x .:? "isAttached")
-                     <*> (x .:? "name")
-                     <*> (x .:? "supportCode")
-                     <*> (x .:? "attachedTo"))
-
-instance Hashable StaticIP where
-
-instance NFData StaticIP where
+-- * 'iePortInfoSource' - The port configuration to use for the new Amazon EC2 instance. The following configuration options are available:     * DEFAULT

@@ -21,12 +21,15 @@
 -- Creates a snapshot of a specific virtual private server, or /instance/ . You can use a snapshot to create a new instance that is based on that snapshot.
 --
 --
+-- The @create instance snapshot@ operation supports tag-based access control via request tags. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
+--
 module Network.AWS.Lightsail.CreateInstanceSnapshot
     (
     -- * Creating a Request
       createInstanceSnapshot
     , CreateInstanceSnapshot
     -- * Request Lenses
+    , cisTags
     , cisInstanceSnapshotName
     , cisInstanceName
 
@@ -47,7 +50,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createInstanceSnapshot' smart constructor.
 data CreateInstanceSnapshot = CreateInstanceSnapshot'
-  { _cisInstanceSnapshotName :: !Text
+  { _cisTags                 :: !(Maybe [Tag])
+  , _cisInstanceSnapshotName :: !Text
   , _cisInstanceName         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -55,6 +59,8 @@ data CreateInstanceSnapshot = CreateInstanceSnapshot'
 -- | Creates a value of 'CreateInstanceSnapshot' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cisTags' - The tag keys and optional values to add to the resource during create. To tag a resource after it has been created, see the @tag resource@ operation.
 --
 -- * 'cisInstanceSnapshotName' - The name for your new snapshot.
 --
@@ -65,10 +71,15 @@ createInstanceSnapshot
     -> CreateInstanceSnapshot
 createInstanceSnapshot pInstanceSnapshotName_ pInstanceName_ =
   CreateInstanceSnapshot'
-    { _cisInstanceSnapshotName = pInstanceSnapshotName_
+    { _cisTags = Nothing
+    , _cisInstanceSnapshotName = pInstanceSnapshotName_
     , _cisInstanceName = pInstanceName_
     }
 
+
+-- | The tag keys and optional values to add to the resource during create. To tag a resource after it has been created, see the @tag resource@ operation.
+cisTags :: Lens' CreateInstanceSnapshot [Tag]
+cisTags = lens _cisTags (\ s a -> s{_cisTags = a}) . _Default . _Coerce
 
 -- | The name for your new snapshot.
 cisInstanceSnapshotName :: Lens' CreateInstanceSnapshot Text
@@ -107,7 +118,8 @@ instance ToJSON CreateInstanceSnapshot where
         toJSON CreateInstanceSnapshot'{..}
           = object
               (catMaybes
-                 [Just
+                 [("tags" .=) <$> _cisTags,
+                  Just
                     ("instanceSnapshotName" .= _cisInstanceSnapshotName),
                   Just ("instanceName" .= _cisInstanceName)])
 

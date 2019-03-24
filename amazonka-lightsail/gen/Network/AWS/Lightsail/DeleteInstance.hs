@@ -21,6 +21,8 @@
 -- Deletes a specific Amazon Lightsail virtual private server, or /instance/ .
 --
 --
+-- The @delete instance@ operation supports tag-based access control via resource tags applied to the resource identified by instanceName. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
+--
 module Network.AWS.Lightsail.DeleteInstance
     (
     -- * Creating a Request

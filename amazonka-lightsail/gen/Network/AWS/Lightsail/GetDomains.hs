@@ -35,9 +35,9 @@ module Network.AWS.Lightsail.GetDomains
     , getDomainsResponse
     , GetDomainsResponse
     -- * Response Lenses
-    , ggrsNextPageToken
-    , ggrsDomains
-    , ggrsResponseStatus
+    , getersNextPageToken
+    , getersDomains
+    , getersResponseStatus
     ) where
 
 import Network.AWS.Lens
@@ -70,10 +70,10 @@ gdPageToken = lens _gdPageToken (\ s a -> s{_gdPageToken = a})
 
 instance AWSPager GetDomains where
         page rq rs
-          | stop (rs ^. ggrsNextPageToken) = Nothing
-          | stop (rs ^. ggrsDomains) = Nothing
+          | stop (rs ^. getersNextPageToken) = Nothing
+          | stop (rs ^. getersDomains) = Nothing
           | otherwise =
-            Just $ rq & gdPageToken .~ rs ^. ggrsNextPageToken
+            Just $ rq & gdPageToken .~ rs ^. getersNextPageToken
 
 instance AWSRequest GetDomains where
         type Rs GetDomains = GetDomainsResponse
@@ -112,9 +112,9 @@ instance ToQuery GetDomains where
 
 -- | /See:/ 'getDomainsResponse' smart constructor.
 data GetDomainsResponse = GetDomainsResponse'
-  { _ggrsNextPageToken  :: !(Maybe Text)
-  , _ggrsDomains        :: !(Maybe [Domain])
-  , _ggrsResponseStatus :: !Int
+  { _getersNextPageToken  :: !(Maybe Text)
+  , _getersDomains        :: !(Maybe [Domain])
+  , _getersResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -122,32 +122,32 @@ data GetDomainsResponse = GetDomainsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggrsNextPageToken' - A token used for advancing to the next page of results from your get active names request.
+-- * 'getersNextPageToken' - A token used for advancing to the next page of results from your get active names request.
 --
--- * 'ggrsDomains' - An array of key-value pairs containing information about each of the domain entries in the user's account.
+-- * 'getersDomains' - An array of key-value pairs containing information about each of the domain entries in the user's account.
 --
--- * 'ggrsResponseStatus' - -- | The response status code.
+-- * 'getersResponseStatus' - -- | The response status code.
 getDomainsResponse
-    :: Int -- ^ 'ggrsResponseStatus'
+    :: Int -- ^ 'getersResponseStatus'
     -> GetDomainsResponse
 getDomainsResponse pResponseStatus_ =
   GetDomainsResponse'
-    { _ggrsNextPageToken = Nothing
-    , _ggrsDomains = Nothing
-    , _ggrsResponseStatus = pResponseStatus_
+    { _getersNextPageToken = Nothing
+    , _getersDomains = Nothing
+    , _getersResponseStatus = pResponseStatus_
     }
 
 
 -- | A token used for advancing to the next page of results from your get active names request.
-ggrsNextPageToken :: Lens' GetDomainsResponse (Maybe Text)
-ggrsNextPageToken = lens _ggrsNextPageToken (\ s a -> s{_ggrsNextPageToken = a})
+getersNextPageToken :: Lens' GetDomainsResponse (Maybe Text)
+getersNextPageToken = lens _getersNextPageToken (\ s a -> s{_getersNextPageToken = a})
 
 -- | An array of key-value pairs containing information about each of the domain entries in the user's account.
-ggrsDomains :: Lens' GetDomainsResponse [Domain]
-ggrsDomains = lens _ggrsDomains (\ s a -> s{_ggrsDomains = a}) . _Default . _Coerce
+getersDomains :: Lens' GetDomainsResponse [Domain]
+getersDomains = lens _getersDomains (\ s a -> s{_getersDomains = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
-ggrsResponseStatus :: Lens' GetDomainsResponse Int
-ggrsResponseStatus = lens _ggrsResponseStatus (\ s a -> s{_ggrsResponseStatus = a})
+getersResponseStatus :: Lens' GetDomainsResponse Int
+getersResponseStatus = lens _getersResponseStatus (\ s a -> s{_getersResponseStatus = a})
 
 instance NFData GetDomainsResponse where

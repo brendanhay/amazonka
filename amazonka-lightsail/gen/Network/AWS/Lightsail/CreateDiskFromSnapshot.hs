@@ -21,12 +21,15 @@
 -- Creates a block storage disk from a disk snapshot that can be attached to a Lightsail instance in the same Availability Zone (e.g., @us-east-2a@ ). The disk is created in the regional endpoint that you send the HTTP request to. For more information, see <https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail Regions and Availability Zones in Lightsail> .
 --
 --
+-- The @create disk from snapshot@ operation supports tag-based access control via request tags and resource tags applied to the resource identified by diskSnapshotName. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
+--
 module Network.AWS.Lightsail.CreateDiskFromSnapshot
     (
     -- * Creating a Request
       createDiskFromSnapshot
     , CreateDiskFromSnapshot
     -- * Request Lenses
+    , cdfsTags
     , cdfsDiskName
     , cdfsDiskSnapshotName
     , cdfsAvailabilityZone
@@ -49,7 +52,8 @@ import Network.AWS.Response
 
 -- | /See:/ 'createDiskFromSnapshot' smart constructor.
 data CreateDiskFromSnapshot = CreateDiskFromSnapshot'
-  { _cdfsDiskName         :: !Text
+  { _cdfsTags             :: !(Maybe [Tag])
+  , _cdfsDiskName         :: !Text
   , _cdfsDiskSnapshotName :: !Text
   , _cdfsAvailabilityZone :: !Text
   , _cdfsSizeInGb         :: !Int
@@ -59,6 +63,8 @@ data CreateDiskFromSnapshot = CreateDiskFromSnapshot'
 -- | Creates a value of 'CreateDiskFromSnapshot' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdfsTags' - The tag keys and optional values to add to the resource during create. To tag a resource after it has been created, see the @tag resource@ operation.
 --
 -- * 'cdfsDiskName' - The unique Lightsail disk name (e.g., @my-disk@ ).
 --
@@ -75,12 +81,17 @@ createDiskFromSnapshot
     -> CreateDiskFromSnapshot
 createDiskFromSnapshot pDiskName_ pDiskSnapshotName_ pAvailabilityZone_ pSizeInGb_ =
   CreateDiskFromSnapshot'
-    { _cdfsDiskName = pDiskName_
+    { _cdfsTags = Nothing
+    , _cdfsDiskName = pDiskName_
     , _cdfsDiskSnapshotName = pDiskSnapshotName_
     , _cdfsAvailabilityZone = pAvailabilityZone_
     , _cdfsSizeInGb = pSizeInGb_
     }
 
+
+-- | The tag keys and optional values to add to the resource during create. To tag a resource after it has been created, see the @tag resource@ operation.
+cdfsTags :: Lens' CreateDiskFromSnapshot [Tag]
+cdfsTags = lens _cdfsTags (\ s a -> s{_cdfsTags = a}) . _Default . _Coerce
 
 -- | The unique Lightsail disk name (e.g., @my-disk@ ).
 cdfsDiskName :: Lens' CreateDiskFromSnapshot Text
@@ -127,7 +138,8 @@ instance ToJSON CreateDiskFromSnapshot where
         toJSON CreateDiskFromSnapshot'{..}
           = object
               (catMaybes
-                 [Just ("diskName" .= _cdfsDiskName),
+                 [("tags" .=) <$> _cdfsTags,
+                  Just ("diskName" .= _cdfsDiskName),
                   Just ("diskSnapshotName" .= _cdfsDiskSnapshotName),
                   Just ("availabilityZone" .= _cdfsAvailabilityZone),
                   Just ("sizeInGb" .= _cdfsSizeInGb)])

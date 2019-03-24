@@ -21,6 +21,8 @@
 -- Adds public ports to an Amazon Lightsail instance.
 --
 --
+-- The @open instance public ports@ operation supports tag-based access control via resource tags applied to the resource identified by instanceName. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
+--
 module Network.AWS.Lightsail.OpenInstancePublicPorts
     (
     -- * Creating a Request

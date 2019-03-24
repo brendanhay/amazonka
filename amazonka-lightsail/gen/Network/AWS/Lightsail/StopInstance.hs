@@ -21,6 +21,8 @@
 -- Stops a specific Amazon Lightsail instance that is currently running.
 --
 --
+-- The @stop instance@ operation supports tag-based access control via resource tags applied to the resource identified by instanceName. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
+--
 module Network.AWS.Lightsail.StopInstance
     (
     -- * Creating a Request

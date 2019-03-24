@@ -21,6 +21,8 @@
 -- Closes the public ports on a specific Amazon Lightsail instance.
 --
 --
+-- The @close instance public ports@ operation supports tag-based access control via resource tags applied to the resource identified by instanceName. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
+--
 module Network.AWS.Lightsail.CloseInstancePublicPorts
     (
     -- * Creating a Request

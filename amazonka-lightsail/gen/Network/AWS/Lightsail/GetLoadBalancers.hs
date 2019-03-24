@@ -23,6 +23,8 @@
 --
 -- If you are describing a long list of load balancers, you can paginate the output to make the list more manageable. You can use the pageToken and nextPageToken values to retrieve the next items in the list.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Lightsail.GetLoadBalancers
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.Lightsail.GetLoadBalancers
 import Network.AWS.Lens
 import Network.AWS.Lightsail.Types
 import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -66,6 +69,13 @@ getLoadBalancers = GetLoadBalancers' {_glbPageToken = Nothing}
 -- | A token used for paginating the results from your GetLoadBalancers request.
 glbPageToken :: Lens' GetLoadBalancers (Maybe Text)
 glbPageToken = lens _glbPageToken (\ s a -> s{_glbPageToken = a})
+
+instance AWSPager GetLoadBalancers where
+        page rq rs
+          | stop (rs ^. glbsrsNextPageToken) = Nothing
+          | stop (rs ^. glbsrsLoadBalancers) = Nothing
+          | otherwise =
+            Just $ rq & glbPageToken .~ rs ^. glbsrsNextPageToken
 
 instance AWSRequest GetLoadBalancers where
         type Rs GetLoadBalancers = GetLoadBalancersResponse

@@ -23,6 +23,8 @@
 --
 -- If you are describing a long list of disk snapshots, you can paginate the output to make the list more manageable. You can use the pageToken and nextPageToken values to retrieve the next items in the list.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Lightsail.GetDiskSnapshots
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.Lightsail.GetDiskSnapshots
 import Network.AWS.Lens
 import Network.AWS.Lightsail.Types
 import Network.AWS.Lightsail.Types.Product
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -66,6 +69,13 @@ getDiskSnapshots = GetDiskSnapshots' {_gdsPageToken = Nothing}
 -- | A token used for advancing to the next page of results from your GetDiskSnapshots request.
 gdsPageToken :: Lens' GetDiskSnapshots (Maybe Text)
 gdsPageToken = lens _gdsPageToken (\ s a -> s{_gdsPageToken = a})
+
+instance AWSPager GetDiskSnapshots where
+        page rq rs
+          | stop (rs ^. gdssrsNextPageToken) = Nothing
+          | stop (rs ^. gdssrsDiskSnapshots) = Nothing
+          | otherwise =
+            Just $ rq & gdsPageToken .~ rs ^. gdssrsNextPageToken
 
 instance AWSRequest GetDiskSnapshots where
         type Rs GetDiskSnapshots = GetDiskSnapshotsResponse

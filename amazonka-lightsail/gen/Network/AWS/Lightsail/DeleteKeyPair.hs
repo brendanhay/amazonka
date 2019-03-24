@@ -21,6 +21,8 @@
 -- Deletes a specific SSH key pair.
 --
 --
+-- The @delete key pair@ operation supports tag-based access control via resource tags applied to the resource identified by keyPairName. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
+--
 module Network.AWS.Lightsail.DeleteKeyPair
     (
     -- * Creating a Request

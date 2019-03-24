@@ -21,6 +21,8 @@
 -- Updates the specified attribute for a load balancer. You can only update one attribute at a time.
 --
 --
+-- The @update load balancer attribute@ operation supports tag-based access control via resource tags applied to the resource identified by loadBalancerName. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
+--
 module Network.AWS.Lightsail.UpdateLoadBalancerAttribute
     (
     -- * Creating a Request

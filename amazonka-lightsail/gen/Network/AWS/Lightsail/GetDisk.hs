@@ -33,8 +33,8 @@ module Network.AWS.Lightsail.GetDisk
     , getDiskResponse
     , GetDiskResponse
     -- * Response Lenses
-    , getrsDisk
-    , getrsResponseStatus
+    , gddrsDisk
+    , gddrsResponseStatus
     ) where
 
 import Network.AWS.Lens
@@ -100,8 +100,8 @@ instance ToQuery GetDisk where
 
 -- | /See:/ 'getDiskResponse' smart constructor.
 data GetDiskResponse = GetDiskResponse'
-  { _getrsDisk           :: !(Maybe Disk)
-  , _getrsResponseStatus :: !Int
+  { _gddrsDisk           :: !(Maybe Disk)
+  , _gddrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -109,23 +109,23 @@ data GetDiskResponse = GetDiskResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'getrsDisk' - An object containing information about the disk.
+-- * 'gddrsDisk' - An object containing information about the disk.
 --
--- * 'getrsResponseStatus' - -- | The response status code.
+-- * 'gddrsResponseStatus' - -- | The response status code.
 getDiskResponse
-    :: Int -- ^ 'getrsResponseStatus'
+    :: Int -- ^ 'gddrsResponseStatus'
     -> GetDiskResponse
 getDiskResponse pResponseStatus_ =
   GetDiskResponse'
-    {_getrsDisk = Nothing, _getrsResponseStatus = pResponseStatus_}
+    {_gddrsDisk = Nothing, _gddrsResponseStatus = pResponseStatus_}
 
 
 -- | An object containing information about the disk.
-getrsDisk :: Lens' GetDiskResponse (Maybe Disk)
-getrsDisk = lens _getrsDisk (\ s a -> s{_getrsDisk = a})
+gddrsDisk :: Lens' GetDiskResponse (Maybe Disk)
+gddrsDisk = lens _gddrsDisk (\ s a -> s{_gddrsDisk = a})
 
 -- | -- | The response status code.
-getrsResponseStatus :: Lens' GetDiskResponse Int
-getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a})
+gddrsResponseStatus :: Lens' GetDiskResponse Int
+gddrsResponseStatus = lens _gddrsResponseStatus (\ s a -> s{_gddrsResponseStatus = a})
 
 instance NFData GetDiskResponse where

@@ -21,6 +21,8 @@
 -- Deletes a specific domain entry.
 --
 --
+-- The @delete domain entry@ operation supports tag-based access control via resource tags applied to the resource identified by domainName. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
+--
 module Network.AWS.Lightsail.DeleteDomainEntry
     (
     -- * Creating a Request

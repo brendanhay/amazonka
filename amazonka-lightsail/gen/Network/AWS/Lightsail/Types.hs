@@ -30,11 +30,17 @@ module Network.AWS.Lightsail.Types
     -- * BlueprintType
     , BlueprintType (..)
 
+    -- * CloudFormationStackRecordSourceType
+    , CloudFormationStackRecordSourceType (..)
+
     -- * DiskSnapshotState
     , DiskSnapshotState (..)
 
     -- * DiskState
     , DiskState (..)
+
+    -- * ExportSnapshotRecordSourceType
+    , ExportSnapshotRecordSourceType (..)
 
     -- * InstanceAccessProtocol
     , InstanceAccessProtocol (..)
@@ -99,11 +105,26 @@ module Network.AWS.Lightsail.Types
     -- * PortAccessType
     , PortAccessType (..)
 
+    -- * PortInfoSourceType
+    , PortInfoSourceType (..)
+
     -- * PortState
     , PortState (..)
 
+    -- * RecordState
+    , RecordState (..)
+
     -- * RegionName
     , RegionName (..)
+
+    -- * RelationalDatabaseEngine
+    , RelationalDatabaseEngine (..)
+
+    -- * RelationalDatabaseMetricName
+    , RelationalDatabaseMetricName (..)
+
+    -- * RelationalDatabasePasswordVersion
+    , RelationalDatabasePasswordVersion (..)
 
     -- * ResourceType
     , ResourceType (..)
@@ -145,6 +166,31 @@ module Network.AWS.Lightsail.Types
     , bunIsActive
     , bunRamSizeInGb
 
+    -- * CloudFormationStackRecord
+    , CloudFormationStackRecord
+    , cloudFormationStackRecord
+    , cfsrState
+    , cfsrDestinationInfo
+    , cfsrResourceType
+    , cfsrArn
+    , cfsrCreatedAt
+    , cfsrLocation
+    , cfsrName
+    , cfsrSourceInfo
+
+    -- * CloudFormationStackRecordSourceInfo
+    , CloudFormationStackRecordSourceInfo
+    , cloudFormationStackRecordSourceInfo
+    , cfsrsiResourceType
+    , cfsrsiArn
+    , cfsrsiName
+
+    -- * DestinationInfo
+    , DestinationInfo
+    , destinationInfo
+    , diService
+    , diId
+
     -- * Disk
     , Disk
     , disk
@@ -163,6 +209,15 @@ module Network.AWS.Lightsail.Types
     , dIsSystemDisk
     , dAttachedTo
     , dGbInUse
+    , dTags
+
+    -- * DiskInfo
+    , DiskInfo
+    , diskInfo
+    , diPath
+    , diName
+    , diSizeInGb
+    , diIsSystemDisk
 
     -- * DiskMap
     , DiskMap
@@ -183,7 +238,15 @@ module Network.AWS.Lightsail.Types
     , dsName
     , dsSizeInGb
     , dsSupportCode
+    , dsFromInstanceARN
+    , dsFromInstanceName
     , dsFromDiskARN
+    , dsTags
+
+    -- * DiskSnapshotInfo
+    , DiskSnapshotInfo
+    , diskSnapshotInfo
+    , dsiSizeInGb
 
     -- * Domain
     , Domain
@@ -195,6 +258,7 @@ module Network.AWS.Lightsail.Types
     , domLocation
     , domName
     , domSupportCode
+    , domTags
 
     -- * DomainEntry
     , DomainEntry
@@ -205,6 +269,41 @@ module Network.AWS.Lightsail.Types
     , deOptions
     , deType
     , deTarget
+
+    -- * ExportSnapshotRecord
+    , ExportSnapshotRecord
+    , exportSnapshotRecord
+    , esrState
+    , esrDestinationInfo
+    , esrResourceType
+    , esrArn
+    , esrCreatedAt
+    , esrLocation
+    , esrName
+    , esrSourceInfo
+
+    -- * ExportSnapshotRecordSourceInfo
+    , ExportSnapshotRecordSourceInfo
+    , exportSnapshotRecordSourceInfo
+    , esrsiDiskSnapshotInfo
+    , esrsiResourceType
+    , esrsiArn
+    , esrsiCreatedAt
+    , esrsiFromResourceARN
+    , esrsiName
+    , esrsiInstanceSnapshotInfo
+    , esrsiFromResourceName
+
+    -- * HostKeyAttributes
+    , HostKeyAttributes
+    , hostKeyAttributes
+    , hkaNotValidAfter
+    , hkaNotValidBefore
+    , hkaFingerprintSHA1
+    , hkaPublicKey
+    , hkaAlgorithm
+    , hkaWitnessedAt
+    , hkaFingerprintSHA256
 
     -- * Instance
     , Instance
@@ -227,10 +326,12 @@ module Network.AWS.Lightsail.Types
     , iIsStaticIP
     , iPublicIPAddress
     , iHardware
+    , iTags
 
     -- * InstanceAccessDetails
     , InstanceAccessDetails
     , instanceAccessDetails
+    , iadHostKeys
     , iadCertKey
     , iadIpAddress
     , iadPrivateKey
@@ -240,6 +341,15 @@ module Network.AWS.Lightsail.Types
     , iadPasswordData
     , iadPassword
     , iadInstanceName
+
+    -- * InstanceEntry
+    , InstanceEntry
+    , instanceEntry
+    , ieUserData
+    , ieSourceName
+    , ieInstanceType
+    , iePortInfoSource
+    , ieAvailabilityZone
 
     -- * InstanceHardware
     , InstanceHardware
@@ -297,6 +407,14 @@ module Network.AWS.Lightsail.Types
     , insSupportCode
     , insFromInstanceARN
     , insFromInstanceName
+    , insTags
+
+    -- * InstanceSnapshotInfo
+    , InstanceSnapshotInfo
+    , instanceSnapshotInfo
+    , isiFromBlueprintId
+    , isiFromBundleId
+    , isiFromDiskInfo
 
     -- * InstanceState
     , InstanceState
@@ -314,6 +432,7 @@ module Network.AWS.Lightsail.Types
     , kpFingerprint
     , kpName
     , kpSupportCode
+    , kpTags
 
     -- * LoadBalancer
     , LoadBalancer
@@ -333,6 +452,7 @@ module Network.AWS.Lightsail.Types
     , lbPublicPorts
     , lbDnsName
     , lbInstanceHealthSummary
+    , lbTags
 
     -- * LoadBalancerTLSCertificate
     , LoadBalancerTLSCertificate
@@ -360,6 +480,7 @@ module Network.AWS.Lightsail.Types
     , lbtcKeyAlgorithm
     , lbtcSignatureAlgorithm
     , lbtcIssuer
+    , lbtcTags
     , lbtcNotAfter
 
     -- * LoadBalancerTLSCertificateDomainValidationOption
@@ -388,6 +509,12 @@ module Network.AWS.Lightsail.Types
     , loadBalancerTLSCertificateSummary
     , lbtcsIsAttached
     , lbtcsName
+
+    -- * LogEvent
+    , LogEvent
+    , logEvent
+    , leCreatedAt
+    , leMessage
 
     -- * MetricDatapoint
     , MetricDatapoint
@@ -427,6 +554,20 @@ module Network.AWS.Lightsail.Types
     , pdKeyPairName
     , pdCiphertext
 
+    -- * PendingMaintenanceAction
+    , PendingMaintenanceAction
+    , pendingMaintenanceAction
+    , pmaAction
+    , pmaDescription
+    , pmaCurrentApplyDate
+
+    -- * PendingModifiedRelationalDatabaseValues
+    , PendingModifiedRelationalDatabaseValues
+    , pendingModifiedRelationalDatabaseValues
+    , pmrdvEngineVersion
+    , pmrdvMasterUserPassword
+    , pmrdvBackupRetentionEnabled
+
     -- * PortInfo
     , PortInfo
     , portInfo
@@ -439,9 +580,114 @@ module Network.AWS.Lightsail.Types
     , regionInfo
     , riAvailabilityZones
     , riName
+    , riRelationalDatabaseAvailabilityZones
     , riDisplayName
     , riContinentCode
     , riDescription
+
+    -- * RelationalDatabase
+    , RelationalDatabase
+    , relationalDatabase
+    , rdEngineVersion
+    , rdRelationalDatabaseBundleId
+    , rdMasterEndpoint
+    , rdState
+    , rdResourceType
+    , rdPubliclyAccessible
+    , rdMasterUsername
+    , rdArn
+    , rdCreatedAt
+    , rdLocation
+    , rdEngine
+    , rdLatestRestorableTime
+    , rdPreferredMaintenanceWindow
+    , rdRelationalDatabaseBlueprintId
+    , rdName
+    , rdBackupRetentionEnabled
+    , rdPreferredBackupWindow
+    , rdPendingMaintenanceActions
+    , rdSupportCode
+    , rdSecondaryAvailabilityZone
+    , rdPendingModifiedValues
+    , rdMasterDatabaseName
+    , rdHardware
+    , rdParameterApplyStatus
+    , rdTags
+
+    -- * RelationalDatabaseBlueprint
+    , RelationalDatabaseBlueprint
+    , relationalDatabaseBlueprint
+    , rdbEngineVersion
+    , rdbIsEngineDefault
+    , rdbEngineVersionDescription
+    , rdbEngine
+    , rdbBlueprintId
+    , rdbEngineDescription
+
+    -- * RelationalDatabaseBundle
+    , RelationalDatabaseBundle
+    , relationalDatabaseBundle
+    , rdbIsEncrypted
+    , rdbCpuCount
+    , rdbTransferPerMonthInGb
+    , rdbBundleId
+    , rdbName
+    , rdbDiskSizeInGb
+    , rdbPrice
+    , rdbIsActive
+    , rdbRamSizeInGb
+
+    -- * RelationalDatabaseEndpoint
+    , RelationalDatabaseEndpoint
+    , relationalDatabaseEndpoint
+    , rdeAddress
+    , rdePort
+
+    -- * RelationalDatabaseEvent
+    , RelationalDatabaseEvent
+    , relationalDatabaseEvent
+    , rdeCreatedAt
+    , rdeEventCategories
+    , rdeResource
+    , rdeMessage
+
+    -- * RelationalDatabaseHardware
+    , RelationalDatabaseHardware
+    , relationalDatabaseHardware
+    , rdhCpuCount
+    , rdhDiskSizeInGb
+    , rdhRamSizeInGb
+
+    -- * RelationalDatabaseParameter
+    , RelationalDatabaseParameter
+    , relationalDatabaseParameter
+    , rdpApplyType
+    , rdpParameterValue
+    , rdpApplyMethod
+    , rdpDataType
+    , rdpIsModifiable
+    , rdpAllowedValues
+    , rdpParameterName
+    , rdpDescription
+
+    -- * RelationalDatabaseSnapshot
+    , RelationalDatabaseSnapshot
+    , relationalDatabaseSnapshot
+    , rdsEngineVersion
+    , rdsState
+    , rdsFromRelationalDatabaseName
+    , rdsResourceType
+    , rdsFromRelationalDatabaseBlueprintId
+    , rdsArn
+    , rdsCreatedAt
+    , rdsLocation
+    , rdsEngine
+    , rdsName
+    , rdsSizeInGb
+    , rdsSupportCode
+    , rdsFromRelationalDatabaseARN
+    , rdsFromRelationalDatabaseBundleId
+    , rdsTags
 
     -- * ResourceLocation
     , ResourceLocation
@@ -461,6 +707,12 @@ module Network.AWS.Lightsail.Types
     , siName
     , siSupportCode
     , siAttachedTo
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
     ) where
 
 import Network.AWS.Lens

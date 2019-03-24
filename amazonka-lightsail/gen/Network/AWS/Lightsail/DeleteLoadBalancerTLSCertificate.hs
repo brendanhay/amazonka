@@ -21,6 +21,8 @@
 -- Deletes an SSL/TLS certificate associated with a Lightsail load balancer.
 --
 --
+-- The @delete load balancer tls certificate@ operation supports tag-based access control via resource tags applied to the resource identified by loadBalancerName. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
+--
 module Network.AWS.Lightsail.DeleteLoadBalancerTLSCertificate
     (
     -- * Creating a Request
@@ -58,7 +60,7 @@ data DeleteLoadBalancerTLSCertificate = DeleteLoadBalancerTLSCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbtcForce' - When @true@ , forces the deletion of an SSL/TLS certificate. There can be two certificates associated with a Lightsail load balancer: the primary and the backup. The force parameter is required when the primary SSL/TLS certificate is in use by an instance attached to the load balancer.
+-- * 'dlbtcForce' - When @true@ , forces the deletion of an SSL/TLS certificate. There can be two certificates associated with a Lightsail load balancer: the primary and the backup. The @force@ parameter is required when the primary SSL/TLS certificate is in use by an instance attached to the load balancer.
 --
 -- * 'dlbtcLoadBalancerName' - The load balancer name.
 --
@@ -75,7 +77,7 @@ deleteLoadBalancerTLSCertificate pLoadBalancerName_ pCertificateName_ =
     }
 
 
--- | When @true@ , forces the deletion of an SSL/TLS certificate. There can be two certificates associated with a Lightsail load balancer: the primary and the backup. The force parameter is required when the primary SSL/TLS certificate is in use by an instance attached to the load balancer.
+-- | When @true@ , forces the deletion of an SSL/TLS certificate. There can be two certificates associated with a Lightsail load balancer: the primary and the backup. The @force@ parameter is required when the primary SSL/TLS certificate is in use by an instance attached to the load balancer.
 dlbtcForce :: Lens' DeleteLoadBalancerTLSCertificate (Maybe Bool)
 dlbtcForce = lens _dlbtcForce (\ s a -> s{_dlbtcForce = a})
 

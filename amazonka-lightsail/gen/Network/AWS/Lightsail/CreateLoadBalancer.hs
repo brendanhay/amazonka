@@ -23,6 +23,8 @@
 --
 -- When you create a load balancer, you can specify a unique name and port settings. To change additional load balancer settings, use the @UpdateLoadBalancerAttribute@ operation.
 --
+-- The @create load balancer@ operation supports tag-based access control via request tags. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
+--
 module Network.AWS.Lightsail.CreateLoadBalancer
     (
     -- * Creating a Request
@@ -33,6 +35,7 @@ module Network.AWS.Lightsail.CreateLoadBalancer
     , clbCertificateName
     , clbCertificateDomainName
     , clbCertificateAlternativeNames
+    , clbTags
     , clbLoadBalancerName
     , clbInstancePort
 
@@ -57,6 +60,7 @@ data CreateLoadBalancer = CreateLoadBalancer'
   , _clbCertificateName             :: !(Maybe Text)
   , _clbCertificateDomainName       :: !(Maybe Text)
   , _clbCertificateAlternativeNames :: !(Maybe [Text])
+  , _clbTags                        :: !(Maybe [Tag])
   , _clbLoadBalancerName            :: !Text
   , _clbInstancePort                :: !Nat
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -74,6 +78,8 @@ data CreateLoadBalancer = CreateLoadBalancer'
 --
 -- * 'clbCertificateAlternativeNames' - The optional alternative domains and subdomains to use with your SSL/TLS certificate (e.g., @www.example.com@ , @example.com@ , @m.example.com@ , @blog.example.com@ ).
 --
+-- * 'clbTags' - The tag keys and optional values to add to the resource during create. To tag a resource after it has been created, see the @tag resource@ operation.
+--
 -- * 'clbLoadBalancerName' - The name of your load balancer.
 --
 -- * 'clbInstancePort' - The instance port where you're creating your load balancer.
@@ -87,6 +93,7 @@ createLoadBalancer pLoadBalancerName_ pInstancePort_ =
     , _clbCertificateName = Nothing
     , _clbCertificateDomainName = Nothing
     , _clbCertificateAlternativeNames = Nothing
+    , _clbTags = Nothing
     , _clbLoadBalancerName = pLoadBalancerName_
     , _clbInstancePort = _Nat # pInstancePort_
     }
@@ -107,6 +114,10 @@ clbCertificateDomainName = lens _clbCertificateDomainName (\ s a -> s{_clbCertif
 -- | The optional alternative domains and subdomains to use with your SSL/TLS certificate (e.g., @www.example.com@ , @example.com@ , @m.example.com@ , @blog.example.com@ ).
 clbCertificateAlternativeNames :: Lens' CreateLoadBalancer [Text]
 clbCertificateAlternativeNames = lens _clbCertificateAlternativeNames (\ s a -> s{_clbCertificateAlternativeNames = a}) . _Default . _Coerce
+
+-- | The tag keys and optional values to add to the resource during create. To tag a resource after it has been created, see the @tag resource@ operation.
+clbTags :: Lens' CreateLoadBalancer [Tag]
+clbTags = lens _clbTags (\ s a -> s{_clbTags = a}) . _Default . _Coerce
 
 -- | The name of your load balancer.
 clbLoadBalancerName :: Lens' CreateLoadBalancer Text
@@ -151,6 +162,7 @@ instance ToJSON CreateLoadBalancer where
                     _clbCertificateDomainName,
                   ("certificateAlternativeNames" .=) <$>
                     _clbCertificateAlternativeNames,
+                  ("tags" .=) <$> _clbTags,
                   Just ("loadBalancerName" .= _clbLoadBalancerName),
                   Just ("instancePort" .= _clbInstancePort)])
 

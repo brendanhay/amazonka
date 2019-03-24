@@ -34,6 +34,7 @@ module Network.AWS.CloudWatchLogs.FilterLogEvents
     , fleStartTime
     , fleNextToken
     , fleLogStreamNames
+    , fleLogStreamNamePrefix
     , fleEndTime
     , fleLimit
     , fleFilterPattern
@@ -60,14 +61,15 @@ import Network.AWS.Response
 
 -- | /See:/ 'filterLogEvents' smart constructor.
 data FilterLogEvents = FilterLogEvents'
-  { _fleStartTime      :: !(Maybe Nat)
-  , _fleNextToken      :: !(Maybe Text)
-  , _fleLogStreamNames :: !(Maybe (List1 Text))
-  , _fleEndTime        :: !(Maybe Nat)
-  , _fleLimit          :: !(Maybe Nat)
-  , _fleFilterPattern  :: !(Maybe Text)
-  , _fleInterleaved    :: !(Maybe Bool)
-  , _fleLogGroupName   :: !Text
+  { _fleStartTime           :: !(Maybe Nat)
+  , _fleNextToken           :: !(Maybe Text)
+  , _fleLogStreamNames      :: !(Maybe (List1 Text))
+  , _fleLogStreamNamePrefix :: !(Maybe Text)
+  , _fleEndTime             :: !(Maybe Nat)
+  , _fleLimit               :: !(Maybe Nat)
+  , _fleFilterPattern       :: !(Maybe Text)
+  , _fleInterleaved         :: !(Maybe Bool)
+  , _fleLogGroupName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -75,21 +77,23 @@ data FilterLogEvents = FilterLogEvents'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fleStartTime' - The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp before this time are not returned.
+-- * 'fleStartTime' - The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not returned.
 --
 -- * 'fleNextToken' - The token for the next set of events to return. (You received this token from a previous call.)
 --
--- * 'fleLogStreamNames' - Optional list of log stream names.
+-- * 'fleLogStreamNames' - Filters the results to only logs from the log streams in this list. If you specify a value for both @logStreamNamePrefix@ and @logStreamNames@ , the action returns an @InvalidParameterException@ error.
 --
--- * 'fleEndTime' - The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not returned.
+-- * 'fleLogStreamNamePrefix' - Filters the results to include only events from log streams that have names starting with this prefix. If you specify a value for both @logStreamNamePrefix@ and @logStreamNames@ , but the value for @logStreamNamePrefix@ does not match any log stream names specified in @logStreamNames@ , the action returns an @InvalidParameterException@ error.
+--
+-- * 'fleEndTime' - The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not returned.
 --
 -- * 'fleLimit' - The maximum number of events to return. The default is 10,000 events.
 --
--- * 'fleFilterPattern' - The filter pattern to use. If not provided, all the events are matched.
+-- * 'fleFilterPattern' - The filter pattern to use. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html Filter and Pattern Syntax> . If not provided, all the events are matched.
 --
 -- * 'fleInterleaved' - If the value is true, the operation makes a best effort to provide responses that contain events from multiple log streams within the log group, interleaved in a single response. If the value is false, all the matched log events in the first log stream are searched first, then those in the next log stream, and so on. The default is false.
 --
--- * 'fleLogGroupName' - The name of the log group.
+-- * 'fleLogGroupName' - The name of the log group to search.
 filterLogEvents
     :: Text -- ^ 'fleLogGroupName'
     -> FilterLogEvents
@@ -98,6 +102,7 @@ filterLogEvents pLogGroupName_ =
     { _fleStartTime = Nothing
     , _fleNextToken = Nothing
     , _fleLogStreamNames = Nothing
+    , _fleLogStreamNamePrefix = Nothing
     , _fleEndTime = Nothing
     , _fleLimit = Nothing
     , _fleFilterPattern = Nothing
@@ -106,7 +111,7 @@ filterLogEvents pLogGroupName_ =
     }
 
 
--- | The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp before this time are not returned.
+-- | The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not returned.
 fleStartTime :: Lens' FilterLogEvents (Maybe Natural)
 fleStartTime = lens _fleStartTime (\ s a -> s{_fleStartTime = a}) . mapping _Nat
 
@@ -114,11 +119,15 @@ fleStartTime = lens _fleStartTime (\ s a -> s{_fleStartTime = a}) . mapping _Nat
 fleNextToken :: Lens' FilterLogEvents (Maybe Text)
 fleNextToken = lens _fleNextToken (\ s a -> s{_fleNextToken = a})
 
--- | Optional list of log stream names.
+-- | Filters the results to only logs from the log streams in this list. If you specify a value for both @logStreamNamePrefix@ and @logStreamNames@ , the action returns an @InvalidParameterException@ error.
 fleLogStreamNames :: Lens' FilterLogEvents (Maybe (NonEmpty Text))
 fleLogStreamNames = lens _fleLogStreamNames (\ s a -> s{_fleLogStreamNames = a}) . mapping _List1
 
--- | The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not returned.
+-- | Filters the results to include only events from log streams that have names starting with this prefix. If you specify a value for both @logStreamNamePrefix@ and @logStreamNames@ , but the value for @logStreamNamePrefix@ does not match any log stream names specified in @logStreamNames@ , the action returns an @InvalidParameterException@ error.
+fleLogStreamNamePrefix :: Lens' FilterLogEvents (Maybe Text)
+fleLogStreamNamePrefix = lens _fleLogStreamNamePrefix (\ s a -> s{_fleLogStreamNamePrefix = a})
+
+-- | The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not returned.
 fleEndTime :: Lens' FilterLogEvents (Maybe Natural)
 fleEndTime = lens _fleEndTime (\ s a -> s{_fleEndTime = a}) . mapping _Nat
 
@@ -126,7 +135,7 @@ fleEndTime = lens _fleEndTime (\ s a -> s{_fleEndTime = a}) . mapping _Nat
 fleLimit :: Lens' FilterLogEvents (Maybe Natural)
 fleLimit = lens _fleLimit (\ s a -> s{_fleLimit = a}) . mapping _Nat
 
--- | The filter pattern to use. If not provided, all the events are matched.
+-- | The filter pattern to use. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html Filter and Pattern Syntax> . If not provided, all the events are matched.
 fleFilterPattern :: Lens' FilterLogEvents (Maybe Text)
 fleFilterPattern = lens _fleFilterPattern (\ s a -> s{_fleFilterPattern = a})
 
@@ -134,7 +143,7 @@ fleFilterPattern = lens _fleFilterPattern (\ s a -> s{_fleFilterPattern = a})
 fleInterleaved :: Lens' FilterLogEvents (Maybe Bool)
 fleInterleaved = lens _fleInterleaved (\ s a -> s{_fleInterleaved = a})
 
--- | The name of the log group.
+-- | The name of the log group to search.
 fleLogGroupName :: Lens' FilterLogEvents Text
 fleLogGroupName = lens _fleLogGroupName (\ s a -> s{_fleLogGroupName = a})
 
@@ -176,6 +185,8 @@ instance ToJSON FilterLogEvents where
                  [("startTime" .=) <$> _fleStartTime,
                   ("nextToken" .=) <$> _fleNextToken,
                   ("logStreamNames" .=) <$> _fleLogStreamNames,
+                  ("logStreamNamePrefix" .=) <$>
+                    _fleLogStreamNamePrefix,
                   ("endTime" .=) <$> _fleEndTime,
                   ("limit" .=) <$> _fleLimit,
                   ("filterPattern" .=) <$> _fleFilterPattern,

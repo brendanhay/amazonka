@@ -62,11 +62,15 @@ library
         , Network.AWS.CloudWatchLogs.DescribeLogGroups
         , Network.AWS.CloudWatchLogs.DescribeLogStreams
         , Network.AWS.CloudWatchLogs.DescribeMetricFilters
+        , Network.AWS.CloudWatchLogs.DescribeQueries
         , Network.AWS.CloudWatchLogs.DescribeResourcePolicies
         , Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
         , Network.AWS.CloudWatchLogs.DisassociateKMSKey
         , Network.AWS.CloudWatchLogs.FilterLogEvents
         , Network.AWS.CloudWatchLogs.GetLogEvents
+        , Network.AWS.CloudWatchLogs.GetLogGroupFields
+        , Network.AWS.CloudWatchLogs.GetLogRecord
+        , Network.AWS.CloudWatchLogs.GetQueryResults
         , Network.AWS.CloudWatchLogs.ListTagsLogGroup
         , Network.AWS.CloudWatchLogs.PutDestination
         , Network.AWS.CloudWatchLogs.PutDestinationPolicy
@@ -75,6 +79,8 @@ library
         , Network.AWS.CloudWatchLogs.PutResourcePolicy
         , Network.AWS.CloudWatchLogs.PutRetentionPolicy
         , Network.AWS.CloudWatchLogs.PutSubscriptionFilter
+        , Network.AWS.CloudWatchLogs.StartQuery
+        , Network.AWS.CloudWatchLogs.StopQuery
         , Network.AWS.CloudWatchLogs.TagLogGroup
         , Network.AWS.CloudWatchLogs.TestMetricFilter
         , Network.AWS.CloudWatchLogs.Types

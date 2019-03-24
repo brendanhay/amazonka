@@ -18,8 +18,10 @@ module Network.AWS.CloudWatchLogs.Types
     -- * Errors
     , _InvalidParameterException
     , _InvalidSequenceTokenException
+    , _UnrecognizedClientException
     , _ResourceAlreadyExistsException
     , _OperationAbortedException
+    , _MalformedQueryException
     , _ServiceUnavailableException
     , _DataAlreadyAcceptedException
     , _InvalidOperationException
@@ -34,6 +36,9 @@ module Network.AWS.CloudWatchLogs.Types
 
     -- * OrderBy
     , OrderBy (..)
+
+    -- * QueryStatus
+    , QueryStatus (..)
 
     -- * Destination
     , Destination
@@ -96,6 +101,12 @@ module Network.AWS.CloudWatchLogs.Types
     , lgKmsKeyId
     , lgStoredBytes
 
+    -- * LogGroupField
+    , LogGroupField
+    , logGroupField
+    , lgfPercent
+    , lgfName
+
     -- * LogStream
     , LogStream
     , logStream
@@ -139,6 +150,22 @@ module Network.AWS.CloudWatchLogs.Types
     , oleMessage
     , oleTimestamp
 
+    -- * QueryInfo
+    , QueryInfo
+    , queryInfo
+    , qiStatus
+    , qiQueryId
+    , qiLogGroupName
+    , qiQueryString
+    , qiCreateTime
+
+    -- * QueryStatistics
+    , QueryStatistics
+    , queryStatistics
+    , qsRecordsScanned
+    , qsBytesScanned
+    , qsRecordsMatched
+
     -- * RejectedLogEventsInfo
     , RejectedLogEventsInfo
     , rejectedLogEventsInfo
@@ -152,6 +179,12 @@ module Network.AWS.CloudWatchLogs.Types
     , rpPolicyName
     , rpPolicyDocument
     , rpLastUpdatedTime
+
+    -- * ResultField
+    , ResultField
+    , resultField
+    , rfField
+    , rfValue
 
     -- * SearchedLogStream
     , SearchedLogStream
@@ -232,6 +265,14 @@ _InvalidSequenceTokenException =
   _MatchServiceError cloudWatchLogs "InvalidSequenceTokenException"
 
 
+-- | The most likely cause is an invalid AWS access key ID or secret key.
+--
+--
+_UnrecognizedClientException :: AsError a => Getting (First ServiceError) a ServiceError
+_UnrecognizedClientException =
+  _MatchServiceError cloudWatchLogs "UnrecognizedClientException"
+
+
 -- | The specified resource already exists.
 --
 --
@@ -246,6 +287,16 @@ _ResourceAlreadyExistsException =
 _OperationAbortedException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationAbortedException =
   _MatchServiceError cloudWatchLogs "OperationAbortedException"
+
+
+-- | The query string is not valid. Details about this error are displayed in a @QueryCompileError@ object. For more information, see .
+--
+--
+-- For more information about valid query syntax, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax> .
+--
+_MalformedQueryException :: AsError a => Getting (First ServiceError) a ServiceError
+_MalformedQueryException =
+  _MatchServiceError cloudWatchLogs "MalformedQueryException"
 
 
 -- | The service cannot complete the request.

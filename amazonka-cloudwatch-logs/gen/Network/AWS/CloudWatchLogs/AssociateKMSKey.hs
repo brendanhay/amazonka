@@ -61,7 +61,7 @@ data AssociateKMSKey = AssociateKMSKey'
 --
 -- * 'akkLogGroupName' - The name of the log group.
 --
--- * 'akkKmsKeyId' - The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)> .
+-- * 'akkKmsKeyId' - The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)> .
 associateKMSKey
     :: Text -- ^ 'akkLogGroupName'
     -> Text -- ^ 'akkKmsKeyId'
@@ -75,7 +75,7 @@ associateKMSKey pLogGroupName_ pKmsKeyId_ =
 akkLogGroupName :: Lens' AssociateKMSKey Text
 akkLogGroupName = lens _akkLogGroupName (\ s a -> s{_akkLogGroupName = a})
 
--- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)> .
+-- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)> .
 akkKmsKeyId :: Lens' AssociateKMSKey Text
 akkKmsKeyId = lens _akkKmsKeyId (\ s a -> s{_akkKmsKeyId = a})
 

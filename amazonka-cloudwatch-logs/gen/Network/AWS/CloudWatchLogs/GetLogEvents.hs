@@ -70,13 +70,13 @@ data GetLogEvents = GetLogEvents'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gleStartTime' - The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp earlier than this time are not included.
+-- * 'gleStartTime' - The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this time or later than this time are included. Events with a timestamp earlier than this time are not included.
 --
 -- * 'gleStartFromHead' - If the value is true, the earliest log events are returned first. If the value is false, the latest log events are returned first. The default value is false.
 --
 -- * 'gleNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'gleEndTime' - The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not included.
+-- * 'gleEndTime' - The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to or later than this time are not included.
 --
 -- * 'gleLimit' - The maximum number of log events returned. If you don't specify a value, the maximum is as many log events as can fit in a response size of 1 MB, up to 10,000 log events.
 --
@@ -99,7 +99,7 @@ getLogEvents pLogGroupName_ pLogStreamName_ =
     }
 
 
--- | The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp earlier than this time are not included.
+-- | The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this time or later than this time are included. Events with a timestamp earlier than this time are not included.
 gleStartTime :: Lens' GetLogEvents (Maybe Natural)
 gleStartTime = lens _gleStartTime (\ s a -> s{_gleStartTime = a}) . mapping _Nat
 
@@ -111,7 +111,7 @@ gleStartFromHead = lens _gleStartFromHead (\ s a -> s{_gleStartFromHead = a})
 gleNextToken :: Lens' GetLogEvents (Maybe Text)
 gleNextToken = lens _gleNextToken (\ s a -> s{_gleNextToken = a})
 
--- | The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not included.
+-- | The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to or later than this time are not included.
 gleEndTime :: Lens' GetLogEvents (Maybe Natural)
 gleEndTime = lens _gleEndTime (\ s a -> s{_gleEndTime = a}) . mapping _Nat
 
@@ -183,9 +183,9 @@ data GetLogEventsResponse = GetLogEventsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'glersNextBackwardToken' - The token for the next set of items in the backward direction. The token expires after 24 hours.
+-- * 'glersNextBackwardToken' - The token for the next set of items in the backward direction. The token expires after 24 hours. This token will never be null. If you have reached the end of the stream, it will return the same token you passed in.
 --
--- * 'glersNextForwardToken' - The token for the next set of items in the forward direction. The token expires after 24 hours.
+-- * 'glersNextForwardToken' - The token for the next set of items in the forward direction. The token expires after 24 hours. If you have reached the end of the stream, it will return the same token you passed in.
 --
 -- * 'glersEvents' - The events.
 --
@@ -202,11 +202,11 @@ getLogEventsResponse pResponseStatus_ =
     }
 
 
--- | The token for the next set of items in the backward direction. The token expires after 24 hours.
+-- | The token for the next set of items in the backward direction. The token expires after 24 hours. This token will never be null. If you have reached the end of the stream, it will return the same token you passed in.
 glersNextBackwardToken :: Lens' GetLogEventsResponse (Maybe Text)
 glersNextBackwardToken = lens _glersNextBackwardToken (\ s a -> s{_glersNextBackwardToken = a})
 
--- | The token for the next set of items in the forward direction. The token expires after 24 hours.
+-- | The token for the next set of items in the forward direction. The token expires after 24 hours. If you have reached the end of the stream, it will return the same token you passed in.
 glersNextForwardToken :: Lens' GetLogEventsResponse (Maybe Text)
 glersNextForwardToken = lens _glersNextForwardToken (\ s a -> s{_glersNextForwardToken = a})
 

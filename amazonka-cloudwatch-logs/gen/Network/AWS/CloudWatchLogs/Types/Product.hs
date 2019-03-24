@@ -135,9 +135,9 @@ data ExportTask = ExportTask'
 --
 -- * 'etTaskId' - The ID of the export task.
 --
--- * 'etTo' - The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not exported.
+-- * 'etTo' - The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
 --
--- * 'etFrom' - The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp before this time are not exported.
+-- * 'etFrom' - The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not exported.
 --
 -- * 'etLogGroupName' - The name of the log group from which logs data was exported.
 --
@@ -178,11 +178,11 @@ etTaskName = lens _etTaskName (\ s a -> s{_etTaskName = a})
 etTaskId :: Lens' ExportTask (Maybe Text)
 etTaskId = lens _etTaskId (\ s a -> s{_etTaskId = a})
 
--- | The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not exported.
+-- | The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
 etTo :: Lens' ExportTask (Maybe Natural)
 etTo = lens _etTo (\ s a -> s{_etTo = a}) . mapping _Nat
 
--- | The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp before this time are not exported.
+-- | The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not exported.
 etFrom :: Lens' ExportTask (Maybe Natural)
 etFrom = lens _etFrom (\ s a -> s{_etFrom = a}) . mapping _Nat
 
@@ -318,7 +318,7 @@ data FilteredLogEvent = FilteredLogEvent'
 --
 -- * 'fleIngestionTime' - The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 --
--- * 'fleLogStreamName' - The name of the log stream this event belongs to.
+-- * 'fleLogStreamName' - The name of the log stream to which this event belongs.
 --
 -- * 'fleMessage' - The data contained in the log event.
 --
@@ -341,7 +341,7 @@ filteredLogEvent =
 fleIngestionTime :: Lens' FilteredLogEvent (Maybe Natural)
 fleIngestionTime = lens _fleIngestionTime (\ s a -> s{_fleIngestionTime = a}) . mapping _Nat
 
--- | The name of the log stream this event belongs to.
+-- | The name of the log stream to which this event belongs.
 fleLogStreamName :: Lens' FilteredLogEvent (Maybe Text)
 fleLogStreamName = lens _fleLogStreamName (\ s a -> s{_fleLogStreamName = a})
 
@@ -386,7 +386,7 @@ data InputLogEvent = InputLogEvent'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ileTimestamp' - The time the event occurred, expressed as the number of milliseconds fter Jan 1, 1970 00:00:00 UTC.
+-- * 'ileTimestamp' - The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'ileMessage' - The raw event message.
 inputLogEvent
@@ -397,7 +397,7 @@ inputLogEvent pTimestamp_ pMessage_ =
   InputLogEvent' {_ileTimestamp = _Nat # pTimestamp_, _ileMessage = pMessage_}
 
 
--- | The time the event occurred, expressed as the number of milliseconds fter Jan 1, 1970 00:00:00 UTC.
+-- | The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 ileTimestamp :: Lens' InputLogEvent Natural
 ileTimestamp = lens _ileTimestamp (\ s a -> s{_ileTimestamp = a}) . _Nat
 
@@ -508,6 +508,48 @@ instance Hashable LogGroup where
 
 instance NFData LogGroup where
 
+-- | The fields contained in log events found by a @GetLogGroupFields@ operation, along with the percentage of queried log events in which each field appears.
+--
+--
+--
+-- /See:/ 'logGroupField' smart constructor.
+data LogGroupField = LogGroupField'
+  { _lgfPercent :: !(Maybe Nat)
+  , _lgfName    :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'LogGroupField' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lgfPercent' - The percentage of log events queried that contained the field.
+--
+-- * 'lgfName' - The name of a log field.
+logGroupField
+    :: LogGroupField
+logGroupField = LogGroupField' {_lgfPercent = Nothing, _lgfName = Nothing}
+
+
+-- | The percentage of log events queried that contained the field.
+lgfPercent :: Lens' LogGroupField (Maybe Natural)
+lgfPercent = lens _lgfPercent (\ s a -> s{_lgfPercent = a}) . mapping _Nat
+
+-- | The name of a log field.
+lgfName :: Lens' LogGroupField (Maybe Text)
+lgfName = lens _lgfName (\ s a -> s{_lgfName = a})
+
+instance FromJSON LogGroupField where
+        parseJSON
+          = withObject "LogGroupField"
+              (\ x ->
+                 LogGroupField' <$>
+                   (x .:? "percent") <*> (x .:? "name"))
+
+instance Hashable LogGroupField where
+
+instance NFData LogGroupField where
+
 -- | Represents a log stream, which is a sequence of log events from a single emitter of logs.
 --
 --
@@ -543,7 +585,7 @@ data LogStream = LogStream'
 --
 -- * 'lsLastIngestionTime' - The ingestion time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 --
--- * 'lsLastEventTimestamp' - the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. lastEventTime updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.
+-- * 'lsLastEventTimestamp' - The time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. The @lastEventTime@ value updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.
 logStream
     :: LogStream
 logStream =
@@ -587,7 +629,7 @@ lsStoredBytes = lens _lsStoredBytes (\ s a -> s{_lsStoredBytes = a}) . mapping _
 lsLastIngestionTime :: Lens' LogStream (Maybe Natural)
 lsLastIngestionTime = lens _lsLastIngestionTime (\ s a -> s{_lsLastIngestionTime = a}) . mapping _Nat
 
--- | the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. lastEventTime updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.
+-- | The time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. The @lastEventTime@ value updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.
 lsLastEventTimestamp :: Lens' LogStream (Maybe Natural)
 lsLastEventTimestamp = lens _lsLastEventTimestamp (\ s a -> s{_lsLastEventTimestamp = a}) . mapping _Nat
 
@@ -738,7 +780,7 @@ instance Hashable MetricFilterMatchRecord where
 
 instance NFData MetricFilterMatchRecord where
 
--- | Indicates how to transform ingested log events in to metric data in a CloudWatch metric.
+-- | Indicates how to transform ingested log eventsto metric data in a CloudWatch metric.
 --
 --
 --
@@ -869,6 +911,134 @@ instance Hashable OutputLogEvent where
 
 instance NFData OutputLogEvent where
 
+-- | Information about one CloudWatch Logs Insights query that matches the request in a @DescribeQueries@ operation.
+--
+--
+--
+-- /See:/ 'queryInfo' smart constructor.
+data QueryInfo = QueryInfo'
+  { _qiStatus       :: !(Maybe QueryStatus)
+  , _qiQueryId      :: !(Maybe Text)
+  , _qiLogGroupName :: !(Maybe Text)
+  , _qiQueryString  :: !(Maybe Text)
+  , _qiCreateTime   :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'QueryInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'qiStatus' - The status of this query. Possible values are @Cancelled@ , @Complete@ , @Failed@ , @Running@ , @Scheduled@ , and @Unknown@ .
+--
+-- * 'qiQueryId' - The unique ID number of this query.
+--
+-- * 'qiLogGroupName' - The name of the log group scanned by this query.
+--
+-- * 'qiQueryString' - The query string used in this query.
+--
+-- * 'qiCreateTime' - The date and time that this query was created.
+queryInfo
+    :: QueryInfo
+queryInfo =
+  QueryInfo'
+    { _qiStatus = Nothing
+    , _qiQueryId = Nothing
+    , _qiLogGroupName = Nothing
+    , _qiQueryString = Nothing
+    , _qiCreateTime = Nothing
+    }
+
+
+-- | The status of this query. Possible values are @Cancelled@ , @Complete@ , @Failed@ , @Running@ , @Scheduled@ , and @Unknown@ .
+qiStatus :: Lens' QueryInfo (Maybe QueryStatus)
+qiStatus = lens _qiStatus (\ s a -> s{_qiStatus = a})
+
+-- | The unique ID number of this query.
+qiQueryId :: Lens' QueryInfo (Maybe Text)
+qiQueryId = lens _qiQueryId (\ s a -> s{_qiQueryId = a})
+
+-- | The name of the log group scanned by this query.
+qiLogGroupName :: Lens' QueryInfo (Maybe Text)
+qiLogGroupName = lens _qiLogGroupName (\ s a -> s{_qiLogGroupName = a})
+
+-- | The query string used in this query.
+qiQueryString :: Lens' QueryInfo (Maybe Text)
+qiQueryString = lens _qiQueryString (\ s a -> s{_qiQueryString = a})
+
+-- | The date and time that this query was created.
+qiCreateTime :: Lens' QueryInfo (Maybe Natural)
+qiCreateTime = lens _qiCreateTime (\ s a -> s{_qiCreateTime = a}) . mapping _Nat
+
+instance FromJSON QueryInfo where
+        parseJSON
+          = withObject "QueryInfo"
+              (\ x ->
+                 QueryInfo' <$>
+                   (x .:? "status") <*> (x .:? "queryId") <*>
+                     (x .:? "logGroupName")
+                     <*> (x .:? "queryString")
+                     <*> (x .:? "createTime"))
+
+instance Hashable QueryInfo where
+
+instance NFData QueryInfo where
+
+-- | Contains the number of log events scanned by the query, the number of log events that matched the query criteria, and the total number of bytes in the log events that were scanned.
+--
+--
+--
+-- /See:/ 'queryStatistics' smart constructor.
+data QueryStatistics = QueryStatistics'
+  { _qsRecordsScanned :: !(Maybe Double)
+  , _qsBytesScanned   :: !(Maybe Double)
+  , _qsRecordsMatched :: !(Maybe Double)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'QueryStatistics' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'qsRecordsScanned' - The total number of log events scanned during the query.
+--
+-- * 'qsBytesScanned' - The total number of bytes in the log events scanned during the query.
+--
+-- * 'qsRecordsMatched' - The number of log events that matched the query string.
+queryStatistics
+    :: QueryStatistics
+queryStatistics =
+  QueryStatistics'
+    { _qsRecordsScanned = Nothing
+    , _qsBytesScanned = Nothing
+    , _qsRecordsMatched = Nothing
+    }
+
+
+-- | The total number of log events scanned during the query.
+qsRecordsScanned :: Lens' QueryStatistics (Maybe Double)
+qsRecordsScanned = lens _qsRecordsScanned (\ s a -> s{_qsRecordsScanned = a})
+
+-- | The total number of bytes in the log events scanned during the query.
+qsBytesScanned :: Lens' QueryStatistics (Maybe Double)
+qsBytesScanned = lens _qsBytesScanned (\ s a -> s{_qsBytesScanned = a})
+
+-- | The number of log events that matched the query string.
+qsRecordsMatched :: Lens' QueryStatistics (Maybe Double)
+qsRecordsMatched = lens _qsRecordsMatched (\ s a -> s{_qsRecordsMatched = a})
+
+instance FromJSON QueryStatistics where
+        parseJSON
+          = withObject "QueryStatistics"
+              (\ x ->
+                 QueryStatistics' <$>
+                   (x .:? "recordsScanned") <*> (x .:? "bytesScanned")
+                     <*> (x .:? "recordsMatched"))
+
+instance Hashable QueryStatistics where
+
+instance NFData QueryStatistics where
+
 -- | Represents the rejected events.
 --
 --
@@ -945,7 +1115,7 @@ data ResourcePolicy = ResourcePolicy'
 --
 -- * 'rpPolicyDocument' - The details of the policy.
 --
--- * 'rpLastUpdatedTime' - Time stamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- * 'rpLastUpdatedTime' - Timestamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 resourcePolicy
     :: ResourcePolicy
 resourcePolicy =
@@ -964,7 +1134,7 @@ rpPolicyName = lens _rpPolicyName (\ s a -> s{_rpPolicyName = a})
 rpPolicyDocument :: Lens' ResourcePolicy (Maybe Text)
 rpPolicyDocument = lens _rpPolicyDocument (\ s a -> s{_rpPolicyDocument = a})
 
--- | Time stamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- | Timestamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 rpLastUpdatedTime :: Lens' ResourcePolicy (Maybe Natural)
 rpLastUpdatedTime = lens _rpLastUpdatedTime (\ s a -> s{_rpLastUpdatedTime = a}) . mapping _Nat
 
@@ -979,6 +1149,47 @@ instance FromJSON ResourcePolicy where
 instance Hashable ResourcePolicy where
 
 instance NFData ResourcePolicy where
+
+-- | Contains one field from one log event returned by a CloudWatch Logs Insights query, along with the value of that field.
+--
+--
+--
+-- /See:/ 'resultField' smart constructor.
+data ResultField = ResultField'
+  { _rfField :: !(Maybe Text)
+  , _rfValue :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ResultField' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rfField' - The log event field.
+--
+-- * 'rfValue' - The value of this field.
+resultField
+    :: ResultField
+resultField = ResultField' {_rfField = Nothing, _rfValue = Nothing}
+
+
+-- | The log event field.
+rfField :: Lens' ResultField (Maybe Text)
+rfField = lens _rfField (\ s a -> s{_rfField = a})
+
+-- | The value of this field.
+rfValue :: Lens' ResultField (Maybe Text)
+rfValue = lens _rfValue (\ s a -> s{_rfValue = a})
+
+instance FromJSON ResultField where
+        parseJSON
+          = withObject "ResultField"
+              (\ x ->
+                 ResultField' <$> (x .:? "field") <*> (x .:? "value"))
+
+instance Hashable ResultField where
+
+instance NFData ResultField where
 
 -- | Represents the search status of a log stream.
 --

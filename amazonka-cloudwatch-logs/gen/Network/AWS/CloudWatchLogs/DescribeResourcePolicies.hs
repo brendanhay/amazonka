@@ -21,6 +21,8 @@
 -- Lists the resource policies in this account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeResourcePolicies
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.CloudWatchLogs.DescribeResourcePolicies
 import Network.AWS.CloudWatchLogs.Types
 import Network.AWS.CloudWatchLogs.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -73,6 +76,13 @@ drpNextToken = lens _drpNextToken (\ s a -> s{_drpNextToken = a})
 -- | The maximum number of resource policies to be displayed with one call of this API.
 drpLimit :: Lens' DescribeResourcePolicies (Maybe Natural)
 drpLimit = lens _drpLimit (\ s a -> s{_drpLimit = a}) . mapping _Nat
+
+instance AWSPager DescribeResourcePolicies where
+        page rq rs
+          | stop (rs ^. drprsNextToken) = Nothing
+          | stop (rs ^. drprsResourcePolicies) = Nothing
+          | otherwise =
+            Just $ rq & drpNextToken .~ rs ^. drprsNextToken
 
 instance AWSRequest DescribeResourcePolicies where
         type Rs DescribeResourcePolicies =

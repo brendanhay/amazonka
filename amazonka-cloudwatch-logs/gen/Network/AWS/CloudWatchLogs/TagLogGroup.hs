@@ -23,7 +23,7 @@
 --
 -- To list the tags for a log group, use 'ListTagsLogGroup' . To remove tags, use 'UntagLogGroup' .
 --
--- For more information about tags, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html Tag Log Groups in Amazon CloudWatch Logs> in the /Amazon CloudWatch Logs User Guide/ .
+-- For more information about tags, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html Tag Log Groups in Amazon CloudWatch Logs> in the /Amazon CloudWatch Logs User Guide/ .
 --
 module Network.AWS.CloudWatchLogs.TagLogGroup
     (

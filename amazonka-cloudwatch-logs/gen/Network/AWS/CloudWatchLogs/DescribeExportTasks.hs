@@ -21,6 +21,8 @@
 -- Lists the specified export tasks. You can list all your export tasks or filter the results based on task ID or task status.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeExportTasks
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.CloudWatchLogs.DescribeExportTasks
 import Network.AWS.CloudWatchLogs.Types
 import Network.AWS.CloudWatchLogs.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -94,6 +97,13 @@ detLimit = lens _detLimit (\ s a -> s{_detLimit = a}) . mapping _Nat
 -- | The status code of the export task. Specifying a status code filters the results to zero or more export tasks.
 detStatusCode :: Lens' DescribeExportTasks (Maybe ExportTaskStatusCode)
 detStatusCode = lens _detStatusCode (\ s a -> s{_detStatusCode = a})
+
+instance AWSPager DescribeExportTasks where
+        page rq rs
+          | stop (rs ^. detrsNextToken) = Nothing
+          | stop (rs ^. detrsExportTasks) = Nothing
+          | otherwise =
+            Just $ rq & detNextToken .~ rs ^. detrsNextToken
 
 instance AWSRequest DescribeExportTasks where
         type Rs DescribeExportTasks =

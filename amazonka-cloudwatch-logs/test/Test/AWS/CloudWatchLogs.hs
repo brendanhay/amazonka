@@ -15,9 +15,9 @@ module Test.AWS.CloudWatchLogs
     , fixtures
     ) where
 
-import           Network.AWS.CloudWatchLogs
-import           Test.AWS.Gen.CloudWatchLogs
-import           Test.Tasty
+import Network.AWS.CloudWatchLogs
+import Test.AWS.Gen.CloudWatchLogs
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

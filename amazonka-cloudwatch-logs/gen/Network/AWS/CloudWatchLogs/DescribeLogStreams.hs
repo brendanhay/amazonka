@@ -76,7 +76,7 @@ data DescribeLogStreams = DescribeLogStreams'
 --
 -- * 'dlssNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dlssLogStreamNamePrefix' - The prefix to match. iIf @orderBy@ is @LastEventTime@ ,you cannot specify this parameter.
+-- * 'dlssLogStreamNamePrefix' - The prefix to match. If @orderBy@ is @LastEventTime@ ,you cannot specify this parameter.
 --
 -- * 'dlssLimit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 --
@@ -107,7 +107,7 @@ dlssDescending = lens _dlssDescending (\ s a -> s{_dlssDescending = a})
 dlssNextToken :: Lens' DescribeLogStreams (Maybe Text)
 dlssNextToken = lens _dlssNextToken (\ s a -> s{_dlssNextToken = a})
 
--- | The prefix to match. iIf @orderBy@ is @LastEventTime@ ,you cannot specify this parameter.
+-- | The prefix to match. If @orderBy@ is @LastEventTime@ ,you cannot specify this parameter.
 dlssLogStreamNamePrefix :: Lens' DescribeLogStreams (Maybe Text)
 dlssLogStreamNamePrefix = lens _dlssLogStreamNamePrefix (\ s a -> s{_dlssLogStreamNamePrefix = a})
 

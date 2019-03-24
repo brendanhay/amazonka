@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.CloudWatchLogs
 import Test.AWS.CloudWatchLogs.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "CloudWatchLogs"

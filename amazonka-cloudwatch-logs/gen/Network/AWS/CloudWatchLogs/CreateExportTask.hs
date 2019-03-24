@@ -78,9 +78,9 @@ data CreateExportTask = CreateExportTask'
 --
 -- * 'cetLogGroupName' - The name of the log group.
 --
--- * 'cetFrom' - The start time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp earlier than this time are not exported.
+-- * 'cetFrom' - The start time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not exported.
 --
--- * 'cetTo' - The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not exported.
+-- * 'cetTo' - The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
 --
 -- * 'cetDestination' - The name of S3 bucket for the exported log data. The bucket must be in the same AWS region.
 createExportTask
@@ -117,11 +117,11 @@ cetLogStreamNamePrefix = lens _cetLogStreamNamePrefix (\ s a -> s{_cetLogStreamN
 cetLogGroupName :: Lens' CreateExportTask Text
 cetLogGroupName = lens _cetLogGroupName (\ s a -> s{_cetLogGroupName = a})
 
--- | The start time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp earlier than this time are not exported.
+-- | The start time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not exported.
 cetFrom :: Lens' CreateExportTask Natural
 cetFrom = lens _cetFrom (\ s a -> s{_cetFrom = a}) . _Nat
 
--- | The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not exported.
+-- | The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
 cetTo :: Lens' CreateExportTask Natural
 cetTo = lens _cetTo (\ s a -> s{_cetTo = a}) . _Nat
 

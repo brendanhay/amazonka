@@ -53,34 +53,34 @@ instance FromJSON Distribution where
     parseJSON = parseJSONText "Distribution"
 
 data ExportTaskStatusCode
-  = Cancelled
-  | Completed
-  | Failed
-  | Pending
-  | PendingCancel
-  | Running
+  = ETSCCancelled
+  | ETSCCompleted
+  | ETSCFailed
+  | ETSCPending
+  | ETSCPendingCancel
+  | ETSCRunning
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText ExportTaskStatusCode where
     parser = takeLowerText >>= \case
-        "cancelled" -> pure Cancelled
-        "completed" -> pure Completed
-        "failed" -> pure Failed
-        "pending" -> pure Pending
-        "pending_cancel" -> pure PendingCancel
-        "running" -> pure Running
+        "cancelled" -> pure ETSCCancelled
+        "completed" -> pure ETSCCompleted
+        "failed" -> pure ETSCFailed
+        "pending" -> pure ETSCPending
+        "pending_cancel" -> pure ETSCPendingCancel
+        "running" -> pure ETSCRunning
         e -> fromTextError $ "Failure parsing ExportTaskStatusCode from value: '" <> e
            <> "'. Accepted values: cancelled, completed, failed, pending, pending_cancel, running"
 
 instance ToText ExportTaskStatusCode where
     toText = \case
-        Cancelled -> "CANCELLED"
-        Completed -> "COMPLETED"
-        Failed -> "FAILED"
-        Pending -> "PENDING"
-        PendingCancel -> "PENDING_CANCEL"
-        Running -> "RUNNING"
+        ETSCCancelled -> "CANCELLED"
+        ETSCCompleted -> "COMPLETED"
+        ETSCFailed -> "FAILED"
+        ETSCPending -> "PENDING"
+        ETSCPendingCancel -> "PENDING_CANCEL"
+        ETSCRunning -> "RUNNING"
 
 instance Hashable     ExportTaskStatusCode
 instance NFData       ExportTaskStatusCode
@@ -120,3 +120,42 @@ instance ToHeader     OrderBy
 
 instance ToJSON OrderBy where
     toJSON = toJSONText
+
+data QueryStatus
+  = Cancelled
+  | Complete
+  | Failed
+  | Running
+  | Scheduled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText QueryStatus where
+    parser = takeLowerText >>= \case
+        "cancelled" -> pure Cancelled
+        "complete" -> pure Complete
+        "failed" -> pure Failed
+        "running" -> pure Running
+        "scheduled" -> pure Scheduled
+        e -> fromTextError $ "Failure parsing QueryStatus from value: '" <> e
+           <> "'. Accepted values: cancelled, complete, failed, running, scheduled"
+
+instance ToText QueryStatus where
+    toText = \case
+        Cancelled -> "Cancelled"
+        Complete -> "Complete"
+        Failed -> "Failed"
+        Running -> "Running"
+        Scheduled -> "Scheduled"
+
+instance Hashable     QueryStatus
+instance NFData       QueryStatus
+instance ToByteString QueryStatus
+instance ToQuery      QueryStatus
+instance ToHeader     QueryStatus
+
+instance ToJSON QueryStatus where
+    toJSON = toJSONText
+
+instance FromJSON QueryStatus where
+    parseJSON = parseJSONText "QueryStatus"

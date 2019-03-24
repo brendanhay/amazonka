@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates a resource policy allowing other AWS services to put log events to this account, such as Amazon Route 53. An account can have up to 50 resource policies per region.
+-- Creates or updates a resource policy allowing other AWS services to put log events to this account, such as Amazon Route 53. An account can have up to 10 resource policies per region.
 --
 --
 module Network.AWS.CloudWatchLogs.PutResourcePolicy
@@ -58,7 +58,7 @@ data PutResourcePolicy = PutResourcePolicy'
 --
 -- * 'prpPolicyName' - Name of the new policy. This parameter is required.
 --
--- * 'prpPolicyDocument' - Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace "logArn" with the ARN of your CloudWatch Logs resource, such as a log group or log stream. { "Version": "2012-10-17" "Statement": [ { "Sid": "Route53LogsToCloudWatchLogs", "Effect": "Allow", "Principal": { "Service": [ "route53.amazonaws.com" ] }, "Action":"logs:PutLogEvents", "Resource": logArn } ] }
+-- * 'prpPolicyDocument' - Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace "logArn" with the ARN of your CloudWatch Logs resource, such as a log group or log stream. @{ "Version": "2012-10-17", "Statement": [ { "Sid": "Route53LogsToCloudWatchLogs", "Effect": "Allow", "Principal": { "Service": [ "route53.amazonaws.com" ] }, "Action":"logs:PutLogEvents", "Resource": "logArn" } ] } @
 putResourcePolicy
     :: PutResourcePolicy
 putResourcePolicy =
@@ -69,7 +69,7 @@ putResourcePolicy =
 prpPolicyName :: Lens' PutResourcePolicy (Maybe Text)
 prpPolicyName = lens _prpPolicyName (\ s a -> s{_prpPolicyName = a})
 
--- | Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace "logArn" with the ARN of your CloudWatch Logs resource, such as a log group or log stream. { "Version": "2012-10-17" "Statement": [ { "Sid": "Route53LogsToCloudWatchLogs", "Effect": "Allow", "Principal": { "Service": [ "route53.amazonaws.com" ] }, "Action":"logs:PutLogEvents", "Resource": logArn } ] }
+-- | Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace "logArn" with the ARN of your CloudWatch Logs resource, such as a log group or log stream. @{ "Version": "2012-10-17", "Statement": [ { "Sid": "Route53LogsToCloudWatchLogs", "Effect": "Allow", "Principal": { "Service": [ "route53.amazonaws.com" ] }, "Action":"logs:PutLogEvents", "Resource": "logArn" } ] } @
 prpPolicyDocument :: Lens' PutResourcePolicy (Maybe Text)
 prpPolicyDocument = lens _prpPolicyDocument (\ s a -> s{_prpPolicyDocument = a})
 

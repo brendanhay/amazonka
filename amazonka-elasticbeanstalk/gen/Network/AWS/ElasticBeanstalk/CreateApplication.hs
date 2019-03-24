@@ -29,6 +29,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
     -- * Request Lenses
     , caResourceLifecycleConfig
     , caDescription
+    , caTags
     , caApplicationName
 
     -- * Destructuring the Response
@@ -53,6 +54,7 @@ import Network.AWS.Response
 data CreateApplication = CreateApplication'
   { _caResourceLifecycleConfig :: !(Maybe ApplicationResourceLifecycleConfig)
   , _caDescription             :: !(Maybe Text)
+  , _caTags                    :: !(Maybe [Tag])
   , _caApplicationName         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -65,6 +67,8 @@ data CreateApplication = CreateApplication'
 --
 -- * 'caDescription' - Describes the application.
 --
+-- * 'caTags' - Specifies the tags applied to the application. Elastic Beanstalk applies these tags only to the application. Environments that you create in the application don't inherit the tags.
+--
 -- * 'caApplicationName' - The name of the application. Constraint: This name must be unique within your account. If the specified name already exists, the action returns an @InvalidParameterValue@ error.
 createApplication
     :: Text -- ^ 'caApplicationName'
@@ -73,6 +77,7 @@ createApplication pApplicationName_ =
   CreateApplication'
     { _caResourceLifecycleConfig = Nothing
     , _caDescription = Nothing
+    , _caTags = Nothing
     , _caApplicationName = pApplicationName_
     }
 
@@ -84,6 +89,10 @@ caResourceLifecycleConfig = lens _caResourceLifecycleConfig (\ s a -> s{_caResou
 -- | Describes the application.
 caDescription :: Lens' CreateApplication (Maybe Text)
 caDescription = lens _caDescription (\ s a -> s{_caDescription = a})
+
+-- | Specifies the tags applied to the application. Elastic Beanstalk applies these tags only to the application. Environments that you create in the application don't inherit the tags.
+caTags :: Lens' CreateApplication [Tag]
+caTags = lens _caTags (\ s a -> s{_caTags = a}) . _Default . _Coerce
 
 -- | The name of the application. Constraint: This name must be unique within your account. If the specified name already exists, the action returns an @InvalidParameterValue@ error.
 caApplicationName :: Lens' CreateApplication Text
@@ -115,4 +124,5 @@ instance ToQuery CreateApplication where
                "ResourceLifecycleConfig" =:
                  _caResourceLifecycleConfig,
                "Description" =: _caDescription,
+               "Tags" =: toQuery (toQueryList "member" <$> _caTags),
                "ApplicationName" =: _caApplicationName]

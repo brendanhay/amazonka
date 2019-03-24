@@ -165,11 +165,11 @@ data DescribeEnvironmentHealthResponse = DescribeEnvironmentHealthResponse'
 --
 -- * 'dehrsApplicationMetrics' - Application request metrics for the environment.
 --
--- * 'dehrsColor' - The <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color> of the environment.
+-- * 'dehrsColor' - The <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color> of the environment.
 --
 -- * 'dehrsEnvironmentName' - The environment's name.
 --
--- * 'dehrsHealthStatus' - The <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status> of the environment. For example, @Ok@ .
+-- * 'dehrsHealthStatus' - The <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status> of the environment. For example, @Ok@ .
 --
 -- * 'dehrsInstancesHealth' - Summary health information for the instances in the environment.
 --
@@ -205,7 +205,7 @@ dehrsCauses = lens _dehrsCauses (\ s a -> s{_dehrsCauses = a}) . _Default . _Coe
 dehrsApplicationMetrics :: Lens' DescribeEnvironmentHealthResponse (Maybe ApplicationMetrics)
 dehrsApplicationMetrics = lens _dehrsApplicationMetrics (\ s a -> s{_dehrsApplicationMetrics = a})
 
--- | The <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color> of the environment.
+-- | The <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color> of the environment.
 dehrsColor :: Lens' DescribeEnvironmentHealthResponse (Maybe Text)
 dehrsColor = lens _dehrsColor (\ s a -> s{_dehrsColor = a})
 
@@ -213,7 +213,7 @@ dehrsColor = lens _dehrsColor (\ s a -> s{_dehrsColor = a})
 dehrsEnvironmentName :: Lens' DescribeEnvironmentHealthResponse (Maybe Text)
 dehrsEnvironmentName = lens _dehrsEnvironmentName (\ s a -> s{_dehrsEnvironmentName = a})
 
--- | The <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status> of the environment. For example, @Ok@ .
+-- | The <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status> of the environment. For example, @Ok@ .
 dehrsHealthStatus :: Lens' DescribeEnvironmentHealthResponse (Maybe Text)
 dehrsHealthStatus = lens _dehrsHealthStatus (\ s a -> s{_dehrsHealthStatus = a})
 

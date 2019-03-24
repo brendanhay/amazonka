@@ -21,6 +21,8 @@
 -- Creates a configuration template. Templates are associated with a specific application and are used to deploy different versions of the application with the same configuration settings.
 --
 --
+-- Templates aren't associated with any environment. The @EnvironmentName@ response element is always @null@ .
+--
 -- Related Topics
 --
 --     * 'DescribeConfigurationOptions'
@@ -43,6 +45,7 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     , cctSolutionStackName
     , cctEnvironmentId
     , cctDescription
+    , cctTags
     , cctApplicationName
     , cctTemplateName
 
@@ -81,6 +84,7 @@ data CreateConfigurationTemplate = CreateConfigurationTemplate'
   , _cctSolutionStackName   :: !(Maybe Text)
   , _cctEnvironmentId       :: !(Maybe Text)
   , _cctDescription         :: !(Maybe Text)
+  , _cctTags                :: !(Maybe [Tag])
   , _cctApplicationName     :: !Text
   , _cctTemplateName        :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -102,6 +106,8 @@ data CreateConfigurationTemplate = CreateConfigurationTemplate'
 --
 -- * 'cctDescription' - Describes this configuration.
 --
+-- * 'cctTags' - Specifies the tags applied to the configuration template.
+--
 -- * 'cctApplicationName' - The name of the application to associate with this configuration template. If no application is found with this name, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
 --
 -- * 'cctTemplateName' - The name of the configuration template. Constraint: This name must be unique per application. Default: If a configuration template already exists with this name, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
@@ -117,6 +123,7 @@ createConfigurationTemplate pApplicationName_ pTemplateName_ =
     , _cctSolutionStackName = Nothing
     , _cctEnvironmentId = Nothing
     , _cctDescription = Nothing
+    , _cctTags = Nothing
     , _cctApplicationName = pApplicationName_
     , _cctTemplateName = pTemplateName_
     }
@@ -145,6 +152,10 @@ cctEnvironmentId = lens _cctEnvironmentId (\ s a -> s{_cctEnvironmentId = a})
 -- | Describes this configuration.
 cctDescription :: Lens' CreateConfigurationTemplate (Maybe Text)
 cctDescription = lens _cctDescription (\ s a -> s{_cctDescription = a})
+
+-- | Specifies the tags applied to the configuration template.
+cctTags :: Lens' CreateConfigurationTemplate [Tag]
+cctTags = lens _cctTags (\ s a -> s{_cctTags = a}) . _Default . _Coerce
 
 -- | The name of the application to associate with this configuration template. If no application is found with this name, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
 cctApplicationName :: Lens' CreateConfigurationTemplate Text
@@ -187,5 +198,7 @@ instance ToQuery CreateConfigurationTemplate where
                "SolutionStackName" =: _cctSolutionStackName,
                "EnvironmentId" =: _cctEnvironmentId,
                "Description" =: _cctDescription,
+               "Tags" =:
+                 toQuery (toQueryList "member" <$> _cctTags),
                "ApplicationName" =: _cctApplicationName,
                "TemplateName" =: _cctTemplateName]

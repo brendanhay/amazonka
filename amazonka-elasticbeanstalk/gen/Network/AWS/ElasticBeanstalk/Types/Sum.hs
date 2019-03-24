@@ -314,6 +314,7 @@ data EnvironmentHealthStatus
   | EHSOK
   | EHSPending
   | EHSSevere
+  | EHSSuspended
   | EHSUnknown
   | EHSWarning
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -327,10 +328,11 @@ instance FromText EnvironmentHealthStatus where
         "ok" -> pure EHSOK
         "pending" -> pure EHSPending
         "severe" -> pure EHSSevere
+        "suspended" -> pure EHSSuspended
         "unknown" -> pure EHSUnknown
         "warning" -> pure EHSWarning
         e -> fromTextError $ "Failure parsing EnvironmentHealthStatus from value: '" <> e
-           <> "'. Accepted values: degraded, info, nodata, ok, pending, severe, unknown, warning"
+           <> "'. Accepted values: degraded, info, nodata, ok, pending, severe, suspended, unknown, warning"
 
 instance ToText EnvironmentHealthStatus where
     toText = \case
@@ -340,6 +342,7 @@ instance ToText EnvironmentHealthStatus where
         EHSOK -> "Ok"
         EHSPending -> "Pending"
         EHSSevere -> "Severe"
+        EHSSuspended -> "Suspended"
         EHSUnknown -> "Unknown"
         EHSWarning -> "Warning"
 

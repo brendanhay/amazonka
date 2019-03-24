@@ -21,7 +21,7 @@
 -- Returns the tags applied to an AWS Elastic Beanstalk resource. The response contains a list of tag key-value pairs.
 --
 --
--- Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments. For details about environment tagging, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html Tagging Resources in Your Elastic Beanstalk Environment> .
+-- Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments. For details about environment tagging, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html Tagging Resources in Your Elastic Beanstalk Environment> .
 --
 module Network.AWS.ElasticBeanstalk.ListTagsForResource
     (

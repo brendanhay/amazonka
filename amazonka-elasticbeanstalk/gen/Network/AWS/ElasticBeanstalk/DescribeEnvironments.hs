@@ -21,6 +21,8 @@
 -- Returns descriptions for existing environments.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     (
     -- * Creating a Request
@@ -47,6 +49,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
 import Network.AWS.ElasticBeanstalk.Types
 import Network.AWS.ElasticBeanstalk.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -133,6 +136,13 @@ desIncludedDeletedBackTo = lens _desIncludedDeletedBackTo (\ s a -> s{_desInclud
 -- | Indicates whether to include deleted environments: @true@ : Environments that have been deleted after @IncludedDeletedBackTo@ are displayed. @false@ : Do not include deleted environments.
 desIncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)
 desIncludeDeleted = lens _desIncludeDeleted (\ s a -> s{_desIncludeDeleted = a})
+
+instance AWSPager DescribeEnvironments where
+        page rq rs
+          | stop (rs ^. edmNextToken) = Nothing
+          | stop (rs ^. edmEnvironments) = Nothing
+          | otherwise =
+            Just $ rq & desNextToken .~ rs ^. edmNextToken
 
 instance AWSRequest DescribeEnvironments where
         type Rs DescribeEnvironments =

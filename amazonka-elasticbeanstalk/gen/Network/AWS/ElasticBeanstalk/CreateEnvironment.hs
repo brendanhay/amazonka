@@ -116,13 +116,13 @@ data CreateEnvironment = CreateEnvironment'
 --
 -- * 'cEnvironmentName' - A unique name for the deployment environment. Used in the application URL. Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It cannot start or end with a hyphen. This name must be unique within a region in your account. If the specified name already exists in the region, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.  Default: If the CNAME parameter is not specified, the environment name becomes part of the CNAME, and therefore part of the visible URL for your application.
 --
--- * 'cSolutionStackName' - This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack.
+-- * 'cSolutionStackName' - This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack. For a list of current solution stacks, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html Elastic Beanstalk Supported Platforms> .
 --
--- * 'cGroupName' - The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name parameter. See <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
+-- * 'cGroupName' - The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name parameter. See <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
 --
 -- * 'cDescription' - Describes this environment.
 --
--- * 'cTags' - This specifies the tags applied to resources in the environment.
+-- * 'cTags' - Specifies the tags applied to resources in the environment.
 --
 -- * 'cApplicationName' - The name of the application that contains the version to be deployed. If no application is found with this name, @CreateEnvironment@ returns an @InvalidParameterValue@ error.
 createEnvironment
@@ -178,11 +178,11 @@ cTier = lens _cTier (\ s a -> s{_cTier = a})
 cEnvironmentName :: Lens' CreateEnvironment (Maybe Text)
 cEnvironmentName = lens _cEnvironmentName (\ s a -> s{_cEnvironmentName = a})
 
--- | This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack.
+-- | This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack. For a list of current solution stacks, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html Elastic Beanstalk Supported Platforms> .
 cSolutionStackName :: Lens' CreateEnvironment (Maybe Text)
 cSolutionStackName = lens _cSolutionStackName (\ s a -> s{_cSolutionStackName = a})
 
--- | The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name parameter. See <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
+-- | The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name parameter. See <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
 cGroupName :: Lens' CreateEnvironment (Maybe Text)
 cGroupName = lens _cGroupName (\ s a -> s{_cGroupName = a})
 
@@ -190,7 +190,7 @@ cGroupName = lens _cGroupName (\ s a -> s{_cGroupName = a})
 cDescription :: Lens' CreateEnvironment (Maybe Text)
 cDescription = lens _cDescription (\ s a -> s{_cDescription = a})
 
--- | This specifies the tags applied to resources in the environment.
+-- | Specifies the tags applied to resources in the environment.
 cTags :: Lens' CreateEnvironment [Tag]
 cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce
 

@@ -21,6 +21,8 @@
 -- Lists the available platforms.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ElasticBeanstalk.ListPlatformVersions
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.ElasticBeanstalk.ListPlatformVersions
 import Network.AWS.ElasticBeanstalk.Types
 import Network.AWS.ElasticBeanstalk.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -82,6 +85,13 @@ lpvNextToken = lens _lpvNextToken (\ s a -> s{_lpvNextToken = a})
 -- | The maximum number of platform values returned in one call.
 lpvMaxRecords :: Lens' ListPlatformVersions (Maybe Natural)
 lpvMaxRecords = lens _lpvMaxRecords (\ s a -> s{_lpvMaxRecords = a}) . mapping _Nat
+
+instance AWSPager ListPlatformVersions where
+        page rq rs
+          | stop (rs ^. lpvrsNextToken) = Nothing
+          | stop (rs ^. lpvrsPlatformSummaryList) = Nothing
+          | otherwise =
+            Just $ rq & lpvNextToken .~ rs ^. lpvrsNextToken
 
 instance AWSRequest ListPlatformVersions where
         type Rs ListPlatformVersions =

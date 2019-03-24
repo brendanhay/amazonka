@@ -15,7 +15,7 @@ module Test.AWS.ElasticBeanstalk
     , fixtures
     ) where
 
-import           Test.Tasty
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

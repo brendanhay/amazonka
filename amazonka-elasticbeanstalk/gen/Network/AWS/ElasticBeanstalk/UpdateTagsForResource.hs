@@ -21,7 +21,7 @@
 -- Update the list of tags applied to an AWS Elastic Beanstalk resource. Two lists can be passed: @TagsToAdd@ for tags to add or update, and @TagsToRemove@ .
 --
 --
--- Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments. For details about environment tagging, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html Tagging Resources in Your Elastic Beanstalk Environment> .
+-- Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments. For details about environment tagging, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html Tagging Resources in Your Elastic Beanstalk Environment> .
 --
 -- If you create a custom IAM user policy to control permission to this operation, specify one of the following two virtual actions (or both) instead of the API operation name:
 --
@@ -31,7 +31,7 @@
 --
 --
 --
--- For details about creating a custom user policy, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#AWSHowTo.iam.policies Creating a Custom User Policy> .
+-- For details about creating a custom user policy, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#AWSHowTo.iam.policies Creating a Custom User Policy> .
 --
 module Network.AWS.ElasticBeanstalk.UpdateTagsForResource
     (

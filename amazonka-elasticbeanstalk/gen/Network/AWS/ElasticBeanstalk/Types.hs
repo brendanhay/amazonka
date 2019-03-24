@@ -175,6 +175,7 @@ module Network.AWS.ElasticBeanstalk.Types
     , cuIdle
     , cuIRQ
     , cuSystem
+    , cuPrivileged
     , cuUser
     , cuIOWait
     , cuNice
@@ -279,6 +280,7 @@ module Network.AWS.ElasticBeanstalk.Types
     , environmentResourceDescription
     , erdQueues
     , erdTriggers
+    , erdLaunchTemplates
     , erdLoadBalancers
     , erdEnvironmentName
     , erdInstances
@@ -343,6 +345,11 @@ module Network.AWS.ElasticBeanstalk.Types
     , LaunchConfiguration
     , launchConfiguration
     , lcName
+
+    -- * LaunchTemplate
+    , LaunchTemplate
+    , launchTemplate
+    , ltId
 
     -- * Listener
     , Listener

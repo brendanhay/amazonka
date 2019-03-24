@@ -21,6 +21,8 @@
 -- Lists an environment's completed and failed managed actions.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
 import Network.AWS.ElasticBeanstalk.Types
 import Network.AWS.ElasticBeanstalk.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -98,6 +101,16 @@ demahMaxItems = lens _demahMaxItems (\ s a -> s{_demahMaxItems = a})
 -- | The environment ID of the target environment.
 demahEnvironmentId :: Lens' DescribeEnvironmentManagedActionHistory (Maybe Text)
 demahEnvironmentId = lens _demahEnvironmentId (\ s a -> s{_demahEnvironmentId = a})
+
+instance AWSPager
+           DescribeEnvironmentManagedActionHistory
+         where
+        page rq rs
+          | stop (rs ^. demahrsNextToken) = Nothing
+          | stop (rs ^. demahrsManagedActionHistoryItems) =
+            Nothing
+          | otherwise =
+            Just $ rq & demahNextToken .~ rs ^. demahrsNextToken
 
 instance AWSRequest
            DescribeEnvironmentManagedActionHistory

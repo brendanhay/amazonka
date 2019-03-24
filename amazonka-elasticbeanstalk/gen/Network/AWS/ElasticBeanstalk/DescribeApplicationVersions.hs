@@ -21,6 +21,8 @@
 -- Retrieve a list of application versions.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
 import Network.AWS.ElasticBeanstalk.Types
 import Network.AWS.ElasticBeanstalk.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -98,6 +101,13 @@ dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a}) . mapping _Nat
 -- | Specify an application name to show only application versions for that application.
 dApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
 dApplicationName = lens _dApplicationName (\ s a -> s{_dApplicationName = a})
+
+instance AWSPager DescribeApplicationVersions where
+        page rq rs
+          | stop (rs ^. davrsNextToken) = Nothing
+          | stop (rs ^. davrsApplicationVersions) = Nothing
+          | otherwise =
+            Just $ rq & dNextToken .~ rs ^. davrsNextToken
 
 instance AWSRequest DescribeApplicationVersions where
         type Rs DescribeApplicationVersions =

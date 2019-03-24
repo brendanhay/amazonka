@@ -84,7 +84,7 @@ data TerminateEnvironment = TerminateEnvironment'
 --
 -- * 'teForceTerminate' - Terminates the target environment even if another environment in the same group is dependent on it.
 --
--- * 'teTerminateResources' - Indicates whether the associated AWS resources should shut down when the environment is terminated:     * @true@ : The specified environment as well as the associated AWS resources, such as Auto Scaling group and LoadBalancer, are terminated.     * @false@ : AWS Elastic Beanstalk resource management is removed from the environment, but the AWS resources continue to operate. For more information, see the <http://docs.aws.amazon.com/elasticbeanstalk/latest/ug/ AWS Elastic Beanstalk User Guide. >  Default: @true@  Valid Values: @true@ | @false@
+-- * 'teTerminateResources' - Indicates whether the associated AWS resources should shut down when the environment is terminated:     * @true@ : The specified environment as well as the associated AWS resources, such as Auto Scaling group and LoadBalancer, are terminated.     * @false@ : AWS Elastic Beanstalk resource management is removed from the environment, but the AWS resources continue to operate. For more information, see the <https://docs.aws.amazon.com/elasticbeanstalk/latest/ug/ AWS Elastic Beanstalk User Guide. >  Default: @true@  Valid Values: @true@ | @false@
 --
 -- * 'teEnvironmentName' - The name of the environment to terminate. Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
@@ -104,7 +104,7 @@ terminateEnvironment =
 teForceTerminate :: Lens' TerminateEnvironment (Maybe Bool)
 teForceTerminate = lens _teForceTerminate (\ s a -> s{_teForceTerminate = a})
 
--- | Indicates whether the associated AWS resources should shut down when the environment is terminated:     * @true@ : The specified environment as well as the associated AWS resources, such as Auto Scaling group and LoadBalancer, are terminated.     * @false@ : AWS Elastic Beanstalk resource management is removed from the environment, but the AWS resources continue to operate. For more information, see the <http://docs.aws.amazon.com/elasticbeanstalk/latest/ug/ AWS Elastic Beanstalk User Guide. >  Default: @true@  Valid Values: @true@ | @false@
+-- | Indicates whether the associated AWS resources should shut down when the environment is terminated:     * @true@ : The specified environment as well as the associated AWS resources, such as Auto Scaling group and LoadBalancer, are terminated.     * @false@ : AWS Elastic Beanstalk resource management is removed from the environment, but the AWS resources continue to operate. For more information, see the <https://docs.aws.amazon.com/elasticbeanstalk/latest/ug/ AWS Elastic Beanstalk User Guide. >  Default: @true@  Valid Values: @true@ | @false@
 teTerminateResources :: Lens' TerminateEnvironment (Maybe Bool)
 teTerminateResources = lens _teTerminateResources (\ s a -> s{_teTerminateResources = a})
 

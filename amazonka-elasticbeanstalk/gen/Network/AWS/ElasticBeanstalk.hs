@@ -19,7 +19,7 @@
 --
 -- __Endpoints__
 --
--- For a list of region-specific endpoints that AWS Elastic Beanstalk supports, go to <http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region Regions and Endpoints> in the /Amazon Web Services Glossary/ .
+-- For a list of region-specific endpoints that AWS Elastic Beanstalk supports, go to <https://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region Regions and Endpoints> in the /Amazon Web Services Glossary/ .
 --
 module Network.AWS.ElasticBeanstalk
     (
@@ -101,7 +101,7 @@ module Network.AWS.ElasticBeanstalk
     -- ** TerminateEnvironment
     , module Network.AWS.ElasticBeanstalk.TerminateEnvironment
 
-    -- ** ListPlatformVersions
+    -- ** ListPlatformVersions (Paginated)
     , module Network.AWS.ElasticBeanstalk.ListPlatformVersions
 
     -- ** DeletePlatformVersion
@@ -155,7 +155,7 @@ module Network.AWS.ElasticBeanstalk
     -- ** DescribeEnvironmentResources
     , module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
 
-    -- ** DescribeEnvironmentManagedActionHistory
+    -- ** DescribeEnvironmentManagedActionHistory (Paginated)
     , module Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
 
     -- ** DeleteApplicationVersion
@@ -209,13 +209,13 @@ module Network.AWS.ElasticBeanstalk
     -- ** RestartAppServer
     , module Network.AWS.ElasticBeanstalk.RestartAppServer
 
-    -- ** DescribeEnvironments
+    -- ** DescribeEnvironments (Paginated)
     , module Network.AWS.ElasticBeanstalk.DescribeEnvironments
 
     -- ** CheckDNSAvailability
     , module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
 
-    -- ** DescribeApplicationVersions
+    -- ** DescribeApplicationVersions (Paginated)
     , module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
 
     -- ** CreateEnvironment
@@ -365,6 +365,7 @@ module Network.AWS.ElasticBeanstalk
     , cuIdle
     , cuIRQ
     , cuSystem
+    , cuPrivileged
     , cuUser
     , cuIOWait
     , cuNice
@@ -469,6 +470,7 @@ module Network.AWS.ElasticBeanstalk
     , environmentResourceDescription
     , erdQueues
     , erdTriggers
+    , erdLaunchTemplates
     , erdLoadBalancers
     , erdEnvironmentName
     , erdInstances
@@ -533,6 +535,11 @@ module Network.AWS.ElasticBeanstalk
     , LaunchConfiguration
     , launchConfiguration
     , lcName
+
+    -- ** LaunchTemplate
+    , LaunchTemplate
+    , launchTemplate
+    , ltId
 
     -- ** Listener
     , Listener

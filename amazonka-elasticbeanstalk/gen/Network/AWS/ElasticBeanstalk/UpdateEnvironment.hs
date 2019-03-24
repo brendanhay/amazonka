@@ -122,7 +122,7 @@ data UpdateEnvironment = UpdateEnvironment'
 --
 -- * 'ueEnvironmentId' - The ID of the environment to update. If no environment with this ID exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error. Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
--- * 'ueGroupName' - The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name or environment ID parameters. See <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
+-- * 'ueGroupName' - The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name or environment ID parameters. See <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
 --
 -- * 'ueDescription' - If this parameter is specified, AWS Elastic Beanstalk updates the description of this environment.
 updateEnvironment
@@ -184,7 +184,7 @@ ueSolutionStackName = lens _ueSolutionStackName (\ s a -> s{_ueSolutionStackName
 ueEnvironmentId :: Lens' UpdateEnvironment (Maybe Text)
 ueEnvironmentId = lens _ueEnvironmentId (\ s a -> s{_ueEnvironmentId = a})
 
--- | The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name or environment ID parameters. See <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
+-- | The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name or environment ID parameters. See <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
 ueGroupName :: Lens' UpdateEnvironment (Maybe Text)
 ueGroupName = lens _ueGroupName (\ s a -> s{_ueGroupName = a})
 

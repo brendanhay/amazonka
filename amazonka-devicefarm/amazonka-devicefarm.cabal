@@ -99,6 +99,7 @@ library
         , Network.AWS.DeviceFarm.PurchaseOffering
         , Network.AWS.DeviceFarm.RenewOffering
         , Network.AWS.DeviceFarm.ScheduleRun
+        , Network.AWS.DeviceFarm.StopJob
         , Network.AWS.DeviceFarm.StopRemoteAccessSession
         , Network.AWS.DeviceFarm.StopRun
         , Network.AWS.DeviceFarm.Types
@@ -107,6 +108,7 @@ library
         , Network.AWS.DeviceFarm.UpdateInstanceProfile
         , Network.AWS.DeviceFarm.UpdateNetworkProfile
         , Network.AWS.DeviceFarm.UpdateProject
+        , Network.AWS.DeviceFarm.UpdateUpload
         , Network.AWS.DeviceFarm.UpdateVPCEConfiguration
         , Network.AWS.DeviceFarm.Waiters
 

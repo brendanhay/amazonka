@@ -21,6 +21,8 @@
 -- Returns information about the private device instances associated with one or more AWS accounts.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListDeviceInstances
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.DeviceFarm.ListDeviceInstances
 import Network.AWS.DeviceFarm.Types
 import Network.AWS.DeviceFarm.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -73,6 +76,13 @@ ldiNextToken = lens _ldiNextToken (\ s a -> s{_ldiNextToken = a})
 -- | An integer specifying the maximum number of items you want to return in the API response.
 ldiMaxResults :: Lens' ListDeviceInstances (Maybe Int)
 ldiMaxResults = lens _ldiMaxResults (\ s a -> s{_ldiMaxResults = a})
+
+instance AWSPager ListDeviceInstances where
+        page rq rs
+          | stop (rs ^. ldirsNextToken) = Nothing
+          | stop (rs ^. ldirsDeviceInstances) = Nothing
+          | otherwise =
+            Just $ rq & ldiNextToken .~ rs ^. ldirsNextToken
 
 instance AWSRequest ListDeviceInstances where
         type Rs ListDeviceInstances =

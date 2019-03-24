@@ -21,6 +21,8 @@
 -- Returns the list of available network profiles.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListNetworkProfiles
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.DeviceFarm.ListNetworkProfiles
 import Network.AWS.DeviceFarm.Types
 import Network.AWS.DeviceFarm.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -83,6 +86,13 @@ lnpType = lens _lnpType (\ s a -> s{_lnpType = a})
 -- | The Amazon Resource Name (ARN) of the project for which you want to list network profiles.
 lnpArn :: Lens' ListNetworkProfiles Text
 lnpArn = lens _lnpArn (\ s a -> s{_lnpArn = a})
+
+instance AWSPager ListNetworkProfiles where
+        page rq rs
+          | stop (rs ^. lnprsNextToken) = Nothing
+          | stop (rs ^. lnprsNetworkProfiles) = Nothing
+          | otherwise =
+            Just $ rq & lnpNextToken .~ rs ^. lnprsNextToken
 
 instance AWSRequest ListNetworkProfiles where
         type Rs ListNetworkProfiles =

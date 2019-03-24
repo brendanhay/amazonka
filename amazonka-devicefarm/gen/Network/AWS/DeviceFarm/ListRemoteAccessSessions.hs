@@ -21,6 +21,8 @@
 -- Returns a list of all currently running remote access sessions.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListRemoteAccessSessions
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.DeviceFarm.ListRemoteAccessSessions
 import Network.AWS.DeviceFarm.Types
 import Network.AWS.DeviceFarm.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -78,6 +81,13 @@ lrasNextToken = lens _lrasNextToken (\ s a -> s{_lrasNextToken = a})
 -- | The Amazon Resource Name (ARN) of the remote access session about which you are requesting information.
 lrasArn :: Lens' ListRemoteAccessSessions Text
 lrasArn = lens _lrasArn (\ s a -> s{_lrasArn = a})
+
+instance AWSPager ListRemoteAccessSessions where
+        page rq rs
+          | stop (rs ^. lrasrsNextToken) = Nothing
+          | stop (rs ^. lrasrsRemoteAccessSessions) = Nothing
+          | otherwise =
+            Just $ rq & lrasNextToken .~ rs ^. lrasrsNextToken
 
 instance AWSRequest ListRemoteAccessSessions where
         type Rs ListRemoteAccessSessions =

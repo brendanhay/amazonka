@@ -21,6 +21,8 @@
 -- Returns information about all Amazon Virtual Private Cloud (VPC) endpoint configurations in the AWS account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListVPCEConfigurations
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.DeviceFarm.ListVPCEConfigurations
 import Network.AWS.DeviceFarm.Types
 import Network.AWS.DeviceFarm.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -73,6 +76,13 @@ lvecNextToken = lens _lvecNextToken (\ s a -> s{_lvecNextToken = a})
 -- | An integer specifying the maximum number of items you want to return in the API response.
 lvecMaxResults :: Lens' ListVPCEConfigurations (Maybe Int)
 lvecMaxResults = lens _lvecMaxResults (\ s a -> s{_lvecMaxResults = a})
+
+instance AWSPager ListVPCEConfigurations where
+        page rq rs
+          | stop (rs ^. lvecrsNextToken) = Nothing
+          | stop (rs ^. lvecrsVpceConfigurations) = Nothing
+          | otherwise =
+            Just $ rq & lvecNextToken .~ rs ^. lvecrsNextToken
 
 instance AWSRequest ListVPCEConfigurations where
         type Rs ListVPCEConfigurations =

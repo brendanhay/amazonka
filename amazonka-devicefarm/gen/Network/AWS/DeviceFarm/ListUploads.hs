@@ -30,6 +30,7 @@ module Network.AWS.DeviceFarm.ListUploads
     , ListUploads
     -- * Request Lenses
     , luNextToken
+    , luType
     , luArn
 
     -- * Destructuring the Response
@@ -56,6 +57,7 @@ import Network.AWS.Response
 -- /See:/ 'listUploads' smart constructor.
 data ListUploads = ListUploads'
   { _luNextToken :: !(Maybe Text)
+  , _luType      :: !(Maybe UploadType)
   , _luArn       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -66,16 +68,23 @@ data ListUploads = ListUploads'
 --
 -- * 'luNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
+-- * 'luType' - The type of upload. Must be one of the following values:     * ANDROID_APP: An Android upload.     * IOS_APP: An iOS upload.     * WEB_APP: A web appliction upload.     * EXTERNAL_DATA: An external data upload.     * APPIUM_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package upload.     * APPIUM_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package upload.     * APPIUM_PYTHON_TEST_PACKAGE: An Appium Python test package upload.     * APPIUM_NODE_TEST_PACKAGE: An Appium Node.js test package upload.     * APPIUM_RUBY_TEST_PACKAGE: An Appium Ruby test package upload.     * APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package upload for a web app.     * APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package upload for a web app.     * APPIUM_WEB_PYTHON_TEST_PACKAGE: An Appium Python test package upload for a web app.     * APPIUM_WEB_NODE_TEST_PACKAGE: An Appium Node.js test package upload for a web app.     * APPIUM_WEB_RUBY_TEST_PACKAGE: An Appium Ruby test package upload for a web app.     * CALABASH_TEST_PACKAGE: A Calabash test package upload.     * INSTRUMENTATION_TEST_PACKAGE: An instrumentation upload.     * UIAUTOMATION_TEST_PACKAGE: A uiautomation test package upload.     * UIAUTOMATOR_TEST_PACKAGE: A uiautomator test package upload.     * XCTEST_TEST_PACKAGE: An XCode test package upload.     * XCTEST_UI_TEST_PACKAGE: An XCode UI test package upload.     * APPIUM_JAVA_JUNIT_TEST_SPEC: An Appium Java JUnit test spec upload.     * APPIUM_JAVA_TESTNG_TEST_SPEC: An Appium Java TestNG test spec upload.     * APPIUM_PYTHON_TEST_SPEC: An Appium Python test spec upload.     * APPIUM_NODE_TEST_SPEC: An Appium Node.js test spec upload.     * APPIUM_RUBY_TEST_SPEC: An Appium Ruby test spec upload.     * APPIUM_WEB_JAVA_JUNIT_TEST_SPEC: An Appium Java JUnit test spec upload for a web app.     * APPIUM_WEB_JAVA_TESTNG_TEST_SPEC: An Appium Java TestNG test spec upload for a web app.     * APPIUM_WEB_PYTHON_TEST_SPEC: An Appium Python test spec upload for a web app.     * APPIUM_WEB_NODE_TEST_SPEC: An Appium Node.js test spec upload for a web app.     * APPIUM_WEB_RUBY_TEST_SPEC: An Appium Ruby test spec upload for a web app.     * INSTRUMENTATION_TEST_SPEC: An instrumentation test spec upload.     * XCTEST_UI_TEST_SPEC: An XCode UI test spec upload.
+--
 -- * 'luArn' - The Amazon Resource Name (ARN) of the project for which you want to list uploads.
 listUploads
     :: Text -- ^ 'luArn'
     -> ListUploads
-listUploads pArn_ = ListUploads' {_luNextToken = Nothing, _luArn = pArn_}
+listUploads pArn_ =
+  ListUploads' {_luNextToken = Nothing, _luType = Nothing, _luArn = pArn_}
 
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 luNextToken :: Lens' ListUploads (Maybe Text)
 luNextToken = lens _luNextToken (\ s a -> s{_luNextToken = a})
+
+-- | The type of upload. Must be one of the following values:     * ANDROID_APP: An Android upload.     * IOS_APP: An iOS upload.     * WEB_APP: A web appliction upload.     * EXTERNAL_DATA: An external data upload.     * APPIUM_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package upload.     * APPIUM_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package upload.     * APPIUM_PYTHON_TEST_PACKAGE: An Appium Python test package upload.     * APPIUM_NODE_TEST_PACKAGE: An Appium Node.js test package upload.     * APPIUM_RUBY_TEST_PACKAGE: An Appium Ruby test package upload.     * APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package upload for a web app.     * APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package upload for a web app.     * APPIUM_WEB_PYTHON_TEST_PACKAGE: An Appium Python test package upload for a web app.     * APPIUM_WEB_NODE_TEST_PACKAGE: An Appium Node.js test package upload for a web app.     * APPIUM_WEB_RUBY_TEST_PACKAGE: An Appium Ruby test package upload for a web app.     * CALABASH_TEST_PACKAGE: A Calabash test package upload.     * INSTRUMENTATION_TEST_PACKAGE: An instrumentation upload.     * UIAUTOMATION_TEST_PACKAGE: A uiautomation test package upload.     * UIAUTOMATOR_TEST_PACKAGE: A uiautomator test package upload.     * XCTEST_TEST_PACKAGE: An XCode test package upload.     * XCTEST_UI_TEST_PACKAGE: An XCode UI test package upload.     * APPIUM_JAVA_JUNIT_TEST_SPEC: An Appium Java JUnit test spec upload.     * APPIUM_JAVA_TESTNG_TEST_SPEC: An Appium Java TestNG test spec upload.     * APPIUM_PYTHON_TEST_SPEC: An Appium Python test spec upload.     * APPIUM_NODE_TEST_SPEC: An Appium Node.js test spec upload.     * APPIUM_RUBY_TEST_SPEC: An Appium Ruby test spec upload.     * APPIUM_WEB_JAVA_JUNIT_TEST_SPEC: An Appium Java JUnit test spec upload for a web app.     * APPIUM_WEB_JAVA_TESTNG_TEST_SPEC: An Appium Java TestNG test spec upload for a web app.     * APPIUM_WEB_PYTHON_TEST_SPEC: An Appium Python test spec upload for a web app.     * APPIUM_WEB_NODE_TEST_SPEC: An Appium Node.js test spec upload for a web app.     * APPIUM_WEB_RUBY_TEST_SPEC: An Appium Ruby test spec upload for a web app.     * INSTRUMENTATION_TEST_SPEC: An instrumentation test spec upload.     * XCTEST_UI_TEST_SPEC: An XCode UI test spec upload.
+luType :: Lens' ListUploads (Maybe UploadType)
+luType = lens _luType (\ s a -> s{_luType = a})
 
 -- | The Amazon Resource Name (ARN) of the project for which you want to list uploads.
 luArn :: Lens' ListUploads Text
@@ -116,7 +125,7 @@ instance ToJSON ListUploads where
           = object
               (catMaybes
                  [("nextToken" .=) <$> _luNextToken,
-                  Just ("arn" .= _luArn)])
+                  ("type" .=) <$> _luType, Just ("arn" .= _luArn)])
 
 instance ToPath ListUploads where
         toPath = const "/"

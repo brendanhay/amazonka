@@ -72,6 +72,7 @@ data ArtifactType
   | ResultLog
   | Screenshot
   | ServiceLog
+  | TestspecOutput
   | Unknown
   | Video
   | VideoLog
@@ -104,13 +105,14 @@ instance FromText ArtifactType where
         "result_log" -> pure ResultLog
         "screenshot" -> pure Screenshot
         "service_log" -> pure ServiceLog
+        "testspec_output" -> pure TestspecOutput
         "unknown" -> pure Unknown
         "video" -> pure Video
         "video_log" -> pure VideoLog
         "webkit_log" -> pure WebkitLog
         "xctest_log" -> pure XctestLog
         e -> fromTextError $ "Failure parsing ArtifactType from value: '" <> e
-           <> "'. Accepted values: appium_java_output, appium_java_xml_output, appium_python_output, appium_python_xml_output, appium_server_output, application_crash_report, automation_output, calabash_json_output, calabash_java_xml_output, calabash_pretty_output, calabash_standard_output, customer_artifact, customer_artifact_log, device_log, exerciser_monkey_output, explorer_event_log, explorer_summary_log, instrumentation_output, message_log, result_log, screenshot, service_log, unknown, video, video_log, webkit_log, xctest_log"
+           <> "'. Accepted values: appium_java_output, appium_java_xml_output, appium_python_output, appium_python_xml_output, appium_server_output, application_crash_report, automation_output, calabash_json_output, calabash_java_xml_output, calabash_pretty_output, calabash_standard_output, customer_artifact, customer_artifact_log, device_log, exerciser_monkey_output, explorer_event_log, explorer_summary_log, instrumentation_output, message_log, result_log, screenshot, service_log, testspec_output, unknown, video, video_log, webkit_log, xctest_log"
 
 instance ToText ArtifactType where
     toText = \case
@@ -136,6 +138,7 @@ instance ToText ArtifactType where
         ResultLog -> "RESULT_LOG"
         Screenshot -> "SCREENSHOT"
         ServiceLog -> "SERVICE_LOG"
+        TestspecOutput -> "TESTSPEC_OUTPUT"
         Unknown -> "UNKNOWN"
         Video -> "VIDEO"
         VideoLog -> "VIDEO_LOG"
@@ -208,11 +211,14 @@ instance FromJSON CurrencyCode where
 data DeviceAttribute
   = ARN
   | AppiumVersion
+  | Availability
   | FleetType
   | FormFactor
   | InstanceARN
   | InstanceLabels
   | Manufacturer
+  | Model
+  | OSVersion
   | Platform
   | RemoteAccessEnabled
   | RemoteDebugEnabled
@@ -223,26 +229,32 @@ instance FromText DeviceAttribute where
     parser = takeLowerText >>= \case
         "arn" -> pure ARN
         "appium_version" -> pure AppiumVersion
+        "availability" -> pure Availability
         "fleet_type" -> pure FleetType
         "form_factor" -> pure FormFactor
         "instance_arn" -> pure InstanceARN
         "instance_labels" -> pure InstanceLabels
         "manufacturer" -> pure Manufacturer
+        "model" -> pure Model
+        "os_version" -> pure OSVersion
         "platform" -> pure Platform
         "remote_access_enabled" -> pure RemoteAccessEnabled
         "remote_debug_enabled" -> pure RemoteDebugEnabled
         e -> fromTextError $ "Failure parsing DeviceAttribute from value: '" <> e
-           <> "'. Accepted values: arn, appium_version, fleet_type, form_factor, instance_arn, instance_labels, manufacturer, platform, remote_access_enabled, remote_debug_enabled"
+           <> "'. Accepted values: arn, appium_version, availability, fleet_type, form_factor, instance_arn, instance_labels, manufacturer, model, os_version, platform, remote_access_enabled, remote_debug_enabled"
 
 instance ToText DeviceAttribute where
     toText = \case
         ARN -> "ARN"
         AppiumVersion -> "APPIUM_VERSION"
+        Availability -> "AVAILABILITY"
         FleetType -> "FLEET_TYPE"
         FormFactor -> "FORM_FACTOR"
         InstanceARN -> "INSTANCE_ARN"
         InstanceLabels -> "INSTANCE_LABELS"
         Manufacturer -> "MANUFACTURER"
+        Model -> "MODEL"
+        OSVersion -> "OS_VERSION"
         Platform -> "PLATFORM"
         RemoteAccessEnabled -> "REMOTE_ACCESS_ENABLED"
         RemoteDebugEnabled -> "REMOTE_DEBUG_ENABLED"
@@ -258,6 +270,99 @@ instance ToJSON DeviceAttribute where
 
 instance FromJSON DeviceAttribute where
     parseJSON = parseJSONText "DeviceAttribute"
+
+data DeviceAvailability
+  = Available
+  | Busy
+  | HighlyAvailable
+  | TemporaryNotAvailable
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DeviceAvailability where
+    parser = takeLowerText >>= \case
+        "available" -> pure Available
+        "busy" -> pure Busy
+        "highly_available" -> pure HighlyAvailable
+        "temporary_not_available" -> pure TemporaryNotAvailable
+        e -> fromTextError $ "Failure parsing DeviceAvailability from value: '" <> e
+           <> "'. Accepted values: available, busy, highly_available, temporary_not_available"
+
+instance ToText DeviceAvailability where
+    toText = \case
+        Available -> "AVAILABLE"
+        Busy -> "BUSY"
+        HighlyAvailable -> "HIGHLY_AVAILABLE"
+        TemporaryNotAvailable -> "TEMPORARY_NOT_AVAILABLE"
+
+instance Hashable     DeviceAvailability
+instance NFData       DeviceAvailability
+instance ToByteString DeviceAvailability
+instance ToQuery      DeviceAvailability
+instance ToHeader     DeviceAvailability
+
+instance FromJSON DeviceAvailability where
+    parseJSON = parseJSONText "DeviceAvailability"
+
+data DeviceFilterAttribute
+  = DFAARN
+  | DFAAvailability
+  | DFAFleetType
+  | DFAFormFactor
+  | DFAInstanceARN
+  | DFAInstanceLabels
+  | DFAManufacturer
+  | DFAModel
+  | DFAOSVersion
+  | DFAPlatform
+  | DFARemoteAccessEnabled
+  | DFARemoteDebugEnabled
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText DeviceFilterAttribute where
+    parser = takeLowerText >>= \case
+        "arn" -> pure DFAARN
+        "availability" -> pure DFAAvailability
+        "fleet_type" -> pure DFAFleetType
+        "form_factor" -> pure DFAFormFactor
+        "instance_arn" -> pure DFAInstanceARN
+        "instance_labels" -> pure DFAInstanceLabels
+        "manufacturer" -> pure DFAManufacturer
+        "model" -> pure DFAModel
+        "os_version" -> pure DFAOSVersion
+        "platform" -> pure DFAPlatform
+        "remote_access_enabled" -> pure DFARemoteAccessEnabled
+        "remote_debug_enabled" -> pure DFARemoteDebugEnabled
+        e -> fromTextError $ "Failure parsing DeviceFilterAttribute from value: '" <> e
+           <> "'. Accepted values: arn, availability, fleet_type, form_factor, instance_arn, instance_labels, manufacturer, model, os_version, platform, remote_access_enabled, remote_debug_enabled"
+
+instance ToText DeviceFilterAttribute where
+    toText = \case
+        DFAARN -> "ARN"
+        DFAAvailability -> "AVAILABILITY"
+        DFAFleetType -> "FLEET_TYPE"
+        DFAFormFactor -> "FORM_FACTOR"
+        DFAInstanceARN -> "INSTANCE_ARN"
+        DFAInstanceLabels -> "INSTANCE_LABELS"
+        DFAManufacturer -> "MANUFACTURER"
+        DFAModel -> "MODEL"
+        DFAOSVersion -> "OS_VERSION"
+        DFAPlatform -> "PLATFORM"
+        DFARemoteAccessEnabled -> "REMOTE_ACCESS_ENABLED"
+        DFARemoteDebugEnabled -> "REMOTE_DEBUG_ENABLED"
+
+instance Hashable     DeviceFilterAttribute
+instance NFData       DeviceFilterAttribute
+instance ToByteString DeviceFilterAttribute
+instance ToQuery      DeviceFilterAttribute
+instance ToHeader     DeviceFilterAttribute
+
+instance ToJSON DeviceFilterAttribute where
+    toJSON = toJSONText
+
+instance FromJSON DeviceFilterAttribute where
+    parseJSON = parseJSONText "DeviceFilterAttribute"
 
 data DeviceFormFactor
   = Phone
@@ -638,8 +743,10 @@ data RuleOperator
   = Contains
   | Equals
   | GreaterThan
+  | GreaterThanOrEquals
   | IN
   | LessThan
+  | LessThanOrEquals
   | NotIn
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -649,19 +756,23 @@ instance FromText RuleOperator where
         "contains" -> pure Contains
         "equals" -> pure Equals
         "greater_than" -> pure GreaterThan
+        "greater_than_or_equals" -> pure GreaterThanOrEquals
         "in" -> pure IN
         "less_than" -> pure LessThan
+        "less_than_or_equals" -> pure LessThanOrEquals
         "not_in" -> pure NotIn
         e -> fromTextError $ "Failure parsing RuleOperator from value: '" <> e
-           <> "'. Accepted values: contains, equals, greater_than, in, less_than, not_in"
+           <> "'. Accepted values: contains, equals, greater_than, greater_than_or_equals, in, less_than, less_than_or_equals, not_in"
 
 instance ToText RuleOperator where
     toText = \case
         Contains -> "CONTAINS"
         Equals -> "EQUALS"
         GreaterThan -> "GREATER_THAN"
+        GreaterThanOrEquals -> "GREATER_THAN_OR_EQUALS"
         IN -> "IN"
         LessThan -> "LESS_THAN"
+        LessThanOrEquals -> "LESS_THAN_OR_EQUALS"
         NotIn -> "NOT_IN"
 
 instance Hashable     RuleOperator
@@ -751,10 +862,14 @@ instance FromJSON SampleType where
 data TestType
   = AppiumJavaJunit
   | AppiumJavaTestng
+  | AppiumNode
   | AppiumPython
+  | AppiumRuby
   | AppiumWebJavaJunit
   | AppiumWebJavaTestng
+  | AppiumWebNode
   | AppiumWebPython
+  | AppiumWebRuby
   | BuiltinExplorer
   | BuiltinFuzz
   | Calabash
@@ -773,10 +888,14 @@ instance FromText TestType where
     parser = takeLowerText >>= \case
         "appium_java_junit" -> pure AppiumJavaJunit
         "appium_java_testng" -> pure AppiumJavaTestng
+        "appium_node" -> pure AppiumNode
         "appium_python" -> pure AppiumPython
+        "appium_ruby" -> pure AppiumRuby
         "appium_web_java_junit" -> pure AppiumWebJavaJunit
         "appium_web_java_testng" -> pure AppiumWebJavaTestng
+        "appium_web_node" -> pure AppiumWebNode
         "appium_web_python" -> pure AppiumWebPython
+        "appium_web_ruby" -> pure AppiumWebRuby
         "builtin_explorer" -> pure BuiltinExplorer
         "builtin_fuzz" -> pure BuiltinFuzz
         "calabash" -> pure Calabash
@@ -789,16 +908,20 @@ instance FromText TestType where
         "xctest" -> pure Xctest
         "xctest_ui" -> pure XctestUi
         e -> fromTextError $ "Failure parsing TestType from value: '" <> e
-           <> "'. Accepted values: appium_java_junit, appium_java_testng, appium_python, appium_web_java_junit, appium_web_java_testng, appium_web_python, builtin_explorer, builtin_fuzz, calabash, instrumentation, remote_access_record, remote_access_replay, uiautomation, uiautomator, web_performance_profile, xctest, xctest_ui"
+           <> "'. Accepted values: appium_java_junit, appium_java_testng, appium_node, appium_python, appium_ruby, appium_web_java_junit, appium_web_java_testng, appium_web_node, appium_web_python, appium_web_ruby, builtin_explorer, builtin_fuzz, calabash, instrumentation, remote_access_record, remote_access_replay, uiautomation, uiautomator, web_performance_profile, xctest, xctest_ui"
 
 instance ToText TestType where
     toText = \case
         AppiumJavaJunit -> "APPIUM_JAVA_JUNIT"
         AppiumJavaTestng -> "APPIUM_JAVA_TESTNG"
+        AppiumNode -> "APPIUM_NODE"
         AppiumPython -> "APPIUM_PYTHON"
+        AppiumRuby -> "APPIUM_RUBY"
         AppiumWebJavaJunit -> "APPIUM_WEB_JAVA_JUNIT"
         AppiumWebJavaTestng -> "APPIUM_WEB_JAVA_TESTNG"
+        AppiumWebNode -> "APPIUM_WEB_NODE"
         AppiumWebPython -> "APPIUM_WEB_PYTHON"
+        AppiumWebRuby -> "APPIUM_WEB_RUBY"
         BuiltinExplorer -> "BUILTIN_EXPLORER"
         BuiltinFuzz -> "BUILTIN_FUZZ"
         Calabash -> "CALABASH"
@@ -822,6 +945,33 @@ instance ToJSON TestType where
 
 instance FromJSON TestType where
     parseJSON = parseJSONText "TestType"
+
+data UploadCategory
+  = UCCurated
+  | UCPrivate
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText UploadCategory where
+    parser = takeLowerText >>= \case
+        "curated" -> pure UCCurated
+        "private" -> pure UCPrivate
+        e -> fromTextError $ "Failure parsing UploadCategory from value: '" <> e
+           <> "'. Accepted values: curated, private"
+
+instance ToText UploadCategory where
+    toText = \case
+        UCCurated -> "CURATED"
+        UCPrivate -> "PRIVATE"
+
+instance Hashable     UploadCategory
+instance NFData       UploadCategory
+instance ToByteString UploadCategory
+instance ToQuery      UploadCategory
+instance ToHeader     UploadCategory
+
+instance FromJSON UploadCategory where
+    parseJSON = parseJSONText "UploadCategory"
 
 data UploadStatus
   = USFailed
@@ -859,20 +1009,36 @@ instance FromJSON UploadStatus where
 data UploadType
   = AndroidApp
   | AppiumJavaJunitTestPackage
+  | AppiumJavaJunitTestSpec
   | AppiumJavaTestngTestPackage
+  | AppiumJavaTestngTestSpec
+  | AppiumNodeTestPackage
+  | AppiumNodeTestSpec
   | AppiumPythonTestPackage
+  | AppiumPythonTestSpec
+  | AppiumRubyTestPackage
+  | AppiumRubyTestSpec
   | AppiumWebJavaJunitTestPackage
+  | AppiumWebJavaJunitTestSpec
   | AppiumWebJavaTestngTestPackage
+  | AppiumWebJavaTestngTestSpec
+  | AppiumWebNodeTestPackage
+  | AppiumWebNodeTestSpec
   | AppiumWebPythonTestPackage
+  | AppiumWebPythonTestSpec
+  | AppiumWebRubyTestPackage
+  | AppiumWebRubyTestSpec
   | CalabashTestPackage
   | ExternalData
   | InstrumentationTestPackage
+  | InstrumentationTestSpec
   | IosApp
   | UiautomationTestPackage
   | UiautomatorTestPackage
   | WebApp
   | XctestTestPackage
   | XctestUiTestPackage
+  | XctestUiTestSpec
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
@@ -880,41 +1046,73 @@ instance FromText UploadType where
     parser = takeLowerText >>= \case
         "android_app" -> pure AndroidApp
         "appium_java_junit_test_package" -> pure AppiumJavaJunitTestPackage
+        "appium_java_junit_test_spec" -> pure AppiumJavaJunitTestSpec
         "appium_java_testng_test_package" -> pure AppiumJavaTestngTestPackage
+        "appium_java_testng_test_spec" -> pure AppiumJavaTestngTestSpec
+        "appium_node_test_package" -> pure AppiumNodeTestPackage
+        "appium_node_test_spec" -> pure AppiumNodeTestSpec
         "appium_python_test_package" -> pure AppiumPythonTestPackage
+        "appium_python_test_spec" -> pure AppiumPythonTestSpec
+        "appium_ruby_test_package" -> pure AppiumRubyTestPackage
+        "appium_ruby_test_spec" -> pure AppiumRubyTestSpec
         "appium_web_java_junit_test_package" -> pure AppiumWebJavaJunitTestPackage
+        "appium_web_java_junit_test_spec" -> pure AppiumWebJavaJunitTestSpec
         "appium_web_java_testng_test_package" -> pure AppiumWebJavaTestngTestPackage
+        "appium_web_java_testng_test_spec" -> pure AppiumWebJavaTestngTestSpec
+        "appium_web_node_test_package" -> pure AppiumWebNodeTestPackage
+        "appium_web_node_test_spec" -> pure AppiumWebNodeTestSpec
         "appium_web_python_test_package" -> pure AppiumWebPythonTestPackage
+        "appium_web_python_test_spec" -> pure AppiumWebPythonTestSpec
+        "appium_web_ruby_test_package" -> pure AppiumWebRubyTestPackage
+        "appium_web_ruby_test_spec" -> pure AppiumWebRubyTestSpec
         "calabash_test_package" -> pure CalabashTestPackage
         "external_data" -> pure ExternalData
         "instrumentation_test_package" -> pure InstrumentationTestPackage
+        "instrumentation_test_spec" -> pure InstrumentationTestSpec
         "ios_app" -> pure IosApp
         "uiautomation_test_package" -> pure UiautomationTestPackage
         "uiautomator_test_package" -> pure UiautomatorTestPackage
         "web_app" -> pure WebApp
         "xctest_test_package" -> pure XctestTestPackage
         "xctest_ui_test_package" -> pure XctestUiTestPackage
+        "xctest_ui_test_spec" -> pure XctestUiTestSpec
         e -> fromTextError $ "Failure parsing UploadType from value: '" <> e
-           <> "'. Accepted values: android_app, appium_java_junit_test_package, appium_java_testng_test_package, appium_python_test_package, appium_web_java_junit_test_package, appium_web_java_testng_test_package, appium_web_python_test_package, calabash_test_package, external_data, instrumentation_test_package, ios_app, uiautomation_test_package, uiautomator_test_package, web_app, xctest_test_package, xctest_ui_test_package"
+           <> "'. Accepted values: android_app, appium_java_junit_test_package, appium_java_junit_test_spec, appium_java_testng_test_package, appium_java_testng_test_spec, appium_node_test_package, appium_node_test_spec, appium_python_test_package, appium_python_test_spec, appium_ruby_test_package, appium_ruby_test_spec, appium_web_java_junit_test_package, appium_web_java_junit_test_spec, appium_web_java_testng_test_package, appium_web_java_testng_test_spec, appium_web_node_test_package, appium_web_node_test_spec, appium_web_python_test_package, appium_web_python_test_spec, appium_web_ruby_test_package, appium_web_ruby_test_spec, calabash_test_package, external_data, instrumentation_test_package, instrumentation_test_spec, ios_app, uiautomation_test_package, uiautomator_test_package, web_app, xctest_test_package, xctest_ui_test_package, xctest_ui_test_spec"
 
 instance ToText UploadType where
     toText = \case
         AndroidApp -> "ANDROID_APP"
         AppiumJavaJunitTestPackage -> "APPIUM_JAVA_JUNIT_TEST_PACKAGE"
+        AppiumJavaJunitTestSpec -> "APPIUM_JAVA_JUNIT_TEST_SPEC"
         AppiumJavaTestngTestPackage -> "APPIUM_JAVA_TESTNG_TEST_PACKAGE"
+        AppiumJavaTestngTestSpec -> "APPIUM_JAVA_TESTNG_TEST_SPEC"
+        AppiumNodeTestPackage -> "APPIUM_NODE_TEST_PACKAGE"
+        AppiumNodeTestSpec -> "APPIUM_NODE_TEST_SPEC"
         AppiumPythonTestPackage -> "APPIUM_PYTHON_TEST_PACKAGE"
+        AppiumPythonTestSpec -> "APPIUM_PYTHON_TEST_SPEC"
+        AppiumRubyTestPackage -> "APPIUM_RUBY_TEST_PACKAGE"
+        AppiumRubyTestSpec -> "APPIUM_RUBY_TEST_SPEC"
         AppiumWebJavaJunitTestPackage -> "APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE"
+        AppiumWebJavaJunitTestSpec -> "APPIUM_WEB_JAVA_JUNIT_TEST_SPEC"
         AppiumWebJavaTestngTestPackage -> "APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE"
+        AppiumWebJavaTestngTestSpec -> "APPIUM_WEB_JAVA_TESTNG_TEST_SPEC"
+        AppiumWebNodeTestPackage -> "APPIUM_WEB_NODE_TEST_PACKAGE"
+        AppiumWebNodeTestSpec -> "APPIUM_WEB_NODE_TEST_SPEC"
         AppiumWebPythonTestPackage -> "APPIUM_WEB_PYTHON_TEST_PACKAGE"
+        AppiumWebPythonTestSpec -> "APPIUM_WEB_PYTHON_TEST_SPEC"
+        AppiumWebRubyTestPackage -> "APPIUM_WEB_RUBY_TEST_PACKAGE"
+        AppiumWebRubyTestSpec -> "APPIUM_WEB_RUBY_TEST_SPEC"
         CalabashTestPackage -> "CALABASH_TEST_PACKAGE"
         ExternalData -> "EXTERNAL_DATA"
         InstrumentationTestPackage -> "INSTRUMENTATION_TEST_PACKAGE"
+        InstrumentationTestSpec -> "INSTRUMENTATION_TEST_SPEC"
         IosApp -> "IOS_APP"
         UiautomationTestPackage -> "UIAUTOMATION_TEST_PACKAGE"
         UiautomatorTestPackage -> "UIAUTOMATOR_TEST_PACKAGE"
         WebApp -> "WEB_APP"
         XctestTestPackage -> "XCTEST_TEST_PACKAGE"
         XctestUiTestPackage -> "XCTEST_UI_TEST_PACKAGE"
+        XctestUiTestSpec -> "XCTEST_UI_TEST_SPEC"
 
 instance Hashable     UploadType
 instance NFData       UploadType

@@ -28,11 +28,12 @@ module Network.AWS.DeviceFarm.ScheduleRun
     , ScheduleRun
     -- * Request Lenses
     , srExecutionConfiguration
+    , srDeviceSelectionConfiguration
     , srAppARN
     , srName
     , srConfiguration
-    , srProjectARN
     , srDevicePoolARN
+    , srProjectARN
     , srTest
 
     -- * Destructuring the Response
@@ -56,13 +57,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'scheduleRun' smart constructor.
 data ScheduleRun = ScheduleRun'
-  { _srExecutionConfiguration :: !(Maybe ExecutionConfiguration)
-  , _srAppARN                 :: !(Maybe Text)
-  , _srName                   :: !(Maybe Text)
-  , _srConfiguration          :: !(Maybe ScheduleRunConfiguration)
-  , _srProjectARN             :: !Text
-  , _srDevicePoolARN          :: !Text
-  , _srTest                   :: !ScheduleRunTest
+  { _srExecutionConfiguration       :: !(Maybe ExecutionConfiguration)
+  , _srDeviceSelectionConfiguration :: !(Maybe DeviceSelectionConfiguration)
+  , _srAppARN                       :: !(Maybe Text)
+  , _srName                         :: !(Maybe Text)
+  , _srConfiguration                :: !(Maybe ScheduleRunConfiguration)
+  , _srDevicePoolARN                :: !(Maybe Text)
+  , _srProjectARN                   :: !Text
+  , _srTest                         :: !ScheduleRunTest
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -72,30 +74,32 @@ data ScheduleRun = ScheduleRun'
 --
 -- * 'srExecutionConfiguration' - Specifies configuration information about a test run, such as the execution timeout (in minutes).
 --
+-- * 'srDeviceSelectionConfiguration' - The filter criteria used to dynamically select a set of devices for a test run, as well as the maximum number of devices to be included in the run. Either __@devicePoolArn@ __ or __@deviceSelectionConfiguration@ __ is required in a request.
+--
 -- * 'srAppARN' - The ARN of the app to schedule a run.
 --
 -- * 'srName' - The name for the run to be scheduled.
 --
 -- * 'srConfiguration' - Information about the settings for the run to be scheduled.
 --
--- * 'srProjectARN' - The ARN of the project for the run to be scheduled.
---
 -- * 'srDevicePoolARN' - The ARN of the device pool for the run to be scheduled.
+--
+-- * 'srProjectARN' - The ARN of the project for the run to be scheduled.
 --
 -- * 'srTest' - Information about the test for the run to be scheduled.
 scheduleRun
     :: Text -- ^ 'srProjectARN'
-    -> Text -- ^ 'srDevicePoolARN'
     -> ScheduleRunTest -- ^ 'srTest'
     -> ScheduleRun
-scheduleRun pProjectARN_ pDevicePoolARN_ pTest_ =
+scheduleRun pProjectARN_ pTest_ =
   ScheduleRun'
     { _srExecutionConfiguration = Nothing
+    , _srDeviceSelectionConfiguration = Nothing
     , _srAppARN = Nothing
     , _srName = Nothing
     , _srConfiguration = Nothing
+    , _srDevicePoolARN = Nothing
     , _srProjectARN = pProjectARN_
-    , _srDevicePoolARN = pDevicePoolARN_
     , _srTest = pTest_
     }
 
@@ -103,6 +107,10 @@ scheduleRun pProjectARN_ pDevicePoolARN_ pTest_ =
 -- | Specifies configuration information about a test run, such as the execution timeout (in minutes).
 srExecutionConfiguration :: Lens' ScheduleRun (Maybe ExecutionConfiguration)
 srExecutionConfiguration = lens _srExecutionConfiguration (\ s a -> s{_srExecutionConfiguration = a})
+
+-- | The filter criteria used to dynamically select a set of devices for a test run, as well as the maximum number of devices to be included in the run. Either __@devicePoolArn@ __ or __@deviceSelectionConfiguration@ __ is required in a request.
+srDeviceSelectionConfiguration :: Lens' ScheduleRun (Maybe DeviceSelectionConfiguration)
+srDeviceSelectionConfiguration = lens _srDeviceSelectionConfiguration (\ s a -> s{_srDeviceSelectionConfiguration = a})
 
 -- | The ARN of the app to schedule a run.
 srAppARN :: Lens' ScheduleRun (Maybe Text)
@@ -116,13 +124,13 @@ srName = lens _srName (\ s a -> s{_srName = a})
 srConfiguration :: Lens' ScheduleRun (Maybe ScheduleRunConfiguration)
 srConfiguration = lens _srConfiguration (\ s a -> s{_srConfiguration = a})
 
+-- | The ARN of the device pool for the run to be scheduled.
+srDevicePoolARN :: Lens' ScheduleRun (Maybe Text)
+srDevicePoolARN = lens _srDevicePoolARN (\ s a -> s{_srDevicePoolARN = a})
+
 -- | The ARN of the project for the run to be scheduled.
 srProjectARN :: Lens' ScheduleRun Text
 srProjectARN = lens _srProjectARN (\ s a -> s{_srProjectARN = a})
-
--- | The ARN of the device pool for the run to be scheduled.
-srDevicePoolARN :: Lens' ScheduleRun Text
-srDevicePoolARN = lens _srDevicePoolARN (\ s a -> s{_srDevicePoolARN = a})
 
 -- | Information about the test for the run to be scheduled.
 srTest :: Lens' ScheduleRun ScheduleRunTest
@@ -156,10 +164,12 @@ instance ToJSON ScheduleRun where
               (catMaybes
                  [("executionConfiguration" .=) <$>
                     _srExecutionConfiguration,
+                  ("deviceSelectionConfiguration" .=) <$>
+                    _srDeviceSelectionConfiguration,
                   ("appArn" .=) <$> _srAppARN, ("name" .=) <$> _srName,
                   ("configuration" .=) <$> _srConfiguration,
+                  ("devicePoolArn" .=) <$> _srDevicePoolARN,
                   Just ("projectArn" .= _srProjectARN),
-                  Just ("devicePoolArn" .= _srDevicePoolARN),
                   Just ("test" .= _srTest)])
 
 instance ToPath ScheduleRun where

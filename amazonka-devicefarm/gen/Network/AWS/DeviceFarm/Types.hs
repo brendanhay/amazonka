@@ -39,6 +39,12 @@ module Network.AWS.DeviceFarm.Types
     -- * DeviceAttribute
     , DeviceAttribute (..)
 
+    -- * DeviceAvailability
+    , DeviceAvailability (..)
+
+    -- * DeviceFilterAttribute
+    , DeviceFilterAttribute (..)
+
     -- * DeviceFormFactor
     , DeviceFormFactor (..)
 
@@ -83,6 +89,9 @@ module Network.AWS.DeviceFarm.Types
 
     -- * TestType
     , TestType (..)
+
+    -- * UploadCategory
+    , UploadCategory (..)
 
     -- * UploadStatus
     , UploadStatus (..)
@@ -133,6 +142,7 @@ module Network.AWS.DeviceFarm.Types
     , CreateRemoteAccessSessionConfiguration
     , createRemoteAccessSessionConfiguration
     , crascBillingMethod
+    , crascVpceConfigurationARNs
 
     -- * CustomerArtifactPaths
     , CustomerArtifactPaths
@@ -144,26 +154,34 @@ module Network.AWS.DeviceFarm.Types
     -- * Device
     , Device
     , device
-    , devCarrier
-    , devImage
-    , devManufacturer
-    , devPlatform
-    , devModelId
-    , devRemoteAccessEnabled
-    , devArn
-    , devFormFactor
-    , devFleetType
-    , devResolution
-    , devMemory
-    , devRadio
-    , devOs
-    , devName
-    , devModel
-    , devInstances
-    , devRemoteDebugEnabled
-    , devCpu
-    , devHeapSize
-    , devFleetName
+    , dCarrier
+    , dImage
+    , dManufacturer
+    , dPlatform
+    , dModelId
+    , dRemoteAccessEnabled
+    , dArn
+    , dFormFactor
+    , dFleetType
+    , dResolution
+    , dAvailability
+    , dMemory
+    , dRadio
+    , dOs
+    , dName
+    , dModel
+    , dInstances
+    , dRemoteDebugEnabled
+    , dCpu
+    , dHeapSize
+    , dFleetName
+
+    -- * DeviceFilter
+    , DeviceFilter
+    , deviceFilter
+    , dfAttribute
+    , dfOperator
+    , dfValues
 
     -- * DeviceInstance
     , DeviceInstance
@@ -185,11 +203,12 @@ module Network.AWS.DeviceFarm.Types
     -- * DevicePool
     , DevicePool
     , devicePool
-    , dArn
-    , dRules
-    , dName
-    , dType
-    , dDescription
+    , devArn
+    , devRules
+    , devName
+    , devMaxDevices
+    , devType
+    , devDescription
 
     -- * DevicePoolCompatibilityResult
     , DevicePoolCompatibilityResult
@@ -198,6 +217,19 @@ module Network.AWS.DeviceFarm.Types
     , dpcrCompatible
     , dpcrIncompatibilityMessages
 
+    -- * DeviceSelectionConfiguration
+    , DeviceSelectionConfiguration
+    , deviceSelectionConfiguration
+    , dscFilters
+    , dscMaxDevices
+
+    -- * DeviceSelectionResult
+    , DeviceSelectionResult
+    , deviceSelectionResult
+    , dsrMatchedDevicesCount
+    , dsrFilters
+    , dsrMaxDevices
+
     -- * ExecutionConfiguration
     , ExecutionConfiguration
     , executionConfiguration
@@ -205,6 +237,7 @@ module Network.AWS.DeviceFarm.Types
     , ecAccountsCleanup
     , ecAppPackagesCleanup
     , ecJobTimeoutMinutes
+    , ecVideoCapture
 
     -- * IncompatibilityMessage
     , IncompatibilityMessage
@@ -234,7 +267,9 @@ module Network.AWS.DeviceFarm.Types
     , jobStopped
     , jobResult
     , jobName
+    , jobVideoEndpoint
     , jobDeviceMinutes
+    , jobVideoCapture
     , jobType
     , jobMessage
     , jobStarted
@@ -392,6 +427,7 @@ module Network.AWS.DeviceFarm.Types
     , runLocation
     , runCreated
     , runLocale
+    , runTestSpecARN
     , runStopped
     , runResult
     , runJobTimeoutMinutes
@@ -408,6 +444,7 @@ module Network.AWS.DeviceFarm.Types
     , runTotalJobs
     , runDevicePoolARN
     , runStarted
+    , runDeviceSelectionResult
 
     -- * Sample
     , Sample
@@ -432,6 +469,7 @@ module Network.AWS.DeviceFarm.Types
     -- * ScheduleRunTest
     , ScheduleRunTest
     , scheduleRunTest
+    , srtTestSpecARN
     , srtTestPackageARN
     , srtParameters
     , srtFilter
@@ -485,6 +523,7 @@ module Network.AWS.DeviceFarm.Types
     , uStatus
     , uArn
     , uCreated
+    , uCategory
     , uUrl
     , uName
     , uMetadata

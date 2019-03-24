@@ -21,6 +21,8 @@
 -- Returns a list of offering promotions. Each offering promotion record contains the ID and description of the promotion. The API returns a @NotEligible@ error if the caller is not permitted to invoke the operation. Contact <mailto:aws-devicefarm-support@amazon.com aws-devicefarm-support@amazon.com> if you believe that you should be able to invoke this operation.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListOfferingPromotions
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.DeviceFarm.ListOfferingPromotions
 import Network.AWS.DeviceFarm.Types
 import Network.AWS.DeviceFarm.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -64,6 +67,13 @@ listOfferingPromotions = ListOfferingPromotions' {_lopNextToken = Nothing}
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lopNextToken :: Lens' ListOfferingPromotions (Maybe Text)
 lopNextToken = lens _lopNextToken (\ s a -> s{_lopNextToken = a})
+
+instance AWSPager ListOfferingPromotions where
+        page rq rs
+          | stop (rs ^. loprsNextToken) = Nothing
+          | stop (rs ^. loprsOfferingPromotions) = Nothing
+          | otherwise =
+            Just $ rq & lopNextToken .~ rs ^. loprsNextToken
 
 instance AWSRequest ListOfferingPromotions where
         type Rs ListOfferingPromotions =

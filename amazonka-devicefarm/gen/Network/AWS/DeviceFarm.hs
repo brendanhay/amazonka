@@ -82,11 +82,17 @@ module Network.AWS.DeviceFarm
     -- ** GetDeviceInstance
     , module Network.AWS.DeviceFarm.GetDeviceInstance
 
+    -- ** StopJob
+    , module Network.AWS.DeviceFarm.StopJob
+
     -- ** DeleteRemoteAccessSession
     , module Network.AWS.DeviceFarm.DeleteRemoteAccessSession
 
     -- ** DeleteUpload
     , module Network.AWS.DeviceFarm.DeleteUpload
+
+    -- ** UpdateUpload
+    , module Network.AWS.DeviceFarm.UpdateUpload
 
     -- ** GetDevicePool
     , module Network.AWS.DeviceFarm.GetDevicePool
@@ -163,7 +169,7 @@ module Network.AWS.DeviceFarm
     -- ** GetInstanceProfile
     , module Network.AWS.DeviceFarm.GetInstanceProfile
 
-    -- ** ListNetworkProfiles
+    -- ** ListNetworkProfiles (Paginated)
     , module Network.AWS.DeviceFarm.ListNetworkProfiles
 
     -- ** CreateVPCEConfiguration
@@ -181,7 +187,7 @@ module Network.AWS.DeviceFarm
     -- ** ListSuites (Paginated)
     , module Network.AWS.DeviceFarm.ListSuites
 
-    -- ** ListRemoteAccessSessions
+    -- ** ListRemoteAccessSessions (Paginated)
     , module Network.AWS.DeviceFarm.ListRemoteAccessSessions
 
     -- ** GetAccountSettings
@@ -190,7 +196,7 @@ module Network.AWS.DeviceFarm
     -- ** CreateRemoteAccessSession
     , module Network.AWS.DeviceFarm.CreateRemoteAccessSession
 
-    -- ** ListOfferingPromotions
+    -- ** ListOfferingPromotions (Paginated)
     , module Network.AWS.DeviceFarm.ListOfferingPromotions
 
     -- ** GetOfferingStatus (Paginated)
@@ -205,13 +211,13 @@ module Network.AWS.DeviceFarm
     -- ** GetRemoteAccessSession
     , module Network.AWS.DeviceFarm.GetRemoteAccessSession
 
-    -- ** ListDeviceInstances
+    -- ** ListDeviceInstances (Paginated)
     , module Network.AWS.DeviceFarm.ListDeviceInstances
 
     -- ** PurchaseOffering
     , module Network.AWS.DeviceFarm.PurchaseOffering
 
-    -- ** ListInstanceProfiles
+    -- ** ListInstanceProfiles (Paginated)
     , module Network.AWS.DeviceFarm.ListInstanceProfiles
 
     -- ** GetProject
@@ -220,7 +226,7 @@ module Network.AWS.DeviceFarm
     -- ** ListUniqueProblems (Paginated)
     , module Network.AWS.DeviceFarm.ListUniqueProblems
 
-    -- ** ListVPCEConfigurations
+    -- ** ListVPCEConfigurations (Paginated)
     , module Network.AWS.DeviceFarm.ListVPCEConfigurations
 
     -- ** StopRun
@@ -251,6 +257,12 @@ module Network.AWS.DeviceFarm
 
     -- ** DeviceAttribute
     , DeviceAttribute (..)
+
+    -- ** DeviceAvailability
+    , DeviceAvailability (..)
+
+    -- ** DeviceFilterAttribute
+    , DeviceFilterAttribute (..)
 
     -- ** DeviceFormFactor
     , DeviceFormFactor (..)
@@ -296,6 +308,9 @@ module Network.AWS.DeviceFarm
 
     -- ** TestType
     , TestType (..)
+
+    -- ** UploadCategory
+    , UploadCategory (..)
 
     -- ** UploadStatus
     , UploadStatus (..)
@@ -346,6 +361,7 @@ module Network.AWS.DeviceFarm
     , CreateRemoteAccessSessionConfiguration
     , createRemoteAccessSessionConfiguration
     , crascBillingMethod
+    , crascVpceConfigurationARNs
 
     -- ** CustomerArtifactPaths
     , CustomerArtifactPaths
@@ -357,26 +373,34 @@ module Network.AWS.DeviceFarm
     -- ** Device
     , Device
     , device
-    , devCarrier
-    , devImage
-    , devManufacturer
-    , devPlatform
-    , devModelId
-    , devRemoteAccessEnabled
-    , devArn
-    , devFormFactor
-    , devFleetType
-    , devResolution
-    , devMemory
-    , devRadio
-    , devOs
-    , devName
-    , devModel
-    , devInstances
-    , devRemoteDebugEnabled
-    , devCpu
-    , devHeapSize
-    , devFleetName
+    , dCarrier
+    , dImage
+    , dManufacturer
+    , dPlatform
+    , dModelId
+    , dRemoteAccessEnabled
+    , dArn
+    , dFormFactor
+    , dFleetType
+    , dResolution
+    , dAvailability
+    , dMemory
+    , dRadio
+    , dOs
+    , dName
+    , dModel
+    , dInstances
+    , dRemoteDebugEnabled
+    , dCpu
+    , dHeapSize
+    , dFleetName
+
+    -- ** DeviceFilter
+    , DeviceFilter
+    , deviceFilter
+    , dfAttribute
+    , dfOperator
+    , dfValues
 
     -- ** DeviceInstance
     , DeviceInstance
@@ -398,11 +422,12 @@ module Network.AWS.DeviceFarm
     -- ** DevicePool
     , DevicePool
     , devicePool
-    , dArn
-    , dRules
-    , dName
-    , dType
-    , dDescription
+    , devArn
+    , devRules
+    , devName
+    , devMaxDevices
+    , devType
+    , devDescription
 
     -- ** DevicePoolCompatibilityResult
     , DevicePoolCompatibilityResult
@@ -411,6 +436,19 @@ module Network.AWS.DeviceFarm
     , dpcrCompatible
     , dpcrIncompatibilityMessages
 
+    -- ** DeviceSelectionConfiguration
+    , DeviceSelectionConfiguration
+    , deviceSelectionConfiguration
+    , dscFilters
+    , dscMaxDevices
+
+    -- ** DeviceSelectionResult
+    , DeviceSelectionResult
+    , deviceSelectionResult
+    , dsrMatchedDevicesCount
+    , dsrFilters
+    , dsrMaxDevices
+
     -- ** ExecutionConfiguration
     , ExecutionConfiguration
     , executionConfiguration
@@ -418,6 +456,7 @@ module Network.AWS.DeviceFarm
     , ecAccountsCleanup
     , ecAppPackagesCleanup
     , ecJobTimeoutMinutes
+    , ecVideoCapture
 
     -- ** IncompatibilityMessage
     , IncompatibilityMessage
@@ -447,7 +486,9 @@ module Network.AWS.DeviceFarm
     , jobStopped
     , jobResult
     , jobName
+    , jobVideoEndpoint
     , jobDeviceMinutes
+    , jobVideoCapture
     , jobType
     , jobMessage
     , jobStarted
@@ -605,6 +646,7 @@ module Network.AWS.DeviceFarm
     , runLocation
     , runCreated
     , runLocale
+    , runTestSpecARN
     , runStopped
     , runResult
     , runJobTimeoutMinutes
@@ -621,6 +663,7 @@ module Network.AWS.DeviceFarm
     , runTotalJobs
     , runDevicePoolARN
     , runStarted
+    , runDeviceSelectionResult
 
     -- ** Sample
     , Sample
@@ -645,6 +688,7 @@ module Network.AWS.DeviceFarm
     -- ** ScheduleRunTest
     , ScheduleRunTest
     , scheduleRunTest
+    , srtTestSpecARN
     , srtTestPackageARN
     , srtParameters
     , srtFilter
@@ -698,6 +742,7 @@ module Network.AWS.DeviceFarm
     , uStatus
     , uArn
     , uCreated
+    , uCategory
     , uUrl
     , uName
     , uMetadata
@@ -769,6 +814,7 @@ import Network.AWS.DeviceFarm.ListVPCEConfigurations
 import Network.AWS.DeviceFarm.PurchaseOffering
 import Network.AWS.DeviceFarm.RenewOffering
 import Network.AWS.DeviceFarm.ScheduleRun
+import Network.AWS.DeviceFarm.StopJob
 import Network.AWS.DeviceFarm.StopRemoteAccessSession
 import Network.AWS.DeviceFarm.StopRun
 import Network.AWS.DeviceFarm.Types
@@ -777,6 +823,7 @@ import Network.AWS.DeviceFarm.UpdateDevicePool
 import Network.AWS.DeviceFarm.UpdateInstanceProfile
 import Network.AWS.DeviceFarm.UpdateNetworkProfile
 import Network.AWS.DeviceFarm.UpdateProject
+import Network.AWS.DeviceFarm.UpdateUpload
 import Network.AWS.DeviceFarm.UpdateVPCEConfiguration
 import Network.AWS.DeviceFarm.Waiters
 

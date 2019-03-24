@@ -61,11 +61,17 @@ import Test.Tasty
 --         , requestGetDeviceInstance $
 --             getDeviceInstance
 --
+--         , requestStopJob $
+--             stopJob
+--
 --         , requestDeleteRemoteAccessSession $
 --             deleteRemoteAccessSession
 --
 --         , requestDeleteUpload $
 --             deleteUpload
+--
+--         , requestUpdateUpload $
+--             updateUpload
 --
 --         , requestGetDevicePool $
 --             getDevicePool
@@ -250,11 +256,17 @@ import Test.Tasty
 --         , responseGetDeviceInstance $
 --             getDeviceInstanceResponse
 --
+--         , responseStopJob $
+--             stopJobResponse
+--
 --         , responseDeleteRemoteAccessSession $
 --             deleteRemoteAccessSessionResponse
 --
 --         , responseDeleteUpload $
 --             deleteUploadResponse
+--
+--         , responseUpdateUpload $
+--             updateUploadResponse
 --
 --         , responseGetDevicePool $
 --             getDevicePoolResponse
@@ -463,6 +475,11 @@ requestGetDeviceInstance = req
     "GetDeviceInstance"
     "fixture/GetDeviceInstance.yaml"
 
+requestStopJob :: StopJob -> TestTree
+requestStopJob = req
+    "StopJob"
+    "fixture/StopJob.yaml"
+
 requestDeleteRemoteAccessSession :: DeleteRemoteAccessSession -> TestTree
 requestDeleteRemoteAccessSession = req
     "DeleteRemoteAccessSession"
@@ -472,6 +489,11 @@ requestDeleteUpload :: DeleteUpload -> TestTree
 requestDeleteUpload = req
     "DeleteUpload"
     "fixture/DeleteUpload.yaml"
+
+requestUpdateUpload :: UpdateUpload -> TestTree
+requestUpdateUpload = req
+    "UpdateUpload"
+    "fixture/UpdateUpload.yaml"
 
 requestGetDevicePool :: GetDevicePool -> TestTree
 requestGetDevicePool = req
@@ -797,6 +819,13 @@ responseGetDeviceInstance = res
     deviceFarm
     (Proxy :: Proxy GetDeviceInstance)
 
+responseStopJob :: StopJobResponse -> TestTree
+responseStopJob = res
+    "StopJobResponse"
+    "fixture/StopJobResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy StopJob)
+
 responseDeleteRemoteAccessSession :: DeleteRemoteAccessSessionResponse -> TestTree
 responseDeleteRemoteAccessSession = res
     "DeleteRemoteAccessSessionResponse"
@@ -810,6 +839,13 @@ responseDeleteUpload = res
     "fixture/DeleteUploadResponse.proto"
     deviceFarm
     (Proxy :: Proxy DeleteUpload)
+
+responseUpdateUpload :: UpdateUploadResponse -> TestTree
+responseUpdateUpload = res
+    "UpdateUploadResponse"
+    "fixture/UpdateUploadResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy UpdateUpload)
 
 responseGetDevicePool :: GetDevicePoolResponse -> TestTree
 responseGetDevicePool = res

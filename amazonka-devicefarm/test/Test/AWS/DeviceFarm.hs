@@ -15,9 +15,9 @@ module Test.AWS.DeviceFarm
     , fixtures
     ) where
 
-import           Network.AWS.DeviceFarm
-import           Test.AWS.Gen.DeviceFarm
-import           Test.Tasty
+import Network.AWS.DeviceFarm
+import Test.AWS.Gen.DeviceFarm
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

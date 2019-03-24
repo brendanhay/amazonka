@@ -21,6 +21,8 @@
 -- Lists the specified requests or all performed requests.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ServiceCatalog.ListRecordHistory
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.ServiceCatalog.ListRecordHistory
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -103,6 +106,13 @@ lrhPageToken = lens _lrhPageToken (\ s a -> s{_lrhPageToken = a})
 -- | The maximum number of items to return with this call.
 lrhPageSize :: Lens' ListRecordHistory (Maybe Natural)
 lrhPageSize = lens _lrhPageSize (\ s a -> s{_lrhPageSize = a}) . mapping _Nat
+
+instance AWSPager ListRecordHistory where
+        page rq rs
+          | stop (rs ^. lrhrsNextPageToken) = Nothing
+          | stop (rs ^. lrhrsRecordDetails) = Nothing
+          | otherwise =
+            Just $ rq & lrhPageToken .~ rs ^. lrhrsNextPageToken
 
 instance AWSRequest ListRecordHistory where
         type Rs ListRecordHistory = ListRecordHistoryResponse

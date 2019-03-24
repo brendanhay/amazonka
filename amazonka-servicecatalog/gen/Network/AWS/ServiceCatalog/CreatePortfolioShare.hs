@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Shares the specified portfolio with the specified account.
+-- Shares the specified portfolio with the specified account or organization node. Shares to an organization node can only be created by the master account of an Organization. AWSOrganizationsAccess must be enabled in order to create a portfolio share to an organization node.
 --
 --
 module Network.AWS.ServiceCatalog.CreatePortfolioShare
@@ -27,14 +27,16 @@ module Network.AWS.ServiceCatalog.CreatePortfolioShare
       createPortfolioShare
     , CreatePortfolioShare
     -- * Request Lenses
-    , cpsAcceptLanguage
-    , cpsPortfolioId
     , cpsAccountId
+    , cpsAcceptLanguage
+    , cpsOrganizationNode
+    , cpsPortfolioId
 
     -- * Destructuring the Response
     , createPortfolioShareResponse
     , CreatePortfolioShareResponse
     -- * Response Lenses
+    , cpsrsPortfolioShareToken
     , cpsrsResponseStatus
     ) where
 
@@ -47,9 +49,10 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'createPortfolioShare' smart constructor.
 data CreatePortfolioShare = CreatePortfolioShare'
-  { _cpsAcceptLanguage :: !(Maybe Text)
-  , _cpsPortfolioId    :: !Text
-  , _cpsAccountId      :: !Text
+  { _cpsAccountId        :: !(Maybe Text)
+  , _cpsAcceptLanguage   :: !(Maybe Text)
+  , _cpsOrganizationNode :: !(Maybe OrganizationNode)
+  , _cpsPortfolioId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -57,44 +60,51 @@ data CreatePortfolioShare = CreatePortfolioShare'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'cpsAccountId' - The AWS account ID. For example, @123456789012@ .
+--
 -- * 'cpsAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'cpsPortfolioId' - The portfolio identifier.
+-- * 'cpsOrganizationNode' - The organization node to whom you are going to share. If @OrganizationNode@ is passed in, @PortfolioShare@ will be created for the node and its children (when applies), and a @PortfolioShareToken@ will be returned in the output in order for the administrator to monitor the status of the @PortfolioShare@ creation process.
 --
--- * 'cpsAccountId' - The AWS account ID.
+-- * 'cpsPortfolioId' - The portfolio identifier.
 createPortfolioShare
     :: Text -- ^ 'cpsPortfolioId'
-    -> Text -- ^ 'cpsAccountId'
     -> CreatePortfolioShare
-createPortfolioShare pPortfolioId_ pAccountId_ =
+createPortfolioShare pPortfolioId_ =
   CreatePortfolioShare'
-    { _cpsAcceptLanguage = Nothing
+    { _cpsAccountId = Nothing
+    , _cpsAcceptLanguage = Nothing
+    , _cpsOrganizationNode = Nothing
     , _cpsPortfolioId = pPortfolioId_
-    , _cpsAccountId = pAccountId_
     }
 
+
+-- | The AWS account ID. For example, @123456789012@ .
+cpsAccountId :: Lens' CreatePortfolioShare (Maybe Text)
+cpsAccountId = lens _cpsAccountId (\ s a -> s{_cpsAccountId = a})
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 cpsAcceptLanguage :: Lens' CreatePortfolioShare (Maybe Text)
 cpsAcceptLanguage = lens _cpsAcceptLanguage (\ s a -> s{_cpsAcceptLanguage = a})
 
+-- | The organization node to whom you are going to share. If @OrganizationNode@ is passed in, @PortfolioShare@ will be created for the node and its children (when applies), and a @PortfolioShareToken@ will be returned in the output in order for the administrator to monitor the status of the @PortfolioShare@ creation process.
+cpsOrganizationNode :: Lens' CreatePortfolioShare (Maybe OrganizationNode)
+cpsOrganizationNode = lens _cpsOrganizationNode (\ s a -> s{_cpsOrganizationNode = a})
+
 -- | The portfolio identifier.
 cpsPortfolioId :: Lens' CreatePortfolioShare Text
 cpsPortfolioId = lens _cpsPortfolioId (\ s a -> s{_cpsPortfolioId = a})
-
--- | The AWS account ID.
-cpsAccountId :: Lens' CreatePortfolioShare Text
-cpsAccountId = lens _cpsAccountId (\ s a -> s{_cpsAccountId = a})
 
 instance AWSRequest CreatePortfolioShare where
         type Rs CreatePortfolioShare =
              CreatePortfolioShareResponse
         request = postJSON serviceCatalog
         response
-          = receiveEmpty
+          = receiveJSON
               (\ s h x ->
                  CreatePortfolioShareResponse' <$>
-                   (pure (fromEnum s)))
+                   (x .?> "PortfolioShareToken") <*>
+                     (pure (fromEnum s)))
 
 instance Hashable CreatePortfolioShare where
 
@@ -114,9 +124,10 @@ instance ToJSON CreatePortfolioShare where
         toJSON CreatePortfolioShare'{..}
           = object
               (catMaybes
-                 [("AcceptLanguage" .=) <$> _cpsAcceptLanguage,
-                  Just ("PortfolioId" .= _cpsPortfolioId),
-                  Just ("AccountId" .= _cpsAccountId)])
+                 [("AccountId" .=) <$> _cpsAccountId,
+                  ("AcceptLanguage" .=) <$> _cpsAcceptLanguage,
+                  ("OrganizationNode" .=) <$> _cpsOrganizationNode,
+                  Just ("PortfolioId" .= _cpsPortfolioId)])
 
 instance ToPath CreatePortfolioShare where
         toPath = const "/"
@@ -125,8 +136,9 @@ instance ToQuery CreatePortfolioShare where
         toQuery = const mempty
 
 -- | /See:/ 'createPortfolioShareResponse' smart constructor.
-newtype CreatePortfolioShareResponse = CreatePortfolioShareResponse'
-  { _cpsrsResponseStatus :: Int
+data CreatePortfolioShareResponse = CreatePortfolioShareResponse'
+  { _cpsrsPortfolioShareToken :: !(Maybe Text)
+  , _cpsrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,13 +146,22 @@ newtype CreatePortfolioShareResponse = CreatePortfolioShareResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'cpsrsPortfolioShareToken' - The portfolio share unique identifier. This will only be returned if portfolio is shared to an organization node.
+--
 -- * 'cpsrsResponseStatus' - -- | The response status code.
 createPortfolioShareResponse
     :: Int -- ^ 'cpsrsResponseStatus'
     -> CreatePortfolioShareResponse
 createPortfolioShareResponse pResponseStatus_ =
-  CreatePortfolioShareResponse' {_cpsrsResponseStatus = pResponseStatus_}
+  CreatePortfolioShareResponse'
+    { _cpsrsPortfolioShareToken = Nothing
+    , _cpsrsResponseStatus = pResponseStatus_
+    }
 
+
+-- | The portfolio share unique identifier. This will only be returned if portfolio is shared to an organization node.
+cpsrsPortfolioShareToken :: Lens' CreatePortfolioShareResponse (Maybe Text)
+cpsrsPortfolioShareToken = lens _cpsrsPortfolioShareToken (\ s a -> s{_cpsrsPortfolioShareToken = a})
 
 -- | -- | The response status code.
 cpsrsResponseStatus :: Lens' CreatePortfolioShareResponse Int

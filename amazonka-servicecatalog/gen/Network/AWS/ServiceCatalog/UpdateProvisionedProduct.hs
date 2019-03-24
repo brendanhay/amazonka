@@ -38,6 +38,7 @@ module Network.AWS.ServiceCatalog.UpdateProvisionedProduct
     , uppProvisioningParameters
     , uppProvisionedProductId
     , uppProductId
+    , uppProvisioningPreferences
     , uppUpdateToken
 
     -- * Destructuring the Response
@@ -57,14 +58,15 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'updateProvisionedProduct' smart constructor.
 data UpdateProvisionedProduct = UpdateProvisionedProduct'
-  { _uppProvisionedProductName :: !(Maybe Text)
-  , _uppProvisioningArtifactId :: !(Maybe Text)
-  , _uppAcceptLanguage         :: !(Maybe Text)
-  , _uppPathId                 :: !(Maybe Text)
-  , _uppProvisioningParameters :: !(Maybe [UpdateProvisioningParameter])
-  , _uppProvisionedProductId   :: !(Maybe Text)
-  , _uppProductId              :: !(Maybe Text)
-  , _uppUpdateToken            :: !Text
+  { _uppProvisionedProductName  :: !(Maybe Text)
+  , _uppProvisioningArtifactId  :: !(Maybe Text)
+  , _uppAcceptLanguage          :: !(Maybe Text)
+  , _uppPathId                  :: !(Maybe Text)
+  , _uppProvisioningParameters  :: !(Maybe [UpdateProvisioningParameter])
+  , _uppProvisionedProductId    :: !(Maybe Text)
+  , _uppProductId               :: !(Maybe Text)
+  , _uppProvisioningPreferences :: !(Maybe UpdateProvisioningPreferences)
+  , _uppUpdateToken             :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -84,7 +86,9 @@ data UpdateProvisionedProduct = UpdateProvisionedProduct'
 --
 -- * 'uppProvisionedProductId' - The identifier of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
 --
--- * 'uppProductId' - The identifier of the provisioned product.
+-- * 'uppProductId' - The identifier of the product.
+--
+-- * 'uppProvisioningPreferences' - An object that contains information about the provisioning preferences for a stack set.
 --
 -- * 'uppUpdateToken' - The idempotency token that uniquely identifies the provisioning update request.
 updateProvisionedProduct
@@ -99,6 +103,7 @@ updateProvisionedProduct pUpdateToken_ =
     , _uppProvisioningParameters = Nothing
     , _uppProvisionedProductId = Nothing
     , _uppProductId = Nothing
+    , _uppProvisioningPreferences = Nothing
     , _uppUpdateToken = pUpdateToken_
     }
 
@@ -127,9 +132,13 @@ uppProvisioningParameters = lens _uppProvisioningParameters (\ s a -> s{_uppProv
 uppProvisionedProductId :: Lens' UpdateProvisionedProduct (Maybe Text)
 uppProvisionedProductId = lens _uppProvisionedProductId (\ s a -> s{_uppProvisionedProductId = a})
 
--- | The identifier of the provisioned product.
+-- | The identifier of the product.
 uppProductId :: Lens' UpdateProvisionedProduct (Maybe Text)
 uppProductId = lens _uppProductId (\ s a -> s{_uppProductId = a})
+
+-- | An object that contains information about the provisioning preferences for a stack set.
+uppProvisioningPreferences :: Lens' UpdateProvisionedProduct (Maybe UpdateProvisioningPreferences)
+uppProvisioningPreferences = lens _uppProvisioningPreferences (\ s a -> s{_uppProvisioningPreferences = a})
 
 -- | The idempotency token that uniquely identifies the provisioning update request.
 uppUpdateToken :: Lens' UpdateProvisionedProduct Text
@@ -174,6 +183,8 @@ instance ToJSON UpdateProvisionedProduct where
                   ("ProvisionedProductId" .=) <$>
                     _uppProvisionedProductId,
                   ("ProductId" .=) <$> _uppProductId,
+                  ("ProvisioningPreferences" .=) <$>
+                    _uppProvisioningPreferences,
                   Just ("UpdateToken" .= _uppUpdateToken)])
 
 instance ToPath UpdateProvisionedProduct where

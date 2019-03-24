@@ -29,6 +29,7 @@ module Network.AWS.ServiceCatalog.ListAcceptedPortfolioShares
       listAcceptedPortfolioShares
     , ListAcceptedPortfolioShares
     -- * Request Lenses
+    , lapsPortfolioShareType
     , lapsAcceptLanguage
     , lapsPageToken
     , lapsPageSize
@@ -52,15 +53,18 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listAcceptedPortfolioShares' smart constructor.
 data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
-  { _lapsAcceptLanguage :: !(Maybe Text)
-  , _lapsPageToken      :: !(Maybe Text)
-  , _lapsPageSize       :: !(Maybe Nat)
+  { _lapsPortfolioShareType :: !(Maybe PortfolioShareType)
+  , _lapsAcceptLanguage     :: !(Maybe Text)
+  , _lapsPageToken          :: !(Maybe Text)
+  , _lapsPageSize           :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'ListAcceptedPortfolioShares' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lapsPortfolioShareType' - The type of shared portfolios to list. The default is to list imported portfolios.     * @AWS_ORGANIZATIONS@ - List portfolios shared by the master account of your organization     * @AWS_SERVICECATALOG@ - List default portfolios     * @IMPORTED@ - List imported portfolios
 --
 -- * 'lapsAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
@@ -71,11 +75,16 @@ listAcceptedPortfolioShares
     :: ListAcceptedPortfolioShares
 listAcceptedPortfolioShares =
   ListAcceptedPortfolioShares'
-    { _lapsAcceptLanguage = Nothing
+    { _lapsPortfolioShareType = Nothing
+    , _lapsAcceptLanguage = Nothing
     , _lapsPageToken = Nothing
     , _lapsPageSize = Nothing
     }
 
+
+-- | The type of shared portfolios to list. The default is to list imported portfolios.     * @AWS_ORGANIZATIONS@ - List portfolios shared by the master account of your organization     * @AWS_SERVICECATALOG@ - List default portfolios     * @IMPORTED@ - List imported portfolios
+lapsPortfolioShareType :: Lens' ListAcceptedPortfolioShares (Maybe PortfolioShareType)
+lapsPortfolioShareType = lens _lapsPortfolioShareType (\ s a -> s{_lapsPortfolioShareType = a})
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 lapsAcceptLanguage :: Lens' ListAcceptedPortfolioShares (Maybe Text)
@@ -127,7 +136,9 @@ instance ToJSON ListAcceptedPortfolioShares where
         toJSON ListAcceptedPortfolioShares'{..}
           = object
               (catMaybes
-                 [("AcceptLanguage" .=) <$> _lapsAcceptLanguage,
+                 [("PortfolioShareType" .=) <$>
+                    _lapsPortfolioShareType,
+                  ("AcceptLanguage" .=) <$> _lapsAcceptLanguage,
                   ("PageToken" .=) <$> _lapsPageToken,
                   ("PageSize" .=) <$> _lapsPageSize])
 

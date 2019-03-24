@@ -23,6 +23,8 @@
 --
 -- To use additional filtering, see 'SearchProvisionedProducts' .
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ServiceCatalog.ScanProvisionedProducts
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.ServiceCatalog.ScanProvisionedProducts
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -96,6 +99,13 @@ sPageToken = lens _sPageToken (\ s a -> s{_sPageToken = a})
 -- | The maximum number of items to return with this call.
 sPageSize :: Lens' ScanProvisionedProducts (Maybe Natural)
 sPageSize = lens _sPageSize (\ s a -> s{_sPageSize = a}) . mapping _Nat
+
+instance AWSPager ScanProvisionedProducts where
+        page rq rs
+          | stop (rs ^. spprsNextPageToken) = Nothing
+          | stop (rs ^. spprsProvisionedProducts) = Nothing
+          | otherwise =
+            Just $ rq & sPageToken .~ rs ^. spprsNextPageToken
 
 instance AWSRequest ScanProvisionedProducts where
         type Rs ScanProvisionedProducts =

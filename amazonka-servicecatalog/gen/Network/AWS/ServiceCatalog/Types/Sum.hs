@@ -49,6 +49,36 @@ instance ToHeader     AccessLevelFilterKey
 instance ToJSON AccessLevelFilterKey where
     toJSON = toJSONText
 
+data AccessStatus
+  = Disabled
+  | Enabled
+  | UnderChange
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText AccessStatus where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure Disabled
+        "enabled" -> pure Enabled
+        "under_change" -> pure UnderChange
+        e -> fromTextError $ "Failure parsing AccessStatus from value: '" <> e
+           <> "'. Accepted values: disabled, enabled, under_change"
+
+instance ToText AccessStatus where
+    toText = \case
+        Disabled -> "DISABLED"
+        Enabled -> "ENABLED"
+        UnderChange -> "UNDER_CHANGE"
+
+instance Hashable     AccessStatus
+instance NFData       AccessStatus
+instance ToByteString AccessStatus
+instance ToQuery      AccessStatus
+instance ToHeader     AccessStatus
+
+instance FromJSON AccessStatus where
+    parseJSON = parseJSONText "AccessStatus"
+
 data ChangeAction
   = Add
   | Modify
@@ -159,6 +189,69 @@ instance ToHeader     EvaluationType
 
 instance FromJSON EvaluationType where
     parseJSON = parseJSONText "EvaluationType"
+
+data OrganizationNodeType
+  = ONTAccount
+  | ONTOrganization
+  | ONTOrganizationalUnit
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText OrganizationNodeType where
+    parser = takeLowerText >>= \case
+        "account" -> pure ONTAccount
+        "organization" -> pure ONTOrganization
+        "organizational_unit" -> pure ONTOrganizationalUnit
+        e -> fromTextError $ "Failure parsing OrganizationNodeType from value: '" <> e
+           <> "'. Accepted values: account, organization, organizational_unit"
+
+instance ToText OrganizationNodeType where
+    toText = \case
+        ONTAccount -> "ACCOUNT"
+        ONTOrganization -> "ORGANIZATION"
+        ONTOrganizationalUnit -> "ORGANIZATIONAL_UNIT"
+
+instance Hashable     OrganizationNodeType
+instance NFData       OrganizationNodeType
+instance ToByteString OrganizationNodeType
+instance ToQuery      OrganizationNodeType
+instance ToHeader     OrganizationNodeType
+
+instance ToJSON OrganizationNodeType where
+    toJSON = toJSONText
+
+instance FromJSON OrganizationNodeType where
+    parseJSON = parseJSONText "OrganizationNodeType"
+
+data PortfolioShareType
+  = AWSOrganizations
+  | AWSServicecatalog
+  | Imported
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PortfolioShareType where
+    parser = takeLowerText >>= \case
+        "aws_organizations" -> pure AWSOrganizations
+        "aws_servicecatalog" -> pure AWSServicecatalog
+        "imported" -> pure Imported
+        e -> fromTextError $ "Failure parsing PortfolioShareType from value: '" <> e
+           <> "'. Accepted values: aws_organizations, aws_servicecatalog, imported"
+
+instance ToText PortfolioShareType where
+    toText = \case
+        AWSOrganizations -> "AWS_ORGANIZATIONS"
+        AWSServicecatalog -> "AWS_SERVICECATALOG"
+        Imported -> "IMPORTED"
+
+instance Hashable     PortfolioShareType
+instance NFData       PortfolioShareType
+instance ToByteString PortfolioShareType
+instance ToQuery      PortfolioShareType
+instance ToHeader     PortfolioShareType
+
+instance ToJSON PortfolioShareType where
+    toJSON = toJSONText
 
 data PrincipalType =
   IAM
@@ -652,6 +745,141 @@ instance ToHeader     ResourceAttribute
 instance FromJSON ResourceAttribute where
     parseJSON = parseJSONText "ResourceAttribute"
 
+data ServiceActionAssociationErrorCode
+  = DuplicateResource
+  | InternalFailure
+  | LimitExceeded
+  | ResourceNotFound
+  | Throttling
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ServiceActionAssociationErrorCode where
+    parser = takeLowerText >>= \case
+        "duplicate_resource" -> pure DuplicateResource
+        "internal_failure" -> pure InternalFailure
+        "limit_exceeded" -> pure LimitExceeded
+        "resource_not_found" -> pure ResourceNotFound
+        "throttling" -> pure Throttling
+        e -> fromTextError $ "Failure parsing ServiceActionAssociationErrorCode from value: '" <> e
+           <> "'. Accepted values: duplicate_resource, internal_failure, limit_exceeded, resource_not_found, throttling"
+
+instance ToText ServiceActionAssociationErrorCode where
+    toText = \case
+        DuplicateResource -> "DUPLICATE_RESOURCE"
+        InternalFailure -> "INTERNAL_FAILURE"
+        LimitExceeded -> "LIMIT_EXCEEDED"
+        ResourceNotFound -> "RESOURCE_NOT_FOUND"
+        Throttling -> "THROTTLING"
+
+instance Hashable     ServiceActionAssociationErrorCode
+instance NFData       ServiceActionAssociationErrorCode
+instance ToByteString ServiceActionAssociationErrorCode
+instance ToQuery      ServiceActionAssociationErrorCode
+instance ToHeader     ServiceActionAssociationErrorCode
+
+instance FromJSON ServiceActionAssociationErrorCode where
+    parseJSON = parseJSONText "ServiceActionAssociationErrorCode"
+
+data ServiceActionDefinitionKey
+  = AssumeRole
+  | Name
+  | Parameters
+  | Version
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ServiceActionDefinitionKey where
+    parser = takeLowerText >>= \case
+        "assumerole" -> pure AssumeRole
+        "name" -> pure Name
+        "parameters" -> pure Parameters
+        "version" -> pure Version
+        e -> fromTextError $ "Failure parsing ServiceActionDefinitionKey from value: '" <> e
+           <> "'. Accepted values: assumerole, name, parameters, version"
+
+instance ToText ServiceActionDefinitionKey where
+    toText = \case
+        AssumeRole -> "AssumeRole"
+        Name -> "Name"
+        Parameters -> "Parameters"
+        Version -> "Version"
+
+instance Hashable     ServiceActionDefinitionKey
+instance NFData       ServiceActionDefinitionKey
+instance ToByteString ServiceActionDefinitionKey
+instance ToQuery      ServiceActionDefinitionKey
+instance ToHeader     ServiceActionDefinitionKey
+
+instance ToJSON ServiceActionDefinitionKey where
+    toJSON = toJSONText
+
+instance FromJSON ServiceActionDefinitionKey where
+    parseJSON = parseJSONText "ServiceActionDefinitionKey"
+
+data ServiceActionDefinitionType =
+  SsmAutomation
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ServiceActionDefinitionType where
+    parser = takeLowerText >>= \case
+        "ssm_automation" -> pure SsmAutomation
+        e -> fromTextError $ "Failure parsing ServiceActionDefinitionType from value: '" <> e
+           <> "'. Accepted values: ssm_automation"
+
+instance ToText ServiceActionDefinitionType where
+    toText = \case
+        SsmAutomation -> "SSM_AUTOMATION"
+
+instance Hashable     ServiceActionDefinitionType
+instance NFData       ServiceActionDefinitionType
+instance ToByteString ServiceActionDefinitionType
+instance ToQuery      ServiceActionDefinitionType
+instance ToHeader     ServiceActionDefinitionType
+
+instance ToJSON ServiceActionDefinitionType where
+    toJSON = toJSONText
+
+instance FromJSON ServiceActionDefinitionType where
+    parseJSON = parseJSONText "ServiceActionDefinitionType"
+
+data ShareStatus
+  = Completed
+  | CompletedWithErrors
+  | Error'
+  | InProgress
+  | NotStarted
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ShareStatus where
+    parser = takeLowerText >>= \case
+        "completed" -> pure Completed
+        "completed_with_errors" -> pure CompletedWithErrors
+        "error" -> pure Error'
+        "in_progress" -> pure InProgress
+        "not_started" -> pure NotStarted
+        e -> fromTextError $ "Failure parsing ShareStatus from value: '" <> e
+           <> "'. Accepted values: completed, completed_with_errors, error, in_progress, not_started"
+
+instance ToText ShareStatus where
+    toText = \case
+        Completed -> "COMPLETED"
+        CompletedWithErrors -> "COMPLETED_WITH_ERRORS"
+        Error' -> "ERROR"
+        InProgress -> "IN_PROGRESS"
+        NotStarted -> "NOT_STARTED"
+
+instance Hashable     ShareStatus
+instance NFData       ShareStatus
+instance ToByteString ShareStatus
+instance ToQuery      ShareStatus
+instance ToHeader     ShareStatus
+
+instance FromJSON ShareStatus where
+    parseJSON = parseJSONText "ShareStatus"
+
 data SortOrder
   = Ascending
   | Descending
@@ -677,4 +905,34 @@ instance ToQuery      SortOrder
 instance ToHeader     SortOrder
 
 instance ToJSON SortOrder where
+    toJSON = toJSONText
+
+data StackSetOperationType
+  = Create
+  | Delete
+  | Update
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText StackSetOperationType where
+    parser = takeLowerText >>= \case
+        "create" -> pure Create
+        "delete" -> pure Delete
+        "update" -> pure Update
+        e -> fromTextError $ "Failure parsing StackSetOperationType from value: '" <> e
+           <> "'. Accepted values: create, delete, update"
+
+instance ToText StackSetOperationType where
+    toText = \case
+        Create -> "CREATE"
+        Delete -> "DELETE"
+        Update -> "UPDATE"
+
+instance Hashable     StackSetOperationType
+instance NFData       StackSetOperationType
+instance ToByteString StackSetOperationType
+instance ToQuery      StackSetOperationType
+instance ToHeader     StackSetOperationType
+
+instance ToJSON StackSetOperationType where
     toJSON = toJSONText

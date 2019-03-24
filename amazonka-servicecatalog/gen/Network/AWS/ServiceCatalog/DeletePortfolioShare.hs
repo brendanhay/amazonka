@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops sharing the specified portfolio with the specified account.
+-- Stops sharing the specified portfolio with the specified account or organization node. Shares to an organization node can only be deleted by the master account of an Organization.
 --
 --
 module Network.AWS.ServiceCatalog.DeletePortfolioShare
@@ -27,14 +27,16 @@ module Network.AWS.ServiceCatalog.DeletePortfolioShare
       deletePortfolioShare
     , DeletePortfolioShare
     -- * Request Lenses
-    , dpsAcceptLanguage
-    , dpsPortfolioId
     , dpsAccountId
+    , dpsAcceptLanguage
+    , dpsOrganizationNode
+    , dpsPortfolioId
 
     -- * Destructuring the Response
     , deletePortfolioShareResponse
     , DeletePortfolioShareResponse
     -- * Response Lenses
+    , dpsrsPortfolioShareToken
     , dpsrsResponseStatus
     ) where
 
@@ -47,9 +49,10 @@ import Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'deletePortfolioShare' smart constructor.
 data DeletePortfolioShare = DeletePortfolioShare'
-  { _dpsAcceptLanguage :: !(Maybe Text)
-  , _dpsPortfolioId    :: !Text
-  , _dpsAccountId      :: !Text
+  { _dpsAccountId        :: !(Maybe Text)
+  , _dpsAcceptLanguage   :: !(Maybe Text)
+  , _dpsOrganizationNode :: !(Maybe OrganizationNode)
+  , _dpsPortfolioId      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -57,44 +60,51 @@ data DeletePortfolioShare = DeletePortfolioShare'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dpsAccountId' - The AWS account ID.
+--
 -- * 'dpsAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'dpsPortfolioId' - The portfolio identifier.
+-- * 'dpsOrganizationNode' - The organization node to whom you are going to stop sharing.
 --
--- * 'dpsAccountId' - The AWS account ID.
+-- * 'dpsPortfolioId' - The portfolio identifier.
 deletePortfolioShare
     :: Text -- ^ 'dpsPortfolioId'
-    -> Text -- ^ 'dpsAccountId'
     -> DeletePortfolioShare
-deletePortfolioShare pPortfolioId_ pAccountId_ =
+deletePortfolioShare pPortfolioId_ =
   DeletePortfolioShare'
-    { _dpsAcceptLanguage = Nothing
+    { _dpsAccountId = Nothing
+    , _dpsAcceptLanguage = Nothing
+    , _dpsOrganizationNode = Nothing
     , _dpsPortfolioId = pPortfolioId_
-    , _dpsAccountId = pAccountId_
     }
 
+
+-- | The AWS account ID.
+dpsAccountId :: Lens' DeletePortfolioShare (Maybe Text)
+dpsAccountId = lens _dpsAccountId (\ s a -> s{_dpsAccountId = a})
 
 -- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 dpsAcceptLanguage :: Lens' DeletePortfolioShare (Maybe Text)
 dpsAcceptLanguage = lens _dpsAcceptLanguage (\ s a -> s{_dpsAcceptLanguage = a})
 
+-- | The organization node to whom you are going to stop sharing.
+dpsOrganizationNode :: Lens' DeletePortfolioShare (Maybe OrganizationNode)
+dpsOrganizationNode = lens _dpsOrganizationNode (\ s a -> s{_dpsOrganizationNode = a})
+
 -- | The portfolio identifier.
 dpsPortfolioId :: Lens' DeletePortfolioShare Text
 dpsPortfolioId = lens _dpsPortfolioId (\ s a -> s{_dpsPortfolioId = a})
-
--- | The AWS account ID.
-dpsAccountId :: Lens' DeletePortfolioShare Text
-dpsAccountId = lens _dpsAccountId (\ s a -> s{_dpsAccountId = a})
 
 instance AWSRequest DeletePortfolioShare where
         type Rs DeletePortfolioShare =
              DeletePortfolioShareResponse
         request = postJSON serviceCatalog
         response
-          = receiveEmpty
+          = receiveJSON
               (\ s h x ->
                  DeletePortfolioShareResponse' <$>
-                   (pure (fromEnum s)))
+                   (x .?> "PortfolioShareToken") <*>
+                     (pure (fromEnum s)))
 
 instance Hashable DeletePortfolioShare where
 
@@ -114,9 +124,10 @@ instance ToJSON DeletePortfolioShare where
         toJSON DeletePortfolioShare'{..}
           = object
               (catMaybes
-                 [("AcceptLanguage" .=) <$> _dpsAcceptLanguage,
-                  Just ("PortfolioId" .= _dpsPortfolioId),
-                  Just ("AccountId" .= _dpsAccountId)])
+                 [("AccountId" .=) <$> _dpsAccountId,
+                  ("AcceptLanguage" .=) <$> _dpsAcceptLanguage,
+                  ("OrganizationNode" .=) <$> _dpsOrganizationNode,
+                  Just ("PortfolioId" .= _dpsPortfolioId)])
 
 instance ToPath DeletePortfolioShare where
         toPath = const "/"
@@ -125,8 +136,9 @@ instance ToQuery DeletePortfolioShare where
         toQuery = const mempty
 
 -- | /See:/ 'deletePortfolioShareResponse' smart constructor.
-newtype DeletePortfolioShareResponse = DeletePortfolioShareResponse'
-  { _dpsrsResponseStatus :: Int
+data DeletePortfolioShareResponse = DeletePortfolioShareResponse'
+  { _dpsrsPortfolioShareToken :: !(Maybe Text)
+  , _dpsrsResponseStatus      :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -134,13 +146,22 @@ newtype DeletePortfolioShareResponse = DeletePortfolioShareResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dpsrsPortfolioShareToken' - The portfolio share unique identifier. This will only be returned if delete is made to an organization node.
+--
 -- * 'dpsrsResponseStatus' - -- | The response status code.
 deletePortfolioShareResponse
     :: Int -- ^ 'dpsrsResponseStatus'
     -> DeletePortfolioShareResponse
 deletePortfolioShareResponse pResponseStatus_ =
-  DeletePortfolioShareResponse' {_dpsrsResponseStatus = pResponseStatus_}
+  DeletePortfolioShareResponse'
+    { _dpsrsPortfolioShareToken = Nothing
+    , _dpsrsResponseStatus = pResponseStatus_
+    }
 
+
+-- | The portfolio share unique identifier. This will only be returned if delete is made to an organization node.
+dpsrsPortfolioShareToken :: Lens' DeletePortfolioShareResponse (Maybe Text)
+dpsrsPortfolioShareToken = lens _dpsrsPortfolioShareToken (\ s a -> s{_dpsrsPortfolioShareToken = a})
 
 -- | -- | The response status code.
 dpsrsResponseStatus :: Lens' DeletePortfolioShareResponse Int

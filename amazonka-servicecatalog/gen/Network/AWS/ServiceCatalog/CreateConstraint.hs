@@ -76,9 +76,9 @@ data CreateConstraint = CreateConstraint'
 --
 -- * 'ccProductId' - The product identifier.
 --
--- * 'ccParameters' - The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:     * LAUNCH    * Specify the @RoleArn@ property as follows: \"RoleArn\" : \"arn:aws:iam::123456789012:role/LaunchRole\"     * NOTIFICATION    * Specify the @NotificationArns@ property as follows: \"NotificationArns\" : [\"arn:aws:sns:us-east-1:123456789012:Topic\"]     * TEMPLATE    * Specify the @Rules@ property. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules> .
+-- * 'ccParameters' - The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:     * LAUNCH    * Specify the @RoleArn@ property as follows: @{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}@  You cannot have both a @LAUNCH@ and a @STACKSET@ constraint. You also cannot have more than one @LAUNCH@ constraint on a product and portfolio.     * NOTIFICATION    * Specify the @NotificationArns@ property as follows: @{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}@      * STACKSET    * Specify the @Parameters@ property as follows: @{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}@  You cannot have both a @LAUNCH@ and a @STACKSET@ constraint. You also cannot have more than one @STACKSET@ constraint on a product and portfolio. Products with a @STACKSET@ constraint will launch an AWS CloudFormation stack set.     * TEMPLATE    * Specify the @Rules@ property. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules> .
 --
--- * 'ccType' - The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * @TEMPLATE@
+-- * 'ccType' - The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * @STACKSET@      * @TEMPLATE@
 --
 -- * 'ccIdempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
 createConstraint
@@ -116,11 +116,11 @@ ccPortfolioId = lens _ccPortfolioId (\ s a -> s{_ccPortfolioId = a})
 ccProductId :: Lens' CreateConstraint Text
 ccProductId = lens _ccProductId (\ s a -> s{_ccProductId = a})
 
--- | The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:     * LAUNCH    * Specify the @RoleArn@ property as follows: \"RoleArn\" : \"arn:aws:iam::123456789012:role/LaunchRole\"     * NOTIFICATION    * Specify the @NotificationArns@ property as follows: \"NotificationArns\" : [\"arn:aws:sns:us-east-1:123456789012:Topic\"]     * TEMPLATE    * Specify the @Rules@ property. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules> .
+-- | The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:     * LAUNCH    * Specify the @RoleArn@ property as follows: @{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}@  You cannot have both a @LAUNCH@ and a @STACKSET@ constraint. You also cannot have more than one @LAUNCH@ constraint on a product and portfolio.     * NOTIFICATION    * Specify the @NotificationArns@ property as follows: @{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}@      * STACKSET    * Specify the @Parameters@ property as follows: @{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}@  You cannot have both a @LAUNCH@ and a @STACKSET@ constraint. You also cannot have more than one @STACKSET@ constraint on a product and portfolio. Products with a @STACKSET@ constraint will launch an AWS CloudFormation stack set.     * TEMPLATE    * Specify the @Rules@ property. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules> .
 ccParameters :: Lens' CreateConstraint Text
 ccParameters = lens _ccParameters (\ s a -> s{_ccParameters = a})
 
--- | The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * @TEMPLATE@
+-- | The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * @STACKSET@      * @TEMPLATE@
 ccType :: Lens' CreateConstraint Text
 ccType = lens _ccType (\ s a -> s{_ccType = a})
 

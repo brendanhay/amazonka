@@ -18,6 +18,7 @@ module Network.AWS.ServiceCatalog.Types
     -- * Errors
     , _InvalidParametersException
     , _DuplicateResourceException
+    , _OperationNotSupportedException
     , _TagOptionNotMigratedException
     , _ResourceNotFoundException
     , _InvalidStateException
@@ -26,6 +27,9 @@ module Network.AWS.ServiceCatalog.Types
 
     -- * AccessLevelFilterKey
     , AccessLevelFilterKey (..)
+
+    -- * AccessStatus
+    , AccessStatus (..)
 
     -- * ChangeAction
     , ChangeAction (..)
@@ -38,6 +42,12 @@ module Network.AWS.ServiceCatalog.Types
 
     -- * EvaluationType
     , EvaluationType (..)
+
+    -- * OrganizationNodeType
+    , OrganizationNodeType (..)
+
+    -- * PortfolioShareType
+    , PortfolioShareType (..)
 
     -- * PrincipalType
     , PrincipalType (..)
@@ -87,8 +97,23 @@ module Network.AWS.ServiceCatalog.Types
     -- * ResourceAttribute
     , ResourceAttribute (..)
 
+    -- * ServiceActionAssociationErrorCode
+    , ServiceActionAssociationErrorCode (..)
+
+    -- * ServiceActionDefinitionKey
+    , ServiceActionDefinitionKey (..)
+
+    -- * ServiceActionDefinitionType
+    , ServiceActionDefinitionType (..)
+
+    -- * ShareStatus
+    , ShareStatus (..)
+
     -- * SortOrder
     , SortOrder (..)
+
+    -- * StackSetOperationType
+    , StackSetOperationType (..)
 
     -- * AccessLevelFilter
     , AccessLevelFilter
@@ -115,6 +140,15 @@ module Network.AWS.ServiceCatalog.Types
     , csType
     , csDescription
 
+    -- * FailedServiceActionAssociation
+    , FailedServiceActionAssociation
+    , failedServiceActionAssociation
+    , fsaaProvisioningArtifactId
+    , fsaaErrorCode
+    , fsaaErrorMessage
+    , fsaaServiceActionId
+    , fsaaProductId
+
     -- * LaunchPathSummary
     , LaunchPathSummary
     , launchPathSummary
@@ -135,6 +169,12 @@ module Network.AWS.ServiceCatalog.Types
     , ltofValue
     , ltofActive
     , ltofKey
+
+    -- * OrganizationNode
+    , OrganizationNode
+    , organizationNode
+    , onValue
+    , onType
 
     -- * ParameterConstraints
     , ParameterConstraints
@@ -210,6 +250,7 @@ module Network.AWS.ServiceCatalog.Types
     , provisionedProductDetail
     , ppdIdempotencyToken
     , ppdStatus
+    , ppdProvisioningArtifactId
     , ppdARN
     , ppdCreatedTime
     , ppdStatusMessage
@@ -217,6 +258,7 @@ module Network.AWS.ServiceCatalog.Types
     , ppdLastRecordId
     , ppdId
     , ppdType
+    , ppdProductId
 
     -- * ProvisionedProductPlanDetails
     , ProvisionedProductPlanDetails
@@ -275,6 +317,12 @@ module Network.AWS.ServiceCatalog.Types
     , pDefaultValue
     , pDescription
 
+    -- * ProvisioningArtifactPreferences
+    , ProvisioningArtifactPreferences
+    , provisioningArtifactPreferences
+    , papStackSetRegions
+    , papStackSetAccounts
+
     -- * ProvisioningArtifactProperties
     , ProvisioningArtifactProperties
     , provisioningArtifactProperties
@@ -292,11 +340,27 @@ module Network.AWS.ServiceCatalog.Types
     , pasId
     , pasDescription
 
+    -- * ProvisioningArtifactView
+    , ProvisioningArtifactView
+    , provisioningArtifactView
+    , pavProductViewSummary
+    , pavProvisioningArtifact
+
     -- * ProvisioningParameter
     , ProvisioningParameter
     , provisioningParameter
     , ppValue
     , ppKey
+
+    -- * ProvisioningPreferences
+    , ProvisioningPreferences
+    , provisioningPreferences
+    , ppStackSetRegions
+    , ppStackSetMaxConcurrencyPercentage
+    , ppStackSetFailureToleranceCount
+    , ppStackSetFailureTolerancePercentage
+    , ppStackSetAccounts
+    , ppStackSetMaxConcurrencyCount
 
     -- * RecordDetail
     , RecordDetail
@@ -368,6 +432,40 @@ module Network.AWS.ServiceCatalog.Types
     , rtdRequiresRecreation
     , rtdName
 
+    -- * ServiceActionAssociation
+    , ServiceActionAssociation
+    , serviceActionAssociation
+    , saaServiceActionId
+    , saaProductId
+    , saaProvisioningArtifactId
+
+    -- * ServiceActionDetail
+    , ServiceActionDetail
+    , serviceActionDetail
+    , sadServiceActionSummary
+    , sadDefinition
+
+    -- * ServiceActionSummary
+    , ServiceActionSummary
+    , serviceActionSummary
+    , sasName
+    , sasId
+    , sasDefinitionType
+    , sasDescription
+
+    -- * ShareDetails
+    , ShareDetails
+    , shareDetails
+    , sdShareErrors
+    , sdSuccessfulShares
+
+    -- * ShareError
+    , ShareError
+    , shareError
+    , seAccounts
+    , seError
+    , seMessage
+
     -- * Tag
     , Tag
     , tag
@@ -394,6 +492,17 @@ module Network.AWS.ServiceCatalog.Types
     , uppValue
     , uppKey
     , uppUsePreviousValue
+
+    -- * UpdateProvisioningPreferences
+    , UpdateProvisioningPreferences
+    , updateProvisioningPreferences
+    , uppStackSetRegions
+    , uppStackSetMaxConcurrencyPercentage
+    , uppStackSetFailureToleranceCount
+    , uppStackSetFailureTolerancePercentage
+    , uppStackSetAccounts
+    , uppStackSetMaxConcurrencyCount
+    , uppStackSetOperationType
 
     -- * UsageInstruction
     , UsageInstruction
@@ -461,6 +570,14 @@ _InvalidParametersException =
 _DuplicateResourceException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateResourceException =
   _MatchServiceError serviceCatalog "DuplicateResourceException"
+
+
+-- | The operation is not supported.
+--
+--
+_OperationNotSupportedException :: AsError a => Getting (First ServiceError) a ServiceError
+_OperationNotSupportedException =
+  _MatchServiceError serviceCatalog "OperationNotSupportedException"
 
 
 -- | An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Please use the AWS console to perform the migration process before retrying the operation.

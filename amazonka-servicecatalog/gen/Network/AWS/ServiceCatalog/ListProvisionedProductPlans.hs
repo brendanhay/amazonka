@@ -21,6 +21,8 @@
 -- Lists the plans for the specified provisioned product or all plans to which the user has access.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ServiceCatalog.ListProvisionedProductPlans
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.ServiceCatalog.ListProvisionedProductPlans
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -103,6 +106,15 @@ lpppPageToken = lens _lpppPageToken (\ s a -> s{_lpppPageToken = a})
 -- | The maximum number of items to return with this call.
 lpppPageSize :: Lens' ListProvisionedProductPlans (Maybe Natural)
 lpppPageSize = lens _lpppPageSize (\ s a -> s{_lpppPageSize = a}) . mapping _Nat
+
+instance AWSPager ListProvisionedProductPlans where
+        page rq rs
+          | stop (rs ^. lppprsNextPageToken) = Nothing
+          | stop (rs ^. lppprsProvisionedProductPlans) =
+            Nothing
+          | otherwise =
+            Just $ rq &
+              lpppPageToken .~ rs ^. lppprsNextPageToken
 
 instance AWSRequest ListProvisionedProductPlans where
         type Rs ListProvisionedProductPlans =

@@ -37,11 +37,17 @@ import Test.Tasty
 --         , requestCreateProvisionedProductPlan $
 --             createProvisionedProductPlan
 --
+--         , requestExecuteProvisionedProductServiceAction $
+--             executeProvisionedProductServiceAction
+--
 --         , requestCreateProduct $
 --             createProduct
 --
 --         , requestDescribeCopyProductStatus $
 --             describeCopyProductStatus
+--
+--         , requestCreateServiceAction $
+--             createServiceAction
 --
 --         , requestTerminateProvisionedProduct $
 --             terminateProvisionedProduct
@@ -51,6 +57,9 @@ import Test.Tasty
 --
 --         , requestDescribeProvisioningArtifact $
 --             describeProvisioningArtifact
+--
+--         , requestAssociateServiceActionWithProvisioningArtifact $
+--             associateServiceActionWithProvisioningArtifact
 --
 --         , requestListRecordHistory $
 --             listRecordHistory
@@ -73,6 +82,9 @@ import Test.Tasty
 --         , requestDescribeRecord $
 --             describeRecord
 --
+--         , requestEnableAWSOrganizationsAccess $
+--             enableAWSOrganizationsAccess
+--
 --         , requestDescribeConstraint $
 --             describeConstraint
 --
@@ -91,11 +103,17 @@ import Test.Tasty
 --         , requestListProvisioningArtifacts $
 --             listProvisioningArtifacts
 --
+--         , requestListServiceActionsForProvisioningArtifact $
+--             listServiceActionsForProvisioningArtifact
+--
 --         , requestSearchProducts $
 --             searchProducts
 --
 --         , requestSearchProvisionedProducts $
 --             searchProvisionedProducts
+--
+--         , requestDescribeServiceAction $
+--             describeServiceAction
 --
 --         , requestDescribeProduct $
 --             describeProduct
@@ -111,6 +129,9 @@ import Test.Tasty
 --
 --         , requestListPortfolioAccess $
 --             listPortfolioAccess
+--
+--         , requestBatchDisassociateServiceActionFromProvisioningArtifact $
+--             batchDisassociateServiceActionFromProvisioningArtifact
 --
 --         , requestDisassociatePrincipalFromPortfolio $
 --             disassociatePrincipalFromPortfolio
@@ -139,6 +160,9 @@ import Test.Tasty
 --         , requestScanProvisionedProducts $
 --             scanProvisionedProducts
 --
+--         , requestListOrganizationPortfolioAccess $
+--             listOrganizationPortfolioAccess
+--
 --         , requestListPrincipalsForPortfolio $
 --             listPrincipalsForPortfolio
 --
@@ -148,11 +172,26 @@ import Test.Tasty
 --         , requestUpdateProduct $
 --             updateProduct
 --
+--         , requestListServiceActions $
+--             listServiceActions
+--
 --         , requestProvisionProduct $
 --             provisionProduct
 --
+--         , requestDeleteServiceAction $
+--             deleteServiceAction
+--
+--         , requestUpdateServiceAction $
+--             updateServiceAction
+--
+--         , requestDisableAWSOrganizationsAccess $
+--             disableAWSOrganizationsAccess
+--
 --         , requestRejectPortfolioShare $
 --             rejectPortfolioShare
+--
+--         , requestDisassociateServiceActionFromProvisioningArtifact $
+--             disassociateServiceActionFromProvisioningArtifact
 --
 --         , requestDeleteTagOption $
 --             deleteTagOption
@@ -175,8 +214,14 @@ import Test.Tasty
 --         , requestListPortfoliosForProduct $
 --             listPortfoliosForProduct
 --
+--         , requestGetAWSOrganizationsAccessStatus $
+--             getAWSOrganizationsAccessStatus
+--
 --         , requestDescribeProductAsAdmin $
 --             describeProductAsAdmin
+--
+--         , requestBatchAssociateServiceActionWithProvisioningArtifact $
+--             batchAssociateServiceActionWithProvisioningArtifact
 --
 --         , requestDescribeProvisioningParameters $
 --             describeProvisioningParameters
@@ -190,6 +235,9 @@ import Test.Tasty
 --         , requestCopyProduct $
 --             copyProduct
 --
+--         , requestDescribePortfolioShareStatus $
+--             describePortfolioShareStatus
+--
 --         , requestUpdateProvisioningArtifact $
 --             updateProvisioningArtifact
 --
@@ -198,6 +246,9 @@ import Test.Tasty
 --
 --         , requestDeleteProvisioningArtifact $
 --             deleteProvisioningArtifact
+--
+--         , requestListProvisioningArtifactsForServiceAction $
+--             listProvisioningArtifactsForServiceAction
 --
 --         , requestCreatePortfolio $
 --             createPortfolio
@@ -220,11 +271,17 @@ import Test.Tasty
 --         , responseCreateProvisionedProductPlan $
 --             createProvisionedProductPlanResponse
 --
+--         , responseExecuteProvisionedProductServiceAction $
+--             executeProvisionedProductServiceActionResponse
+--
 --         , responseCreateProduct $
 --             createProductResponse
 --
 --         , responseDescribeCopyProductStatus $
 --             describeCopyProductStatusResponse
+--
+--         , responseCreateServiceAction $
+--             createServiceActionResponse
 --
 --         , responseTerminateProvisionedProduct $
 --             terminateProvisionedProductResponse
@@ -234,6 +291,9 @@ import Test.Tasty
 --
 --         , responseDescribeProvisioningArtifact $
 --             describeProvisioningArtifactResponse
+--
+--         , responseAssociateServiceActionWithProvisioningArtifact $
+--             associateServiceActionWithProvisioningArtifactResponse
 --
 --         , responseListRecordHistory $
 --             listRecordHistoryResponse
@@ -256,6 +316,9 @@ import Test.Tasty
 --         , responseDescribeRecord $
 --             describeRecordResponse
 --
+--         , responseEnableAWSOrganizationsAccess $
+--             enableAWSOrganizationsAccessResponse
+--
 --         , responseDescribeConstraint $
 --             describeConstraintResponse
 --
@@ -274,11 +337,17 @@ import Test.Tasty
 --         , responseListProvisioningArtifacts $
 --             listProvisioningArtifactsResponse
 --
+--         , responseListServiceActionsForProvisioningArtifact $
+--             listServiceActionsForProvisioningArtifactResponse
+--
 --         , responseSearchProducts $
 --             searchProductsResponse
 --
 --         , responseSearchProvisionedProducts $
 --             searchProvisionedProductsResponse
+--
+--         , responseDescribeServiceAction $
+--             describeServiceActionResponse
 --
 --         , responseDescribeProduct $
 --             describeProductResponse
@@ -294,6 +363,9 @@ import Test.Tasty
 --
 --         , responseListPortfolioAccess $
 --             listPortfolioAccessResponse
+--
+--         , responseBatchDisassociateServiceActionFromProvisioningArtifact $
+--             batchDisassociateServiceActionFromProvisioningArtifactResponse
 --
 --         , responseDisassociatePrincipalFromPortfolio $
 --             disassociatePrincipalFromPortfolioResponse
@@ -322,6 +394,9 @@ import Test.Tasty
 --         , responseScanProvisionedProducts $
 --             scanProvisionedProductsResponse
 --
+--         , responseListOrganizationPortfolioAccess $
+--             listOrganizationPortfolioAccessResponse
+--
 --         , responseListPrincipalsForPortfolio $
 --             listPrincipalsForPortfolioResponse
 --
@@ -331,11 +406,26 @@ import Test.Tasty
 --         , responseUpdateProduct $
 --             updateProductResponse
 --
+--         , responseListServiceActions $
+--             listServiceActionsResponse
+--
 --         , responseProvisionProduct $
 --             provisionProductResponse
 --
+--         , responseDeleteServiceAction $
+--             deleteServiceActionResponse
+--
+--         , responseUpdateServiceAction $
+--             updateServiceActionResponse
+--
+--         , responseDisableAWSOrganizationsAccess $
+--             disableAWSOrganizationsAccessResponse
+--
 --         , responseRejectPortfolioShare $
 --             rejectPortfolioShareResponse
+--
+--         , responseDisassociateServiceActionFromProvisioningArtifact $
+--             disassociateServiceActionFromProvisioningArtifactResponse
 --
 --         , responseDeleteTagOption $
 --             deleteTagOptionResponse
@@ -358,8 +448,14 @@ import Test.Tasty
 --         , responseListPortfoliosForProduct $
 --             listPortfoliosForProductResponse
 --
+--         , responseGetAWSOrganizationsAccessStatus $
+--             getAWSOrganizationsAccessStatusResponse
+--
 --         , responseDescribeProductAsAdmin $
 --             describeProductAsAdminResponse
+--
+--         , responseBatchAssociateServiceActionWithProvisioningArtifact $
+--             batchAssociateServiceActionWithProvisioningArtifactResponse
 --
 --         , responseDescribeProvisioningParameters $
 --             describeProvisioningParametersResponse
@@ -373,6 +469,9 @@ import Test.Tasty
 --         , responseCopyProduct $
 --             copyProductResponse
 --
+--         , responseDescribePortfolioShareStatus $
+--             describePortfolioShareStatusResponse
+--
 --         , responseUpdateProvisioningArtifact $
 --             updateProvisioningArtifactResponse
 --
@@ -381,6 +480,9 @@ import Test.Tasty
 --
 --         , responseDeleteProvisioningArtifact $
 --             deleteProvisioningArtifactResponse
+--
+--         , responseListProvisioningArtifactsForServiceAction $
+--             listProvisioningArtifactsForServiceActionResponse
 --
 --         , responseCreatePortfolio $
 --             createPortfolioResponse
@@ -411,6 +513,11 @@ requestCreateProvisionedProductPlan = req
     "CreateProvisionedProductPlan"
     "fixture/CreateProvisionedProductPlan.yaml"
 
+requestExecuteProvisionedProductServiceAction :: ExecuteProvisionedProductServiceAction -> TestTree
+requestExecuteProvisionedProductServiceAction = req
+    "ExecuteProvisionedProductServiceAction"
+    "fixture/ExecuteProvisionedProductServiceAction.yaml"
+
 requestCreateProduct :: CreateProduct -> TestTree
 requestCreateProduct = req
     "CreateProduct"
@@ -420,6 +527,11 @@ requestDescribeCopyProductStatus :: DescribeCopyProductStatus -> TestTree
 requestDescribeCopyProductStatus = req
     "DescribeCopyProductStatus"
     "fixture/DescribeCopyProductStatus.yaml"
+
+requestCreateServiceAction :: CreateServiceAction -> TestTree
+requestCreateServiceAction = req
+    "CreateServiceAction"
+    "fixture/CreateServiceAction.yaml"
 
 requestTerminateProvisionedProduct :: TerminateProvisionedProduct -> TestTree
 requestTerminateProvisionedProduct = req
@@ -435,6 +547,11 @@ requestDescribeProvisioningArtifact :: DescribeProvisioningArtifact -> TestTree
 requestDescribeProvisioningArtifact = req
     "DescribeProvisioningArtifact"
     "fixture/DescribeProvisioningArtifact.yaml"
+
+requestAssociateServiceActionWithProvisioningArtifact :: AssociateServiceActionWithProvisioningArtifact -> TestTree
+requestAssociateServiceActionWithProvisioningArtifact = req
+    "AssociateServiceActionWithProvisioningArtifact"
+    "fixture/AssociateServiceActionWithProvisioningArtifact.yaml"
 
 requestListRecordHistory :: ListRecordHistory -> TestTree
 requestListRecordHistory = req
@@ -471,6 +588,11 @@ requestDescribeRecord = req
     "DescribeRecord"
     "fixture/DescribeRecord.yaml"
 
+requestEnableAWSOrganizationsAccess :: EnableAWSOrganizationsAccess -> TestTree
+requestEnableAWSOrganizationsAccess = req
+    "EnableAWSOrganizationsAccess"
+    "fixture/EnableAWSOrganizationsAccess.yaml"
+
 requestDescribeConstraint :: DescribeConstraint -> TestTree
 requestDescribeConstraint = req
     "DescribeConstraint"
@@ -501,6 +623,11 @@ requestListProvisioningArtifacts = req
     "ListProvisioningArtifacts"
     "fixture/ListProvisioningArtifacts.yaml"
 
+requestListServiceActionsForProvisioningArtifact :: ListServiceActionsForProvisioningArtifact -> TestTree
+requestListServiceActionsForProvisioningArtifact = req
+    "ListServiceActionsForProvisioningArtifact"
+    "fixture/ListServiceActionsForProvisioningArtifact.yaml"
+
 requestSearchProducts :: SearchProducts -> TestTree
 requestSearchProducts = req
     "SearchProducts"
@@ -510,6 +637,11 @@ requestSearchProvisionedProducts :: SearchProvisionedProducts -> TestTree
 requestSearchProvisionedProducts = req
     "SearchProvisionedProducts"
     "fixture/SearchProvisionedProducts.yaml"
+
+requestDescribeServiceAction :: DescribeServiceAction -> TestTree
+requestDescribeServiceAction = req
+    "DescribeServiceAction"
+    "fixture/DescribeServiceAction.yaml"
 
 requestDescribeProduct :: DescribeProduct -> TestTree
 requestDescribeProduct = req
@@ -535,6 +667,11 @@ requestListPortfolioAccess :: ListPortfolioAccess -> TestTree
 requestListPortfolioAccess = req
     "ListPortfolioAccess"
     "fixture/ListPortfolioAccess.yaml"
+
+requestBatchDisassociateServiceActionFromProvisioningArtifact :: BatchDisassociateServiceActionFromProvisioningArtifact -> TestTree
+requestBatchDisassociateServiceActionFromProvisioningArtifact = req
+    "BatchDisassociateServiceActionFromProvisioningArtifact"
+    "fixture/BatchDisassociateServiceActionFromProvisioningArtifact.yaml"
 
 requestDisassociatePrincipalFromPortfolio :: DisassociatePrincipalFromPortfolio -> TestTree
 requestDisassociatePrincipalFromPortfolio = req
@@ -581,6 +718,11 @@ requestScanProvisionedProducts = req
     "ScanProvisionedProducts"
     "fixture/ScanProvisionedProducts.yaml"
 
+requestListOrganizationPortfolioAccess :: ListOrganizationPortfolioAccess -> TestTree
+requestListOrganizationPortfolioAccess = req
+    "ListOrganizationPortfolioAccess"
+    "fixture/ListOrganizationPortfolioAccess.yaml"
+
 requestListPrincipalsForPortfolio :: ListPrincipalsForPortfolio -> TestTree
 requestListPrincipalsForPortfolio = req
     "ListPrincipalsForPortfolio"
@@ -596,15 +738,40 @@ requestUpdateProduct = req
     "UpdateProduct"
     "fixture/UpdateProduct.yaml"
 
+requestListServiceActions :: ListServiceActions -> TestTree
+requestListServiceActions = req
+    "ListServiceActions"
+    "fixture/ListServiceActions.yaml"
+
 requestProvisionProduct :: ProvisionProduct -> TestTree
 requestProvisionProduct = req
     "ProvisionProduct"
     "fixture/ProvisionProduct.yaml"
 
+requestDeleteServiceAction :: DeleteServiceAction -> TestTree
+requestDeleteServiceAction = req
+    "DeleteServiceAction"
+    "fixture/DeleteServiceAction.yaml"
+
+requestUpdateServiceAction :: UpdateServiceAction -> TestTree
+requestUpdateServiceAction = req
+    "UpdateServiceAction"
+    "fixture/UpdateServiceAction.yaml"
+
+requestDisableAWSOrganizationsAccess :: DisableAWSOrganizationsAccess -> TestTree
+requestDisableAWSOrganizationsAccess = req
+    "DisableAWSOrganizationsAccess"
+    "fixture/DisableAWSOrganizationsAccess.yaml"
+
 requestRejectPortfolioShare :: RejectPortfolioShare -> TestTree
 requestRejectPortfolioShare = req
     "RejectPortfolioShare"
     "fixture/RejectPortfolioShare.yaml"
+
+requestDisassociateServiceActionFromProvisioningArtifact :: DisassociateServiceActionFromProvisioningArtifact -> TestTree
+requestDisassociateServiceActionFromProvisioningArtifact = req
+    "DisassociateServiceActionFromProvisioningArtifact"
+    "fixture/DisassociateServiceActionFromProvisioningArtifact.yaml"
 
 requestDeleteTagOption :: DeleteTagOption -> TestTree
 requestDeleteTagOption = req
@@ -641,10 +808,20 @@ requestListPortfoliosForProduct = req
     "ListPortfoliosForProduct"
     "fixture/ListPortfoliosForProduct.yaml"
 
+requestGetAWSOrganizationsAccessStatus :: GetAWSOrganizationsAccessStatus -> TestTree
+requestGetAWSOrganizationsAccessStatus = req
+    "GetAWSOrganizationsAccessStatus"
+    "fixture/GetAWSOrganizationsAccessStatus.yaml"
+
 requestDescribeProductAsAdmin :: DescribeProductAsAdmin -> TestTree
 requestDescribeProductAsAdmin = req
     "DescribeProductAsAdmin"
     "fixture/DescribeProductAsAdmin.yaml"
+
+requestBatchAssociateServiceActionWithProvisioningArtifact :: BatchAssociateServiceActionWithProvisioningArtifact -> TestTree
+requestBatchAssociateServiceActionWithProvisioningArtifact = req
+    "BatchAssociateServiceActionWithProvisioningArtifact"
+    "fixture/BatchAssociateServiceActionWithProvisioningArtifact.yaml"
 
 requestDescribeProvisioningParameters :: DescribeProvisioningParameters -> TestTree
 requestDescribeProvisioningParameters = req
@@ -666,6 +843,11 @@ requestCopyProduct = req
     "CopyProduct"
     "fixture/CopyProduct.yaml"
 
+requestDescribePortfolioShareStatus :: DescribePortfolioShareStatus -> TestTree
+requestDescribePortfolioShareStatus = req
+    "DescribePortfolioShareStatus"
+    "fixture/DescribePortfolioShareStatus.yaml"
+
 requestUpdateProvisioningArtifact :: UpdateProvisioningArtifact -> TestTree
 requestUpdateProvisioningArtifact = req
     "UpdateProvisioningArtifact"
@@ -680,6 +862,11 @@ requestDeleteProvisioningArtifact :: DeleteProvisioningArtifact -> TestTree
 requestDeleteProvisioningArtifact = req
     "DeleteProvisioningArtifact"
     "fixture/DeleteProvisioningArtifact.yaml"
+
+requestListProvisioningArtifactsForServiceAction :: ListProvisioningArtifactsForServiceAction -> TestTree
+requestListProvisioningArtifactsForServiceAction = req
+    "ListProvisioningArtifactsForServiceAction"
+    "fixture/ListProvisioningArtifactsForServiceAction.yaml"
 
 requestCreatePortfolio :: CreatePortfolio -> TestTree
 requestCreatePortfolio = req
@@ -719,6 +906,13 @@ responseCreateProvisionedProductPlan = res
     serviceCatalog
     (Proxy :: Proxy CreateProvisionedProductPlan)
 
+responseExecuteProvisionedProductServiceAction :: ExecuteProvisionedProductServiceActionResponse -> TestTree
+responseExecuteProvisionedProductServiceAction = res
+    "ExecuteProvisionedProductServiceActionResponse"
+    "fixture/ExecuteProvisionedProductServiceActionResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy ExecuteProvisionedProductServiceAction)
+
 responseCreateProduct :: CreateProductResponse -> TestTree
 responseCreateProduct = res
     "CreateProductResponse"
@@ -732,6 +926,13 @@ responseDescribeCopyProductStatus = res
     "fixture/DescribeCopyProductStatusResponse.proto"
     serviceCatalog
     (Proxy :: Proxy DescribeCopyProductStatus)
+
+responseCreateServiceAction :: CreateServiceActionResponse -> TestTree
+responseCreateServiceAction = res
+    "CreateServiceActionResponse"
+    "fixture/CreateServiceActionResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy CreateServiceAction)
 
 responseTerminateProvisionedProduct :: TerminateProvisionedProductResponse -> TestTree
 responseTerminateProvisionedProduct = res
@@ -753,6 +954,13 @@ responseDescribeProvisioningArtifact = res
     "fixture/DescribeProvisioningArtifactResponse.proto"
     serviceCatalog
     (Proxy :: Proxy DescribeProvisioningArtifact)
+
+responseAssociateServiceActionWithProvisioningArtifact :: AssociateServiceActionWithProvisioningArtifactResponse -> TestTree
+responseAssociateServiceActionWithProvisioningArtifact = res
+    "AssociateServiceActionWithProvisioningArtifactResponse"
+    "fixture/AssociateServiceActionWithProvisioningArtifactResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy AssociateServiceActionWithProvisioningArtifact)
 
 responseListRecordHistory :: ListRecordHistoryResponse -> TestTree
 responseListRecordHistory = res
@@ -803,6 +1011,13 @@ responseDescribeRecord = res
     serviceCatalog
     (Proxy :: Proxy DescribeRecord)
 
+responseEnableAWSOrganizationsAccess :: EnableAWSOrganizationsAccessResponse -> TestTree
+responseEnableAWSOrganizationsAccess = res
+    "EnableAWSOrganizationsAccessResponse"
+    "fixture/EnableAWSOrganizationsAccessResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy EnableAWSOrganizationsAccess)
+
 responseDescribeConstraint :: DescribeConstraintResponse -> TestTree
 responseDescribeConstraint = res
     "DescribeConstraintResponse"
@@ -845,6 +1060,13 @@ responseListProvisioningArtifacts = res
     serviceCatalog
     (Proxy :: Proxy ListProvisioningArtifacts)
 
+responseListServiceActionsForProvisioningArtifact :: ListServiceActionsForProvisioningArtifactResponse -> TestTree
+responseListServiceActionsForProvisioningArtifact = res
+    "ListServiceActionsForProvisioningArtifactResponse"
+    "fixture/ListServiceActionsForProvisioningArtifactResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy ListServiceActionsForProvisioningArtifact)
+
 responseSearchProducts :: SearchProductsResponse -> TestTree
 responseSearchProducts = res
     "SearchProductsResponse"
@@ -858,6 +1080,13 @@ responseSearchProvisionedProducts = res
     "fixture/SearchProvisionedProductsResponse.proto"
     serviceCatalog
     (Proxy :: Proxy SearchProvisionedProducts)
+
+responseDescribeServiceAction :: DescribeServiceActionResponse -> TestTree
+responseDescribeServiceAction = res
+    "DescribeServiceActionResponse"
+    "fixture/DescribeServiceActionResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy DescribeServiceAction)
 
 responseDescribeProduct :: DescribeProductResponse -> TestTree
 responseDescribeProduct = res
@@ -893,6 +1122,13 @@ responseListPortfolioAccess = res
     "fixture/ListPortfolioAccessResponse.proto"
     serviceCatalog
     (Proxy :: Proxy ListPortfolioAccess)
+
+responseBatchDisassociateServiceActionFromProvisioningArtifact :: BatchDisassociateServiceActionFromProvisioningArtifactResponse -> TestTree
+responseBatchDisassociateServiceActionFromProvisioningArtifact = res
+    "BatchDisassociateServiceActionFromProvisioningArtifactResponse"
+    "fixture/BatchDisassociateServiceActionFromProvisioningArtifactResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy BatchDisassociateServiceActionFromProvisioningArtifact)
 
 responseDisassociatePrincipalFromPortfolio :: DisassociatePrincipalFromPortfolioResponse -> TestTree
 responseDisassociatePrincipalFromPortfolio = res
@@ -957,6 +1193,13 @@ responseScanProvisionedProducts = res
     serviceCatalog
     (Proxy :: Proxy ScanProvisionedProducts)
 
+responseListOrganizationPortfolioAccess :: ListOrganizationPortfolioAccessResponse -> TestTree
+responseListOrganizationPortfolioAccess = res
+    "ListOrganizationPortfolioAccessResponse"
+    "fixture/ListOrganizationPortfolioAccessResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy ListOrganizationPortfolioAccess)
+
 responseListPrincipalsForPortfolio :: ListPrincipalsForPortfolioResponse -> TestTree
 responseListPrincipalsForPortfolio = res
     "ListPrincipalsForPortfolioResponse"
@@ -978,6 +1221,13 @@ responseUpdateProduct = res
     serviceCatalog
     (Proxy :: Proxy UpdateProduct)
 
+responseListServiceActions :: ListServiceActionsResponse -> TestTree
+responseListServiceActions = res
+    "ListServiceActionsResponse"
+    "fixture/ListServiceActionsResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy ListServiceActions)
+
 responseProvisionProduct :: ProvisionProductResponse -> TestTree
 responseProvisionProduct = res
     "ProvisionProductResponse"
@@ -985,12 +1235,40 @@ responseProvisionProduct = res
     serviceCatalog
     (Proxy :: Proxy ProvisionProduct)
 
+responseDeleteServiceAction :: DeleteServiceActionResponse -> TestTree
+responseDeleteServiceAction = res
+    "DeleteServiceActionResponse"
+    "fixture/DeleteServiceActionResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy DeleteServiceAction)
+
+responseUpdateServiceAction :: UpdateServiceActionResponse -> TestTree
+responseUpdateServiceAction = res
+    "UpdateServiceActionResponse"
+    "fixture/UpdateServiceActionResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy UpdateServiceAction)
+
+responseDisableAWSOrganizationsAccess :: DisableAWSOrganizationsAccessResponse -> TestTree
+responseDisableAWSOrganizationsAccess = res
+    "DisableAWSOrganizationsAccessResponse"
+    "fixture/DisableAWSOrganizationsAccessResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy DisableAWSOrganizationsAccess)
+
 responseRejectPortfolioShare :: RejectPortfolioShareResponse -> TestTree
 responseRejectPortfolioShare = res
     "RejectPortfolioShareResponse"
     "fixture/RejectPortfolioShareResponse.proto"
     serviceCatalog
     (Proxy :: Proxy RejectPortfolioShare)
+
+responseDisassociateServiceActionFromProvisioningArtifact :: DisassociateServiceActionFromProvisioningArtifactResponse -> TestTree
+responseDisassociateServiceActionFromProvisioningArtifact = res
+    "DisassociateServiceActionFromProvisioningArtifactResponse"
+    "fixture/DisassociateServiceActionFromProvisioningArtifactResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy DisassociateServiceActionFromProvisioningArtifact)
 
 responseDeleteTagOption :: DeleteTagOptionResponse -> TestTree
 responseDeleteTagOption = res
@@ -1041,12 +1319,26 @@ responseListPortfoliosForProduct = res
     serviceCatalog
     (Proxy :: Proxy ListPortfoliosForProduct)
 
+responseGetAWSOrganizationsAccessStatus :: GetAWSOrganizationsAccessStatusResponse -> TestTree
+responseGetAWSOrganizationsAccessStatus = res
+    "GetAWSOrganizationsAccessStatusResponse"
+    "fixture/GetAWSOrganizationsAccessStatusResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy GetAWSOrganizationsAccessStatus)
+
 responseDescribeProductAsAdmin :: DescribeProductAsAdminResponse -> TestTree
 responseDescribeProductAsAdmin = res
     "DescribeProductAsAdminResponse"
     "fixture/DescribeProductAsAdminResponse.proto"
     serviceCatalog
     (Proxy :: Proxy DescribeProductAsAdmin)
+
+responseBatchAssociateServiceActionWithProvisioningArtifact :: BatchAssociateServiceActionWithProvisioningArtifactResponse -> TestTree
+responseBatchAssociateServiceActionWithProvisioningArtifact = res
+    "BatchAssociateServiceActionWithProvisioningArtifactResponse"
+    "fixture/BatchAssociateServiceActionWithProvisioningArtifactResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy BatchAssociateServiceActionWithProvisioningArtifact)
 
 responseDescribeProvisioningParameters :: DescribeProvisioningParametersResponse -> TestTree
 responseDescribeProvisioningParameters = res
@@ -1076,6 +1368,13 @@ responseCopyProduct = res
     serviceCatalog
     (Proxy :: Proxy CopyProduct)
 
+responseDescribePortfolioShareStatus :: DescribePortfolioShareStatusResponse -> TestTree
+responseDescribePortfolioShareStatus = res
+    "DescribePortfolioShareStatusResponse"
+    "fixture/DescribePortfolioShareStatusResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy DescribePortfolioShareStatus)
+
 responseUpdateProvisioningArtifact :: UpdateProvisioningArtifactResponse -> TestTree
 responseUpdateProvisioningArtifact = res
     "UpdateProvisioningArtifactResponse"
@@ -1096,6 +1395,13 @@ responseDeleteProvisioningArtifact = res
     "fixture/DeleteProvisioningArtifactResponse.proto"
     serviceCatalog
     (Proxy :: Proxy DeleteProvisioningArtifact)
+
+responseListProvisioningArtifactsForServiceAction :: ListProvisioningArtifactsForServiceActionResponse -> TestTree
+responseListProvisioningArtifactsForServiceAction = res
+    "ListProvisioningArtifactsForServiceActionResponse"
+    "fixture/ListProvisioningArtifactsForServiceActionResponse.proto"
+    serviceCatalog
+    (Proxy :: Proxy ListProvisioningArtifactsForServiceAction)
 
 responseCreatePortfolio :: CreatePortfolioResponse -> TestTree
 responseCreatePortfolio = res

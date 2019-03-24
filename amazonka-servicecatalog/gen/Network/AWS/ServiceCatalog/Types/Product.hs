@@ -116,7 +116,7 @@ data ConstraintDetail = ConstraintDetail'
 --
 -- * 'cdOwner' - The owner of the constraint.
 --
--- * 'cdType' - The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * @TEMPLATE@
+-- * 'cdType' - The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * STACKSET     * @TEMPLATE@
 --
 -- * 'cdDescription' - The description of the constraint.
 constraintDetail
@@ -138,7 +138,7 @@ cdConstraintId = lens _cdConstraintId (\ s a -> s{_cdConstraintId = a})
 cdOwner :: Lens' ConstraintDetail (Maybe Text)
 cdOwner = lens _cdOwner (\ s a -> s{_cdOwner = a})
 
--- | The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * @TEMPLATE@
+-- | The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * STACKSET     * @TEMPLATE@
 cdType :: Lens' ConstraintDetail (Maybe Text)
 cdType = lens _cdType (\ s a -> s{_cdType = a})
 
@@ -174,7 +174,7 @@ data ConstraintSummary = ConstraintSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csType' - The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * @TEMPLATE@
+-- * 'csType' - The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * STACKSET     * @TEMPLATE@
 --
 -- * 'csDescription' - The description of the constraint.
 constraintSummary
@@ -183,7 +183,7 @@ constraintSummary =
   ConstraintSummary' {_csType = Nothing, _csDescription = Nothing}
 
 
--- | The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * @TEMPLATE@
+-- | The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * STACKSET     * @TEMPLATE@
 csType :: Lens' ConstraintSummary (Maybe Text)
 csType = lens _csType (\ s a -> s{_csType = a})
 
@@ -201,6 +201,82 @@ instance FromJSON ConstraintSummary where
 instance Hashable ConstraintSummary where
 
 instance NFData ConstraintSummary where
+
+-- | An object containing information about the error, along with identifying information about the self-service action and its associations.
+--
+--
+--
+-- /See:/ 'failedServiceActionAssociation' smart constructor.
+data FailedServiceActionAssociation = FailedServiceActionAssociation'
+  { _fsaaProvisioningArtifactId :: !(Maybe Text)
+  , _fsaaErrorCode              :: !(Maybe ServiceActionAssociationErrorCode)
+  , _fsaaErrorMessage           :: !(Maybe Text)
+  , _fsaaServiceActionId        :: !(Maybe Text)
+  , _fsaaProductId              :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'FailedServiceActionAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fsaaProvisioningArtifactId' - The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
+--
+-- * 'fsaaErrorCode' - The error code. Valid values are listed below.
+--
+-- * 'fsaaErrorMessage' - A text description of the error.
+--
+-- * 'fsaaServiceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
+--
+-- * 'fsaaProductId' - The product identifier. For example, @prod-abcdzk7xy33qa@ .
+failedServiceActionAssociation
+    :: FailedServiceActionAssociation
+failedServiceActionAssociation =
+  FailedServiceActionAssociation'
+    { _fsaaProvisioningArtifactId = Nothing
+    , _fsaaErrorCode = Nothing
+    , _fsaaErrorMessage = Nothing
+    , _fsaaServiceActionId = Nothing
+    , _fsaaProductId = Nothing
+    }
+
+
+-- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
+fsaaProvisioningArtifactId :: Lens' FailedServiceActionAssociation (Maybe Text)
+fsaaProvisioningArtifactId = lens _fsaaProvisioningArtifactId (\ s a -> s{_fsaaProvisioningArtifactId = a})
+
+-- | The error code. Valid values are listed below.
+fsaaErrorCode :: Lens' FailedServiceActionAssociation (Maybe ServiceActionAssociationErrorCode)
+fsaaErrorCode = lens _fsaaErrorCode (\ s a -> s{_fsaaErrorCode = a})
+
+-- | A text description of the error.
+fsaaErrorMessage :: Lens' FailedServiceActionAssociation (Maybe Text)
+fsaaErrorMessage = lens _fsaaErrorMessage (\ s a -> s{_fsaaErrorMessage = a})
+
+-- | The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
+fsaaServiceActionId :: Lens' FailedServiceActionAssociation (Maybe Text)
+fsaaServiceActionId = lens _fsaaServiceActionId (\ s a -> s{_fsaaServiceActionId = a})
+
+-- | The product identifier. For example, @prod-abcdzk7xy33qa@ .
+fsaaProductId :: Lens' FailedServiceActionAssociation (Maybe Text)
+fsaaProductId = lens _fsaaProductId (\ s a -> s{_fsaaProductId = a})
+
+instance FromJSON FailedServiceActionAssociation
+         where
+        parseJSON
+          = withObject "FailedServiceActionAssociation"
+              (\ x ->
+                 FailedServiceActionAssociation' <$>
+                   (x .:? "ProvisioningArtifactId") <*>
+                     (x .:? "ErrorCode")
+                     <*> (x .:? "ErrorMessage")
+                     <*> (x .:? "ServiceActionId")
+                     <*> (x .:? "ProductId"))
+
+instance Hashable FailedServiceActionAssociation
+         where
+
+instance NFData FailedServiceActionAssociation where
 
 -- | Summary information about a product path for a user.
 --
@@ -361,6 +437,54 @@ instance ToJSON ListTagOptionsFilters where
                  [("Value" .=) <$> _ltofValue,
                   ("Active" .=) <$> _ltofActive,
                   ("Key" .=) <$> _ltofKey])
+
+-- | Information about the organization node.
+--
+--
+--
+-- /See:/ 'organizationNode' smart constructor.
+data OrganizationNode = OrganizationNode'
+  { _onValue :: !(Maybe Text)
+  , _onType  :: !(Maybe OrganizationNodeType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'OrganizationNode' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'onValue' - The identifier of the organization node.
+--
+-- * 'onType' - The organization node type.
+organizationNode
+    :: OrganizationNode
+organizationNode = OrganizationNode' {_onValue = Nothing, _onType = Nothing}
+
+
+-- | The identifier of the organization node.
+onValue :: Lens' OrganizationNode (Maybe Text)
+onValue = lens _onValue (\ s a -> s{_onValue = a})
+
+-- | The organization node type.
+onType :: Lens' OrganizationNode (Maybe OrganizationNodeType)
+onType = lens _onType (\ s a -> s{_onType = a})
+
+instance FromJSON OrganizationNode where
+        parseJSON
+          = withObject "OrganizationNode"
+              (\ x ->
+                 OrganizationNode' <$>
+                   (x .:? "Value") <*> (x .:? "Type"))
+
+instance Hashable OrganizationNode where
+
+instance NFData OrganizationNode where
+
+instance ToJSON OrganizationNode where
+        toJSON OrganizationNode'{..}
+          = object
+              (catMaybes
+                 [("Value" .=) <$> _onValue, ("Type" .=) <$> _onType])
 
 -- | The constraints that the administrator has put on the parameter.
 --
@@ -786,7 +910,7 @@ data ProvisionedProductAttribute = ProvisionedProductAttribute'
 --
 -- * 'ppaIdempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
 --
--- * 'ppaStatus' - The current status of the provisioned product.     * @AVAILABLE@ - Stable state, ready to perform any operation. The most recent operation succeeded and completed.     * @UNDER_CHANGE@ - Transitive state, operations performed might not have valid results. Wait for an @AVAILABLE@ status before performing operations.     * @TAINTED@ - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.     * @ERROR@ - An unexpected error occurred, the provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.
+-- * 'ppaStatus' - The current status of the provisioned product.     * @AVAILABLE@ - Stable state, ready to perform any operation. The most recent operation succeeded and completed.     * @UNDER_CHANGE@ - Transitive state. Operations performed might not have valid results. Wait for an @AVAILABLE@ status before performing operations.     * @TAINTED@ - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.     * @ERROR@ - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.     * @PLAN_IN_PROGRESS@ - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an @AVAILABLE@ status before performing operations.
 --
 -- * 'ppaProvisioningArtifactId' - The identifier of the provisioning artifact.
 --
@@ -806,7 +930,7 @@ data ProvisionedProductAttribute = ProvisionedProductAttribute'
 --
 -- * 'ppaId' - The identifier of the provisioned product.
 --
--- * 'ppaType' - The type of provisioned product. The supported value is @CFN_STACK@ .
+-- * 'ppaType' - The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
 --
 -- * 'ppaPhysicalId' - The assigned identifier for the resource, such as an EC2 instance ID or an S3 bucket name.
 --
@@ -839,7 +963,7 @@ provisionedProductAttribute =
 ppaIdempotencyToken :: Lens' ProvisionedProductAttribute (Maybe Text)
 ppaIdempotencyToken = lens _ppaIdempotencyToken (\ s a -> s{_ppaIdempotencyToken = a})
 
--- | The current status of the provisioned product.     * @AVAILABLE@ - Stable state, ready to perform any operation. The most recent operation succeeded and completed.     * @UNDER_CHANGE@ - Transitive state, operations performed might not have valid results. Wait for an @AVAILABLE@ status before performing operations.     * @TAINTED@ - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.     * @ERROR@ - An unexpected error occurred, the provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.
+-- | The current status of the provisioned product.     * @AVAILABLE@ - Stable state, ready to perform any operation. The most recent operation succeeded and completed.     * @UNDER_CHANGE@ - Transitive state. Operations performed might not have valid results. Wait for an @AVAILABLE@ status before performing operations.     * @TAINTED@ - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.     * @ERROR@ - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.     * @PLAN_IN_PROGRESS@ - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an @AVAILABLE@ status before performing operations.
 ppaStatus :: Lens' ProvisionedProductAttribute (Maybe ProvisionedProductStatus)
 ppaStatus = lens _ppaStatus (\ s a -> s{_ppaStatus = a})
 
@@ -879,7 +1003,7 @@ ppaUserARNSession = lens _ppaUserARNSession (\ s a -> s{_ppaUserARNSession = a})
 ppaId :: Lens' ProvisionedProductAttribute (Maybe Text)
 ppaId = lens _ppaId (\ s a -> s{_ppaId = a})
 
--- | The type of provisioned product. The supported value is @CFN_STACK@ .
+-- | The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
 ppaType :: Lens' ProvisionedProductAttribute (Maybe Text)
 ppaType = lens _ppaType (\ s a -> s{_ppaType = a})
 
@@ -925,15 +1049,17 @@ instance NFData ProvisionedProductAttribute where
 --
 -- /See:/ 'provisionedProductDetail' smart constructor.
 data ProvisionedProductDetail = ProvisionedProductDetail'
-  { _ppdIdempotencyToken :: !(Maybe Text)
-  , _ppdStatus           :: !(Maybe ProvisionedProductStatus)
-  , _ppdARN              :: !(Maybe Text)
-  , _ppdCreatedTime      :: !(Maybe POSIX)
-  , _ppdStatusMessage    :: !(Maybe Text)
-  , _ppdName             :: !(Maybe Text)
-  , _ppdLastRecordId     :: !(Maybe Text)
-  , _ppdId               :: !(Maybe Text)
-  , _ppdType             :: !(Maybe Text)
+  { _ppdIdempotencyToken       :: !(Maybe Text)
+  , _ppdStatus                 :: !(Maybe ProvisionedProductStatus)
+  , _ppdProvisioningArtifactId :: !(Maybe Text)
+  , _ppdARN                    :: !(Maybe Text)
+  , _ppdCreatedTime            :: !(Maybe POSIX)
+  , _ppdStatusMessage          :: !(Maybe Text)
+  , _ppdName                   :: !(Maybe Text)
+  , _ppdLastRecordId           :: !(Maybe Text)
+  , _ppdId                     :: !(Maybe Text)
+  , _ppdType                   :: !(Maybe Text)
+  , _ppdProductId              :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -943,7 +1069,9 @@ data ProvisionedProductDetail = ProvisionedProductDetail'
 --
 -- * 'ppdIdempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
 --
--- * 'ppdStatus' - The current status of the provisioned product.     * @AVAILABLE@ - Stable state, ready to perform any operation. The most recent operation succeeded and completed.     * @UNDER_CHANGE@ - Transitive state, operations performed might not have valid results. Wait for an @AVAILABLE@ status before performing operations.     * @TAINTED@ - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.     * @ERROR@ - An unexpected error occurred, the provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.
+-- * 'ppdStatus' - The current status of the provisioned product.     * @AVAILABLE@ - Stable state, ready to perform any operation. The most recent operation succeeded and completed.     * @UNDER_CHANGE@ - Transitive state. Operations performed might not have valid results. Wait for an @AVAILABLE@ status before performing operations.     * @TAINTED@ - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.     * @ERROR@ - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.     * @PLAN_IN_PROGRESS@ - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an @AVAILABLE@ status before performing operations.
+--
+-- * 'ppdProvisioningArtifactId' - The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
 --
 -- * 'ppdARN' - The ARN of the provisioned product.
 --
@@ -957,13 +1085,16 @@ data ProvisionedProductDetail = ProvisionedProductDetail'
 --
 -- * 'ppdId' - The identifier of the provisioned product.
 --
--- * 'ppdType' - The type of provisioned product. The supported value is @CFN_STACK@ .
+-- * 'ppdType' - The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
+--
+-- * 'ppdProductId' - The product identifier. For example, @prod-abcdzk7xy33qa@ .
 provisionedProductDetail
     :: ProvisionedProductDetail
 provisionedProductDetail =
   ProvisionedProductDetail'
     { _ppdIdempotencyToken = Nothing
     , _ppdStatus = Nothing
+    , _ppdProvisioningArtifactId = Nothing
     , _ppdARN = Nothing
     , _ppdCreatedTime = Nothing
     , _ppdStatusMessage = Nothing
@@ -971,6 +1102,7 @@ provisionedProductDetail =
     , _ppdLastRecordId = Nothing
     , _ppdId = Nothing
     , _ppdType = Nothing
+    , _ppdProductId = Nothing
     }
 
 
@@ -978,9 +1110,13 @@ provisionedProductDetail =
 ppdIdempotencyToken :: Lens' ProvisionedProductDetail (Maybe Text)
 ppdIdempotencyToken = lens _ppdIdempotencyToken (\ s a -> s{_ppdIdempotencyToken = a})
 
--- | The current status of the provisioned product.     * @AVAILABLE@ - Stable state, ready to perform any operation. The most recent operation succeeded and completed.     * @UNDER_CHANGE@ - Transitive state, operations performed might not have valid results. Wait for an @AVAILABLE@ status before performing operations.     * @TAINTED@ - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.     * @ERROR@ - An unexpected error occurred, the provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.
+-- | The current status of the provisioned product.     * @AVAILABLE@ - Stable state, ready to perform any operation. The most recent operation succeeded and completed.     * @UNDER_CHANGE@ - Transitive state. Operations performed might not have valid results. Wait for an @AVAILABLE@ status before performing operations.     * @TAINTED@ - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.     * @ERROR@ - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.     * @PLAN_IN_PROGRESS@ - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an @AVAILABLE@ status before performing operations.
 ppdStatus :: Lens' ProvisionedProductDetail (Maybe ProvisionedProductStatus)
 ppdStatus = lens _ppdStatus (\ s a -> s{_ppdStatus = a})
+
+-- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
+ppdProvisioningArtifactId :: Lens' ProvisionedProductDetail (Maybe Text)
+ppdProvisioningArtifactId = lens _ppdProvisioningArtifactId (\ s a -> s{_ppdProvisioningArtifactId = a})
 
 -- | The ARN of the provisioned product.
 ppdARN :: Lens' ProvisionedProductDetail (Maybe Text)
@@ -1006,9 +1142,13 @@ ppdLastRecordId = lens _ppdLastRecordId (\ s a -> s{_ppdLastRecordId = a})
 ppdId :: Lens' ProvisionedProductDetail (Maybe Text)
 ppdId = lens _ppdId (\ s a -> s{_ppdId = a})
 
--- | The type of provisioned product. The supported value is @CFN_STACK@ .
+-- | The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
 ppdType :: Lens' ProvisionedProductDetail (Maybe Text)
 ppdType = lens _ppdType (\ s a -> s{_ppdType = a})
+
+-- | The product identifier. For example, @prod-abcdzk7xy33qa@ .
+ppdProductId :: Lens' ProvisionedProductDetail (Maybe Text)
+ppdProductId = lens _ppdProductId (\ s a -> s{_ppdProductId = a})
 
 instance FromJSON ProvisionedProductDetail where
         parseJSON
@@ -1016,13 +1156,15 @@ instance FromJSON ProvisionedProductDetail where
               (\ x ->
                  ProvisionedProductDetail' <$>
                    (x .:? "IdempotencyToken") <*> (x .:? "Status") <*>
-                     (x .:? "Arn")
+                     (x .:? "ProvisioningArtifactId")
+                     <*> (x .:? "Arn")
                      <*> (x .:? "CreatedTime")
                      <*> (x .:? "StatusMessage")
                      <*> (x .:? "Name")
                      <*> (x .:? "LastRecordId")
                      <*> (x .:? "Id")
-                     <*> (x .:? "Type"))
+                     <*> (x .:? "Type")
+                     <*> (x .:? "ProductId"))
 
 instance Hashable ProvisionedProductDetail where
 
@@ -1502,6 +1644,55 @@ instance Hashable ProvisioningArtifactParameter where
 
 instance NFData ProvisioningArtifactParameter where
 
+-- | The user-defined preferences that will be applied during product provisioning, unless overridden by @ProvisioningPreferences@ or @UpdateProvisioningPreferences@ .
+--
+--
+-- For more information on maximum concurrent accounts and failure tolerance, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options> in the /AWS CloudFormation User Guide/ .
+--
+--
+-- /See:/ 'provisioningArtifactPreferences' smart constructor.
+data ProvisioningArtifactPreferences = ProvisioningArtifactPreferences'
+  { _papStackSetRegions  :: !(Maybe [Text])
+  , _papStackSetAccounts :: !(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ProvisioningArtifactPreferences' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'papStackSetRegions' - One or more AWS Regions where stack instances are deployed from the stack set. These regions can be scoped in @ProvisioningPreferences$StackSetRegions@ and @UpdateProvisioningPreferences$StackSetRegions@ . Applicable only to a @CFN_STACKSET@ provisioned product type.
+--
+-- * 'papStackSetAccounts' - One or more AWS accounts where stack instances are deployed from the stack set. These accounts can be scoped in @ProvisioningPreferences$StackSetAccounts@ and @UpdateProvisioningPreferences$StackSetAccounts@ . Applicable only to a @CFN_STACKSET@ provisioned product type.
+provisioningArtifactPreferences
+    :: ProvisioningArtifactPreferences
+provisioningArtifactPreferences =
+  ProvisioningArtifactPreferences'
+    {_papStackSetRegions = Nothing, _papStackSetAccounts = Nothing}
+
+
+-- | One or more AWS Regions where stack instances are deployed from the stack set. These regions can be scoped in @ProvisioningPreferences$StackSetRegions@ and @UpdateProvisioningPreferences$StackSetRegions@ . Applicable only to a @CFN_STACKSET@ provisioned product type.
+papStackSetRegions :: Lens' ProvisioningArtifactPreferences [Text]
+papStackSetRegions = lens _papStackSetRegions (\ s a -> s{_papStackSetRegions = a}) . _Default . _Coerce
+
+-- | One or more AWS accounts where stack instances are deployed from the stack set. These accounts can be scoped in @ProvisioningPreferences$StackSetAccounts@ and @UpdateProvisioningPreferences$StackSetAccounts@ . Applicable only to a @CFN_STACKSET@ provisioned product type.
+papStackSetAccounts :: Lens' ProvisioningArtifactPreferences [Text]
+papStackSetAccounts = lens _papStackSetAccounts (\ s a -> s{_papStackSetAccounts = a}) . _Default . _Coerce
+
+instance FromJSON ProvisioningArtifactPreferences
+         where
+        parseJSON
+          = withObject "ProvisioningArtifactPreferences"
+              (\ x ->
+                 ProvisioningArtifactPreferences' <$>
+                   (x .:? "StackSetRegions" .!= mempty) <*>
+                     (x .:? "StackSetAccounts" .!= mempty))
+
+instance Hashable ProvisioningArtifactPreferences
+         where
+
+instance NFData ProvisioningArtifactPreferences where
+
 -- | Information about a provisioning artifact (also known as a version) for a product.
 --
 --
@@ -1640,6 +1831,51 @@ instance Hashable ProvisioningArtifactSummary where
 
 instance NFData ProvisioningArtifactSummary where
 
+-- | An object that contains summary information about a product view and a provisioning artifact.
+--
+--
+--
+-- /See:/ 'provisioningArtifactView' smart constructor.
+data ProvisioningArtifactView = ProvisioningArtifactView'
+  { _pavProductViewSummary   :: !(Maybe ProductViewSummary)
+  , _pavProvisioningArtifact :: !(Maybe ProvisioningArtifact)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ProvisioningArtifactView' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pavProductViewSummary' - Summary information about a product view.
+--
+-- * 'pavProvisioningArtifact' - Information about a provisioning artifact. A provisioning artifact is also known as a product version.
+provisioningArtifactView
+    :: ProvisioningArtifactView
+provisioningArtifactView =
+  ProvisioningArtifactView'
+    {_pavProductViewSummary = Nothing, _pavProvisioningArtifact = Nothing}
+
+
+-- | Summary information about a product view.
+pavProductViewSummary :: Lens' ProvisioningArtifactView (Maybe ProductViewSummary)
+pavProductViewSummary = lens _pavProductViewSummary (\ s a -> s{_pavProductViewSummary = a})
+
+-- | Information about a provisioning artifact. A provisioning artifact is also known as a product version.
+pavProvisioningArtifact :: Lens' ProvisioningArtifactView (Maybe ProvisioningArtifact)
+pavProvisioningArtifact = lens _pavProvisioningArtifact (\ s a -> s{_pavProvisioningArtifact = a})
+
+instance FromJSON ProvisioningArtifactView where
+        parseJSON
+          = withObject "ProvisioningArtifactView"
+              (\ x ->
+                 ProvisioningArtifactView' <$>
+                   (x .:? "ProductViewSummary") <*>
+                     (x .:? "ProvisioningArtifact"))
+
+instance Hashable ProvisioningArtifactView where
+
+instance NFData ProvisioningArtifactView where
+
 -- | Information about a parameter used to provision a product.
 --
 --
@@ -1682,6 +1918,92 @@ instance ToJSON ProvisioningParameter where
               (catMaybes
                  [("Value" .=) <$> _ppValue, ("Key" .=) <$> _ppKey])
 
+-- | The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product types.
+--
+--
+--
+-- /See:/ 'provisioningPreferences' smart constructor.
+data ProvisioningPreferences = ProvisioningPreferences'
+  { _ppStackSetRegions                    :: !(Maybe [Text])
+  , _ppStackSetMaxConcurrencyPercentage   :: !(Maybe Nat)
+  , _ppStackSetFailureToleranceCount      :: !(Maybe Nat)
+  , _ppStackSetFailureTolerancePercentage :: !(Maybe Nat)
+  , _ppStackSetAccounts                   :: !(Maybe [Text])
+  , _ppStackSetMaxConcurrencyCount        :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ProvisioningPreferences' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ppStackSetRegions' - One or more AWS Regions where the provisioned product will be available. Applicable only to a @CFN_STACKSET@ provisioned product type. The specified regions should be within the list of regions from the @STACKSET@ constraint. To get the list of regions in the @STACKSET@ constraint, use the @DescribeProvisioningParameters@ operation. If no values are specified, the default value is all regions from the @STACKSET@ constraint.
+--
+-- * 'ppStackSetMaxConcurrencyPercentage' - The maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as @1@ instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. Applicable only to a @CFN_STACKSET@ provisioned product type. Conditional: You must specify either @StackSetMaxConcurrentCount@ or @StackSetMaxConcurrentPercentage@ , but not both.
+--
+-- * 'ppStackSetFailureToleranceCount' - The number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. Applicable only to a @CFN_STACKSET@ provisioned product type. Conditional: You must specify either @StackSetFailureToleranceCount@ or @StackSetFailureTolerancePercentage@ , but not both. The default value is @0@ if no value is specified.
+--
+-- * 'ppStackSetFailureTolerancePercentage' - The percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. Applicable only to a @CFN_STACKSET@ provisioned product type. Conditional: You must specify either @StackSetFailureToleranceCount@ or @StackSetFailureTolerancePercentage@ , but not both.
+--
+-- * 'ppStackSetAccounts' - One or more AWS accounts that will have access to the provisioned product. Applicable only to a @CFN_STACKSET@ provisioned product type. The AWS accounts specified should be within the list of accounts in the @STACKSET@ constraint. To get the list of accounts in the @STACKSET@ constraint, use the @DescribeProvisioningParameters@ operation. If no values are specified, the default value is all accounts from the @STACKSET@ constraint.
+--
+-- * 'ppStackSetMaxConcurrencyCount' - The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of @StackSetFailureToleranceCount@ . @StackSetMaxConcurrentCount@ is at most one more than the @StackSetFailureToleranceCount@ . Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. Applicable only to a @CFN_STACKSET@ provisioned product type. Conditional: You must specify either @StackSetMaxConcurrentCount@ or @StackSetMaxConcurrentPercentage@ , but not both.
+provisioningPreferences
+    :: ProvisioningPreferences
+provisioningPreferences =
+  ProvisioningPreferences'
+    { _ppStackSetRegions = Nothing
+    , _ppStackSetMaxConcurrencyPercentage = Nothing
+    , _ppStackSetFailureToleranceCount = Nothing
+    , _ppStackSetFailureTolerancePercentage = Nothing
+    , _ppStackSetAccounts = Nothing
+    , _ppStackSetMaxConcurrencyCount = Nothing
+    }
+
+
+-- | One or more AWS Regions where the provisioned product will be available. Applicable only to a @CFN_STACKSET@ provisioned product type. The specified regions should be within the list of regions from the @STACKSET@ constraint. To get the list of regions in the @STACKSET@ constraint, use the @DescribeProvisioningParameters@ operation. If no values are specified, the default value is all regions from the @STACKSET@ constraint.
+ppStackSetRegions :: Lens' ProvisioningPreferences [Text]
+ppStackSetRegions = lens _ppStackSetRegions (\ s a -> s{_ppStackSetRegions = a}) . _Default . _Coerce
+
+-- | The maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as @1@ instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. Applicable only to a @CFN_STACKSET@ provisioned product type. Conditional: You must specify either @StackSetMaxConcurrentCount@ or @StackSetMaxConcurrentPercentage@ , but not both.
+ppStackSetMaxConcurrencyPercentage :: Lens' ProvisioningPreferences (Maybe Natural)
+ppStackSetMaxConcurrencyPercentage = lens _ppStackSetMaxConcurrencyPercentage (\ s a -> s{_ppStackSetMaxConcurrencyPercentage = a}) . mapping _Nat
+
+-- | The number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. Applicable only to a @CFN_STACKSET@ provisioned product type. Conditional: You must specify either @StackSetFailureToleranceCount@ or @StackSetFailureTolerancePercentage@ , but not both. The default value is @0@ if no value is specified.
+ppStackSetFailureToleranceCount :: Lens' ProvisioningPreferences (Maybe Natural)
+ppStackSetFailureToleranceCount = lens _ppStackSetFailureToleranceCount (\ s a -> s{_ppStackSetFailureToleranceCount = a}) . mapping _Nat
+
+-- | The percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. Applicable only to a @CFN_STACKSET@ provisioned product type. Conditional: You must specify either @StackSetFailureToleranceCount@ or @StackSetFailureTolerancePercentage@ , but not both.
+ppStackSetFailureTolerancePercentage :: Lens' ProvisioningPreferences (Maybe Natural)
+ppStackSetFailureTolerancePercentage = lens _ppStackSetFailureTolerancePercentage (\ s a -> s{_ppStackSetFailureTolerancePercentage = a}) . mapping _Nat
+
+-- | One or more AWS accounts that will have access to the provisioned product. Applicable only to a @CFN_STACKSET@ provisioned product type. The AWS accounts specified should be within the list of accounts in the @STACKSET@ constraint. To get the list of accounts in the @STACKSET@ constraint, use the @DescribeProvisioningParameters@ operation. If no values are specified, the default value is all accounts from the @STACKSET@ constraint.
+ppStackSetAccounts :: Lens' ProvisioningPreferences [Text]
+ppStackSetAccounts = lens _ppStackSetAccounts (\ s a -> s{_ppStackSetAccounts = a}) . _Default . _Coerce
+
+-- | The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of @StackSetFailureToleranceCount@ . @StackSetMaxConcurrentCount@ is at most one more than the @StackSetFailureToleranceCount@ . Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. Applicable only to a @CFN_STACKSET@ provisioned product type. Conditional: You must specify either @StackSetMaxConcurrentCount@ or @StackSetMaxConcurrentPercentage@ , but not both.
+ppStackSetMaxConcurrencyCount :: Lens' ProvisioningPreferences (Maybe Natural)
+ppStackSetMaxConcurrencyCount = lens _ppStackSetMaxConcurrencyCount (\ s a -> s{_ppStackSetMaxConcurrencyCount = a}) . mapping _Nat
+
+instance Hashable ProvisioningPreferences where
+
+instance NFData ProvisioningPreferences where
+
+instance ToJSON ProvisioningPreferences where
+        toJSON ProvisioningPreferences'{..}
+          = object
+              (catMaybes
+                 [("StackSetRegions" .=) <$> _ppStackSetRegions,
+                  ("StackSetMaxConcurrencyPercentage" .=) <$>
+                    _ppStackSetMaxConcurrencyPercentage,
+                  ("StackSetFailureToleranceCount" .=) <$>
+                    _ppStackSetFailureToleranceCount,
+                  ("StackSetFailureTolerancePercentage" .=) <$>
+                    _ppStackSetFailureTolerancePercentage,
+                  ("StackSetAccounts" .=) <$> _ppStackSetAccounts,
+                  ("StackSetMaxConcurrencyCount" .=) <$>
+                    _ppStackSetMaxConcurrencyCount])
+
 -- | Information about a request operation.
 --
 --
@@ -1722,7 +2044,7 @@ data RecordDetail = RecordDetail'
 --
 -- * 'rdRecordId' - The identifier of the record.
 --
--- * 'rdProvisionedProductType' - The type of provisioned product. The supported value is @CFN_STACK@ .
+-- * 'rdProvisionedProductType' - The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
 --
 -- * 'rdUpdatedTime' - The time when the record was last updated.
 --
@@ -1781,7 +2103,7 @@ rdRecordType = lens _rdRecordType (\ s a -> s{_rdRecordType = a})
 rdRecordId :: Lens' RecordDetail (Maybe Text)
 rdRecordId = lens _rdRecordId (\ s a -> s{_rdRecordId = a})
 
--- | The type of provisioned product. The supported value is @CFN_STACK@ .
+-- | The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
 rdProvisionedProductType :: Lens' RecordDetail (Maybe Text)
 rdProvisionedProductType = lens _rdProvisionedProductType (\ s a -> s{_rdProvisionedProductType = a})
 
@@ -2237,6 +2559,270 @@ instance Hashable ResourceTargetDefinition where
 
 instance NFData ResourceTargetDefinition where
 
+-- | A self-service action association consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.
+--
+--
+--
+-- /See:/ 'serviceActionAssociation' smart constructor.
+data ServiceActionAssociation = ServiceActionAssociation'
+  { _saaServiceActionId        :: !Text
+  , _saaProductId              :: !Text
+  , _saaProvisioningArtifactId :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ServiceActionAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'saaServiceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
+--
+-- * 'saaProductId' - The product identifier. For example, @prod-abcdzk7xy33qa@ .
+--
+-- * 'saaProvisioningArtifactId' - The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
+serviceActionAssociation
+    :: Text -- ^ 'saaServiceActionId'
+    -> Text -- ^ 'saaProductId'
+    -> Text -- ^ 'saaProvisioningArtifactId'
+    -> ServiceActionAssociation
+serviceActionAssociation pServiceActionId_ pProductId_ pProvisioningArtifactId_ =
+  ServiceActionAssociation'
+    { _saaServiceActionId = pServiceActionId_
+    , _saaProductId = pProductId_
+    , _saaProvisioningArtifactId = pProvisioningArtifactId_
+    }
+
+
+-- | The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
+saaServiceActionId :: Lens' ServiceActionAssociation Text
+saaServiceActionId = lens _saaServiceActionId (\ s a -> s{_saaServiceActionId = a})
+
+-- | The product identifier. For example, @prod-abcdzk7xy33qa@ .
+saaProductId :: Lens' ServiceActionAssociation Text
+saaProductId = lens _saaProductId (\ s a -> s{_saaProductId = a})
+
+-- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
+saaProvisioningArtifactId :: Lens' ServiceActionAssociation Text
+saaProvisioningArtifactId = lens _saaProvisioningArtifactId (\ s a -> s{_saaProvisioningArtifactId = a})
+
+instance Hashable ServiceActionAssociation where
+
+instance NFData ServiceActionAssociation where
+
+instance ToJSON ServiceActionAssociation where
+        toJSON ServiceActionAssociation'{..}
+          = object
+              (catMaybes
+                 [Just ("ServiceActionId" .= _saaServiceActionId),
+                  Just ("ProductId" .= _saaProductId),
+                  Just
+                    ("ProvisioningArtifactId" .=
+                       _saaProvisioningArtifactId)])
+
+-- | An object containing detailed information about the self-service action.
+--
+--
+--
+-- /See:/ 'serviceActionDetail' smart constructor.
+data ServiceActionDetail = ServiceActionDetail'
+  { _sadServiceActionSummary :: !(Maybe ServiceActionSummary)
+  , _sadDefinition           :: !(Maybe (Map ServiceActionDefinitionKey Text))
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ServiceActionDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sadServiceActionSummary' - Summary information about the self-service action.
+--
+-- * 'sadDefinition' - A map that defines the self-service action.
+serviceActionDetail
+    :: ServiceActionDetail
+serviceActionDetail =
+  ServiceActionDetail'
+    {_sadServiceActionSummary = Nothing, _sadDefinition = Nothing}
+
+
+-- | Summary information about the self-service action.
+sadServiceActionSummary :: Lens' ServiceActionDetail (Maybe ServiceActionSummary)
+sadServiceActionSummary = lens _sadServiceActionSummary (\ s a -> s{_sadServiceActionSummary = a})
+
+-- | A map that defines the self-service action.
+sadDefinition :: Lens' ServiceActionDetail (HashMap ServiceActionDefinitionKey Text)
+sadDefinition = lens _sadDefinition (\ s a -> s{_sadDefinition = a}) . _Default . _Map
+
+instance FromJSON ServiceActionDetail where
+        parseJSON
+          = withObject "ServiceActionDetail"
+              (\ x ->
+                 ServiceActionDetail' <$>
+                   (x .:? "ServiceActionSummary") <*>
+                     (x .:? "Definition" .!= mempty))
+
+instance Hashable ServiceActionDetail where
+
+instance NFData ServiceActionDetail where
+
+-- | Detailed information about the self-service action.
+--
+--
+--
+-- /See:/ 'serviceActionSummary' smart constructor.
+data ServiceActionSummary = ServiceActionSummary'
+  { _sasName           :: !(Maybe Text)
+  , _sasId             :: !(Maybe Text)
+  , _sasDefinitionType :: !(Maybe ServiceActionDefinitionType)
+  , _sasDescription    :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ServiceActionSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sasName' - The self-service action name.
+--
+-- * 'sasId' - The self-service action identifier.
+--
+-- * 'sasDefinitionType' - The self-service action definition type. For example, @SSM_AUTOMATION@ .
+--
+-- * 'sasDescription' - The self-service action description.
+serviceActionSummary
+    :: ServiceActionSummary
+serviceActionSummary =
+  ServiceActionSummary'
+    { _sasName = Nothing
+    , _sasId = Nothing
+    , _sasDefinitionType = Nothing
+    , _sasDescription = Nothing
+    }
+
+
+-- | The self-service action name.
+sasName :: Lens' ServiceActionSummary (Maybe Text)
+sasName = lens _sasName (\ s a -> s{_sasName = a})
+
+-- | The self-service action identifier.
+sasId :: Lens' ServiceActionSummary (Maybe Text)
+sasId = lens _sasId (\ s a -> s{_sasId = a})
+
+-- | The self-service action definition type. For example, @SSM_AUTOMATION@ .
+sasDefinitionType :: Lens' ServiceActionSummary (Maybe ServiceActionDefinitionType)
+sasDefinitionType = lens _sasDefinitionType (\ s a -> s{_sasDefinitionType = a})
+
+-- | The self-service action description.
+sasDescription :: Lens' ServiceActionSummary (Maybe Text)
+sasDescription = lens _sasDescription (\ s a -> s{_sasDescription = a})
+
+instance FromJSON ServiceActionSummary where
+        parseJSON
+          = withObject "ServiceActionSummary"
+              (\ x ->
+                 ServiceActionSummary' <$>
+                   (x .:? "Name") <*> (x .:? "Id") <*>
+                     (x .:? "DefinitionType")
+                     <*> (x .:? "Description"))
+
+instance Hashable ServiceActionSummary where
+
+instance NFData ServiceActionSummary where
+
+-- | Information about the portfolio share operation.
+--
+--
+--
+-- /See:/ 'shareDetails' smart constructor.
+data ShareDetails = ShareDetails'
+  { _sdShareErrors      :: !(Maybe [ShareError])
+  , _sdSuccessfulShares :: !(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ShareDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sdShareErrors' - List of errors.
+--
+-- * 'sdSuccessfulShares' - List of accounts for whom the operation succeeded.
+shareDetails
+    :: ShareDetails
+shareDetails =
+  ShareDetails' {_sdShareErrors = Nothing, _sdSuccessfulShares = Nothing}
+
+
+-- | List of errors.
+sdShareErrors :: Lens' ShareDetails [ShareError]
+sdShareErrors = lens _sdShareErrors (\ s a -> s{_sdShareErrors = a}) . _Default . _Coerce
+
+-- | List of accounts for whom the operation succeeded.
+sdSuccessfulShares :: Lens' ShareDetails [Text]
+sdSuccessfulShares = lens _sdSuccessfulShares (\ s a -> s{_sdSuccessfulShares = a}) . _Default . _Coerce
+
+instance FromJSON ShareDetails where
+        parseJSON
+          = withObject "ShareDetails"
+              (\ x ->
+                 ShareDetails' <$>
+                   (x .:? "ShareErrors" .!= mempty) <*>
+                     (x .:? "SuccessfulShares" .!= mempty))
+
+instance Hashable ShareDetails where
+
+instance NFData ShareDetails where
+
+-- | Errors that occurred during the portfolio share operation.
+--
+--
+--
+-- /See:/ 'shareError' smart constructor.
+data ShareError = ShareError'
+  { _seAccounts :: !(Maybe [Text])
+  , _seError    :: !(Maybe Text)
+  , _seMessage  :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ShareError' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'seAccounts' - List of accounts impacted by the error.
+--
+-- * 'seError' - Error type that happened when processing the operation.
+--
+-- * 'seMessage' - Information about the error.
+shareError
+    :: ShareError
+shareError =
+  ShareError' {_seAccounts = Nothing, _seError = Nothing, _seMessage = Nothing}
+
+
+-- | List of accounts impacted by the error.
+seAccounts :: Lens' ShareError [Text]
+seAccounts = lens _seAccounts (\ s a -> s{_seAccounts = a}) . _Default . _Coerce
+
+-- | Error type that happened when processing the operation.
+seError :: Lens' ShareError (Maybe Text)
+seError = lens _seError (\ s a -> s{_seError = a})
+
+-- | Information about the error.
+seMessage :: Lens' ShareError (Maybe Text)
+seMessage = lens _seMessage (\ s a -> s{_seMessage = a})
+
+instance FromJSON ShareError where
+        parseJSON
+          = withObject "ShareError"
+              (\ x ->
+                 ShareError' <$>
+                   (x .:? "Accounts" .!= mempty) <*> (x .:? "Error") <*>
+                     (x .:? "Message"))
+
+instance Hashable ShareError where
+
+instance NFData ShareError where
+
 -- | Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
 --
 --
@@ -2450,6 +3036,102 @@ instance ToJSON UpdateProvisioningParameter where
               (catMaybes
                  [("Value" .=) <$> _uppValue, ("Key" .=) <$> _uppKey,
                   ("UsePreviousValue" .=) <$> _uppUsePreviousValue])
+
+-- | The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product types.
+--
+--
+--
+-- /See:/ 'updateProvisioningPreferences' smart constructor.
+data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
+  { _uppStackSetRegions                    :: !(Maybe [Text])
+  , _uppStackSetMaxConcurrencyPercentage   :: !(Maybe Nat)
+  , _uppStackSetFailureToleranceCount      :: !(Maybe Nat)
+  , _uppStackSetFailureTolerancePercentage :: !(Maybe Nat)
+  , _uppStackSetAccounts                   :: !(Maybe [Text])
+  , _uppStackSetMaxConcurrencyCount        :: !(Maybe Nat)
+  , _uppStackSetOperationType              :: !(Maybe StackSetOperationType)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'UpdateProvisioningPreferences' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uppStackSetRegions' - One or more AWS Regions where the provisioned product will be available. Applicable only to a @CFN_STACKSET@ provisioned product type. The specified regions should be within the list of regions from the @STACKSET@ constraint. To get the list of regions in the @STACKSET@ constraint, use the @DescribeProvisioningParameters@ operation. If no values are specified, the default value is all regions from the @STACKSET@ constraint.
+--
+-- * 'uppStackSetMaxConcurrencyPercentage' - The maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as @1@ instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. Applicable only to a @CFN_STACKSET@ provisioned product type. Conditional: You must specify either @StackSetMaxConcurrentCount@ or @StackSetMaxConcurrentPercentage@ , but not both.
+--
+-- * 'uppStackSetFailureToleranceCount' - The number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. Applicable only to a @CFN_STACKSET@ provisioned product type. Conditional: You must specify either @StackSetFailureToleranceCount@ or @StackSetFailureTolerancePercentage@ , but not both. The default value is @0@ if no value is specified.
+--
+-- * 'uppStackSetFailureTolerancePercentage' - The percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. Applicable only to a @CFN_STACKSET@ provisioned product type. Conditional: You must specify either @StackSetFailureToleranceCount@ or @StackSetFailureTolerancePercentage@ , but not both.
+--
+-- * 'uppStackSetAccounts' - One or more AWS accounts that will have access to the provisioned product. Applicable only to a @CFN_STACKSET@ provisioned product type. The AWS accounts specified should be within the list of accounts in the @STACKSET@ constraint. To get the list of accounts in the @STACKSET@ constraint, use the @DescribeProvisioningParameters@ operation. If no values are specified, the default value is all accounts from the @STACKSET@ constraint.
+--
+-- * 'uppStackSetMaxConcurrencyCount' - The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of @StackSetFailureToleranceCount@ . @StackSetMaxConcurrentCount@ is at most one more than the @StackSetFailureToleranceCount@ . Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. Applicable only to a @CFN_STACKSET@ provisioned product type. Conditional: You must specify either @StackSetMaxConcurrentCount@ or @StackSetMaxConcurrentPercentage@ , but not both.
+--
+-- * 'uppStackSetOperationType' - Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is @UPDATE@ if nothing is specified. Applicable only to a @CFN_STACKSET@ provisioned product type.     * CREATE    * Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.     * UPDATE    * Updates the stack set represented by the provisioned product and also its stack instances.     * DELETE    * Deletes a stack instance in the stack set represented by the provisioned product.
+updateProvisioningPreferences
+    :: UpdateProvisioningPreferences
+updateProvisioningPreferences =
+  UpdateProvisioningPreferences'
+    { _uppStackSetRegions = Nothing
+    , _uppStackSetMaxConcurrencyPercentage = Nothing
+    , _uppStackSetFailureToleranceCount = Nothing
+    , _uppStackSetFailureTolerancePercentage = Nothing
+    , _uppStackSetAccounts = Nothing
+    , _uppStackSetMaxConcurrencyCount = Nothing
+    , _uppStackSetOperationType = Nothing
+    }
+
+
+-- | One or more AWS Regions where the provisioned product will be available. Applicable only to a @CFN_STACKSET@ provisioned product type. The specified regions should be within the list of regions from the @STACKSET@ constraint. To get the list of regions in the @STACKSET@ constraint, use the @DescribeProvisioningParameters@ operation. If no values are specified, the default value is all regions from the @STACKSET@ constraint.
+uppStackSetRegions :: Lens' UpdateProvisioningPreferences [Text]
+uppStackSetRegions = lens _uppStackSetRegions (\ s a -> s{_uppStackSetRegions = a}) . _Default . _Coerce
+
+-- | The maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as @1@ instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. Applicable only to a @CFN_STACKSET@ provisioned product type. Conditional: You must specify either @StackSetMaxConcurrentCount@ or @StackSetMaxConcurrentPercentage@ , but not both.
+uppStackSetMaxConcurrencyPercentage :: Lens' UpdateProvisioningPreferences (Maybe Natural)
+uppStackSetMaxConcurrencyPercentage = lens _uppStackSetMaxConcurrencyPercentage (\ s a -> s{_uppStackSetMaxConcurrencyPercentage = a}) . mapping _Nat
+
+-- | The number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. Applicable only to a @CFN_STACKSET@ provisioned product type. Conditional: You must specify either @StackSetFailureToleranceCount@ or @StackSetFailureTolerancePercentage@ , but not both. The default value is @0@ if no value is specified.
+uppStackSetFailureToleranceCount :: Lens' UpdateProvisioningPreferences (Maybe Natural)
+uppStackSetFailureToleranceCount = lens _uppStackSetFailureToleranceCount (\ s a -> s{_uppStackSetFailureToleranceCount = a}) . mapping _Nat
+
+-- | The percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. Applicable only to a @CFN_STACKSET@ provisioned product type. Conditional: You must specify either @StackSetFailureToleranceCount@ or @StackSetFailureTolerancePercentage@ , but not both.
+uppStackSetFailureTolerancePercentage :: Lens' UpdateProvisioningPreferences (Maybe Natural)
+uppStackSetFailureTolerancePercentage = lens _uppStackSetFailureTolerancePercentage (\ s a -> s{_uppStackSetFailureTolerancePercentage = a}) . mapping _Nat
+
+-- | One or more AWS accounts that will have access to the provisioned product. Applicable only to a @CFN_STACKSET@ provisioned product type. The AWS accounts specified should be within the list of accounts in the @STACKSET@ constraint. To get the list of accounts in the @STACKSET@ constraint, use the @DescribeProvisioningParameters@ operation. If no values are specified, the default value is all accounts from the @STACKSET@ constraint.
+uppStackSetAccounts :: Lens' UpdateProvisioningPreferences [Text]
+uppStackSetAccounts = lens _uppStackSetAccounts (\ s a -> s{_uppStackSetAccounts = a}) . _Default . _Coerce
+
+-- | The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of @StackSetFailureToleranceCount@ . @StackSetMaxConcurrentCount@ is at most one more than the @StackSetFailureToleranceCount@ . Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. Applicable only to a @CFN_STACKSET@ provisioned product type. Conditional: You must specify either @StackSetMaxConcurrentCount@ or @StackSetMaxConcurrentPercentage@ , but not both.
+uppStackSetMaxConcurrencyCount :: Lens' UpdateProvisioningPreferences (Maybe Natural)
+uppStackSetMaxConcurrencyCount = lens _uppStackSetMaxConcurrencyCount (\ s a -> s{_uppStackSetMaxConcurrencyCount = a}) . mapping _Nat
+
+-- | Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is @UPDATE@ if nothing is specified. Applicable only to a @CFN_STACKSET@ provisioned product type.     * CREATE    * Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.     * UPDATE    * Updates the stack set represented by the provisioned product and also its stack instances.     * DELETE    * Deletes a stack instance in the stack set represented by the provisioned product.
+uppStackSetOperationType :: Lens' UpdateProvisioningPreferences (Maybe StackSetOperationType)
+uppStackSetOperationType = lens _uppStackSetOperationType (\ s a -> s{_uppStackSetOperationType = a})
+
+instance Hashable UpdateProvisioningPreferences where
+
+instance NFData UpdateProvisioningPreferences where
+
+instance ToJSON UpdateProvisioningPreferences where
+        toJSON UpdateProvisioningPreferences'{..}
+          = object
+              (catMaybes
+                 [("StackSetRegions" .=) <$> _uppStackSetRegions,
+                  ("StackSetMaxConcurrencyPercentage" .=) <$>
+                    _uppStackSetMaxConcurrencyPercentage,
+                  ("StackSetFailureToleranceCount" .=) <$>
+                    _uppStackSetFailureToleranceCount,
+                  ("StackSetFailureTolerancePercentage" .=) <$>
+                    _uppStackSetFailureTolerancePercentage,
+                  ("StackSetAccounts" .=) <$> _uppStackSetAccounts,
+                  ("StackSetMaxConcurrencyCount" .=) <$>
+                    _uppStackSetMaxConcurrencyCount,
+                  ("StackSetOperationType" .=) <$>
+                    _uppStackSetOperationType])
 
 -- | Additional information provided by the administrator.
 --

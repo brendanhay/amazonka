@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.SMS
 import Test.AWS.SMS.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "SMS"

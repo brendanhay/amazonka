@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The DeleteServerCatalog API clears all servers from your server catalog. This means that these servers will no longer be accessible to the Server Migration Service.
+-- Deletes all servers from your server catalog.
+--
+--
 module Network.AWS.SMS.DeleteServerCatalog
     (
     -- * Creating a Request

@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The UpdateReplicationJob API is used to change the settings of your existing ReplicationJob created using CreateReplicationJob. Calling this API will affect the next scheduled ReplicationRun.
+-- Updates the specified settings for the specified replication job.
+--
+--
 module Network.AWS.SMS.UpdateReplicationJob
     (
     -- * Creating a Request
@@ -26,9 +28,12 @@ module Network.AWS.SMS.UpdateReplicationJob
     , UpdateReplicationJob
     -- * Request Lenses
     , urjFrequency
+    , urjNumberOfRecentAMIsToKeep
     , urjLicenseType
     , urjRoleName
+    , urjEncrypted
     , urjNextReplicationRunStartTime
+    , urjKmsKeyId
     , urjDescription
     , urjReplicationJobId
 
@@ -49,9 +54,12 @@ import Network.AWS.SMS.Types.Product
 -- | /See:/ 'updateReplicationJob' smart constructor.
 data UpdateReplicationJob = UpdateReplicationJob'
   { _urjFrequency                   :: !(Maybe Int)
+  , _urjNumberOfRecentAMIsToKeep    :: !(Maybe Int)
   , _urjLicenseType                 :: !(Maybe LicenseType)
   , _urjRoleName                    :: !(Maybe Text)
+  , _urjEncrypted                   :: !(Maybe Bool)
   , _urjNextReplicationRunStartTime :: !(Maybe POSIX)
+  , _urjKmsKeyId                    :: !(Maybe Text)
   , _urjDescription                 :: !(Maybe Text)
   , _urjReplicationJobId            :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -61,52 +69,73 @@ data UpdateReplicationJob = UpdateReplicationJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urjFrequency' - Undocumented member.
+-- * 'urjFrequency' - The time between consecutive replication runs, in hours.
 --
--- * 'urjLicenseType' - Undocumented member.
+-- * 'urjNumberOfRecentAMIsToKeep' - The maximum number of SMS-created AMIs to retain. The oldest will be deleted once the maximum number is reached and a new AMI is created.
 --
--- * 'urjRoleName' - Undocumented member.
+-- * 'urjLicenseType' - The license type to be used for the AMI created by a successful replication run.
 --
--- * 'urjNextReplicationRunStartTime' - Undocumented member.
+-- * 'urjRoleName' - The name of the IAM role to be used by AWS SMS.
 --
--- * 'urjDescription' - Undocumented member.
+-- * 'urjEncrypted' - When true, the replication job produces encrypted AMIs . See also @KmsKeyId@ below.
 --
--- * 'urjReplicationJobId' - Undocumented member.
+-- * 'urjNextReplicationRunStartTime' - The start time of the next replication run.
+--
+-- * 'urjKmsKeyId' -  KMS key ID for replication jobs that produce encrypted AMIs. Can be any of the following:      * KMS key ID     * KMS key alias     * ARN referring to KMS key ID     * ARN referring to KMS key alias If encrypted is /true/ but a KMS key id is not specified, the customer's default KMS key for EBS is used.
+--
+-- * 'urjDescription' - The description of the replication job.
+--
+-- * 'urjReplicationJobId' - The identifier of the replication job.
 updateReplicationJob
     :: Text -- ^ 'urjReplicationJobId'
     -> UpdateReplicationJob
 updateReplicationJob pReplicationJobId_ =
   UpdateReplicationJob'
     { _urjFrequency = Nothing
+    , _urjNumberOfRecentAMIsToKeep = Nothing
     , _urjLicenseType = Nothing
     , _urjRoleName = Nothing
+    , _urjEncrypted = Nothing
     , _urjNextReplicationRunStartTime = Nothing
+    , _urjKmsKeyId = Nothing
     , _urjDescription = Nothing
     , _urjReplicationJobId = pReplicationJobId_
     }
 
 
--- | Undocumented member.
+-- | The time between consecutive replication runs, in hours.
 urjFrequency :: Lens' UpdateReplicationJob (Maybe Int)
 urjFrequency = lens _urjFrequency (\ s a -> s{_urjFrequency = a})
 
--- | Undocumented member.
+-- | The maximum number of SMS-created AMIs to retain. The oldest will be deleted once the maximum number is reached and a new AMI is created.
+urjNumberOfRecentAMIsToKeep :: Lens' UpdateReplicationJob (Maybe Int)
+urjNumberOfRecentAMIsToKeep = lens _urjNumberOfRecentAMIsToKeep (\ s a -> s{_urjNumberOfRecentAMIsToKeep = a})
+
+-- | The license type to be used for the AMI created by a successful replication run.
 urjLicenseType :: Lens' UpdateReplicationJob (Maybe LicenseType)
 urjLicenseType = lens _urjLicenseType (\ s a -> s{_urjLicenseType = a})
 
--- | Undocumented member.
+-- | The name of the IAM role to be used by AWS SMS.
 urjRoleName :: Lens' UpdateReplicationJob (Maybe Text)
 urjRoleName = lens _urjRoleName (\ s a -> s{_urjRoleName = a})
 
--- | Undocumented member.
+-- | When true, the replication job produces encrypted AMIs . See also @KmsKeyId@ below.
+urjEncrypted :: Lens' UpdateReplicationJob (Maybe Bool)
+urjEncrypted = lens _urjEncrypted (\ s a -> s{_urjEncrypted = a})
+
+-- | The start time of the next replication run.
 urjNextReplicationRunStartTime :: Lens' UpdateReplicationJob (Maybe UTCTime)
 urjNextReplicationRunStartTime = lens _urjNextReplicationRunStartTime (\ s a -> s{_urjNextReplicationRunStartTime = a}) . mapping _Time
 
--- | Undocumented member.
+-- |  KMS key ID for replication jobs that produce encrypted AMIs. Can be any of the following:      * KMS key ID     * KMS key alias     * ARN referring to KMS key ID     * ARN referring to KMS key alias If encrypted is /true/ but a KMS key id is not specified, the customer's default KMS key for EBS is used.
+urjKmsKeyId :: Lens' UpdateReplicationJob (Maybe Text)
+urjKmsKeyId = lens _urjKmsKeyId (\ s a -> s{_urjKmsKeyId = a})
+
+-- | The description of the replication job.
 urjDescription :: Lens' UpdateReplicationJob (Maybe Text)
 urjDescription = lens _urjDescription (\ s a -> s{_urjDescription = a})
 
--- | Undocumented member.
+-- | The identifier of the replication job.
 urjReplicationJobId :: Lens' UpdateReplicationJob Text
 urjReplicationJobId = lens _urjReplicationJobId (\ s a -> s{_urjReplicationJobId = a})
 
@@ -139,10 +168,14 @@ instance ToJSON UpdateReplicationJob where
           = object
               (catMaybes
                  [("frequency" .=) <$> _urjFrequency,
+                  ("numberOfRecentAmisToKeep" .=) <$>
+                    _urjNumberOfRecentAMIsToKeep,
                   ("licenseType" .=) <$> _urjLicenseType,
                   ("roleName" .=) <$> _urjRoleName,
+                  ("encrypted" .=) <$> _urjEncrypted,
                   ("nextReplicationRunStartTime" .=) <$>
                     _urjNextReplicationRunStartTime,
+                  ("kmsKeyId" .=) <$> _urjKmsKeyId,
                   ("description" .=) <$> _urjDescription,
                   Just ("replicationJobId" .= _urjReplicationJobId)])
 

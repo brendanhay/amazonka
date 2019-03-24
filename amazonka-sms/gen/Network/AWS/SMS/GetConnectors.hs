@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The GetConnectors API returns a list of connectors that are registered with the Server Migration Service.
+-- Describes the connectors registered with the AWS SMS.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.SMS.GetConnectors
@@ -58,19 +60,19 @@ data GetConnectors = GetConnectors'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcNextToken' - Undocumented member.
+-- * 'gcNextToken' - The token for the next set of results.
 --
--- * 'gcMaxResults' - Undocumented member.
+-- * 'gcMaxResults' - The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 getConnectors
     :: GetConnectors
 getConnectors = GetConnectors' {_gcNextToken = Nothing, _gcMaxResults = Nothing}
 
 
--- | Undocumented member.
+-- | The token for the next set of results.
 gcNextToken :: Lens' GetConnectors (Maybe Text)
 gcNextToken = lens _gcNextToken (\ s a -> s{_gcNextToken = a})
 
--- | Undocumented member.
+-- | The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 gcMaxResults :: Lens' GetConnectors (Maybe Int)
 gcMaxResults = lens _gcMaxResults (\ s a -> s{_gcMaxResults = a})
 
@@ -131,9 +133,9 @@ data GetConnectorsResponse = GetConnectorsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcrsConnectorList' - Undocumented member.
+-- * 'gcrsConnectorList' - Information about the registered connectors.
 --
--- * 'gcrsNextToken' - Undocumented member.
+-- * 'gcrsNextToken' - The token required to retrieve the next set of results. This value is null when there are no more results to return.
 --
 -- * 'gcrsResponseStatus' - -- | The response status code.
 getConnectorsResponse
@@ -147,11 +149,11 @@ getConnectorsResponse pResponseStatus_ =
     }
 
 
--- | Undocumented member.
+-- | Information about the registered connectors.
 gcrsConnectorList :: Lens' GetConnectorsResponse [Connector]
 gcrsConnectorList = lens _gcrsConnectorList (\ s a -> s{_gcrsConnectorList = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- | The token required to retrieve the next set of results. This value is null when there are no more results to return.
 gcrsNextToken :: Lens' GetConnectorsResponse (Maybe Text)
 gcrsNextToken = lens _gcrsNextToken (\ s a -> s{_gcrsNextToken = a})
 

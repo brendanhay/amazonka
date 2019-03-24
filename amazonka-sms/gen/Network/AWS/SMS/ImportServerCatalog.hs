@@ -18,7 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The ImportServerCatalog API is used to gather the complete list of on-premises servers on your premises. This API call requires connectors to be installed and monitoring all servers you would like imported. This API call returns immediately, but may take some time to retrieve all of the servers.
+-- Gathers a complete list of on-premises servers. Connectors must be installed and monitoring all servers that you want to import.
+--
+--
+-- This call returns immediately, but might take additional time to retrieve all the servers.
+--
 module Network.AWS.SMS.ImportServerCatalog
     (
     -- * Creating a Request

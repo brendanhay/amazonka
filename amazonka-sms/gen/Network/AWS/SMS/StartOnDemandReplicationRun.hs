@@ -18,7 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The StartOnDemandReplicationRun API is used to start a ReplicationRun on demand (in addition to those that are scheduled based on your frequency). This ReplicationRun will start immediately. StartOnDemandReplicationRun is subject to limits on how many on demand ReplicationRuns you may call per 24-hour period.
+-- Starts an on-demand replication run for the specified replication job. This replication run starts immediately. This replication run is in addition to the ones already scheduled.
+--
+--
+-- There is a limit on the number of on-demand replications runs you can request in a 24-hour period.
+--
 module Network.AWS.SMS.StartOnDemandReplicationRun
     (
     -- * Creating a Request
@@ -54,9 +58,9 @@ data StartOnDemandReplicationRun = StartOnDemandReplicationRun'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sodrrDescription' - Undocumented member.
+-- * 'sodrrDescription' - The description of the replication run.
 --
--- * 'sodrrReplicationJobId' - Undocumented member.
+-- * 'sodrrReplicationJobId' - The identifier of the replication job.
 startOnDemandReplicationRun
     :: Text -- ^ 'sodrrReplicationJobId'
     -> StartOnDemandReplicationRun
@@ -65,11 +69,11 @@ startOnDemandReplicationRun pReplicationJobId_ =
     {_sodrrDescription = Nothing, _sodrrReplicationJobId = pReplicationJobId_}
 
 
--- | Undocumented member.
+-- | The description of the replication run.
 sodrrDescription :: Lens' StartOnDemandReplicationRun (Maybe Text)
 sodrrDescription = lens _sodrrDescription (\ s a -> s{_sodrrDescription = a})
 
--- | Undocumented member.
+-- | The identifier of the replication job.
 sodrrReplicationJobId :: Lens' StartOnDemandReplicationRun Text
 sodrrReplicationJobId = lens _sodrrReplicationJobId (\ s a -> s{_sodrrReplicationJobId = a})
 
@@ -121,7 +125,7 @@ data StartOnDemandReplicationRunResponse = StartOnDemandReplicationRunResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sodrrrsReplicationRunId' - Undocumented member.
+-- * 'sodrrrsReplicationRunId' - The identifier of the replication run.
 --
 -- * 'sodrrrsResponseStatus' - -- | The response status code.
 startOnDemandReplicationRunResponse
@@ -134,7 +138,7 @@ startOnDemandReplicationRunResponse pResponseStatus_ =
     }
 
 
--- | Undocumented member.
+-- | The identifier of the replication run.
 sodrrrsReplicationRunId :: Lens' StartOnDemandReplicationRunResponse (Maybe Text)
 sodrrrsReplicationRunId = lens _sodrrrsReplicationRunId (\ s a -> s{_sodrrrsReplicationRunId = a})
 

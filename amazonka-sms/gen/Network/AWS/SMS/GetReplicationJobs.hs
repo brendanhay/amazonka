@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The GetReplicationJobs API will return all of your ReplicationJobs and their details. This API returns a paginated list, that may be consecutively called with nextToken to retrieve all ReplicationJobs.
+-- Describes the specified replication job or all of your replication jobs.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.SMS.GetReplicationJobs
@@ -60,11 +62,11 @@ data GetReplicationJobs = GetReplicationJobs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grjReplicationJobId' - Undocumented member.
+-- * 'grjReplicationJobId' - The identifier of the replication job.
 --
--- * 'grjNextToken' - Undocumented member.
+-- * 'grjNextToken' - The token for the next set of results.
 --
--- * 'grjMaxResults' - Undocumented member.
+-- * 'grjMaxResults' - The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 getReplicationJobs
     :: GetReplicationJobs
 getReplicationJobs =
@@ -75,15 +77,15 @@ getReplicationJobs =
     }
 
 
--- | Undocumented member.
+-- | The identifier of the replication job.
 grjReplicationJobId :: Lens' GetReplicationJobs (Maybe Text)
 grjReplicationJobId = lens _grjReplicationJobId (\ s a -> s{_grjReplicationJobId = a})
 
--- | Undocumented member.
+-- | The token for the next set of results.
 grjNextToken :: Lens' GetReplicationJobs (Maybe Text)
 grjNextToken = lens _grjNextToken (\ s a -> s{_grjNextToken = a})
 
--- | Undocumented member.
+-- | The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 grjMaxResults :: Lens' GetReplicationJobs (Maybe Int)
 grjMaxResults = lens _grjMaxResults (\ s a -> s{_grjMaxResults = a})
 
@@ -146,9 +148,9 @@ data GetReplicationJobsResponse = GetReplicationJobsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grjrsReplicationJobList' - Undocumented member.
+-- * 'grjrsReplicationJobList' - Information about the replication jobs.
 --
--- * 'grjrsNextToken' - Undocumented member.
+-- * 'grjrsNextToken' - The token required to retrieve the next set of results. This value is null when there are no more results to return.
 --
 -- * 'grjrsResponseStatus' - -- | The response status code.
 getReplicationJobsResponse
@@ -162,11 +164,11 @@ getReplicationJobsResponse pResponseStatus_ =
     }
 
 
--- | Undocumented member.
+-- | Information about the replication jobs.
 grjrsReplicationJobList :: Lens' GetReplicationJobsResponse [ReplicationJob]
 grjrsReplicationJobList = lens _grjrsReplicationJobList (\ s a -> s{_grjrsReplicationJobList = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- | The token required to retrieve the next set of results. This value is null when there are no more results to return.
 grjrsNextToken :: Lens' GetReplicationJobsResponse (Maybe Text)
 grjrsNextToken = lens _grjrsNextToken (\ s a -> s{_grjrsNextToken = a})
 

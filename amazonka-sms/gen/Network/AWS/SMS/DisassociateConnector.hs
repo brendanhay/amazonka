@@ -18,7 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The DisassociateConnector API will disassociate a connector from the Server Migration Service, rendering it unavailable to support replication jobs.
+-- Disassociates the specified connector from AWS SMS.
+--
+--
+-- After you disassociate a connector, it is no longer available to support replication jobs.
+--
 module Network.AWS.SMS.DisassociateConnector
     (
     -- * Creating a Request
@@ -51,7 +55,7 @@ newtype DisassociateConnector = DisassociateConnector'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcConnectorId' - Undocumented member.
+-- * 'dcConnectorId' - The identifier of the connector.
 disassociateConnector
     :: Text -- ^ 'dcConnectorId'
     -> DisassociateConnector
@@ -59,7 +63,7 @@ disassociateConnector pConnectorId_ =
   DisassociateConnector' {_dcConnectorId = pConnectorId_}
 
 
--- | Undocumented member.
+-- | The identifier of the connector.
 dcConnectorId :: Lens' DisassociateConnector Text
 dcConnectorId = lens _dcConnectorId (\ s a -> s{_dcConnectorId = a})
 

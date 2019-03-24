@@ -18,7 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The DeleteReplicationJob API is used to delete a ReplicationJob, resulting in no further ReplicationRuns. This will delete the contents of the S3 bucket used to store SMS artifacts, but will not delete any AMIs created by the SMS service.
+-- Deletes the specified replication job.
+--
+--
+-- After you delete a replication job, there are no further replication runs. AWS deletes the contents of the Amazon S3 bucket used to store AWS SMS artifacts. The AMIs created by the replication runs are not deleted.
+--
 module Network.AWS.SMS.DeleteReplicationJob
     (
     -- * Creating a Request
@@ -51,7 +55,7 @@ newtype DeleteReplicationJob = DeleteReplicationJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drjReplicationJobId' - Undocumented member.
+-- * 'drjReplicationJobId' - The identifier of the replication job.
 deleteReplicationJob
     :: Text -- ^ 'drjReplicationJobId'
     -> DeleteReplicationJob
@@ -59,7 +63,7 @@ deleteReplicationJob pReplicationJobId_ =
   DeleteReplicationJob' {_drjReplicationJobId = pReplicationJobId_}
 
 
--- | Undocumented member.
+-- | The identifier of the replication job.
 drjReplicationJobId :: Lens' DeleteReplicationJob Text
 drjReplicationJobId = lens _drjReplicationJobId (\ s a -> s{_drjReplicationJobId = a})
 

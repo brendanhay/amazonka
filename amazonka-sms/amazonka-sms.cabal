@@ -45,17 +45,34 @@ library
 
     exposed-modules:
           Network.AWS.SMS
+        , Network.AWS.SMS.CreateApp
         , Network.AWS.SMS.CreateReplicationJob
+        , Network.AWS.SMS.DeleteApp
+        , Network.AWS.SMS.DeleteAppLaunchConfiguration
+        , Network.AWS.SMS.DeleteAppReplicationConfiguration
         , Network.AWS.SMS.DeleteReplicationJob
         , Network.AWS.SMS.DeleteServerCatalog
         , Network.AWS.SMS.DisassociateConnector
+        , Network.AWS.SMS.GenerateChangeSet
+        , Network.AWS.SMS.GenerateTemplate
+        , Network.AWS.SMS.GetApp
+        , Network.AWS.SMS.GetAppLaunchConfiguration
+        , Network.AWS.SMS.GetAppReplicationConfiguration
         , Network.AWS.SMS.GetConnectors
         , Network.AWS.SMS.GetReplicationJobs
         , Network.AWS.SMS.GetReplicationRuns
         , Network.AWS.SMS.GetServers
         , Network.AWS.SMS.ImportServerCatalog
+        , Network.AWS.SMS.LaunchApp
+        , Network.AWS.SMS.ListApps
+        , Network.AWS.SMS.PutAppLaunchConfiguration
+        , Network.AWS.SMS.PutAppReplicationConfiguration
+        , Network.AWS.SMS.StartAppReplication
         , Network.AWS.SMS.StartOnDemandReplicationRun
+        , Network.AWS.SMS.StopAppReplication
+        , Network.AWS.SMS.TerminateApp
         , Network.AWS.SMS.Types
+        , Network.AWS.SMS.UpdateApp
         , Network.AWS.SMS.UpdateReplicationJob
         , Network.AWS.SMS.Waiters
 

@@ -11,7 +11,20 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Server Migration Service automates the process of migrating servers to EC2.
+-- __AAWS Sever Migration Service__
+--
+-- This is the /AWS Sever Migration Service API Reference/ . It provides descriptions, syntax, and usage examples for each of the actions and data types for the AWS Sever Migration Service (AWS SMS). The topic for each action shows the Query API request parameters and the XML response. You can also view the XML request elements in the WSDL.
+--
+-- Alternatively, you can use one of the AWS SDKs to access an API that's tailored to the programming language or platform that you're using. For more information, see <http://aws.amazon.com/tools/#SDKs AWS SDKs> .
+--
+-- To learn more about the Server Migration Service, see the following resources:
+--
+--     * <https://aws.amazon.com/server-migration-service/ AWS Sever Migration Service product page>
+--
+--     * <https://docs.aws.amazon.com/server-migration-service/latest/userguide/server-migration.html AWS Sever Migration Service User Guide>
+--
+--
+--
 module Network.AWS.SMS
     (
     -- * Service Configuration
@@ -44,6 +57,9 @@ module Network.AWS.SMS
     -- ** OperationNotPermittedException
     , _OperationNotPermittedException
 
+    -- ** TemporarilyUnavailableException
+    , _TemporarilyUnavailableException
+
     -- ** MissingRequiredParameterException
     , _MissingRequiredParameterException
 
@@ -56,17 +72,50 @@ module Network.AWS.SMS
     -- * Operations
     -- $operations
 
+    -- ** DeleteAppReplicationConfiguration
+    , module Network.AWS.SMS.DeleteAppReplicationConfiguration
+
+    -- ** PutAppReplicationConfiguration
+    , module Network.AWS.SMS.PutAppReplicationConfiguration
+
     -- ** DeleteServerCatalog
     , module Network.AWS.SMS.DeleteServerCatalog
+
+    -- ** GetAppLaunchConfiguration
+    , module Network.AWS.SMS.GetAppLaunchConfiguration
+
+    -- ** DeleteAppLaunchConfiguration
+    , module Network.AWS.SMS.DeleteAppLaunchConfiguration
+
+    -- ** StartAppReplication
+    , module Network.AWS.SMS.StartAppReplication
+
+    -- ** PutAppLaunchConfiguration
+    , module Network.AWS.SMS.PutAppLaunchConfiguration
 
     -- ** GetReplicationRuns (Paginated)
     , module Network.AWS.SMS.GetReplicationRuns
 
+    -- ** TerminateApp
+    , module Network.AWS.SMS.TerminateApp
+
+    -- ** ListApps (Paginated)
+    , module Network.AWS.SMS.ListApps
+
     -- ** GetServers (Paginated)
     , module Network.AWS.SMS.GetServers
 
+    -- ** DeleteApp
+    , module Network.AWS.SMS.DeleteApp
+
+    -- ** UpdateApp
+    , module Network.AWS.SMS.UpdateApp
+
     -- ** ImportServerCatalog
     , module Network.AWS.SMS.ImportServerCatalog
+
+    -- ** GenerateTemplate
+    , module Network.AWS.SMS.GenerateTemplate
 
     -- ** GetConnectors (Paginated)
     , module Network.AWS.SMS.GetConnectors
@@ -77,8 +126,17 @@ module Network.AWS.SMS
     -- ** DisassociateConnector
     , module Network.AWS.SMS.DisassociateConnector
 
+    -- ** LaunchApp
+    , module Network.AWS.SMS.LaunchApp
+
     -- ** CreateReplicationJob
     , module Network.AWS.SMS.CreateReplicationJob
+
+    -- ** GenerateChangeSet
+    , module Network.AWS.SMS.GenerateChangeSet
+
+    -- ** GetApp
+    , module Network.AWS.SMS.GetApp
 
     -- ** UpdateReplicationJob
     , module Network.AWS.SMS.UpdateReplicationJob
@@ -86,10 +144,28 @@ module Network.AWS.SMS
     -- ** DeleteReplicationJob
     , module Network.AWS.SMS.DeleteReplicationJob
 
+    -- ** CreateApp
+    , module Network.AWS.SMS.CreateApp
+
+    -- ** StopAppReplication
+    , module Network.AWS.SMS.StopAppReplication
+
+    -- ** GetAppReplicationConfiguration
+    , module Network.AWS.SMS.GetAppReplicationConfiguration
+
     -- ** StartOnDemandReplicationRun
     , module Network.AWS.SMS.StartOnDemandReplicationRun
 
     -- * Types
+
+    -- ** AppLaunchStatus
+    , AppLaunchStatus (..)
+
+    -- ** AppReplicationStatus
+    , AppReplicationStatus (..)
+
+    -- ** AppStatus
+    , AppStatus (..)
 
     -- ** ConnectorCapability
     , ConnectorCapability (..)
@@ -99,6 +175,9 @@ module Network.AWS.SMS
 
     -- ** LicenseType
     , LicenseType (..)
+
+    -- ** OutputFormat
+    , OutputFormat (..)
 
     -- ** ReplicationJobState
     , ReplicationJobState (..)
@@ -118,6 +197,26 @@ module Network.AWS.SMS
     -- ** VMManagerType
     , VMManagerType (..)
 
+    -- ** AppSummary
+    , AppSummary
+    , appSummary
+    , asCreationTime
+    , asTotalServers
+    , asStatus
+    , asLaunchDetails
+    , asLaunchStatusMessage
+    , asReplicationStatusMessage
+    , asTotalServerGroups
+    , asRoleName
+    , asLaunchStatus
+    , asAppId
+    , asName
+    , asStatusMessage
+    , asLatestReplicationTime
+    , asReplicationStatus
+    , asLastModified
+    , asDescription
+
     -- ** Connector
     , Connector
     , connector
@@ -132,22 +231,33 @@ module Network.AWS.SMS
     , cVersion
     , cCapabilityList
 
+    -- ** LaunchDetails
+    , LaunchDetails
+    , launchDetails
+    , ldStackId
+    , ldLatestLaunchTime
+    , ldStackName
+
     -- ** ReplicationJob
     , ReplicationJob
     , replicationJob
     , rjFrequency
+    , rjNumberOfRecentAMIsToKeep
     , rjState
     , rjServerType
     , rjServerId
     , rjLicenseType
     , rjRoleName
     , rjVmServer
+    , rjEncrypted
     , rjReplicationJobId
     , rjReplicationRunList
     , rjNextReplicationRunStartTime
     , rjStatusMessage
+    , rjKmsKeyId
     , rjLatestAMIId
     , rjSeedReplicationTime
+    , rjRunOnce
     , rjDescription
 
     -- ** ReplicationRun
@@ -155,12 +265,27 @@ module Network.AWS.SMS
     , replicationRun
     , rrState
     , rrReplicationRunId
+    , rrEncrypted
+    , rrStageDetails
     , rrScheduledStartTime
     , rrStatusMessage
+    , rrKmsKeyId
     , rrCompletedTime
     , rrAmiId
     , rrType
     , rrDescription
+
+    -- ** ReplicationRunStageDetails
+    , ReplicationRunStageDetails
+    , replicationRunStageDetails
+    , rrsdStage
+    , rrsdStageProgress
+
+    -- ** S3Location
+    , S3Location
+    , s3Location
+    , slBucket
+    , slKey
 
     -- ** Server
     , Server
@@ -170,6 +295,67 @@ module Network.AWS.SMS
     , sReplicationJobTerminated
     , sVmServer
     , sReplicationJobId
+
+    -- ** ServerGroup
+    , ServerGroup
+    , serverGroup
+    , sgServerList
+    , sgName
+    , sgServerGroupId
+
+    -- ** ServerGroupLaunchConfiguration
+    , ServerGroupLaunchConfiguration
+    , serverGroupLaunchConfiguration
+    , sglcServerGroupId
+    , sglcLaunchOrder
+    , sglcServerLaunchConfigurations
+
+    -- ** ServerGroupReplicationConfiguration
+    , ServerGroupReplicationConfiguration
+    , serverGroupReplicationConfiguration
+    , sgrcServerGroupId
+    , sgrcServerReplicationConfigurations
+
+    -- ** ServerLaunchConfiguration
+    , ServerLaunchConfiguration
+    , serverLaunchConfiguration
+    , slcEc2KeyName
+    , slcAssociatePublicIPAddress
+    , slcSubnet
+    , slcLogicalId
+    , slcSecurityGroup
+    , slcUserData
+    , slcInstanceType
+    , slcServer
+    , slcVpc
+
+    -- ** ServerReplicationConfiguration
+    , ServerReplicationConfiguration
+    , serverReplicationConfiguration
+    , srcServerReplicationParameters
+    , srcServer
+
+    -- ** ServerReplicationParameters
+    , ServerReplicationParameters
+    , serverReplicationParameters
+    , srpFrequency
+    , srpNumberOfRecentAMIsToKeep
+    , srpSeedTime
+    , srpLicenseType
+    , srpEncrypted
+    , srpKmsKeyId
+    , srpRunOnce
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
+
+    -- ** UserData
+    , UserData
+    , userData
+    , udS3Location
 
     -- ** VMServer
     , VMServer
@@ -187,17 +373,34 @@ module Network.AWS.SMS
     , vmsaVmId
     ) where
 
+import Network.AWS.SMS.CreateApp
 import Network.AWS.SMS.CreateReplicationJob
+import Network.AWS.SMS.DeleteApp
+import Network.AWS.SMS.DeleteAppLaunchConfiguration
+import Network.AWS.SMS.DeleteAppReplicationConfiguration
 import Network.AWS.SMS.DeleteReplicationJob
 import Network.AWS.SMS.DeleteServerCatalog
 import Network.AWS.SMS.DisassociateConnector
+import Network.AWS.SMS.GenerateChangeSet
+import Network.AWS.SMS.GenerateTemplate
+import Network.AWS.SMS.GetApp
+import Network.AWS.SMS.GetAppLaunchConfiguration
+import Network.AWS.SMS.GetAppReplicationConfiguration
 import Network.AWS.SMS.GetConnectors
 import Network.AWS.SMS.GetReplicationJobs
 import Network.AWS.SMS.GetReplicationRuns
 import Network.AWS.SMS.GetServers
 import Network.AWS.SMS.ImportServerCatalog
+import Network.AWS.SMS.LaunchApp
+import Network.AWS.SMS.ListApps
+import Network.AWS.SMS.PutAppLaunchConfiguration
+import Network.AWS.SMS.PutAppReplicationConfiguration
+import Network.AWS.SMS.StartAppReplication
 import Network.AWS.SMS.StartOnDemandReplicationRun
+import Network.AWS.SMS.StopAppReplication
+import Network.AWS.SMS.TerminateApp
 import Network.AWS.SMS.Types
+import Network.AWS.SMS.UpdateApp
 import Network.AWS.SMS.UpdateReplicationJob
 import Network.AWS.SMS.Waiters
 

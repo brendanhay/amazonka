@@ -18,19 +18,25 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The CreateReplicationJob API is used to create a ReplicationJob to replicate a server on AWS. Call this API to first create a ReplicationJob, which will then schedule periodic ReplicationRuns to replicate your server to AWS. Each ReplicationRun will result in the creation of an AWS AMI.
+-- Creates a replication job. The replication job schedules periodic replication runs to replicate your server to AWS. Each replication run creates an Amazon Machine Image (AMI).
+--
+--
 module Network.AWS.SMS.CreateReplicationJob
     (
     -- * Creating a Request
       createReplicationJob
     , CreateReplicationJob
     -- * Request Lenses
+    , crjFrequency
+    , crjNumberOfRecentAMIsToKeep
     , crjLicenseType
     , crjRoleName
+    , crjEncrypted
+    , crjKmsKeyId
+    , crjRunOnce
     , crjDescription
     , crjServerId
     , crjSeedReplicationTime
-    , crjFrequency
 
     -- * Destructuring the Response
     , createReplicationJobResponse
@@ -49,12 +55,16 @@ import Network.AWS.SMS.Types.Product
 
 -- | /See:/ 'createReplicationJob' smart constructor.
 data CreateReplicationJob = CreateReplicationJob'
-  { _crjLicenseType         :: !(Maybe LicenseType)
-  , _crjRoleName            :: !(Maybe Text)
-  , _crjDescription         :: !(Maybe Text)
-  , _crjServerId            :: !Text
-  , _crjSeedReplicationTime :: !POSIX
-  , _crjFrequency           :: !Int
+  { _crjFrequency                :: !(Maybe Int)
+  , _crjNumberOfRecentAMIsToKeep :: !(Maybe Int)
+  , _crjLicenseType              :: !(Maybe LicenseType)
+  , _crjRoleName                 :: !(Maybe Text)
+  , _crjEncrypted                :: !(Maybe Bool)
+  , _crjKmsKeyId                 :: !(Maybe Text)
+  , _crjRunOnce                  :: !(Maybe Bool)
+  , _crjDescription              :: !(Maybe Text)
+  , _crjServerId                 :: !Text
+  , _crjSeedReplicationTime      :: !POSIX
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -62,56 +72,83 @@ data CreateReplicationJob = CreateReplicationJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crjLicenseType' - Undocumented member.
+-- * 'crjFrequency' - The time between consecutive replication runs, in hours.
 --
--- * 'crjRoleName' - Undocumented member.
+-- * 'crjNumberOfRecentAMIsToKeep' - The maximum number of SMS-created AMIs to retain. The oldest will be deleted once the maximum number is reached and a new AMI is created.
 --
--- * 'crjDescription' - Undocumented member.
+-- * 'crjLicenseType' - The license type to be used for the AMI created by a successful replication run.
 --
--- * 'crjServerId' - Undocumented member.
+-- * 'crjRoleName' - The name of the IAM role to be used by the AWS SMS.
 --
--- * 'crjSeedReplicationTime' - Undocumented member.
+-- * 'crjEncrypted' - When /true/ , the replication job produces encrypted AMIs. See also @KmsKeyId@ below.
 --
--- * 'crjFrequency' - Undocumented member.
+-- * 'crjKmsKeyId' - KMS key ID for replication jobs that produce encrypted AMIs. Can be any of the following:      * KMS key ID     * KMS key alias     * ARN referring to KMS key ID     * ARN referring to KMS key alias If encrypted is /true/ but a KMS key id is not specified, the customer's default KMS key for EBS is used.
+--
+-- * 'crjRunOnce' -
+--
+-- * 'crjDescription' - The description of the replication job.
+--
+-- * 'crjServerId' - The identifier of the server.
+--
+-- * 'crjSeedReplicationTime' - The seed replication time.
 createReplicationJob
     :: Text -- ^ 'crjServerId'
     -> UTCTime -- ^ 'crjSeedReplicationTime'
-    -> Int -- ^ 'crjFrequency'
     -> CreateReplicationJob
-createReplicationJob pServerId_ pSeedReplicationTime_ pFrequency_ =
+createReplicationJob pServerId_ pSeedReplicationTime_ =
   CreateReplicationJob'
-    { _crjLicenseType = Nothing
+    { _crjFrequency = Nothing
+    , _crjNumberOfRecentAMIsToKeep = Nothing
+    , _crjLicenseType = Nothing
     , _crjRoleName = Nothing
+    , _crjEncrypted = Nothing
+    , _crjKmsKeyId = Nothing
+    , _crjRunOnce = Nothing
     , _crjDescription = Nothing
     , _crjServerId = pServerId_
     , _crjSeedReplicationTime = _Time # pSeedReplicationTime_
-    , _crjFrequency = pFrequency_
     }
 
 
--- | Undocumented member.
+-- | The time between consecutive replication runs, in hours.
+crjFrequency :: Lens' CreateReplicationJob (Maybe Int)
+crjFrequency = lens _crjFrequency (\ s a -> s{_crjFrequency = a})
+
+-- | The maximum number of SMS-created AMIs to retain. The oldest will be deleted once the maximum number is reached and a new AMI is created.
+crjNumberOfRecentAMIsToKeep :: Lens' CreateReplicationJob (Maybe Int)
+crjNumberOfRecentAMIsToKeep = lens _crjNumberOfRecentAMIsToKeep (\ s a -> s{_crjNumberOfRecentAMIsToKeep = a})
+
+-- | The license type to be used for the AMI created by a successful replication run.
 crjLicenseType :: Lens' CreateReplicationJob (Maybe LicenseType)
 crjLicenseType = lens _crjLicenseType (\ s a -> s{_crjLicenseType = a})
 
--- | Undocumented member.
+-- | The name of the IAM role to be used by the AWS SMS.
 crjRoleName :: Lens' CreateReplicationJob (Maybe Text)
 crjRoleName = lens _crjRoleName (\ s a -> s{_crjRoleName = a})
 
--- | Undocumented member.
+-- | When /true/ , the replication job produces encrypted AMIs. See also @KmsKeyId@ below.
+crjEncrypted :: Lens' CreateReplicationJob (Maybe Bool)
+crjEncrypted = lens _crjEncrypted (\ s a -> s{_crjEncrypted = a})
+
+-- | KMS key ID for replication jobs that produce encrypted AMIs. Can be any of the following:      * KMS key ID     * KMS key alias     * ARN referring to KMS key ID     * ARN referring to KMS key alias If encrypted is /true/ but a KMS key id is not specified, the customer's default KMS key for EBS is used.
+crjKmsKeyId :: Lens' CreateReplicationJob (Maybe Text)
+crjKmsKeyId = lens _crjKmsKeyId (\ s a -> s{_crjKmsKeyId = a})
+
+-- |
+crjRunOnce :: Lens' CreateReplicationJob (Maybe Bool)
+crjRunOnce = lens _crjRunOnce (\ s a -> s{_crjRunOnce = a})
+
+-- | The description of the replication job.
 crjDescription :: Lens' CreateReplicationJob (Maybe Text)
 crjDescription = lens _crjDescription (\ s a -> s{_crjDescription = a})
 
--- | Undocumented member.
+-- | The identifier of the server.
 crjServerId :: Lens' CreateReplicationJob Text
 crjServerId = lens _crjServerId (\ s a -> s{_crjServerId = a})
 
--- | Undocumented member.
+-- | The seed replication time.
 crjSeedReplicationTime :: Lens' CreateReplicationJob UTCTime
 crjSeedReplicationTime = lens _crjSeedReplicationTime (\ s a -> s{_crjSeedReplicationTime = a}) . _Time
-
--- | Undocumented member.
-crjFrequency :: Lens' CreateReplicationJob Int
-crjFrequency = lens _crjFrequency (\ s a -> s{_crjFrequency = a})
 
 instance AWSRequest CreateReplicationJob where
         type Rs CreateReplicationJob =
@@ -141,13 +178,18 @@ instance ToJSON CreateReplicationJob where
         toJSON CreateReplicationJob'{..}
           = object
               (catMaybes
-                 [("licenseType" .=) <$> _crjLicenseType,
+                 [("frequency" .=) <$> _crjFrequency,
+                  ("numberOfRecentAmisToKeep" .=) <$>
+                    _crjNumberOfRecentAMIsToKeep,
+                  ("licenseType" .=) <$> _crjLicenseType,
                   ("roleName" .=) <$> _crjRoleName,
+                  ("encrypted" .=) <$> _crjEncrypted,
+                  ("kmsKeyId" .=) <$> _crjKmsKeyId,
+                  ("runOnce" .=) <$> _crjRunOnce,
                   ("description" .=) <$> _crjDescription,
                   Just ("serverId" .= _crjServerId),
                   Just
-                    ("seedReplicationTime" .= _crjSeedReplicationTime),
-                  Just ("frequency" .= _crjFrequency)])
+                    ("seedReplicationTime" .= _crjSeedReplicationTime)])
 
 instance ToPath CreateReplicationJob where
         toPath = const "/"
@@ -166,7 +208,7 @@ data CreateReplicationJobResponse = CreateReplicationJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crjrsReplicationJobId' - Undocumented member.
+-- * 'crjrsReplicationJobId' - The unique identifier of the replication job.
 --
 -- * 'crjrsResponseStatus' - -- | The response status code.
 createReplicationJobResponse
@@ -177,7 +219,7 @@ createReplicationJobResponse pResponseStatus_ =
     {_crjrsReplicationJobId = Nothing, _crjrsResponseStatus = pResponseStatus_}
 
 
--- | Undocumented member.
+-- | The unique identifier of the replication job.
 crjrsReplicationJobId :: Lens' CreateReplicationJobResponse (Maybe Text)
 crjrsReplicationJobId = lens _crjrsReplicationJobId (\ s a -> s{_crjrsReplicationJobId = a})
 

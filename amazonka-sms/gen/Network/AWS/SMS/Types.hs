@@ -24,8 +24,18 @@ module Network.AWS.SMS.Types
     , _InternalError
     , _ReplicationJobAlreadyExistsException
     , _OperationNotPermittedException
+    , _TemporarilyUnavailableException
     , _MissingRequiredParameterException
     , _UnauthorizedOperationException
+
+    -- * AppLaunchStatus
+    , AppLaunchStatus (..)
+
+    -- * AppReplicationStatus
+    , AppReplicationStatus (..)
+
+    -- * AppStatus
+    , AppStatus (..)
 
     -- * ConnectorCapability
     , ConnectorCapability (..)
@@ -35,6 +45,9 @@ module Network.AWS.SMS.Types
 
     -- * LicenseType
     , LicenseType (..)
+
+    -- * OutputFormat
+    , OutputFormat (..)
 
     -- * ReplicationJobState
     , ReplicationJobState (..)
@@ -54,6 +67,26 @@ module Network.AWS.SMS.Types
     -- * VMManagerType
     , VMManagerType (..)
 
+    -- * AppSummary
+    , AppSummary
+    , appSummary
+    , asCreationTime
+    , asTotalServers
+    , asStatus
+    , asLaunchDetails
+    , asLaunchStatusMessage
+    , asReplicationStatusMessage
+    , asTotalServerGroups
+    , asRoleName
+    , asLaunchStatus
+    , asAppId
+    , asName
+    , asStatusMessage
+    , asLatestReplicationTime
+    , asReplicationStatus
+    , asLastModified
+    , asDescription
+
     -- * Connector
     , Connector
     , connector
@@ -68,22 +101,33 @@ module Network.AWS.SMS.Types
     , cVersion
     , cCapabilityList
 
+    -- * LaunchDetails
+    , LaunchDetails
+    , launchDetails
+    , ldStackId
+    , ldLatestLaunchTime
+    , ldStackName
+
     -- * ReplicationJob
     , ReplicationJob
     , replicationJob
     , rjFrequency
+    , rjNumberOfRecentAMIsToKeep
     , rjState
     , rjServerType
     , rjServerId
     , rjLicenseType
     , rjRoleName
     , rjVmServer
+    , rjEncrypted
     , rjReplicationJobId
     , rjReplicationRunList
     , rjNextReplicationRunStartTime
     , rjStatusMessage
+    , rjKmsKeyId
     , rjLatestAMIId
     , rjSeedReplicationTime
+    , rjRunOnce
     , rjDescription
 
     -- * ReplicationRun
@@ -91,12 +135,27 @@ module Network.AWS.SMS.Types
     , replicationRun
     , rrState
     , rrReplicationRunId
+    , rrEncrypted
+    , rrStageDetails
     , rrScheduledStartTime
     , rrStatusMessage
+    , rrKmsKeyId
     , rrCompletedTime
     , rrAmiId
     , rrType
     , rrDescription
+
+    -- * ReplicationRunStageDetails
+    , ReplicationRunStageDetails
+    , replicationRunStageDetails
+    , rrsdStage
+    , rrsdStageProgress
+
+    -- * S3Location
+    , S3Location
+    , s3Location
+    , slBucket
+    , slKey
 
     -- * Server
     , Server
@@ -106,6 +165,67 @@ module Network.AWS.SMS.Types
     , sReplicationJobTerminated
     , sVmServer
     , sReplicationJobId
+
+    -- * ServerGroup
+    , ServerGroup
+    , serverGroup
+    , sgServerList
+    , sgName
+    , sgServerGroupId
+
+    -- * ServerGroupLaunchConfiguration
+    , ServerGroupLaunchConfiguration
+    , serverGroupLaunchConfiguration
+    , sglcServerGroupId
+    , sglcLaunchOrder
+    , sglcServerLaunchConfigurations
+
+    -- * ServerGroupReplicationConfiguration
+    , ServerGroupReplicationConfiguration
+    , serverGroupReplicationConfiguration
+    , sgrcServerGroupId
+    , sgrcServerReplicationConfigurations
+
+    -- * ServerLaunchConfiguration
+    , ServerLaunchConfiguration
+    , serverLaunchConfiguration
+    , slcEc2KeyName
+    , slcAssociatePublicIPAddress
+    , slcSubnet
+    , slcLogicalId
+    , slcSecurityGroup
+    , slcUserData
+    , slcInstanceType
+    , slcServer
+    , slcVpc
+
+    -- * ServerReplicationConfiguration
+    , ServerReplicationConfiguration
+    , serverReplicationConfiguration
+    , srcServerReplicationParameters
+    , srcServer
+
+    -- * ServerReplicationParameters
+    , ServerReplicationParameters
+    , serverReplicationParameters
+    , srpFrequency
+    , srpNumberOfRecentAMIsToKeep
+    , srpSeedTime
+    , srpLicenseType
+    , srpEncrypted
+    , srpKmsKeyId
+    , srpRunOnce
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
+
+    -- * UserData
+    , UserData
+    , userData
+    , udS3Location
 
     -- * VMServer
     , VMServer
@@ -168,59 +288,87 @@ sms =
       | otherwise = Nothing
 
 
--- | This user has exceeded the maximum allowed Replication Run limit.
+-- | You have exceeded the number of on-demand replication runs you can request in a 24-hour period.
+--
+--
 _ReplicationRunLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ReplicationRunLimitExceededException =
   _MatchServiceError sms "ReplicationRunLimitExceededException"
 
 
--- | A parameter specified in the request is not valid, is unsupported, or cannot be used.
+-- | A specified parameter is not valid.
+--
+--
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException = _MatchServiceError sms "InvalidParameterException"
 
 
--- | No connectors are available to handle this request. Please associate connector(s) and verify any existing connectors are healthy and can respond to requests.
+-- | There are no connectors available.
+--
+--
 _NoConnectorsAvailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoConnectorsAvailableException =
   _MatchServiceError sms "NoConnectorsAvailableException"
 
 
--- | The specified Replication Job cannot be found.
+-- | The specified replication job does not exist.
+--
+--
 _ReplicationJobNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ReplicationJobNotFoundException =
   _MatchServiceError sms "ReplicationJobNotFoundException"
 
 
--- | The provided server cannot be replicated.
+-- | The specified server cannot be replicated.
+--
+--
 _ServerCannotBeReplicatedException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServerCannotBeReplicatedException =
   _MatchServiceError sms "ServerCannotBeReplicatedException"
 
 
--- | An internal error has occured.
+-- | An internal error occurred.
+--
+--
 _InternalError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalError = _MatchServiceError sms "InternalError"
 
 
--- | An active Replication Job already exists for the specified server.
+-- | The specified replication job already exists.
+--
+--
 _ReplicationJobAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ReplicationJobAlreadyExistsException =
   _MatchServiceError sms "ReplicationJobAlreadyExistsException"
 
 
--- | The specified operation is not allowed. This error can occur for a number of reasons; for example, you might be trying to start a Replication Run before seed Replication Run.
+-- | This operation is not allowed.
+--
+--
 _OperationNotPermittedException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationNotPermittedException =
   _MatchServiceError sms "OperationNotPermittedException"
 
 
--- | The request is missing a required parameter. Ensure that you have supplied all the required parameters for the request.
+-- | The service is temporarily unavailable.
+--
+--
+_TemporarilyUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
+_TemporarilyUnavailableException =
+  _MatchServiceError sms "TemporarilyUnavailableException"
+
+
+-- | A required parameter is missing.
+--
+--
 _MissingRequiredParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingRequiredParameterException =
   _MatchServiceError sms "MissingRequiredParameterException"
 
 
--- | This user does not have permissions to perform this operation.
+-- | You lack permissions needed to perform this operation. Check your IAM policies, and ensure that you are using the correct access keys.
+--
+--
 _UnauthorizedOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnauthorizedOperationException =
   _MatchServiceError sms "UnauthorizedOperationException"

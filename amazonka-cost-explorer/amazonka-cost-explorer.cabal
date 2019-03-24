@@ -46,6 +46,7 @@ library
     exposed-modules:
           Network.AWS.CostExplorer
         , Network.AWS.CostExplorer.GetCostAndUsage
+        , Network.AWS.CostExplorer.GetCostForecast
         , Network.AWS.CostExplorer.GetDimensionValues
         , Network.AWS.CostExplorer.GetReservationCoverage
         , Network.AWS.CostExplorer.GetReservationPurchaseRecommendation

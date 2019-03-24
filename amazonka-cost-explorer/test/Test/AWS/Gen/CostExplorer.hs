@@ -37,6 +37,9 @@ import Test.Tasty
 --         , requestGetReservationCoverage $
 --             getReservationCoverage
 --
+--         , requestGetCostForecast $
+--             getCostForecast
+--
 --         , requestGetDimensionValues $
 --             getDimensionValues
 --
@@ -57,6 +60,9 @@ import Test.Tasty
 --
 --         , responseGetReservationCoverage $
 --             getReservationCoverageResponse
+--
+--         , responseGetCostForecast $
+--             getCostForecastResponse
 --
 --         , responseGetDimensionValues $
 --             getDimensionValuesResponse
@@ -86,6 +92,11 @@ requestGetReservationCoverage :: GetReservationCoverage -> TestTree
 requestGetReservationCoverage = req
     "GetReservationCoverage"
     "fixture/GetReservationCoverage.yaml"
+
+requestGetCostForecast :: GetCostForecast -> TestTree
+requestGetCostForecast = req
+    "GetCostForecast"
+    "fixture/GetCostForecast.yaml"
 
 requestGetDimensionValues :: GetDimensionValues -> TestTree
 requestGetDimensionValues = req
@@ -124,6 +135,13 @@ responseGetReservationCoverage = res
     "fixture/GetReservationCoverageResponse.proto"
     costExplorer
     (Proxy :: Proxy GetReservationCoverage)
+
+responseGetCostForecast :: GetCostForecastResponse -> TestTree
+responseGetCostForecast = res
+    "GetCostForecastResponse"
+    "fixture/GetCostForecastResponse.proto"
+    costExplorer
+    (Proxy :: Proxy GetCostForecast)
 
 responseGetDimensionValues :: GetDimensionValuesResponse -> TestTree
 responseGetDimensionValues = res

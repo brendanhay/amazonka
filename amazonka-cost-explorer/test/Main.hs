@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.CostExplorer
 import Test.AWS.CostExplorer.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "CostExplorer"

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the reservation coverage for your account. This allows you to see how much of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service, or Amazon Redshift usage is covered by a reservation. An organization's master account can see the coverage of the associated member accounts. For any time period, you can filter data about reservation usage by the following dimensions:
+-- Retrieves the reservation coverage for your account. This enables you to see how much of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service, or Amazon Redshift usage is covered by a reservation. An organization's master account can see the coverage of the associated member accounts. For any time period, you can filter data about reservation usage by the following dimensions:
 --
 --
 --     * AZ
@@ -57,6 +57,7 @@ module Network.AWS.CostExplorer.GetReservationCoverage
     -- * Request Lenses
     , grcGroupBy
     , grcNextPageToken
+    , grcMetrics
     , grcGranularity
     , grcFilter
     , grcTimePeriod
@@ -78,7 +79,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | You can use the following request parameters to query for how much of your instance usage is covered by a reservation.
+-- | You can use the following request parameters to query for how much of your instance usage a reservation covered.
 --
 --
 --
@@ -86,6 +87,7 @@ import Network.AWS.Response
 data GetReservationCoverage = GetReservationCoverage'
   { _grcGroupBy       :: !(Maybe [GroupDefinition])
   , _grcNextPageToken :: !(Maybe Text)
+  , _grcMetrics       :: !(Maybe [Text])
   , _grcGranularity   :: !(Maybe Granularity)
   , _grcFilter        :: !(Maybe Expression)
   , _grcTimePeriod    :: !DateInterval
@@ -96,15 +98,17 @@ data GetReservationCoverage = GetReservationCoverage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grcGroupBy' - You can group the data by the following attributes:     * AZ     * CACHE_ENGINE     * DATABASE_ENGINE     * DEPLOYMENT_OPTION     * INSTANCE_TYPE     * LINKED_ACCOUNT     * OPERATING_SYSTEM     * PLATFORM     * REGION     * TAG     * TENANCY
+-- * 'grcGroupBy' - You can group the data by the following attributes:     * AZ     * CACHE_ENGINE     * DATABASE_ENGINE     * DEPLOYMENT_OPTION     * INSTANCE_TYPE     * LINKED_ACCOUNT     * OPERATING_SYSTEM     * PLATFORM     * REGION     * TENANCY
 --
 -- * 'grcNextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
 --
--- * 'grcGranularity' - The granularity of the AWS cost data for the reservation. Valid values are @MONTHLY@ and @DAILY@ . If @GroupBy@ is set, @Granularity@ can't be set. If @Granularity@ isn't set, the response object doesn't include @Granularity@ , either @MONTHLY@ or @DAILY@ .
+-- * 'grcMetrics' - The measurement that you want your reservation coverage reported in. Valid values are @Hour@ , @Unit@ , and @Cost@ . You can use multiple values in a request.
 --
--- * 'grcFilter' - Filters utilization data by dimensions. You can filter by the following dimensions:     * AZ     * CACHE_ENGINE     * DATABASE_ENGINE     * DEPLOYMENT_OPTION     * INSTANCE_TYPE     * LINKED_ACCOUNT     * OPERATING_SYSTEM     * PLATFORM     * REGION     * SERVICE     * TAG     * TENANCY @GetReservationCoverage@ uses the same @<http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> @ object as the other operations, but only @AND@ is supported among each dimension. You can nest only one level deep. If there are multiple values for a dimension, they are OR'd together.
+-- * 'grcGranularity' - The granularity of the AWS cost data for the reservation. Valid values are @MONTHLY@ and @DAILY@ . If @GroupBy@ is set, @Granularity@ can't be set. If @Granularity@ isn't set, the response object doesn't include @Granularity@ , either @MONTHLY@ or @DAILY@ . The @GetReservationCoverage@ operation supports only @DAILY@ and @MONTHLY@ granularities.
 --
--- * 'grcTimePeriod' - The start and end dates of the period for which you want to retrieve data about reservation coverage. You can retrieve data for a maximum of 13 months: the last 12 months and the current month. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
+-- * 'grcFilter' - Filters utilization data by dimensions. You can filter by the following dimensions:     * AZ     * CACHE_ENGINE     * DATABASE_ENGINE     * DEPLOYMENT_OPTION     * INSTANCE_TYPE     * LINKED_ACCOUNT     * OPERATING_SYSTEM     * PLATFORM     * REGION     * SERVICE     * TAG     * TENANCY @GetReservationCoverage@ uses the same <http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object as the other operations, but only @AND@ is supported among each dimension. You can nest only one level deep. If there are multiple values for a dimension, they are OR'd together. If you don't provide a @SERVICE@ filter, Cost Explorer defaults to EC2.
+--
+-- * 'grcTimePeriod' - The start and end dates of the period that you want to retrieve data about reservation coverage for. You can retrieve data for a maximum of 13 months: the last 12 months and the current month. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
 getReservationCoverage
     :: DateInterval -- ^ 'grcTimePeriod'
     -> GetReservationCoverage
@@ -112,13 +116,14 @@ getReservationCoverage pTimePeriod_ =
   GetReservationCoverage'
     { _grcGroupBy = Nothing
     , _grcNextPageToken = Nothing
+    , _grcMetrics = Nothing
     , _grcGranularity = Nothing
     , _grcFilter = Nothing
     , _grcTimePeriod = pTimePeriod_
     }
 
 
--- | You can group the data by the following attributes:     * AZ     * CACHE_ENGINE     * DATABASE_ENGINE     * DEPLOYMENT_OPTION     * INSTANCE_TYPE     * LINKED_ACCOUNT     * OPERATING_SYSTEM     * PLATFORM     * REGION     * TAG     * TENANCY
+-- | You can group the data by the following attributes:     * AZ     * CACHE_ENGINE     * DATABASE_ENGINE     * DEPLOYMENT_OPTION     * INSTANCE_TYPE     * LINKED_ACCOUNT     * OPERATING_SYSTEM     * PLATFORM     * REGION     * TENANCY
 grcGroupBy :: Lens' GetReservationCoverage [GroupDefinition]
 grcGroupBy = lens _grcGroupBy (\ s a -> s{_grcGroupBy = a}) . _Default . _Coerce
 
@@ -126,15 +131,19 @@ grcGroupBy = lens _grcGroupBy (\ s a -> s{_grcGroupBy = a}) . _Default . _Coerce
 grcNextPageToken :: Lens' GetReservationCoverage (Maybe Text)
 grcNextPageToken = lens _grcNextPageToken (\ s a -> s{_grcNextPageToken = a})
 
--- | The granularity of the AWS cost data for the reservation. Valid values are @MONTHLY@ and @DAILY@ . If @GroupBy@ is set, @Granularity@ can't be set. If @Granularity@ isn't set, the response object doesn't include @Granularity@ , either @MONTHLY@ or @DAILY@ .
+-- | The measurement that you want your reservation coverage reported in. Valid values are @Hour@ , @Unit@ , and @Cost@ . You can use multiple values in a request.
+grcMetrics :: Lens' GetReservationCoverage [Text]
+grcMetrics = lens _grcMetrics (\ s a -> s{_grcMetrics = a}) . _Default . _Coerce
+
+-- | The granularity of the AWS cost data for the reservation. Valid values are @MONTHLY@ and @DAILY@ . If @GroupBy@ is set, @Granularity@ can't be set. If @Granularity@ isn't set, the response object doesn't include @Granularity@ , either @MONTHLY@ or @DAILY@ . The @GetReservationCoverage@ operation supports only @DAILY@ and @MONTHLY@ granularities.
 grcGranularity :: Lens' GetReservationCoverage (Maybe Granularity)
 grcGranularity = lens _grcGranularity (\ s a -> s{_grcGranularity = a})
 
--- | Filters utilization data by dimensions. You can filter by the following dimensions:     * AZ     * CACHE_ENGINE     * DATABASE_ENGINE     * DEPLOYMENT_OPTION     * INSTANCE_TYPE     * LINKED_ACCOUNT     * OPERATING_SYSTEM     * PLATFORM     * REGION     * SERVICE     * TAG     * TENANCY @GetReservationCoverage@ uses the same @<http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> @ object as the other operations, but only @AND@ is supported among each dimension. You can nest only one level deep. If there are multiple values for a dimension, they are OR'd together.
+-- | Filters utilization data by dimensions. You can filter by the following dimensions:     * AZ     * CACHE_ENGINE     * DATABASE_ENGINE     * DEPLOYMENT_OPTION     * INSTANCE_TYPE     * LINKED_ACCOUNT     * OPERATING_SYSTEM     * PLATFORM     * REGION     * SERVICE     * TAG     * TENANCY @GetReservationCoverage@ uses the same <http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object as the other operations, but only @AND@ is supported among each dimension. You can nest only one level deep. If there are multiple values for a dimension, they are OR'd together. If you don't provide a @SERVICE@ filter, Cost Explorer defaults to EC2.
 grcFilter :: Lens' GetReservationCoverage (Maybe Expression)
 grcFilter = lens _grcFilter (\ s a -> s{_grcFilter = a})
 
--- | The start and end dates of the period for which you want to retrieve data about reservation coverage. You can retrieve data for a maximum of 13 months: the last 12 months and the current month. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
+-- | The start and end dates of the period that you want to retrieve data about reservation coverage for. You can retrieve data for a maximum of 13 months: the last 12 months and the current month. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
 grcTimePeriod :: Lens' GetReservationCoverage DateInterval
 grcTimePeriod = lens _grcTimePeriod (\ s a -> s{_grcTimePeriod = a})
 
@@ -170,6 +179,7 @@ instance ToJSON GetReservationCoverage where
               (catMaybes
                  [("GroupBy" .=) <$> _grcGroupBy,
                   ("NextPageToken" .=) <$> _grcNextPageToken,
+                  ("Metrics" .=) <$> _grcMetrics,
                   ("Granularity" .=) <$> _grcGranularity,
                   ("Filter" .=) <$> _grcFilter,
                   Just ("TimePeriod" .= _grcTimePeriod)])
@@ -195,7 +205,7 @@ data GetReservationCoverageResponse = GetReservationCoverageResponse'
 --
 -- * 'grcrsNextPageToken' - The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
 --
--- * 'grcrsTotal' - The total amount of instance usage that is covered by a reservation.
+-- * 'grcrsTotal' - The total amount of instance usage that a reservation covered.
 --
 -- * 'grcrsResponseStatus' - -- | The response status code.
 --
@@ -216,7 +226,7 @@ getReservationCoverageResponse pResponseStatus_ =
 grcrsNextPageToken :: Lens' GetReservationCoverageResponse (Maybe Text)
 grcrsNextPageToken = lens _grcrsNextPageToken (\ s a -> s{_grcrsNextPageToken = a})
 
--- | The total amount of instance usage that is covered by a reservation.
+-- | The total amount of instance usage that a reservation covered.
 grcrsTotal :: Lens' GetReservationCoverageResponse (Maybe Coverage)
 grcrsTotal = lens _grcrsTotal (\ s a -> s{_grcrsTotal = a})
 

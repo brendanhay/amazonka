@@ -40,6 +40,9 @@ module Network.AWS.CostExplorer.Types
     -- * LookbackPeriodInDays
     , LookbackPeriodInDays (..)
 
+    -- * Metric
+    , Metric (..)
+
     -- * OfferingClass
     , OfferingClass (..)
 
@@ -52,7 +55,9 @@ module Network.AWS.CostExplorer.Types
     -- * Coverage
     , Coverage
     , coverage
+    , cCoverageNormalizedUnits
     , cCoverageHours
+    , cCoverageCost
 
     -- * CoverageByTime
     , CoverageByTime
@@ -61,6 +66,11 @@ module Network.AWS.CostExplorer.Types
     , cbtTimePeriod
     , cbtTotal
 
+    -- * CoverageCost
+    , CoverageCost
+    , coverageCost
+    , ccOnDemandCost
+
     -- * CoverageHours
     , CoverageHours
     , coverageHours
@@ -68,6 +78,14 @@ module Network.AWS.CostExplorer.Types
     , chOnDemandHours
     , chTotalRunningHours
     , chReservedHours
+
+    -- * CoverageNormalizedUnits
+    , CoverageNormalizedUnits
+    , coverageNormalizedUnits
+    , cnuReservedNormalizedUnits
+    , cnuTotalRunningNormalizedUnits
+    , cnuCoverageNormalizedUnitsPercentage
+    , cnuOnDemandNormalizedUnits
 
     -- * DateInterval
     , DateInterval
@@ -104,6 +122,25 @@ module Network.AWS.CostExplorer.Types
     , ec2Specification
     , esOfferingClass
 
+    -- * ESInstanceDetails
+    , ESInstanceDetails
+    , eSInstanceDetails
+    , esidCurrentGeneration
+    , esidInstanceClass
+    , esidInstanceSize
+    , esidSizeFlexEligible
+    , esidRegion
+
+    -- * ElastiCacheInstanceDetails
+    , ElastiCacheInstanceDetails
+    , elastiCacheInstanceDetails
+    , ecidCurrentGeneration
+    , ecidProductDescription
+    , ecidFamily
+    , ecidSizeFlexEligible
+    , ecidRegion
+    , ecidNodeType
+
     -- * Expression
     , Expression
     , expression
@@ -112,6 +149,14 @@ module Network.AWS.CostExplorer.Types
     , eOr
     , eDimensions
     , eTags
+
+    -- * ForecastResult
+    , ForecastResult
+    , forecastResult
+    , frTimePeriod
+    , frMeanValue
+    , frPredictionIntervalUpperBound
+    , frPredictionIntervalLowerBound
 
     -- * Group
     , Group
@@ -128,8 +173,11 @@ module Network.AWS.CostExplorer.Types
     -- * InstanceDetails
     , InstanceDetails
     , instanceDetails
+    , idESInstanceDetails
     , idRDSInstanceDetails
+    , idElastiCacheInstanceDetails
     , idEC2InstanceDetails
+    , idRedshiftInstanceDetails
 
     -- * MetricValue
     , MetricValue
@@ -148,6 +196,16 @@ module Network.AWS.CostExplorer.Types
     , ridSizeFlexEligible
     , ridRegion
     , ridDatabaseEngine
+    , ridDatabaseEdition
+
+    -- * RedshiftInstanceDetails
+    , RedshiftInstanceDetails
+    , redshiftInstanceDetails
+    , rCurrentGeneration
+    , rFamily
+    , rSizeFlexEligible
+    , rRegion
+    , rNodeType
 
     -- * ReservationAggregates
     , ReservationAggregates
@@ -155,7 +213,17 @@ module Network.AWS.CostExplorer.Types
     , raPurchasedHours
     , raTotalActualHours
     , raUtilizationPercentage
+    , raTotalAmortizedFee
+    , raUnusedUnits
     , raUnusedHours
+    , raPurchasedUnits
+    , raAmortizedUpfrontFee
+    , raAmortizedRecurringFee
+    , raUtilizationPercentageInUnits
+    , raNetRISavings
+    , raOnDemandCostOfRIHoursUsed
+    , raTotalPotentialRISavings
+    , raTotalActualUnits
 
     -- * ReservationCoverageGroup
     , ReservationCoverageGroup
@@ -184,6 +252,7 @@ module Network.AWS.CostExplorer.Types
     , rprdEstimatedMonthlySavingsPercentage
     , rprdRecommendedNormalizedUnitsToPurchase
     , rprdAverageUtilization
+    , rprdAccountId
     , rprdEstimatedMonthlySavingsAmount
     , rprdUpfrontCost
     , rprdMinimumNormalizedUnitsUsedPerHour

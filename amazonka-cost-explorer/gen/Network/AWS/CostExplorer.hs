@@ -11,14 +11,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The Cost Explorer API allows you to programmatically query your cost and usage data. You can query for aggregated data such as total monthly costs or total daily usage. You can also query for granular data, such as the number of daily write operations for Amazon DynamoDB database tables in your production environment.
+-- The Cost Explorer API enables you to programmatically query your cost and usage data. You can query for aggregated data such as total monthly costs or total daily usage. You can also query for granular data, such as the number of daily write operations for Amazon DynamoDB database tables in your production environment.
 --
 --
 -- Service Endpoint
 --
 -- The Cost Explorer API provides the following endpoint:
 --
---     * https://ce.us-east-1.amazonaws.com
+--     * @https://ce.us-east-1.amazonaws.com@
 --
 --
 --
@@ -62,6 +62,9 @@ module Network.AWS.CostExplorer
     -- ** GetReservationCoverage
     , module Network.AWS.CostExplorer.GetReservationCoverage
 
+    -- ** GetCostForecast
+    , module Network.AWS.CostExplorer.GetCostForecast
+
     -- ** GetDimensionValues
     , module Network.AWS.CostExplorer.GetDimensionValues
 
@@ -91,6 +94,9 @@ module Network.AWS.CostExplorer
     -- ** LookbackPeriodInDays
     , LookbackPeriodInDays (..)
 
+    -- ** Metric
+    , Metric (..)
+
     -- ** OfferingClass
     , OfferingClass (..)
 
@@ -103,7 +109,9 @@ module Network.AWS.CostExplorer
     -- ** Coverage
     , Coverage
     , coverage
+    , cCoverageNormalizedUnits
     , cCoverageHours
+    , cCoverageCost
 
     -- ** CoverageByTime
     , CoverageByTime
@@ -112,6 +120,11 @@ module Network.AWS.CostExplorer
     , cbtTimePeriod
     , cbtTotal
 
+    -- ** CoverageCost
+    , CoverageCost
+    , coverageCost
+    , ccOnDemandCost
+
     -- ** CoverageHours
     , CoverageHours
     , coverageHours
@@ -119,6 +132,14 @@ module Network.AWS.CostExplorer
     , chOnDemandHours
     , chTotalRunningHours
     , chReservedHours
+
+    -- ** CoverageNormalizedUnits
+    , CoverageNormalizedUnits
+    , coverageNormalizedUnits
+    , cnuReservedNormalizedUnits
+    , cnuTotalRunningNormalizedUnits
+    , cnuCoverageNormalizedUnitsPercentage
+    , cnuOnDemandNormalizedUnits
 
     -- ** DateInterval
     , DateInterval
@@ -155,6 +176,25 @@ module Network.AWS.CostExplorer
     , ec2Specification
     , esOfferingClass
 
+    -- ** ESInstanceDetails
+    , ESInstanceDetails
+    , eSInstanceDetails
+    , esidCurrentGeneration
+    , esidInstanceClass
+    , esidInstanceSize
+    , esidSizeFlexEligible
+    , esidRegion
+
+    -- ** ElastiCacheInstanceDetails
+    , ElastiCacheInstanceDetails
+    , elastiCacheInstanceDetails
+    , ecidCurrentGeneration
+    , ecidProductDescription
+    , ecidFamily
+    , ecidSizeFlexEligible
+    , ecidRegion
+    , ecidNodeType
+
     -- ** Expression
     , Expression
     , expression
@@ -163,6 +203,14 @@ module Network.AWS.CostExplorer
     , eOr
     , eDimensions
     , eTags
+
+    -- ** ForecastResult
+    , ForecastResult
+    , forecastResult
+    , frTimePeriod
+    , frMeanValue
+    , frPredictionIntervalUpperBound
+    , frPredictionIntervalLowerBound
 
     -- ** Group
     , Group
@@ -179,8 +227,11 @@ module Network.AWS.CostExplorer
     -- ** InstanceDetails
     , InstanceDetails
     , instanceDetails
+    , idESInstanceDetails
     , idRDSInstanceDetails
+    , idElastiCacheInstanceDetails
     , idEC2InstanceDetails
+    , idRedshiftInstanceDetails
 
     -- ** MetricValue
     , MetricValue
@@ -199,6 +250,16 @@ module Network.AWS.CostExplorer
     , ridSizeFlexEligible
     , ridRegion
     , ridDatabaseEngine
+    , ridDatabaseEdition
+
+    -- ** RedshiftInstanceDetails
+    , RedshiftInstanceDetails
+    , redshiftInstanceDetails
+    , rCurrentGeneration
+    , rFamily
+    , rSizeFlexEligible
+    , rRegion
+    , rNodeType
 
     -- ** ReservationAggregates
     , ReservationAggregates
@@ -206,7 +267,17 @@ module Network.AWS.CostExplorer
     , raPurchasedHours
     , raTotalActualHours
     , raUtilizationPercentage
+    , raTotalAmortizedFee
+    , raUnusedUnits
     , raUnusedHours
+    , raPurchasedUnits
+    , raAmortizedUpfrontFee
+    , raAmortizedRecurringFee
+    , raUtilizationPercentageInUnits
+    , raNetRISavings
+    , raOnDemandCostOfRIHoursUsed
+    , raTotalPotentialRISavings
+    , raTotalActualUnits
 
     -- ** ReservationCoverageGroup
     , ReservationCoverageGroup
@@ -235,6 +306,7 @@ module Network.AWS.CostExplorer
     , rprdEstimatedMonthlySavingsPercentage
     , rprdRecommendedNormalizedUnitsToPurchase
     , rprdAverageUtilization
+    , rprdAccountId
     , rprdEstimatedMonthlySavingsAmount
     , rprdUpfrontCost
     , rprdMinimumNormalizedUnitsUsedPerHour
@@ -296,6 +368,7 @@ module Network.AWS.CostExplorer
     ) where
 
 import Network.AWS.CostExplorer.GetCostAndUsage
+import Network.AWS.CostExplorer.GetCostForecast
 import Network.AWS.CostExplorer.GetDimensionValues
 import Network.AWS.CostExplorer.GetReservationCoverage
 import Network.AWS.CostExplorer.GetReservationPurchaseRecommendation

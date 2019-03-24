@@ -45,9 +45,28 @@ library
 
     exposed-modules:
           Network.AWS.Connect
+        , Network.AWS.Connect.CreateUser
+        , Network.AWS.Connect.DeleteUser
+        , Network.AWS.Connect.DescribeUser
+        , Network.AWS.Connect.DescribeUserHierarchyGroup
+        , Network.AWS.Connect.DescribeUserHierarchyStructure
+        , Network.AWS.Connect.GetContactAttributes
+        , Network.AWS.Connect.GetCurrentMetricData
+        , Network.AWS.Connect.GetFederationToken
+        , Network.AWS.Connect.GetMetricData
+        , Network.AWS.Connect.ListRoutingProfiles
+        , Network.AWS.Connect.ListSecurityProfiles
+        , Network.AWS.Connect.ListUserHierarchyGroups
+        , Network.AWS.Connect.ListUsers
         , Network.AWS.Connect.StartOutboundVoiceContact
         , Network.AWS.Connect.StopContact
         , Network.AWS.Connect.Types
+        , Network.AWS.Connect.UpdateContactAttributes
+        , Network.AWS.Connect.UpdateUserHierarchy
+        , Network.AWS.Connect.UpdateUserIdentityInfo
+        , Network.AWS.Connect.UpdateUserPhoneConfig
+        , Network.AWS.Connect.UpdateUserRoutingProfile
+        , Network.AWS.Connect.UpdateUserSecurityProfiles
         , Network.AWS.Connect.Waiters
 
     other-modules:

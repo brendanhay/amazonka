@@ -21,7 +21,7 @@
 -- Ends the contact initiated by the @StartOutboundVoiceContact@ operation.
 --
 --
--- If you are using an IAM account, it must have permissions to the @connect:StopContact@ operation.
+-- If you are using an IAM account, it must have permission to the @connect:StopContact@ action.
 --
 module Network.AWS.Connect.StopContact
     (
@@ -57,9 +57,9 @@ data StopContact = StopContact'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scContactId' - The unique identifier of the contact to end. This is the @ContactId@ value returned from the @StartOutboundVoiceContact@ operation.
+-- * 'scContactId' - The unique identifier of the contact to end.
 --
--- * 'scInstanceId' - The identifier of the Amazon Connect instance in which the contact is active.
+-- * 'scInstanceId' - The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.
 stopContact
     :: Text -- ^ 'scContactId'
     -> Text -- ^ 'scInstanceId'
@@ -68,11 +68,11 @@ stopContact pContactId_ pInstanceId_ =
   StopContact' {_scContactId = pContactId_, _scInstanceId = pInstanceId_}
 
 
--- | The unique identifier of the contact to end. This is the @ContactId@ value returned from the @StartOutboundVoiceContact@ operation.
+-- | The unique identifier of the contact to end.
 scContactId :: Lens' StopContact Text
 scContactId = lens _scContactId (\ s a -> s{_scContactId = a})
 
--- | The identifier of the Amazon Connect instance in which the contact is active.
+-- | The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.
 scInstanceId :: Lens' StopContact Text
 scInstanceId = lens _scInstanceId (\ s a -> s{_scInstanceId = a})
 

@@ -84,7 +84,7 @@ data ListEndpoints = ListEndpoints'
 --
 -- * 'leNextToken' - If the result of a @ListEndpoints@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of endpoints, use the token in the next request.
 --
--- * 'leSortOrder' - The sort order for results. The default is @Ascending@ .
+-- * 'leSortOrder' - The sort order for results. The default is @Descending@ .
 --
 -- * 'leLastModifiedTimeAfter' - A filter that returns only endpoints that were modified after the specified timestamp.
 --
@@ -128,7 +128,7 @@ leCreationTimeAfter = lens _leCreationTimeAfter (\ s a -> s{_leCreationTimeAfter
 leNextToken :: Lens' ListEndpoints (Maybe Text)
 leNextToken = lens _leNextToken (\ s a -> s{_leNextToken = a})
 
--- | The sort order for results. The default is @Ascending@ .
+-- | The sort order for results. The default is @Descending@ .
 leSortOrder :: Lens' ListEndpoints (Maybe OrderKey)
 leSortOrder = lens _leSortOrder (\ s a -> s{_leSortOrder = a})
 

@@ -21,8 +21,6 @@
 -- Stops a training job. To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@ signal, which delays job termination for 120 seconds. Algorithms might use this 120-second window to save the model artifacts, so the results of the training is not lost.
 --
 --
--- Training algorithms provided by Amazon SageMaker save the intermediate results of a model training job. This intermediate data is a valid model artifact. You can use the model artifacts that are saved when Amazon SageMaker stops a training job to create a model.
---
 -- When it receives a @StopTrainingJob@ request, Amazon SageMaker changes the status of the job to @Stopping@ . After Amazon SageMaker stops the job, it sets the status to @Stopped@ .
 --
 module Network.AWS.SageMaker.StopTrainingJob

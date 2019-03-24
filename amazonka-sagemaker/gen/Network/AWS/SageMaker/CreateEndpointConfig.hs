@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an endpoint configuration that Amazon SageMaker hosting services uses to deploy models. In the configuration, you identify one or more models, created using the @CreateModel@ API, to deploy and the resources that you want Amazon SageMaker to provision. Then you call the <http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html CreateEndpoint> API.
+-- Creates an endpoint configuration that Amazon SageMaker hosting services uses to deploy models. In the configuration, you identify one or more models, created using the @CreateModel@ API, to deploy and the resources that you want Amazon SageMaker to provision. Then you call the <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html CreateEndpoint> API.
 --
 --
 -- In the request, you define one or more @ProductionVariant@ s, each of which identifies a model. Each @ProductionVariant@ parameter also describes the resources that you want Amazon SageMaker to provision. This includes the number and type of ML compute instances to deploy.
@@ -66,9 +66,9 @@ data CreateEndpointConfig = CreateEndpointConfig'
 --
 -- * 'cecKMSKeyId' - The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 --
--- * 'cecTags' - An array of key-value pairs. For more information, see <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+-- * 'cecTags' - An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
 --
--- * 'cecEndpointConfigName' - The name of the endpoint configuration. You specify this name in a <http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html CreateEndpoint> request.
+-- * 'cecEndpointConfigName' - The name of the endpoint configuration. You specify this name in a <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html CreateEndpoint> request.
 --
 -- * 'cecProductionVariants' - An array of @ProductionVariant@ objects, one for each model that you want to host at this endpoint.
 createEndpointConfig
@@ -88,11 +88,11 @@ createEndpointConfig pEndpointConfigName_ pProductionVariants_ =
 cecKMSKeyId :: Lens' CreateEndpointConfig (Maybe Text)
 cecKMSKeyId = lens _cecKMSKeyId (\ s a -> s{_cecKMSKeyId = a})
 
--- | An array of key-value pairs. For more information, see <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+-- | An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
 cecTags :: Lens' CreateEndpointConfig [Tag]
 cecTags = lens _cecTags (\ s a -> s{_cecTags = a}) . _Default . _Coerce
 
--- | The name of the endpoint configuration. You specify this name in a <http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html CreateEndpoint> request.
+-- | The name of the endpoint configuration. You specify this name in a <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html CreateEndpoint> request.
 cecEndpointConfigName :: Lens' CreateEndpointConfig Text
 cecEndpointConfigName = lens _cecEndpointConfigName (\ s a -> s{_cecEndpointConfigName = a})
 

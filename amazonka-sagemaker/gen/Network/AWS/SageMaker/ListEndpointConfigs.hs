@@ -76,7 +76,7 @@ data ListEndpointConfigs = ListEndpointConfigs'
 --
 -- * 'lecNextToken' - If the result of the previous @ListEndpointConfig@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of endpoint configurations, use the token in the next request.
 --
--- * 'lecSortOrder' - The sort order for results. The default is @Ascending@ .
+-- * 'lecSortOrder' - The sort order for results. The default is @Descending@ .
 --
 -- * 'lecCreationTimeBefore' - A filter that returns only endpoint configurations created before the specified time (timestamp).
 --
@@ -109,7 +109,7 @@ lecCreationTimeAfter = lens _lecCreationTimeAfter (\ s a -> s{_lecCreationTimeAf
 lecNextToken :: Lens' ListEndpointConfigs (Maybe Text)
 lecNextToken = lens _lecNextToken (\ s a -> s{_lecNextToken = a})
 
--- | The sort order for results. The default is @Ascending@ .
+-- | The sort order for results. The default is @Descending@ .
 lecSortOrder :: Lens' ListEndpointConfigs (Maybe OrderKey)
 lecSortOrder = lens _lecSortOrder (\ s a -> s{_lecSortOrder = a})
 

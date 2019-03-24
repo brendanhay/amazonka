@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists models created with the <http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateModel.html CreateModel> API.
+-- Lists models created with the <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateModel.html CreateModel> API.
 --
 --
 --
@@ -76,7 +76,7 @@ data ListModels = ListModels'
 --
 -- * 'lmNextToken' - If the response to a previous @ListModels@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of models, use the token in the next request.
 --
--- * 'lmSortOrder' - The sort order for results. The default is @Ascending@ .
+-- * 'lmSortOrder' - The sort order for results. The default is @Descending@ .
 --
 -- * 'lmCreationTimeBefore' - A filter that returns only models created before the specified time (timestamp).
 --
@@ -109,7 +109,7 @@ lmCreationTimeAfter = lens _lmCreationTimeAfter (\ s a -> s{_lmCreationTimeAfter
 lmNextToken :: Lens' ListModels (Maybe Text)
 lmNextToken = lens _lmNextToken (\ s a -> s{_lmNextToken = a})
 
--- | The sort order for results. The default is @Ascending@ .
+-- | The sort order for results. The default is @Descending@ .
 lmSortOrder :: Lens' ListModels (Maybe OrderKey)
 lmSortOrder = lens _lmSortOrder (\ s a -> s{_lmSortOrder = a})
 

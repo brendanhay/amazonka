@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an endpoint configuration. The @DeleteEndpoingConfig@ API deletes only the specified configuration. It does not delete endpoints created using the configuration.
+-- Deletes an endpoint configuration. The @DeleteEndpointConfig@ API deletes only the specified configuration. It does not delete endpoints created using the configuration.
 --
 --
 module Network.AWS.SageMaker.DeleteEndpointConfig

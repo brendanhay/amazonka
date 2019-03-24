@@ -46,40 +46,81 @@ library
     exposed-modules:
           Network.AWS.SageMaker
         , Network.AWS.SageMaker.AddTags
+        , Network.AWS.SageMaker.CreateAlgorithm
+        , Network.AWS.SageMaker.CreateCodeRepository
+        , Network.AWS.SageMaker.CreateCompilationJob
         , Network.AWS.SageMaker.CreateEndpoint
         , Network.AWS.SageMaker.CreateEndpointConfig
+        , Network.AWS.SageMaker.CreateHyperParameterTuningJob
+        , Network.AWS.SageMaker.CreateLabelingJob
         , Network.AWS.SageMaker.CreateModel
+        , Network.AWS.SageMaker.CreateModelPackage
         , Network.AWS.SageMaker.CreateNotebookInstance
         , Network.AWS.SageMaker.CreateNotebookInstanceLifecycleConfig
         , Network.AWS.SageMaker.CreatePresignedNotebookInstanceURL
         , Network.AWS.SageMaker.CreateTrainingJob
+        , Network.AWS.SageMaker.CreateTransformJob
+        , Network.AWS.SageMaker.CreateWorkteam
+        , Network.AWS.SageMaker.DeleteAlgorithm
+        , Network.AWS.SageMaker.DeleteCodeRepository
         , Network.AWS.SageMaker.DeleteEndpoint
         , Network.AWS.SageMaker.DeleteEndpointConfig
         , Network.AWS.SageMaker.DeleteModel
+        , Network.AWS.SageMaker.DeleteModelPackage
         , Network.AWS.SageMaker.DeleteNotebookInstance
         , Network.AWS.SageMaker.DeleteNotebookInstanceLifecycleConfig
         , Network.AWS.SageMaker.DeleteTags
+        , Network.AWS.SageMaker.DeleteWorkteam
+        , Network.AWS.SageMaker.DescribeAlgorithm
+        , Network.AWS.SageMaker.DescribeCodeRepository
+        , Network.AWS.SageMaker.DescribeCompilationJob
         , Network.AWS.SageMaker.DescribeEndpoint
         , Network.AWS.SageMaker.DescribeEndpointConfig
+        , Network.AWS.SageMaker.DescribeHyperParameterTuningJob
+        , Network.AWS.SageMaker.DescribeLabelingJob
         , Network.AWS.SageMaker.DescribeModel
+        , Network.AWS.SageMaker.DescribeModelPackage
         , Network.AWS.SageMaker.DescribeNotebookInstance
         , Network.AWS.SageMaker.DescribeNotebookInstanceLifecycleConfig
+        , Network.AWS.SageMaker.DescribeSubscribedWorkteam
         , Network.AWS.SageMaker.DescribeTrainingJob
+        , Network.AWS.SageMaker.DescribeTransformJob
+        , Network.AWS.SageMaker.DescribeWorkteam
+        , Network.AWS.SageMaker.GetSearchSuggestions
+        , Network.AWS.SageMaker.ListAlgorithms
+        , Network.AWS.SageMaker.ListCodeRepositories
+        , Network.AWS.SageMaker.ListCompilationJobs
         , Network.AWS.SageMaker.ListEndpointConfigs
         , Network.AWS.SageMaker.ListEndpoints
+        , Network.AWS.SageMaker.ListHyperParameterTuningJobs
+        , Network.AWS.SageMaker.ListLabelingJobs
+        , Network.AWS.SageMaker.ListLabelingJobsForWorkteam
+        , Network.AWS.SageMaker.ListModelPackages
         , Network.AWS.SageMaker.ListModels
         , Network.AWS.SageMaker.ListNotebookInstanceLifecycleConfigs
         , Network.AWS.SageMaker.ListNotebookInstances
+        , Network.AWS.SageMaker.ListSubscribedWorkteams
         , Network.AWS.SageMaker.ListTags
         , Network.AWS.SageMaker.ListTrainingJobs
+        , Network.AWS.SageMaker.ListTrainingJobsForHyperParameterTuningJob
+        , Network.AWS.SageMaker.ListTransformJobs
+        , Network.AWS.SageMaker.ListWorkteams
+        , Network.AWS.SageMaker.RenderUiTemplate
+        , Network.AWS.SageMaker.Search
         , Network.AWS.SageMaker.StartNotebookInstance
+        , Network.AWS.SageMaker.StopCompilationJob
+        , Network.AWS.SageMaker.StopHyperParameterTuningJob
+        , Network.AWS.SageMaker.StopLabelingJob
         , Network.AWS.SageMaker.StopNotebookInstance
         , Network.AWS.SageMaker.StopTrainingJob
+        , Network.AWS.SageMaker.StopTransformJob
         , Network.AWS.SageMaker.Types
+        , Network.AWS.SageMaker.UpdateCodeRepository
         , Network.AWS.SageMaker.UpdateEndpoint
         , Network.AWS.SageMaker.UpdateEndpointWeightsAndCapacities
         , Network.AWS.SageMaker.UpdateNotebookInstance
         , Network.AWS.SageMaker.UpdateNotebookInstanceLifecycleConfig
+        , Network.AWS.SageMaker.UpdateWorkteam
         , Network.AWS.SageMaker.Waiters
 
     other-modules:

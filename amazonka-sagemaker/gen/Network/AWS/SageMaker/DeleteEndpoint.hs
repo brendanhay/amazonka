@@ -21,6 +21,8 @@
 -- Deletes an endpoint. Amazon SageMaker frees up all of the resources that were deployed when the endpoint was created.
 --
 --
+-- Amazon SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't need to use the <http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html RevokeGrant> API call.
+--
 module Network.AWS.SageMaker.DeleteEndpoint
     (
     -- * Creating a Request

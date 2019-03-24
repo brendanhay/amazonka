@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a notebook instance lifecycle configuration created with the API.
+-- Updates a notebook instance lifecycle configuration created with the 'CreateNotebookInstanceLifecycleConfig' API.
 --
 --
 module Network.AWS.SageMaker.UpdateNotebookInstanceLifecycleConfig

@@ -29,7 +29,7 @@
 --
 -- Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs for longer than 5 minutes, it fails and the notebook instance is not created or started.
 --
--- For information about notebook instance lifestyle configurations, see 'notebook-lifecycle-config' .
+-- For information about notebook instance lifestyle configurations, see <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance> .
 --
 module Network.AWS.SageMaker.CreateNotebookInstanceLifecycleConfig
     (
@@ -68,9 +68,9 @@ data CreateNotebookInstanceLifecycleConfig = CreateNotebookInstanceLifecycleConf
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cnilcOnCreate' - A shell script that runs only once, when you create a notebook instance.
+-- * 'cnilcOnCreate' - A shell script that runs only once, when you create a notebook instance. The shell script must be a base64-encoded string.
 --
--- * 'cnilcOnStart' - A shell script that runs every time you start a notebook instance, including when you create the notebook instance.
+-- * 'cnilcOnStart' - A shell script that runs every time you start a notebook instance, including when you create the notebook instance. The shell script must be a base64-encoded string.
 --
 -- * 'cnilcNotebookInstanceLifecycleConfigName' - The name of the lifecycle configuration.
 createNotebookInstanceLifecycleConfig
@@ -85,11 +85,11 @@ createNotebookInstanceLifecycleConfig pNotebookInstanceLifecycleConfigName_ =
     }
 
 
--- | A shell script that runs only once, when you create a notebook instance.
+-- | A shell script that runs only once, when you create a notebook instance. The shell script must be a base64-encoded string.
 cnilcOnCreate :: Lens' CreateNotebookInstanceLifecycleConfig [NotebookInstanceLifecycleHook]
 cnilcOnCreate = lens _cnilcOnCreate (\ s a -> s{_cnilcOnCreate = a}) . _Default . _Coerce
 
--- | A shell script that runs every time you start a notebook instance, including when you create the notebook instance.
+-- | A shell script that runs every time you start a notebook instance, including when you create the notebook instance. The shell script must be a base64-encoded string.
 cnilcOnStart :: Lens' CreateNotebookInstanceLifecycleConfig [NotebookInstanceLifecycleHook]
 cnilcOnStart = lens _cnilcOnStart (\ s a -> s{_cnilcOnStart = a}) . _Default . _Coerce
 

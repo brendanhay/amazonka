@@ -21,7 +21,7 @@
 -- Returns a description of a notebook instance lifecycle configuration.
 --
 --
--- For information about notebook instance lifestyle configurations, see 'notebook-lifecycle-config' .
+-- For information about notebook instance lifestyle configurations, see <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance> .
 --
 module Network.AWS.SageMaker.DescribeNotebookInstanceLifecycleConfig
     (

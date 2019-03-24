@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists notebook instance lifestyle configurations created with the API.
+-- Lists notebook instance lifestyle configurations created with the 'CreateNotebookInstanceLifecycleConfig' API.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SageMaker.ListNotebookInstanceLifecycleConfigs
     (
     -- * Creating a Request
@@ -47,6 +49,7 @@ module Network.AWS.SageMaker.ListNotebookInstanceLifecycleConfigs
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -139,6 +142,17 @@ lnilcMaxResults = lens _lnilcMaxResults (\ s a -> s{_lnilcMaxResults = a}) . map
 -- | Sorts the list of results. The default is @CreationTime@ .
 lnilcSortBy :: Lens' ListNotebookInstanceLifecycleConfigs (Maybe NotebookInstanceLifecycleConfigSortKey)
 lnilcSortBy = lens _lnilcSortBy (\ s a -> s{_lnilcSortBy = a})
+
+instance AWSPager
+           ListNotebookInstanceLifecycleConfigs
+         where
+        page rq rs
+          | stop (rs ^. lnilcrsNextToken) = Nothing
+          | stop
+              (rs ^. lnilcrsNotebookInstanceLifecycleConfigs)
+            = Nothing
+          | otherwise =
+            Just $ rq & lnilcNextToken .~ rs ^. lnilcrsNextToken
 
 instance AWSRequest
            ListNotebookInstanceLifecycleConfigs

@@ -29,16 +29,16 @@ module Network.AWS.SageMaker.ListTrainingJobs
       listTrainingJobs
     , ListTrainingJobs
     -- * Request Lenses
-    , ltjNameContains
-    , ltjLastModifiedTimeBefore
-    , ltjCreationTimeAfter
-    , ltjNextToken
-    , ltjSortOrder
-    , ltjLastModifiedTimeAfter
-    , ltjCreationTimeBefore
-    , ltjStatusEquals
-    , ltjMaxResults
-    , ltjSortBy
+    , lNameContains
+    , lLastModifiedTimeBefore
+    , lCreationTimeAfter
+    , lNextToken
+    , lSortOrder
+    , lLastModifiedTimeAfter
+    , lCreationTimeBefore
+    , lStatusEquals
+    , lMaxResults
+    , lSortBy
 
     -- * Destructuring the Response
     , listTrainingJobsResponse
@@ -59,16 +59,16 @@ import Network.AWS.SageMaker.Types.Product
 
 -- | /See:/ 'listTrainingJobs' smart constructor.
 data ListTrainingJobs = ListTrainingJobs'
-  { _ltjNameContains           :: !(Maybe Text)
-  , _ltjLastModifiedTimeBefore :: !(Maybe POSIX)
-  , _ltjCreationTimeAfter      :: !(Maybe POSIX)
-  , _ltjNextToken              :: !(Maybe Text)
-  , _ltjSortOrder              :: !(Maybe SortOrder)
-  , _ltjLastModifiedTimeAfter  :: !(Maybe POSIX)
-  , _ltjCreationTimeBefore     :: !(Maybe POSIX)
-  , _ltjStatusEquals           :: !(Maybe TrainingJobStatus)
-  , _ltjMaxResults             :: !(Maybe Nat)
-  , _ltjSortBy                 :: !(Maybe SortBy)
+  { _lNameContains           :: !(Maybe Text)
+  , _lLastModifiedTimeBefore :: !(Maybe POSIX)
+  , _lCreationTimeAfter      :: !(Maybe POSIX)
+  , _lNextToken              :: !(Maybe Text)
+  , _lSortOrder              :: !(Maybe SortOrder)
+  , _lLastModifiedTimeAfter  :: !(Maybe POSIX)
+  , _lCreationTimeBefore     :: !(Maybe POSIX)
+  , _lStatusEquals           :: !(Maybe TrainingJobStatus)
+  , _lMaxResults             :: !(Maybe Nat)
+  , _lSortBy                 :: !(Maybe SortBy)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -76,88 +76,88 @@ data ListTrainingJobs = ListTrainingJobs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltjNameContains' - A string in the training job name. This filter returns only models whose name contains the specified string.
+-- * 'lNameContains' - A string in the training job name. This filter returns only training jobs whose name contains the specified string.
 --
--- * 'ltjLastModifiedTimeBefore' - A filter that returns only training jobs modified before the specified time (timestamp).
+-- * 'lLastModifiedTimeBefore' - A filter that returns only training jobs modified before the specified time (timestamp).
 --
--- * 'ltjCreationTimeAfter' - A filter that only training jobs created after the specified time (timestamp).
+-- * 'lCreationTimeAfter' - A filter that returns only training jobs created after the specified time (timestamp).
 --
--- * 'ltjNextToken' - If the result of the previous @ListTrainingJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of training jobs, use the token in the next request.
+-- * 'lNextToken' - If the result of the previous @ListTrainingJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of training jobs, use the token in the next request.
 --
--- * 'ltjSortOrder' - The sort order for results. The default is @Ascending@ .
+-- * 'lSortOrder' - The sort order for results. The default is @Ascending@ .
 --
--- * 'ltjLastModifiedTimeAfter' - A filter that returns only training jobs modified after the specified time (timestamp).
+-- * 'lLastModifiedTimeAfter' - A filter that returns only training jobs modified after the specified time (timestamp).
 --
--- * 'ltjCreationTimeBefore' - A filter that returns only training jobs created before the specified time (timestamp).
+-- * 'lCreationTimeBefore' - A filter that returns only training jobs created before the specified time (timestamp).
 --
--- * 'ltjStatusEquals' - A filter that retrieves only training jobs with a specific status.
+-- * 'lStatusEquals' - A filter that retrieves only training jobs with a specific status.
 --
--- * 'ltjMaxResults' - The maximum number of training jobs to return in the response.
+-- * 'lMaxResults' - The maximum number of training jobs to return in the response.
 --
--- * 'ltjSortBy' - The field to sort results by. The default is @CreationTime@ .
+-- * 'lSortBy' - The field to sort results by. The default is @CreationTime@ .
 listTrainingJobs
     :: ListTrainingJobs
 listTrainingJobs =
   ListTrainingJobs'
-    { _ltjNameContains = Nothing
-    , _ltjLastModifiedTimeBefore = Nothing
-    , _ltjCreationTimeAfter = Nothing
-    , _ltjNextToken = Nothing
-    , _ltjSortOrder = Nothing
-    , _ltjLastModifiedTimeAfter = Nothing
-    , _ltjCreationTimeBefore = Nothing
-    , _ltjStatusEquals = Nothing
-    , _ltjMaxResults = Nothing
-    , _ltjSortBy = Nothing
+    { _lNameContains = Nothing
+    , _lLastModifiedTimeBefore = Nothing
+    , _lCreationTimeAfter = Nothing
+    , _lNextToken = Nothing
+    , _lSortOrder = Nothing
+    , _lLastModifiedTimeAfter = Nothing
+    , _lCreationTimeBefore = Nothing
+    , _lStatusEquals = Nothing
+    , _lMaxResults = Nothing
+    , _lSortBy = Nothing
     }
 
 
--- | A string in the training job name. This filter returns only models whose name contains the specified string.
-ltjNameContains :: Lens' ListTrainingJobs (Maybe Text)
-ltjNameContains = lens _ltjNameContains (\ s a -> s{_ltjNameContains = a})
+-- | A string in the training job name. This filter returns only training jobs whose name contains the specified string.
+lNameContains :: Lens' ListTrainingJobs (Maybe Text)
+lNameContains = lens _lNameContains (\ s a -> s{_lNameContains = a})
 
 -- | A filter that returns only training jobs modified before the specified time (timestamp).
-ltjLastModifiedTimeBefore :: Lens' ListTrainingJobs (Maybe UTCTime)
-ltjLastModifiedTimeBefore = lens _ltjLastModifiedTimeBefore (\ s a -> s{_ltjLastModifiedTimeBefore = a}) . mapping _Time
+lLastModifiedTimeBefore :: Lens' ListTrainingJobs (Maybe UTCTime)
+lLastModifiedTimeBefore = lens _lLastModifiedTimeBefore (\ s a -> s{_lLastModifiedTimeBefore = a}) . mapping _Time
 
--- | A filter that only training jobs created after the specified time (timestamp).
-ltjCreationTimeAfter :: Lens' ListTrainingJobs (Maybe UTCTime)
-ltjCreationTimeAfter = lens _ltjCreationTimeAfter (\ s a -> s{_ltjCreationTimeAfter = a}) . mapping _Time
+-- | A filter that returns only training jobs created after the specified time (timestamp).
+lCreationTimeAfter :: Lens' ListTrainingJobs (Maybe UTCTime)
+lCreationTimeAfter = lens _lCreationTimeAfter (\ s a -> s{_lCreationTimeAfter = a}) . mapping _Time
 
 -- | If the result of the previous @ListTrainingJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of training jobs, use the token in the next request.
-ltjNextToken :: Lens' ListTrainingJobs (Maybe Text)
-ltjNextToken = lens _ltjNextToken (\ s a -> s{_ltjNextToken = a})
+lNextToken :: Lens' ListTrainingJobs (Maybe Text)
+lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a})
 
 -- | The sort order for results. The default is @Ascending@ .
-ltjSortOrder :: Lens' ListTrainingJobs (Maybe SortOrder)
-ltjSortOrder = lens _ltjSortOrder (\ s a -> s{_ltjSortOrder = a})
+lSortOrder :: Lens' ListTrainingJobs (Maybe SortOrder)
+lSortOrder = lens _lSortOrder (\ s a -> s{_lSortOrder = a})
 
 -- | A filter that returns only training jobs modified after the specified time (timestamp).
-ltjLastModifiedTimeAfter :: Lens' ListTrainingJobs (Maybe UTCTime)
-ltjLastModifiedTimeAfter = lens _ltjLastModifiedTimeAfter (\ s a -> s{_ltjLastModifiedTimeAfter = a}) . mapping _Time
+lLastModifiedTimeAfter :: Lens' ListTrainingJobs (Maybe UTCTime)
+lLastModifiedTimeAfter = lens _lLastModifiedTimeAfter (\ s a -> s{_lLastModifiedTimeAfter = a}) . mapping _Time
 
 -- | A filter that returns only training jobs created before the specified time (timestamp).
-ltjCreationTimeBefore :: Lens' ListTrainingJobs (Maybe UTCTime)
-ltjCreationTimeBefore = lens _ltjCreationTimeBefore (\ s a -> s{_ltjCreationTimeBefore = a}) . mapping _Time
+lCreationTimeBefore :: Lens' ListTrainingJobs (Maybe UTCTime)
+lCreationTimeBefore = lens _lCreationTimeBefore (\ s a -> s{_lCreationTimeBefore = a}) . mapping _Time
 
 -- | A filter that retrieves only training jobs with a specific status.
-ltjStatusEquals :: Lens' ListTrainingJobs (Maybe TrainingJobStatus)
-ltjStatusEquals = lens _ltjStatusEquals (\ s a -> s{_ltjStatusEquals = a})
+lStatusEquals :: Lens' ListTrainingJobs (Maybe TrainingJobStatus)
+lStatusEquals = lens _lStatusEquals (\ s a -> s{_lStatusEquals = a})
 
 -- | The maximum number of training jobs to return in the response.
-ltjMaxResults :: Lens' ListTrainingJobs (Maybe Natural)
-ltjMaxResults = lens _ltjMaxResults (\ s a -> s{_ltjMaxResults = a}) . mapping _Nat
+lMaxResults :: Lens' ListTrainingJobs (Maybe Natural)
+lMaxResults = lens _lMaxResults (\ s a -> s{_lMaxResults = a}) . mapping _Nat
 
 -- | The field to sort results by. The default is @CreationTime@ .
-ltjSortBy :: Lens' ListTrainingJobs (Maybe SortBy)
-ltjSortBy = lens _ltjSortBy (\ s a -> s{_ltjSortBy = a})
+lSortBy :: Lens' ListTrainingJobs (Maybe SortBy)
+lSortBy = lens _lSortBy (\ s a -> s{_lSortBy = a})
 
 instance AWSPager ListTrainingJobs where
         page rq rs
           | stop (rs ^. ltjrsNextToken) = Nothing
           | stop (rs ^. ltjrsTrainingJobSummaries) = Nothing
           | otherwise =
-            Just $ rq & ltjNextToken .~ rs ^. ltjrsNextToken
+            Just $ rq & lNextToken .~ rs ^. ltjrsNextToken
 
 instance AWSRequest ListTrainingJobs where
         type Rs ListTrainingJobs = ListTrainingJobsResponse
@@ -186,18 +186,18 @@ instance ToJSON ListTrainingJobs where
         toJSON ListTrainingJobs'{..}
           = object
               (catMaybes
-                 [("NameContains" .=) <$> _ltjNameContains,
+                 [("NameContains" .=) <$> _lNameContains,
                   ("LastModifiedTimeBefore" .=) <$>
-                    _ltjLastModifiedTimeBefore,
-                  ("CreationTimeAfter" .=) <$> _ltjCreationTimeAfter,
-                  ("NextToken" .=) <$> _ltjNextToken,
-                  ("SortOrder" .=) <$> _ltjSortOrder,
+                    _lLastModifiedTimeBefore,
+                  ("CreationTimeAfter" .=) <$> _lCreationTimeAfter,
+                  ("NextToken" .=) <$> _lNextToken,
+                  ("SortOrder" .=) <$> _lSortOrder,
                   ("LastModifiedTimeAfter" .=) <$>
-                    _ltjLastModifiedTimeAfter,
-                  ("CreationTimeBefore" .=) <$> _ltjCreationTimeBefore,
-                  ("StatusEquals" .=) <$> _ltjStatusEquals,
-                  ("MaxResults" .=) <$> _ltjMaxResults,
-                  ("SortBy" .=) <$> _ltjSortBy])
+                    _lLastModifiedTimeAfter,
+                  ("CreationTimeBefore" .=) <$> _lCreationTimeBefore,
+                  ("StatusEquals" .=) <$> _lStatusEquals,
+                  ("MaxResults" .=) <$> _lMaxResults,
+                  ("SortBy" .=) <$> _lSortBy])
 
 instance ToPath ListTrainingJobs where
         toPath = const "/"

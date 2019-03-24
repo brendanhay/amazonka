@@ -26,7 +26,7 @@ import Network.AWS.Prelude
 --
 --     * Choose the latest (or oldest) chunk.
 --
---     * Identify a specific chunk. You can identify a specific chunk either by providing a fragment number or time stamp (server or producer).
+--     * Identify a specific chunk. You can identify a specific chunk either by providing a fragment number or timestamp (server or producer).
 --
 --     * Each chunk's metadata includes a continuation token as a Matroska (MKV) tag (@AWS_KINESISVIDEO_CONTINUATION_TOKEN@ ). If your previous @GetMedia@ request terminated, you can use this tag value in your next @GetMedia@ request. The API then starts returning chunks starting where the last API ended.
 --
@@ -50,9 +50,9 @@ data StartSelector = StartSelector'
 --
 -- * 'ssAfterFragmentNumber' - Specifies the fragment number from where you want the @GetMedia@ API to start returning the fragments.
 --
--- * 'ssStartTimestamp' - A time stamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the SERVER_TIMESTAMP as the @startSelectorType@ . The @GetMedia@ API then starts with the chunk containing the fragment that has the specified time stamp.
+-- * 'ssStartTimestamp' - A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the SERVER_TIMESTAMP as the @startSelectorType@ . The @GetMedia@ API then starts with the chunk containing the fragment that has the specified timestamp.
 --
--- * 'ssStartSelectorType' - Identifies the fragment on the Kinesis video stream where you want to start getting the data from.     * NOW - Start with the latest chunk on the stream.     * EARLIEST - Start with earliest available chunk on the stream.     * FRAGMENT_NUMBER - Start with the chunk containing the specific fragment. You must also specify the @StartFragmentNumber@ .     * PRODUCER_TIMESTAMP or SERVER_TIMESTAMP - Start with the chunk containing a fragment with the specified producer or server time stamp. You specify the time stamp by adding @StartTimestamp@ .     * CONTINUATION_TOKEN - Read using the specified continuation token.
+-- * 'ssStartSelectorType' - Identifies the fragment on the Kinesis video stream where you want to start getting the data from.     * NOW - Start with the latest chunk on the stream.     * EARLIEST - Start with earliest available chunk on the stream.     * FRAGMENT_NUMBER - Start with the chunk containing the specific fragment. You must also specify the @StartFragmentNumber@ .     * PRODUCER_TIMESTAMP or SERVER_TIMESTAMP - Start with the chunk containing a fragment with the specified producer or server timestamp. You specify the timestamp by adding @StartTimestamp@ .     * CONTINUATION_TOKEN - Read using the specified continuation token.
 startSelector
     :: StartSelectorType -- ^ 'ssStartSelectorType'
     -> StartSelector
@@ -73,11 +73,11 @@ ssContinuationToken = lens _ssContinuationToken (\ s a -> s{_ssContinuationToken
 ssAfterFragmentNumber :: Lens' StartSelector (Maybe Text)
 ssAfterFragmentNumber = lens _ssAfterFragmentNumber (\ s a -> s{_ssAfterFragmentNumber = a})
 
--- | A time stamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the SERVER_TIMESTAMP as the @startSelectorType@ . The @GetMedia@ API then starts with the chunk containing the fragment that has the specified time stamp.
+-- | A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the SERVER_TIMESTAMP as the @startSelectorType@ . The @GetMedia@ API then starts with the chunk containing the fragment that has the specified timestamp.
 ssStartTimestamp :: Lens' StartSelector (Maybe UTCTime)
 ssStartTimestamp = lens _ssStartTimestamp (\ s a -> s{_ssStartTimestamp = a}) . mapping _Time
 
--- | Identifies the fragment on the Kinesis video stream where you want to start getting the data from.     * NOW - Start with the latest chunk on the stream.     * EARLIEST - Start with earliest available chunk on the stream.     * FRAGMENT_NUMBER - Start with the chunk containing the specific fragment. You must also specify the @StartFragmentNumber@ .     * PRODUCER_TIMESTAMP or SERVER_TIMESTAMP - Start with the chunk containing a fragment with the specified producer or server time stamp. You specify the time stamp by adding @StartTimestamp@ .     * CONTINUATION_TOKEN - Read using the specified continuation token.
+-- | Identifies the fragment on the Kinesis video stream where you want to start getting the data from.     * NOW - Start with the latest chunk on the stream.     * EARLIEST - Start with earliest available chunk on the stream.     * FRAGMENT_NUMBER - Start with the chunk containing the specific fragment. You must also specify the @StartFragmentNumber@ .     * PRODUCER_TIMESTAMP or SERVER_TIMESTAMP - Start with the chunk containing a fragment with the specified producer or server timestamp. You specify the timestamp by adding @StartTimestamp@ .     * CONTINUATION_TOKEN - Read using the specified continuation token.
 ssStartSelectorType :: Lens' StartSelector StartSelectorType
 ssStartSelectorType = lens _ssStartSelectorType (\ s a -> s{_ssStartSelectorType = a})
 

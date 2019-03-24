@@ -21,7 +21,7 @@
 -- Backtracks a DB cluster to a specific time, without creating a new DB cluster.
 --
 --
--- For more information on backtracking, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Managing.Backtrack.html Backtracking an Aurora DB Cluster> in the /Amazon RDS User Guide./
+-- For more information on backtracking, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html Backtracking an Aurora DB Cluster> in the /Amazon Aurora User Guide./
 --
 module Network.AWS.RDS.BacktrackDBCluster
     (
@@ -74,9 +74,9 @@ data BacktrackDBCluster = BacktrackDBCluster'
 --
 -- * 'bdcUseEarliestTimeOnPointInTimeUnavailable' - If /BacktrackTo/ is set to a timestamp earlier than the earliest backtrack time, this value backtracks the DB cluster to the earliest possible backtrack time. Otherwise, an error occurs.
 --
--- * 'bdcDBClusterIdentifier' - The DB cluster identifier of the DB cluster to be backtracked. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1@
+-- * 'bdcDBClusterIdentifier' - The DB cluster identifier of the DB cluster to be backtracked. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Can't end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1@
 --
--- * 'bdcBacktrackTo' - The timestamp of the time to backtrack the DB cluster to, specified in ISO 8601 format. For more information about ISO 8601, see the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>  Constraints:     * Must contain a valid ISO 8601 timestamp.     * Cannot contain a timestamp set in the future. Example: @2017-07-08T18:00Z@
+-- * 'bdcBacktrackTo' - The timestamp of the time to backtrack the DB cluster to, specified in ISO 8601 format. For more information about ISO 8601, see the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>  Constraints:     * Must contain a valid ISO 8601 timestamp.     * Can't contain a timestamp set in the future. Example: @2017-07-08T18:00Z@
 backtrackDBCluster
     :: Text -- ^ 'bdcDBClusterIdentifier'
     -> UTCTime -- ^ 'bdcBacktrackTo'
@@ -98,11 +98,11 @@ bdcForce = lens _bdcForce (\ s a -> s{_bdcForce = a})
 bdcUseEarliestTimeOnPointInTimeUnavailable :: Lens' BacktrackDBCluster (Maybe Bool)
 bdcUseEarliestTimeOnPointInTimeUnavailable = lens _bdcUseEarliestTimeOnPointInTimeUnavailable (\ s a -> s{_bdcUseEarliestTimeOnPointInTimeUnavailable = a})
 
--- | The DB cluster identifier of the DB cluster to be backtracked. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1@
+-- | The DB cluster identifier of the DB cluster to be backtracked. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Can't end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1@
 bdcDBClusterIdentifier :: Lens' BacktrackDBCluster Text
 bdcDBClusterIdentifier = lens _bdcDBClusterIdentifier (\ s a -> s{_bdcDBClusterIdentifier = a})
 
--- | The timestamp of the time to backtrack the DB cluster to, specified in ISO 8601 format. For more information about ISO 8601, see the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>  Constraints:     * Must contain a valid ISO 8601 timestamp.     * Cannot contain a timestamp set in the future. Example: @2017-07-08T18:00Z@
+-- | The timestamp of the time to backtrack the DB cluster to, specified in ISO 8601 format. For more information about ISO 8601, see the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>  Constraints:     * Must contain a valid ISO 8601 timestamp.     * Can't contain a timestamp set in the future. Example: @2017-07-08T18:00Z@
 bdcBacktrackTo :: Lens' BacktrackDBCluster UTCTime
 bdcBacktrackTo = lens _bdcBacktrackTo (\ s a -> s{_bdcBacktrackTo = a}) . _Time
 

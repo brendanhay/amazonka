@@ -62,7 +62,7 @@ data ModifyDBSnapshot = ModifyDBSnapshot'
 --
 -- * 'mdsEngineVersion' - The engine version to upgrade the DB snapshot to.  The following are the database engines and engine versions that are available when you upgrade a DB snapshot.  __MySQL__      * @5.5.46@ (supported for 5.1 DB snapshots) __Oracle__      * @12.1.0.2.v8@ (supported for 12.1.0.1 DB snapshots)     * @11.2.0.4.v12@ (supported for 11.2.0.2 DB snapshots)     * @11.2.0.4.v11@ (supported for 11.2.0.3 DB snapshots)
 --
--- * 'mdsOptionGroupName' - The option group to identify with the upgraded DB snapshot.  You can specify this parameter when you upgrade an Oracle DB snapshot. The same option group considerations apply when upgrading a DB snapshot as when upgrading a DB instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option Group Considerations> .
+-- * 'mdsOptionGroupName' - The option group to identify with the upgraded DB snapshot.  You can specify this parameter when you upgrade an Oracle DB snapshot. The same option group considerations apply when upgrading a DB snapshot as when upgrading a DB instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option Group Considerations> in the /Amazon RDS User Guide./
 --
 -- * 'mdsDBSnapshotIdentifier' - The identifier of the DB snapshot to modify.
 modifyDBSnapshot
@@ -80,7 +80,7 @@ modifyDBSnapshot pDBSnapshotIdentifier_ =
 mdsEngineVersion :: Lens' ModifyDBSnapshot (Maybe Text)
 mdsEngineVersion = lens _mdsEngineVersion (\ s a -> s{_mdsEngineVersion = a})
 
--- | The option group to identify with the upgraded DB snapshot.  You can specify this parameter when you upgrade an Oracle DB snapshot. The same option group considerations apply when upgrading a DB snapshot as when upgrading a DB instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option Group Considerations> .
+-- | The option group to identify with the upgraded DB snapshot.  You can specify this parameter when you upgrade an Oracle DB snapshot. The same option group considerations apply when upgrading a DB snapshot as when upgrading a DB instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option Group Considerations> in the /Amazon RDS User Guide./
 mdsOptionGroupName :: Lens' ModifyDBSnapshot (Maybe Text)
 mdsOptionGroupName = lens _mdsOptionGroupName (\ s a -> s{_mdsOptionGroupName = a})
 

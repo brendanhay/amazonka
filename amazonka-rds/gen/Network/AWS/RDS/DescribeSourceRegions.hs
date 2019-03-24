@@ -21,6 +21,8 @@
 -- Returns a list of the source AWS Regions where the current AWS Region can create a Read Replica or copy a DB snapshot from. This API action supports pagination.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.RDS.DescribeSourceRegions
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.RDS.DescribeSourceRegions
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.RDS.Types.Product
@@ -98,6 +101,13 @@ dsrMarker = lens _dsrMarker (\ s a -> s{_dsrMarker = a})
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 dsrMaxRecords :: Lens' DescribeSourceRegions (Maybe Int)
 dsrMaxRecords = lens _dsrMaxRecords (\ s a -> s{_dsrMaxRecords = a})
+
+instance AWSPager DescribeSourceRegions where
+        page rq rs
+          | stop (rs ^. dsrrsMarker) = Nothing
+          | stop (rs ^. dsrrsSourceRegions) = Nothing
+          | otherwise =
+            Just $ rq & dsrMarker .~ rs ^. dsrrsMarker
 
 instance AWSRequest DescribeSourceRegions where
         type Rs DescribeSourceRegions =

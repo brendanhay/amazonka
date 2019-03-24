@@ -21,7 +21,7 @@
 -- Restores a DB cluster to an arbitrary point in time. Users can restore to any point in time before @LatestRestorableTime@ for up to @BackupRetentionPeriod@ days. The target DB cluster is created from the source DB cluster with the same configuration as the original DB cluster, except that the new DB cluster is created with the default DB security group.
 --
 --
--- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?> in the /Amazon Aurora User Guide./
 --
 module Network.AWS.RDS.RestoreDBClusterToPointInTime
     (
@@ -29,17 +29,21 @@ module Network.AWS.RDS.RestoreDBClusterToPointInTime
       restoreDBClusterToPointInTime
     , RestoreDBClusterToPointInTime
     -- * Request Lenses
+    , rdctpitDeletionProtection
     , rdctpitUseLatestRestorableTime
     , rdctpitDBSubnetGroupName
     , rdctpitBacktrackWindow
     , rdctpitKMSKeyId
     , rdctpitVPCSecurityGroupIds
+    , rdctpitDBClusterParameterGroupName
     , rdctpitRestoreType
     , rdctpitOptionGroupName
+    , rdctpitCopyTagsToSnapshot
     , rdctpitRestoreToTime
     , rdctpitTags
     , rdctpitPort
     , rdctpitEnableIAMDatabaseAuthentication
+    , rdctpitEnableCloudwatchLogsExports
     , rdctpitDBClusterIdentifier
     , rdctpitSourceDBClusterIdentifier
 
@@ -64,17 +68,21 @@ import Network.AWS.Response
 --
 -- /See:/ 'restoreDBClusterToPointInTime' smart constructor.
 data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
-  { _rdctpitUseLatestRestorableTime         :: !(Maybe Bool)
+  { _rdctpitDeletionProtection              :: !(Maybe Bool)
+  , _rdctpitUseLatestRestorableTime         :: !(Maybe Bool)
   , _rdctpitDBSubnetGroupName               :: !(Maybe Text)
   , _rdctpitBacktrackWindow                 :: !(Maybe Integer)
   , _rdctpitKMSKeyId                        :: !(Maybe Text)
   , _rdctpitVPCSecurityGroupIds             :: !(Maybe [Text])
+  , _rdctpitDBClusterParameterGroupName     :: !(Maybe Text)
   , _rdctpitRestoreType                     :: !(Maybe Text)
   , _rdctpitOptionGroupName                 :: !(Maybe Text)
+  , _rdctpitCopyTagsToSnapshot              :: !(Maybe Bool)
   , _rdctpitRestoreToTime                   :: !(Maybe ISO8601)
   , _rdctpitTags                            :: !(Maybe [Tag])
   , _rdctpitPort                            :: !(Maybe Int)
   , _rdctpitEnableIAMDatabaseAuthentication :: !(Maybe Bool)
+  , _rdctpitEnableCloudwatchLogsExports     :: !(Maybe [Text])
   , _rdctpitDBClusterIdentifier             :: !Text
   , _rdctpitSourceDBClusterIdentifier       :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -84,29 +92,37 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdctpitUseLatestRestorableTime' - A value that is set to @true@ to restore the DB cluster to the latest restorable backup time, and @false@ otherwise.  Default: @false@  Constraints: Cannot be specified if @RestoreToTime@ parameter is provided.
+-- * 'rdctpitDeletionProtection' - Indicates if the DB cluster should have deletion protection enabled. The database can't be deleted when this value is set to true. The default is false.
+--
+-- * 'rdctpitUseLatestRestorableTime' - A value that is set to @true@ to restore the DB cluster to the latest restorable backup time, and @false@ otherwise.  Default: @false@  Constraints: Can't be specified if @RestoreToTime@ parameter is provided.
 --
 -- * 'rdctpitDBSubnetGroupName' - The DB subnet group name to use for the new DB cluster. Constraints: If supplied, must match the name of an existing DBSubnetGroup. Example: @mySubnetgroup@
 --
 -- * 'rdctpitBacktrackWindow' - The target backtrack window, in seconds. To disable backtracking, set this value to 0. Default: 0 Constraints:     * If specified, this value must be set to a number from 0 to 259,200 (72 hours).
 --
--- * 'rdctpitKMSKeyId' - The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key. You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key that is different than the KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the KMS key identified by the @KmsKeyId@ parameter. If you do not specify a value for the @KmsKeyId@ parameter, then the following will occur:     * If the DB cluster is encrypted, then the restored DB cluster is encrypted using the KMS key that was used to encrypt the source DB cluster.     * If the DB cluster is not encrypted, then the restored DB cluster is not encrypted. If @DBClusterIdentifier@ refers to a DB cluster that is not encrypted, then the restore request is rejected.
+-- * 'rdctpitKMSKeyId' - The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key. You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key that is different than the KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the KMS key identified by the @KmsKeyId@ parameter. If you don't specify a value for the @KmsKeyId@ parameter, then the following occurs:     * If the DB cluster is encrypted, then the restored DB cluster is encrypted using the KMS key that was used to encrypt the source DB cluster.     * If the DB cluster is not encrypted, then the restored DB cluster is not encrypted. If @DBClusterIdentifier@ refers to a DB cluster that is not encrypted, then the restore request is rejected.
 --
 -- * 'rdctpitVPCSecurityGroupIds' - A list of VPC security groups that the new DB cluster belongs to.
+--
+-- * 'rdctpitDBClusterParameterGroupName' - The name of the DB cluster parameter group to associate with this DB cluster. If this argument is omitted, the default DB cluster parameter group for the specified engine is used. Constraints:     * If supplied, must match the name of an existing DB cluster parameter group.     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter.     * Can't end with a hyphen or contain two consecutive hyphens.
 --
 -- * 'rdctpitRestoreType' - The type of restore to be performed. You can specify one of the following values:     * @full-copy@ - The new DB cluster is restored as a full copy of the source DB cluster.     * @copy-on-write@ - The new DB cluster is restored as a clone of the source DB cluster. Constraints: You can't specify @copy-on-write@ if the engine version of the source DB cluster is earlier than 1.11. If you don't specify a @RestoreType@ value, then the new DB cluster is restored as a full copy of the source DB cluster.
 --
 -- * 'rdctpitOptionGroupName' - The name of the option group for the new DB cluster.
 --
--- * 'rdctpitRestoreToTime' - The date and time to restore the DB cluster to. Valid Values: Value must be a time in Universal Coordinated Time (UTC) format Constraints:     * Must be before the latest restorable time for the DB instance     * Must be specified if @UseLatestRestorableTime@ parameter is not provided     * Cannot be specified if @UseLatestRestorableTime@ parameter is true     * Cannot be specified if @RestoreType@ parameter is @copy-on-write@  Example: @2015-03-07T23:45:00Z@
+-- * 'rdctpitCopyTagsToSnapshot' - True to copy all tags from the restored DB cluster to snapshots of the restored DB cluster, and otherwise false. The default is false.
+--
+-- * 'rdctpitRestoreToTime' - The date and time to restore the DB cluster to. Valid Values: Value must be a time in Universal Coordinated Time (UTC) format Constraints:     * Must be before the latest restorable time for the DB instance     * Must be specified if @UseLatestRestorableTime@ parameter is not provided     * Can't be specified if @UseLatestRestorableTime@ parameter is true     * Can't be specified if @RestoreType@ parameter is @copy-on-write@  Example: @2015-03-07T23:45:00Z@
 --
 -- * 'rdctpitTags' - Undocumented member.
 --
--- * 'rdctpitPort' - The port number on which the new DB cluster accepts connections. Constraints: Value must be @1150-65535@  Default: The same port as the original DB cluster.
+-- * 'rdctpitPort' - The port number on which the new DB cluster accepts connections. Constraints: A value from @1150-65535@ .  Default: The default port for the engine.
 --
 -- * 'rdctpitEnableIAMDatabaseAuthentication' - True to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts, and otherwise false. Default: @false@
 --
--- * 'rdctpitDBClusterIdentifier' - The name of the new DB cluster to be created. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- * 'rdctpitEnableCloudwatchLogsExports' - The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs> in the /Amazon Aurora User Guide/ .
+--
+-- * 'rdctpitDBClusterIdentifier' - The name of the new DB cluster to be created. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens
 --
 -- * 'rdctpitSourceDBClusterIdentifier' - The identifier of the source DB cluster from which to restore. Constraints:     * Must match the identifier of an existing DBCluster.
 restoreDBClusterToPointInTime
@@ -115,23 +131,31 @@ restoreDBClusterToPointInTime
     -> RestoreDBClusterToPointInTime
 restoreDBClusterToPointInTime pDBClusterIdentifier_ pSourceDBClusterIdentifier_ =
   RestoreDBClusterToPointInTime'
-    { _rdctpitUseLatestRestorableTime = Nothing
+    { _rdctpitDeletionProtection = Nothing
+    , _rdctpitUseLatestRestorableTime = Nothing
     , _rdctpitDBSubnetGroupName = Nothing
     , _rdctpitBacktrackWindow = Nothing
     , _rdctpitKMSKeyId = Nothing
     , _rdctpitVPCSecurityGroupIds = Nothing
+    , _rdctpitDBClusterParameterGroupName = Nothing
     , _rdctpitRestoreType = Nothing
     , _rdctpitOptionGroupName = Nothing
+    , _rdctpitCopyTagsToSnapshot = Nothing
     , _rdctpitRestoreToTime = Nothing
     , _rdctpitTags = Nothing
     , _rdctpitPort = Nothing
     , _rdctpitEnableIAMDatabaseAuthentication = Nothing
+    , _rdctpitEnableCloudwatchLogsExports = Nothing
     , _rdctpitDBClusterIdentifier = pDBClusterIdentifier_
     , _rdctpitSourceDBClusterIdentifier = pSourceDBClusterIdentifier_
     }
 
 
--- | A value that is set to @true@ to restore the DB cluster to the latest restorable backup time, and @false@ otherwise.  Default: @false@  Constraints: Cannot be specified if @RestoreToTime@ parameter is provided.
+-- | Indicates if the DB cluster should have deletion protection enabled. The database can't be deleted when this value is set to true. The default is false.
+rdctpitDeletionProtection :: Lens' RestoreDBClusterToPointInTime (Maybe Bool)
+rdctpitDeletionProtection = lens _rdctpitDeletionProtection (\ s a -> s{_rdctpitDeletionProtection = a})
+
+-- | A value that is set to @true@ to restore the DB cluster to the latest restorable backup time, and @false@ otherwise.  Default: @false@  Constraints: Can't be specified if @RestoreToTime@ parameter is provided.
 rdctpitUseLatestRestorableTime :: Lens' RestoreDBClusterToPointInTime (Maybe Bool)
 rdctpitUseLatestRestorableTime = lens _rdctpitUseLatestRestorableTime (\ s a -> s{_rdctpitUseLatestRestorableTime = a})
 
@@ -143,13 +167,17 @@ rdctpitDBSubnetGroupName = lens _rdctpitDBSubnetGroupName (\ s a -> s{_rdctpitDB
 rdctpitBacktrackWindow :: Lens' RestoreDBClusterToPointInTime (Maybe Integer)
 rdctpitBacktrackWindow = lens _rdctpitBacktrackWindow (\ s a -> s{_rdctpitBacktrackWindow = a})
 
--- | The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key. You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key that is different than the KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the KMS key identified by the @KmsKeyId@ parameter. If you do not specify a value for the @KmsKeyId@ parameter, then the following will occur:     * If the DB cluster is encrypted, then the restored DB cluster is encrypted using the KMS key that was used to encrypt the source DB cluster.     * If the DB cluster is not encrypted, then the restored DB cluster is not encrypted. If @DBClusterIdentifier@ refers to a DB cluster that is not encrypted, then the restore request is rejected.
+-- | The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key. You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key that is different than the KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the KMS key identified by the @KmsKeyId@ parameter. If you don't specify a value for the @KmsKeyId@ parameter, then the following occurs:     * If the DB cluster is encrypted, then the restored DB cluster is encrypted using the KMS key that was used to encrypt the source DB cluster.     * If the DB cluster is not encrypted, then the restored DB cluster is not encrypted. If @DBClusterIdentifier@ refers to a DB cluster that is not encrypted, then the restore request is rejected.
 rdctpitKMSKeyId :: Lens' RestoreDBClusterToPointInTime (Maybe Text)
 rdctpitKMSKeyId = lens _rdctpitKMSKeyId (\ s a -> s{_rdctpitKMSKeyId = a})
 
 -- | A list of VPC security groups that the new DB cluster belongs to.
 rdctpitVPCSecurityGroupIds :: Lens' RestoreDBClusterToPointInTime [Text]
 rdctpitVPCSecurityGroupIds = lens _rdctpitVPCSecurityGroupIds (\ s a -> s{_rdctpitVPCSecurityGroupIds = a}) . _Default . _Coerce
+
+-- | The name of the DB cluster parameter group to associate with this DB cluster. If this argument is omitted, the default DB cluster parameter group for the specified engine is used. Constraints:     * If supplied, must match the name of an existing DB cluster parameter group.     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter.     * Can't end with a hyphen or contain two consecutive hyphens.
+rdctpitDBClusterParameterGroupName :: Lens' RestoreDBClusterToPointInTime (Maybe Text)
+rdctpitDBClusterParameterGroupName = lens _rdctpitDBClusterParameterGroupName (\ s a -> s{_rdctpitDBClusterParameterGroupName = a})
 
 -- | The type of restore to be performed. You can specify one of the following values:     * @full-copy@ - The new DB cluster is restored as a full copy of the source DB cluster.     * @copy-on-write@ - The new DB cluster is restored as a clone of the source DB cluster. Constraints: You can't specify @copy-on-write@ if the engine version of the source DB cluster is earlier than 1.11. If you don't specify a @RestoreType@ value, then the new DB cluster is restored as a full copy of the source DB cluster.
 rdctpitRestoreType :: Lens' RestoreDBClusterToPointInTime (Maybe Text)
@@ -159,7 +187,11 @@ rdctpitRestoreType = lens _rdctpitRestoreType (\ s a -> s{_rdctpitRestoreType = 
 rdctpitOptionGroupName :: Lens' RestoreDBClusterToPointInTime (Maybe Text)
 rdctpitOptionGroupName = lens _rdctpitOptionGroupName (\ s a -> s{_rdctpitOptionGroupName = a})
 
--- | The date and time to restore the DB cluster to. Valid Values: Value must be a time in Universal Coordinated Time (UTC) format Constraints:     * Must be before the latest restorable time for the DB instance     * Must be specified if @UseLatestRestorableTime@ parameter is not provided     * Cannot be specified if @UseLatestRestorableTime@ parameter is true     * Cannot be specified if @RestoreType@ parameter is @copy-on-write@  Example: @2015-03-07T23:45:00Z@
+-- | True to copy all tags from the restored DB cluster to snapshots of the restored DB cluster, and otherwise false. The default is false.
+rdctpitCopyTagsToSnapshot :: Lens' RestoreDBClusterToPointInTime (Maybe Bool)
+rdctpitCopyTagsToSnapshot = lens _rdctpitCopyTagsToSnapshot (\ s a -> s{_rdctpitCopyTagsToSnapshot = a})
+
+-- | The date and time to restore the DB cluster to. Valid Values: Value must be a time in Universal Coordinated Time (UTC) format Constraints:     * Must be before the latest restorable time for the DB instance     * Must be specified if @UseLatestRestorableTime@ parameter is not provided     * Can't be specified if @UseLatestRestorableTime@ parameter is true     * Can't be specified if @RestoreType@ parameter is @copy-on-write@  Example: @2015-03-07T23:45:00Z@
 rdctpitRestoreToTime :: Lens' RestoreDBClusterToPointInTime (Maybe UTCTime)
 rdctpitRestoreToTime = lens _rdctpitRestoreToTime (\ s a -> s{_rdctpitRestoreToTime = a}) . mapping _Time
 
@@ -167,7 +199,7 @@ rdctpitRestoreToTime = lens _rdctpitRestoreToTime (\ s a -> s{_rdctpitRestoreToT
 rdctpitTags :: Lens' RestoreDBClusterToPointInTime [Tag]
 rdctpitTags = lens _rdctpitTags (\ s a -> s{_rdctpitTags = a}) . _Default . _Coerce
 
--- | The port number on which the new DB cluster accepts connections. Constraints: Value must be @1150-65535@  Default: The same port as the original DB cluster.
+-- | The port number on which the new DB cluster accepts connections. Constraints: A value from @1150-65535@ .  Default: The default port for the engine.
 rdctpitPort :: Lens' RestoreDBClusterToPointInTime (Maybe Int)
 rdctpitPort = lens _rdctpitPort (\ s a -> s{_rdctpitPort = a})
 
@@ -175,7 +207,11 @@ rdctpitPort = lens _rdctpitPort (\ s a -> s{_rdctpitPort = a})
 rdctpitEnableIAMDatabaseAuthentication :: Lens' RestoreDBClusterToPointInTime (Maybe Bool)
 rdctpitEnableIAMDatabaseAuthentication = lens _rdctpitEnableIAMDatabaseAuthentication (\ s a -> s{_rdctpitEnableIAMDatabaseAuthentication = a})
 
--- | The name of the new DB cluster to be created. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- | The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs> in the /Amazon Aurora User Guide/ .
+rdctpitEnableCloudwatchLogsExports :: Lens' RestoreDBClusterToPointInTime [Text]
+rdctpitEnableCloudwatchLogsExports = lens _rdctpitEnableCloudwatchLogsExports (\ s a -> s{_rdctpitEnableCloudwatchLogsExports = a}) . _Default . _Coerce
+
+-- | The name of the new DB cluster to be created. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens
 rdctpitDBClusterIdentifier :: Lens' RestoreDBClusterToPointInTime Text
 rdctpitDBClusterIdentifier = lens _rdctpitDBClusterIdentifier (\ s a -> s{_rdctpitDBClusterIdentifier = a})
 
@@ -212,6 +248,7 @@ instance ToQuery RestoreDBClusterToPointInTime where
               ["Action" =:
                  ("RestoreDBClusterToPointInTime" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
+               "DeletionProtection" =: _rdctpitDeletionProtection,
                "UseLatestRestorableTime" =:
                  _rdctpitUseLatestRestorableTime,
                "DBSubnetGroupName" =: _rdctpitDBSubnetGroupName,
@@ -221,14 +258,21 @@ instance ToQuery RestoreDBClusterToPointInTime where
                  toQuery
                    (toQueryList "VpcSecurityGroupId" <$>
                       _rdctpitVPCSecurityGroupIds),
+               "DBClusterParameterGroupName" =:
+                 _rdctpitDBClusterParameterGroupName,
                "RestoreType" =: _rdctpitRestoreType,
                "OptionGroupName" =: _rdctpitOptionGroupName,
+               "CopyTagsToSnapshot" =: _rdctpitCopyTagsToSnapshot,
                "RestoreToTime" =: _rdctpitRestoreToTime,
                "Tags" =:
                  toQuery (toQueryList "Tag" <$> _rdctpitTags),
                "Port" =: _rdctpitPort,
                "EnableIAMDatabaseAuthentication" =:
                  _rdctpitEnableIAMDatabaseAuthentication,
+               "EnableCloudwatchLogsExports" =:
+                 toQuery
+                   (toQueryList "member" <$>
+                      _rdctpitEnableCloudwatchLogsExports),
                "DBClusterIdentifier" =: _rdctpitDBClusterIdentifier,
                "SourceDBClusterIdentifier" =:
                  _rdctpitSourceDBClusterIdentifier]

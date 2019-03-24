@@ -27,7 +27,7 @@
 --
 -- /Important:/ After you create a DB cluster parameter group, you should wait at least 5 minutes before creating your first DB cluster that uses that DB cluster parameter group as the default parameter group. This allows Amazon RDS to fully complete the create action before the DB cluster parameter group is used as the default for a new DB cluster. This is especially important for parameters that are critical when creating the default database for a DB cluster, such as the character set for the default database defined by the @character_set_database@ parameter. You can use the /Parameter Groups/ option of the <https://console.aws.amazon.com/rds/ Amazon RDS console> or the 'DescribeDBClusterParameters' command to verify that your DB cluster parameter group has been created or modified.
 --
--- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?> in the /Amazon Aurora User Guide./
 --
 module Network.AWS.RDS.CreateDBClusterParameterGroup
     (
@@ -74,7 +74,7 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
 --
 -- * 'cdcpgTags' - Undocumented member.
 --
--- * 'cdcpgDBClusterParameterGroupName' - The name of the DB cluster parameter group. Constraints:     * Must match the name of an existing DBClusterParameterGroup.
+-- * 'cdcpgDBClusterParameterGroupName' - The name of the DB cluster parameter group. Constraints:     * Must match the name of an existing DB cluster parameter group.
 --
 -- * 'cdcpgDBParameterGroupFamily' - The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family. __Aurora MySQL__  Example: @aurora5.6@ , @aurora-mysql5.7@  __Aurora PostgreSQL__  Example: @aurora-postgresql9.6@
 --
@@ -97,7 +97,7 @@ createDBClusterParameterGroup pDBClusterParameterGroupName_ pDBParameterGroupFam
 cdcpgTags :: Lens' CreateDBClusterParameterGroup [Tag]
 cdcpgTags = lens _cdcpgTags (\ s a -> s{_cdcpgTags = a}) . _Default . _Coerce
 
--- | The name of the DB cluster parameter group. Constraints:     * Must match the name of an existing DBClusterParameterGroup.
+-- | The name of the DB cluster parameter group. Constraints:     * Must match the name of an existing DB cluster parameter group.
 cdcpgDBClusterParameterGroupName :: Lens' CreateDBClusterParameterGroup Text
 cdcpgDBClusterParameterGroupName = lens _cdcpgDBClusterParameterGroupName (\ s a -> s{_cdcpgDBClusterParameterGroupName = a})
 

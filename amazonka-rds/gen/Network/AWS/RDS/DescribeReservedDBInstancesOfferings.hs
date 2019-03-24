@@ -78,7 +78,7 @@ data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drdioProductDescription' - Product description filter value. Specify this parameter to show only the available offerings matching the specified product description.
+-- * 'drdioProductDescription' - Product description filter value. Specify this parameter to show only the available offerings that contain the specified product description.
 --
 -- * 'drdioFilters' - This parameter is not currently supported.
 --
@@ -111,7 +111,7 @@ describeReservedDBInstancesOfferings =
     }
 
 
--- | Product description filter value. Specify this parameter to show only the available offerings matching the specified product description.
+-- | Product description filter value. Specify this parameter to show only the available offerings that contain the specified product description.
 drdioProductDescription :: Lens' DescribeReservedDBInstancesOfferings (Maybe Text)
 drdioProductDescription = lens _drdioProductDescription (\ s a -> s{_drdioProductDescription = a})
 

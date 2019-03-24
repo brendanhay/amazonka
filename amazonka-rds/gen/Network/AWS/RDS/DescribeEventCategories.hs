@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Displays a list of categories for all event source types, or, if specified, for a specified source type. You can see a list of the event categories and source types in the <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events> topic in the /Amazon RDS User Guide./
+-- Displays a list of categories for all event source types, or, if specified, for a specified source type. You can see a list of the event categories and source types in the <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events> topic in the /Amazon RDS User Guide./
 --
 --
 module Network.AWS.RDS.DescribeEventCategories

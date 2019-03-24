@@ -21,8 +21,10 @@
 -- Returns information about backtracks for a DB cluster.
 --
 --
--- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?> in the /Amazon Aurora User Guide./
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBClusterBacktracks
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.RDS.DescribeDBClusterBacktracks
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.RDS.Types.Product
@@ -77,7 +80,7 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
 --
 -- * 'ddcbMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 --
--- * 'ddcbDBClusterIdentifier' - The DB cluster identifier of the DB cluster to be described. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1@
+-- * 'ddcbDBClusterIdentifier' - The DB cluster identifier of the DB cluster to be described. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Can't end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1@
 describeDBClusterBacktracks
     :: Text -- ^ 'ddcbDBClusterIdentifier'
     -> DescribeDBClusterBacktracks
@@ -107,9 +110,16 @@ ddcbMarker = lens _ddcbMarker (\ s a -> s{_ddcbMarker = a})
 ddcbMaxRecords :: Lens' DescribeDBClusterBacktracks (Maybe Int)
 ddcbMaxRecords = lens _ddcbMaxRecords (\ s a -> s{_ddcbMaxRecords = a})
 
--- | The DB cluster identifier of the DB cluster to be described. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1@
+-- | The DB cluster identifier of the DB cluster to be described. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Can't end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1@
 ddcbDBClusterIdentifier :: Lens' DescribeDBClusterBacktracks Text
 ddcbDBClusterIdentifier = lens _ddcbDBClusterIdentifier (\ s a -> s{_ddcbDBClusterIdentifier = a})
+
+instance AWSPager DescribeDBClusterBacktracks where
+        page rq rs
+          | stop (rs ^. ddcbrsMarker) = Nothing
+          | stop (rs ^. ddcbrsDBClusterBacktracks) = Nothing
+          | otherwise =
+            Just $ rq & ddcbMarker .~ rs ^. ddcbrsMarker
 
 instance AWSRequest DescribeDBClusterBacktracks where
         type Rs DescribeDBClusterBacktracks =

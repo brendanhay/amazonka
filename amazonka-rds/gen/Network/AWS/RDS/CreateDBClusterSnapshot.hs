@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a snapshot of a DB cluster. For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+-- Creates a snapshot of a DB cluster. For more information on Amazon Aurora, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?> in the /Amazon Aurora User Guide./
 --
 --
 module Network.AWS.RDS.CreateDBClusterSnapshot
@@ -64,7 +64,7 @@ data CreateDBClusterSnapshot = CreateDBClusterSnapshot'
 --
 -- * 'cdcsTags' - The tags to be assigned to the DB cluster snapshot.
 --
--- * 'cdcsDBClusterSnapshotIdentifier' - The identifier of the DB cluster snapshot. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1-snapshot1@
+-- * 'cdcsDBClusterSnapshotIdentifier' - The identifier of the DB cluster snapshot. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens.     * First character must be a letter.     * Can't end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1-snapshot1@
 --
 -- * 'cdcsDBClusterIdentifier' - The identifier of the DB cluster to create a snapshot for. This parameter is not case-sensitive. Constraints:     * Must match the identifier of an existing DBCluster. Example: @my-cluster1@
 createDBClusterSnapshot
@@ -83,7 +83,7 @@ createDBClusterSnapshot pDBClusterSnapshotIdentifier_ pDBClusterIdentifier_ =
 cdcsTags :: Lens' CreateDBClusterSnapshot [Tag]
 cdcsTags = lens _cdcsTags (\ s a -> s{_cdcsTags = a}) . _Default . _Coerce
 
--- | The identifier of the DB cluster snapshot. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1-snapshot1@
+-- | The identifier of the DB cluster snapshot. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens.     * First character must be a letter.     * Can't end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1-snapshot1@
 cdcsDBClusterSnapshotIdentifier :: Lens' CreateDBClusterSnapshot Text
 cdcsDBClusterSnapshotIdentifier = lens _cdcsDBClusterSnapshotIdentifier (\ s a -> s{_cdcsDBClusterSnapshotIdentifier = a})
 

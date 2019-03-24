@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.RDS
 import Test.AWS.RDS.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "RDS"

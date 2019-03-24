@@ -21,8 +21,10 @@
 -- Returns information about provisioned Aurora DB clusters. This API supports pagination.
 --
 --
--- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?> in the /Amazon Aurora User Guide./
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBClusters
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.RDS.DescribeDBClusters
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.RDS.Types.Product
@@ -100,6 +103,13 @@ ddcMarker = lens _ddcMarker (\ s a -> s{_ddcMarker = a})
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 ddcMaxRecords :: Lens' DescribeDBClusters (Maybe Int)
 ddcMaxRecords = lens _ddcMaxRecords (\ s a -> s{_ddcMaxRecords = a})
+
+instance AWSPager DescribeDBClusters where
+        page rq rs
+          | stop (rs ^. ddcrsMarker) = Nothing
+          | stop (rs ^. ddcrsDBClusters) = Nothing
+          | otherwise =
+            Just $ rq & ddcMarker .~ rs ^. ddcrsMarker
 
 instance AWSRequest DescribeDBClusters where
         type Rs DescribeDBClusters =

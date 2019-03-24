@@ -42,6 +42,7 @@ module Network.AWS.RDS.DeleteDBInstance
     , DeleteDBInstance
     -- * Request Lenses
     , ddiFinalDBSnapshotIdentifier
+    , ddiDeleteAutomatedBackups
     , ddiSkipFinalSnapshot
     , ddiDBInstanceIdentifier
 
@@ -67,6 +68,7 @@ import Network.AWS.Response
 -- /See:/ 'deleteDBInstance' smart constructor.
 data DeleteDBInstance = DeleteDBInstance'
   { _ddiFinalDBSnapshotIdentifier :: !(Maybe Text)
+  , _ddiDeleteAutomatedBackups    :: !(Maybe Bool)
   , _ddiSkipFinalSnapshot         :: !(Maybe Bool)
   , _ddiDBInstanceIdentifier      :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -76,9 +78,11 @@ data DeleteDBInstance = DeleteDBInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddiFinalDBSnapshotIdentifier' - The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is set to @false@ .  Constraints:     * Must be 1 to 255 letters or numbers.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens     * Cannot be specified when deleting a Read Replica.
+-- * 'ddiFinalDBSnapshotIdentifier' - The @DBSnapshotIdentifier@ of the new DB snapshot created when @SkipFinalSnapshot@ is set to @false@ .  Constraints:     * Must be 1 to 255 letters or numbers.     * First character must be a letter.     * Can't end with a hyphen or contain two consecutive hyphens.     * Can't be specified when deleting a Read Replica.
 --
--- * 'ddiSkipFinalSnapshot' - Determines whether a final DB snapshot is created before the DB instance is deleted. If @true@ is specified, no DBSnapshot is created. If @false@ is specified, a DB snapshot is created before the DB instance is deleted.  Note that when a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore', or 'incompatible-network', it can only be deleted when the SkipFinalSnapshot parameter is set to "true". Specify @true@ when deleting a Read Replica. Default: @false@
+-- * 'ddiDeleteAutomatedBackups' - A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. This parameter defaults to @true@ .
+--
+-- * 'ddiSkipFinalSnapshot' - A value that indicates whether a final DB snapshot is created before the DB instance is deleted. If @true@ is specified, no DB snapshot is created. If @false@ is specified, a DB snapshot is created before the DB instance is deleted.  When a DB instance is in a failure state and has a status of @failed@ , @incompatible-restore@ , or @incompatible-network@ , you can only delete it when the @SkipFinalSnapshot@ parameter is set to @true@ . Specify @true@ when deleting a Read Replica. Default: @false@
 --
 -- * 'ddiDBInstanceIdentifier' - The DB instance identifier for the DB instance to be deleted. This parameter isn't case-sensitive. Constraints:     * Must match the name of an existing DB instance.
 deleteDBInstance
@@ -87,16 +91,21 @@ deleteDBInstance
 deleteDBInstance pDBInstanceIdentifier_ =
   DeleteDBInstance'
     { _ddiFinalDBSnapshotIdentifier = Nothing
+    , _ddiDeleteAutomatedBackups = Nothing
     , _ddiSkipFinalSnapshot = Nothing
     , _ddiDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
 
--- | The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is set to @false@ .  Constraints:     * Must be 1 to 255 letters or numbers.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens     * Cannot be specified when deleting a Read Replica.
+-- | The @DBSnapshotIdentifier@ of the new DB snapshot created when @SkipFinalSnapshot@ is set to @false@ .  Constraints:     * Must be 1 to 255 letters or numbers.     * First character must be a letter.     * Can't end with a hyphen or contain two consecutive hyphens.     * Can't be specified when deleting a Read Replica.
 ddiFinalDBSnapshotIdentifier :: Lens' DeleteDBInstance (Maybe Text)
 ddiFinalDBSnapshotIdentifier = lens _ddiFinalDBSnapshotIdentifier (\ s a -> s{_ddiFinalDBSnapshotIdentifier = a})
 
--- | Determines whether a final DB snapshot is created before the DB instance is deleted. If @true@ is specified, no DBSnapshot is created. If @false@ is specified, a DB snapshot is created before the DB instance is deleted.  Note that when a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore', or 'incompatible-network', it can only be deleted when the SkipFinalSnapshot parameter is set to "true". Specify @true@ when deleting a Read Replica. Default: @false@
+-- | A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. This parameter defaults to @true@ .
+ddiDeleteAutomatedBackups :: Lens' DeleteDBInstance (Maybe Bool)
+ddiDeleteAutomatedBackups = lens _ddiDeleteAutomatedBackups (\ s a -> s{_ddiDeleteAutomatedBackups = a})
+
+-- | A value that indicates whether a final DB snapshot is created before the DB instance is deleted. If @true@ is specified, no DB snapshot is created. If @false@ is specified, a DB snapshot is created before the DB instance is deleted.  When a DB instance is in a failure state and has a status of @failed@ , @incompatible-restore@ , or @incompatible-network@ , you can only delete it when the @SkipFinalSnapshot@ parameter is set to @true@ . Specify @true@ when deleting a Read Replica. Default: @false@
 ddiSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
 ddiSkipFinalSnapshot = lens _ddiSkipFinalSnapshot (\ s a -> s{_ddiSkipFinalSnapshot = a})
 
@@ -130,6 +139,8 @@ instance ToQuery DeleteDBInstance where
                "Version" =: ("2014-10-31" :: ByteString),
                "FinalDBSnapshotIdentifier" =:
                  _ddiFinalDBSnapshotIdentifier,
+               "DeleteAutomatedBackups" =:
+                 _ddiDeleteAutomatedBackups,
                "SkipFinalSnapshot" =: _ddiSkipFinalSnapshot,
                "DBInstanceIdentifier" =: _ddiDBInstanceIdentifier]
 

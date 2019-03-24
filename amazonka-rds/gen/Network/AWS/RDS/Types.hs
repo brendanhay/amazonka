@@ -24,7 +24,10 @@ module Network.AWS.RDS.Types
     , _AuthorizationQuotaExceededFault
     , _DBClusterSnapshotAlreadyExistsFault
     , _DBParameterGroupAlreadyExistsFault
+    , _DBInstanceRoleQuotaExceededFault
+    , _DBInstanceRoleAlreadyExistsFault
     , _DBParameterGroupQuotaExceededFault
+    , _BackupPolicyNotFoundFault
     , _InsufficientDBClusterCapacityFault
     , _ReservedDBInstanceAlreadyExistsFault
     , _ProvisionedIOPSNotAvailableInAZFault
@@ -34,6 +37,7 @@ module Network.AWS.RDS.Types
     , _InvalidSubnet
     , _SharedSnapshotQuotaExceededFault
     , _DBSubnetQuotaExceededFault
+    , _GlobalClusterAlreadyExistsFault
     , _OptionGroupNotFoundFault
     , _DBClusterNotFoundFault
     , _DBLogFileNotFoundFault
@@ -45,12 +49,15 @@ module Network.AWS.RDS.Types
     , _OptionGroupQuotaExceededFault
     , _DBSecurityGroupAlreadyExistsFault
     , _SNSTopicARNNotFoundFault
+    , _InvalidDBClusterEndpointStateFault
     , _InvalidEventSubscriptionStateFault
+    , _InvalidDBInstanceAutomatedBackupStateFault
     , _KMSKeyNotAccessibleFault
     , _DBSnapshotNotFoundFault
     , _DBClusterParameterGroupNotFoundFault
     , _DBClusterQuotaExceededFault
     , _SnapshotQuotaExceededFault
+    , _InvalidDBClusterCapacityFault
     , _DBSubnetGroupAlreadyExistsFault
     , _SNSNoAuthorizationFault
     , _DBSecurityGroupNotFoundFault
@@ -70,14 +77,19 @@ module Network.AWS.RDS.Types
     , _DBClusterRoleAlreadyExistsFault
     , _DBClusterRoleQuotaExceededFault
     , _InvalidVPCNetworkStateFault
+    , _DBInstanceRoleNotFoundFault
     , _AuthorizationNotFoundFault
     , _ReservedDBInstanceNotFoundFault
     , _DBSubnetGroupQuotaExceededFault
+    , _InvalidGlobalClusterStateFault
     , _DBSubnetGroupNotAllowedFault
     , _EventSubscriptionQuotaExceededFault
     , _InsufficientStorageClusterCapacityFault
+    , _DBClusterEndpointQuotaExceededFault
     , _InvalidOptionGroupStateFault
+    , _DBInstanceAutomatedBackupQuotaExceededFault
     , _InvalidDBClusterStateFault
+    , _GlobalClusterNotFoundFault
     , _DBInstanceAlreadyExistsFault
     , _InvalidRestoreFault
     , _InvalidDBSecurityGroupStateFault
@@ -85,11 +97,15 @@ module Network.AWS.RDS.Types
     , _DBSubnetGroupNotFoundFault
     , _DBUpgradeDependencyFailureFault
     , _InvalidDBInstanceStateFault
+    , _DBClusterEndpointAlreadyExistsFault
     , _DBSnapshotAlreadyExistsFault
     , _DBInstanceNotFoundFault
     , _StorageQuotaExceededFault
+    , _DBInstanceAutomatedBackupNotFoundFault
     , _InvalidDBSnapshotStateFault
     , _InvalidDBSubnetGroupStateFault
+    , _GlobalClusterQuotaExceededFault
+    , _DBClusterEndpointNotFoundFault
     , _DBSubnetGroupDoesNotCoverEnoughAZs
     , _SubnetAlreadyInUse
     , _DBClusterRoleNotFoundFault
@@ -111,6 +127,13 @@ module Network.AWS.RDS.Types
     , AvailabilityZone
     , availabilityZone
     , azName
+
+    -- * AvailableProcessorFeature
+    , AvailableProcessorFeature
+    , availableProcessorFeature
+    , apfName
+    , apfDefaultValue
+    , apfAllowedValues
 
     -- * Certificate
     , Certificate
@@ -140,6 +163,7 @@ module Network.AWS.RDS.Types
     , dcBacktrackConsumedChangeRecords
     , dcEngineVersion
     , dcStatus
+    , dcDeletionProtection
     , dcStorageEncrypted
     , dcDBClusterIdentifier
     , dcDBClusterMembers
@@ -153,10 +177,13 @@ module Network.AWS.RDS.Types
     , dcBacktrackWindow
     , dcDBClusterResourceId
     , dcEarliestRestorableTime
+    , dcCustomEndpoints
     , dcEngine
+    , dcHTTPEndpointEnabled
     , dcDBClusterARN
     , dcCloneGroupId
     , dcLatestRestorableTime
+    , dcCapacity
     , dcPreferredMaintenanceWindow
     , dcAvailabilityZones
     , dcCharacterSetName
@@ -168,9 +195,13 @@ module Network.AWS.RDS.Types
     , dcDBSubnetGroup
     , dcDatabaseName
     , dcMultiAZ
+    , dcEngineMode
+    , dcEnabledCloudwatchLogsExports
     , dcAllocatedStorage
+    , dcCopyTagsToSnapshot
     , dcClusterCreateTime
     , dcEndpoint
+    , dcScalingConfigurationInfo
     , dcPercentProgress
     , dcReaderEndpoint
     , dcPort
@@ -185,6 +216,20 @@ module Network.AWS.RDS.Types
     , dcbDBClusterIdentifier
     , dcbBacktrackedFrom
     , dcbBacktrackRequestCreationTime
+
+    -- * DBClusterEndpoint
+    , DBClusterEndpoint
+    , dbClusterEndpoint
+    , dceStatus
+    , dceDBClusterIdentifier
+    , dceDBClusterEndpointARN
+    , dceCustomEndpointType
+    , dceStaticMembers
+    , dceEndpointType
+    , dceDBClusterEndpointIdentifier
+    , dceEndpoint
+    , dceDBClusterEndpointResourceIdentifier
+    , dceExcludedMembers
 
     -- * DBClusterMember
     , DBClusterMember
@@ -217,6 +262,7 @@ module Network.AWS.RDS.Types
     , DBClusterRole
     , dbClusterRole
     , dcrStatus
+    , dcrFeatureName
     , dcrRoleARN
 
     -- * DBClusterSnapshot
@@ -260,6 +306,7 @@ module Network.AWS.RDS.Types
     , dbEngineVersion
     , devEngineVersion
     , devDBEngineVersionDescription
+    , devSupportedEngineModes
     , devDefaultCharacterSet
     , devEngine
     , devDBParameterGroupFamily
@@ -268,6 +315,7 @@ module Network.AWS.RDS.Types
     , devValidUpgradeTarget
     , devSupportsLogExportsToCloudwatchLogs
     , devSupportsReadReplica
+    , devSupportedFeatureNames
     , devSupportedTimezones
     , devExportableLogTypes
 
@@ -276,6 +324,7 @@ module Network.AWS.RDS.Types
     , dbInstance
     , diEngineVersion
     , diDBSecurityGroups
+    , diDeletionProtection
     , diStorageEncrypted
     , diDBClusterIdentifier
     , diPubliclyAccessible
@@ -290,22 +339,26 @@ module Network.AWS.RDS.Types
     , diReadReplicaSourceDBInstanceIdentifier
     , diMonitoringInterval
     , diEngine
+    , diProcessorFeatures
     , diLatestRestorableTime
     , diDBInstanceClass
     , diPromotionTier
     , diLicenseModel
     , diPreferredMaintenanceWindow
+    , diPerformanceInsightsRetentionPeriod
     , diCACertificateIdentifier
     , diDBInstanceIdentifier
     , diCharacterSetName
     , diKMSKeyId
     , diPreferredBackupWindow
+    , diAssociatedRoles
     , diAvailabilityZone
     , diVPCSecurityGroups
     , diBackupRetentionPeriod
     , diPerformanceInsightsKMSKeyId
     , diDBSubnetGroup
     , diMultiAZ
+    , diListenerEndpoint
     , diOptionGroupMemberships
     , diEnabledCloudwatchLogsExports
     , diEnhancedMonitoringResourceARN
@@ -326,6 +379,40 @@ module Network.AWS.RDS.Types
     , diStatusInfos
     , diDomainMemberships
     , diDBName
+
+    -- * DBInstanceAutomatedBackup
+    , DBInstanceAutomatedBackup
+    , dbInstanceAutomatedBackup
+    , diabRestoreWindow
+    , diabEngineVersion
+    , diabStatus
+    , diabDBInstanceARN
+    , diabMasterUsername
+    , diabIAMDatabaseAuthenticationEnabled
+    , diabIOPS
+    , diabVPCId
+    , diabInstanceCreateTime
+    , diabEngine
+    , diabEncrypted
+    , diabLicenseModel
+    , diabDBInstanceIdentifier
+    , diabKMSKeyId
+    , diabAvailabilityZone
+    , diabRegion
+    , diabAllocatedStorage
+    , diabDBiResourceId
+    , diabOptionGroupName
+    , diabTimezone
+    , diabTDECredentialARN
+    , diabPort
+    , diabStorageType
+
+    -- * DBInstanceRole
+    , DBInstanceRole
+    , dbInstanceRole
+    , dirStatus
+    , dirFeatureName
+    , dirRoleARN
 
     -- * DBInstanceStatusInfo
     , DBInstanceStatusInfo
@@ -386,6 +473,7 @@ module Network.AWS.RDS.Types
     , dsEngine
     , dsEncrypted
     , dsDBSnapshotIdentifier
+    , dsProcessorFeatures
     , dsLicenseModel
     , dsSourceDBSnapshotIdentifier
     , dsSnapshotType
@@ -394,6 +482,7 @@ module Network.AWS.RDS.Types
     , dsAvailabilityZone
     , dsSnapshotCreateTime
     , dsAllocatedStorage
+    , dsDBiResourceId
     , dsOptionGroupName
     , dsTimezone
     , dsTDECredentialARN
@@ -502,11 +591,38 @@ module Network.AWS.RDS.Types
     , fName
     , fValues
 
+    -- * GlobalCluster
+    , GlobalCluster
+    , globalCluster
+    , gcEngineVersion
+    , gcStatus
+    , gcDeletionProtection
+    , gcStorageEncrypted
+    , gcGlobalClusterIdentifier
+    , gcEngine
+    , gcGlobalClusterARN
+    , gcDatabaseName
+    , gcGlobalClusterMembers
+    , gcGlobalClusterResourceId
+
+    -- * GlobalClusterMember
+    , GlobalClusterMember
+    , globalClusterMember
+    , gcmReaders
+    , gcmDBClusterARN
+    , gcmIsWriter
+
     -- * IPRange
     , IPRange
     , ipRange
     , irStatus
     , irCIdRIP
+
+    -- * MinimumEngineVersionPerAllowedValue
+    , MinimumEngineVersionPerAllowedValue
+    , minimumEngineVersionPerAllowedValue
+    , mevpavMinimumEngineVersion
+    , mevpavAllowedValue
 
     -- * Option
     , Option
@@ -573,11 +689,13 @@ module Network.AWS.RDS.Types
     , OptionGroupOptionSetting
     , optionGroupOptionSetting
     , ogosApplyType
+    , ogosMinimumEngineVersionPerAllowedValue
     , ogosSettingName
     , ogosDefaultValue
     , ogosIsModifiable
     , ogosSettingDescription
     , ogosAllowedValues
+    , ogosIsRequired
 
     -- * OptionSetting
     , OptionSetting
@@ -607,6 +725,8 @@ module Network.AWS.RDS.Types
     , odioMinIOPSPerDBInstance
     , odioMultiAZCapable
     , odioMaxStorageSize
+    , odioSupportedEngineModes
+    , odioAvailableProcessorFeatures
     , odioEngine
     , odioMinStorageSize
     , odioSupportsIOPS
@@ -627,6 +747,7 @@ module Network.AWS.RDS.Types
     , parameter
     , pApplyType
     , pParameterValue
+    , pSupportedEngineModes
     , pApplyMethod
     , pMinimumEngineVersion
     , pSource
@@ -659,6 +780,7 @@ module Network.AWS.RDS.Types
     , pmvMasterUserPassword
     , pmvDBSubnetGroupName
     , pmvIOPS
+    , pmvProcessorFeatures
     , pmvDBInstanceClass
     , pmvLicenseModel
     , pmvCACertificateIdentifier
@@ -669,6 +791,12 @@ module Network.AWS.RDS.Types
     , pmvAllocatedStorage
     , pmvPort
     , pmvStorageType
+
+    -- * ProcessorFeature
+    , ProcessorFeature
+    , processorFeature
+    , pfValue
+    , pfName
 
     -- * Range
     , Range
@@ -722,6 +850,28 @@ module Network.AWS.RDS.Types
     , rpmaPendingMaintenanceActionDetails
     , rpmaResourceIdentifier
 
+    -- * RestoreWindow
+    , RestoreWindow
+    , restoreWindow
+    , rwLatestTime
+    , rwEarliestTime
+
+    -- * ScalingConfiguration
+    , ScalingConfiguration
+    , scalingConfiguration
+    , scSecondsUntilAutoPause
+    , scAutoPause
+    , scMaxCapacity
+    , scMinCapacity
+
+    -- * ScalingConfigurationInfo
+    , ScalingConfigurationInfo
+    , scalingConfigurationInfo
+    , sciSecondsUntilAutoPause
+    , sciAutoPause
+    , sciMaxCapacity
+    , sciMinCapacity
+
     -- * SourceRegion
     , SourceRegion
     , sourceRegion
@@ -765,6 +915,7 @@ module Network.AWS.RDS.Types
     -- * ValidDBInstanceModificationsMessage
     , ValidDBInstanceModificationsMessage
     , validDBInstanceModificationsMessage
+    , vdimmValidProcessorFeatures
     , vdimmStorage
 
     -- * ValidStorageOptions
@@ -884,12 +1035,34 @@ _DBParameterGroupAlreadyExistsFault =
   _MatchServiceError rds "DBParameterGroupAlreadyExists" . hasStatus 400
 
 
+-- | You can't associate any more AWS Identity and Access Management (IAM) roles with the DB instance because the quota has been reached.
+--
+--
+_DBInstanceRoleQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
+_DBInstanceRoleQuotaExceededFault =
+  _MatchServiceError rds "DBInstanceRoleQuotaExceeded" . hasStatus 400
+
+
+-- | The specified /RoleArn/ or /FeatureName/ value is already associated with the DB instance.
+--
+--
+_DBInstanceRoleAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
+_DBInstanceRoleAlreadyExistsFault =
+  _MatchServiceError rds "DBInstanceRoleAlreadyExists" . hasStatus 400
+
+
 -- | The request would result in the user exceeding the allowed number of DB parameter groups.
 --
 --
 _DBParameterGroupQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBParameterGroupQuotaExceededFault =
   _MatchServiceError rds "DBParameterGroupQuotaExceeded" . hasStatus 400
+
+
+-- | Prism for BackupPolicyNotFoundFault' errors.
+_BackupPolicyNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
+_BackupPolicyNotFoundFault =
+  _MatchServiceError rds "BackupPolicyNotFoundFault" . hasStatus 404
 
 
 -- | The DB cluster doesn't have enough capacity for the current operation.
@@ -961,6 +1134,14 @@ _SharedSnapshotQuotaExceededFault =
 _DBSubnetQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _DBSubnetQuotaExceededFault =
   _MatchServiceError rds "DBSubnetQuotaExceededFault" . hasStatus 400
+
+
+-- |
+--
+--
+_GlobalClusterAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
+_GlobalClusterAlreadyExistsFault =
+  _MatchServiceError rds "GlobalClusterAlreadyExistsFault" . hasStatus 400
 
 
 -- | The specified option group could not be found.
@@ -1051,12 +1232,28 @@ _SNSTopicARNNotFoundFault =
   _MatchServiceError rds "SNSTopicArnNotFound" . hasStatus 404
 
 
+-- | The requested operation can't be performed on the endpoint while the endpoint is in this state.
+--
+--
+_InvalidDBClusterEndpointStateFault :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidDBClusterEndpointStateFault =
+  _MatchServiceError rds "InvalidDBClusterEndpointStateFault" . hasStatus 400
+
+
 -- | This error can occur if someone else is modifying a subscription. You should retry the action.
 --
 --
 _InvalidEventSubscriptionStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidEventSubscriptionStateFault =
   _MatchServiceError rds "InvalidEventSubscriptionState" . hasStatus 400
+
+
+-- | The automated backup is in an invalid state. For example, this automated backup is associated with an active instance.
+--
+--
+_InvalidDBInstanceAutomatedBackupStateFault :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidDBInstanceAutomatedBackupStateFault =
+  _MatchServiceError rds "InvalidDBInstanceAutomatedBackupState" . hasStatus 400
 
 
 -- | An error occurred accessing an AWS KMS key.
@@ -1097,6 +1294,14 @@ _DBClusterQuotaExceededFault =
 _SnapshotQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SnapshotQuotaExceededFault =
   _MatchServiceError rds "SnapshotQuotaExceeded" . hasStatus 400
+
+
+-- | /Capacity/ isn't a valid Aurora Serverless DB cluster capacity. Valid capacity values are @2@ , @4@ , @8@ , @16@ , @32@ , @64@ , @128@ , and @256@ .
+--
+--
+_InvalidDBClusterCapacityFault :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidDBClusterCapacityFault =
+  _MatchServiceError rds "InvalidDBClusterCapacityFault" . hasStatus 400
 
 
 -- | /DBSubnetGroupName/ is already used by an existing DB subnet group.
@@ -1250,6 +1455,14 @@ _InvalidVPCNetworkStateFault =
   _MatchServiceError rds "InvalidVPCNetworkStateFault" . hasStatus 400
 
 
+-- | The specified /RoleArn/ value doesn't match the specifed feature for the DB instance.
+--
+--
+_DBInstanceRoleNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
+_DBInstanceRoleNotFoundFault =
+  _MatchServiceError rds "DBInstanceRoleNotFound" . hasStatus 404
+
+
 -- | The specified CIDRIP or Amazon EC2 security group isn't authorized for the specified DB security group.
 --
 --
@@ -1276,6 +1489,14 @@ _DBSubnetGroupQuotaExceededFault =
   _MatchServiceError rds "DBSubnetGroupQuotaExceeded" . hasStatus 400
 
 
+-- |
+--
+--
+_InvalidGlobalClusterStateFault :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidGlobalClusterStateFault =
+  _MatchServiceError rds "InvalidGlobalClusterStateFault" . hasStatus 400
+
+
 -- | The DBSubnetGroup shouldn't be specified while creating read replicas that lie in the same region as the source instance.
 --
 --
@@ -1300,6 +1521,14 @@ _InsufficientStorageClusterCapacityFault =
   _MatchServiceError rds "InsufficientStorageClusterCapacity" . hasStatus 400
 
 
+-- | The cluster already has the maximum number of custom endpoints.
+--
+--
+_DBClusterEndpointQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
+_DBClusterEndpointQuotaExceededFault =
+  _MatchServiceError rds "DBClusterEndpointQuotaExceededFault" . hasStatus 403
+
+
 -- | The option group isn't in the /available/ state.
 --
 --
@@ -1308,12 +1537,29 @@ _InvalidOptionGroupStateFault =
   _MatchServiceError rds "InvalidOptionGroupStateFault" . hasStatus 400
 
 
--- | The DB cluster isn't in a valid state.
+-- | The quota for retained automated backups was exceeded. This prevents you from retaining any additional automated backups. The retained automated backups quota is the same as your DB Instance quota.
+--
+--
+_DBInstanceAutomatedBackupQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
+_DBInstanceAutomatedBackupQuotaExceededFault =
+  _MatchServiceError rds "DBInstanceAutomatedBackupQuotaExceeded" .
+  hasStatus 400
+
+
+-- | The requested operation can't be performed while the cluster is in this state.
 --
 --
 _InvalidDBClusterStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDBClusterStateFault =
   _MatchServiceError rds "InvalidDBClusterStateFault" . hasStatus 400
+
+
+-- |
+--
+--
+_GlobalClusterNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
+_GlobalClusterNotFoundFault =
+  _MatchServiceError rds "GlobalClusterNotFoundFault" . hasStatus 404
 
 
 -- | The user already has a DB instance with the given identifier.
@@ -1364,12 +1610,20 @@ _DBUpgradeDependencyFailureFault =
   _MatchServiceError rds "DBUpgradeDependencyFailure" . hasStatus 400
 
 
--- | The specified DB instance isn't in the /available/ state.
+-- | The DB instance isn't in a valid state.
 --
 --
 _InvalidDBInstanceStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDBInstanceStateFault =
   _MatchServiceError rds "InvalidDBInstanceState" . hasStatus 400
+
+
+-- | The specified custom endpoint can't be created because it already exists.
+--
+--
+_DBClusterEndpointAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
+_DBClusterEndpointAlreadyExistsFault =
+  _MatchServiceError rds "DBClusterEndpointAlreadyExistsFault" . hasStatus 400
 
 
 -- | /DBSnapshotIdentifier/ is already used by an existing snapshot.
@@ -1396,6 +1650,14 @@ _StorageQuotaExceededFault =
   _MatchServiceError rds "StorageQuotaExceeded" . hasStatus 400
 
 
+-- | No automated backup for this DB instance was found.
+--
+--
+_DBInstanceAutomatedBackupNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
+_DBInstanceAutomatedBackupNotFoundFault =
+  _MatchServiceError rds "DBInstanceAutomatedBackupNotFound" . hasStatus 404
+
+
 -- | The state of the DB snapshot doesn't allow deletion.
 --
 --
@@ -1410,6 +1672,22 @@ _InvalidDBSnapshotStateFault =
 _InvalidDBSubnetGroupStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDBSubnetGroupStateFault =
   _MatchServiceError rds "InvalidDBSubnetGroupStateFault" . hasStatus 400
+
+
+-- |
+--
+--
+_GlobalClusterQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
+_GlobalClusterQuotaExceededFault =
+  _MatchServiceError rds "GlobalClusterQuotaExceededFault" . hasStatus 400
+
+
+-- | The specified custom endpoint doesn't exist.
+--
+--
+_DBClusterEndpointNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
+_DBClusterEndpointNotFoundFault =
+  _MatchServiceError rds "DBClusterEndpointNotFoundFault" . hasStatus 400
 
 
 -- | Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.

@@ -23,7 +23,7 @@
 --
 -- When resetting the entire group, dynamic parameters are updated immediately and static parameters are set to @pending-reboot@ to take effect on the next DB instance restart or 'RebootDBInstance' request. You must call 'RebootDBInstance' for every DB instance in your DB cluster that you want the updated static parameter to apply to.
 --
--- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?> in the /Amazon Aurora User Guide./
 --
 module Network.AWS.RDS.ResetDBClusterParameterGroup
     (

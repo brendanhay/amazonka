@@ -21,8 +21,10 @@
 -- Returns the detailed parameter list for a particular DB cluster parameter group.
 --
 --
--- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?> in the /Amazon Aurora User Guide./
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBClusterParameters
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.RDS.DescribeDBClusterParameters
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.RDS.Types.Product
@@ -110,6 +113,13 @@ ddcpSource = lens _ddcpSource (\ s a -> s{_ddcpSource = a})
 -- | The name of a specific DB cluster parameter group to return parameter details for. Constraints:     * If supplied, must match the name of an existing DBClusterParameterGroup.
 ddcpDBClusterParameterGroupName :: Lens' DescribeDBClusterParameters Text
 ddcpDBClusterParameterGroupName = lens _ddcpDBClusterParameterGroupName (\ s a -> s{_ddcpDBClusterParameterGroupName = a})
+
+instance AWSPager DescribeDBClusterParameters where
+        page rq rs
+          | stop (rs ^. ddcprsMarker) = Nothing
+          | stop (rs ^. ddcprsParameters) = Nothing
+          | otherwise =
+            Just $ rq & ddcpMarker .~ rs ^. ddcprsMarker
 
 instance AWSRequest DescribeDBClusterParameters where
         type Rs DescribeDBClusterParameters =

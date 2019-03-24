@@ -23,7 +23,7 @@
 --
 -- Rebooting a DB instance restarts the database engine service. Rebooting a DB instance results in a momentary outage, during which the DB instance status is set to rebooting.
 --
--- For more information about rebooting, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RebootInstance.html Rebooting a DB Instance> .
+-- For more information about rebooting, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RebootInstance.html Rebooting a DB Instance> in the /Amazon RDS User Guide./
 --
 module Network.AWS.RDS.RebootDBInstance
     (

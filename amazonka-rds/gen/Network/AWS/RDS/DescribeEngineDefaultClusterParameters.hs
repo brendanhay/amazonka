@@ -21,8 +21,10 @@
 -- Returns the default engine and system parameter information for the cluster database engine.
 --
 --
--- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?> in the /Amazon Aurora User Guide./
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.RDS.DescribeEngineDefaultClusterParameters
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.RDS.DescribeEngineDefaultClusterParameters
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.RDS.Types.Product
@@ -100,6 +103,23 @@ dedcpMaxRecords = lens _dedcpMaxRecords (\ s a -> s{_dedcpMaxRecords = a})
 -- | The name of the DB cluster parameter group family to return engine parameter information for.
 dedcpDBParameterGroupFamily :: Lens' DescribeEngineDefaultClusterParameters Text
 dedcpDBParameterGroupFamily = lens _dedcpDBParameterGroupFamily (\ s a -> s{_dedcpDBParameterGroupFamily = a})
+
+instance AWSPager
+           DescribeEngineDefaultClusterParameters
+         where
+        page rq rs
+          | stop
+              (rs ^?
+                 dedcprsEngineDefaults . _Just . edMarker . _Just)
+            = Nothing
+          | stop
+              (rs ^? dedcprsEngineDefaults . _Just . edParameters)
+            = Nothing
+          | otherwise =
+            Just $ rq &
+              dedcpMarker .~
+                rs ^?
+                  dedcprsEngineDefaults . _Just . edMarker . _Just
 
 instance AWSRequest
            DescribeEngineDefaultClusterParameters

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modify a setting for an Amazon Aurora DB cluster. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+-- Modify a setting for an Amazon Aurora DB cluster. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. For more information on Amazon Aurora, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?> in the /Amazon Aurora User Guide./
 --
 --
 module Network.AWS.RDS.ModifyDBCluster
@@ -28,15 +28,20 @@ module Network.AWS.RDS.ModifyDBCluster
     , ModifyDBCluster
     -- * Request Lenses
     , mdcEngineVersion
+    , mdcDeletionProtection
     , mdcMasterUserPassword
+    , mdcEnableHTTPEndpoint
     , mdcBacktrackWindow
+    , mdcCloudwatchLogsExportConfiguration
     , mdcPreferredMaintenanceWindow
     , mdcPreferredBackupWindow
     , mdcBackupRetentionPeriod
     , mdcVPCSecurityGroupIds
     , mdcDBClusterParameterGroupName
+    , mdcScalingConfiguration
     , mdcApplyImmediately
     , mdcOptionGroupName
+    , mdcCopyTagsToSnapshot
     , mdcNewDBClusterIdentifier
     , mdcPort
     , mdcEnableIAMDatabaseAuthentication
@@ -63,20 +68,25 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyDBCluster' smart constructor.
 data ModifyDBCluster = ModifyDBCluster'
-  { _mdcEngineVersion                   :: !(Maybe Text)
-  , _mdcMasterUserPassword              :: !(Maybe Text)
-  , _mdcBacktrackWindow                 :: !(Maybe Integer)
-  , _mdcPreferredMaintenanceWindow      :: !(Maybe Text)
-  , _mdcPreferredBackupWindow           :: !(Maybe Text)
-  , _mdcBackupRetentionPeriod           :: !(Maybe Int)
-  , _mdcVPCSecurityGroupIds             :: !(Maybe [Text])
-  , _mdcDBClusterParameterGroupName     :: !(Maybe Text)
-  , _mdcApplyImmediately                :: !(Maybe Bool)
-  , _mdcOptionGroupName                 :: !(Maybe Text)
-  , _mdcNewDBClusterIdentifier          :: !(Maybe Text)
-  , _mdcPort                            :: !(Maybe Int)
+  { _mdcEngineVersion :: !(Maybe Text)
+  , _mdcDeletionProtection :: !(Maybe Bool)
+  , _mdcMasterUserPassword :: !(Maybe Text)
+  , _mdcEnableHTTPEndpoint :: !(Maybe Bool)
+  , _mdcBacktrackWindow :: !(Maybe Integer)
+  , _mdcCloudwatchLogsExportConfiguration :: !(Maybe CloudwatchLogsExportConfiguration)
+  , _mdcPreferredMaintenanceWindow :: !(Maybe Text)
+  , _mdcPreferredBackupWindow :: !(Maybe Text)
+  , _mdcBackupRetentionPeriod :: !(Maybe Int)
+  , _mdcVPCSecurityGroupIds :: !(Maybe [Text])
+  , _mdcDBClusterParameterGroupName :: !(Maybe Text)
+  , _mdcScalingConfiguration :: !(Maybe ScalingConfiguration)
+  , _mdcApplyImmediately :: !(Maybe Bool)
+  , _mdcOptionGroupName :: !(Maybe Text)
+  , _mdcCopyTagsToSnapshot :: !(Maybe Bool)
+  , _mdcNewDBClusterIdentifier :: !(Maybe Text)
+  , _mdcPort :: !(Maybe Int)
   , _mdcEnableIAMDatabaseAuthentication :: !(Maybe Bool)
-  , _mdcDBClusterIdentifier             :: !Text
+  , _mdcDBClusterIdentifier :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -84,15 +94,21 @@ data ModifyDBCluster = ModifyDBCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mdcEngineVersion' - The version number of the database engine to which you want to upgrade. Changing this parameter results in an outage. The change is applied during the next maintenance window unless the ApplyImmediately parameter is set to true. For a list of valid engine versions, see 'CreateDBInstance' , or call 'DescribeDBEngineVersions' .
+-- * 'mdcEngineVersion' - The version number of the database engine to which you want to upgrade. Changing this parameter results in an outage. The change is applied during the next maintenance window unless the ApplyImmediately parameter is set to true. For a list of valid engine versions, see 'CreateDBCluster' , or call 'DescribeDBEngineVersions' .
+--
+-- * 'mdcDeletionProtection' - Indicates if the DB cluster has deletion protection enabled. The database can't be deleted when this value is set to true.
 --
 -- * 'mdcMasterUserPassword' - The new password for the master database user. This password can contain any printable ASCII character except "/", """, or "@". Constraints: Must contain from 8 to 41 characters.
 --
+-- * 'mdcEnableHTTPEndpoint' - A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled. When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor. For more information about Aurora Serverless, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless> in the /Amazon Aurora User Guide/ .
+--
 -- * 'mdcBacktrackWindow' - The target backtrack window, in seconds. To disable backtracking, set this value to 0. Default: 0 Constraints:     * If specified, this value must be set to a number from 0 to 259,200 (72 hours).
 --
--- * 'mdcPreferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun. Constraints: Minimum 30-minute window.
+-- * 'mdcCloudwatchLogsExportConfiguration' - The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB cluster.
 --
--- * 'mdcPreferredBackupWindow' - The daily time range during which automated backups are created if automated backups are enabled, using the @BackupRetentionPeriod@ parameter.  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Must be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
+-- * 'mdcPreferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred DB Cluster Maintenance Window> in the /Amazon Aurora User Guide./  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun. Constraints: Minimum 30-minute window.
+--
+-- * 'mdcPreferredBackupWindow' - The daily time range during which automated backups are created if automated backups are enabled, using the @BackupRetentionPeriod@ parameter.  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred DB Cluster Maintenance Window> in the /Amazon Aurora User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Must be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
 --
 -- * 'mdcBackupRetentionPeriod' - The number of days for which automated backups are retained. You must specify a minimum value of 1. Default: 1 Constraints:     * Must be a value from 1 to 35
 --
@@ -100,11 +116,15 @@ data ModifyDBCluster = ModifyDBCluster'
 --
 -- * 'mdcDBClusterParameterGroupName' - The name of the DB cluster parameter group to use for the DB cluster.
 --
--- * 'mdcApplyImmediately' - A value that specifies whether the modifications in this request and any pending modifications are asynchronously applied as soon as possible, regardless of the @PreferredMaintenanceWindow@ setting for the DB cluster. If this parameter is set to @false@ , changes to the DB cluster are applied during the next maintenance window. The @ApplyImmediately@ parameter only affects the @NewDBClusterIdentifier@ and @MasterUserPassword@ values. If you set the @ApplyImmediately@ parameter value to false, then changes to the @NewDBClusterIdentifier@ and @MasterUserPassword@ values are applied during the next maintenance window. All other changes are applied immediately, regardless of the value of the @ApplyImmediately@ parameter. Default: @false@
+-- * 'mdcScalingConfiguration' - The scaling properties of the DB cluster. You can only modify scaling properties for DB clusters in @serverless@ DB engine mode.
+--
+-- * 'mdcApplyImmediately' - A value that specifies whether the modifications in this request and any pending modifications are asynchronously applied as soon as possible, regardless of the @PreferredMaintenanceWindow@ setting for the DB cluster. If this parameter is set to @false@ , changes to the DB cluster are applied during the next maintenance window. The @ApplyImmediately@ parameter only affects the @EnableIAMDatabaseAuthentication@ , @MasterUserPassword@ , and @NewDBClusterIdentifier@ values. If you set the @ApplyImmediately@ parameter value to false, then changes to the @EnableIAMDatabaseAuthentication@ , @MasterUserPassword@ , and @NewDBClusterIdentifier@ values are applied during the next maintenance window. All other changes are applied immediately, regardless of the value of the @ApplyImmediately@ parameter. Default: @false@
 --
 -- * 'mdcOptionGroupName' - A value that indicates that the DB cluster should be associated with the specified option group. Changing this parameter doesn't result in an outage except in the following case, and the change is applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request. If the parameter change results in an option group that enables OEM, this change can cause a brief (sub-second) period during which new connections are rejected but existing connections are not interrupted.  Permanent options can't be removed from an option group. The option group can't be removed from a DB cluster once it is associated with a DB cluster.
 --
--- * 'mdcNewDBClusterIdentifier' - The new DB cluster identifier for the DB cluster when renaming a DB cluster. This value is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens     * The first character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-cluster2@
+-- * 'mdcCopyTagsToSnapshot' - True to copy all tags from the DB cluster to snapshots of the DB cluster, and otherwise false. The default is false.
+--
+-- * 'mdcNewDBClusterIdentifier' - The new DB cluster identifier for the DB cluster when renaming a DB cluster. This value is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens     * The first character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens Example: @my-cluster2@
 --
 -- * 'mdcPort' - The port number on which the DB cluster accepts connections. Constraints: Value must be @1150-65535@  Default: The same port as the original DB cluster.
 --
@@ -117,15 +137,20 @@ modifyDBCluster
 modifyDBCluster pDBClusterIdentifier_ =
   ModifyDBCluster'
     { _mdcEngineVersion = Nothing
+    , _mdcDeletionProtection = Nothing
     , _mdcMasterUserPassword = Nothing
+    , _mdcEnableHTTPEndpoint = Nothing
     , _mdcBacktrackWindow = Nothing
+    , _mdcCloudwatchLogsExportConfiguration = Nothing
     , _mdcPreferredMaintenanceWindow = Nothing
     , _mdcPreferredBackupWindow = Nothing
     , _mdcBackupRetentionPeriod = Nothing
     , _mdcVPCSecurityGroupIds = Nothing
     , _mdcDBClusterParameterGroupName = Nothing
+    , _mdcScalingConfiguration = Nothing
     , _mdcApplyImmediately = Nothing
     , _mdcOptionGroupName = Nothing
+    , _mdcCopyTagsToSnapshot = Nothing
     , _mdcNewDBClusterIdentifier = Nothing
     , _mdcPort = Nothing
     , _mdcEnableIAMDatabaseAuthentication = Nothing
@@ -133,23 +158,35 @@ modifyDBCluster pDBClusterIdentifier_ =
     }
 
 
--- | The version number of the database engine to which you want to upgrade. Changing this parameter results in an outage. The change is applied during the next maintenance window unless the ApplyImmediately parameter is set to true. For a list of valid engine versions, see 'CreateDBInstance' , or call 'DescribeDBEngineVersions' .
+-- | The version number of the database engine to which you want to upgrade. Changing this parameter results in an outage. The change is applied during the next maintenance window unless the ApplyImmediately parameter is set to true. For a list of valid engine versions, see 'CreateDBCluster' , or call 'DescribeDBEngineVersions' .
 mdcEngineVersion :: Lens' ModifyDBCluster (Maybe Text)
 mdcEngineVersion = lens _mdcEngineVersion (\ s a -> s{_mdcEngineVersion = a})
+
+-- | Indicates if the DB cluster has deletion protection enabled. The database can't be deleted when this value is set to true.
+mdcDeletionProtection :: Lens' ModifyDBCluster (Maybe Bool)
+mdcDeletionProtection = lens _mdcDeletionProtection (\ s a -> s{_mdcDeletionProtection = a})
 
 -- | The new password for the master database user. This password can contain any printable ASCII character except "/", """, or "@". Constraints: Must contain from 8 to 41 characters.
 mdcMasterUserPassword :: Lens' ModifyDBCluster (Maybe Text)
 mdcMasterUserPassword = lens _mdcMasterUserPassword (\ s a -> s{_mdcMasterUserPassword = a})
 
+-- | A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled. When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor. For more information about Aurora Serverless, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless> in the /Amazon Aurora User Guide/ .
+mdcEnableHTTPEndpoint :: Lens' ModifyDBCluster (Maybe Bool)
+mdcEnableHTTPEndpoint = lens _mdcEnableHTTPEndpoint (\ s a -> s{_mdcEnableHTTPEndpoint = a})
+
 -- | The target backtrack window, in seconds. To disable backtracking, set this value to 0. Default: 0 Constraints:     * If specified, this value must be set to a number from 0 to 259,200 (72 hours).
 mdcBacktrackWindow :: Lens' ModifyDBCluster (Maybe Integer)
 mdcBacktrackWindow = lens _mdcBacktrackWindow (\ s a -> s{_mdcBacktrackWindow = a})
 
--- | The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun. Constraints: Minimum 30-minute window.
+-- | The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB cluster.
+mdcCloudwatchLogsExportConfiguration :: Lens' ModifyDBCluster (Maybe CloudwatchLogsExportConfiguration)
+mdcCloudwatchLogsExportConfiguration = lens _mdcCloudwatchLogsExportConfiguration (\ s a -> s{_mdcCloudwatchLogsExportConfiguration = a})
+
+-- | The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred DB Cluster Maintenance Window> in the /Amazon Aurora User Guide./  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun. Constraints: Minimum 30-minute window.
 mdcPreferredMaintenanceWindow :: Lens' ModifyDBCluster (Maybe Text)
 mdcPreferredMaintenanceWindow = lens _mdcPreferredMaintenanceWindow (\ s a -> s{_mdcPreferredMaintenanceWindow = a})
 
--- | The daily time range during which automated backups are created if automated backups are enabled, using the @BackupRetentionPeriod@ parameter.  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Must be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
+-- | The daily time range during which automated backups are created if automated backups are enabled, using the @BackupRetentionPeriod@ parameter.  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred DB Cluster Maintenance Window> in the /Amazon Aurora User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Must be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
 mdcPreferredBackupWindow :: Lens' ModifyDBCluster (Maybe Text)
 mdcPreferredBackupWindow = lens _mdcPreferredBackupWindow (\ s a -> s{_mdcPreferredBackupWindow = a})
 
@@ -165,7 +202,11 @@ mdcVPCSecurityGroupIds = lens _mdcVPCSecurityGroupIds (\ s a -> s{_mdcVPCSecurit
 mdcDBClusterParameterGroupName :: Lens' ModifyDBCluster (Maybe Text)
 mdcDBClusterParameterGroupName = lens _mdcDBClusterParameterGroupName (\ s a -> s{_mdcDBClusterParameterGroupName = a})
 
--- | A value that specifies whether the modifications in this request and any pending modifications are asynchronously applied as soon as possible, regardless of the @PreferredMaintenanceWindow@ setting for the DB cluster. If this parameter is set to @false@ , changes to the DB cluster are applied during the next maintenance window. The @ApplyImmediately@ parameter only affects the @NewDBClusterIdentifier@ and @MasterUserPassword@ values. If you set the @ApplyImmediately@ parameter value to false, then changes to the @NewDBClusterIdentifier@ and @MasterUserPassword@ values are applied during the next maintenance window. All other changes are applied immediately, regardless of the value of the @ApplyImmediately@ parameter. Default: @false@
+-- | The scaling properties of the DB cluster. You can only modify scaling properties for DB clusters in @serverless@ DB engine mode.
+mdcScalingConfiguration :: Lens' ModifyDBCluster (Maybe ScalingConfiguration)
+mdcScalingConfiguration = lens _mdcScalingConfiguration (\ s a -> s{_mdcScalingConfiguration = a})
+
+-- | A value that specifies whether the modifications in this request and any pending modifications are asynchronously applied as soon as possible, regardless of the @PreferredMaintenanceWindow@ setting for the DB cluster. If this parameter is set to @false@ , changes to the DB cluster are applied during the next maintenance window. The @ApplyImmediately@ parameter only affects the @EnableIAMDatabaseAuthentication@ , @MasterUserPassword@ , and @NewDBClusterIdentifier@ values. If you set the @ApplyImmediately@ parameter value to false, then changes to the @EnableIAMDatabaseAuthentication@ , @MasterUserPassword@ , and @NewDBClusterIdentifier@ values are applied during the next maintenance window. All other changes are applied immediately, regardless of the value of the @ApplyImmediately@ parameter. Default: @false@
 mdcApplyImmediately :: Lens' ModifyDBCluster (Maybe Bool)
 mdcApplyImmediately = lens _mdcApplyImmediately (\ s a -> s{_mdcApplyImmediately = a})
 
@@ -173,7 +214,11 @@ mdcApplyImmediately = lens _mdcApplyImmediately (\ s a -> s{_mdcApplyImmediately
 mdcOptionGroupName :: Lens' ModifyDBCluster (Maybe Text)
 mdcOptionGroupName = lens _mdcOptionGroupName (\ s a -> s{_mdcOptionGroupName = a})
 
--- | The new DB cluster identifier for the DB cluster when renaming a DB cluster. This value is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens     * The first character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-cluster2@
+-- | True to copy all tags from the DB cluster to snapshots of the DB cluster, and otherwise false. The default is false.
+mdcCopyTagsToSnapshot :: Lens' ModifyDBCluster (Maybe Bool)
+mdcCopyTagsToSnapshot = lens _mdcCopyTagsToSnapshot (\ s a -> s{_mdcCopyTagsToSnapshot = a})
+
+-- | The new DB cluster identifier for the DB cluster when renaming a DB cluster. This value is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens     * The first character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens Example: @my-cluster2@
 mdcNewDBClusterIdentifier :: Lens' ModifyDBCluster (Maybe Text)
 mdcNewDBClusterIdentifier = lens _mdcNewDBClusterIdentifier (\ s a -> s{_mdcNewDBClusterIdentifier = a})
 
@@ -214,8 +259,12 @@ instance ToQuery ModifyDBCluster where
               ["Action" =: ("ModifyDBCluster" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "EngineVersion" =: _mdcEngineVersion,
+               "DeletionProtection" =: _mdcDeletionProtection,
                "MasterUserPassword" =: _mdcMasterUserPassword,
+               "EnableHttpEndpoint" =: _mdcEnableHTTPEndpoint,
                "BacktrackWindow" =: _mdcBacktrackWindow,
+               "CloudwatchLogsExportConfiguration" =:
+                 _mdcCloudwatchLogsExportConfiguration,
                "PreferredMaintenanceWindow" =:
                  _mdcPreferredMaintenanceWindow,
                "PreferredBackupWindow" =: _mdcPreferredBackupWindow,
@@ -226,8 +275,10 @@ instance ToQuery ModifyDBCluster where
                       _mdcVPCSecurityGroupIds),
                "DBClusterParameterGroupName" =:
                  _mdcDBClusterParameterGroupName,
+               "ScalingConfiguration" =: _mdcScalingConfiguration,
                "ApplyImmediately" =: _mdcApplyImmediately,
                "OptionGroupName" =: _mdcOptionGroupName,
+               "CopyTagsToSnapshot" =: _mdcCopyTagsToSnapshot,
                "NewDBClusterIdentifier" =:
                  _mdcNewDBClusterIdentifier,
                "Port" =: _mdcPort,

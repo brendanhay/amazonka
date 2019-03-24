@@ -70,9 +70,9 @@ data CreateDBParameterGroup = CreateDBParameterGroup'
 --
 -- * 'cdbpgTags' - Undocumented member.
 --
--- * 'cdbpgDBParameterGroupName' - The name of the DB parameter group. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- * 'cdbpgDBParameterGroupName' - The name of the DB parameter group. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens
 --
--- * 'cdbpgDBParameterGroupFamily' - The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
+-- * 'cdbpgDBParameterGroupFamily' - The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family. To list all of the available parameter group families, use the following command: @aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"@
 --
 -- * 'cdbpgDescription' - The description for the DB parameter group.
 createDBParameterGroup
@@ -93,11 +93,11 @@ createDBParameterGroup pDBParameterGroupName_ pDBParameterGroupFamily_ pDescript
 cdbpgTags :: Lens' CreateDBParameterGroup [Tag]
 cdbpgTags = lens _cdbpgTags (\ s a -> s{_cdbpgTags = a}) . _Default . _Coerce
 
--- | The name of the DB parameter group. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- | The name of the DB parameter group. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens
 cdbpgDBParameterGroupName :: Lens' CreateDBParameterGroup Text
 cdbpgDBParameterGroupName = lens _cdbpgDBParameterGroupName (\ s a -> s{_cdbpgDBParameterGroupName = a})
 
--- | The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
+-- | The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family. To list all of the available parameter group families, use the following command: @aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"@
 cdbpgDBParameterGroupFamily :: Lens' CreateDBParameterGroup Text
 cdbpgDBParameterGroupFamily = lens _cdbpgDBParameterGroupFamily (\ s a -> s{_cdbpgDBParameterGroupFamily = a})
 

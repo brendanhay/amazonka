@@ -21,7 +21,7 @@
 -- Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is terminated.
 --
 --
--- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?> in the /Amazon Aurora User Guide./
 --
 module Network.AWS.RDS.DeleteDBClusterSnapshot
     (

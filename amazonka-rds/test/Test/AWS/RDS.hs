@@ -16,12 +16,12 @@ module Test.AWS.RDS
     , fixtures
     ) where
 
-import           Data.Time
-import           Network.AWS.Lens    ((&), (.~), (?~))
-import           Network.AWS.Prelude
-import           Network.AWS.RDS
-import           Test.AWS.Gen.RDS
-import           Test.AWS.Prelude
+import Data.Time
+import Network.AWS.Lens    ((&), (.~), (?~))
+import Network.AWS.Prelude
+import Network.AWS.RDS
+import Test.AWS.Gen.RDS
+import Test.AWS.Prelude
 
 tests :: [TestTree]
 tests = []

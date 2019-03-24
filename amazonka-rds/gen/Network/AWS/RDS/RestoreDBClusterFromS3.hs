@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an Amazon Aurora DB cluster from data stored in an Amazon S3 bucket. Amazon RDS must be authorized to access the Amazon S3 bucket and the data must be created using the Percona XtraBackup utility as described in <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Migrate.MySQL.html#Aurora.Migrate.MySQL.S3 Migrating Data from MySQL by Using an Amazon S3 Bucket> .
+-- Creates an Amazon Aurora DB cluster from data stored in an Amazon S3 bucket. Amazon RDS must be authorized to access the Amazon S3 bucket and the data must be created using the Percona XtraBackup utility as described in <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.html Migrating Data to an Amazon Aurora MySQL DB Cluster> in the /Amazon Aurora User Guide/ .
 --
 --
 module Network.AWS.RDS.RestoreDBClusterFromS3
@@ -28,6 +28,7 @@ module Network.AWS.RDS.RestoreDBClusterFromS3
     , RestoreDBClusterFromS3
     -- * Request Lenses
     , rdcfsEngineVersion
+    , rdcfsDeletionProtection
     , rdcfsStorageEncrypted
     , rdcfsDBSubnetGroupName
     , rdcfsBacktrackWindow
@@ -42,9 +43,11 @@ module Network.AWS.RDS.RestoreDBClusterFromS3
     , rdcfsDBClusterParameterGroupName
     , rdcfsS3Prefix
     , rdcfsOptionGroupName
+    , rdcfsCopyTagsToSnapshot
     , rdcfsTags
     , rdcfsPort
     , rdcfsEnableIAMDatabaseAuthentication
+    , rdcfsEnableCloudwatchLogsExports
     , rdcfsDBClusterIdentifier
     , rdcfsEngine
     , rdcfsMasterUsername
@@ -72,6 +75,7 @@ import Network.AWS.Response
 -- | /See:/ 'restoreDBClusterFromS3' smart constructor.
 data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
   { _rdcfsEngineVersion                   :: !(Maybe Text)
+  , _rdcfsDeletionProtection              :: !(Maybe Bool)
   , _rdcfsStorageEncrypted                :: !(Maybe Bool)
   , _rdcfsDBSubnetGroupName               :: !(Maybe Text)
   , _rdcfsBacktrackWindow                 :: !(Maybe Integer)
@@ -86,9 +90,11 @@ data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
   , _rdcfsDBClusterParameterGroupName     :: !(Maybe Text)
   , _rdcfsS3Prefix                        :: !(Maybe Text)
   , _rdcfsOptionGroupName                 :: !(Maybe Text)
+  , _rdcfsCopyTagsToSnapshot              :: !(Maybe Bool)
   , _rdcfsTags                            :: !(Maybe [Tag])
   , _rdcfsPort                            :: !(Maybe Int)
   , _rdcfsEnableIAMDatabaseAuthentication :: !(Maybe Bool)
+  , _rdcfsEnableCloudwatchLogsExports     :: !(Maybe [Text])
   , _rdcfsDBClusterIdentifier             :: !Text
   , _rdcfsEngine                          :: !Text
   , _rdcfsMasterUsername                  :: !Text
@@ -106,13 +112,15 @@ data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
 --
 -- * 'rdcfsEngineVersion' - The version number of the database engine to use. __Aurora MySQL__  Example: @5.6.10a@  __Aurora PostgreSQL__  Example: @9.6.3@
 --
+-- * 'rdcfsDeletionProtection' - Indicates if the DB cluster should have deletion protection enabled. The database can't be deleted when this value is set to true. The default is false.
+--
 -- * 'rdcfsStorageEncrypted' - Specifies whether the restored DB cluster is encrypted.
 --
 -- * 'rdcfsDBSubnetGroupName' - A DB subnet group to associate with the restored DB cluster. Constraints: If supplied, must match the name of an existing DBSubnetGroup.  Example: @mySubnetgroup@
 --
 -- * 'rdcfsBacktrackWindow' - The target backtrack window, in seconds. To disable backtracking, set this value to 0. Default: 0 Constraints:     * If specified, this value must be set to a number from 0 to 259,200 (72 hours).
 --
--- * 'rdcfsPreferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun. Constraints: Minimum 30-minute window.
+-- * 'rdcfsPreferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred Maintenance Window> in the /Amazon Aurora User Guide./  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun. Constraints: Minimum 30-minute window.
 --
 -- * 'rdcfsAvailabilityZones' - A list of EC2 Availability Zones that instances in the restored DB cluster can be created in.
 --
@@ -120,7 +128,7 @@ data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
 --
 -- * 'rdcfsKMSKeyId' - The AWS KMS key identifier for an encrypted DB cluster. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KM encryption key. If the @StorageEncrypted@ parameter is true, and you do not specify a value for the @KmsKeyId@ parameter, then Amazon RDS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
 --
--- * 'rdcfsPreferredBackupWindow' - The daily time range during which automated backups are created if automated backups are enabled using the @BackupRetentionPeriod@ parameter.  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Must be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
+-- * 'rdcfsPreferredBackupWindow' - The daily time range during which automated backups are created if automated backups are enabled using the @BackupRetentionPeriod@ parameter.  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred Maintenance Window> in the /Amazon Aurora User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Must be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
 --
 -- * 'rdcfsBackupRetentionPeriod' - The number of days for which automated backups of the restored DB cluster are retained. You must specify a minimum value of 1. Default: 1 Constraints:     * Must be a value from 1 to 35
 --
@@ -134,17 +142,21 @@ data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
 --
 -- * 'rdcfsOptionGroupName' - A value that indicates that the restored DB cluster should be associated with the specified option group. Permanent options can't be removed from an option group. An option group can't be removed from a DB cluster once it is associated with a DB cluster.
 --
+-- * 'rdcfsCopyTagsToSnapshot' - True to copy all tags from the restored DB cluster to snapshots of the restored DB cluster, and otherwise false. The default is false.
+--
 -- * 'rdcfsTags' - Undocumented member.
 --
 -- * 'rdcfsPort' - The port number on which the instances in the restored DB cluster accept connections. Default: @3306@
 --
 -- * 'rdcfsEnableIAMDatabaseAuthentication' - True to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts, and otherwise false. Default: @false@
 --
--- * 'rdcfsDBClusterIdentifier' - The name of the DB cluster to create from the source data in the Amazon S3 bucket. This parameter is isn't case-sensitive. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1@
+-- * 'rdcfsEnableCloudwatchLogsExports' - The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs> in the /Amazon Aurora User Guide/ .
+--
+-- * 'rdcfsDBClusterIdentifier' - The name of the DB cluster to create from the source data in the Amazon S3 bucket. This parameter is isn't case-sensitive. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens.     * First character must be a letter.     * Can't end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1@
 --
 -- * 'rdcfsEngine' - The name of the database engine to be used for the restored DB cluster. Valid Values: @aurora@ , @aurora-postgresql@
 --
--- * 'rdcfsMasterUsername' - The name of the master user for the restored DB cluster. Constraints:     * Must be 1 to 16 letters or numbers.     * First character must be a letter.     * Cannot be a reserved word for the chosen database engine.
+-- * 'rdcfsMasterUsername' - The name of the master user for the restored DB cluster. Constraints:     * Must be 1 to 16 letters or numbers.     * First character must be a letter.     * Can't be a reserved word for the chosen database engine.
 --
 -- * 'rdcfsMasterUserPassword' - The password for the master database user. This password can contain any printable ASCII character except "/", """, or "@". Constraints: Must contain from 8 to 41 characters.
 --
@@ -168,6 +180,7 @@ restoreDBClusterFromS3
 restoreDBClusterFromS3 pDBClusterIdentifier_ pEngine_ pMasterUsername_ pMasterUserPassword_ pSourceEngine_ pSourceEngineVersion_ pS3BucketName_ pS3IngestionRoleARN_ =
   RestoreDBClusterFromS3'
     { _rdcfsEngineVersion = Nothing
+    , _rdcfsDeletionProtection = Nothing
     , _rdcfsStorageEncrypted = Nothing
     , _rdcfsDBSubnetGroupName = Nothing
     , _rdcfsBacktrackWindow = Nothing
@@ -182,9 +195,11 @@ restoreDBClusterFromS3 pDBClusterIdentifier_ pEngine_ pMasterUsername_ pMasterUs
     , _rdcfsDBClusterParameterGroupName = Nothing
     , _rdcfsS3Prefix = Nothing
     , _rdcfsOptionGroupName = Nothing
+    , _rdcfsCopyTagsToSnapshot = Nothing
     , _rdcfsTags = Nothing
     , _rdcfsPort = Nothing
     , _rdcfsEnableIAMDatabaseAuthentication = Nothing
+    , _rdcfsEnableCloudwatchLogsExports = Nothing
     , _rdcfsDBClusterIdentifier = pDBClusterIdentifier_
     , _rdcfsEngine = pEngine_
     , _rdcfsMasterUsername = pMasterUsername_
@@ -200,6 +215,10 @@ restoreDBClusterFromS3 pDBClusterIdentifier_ pEngine_ pMasterUsername_ pMasterUs
 rdcfsEngineVersion :: Lens' RestoreDBClusterFromS3 (Maybe Text)
 rdcfsEngineVersion = lens _rdcfsEngineVersion (\ s a -> s{_rdcfsEngineVersion = a})
 
+-- | Indicates if the DB cluster should have deletion protection enabled. The database can't be deleted when this value is set to true. The default is false.
+rdcfsDeletionProtection :: Lens' RestoreDBClusterFromS3 (Maybe Bool)
+rdcfsDeletionProtection = lens _rdcfsDeletionProtection (\ s a -> s{_rdcfsDeletionProtection = a})
+
 -- | Specifies whether the restored DB cluster is encrypted.
 rdcfsStorageEncrypted :: Lens' RestoreDBClusterFromS3 (Maybe Bool)
 rdcfsStorageEncrypted = lens _rdcfsStorageEncrypted (\ s a -> s{_rdcfsStorageEncrypted = a})
@@ -212,7 +231,7 @@ rdcfsDBSubnetGroupName = lens _rdcfsDBSubnetGroupName (\ s a -> s{_rdcfsDBSubnet
 rdcfsBacktrackWindow :: Lens' RestoreDBClusterFromS3 (Maybe Integer)
 rdcfsBacktrackWindow = lens _rdcfsBacktrackWindow (\ s a -> s{_rdcfsBacktrackWindow = a})
 
--- | The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun. Constraints: Minimum 30-minute window.
+-- | The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred Maintenance Window> in the /Amazon Aurora User Guide./  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun. Constraints: Minimum 30-minute window.
 rdcfsPreferredMaintenanceWindow :: Lens' RestoreDBClusterFromS3 (Maybe Text)
 rdcfsPreferredMaintenanceWindow = lens _rdcfsPreferredMaintenanceWindow (\ s a -> s{_rdcfsPreferredMaintenanceWindow = a})
 
@@ -228,7 +247,7 @@ rdcfsCharacterSetName = lens _rdcfsCharacterSetName (\ s a -> s{_rdcfsCharacterS
 rdcfsKMSKeyId :: Lens' RestoreDBClusterFromS3 (Maybe Text)
 rdcfsKMSKeyId = lens _rdcfsKMSKeyId (\ s a -> s{_rdcfsKMSKeyId = a})
 
--- | The daily time range during which automated backups are created if automated backups are enabled using the @BackupRetentionPeriod@ parameter.  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Must be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
+-- | The daily time range during which automated backups are created if automated backups are enabled using the @BackupRetentionPeriod@ parameter.  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred Maintenance Window> in the /Amazon Aurora User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Must be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
 rdcfsPreferredBackupWindow :: Lens' RestoreDBClusterFromS3 (Maybe Text)
 rdcfsPreferredBackupWindow = lens _rdcfsPreferredBackupWindow (\ s a -> s{_rdcfsPreferredBackupWindow = a})
 
@@ -256,6 +275,10 @@ rdcfsS3Prefix = lens _rdcfsS3Prefix (\ s a -> s{_rdcfsS3Prefix = a})
 rdcfsOptionGroupName :: Lens' RestoreDBClusterFromS3 (Maybe Text)
 rdcfsOptionGroupName = lens _rdcfsOptionGroupName (\ s a -> s{_rdcfsOptionGroupName = a})
 
+-- | True to copy all tags from the restored DB cluster to snapshots of the restored DB cluster, and otherwise false. The default is false.
+rdcfsCopyTagsToSnapshot :: Lens' RestoreDBClusterFromS3 (Maybe Bool)
+rdcfsCopyTagsToSnapshot = lens _rdcfsCopyTagsToSnapshot (\ s a -> s{_rdcfsCopyTagsToSnapshot = a})
+
 -- | Undocumented member.
 rdcfsTags :: Lens' RestoreDBClusterFromS3 [Tag]
 rdcfsTags = lens _rdcfsTags (\ s a -> s{_rdcfsTags = a}) . _Default . _Coerce
@@ -268,7 +291,11 @@ rdcfsPort = lens _rdcfsPort (\ s a -> s{_rdcfsPort = a})
 rdcfsEnableIAMDatabaseAuthentication :: Lens' RestoreDBClusterFromS3 (Maybe Bool)
 rdcfsEnableIAMDatabaseAuthentication = lens _rdcfsEnableIAMDatabaseAuthentication (\ s a -> s{_rdcfsEnableIAMDatabaseAuthentication = a})
 
--- | The name of the DB cluster to create from the source data in the Amazon S3 bucket. This parameter is isn't case-sensitive. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1@
+-- | The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs> in the /Amazon Aurora User Guide/ .
+rdcfsEnableCloudwatchLogsExports :: Lens' RestoreDBClusterFromS3 [Text]
+rdcfsEnableCloudwatchLogsExports = lens _rdcfsEnableCloudwatchLogsExports (\ s a -> s{_rdcfsEnableCloudwatchLogsExports = a}) . _Default . _Coerce
+
+-- | The name of the DB cluster to create from the source data in the Amazon S3 bucket. This parameter is isn't case-sensitive. Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens.     * First character must be a letter.     * Can't end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1@
 rdcfsDBClusterIdentifier :: Lens' RestoreDBClusterFromS3 Text
 rdcfsDBClusterIdentifier = lens _rdcfsDBClusterIdentifier (\ s a -> s{_rdcfsDBClusterIdentifier = a})
 
@@ -276,7 +303,7 @@ rdcfsDBClusterIdentifier = lens _rdcfsDBClusterIdentifier (\ s a -> s{_rdcfsDBCl
 rdcfsEngine :: Lens' RestoreDBClusterFromS3 Text
 rdcfsEngine = lens _rdcfsEngine (\ s a -> s{_rdcfsEngine = a})
 
--- | The name of the master user for the restored DB cluster. Constraints:     * Must be 1 to 16 letters or numbers.     * First character must be a letter.     * Cannot be a reserved word for the chosen database engine.
+-- | The name of the master user for the restored DB cluster. Constraints:     * Must be 1 to 16 letters or numbers.     * First character must be a letter.     * Can't be a reserved word for the chosen database engine.
 rdcfsMasterUsername :: Lens' RestoreDBClusterFromS3 Text
 rdcfsMasterUsername = lens _rdcfsMasterUsername (\ s a -> s{_rdcfsMasterUsername = a})
 
@@ -327,6 +354,7 @@ instance ToQuery RestoreDBClusterFromS3 where
                  ("RestoreDBClusterFromS3" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "EngineVersion" =: _rdcfsEngineVersion,
+               "DeletionProtection" =: _rdcfsDeletionProtection,
                "StorageEncrypted" =: _rdcfsStorageEncrypted,
                "DBSubnetGroupName" =: _rdcfsDBSubnetGroupName,
                "BacktrackWindow" =: _rdcfsBacktrackWindow,
@@ -351,10 +379,15 @@ instance ToQuery RestoreDBClusterFromS3 where
                  _rdcfsDBClusterParameterGroupName,
                "S3Prefix" =: _rdcfsS3Prefix,
                "OptionGroupName" =: _rdcfsOptionGroupName,
+               "CopyTagsToSnapshot" =: _rdcfsCopyTagsToSnapshot,
                "Tags" =: toQuery (toQueryList "Tag" <$> _rdcfsTags),
                "Port" =: _rdcfsPort,
                "EnableIAMDatabaseAuthentication" =:
                  _rdcfsEnableIAMDatabaseAuthentication,
+               "EnableCloudwatchLogsExports" =:
+                 toQuery
+                   (toQueryList "member" <$>
+                      _rdcfsEnableCloudwatchLogsExports),
                "DBClusterIdentifier" =: _rdcfsDBClusterIdentifier,
                "Engine" =: _rdcfsEngine,
                "MasterUsername" =: _rdcfsMasterUsername,

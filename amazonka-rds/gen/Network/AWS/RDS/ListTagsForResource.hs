@@ -21,7 +21,7 @@
 -- Lists all tags on an Amazon RDS resource.
 --
 --
--- For an overview on tagging an Amazon RDS resource, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources> .
+-- For an overview on tagging an Amazon RDS resource, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources> in the /Amazon RDS User Guide/ .
 --
 module Network.AWS.RDS.ListTagsForResource
     (
@@ -64,7 +64,7 @@ data ListTagsForResource = ListTagsForResource'
 --
 -- * 'ltfrFilters' - This parameter is not currently supported.
 --
--- * 'ltfrResourceName' - The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
+-- * 'ltfrResourceName' - The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS> in the /Amazon RDS User Guide/ .
 listTagsForResource
     :: Text -- ^ 'ltfrResourceName'
     -> ListTagsForResource
@@ -77,7 +77,7 @@ listTagsForResource pResourceName_ =
 ltfrFilters :: Lens' ListTagsForResource [Filter]
 ltfrFilters = lens _ltfrFilters (\ s a -> s{_ltfrFilters = a}) . _Default . _Coerce
 
--- | The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
+-- | The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS> in the /Amazon RDS User Guide/ .
 ltfrResourceName :: Lens' ListTagsForResource Text
 ltfrResourceName = lens _ltfrResourceName (\ s a -> s{_ltfrResourceName = a})
 

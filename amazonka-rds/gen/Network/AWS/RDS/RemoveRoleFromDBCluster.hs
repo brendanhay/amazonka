@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates an Identity and Access Management (IAM) role from an Aurora DB cluster. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Authorizing.AWSServices.html Authorizing Amazon Aurora to Access Other AWS Services On Your Behalf> .
+-- Disassociates an AWS Identity and Access Management (IAM) role from an Amazon Aurora DB cluster. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html Authorizing Amazon Aurora MySQL to Access Other AWS Services on Your Behalf > in the /Amazon Aurora User Guide/ .
 --
 --
 module Network.AWS.RDS.RemoveRoleFromDBCluster

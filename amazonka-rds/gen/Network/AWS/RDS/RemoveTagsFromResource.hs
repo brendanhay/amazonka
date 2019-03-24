@@ -21,7 +21,7 @@
 -- Removes metadata tags from an Amazon RDS resource.
 --
 --
--- For an overview on tagging an Amazon RDS resource, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources> .
+-- For an overview on tagging an Amazon RDS resource, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources> in the /Amazon RDS User Guide./
 --
 module Network.AWS.RDS.RemoveTagsFromResource
     (
@@ -59,7 +59,7 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfrResourceName' - The Amazon RDS resource that the tags are removed from. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
+-- * 'rtfrResourceName' - The Amazon RDS resource that the tags are removed from. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS> in the /Amazon RDS User Guide./
 --
 -- * 'rtfrTagKeys' - The tag key (name) of the tag to be removed.
 removeTagsFromResource
@@ -70,7 +70,7 @@ removeTagsFromResource pResourceName_ =
     {_rtfrResourceName = pResourceName_, _rtfrTagKeys = mempty}
 
 
--- | The Amazon RDS resource that the tags are removed from. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
+-- | The Amazon RDS resource that the tags are removed from. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS> in the /Amazon RDS User Guide./
 rtfrResourceName :: Lens' RemoveTagsFromResource Text
 rtfrResourceName = lens _rtfrResourceName (\ s a -> s{_rtfrResourceName = a})
 

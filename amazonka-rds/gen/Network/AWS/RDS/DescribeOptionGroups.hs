@@ -82,7 +82,7 @@ data DescribeOptionGroups = DescribeOptionGroups'
 --
 -- * 'dogMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 --
--- * 'dogOptionGroupName' - The name of the option group to describe. Cannot be supplied together with EngineName or MajorEngineVersion.
+-- * 'dogOptionGroupName' - The name of the option group to describe. Can't be supplied together with EngineName or MajorEngineVersion.
 describeOptionGroups
     :: DescribeOptionGroups
 describeOptionGroups =
@@ -116,7 +116,7 @@ dogMarker = lens _dogMarker (\ s a -> s{_dogMarker = a})
 dogMaxRecords :: Lens' DescribeOptionGroups (Maybe Int)
 dogMaxRecords = lens _dogMaxRecords (\ s a -> s{_dogMaxRecords = a})
 
--- | The name of the option group to describe. Cannot be supplied together with EngineName or MajorEngineVersion.
+-- | The name of the option group to describe. Can't be supplied together with EngineName or MajorEngineVersion.
 dogOptionGroupName :: Lens' DescribeOptionGroups (Maybe Text)
 dogOptionGroupName = lens _dogOptionGroupName (\ s a -> s{_dogOptionGroupName = a})
 

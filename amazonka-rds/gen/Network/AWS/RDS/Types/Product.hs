@@ -91,13 +91,13 @@ newtype AvailabilityZone = AvailabilityZone'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'azName' - The name of the availability zone.
+-- * 'azName' - The name of the Availability Zone.
 availabilityZone
     :: AvailabilityZone
 availabilityZone = AvailabilityZone' {_azName = Nothing}
 
 
--- | The name of the availability zone.
+-- | The name of the Availability Zone.
 azName :: Lens' AvailabilityZone (Maybe Text)
 azName = lens _azName (\ s a -> s{_azName = a})
 
@@ -107,6 +107,61 @@ instance FromXML AvailabilityZone where
 instance Hashable AvailabilityZone where
 
 instance NFData AvailabilityZone where
+
+-- | Contains the available processor feature information for the DB instance class of a DB instance.
+--
+--
+-- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor Configuring the Processor of the DB Instance Class> in the /Amazon RDS User Guide. /
+--
+--
+-- /See:/ 'availableProcessorFeature' smart constructor.
+data AvailableProcessorFeature = AvailableProcessorFeature'
+  { _apfName          :: !(Maybe Text)
+  , _apfDefaultValue  :: !(Maybe Text)
+  , _apfAllowedValues :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AvailableProcessorFeature' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'apfName' - The name of the processor feature. Valid names are @coreCount@ and @threadsPerCore@ .
+--
+-- * 'apfDefaultValue' - The default value for the processor feature of the DB instance class.
+--
+-- * 'apfAllowedValues' - The allowed values for the processor feature of the DB instance class.
+availableProcessorFeature
+    :: AvailableProcessorFeature
+availableProcessorFeature =
+  AvailableProcessorFeature'
+    { _apfName = Nothing
+    , _apfDefaultValue = Nothing
+    , _apfAllowedValues = Nothing
+    }
+
+
+-- | The name of the processor feature. Valid names are @coreCount@ and @threadsPerCore@ .
+apfName :: Lens' AvailableProcessorFeature (Maybe Text)
+apfName = lens _apfName (\ s a -> s{_apfName = a})
+
+-- | The default value for the processor feature of the DB instance class.
+apfDefaultValue :: Lens' AvailableProcessorFeature (Maybe Text)
+apfDefaultValue = lens _apfDefaultValue (\ s a -> s{_apfDefaultValue = a})
+
+-- | The allowed values for the processor feature of the DB instance class.
+apfAllowedValues :: Lens' AvailableProcessorFeature (Maybe Text)
+apfAllowedValues = lens _apfAllowedValues (\ s a -> s{_apfAllowedValues = a})
+
+instance FromXML AvailableProcessorFeature where
+        parseXML x
+          = AvailableProcessorFeature' <$>
+              (x .@? "Name") <*> (x .@? "DefaultValue") <*>
+                (x .@? "AllowedValues")
+
+instance Hashable AvailableProcessorFeature where
+
+instance NFData AvailableProcessorFeature where
 
 -- | A CA certificate for an AWS account.
 --
@@ -235,6 +290,8 @@ instance NFData CharacterSet where
 -- | The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB instance or DB cluster.
 --
 --
+-- The @EnableLogTypes@ and @DisableLogTypes@ arrays determine which logs will be exported (or not exported) to CloudWatch Logs. The values within these arrays depend on the DB engine being used. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs > in the /Amazon RDS User Guide/ .
+--
 --
 -- /See:/ 'cloudwatchLogsExportConfiguration' smart constructor.
 data CloudwatchLogsExportConfiguration = CloudwatchLogsExportConfiguration'
@@ -282,10 +339,10 @@ instance ToQuery CloudwatchLogsExportConfiguration
                  toQuery
                    (toQueryList "member" <$> _clecEnableLogTypes)]
 
--- | Contains the details of an Amazon RDS DB cluster.
+-- | Contains the details of an Amazon Aurora DB cluster.
 --
 --
--- This data type is used as a response element in the 'DescribeDBClusters' action.
+-- This data type is used as a response element in the 'DescribeDBClusters' , 'StopDBCluster' , and 'StartDBCluster' actions.
 --
 --
 -- /See:/ 'dbCluster' smart constructor.
@@ -293,6 +350,7 @@ data DBCluster = DBCluster'
   { _dcBacktrackConsumedChangeRecords   :: !(Maybe Integer)
   , _dcEngineVersion                    :: !(Maybe Text)
   , _dcStatus                           :: !(Maybe Text)
+  , _dcDeletionProtection               :: !(Maybe Bool)
   , _dcStorageEncrypted                 :: !(Maybe Bool)
   , _dcDBClusterIdentifier              :: !(Maybe Text)
   , _dcDBClusterMembers                 :: !(Maybe [DBClusterMember])
@@ -306,10 +364,13 @@ data DBCluster = DBCluster'
   , _dcBacktrackWindow                  :: !(Maybe Integer)
   , _dcDBClusterResourceId              :: !(Maybe Text)
   , _dcEarliestRestorableTime           :: !(Maybe ISO8601)
+  , _dcCustomEndpoints                  :: !(Maybe [Text])
   , _dcEngine                           :: !(Maybe Text)
+  , _dcHTTPEndpointEnabled              :: !(Maybe Bool)
   , _dcDBClusterARN                     :: !(Maybe Text)
   , _dcCloneGroupId                     :: !(Maybe Text)
   , _dcLatestRestorableTime             :: !(Maybe ISO8601)
+  , _dcCapacity                         :: !(Maybe Int)
   , _dcPreferredMaintenanceWindow       :: !(Maybe Text)
   , _dcAvailabilityZones                :: !(Maybe [Text])
   , _dcCharacterSetName                 :: !(Maybe Text)
@@ -321,9 +382,13 @@ data DBCluster = DBCluster'
   , _dcDBSubnetGroup                    :: !(Maybe Text)
   , _dcDatabaseName                     :: !(Maybe Text)
   , _dcMultiAZ                          :: !(Maybe Bool)
+  , _dcEngineMode                       :: !(Maybe Text)
+  , _dcEnabledCloudwatchLogsExports     :: !(Maybe [Text])
   , _dcAllocatedStorage                 :: !(Maybe Int)
+  , _dcCopyTagsToSnapshot               :: !(Maybe Bool)
   , _dcClusterCreateTime                :: !(Maybe ISO8601)
   , _dcEndpoint                         :: !(Maybe Text)
+  , _dcScalingConfigurationInfo         :: !(Maybe ScalingConfigurationInfo)
   , _dcPercentProgress                  :: !(Maybe Text)
   , _dcReaderEndpoint                   :: !(Maybe Text)
   , _dcPort                             :: !(Maybe Int)
@@ -340,6 +405,8 @@ data DBCluster = DBCluster'
 -- * 'dcEngineVersion' - Indicates the database engine version.
 --
 -- * 'dcStatus' - Specifies the current state of this DB cluster.
+--
+-- * 'dcDeletionProtection' - Indicates if the DB cluster has deletion protection enabled. The database can't be deleted when this value is set to true.
 --
 -- * 'dcStorageEncrypted' - Specifies whether the DB cluster is encrypted.
 --
@@ -367,13 +434,19 @@ data DBCluster = DBCluster'
 --
 -- * 'dcEarliestRestorableTime' - The earliest time to which a database can be restored with point-in-time restore.
 --
+-- * 'dcCustomEndpoints' - Identifies all custom endpoints associated with the cluster.
+--
 -- * 'dcEngine' - Provides the name of the database engine to be used for this DB cluster.
+--
+-- * 'dcHTTPEndpointEnabled' - Value that is @true@ if the HTTP endpoint for an Aurora Serverless DB cluster is enabled and @false@ otherwise. When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor. For more information about Aurora Serverless, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless> in the /Amazon Aurora User Guide/ .
 --
 -- * 'dcDBClusterARN' - The Amazon Resource Name (ARN) for the DB cluster.
 --
 -- * 'dcCloneGroupId' - Identifies the clone group to which the DB cluster is associated.
 --
 -- * 'dcLatestRestorableTime' - Specifies the latest time to which a database can be restored with point-in-time restore.
+--
+-- * 'dcCapacity' - The current capacity of an Aurora Serverless DB cluster. The capacity is 0 (zero) when the cluster is paused. For more information about Aurora Serverless, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless> in the /Amazon Aurora User Guide/ .
 --
 -- * 'dcPreferredMaintenanceWindow' - Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 --
@@ -397,11 +470,19 @@ data DBCluster = DBCluster'
 --
 -- * 'dcMultiAZ' - Specifies whether the DB cluster has instances in multiple Availability Zones.
 --
+-- * 'dcEngineMode' - The DB engine mode of the DB cluster, either @provisioned@ , @serverless@ , or @parallelquery@ .
+--
+-- * 'dcEnabledCloudwatchLogsExports' - A list of log types that this DB cluster is configured to export to CloudWatch Logs. Log types vary by DB engine. For information about the log types for each DB engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html Amazon RDS Database Log Files> in the /Amazon Aurora User Guide./
+--
 -- * 'dcAllocatedStorage' - For all database engines except Amazon Aurora, @AllocatedStorage@ specifies the allocated storage size in gibibytes (GiB). For Aurora, @AllocatedStorage@ always returns 1, because Aurora DB cluster storage size is not fixed, but instead automatically adjusts as needed.
+--
+-- * 'dcCopyTagsToSnapshot' - Specifies whether tags are copied from the DB cluster to snapshots of the DB cluster.
 --
 -- * 'dcClusterCreateTime' - Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
 --
 -- * 'dcEndpoint' - Specifies the connection endpoint for the primary instance of the DB cluster.
+--
+-- * 'dcScalingConfigurationInfo' - Undocumented member.
 --
 -- * 'dcPercentProgress' - Specifies the progress of the operation as a percentage.
 --
@@ -417,6 +498,7 @@ dbCluster =
     { _dcBacktrackConsumedChangeRecords = Nothing
     , _dcEngineVersion = Nothing
     , _dcStatus = Nothing
+    , _dcDeletionProtection = Nothing
     , _dcStorageEncrypted = Nothing
     , _dcDBClusterIdentifier = Nothing
     , _dcDBClusterMembers = Nothing
@@ -430,10 +512,13 @@ dbCluster =
     , _dcBacktrackWindow = Nothing
     , _dcDBClusterResourceId = Nothing
     , _dcEarliestRestorableTime = Nothing
+    , _dcCustomEndpoints = Nothing
     , _dcEngine = Nothing
+    , _dcHTTPEndpointEnabled = Nothing
     , _dcDBClusterARN = Nothing
     , _dcCloneGroupId = Nothing
     , _dcLatestRestorableTime = Nothing
+    , _dcCapacity = Nothing
     , _dcPreferredMaintenanceWindow = Nothing
     , _dcAvailabilityZones = Nothing
     , _dcCharacterSetName = Nothing
@@ -445,9 +530,13 @@ dbCluster =
     , _dcDBSubnetGroup = Nothing
     , _dcDatabaseName = Nothing
     , _dcMultiAZ = Nothing
+    , _dcEngineMode = Nothing
+    , _dcEnabledCloudwatchLogsExports = Nothing
     , _dcAllocatedStorage = Nothing
+    , _dcCopyTagsToSnapshot = Nothing
     , _dcClusterCreateTime = Nothing
     , _dcEndpoint = Nothing
+    , _dcScalingConfigurationInfo = Nothing
     , _dcPercentProgress = Nothing
     , _dcReaderEndpoint = Nothing
     , _dcPort = Nothing
@@ -466,6 +555,10 @@ dcEngineVersion = lens _dcEngineVersion (\ s a -> s{_dcEngineVersion = a})
 -- | Specifies the current state of this DB cluster.
 dcStatus :: Lens' DBCluster (Maybe Text)
 dcStatus = lens _dcStatus (\ s a -> s{_dcStatus = a})
+
+-- | Indicates if the DB cluster has deletion protection enabled. The database can't be deleted when this value is set to true.
+dcDeletionProtection :: Lens' DBCluster (Maybe Bool)
+dcDeletionProtection = lens _dcDeletionProtection (\ s a -> s{_dcDeletionProtection = a})
 
 -- | Specifies whether the DB cluster is encrypted.
 dcStorageEncrypted :: Lens' DBCluster (Maybe Bool)
@@ -519,9 +612,17 @@ dcDBClusterResourceId = lens _dcDBClusterResourceId (\ s a -> s{_dcDBClusterReso
 dcEarliestRestorableTime :: Lens' DBCluster (Maybe UTCTime)
 dcEarliestRestorableTime = lens _dcEarliestRestorableTime (\ s a -> s{_dcEarliestRestorableTime = a}) . mapping _Time
 
+-- | Identifies all custom endpoints associated with the cluster.
+dcCustomEndpoints :: Lens' DBCluster [Text]
+dcCustomEndpoints = lens _dcCustomEndpoints (\ s a -> s{_dcCustomEndpoints = a}) . _Default . _Coerce
+
 -- | Provides the name of the database engine to be used for this DB cluster.
 dcEngine :: Lens' DBCluster (Maybe Text)
 dcEngine = lens _dcEngine (\ s a -> s{_dcEngine = a})
+
+-- | Value that is @true@ if the HTTP endpoint for an Aurora Serverless DB cluster is enabled and @false@ otherwise. When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor. For more information about Aurora Serverless, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless> in the /Amazon Aurora User Guide/ .
+dcHTTPEndpointEnabled :: Lens' DBCluster (Maybe Bool)
+dcHTTPEndpointEnabled = lens _dcHTTPEndpointEnabled (\ s a -> s{_dcHTTPEndpointEnabled = a})
 
 -- | The Amazon Resource Name (ARN) for the DB cluster.
 dcDBClusterARN :: Lens' DBCluster (Maybe Text)
@@ -534,6 +635,10 @@ dcCloneGroupId = lens _dcCloneGroupId (\ s a -> s{_dcCloneGroupId = a})
 -- | Specifies the latest time to which a database can be restored with point-in-time restore.
 dcLatestRestorableTime :: Lens' DBCluster (Maybe UTCTime)
 dcLatestRestorableTime = lens _dcLatestRestorableTime (\ s a -> s{_dcLatestRestorableTime = a}) . mapping _Time
+
+-- | The current capacity of an Aurora Serverless DB cluster. The capacity is 0 (zero) when the cluster is paused. For more information about Aurora Serverless, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless> in the /Amazon Aurora User Guide/ .
+dcCapacity :: Lens' DBCluster (Maybe Int)
+dcCapacity = lens _dcCapacity (\ s a -> s{_dcCapacity = a})
 
 -- | Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 dcPreferredMaintenanceWindow :: Lens' DBCluster (Maybe Text)
@@ -579,9 +684,21 @@ dcDatabaseName = lens _dcDatabaseName (\ s a -> s{_dcDatabaseName = a})
 dcMultiAZ :: Lens' DBCluster (Maybe Bool)
 dcMultiAZ = lens _dcMultiAZ (\ s a -> s{_dcMultiAZ = a})
 
+-- | The DB engine mode of the DB cluster, either @provisioned@ , @serverless@ , or @parallelquery@ .
+dcEngineMode :: Lens' DBCluster (Maybe Text)
+dcEngineMode = lens _dcEngineMode (\ s a -> s{_dcEngineMode = a})
+
+-- | A list of log types that this DB cluster is configured to export to CloudWatch Logs. Log types vary by DB engine. For information about the log types for each DB engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html Amazon RDS Database Log Files> in the /Amazon Aurora User Guide./
+dcEnabledCloudwatchLogsExports :: Lens' DBCluster [Text]
+dcEnabledCloudwatchLogsExports = lens _dcEnabledCloudwatchLogsExports (\ s a -> s{_dcEnabledCloudwatchLogsExports = a}) . _Default . _Coerce
+
 -- | For all database engines except Amazon Aurora, @AllocatedStorage@ specifies the allocated storage size in gibibytes (GiB). For Aurora, @AllocatedStorage@ always returns 1, because Aurora DB cluster storage size is not fixed, but instead automatically adjusts as needed.
 dcAllocatedStorage :: Lens' DBCluster (Maybe Int)
 dcAllocatedStorage = lens _dcAllocatedStorage (\ s a -> s{_dcAllocatedStorage = a})
+
+-- | Specifies whether tags are copied from the DB cluster to snapshots of the DB cluster.
+dcCopyTagsToSnapshot :: Lens' DBCluster (Maybe Bool)
+dcCopyTagsToSnapshot = lens _dcCopyTagsToSnapshot (\ s a -> s{_dcCopyTagsToSnapshot = a})
 
 -- | Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
 dcClusterCreateTime :: Lens' DBCluster (Maybe UTCTime)
@@ -590,6 +707,10 @@ dcClusterCreateTime = lens _dcClusterCreateTime (\ s a -> s{_dcClusterCreateTime
 -- | Specifies the connection endpoint for the primary instance of the DB cluster.
 dcEndpoint :: Lens' DBCluster (Maybe Text)
 dcEndpoint = lens _dcEndpoint (\ s a -> s{_dcEndpoint = a})
+
+-- | Undocumented member.
+dcScalingConfigurationInfo :: Lens' DBCluster (Maybe ScalingConfigurationInfo)
+dcScalingConfigurationInfo = lens _dcScalingConfigurationInfo (\ s a -> s{_dcScalingConfigurationInfo = a})
 
 -- | Specifies the progress of the operation as a percentage.
 dcPercentProgress :: Lens' DBCluster (Maybe Text)
@@ -613,6 +734,7 @@ instance FromXML DBCluster where
               (x .@? "BacktrackConsumedChangeRecords") <*>
                 (x .@? "EngineVersion")
                 <*> (x .@? "Status")
+                <*> (x .@? "DeletionProtection")
                 <*> (x .@? "StorageEncrypted")
                 <*> (x .@? "DBClusterIdentifier")
                 <*>
@@ -630,10 +752,15 @@ instance FromXML DBCluster where
                 <*> (x .@? "BacktrackWindow")
                 <*> (x .@? "DbClusterResourceId")
                 <*> (x .@? "EarliestRestorableTime")
+                <*>
+                (x .@? "CustomEndpoints" .!@ mempty >>=
+                   may (parseXMLList "member"))
                 <*> (x .@? "Engine")
+                <*> (x .@? "HttpEndpointEnabled")
                 <*> (x .@? "DBClusterArn")
                 <*> (x .@? "CloneGroupId")
                 <*> (x .@? "LatestRestorableTime")
+                <*> (x .@? "Capacity")
                 <*> (x .@? "PreferredMaintenanceWindow")
                 <*>
                 (x .@? "AvailabilityZones" .!@ mempty >>=
@@ -651,9 +778,15 @@ instance FromXML DBCluster where
                 <*> (x .@? "DBSubnetGroup")
                 <*> (x .@? "DatabaseName")
                 <*> (x .@? "MultiAZ")
+                <*> (x .@? "EngineMode")
+                <*>
+                (x .@? "EnabledCloudwatchLogsExports" .!@ mempty >>=
+                   may (parseXMLList "member"))
                 <*> (x .@? "AllocatedStorage")
+                <*> (x .@? "CopyTagsToSnapshot")
                 <*> (x .@? "ClusterCreateTime")
                 <*> (x .@? "Endpoint")
+                <*> (x .@? "ScalingConfigurationInfo")
                 <*> (x .@? "PercentProgress")
                 <*> (x .@? "ReaderEndpoint")
                 <*> (x .@? "Port")
@@ -745,6 +878,138 @@ instance Hashable DBClusterBacktrack where
 
 instance NFData DBClusterBacktrack where
 
+-- | This data type represents the information you need to connect to an Amazon Aurora DB cluster. This data type is used as a response element in the following actions:
+--
+--
+--     * 'CreateDBClusterEndpoint'
+--
+--     * 'DescribeDBClusterEndpoints'
+--
+--     * 'ModifyDBClusterEndpoint'
+--
+--     * 'DeleteDBClusterEndpoint'
+--
+--
+--
+-- For the data structure that represents Amazon RDS DB instance endpoints, see 'Endpoint' .
+--
+--
+-- /See:/ 'dbClusterEndpoint' smart constructor.
+data DBClusterEndpoint = DBClusterEndpoint'
+  { _dceStatus                              :: !(Maybe Text)
+  , _dceDBClusterIdentifier                 :: !(Maybe Text)
+  , _dceDBClusterEndpointARN                :: !(Maybe Text)
+  , _dceCustomEndpointType                  :: !(Maybe Text)
+  , _dceStaticMembers                       :: !(Maybe [Text])
+  , _dceEndpointType                        :: !(Maybe Text)
+  , _dceDBClusterEndpointIdentifier         :: !(Maybe Text)
+  , _dceEndpoint                            :: !(Maybe Text)
+  , _dceDBClusterEndpointResourceIdentifier :: !(Maybe Text)
+  , _dceExcludedMembers                     :: !(Maybe [Text])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DBClusterEndpoint' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dceStatus' - The current status of the endpoint. One of: @creating@ , @available@ , @deleting@ , @modifying@ .
+--
+-- * 'dceDBClusterIdentifier' - The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is stored as a lowercase string.
+--
+-- * 'dceDBClusterEndpointARN' - The Amazon Resource Name (ARN) for the endpoint.
+--
+-- * 'dceCustomEndpointType' - The type associated with a custom endpoint. One of: @READER@ , @ANY@ .
+--
+-- * 'dceStaticMembers' - List of DB instance identifiers that are part of the custom endpoint group.
+--
+-- * 'dceEndpointType' - The type of the endpoint. One of: @READER@ , @WRITER@ , @CUSTOM@ .
+--
+-- * 'dceDBClusterEndpointIdentifier' - The identifier associated with the endpoint. This parameter is stored as a lowercase string.
+--
+-- * 'dceEndpoint' - The DNS address of the endpoint.
+--
+-- * 'dceDBClusterEndpointResourceIdentifier' - A unique system-generated identifier for an endpoint. It remains the same for the whole life of the endpoint.
+--
+-- * 'dceExcludedMembers' - List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
+dbClusterEndpoint
+    :: DBClusterEndpoint
+dbClusterEndpoint =
+  DBClusterEndpoint'
+    { _dceStatus = Nothing
+    , _dceDBClusterIdentifier = Nothing
+    , _dceDBClusterEndpointARN = Nothing
+    , _dceCustomEndpointType = Nothing
+    , _dceStaticMembers = Nothing
+    , _dceEndpointType = Nothing
+    , _dceDBClusterEndpointIdentifier = Nothing
+    , _dceEndpoint = Nothing
+    , _dceDBClusterEndpointResourceIdentifier = Nothing
+    , _dceExcludedMembers = Nothing
+    }
+
+
+-- | The current status of the endpoint. One of: @creating@ , @available@ , @deleting@ , @modifying@ .
+dceStatus :: Lens' DBClusterEndpoint (Maybe Text)
+dceStatus = lens _dceStatus (\ s a -> s{_dceStatus = a})
+
+-- | The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is stored as a lowercase string.
+dceDBClusterIdentifier :: Lens' DBClusterEndpoint (Maybe Text)
+dceDBClusterIdentifier = lens _dceDBClusterIdentifier (\ s a -> s{_dceDBClusterIdentifier = a})
+
+-- | The Amazon Resource Name (ARN) for the endpoint.
+dceDBClusterEndpointARN :: Lens' DBClusterEndpoint (Maybe Text)
+dceDBClusterEndpointARN = lens _dceDBClusterEndpointARN (\ s a -> s{_dceDBClusterEndpointARN = a})
+
+-- | The type associated with a custom endpoint. One of: @READER@ , @ANY@ .
+dceCustomEndpointType :: Lens' DBClusterEndpoint (Maybe Text)
+dceCustomEndpointType = lens _dceCustomEndpointType (\ s a -> s{_dceCustomEndpointType = a})
+
+-- | List of DB instance identifiers that are part of the custom endpoint group.
+dceStaticMembers :: Lens' DBClusterEndpoint [Text]
+dceStaticMembers = lens _dceStaticMembers (\ s a -> s{_dceStaticMembers = a}) . _Default . _Coerce
+
+-- | The type of the endpoint. One of: @READER@ , @WRITER@ , @CUSTOM@ .
+dceEndpointType :: Lens' DBClusterEndpoint (Maybe Text)
+dceEndpointType = lens _dceEndpointType (\ s a -> s{_dceEndpointType = a})
+
+-- | The identifier associated with the endpoint. This parameter is stored as a lowercase string.
+dceDBClusterEndpointIdentifier :: Lens' DBClusterEndpoint (Maybe Text)
+dceDBClusterEndpointIdentifier = lens _dceDBClusterEndpointIdentifier (\ s a -> s{_dceDBClusterEndpointIdentifier = a})
+
+-- | The DNS address of the endpoint.
+dceEndpoint :: Lens' DBClusterEndpoint (Maybe Text)
+dceEndpoint = lens _dceEndpoint (\ s a -> s{_dceEndpoint = a})
+
+-- | A unique system-generated identifier for an endpoint. It remains the same for the whole life of the endpoint.
+dceDBClusterEndpointResourceIdentifier :: Lens' DBClusterEndpoint (Maybe Text)
+dceDBClusterEndpointResourceIdentifier = lens _dceDBClusterEndpointResourceIdentifier (\ s a -> s{_dceDBClusterEndpointResourceIdentifier = a})
+
+-- | List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
+dceExcludedMembers :: Lens' DBClusterEndpoint [Text]
+dceExcludedMembers = lens _dceExcludedMembers (\ s a -> s{_dceExcludedMembers = a}) . _Default . _Coerce
+
+instance FromXML DBClusterEndpoint where
+        parseXML x
+          = DBClusterEndpoint' <$>
+              (x .@? "Status") <*> (x .@? "DBClusterIdentifier")
+                <*> (x .@? "DBClusterEndpointArn")
+                <*> (x .@? "CustomEndpointType")
+                <*>
+                (x .@? "StaticMembers" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*> (x .@? "EndpointType")
+                <*> (x .@? "DBClusterEndpointIdentifier")
+                <*> (x .@? "Endpoint")
+                <*> (x .@? "DBClusterEndpointResourceIdentifier")
+                <*>
+                (x .@? "ExcludedMembers" .!@ mempty >>=
+                   may (parseXMLList "member"))
+
+instance Hashable DBClusterEndpoint where
+
+instance NFData DBClusterEndpoint where
+
 -- | Contains information about an instance that is part of a DB cluster.
 --
 --
@@ -762,7 +1027,7 @@ data DBClusterMember = DBClusterMember'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcmPromotionTier' - A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> .
+-- * 'dcmPromotionTier' - A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> in the /Amazon Aurora User Guide/ .
 --
 -- * 'dcmDBInstanceIdentifier' - Specifies the instance identifier for this member of the DB cluster.
 --
@@ -780,7 +1045,7 @@ dbClusterMember =
     }
 
 
--- | A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> .
+-- | A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> in the /Amazon Aurora User Guide/ .
 dcmPromotionTier :: Lens' DBClusterMember (Maybe Int)
 dcmPromotionTier = lens _dcmPromotionTier (\ s a -> s{_dcmPromotionTier = a})
 
@@ -930,7 +1195,7 @@ newtype DBClusterParameterGroupNameMessage = DBClusterParameterGroupNameMessage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcpgnmDBClusterParameterGroupName' - The name of the DB cluster parameter group. Constraints:     * Must be 1 to 255 letters or numbers.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- * 'dcpgnmDBClusterParameterGroupName' - The name of the DB cluster parameter group. Constraints:     * Must be 1 to 255 letters or numbers.     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens
 dbClusterParameterGroupNameMessage
     :: DBClusterParameterGroupNameMessage
 dbClusterParameterGroupNameMessage =
@@ -938,7 +1203,7 @@ dbClusterParameterGroupNameMessage =
     {_dcpgnmDBClusterParameterGroupName = Nothing}
 
 
--- | The name of the DB cluster parameter group. Constraints:     * Must be 1 to 255 letters or numbers.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- | The name of the DB cluster parameter group. Constraints:     * Must be 1 to 255 letters or numbers.     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens
 dcpgnmDBClusterParameterGroupName :: Lens' DBClusterParameterGroupNameMessage (Maybe Text)
 dcpgnmDBClusterParameterGroupName = lens _dcpgnmDBClusterParameterGroupName (\ s a -> s{_dcpgnmDBClusterParameterGroupName = a})
 
@@ -960,8 +1225,9 @@ instance NFData DBClusterParameterGroupNameMessage
 --
 -- /See:/ 'dbClusterRole' smart constructor.
 data DBClusterRole = DBClusterRole'
-  { _dcrStatus  :: !(Maybe Text)
-  , _dcrRoleARN :: !(Maybe Text)
+  { _dcrStatus      :: !(Maybe Text)
+  , _dcrFeatureName :: !(Maybe Text)
+  , _dcrRoleARN     :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -971,15 +1237,23 @@ data DBClusterRole = DBClusterRole'
 --
 -- * 'dcrStatus' - Describes the state of association between the IAM role and the DB cluster. The Status property returns one of the following values:     * @ACTIVE@ - the IAM role ARN is associated with the DB cluster and can be used to access other AWS services on your behalf.     * @PENDING@ - the IAM role ARN is being associated with the DB cluster.     * @INVALID@ - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf.
 --
+-- * 'dcrFeatureName' - Undocumented member.
+--
 -- * 'dcrRoleARN' - The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
 dbClusterRole
     :: DBClusterRole
-dbClusterRole = DBClusterRole' {_dcrStatus = Nothing, _dcrRoleARN = Nothing}
+dbClusterRole =
+  DBClusterRole'
+    {_dcrStatus = Nothing, _dcrFeatureName = Nothing, _dcrRoleARN = Nothing}
 
 
 -- | Describes the state of association between the IAM role and the DB cluster. The Status property returns one of the following values:     * @ACTIVE@ - the IAM role ARN is associated with the DB cluster and can be used to access other AWS services on your behalf.     * @PENDING@ - the IAM role ARN is being associated with the DB cluster.     * @INVALID@ - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf.
 dcrStatus :: Lens' DBClusterRole (Maybe Text)
 dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a})
+
+-- | Undocumented member.
+dcrFeatureName :: Lens' DBClusterRole (Maybe Text)
+dcrFeatureName = lens _dcrFeatureName (\ s a -> s{_dcrFeatureName = a})
 
 -- | The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
 dcrRoleARN :: Lens' DBClusterRole (Maybe Text)
@@ -988,7 +1262,8 @@ dcrRoleARN = lens _dcrRoleARN (\ s a -> s{_dcrRoleARN = a})
 instance FromXML DBClusterRole where
         parseXML x
           = DBClusterRole' <$>
-              (x .@? "Status") <*> (x .@? "RoleArn")
+              (x .@? "Status") <*> (x .@? "FeatureName") <*>
+                (x .@? "RoleArn")
 
 instance Hashable DBClusterRole where
 
@@ -1309,6 +1584,7 @@ instance NFData DBClusterSnapshotAttributesResult
 data DBEngineVersion = DBEngineVersion'
   { _devEngineVersion                      :: !(Maybe Text)
   , _devDBEngineVersionDescription         :: !(Maybe Text)
+  , _devSupportedEngineModes               :: !(Maybe [Text])
   , _devDefaultCharacterSet                :: !(Maybe CharacterSet)
   , _devEngine                             :: !(Maybe Text)
   , _devDBParameterGroupFamily             :: !(Maybe Text)
@@ -1317,6 +1593,7 @@ data DBEngineVersion = DBEngineVersion'
   , _devValidUpgradeTarget                 :: !(Maybe [UpgradeTarget])
   , _devSupportsLogExportsToCloudwatchLogs :: !(Maybe Bool)
   , _devSupportsReadReplica                :: !(Maybe Bool)
+  , _devSupportedFeatureNames              :: !(Maybe [Text])
   , _devSupportedTimezones                 :: !(Maybe [Timezone])
   , _devExportableLogTypes                 :: !(Maybe [Text])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -1329,6 +1606,8 @@ data DBEngineVersion = DBEngineVersion'
 -- * 'devEngineVersion' - The version number of the database engine.
 --
 -- * 'devDBEngineVersionDescription' - The description of the database engine version.
+--
+-- * 'devSupportedEngineModes' - A list of the supported DB engine modes.
 --
 -- * 'devDefaultCharacterSet' - The default character set for new instances of this engine version, if the @CharacterSetName@ parameter of the CreateDBInstance API is not specified.
 --
@@ -1346,6 +1625,8 @@ data DBEngineVersion = DBEngineVersion'
 --
 -- * 'devSupportsReadReplica' - Indicates whether the database engine version supports read replicas.
 --
+-- * 'devSupportedFeatureNames' - A list of features supported by the DB engine. Supported feature names include the following.      * s3Import
+--
 -- * 'devSupportedTimezones' - A list of the time zones supported by this engine for the @Timezone@ parameter of the @CreateDBInstance@ action.
 --
 -- * 'devExportableLogTypes' - The types of logs that the database engine has available for export to CloudWatch Logs.
@@ -1355,6 +1636,7 @@ dbEngineVersion =
   DBEngineVersion'
     { _devEngineVersion = Nothing
     , _devDBEngineVersionDescription = Nothing
+    , _devSupportedEngineModes = Nothing
     , _devDefaultCharacterSet = Nothing
     , _devEngine = Nothing
     , _devDBParameterGroupFamily = Nothing
@@ -1363,6 +1645,7 @@ dbEngineVersion =
     , _devValidUpgradeTarget = Nothing
     , _devSupportsLogExportsToCloudwatchLogs = Nothing
     , _devSupportsReadReplica = Nothing
+    , _devSupportedFeatureNames = Nothing
     , _devSupportedTimezones = Nothing
     , _devExportableLogTypes = Nothing
     }
@@ -1375,6 +1658,10 @@ devEngineVersion = lens _devEngineVersion (\ s a -> s{_devEngineVersion = a})
 -- | The description of the database engine version.
 devDBEngineVersionDescription :: Lens' DBEngineVersion (Maybe Text)
 devDBEngineVersionDescription = lens _devDBEngineVersionDescription (\ s a -> s{_devDBEngineVersionDescription = a})
+
+-- | A list of the supported DB engine modes.
+devSupportedEngineModes :: Lens' DBEngineVersion [Text]
+devSupportedEngineModes = lens _devSupportedEngineModes (\ s a -> s{_devSupportedEngineModes = a}) . _Default . _Coerce
 
 -- | The default character set for new instances of this engine version, if the @CharacterSetName@ parameter of the CreateDBInstance API is not specified.
 devDefaultCharacterSet :: Lens' DBEngineVersion (Maybe CharacterSet)
@@ -1408,6 +1695,10 @@ devSupportsLogExportsToCloudwatchLogs = lens _devSupportsLogExportsToCloudwatchL
 devSupportsReadReplica :: Lens' DBEngineVersion (Maybe Bool)
 devSupportsReadReplica = lens _devSupportsReadReplica (\ s a -> s{_devSupportsReadReplica = a})
 
+-- | A list of features supported by the DB engine. Supported feature names include the following.      * s3Import
+devSupportedFeatureNames :: Lens' DBEngineVersion [Text]
+devSupportedFeatureNames = lens _devSupportedFeatureNames (\ s a -> s{_devSupportedFeatureNames = a}) . _Default . _Coerce
+
 -- | A list of the time zones supported by this engine for the @Timezone@ parameter of the @CreateDBInstance@ action.
 devSupportedTimezones :: Lens' DBEngineVersion [Timezone]
 devSupportedTimezones = lens _devSupportedTimezones (\ s a -> s{_devSupportedTimezones = a}) . _Default . _Coerce
@@ -1421,6 +1712,9 @@ instance FromXML DBEngineVersion where
           = DBEngineVersion' <$>
               (x .@? "EngineVersion") <*>
                 (x .@? "DBEngineVersionDescription")
+                <*>
+                (x .@? "SupportedEngineModes" .!@ mempty >>=
+                   may (parseXMLList "member"))
                 <*> (x .@? "DefaultCharacterSet")
                 <*> (x .@? "Engine")
                 <*> (x .@? "DBParameterGroupFamily")
@@ -1433,6 +1727,9 @@ instance FromXML DBEngineVersion where
                    may (parseXMLList "UpgradeTarget"))
                 <*> (x .@? "SupportsLogExportsToCloudwatchLogs")
                 <*> (x .@? "SupportsReadReplica")
+                <*>
+                (x .@? "SupportedFeatureNames" .!@ mempty >>=
+                   may (parseXMLList "member"))
                 <*>
                 (x .@? "SupportedTimezones" .!@ mempty >>=
                    may (parseXMLList "Timezone"))
@@ -1454,6 +1751,7 @@ instance NFData DBEngineVersion where
 data DBInstance = DBInstance'
   { _diEngineVersion :: !(Maybe Text)
   , _diDBSecurityGroups :: !(Maybe [DBSecurityGroupMembership])
+  , _diDeletionProtection :: !(Maybe Bool)
   , _diStorageEncrypted :: !(Maybe Bool)
   , _diDBClusterIdentifier :: !(Maybe Text)
   , _diPubliclyAccessible :: !(Maybe Bool)
@@ -1468,22 +1766,26 @@ data DBInstance = DBInstance'
   , _diReadReplicaSourceDBInstanceIdentifier :: !(Maybe Text)
   , _diMonitoringInterval :: !(Maybe Int)
   , _diEngine :: !(Maybe Text)
+  , _diProcessorFeatures :: !(Maybe [ProcessorFeature])
   , _diLatestRestorableTime :: !(Maybe ISO8601)
   , _diDBInstanceClass :: !(Maybe Text)
   , _diPromotionTier :: !(Maybe Int)
   , _diLicenseModel :: !(Maybe Text)
   , _diPreferredMaintenanceWindow :: !(Maybe Text)
+  , _diPerformanceInsightsRetentionPeriod :: !(Maybe Int)
   , _diCACertificateIdentifier :: !(Maybe Text)
   , _diDBInstanceIdentifier :: !(Maybe Text)
   , _diCharacterSetName :: !(Maybe Text)
   , _diKMSKeyId :: !(Maybe Text)
   , _diPreferredBackupWindow :: !(Maybe Text)
+  , _diAssociatedRoles :: !(Maybe [DBInstanceRole])
   , _diAvailabilityZone :: !(Maybe Text)
   , _diVPCSecurityGroups :: !(Maybe [VPCSecurityGroupMembership])
   , _diBackupRetentionPeriod :: !(Maybe Int)
   , _diPerformanceInsightsKMSKeyId :: !(Maybe Text)
   , _diDBSubnetGroup :: !(Maybe DBSubnetGroup)
   , _diMultiAZ :: !(Maybe Bool)
+  , _diListenerEndpoint :: !(Maybe Endpoint)
   , _diOptionGroupMemberships :: !(Maybe [OptionGroupMembership])
   , _diEnabledCloudwatchLogsExports :: !(Maybe [Text])
   , _diEnhancedMonitoringResourceARN :: !(Maybe Text)
@@ -1515,11 +1817,13 @@ data DBInstance = DBInstance'
 --
 -- * 'diDBSecurityGroups' - Provides List of DB security group elements containing only @DBSecurityGroup.Name@ and @DBSecurityGroup.Status@ subelements.
 --
+-- * 'diDeletionProtection' - Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance> .
+--
 -- * 'diStorageEncrypted' - Specifies whether the DB instance is encrypted.
 --
 -- * 'diDBClusterIdentifier' - If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
 --
--- * 'diPubliclyAccessible' - Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.     * __Default VPC:__ true     * __VPC:__ false If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance is publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance is private.
+-- * 'diPubliclyAccessible' - Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address.
 --
 -- * 'diAutoMinorVersionUpgrade' - Indicates that minor version patches are applied automatically.
 --
@@ -1543,15 +1847,19 @@ data DBInstance = DBInstance'
 --
 -- * 'diEngine' - Provides the name of the database engine to be used for this DB instance.
 --
+-- * 'diProcessorFeatures' - The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+--
 -- * 'diLatestRestorableTime' - Specifies the latest time to which a database can be restored with point-in-time restore.
 --
 -- * 'diDBInstanceClass' - Contains the name of the compute and memory capacity class of the DB instance.
 --
--- * 'diPromotionTier' - A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> .
+-- * 'diPromotionTier' - A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> in the /Amazon Aurora User Guide/ .
 --
 -- * 'diLicenseModel' - License model information for this DB instance.
 --
 -- * 'diPreferredMaintenanceWindow' - Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+--
+-- * 'diPerformanceInsightsRetentionPeriod' - The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
 --
 -- * 'diCACertificateIdentifier' - The identifier of the CA certificate for this DB instance.
 --
@@ -1562,6 +1870,8 @@ data DBInstance = DBInstance'
 -- * 'diKMSKeyId' - If @StorageEncrypted@ is true, the AWS KMS key identifier for the encrypted DB instance.
 --
 -- * 'diPreferredBackupWindow' - Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the @BackupRetentionPeriod@ .
+--
+-- * 'diAssociatedRoles' - The AWS Identity and Access Management (IAM) roles associated with the DB instance.
 --
 -- * 'diAvailabilityZone' - Specifies the name of the Availability Zone the DB instance is located in.
 --
@@ -1575,9 +1885,11 @@ data DBInstance = DBInstance'
 --
 -- * 'diMultiAZ' - Specifies if the DB instance is a Multi-AZ deployment.
 --
+-- * 'diListenerEndpoint' - Specifies the listener connection endpoint for SQL Server Always On.
+--
 -- * 'diOptionGroupMemberships' - Provides the list of option group memberships for this DB instance.
 --
--- * 'diEnabledCloudwatchLogsExports' - A list of log types that this DB instance is configured to export to CloudWatch Logs.
+-- * 'diEnabledCloudwatchLogsExports' - A list of log types that this DB instance is configured to export to CloudWatch Logs. Log types vary by DB engine. For information about the log types for each DB engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html Amazon RDS Database Log Files> in the /Amazon RDS User Guide./
 --
 -- * 'diEnhancedMonitoringResourceARN' - The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that receives the Enhanced Monitoring metrics data for the DB instance.
 --
@@ -1591,7 +1903,7 @@ data DBInstance = DBInstance'
 --
 -- * 'diDBParameterGroups' - Provides the list of DB parameter groups applied to this DB instance.
 --
--- * 'diCopyTagsToSnapshot' - Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
+-- * 'diCopyTagsToSnapshot' - Specifies whether tags are copied from the DB instance to snapshots of the DB instance. __Amazon Aurora__  Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see 'DBCluster' .
 --
 -- * 'diTimezone' - The time zone of the DB instance. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for Microsoft SQL Server DB instances that were created with a time zone specified.
 --
@@ -1605,7 +1917,7 @@ data DBInstance = DBInstance'
 --
 -- * 'diPendingModifiedValues' - Specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.
 --
--- * 'diReadReplicaDBClusterIdentifiers' - Contains one or more identifiers of Aurora DB clusters that are Read Replicas of this DB instance.
+-- * 'diReadReplicaDBClusterIdentifiers' - Contains one or more identifiers of Aurora DB clusters to which the RDS DB instance is replicated as a Read Replica. For example, when you create an Aurora Read Replica of an RDS MySQL DB instance, the Aurora MySQL DB cluster for the Aurora Read Replica is shown. This output does not contain information about cross region Aurora Read Replicas.
 --
 -- * 'diStorageType' - Specifies the storage type associated with DB instance.
 --
@@ -1620,6 +1932,7 @@ dbInstance =
   DBInstance'
     { _diEngineVersion = Nothing
     , _diDBSecurityGroups = Nothing
+    , _diDeletionProtection = Nothing
     , _diStorageEncrypted = Nothing
     , _diDBClusterIdentifier = Nothing
     , _diPubliclyAccessible = Nothing
@@ -1634,22 +1947,26 @@ dbInstance =
     , _diReadReplicaSourceDBInstanceIdentifier = Nothing
     , _diMonitoringInterval = Nothing
     , _diEngine = Nothing
+    , _diProcessorFeatures = Nothing
     , _diLatestRestorableTime = Nothing
     , _diDBInstanceClass = Nothing
     , _diPromotionTier = Nothing
     , _diLicenseModel = Nothing
     , _diPreferredMaintenanceWindow = Nothing
+    , _diPerformanceInsightsRetentionPeriod = Nothing
     , _diCACertificateIdentifier = Nothing
     , _diDBInstanceIdentifier = Nothing
     , _diCharacterSetName = Nothing
     , _diKMSKeyId = Nothing
     , _diPreferredBackupWindow = Nothing
+    , _diAssociatedRoles = Nothing
     , _diAvailabilityZone = Nothing
     , _diVPCSecurityGroups = Nothing
     , _diBackupRetentionPeriod = Nothing
     , _diPerformanceInsightsKMSKeyId = Nothing
     , _diDBSubnetGroup = Nothing
     , _diMultiAZ = Nothing
+    , _diListenerEndpoint = Nothing
     , _diOptionGroupMemberships = Nothing
     , _diEnabledCloudwatchLogsExports = Nothing
     , _diEnhancedMonitoringResourceARN = Nothing
@@ -1681,6 +1998,10 @@ diEngineVersion = lens _diEngineVersion (\ s a -> s{_diEngineVersion = a})
 diDBSecurityGroups :: Lens' DBInstance [DBSecurityGroupMembership]
 diDBSecurityGroups = lens _diDBSecurityGroups (\ s a -> s{_diDBSecurityGroups = a}) . _Default . _Coerce
 
+-- | Indicates if the DB instance has deletion protection enabled. The database can't be deleted when this value is set to true. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance> .
+diDeletionProtection :: Lens' DBInstance (Maybe Bool)
+diDeletionProtection = lens _diDeletionProtection (\ s a -> s{_diDeletionProtection = a})
+
 -- | Specifies whether the DB instance is encrypted.
 diStorageEncrypted :: Lens' DBInstance (Maybe Bool)
 diStorageEncrypted = lens _diStorageEncrypted (\ s a -> s{_diStorageEncrypted = a})
@@ -1689,7 +2010,7 @@ diStorageEncrypted = lens _diStorageEncrypted (\ s a -> s{_diStorageEncrypted = 
 diDBClusterIdentifier :: Lens' DBInstance (Maybe Text)
 diDBClusterIdentifier = lens _diDBClusterIdentifier (\ s a -> s{_diDBClusterIdentifier = a})
 
--- | Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.     * __Default VPC:__ true     * __VPC:__ false If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance is publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance is private.
+-- | Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address.
 diPubliclyAccessible :: Lens' DBInstance (Maybe Bool)
 diPubliclyAccessible = lens _diPubliclyAccessible (\ s a -> s{_diPubliclyAccessible = a})
 
@@ -1737,6 +2058,10 @@ diMonitoringInterval = lens _diMonitoringInterval (\ s a -> s{_diMonitoringInter
 diEngine :: Lens' DBInstance (Maybe Text)
 diEngine = lens _diEngine (\ s a -> s{_diEngine = a})
 
+-- | The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+diProcessorFeatures :: Lens' DBInstance [ProcessorFeature]
+diProcessorFeatures = lens _diProcessorFeatures (\ s a -> s{_diProcessorFeatures = a}) . _Default . _Coerce
+
 -- | Specifies the latest time to which a database can be restored with point-in-time restore.
 diLatestRestorableTime :: Lens' DBInstance (Maybe UTCTime)
 diLatestRestorableTime = lens _diLatestRestorableTime (\ s a -> s{_diLatestRestorableTime = a}) . mapping _Time
@@ -1745,7 +2070,7 @@ diLatestRestorableTime = lens _diLatestRestorableTime (\ s a -> s{_diLatestResto
 diDBInstanceClass :: Lens' DBInstance (Maybe Text)
 diDBInstanceClass = lens _diDBInstanceClass (\ s a -> s{_diDBInstanceClass = a})
 
--- | A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> .
+-- | A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> in the /Amazon Aurora User Guide/ .
 diPromotionTier :: Lens' DBInstance (Maybe Int)
 diPromotionTier = lens _diPromotionTier (\ s a -> s{_diPromotionTier = a})
 
@@ -1756,6 +2081,10 @@ diLicenseModel = lens _diLicenseModel (\ s a -> s{_diLicenseModel = a})
 -- | Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 diPreferredMaintenanceWindow :: Lens' DBInstance (Maybe Text)
 diPreferredMaintenanceWindow = lens _diPreferredMaintenanceWindow (\ s a -> s{_diPreferredMaintenanceWindow = a})
+
+-- | The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
+diPerformanceInsightsRetentionPeriod :: Lens' DBInstance (Maybe Int)
+diPerformanceInsightsRetentionPeriod = lens _diPerformanceInsightsRetentionPeriod (\ s a -> s{_diPerformanceInsightsRetentionPeriod = a})
 
 -- | The identifier of the CA certificate for this DB instance.
 diCACertificateIdentifier :: Lens' DBInstance (Maybe Text)
@@ -1776,6 +2105,10 @@ diKMSKeyId = lens _diKMSKeyId (\ s a -> s{_diKMSKeyId = a})
 -- | Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the @BackupRetentionPeriod@ .
 diPreferredBackupWindow :: Lens' DBInstance (Maybe Text)
 diPreferredBackupWindow = lens _diPreferredBackupWindow (\ s a -> s{_diPreferredBackupWindow = a})
+
+-- | The AWS Identity and Access Management (IAM) roles associated with the DB instance.
+diAssociatedRoles :: Lens' DBInstance [DBInstanceRole]
+diAssociatedRoles = lens _diAssociatedRoles (\ s a -> s{_diAssociatedRoles = a}) . _Default . _Coerce
 
 -- | Specifies the name of the Availability Zone the DB instance is located in.
 diAvailabilityZone :: Lens' DBInstance (Maybe Text)
@@ -1801,11 +2134,15 @@ diDBSubnetGroup = lens _diDBSubnetGroup (\ s a -> s{_diDBSubnetGroup = a})
 diMultiAZ :: Lens' DBInstance (Maybe Bool)
 diMultiAZ = lens _diMultiAZ (\ s a -> s{_diMultiAZ = a})
 
+-- | Specifies the listener connection endpoint for SQL Server Always On.
+diListenerEndpoint :: Lens' DBInstance (Maybe Endpoint)
+diListenerEndpoint = lens _diListenerEndpoint (\ s a -> s{_diListenerEndpoint = a})
+
 -- | Provides the list of option group memberships for this DB instance.
 diOptionGroupMemberships :: Lens' DBInstance [OptionGroupMembership]
 diOptionGroupMemberships = lens _diOptionGroupMemberships (\ s a -> s{_diOptionGroupMemberships = a}) . _Default . _Coerce
 
--- | A list of log types that this DB instance is configured to export to CloudWatch Logs.
+-- | A list of log types that this DB instance is configured to export to CloudWatch Logs. Log types vary by DB engine. For information about the log types for each DB engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html Amazon RDS Database Log Files> in the /Amazon RDS User Guide./
 diEnabledCloudwatchLogsExports :: Lens' DBInstance [Text]
 diEnabledCloudwatchLogsExports = lens _diEnabledCloudwatchLogsExports (\ s a -> s{_diEnabledCloudwatchLogsExports = a}) . _Default . _Coerce
 
@@ -1833,7 +2170,7 @@ diDBiResourceId = lens _diDBiResourceId (\ s a -> s{_diDBiResourceId = a})
 diDBParameterGroups :: Lens' DBInstance [DBParameterGroupStatus]
 diDBParameterGroups = lens _diDBParameterGroups (\ s a -> s{_diDBParameterGroups = a}) . _Default . _Coerce
 
--- | Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
+-- | Specifies whether tags are copied from the DB instance to snapshots of the DB instance. __Amazon Aurora__  Not applicable. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting. For more information, see 'DBCluster' .
 diCopyTagsToSnapshot :: Lens' DBInstance (Maybe Bool)
 diCopyTagsToSnapshot = lens _diCopyTagsToSnapshot (\ s a -> s{_diCopyTagsToSnapshot = a})
 
@@ -1861,7 +2198,7 @@ diDBInstancePort = lens _diDBInstancePort (\ s a -> s{_diDBInstancePort = a})
 diPendingModifiedValues :: Lens' DBInstance (Maybe PendingModifiedValues)
 diPendingModifiedValues = lens _diPendingModifiedValues (\ s a -> s{_diPendingModifiedValues = a})
 
--- | Contains one or more identifiers of Aurora DB clusters that are Read Replicas of this DB instance.
+-- | Contains one or more identifiers of Aurora DB clusters to which the RDS DB instance is replicated as a Read Replica. For example, when you create an Aurora Read Replica of an RDS MySQL DB instance, the Aurora MySQL DB cluster for the Aurora Read Replica is shown. This output does not contain information about cross region Aurora Read Replicas.
 diReadReplicaDBClusterIdentifiers :: Lens' DBInstance [Text]
 diReadReplicaDBClusterIdentifiers = lens _diReadReplicaDBClusterIdentifiers (\ s a -> s{_diReadReplicaDBClusterIdentifiers = a}) . _Default . _Coerce
 
@@ -1887,6 +2224,7 @@ instance FromXML DBInstance where
               (x .@? "EngineVersion") <*>
                 (x .@? "DBSecurityGroups" .!@ mempty >>=
                    may (parseXMLList "DBSecurityGroup"))
+                <*> (x .@? "DeletionProtection")
                 <*> (x .@? "StorageEncrypted")
                 <*> (x .@? "DBClusterIdentifier")
                 <*> (x .@? "PubliclyAccessible")
@@ -1904,16 +2242,23 @@ instance FromXML DBInstance where
                 <*> (x .@? "ReadReplicaSourceDBInstanceIdentifier")
                 <*> (x .@? "MonitoringInterval")
                 <*> (x .@? "Engine")
+                <*>
+                (x .@? "ProcessorFeatures" .!@ mempty >>=
+                   may (parseXMLList "ProcessorFeature"))
                 <*> (x .@? "LatestRestorableTime")
                 <*> (x .@? "DBInstanceClass")
                 <*> (x .@? "PromotionTier")
                 <*> (x .@? "LicenseModel")
                 <*> (x .@? "PreferredMaintenanceWindow")
+                <*> (x .@? "PerformanceInsightsRetentionPeriod")
                 <*> (x .@? "CACertificateIdentifier")
                 <*> (x .@? "DBInstanceIdentifier")
                 <*> (x .@? "CharacterSetName")
                 <*> (x .@? "KmsKeyId")
                 <*> (x .@? "PreferredBackupWindow")
+                <*>
+                (x .@? "AssociatedRoles" .!@ mempty >>=
+                   may (parseXMLList "DBInstanceRole"))
                 <*> (x .@? "AvailabilityZone")
                 <*>
                 (x .@? "VpcSecurityGroups" .!@ mempty >>=
@@ -1922,6 +2267,7 @@ instance FromXML DBInstance where
                 <*> (x .@? "PerformanceInsightsKMSKeyId")
                 <*> (x .@? "DBSubnetGroup")
                 <*> (x .@? "MultiAZ")
+                <*> (x .@? "ListenerEndpoint")
                 <*>
                 (x .@? "OptionGroupMemberships" .!@ mempty >>=
                    may (parseXMLList "OptionGroupMembership"))
@@ -1960,6 +2306,289 @@ instance Hashable DBInstance where
 
 instance NFData DBInstance where
 
+-- | An automated backup of a DB instance. It it consists of system backups, transaction logs, and the database instance properties that existed at the time you deleted the source instance.
+--
+--
+--
+-- /See:/ 'dbInstanceAutomatedBackup' smart constructor.
+data DBInstanceAutomatedBackup = DBInstanceAutomatedBackup'
+  { _diabRestoreWindow                    :: !(Maybe RestoreWindow)
+  , _diabEngineVersion                    :: !(Maybe Text)
+  , _diabStatus                           :: !(Maybe Text)
+  , _diabDBInstanceARN                    :: !(Maybe Text)
+  , _diabMasterUsername                   :: !(Maybe Text)
+  , _diabIAMDatabaseAuthenticationEnabled :: !(Maybe Bool)
+  , _diabIOPS                             :: !(Maybe Int)
+  , _diabVPCId                            :: !(Maybe Text)
+  , _diabInstanceCreateTime               :: !(Maybe ISO8601)
+  , _diabEngine                           :: !(Maybe Text)
+  , _diabEncrypted                        :: !(Maybe Bool)
+  , _diabLicenseModel                     :: !(Maybe Text)
+  , _diabDBInstanceIdentifier             :: !(Maybe Text)
+  , _diabKMSKeyId                         :: !(Maybe Text)
+  , _diabAvailabilityZone                 :: !(Maybe Text)
+  , _diabRegion                           :: !(Maybe Text)
+  , _diabAllocatedStorage                 :: !(Maybe Int)
+  , _diabDBiResourceId                    :: !(Maybe Text)
+  , _diabOptionGroupName                  :: !(Maybe Text)
+  , _diabTimezone                         :: !(Maybe Text)
+  , _diabTDECredentialARN                 :: !(Maybe Text)
+  , _diabPort                             :: !(Maybe Int)
+  , _diabStorageType                      :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DBInstanceAutomatedBackup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diabRestoreWindow' - Earliest and latest time an instance can be restored to.
+--
+-- * 'diabEngineVersion' - The version of the database engine for the automated backup.
+--
+-- * 'diabStatus' - Provides a list of status information for an automated backup:     * @active@ - automated backups for current instances     * @retained@ - automated backups for deleted instances     * @creating@ - automated backups that are waiting for the first automated snapshot to be available.
+--
+-- * 'diabDBInstanceARN' - The Amazon Resource Name (ARN) for the automated backup.
+--
+-- * 'diabMasterUsername' - The license model of an automated backup.
+--
+-- * 'diabIAMDatabaseAuthenticationEnabled' - True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+--
+-- * 'diabIOPS' - The IOPS (I/O operations per second) value for the automated backup.
+--
+-- * 'diabVPCId' - Provides the VPC ID associated with the DB instance
+--
+-- * 'diabInstanceCreateTime' - Provides the date and time that the DB instance was created.
+--
+-- * 'diabEngine' - The name of the database engine for this automated backup.
+--
+-- * 'diabEncrypted' - Specifies whether the automated backup is encrypted.
+--
+-- * 'diabLicenseModel' - License model information for the automated backup.
+--
+-- * 'diabDBInstanceIdentifier' - The customer id of the instance that is/was associated with the automated backup.
+--
+-- * 'diabKMSKeyId' - The AWS KMS key ID for an automated backup. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
+--
+-- * 'diabAvailabilityZone' - The Availability Zone that the automated backup was created in. For information on AWS Regions and Availability Zones, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and Availability Zones> .
+--
+-- * 'diabRegion' - The AWS Region associated with the automated backup.
+--
+-- * 'diabAllocatedStorage' - Specifies the allocated storage size in gibibytes (GiB).
+--
+-- * 'diabDBiResourceId' - The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.
+--
+-- * 'diabOptionGroupName' - The option group the automated backup is associated with. If omitted, the default option group for the engine specified is used.
+--
+-- * 'diabTimezone' - The time zone of the automated backup. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for Microsoft SQL Server DB instances that were created with a time zone specified.
+--
+-- * 'diabTDECredentialARN' - The ARN from the key store with which the automated backup is associated for TDE encryption.
+--
+-- * 'diabPort' - The port number that the automated backup used for connections. Default: Inherits from the source DB instance Valid Values: @1150-65535@
+--
+-- * 'diabStorageType' - Specifies the storage type associated with the automated backup.
+dbInstanceAutomatedBackup
+    :: DBInstanceAutomatedBackup
+dbInstanceAutomatedBackup =
+  DBInstanceAutomatedBackup'
+    { _diabRestoreWindow = Nothing
+    , _diabEngineVersion = Nothing
+    , _diabStatus = Nothing
+    , _diabDBInstanceARN = Nothing
+    , _diabMasterUsername = Nothing
+    , _diabIAMDatabaseAuthenticationEnabled = Nothing
+    , _diabIOPS = Nothing
+    , _diabVPCId = Nothing
+    , _diabInstanceCreateTime = Nothing
+    , _diabEngine = Nothing
+    , _diabEncrypted = Nothing
+    , _diabLicenseModel = Nothing
+    , _diabDBInstanceIdentifier = Nothing
+    , _diabKMSKeyId = Nothing
+    , _diabAvailabilityZone = Nothing
+    , _diabRegion = Nothing
+    , _diabAllocatedStorage = Nothing
+    , _diabDBiResourceId = Nothing
+    , _diabOptionGroupName = Nothing
+    , _diabTimezone = Nothing
+    , _diabTDECredentialARN = Nothing
+    , _diabPort = Nothing
+    , _diabStorageType = Nothing
+    }
+
+
+-- | Earliest and latest time an instance can be restored to.
+diabRestoreWindow :: Lens' DBInstanceAutomatedBackup (Maybe RestoreWindow)
+diabRestoreWindow = lens _diabRestoreWindow (\ s a -> s{_diabRestoreWindow = a})
+
+-- | The version of the database engine for the automated backup.
+diabEngineVersion :: Lens' DBInstanceAutomatedBackup (Maybe Text)
+diabEngineVersion = lens _diabEngineVersion (\ s a -> s{_diabEngineVersion = a})
+
+-- | Provides a list of status information for an automated backup:     * @active@ - automated backups for current instances     * @retained@ - automated backups for deleted instances     * @creating@ - automated backups that are waiting for the first automated snapshot to be available.
+diabStatus :: Lens' DBInstanceAutomatedBackup (Maybe Text)
+diabStatus = lens _diabStatus (\ s a -> s{_diabStatus = a})
+
+-- | The Amazon Resource Name (ARN) for the automated backup.
+diabDBInstanceARN :: Lens' DBInstanceAutomatedBackup (Maybe Text)
+diabDBInstanceARN = lens _diabDBInstanceARN (\ s a -> s{_diabDBInstanceARN = a})
+
+-- | The license model of an automated backup.
+diabMasterUsername :: Lens' DBInstanceAutomatedBackup (Maybe Text)
+diabMasterUsername = lens _diabMasterUsername (\ s a -> s{_diabMasterUsername = a})
+
+-- | True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+diabIAMDatabaseAuthenticationEnabled :: Lens' DBInstanceAutomatedBackup (Maybe Bool)
+diabIAMDatabaseAuthenticationEnabled = lens _diabIAMDatabaseAuthenticationEnabled (\ s a -> s{_diabIAMDatabaseAuthenticationEnabled = a})
+
+-- | The IOPS (I/O operations per second) value for the automated backup.
+diabIOPS :: Lens' DBInstanceAutomatedBackup (Maybe Int)
+diabIOPS = lens _diabIOPS (\ s a -> s{_diabIOPS = a})
+
+-- | Provides the VPC ID associated with the DB instance
+diabVPCId :: Lens' DBInstanceAutomatedBackup (Maybe Text)
+diabVPCId = lens _diabVPCId (\ s a -> s{_diabVPCId = a})
+
+-- | Provides the date and time that the DB instance was created.
+diabInstanceCreateTime :: Lens' DBInstanceAutomatedBackup (Maybe UTCTime)
+diabInstanceCreateTime = lens _diabInstanceCreateTime (\ s a -> s{_diabInstanceCreateTime = a}) . mapping _Time
+
+-- | The name of the database engine for this automated backup.
+diabEngine :: Lens' DBInstanceAutomatedBackup (Maybe Text)
+diabEngine = lens _diabEngine (\ s a -> s{_diabEngine = a})
+
+-- | Specifies whether the automated backup is encrypted.
+diabEncrypted :: Lens' DBInstanceAutomatedBackup (Maybe Bool)
+diabEncrypted = lens _diabEncrypted (\ s a -> s{_diabEncrypted = a})
+
+-- | License model information for the automated backup.
+diabLicenseModel :: Lens' DBInstanceAutomatedBackup (Maybe Text)
+diabLicenseModel = lens _diabLicenseModel (\ s a -> s{_diabLicenseModel = a})
+
+-- | The customer id of the instance that is/was associated with the automated backup.
+diabDBInstanceIdentifier :: Lens' DBInstanceAutomatedBackup (Maybe Text)
+diabDBInstanceIdentifier = lens _diabDBInstanceIdentifier (\ s a -> s{_diabDBInstanceIdentifier = a})
+
+-- | The AWS KMS key ID for an automated backup. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
+diabKMSKeyId :: Lens' DBInstanceAutomatedBackup (Maybe Text)
+diabKMSKeyId = lens _diabKMSKeyId (\ s a -> s{_diabKMSKeyId = a})
+
+-- | The Availability Zone that the automated backup was created in. For information on AWS Regions and Availability Zones, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and Availability Zones> .
+diabAvailabilityZone :: Lens' DBInstanceAutomatedBackup (Maybe Text)
+diabAvailabilityZone = lens _diabAvailabilityZone (\ s a -> s{_diabAvailabilityZone = a})
+
+-- | The AWS Region associated with the automated backup.
+diabRegion :: Lens' DBInstanceAutomatedBackup (Maybe Text)
+diabRegion = lens _diabRegion (\ s a -> s{_diabRegion = a})
+
+-- | Specifies the allocated storage size in gibibytes (GiB).
+diabAllocatedStorage :: Lens' DBInstanceAutomatedBackup (Maybe Int)
+diabAllocatedStorage = lens _diabAllocatedStorage (\ s a -> s{_diabAllocatedStorage = a})
+
+-- | The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.
+diabDBiResourceId :: Lens' DBInstanceAutomatedBackup (Maybe Text)
+diabDBiResourceId = lens _diabDBiResourceId (\ s a -> s{_diabDBiResourceId = a})
+
+-- | The option group the automated backup is associated with. If omitted, the default option group for the engine specified is used.
+diabOptionGroupName :: Lens' DBInstanceAutomatedBackup (Maybe Text)
+diabOptionGroupName = lens _diabOptionGroupName (\ s a -> s{_diabOptionGroupName = a})
+
+-- | The time zone of the automated backup. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for Microsoft SQL Server DB instances that were created with a time zone specified.
+diabTimezone :: Lens' DBInstanceAutomatedBackup (Maybe Text)
+diabTimezone = lens _diabTimezone (\ s a -> s{_diabTimezone = a})
+
+-- | The ARN from the key store with which the automated backup is associated for TDE encryption.
+diabTDECredentialARN :: Lens' DBInstanceAutomatedBackup (Maybe Text)
+diabTDECredentialARN = lens _diabTDECredentialARN (\ s a -> s{_diabTDECredentialARN = a})
+
+-- | The port number that the automated backup used for connections. Default: Inherits from the source DB instance Valid Values: @1150-65535@
+diabPort :: Lens' DBInstanceAutomatedBackup (Maybe Int)
+diabPort = lens _diabPort (\ s a -> s{_diabPort = a})
+
+-- | Specifies the storage type associated with the automated backup.
+diabStorageType :: Lens' DBInstanceAutomatedBackup (Maybe Text)
+diabStorageType = lens _diabStorageType (\ s a -> s{_diabStorageType = a})
+
+instance FromXML DBInstanceAutomatedBackup where
+        parseXML x
+          = DBInstanceAutomatedBackup' <$>
+              (x .@? "RestoreWindow") <*> (x .@? "EngineVersion")
+                <*> (x .@? "Status")
+                <*> (x .@? "DBInstanceArn")
+                <*> (x .@? "MasterUsername")
+                <*> (x .@? "IAMDatabaseAuthenticationEnabled")
+                <*> (x .@? "Iops")
+                <*> (x .@? "VpcId")
+                <*> (x .@? "InstanceCreateTime")
+                <*> (x .@? "Engine")
+                <*> (x .@? "Encrypted")
+                <*> (x .@? "LicenseModel")
+                <*> (x .@? "DBInstanceIdentifier")
+                <*> (x .@? "KmsKeyId")
+                <*> (x .@? "AvailabilityZone")
+                <*> (x .@? "Region")
+                <*> (x .@? "AllocatedStorage")
+                <*> (x .@? "DbiResourceId")
+                <*> (x .@? "OptionGroupName")
+                <*> (x .@? "Timezone")
+                <*> (x .@? "TdeCredentialArn")
+                <*> (x .@? "Port")
+                <*> (x .@? "StorageType")
+
+instance Hashable DBInstanceAutomatedBackup where
+
+instance NFData DBInstanceAutomatedBackup where
+
+-- | Describes an AWS Identity and Access Management (IAM) role that is associated with a DB instance.
+--
+--
+--
+-- /See:/ 'dbInstanceRole' smart constructor.
+data DBInstanceRole = DBInstanceRole'
+  { _dirStatus      :: !(Maybe Text)
+  , _dirFeatureName :: !(Maybe Text)
+  , _dirRoleARN     :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DBInstanceRole' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dirStatus' - Describes the state of association between the IAM role and the DB instance. The Status property returns one of the following values:     * @ACTIVE@ - the IAM role ARN is associated with the DB instance and can be used to access other AWS services on your behalf.     * @PENDING@ - the IAM role ARN is being associated with the DB instance.     * @INVALID@ - the IAM role ARN is associated with the DB instance, but the DB instance is unable to assume the IAM role in order to access other AWS services on your behalf.
+--
+-- * 'dirFeatureName' - The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see 'DBEngineVersion' .
+--
+-- * 'dirRoleARN' - The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
+dbInstanceRole
+    :: DBInstanceRole
+dbInstanceRole =
+  DBInstanceRole'
+    {_dirStatus = Nothing, _dirFeatureName = Nothing, _dirRoleARN = Nothing}
+
+
+-- | Describes the state of association between the IAM role and the DB instance. The Status property returns one of the following values:     * @ACTIVE@ - the IAM role ARN is associated with the DB instance and can be used to access other AWS services on your behalf.     * @PENDING@ - the IAM role ARN is being associated with the DB instance.     * @INVALID@ - the IAM role ARN is associated with the DB instance, but the DB instance is unable to assume the IAM role in order to access other AWS services on your behalf.
+dirStatus :: Lens' DBInstanceRole (Maybe Text)
+dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a})
+
+-- | The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see 'DBEngineVersion' .
+dirFeatureName :: Lens' DBInstanceRole (Maybe Text)
+dirFeatureName = lens _dirFeatureName (\ s a -> s{_dirFeatureName = a})
+
+-- | The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
+dirRoleARN :: Lens' DBInstanceRole (Maybe Text)
+dirRoleARN = lens _dirRoleARN (\ s a -> s{_dirRoleARN = a})
+
+instance FromXML DBInstanceRole where
+        parseXML x
+          = DBInstanceRole' <$>
+              (x .@? "Status") <*> (x .@? "FeatureName") <*>
+                (x .@? "RoleArn")
+
+instance Hashable DBInstanceRole where
+
+instance NFData DBInstanceRole where
+
 -- | Provides a list of status information for a DB instance.
 --
 --
@@ -1977,7 +2606,7 @@ data DBInstanceStatusInfo = DBInstanceStatusInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'disiStatus' - Status of the DB instance. For a StatusType of read replica, the values can be replicating, error, stopped, or terminated.
+-- * 'disiStatus' - Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
 --
 -- * 'disiNormal' - Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
 --
@@ -1995,7 +2624,7 @@ dbInstanceStatusInfo =
     }
 
 
--- | Status of the DB instance. For a StatusType of read replica, the values can be replicating, error, stopped, or terminated.
+-- | Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
 disiStatus :: Lens' DBInstanceStatusInfo (Maybe Text)
 disiStatus = lens _disiStatus (\ s a -> s{_disiStatus = a})
 
@@ -2347,6 +2976,7 @@ data DBSnapshot = DBSnapshot'
   , _dsEngine                           :: !(Maybe Text)
   , _dsEncrypted                        :: !(Maybe Bool)
   , _dsDBSnapshotIdentifier             :: !(Maybe Text)
+  , _dsProcessorFeatures                :: !(Maybe [ProcessorFeature])
   , _dsLicenseModel                     :: !(Maybe Text)
   , _dsSourceDBSnapshotIdentifier       :: !(Maybe Text)
   , _dsSnapshotType                     :: !(Maybe Text)
@@ -2355,6 +2985,7 @@ data DBSnapshot = DBSnapshot'
   , _dsAvailabilityZone                 :: !(Maybe Text)
   , _dsSnapshotCreateTime               :: !(Maybe ISO8601)
   , _dsAllocatedStorage                 :: !(Maybe Int)
+  , _dsDBiResourceId                    :: !(Maybe Text)
   , _dsOptionGroupName                  :: !(Maybe Text)
   , _dsTimezone                         :: !(Maybe Text)
   , _dsTDECredentialARN                 :: !(Maybe Text)
@@ -2392,6 +3023,8 @@ data DBSnapshot = DBSnapshot'
 --
 -- * 'dsDBSnapshotIdentifier' - Specifies the identifier for the DB snapshot.
 --
+-- * 'dsProcessorFeatures' - The number of CPU cores and the number of threads per core for the DB instance class of the DB instance when the DB snapshot was created.
+--
 -- * 'dsLicenseModel' - License model information for the restored DB instance.
 --
 -- * 'dsSourceDBSnapshotIdentifier' - The DB snapshot Amazon Resource Name (ARN) that the DB snapshot was copied from. It only has value in case of cross-customer or cross-region copy.
@@ -2407,6 +3040,8 @@ data DBSnapshot = DBSnapshot'
 -- * 'dsSnapshotCreateTime' - Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
 --
 -- * 'dsAllocatedStorage' - Specifies the allocated storage size in gibibytes (GiB).
+--
+-- * 'dsDBiResourceId' - The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.
 --
 -- * 'dsOptionGroupName' - Provides the option group name for the DB snapshot.
 --
@@ -2435,6 +3070,7 @@ dbSnapshot =
     , _dsEngine = Nothing
     , _dsEncrypted = Nothing
     , _dsDBSnapshotIdentifier = Nothing
+    , _dsProcessorFeatures = Nothing
     , _dsLicenseModel = Nothing
     , _dsSourceDBSnapshotIdentifier = Nothing
     , _dsSnapshotType = Nothing
@@ -2443,6 +3079,7 @@ dbSnapshot =
     , _dsAvailabilityZone = Nothing
     , _dsSnapshotCreateTime = Nothing
     , _dsAllocatedStorage = Nothing
+    , _dsDBiResourceId = Nothing
     , _dsOptionGroupName = Nothing
     , _dsTimezone = Nothing
     , _dsTDECredentialARN = Nothing
@@ -2500,6 +3137,10 @@ dsEncrypted = lens _dsEncrypted (\ s a -> s{_dsEncrypted = a})
 dsDBSnapshotIdentifier :: Lens' DBSnapshot (Maybe Text)
 dsDBSnapshotIdentifier = lens _dsDBSnapshotIdentifier (\ s a -> s{_dsDBSnapshotIdentifier = a})
 
+-- | The number of CPU cores and the number of threads per core for the DB instance class of the DB instance when the DB snapshot was created.
+dsProcessorFeatures :: Lens' DBSnapshot [ProcessorFeature]
+dsProcessorFeatures = lens _dsProcessorFeatures (\ s a -> s{_dsProcessorFeatures = a}) . _Default . _Coerce
+
 -- | License model information for the restored DB instance.
 dsLicenseModel :: Lens' DBSnapshot (Maybe Text)
 dsLicenseModel = lens _dsLicenseModel (\ s a -> s{_dsLicenseModel = a})
@@ -2531,6 +3172,10 @@ dsSnapshotCreateTime = lens _dsSnapshotCreateTime (\ s a -> s{_dsSnapshotCreateT
 -- | Specifies the allocated storage size in gibibytes (GiB).
 dsAllocatedStorage :: Lens' DBSnapshot (Maybe Int)
 dsAllocatedStorage = lens _dsAllocatedStorage (\ s a -> s{_dsAllocatedStorage = a})
+
+-- | The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.
+dsDBiResourceId :: Lens' DBSnapshot (Maybe Text)
+dsDBiResourceId = lens _dsDBiResourceId (\ s a -> s{_dsDBiResourceId = a})
 
 -- | Provides the option group name for the DB snapshot.
 dsOptionGroupName :: Lens' DBSnapshot (Maybe Text)
@@ -2570,6 +3215,9 @@ instance FromXML DBSnapshot where
                 <*> (x .@? "Engine")
                 <*> (x .@? "Encrypted")
                 <*> (x .@? "DBSnapshotIdentifier")
+                <*>
+                (x .@? "ProcessorFeatures" .!@ mempty >>=
+                   may (parseXMLList "ProcessorFeature"))
                 <*> (x .@? "LicenseModel")
                 <*> (x .@? "SourceDBSnapshotIdentifier")
                 <*> (x .@? "SnapshotType")
@@ -2578,6 +3226,7 @@ instance FromXML DBSnapshot where
                 <*> (x .@? "AvailabilityZone")
                 <*> (x .@? "SnapshotCreateTime")
                 <*> (x .@? "AllocatedStorage")
+                <*> (x .@? "DbiResourceId")
                 <*> (x .@? "OptionGroupName")
                 <*> (x .@? "Timezone")
                 <*> (x .@? "TdeCredentialArn")
@@ -2989,7 +3638,7 @@ instance Hashable EC2SecurityGroup where
 
 instance NFData EC2SecurityGroup where
 
--- | This data type is used as a response element in the following actions:
+-- | This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
 --
 --
 --     * 'CreateDBInstance'
@@ -2999,6 +3648,8 @@ instance NFData EC2SecurityGroup where
 --     * 'DeleteDBInstance'
 --
 --
+--
+-- For the data structure that represents Amazon Aurora DB cluster endpoints, see 'DBClusterEndpoint' .
 --
 --
 -- /See:/ 'endpoint' smart constructor.
@@ -3353,6 +4004,8 @@ instance NFData EventSubscription where
 --
 --     * 'DescribeDBClusterBacktracks'
 --
+--     * 'DescribeDBClusterEndpoints'
+--
 --     * 'DescribeDBClusters'
 --
 --     * 'DescribeDBInstances'
@@ -3400,6 +4053,176 @@ instance ToQuery Filter where
               ["Name" =: _fName,
                "Values" =: toQueryList "Value" _fValues]
 
+-- | A data type representing an Aurora global database.
+--
+--
+--
+-- /See:/ 'globalCluster' smart constructor.
+data GlobalCluster = GlobalCluster'
+  { _gcEngineVersion           :: !(Maybe Text)
+  , _gcStatus                  :: !(Maybe Text)
+  , _gcDeletionProtection      :: !(Maybe Bool)
+  , _gcStorageEncrypted        :: !(Maybe Bool)
+  , _gcGlobalClusterIdentifier :: !(Maybe Text)
+  , _gcEngine                  :: !(Maybe Text)
+  , _gcGlobalClusterARN        :: !(Maybe Text)
+  , _gcDatabaseName            :: !(Maybe Text)
+  , _gcGlobalClusterMembers    :: !(Maybe [GlobalClusterMember])
+  , _gcGlobalClusterResourceId :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'GlobalCluster' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gcEngineVersion' - Indicates the database engine version.
+--
+-- * 'gcStatus' - Specifies the current state of this global database cluster.
+--
+-- * 'gcDeletionProtection' - The deletion protection setting for the new global database cluster.
+--
+-- * 'gcStorageEncrypted' - The storage encryption setting for the global database cluster.
+--
+-- * 'gcGlobalClusterIdentifier' - Contains a user-supplied global database cluster identifier. This identifier is the unique key that identifies a global database cluster.
+--
+-- * 'gcEngine' - The Aurora database engine used by the global database cluster.
+--
+-- * 'gcGlobalClusterARN' - The Amazon Resource Name (ARN) for the global database cluster.
+--
+-- * 'gcDatabaseName' - The default database name within the new global database cluster.
+--
+-- * 'gcGlobalClusterMembers' - The list of cluster IDs for secondary clusters within the global database cluster. Currently limited to 1 item.
+--
+-- * 'gcGlobalClusterResourceId' - The AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
+globalCluster
+    :: GlobalCluster
+globalCluster =
+  GlobalCluster'
+    { _gcEngineVersion = Nothing
+    , _gcStatus = Nothing
+    , _gcDeletionProtection = Nothing
+    , _gcStorageEncrypted = Nothing
+    , _gcGlobalClusterIdentifier = Nothing
+    , _gcEngine = Nothing
+    , _gcGlobalClusterARN = Nothing
+    , _gcDatabaseName = Nothing
+    , _gcGlobalClusterMembers = Nothing
+    , _gcGlobalClusterResourceId = Nothing
+    }
+
+
+-- | Indicates the database engine version.
+gcEngineVersion :: Lens' GlobalCluster (Maybe Text)
+gcEngineVersion = lens _gcEngineVersion (\ s a -> s{_gcEngineVersion = a})
+
+-- | Specifies the current state of this global database cluster.
+gcStatus :: Lens' GlobalCluster (Maybe Text)
+gcStatus = lens _gcStatus (\ s a -> s{_gcStatus = a})
+
+-- | The deletion protection setting for the new global database cluster.
+gcDeletionProtection :: Lens' GlobalCluster (Maybe Bool)
+gcDeletionProtection = lens _gcDeletionProtection (\ s a -> s{_gcDeletionProtection = a})
+
+-- | The storage encryption setting for the global database cluster.
+gcStorageEncrypted :: Lens' GlobalCluster (Maybe Bool)
+gcStorageEncrypted = lens _gcStorageEncrypted (\ s a -> s{_gcStorageEncrypted = a})
+
+-- | Contains a user-supplied global database cluster identifier. This identifier is the unique key that identifies a global database cluster.
+gcGlobalClusterIdentifier :: Lens' GlobalCluster (Maybe Text)
+gcGlobalClusterIdentifier = lens _gcGlobalClusterIdentifier (\ s a -> s{_gcGlobalClusterIdentifier = a})
+
+-- | The Aurora database engine used by the global database cluster.
+gcEngine :: Lens' GlobalCluster (Maybe Text)
+gcEngine = lens _gcEngine (\ s a -> s{_gcEngine = a})
+
+-- | The Amazon Resource Name (ARN) for the global database cluster.
+gcGlobalClusterARN :: Lens' GlobalCluster (Maybe Text)
+gcGlobalClusterARN = lens _gcGlobalClusterARN (\ s a -> s{_gcGlobalClusterARN = a})
+
+-- | The default database name within the new global database cluster.
+gcDatabaseName :: Lens' GlobalCluster (Maybe Text)
+gcDatabaseName = lens _gcDatabaseName (\ s a -> s{_gcDatabaseName = a})
+
+-- | The list of cluster IDs for secondary clusters within the global database cluster. Currently limited to 1 item.
+gcGlobalClusterMembers :: Lens' GlobalCluster [GlobalClusterMember]
+gcGlobalClusterMembers = lens _gcGlobalClusterMembers (\ s a -> s{_gcGlobalClusterMembers = a}) . _Default . _Coerce
+
+-- | The AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
+gcGlobalClusterResourceId :: Lens' GlobalCluster (Maybe Text)
+gcGlobalClusterResourceId = lens _gcGlobalClusterResourceId (\ s a -> s{_gcGlobalClusterResourceId = a})
+
+instance FromXML GlobalCluster where
+        parseXML x
+          = GlobalCluster' <$>
+              (x .@? "EngineVersion") <*> (x .@? "Status") <*>
+                (x .@? "DeletionProtection")
+                <*> (x .@? "StorageEncrypted")
+                <*> (x .@? "GlobalClusterIdentifier")
+                <*> (x .@? "Engine")
+                <*> (x .@? "GlobalClusterArn")
+                <*> (x .@? "DatabaseName")
+                <*>
+                (x .@? "GlobalClusterMembers" .!@ mempty >>=
+                   may (parseXMLList "GlobalClusterMember"))
+                <*> (x .@? "GlobalClusterResourceId")
+
+instance Hashable GlobalCluster where
+
+instance NFData GlobalCluster where
+
+-- | A data structure with information about any primary and secondary clusters associated with an Aurora global database.
+--
+--
+--
+-- /See:/ 'globalClusterMember' smart constructor.
+data GlobalClusterMember = GlobalClusterMember'
+  { _gcmReaders      :: !(Maybe [Text])
+  , _gcmDBClusterARN :: !(Maybe Text)
+  , _gcmIsWriter     :: !(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'GlobalClusterMember' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gcmReaders' - The Amazon Resource Name (ARN) for each read-only secondary cluster associated with the Aurora global database.
+--
+-- * 'gcmDBClusterARN' - The Amazon Resource Name (ARN) for each Aurora cluster.
+--
+-- * 'gcmIsWriter' - Specifies whether the Aurora cluster is the primary cluster (that is, has read-write capability) for the Aurora global database with which it is associated.
+globalClusterMember
+    :: GlobalClusterMember
+globalClusterMember =
+  GlobalClusterMember'
+    {_gcmReaders = Nothing, _gcmDBClusterARN = Nothing, _gcmIsWriter = Nothing}
+
+
+-- | The Amazon Resource Name (ARN) for each read-only secondary cluster associated with the Aurora global database.
+gcmReaders :: Lens' GlobalClusterMember [Text]
+gcmReaders = lens _gcmReaders (\ s a -> s{_gcmReaders = a}) . _Default . _Coerce
+
+-- | The Amazon Resource Name (ARN) for each Aurora cluster.
+gcmDBClusterARN :: Lens' GlobalClusterMember (Maybe Text)
+gcmDBClusterARN = lens _gcmDBClusterARN (\ s a -> s{_gcmDBClusterARN = a})
+
+-- | Specifies whether the Aurora cluster is the primary cluster (that is, has read-write capability) for the Aurora global database with which it is associated.
+gcmIsWriter :: Lens' GlobalClusterMember (Maybe Bool)
+gcmIsWriter = lens _gcmIsWriter (\ s a -> s{_gcmIsWriter = a})
+
+instance FromXML GlobalClusterMember where
+        parseXML x
+          = GlobalClusterMember' <$>
+              (x .@? "Readers" .!@ mempty >>=
+                 may (parseXMLList "member"))
+                <*> (x .@? "DBClusterArn")
+                <*> (x .@? "IsWriter")
+
+instance Hashable GlobalClusterMember where
+
+instance NFData GlobalClusterMember where
+
 -- | This data type is used as a response element in the 'DescribeDBSecurityGroups' action.
 --
 --
@@ -3438,6 +4261,52 @@ instance FromXML IPRange where
 instance Hashable IPRange where
 
 instance NFData IPRange where
+
+-- | The minimum DB engine version required for each corresponding allowed value for an option setting.
+--
+--
+--
+-- /See:/ 'minimumEngineVersionPerAllowedValue' smart constructor.
+data MinimumEngineVersionPerAllowedValue = MinimumEngineVersionPerAllowedValue'
+  { _mevpavMinimumEngineVersion :: !(Maybe Text)
+  , _mevpavAllowedValue         :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'MinimumEngineVersionPerAllowedValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mevpavMinimumEngineVersion' - The minimum DB engine version required for the allowed value.
+--
+-- * 'mevpavAllowedValue' - The allowed value for an option setting.
+minimumEngineVersionPerAllowedValue
+    :: MinimumEngineVersionPerAllowedValue
+minimumEngineVersionPerAllowedValue =
+  MinimumEngineVersionPerAllowedValue'
+    {_mevpavMinimumEngineVersion = Nothing, _mevpavAllowedValue = Nothing}
+
+
+-- | The minimum DB engine version required for the allowed value.
+mevpavMinimumEngineVersion :: Lens' MinimumEngineVersionPerAllowedValue (Maybe Text)
+mevpavMinimumEngineVersion = lens _mevpavMinimumEngineVersion (\ s a -> s{_mevpavMinimumEngineVersion = a})
+
+-- | The allowed value for an option setting.
+mevpavAllowedValue :: Lens' MinimumEngineVersionPerAllowedValue (Maybe Text)
+mevpavAllowedValue = lens _mevpavAllowedValue (\ s a -> s{_mevpavAllowedValue = a})
+
+instance FromXML MinimumEngineVersionPerAllowedValue
+         where
+        parseXML x
+          = MinimumEngineVersionPerAllowedValue' <$>
+              (x .@? "MinimumEngineVersion") <*>
+                (x .@? "AllowedValue")
+
+instance Hashable MinimumEngineVersionPerAllowedValue
+         where
+
+instance NFData MinimumEngineVersionPerAllowedValue
+         where
 
 -- | Option details.
 --
@@ -3966,12 +4835,14 @@ instance NFData OptionGroupOption where
 --
 -- /See:/ 'optionGroupOptionSetting' smart constructor.
 data OptionGroupOptionSetting = OptionGroupOptionSetting'
-  { _ogosApplyType          :: !(Maybe Text)
-  , _ogosSettingName        :: !(Maybe Text)
-  , _ogosDefaultValue       :: !(Maybe Text)
-  , _ogosIsModifiable       :: !(Maybe Bool)
+  { _ogosApplyType :: !(Maybe Text)
+  , _ogosMinimumEngineVersionPerAllowedValue :: !(Maybe [MinimumEngineVersionPerAllowedValue])
+  , _ogosSettingName :: !(Maybe Text)
+  , _ogosDefaultValue :: !(Maybe Text)
+  , _ogosIsModifiable :: !(Maybe Bool)
   , _ogosSettingDescription :: !(Maybe Text)
-  , _ogosAllowedValues      :: !(Maybe Text)
+  , _ogosAllowedValues :: !(Maybe Text)
+  , _ogosIsRequired :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3980,6 +4851,8 @@ data OptionGroupOptionSetting = OptionGroupOptionSetting'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ogosApplyType' - The DB engine specific parameter type for the option group option.
+--
+-- * 'ogosMinimumEngineVersionPerAllowedValue' - The minimum DB engine version required for the corresponding allowed value for this option setting.
 --
 -- * 'ogosSettingName' - The name of the option group option.
 --
@@ -3990,22 +4863,30 @@ data OptionGroupOptionSetting = OptionGroupOptionSetting'
 -- * 'ogosSettingDescription' - The description of the option group option.
 --
 -- * 'ogosAllowedValues' - Indicates the acceptable values for the option group option.
+--
+-- * 'ogosIsRequired' - Boolean value where true indicates that a value must be specified for this option setting of the option group option.
 optionGroupOptionSetting
     :: OptionGroupOptionSetting
 optionGroupOptionSetting =
   OptionGroupOptionSetting'
     { _ogosApplyType = Nothing
+    , _ogosMinimumEngineVersionPerAllowedValue = Nothing
     , _ogosSettingName = Nothing
     , _ogosDefaultValue = Nothing
     , _ogosIsModifiable = Nothing
     , _ogosSettingDescription = Nothing
     , _ogosAllowedValues = Nothing
+    , _ogosIsRequired = Nothing
     }
 
 
 -- | The DB engine specific parameter type for the option group option.
 ogosApplyType :: Lens' OptionGroupOptionSetting (Maybe Text)
 ogosApplyType = lens _ogosApplyType (\ s a -> s{_ogosApplyType = a})
+
+-- | The minimum DB engine version required for the corresponding allowed value for this option setting.
+ogosMinimumEngineVersionPerAllowedValue :: Lens' OptionGroupOptionSetting [MinimumEngineVersionPerAllowedValue]
+ogosMinimumEngineVersionPerAllowedValue = lens _ogosMinimumEngineVersionPerAllowedValue (\ s a -> s{_ogosMinimumEngineVersionPerAllowedValue = a}) . _Default . _Coerce
 
 -- | The name of the option group option.
 ogosSettingName :: Lens' OptionGroupOptionSetting (Maybe Text)
@@ -4027,14 +4908,25 @@ ogosSettingDescription = lens _ogosSettingDescription (\ s a -> s{_ogosSettingDe
 ogosAllowedValues :: Lens' OptionGroupOptionSetting (Maybe Text)
 ogosAllowedValues = lens _ogosAllowedValues (\ s a -> s{_ogosAllowedValues = a})
 
+-- | Boolean value where true indicates that a value must be specified for this option setting of the option group option.
+ogosIsRequired :: Lens' OptionGroupOptionSetting (Maybe Bool)
+ogosIsRequired = lens _ogosIsRequired (\ s a -> s{_ogosIsRequired = a})
+
 instance FromXML OptionGroupOptionSetting where
         parseXML x
           = OptionGroupOptionSetting' <$>
-              (x .@? "ApplyType") <*> (x .@? "SettingName") <*>
-                (x .@? "DefaultValue")
+              (x .@? "ApplyType") <*>
+                (x .@? "MinimumEngineVersionPerAllowedValue" .!@
+                   mempty
+                   >>=
+                   may
+                     (parseXMLList "MinimumEngineVersionPerAllowedValue"))
+                <*> (x .@? "SettingName")
+                <*> (x .@? "DefaultValue")
                 <*> (x .@? "IsModifiable")
                 <*> (x .@? "SettingDescription")
                 <*> (x .@? "AllowedValues")
+                <*> (x .@? "IsRequired")
 
 instance Hashable OptionGroupOptionSetting where
 
@@ -4206,26 +5098,28 @@ instance NFData OptionVersion where
 --
 -- /See:/ 'orderableDBInstanceOption' smart constructor.
 data OrderableDBInstanceOption = OrderableDBInstanceOption'
-  { _odioEngineVersion                     :: !(Maybe Text)
-  , _odioMinIOPSPerGib                     :: !(Maybe Double)
+  { _odioEngineVersion :: !(Maybe Text)
+  , _odioMinIOPSPerGib :: !(Maybe Double)
   , _odioSupportsIAMDatabaseAuthentication :: !(Maybe Bool)
-  , _odioMinIOPSPerDBInstance              :: !(Maybe Int)
-  , _odioMultiAZCapable                    :: !(Maybe Bool)
-  , _odioMaxStorageSize                    :: !(Maybe Int)
-  , _odioEngine                            :: !(Maybe Text)
-  , _odioMinStorageSize                    :: !(Maybe Int)
-  , _odioSupportsIOPS                      :: !(Maybe Bool)
-  , _odioSupportsPerformanceInsights       :: !(Maybe Bool)
-  , _odioDBInstanceClass                   :: !(Maybe Text)
-  , _odioLicenseModel                      :: !(Maybe Text)
-  , _odioAvailabilityZones                 :: !(Maybe [AvailabilityZone])
-  , _odioSupportsStorageEncryption         :: !(Maybe Bool)
-  , _odioReadReplicaCapable                :: !(Maybe Bool)
-  , _odioMaxIOPSPerGib                     :: !(Maybe Double)
-  , _odioVPC                               :: !(Maybe Bool)
-  , _odioSupportsEnhancedMonitoring        :: !(Maybe Bool)
-  , _odioMaxIOPSPerDBInstance              :: !(Maybe Int)
-  , _odioStorageType                       :: !(Maybe Text)
+  , _odioMinIOPSPerDBInstance :: !(Maybe Int)
+  , _odioMultiAZCapable :: !(Maybe Bool)
+  , _odioMaxStorageSize :: !(Maybe Int)
+  , _odioSupportedEngineModes :: !(Maybe [Text])
+  , _odioAvailableProcessorFeatures :: !(Maybe [AvailableProcessorFeature])
+  , _odioEngine :: !(Maybe Text)
+  , _odioMinStorageSize :: !(Maybe Int)
+  , _odioSupportsIOPS :: !(Maybe Bool)
+  , _odioSupportsPerformanceInsights :: !(Maybe Bool)
+  , _odioDBInstanceClass :: !(Maybe Text)
+  , _odioLicenseModel :: !(Maybe Text)
+  , _odioAvailabilityZones :: !(Maybe [AvailabilityZone])
+  , _odioSupportsStorageEncryption :: !(Maybe Bool)
+  , _odioReadReplicaCapable :: !(Maybe Bool)
+  , _odioMaxIOPSPerGib :: !(Maybe Double)
+  , _odioVPC :: !(Maybe Bool)
+  , _odioSupportsEnhancedMonitoring :: !(Maybe Bool)
+  , _odioMaxIOPSPerDBInstance :: !(Maybe Int)
+  , _odioStorageType :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -4244,6 +5138,10 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
 -- * 'odioMultiAZCapable' - Indicates whether a DB instance is Multi-AZ capable.
 --
 -- * 'odioMaxStorageSize' - Maximum storage size for a DB instance.
+--
+-- * 'odioSupportedEngineModes' - A list of the supported DB engine modes.
+--
+-- * 'odioAvailableProcessorFeatures' - A list of the available processor features for the DB instance class of a DB instance.
 --
 -- * 'odioEngine' - The engine type of a DB instance.
 --
@@ -4282,6 +5180,8 @@ orderableDBInstanceOption =
     , _odioMinIOPSPerDBInstance = Nothing
     , _odioMultiAZCapable = Nothing
     , _odioMaxStorageSize = Nothing
+    , _odioSupportedEngineModes = Nothing
+    , _odioAvailableProcessorFeatures = Nothing
     , _odioEngine = Nothing
     , _odioMinStorageSize = Nothing
     , _odioSupportsIOPS = Nothing
@@ -4322,6 +5222,14 @@ odioMultiAZCapable = lens _odioMultiAZCapable (\ s a -> s{_odioMultiAZCapable = 
 -- | Maximum storage size for a DB instance.
 odioMaxStorageSize :: Lens' OrderableDBInstanceOption (Maybe Int)
 odioMaxStorageSize = lens _odioMaxStorageSize (\ s a -> s{_odioMaxStorageSize = a})
+
+-- | A list of the supported DB engine modes.
+odioSupportedEngineModes :: Lens' OrderableDBInstanceOption [Text]
+odioSupportedEngineModes = lens _odioSupportedEngineModes (\ s a -> s{_odioSupportedEngineModes = a}) . _Default . _Coerce
+
+-- | A list of the available processor features for the DB instance class of a DB instance.
+odioAvailableProcessorFeatures :: Lens' OrderableDBInstanceOption [AvailableProcessorFeature]
+odioAvailableProcessorFeatures = lens _odioAvailableProcessorFeatures (\ s a -> s{_odioAvailableProcessorFeatures = a}) . _Default . _Coerce
 
 -- | The engine type of a DB instance.
 odioEngine :: Lens' OrderableDBInstanceOption (Maybe Text)
@@ -4387,6 +5295,12 @@ instance FromXML OrderableDBInstanceOption where
                 <*> (x .@? "MinIopsPerDbInstance")
                 <*> (x .@? "MultiAZCapable")
                 <*> (x .@? "MaxStorageSize")
+                <*>
+                (x .@? "SupportedEngineModes" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*>
+                (x .@? "AvailableProcessorFeatures" .!@ mempty >>=
+                   may (parseXMLList "AvailableProcessorFeature"))
                 <*> (x .@? "Engine")
                 <*> (x .@? "MinStorageSize")
                 <*> (x .@? "SupportsIops")
@@ -4418,6 +5332,7 @@ instance NFData OrderableDBInstanceOption where
 data Parameter = Parameter'
   { _pApplyType            :: !(Maybe Text)
   , _pParameterValue       :: !(Maybe Text)
+  , _pSupportedEngineModes :: !(Maybe [Text])
   , _pApplyMethod          :: !(Maybe ApplyMethod)
   , _pMinimumEngineVersion :: !(Maybe Text)
   , _pSource               :: !(Maybe Text)
@@ -4436,6 +5351,8 @@ data Parameter = Parameter'
 -- * 'pApplyType' - Specifies the engine specific parameters type.
 --
 -- * 'pParameterValue' - Specifies the value of the parameter.
+--
+-- * 'pSupportedEngineModes' - The valid DB engine modes.
 --
 -- * 'pApplyMethod' - Indicates when to apply parameter updates.
 --
@@ -4458,6 +5375,7 @@ parameter =
   Parameter'
     { _pApplyType = Nothing
     , _pParameterValue = Nothing
+    , _pSupportedEngineModes = Nothing
     , _pApplyMethod = Nothing
     , _pMinimumEngineVersion = Nothing
     , _pSource = Nothing
@@ -4476,6 +5394,10 @@ pApplyType = lens _pApplyType (\ s a -> s{_pApplyType = a})
 -- | Specifies the value of the parameter.
 pParameterValue :: Lens' Parameter (Maybe Text)
 pParameterValue = lens _pParameterValue (\ s a -> s{_pParameterValue = a})
+
+-- | The valid DB engine modes.
+pSupportedEngineModes :: Lens' Parameter [Text]
+pSupportedEngineModes = lens _pSupportedEngineModes (\ s a -> s{_pSupportedEngineModes = a}) . _Default . _Coerce
 
 -- | Indicates when to apply parameter updates.
 pApplyMethod :: Lens' Parameter (Maybe ApplyMethod)
@@ -4513,7 +5435,9 @@ instance FromXML Parameter where
         parseXML x
           = Parameter' <$>
               (x .@? "ApplyType") <*> (x .@? "ParameterValue") <*>
-                (x .@? "ApplyMethod")
+                (x .@? "SupportedEngineModes" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*> (x .@? "ApplyMethod")
                 <*> (x .@? "MinimumEngineVersion")
                 <*> (x .@? "Source")
                 <*> (x .@? "IsModifiable")
@@ -4531,6 +5455,9 @@ instance ToQuery Parameter where
           = mconcat
               ["ApplyType" =: _pApplyType,
                "ParameterValue" =: _pParameterValue,
+               "SupportedEngineModes" =:
+                 toQuery
+                   (toQueryList "member" <$> _pSupportedEngineModes),
                "ApplyMethod" =: _pApplyMethod,
                "MinimumEngineVersion" =: _pMinimumEngineVersion,
                "Source" =: _pSource,
@@ -4607,7 +5534,7 @@ data PendingMaintenanceAction = PendingMaintenanceAction'
 --
 -- * 'pmaAutoAppliedAfterDate' - The date of the maintenance window when the action is applied. The maintenance action is applied to the resource during its first maintenance window after this date. If this date is specified, any @next-maintenance@ opt-in requests are ignored.
 --
--- * 'pmaAction' - The type of pending maintenance action that is available for the resource.
+-- * 'pmaAction' - The type of pending maintenance action that is available for the resource. Valid actions are @system-update@ and @db-upgrade@ .
 --
 -- * 'pmaOptInStatus' - Indicates the type of opt-in request that has been received for the resource.
 --
@@ -4633,7 +5560,7 @@ pendingMaintenanceAction =
 pmaAutoAppliedAfterDate :: Lens' PendingMaintenanceAction (Maybe UTCTime)
 pmaAutoAppliedAfterDate = lens _pmaAutoAppliedAfterDate (\ s a -> s{_pmaAutoAppliedAfterDate = a}) . mapping _Time
 
--- | The type of pending maintenance action that is available for the resource.
+-- | The type of pending maintenance action that is available for the resource. Valid actions are @system-update@ and @db-upgrade@ .
 pmaAction :: Lens' PendingMaintenanceAction (Maybe Text)
 pmaAction = lens _pmaAction (\ s a -> s{_pmaAction = a})
 
@@ -4676,6 +5603,7 @@ data PendingModifiedValues = PendingModifiedValues'
   , _pmvMasterUserPassword           :: !(Maybe Text)
   , _pmvDBSubnetGroupName            :: !(Maybe Text)
   , _pmvIOPS                         :: !(Maybe Int)
+  , _pmvProcessorFeatures            :: !(Maybe [ProcessorFeature])
   , _pmvDBInstanceClass              :: !(Maybe Text)
   , _pmvLicenseModel                 :: !(Maybe Text)
   , _pmvCACertificateIdentifier      :: !(Maybe Text)
@@ -4700,6 +5628,8 @@ data PendingModifiedValues = PendingModifiedValues'
 -- * 'pmvDBSubnetGroupName' - The new DB subnet group for the DB instance.
 --
 -- * 'pmvIOPS' - Specifies the new Provisioned IOPS value for the DB instance that will be applied or is currently being applied.
+--
+-- * 'pmvProcessorFeatures' - The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
 --
 -- * 'pmvDBInstanceClass' - Contains the new @DBInstanceClass@ for the DB instance that will be applied or is currently being applied.
 --
@@ -4728,6 +5658,7 @@ pendingModifiedValues =
     , _pmvMasterUserPassword = Nothing
     , _pmvDBSubnetGroupName = Nothing
     , _pmvIOPS = Nothing
+    , _pmvProcessorFeatures = Nothing
     , _pmvDBInstanceClass = Nothing
     , _pmvLicenseModel = Nothing
     , _pmvCACertificateIdentifier = Nothing
@@ -4756,6 +5687,10 @@ pmvDBSubnetGroupName = lens _pmvDBSubnetGroupName (\ s a -> s{_pmvDBSubnetGroupN
 -- | Specifies the new Provisioned IOPS value for the DB instance that will be applied or is currently being applied.
 pmvIOPS :: Lens' PendingModifiedValues (Maybe Int)
 pmvIOPS = lens _pmvIOPS (\ s a -> s{_pmvIOPS = a})
+
+-- | The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+pmvProcessorFeatures :: Lens' PendingModifiedValues [ProcessorFeature]
+pmvProcessorFeatures = lens _pmvProcessorFeatures (\ s a -> s{_pmvProcessorFeatures = a}) . _Default . _Coerce
 
 -- | Contains the new @DBInstanceClass@ for the DB instance that will be applied or is currently being applied.
 pmvDBInstanceClass :: Lens' PendingModifiedValues (Maybe Text)
@@ -4804,6 +5739,9 @@ instance FromXML PendingModifiedValues where
                 (x .@? "MasterUserPassword")
                 <*> (x .@? "DBSubnetGroupName")
                 <*> (x .@? "Iops")
+                <*>
+                (x .@? "ProcessorFeatures" .!@ mempty >>=
+                   may (parseXMLList "ProcessorFeature"))
                 <*> (x .@? "DBInstanceClass")
                 <*> (x .@? "LicenseModel")
                 <*> (x .@? "CACertificateIdentifier")
@@ -4818,6 +5756,80 @@ instance FromXML PendingModifiedValues where
 instance Hashable PendingModifiedValues where
 
 instance NFData PendingModifiedValues where
+
+-- | Contains the processor features of a DB instance class.
+--
+--
+-- To specify the number of CPU cores, use the @coreCount@ feature name for the @Name@ parameter. To specify the number of threads per core, use the @threadsPerCore@ feature name for the @Name@ parameter.
+--
+-- You can set the processor features of the DB instance class for a DB instance when you call one of the following actions:
+--
+--     * 'CreateDBInstance'
+--
+--     * 'ModifyDBInstance'
+--
+--     * 'RestoreDBInstanceFromDBSnapshot'
+--
+--     * 'RestoreDBInstanceFromS3'
+--
+--     * 'RestoreDBInstanceToPointInTime'
+--
+--
+--
+-- You can view the valid processor values for a particular instance class by calling the 'DescribeOrderableDBInstanceOptions' action and specifying the instance class for the @DBInstanceClass@ parameter.
+--
+-- In addition, you can use the following actions for DB instance class processor information:
+--
+--     * 'DescribeDBInstances'
+--
+--     * 'DescribeDBSnapshots'
+--
+--     * 'DescribeValidDBInstanceModifications'
+--
+--
+--
+-- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html#USER_ConfigureProcessor Configuring the Processor of the DB Instance Class> in the /Amazon RDS User Guide. /
+--
+--
+-- /See:/ 'processorFeature' smart constructor.
+data ProcessorFeature = ProcessorFeature'
+  { _pfValue :: !(Maybe Text)
+  , _pfName  :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ProcessorFeature' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pfValue' - The value of a processor feature name.
+--
+-- * 'pfName' - The name of the processor feature. Valid names are @coreCount@ and @threadsPerCore@ .
+processorFeature
+    :: ProcessorFeature
+processorFeature = ProcessorFeature' {_pfValue = Nothing, _pfName = Nothing}
+
+
+-- | The value of a processor feature name.
+pfValue :: Lens' ProcessorFeature (Maybe Text)
+pfValue = lens _pfValue (\ s a -> s{_pfValue = a})
+
+-- | The name of the processor feature. Valid names are @coreCount@ and @threadsPerCore@ .
+pfName :: Lens' ProcessorFeature (Maybe Text)
+pfName = lens _pfName (\ s a -> s{_pfName = a})
+
+instance FromXML ProcessorFeature where
+        parseXML x
+          = ProcessorFeature' <$>
+              (x .@? "Value") <*> (x .@? "Name")
+
+instance Hashable ProcessorFeature where
+
+instance NFData ProcessorFeature where
+
+instance ToQuery ProcessorFeature where
+        toQuery ProcessorFeature'{..}
+          = mconcat ["Value" =: _pfValue, "Name" =: _pfName]
 
 -- | A range of integer values.
 --
@@ -5240,6 +6252,177 @@ instance Hashable ResourcePendingMaintenanceActions
 instance NFData ResourcePendingMaintenanceActions
          where
 
+-- | Earliest and latest time an instance can be restored to:
+--
+--
+--
+-- /See:/ 'restoreWindow' smart constructor.
+data RestoreWindow = RestoreWindow'
+  { _rwLatestTime   :: !(Maybe ISO8601)
+  , _rwEarliestTime :: !(Maybe ISO8601)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'RestoreWindow' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rwLatestTime' - The latest time you can restore an instance to.
+--
+-- * 'rwEarliestTime' - The earliest time you can restore an instance to.
+restoreWindow
+    :: RestoreWindow
+restoreWindow =
+  RestoreWindow' {_rwLatestTime = Nothing, _rwEarliestTime = Nothing}
+
+
+-- | The latest time you can restore an instance to.
+rwLatestTime :: Lens' RestoreWindow (Maybe UTCTime)
+rwLatestTime = lens _rwLatestTime (\ s a -> s{_rwLatestTime = a}) . mapping _Time
+
+-- | The earliest time you can restore an instance to.
+rwEarliestTime :: Lens' RestoreWindow (Maybe UTCTime)
+rwEarliestTime = lens _rwEarliestTime (\ s a -> s{_rwEarliestTime = a}) . mapping _Time
+
+instance FromXML RestoreWindow where
+        parseXML x
+          = RestoreWindow' <$>
+              (x .@? "LatestTime") <*> (x .@? "EarliestTime")
+
+instance Hashable RestoreWindow where
+
+instance NFData RestoreWindow where
+
+-- | Contains the scaling configuration of an Aurora Serverless DB cluster.
+--
+--
+-- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless> in the /Amazon Aurora User Guide/ .
+--
+--
+-- /See:/ 'scalingConfiguration' smart constructor.
+data ScalingConfiguration = ScalingConfiguration'
+  { _scSecondsUntilAutoPause :: !(Maybe Int)
+  , _scAutoPause             :: !(Maybe Bool)
+  , _scMaxCapacity           :: !(Maybe Int)
+  , _scMinCapacity           :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ScalingConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scSecondsUntilAutoPause' - The time, in seconds, before an Aurora DB cluster in @serverless@ mode is paused.
+--
+-- * 'scAutoPause' - A value that specifies whether to allow or disallow automatic pause for an Aurora DB cluster in @serverless@ DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+--
+-- * 'scMaxCapacity' - The maximum capacity for an Aurora DB cluster in @serverless@ DB engine mode. Valid capacity values are @2@ , @4@ , @8@ , @16@ , @32@ , @64@ , @128@ , and @256@ . The maximum capacity must be greater than or equal to the minimum capacity.
+--
+-- * 'scMinCapacity' - The minimum capacity for an Aurora DB cluster in @serverless@ DB engine mode. Valid capacity values are @2@ , @4@ , @8@ , @16@ , @32@ , @64@ , @128@ , and @256@ . The minimum capacity must be less than or equal to the maximum capacity.
+scalingConfiguration
+    :: ScalingConfiguration
+scalingConfiguration =
+  ScalingConfiguration'
+    { _scSecondsUntilAutoPause = Nothing
+    , _scAutoPause = Nothing
+    , _scMaxCapacity = Nothing
+    , _scMinCapacity = Nothing
+    }
+
+
+-- | The time, in seconds, before an Aurora DB cluster in @serverless@ mode is paused.
+scSecondsUntilAutoPause :: Lens' ScalingConfiguration (Maybe Int)
+scSecondsUntilAutoPause = lens _scSecondsUntilAutoPause (\ s a -> s{_scSecondsUntilAutoPause = a})
+
+-- | A value that specifies whether to allow or disallow automatic pause for an Aurora DB cluster in @serverless@ DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
+scAutoPause :: Lens' ScalingConfiguration (Maybe Bool)
+scAutoPause = lens _scAutoPause (\ s a -> s{_scAutoPause = a})
+
+-- | The maximum capacity for an Aurora DB cluster in @serverless@ DB engine mode. Valid capacity values are @2@ , @4@ , @8@ , @16@ , @32@ , @64@ , @128@ , and @256@ . The maximum capacity must be greater than or equal to the minimum capacity.
+scMaxCapacity :: Lens' ScalingConfiguration (Maybe Int)
+scMaxCapacity = lens _scMaxCapacity (\ s a -> s{_scMaxCapacity = a})
+
+-- | The minimum capacity for an Aurora DB cluster in @serverless@ DB engine mode. Valid capacity values are @2@ , @4@ , @8@ , @16@ , @32@ , @64@ , @128@ , and @256@ . The minimum capacity must be less than or equal to the maximum capacity.
+scMinCapacity :: Lens' ScalingConfiguration (Maybe Int)
+scMinCapacity = lens _scMinCapacity (\ s a -> s{_scMinCapacity = a})
+
+instance Hashable ScalingConfiguration where
+
+instance NFData ScalingConfiguration where
+
+instance ToQuery ScalingConfiguration where
+        toQuery ScalingConfiguration'{..}
+          = mconcat
+              ["SecondsUntilAutoPause" =: _scSecondsUntilAutoPause,
+               "AutoPause" =: _scAutoPause,
+               "MaxCapacity" =: _scMaxCapacity,
+               "MinCapacity" =: _scMinCapacity]
+
+-- | Shows the scaling configuration for an Aurora DB cluster in @serverless@ DB engine mode.
+--
+--
+-- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless> in the /Amazon Aurora User Guide/ .
+--
+--
+-- /See:/ 'scalingConfigurationInfo' smart constructor.
+data ScalingConfigurationInfo = ScalingConfigurationInfo'
+  { _sciSecondsUntilAutoPause :: !(Maybe Int)
+  , _sciAutoPause             :: !(Maybe Bool)
+  , _sciMaxCapacity           :: !(Maybe Int)
+  , _sciMinCapacity           :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ScalingConfigurationInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sciSecondsUntilAutoPause' - The remaining amount of time, in seconds, before the Aurora DB cluster in @serverless@ mode is paused. A DB cluster can be paused only when it's idle (it has no connections).
+--
+-- * 'sciAutoPause' - A value that indicates whether automatic pause is allowed for the Aurora DB cluster in @serverless@ DB engine mode.
+--
+-- * 'sciMaxCapacity' - The maximum capacity for an Aurora DB cluster in @serverless@ DB engine mode.
+--
+-- * 'sciMinCapacity' - The maximum capacity for the Aurora DB cluster in @serverless@ DB engine mode.
+scalingConfigurationInfo
+    :: ScalingConfigurationInfo
+scalingConfigurationInfo =
+  ScalingConfigurationInfo'
+    { _sciSecondsUntilAutoPause = Nothing
+    , _sciAutoPause = Nothing
+    , _sciMaxCapacity = Nothing
+    , _sciMinCapacity = Nothing
+    }
+
+
+-- | The remaining amount of time, in seconds, before the Aurora DB cluster in @serverless@ mode is paused. A DB cluster can be paused only when it's idle (it has no connections).
+sciSecondsUntilAutoPause :: Lens' ScalingConfigurationInfo (Maybe Int)
+sciSecondsUntilAutoPause = lens _sciSecondsUntilAutoPause (\ s a -> s{_sciSecondsUntilAutoPause = a})
+
+-- | A value that indicates whether automatic pause is allowed for the Aurora DB cluster in @serverless@ DB engine mode.
+sciAutoPause :: Lens' ScalingConfigurationInfo (Maybe Bool)
+sciAutoPause = lens _sciAutoPause (\ s a -> s{_sciAutoPause = a})
+
+-- | The maximum capacity for an Aurora DB cluster in @serverless@ DB engine mode.
+sciMaxCapacity :: Lens' ScalingConfigurationInfo (Maybe Int)
+sciMaxCapacity = lens _sciMaxCapacity (\ s a -> s{_sciMaxCapacity = a})
+
+-- | The maximum capacity for the Aurora DB cluster in @serverless@ DB engine mode.
+sciMinCapacity :: Lens' ScalingConfigurationInfo (Maybe Int)
+sciMinCapacity = lens _sciMinCapacity (\ s a -> s{_sciMinCapacity = a})
+
+instance FromXML ScalingConfigurationInfo where
+        parseXML x
+          = ScalingConfigurationInfo' <$>
+              (x .@? "SecondsUntilAutoPause") <*>
+                (x .@? "AutoPause")
+                <*> (x .@? "MaxCapacity")
+                <*> (x .@? "MinCapacity")
+
+instance Hashable ScalingConfigurationInfo where
+
+instance NFData ScalingConfigurationInfo where
+
 -- | Contains an AWS Region name as the result of a successful call to the 'DescribeSourceRegions' action.
 --
 --
@@ -5536,8 +6719,9 @@ instance NFData VPCSecurityGroupMembership where
 --
 --
 -- /See:/ 'validDBInstanceModificationsMessage' smart constructor.
-newtype ValidDBInstanceModificationsMessage = ValidDBInstanceModificationsMessage'
-  { _vdimmStorage :: Maybe [ValidStorageOptions]
+data ValidDBInstanceModificationsMessage = ValidDBInstanceModificationsMessage'
+  { _vdimmValidProcessorFeatures :: !(Maybe [AvailableProcessorFeature])
+  , _vdimmStorage                :: !(Maybe [ValidStorageOptions])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -5545,12 +6729,19 @@ newtype ValidDBInstanceModificationsMessage = ValidDBInstanceModificationsMessag
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'vdimmValidProcessorFeatures' - Valid processor features for your DB instance.
+--
 -- * 'vdimmStorage' - Valid storage options for your DB instance.
 validDBInstanceModificationsMessage
     :: ValidDBInstanceModificationsMessage
 validDBInstanceModificationsMessage =
-  ValidDBInstanceModificationsMessage' {_vdimmStorage = Nothing}
+  ValidDBInstanceModificationsMessage'
+    {_vdimmValidProcessorFeatures = Nothing, _vdimmStorage = Nothing}
 
+
+-- | Valid processor features for your DB instance.
+vdimmValidProcessorFeatures :: Lens' ValidDBInstanceModificationsMessage [AvailableProcessorFeature]
+vdimmValidProcessorFeatures = lens _vdimmValidProcessorFeatures (\ s a -> s{_vdimmValidProcessorFeatures = a}) . _Default . _Coerce
 
 -- | Valid storage options for your DB instance.
 vdimmStorage :: Lens' ValidDBInstanceModificationsMessage [ValidStorageOptions]
@@ -5560,8 +6751,11 @@ instance FromXML ValidDBInstanceModificationsMessage
          where
         parseXML x
           = ValidDBInstanceModificationsMessage' <$>
-              (x .@? "Storage" .!@ mempty >>=
-                 may (parseXMLList "ValidStorageOptions"))
+              (x .@? "ValidProcessorFeatures" .!@ mempty >>=
+                 may (parseXMLList "AvailableProcessorFeature"))
+                <*>
+                (x .@? "Storage" .!@ mempty >>=
+                   may (parseXMLList "ValidStorageOptions"))
 
 instance Hashable ValidDBInstanceModificationsMessage
          where

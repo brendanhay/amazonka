@@ -21,6 +21,8 @@
 -- Lists the set of CA certificates provided by Amazon RDS for this AWS account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.RDS.DescribeCertificates
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.RDS.DescribeCertificates
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.RDS.Types.Product
@@ -98,6 +101,13 @@ dcMarker = lens _dcMarker (\ s a -> s{_dcMarker = a})
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 dcMaxRecords :: Lens' DescribeCertificates (Maybe Int)
 dcMaxRecords = lens _dcMaxRecords (\ s a -> s{_dcMaxRecords = a})
+
+instance AWSPager DescribeCertificates where
+        page rq rs
+          | stop (rs ^. dcrsMarker) = Nothing
+          | stop (rs ^. dcrsCertificates) = Nothing
+          | otherwise =
+            Just $ rq & dcMarker .~ rs ^. dcrsMarker
 
 instance AWSRequest DescribeCertificates where
         type Rs DescribeCertificates =

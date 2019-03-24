@@ -68,7 +68,7 @@ data CreateOptionGroup = CreateOptionGroup'
 --
 -- * 'cogTags' - Undocumented member.
 --
--- * 'cogOptionGroupName' - Specifies the name of the option group to be created. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @myoptiongroup@
+-- * 'cogOptionGroupName' - Specifies the name of the option group to be created. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens Example: @myoptiongroup@
 --
 -- * 'cogEngineName' - Specifies the name of the engine that this option group should be associated with.
 --
@@ -95,7 +95,7 @@ createOptionGroup pOptionGroupName_ pEngineName_ pMajorEngineVersion_ pOptionGro
 cogTags :: Lens' CreateOptionGroup [Tag]
 cogTags = lens _cogTags (\ s a -> s{_cogTags = a}) . _Default . _Coerce
 
--- | Specifies the name of the option group to be created. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @myoptiongroup@
+-- | Specifies the name of the option group to be created. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens Example: @myoptiongroup@
 cogOptionGroupName :: Lens' CreateOptionGroup Text
 cogOptionGroupName = lens _cogOptionGroupName (\ s a -> s{_cogOptionGroupName = a})
 

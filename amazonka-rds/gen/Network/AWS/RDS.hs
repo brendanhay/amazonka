@@ -23,21 +23,21 @@
 --
 -- __Amazon RDS API Reference__
 --
---     * For the alphabetical list of API actions, see <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Operations.html API Actions> .
+--     * For the alphabetical list of API actions, see <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Operations.html API Actions> .
 --
---     * For the alphabetical list of data types, see <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Types.html Data Types> .
+--     * For the alphabetical list of data types, see <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Types.html Data Types> .
 --
---     * For a list of common query parameters, see <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/CommonParameters.html Common Parameters> .
+--     * For a list of common query parameters, see <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/CommonParameters.html Common Parameters> .
 --
---     * For descriptions of the error codes, see <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/CommonErrors.html Common Errors> .
+--     * For descriptions of the error codes, see <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/CommonErrors.html Common Errors> .
 --
 --
 --
 -- __Amazon RDS User Guide__
 --
---     * For a summary of the Amazon RDS interfaces, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html#Welcome.Interfaces Available RDS Interfaces> .
+--     * For a summary of the Amazon RDS interfaces, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html#Welcome.Interfaces Available RDS Interfaces> .
 --
---     * For more information about how to use the Query API, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Using_the_Query_API.html Using the Query API> .
+--     * For more information about how to use the Query API, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Using_the_Query_API.html Using the Query API> .
 --
 --
 --
@@ -73,8 +73,17 @@ module Network.AWS.RDS
     -- ** DBParameterGroupAlreadyExistsFault
     , _DBParameterGroupAlreadyExistsFault
 
+    -- ** DBInstanceRoleQuotaExceededFault
+    , _DBInstanceRoleQuotaExceededFault
+
+    -- ** DBInstanceRoleAlreadyExistsFault
+    , _DBInstanceRoleAlreadyExistsFault
+
     -- ** DBParameterGroupQuotaExceededFault
     , _DBParameterGroupQuotaExceededFault
+
+    -- ** BackupPolicyNotFoundFault
+    , _BackupPolicyNotFoundFault
 
     -- ** InsufficientDBClusterCapacityFault
     , _InsufficientDBClusterCapacityFault
@@ -102,6 +111,9 @@ module Network.AWS.RDS
 
     -- ** DBSubnetQuotaExceededFault
     , _DBSubnetQuotaExceededFault
+
+    -- ** GlobalClusterAlreadyExistsFault
+    , _GlobalClusterAlreadyExistsFault
 
     -- ** OptionGroupNotFoundFault
     , _OptionGroupNotFoundFault
@@ -136,8 +148,14 @@ module Network.AWS.RDS
     -- ** SNSTopicARNNotFoundFault
     , _SNSTopicARNNotFoundFault
 
+    -- ** InvalidDBClusterEndpointStateFault
+    , _InvalidDBClusterEndpointStateFault
+
     -- ** InvalidEventSubscriptionStateFault
     , _InvalidEventSubscriptionStateFault
+
+    -- ** InvalidDBInstanceAutomatedBackupStateFault
+    , _InvalidDBInstanceAutomatedBackupStateFault
 
     -- ** KMSKeyNotAccessibleFault
     , _KMSKeyNotAccessibleFault
@@ -153,6 +171,9 @@ module Network.AWS.RDS
 
     -- ** SnapshotQuotaExceededFault
     , _SnapshotQuotaExceededFault
+
+    -- ** InvalidDBClusterCapacityFault
+    , _InvalidDBClusterCapacityFault
 
     -- ** DBSubnetGroupAlreadyExistsFault
     , _DBSubnetGroupAlreadyExistsFault
@@ -211,6 +232,9 @@ module Network.AWS.RDS
     -- ** InvalidVPCNetworkStateFault
     , _InvalidVPCNetworkStateFault
 
+    -- ** DBInstanceRoleNotFoundFault
+    , _DBInstanceRoleNotFoundFault
+
     -- ** AuthorizationNotFoundFault
     , _AuthorizationNotFoundFault
 
@@ -219,6 +243,9 @@ module Network.AWS.RDS
 
     -- ** DBSubnetGroupQuotaExceededFault
     , _DBSubnetGroupQuotaExceededFault
+
+    -- ** InvalidGlobalClusterStateFault
+    , _InvalidGlobalClusterStateFault
 
     -- ** DBSubnetGroupNotAllowedFault
     , _DBSubnetGroupNotAllowedFault
@@ -229,11 +256,20 @@ module Network.AWS.RDS
     -- ** InsufficientStorageClusterCapacityFault
     , _InsufficientStorageClusterCapacityFault
 
+    -- ** DBClusterEndpointQuotaExceededFault
+    , _DBClusterEndpointQuotaExceededFault
+
     -- ** InvalidOptionGroupStateFault
     , _InvalidOptionGroupStateFault
 
+    -- ** DBInstanceAutomatedBackupQuotaExceededFault
+    , _DBInstanceAutomatedBackupQuotaExceededFault
+
     -- ** InvalidDBClusterStateFault
     , _InvalidDBClusterStateFault
+
+    -- ** GlobalClusterNotFoundFault
+    , _GlobalClusterNotFoundFault
 
     -- ** DBInstanceAlreadyExistsFault
     , _DBInstanceAlreadyExistsFault
@@ -256,6 +292,9 @@ module Network.AWS.RDS
     -- ** InvalidDBInstanceStateFault
     , _InvalidDBInstanceStateFault
 
+    -- ** DBClusterEndpointAlreadyExistsFault
+    , _DBClusterEndpointAlreadyExistsFault
+
     -- ** DBSnapshotAlreadyExistsFault
     , _DBSnapshotAlreadyExistsFault
 
@@ -265,11 +304,20 @@ module Network.AWS.RDS
     -- ** StorageQuotaExceededFault
     , _StorageQuotaExceededFault
 
+    -- ** DBInstanceAutomatedBackupNotFoundFault
+    , _DBInstanceAutomatedBackupNotFoundFault
+
     -- ** InvalidDBSnapshotStateFault
     , _InvalidDBSnapshotStateFault
 
     -- ** InvalidDBSubnetGroupStateFault
     , _InvalidDBSubnetGroupStateFault
+
+    -- ** GlobalClusterQuotaExceededFault
+    , _GlobalClusterQuotaExceededFault
+
+    -- ** DBClusterEndpointNotFoundFault
+    , _DBClusterEndpointNotFoundFault
 
     -- ** DBSubnetGroupDoesNotCoverEnoughAZs
     , _DBSubnetGroupDoesNotCoverEnoughAZs
@@ -301,7 +349,10 @@ module Network.AWS.RDS
     -- * Operations
     -- $operations
 
-    -- ** DescribeDBClusterParameterGroups
+    -- ** StartDBCluster
+    , module Network.AWS.RDS.StartDBCluster
+
+    -- ** DescribeDBClusterParameterGroups (Paginated)
     , module Network.AWS.RDS.DescribeDBClusterParameterGroups
 
     -- ** PromoteReadReplica
@@ -312,6 +363,9 @@ module Network.AWS.RDS
 
     -- ** StopDBInstance
     , module Network.AWS.RDS.StopDBInstance
+
+    -- ** ModifyDBClusterEndpoint
+    , module Network.AWS.RDS.ModifyDBClusterEndpoint
 
     -- ** CopyDBSnapshot
     , module Network.AWS.RDS.CopyDBSnapshot
@@ -343,7 +397,7 @@ module Network.AWS.RDS
     -- ** DescribeDBLogFiles (Paginated)
     , module Network.AWS.RDS.DescribeDBLogFiles
 
-    -- ** DescribeDBClusters
+    -- ** DescribeDBClusters (Paginated)
     , module Network.AWS.RDS.DescribeDBClusters
 
     -- ** ModifyDBSubnetGroup
@@ -367,7 +421,7 @@ module Network.AWS.RDS
     -- ** RemoveSourceIdentifierFromSubscription
     , module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
 
-    -- ** DescribeEngineDefaultClusterParameters
+    -- ** DescribeEngineDefaultClusterParameters (Paginated)
     , module Network.AWS.RDS.DescribeEngineDefaultClusterParameters
 
     -- ** DescribeDBSnapshotAttributes
@@ -375,6 +429,9 @@ module Network.AWS.RDS
 
     -- ** BacktrackDBCluster
     , module Network.AWS.RDS.BacktrackDBCluster
+
+    -- ** DeleteGlobalCluster
+    , module Network.AWS.RDS.DeleteGlobalCluster
 
     -- ** PromoteReadReplicaDBCluster
     , module Network.AWS.RDS.PromoteReadReplicaDBCluster
@@ -397,20 +454,32 @@ module Network.AWS.RDS
     -- ** DeleteDBClusterParameterGroup
     , module Network.AWS.RDS.DeleteDBClusterParameterGroup
 
-    -- ** DescribeCertificates
+    -- ** DescribeCertificates (Paginated)
     , module Network.AWS.RDS.DescribeCertificates
 
     -- ** AuthorizeDBSecurityGroupIngress
     , module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
 
-    -- ** DescribeSourceRegions
+    -- ** RemoveRoleFromDBInstance
+    , module Network.AWS.RDS.RemoveRoleFromDBInstance
+
+    -- ** DescribeSourceRegions (Paginated)
     , module Network.AWS.RDS.DescribeSourceRegions
+
+    -- ** CreateDBClusterEndpoint
+    , module Network.AWS.RDS.CreateDBClusterEndpoint
 
     -- ** RestoreDBClusterFromSnapshot
     , module Network.AWS.RDS.RestoreDBClusterFromSnapshot
 
     -- ** DescribeOrderableDBInstanceOptions (Paginated)
     , module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
+
+    -- ** DeleteDBClusterEndpoint
+    , module Network.AWS.RDS.DeleteDBClusterEndpoint
+
+    -- ** DeleteDBInstanceAutomatedBackup
+    , module Network.AWS.RDS.DeleteDBInstanceAutomatedBackup
 
     -- ** CreateDBClusterParameterGroup
     , module Network.AWS.RDS.CreateDBClusterParameterGroup
@@ -421,7 +490,7 @@ module Network.AWS.RDS
     -- ** DeleteEventSubscription
     , module Network.AWS.RDS.DeleteEventSubscription
 
-    -- ** DescribeDBClusterBacktracks
+    -- ** DescribeDBClusterBacktracks (Paginated)
     , module Network.AWS.RDS.DescribeDBClusterBacktracks
 
     -- ** DescribeDBParameterGroups (Paginated)
@@ -430,11 +499,23 @@ module Network.AWS.RDS
     -- ** ModifyDBSnapshotAttribute
     , module Network.AWS.RDS.ModifyDBSnapshotAttribute
 
+    -- ** DescribeDBInstanceAutomatedBackups (Paginated)
+    , module Network.AWS.RDS.DescribeDBInstanceAutomatedBackups
+
+    -- ** RemoveFromGlobalCluster
+    , module Network.AWS.RDS.RemoveFromGlobalCluster
+
+    -- ** AddRoleToDBInstance
+    , module Network.AWS.RDS.AddRoleToDBInstance
+
     -- ** DeleteDBClusterSnapshot
     , module Network.AWS.RDS.DeleteDBClusterSnapshot
 
     -- ** DescribeValidDBInstanceModifications
     , module Network.AWS.RDS.DescribeValidDBInstanceModifications
+
+    -- ** DescribeDBClusterEndpoints (Paginated)
+    , module Network.AWS.RDS.DescribeDBClusterEndpoints
 
     -- ** DescribeOptionGroupOptions (Paginated)
     , module Network.AWS.RDS.DescribeOptionGroupOptions
@@ -460,6 +541,9 @@ module Network.AWS.RDS
     -- ** ModifyOptionGroup
     , module Network.AWS.RDS.ModifyOptionGroup
 
+    -- ** StopDBCluster
+    , module Network.AWS.RDS.StopDBCluster
+
     -- ** CreateDBParameterGroup
     , module Network.AWS.RDS.CreateDBParameterGroup
 
@@ -474,6 +558,9 @@ module Network.AWS.RDS
 
     -- ** DescribeEventCategories
     , module Network.AWS.RDS.DescribeEventCategories
+
+    -- ** DescribeGlobalClusters (Paginated)
+    , module Network.AWS.RDS.DescribeGlobalClusters
 
     -- ** StartDBInstance
     , module Network.AWS.RDS.StartDBInstance
@@ -490,7 +577,7 @@ module Network.AWS.RDS
     -- ** ModifyDBSnapshot
     , module Network.AWS.RDS.ModifyDBSnapshot
 
-    -- ** DescribePendingMaintenanceActions
+    -- ** DescribePendingMaintenanceActions (Paginated)
     , module Network.AWS.RDS.DescribePendingMaintenanceActions
 
     -- ** AddRoleToDBCluster
@@ -498,6 +585,9 @@ module Network.AWS.RDS
 
     -- ** CopyDBClusterSnapshot
     , module Network.AWS.RDS.CopyDBClusterSnapshot
+
+    -- ** CreateGlobalCluster
+    , module Network.AWS.RDS.CreateGlobalCluster
 
     -- ** ResetDBParameterGroup
     , module Network.AWS.RDS.ResetDBParameterGroup
@@ -529,7 +619,7 @@ module Network.AWS.RDS
     -- ** DeleteDBSnapshot
     , module Network.AWS.RDS.DeleteDBSnapshot
 
-    -- ** DescribeDBClusterParameters
+    -- ** DescribeDBClusterParameters (Paginated)
     , module Network.AWS.RDS.DescribeDBClusterParameters
 
     -- ** DeleteDBSubnetGroup
@@ -561,6 +651,12 @@ module Network.AWS.RDS
 
     -- ** DeleteDBParameterGroup
     , module Network.AWS.RDS.DeleteDBParameterGroup
+
+    -- ** ModifyCurrentDBClusterCapacity
+    , module Network.AWS.RDS.ModifyCurrentDBClusterCapacity
+
+    -- ** ModifyGlobalCluster
+    , module Network.AWS.RDS.ModifyGlobalCluster
 
     -- ** DescribeDBSecurityGroups (Paginated)
     , module Network.AWS.RDS.DescribeDBSecurityGroups
@@ -600,6 +696,13 @@ module Network.AWS.RDS
     , availabilityZone
     , azName
 
+    -- ** AvailableProcessorFeature
+    , AvailableProcessorFeature
+    , availableProcessorFeature
+    , apfName
+    , apfDefaultValue
+    , apfAllowedValues
+
     -- ** Certificate
     , Certificate
     , certificate
@@ -628,6 +731,7 @@ module Network.AWS.RDS
     , dcBacktrackConsumedChangeRecords
     , dcEngineVersion
     , dcStatus
+    , dcDeletionProtection
     , dcStorageEncrypted
     , dcDBClusterIdentifier
     , dcDBClusterMembers
@@ -641,10 +745,13 @@ module Network.AWS.RDS
     , dcBacktrackWindow
     , dcDBClusterResourceId
     , dcEarliestRestorableTime
+    , dcCustomEndpoints
     , dcEngine
+    , dcHTTPEndpointEnabled
     , dcDBClusterARN
     , dcCloneGroupId
     , dcLatestRestorableTime
+    , dcCapacity
     , dcPreferredMaintenanceWindow
     , dcAvailabilityZones
     , dcCharacterSetName
@@ -656,9 +763,13 @@ module Network.AWS.RDS
     , dcDBSubnetGroup
     , dcDatabaseName
     , dcMultiAZ
+    , dcEngineMode
+    , dcEnabledCloudwatchLogsExports
     , dcAllocatedStorage
+    , dcCopyTagsToSnapshot
     , dcClusterCreateTime
     , dcEndpoint
+    , dcScalingConfigurationInfo
     , dcPercentProgress
     , dcReaderEndpoint
     , dcPort
@@ -673,6 +784,20 @@ module Network.AWS.RDS
     , dcbDBClusterIdentifier
     , dcbBacktrackedFrom
     , dcbBacktrackRequestCreationTime
+
+    -- ** DBClusterEndpoint
+    , DBClusterEndpoint
+    , dbClusterEndpoint
+    , dceStatus
+    , dceDBClusterIdentifier
+    , dceDBClusterEndpointARN
+    , dceCustomEndpointType
+    , dceStaticMembers
+    , dceEndpointType
+    , dceDBClusterEndpointIdentifier
+    , dceEndpoint
+    , dceDBClusterEndpointResourceIdentifier
+    , dceExcludedMembers
 
     -- ** DBClusterMember
     , DBClusterMember
@@ -705,6 +830,7 @@ module Network.AWS.RDS
     , DBClusterRole
     , dbClusterRole
     , dcrStatus
+    , dcrFeatureName
     , dcrRoleARN
 
     -- ** DBClusterSnapshot
@@ -748,6 +874,7 @@ module Network.AWS.RDS
     , dbEngineVersion
     , devEngineVersion
     , devDBEngineVersionDescription
+    , devSupportedEngineModes
     , devDefaultCharacterSet
     , devEngine
     , devDBParameterGroupFamily
@@ -756,6 +883,7 @@ module Network.AWS.RDS
     , devValidUpgradeTarget
     , devSupportsLogExportsToCloudwatchLogs
     , devSupportsReadReplica
+    , devSupportedFeatureNames
     , devSupportedTimezones
     , devExportableLogTypes
 
@@ -764,6 +892,7 @@ module Network.AWS.RDS
     , dbInstance
     , diEngineVersion
     , diDBSecurityGroups
+    , diDeletionProtection
     , diStorageEncrypted
     , diDBClusterIdentifier
     , diPubliclyAccessible
@@ -778,22 +907,26 @@ module Network.AWS.RDS
     , diReadReplicaSourceDBInstanceIdentifier
     , diMonitoringInterval
     , diEngine
+    , diProcessorFeatures
     , diLatestRestorableTime
     , diDBInstanceClass
     , diPromotionTier
     , diLicenseModel
     , diPreferredMaintenanceWindow
+    , diPerformanceInsightsRetentionPeriod
     , diCACertificateIdentifier
     , diDBInstanceIdentifier
     , diCharacterSetName
     , diKMSKeyId
     , diPreferredBackupWindow
+    , diAssociatedRoles
     , diAvailabilityZone
     , diVPCSecurityGroups
     , diBackupRetentionPeriod
     , diPerformanceInsightsKMSKeyId
     , diDBSubnetGroup
     , diMultiAZ
+    , diListenerEndpoint
     , diOptionGroupMemberships
     , diEnabledCloudwatchLogsExports
     , diEnhancedMonitoringResourceARN
@@ -814,6 +947,40 @@ module Network.AWS.RDS
     , diStatusInfos
     , diDomainMemberships
     , diDBName
+
+    -- ** DBInstanceAutomatedBackup
+    , DBInstanceAutomatedBackup
+    , dbInstanceAutomatedBackup
+    , diabRestoreWindow
+    , diabEngineVersion
+    , diabStatus
+    , diabDBInstanceARN
+    , diabMasterUsername
+    , diabIAMDatabaseAuthenticationEnabled
+    , diabIOPS
+    , diabVPCId
+    , diabInstanceCreateTime
+    , diabEngine
+    , diabEncrypted
+    , diabLicenseModel
+    , diabDBInstanceIdentifier
+    , diabKMSKeyId
+    , diabAvailabilityZone
+    , diabRegion
+    , diabAllocatedStorage
+    , diabDBiResourceId
+    , diabOptionGroupName
+    , diabTimezone
+    , diabTDECredentialARN
+    , diabPort
+    , diabStorageType
+
+    -- ** DBInstanceRole
+    , DBInstanceRole
+    , dbInstanceRole
+    , dirStatus
+    , dirFeatureName
+    , dirRoleARN
 
     -- ** DBInstanceStatusInfo
     , DBInstanceStatusInfo
@@ -874,6 +1041,7 @@ module Network.AWS.RDS
     , dsEngine
     , dsEncrypted
     , dsDBSnapshotIdentifier
+    , dsProcessorFeatures
     , dsLicenseModel
     , dsSourceDBSnapshotIdentifier
     , dsSnapshotType
@@ -882,6 +1050,7 @@ module Network.AWS.RDS
     , dsAvailabilityZone
     , dsSnapshotCreateTime
     , dsAllocatedStorage
+    , dsDBiResourceId
     , dsOptionGroupName
     , dsTimezone
     , dsTDECredentialARN
@@ -990,11 +1159,38 @@ module Network.AWS.RDS
     , fName
     , fValues
 
+    -- ** GlobalCluster
+    , GlobalCluster
+    , globalCluster
+    , gcEngineVersion
+    , gcStatus
+    , gcDeletionProtection
+    , gcStorageEncrypted
+    , gcGlobalClusterIdentifier
+    , gcEngine
+    , gcGlobalClusterARN
+    , gcDatabaseName
+    , gcGlobalClusterMembers
+    , gcGlobalClusterResourceId
+
+    -- ** GlobalClusterMember
+    , GlobalClusterMember
+    , globalClusterMember
+    , gcmReaders
+    , gcmDBClusterARN
+    , gcmIsWriter
+
     -- ** IPRange
     , IPRange
     , ipRange
     , irStatus
     , irCIdRIP
+
+    -- ** MinimumEngineVersionPerAllowedValue
+    , MinimumEngineVersionPerAllowedValue
+    , minimumEngineVersionPerAllowedValue
+    , mevpavMinimumEngineVersion
+    , mevpavAllowedValue
 
     -- ** Option
     , Option
@@ -1061,11 +1257,13 @@ module Network.AWS.RDS
     , OptionGroupOptionSetting
     , optionGroupOptionSetting
     , ogosApplyType
+    , ogosMinimumEngineVersionPerAllowedValue
     , ogosSettingName
     , ogosDefaultValue
     , ogosIsModifiable
     , ogosSettingDescription
     , ogosAllowedValues
+    , ogosIsRequired
 
     -- ** OptionSetting
     , OptionSetting
@@ -1095,6 +1293,8 @@ module Network.AWS.RDS
     , odioMinIOPSPerDBInstance
     , odioMultiAZCapable
     , odioMaxStorageSize
+    , odioSupportedEngineModes
+    , odioAvailableProcessorFeatures
     , odioEngine
     , odioMinStorageSize
     , odioSupportsIOPS
@@ -1115,6 +1315,7 @@ module Network.AWS.RDS
     , parameter
     , pApplyType
     , pParameterValue
+    , pSupportedEngineModes
     , pApplyMethod
     , pMinimumEngineVersion
     , pSource
@@ -1147,6 +1348,7 @@ module Network.AWS.RDS
     , pmvMasterUserPassword
     , pmvDBSubnetGroupName
     , pmvIOPS
+    , pmvProcessorFeatures
     , pmvDBInstanceClass
     , pmvLicenseModel
     , pmvCACertificateIdentifier
@@ -1157,6 +1359,12 @@ module Network.AWS.RDS
     , pmvAllocatedStorage
     , pmvPort
     , pmvStorageType
+
+    -- ** ProcessorFeature
+    , ProcessorFeature
+    , processorFeature
+    , pfValue
+    , pfName
 
     -- ** Range
     , Range
@@ -1210,6 +1418,28 @@ module Network.AWS.RDS
     , rpmaPendingMaintenanceActionDetails
     , rpmaResourceIdentifier
 
+    -- ** RestoreWindow
+    , RestoreWindow
+    , restoreWindow
+    , rwLatestTime
+    , rwEarliestTime
+
+    -- ** ScalingConfiguration
+    , ScalingConfiguration
+    , scalingConfiguration
+    , scSecondsUntilAutoPause
+    , scAutoPause
+    , scMaxCapacity
+    , scMinCapacity
+
+    -- ** ScalingConfigurationInfo
+    , ScalingConfigurationInfo
+    , scalingConfigurationInfo
+    , sciSecondsUntilAutoPause
+    , sciAutoPause
+    , sciMaxCapacity
+    , sciMinCapacity
+
     -- ** SourceRegion
     , SourceRegion
     , sourceRegion
@@ -1253,6 +1483,7 @@ module Network.AWS.RDS
     -- ** ValidDBInstanceModificationsMessage
     , ValidDBInstanceModificationsMessage
     , validDBInstanceModificationsMessage
+    , vdimmValidProcessorFeatures
     , vdimmStorage
 
     -- ** ValidStorageOptions
@@ -1265,6 +1496,7 @@ module Network.AWS.RDS
     ) where
 
 import Network.AWS.RDS.AddRoleToDBCluster
+import Network.AWS.RDS.AddRoleToDBInstance
 import Network.AWS.RDS.AddSourceIdentifierToSubscription
 import Network.AWS.RDS.AddTagsToResource
 import Network.AWS.RDS.ApplyPendingMaintenanceAction
@@ -1276,6 +1508,7 @@ import Network.AWS.RDS.CopyDBParameterGroup
 import Network.AWS.RDS.CopyDBSnapshot
 import Network.AWS.RDS.CopyOptionGroup
 import Network.AWS.RDS.CreateDBCluster
+import Network.AWS.RDS.CreateDBClusterEndpoint
 import Network.AWS.RDS.CreateDBClusterParameterGroup
 import Network.AWS.RDS.CreateDBClusterSnapshot
 import Network.AWS.RDS.CreateDBInstance
@@ -1285,26 +1518,32 @@ import Network.AWS.RDS.CreateDBSecurityGroup
 import Network.AWS.RDS.CreateDBSnapshot
 import Network.AWS.RDS.CreateDBSubnetGroup
 import Network.AWS.RDS.CreateEventSubscription
+import Network.AWS.RDS.CreateGlobalCluster
 import Network.AWS.RDS.CreateOptionGroup
 import Network.AWS.RDS.DeleteDBCluster
+import Network.AWS.RDS.DeleteDBClusterEndpoint
 import Network.AWS.RDS.DeleteDBClusterParameterGroup
 import Network.AWS.RDS.DeleteDBClusterSnapshot
 import Network.AWS.RDS.DeleteDBInstance
+import Network.AWS.RDS.DeleteDBInstanceAutomatedBackup
 import Network.AWS.RDS.DeleteDBParameterGroup
 import Network.AWS.RDS.DeleteDBSecurityGroup
 import Network.AWS.RDS.DeleteDBSnapshot
 import Network.AWS.RDS.DeleteDBSubnetGroup
 import Network.AWS.RDS.DeleteEventSubscription
+import Network.AWS.RDS.DeleteGlobalCluster
 import Network.AWS.RDS.DeleteOptionGroup
 import Network.AWS.RDS.DescribeAccountAttributes
 import Network.AWS.RDS.DescribeCertificates
 import Network.AWS.RDS.DescribeDBClusterBacktracks
+import Network.AWS.RDS.DescribeDBClusterEndpoints
 import Network.AWS.RDS.DescribeDBClusterParameterGroups
 import Network.AWS.RDS.DescribeDBClusterParameters
 import Network.AWS.RDS.DescribeDBClusters
 import Network.AWS.RDS.DescribeDBClusterSnapshotAttributes
 import Network.AWS.RDS.DescribeDBClusterSnapshots
 import Network.AWS.RDS.DescribeDBEngineVersions
+import Network.AWS.RDS.DescribeDBInstanceAutomatedBackups
 import Network.AWS.RDS.DescribeDBInstances
 import Network.AWS.RDS.DescribeDBLogFiles
 import Network.AWS.RDS.DescribeDBParameterGroups
@@ -1318,6 +1557,7 @@ import Network.AWS.RDS.DescribeEngineDefaultParameters
 import Network.AWS.RDS.DescribeEventCategories
 import Network.AWS.RDS.DescribeEvents
 import Network.AWS.RDS.DescribeEventSubscriptions
+import Network.AWS.RDS.DescribeGlobalClusters
 import Network.AWS.RDS.DescribeOptionGroupOptions
 import Network.AWS.RDS.DescribeOptionGroups
 import Network.AWS.RDS.DescribeOrderableDBInstanceOptions
@@ -1329,7 +1569,9 @@ import Network.AWS.RDS.DescribeValidDBInstanceModifications
 import Network.AWS.RDS.DownloadDBLogFilePortion
 import Network.AWS.RDS.FailoverDBCluster
 import Network.AWS.RDS.ListTagsForResource
+import Network.AWS.RDS.ModifyCurrentDBClusterCapacity
 import Network.AWS.RDS.ModifyDBCluster
+import Network.AWS.RDS.ModifyDBClusterEndpoint
 import Network.AWS.RDS.ModifyDBClusterParameterGroup
 import Network.AWS.RDS.ModifyDBClusterSnapshotAttribute
 import Network.AWS.RDS.ModifyDBInstance
@@ -1338,12 +1580,15 @@ import Network.AWS.RDS.ModifyDBSnapshot
 import Network.AWS.RDS.ModifyDBSnapshotAttribute
 import Network.AWS.RDS.ModifyDBSubnetGroup
 import Network.AWS.RDS.ModifyEventSubscription
+import Network.AWS.RDS.ModifyGlobalCluster
 import Network.AWS.RDS.ModifyOptionGroup
 import Network.AWS.RDS.PromoteReadReplica
 import Network.AWS.RDS.PromoteReadReplicaDBCluster
 import Network.AWS.RDS.PurchaseReservedDBInstancesOffering
 import Network.AWS.RDS.RebootDBInstance
+import Network.AWS.RDS.RemoveFromGlobalCluster
 import Network.AWS.RDS.RemoveRoleFromDBCluster
+import Network.AWS.RDS.RemoveRoleFromDBInstance
 import Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
 import Network.AWS.RDS.RemoveTagsFromResource
 import Network.AWS.RDS.ResetDBClusterParameterGroup
@@ -1355,7 +1600,9 @@ import Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
 import Network.AWS.RDS.RestoreDBInstanceFromS3
 import Network.AWS.RDS.RestoreDBInstanceToPointInTime
 import Network.AWS.RDS.RevokeDBSecurityGroupIngress
+import Network.AWS.RDS.StartDBCluster
 import Network.AWS.RDS.StartDBInstance
+import Network.AWS.RDS.StopDBCluster
 import Network.AWS.RDS.StopDBInstance
 import Network.AWS.RDS.Types
 import Network.AWS.RDS.Waiters

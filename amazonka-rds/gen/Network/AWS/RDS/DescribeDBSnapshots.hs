@@ -37,6 +37,7 @@ module Network.AWS.RDS.DescribeDBSnapshots
     , ddsMarker
     , ddsMaxRecords
     , ddsIncludePublic
+    , ddsDBiResourceId
 
     -- * Destructuring the Response
     , describeDBSnapshotsResponse
@@ -69,6 +70,7 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
   , _ddsMarker               :: !(Maybe Text)
   , _ddsMaxRecords           :: !(Maybe Int)
   , _ddsIncludePublic        :: !(Maybe Bool)
+  , _ddsDBiResourceId        :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -82,7 +84,7 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
 --
 -- * 'ddsDBSnapshotIdentifier' - A specific DB snapshot identifier to describe. This parameter can't be used in conjunction with @DBInstanceIdentifier@ . This value is stored as a lowercase string.  Constraints:     * If supplied, must match the identifier of an existing DBSnapshot.     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
 --
--- * 'ddsSnapshotType' - The type of snapshots to be returned. You can specify one of the following values:     * @automated@ - Return all DB snapshots that have been automatically taken by Amazon RDS for my AWS account.     * @manual@ - Return all DB snapshots that have been taken by my AWS account.     * @shared@ - Return all manual DB snapshots that have been shared to my AWS account.     * @public@ - Return all DB snapshots that have been marked as public. If you don't specify a @SnapshotType@ value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the @IncludeShared@ parameter to @true@ . You can include public snapshots with these results by setting the @IncludePublic@ parameter to @true@ . The @IncludeShared@ and @IncludePublic@ parameters don't apply for @SnapshotType@ values of @manual@ or @automated@ . The @IncludePublic@ parameter doesn't apply when @SnapshotType@ is set to @shared@ . The @IncludeShared@ parameter doesn't apply when @SnapshotType@ is set to @public@ .
+-- * 'ddsSnapshotType' - The type of snapshots to be returned. You can specify one of the following values:     * @automated@ - Return all DB snapshots that have been automatically taken by Amazon RDS for my AWS account.     * @manual@ - Return all DB snapshots that have been taken by my AWS account.     * @shared@ - Return all manual DB snapshots that have been shared to my AWS account.     * @public@ - Return all DB snapshots that have been marked as public.     * @awsbackup@ - Return the DB snapshots managed by the AWS Backup service. For information about AWS Backup, see the <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html /AWS Backup Developer Guide./ >  The @awsbackup@ type does not apply to Aurora. If you don't specify a @SnapshotType@ value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the @IncludeShared@ parameter to @true@ . You can include public snapshots with these results by setting the @IncludePublic@ parameter to @true@ . The @IncludeShared@ and @IncludePublic@ parameters don't apply for @SnapshotType@ values of @manual@ or @automated@ . The @IncludePublic@ parameter doesn't apply when @SnapshotType@ is set to @shared@ . The @IncludeShared@ parameter doesn't apply when @SnapshotType@ is set to @public@ .
 --
 -- * 'ddsDBInstanceIdentifier' - The ID of the DB instance to retrieve the list of DB snapshots for. This parameter can't be used in conjunction with @DBSnapshotIdentifier@ . This parameter is not case-sensitive.  Constraints:     * If supplied, must match the identifier of an existing DBInstance.
 --
@@ -91,6 +93,8 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
 -- * 'ddsMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 --
 -- * 'ddsIncludePublic' - True to include manual DB snapshots that are public and can be copied or restored by any AWS account, and otherwise false. The default is false. You can share a manual DB snapshot as public by using the 'ModifyDBSnapshotAttribute' API.
+--
+-- * 'ddsDBiResourceId' - A specific DB resource ID to describe.
 describeDBSnapshots
     :: DescribeDBSnapshots
 describeDBSnapshots =
@@ -103,6 +107,7 @@ describeDBSnapshots =
     , _ddsMarker = Nothing
     , _ddsMaxRecords = Nothing
     , _ddsIncludePublic = Nothing
+    , _ddsDBiResourceId = Nothing
     }
 
 
@@ -118,7 +123,7 @@ ddsFilters = lens _ddsFilters (\ s a -> s{_ddsFilters = a}) . _Default . _Coerce
 ddsDBSnapshotIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsDBSnapshotIdentifier = lens _ddsDBSnapshotIdentifier (\ s a -> s{_ddsDBSnapshotIdentifier = a})
 
--- | The type of snapshots to be returned. You can specify one of the following values:     * @automated@ - Return all DB snapshots that have been automatically taken by Amazon RDS for my AWS account.     * @manual@ - Return all DB snapshots that have been taken by my AWS account.     * @shared@ - Return all manual DB snapshots that have been shared to my AWS account.     * @public@ - Return all DB snapshots that have been marked as public. If you don't specify a @SnapshotType@ value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the @IncludeShared@ parameter to @true@ . You can include public snapshots with these results by setting the @IncludePublic@ parameter to @true@ . The @IncludeShared@ and @IncludePublic@ parameters don't apply for @SnapshotType@ values of @manual@ or @automated@ . The @IncludePublic@ parameter doesn't apply when @SnapshotType@ is set to @shared@ . The @IncludeShared@ parameter doesn't apply when @SnapshotType@ is set to @public@ .
+-- | The type of snapshots to be returned. You can specify one of the following values:     * @automated@ - Return all DB snapshots that have been automatically taken by Amazon RDS for my AWS account.     * @manual@ - Return all DB snapshots that have been taken by my AWS account.     * @shared@ - Return all manual DB snapshots that have been shared to my AWS account.     * @public@ - Return all DB snapshots that have been marked as public.     * @awsbackup@ - Return the DB snapshots managed by the AWS Backup service. For information about AWS Backup, see the <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html /AWS Backup Developer Guide./ >  The @awsbackup@ type does not apply to Aurora. If you don't specify a @SnapshotType@ value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the @IncludeShared@ parameter to @true@ . You can include public snapshots with these results by setting the @IncludePublic@ parameter to @true@ . The @IncludeShared@ and @IncludePublic@ parameters don't apply for @SnapshotType@ values of @manual@ or @automated@ . The @IncludePublic@ parameter doesn't apply when @SnapshotType@ is set to @shared@ . The @IncludeShared@ parameter doesn't apply when @SnapshotType@ is set to @public@ .
 ddsSnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsSnapshotType = lens _ddsSnapshotType (\ s a -> s{_ddsSnapshotType = a})
 
@@ -137,6 +142,10 @@ ddsMaxRecords = lens _ddsMaxRecords (\ s a -> s{_ddsMaxRecords = a})
 -- | True to include manual DB snapshots that are public and can be copied or restored by any AWS account, and otherwise false. The default is false. You can share a manual DB snapshot as public by using the 'ModifyDBSnapshotAttribute' API.
 ddsIncludePublic :: Lens' DescribeDBSnapshots (Maybe Bool)
 ddsIncludePublic = lens _ddsIncludePublic (\ s a -> s{_ddsIncludePublic = a})
+
+-- | A specific DB resource ID to describe.
+ddsDBiResourceId :: Lens' DescribeDBSnapshots (Maybe Text)
+ddsDBiResourceId = lens _ddsDBiResourceId (\ s a -> s{_ddsDBiResourceId = a})
 
 instance AWSPager DescribeDBSnapshots where
         page rq rs
@@ -181,7 +190,8 @@ instance ToQuery DescribeDBSnapshots where
                "DBInstanceIdentifier" =: _ddsDBInstanceIdentifier,
                "Marker" =: _ddsMarker,
                "MaxRecords" =: _ddsMaxRecords,
-               "IncludePublic" =: _ddsIncludePublic]
+               "IncludePublic" =: _ddsIncludePublic,
+               "DbiResourceId" =: _ddsDBiResourceId]
 
 -- | Contains the result of a successful invocation of the 'DescribeDBSnapshots' action.
 --

@@ -64,7 +64,7 @@ data CreateDBSnapshot = CreateDBSnapshot'
 --
 -- * 'cdbsTags' - Undocumented member.
 --
--- * 'cdbsDBSnapshotIdentifier' - The identifier for the DB snapshot. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
+-- * 'cdbsDBSnapshotIdentifier' - The identifier for the DB snapshot. Constraints:     * Can't be null, empty, or blank     * Must contain from 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
 --
 -- * 'cdbsDBInstanceIdentifier' - The identifier of the DB instance that you want to create the snapshot of. Constraints:     * Must match the identifier of an existing DBInstance.
 createDBSnapshot
@@ -83,7 +83,7 @@ createDBSnapshot pDBSnapshotIdentifier_ pDBInstanceIdentifier_ =
 cdbsTags :: Lens' CreateDBSnapshot [Tag]
 cdbsTags = lens _cdbsTags (\ s a -> s{_cdbsTags = a}) . _Default . _Coerce
 
--- | The identifier for the DB snapshot. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
+-- | The identifier for the DB snapshot. Constraints:     * Can't be null, empty, or blank     * Must contain from 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
 cdbsDBSnapshotIdentifier :: Lens' CreateDBSnapshot Text
 cdbsDBSnapshotIdentifier = lens _cdbsDBSnapshotIdentifier (\ s a -> s{_cdbsDBSnapshotIdentifier = a})
 

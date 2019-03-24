@@ -46,6 +46,7 @@ library
     exposed-modules:
           Network.AWS.RDS
         , Network.AWS.RDS.AddRoleToDBCluster
+        , Network.AWS.RDS.AddRoleToDBInstance
         , Network.AWS.RDS.AddSourceIdentifierToSubscription
         , Network.AWS.RDS.AddTagsToResource
         , Network.AWS.RDS.ApplyPendingMaintenanceAction
@@ -57,6 +58,7 @@ library
         , Network.AWS.RDS.CopyDBSnapshot
         , Network.AWS.RDS.CopyOptionGroup
         , Network.AWS.RDS.CreateDBCluster
+        , Network.AWS.RDS.CreateDBClusterEndpoint
         , Network.AWS.RDS.CreateDBClusterParameterGroup
         , Network.AWS.RDS.CreateDBClusterSnapshot
         , Network.AWS.RDS.CreateDBInstance
@@ -66,26 +68,32 @@ library
         , Network.AWS.RDS.CreateDBSnapshot
         , Network.AWS.RDS.CreateDBSubnetGroup
         , Network.AWS.RDS.CreateEventSubscription
+        , Network.AWS.RDS.CreateGlobalCluster
         , Network.AWS.RDS.CreateOptionGroup
         , Network.AWS.RDS.DeleteDBCluster
+        , Network.AWS.RDS.DeleteDBClusterEndpoint
         , Network.AWS.RDS.DeleteDBClusterParameterGroup
         , Network.AWS.RDS.DeleteDBClusterSnapshot
         , Network.AWS.RDS.DeleteDBInstance
+        , Network.AWS.RDS.DeleteDBInstanceAutomatedBackup
         , Network.AWS.RDS.DeleteDBParameterGroup
         , Network.AWS.RDS.DeleteDBSecurityGroup
         , Network.AWS.RDS.DeleteDBSnapshot
         , Network.AWS.RDS.DeleteDBSubnetGroup
         , Network.AWS.RDS.DeleteEventSubscription
+        , Network.AWS.RDS.DeleteGlobalCluster
         , Network.AWS.RDS.DeleteOptionGroup
         , Network.AWS.RDS.DescribeAccountAttributes
         , Network.AWS.RDS.DescribeCertificates
         , Network.AWS.RDS.DescribeDBClusterBacktracks
+        , Network.AWS.RDS.DescribeDBClusterEndpoints
         , Network.AWS.RDS.DescribeDBClusterParameterGroups
         , Network.AWS.RDS.DescribeDBClusterParameters
         , Network.AWS.RDS.DescribeDBClusterSnapshotAttributes
         , Network.AWS.RDS.DescribeDBClusterSnapshots
         , Network.AWS.RDS.DescribeDBClusters
         , Network.AWS.RDS.DescribeDBEngineVersions
+        , Network.AWS.RDS.DescribeDBInstanceAutomatedBackups
         , Network.AWS.RDS.DescribeDBInstances
         , Network.AWS.RDS.DescribeDBLogFiles
         , Network.AWS.RDS.DescribeDBParameterGroups
@@ -99,6 +107,7 @@ library
         , Network.AWS.RDS.DescribeEventCategories
         , Network.AWS.RDS.DescribeEventSubscriptions
         , Network.AWS.RDS.DescribeEvents
+        , Network.AWS.RDS.DescribeGlobalClusters
         , Network.AWS.RDS.DescribeOptionGroupOptions
         , Network.AWS.RDS.DescribeOptionGroups
         , Network.AWS.RDS.DescribeOrderableDBInstanceOptions
@@ -110,7 +119,9 @@ library
         , Network.AWS.RDS.DownloadDBLogFilePortion
         , Network.AWS.RDS.FailoverDBCluster
         , Network.AWS.RDS.ListTagsForResource
+        , Network.AWS.RDS.ModifyCurrentDBClusterCapacity
         , Network.AWS.RDS.ModifyDBCluster
+        , Network.AWS.RDS.ModifyDBClusterEndpoint
         , Network.AWS.RDS.ModifyDBClusterParameterGroup
         , Network.AWS.RDS.ModifyDBClusterSnapshotAttribute
         , Network.AWS.RDS.ModifyDBInstance
@@ -119,12 +130,15 @@ library
         , Network.AWS.RDS.ModifyDBSnapshotAttribute
         , Network.AWS.RDS.ModifyDBSubnetGroup
         , Network.AWS.RDS.ModifyEventSubscription
+        , Network.AWS.RDS.ModifyGlobalCluster
         , Network.AWS.RDS.ModifyOptionGroup
         , Network.AWS.RDS.PromoteReadReplica
         , Network.AWS.RDS.PromoteReadReplicaDBCluster
         , Network.AWS.RDS.PurchaseReservedDBInstancesOffering
         , Network.AWS.RDS.RebootDBInstance
+        , Network.AWS.RDS.RemoveFromGlobalCluster
         , Network.AWS.RDS.RemoveRoleFromDBCluster
+        , Network.AWS.RDS.RemoveRoleFromDBInstance
         , Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
         , Network.AWS.RDS.RemoveTagsFromResource
         , Network.AWS.RDS.ResetDBClusterParameterGroup
@@ -136,7 +150,9 @@ library
         , Network.AWS.RDS.RestoreDBInstanceFromS3
         , Network.AWS.RDS.RestoreDBInstanceToPointInTime
         , Network.AWS.RDS.RevokeDBSecurityGroupIngress
+        , Network.AWS.RDS.StartDBCluster
         , Network.AWS.RDS.StartDBInstance
+        , Network.AWS.RDS.StopDBCluster
         , Network.AWS.RDS.StopDBInstance
         , Network.AWS.RDS.Types
         , Network.AWS.RDS.Waiters

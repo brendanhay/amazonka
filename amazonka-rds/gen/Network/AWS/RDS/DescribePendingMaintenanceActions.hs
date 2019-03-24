@@ -21,6 +21,8 @@
 -- Returns a list of resources (for example, DB instances) that have at least one pending maintenance action.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.RDS.DescribePendingMaintenanceActions
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.RDS.DescribePendingMaintenanceActions
     ) where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.RDS.Types
 import Network.AWS.RDS.Types.Product
@@ -98,6 +101,15 @@ dpmaMaxRecords = lens _dpmaMaxRecords (\ s a -> s{_dpmaMaxRecords = a})
 -- | The ARN of a resource to return pending maintenance actions for.
 dpmaResourceIdentifier :: Lens' DescribePendingMaintenanceActions (Maybe Text)
 dpmaResourceIdentifier = lens _dpmaResourceIdentifier (\ s a -> s{_dpmaResourceIdentifier = a})
+
+instance AWSPager DescribePendingMaintenanceActions
+         where
+        page rq rs
+          | stop (rs ^. dpmarsMarker) = Nothing
+          | stop (rs ^. dpmarsPendingMaintenanceActions) =
+            Nothing
+          | otherwise =
+            Just $ rq & dpmaMarker .~ rs ^. dpmarsMarker
 
 instance AWSRequest DescribePendingMaintenanceActions
          where

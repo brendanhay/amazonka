@@ -23,7 +23,7 @@
 --
 --
 --
--- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+-- For more information on Amazon Aurora, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?> in the /Amazon Aurora User Guide./
 --
 module Network.AWS.RDS.DeleteDBCluster
     (
@@ -66,7 +66,7 @@ data DeleteDBCluster = DeleteDBCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddbcFinalDBSnapshotIdentifier' - The DB cluster snapshot identifier of the new DB cluster snapshot created when @SkipFinalSnapshot@ is set to @false@ .  Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- * 'ddbcFinalDBSnapshotIdentifier' - The DB cluster snapshot identifier of the new DB cluster snapshot created when @SkipFinalSnapshot@ is set to @false@ .  Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens
 --
 -- * 'ddbcSkipFinalSnapshot' - Determines whether a final DB cluster snapshot is created before the DB cluster is deleted. If @true@ is specified, no DB cluster snapshot is created. If @false@ is specified, a DB cluster snapshot is created before the DB cluster is deleted.  Default: @false@
 --
@@ -82,7 +82,7 @@ deleteDBCluster pDBClusterIdentifier_ =
     }
 
 
--- | The DB cluster snapshot identifier of the new DB cluster snapshot created when @SkipFinalSnapshot@ is set to @false@ .  Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
+-- | The DB cluster snapshot identifier of the new DB cluster snapshot created when @SkipFinalSnapshot@ is set to @false@ .  Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens
 ddbcFinalDBSnapshotIdentifier :: Lens' DeleteDBCluster (Maybe Text)
 ddbcFinalDBSnapshotIdentifier = lens _ddbcFinalDBSnapshotIdentifier (\ s a -> s{_ddbcFinalDBSnapshotIdentifier = a})
 

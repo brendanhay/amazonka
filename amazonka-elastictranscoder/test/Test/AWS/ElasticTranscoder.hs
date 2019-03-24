@@ -15,9 +15,9 @@ module Test.AWS.ElasticTranscoder
     , fixtures
     ) where
 
-import           Network.AWS.ElasticTranscoder
-import           Test.AWS.Gen.ElasticTranscoder
-import           Test.Tasty
+import Network.AWS.ElasticTranscoder
+import Test.AWS.Gen.ElasticTranscoder
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

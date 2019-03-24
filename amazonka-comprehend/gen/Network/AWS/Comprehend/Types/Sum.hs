@@ -101,6 +101,8 @@ data JobStatus
   = Completed
   | Failed
   | InProgress
+  | StopRequested
+  | Stopped
   | Submitted
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
@@ -110,15 +112,19 @@ instance FromText JobStatus where
         "completed" -> pure Completed
         "failed" -> pure Failed
         "in_progress" -> pure InProgress
+        "stop_requested" -> pure StopRequested
+        "stopped" -> pure Stopped
         "submitted" -> pure Submitted
         e -> fromTextError $ "Failure parsing JobStatus from value: '" <> e
-           <> "'. Accepted values: completed, failed, in_progress, submitted"
+           <> "'. Accepted values: completed, failed, in_progress, stop_requested, stopped, submitted"
 
 instance ToText JobStatus where
     toText = \case
         Completed -> "COMPLETED"
         Failed -> "FAILED"
         InProgress -> "IN_PROGRESS"
+        StopRequested -> "STOP_REQUESTED"
+        Stopped -> "STOPPED"
         Submitted -> "SUBMITTED"
 
 instance Hashable     JobStatus
@@ -134,22 +140,34 @@ instance FromJSON JobStatus where
     parseJSON = parseJSONText "JobStatus"
 
 data LanguageCode
-  = EN
+  = DE
+  | EN
   | ES
+  | FR
+  | IT
+  | PT
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText LanguageCode where
     parser = takeLowerText >>= \case
+        "de" -> pure DE
         "en" -> pure EN
         "es" -> pure ES
+        "fr" -> pure FR
+        "it" -> pure IT
+        "pt" -> pure PT
         e -> fromTextError $ "Failure parsing LanguageCode from value: '" <> e
-           <> "'. Accepted values: en, es"
+           <> "'. Accepted values: de, en, es, fr, it, pt"
 
 instance ToText LanguageCode where
     toText = \case
+        DE -> "de"
         EN -> "en"
         ES -> "es"
+        FR -> "fr"
+        IT -> "it"
+        PT -> "pt"
 
 instance Hashable     LanguageCode
 instance NFData       LanguageCode
@@ -159,6 +177,129 @@ instance ToHeader     LanguageCode
 
 instance ToJSON LanguageCode where
     toJSON = toJSONText
+
+instance FromJSON LanguageCode where
+    parseJSON = parseJSONText "LanguageCode"
+
+data ModelStatus
+  = MSDeleting
+  | MSInError
+  | MSStopRequested
+  | MSStopped
+  | MSSubmitted
+  | MSTrained
+  | MSTraining
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText ModelStatus where
+    parser = takeLowerText >>= \case
+        "deleting" -> pure MSDeleting
+        "in_error" -> pure MSInError
+        "stop_requested" -> pure MSStopRequested
+        "stopped" -> pure MSStopped
+        "submitted" -> pure MSSubmitted
+        "trained" -> pure MSTrained
+        "training" -> pure MSTraining
+        e -> fromTextError $ "Failure parsing ModelStatus from value: '" <> e
+           <> "'. Accepted values: deleting, in_error, stop_requested, stopped, submitted, trained, training"
+
+instance ToText ModelStatus where
+    toText = \case
+        MSDeleting -> "DELETING"
+        MSInError -> "IN_ERROR"
+        MSStopRequested -> "STOP_REQUESTED"
+        MSStopped -> "STOPPED"
+        MSSubmitted -> "SUBMITTED"
+        MSTrained -> "TRAINED"
+        MSTraining -> "TRAINING"
+
+instance Hashable     ModelStatus
+instance NFData       ModelStatus
+instance ToByteString ModelStatus
+instance ToQuery      ModelStatus
+instance ToHeader     ModelStatus
+
+instance ToJSON ModelStatus where
+    toJSON = toJSONText
+
+instance FromJSON ModelStatus where
+    parseJSON = parseJSONText "ModelStatus"
+
+data PartOfSpeechTagType
+  = Adj
+  | Adp
+  | Adv
+  | Aux
+  | Cconj
+  | Conj
+  | Det
+  | Intj
+  | Noun
+  | Num
+  | O
+  | Part
+  | Pron
+  | Propn
+  | Punct
+  | Sconj
+  | Sym
+  | Verb
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PartOfSpeechTagType where
+    parser = takeLowerText >>= \case
+        "adj" -> pure Adj
+        "adp" -> pure Adp
+        "adv" -> pure Adv
+        "aux" -> pure Aux
+        "cconj" -> pure Cconj
+        "conj" -> pure Conj
+        "det" -> pure Det
+        "intj" -> pure Intj
+        "noun" -> pure Noun
+        "num" -> pure Num
+        "o" -> pure O
+        "part" -> pure Part
+        "pron" -> pure Pron
+        "propn" -> pure Propn
+        "punct" -> pure Punct
+        "sconj" -> pure Sconj
+        "sym" -> pure Sym
+        "verb" -> pure Verb
+        e -> fromTextError $ "Failure parsing PartOfSpeechTagType from value: '" <> e
+           <> "'. Accepted values: adj, adp, adv, aux, cconj, conj, det, intj, noun, num, o, part, pron, propn, punct, sconj, sym, verb"
+
+instance ToText PartOfSpeechTagType where
+    toText = \case
+        Adj -> "ADJ"
+        Adp -> "ADP"
+        Adv -> "ADV"
+        Aux -> "AUX"
+        Cconj -> "CCONJ"
+        Conj -> "CONJ"
+        Det -> "DET"
+        Intj -> "INTJ"
+        Noun -> "NOUN"
+        Num -> "NUM"
+        O -> "O"
+        Part -> "PART"
+        Pron -> "PRON"
+        Propn -> "PROPN"
+        Punct -> "PUNCT"
+        Sconj -> "SCONJ"
+        Sym -> "SYM"
+        Verb -> "VERB"
+
+instance Hashable     PartOfSpeechTagType
+instance NFData       PartOfSpeechTagType
+instance ToByteString PartOfSpeechTagType
+instance ToQuery      PartOfSpeechTagType
+instance ToHeader     PartOfSpeechTagType
+
+instance FromJSON PartOfSpeechTagType where
+    parseJSON = parseJSONText "PartOfSpeechTagType"
 
 data SentimentType
   = Mixed
@@ -192,3 +333,42 @@ instance ToHeader     SentimentType
 
 instance FromJSON SentimentType where
     parseJSON = parseJSONText "SentimentType"
+
+data SyntaxLanguageCode
+  = SLCDE
+  | SLCEN
+  | SLCES
+  | SLCFR
+  | SLCIT
+  | SLCPT
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText SyntaxLanguageCode where
+    parser = takeLowerText >>= \case
+        "de" -> pure SLCDE
+        "en" -> pure SLCEN
+        "es" -> pure SLCES
+        "fr" -> pure SLCFR
+        "it" -> pure SLCIT
+        "pt" -> pure SLCPT
+        e -> fromTextError $ "Failure parsing SyntaxLanguageCode from value: '" <> e
+           <> "'. Accepted values: de, en, es, fr, it, pt"
+
+instance ToText SyntaxLanguageCode where
+    toText = \case
+        SLCDE -> "de"
+        SLCEN -> "en"
+        SLCES -> "es"
+        SLCFR -> "fr"
+        SLCIT -> "it"
+        SLCPT -> "pt"
+
+instance Hashable     SyntaxLanguageCode
+instance NFData       SyntaxLanguageCode
+instance ToByteString SyntaxLanguageCode
+instance ToQuery      SyntaxLanguageCode
+instance ToHeader     SyntaxLanguageCode
+
+instance ToJSON SyntaxLanguageCode where
+    toJSON = toJSONText

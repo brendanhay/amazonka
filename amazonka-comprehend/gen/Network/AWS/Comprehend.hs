@@ -22,8 +22,14 @@ module Network.AWS.Comprehend
     -- * Errors
     -- $errors
 
+    -- ** ResourceUnavailableException
+    , _ResourceUnavailableException
+
     -- ** InvalidRequestException
     , _InvalidRequestException
+
+    -- ** ResourceLimitExceededException
+    , _ResourceLimitExceededException
 
     -- ** TooManyRequestsException
     , _TooManyRequestsException
@@ -43,8 +49,14 @@ module Network.AWS.Comprehend
     -- ** InvalidFilterException
     , _InvalidFilterException
 
+    -- ** ResourceNotFoundException
+    , _ResourceNotFoundException
+
     -- ** TextSizeLimitExceededException
     , _TextSizeLimitExceededException
+
+    -- ** ResourceInUseException
+    , _ResourceInUseException
 
     -- * Waiters
     -- $waiters
@@ -55,17 +67,65 @@ module Network.AWS.Comprehend
     -- ** BatchDetectSentiment
     , module Network.AWS.Comprehend.BatchDetectSentiment
 
+    -- ** DeleteEntityRecognizer
+    , module Network.AWS.Comprehend.DeleteEntityRecognizer
+
+    -- ** DescribeKeyPhrasesDetectionJob
+    , module Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob
+
+    -- ** ListEntitiesDetectionJobs (Paginated)
+    , module Network.AWS.Comprehend.ListEntitiesDetectionJobs
+
+    -- ** StartSentimentDetectionJob
+    , module Network.AWS.Comprehend.StartSentimentDetectionJob
+
+    -- ** BatchDetectSyntax
+    , module Network.AWS.Comprehend.BatchDetectSyntax
+
     -- ** StartTopicsDetectionJob
     , module Network.AWS.Comprehend.StartTopicsDetectionJob
 
     -- ** BatchDetectKeyPhrases
     , module Network.AWS.Comprehend.BatchDetectKeyPhrases
 
+    -- ** DescribeSentimentDetectionJob
+    , module Network.AWS.Comprehend.DescribeSentimentDetectionJob
+
+    -- ** StartEntitiesDetectionJob
+    , module Network.AWS.Comprehend.StartEntitiesDetectionJob
+
+    -- ** DescribeEntityRecognizer
+    , module Network.AWS.Comprehend.DescribeEntityRecognizer
+
     -- ** DetectSentiment
     , module Network.AWS.Comprehend.DetectSentiment
 
+    -- ** StartDominantLanguageDetectionJob
+    , module Network.AWS.Comprehend.StartDominantLanguageDetectionJob
+
+    -- ** StopTrainingDocumentClassifier
+    , module Network.AWS.Comprehend.StopTrainingDocumentClassifier
+
+    -- ** DescribeDocumentClassificationJob
+    , module Network.AWS.Comprehend.DescribeDocumentClassificationJob
+
     -- ** BatchDetectEntities
     , module Network.AWS.Comprehend.BatchDetectEntities
+
+    -- ** CreateEntityRecognizer
+    , module Network.AWS.Comprehend.CreateEntityRecognizer
+
+    -- ** StopKeyPhrasesDetectionJob
+    , module Network.AWS.Comprehend.StopKeyPhrasesDetectionJob
+
+    -- ** CreateDocumentClassifier
+    , module Network.AWS.Comprehend.CreateDocumentClassifier
+
+    -- ** ListEntityRecognizers (Paginated)
+    , module Network.AWS.Comprehend.ListEntityRecognizers
+
+    -- ** StopSentimentDetectionJob
+    , module Network.AWS.Comprehend.StopSentimentDetectionJob
 
     -- ** DetectDominantLanguage
     , module Network.AWS.Comprehend.DetectDominantLanguage
@@ -73,8 +133,32 @@ module Network.AWS.Comprehend
     -- ** DescribeTopicsDetectionJob
     , module Network.AWS.Comprehend.DescribeTopicsDetectionJob
 
+    -- ** ListDocumentClassificationJobs (Paginated)
+    , module Network.AWS.Comprehend.ListDocumentClassificationJobs
+
     -- ** DetectEntities
     , module Network.AWS.Comprehend.DetectEntities
+
+    -- ** DescribeDocumentClassifier
+    , module Network.AWS.Comprehend.DescribeDocumentClassifier
+
+    -- ** DescribeDominantLanguageDetectionJob
+    , module Network.AWS.Comprehend.DescribeDominantLanguageDetectionJob
+
+    -- ** StopEntitiesDetectionJob
+    , module Network.AWS.Comprehend.StopEntitiesDetectionJob
+
+    -- ** StopTrainingEntityRecognizer
+    , module Network.AWS.Comprehend.StopTrainingEntityRecognizer
+
+    -- ** ListKeyPhrasesDetectionJobs (Paginated)
+    , module Network.AWS.Comprehend.ListKeyPhrasesDetectionJobs
+
+    -- ** DescribeEntitiesDetectionJob
+    , module Network.AWS.Comprehend.DescribeEntitiesDetectionJob
+
+    -- ** StopDominantLanguageDetectionJob
+    , module Network.AWS.Comprehend.StopDominantLanguageDetectionJob
 
     -- ** ListTopicsDetectionJobs (Paginated)
     , module Network.AWS.Comprehend.ListTopicsDetectionJobs
@@ -82,8 +166,29 @@ module Network.AWS.Comprehend
     -- ** BatchDetectDominantLanguage
     , module Network.AWS.Comprehend.BatchDetectDominantLanguage
 
+    -- ** StartDocumentClassificationJob
+    , module Network.AWS.Comprehend.StartDocumentClassificationJob
+
     -- ** DetectKeyPhrases
     , module Network.AWS.Comprehend.DetectKeyPhrases
+
+    -- ** DetectSyntax
+    , module Network.AWS.Comprehend.DetectSyntax
+
+    -- ** ListSentimentDetectionJobs (Paginated)
+    , module Network.AWS.Comprehend.ListSentimentDetectionJobs
+
+    -- ** DeleteDocumentClassifier
+    , module Network.AWS.Comprehend.DeleteDocumentClassifier
+
+    -- ** ListDominantLanguageDetectionJobs (Paginated)
+    , module Network.AWS.Comprehend.ListDominantLanguageDetectionJobs
+
+    -- ** StartKeyPhrasesDetectionJob
+    , module Network.AWS.Comprehend.StartKeyPhrasesDetectionJob
+
+    -- ** ListDocumentClassifiers (Paginated)
+    , module Network.AWS.Comprehend.ListDocumentClassifiers
 
     -- * Types
 
@@ -99,8 +204,17 @@ module Network.AWS.Comprehend
     -- ** LanguageCode
     , LanguageCode (..)
 
+    -- ** ModelStatus
+    , ModelStatus (..)
+
+    -- ** PartOfSpeechTagType
+    , PartOfSpeechTagType (..)
+
     -- ** SentimentType
     , SentimentType (..)
+
+    -- ** SyntaxLanguageCode
+    , SyntaxLanguageCode (..)
 
     -- ** BatchDetectDominantLanguageItemResult
     , BatchDetectDominantLanguageItemResult
@@ -123,9 +237,15 @@ module Network.AWS.Comprehend
     -- ** BatchDetectSentimentItemResult
     , BatchDetectSentimentItemResult
     , batchDetectSentimentItemResult
-    , bdsirSentiment
-    , bdsirSentimentScore
+    , bSentiment
+    , bSentimentScore
+    , bIndex
+
+    -- ** BatchDetectSyntaxItemResult
+    , BatchDetectSyntaxItemResult
+    , batchDetectSyntaxItemResult
     , bdsirIndex
+    , bdsirSyntaxTokens
 
     -- ** BatchItemError
     , BatchItemError
@@ -134,11 +254,120 @@ module Network.AWS.Comprehend
     , bieErrorMessage
     , bieIndex
 
+    -- ** ClassifierEvaluationMetrics
+    , ClassifierEvaluationMetrics
+    , classifierEvaluationMetrics
+    , cemRecall
+    , cemPrecision
+    , cemF1Score
+    , cemAccuracy
+
+    -- ** ClassifierMetadata
+    , ClassifierMetadata
+    , classifierMetadata
+    , cmNumberOfLabels
+    , cmEvaluationMetrics
+    , cmNumberOfTrainedDocuments
+    , cmNumberOfTestDocuments
+
+    -- ** DocumentClassificationJobFilter
+    , DocumentClassificationJobFilter
+    , documentClassificationJobFilter
+    , dcjfSubmitTimeAfter
+    , dcjfSubmitTimeBefore
+    , dcjfJobName
+    , dcjfJobStatus
+
+    -- ** DocumentClassificationJobProperties
+    , DocumentClassificationJobProperties
+    , documentClassificationJobProperties
+    , dcjpJobId
+    , dcjpDocumentClassifierARN
+    , dcjpJobName
+    , dcjpInputDataConfig
+    , dcjpEndTime
+    , dcjpOutputDataConfig
+    , dcjpDataAccessRoleARN
+    , dcjpJobStatus
+    , dcjpMessage
+    , dcjpSubmitTime
+
+    -- ** DocumentClassifierFilter
+    , DocumentClassifierFilter
+    , documentClassifierFilter
+    , dcfStatus
+    , dcfSubmitTimeAfter
+    , dcfSubmitTimeBefore
+
+    -- ** DocumentClassifierInputDataConfig
+    , DocumentClassifierInputDataConfig
+    , documentClassifierInputDataConfig
+    , dcidcS3URI
+
+    -- ** DocumentClassifierProperties
+    , DocumentClassifierProperties
+    , documentClassifierProperties
+    , dcpStatus
+    , dcpLanguageCode
+    , dcpClassifierMetadata
+    , dcpTrainingEndTime
+    , dcpDocumentClassifierARN
+    , dcpInputDataConfig
+    , dcpEndTime
+    , dcpTrainingStartTime
+    , dcpDataAccessRoleARN
+    , dcpMessage
+    , dcpSubmitTime
+
     -- ** DominantLanguage
     , DominantLanguage
     , dominantLanguage
     , dlLanguageCode
     , dlScore
+
+    -- ** DominantLanguageDetectionJobFilter
+    , DominantLanguageDetectionJobFilter
+    , dominantLanguageDetectionJobFilter
+    , dldjfSubmitTimeAfter
+    , dldjfSubmitTimeBefore
+    , dldjfJobName
+    , dldjfJobStatus
+
+    -- ** DominantLanguageDetectionJobProperties
+    , DominantLanguageDetectionJobProperties
+    , dominantLanguageDetectionJobProperties
+    , dldjpJobId
+    , dldjpJobName
+    , dldjpInputDataConfig
+    , dldjpEndTime
+    , dldjpOutputDataConfig
+    , dldjpDataAccessRoleARN
+    , dldjpJobStatus
+    , dldjpMessage
+    , dldjpSubmitTime
+
+    -- ** EntitiesDetectionJobFilter
+    , EntitiesDetectionJobFilter
+    , entitiesDetectionJobFilter
+    , edjfSubmitTimeAfter
+    , edjfSubmitTimeBefore
+    , edjfJobName
+    , edjfJobStatus
+
+    -- ** EntitiesDetectionJobProperties
+    , EntitiesDetectionJobProperties
+    , entitiesDetectionJobProperties
+    , edjpLanguageCode
+    , edjpJobId
+    , edjpEntityRecognizerARN
+    , edjpJobName
+    , edjpInputDataConfig
+    , edjpEndTime
+    , edjpOutputDataConfig
+    , edjpDataAccessRoleARN
+    , edjpJobStatus
+    , edjpMessage
+    , edjpSubmitTime
 
     -- ** Entity
     , Entity
@@ -148,6 +377,76 @@ module Network.AWS.Comprehend
     , eScore
     , eEndOffset
     , eType
+
+    -- ** EntityRecognizerAnnotations
+    , EntityRecognizerAnnotations
+    , entityRecognizerAnnotations
+    , eraS3URI
+
+    -- ** EntityRecognizerDocuments
+    , EntityRecognizerDocuments
+    , entityRecognizerDocuments
+    , erdS3URI
+
+    -- ** EntityRecognizerEntityList
+    , EntityRecognizerEntityList
+    , entityRecognizerEntityList
+    , erelS3URI
+
+    -- ** EntityRecognizerEvaluationMetrics
+    , EntityRecognizerEvaluationMetrics
+    , entityRecognizerEvaluationMetrics
+    , eremRecall
+    , eremPrecision
+    , eremF1Score
+
+    -- ** EntityRecognizerFilter
+    , EntityRecognizerFilter
+    , entityRecognizerFilter
+    , erfStatus
+    , erfSubmitTimeAfter
+    , erfSubmitTimeBefore
+
+    -- ** EntityRecognizerInputDataConfig
+    , EntityRecognizerInputDataConfig
+    , entityRecognizerInputDataConfig
+    , eridcAnnotations
+    , eridcEntityList
+    , eridcEntityTypes
+    , eridcDocuments
+
+    -- ** EntityRecognizerMetadata
+    , EntityRecognizerMetadata
+    , entityRecognizerMetadata
+    , ermEntityTypes
+    , ermEvaluationMetrics
+    , ermNumberOfTrainedDocuments
+    , ermNumberOfTestDocuments
+
+    -- ** EntityRecognizerMetadataEntityTypesListItem
+    , EntityRecognizerMetadataEntityTypesListItem
+    , entityRecognizerMetadataEntityTypesListItem
+    , ermetliType
+
+    -- ** EntityRecognizerProperties
+    , EntityRecognizerProperties
+    , entityRecognizerProperties
+    , erpStatus
+    , erpLanguageCode
+    , erpTrainingEndTime
+    , erpEntityRecognizerARN
+    , erpInputDataConfig
+    , erpEndTime
+    , erpTrainingStartTime
+    , erpDataAccessRoleARN
+    , erpRecognizerMetadata
+    , erpMessage
+    , erpSubmitTime
+
+    -- ** EntityTypesListItem
+    , EntityTypesListItem
+    , entityTypesListItem
+    , etliType
 
     -- ** InputDataConfig
     , InputDataConfig
@@ -163,10 +462,60 @@ module Network.AWS.Comprehend
     , kpScore
     , kpEndOffset
 
+    -- ** KeyPhrasesDetectionJobFilter
+    , KeyPhrasesDetectionJobFilter
+    , keyPhrasesDetectionJobFilter
+    , kpdjfSubmitTimeAfter
+    , kpdjfSubmitTimeBefore
+    , kpdjfJobName
+    , kpdjfJobStatus
+
+    -- ** KeyPhrasesDetectionJobProperties
+    , KeyPhrasesDetectionJobProperties
+    , keyPhrasesDetectionJobProperties
+    , kpdjpLanguageCode
+    , kpdjpJobId
+    , kpdjpJobName
+    , kpdjpInputDataConfig
+    , kpdjpEndTime
+    , kpdjpOutputDataConfig
+    , kpdjpDataAccessRoleARN
+    , kpdjpJobStatus
+    , kpdjpMessage
+    , kpdjpSubmitTime
+
     -- ** OutputDataConfig
     , OutputDataConfig
     , outputDataConfig
     , odcS3URI
+
+    -- ** PartOfSpeechTag
+    , PartOfSpeechTag
+    , partOfSpeechTag
+    , postTag
+    , postScore
+
+    -- ** SentimentDetectionJobFilter
+    , SentimentDetectionJobFilter
+    , sentimentDetectionJobFilter
+    , sdjfSubmitTimeAfter
+    , sdjfSubmitTimeBefore
+    , sdjfJobName
+    , sdjfJobStatus
+
+    -- ** SentimentDetectionJobProperties
+    , SentimentDetectionJobProperties
+    , sentimentDetectionJobProperties
+    , sdjpLanguageCode
+    , sdjpJobId
+    , sdjpJobName
+    , sdjpInputDataConfig
+    , sdjpEndTime
+    , sdjpOutputDataConfig
+    , sdjpDataAccessRoleARN
+    , sdjpJobStatus
+    , sdjpMessage
+    , sdjpSubmitTime
 
     -- ** SentimentScore
     , SentimentScore
@@ -175,6 +524,15 @@ module Network.AWS.Comprehend
     , ssNegative
     , ssNeutral
     , ssPositive
+
+    -- ** SyntaxToken
+    , SyntaxToken
+    , syntaxToken
+    , stBeginOffset
+    , stText
+    , stTokenId
+    , stEndOffset
+    , stPartOfSpeech
 
     -- ** TopicsDetectionJobFilter
     , TopicsDetectionJobFilter
@@ -202,13 +560,44 @@ import Network.AWS.Comprehend.BatchDetectDominantLanguage
 import Network.AWS.Comprehend.BatchDetectEntities
 import Network.AWS.Comprehend.BatchDetectKeyPhrases
 import Network.AWS.Comprehend.BatchDetectSentiment
+import Network.AWS.Comprehend.BatchDetectSyntax
+import Network.AWS.Comprehend.CreateDocumentClassifier
+import Network.AWS.Comprehend.CreateEntityRecognizer
+import Network.AWS.Comprehend.DeleteDocumentClassifier
+import Network.AWS.Comprehend.DeleteEntityRecognizer
+import Network.AWS.Comprehend.DescribeDocumentClassificationJob
+import Network.AWS.Comprehend.DescribeDocumentClassifier
+import Network.AWS.Comprehend.DescribeDominantLanguageDetectionJob
+import Network.AWS.Comprehend.DescribeEntitiesDetectionJob
+import Network.AWS.Comprehend.DescribeEntityRecognizer
+import Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob
+import Network.AWS.Comprehend.DescribeSentimentDetectionJob
 import Network.AWS.Comprehend.DescribeTopicsDetectionJob
 import Network.AWS.Comprehend.DetectDominantLanguage
 import Network.AWS.Comprehend.DetectEntities
 import Network.AWS.Comprehend.DetectKeyPhrases
 import Network.AWS.Comprehend.DetectSentiment
+import Network.AWS.Comprehend.DetectSyntax
+import Network.AWS.Comprehend.ListDocumentClassificationJobs
+import Network.AWS.Comprehend.ListDocumentClassifiers
+import Network.AWS.Comprehend.ListDominantLanguageDetectionJobs
+import Network.AWS.Comprehend.ListEntitiesDetectionJobs
+import Network.AWS.Comprehend.ListEntityRecognizers
+import Network.AWS.Comprehend.ListKeyPhrasesDetectionJobs
+import Network.AWS.Comprehend.ListSentimentDetectionJobs
 import Network.AWS.Comprehend.ListTopicsDetectionJobs
+import Network.AWS.Comprehend.StartDocumentClassificationJob
+import Network.AWS.Comprehend.StartDominantLanguageDetectionJob
+import Network.AWS.Comprehend.StartEntitiesDetectionJob
+import Network.AWS.Comprehend.StartKeyPhrasesDetectionJob
+import Network.AWS.Comprehend.StartSentimentDetectionJob
 import Network.AWS.Comprehend.StartTopicsDetectionJob
+import Network.AWS.Comprehend.StopDominantLanguageDetectionJob
+import Network.AWS.Comprehend.StopEntitiesDetectionJob
+import Network.AWS.Comprehend.StopKeyPhrasesDetectionJob
+import Network.AWS.Comprehend.StopSentimentDetectionJob
+import Network.AWS.Comprehend.StopTrainingDocumentClassifier
+import Network.AWS.Comprehend.StopTrainingEntityRecognizer
 import Network.AWS.Comprehend.Types
 import Network.AWS.Comprehend.Waiters
 

@@ -73,9 +73,9 @@ data StartTopicsDetectionJob = StartTopicsDetectionJob'
 --
 -- * 'stdjInputDataConfig' - Specifies the format and location of the input data for the job.
 --
--- * 'stdjOutputDataConfig' - Specifies where to send the output files.
+-- * 'stdjOutputDataConfig' - Specifies where to send the output files. The output is a compressed archive with two files, @topic-terms.csv@ that lists the terms associated with each topic, and @doc-topics.csv@ that lists the documents associated with each topic
 --
--- * 'stdjDataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
+-- * 'stdjDataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
 startTopicsDetectionJob
     :: InputDataConfig -- ^ 'stdjInputDataConfig'
     -> OutputDataConfig -- ^ 'stdjOutputDataConfig'
@@ -108,11 +108,11 @@ stdjClientRequestToken = lens _stdjClientRequestToken (\ s a -> s{_stdjClientReq
 stdjInputDataConfig :: Lens' StartTopicsDetectionJob InputDataConfig
 stdjInputDataConfig = lens _stdjInputDataConfig (\ s a -> s{_stdjInputDataConfig = a})
 
--- | Specifies where to send the output files.
+-- | Specifies where to send the output files. The output is a compressed archive with two files, @topic-terms.csv@ that lists the terms associated with each topic, and @doc-topics.csv@ that lists the documents associated with each topic
 stdjOutputDataConfig :: Lens' StartTopicsDetectionJob OutputDataConfig
 stdjOutputDataConfig = lens _stdjOutputDataConfig (\ s a -> s{_stdjOutputDataConfig = a})
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
+-- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
 stdjDataAccessRoleARN :: Lens' StartTopicsDetectionJob Text
 stdjDataAccessRoleARN = lens _stdjDataAccessRoleARN (\ s a -> s{_stdjDataAccessRoleARN = a})
 

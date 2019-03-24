@@ -34,9 +34,9 @@ module Network.AWS.Comprehend.DetectSentiment
     , detectSentimentResponse
     , DetectSentimentResponse
     -- * Response Lenses
-    , dsrsSentiment
-    , dsrsSentimentScore
-    , dsrsResponseStatus
+    , detrsSentiment
+    , detrsSentimentScore
+    , detrsResponseStatus
     ) where
 
 import Network.AWS.Comprehend.Types
@@ -59,7 +59,7 @@ data DetectSentiment = DetectSentiment'
 --
 -- * 'dsText' - A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
 --
--- * 'dsLanguageCode' - The RFC 5646 language code for the input text. If you don't specify a language code, Amazon Comprehend detects the dominant language. If you specify the code for a language that Amazon Comprehend does not support, it returns and @UnsupportedLanguageException@ . For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
+-- * 'dsLanguageCode' - The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in the same language.
 detectSentiment
     :: Text -- ^ 'dsText'
     -> LanguageCode -- ^ 'dsLanguageCode'
@@ -72,7 +72,7 @@ detectSentiment pText_ pLanguageCode_ =
 dsText :: Lens' DetectSentiment Text
 dsText = lens _dsText (\ s a -> s{_dsText = a})
 
--- | The RFC 5646 language code for the input text. If you don't specify a language code, Amazon Comprehend detects the dominant language. If you specify the code for a language that Amazon Comprehend does not support, it returns and @UnsupportedLanguageException@ . For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
+-- | The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in the same language.
 dsLanguageCode :: Lens' DetectSentiment LanguageCode
 dsLanguageCode = lens _dsLanguageCode (\ s a -> s{_dsLanguageCode = a})
 
@@ -115,9 +115,9 @@ instance ToQuery DetectSentiment where
 
 -- | /See:/ 'detectSentimentResponse' smart constructor.
 data DetectSentimentResponse = DetectSentimentResponse'
-  { _dsrsSentiment      :: !(Maybe SentimentType)
-  , _dsrsSentimentScore :: !(Maybe SentimentScore)
-  , _dsrsResponseStatus :: !Int
+  { _detrsSentiment      :: !(Maybe SentimentType)
+  , _detrsSentimentScore :: !(Maybe SentimentScore)
+  , _detrsResponseStatus :: !Int
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -125,32 +125,32 @@ data DetectSentimentResponse = DetectSentimentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrsSentiment' - The inferred sentiment that Amazon Comprehend has the highest level of confidence in.
+-- * 'detrsSentiment' - The inferred sentiment that Amazon Comprehend has the highest level of confidence in.
 --
--- * 'dsrsSentimentScore' - An object that lists the sentiments, and their corresponding confidence levels.
+-- * 'detrsSentimentScore' - An object that lists the sentiments, and their corresponding confidence levels.
 --
--- * 'dsrsResponseStatus' - -- | The response status code.
+-- * 'detrsResponseStatus' - -- | The response status code.
 detectSentimentResponse
-    :: Int -- ^ 'dsrsResponseStatus'
+    :: Int -- ^ 'detrsResponseStatus'
     -> DetectSentimentResponse
 detectSentimentResponse pResponseStatus_ =
   DetectSentimentResponse'
-    { _dsrsSentiment = Nothing
-    , _dsrsSentimentScore = Nothing
-    , _dsrsResponseStatus = pResponseStatus_
+    { _detrsSentiment = Nothing
+    , _detrsSentimentScore = Nothing
+    , _detrsResponseStatus = pResponseStatus_
     }
 
 
 -- | The inferred sentiment that Amazon Comprehend has the highest level of confidence in.
-dsrsSentiment :: Lens' DetectSentimentResponse (Maybe SentimentType)
-dsrsSentiment = lens _dsrsSentiment (\ s a -> s{_dsrsSentiment = a})
+detrsSentiment :: Lens' DetectSentimentResponse (Maybe SentimentType)
+detrsSentiment = lens _detrsSentiment (\ s a -> s{_detrsSentiment = a})
 
 -- | An object that lists the sentiments, and their corresponding confidence levels.
-dsrsSentimentScore :: Lens' DetectSentimentResponse (Maybe SentimentScore)
-dsrsSentimentScore = lens _dsrsSentimentScore (\ s a -> s{_dsrsSentimentScore = a})
+detrsSentimentScore :: Lens' DetectSentimentResponse (Maybe SentimentScore)
+detrsSentimentScore = lens _detrsSentimentScore (\ s a -> s{_detrsSentimentScore = a})
 
 -- | -- | The response status code.
-dsrsResponseStatus :: Lens' DetectSentimentResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
+detrsResponseStatus :: Lens' DetectSentimentResponse Int
+detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a})
 
 instance NFData DetectSentimentResponse where

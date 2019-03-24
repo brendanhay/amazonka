@@ -58,7 +58,7 @@ data DetectKeyPhrases = DetectKeyPhrases'
 --
 -- * 'dkpText' - A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
 --
--- * 'dkpLanguageCode' - The RFC 5646 language code for the input text. If you don't specify a language code, Amazon Comprehend detects the dominant language. If you specify the code for a language that Amazon Comprehend does not support, it returns and @UnsupportedLanguageException@ . For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
+-- * 'dkpLanguageCode' - The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in the same language.
 detectKeyPhrases
     :: Text -- ^ 'dkpText'
     -> LanguageCode -- ^ 'dkpLanguageCode'
@@ -71,7 +71,7 @@ detectKeyPhrases pText_ pLanguageCode_ =
 dkpText :: Lens' DetectKeyPhrases Text
 dkpText = lens _dkpText (\ s a -> s{_dkpText = a})
 
--- | The RFC 5646 language code for the input text. If you don't specify a language code, Amazon Comprehend detects the dominant language. If you specify the code for a language that Amazon Comprehend does not support, it returns and @UnsupportedLanguageException@ . For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
+-- | The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in the same language.
 dkpLanguageCode :: Lens' DetectKeyPhrases LanguageCode
 dkpLanguageCode = lens _dkpLanguageCode (\ s a -> s{_dkpLanguageCode = a})
 

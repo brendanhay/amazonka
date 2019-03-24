@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Inspects text for entities, and returns information about them. For more information, about entities, see 'how-entities' .
+-- Inspects text for named entities, and returns information about them. For more information, about named entities, see 'how-entities' .
 --
 --
 module Network.AWS.Comprehend.DetectEntities
@@ -58,7 +58,7 @@ data DetectEntities = DetectEntities'
 --
 -- * 'deText' - A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
 --
--- * 'deLanguageCode' - The RFC 5646 language code of the input text. If the request does not specify the language code, the service detects the dominant language. If you specify a language code that the service does not support, it returns @UnsupportedLanguageException@ exception. For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
+-- * 'deLanguageCode' - The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in the same language.
 detectEntities
     :: Text -- ^ 'deText'
     -> LanguageCode -- ^ 'deLanguageCode'
@@ -71,7 +71,7 @@ detectEntities pText_ pLanguageCode_ =
 deText :: Lens' DetectEntities Text
 deText = lens _deText (\ s a -> s{_deText = a})
 
--- | The RFC 5646 language code of the input text. If the request does not specify the language code, the service detects the dominant language. If you specify a language code that the service does not support, it returns @UnsupportedLanguageException@ exception. For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
+-- | The language of the input documents. You can specify English ("en") or Spanish ("es"). All documents must be in the same language.
 deLanguageCode :: Lens' DetectEntities LanguageCode
 deLanguageCode = lens _deLanguageCode (\ s a -> s{_deLanguageCode = a})
 

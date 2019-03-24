@@ -49,13 +49,44 @@ library
         , Network.AWS.Comprehend.BatchDetectEntities
         , Network.AWS.Comprehend.BatchDetectKeyPhrases
         , Network.AWS.Comprehend.BatchDetectSentiment
+        , Network.AWS.Comprehend.BatchDetectSyntax
+        , Network.AWS.Comprehend.CreateDocumentClassifier
+        , Network.AWS.Comprehend.CreateEntityRecognizer
+        , Network.AWS.Comprehend.DeleteDocumentClassifier
+        , Network.AWS.Comprehend.DeleteEntityRecognizer
+        , Network.AWS.Comprehend.DescribeDocumentClassificationJob
+        , Network.AWS.Comprehend.DescribeDocumentClassifier
+        , Network.AWS.Comprehend.DescribeDominantLanguageDetectionJob
+        , Network.AWS.Comprehend.DescribeEntitiesDetectionJob
+        , Network.AWS.Comprehend.DescribeEntityRecognizer
+        , Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob
+        , Network.AWS.Comprehend.DescribeSentimentDetectionJob
         , Network.AWS.Comprehend.DescribeTopicsDetectionJob
         , Network.AWS.Comprehend.DetectDominantLanguage
         , Network.AWS.Comprehend.DetectEntities
         , Network.AWS.Comprehend.DetectKeyPhrases
         , Network.AWS.Comprehend.DetectSentiment
+        , Network.AWS.Comprehend.DetectSyntax
+        , Network.AWS.Comprehend.ListDocumentClassificationJobs
+        , Network.AWS.Comprehend.ListDocumentClassifiers
+        , Network.AWS.Comprehend.ListDominantLanguageDetectionJobs
+        , Network.AWS.Comprehend.ListEntitiesDetectionJobs
+        , Network.AWS.Comprehend.ListEntityRecognizers
+        , Network.AWS.Comprehend.ListKeyPhrasesDetectionJobs
+        , Network.AWS.Comprehend.ListSentimentDetectionJobs
         , Network.AWS.Comprehend.ListTopicsDetectionJobs
+        , Network.AWS.Comprehend.StartDocumentClassificationJob
+        , Network.AWS.Comprehend.StartDominantLanguageDetectionJob
+        , Network.AWS.Comprehend.StartEntitiesDetectionJob
+        , Network.AWS.Comprehend.StartKeyPhrasesDetectionJob
+        , Network.AWS.Comprehend.StartSentimentDetectionJob
         , Network.AWS.Comprehend.StartTopicsDetectionJob
+        , Network.AWS.Comprehend.StopDominantLanguageDetectionJob
+        , Network.AWS.Comprehend.StopEntitiesDetectionJob
+        , Network.AWS.Comprehend.StopKeyPhrasesDetectionJob
+        , Network.AWS.Comprehend.StopSentimentDetectionJob
+        , Network.AWS.Comprehend.StopTrainingDocumentClassifier
+        , Network.AWS.Comprehend.StopTrainingEntityRecognizer
         , Network.AWS.Comprehend.Types
         , Network.AWS.Comprehend.Waiters
 

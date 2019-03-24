@@ -116,10 +116,10 @@ module Network.AWS.CodeStar
     -- * Operations
     -- $operations
 
-    -- ** ListProjects
+    -- ** ListProjects (Paginated)
     , module Network.AWS.CodeStar.ListProjects
 
-    -- ** ListTeamMembers
+    -- ** ListTeamMembers (Paginated)
     , module Network.AWS.CodeStar.ListTeamMembers
 
     -- ** DeleteProject
@@ -137,10 +137,10 @@ module Network.AWS.CodeStar
     -- ** DescribeProject
     , module Network.AWS.CodeStar.DescribeProject
 
-    -- ** ListUserProfiles
+    -- ** ListUserProfiles (Paginated)
     , module Network.AWS.CodeStar.ListUserProfiles
 
-    -- ** ListResources
+    -- ** ListResources (Paginated)
     , module Network.AWS.CodeStar.ListResources
 
     -- ** AssociateTeamMember
@@ -172,6 +172,45 @@ module Network.AWS.CodeStar
 
     -- * Types
 
+    -- ** Code
+    , Code
+    , code
+    , cSource
+    , cDestination
+
+    -- ** CodeCommitCodeDestination
+    , CodeCommitCodeDestination
+    , codeCommitCodeDestination
+    , cccdName
+
+    -- ** CodeDestination
+    , CodeDestination
+    , codeDestination
+    , cdCodeCommit
+    , cdGitHub
+
+    -- ** CodeSource
+    , CodeSource
+    , codeSource
+    , csS3
+
+    -- ** GitHubCodeDestination
+    , GitHubCodeDestination
+    , gitHubCodeDestination
+    , ghcdDescription
+    , ghcdName
+    , ghcdType
+    , ghcdOwner
+    , ghcdPrivateRepository
+    , ghcdIssuesEnabled
+    , ghcdToken
+
+    -- ** ProjectStatus
+    , ProjectStatus
+    , projectStatus
+    , psReason
+    , psState
+
     -- ** ProjectSummary
     , ProjectSummary
     , projectSummary
@@ -183,12 +222,30 @@ module Network.AWS.CodeStar
     , resource
     , rId
 
+    -- ** S3Location
+    , S3Location
+    , s3Location
+    , slBucketKey
+    , slBucketName
+
     -- ** TeamMember
     , TeamMember
     , teamMember
     , tmRemoteAccessAllowed
     , tmUserARN
     , tmProjectRole
+
+    -- ** Toolchain
+    , Toolchain
+    , toolchain
+    , tStackParameters
+    , tRoleARN
+    , tSource
+
+    -- ** ToolchainSource
+    , ToolchainSource
+    , toolchainSource
+    , tsS3
 
     -- ** UserProfileSummary
     , UserProfileSummary

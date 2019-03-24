@@ -21,6 +21,8 @@
 -- Lists all team members associated with a project.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CodeStar.ListTeamMembers
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.CodeStar.ListTeamMembers
 import Network.AWS.CodeStar.Types
 import Network.AWS.CodeStar.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -86,6 +89,13 @@ ltmMaxResults = lens _ltmMaxResults (\ s a -> s{_ltmMaxResults = a}) . mapping _
 -- | The ID of the project for which you want to list team members.
 ltmProjectId :: Lens' ListTeamMembers Text
 ltmProjectId = lens _ltmProjectId (\ s a -> s{_ltmProjectId = a})
+
+instance AWSPager ListTeamMembers where
+        page rq rs
+          | stop (rs ^. ltmrsNextToken) = Nothing
+          | stop (rs ^. ltmrsTeamMembers) = Nothing
+          | otherwise =
+            Just $ rq & ltmNextToken .~ rs ^. ltmrsNextToken
 
 instance AWSRequest ListTeamMembers where
         type Rs ListTeamMembers = ListTeamMembersResponse

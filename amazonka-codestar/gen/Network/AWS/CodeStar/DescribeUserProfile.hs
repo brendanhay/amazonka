@@ -114,7 +114,7 @@ instance ToQuery DescribeUserProfile where
 data DescribeUserProfileResponse = DescribeUserProfileResponse'
   { _duprsSshPublicKey          :: !(Maybe Text)
   , _duprsEmailAddress          :: !(Maybe (Sensitive Text))
-  , _duprsDisplayName           :: !(Maybe Text)
+  , _duprsDisplayName           :: !(Maybe (Sensitive Text))
   , _duprsResponseStatus        :: !Int
   , _duprsUserARN               :: !Text
   , _duprsCreatedTimestamp      :: !POSIX
@@ -167,7 +167,7 @@ duprsEmailAddress = lens _duprsEmailAddress (\ s a -> s{_duprsEmailAddress = a})
 
 -- | The display name shown for the user in AWS CodeStar projects. For example, this could be set to both first and last name ("Mary Major") or a single name ("Mary"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example "Mary Jane Major") would generate an initial icon using the first character and the first character after the space ("MJ", not "MM").
 duprsDisplayName :: Lens' DescribeUserProfileResponse (Maybe Text)
-duprsDisplayName = lens _duprsDisplayName (\ s a -> s{_duprsDisplayName = a})
+duprsDisplayName = lens _duprsDisplayName (\ s a -> s{_duprsDisplayName = a}) . mapping _Sensitive
 
 -- | -- | The response status code.
 duprsResponseStatus :: Lens' DescribeUserProfileResponse Int

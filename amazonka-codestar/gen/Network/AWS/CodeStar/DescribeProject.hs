@@ -33,6 +33,7 @@ module Network.AWS.CodeStar.DescribeProject
     , describeProjectResponse
     , DescribeProjectResponse
     -- * Response Lenses
+    , drsStatus
     , drsArn
     , drsProjectTemplateId
     , drsName
@@ -79,8 +80,9 @@ instance AWSRequest DescribeProject where
           = receiveJSON
               (\ s h x ->
                  DescribeProjectResponse' <$>
-                   (x .?> "arn") <*> (x .?> "projectTemplateId") <*>
-                     (x .?> "name")
+                   (x .?> "status") <*> (x .?> "arn") <*>
+                     (x .?> "projectTemplateId")
+                     <*> (x .?> "name")
                      <*> (x .?> "id")
                      <*> (x .?> "stackId")
                      <*> (x .?> "clientRequestToken")
@@ -113,7 +115,8 @@ instance ToQuery DescribeProject where
 
 -- | /See:/ 'describeProjectResponse' smart constructor.
 data DescribeProjectResponse = DescribeProjectResponse'
-  { _drsArn                :: !(Maybe Text)
+  { _drsStatus             :: !(Maybe ProjectStatus)
+  , _drsArn                :: !(Maybe Text)
   , _drsProjectTemplateId  :: !(Maybe Text)
   , _drsName               :: !(Maybe (Sensitive Text))
   , _drsId                 :: !(Maybe Text)
@@ -128,6 +131,8 @@ data DescribeProjectResponse = DescribeProjectResponse'
 -- | Creates a value of 'DescribeProjectResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsStatus' - The project creation or deletion status.
 --
 -- * 'drsArn' - The Amazon Resource Name (ARN) for the project.
 --
@@ -151,7 +156,8 @@ describeProjectResponse
     -> DescribeProjectResponse
 describeProjectResponse pResponseStatus_ =
   DescribeProjectResponse'
-    { _drsArn = Nothing
+    { _drsStatus = Nothing
+    , _drsArn = Nothing
     , _drsProjectTemplateId = Nothing
     , _drsName = Nothing
     , _drsId = Nothing
@@ -162,6 +168,10 @@ describeProjectResponse pResponseStatus_ =
     , _drsResponseStatus = pResponseStatus_
     }
 
+
+-- | The project creation or deletion status.
+drsStatus :: Lens' DescribeProjectResponse (Maybe ProjectStatus)
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a})
 
 -- | The Amazon Resource Name (ARN) for the project.
 drsArn :: Lens' DescribeProjectResponse (Maybe Text)

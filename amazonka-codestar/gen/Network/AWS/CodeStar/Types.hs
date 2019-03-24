@@ -30,6 +30,45 @@ module Network.AWS.CodeStar.Types
     , _UserProfileNotFoundException
     , _LimitExceededException
 
+    -- * Code
+    , Code
+    , code
+    , cSource
+    , cDestination
+
+    -- * CodeCommitCodeDestination
+    , CodeCommitCodeDestination
+    , codeCommitCodeDestination
+    , cccdName
+
+    -- * CodeDestination
+    , CodeDestination
+    , codeDestination
+    , cdCodeCommit
+    , cdGitHub
+
+    -- * CodeSource
+    , CodeSource
+    , codeSource
+    , csS3
+
+    -- * GitHubCodeDestination
+    , GitHubCodeDestination
+    , gitHubCodeDestination
+    , ghcdDescription
+    , ghcdName
+    , ghcdType
+    , ghcdOwner
+    , ghcdPrivateRepository
+    , ghcdIssuesEnabled
+    , ghcdToken
+
+    -- * ProjectStatus
+    , ProjectStatus
+    , projectStatus
+    , psReason
+    , psState
+
     -- * ProjectSummary
     , ProjectSummary
     , projectSummary
@@ -41,12 +80,30 @@ module Network.AWS.CodeStar.Types
     , resource
     , rId
 
+    -- * S3Location
+    , S3Location
+    , s3Location
+    , slBucketKey
+    , slBucketName
+
     -- * TeamMember
     , TeamMember
     , teamMember
     , tmRemoteAccessAllowed
     , tmUserARN
     , tmProjectRole
+
+    -- * Toolchain
+    , Toolchain
+    , toolchain
+    , tStackParameters
+    , tRoleARN
+    , tSource
+
+    -- * ToolchainSource
+    , ToolchainSource
+    , toolchainSource
+    , tsS3
 
     -- * UserProfileSummary
     , UserProfileSummary

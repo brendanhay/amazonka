@@ -28,10 +28,10 @@ module Network.AWS.AlexaBusiness.CreateContact
     , CreateContact
     -- * Request Lenses
     , ccLastName
+    , ccPhoneNumber
     , ccDisplayName
     , ccClientRequestToken
     , ccFirstName
-    , ccPhoneNumber
 
     -- * Destructuring the Response
     , createContactResponse
@@ -51,11 +51,11 @@ import Network.AWS.Response
 -- | /See:/ 'createContact' smart constructor.
 data CreateContact = CreateContact'
   { _ccLastName           :: !(Maybe Text)
+  , _ccPhoneNumber        :: !(Maybe (Sensitive Text))
   , _ccDisplayName        :: !(Maybe Text)
   , _ccClientRequestToken :: !(Maybe Text)
   , _ccFirstName          :: !Text
-  , _ccPhoneNumber        :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'CreateContact' with the minimum fields required to make a request.
@@ -64,30 +64,33 @@ data CreateContact = CreateContact'
 --
 -- * 'ccLastName' - The last name of the contact that is used to call the contact on the device.
 --
+-- * 'ccPhoneNumber' - The phone number of the contact in E.164 format.
+--
 -- * 'ccDisplayName' - The name of the contact to display on the console.
 --
 -- * 'ccClientRequestToken' - A unique, user-specified identifier for this request that ensures idempotency.
 --
 -- * 'ccFirstName' - The first name of the contact that is used to call the contact on the device.
---
--- * 'ccPhoneNumber' - The phone number of the contact in E.164 format.
 createContact
     :: Text -- ^ 'ccFirstName'
-    -> Text -- ^ 'ccPhoneNumber'
     -> CreateContact
-createContact pFirstName_ pPhoneNumber_ =
+createContact pFirstName_ =
   CreateContact'
     { _ccLastName = Nothing
+    , _ccPhoneNumber = Nothing
     , _ccDisplayName = Nothing
     , _ccClientRequestToken = Nothing
     , _ccFirstName = pFirstName_
-    , _ccPhoneNumber = pPhoneNumber_
     }
 
 
 -- | The last name of the contact that is used to call the contact on the device.
 ccLastName :: Lens' CreateContact (Maybe Text)
 ccLastName = lens _ccLastName (\ s a -> s{_ccLastName = a})
+
+-- | The phone number of the contact in E.164 format.
+ccPhoneNumber :: Lens' CreateContact (Maybe Text)
+ccPhoneNumber = lens _ccPhoneNumber (\ s a -> s{_ccPhoneNumber = a}) . mapping _Sensitive
 
 -- | The name of the contact to display on the console.
 ccDisplayName :: Lens' CreateContact (Maybe Text)
@@ -100,10 +103,6 @@ ccClientRequestToken = lens _ccClientRequestToken (\ s a -> s{_ccClientRequestTo
 -- | The first name of the contact that is used to call the contact on the device.
 ccFirstName :: Lens' CreateContact Text
 ccFirstName = lens _ccFirstName (\ s a -> s{_ccFirstName = a})
-
--- | The phone number of the contact in E.164 format.
-ccPhoneNumber :: Lens' CreateContact Text
-ccPhoneNumber = lens _ccPhoneNumber (\ s a -> s{_ccPhoneNumber = a})
 
 instance AWSRequest CreateContact where
         type Rs CreateContact = CreateContactResponse
@@ -132,10 +131,10 @@ instance ToJSON CreateContact where
           = object
               (catMaybes
                  [("LastName" .=) <$> _ccLastName,
+                  ("PhoneNumber" .=) <$> _ccPhoneNumber,
                   ("DisplayName" .=) <$> _ccDisplayName,
                   ("ClientRequestToken" .=) <$> _ccClientRequestToken,
-                  Just ("FirstName" .= _ccFirstName),
-                  Just ("PhoneNumber" .= _ccPhoneNumber)])
+                  Just ("FirstName" .= _ccFirstName)])
 
 instance ToPath CreateContact where
         toPath = const "/"

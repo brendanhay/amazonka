@@ -31,8 +31,20 @@ import Test.Tasty
 --         [ requestSearchUsers $
 --             searchUsers
 --
+--         , requestPutConferencePreference $
+--             putConferencePreference
+--
+--         , requestUpdateBusinessReportSchedule $
+--             updateBusinessReportSchedule
+--
+--         , requestDeleteBusinessReportSchedule $
+--             deleteBusinessReportSchedule
+--
 --         , requestAssociateSkillGroupWithRoom $
 --             associateSkillGroupWithRoom
+--
+--         , requestListSmartHomeAppliances $
+--             listSmartHomeAppliances
 --
 --         , requestDeleteProfile $
 --             deleteProfile
@@ -43,8 +55,26 @@ import Test.Tasty
 --         , requestSearchRooms $
 --             searchRooms
 --
+--         , requestAssociateSkillWithUsers $
+--             associateSkillWithUsers
+--
+--         , requestRegisterAVSDevice $
+--             registerAVSDevice
+--
+--         , requestForgetSmartHomeAppliances $
+--             forgetSmartHomeAppliances
+--
+--         , requestPutInvitationConfiguration $
+--             putInvitationConfiguration
+--
 --         , requestDisassociateContactFromAddressBook $
 --             disassociateContactFromAddressBook
+--
+--         , requestGetConferencePreference $
+--             getConferencePreference
+--
+--         , requestDisassociateSkillFromSkillGroup $
+--             disassociateSkillFromSkillGroup
 --
 --         , requestCreateAddressBook $
 --             createAddressBook
@@ -64,14 +94,29 @@ import Test.Tasty
 --         , requestGetDevice $
 --             getDevice
 --
+--         , requestListSkillsStoreSkillsByCategory $
+--             listSkillsStoreSkillsByCategory
+--
+--         , requestDeleteConferenceProvider $
+--             deleteConferenceProvider
+--
+--         , requestUpdateConferenceProvider $
+--             updateConferenceProvider
+--
 --         , requestGetContact $
 --             getContact
+--
+--         , requestApproveSkill $
+--             approveSkill
 --
 --         , requestAssociateDeviceWithRoom $
 --             associateDeviceWithRoom
 --
 --         , requestGetRoomSkillParameter $
 --             getRoomSkillParameter
+--
+--         , requestCreateBusinessReportSchedule $
+--             createBusinessReportSchedule
 --
 --         , requestDeleteContact $
 --             deleteContact
@@ -81,6 +126,9 @@ import Test.Tasty
 --
 --         , requestGetAddressBook $
 --             getAddressBook
+--
+--         , requestListBusinessReportSchedules $
+--             listBusinessReportSchedules
 --
 --         , requestCreateContact $
 --             createContact
@@ -96,6 +144,12 @@ import Test.Tasty
 --
 --         , requestStartDeviceSync $
 --             startDeviceSync
+--
+--         , requestGetInvitationConfiguration $
+--             getInvitationConfiguration
+--
+--         , requestDisassociateSkillFromUsers $
+--             disassociateSkillFromUsers
 --
 --         , requestSearchAddressBooks $
 --             searchAddressBooks
@@ -142,11 +196,20 @@ import Test.Tasty
 --         , requestSearchSkillGroups $
 --             searchSkillGroups
 --
+--         , requestPutSkillAuthorization $
+--             putSkillAuthorization
+--
 --         , requestListTags $
 --             listTags
 --
+--         , requestDeleteSkillAuthorization $
+--             deleteSkillAuthorization
+--
 --         , requestUntagResource $
 --             untagResource
+--
+--         , requestCreateConferenceProvider $
+--             createConferenceProvider
 --
 --         , requestResolveRoom $
 --             resolveRoom
@@ -163,14 +226,35 @@ import Test.Tasty
 --         , requestSearchProfiles $
 --             searchProfiles
 --
+--         , requestRejectSkill $
+--             rejectSkill
+--
+--         , requestListConferenceProviders $
+--             listConferenceProviders
+--
 --         , requestRevokeInvitation $
 --             revokeInvitation
+--
+--         , requestDeleteDevice $
+--             deleteDevice
 --
 --         , requestUpdateDevice $
 --             updateDevice
 --
+--         , requestAssociateSkillWithSkillGroup $
+--             associateSkillWithSkillGroup
+--
+--         , requestGetConferenceProvider $
+--             getConferenceProvider
+--
 --         , requestGetRoom $
 --             getRoom
+--
+--         , requestListSkillsStoreCategories $
+--             listSkillsStoreCategories
+--
+--         , requestStartSmartHomeApplianceDiscovery $
+--             startSmartHomeApplianceDiscovery
 --
 --         , requestAssociateContactWithAddressBook $
 --             associateContactWithAddressBook
@@ -181,8 +265,20 @@ import Test.Tasty
 --         [ responseSearchUsers $
 --             searchUsersResponse
 --
+--         , responsePutConferencePreference $
+--             putConferencePreferenceResponse
+--
+--         , responseUpdateBusinessReportSchedule $
+--             updateBusinessReportScheduleResponse
+--
+--         , responseDeleteBusinessReportSchedule $
+--             deleteBusinessReportScheduleResponse
+--
 --         , responseAssociateSkillGroupWithRoom $
 --             associateSkillGroupWithRoomResponse
+--
+--         , responseListSmartHomeAppliances $
+--             listSmartHomeAppliancesResponse
 --
 --         , responseDeleteProfile $
 --             deleteProfileResponse
@@ -193,8 +289,26 @@ import Test.Tasty
 --         , responseSearchRooms $
 --             searchRoomsResponse
 --
+--         , responseAssociateSkillWithUsers $
+--             associateSkillWithUsersResponse
+--
+--         , responseRegisterAVSDevice $
+--             registerAVSDeviceResponse
+--
+--         , responseForgetSmartHomeAppliances $
+--             forgetSmartHomeAppliancesResponse
+--
+--         , responsePutInvitationConfiguration $
+--             putInvitationConfigurationResponse
+--
 --         , responseDisassociateContactFromAddressBook $
 --             disassociateContactFromAddressBookResponse
+--
+--         , responseGetConferencePreference $
+--             getConferencePreferenceResponse
+--
+--         , responseDisassociateSkillFromSkillGroup $
+--             disassociateSkillFromSkillGroupResponse
 --
 --         , responseCreateAddressBook $
 --             createAddressBookResponse
@@ -214,14 +328,29 @@ import Test.Tasty
 --         , responseGetDevice $
 --             getDeviceResponse
 --
+--         , responseListSkillsStoreSkillsByCategory $
+--             listSkillsStoreSkillsByCategoryResponse
+--
+--         , responseDeleteConferenceProvider $
+--             deleteConferenceProviderResponse
+--
+--         , responseUpdateConferenceProvider $
+--             updateConferenceProviderResponse
+--
 --         , responseGetContact $
 --             getContactResponse
+--
+--         , responseApproveSkill $
+--             approveSkillResponse
 --
 --         , responseAssociateDeviceWithRoom $
 --             associateDeviceWithRoomResponse
 --
 --         , responseGetRoomSkillParameter $
 --             getRoomSkillParameterResponse
+--
+--         , responseCreateBusinessReportSchedule $
+--             createBusinessReportScheduleResponse
 --
 --         , responseDeleteContact $
 --             deleteContactResponse
@@ -231,6 +360,9 @@ import Test.Tasty
 --
 --         , responseGetAddressBook $
 --             getAddressBookResponse
+--
+--         , responseListBusinessReportSchedules $
+--             listBusinessReportSchedulesResponse
 --
 --         , responseCreateContact $
 --             createContactResponse
@@ -246,6 +378,12 @@ import Test.Tasty
 --
 --         , responseStartDeviceSync $
 --             startDeviceSyncResponse
+--
+--         , responseGetInvitationConfiguration $
+--             getInvitationConfigurationResponse
+--
+--         , responseDisassociateSkillFromUsers $
+--             disassociateSkillFromUsersResponse
 --
 --         , responseSearchAddressBooks $
 --             searchAddressBooksResponse
@@ -292,11 +430,20 @@ import Test.Tasty
 --         , responseSearchSkillGroups $
 --             searchSkillGroupsResponse
 --
+--         , responsePutSkillAuthorization $
+--             putSkillAuthorizationResponse
+--
 --         , responseListTags $
 --             listTagsResponse
 --
+--         , responseDeleteSkillAuthorization $
+--             deleteSkillAuthorizationResponse
+--
 --         , responseUntagResource $
 --             untagResourceResponse
+--
+--         , responseCreateConferenceProvider $
+--             createConferenceProviderResponse
 --
 --         , responseResolveRoom $
 --             resolveRoomResponse
@@ -313,14 +460,35 @@ import Test.Tasty
 --         , responseSearchProfiles $
 --             searchProfilesResponse
 --
+--         , responseRejectSkill $
+--             rejectSkillResponse
+--
+--         , responseListConferenceProviders $
+--             listConferenceProvidersResponse
+--
 --         , responseRevokeInvitation $
 --             revokeInvitationResponse
+--
+--         , responseDeleteDevice $
+--             deleteDeviceResponse
 --
 --         , responseUpdateDevice $
 --             updateDeviceResponse
 --
+--         , responseAssociateSkillWithSkillGroup $
+--             associateSkillWithSkillGroupResponse
+--
+--         , responseGetConferenceProvider $
+--             getConferenceProviderResponse
+--
 --         , responseGetRoom $
 --             getRoomResponse
+--
+--         , responseListSkillsStoreCategories $
+--             listSkillsStoreCategoriesResponse
+--
+--         , responseStartSmartHomeApplianceDiscovery $
+--             startSmartHomeApplianceDiscoveryResponse
 --
 --         , responseAssociateContactWithAddressBook $
 --             associateContactWithAddressBookResponse
@@ -335,10 +503,30 @@ requestSearchUsers = req
     "SearchUsers"
     "fixture/SearchUsers.yaml"
 
+requestPutConferencePreference :: PutConferencePreference -> TestTree
+requestPutConferencePreference = req
+    "PutConferencePreference"
+    "fixture/PutConferencePreference.yaml"
+
+requestUpdateBusinessReportSchedule :: UpdateBusinessReportSchedule -> TestTree
+requestUpdateBusinessReportSchedule = req
+    "UpdateBusinessReportSchedule"
+    "fixture/UpdateBusinessReportSchedule.yaml"
+
+requestDeleteBusinessReportSchedule :: DeleteBusinessReportSchedule -> TestTree
+requestDeleteBusinessReportSchedule = req
+    "DeleteBusinessReportSchedule"
+    "fixture/DeleteBusinessReportSchedule.yaml"
+
 requestAssociateSkillGroupWithRoom :: AssociateSkillGroupWithRoom -> TestTree
 requestAssociateSkillGroupWithRoom = req
     "AssociateSkillGroupWithRoom"
     "fixture/AssociateSkillGroupWithRoom.yaml"
+
+requestListSmartHomeAppliances :: ListSmartHomeAppliances -> TestTree
+requestListSmartHomeAppliances = req
+    "ListSmartHomeAppliances"
+    "fixture/ListSmartHomeAppliances.yaml"
 
 requestDeleteProfile :: DeleteProfile -> TestTree
 requestDeleteProfile = req
@@ -355,10 +543,40 @@ requestSearchRooms = req
     "SearchRooms"
     "fixture/SearchRooms.yaml"
 
+requestAssociateSkillWithUsers :: AssociateSkillWithUsers -> TestTree
+requestAssociateSkillWithUsers = req
+    "AssociateSkillWithUsers"
+    "fixture/AssociateSkillWithUsers.yaml"
+
+requestRegisterAVSDevice :: RegisterAVSDevice -> TestTree
+requestRegisterAVSDevice = req
+    "RegisterAVSDevice"
+    "fixture/RegisterAVSDevice.yaml"
+
+requestForgetSmartHomeAppliances :: ForgetSmartHomeAppliances -> TestTree
+requestForgetSmartHomeAppliances = req
+    "ForgetSmartHomeAppliances"
+    "fixture/ForgetSmartHomeAppliances.yaml"
+
+requestPutInvitationConfiguration :: PutInvitationConfiguration -> TestTree
+requestPutInvitationConfiguration = req
+    "PutInvitationConfiguration"
+    "fixture/PutInvitationConfiguration.yaml"
+
 requestDisassociateContactFromAddressBook :: DisassociateContactFromAddressBook -> TestTree
 requestDisassociateContactFromAddressBook = req
     "DisassociateContactFromAddressBook"
     "fixture/DisassociateContactFromAddressBook.yaml"
+
+requestGetConferencePreference :: GetConferencePreference -> TestTree
+requestGetConferencePreference = req
+    "GetConferencePreference"
+    "fixture/GetConferencePreference.yaml"
+
+requestDisassociateSkillFromSkillGroup :: DisassociateSkillFromSkillGroup -> TestTree
+requestDisassociateSkillFromSkillGroup = req
+    "DisassociateSkillFromSkillGroup"
+    "fixture/DisassociateSkillFromSkillGroup.yaml"
 
 requestCreateAddressBook :: CreateAddressBook -> TestTree
 requestCreateAddressBook = req
@@ -390,10 +608,30 @@ requestGetDevice = req
     "GetDevice"
     "fixture/GetDevice.yaml"
 
+requestListSkillsStoreSkillsByCategory :: ListSkillsStoreSkillsByCategory -> TestTree
+requestListSkillsStoreSkillsByCategory = req
+    "ListSkillsStoreSkillsByCategory"
+    "fixture/ListSkillsStoreSkillsByCategory.yaml"
+
+requestDeleteConferenceProvider :: DeleteConferenceProvider -> TestTree
+requestDeleteConferenceProvider = req
+    "DeleteConferenceProvider"
+    "fixture/DeleteConferenceProvider.yaml"
+
+requestUpdateConferenceProvider :: UpdateConferenceProvider -> TestTree
+requestUpdateConferenceProvider = req
+    "UpdateConferenceProvider"
+    "fixture/UpdateConferenceProvider.yaml"
+
 requestGetContact :: GetContact -> TestTree
 requestGetContact = req
     "GetContact"
     "fixture/GetContact.yaml"
+
+requestApproveSkill :: ApproveSkill -> TestTree
+requestApproveSkill = req
+    "ApproveSkill"
+    "fixture/ApproveSkill.yaml"
 
 requestAssociateDeviceWithRoom :: AssociateDeviceWithRoom -> TestTree
 requestAssociateDeviceWithRoom = req
@@ -404,6 +642,11 @@ requestGetRoomSkillParameter :: GetRoomSkillParameter -> TestTree
 requestGetRoomSkillParameter = req
     "GetRoomSkillParameter"
     "fixture/GetRoomSkillParameter.yaml"
+
+requestCreateBusinessReportSchedule :: CreateBusinessReportSchedule -> TestTree
+requestCreateBusinessReportSchedule = req
+    "CreateBusinessReportSchedule"
+    "fixture/CreateBusinessReportSchedule.yaml"
 
 requestDeleteContact :: DeleteContact -> TestTree
 requestDeleteContact = req
@@ -419,6 +662,11 @@ requestGetAddressBook :: GetAddressBook -> TestTree
 requestGetAddressBook = req
     "GetAddressBook"
     "fixture/GetAddressBook.yaml"
+
+requestListBusinessReportSchedules :: ListBusinessReportSchedules -> TestTree
+requestListBusinessReportSchedules = req
+    "ListBusinessReportSchedules"
+    "fixture/ListBusinessReportSchedules.yaml"
 
 requestCreateContact :: CreateContact -> TestTree
 requestCreateContact = req
@@ -444,6 +692,16 @@ requestStartDeviceSync :: StartDeviceSync -> TestTree
 requestStartDeviceSync = req
     "StartDeviceSync"
     "fixture/StartDeviceSync.yaml"
+
+requestGetInvitationConfiguration :: GetInvitationConfiguration -> TestTree
+requestGetInvitationConfiguration = req
+    "GetInvitationConfiguration"
+    "fixture/GetInvitationConfiguration.yaml"
+
+requestDisassociateSkillFromUsers :: DisassociateSkillFromUsers -> TestTree
+requestDisassociateSkillFromUsers = req
+    "DisassociateSkillFromUsers"
+    "fixture/DisassociateSkillFromUsers.yaml"
 
 requestSearchAddressBooks :: SearchAddressBooks -> TestTree
 requestSearchAddressBooks = req
@@ -520,15 +778,30 @@ requestSearchSkillGroups = req
     "SearchSkillGroups"
     "fixture/SearchSkillGroups.yaml"
 
+requestPutSkillAuthorization :: PutSkillAuthorization -> TestTree
+requestPutSkillAuthorization = req
+    "PutSkillAuthorization"
+    "fixture/PutSkillAuthorization.yaml"
+
 requestListTags :: ListTags -> TestTree
 requestListTags = req
     "ListTags"
     "fixture/ListTags.yaml"
 
+requestDeleteSkillAuthorization :: DeleteSkillAuthorization -> TestTree
+requestDeleteSkillAuthorization = req
+    "DeleteSkillAuthorization"
+    "fixture/DeleteSkillAuthorization.yaml"
+
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
+
+requestCreateConferenceProvider :: CreateConferenceProvider -> TestTree
+requestCreateConferenceProvider = req
+    "CreateConferenceProvider"
+    "fixture/CreateConferenceProvider.yaml"
 
 requestResolveRoom :: ResolveRoom -> TestTree
 requestResolveRoom = req
@@ -555,20 +828,55 @@ requestSearchProfiles = req
     "SearchProfiles"
     "fixture/SearchProfiles.yaml"
 
+requestRejectSkill :: RejectSkill -> TestTree
+requestRejectSkill = req
+    "RejectSkill"
+    "fixture/RejectSkill.yaml"
+
+requestListConferenceProviders :: ListConferenceProviders -> TestTree
+requestListConferenceProviders = req
+    "ListConferenceProviders"
+    "fixture/ListConferenceProviders.yaml"
+
 requestRevokeInvitation :: RevokeInvitation -> TestTree
 requestRevokeInvitation = req
     "RevokeInvitation"
     "fixture/RevokeInvitation.yaml"
+
+requestDeleteDevice :: DeleteDevice -> TestTree
+requestDeleteDevice = req
+    "DeleteDevice"
+    "fixture/DeleteDevice.yaml"
 
 requestUpdateDevice :: UpdateDevice -> TestTree
 requestUpdateDevice = req
     "UpdateDevice"
     "fixture/UpdateDevice.yaml"
 
+requestAssociateSkillWithSkillGroup :: AssociateSkillWithSkillGroup -> TestTree
+requestAssociateSkillWithSkillGroup = req
+    "AssociateSkillWithSkillGroup"
+    "fixture/AssociateSkillWithSkillGroup.yaml"
+
+requestGetConferenceProvider :: GetConferenceProvider -> TestTree
+requestGetConferenceProvider = req
+    "GetConferenceProvider"
+    "fixture/GetConferenceProvider.yaml"
+
 requestGetRoom :: GetRoom -> TestTree
 requestGetRoom = req
     "GetRoom"
     "fixture/GetRoom.yaml"
+
+requestListSkillsStoreCategories :: ListSkillsStoreCategories -> TestTree
+requestListSkillsStoreCategories = req
+    "ListSkillsStoreCategories"
+    "fixture/ListSkillsStoreCategories.yaml"
+
+requestStartSmartHomeApplianceDiscovery :: StartSmartHomeApplianceDiscovery -> TestTree
+requestStartSmartHomeApplianceDiscovery = req
+    "StartSmartHomeApplianceDiscovery"
+    "fixture/StartSmartHomeApplianceDiscovery.yaml"
 
 requestAssociateContactWithAddressBook :: AssociateContactWithAddressBook -> TestTree
 requestAssociateContactWithAddressBook = req
@@ -584,12 +892,40 @@ responseSearchUsers = res
     alexaBusiness
     (Proxy :: Proxy SearchUsers)
 
+responsePutConferencePreference :: PutConferencePreferenceResponse -> TestTree
+responsePutConferencePreference = res
+    "PutConferencePreferenceResponse"
+    "fixture/PutConferencePreferenceResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy PutConferencePreference)
+
+responseUpdateBusinessReportSchedule :: UpdateBusinessReportScheduleResponse -> TestTree
+responseUpdateBusinessReportSchedule = res
+    "UpdateBusinessReportScheduleResponse"
+    "fixture/UpdateBusinessReportScheduleResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy UpdateBusinessReportSchedule)
+
+responseDeleteBusinessReportSchedule :: DeleteBusinessReportScheduleResponse -> TestTree
+responseDeleteBusinessReportSchedule = res
+    "DeleteBusinessReportScheduleResponse"
+    "fixture/DeleteBusinessReportScheduleResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy DeleteBusinessReportSchedule)
+
 responseAssociateSkillGroupWithRoom :: AssociateSkillGroupWithRoomResponse -> TestTree
 responseAssociateSkillGroupWithRoom = res
     "AssociateSkillGroupWithRoomResponse"
     "fixture/AssociateSkillGroupWithRoomResponse.proto"
     alexaBusiness
     (Proxy :: Proxy AssociateSkillGroupWithRoom)
+
+responseListSmartHomeAppliances :: ListSmartHomeAppliancesResponse -> TestTree
+responseListSmartHomeAppliances = res
+    "ListSmartHomeAppliancesResponse"
+    "fixture/ListSmartHomeAppliancesResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy ListSmartHomeAppliances)
 
 responseDeleteProfile :: DeleteProfileResponse -> TestTree
 responseDeleteProfile = res
@@ -612,12 +948,54 @@ responseSearchRooms = res
     alexaBusiness
     (Proxy :: Proxy SearchRooms)
 
+responseAssociateSkillWithUsers :: AssociateSkillWithUsersResponse -> TestTree
+responseAssociateSkillWithUsers = res
+    "AssociateSkillWithUsersResponse"
+    "fixture/AssociateSkillWithUsersResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy AssociateSkillWithUsers)
+
+responseRegisterAVSDevice :: RegisterAVSDeviceResponse -> TestTree
+responseRegisterAVSDevice = res
+    "RegisterAVSDeviceResponse"
+    "fixture/RegisterAVSDeviceResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy RegisterAVSDevice)
+
+responseForgetSmartHomeAppliances :: ForgetSmartHomeAppliancesResponse -> TestTree
+responseForgetSmartHomeAppliances = res
+    "ForgetSmartHomeAppliancesResponse"
+    "fixture/ForgetSmartHomeAppliancesResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy ForgetSmartHomeAppliances)
+
+responsePutInvitationConfiguration :: PutInvitationConfigurationResponse -> TestTree
+responsePutInvitationConfiguration = res
+    "PutInvitationConfigurationResponse"
+    "fixture/PutInvitationConfigurationResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy PutInvitationConfiguration)
+
 responseDisassociateContactFromAddressBook :: DisassociateContactFromAddressBookResponse -> TestTree
 responseDisassociateContactFromAddressBook = res
     "DisassociateContactFromAddressBookResponse"
     "fixture/DisassociateContactFromAddressBookResponse.proto"
     alexaBusiness
     (Proxy :: Proxy DisassociateContactFromAddressBook)
+
+responseGetConferencePreference :: GetConferencePreferenceResponse -> TestTree
+responseGetConferencePreference = res
+    "GetConferencePreferenceResponse"
+    "fixture/GetConferencePreferenceResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy GetConferencePreference)
+
+responseDisassociateSkillFromSkillGroup :: DisassociateSkillFromSkillGroupResponse -> TestTree
+responseDisassociateSkillFromSkillGroup = res
+    "DisassociateSkillFromSkillGroupResponse"
+    "fixture/DisassociateSkillFromSkillGroupResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy DisassociateSkillFromSkillGroup)
 
 responseCreateAddressBook :: CreateAddressBookResponse -> TestTree
 responseCreateAddressBook = res
@@ -661,12 +1039,40 @@ responseGetDevice = res
     alexaBusiness
     (Proxy :: Proxy GetDevice)
 
+responseListSkillsStoreSkillsByCategory :: ListSkillsStoreSkillsByCategoryResponse -> TestTree
+responseListSkillsStoreSkillsByCategory = res
+    "ListSkillsStoreSkillsByCategoryResponse"
+    "fixture/ListSkillsStoreSkillsByCategoryResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy ListSkillsStoreSkillsByCategory)
+
+responseDeleteConferenceProvider :: DeleteConferenceProviderResponse -> TestTree
+responseDeleteConferenceProvider = res
+    "DeleteConferenceProviderResponse"
+    "fixture/DeleteConferenceProviderResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy DeleteConferenceProvider)
+
+responseUpdateConferenceProvider :: UpdateConferenceProviderResponse -> TestTree
+responseUpdateConferenceProvider = res
+    "UpdateConferenceProviderResponse"
+    "fixture/UpdateConferenceProviderResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy UpdateConferenceProvider)
+
 responseGetContact :: GetContactResponse -> TestTree
 responseGetContact = res
     "GetContactResponse"
     "fixture/GetContactResponse.proto"
     alexaBusiness
     (Proxy :: Proxy GetContact)
+
+responseApproveSkill :: ApproveSkillResponse -> TestTree
+responseApproveSkill = res
+    "ApproveSkillResponse"
+    "fixture/ApproveSkillResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy ApproveSkill)
 
 responseAssociateDeviceWithRoom :: AssociateDeviceWithRoomResponse -> TestTree
 responseAssociateDeviceWithRoom = res
@@ -681,6 +1087,13 @@ responseGetRoomSkillParameter = res
     "fixture/GetRoomSkillParameterResponse.proto"
     alexaBusiness
     (Proxy :: Proxy GetRoomSkillParameter)
+
+responseCreateBusinessReportSchedule :: CreateBusinessReportScheduleResponse -> TestTree
+responseCreateBusinessReportSchedule = res
+    "CreateBusinessReportScheduleResponse"
+    "fixture/CreateBusinessReportScheduleResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy CreateBusinessReportSchedule)
 
 responseDeleteContact :: DeleteContactResponse -> TestTree
 responseDeleteContact = res
@@ -702,6 +1115,13 @@ responseGetAddressBook = res
     "fixture/GetAddressBookResponse.proto"
     alexaBusiness
     (Proxy :: Proxy GetAddressBook)
+
+responseListBusinessReportSchedules :: ListBusinessReportSchedulesResponse -> TestTree
+responseListBusinessReportSchedules = res
+    "ListBusinessReportSchedulesResponse"
+    "fixture/ListBusinessReportSchedulesResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy ListBusinessReportSchedules)
 
 responseCreateContact :: CreateContactResponse -> TestTree
 responseCreateContact = res
@@ -737,6 +1157,20 @@ responseStartDeviceSync = res
     "fixture/StartDeviceSyncResponse.proto"
     alexaBusiness
     (Proxy :: Proxy StartDeviceSync)
+
+responseGetInvitationConfiguration :: GetInvitationConfigurationResponse -> TestTree
+responseGetInvitationConfiguration = res
+    "GetInvitationConfigurationResponse"
+    "fixture/GetInvitationConfigurationResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy GetInvitationConfiguration)
+
+responseDisassociateSkillFromUsers :: DisassociateSkillFromUsersResponse -> TestTree
+responseDisassociateSkillFromUsers = res
+    "DisassociateSkillFromUsersResponse"
+    "fixture/DisassociateSkillFromUsersResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy DisassociateSkillFromUsers)
 
 responseSearchAddressBooks :: SearchAddressBooksResponse -> TestTree
 responseSearchAddressBooks = res
@@ -843,6 +1277,13 @@ responseSearchSkillGroups = res
     alexaBusiness
     (Proxy :: Proxy SearchSkillGroups)
 
+responsePutSkillAuthorization :: PutSkillAuthorizationResponse -> TestTree
+responsePutSkillAuthorization = res
+    "PutSkillAuthorizationResponse"
+    "fixture/PutSkillAuthorizationResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy PutSkillAuthorization)
+
 responseListTags :: ListTagsResponse -> TestTree
 responseListTags = res
     "ListTagsResponse"
@@ -850,12 +1291,26 @@ responseListTags = res
     alexaBusiness
     (Proxy :: Proxy ListTags)
 
+responseDeleteSkillAuthorization :: DeleteSkillAuthorizationResponse -> TestTree
+responseDeleteSkillAuthorization = res
+    "DeleteSkillAuthorizationResponse"
+    "fixture/DeleteSkillAuthorizationResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy DeleteSkillAuthorization)
+
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource = res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     alexaBusiness
     (Proxy :: Proxy UntagResource)
+
+responseCreateConferenceProvider :: CreateConferenceProviderResponse -> TestTree
+responseCreateConferenceProvider = res
+    "CreateConferenceProviderResponse"
+    "fixture/CreateConferenceProviderResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy CreateConferenceProvider)
 
 responseResolveRoom :: ResolveRoomResponse -> TestTree
 responseResolveRoom = res
@@ -892,12 +1347,33 @@ responseSearchProfiles = res
     alexaBusiness
     (Proxy :: Proxy SearchProfiles)
 
+responseRejectSkill :: RejectSkillResponse -> TestTree
+responseRejectSkill = res
+    "RejectSkillResponse"
+    "fixture/RejectSkillResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy RejectSkill)
+
+responseListConferenceProviders :: ListConferenceProvidersResponse -> TestTree
+responseListConferenceProviders = res
+    "ListConferenceProvidersResponse"
+    "fixture/ListConferenceProvidersResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy ListConferenceProviders)
+
 responseRevokeInvitation :: RevokeInvitationResponse -> TestTree
 responseRevokeInvitation = res
     "RevokeInvitationResponse"
     "fixture/RevokeInvitationResponse.proto"
     alexaBusiness
     (Proxy :: Proxy RevokeInvitation)
+
+responseDeleteDevice :: DeleteDeviceResponse -> TestTree
+responseDeleteDevice = res
+    "DeleteDeviceResponse"
+    "fixture/DeleteDeviceResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy DeleteDevice)
 
 responseUpdateDevice :: UpdateDeviceResponse -> TestTree
 responseUpdateDevice = res
@@ -906,12 +1382,40 @@ responseUpdateDevice = res
     alexaBusiness
     (Proxy :: Proxy UpdateDevice)
 
+responseAssociateSkillWithSkillGroup :: AssociateSkillWithSkillGroupResponse -> TestTree
+responseAssociateSkillWithSkillGroup = res
+    "AssociateSkillWithSkillGroupResponse"
+    "fixture/AssociateSkillWithSkillGroupResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy AssociateSkillWithSkillGroup)
+
+responseGetConferenceProvider :: GetConferenceProviderResponse -> TestTree
+responseGetConferenceProvider = res
+    "GetConferenceProviderResponse"
+    "fixture/GetConferenceProviderResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy GetConferenceProvider)
+
 responseGetRoom :: GetRoomResponse -> TestTree
 responseGetRoom = res
     "GetRoomResponse"
     "fixture/GetRoomResponse.proto"
     alexaBusiness
     (Proxy :: Proxy GetRoom)
+
+responseListSkillsStoreCategories :: ListSkillsStoreCategoriesResponse -> TestTree
+responseListSkillsStoreCategories = res
+    "ListSkillsStoreCategoriesResponse"
+    "fixture/ListSkillsStoreCategoriesResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy ListSkillsStoreCategories)
+
+responseStartSmartHomeApplianceDiscovery :: StartSmartHomeApplianceDiscoveryResponse -> TestTree
+responseStartSmartHomeApplianceDiscovery = res
+    "StartSmartHomeApplianceDiscoveryResponse"
+    "fixture/StartSmartHomeApplianceDiscoveryResponse.proto"
+    alexaBusiness
+    (Proxy :: Proxy StartSmartHomeApplianceDiscovery)
 
 responseAssociateContactWithAddressBook :: AssociateContactWithAddressBookResponse -> TestTree
 responseAssociateContactWithAddressBook = res

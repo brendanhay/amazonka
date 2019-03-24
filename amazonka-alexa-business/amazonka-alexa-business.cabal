@@ -45,36 +45,61 @@ library
 
     exposed-modules:
           Network.AWS.AlexaBusiness
+        , Network.AWS.AlexaBusiness.ApproveSkill
         , Network.AWS.AlexaBusiness.AssociateContactWithAddressBook
         , Network.AWS.AlexaBusiness.AssociateDeviceWithRoom
         , Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom
+        , Network.AWS.AlexaBusiness.AssociateSkillWithSkillGroup
+        , Network.AWS.AlexaBusiness.AssociateSkillWithUsers
         , Network.AWS.AlexaBusiness.CreateAddressBook
+        , Network.AWS.AlexaBusiness.CreateBusinessReportSchedule
+        , Network.AWS.AlexaBusiness.CreateConferenceProvider
         , Network.AWS.AlexaBusiness.CreateContact
         , Network.AWS.AlexaBusiness.CreateProfile
         , Network.AWS.AlexaBusiness.CreateRoom
         , Network.AWS.AlexaBusiness.CreateSkillGroup
         , Network.AWS.AlexaBusiness.CreateUser
         , Network.AWS.AlexaBusiness.DeleteAddressBook
+        , Network.AWS.AlexaBusiness.DeleteBusinessReportSchedule
+        , Network.AWS.AlexaBusiness.DeleteConferenceProvider
         , Network.AWS.AlexaBusiness.DeleteContact
+        , Network.AWS.AlexaBusiness.DeleteDevice
         , Network.AWS.AlexaBusiness.DeleteProfile
         , Network.AWS.AlexaBusiness.DeleteRoom
         , Network.AWS.AlexaBusiness.DeleteRoomSkillParameter
+        , Network.AWS.AlexaBusiness.DeleteSkillAuthorization
         , Network.AWS.AlexaBusiness.DeleteSkillGroup
         , Network.AWS.AlexaBusiness.DeleteUser
         , Network.AWS.AlexaBusiness.DisassociateContactFromAddressBook
         , Network.AWS.AlexaBusiness.DisassociateDeviceFromRoom
+        , Network.AWS.AlexaBusiness.DisassociateSkillFromSkillGroup
+        , Network.AWS.AlexaBusiness.DisassociateSkillFromUsers
         , Network.AWS.AlexaBusiness.DisassociateSkillGroupFromRoom
+        , Network.AWS.AlexaBusiness.ForgetSmartHomeAppliances
         , Network.AWS.AlexaBusiness.GetAddressBook
+        , Network.AWS.AlexaBusiness.GetConferencePreference
+        , Network.AWS.AlexaBusiness.GetConferenceProvider
         , Network.AWS.AlexaBusiness.GetContact
         , Network.AWS.AlexaBusiness.GetDevice
+        , Network.AWS.AlexaBusiness.GetInvitationConfiguration
         , Network.AWS.AlexaBusiness.GetProfile
         , Network.AWS.AlexaBusiness.GetRoom
         , Network.AWS.AlexaBusiness.GetRoomSkillParameter
         , Network.AWS.AlexaBusiness.GetSkillGroup
+        , Network.AWS.AlexaBusiness.ListBusinessReportSchedules
+        , Network.AWS.AlexaBusiness.ListConferenceProviders
         , Network.AWS.AlexaBusiness.ListDeviceEvents
         , Network.AWS.AlexaBusiness.ListSkills
+        , Network.AWS.AlexaBusiness.ListSkillsStoreCategories
+        , Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory
+        , Network.AWS.AlexaBusiness.ListSmartHomeAppliances
         , Network.AWS.AlexaBusiness.ListTags
+        , Network.AWS.AlexaBusiness.PutConferencePreference
+        , Network.AWS.AlexaBusiness.PutInvitationConfiguration
         , Network.AWS.AlexaBusiness.PutRoomSkillParameter
+        , Network.AWS.AlexaBusiness.PutSkillAuthorization
+        , Network.AWS.AlexaBusiness.RegisterAVSDevice
+        , Network.AWS.AlexaBusiness.RejectSkill
         , Network.AWS.AlexaBusiness.ResolveRoom
         , Network.AWS.AlexaBusiness.RevokeInvitation
         , Network.AWS.AlexaBusiness.SearchAddressBooks
@@ -86,10 +111,13 @@ library
         , Network.AWS.AlexaBusiness.SearchUsers
         , Network.AWS.AlexaBusiness.SendInvitation
         , Network.AWS.AlexaBusiness.StartDeviceSync
+        , Network.AWS.AlexaBusiness.StartSmartHomeApplianceDiscovery
         , Network.AWS.AlexaBusiness.TagResource
         , Network.AWS.AlexaBusiness.Types
         , Network.AWS.AlexaBusiness.UntagResource
         , Network.AWS.AlexaBusiness.UpdateAddressBook
+        , Network.AWS.AlexaBusiness.UpdateBusinessReportSchedule
+        , Network.AWS.AlexaBusiness.UpdateConferenceProvider
         , Network.AWS.AlexaBusiness.UpdateContact
         , Network.AWS.AlexaBusiness.UpdateDevice
         , Network.AWS.AlexaBusiness.UpdateProfile

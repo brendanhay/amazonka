@@ -128,6 +128,469 @@ instance Hashable AddressBookData where
 
 instance NFData AddressBookData where
 
+-- | Usage report with specified parameters.
+--
+--
+--
+-- /See:/ 'businessReport' smart constructor.
+data BusinessReport = BusinessReport'
+  { _brStatus       :: !(Maybe BusinessReportStatus)
+  , _brFailureCode  :: !(Maybe BusinessReportFailureCode)
+  , _brDeliveryTime :: !(Maybe POSIX)
+  , _brDownloadURL  :: !(Maybe Text)
+  , _brS3Location   :: !(Maybe BusinessReportS3Location)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'BusinessReport' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'brStatus' - The status of the report generation execution (RUNNING, SUCCEEDED, or FAILED).
+--
+-- * 'brFailureCode' - The failure code.
+--
+-- * 'brDeliveryTime' - The time of report delivery.
+--
+-- * 'brDownloadURL' - The download link where a user can download the report.
+--
+-- * 'brS3Location' - The S3 location of the output reports.
+businessReport
+    :: BusinessReport
+businessReport =
+  BusinessReport'
+    { _brStatus = Nothing
+    , _brFailureCode = Nothing
+    , _brDeliveryTime = Nothing
+    , _brDownloadURL = Nothing
+    , _brS3Location = Nothing
+    }
+
+
+-- | The status of the report generation execution (RUNNING, SUCCEEDED, or FAILED).
+brStatus :: Lens' BusinessReport (Maybe BusinessReportStatus)
+brStatus = lens _brStatus (\ s a -> s{_brStatus = a})
+
+-- | The failure code.
+brFailureCode :: Lens' BusinessReport (Maybe BusinessReportFailureCode)
+brFailureCode = lens _brFailureCode (\ s a -> s{_brFailureCode = a})
+
+-- | The time of report delivery.
+brDeliveryTime :: Lens' BusinessReport (Maybe UTCTime)
+brDeliveryTime = lens _brDeliveryTime (\ s a -> s{_brDeliveryTime = a}) . mapping _Time
+
+-- | The download link where a user can download the report.
+brDownloadURL :: Lens' BusinessReport (Maybe Text)
+brDownloadURL = lens _brDownloadURL (\ s a -> s{_brDownloadURL = a})
+
+-- | The S3 location of the output reports.
+brS3Location :: Lens' BusinessReport (Maybe BusinessReportS3Location)
+brS3Location = lens _brS3Location (\ s a -> s{_brS3Location = a})
+
+instance FromJSON BusinessReport where
+        parseJSON
+          = withObject "BusinessReport"
+              (\ x ->
+                 BusinessReport' <$>
+                   (x .:? "Status") <*> (x .:? "FailureCode") <*>
+                     (x .:? "DeliveryTime")
+                     <*> (x .:? "DownloadUrl")
+                     <*> (x .:? "S3Location"))
+
+instance Hashable BusinessReport where
+
+instance NFData BusinessReport where
+
+-- | The content range of the report.
+--
+--
+--
+-- /See:/ 'businessReportContentRange' smart constructor.
+newtype BusinessReportContentRange = BusinessReportContentRange'
+  { _brcrInterval :: Maybe BusinessReportInterval
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'BusinessReportContentRange' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'brcrInterval' - The interval of the content range.
+businessReportContentRange
+    :: BusinessReportContentRange
+businessReportContentRange =
+  BusinessReportContentRange' {_brcrInterval = Nothing}
+
+
+-- | The interval of the content range.
+brcrInterval :: Lens' BusinessReportContentRange (Maybe BusinessReportInterval)
+brcrInterval = lens _brcrInterval (\ s a -> s{_brcrInterval = a})
+
+instance FromJSON BusinessReportContentRange where
+        parseJSON
+          = withObject "BusinessReportContentRange"
+              (\ x ->
+                 BusinessReportContentRange' <$> (x .:? "Interval"))
+
+instance Hashable BusinessReportContentRange where
+
+instance NFData BusinessReportContentRange where
+
+instance ToJSON BusinessReportContentRange where
+        toJSON BusinessReportContentRange'{..}
+          = object
+              (catMaybes [("Interval" .=) <$> _brcrInterval])
+
+-- | The recurrence of the reports.
+--
+--
+--
+-- /See:/ 'businessReportRecurrence' smart constructor.
+newtype BusinessReportRecurrence = BusinessReportRecurrence'
+  { _brrStartDate :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'BusinessReportRecurrence' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'brrStartDate' - The start date.
+businessReportRecurrence
+    :: BusinessReportRecurrence
+businessReportRecurrence = BusinessReportRecurrence' {_brrStartDate = Nothing}
+
+
+-- | The start date.
+brrStartDate :: Lens' BusinessReportRecurrence (Maybe Text)
+brrStartDate = lens _brrStartDate (\ s a -> s{_brrStartDate = a})
+
+instance FromJSON BusinessReportRecurrence where
+        parseJSON
+          = withObject "BusinessReportRecurrence"
+              (\ x ->
+                 BusinessReportRecurrence' <$> (x .:? "StartDate"))
+
+instance Hashable BusinessReportRecurrence where
+
+instance NFData BusinessReportRecurrence where
+
+instance ToJSON BusinessReportRecurrence where
+        toJSON BusinessReportRecurrence'{..}
+          = object
+              (catMaybes [("StartDate" .=) <$> _brrStartDate])
+
+-- | The S3 location of the output reports.
+--
+--
+--
+-- /See:/ 'businessReportS3Location' smart constructor.
+data BusinessReportS3Location = BusinessReportS3Location'
+  { _brslPath       :: !(Maybe Text)
+  , _brslBucketName :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'BusinessReportS3Location' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'brslPath' - The path of the business report.
+--
+-- * 'brslBucketName' - The S3 bucket name of the output reports.
+businessReportS3Location
+    :: BusinessReportS3Location
+businessReportS3Location =
+  BusinessReportS3Location' {_brslPath = Nothing, _brslBucketName = Nothing}
+
+
+-- | The path of the business report.
+brslPath :: Lens' BusinessReportS3Location (Maybe Text)
+brslPath = lens _brslPath (\ s a -> s{_brslPath = a})
+
+-- | The S3 bucket name of the output reports.
+brslBucketName :: Lens' BusinessReportS3Location (Maybe Text)
+brslBucketName = lens _brslBucketName (\ s a -> s{_brslBucketName = a})
+
+instance FromJSON BusinessReportS3Location where
+        parseJSON
+          = withObject "BusinessReportS3Location"
+              (\ x ->
+                 BusinessReportS3Location' <$>
+                   (x .:? "Path") <*> (x .:? "BucketName"))
+
+instance Hashable BusinessReportS3Location where
+
+instance NFData BusinessReportS3Location where
+
+-- | The schedule of the usage report.
+--
+--
+--
+-- /See:/ 'businessReportSchedule' smart constructor.
+data BusinessReportSchedule = BusinessReportSchedule'
+  { _brsS3KeyPrefix        :: !(Maybe Text)
+  , _brsLastBusinessReport :: !(Maybe BusinessReport)
+  , _brsFormat             :: !(Maybe BusinessReportFormat)
+  , _brsRecurrence         :: !(Maybe BusinessReportRecurrence)
+  , _brsScheduleName       :: !(Maybe Text)
+  , _brsScheduleARN        :: !(Maybe Text)
+  , _brsContentRange       :: !(Maybe BusinessReportContentRange)
+  , _brsS3BucketName       :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'BusinessReportSchedule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'brsS3KeyPrefix' - The S3 key where the report is delivered.
+--
+-- * 'brsLastBusinessReport' - The details of the last business report delivery for a specified time interval.
+--
+-- * 'brsFormat' - The format of the generated report (individual CSV files or zipped files of individual files).
+--
+-- * 'brsRecurrence' - The recurrence of the reports.
+--
+-- * 'brsScheduleName' - The name identifier of the schedule.
+--
+-- * 'brsScheduleARN' - The ARN of the business report schedule.
+--
+-- * 'brsContentRange' - The content range of the reports.
+--
+-- * 'brsS3BucketName' - The S3 bucket name of the output reports.
+businessReportSchedule
+    :: BusinessReportSchedule
+businessReportSchedule =
+  BusinessReportSchedule'
+    { _brsS3KeyPrefix = Nothing
+    , _brsLastBusinessReport = Nothing
+    , _brsFormat = Nothing
+    , _brsRecurrence = Nothing
+    , _brsScheduleName = Nothing
+    , _brsScheduleARN = Nothing
+    , _brsContentRange = Nothing
+    , _brsS3BucketName = Nothing
+    }
+
+
+-- | The S3 key where the report is delivered.
+brsS3KeyPrefix :: Lens' BusinessReportSchedule (Maybe Text)
+brsS3KeyPrefix = lens _brsS3KeyPrefix (\ s a -> s{_brsS3KeyPrefix = a})
+
+-- | The details of the last business report delivery for a specified time interval.
+brsLastBusinessReport :: Lens' BusinessReportSchedule (Maybe BusinessReport)
+brsLastBusinessReport = lens _brsLastBusinessReport (\ s a -> s{_brsLastBusinessReport = a})
+
+-- | The format of the generated report (individual CSV files or zipped files of individual files).
+brsFormat :: Lens' BusinessReportSchedule (Maybe BusinessReportFormat)
+brsFormat = lens _brsFormat (\ s a -> s{_brsFormat = a})
+
+-- | The recurrence of the reports.
+brsRecurrence :: Lens' BusinessReportSchedule (Maybe BusinessReportRecurrence)
+brsRecurrence = lens _brsRecurrence (\ s a -> s{_brsRecurrence = a})
+
+-- | The name identifier of the schedule.
+brsScheduleName :: Lens' BusinessReportSchedule (Maybe Text)
+brsScheduleName = lens _brsScheduleName (\ s a -> s{_brsScheduleName = a})
+
+-- | The ARN of the business report schedule.
+brsScheduleARN :: Lens' BusinessReportSchedule (Maybe Text)
+brsScheduleARN = lens _brsScheduleARN (\ s a -> s{_brsScheduleARN = a})
+
+-- | The content range of the reports.
+brsContentRange :: Lens' BusinessReportSchedule (Maybe BusinessReportContentRange)
+brsContentRange = lens _brsContentRange (\ s a -> s{_brsContentRange = a})
+
+-- | The S3 bucket name of the output reports.
+brsS3BucketName :: Lens' BusinessReportSchedule (Maybe Text)
+brsS3BucketName = lens _brsS3BucketName (\ s a -> s{_brsS3BucketName = a})
+
+instance FromJSON BusinessReportSchedule where
+        parseJSON
+          = withObject "BusinessReportSchedule"
+              (\ x ->
+                 BusinessReportSchedule' <$>
+                   (x .:? "S3KeyPrefix") <*>
+                     (x .:? "LastBusinessReport")
+                     <*> (x .:? "Format")
+                     <*> (x .:? "Recurrence")
+                     <*> (x .:? "ScheduleName")
+                     <*> (x .:? "ScheduleArn")
+                     <*> (x .:? "ContentRange")
+                     <*> (x .:? "S3BucketName"))
+
+instance Hashable BusinessReportSchedule where
+
+instance NFData BusinessReportSchedule where
+
+-- | The skill store category that is shown. Alexa skills are assigned a specific skill category during creation, such as News, Social, and Sports.
+--
+--
+--
+-- /See:/ 'category' smart constructor.
+data Category = Category'
+  { _cCategoryName :: !(Maybe Text)
+  , _cCategoryId   :: !(Maybe Nat)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Category' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cCategoryName' - The name of the skill store category.
+--
+-- * 'cCategoryId' - The ID of the skill store category.
+category
+    :: Category
+category = Category' {_cCategoryName = Nothing, _cCategoryId = Nothing}
+
+
+-- | The name of the skill store category.
+cCategoryName :: Lens' Category (Maybe Text)
+cCategoryName = lens _cCategoryName (\ s a -> s{_cCategoryName = a})
+
+-- | The ID of the skill store category.
+cCategoryId :: Lens' Category (Maybe Natural)
+cCategoryId = lens _cCategoryId (\ s a -> s{_cCategoryId = a}) . mapping _Nat
+
+instance FromJSON Category where
+        parseJSON
+          = withObject "Category"
+              (\ x ->
+                 Category' <$>
+                   (x .:? "CategoryName") <*> (x .:? "CategoryId"))
+
+instance Hashable Category where
+
+instance NFData Category where
+
+-- | The default conference provider that is used if no other scheduled meetings are detected.
+--
+--
+--
+-- /See:/ 'conferencePreference' smart constructor.
+newtype ConferencePreference = ConferencePreference'
+  { _cpDefaultConferenceProviderARN :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ConferencePreference' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpDefaultConferenceProviderARN' - The ARN of the default conference provider.
+conferencePreference
+    :: ConferencePreference
+conferencePreference =
+  ConferencePreference' {_cpDefaultConferenceProviderARN = Nothing}
+
+
+-- | The ARN of the default conference provider.
+cpDefaultConferenceProviderARN :: Lens' ConferencePreference (Maybe Text)
+cpDefaultConferenceProviderARN = lens _cpDefaultConferenceProviderARN (\ s a -> s{_cpDefaultConferenceProviderARN = a})
+
+instance FromJSON ConferencePreference where
+        parseJSON
+          = withObject "ConferencePreference"
+              (\ x ->
+                 ConferencePreference' <$>
+                   (x .:? "DefaultConferenceProviderArn"))
+
+instance Hashable ConferencePreference where
+
+instance NFData ConferencePreference where
+
+instance ToJSON ConferencePreference where
+        toJSON ConferencePreference'{..}
+          = object
+              (catMaybes
+                 [("DefaultConferenceProviderArn" .=) <$>
+                    _cpDefaultConferenceProviderARN])
+
+-- | An entity that provides a conferencing solution. Alexa for Business acts as the voice interface and mediator that connects users to their preferred conference provider. Examples of conference providers include Amazon Chime, Zoom, Cisco, and Polycom.
+--
+--
+--
+-- /See:/ 'conferenceProvider' smart constructor.
+data ConferenceProvider = ConferenceProvider'
+  { _cpMeetingSetting :: !(Maybe MeetingSetting)
+  , _cpARN            :: !(Maybe Text)
+  , _cpPSTNDialIn     :: !(Maybe PSTNDialIn)
+  , _cpName           :: !(Maybe Text)
+  , _cpType           :: !(Maybe ConferenceProviderType)
+  , _cpIPDialIn       :: !(Maybe IPDialIn)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ConferenceProvider' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpMeetingSetting' - The meeting settings for the conference provider.
+--
+-- * 'cpARN' - The ARN of the newly created conference provider.
+--
+-- * 'cpPSTNDialIn' - The information for PSTN conferencing.
+--
+-- * 'cpName' - The name of the conference provider.
+--
+-- * 'cpType' - The type of conference providers.
+--
+-- * 'cpIPDialIn' - The IP endpoint and protocol for calling.
+conferenceProvider
+    :: ConferenceProvider
+conferenceProvider =
+  ConferenceProvider'
+    { _cpMeetingSetting = Nothing
+    , _cpARN = Nothing
+    , _cpPSTNDialIn = Nothing
+    , _cpName = Nothing
+    , _cpType = Nothing
+    , _cpIPDialIn = Nothing
+    }
+
+
+-- | The meeting settings for the conference provider.
+cpMeetingSetting :: Lens' ConferenceProvider (Maybe MeetingSetting)
+cpMeetingSetting = lens _cpMeetingSetting (\ s a -> s{_cpMeetingSetting = a})
+
+-- | The ARN of the newly created conference provider.
+cpARN :: Lens' ConferenceProvider (Maybe Text)
+cpARN = lens _cpARN (\ s a -> s{_cpARN = a})
+
+-- | The information for PSTN conferencing.
+cpPSTNDialIn :: Lens' ConferenceProvider (Maybe PSTNDialIn)
+cpPSTNDialIn = lens _cpPSTNDialIn (\ s a -> s{_cpPSTNDialIn = a})
+
+-- | The name of the conference provider.
+cpName :: Lens' ConferenceProvider (Maybe Text)
+cpName = lens _cpName (\ s a -> s{_cpName = a})
+
+-- | The type of conference providers.
+cpType :: Lens' ConferenceProvider (Maybe ConferenceProviderType)
+cpType = lens _cpType (\ s a -> s{_cpType = a})
+
+-- | The IP endpoint and protocol for calling.
+cpIPDialIn :: Lens' ConferenceProvider (Maybe IPDialIn)
+cpIPDialIn = lens _cpIPDialIn (\ s a -> s{_cpIPDialIn = a})
+
+instance FromJSON ConferenceProvider where
+        parseJSON
+          = withObject "ConferenceProvider"
+              (\ x ->
+                 ConferenceProvider' <$>
+                   (x .:? "MeetingSetting") <*> (x .:? "Arn") <*>
+                     (x .:? "PSTNDialIn")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "Type")
+                     <*> (x .:? "IPDialIn"))
+
+instance Hashable ConferenceProvider where
+
+instance NFData ConferenceProvider where
+
 -- | A contact with attributes.
 --
 --
@@ -136,10 +599,10 @@ instance NFData AddressBookData where
 data Contact = Contact'
   { _cLastName    :: !(Maybe Text)
   , _cContactARN  :: !(Maybe Text)
-  , _cPhoneNumber :: !(Maybe Text)
+  , _cPhoneNumber :: !(Maybe (Sensitive Text))
   , _cFirstName   :: !(Maybe Text)
   , _cDisplayName :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'Contact' with the minimum fields required to make a request.
@@ -177,7 +640,7 @@ cContactARN = lens _cContactARN (\ s a -> s{_cContactARN = a})
 
 -- | The phone number of the contact.
 cPhoneNumber :: Lens' Contact (Maybe Text)
-cPhoneNumber = lens _cPhoneNumber (\ s a -> s{_cPhoneNumber = a})
+cPhoneNumber = lens _cPhoneNumber (\ s a -> s{_cPhoneNumber = a}) . mapping _Sensitive
 
 -- | The first name of the contact, used to call the contact on the device.
 cFirstName :: Lens' Contact (Maybe Text)
@@ -209,10 +672,10 @@ instance NFData Contact where
 data ContactData = ContactData'
   { _cdLastName    :: !(Maybe Text)
   , _cdContactARN  :: !(Maybe Text)
-  , _cdPhoneNumber :: !(Maybe Text)
+  , _cdPhoneNumber :: !(Maybe (Sensitive Text))
   , _cdFirstName   :: !(Maybe Text)
   , _cdDisplayName :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'ContactData' with the minimum fields required to make a request.
@@ -250,7 +713,7 @@ cdContactARN = lens _cdContactARN (\ s a -> s{_cdContactARN = a})
 
 -- | The phone number of the contact.
 cdPhoneNumber :: Lens' ContactData (Maybe Text)
-cdPhoneNumber = lens _cdPhoneNumber (\ s a -> s{_cdPhoneNumber = a})
+cdPhoneNumber = lens _cdPhoneNumber (\ s a -> s{_cdPhoneNumber = a}) . mapping _Sensitive
 
 -- | The first name of the contact, used to call the contact on the device.
 cdFirstName :: Lens' ContactData (Maybe Text)
@@ -273,6 +736,70 @@ instance FromJSON ContactData where
 instance Hashable ContactData where
 
 instance NFData ContactData where
+
+-- | The details about the developer that published the skill.
+--
+--
+--
+-- /See:/ 'developerInfo' smart constructor.
+data DeveloperInfo = DeveloperInfo'
+  { _diEmail         :: !(Maybe Text)
+  , _diURL           :: !(Maybe Text)
+  , _diPrivacyPolicy :: !(Maybe Text)
+  , _diDeveloperName :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DeveloperInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diEmail' - The email of the developer.
+--
+-- * 'diURL' - The website of the developer.
+--
+-- * 'diPrivacyPolicy' - The URL of the privacy policy.
+--
+-- * 'diDeveloperName' - The name of the developer.
+developerInfo
+    :: DeveloperInfo
+developerInfo =
+  DeveloperInfo'
+    { _diEmail = Nothing
+    , _diURL = Nothing
+    , _diPrivacyPolicy = Nothing
+    , _diDeveloperName = Nothing
+    }
+
+
+-- | The email of the developer.
+diEmail :: Lens' DeveloperInfo (Maybe Text)
+diEmail = lens _diEmail (\ s a -> s{_diEmail = a})
+
+-- | The website of the developer.
+diURL :: Lens' DeveloperInfo (Maybe Text)
+diURL = lens _diURL (\ s a -> s{_diURL = a})
+
+-- | The URL of the privacy policy.
+diPrivacyPolicy :: Lens' DeveloperInfo (Maybe Text)
+diPrivacyPolicy = lens _diPrivacyPolicy (\ s a -> s{_diPrivacyPolicy = a})
+
+-- | The name of the developer.
+diDeveloperName :: Lens' DeveloperInfo (Maybe Text)
+diDeveloperName = lens _diDeveloperName (\ s a -> s{_diDeveloperName = a})
+
+instance FromJSON DeveloperInfo where
+        parseJSON
+          = withObject "DeveloperInfo"
+              (\ x ->
+                 DeveloperInfo' <$>
+                   (x .:? "Email") <*> (x .:? "Url") <*>
+                     (x .:? "PrivacyPolicy")
+                     <*> (x .:? "DeveloperName"))
+
+instance Hashable DeveloperInfo where
+
+instance NFData DeveloperInfo where
 
 -- | A device with attributes.
 --
@@ -552,872 +1079,4 @@ instance Hashable DeviceEvent where
 
 instance NFData DeviceEvent where
 
--- | Details of a device’s status.
---
---
---
--- /See:/ 'deviceStatusDetail' smart constructor.
-newtype DeviceStatusDetail = DeviceStatusDetail'
-  { _dsdCode :: Maybe DeviceStatusDetailCode
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeviceStatusDetail' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsdCode' - The device status detail code.
-deviceStatusDetail
-    :: DeviceStatusDetail
-deviceStatusDetail = DeviceStatusDetail' {_dsdCode = Nothing}
-
-
--- | The device status detail code.
-dsdCode :: Lens' DeviceStatusDetail (Maybe DeviceStatusDetailCode)
-dsdCode = lens _dsdCode (\ s a -> s{_dsdCode = a})
-
-instance FromJSON DeviceStatusDetail where
-        parseJSON
-          = withObject "DeviceStatusDetail"
-              (\ x -> DeviceStatusDetail' <$> (x .:? "Code"))
-
-instance Hashable DeviceStatusDetail where
-
-instance NFData DeviceStatusDetail where
-
--- | Detailed information about a device's status.
---
---
---
--- /See:/ 'deviceStatusInfo' smart constructor.
-data DeviceStatusInfo = DeviceStatusInfo'
-  { _dsiDeviceStatusDetails :: !(Maybe [DeviceStatusDetail])
-  , _dsiConnectionStatus    :: !(Maybe ConnectionStatus)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeviceStatusInfo' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsiDeviceStatusDetails' - One or more device status detail descriptions.
---
--- * 'dsiConnectionStatus' - The latest available information about the connection status of a device.
-deviceStatusInfo
-    :: DeviceStatusInfo
-deviceStatusInfo =
-  DeviceStatusInfo'
-    {_dsiDeviceStatusDetails = Nothing, _dsiConnectionStatus = Nothing}
-
-
--- | One or more device status detail descriptions.
-dsiDeviceStatusDetails :: Lens' DeviceStatusInfo [DeviceStatusDetail]
-dsiDeviceStatusDetails = lens _dsiDeviceStatusDetails (\ s a -> s{_dsiDeviceStatusDetails = a}) . _Default . _Coerce
-
--- | The latest available information about the connection status of a device.
-dsiConnectionStatus :: Lens' DeviceStatusInfo (Maybe ConnectionStatus)
-dsiConnectionStatus = lens _dsiConnectionStatus (\ s a -> s{_dsiConnectionStatus = a})
-
-instance FromJSON DeviceStatusInfo where
-        parseJSON
-          = withObject "DeviceStatusInfo"
-              (\ x ->
-                 DeviceStatusInfo' <$>
-                   (x .:? "DeviceStatusDetails" .!= mempty) <*>
-                     (x .:? "ConnectionStatus"))
-
-instance Hashable DeviceStatusInfo where
-
-instance NFData DeviceStatusInfo where
-
--- | A filter name and value pair that is used to return a more specific list of results. Filters can be used to match a set of resources by various criteria.
---
---
---
--- /See:/ 'filter'' smart constructor.
-data Filter = Filter'
-  { _fKey    :: !Text
-  , _fValues :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'Filter' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fKey' - The key of a filter.
---
--- * 'fValues' - The values of a filter.
-filter'
-    :: Text -- ^ 'fKey'
-    -> Filter
-filter' pKey_ = Filter' {_fKey = pKey_, _fValues = mempty}
-
-
--- | The key of a filter.
-fKey :: Lens' Filter Text
-fKey = lens _fKey (\ s a -> s{_fKey = a})
-
--- | The values of a filter.
-fValues :: Lens' Filter [Text]
-fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Coerce
-
-instance Hashable Filter where
-
-instance NFData Filter where
-
-instance ToJSON Filter where
-        toJSON Filter'{..}
-          = object
-              (catMaybes
-                 [Just ("Key" .= _fKey), Just ("Values" .= _fValues)])
-
--- | A room profile with attributes.
---
---
---
--- /See:/ 'profile' smart constructor.
-data Profile = Profile'
-  { _pSetupModeDisabled :: !(Maybe Bool)
-  , _pPSTNEnabled       :: !(Maybe Bool)
-  , _pDistanceUnit      :: !(Maybe DistanceUnit)
-  , _pAddress           :: !(Maybe Text)
-  , _pProfileARN        :: !(Maybe Text)
-  , _pWakeWord          :: !(Maybe WakeWord)
-  , _pProfileName       :: !(Maybe Text)
-  , _pTemperatureUnit   :: !(Maybe TemperatureUnit)
-  , _pTimezone          :: !(Maybe Text)
-  , _pMaxVolumeLimit    :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'Profile' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pSetupModeDisabled' - The setup mode of a room profile.
---
--- * 'pPSTNEnabled' - The PSTN setting of a room profile.
---
--- * 'pDistanceUnit' - The distance unit of a room profile.
---
--- * 'pAddress' - The address of a room profile.
---
--- * 'pProfileARN' - The ARN of a room profile.
---
--- * 'pWakeWord' - The wake word of a room profile.
---
--- * 'pProfileName' - The name of a room profile.
---
--- * 'pTemperatureUnit' - The temperature unit of a room profile.
---
--- * 'pTimezone' - The time zone of a room profile.
---
--- * 'pMaxVolumeLimit' - The max volume limit of a room profile.
-profile
-    :: Profile
-profile =
-  Profile'
-    { _pSetupModeDisabled = Nothing
-    , _pPSTNEnabled = Nothing
-    , _pDistanceUnit = Nothing
-    , _pAddress = Nothing
-    , _pProfileARN = Nothing
-    , _pWakeWord = Nothing
-    , _pProfileName = Nothing
-    , _pTemperatureUnit = Nothing
-    , _pTimezone = Nothing
-    , _pMaxVolumeLimit = Nothing
-    }
-
-
--- | The setup mode of a room profile.
-pSetupModeDisabled :: Lens' Profile (Maybe Bool)
-pSetupModeDisabled = lens _pSetupModeDisabled (\ s a -> s{_pSetupModeDisabled = a})
-
--- | The PSTN setting of a room profile.
-pPSTNEnabled :: Lens' Profile (Maybe Bool)
-pPSTNEnabled = lens _pPSTNEnabled (\ s a -> s{_pPSTNEnabled = a})
-
--- | The distance unit of a room profile.
-pDistanceUnit :: Lens' Profile (Maybe DistanceUnit)
-pDistanceUnit = lens _pDistanceUnit (\ s a -> s{_pDistanceUnit = a})
-
--- | The address of a room profile.
-pAddress :: Lens' Profile (Maybe Text)
-pAddress = lens _pAddress (\ s a -> s{_pAddress = a})
-
--- | The ARN of a room profile.
-pProfileARN :: Lens' Profile (Maybe Text)
-pProfileARN = lens _pProfileARN (\ s a -> s{_pProfileARN = a})
-
--- | The wake word of a room profile.
-pWakeWord :: Lens' Profile (Maybe WakeWord)
-pWakeWord = lens _pWakeWord (\ s a -> s{_pWakeWord = a})
-
--- | The name of a room profile.
-pProfileName :: Lens' Profile (Maybe Text)
-pProfileName = lens _pProfileName (\ s a -> s{_pProfileName = a})
-
--- | The temperature unit of a room profile.
-pTemperatureUnit :: Lens' Profile (Maybe TemperatureUnit)
-pTemperatureUnit = lens _pTemperatureUnit (\ s a -> s{_pTemperatureUnit = a})
-
--- | The time zone of a room profile.
-pTimezone :: Lens' Profile (Maybe Text)
-pTimezone = lens _pTimezone (\ s a -> s{_pTimezone = a})
-
--- | The max volume limit of a room profile.
-pMaxVolumeLimit :: Lens' Profile (Maybe Int)
-pMaxVolumeLimit = lens _pMaxVolumeLimit (\ s a -> s{_pMaxVolumeLimit = a})
-
-instance FromJSON Profile where
-        parseJSON
-          = withObject "Profile"
-              (\ x ->
-                 Profile' <$>
-                   (x .:? "SetupModeDisabled") <*> (x .:? "PSTNEnabled")
-                     <*> (x .:? "DistanceUnit")
-                     <*> (x .:? "Address")
-                     <*> (x .:? "ProfileArn")
-                     <*> (x .:? "WakeWord")
-                     <*> (x .:? "ProfileName")
-                     <*> (x .:? "TemperatureUnit")
-                     <*> (x .:? "Timezone")
-                     <*> (x .:? "MaxVolumeLimit"))
-
-instance Hashable Profile where
-
-instance NFData Profile where
-
--- | The data of a room profile.
---
---
---
--- /See:/ 'profileData' smart constructor.
-data ProfileData = ProfileData'
-  { _pdDistanceUnit    :: !(Maybe DistanceUnit)
-  , _pdAddress         :: !(Maybe Text)
-  , _pdProfileARN      :: !(Maybe Text)
-  , _pdWakeWord        :: !(Maybe WakeWord)
-  , _pdProfileName     :: !(Maybe Text)
-  , _pdTemperatureUnit :: !(Maybe TemperatureUnit)
-  , _pdTimezone        :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ProfileData' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pdDistanceUnit' - The distance unit of a room profile.
---
--- * 'pdAddress' - The address of a room profile.
---
--- * 'pdProfileARN' - The ARN of a room profile.
---
--- * 'pdWakeWord' - The wake word of a room profile.
---
--- * 'pdProfileName' - The name of a room profile.
---
--- * 'pdTemperatureUnit' - The temperature unit of a room profile.
---
--- * 'pdTimezone' - The timezone of a room profile.
-profileData
-    :: ProfileData
-profileData =
-  ProfileData'
-    { _pdDistanceUnit = Nothing
-    , _pdAddress = Nothing
-    , _pdProfileARN = Nothing
-    , _pdWakeWord = Nothing
-    , _pdProfileName = Nothing
-    , _pdTemperatureUnit = Nothing
-    , _pdTimezone = Nothing
-    }
-
-
--- | The distance unit of a room profile.
-pdDistanceUnit :: Lens' ProfileData (Maybe DistanceUnit)
-pdDistanceUnit = lens _pdDistanceUnit (\ s a -> s{_pdDistanceUnit = a})
-
--- | The address of a room profile.
-pdAddress :: Lens' ProfileData (Maybe Text)
-pdAddress = lens _pdAddress (\ s a -> s{_pdAddress = a})
-
--- | The ARN of a room profile.
-pdProfileARN :: Lens' ProfileData (Maybe Text)
-pdProfileARN = lens _pdProfileARN (\ s a -> s{_pdProfileARN = a})
-
--- | The wake word of a room profile.
-pdWakeWord :: Lens' ProfileData (Maybe WakeWord)
-pdWakeWord = lens _pdWakeWord (\ s a -> s{_pdWakeWord = a})
-
--- | The name of a room profile.
-pdProfileName :: Lens' ProfileData (Maybe Text)
-pdProfileName = lens _pdProfileName (\ s a -> s{_pdProfileName = a})
-
--- | The temperature unit of a room profile.
-pdTemperatureUnit :: Lens' ProfileData (Maybe TemperatureUnit)
-pdTemperatureUnit = lens _pdTemperatureUnit (\ s a -> s{_pdTemperatureUnit = a})
-
--- | The timezone of a room profile.
-pdTimezone :: Lens' ProfileData (Maybe Text)
-pdTimezone = lens _pdTimezone (\ s a -> s{_pdTimezone = a})
-
-instance FromJSON ProfileData where
-        parseJSON
-          = withObject "ProfileData"
-              (\ x ->
-                 ProfileData' <$>
-                   (x .:? "DistanceUnit") <*> (x .:? "Address") <*>
-                     (x .:? "ProfileArn")
-                     <*> (x .:? "WakeWord")
-                     <*> (x .:? "ProfileName")
-                     <*> (x .:? "TemperatureUnit")
-                     <*> (x .:? "Timezone"))
-
-instance Hashable ProfileData where
-
-instance NFData ProfileData where
-
--- | A room with attributes.
---
---
---
--- /See:/ 'room' smart constructor.
-data Room = Room'
-  { _rProfileARN         :: !(Maybe Text)
-  , _rProviderCalendarId :: !(Maybe Text)
-  , _rRoomARN            :: !(Maybe Text)
-  , _rRoomName           :: !(Maybe Text)
-  , _rDescription        :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'Room' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rProfileARN' - The profile ARN of a room.
---
--- * 'rProviderCalendarId' - The provider calendar ARN of a room.
---
--- * 'rRoomARN' - The ARN of a room.
---
--- * 'rRoomName' - The name of a room.
---
--- * 'rDescription' - The description of a room.
-room
-    :: Room
-room =
-  Room'
-    { _rProfileARN = Nothing
-    , _rProviderCalendarId = Nothing
-    , _rRoomARN = Nothing
-    , _rRoomName = Nothing
-    , _rDescription = Nothing
-    }
-
-
--- | The profile ARN of a room.
-rProfileARN :: Lens' Room (Maybe Text)
-rProfileARN = lens _rProfileARN (\ s a -> s{_rProfileARN = a})
-
--- | The provider calendar ARN of a room.
-rProviderCalendarId :: Lens' Room (Maybe Text)
-rProviderCalendarId = lens _rProviderCalendarId (\ s a -> s{_rProviderCalendarId = a})
-
--- | The ARN of a room.
-rRoomARN :: Lens' Room (Maybe Text)
-rRoomARN = lens _rRoomARN (\ s a -> s{_rRoomARN = a})
-
--- | The name of a room.
-rRoomName :: Lens' Room (Maybe Text)
-rRoomName = lens _rRoomName (\ s a -> s{_rRoomName = a})
-
--- | The description of a room.
-rDescription :: Lens' Room (Maybe Text)
-rDescription = lens _rDescription (\ s a -> s{_rDescription = a})
-
-instance FromJSON Room where
-        parseJSON
-          = withObject "Room"
-              (\ x ->
-                 Room' <$>
-                   (x .:? "ProfileArn") <*> (x .:? "ProviderCalendarId")
-                     <*> (x .:? "RoomArn")
-                     <*> (x .:? "RoomName")
-                     <*> (x .:? "Description"))
-
-instance Hashable Room where
-
-instance NFData Room where
-
--- | The data of a room.
---
---
---
--- /See:/ 'roomData' smart constructor.
-data RoomData = RoomData'
-  { _rdProfileARN         :: !(Maybe Text)
-  , _rdProviderCalendarId :: !(Maybe Text)
-  , _rdProfileName        :: !(Maybe Text)
-  , _rdRoomARN            :: !(Maybe Text)
-  , _rdRoomName           :: !(Maybe Text)
-  , _rdDescription        :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'RoomData' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdProfileARN' - The profile ARN of a room.
---
--- * 'rdProviderCalendarId' - The provider calendar ARN of a room.
---
--- * 'rdProfileName' - The profile name of a room.
---
--- * 'rdRoomARN' - The ARN of a room.
---
--- * 'rdRoomName' - The name of a room.
---
--- * 'rdDescription' - The description of a room.
-roomData
-    :: RoomData
-roomData =
-  RoomData'
-    { _rdProfileARN = Nothing
-    , _rdProviderCalendarId = Nothing
-    , _rdProfileName = Nothing
-    , _rdRoomARN = Nothing
-    , _rdRoomName = Nothing
-    , _rdDescription = Nothing
-    }
-
-
--- | The profile ARN of a room.
-rdProfileARN :: Lens' RoomData (Maybe Text)
-rdProfileARN = lens _rdProfileARN (\ s a -> s{_rdProfileARN = a})
-
--- | The provider calendar ARN of a room.
-rdProviderCalendarId :: Lens' RoomData (Maybe Text)
-rdProviderCalendarId = lens _rdProviderCalendarId (\ s a -> s{_rdProviderCalendarId = a})
-
--- | The profile name of a room.
-rdProfileName :: Lens' RoomData (Maybe Text)
-rdProfileName = lens _rdProfileName (\ s a -> s{_rdProfileName = a})
-
--- | The ARN of a room.
-rdRoomARN :: Lens' RoomData (Maybe Text)
-rdRoomARN = lens _rdRoomARN (\ s a -> s{_rdRoomARN = a})
-
--- | The name of a room.
-rdRoomName :: Lens' RoomData (Maybe Text)
-rdRoomName = lens _rdRoomName (\ s a -> s{_rdRoomName = a})
-
--- | The description of a room.
-rdDescription :: Lens' RoomData (Maybe Text)
-rdDescription = lens _rdDescription (\ s a -> s{_rdDescription = a})
-
-instance FromJSON RoomData where
-        parseJSON
-          = withObject "RoomData"
-              (\ x ->
-                 RoomData' <$>
-                   (x .:? "ProfileArn") <*> (x .:? "ProviderCalendarId")
-                     <*> (x .:? "ProfileName")
-                     <*> (x .:? "RoomArn")
-                     <*> (x .:? "RoomName")
-                     <*> (x .:? "Description"))
-
-instance Hashable RoomData where
-
-instance NFData RoomData where
-
--- | A skill parameter associated with a room.
---
---
---
--- /See:/ 'roomSkillParameter' smart constructor.
-data RoomSkillParameter = RoomSkillParameter'
-  { _rspParameterKey   :: !Text
-  , _rspParameterValue :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'RoomSkillParameter' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rspParameterKey' - The parameter key of a room skill parameter. ParameterKey is an enumerated type that only takes “DEFAULT” or “SCOPE” as valid values.
---
--- * 'rspParameterValue' - The parameter value of a room skill parameter.
-roomSkillParameter
-    :: Text -- ^ 'rspParameterKey'
-    -> Text -- ^ 'rspParameterValue'
-    -> RoomSkillParameter
-roomSkillParameter pParameterKey_ pParameterValue_ =
-  RoomSkillParameter'
-    {_rspParameterKey = pParameterKey_, _rspParameterValue = pParameterValue_}
-
-
--- | The parameter key of a room skill parameter. ParameterKey is an enumerated type that only takes “DEFAULT” or “SCOPE” as valid values.
-rspParameterKey :: Lens' RoomSkillParameter Text
-rspParameterKey = lens _rspParameterKey (\ s a -> s{_rspParameterKey = a})
-
--- | The parameter value of a room skill parameter.
-rspParameterValue :: Lens' RoomSkillParameter Text
-rspParameterValue = lens _rspParameterValue (\ s a -> s{_rspParameterValue = a})
-
-instance FromJSON RoomSkillParameter where
-        parseJSON
-          = withObject "RoomSkillParameter"
-              (\ x ->
-                 RoomSkillParameter' <$>
-                   (x .: "ParameterKey") <*> (x .: "ParameterValue"))
-
-instance Hashable RoomSkillParameter where
-
-instance NFData RoomSkillParameter where
-
-instance ToJSON RoomSkillParameter where
-        toJSON RoomSkillParameter'{..}
-          = object
-              (catMaybes
-                 [Just ("ParameterKey" .= _rspParameterKey),
-                  Just ("ParameterValue" .= _rspParameterValue)])
-
--- | A skill group with attributes.
---
---
---
--- /See:/ 'skillGroup' smart constructor.
-data SkillGroup = SkillGroup'
-  { _sgSkillGroupARN  :: !(Maybe Text)
-  , _sgDescription    :: !(Maybe Text)
-  , _sgSkillGroupName :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'SkillGroup' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sgSkillGroupARN' - The ARN of a skill group.
---
--- * 'sgDescription' - The description of a skill group.
---
--- * 'sgSkillGroupName' - The name of a skill group.
-skillGroup
-    :: SkillGroup
-skillGroup =
-  SkillGroup'
-    { _sgSkillGroupARN = Nothing
-    , _sgDescription = Nothing
-    , _sgSkillGroupName = Nothing
-    }
-
-
--- | The ARN of a skill group.
-sgSkillGroupARN :: Lens' SkillGroup (Maybe Text)
-sgSkillGroupARN = lens _sgSkillGroupARN (\ s a -> s{_sgSkillGroupARN = a})
-
--- | The description of a skill group.
-sgDescription :: Lens' SkillGroup (Maybe Text)
-sgDescription = lens _sgDescription (\ s a -> s{_sgDescription = a})
-
--- | The name of a skill group.
-sgSkillGroupName :: Lens' SkillGroup (Maybe Text)
-sgSkillGroupName = lens _sgSkillGroupName (\ s a -> s{_sgSkillGroupName = a})
-
-instance FromJSON SkillGroup where
-        parseJSON
-          = withObject "SkillGroup"
-              (\ x ->
-                 SkillGroup' <$>
-                   (x .:? "SkillGroupArn") <*> (x .:? "Description") <*>
-                     (x .:? "SkillGroupName"))
-
-instance Hashable SkillGroup where
-
-instance NFData SkillGroup where
-
--- | The attributes of a skill group.
---
---
---
--- /See:/ 'skillGroupData' smart constructor.
-data SkillGroupData = SkillGroupData'
-  { _sgdSkillGroupARN  :: !(Maybe Text)
-  , _sgdDescription    :: !(Maybe Text)
-  , _sgdSkillGroupName :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'SkillGroupData' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sgdSkillGroupARN' - The skill group ARN of a skill group.
---
--- * 'sgdDescription' - The description of a skill group.
---
--- * 'sgdSkillGroupName' - The skill group name of a skill group.
-skillGroupData
-    :: SkillGroupData
-skillGroupData =
-  SkillGroupData'
-    { _sgdSkillGroupARN = Nothing
-    , _sgdDescription = Nothing
-    , _sgdSkillGroupName = Nothing
-    }
-
-
--- | The skill group ARN of a skill group.
-sgdSkillGroupARN :: Lens' SkillGroupData (Maybe Text)
-sgdSkillGroupARN = lens _sgdSkillGroupARN (\ s a -> s{_sgdSkillGroupARN = a})
-
--- | The description of a skill group.
-sgdDescription :: Lens' SkillGroupData (Maybe Text)
-sgdDescription = lens _sgdDescription (\ s a -> s{_sgdDescription = a})
-
--- | The skill group name of a skill group.
-sgdSkillGroupName :: Lens' SkillGroupData (Maybe Text)
-sgdSkillGroupName = lens _sgdSkillGroupName (\ s a -> s{_sgdSkillGroupName = a})
-
-instance FromJSON SkillGroupData where
-        parseJSON
-          = withObject "SkillGroupData"
-              (\ x ->
-                 SkillGroupData' <$>
-                   (x .:? "SkillGroupArn") <*> (x .:? "Description") <*>
-                     (x .:? "SkillGroupName"))
-
-instance Hashable SkillGroupData where
-
-instance NFData SkillGroupData where
-
--- | The summary of skills.
---
---
---
--- /See:/ 'skillSummary' smart constructor.
-data SkillSummary = SkillSummary'
-  { _ssSkillId         :: !(Maybe Text)
-  , _ssSupportsLinking :: !(Maybe Bool)
-  , _ssSkillName       :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'SkillSummary' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssSkillId' - The ARN of the skill summary.
---
--- * 'ssSupportsLinking' - Linking support for a skill.
---
--- * 'ssSkillName' - The name of the skill.
-skillSummary
-    :: SkillSummary
-skillSummary =
-  SkillSummary'
-    {_ssSkillId = Nothing, _ssSupportsLinking = Nothing, _ssSkillName = Nothing}
-
-
--- | The ARN of the skill summary.
-ssSkillId :: Lens' SkillSummary (Maybe Text)
-ssSkillId = lens _ssSkillId (\ s a -> s{_ssSkillId = a})
-
--- | Linking support for a skill.
-ssSupportsLinking :: Lens' SkillSummary (Maybe Bool)
-ssSupportsLinking = lens _ssSupportsLinking (\ s a -> s{_ssSupportsLinking = a})
-
--- | The name of the skill.
-ssSkillName :: Lens' SkillSummary (Maybe Text)
-ssSkillName = lens _ssSkillName (\ s a -> s{_ssSkillName = a})
-
-instance FromJSON SkillSummary where
-        parseJSON
-          = withObject "SkillSummary"
-              (\ x ->
-                 SkillSummary' <$>
-                   (x .:? "SkillId") <*> (x .:? "SupportsLinking") <*>
-                     (x .:? "SkillName"))
-
-instance Hashable SkillSummary where
-
-instance NFData SkillSummary where
-
--- | An object representing a sort criteria.
---
---
---
--- /See:/ 'sort' smart constructor.
-data Sort = Sort'
-  { _sKey   :: !Text
-  , _sValue :: !SortValue
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'Sort' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sKey' - The sort key of a sort object.
---
--- * 'sValue' - The sort value of a sort object.
-sort
-    :: Text -- ^ 'sKey'
-    -> SortValue -- ^ 'sValue'
-    -> Sort
-sort pKey_ pValue_ = Sort' {_sKey = pKey_, _sValue = pValue_}
-
-
--- | The sort key of a sort object.
-sKey :: Lens' Sort Text
-sKey = lens _sKey (\ s a -> s{_sKey = a})
-
--- | The sort value of a sort object.
-sValue :: Lens' Sort SortValue
-sValue = lens _sValue (\ s a -> s{_sValue = a})
-
-instance Hashable Sort where
-
-instance NFData Sort where
-
-instance ToJSON Sort where
-        toJSON Sort'{..}
-          = object
-              (catMaybes
-                 [Just ("Key" .= _sKey), Just ("Value" .= _sValue)])
-
--- | A key-value pair that can be associated with a resource.
---
---
---
--- /See:/ 'tag' smart constructor.
-data Tag = Tag'
-  { _tagValue :: !(Maybe Text)
-  , _tagKey   :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'Tag' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tagValue' - The value of a tag. Tag values are case-sensitive and can be null.
---
--- * 'tagKey' - The key of a tag. Tag keys are case-sensitive.
-tag
-    :: Tag
-tag = Tag' {_tagValue = Nothing, _tagKey = Nothing}
-
-
--- | The value of a tag. Tag values are case-sensitive and can be null.
-tagValue :: Lens' Tag (Maybe Text)
-tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
-
--- | The key of a tag. Tag keys are case-sensitive.
-tagKey :: Lens' Tag (Maybe Text)
-tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
-
-instance FromJSON Tag where
-        parseJSON
-          = withObject "Tag"
-              (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
-
-instance Hashable Tag where
-
-instance NFData Tag where
-
-instance ToJSON Tag where
-        toJSON Tag'{..}
-          = object
-              (catMaybes
-                 [("Value" .=) <$> _tagValue, ("Key" .=) <$> _tagKey])
-
--- | Information related to a user.
---
---
---
--- /See:/ 'userData' smart constructor.
-data UserData = UserData'
-  { _udEmail            :: !(Maybe Text)
-  , _udLastName         :: !(Maybe Text)
-  , _udEnrollmentId     :: !(Maybe Text)
-  , _udUserARN          :: !(Maybe Text)
-  , _udFirstName        :: !(Maybe Text)
-  , _udEnrollmentStatus :: !(Maybe EnrollmentStatus)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UserData' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udEmail' - The email of a user.
---
--- * 'udLastName' - The last name of a user.
---
--- * 'udEnrollmentId' - The enrollment ARN of a user.
---
--- * 'udUserARN' - The ARN of a user.
---
--- * 'udFirstName' - The first name of a user.
---
--- * 'udEnrollmentStatus' - The enrollment status of a user.
-userData
-    :: UserData
-userData =
-  UserData'
-    { _udEmail = Nothing
-    , _udLastName = Nothing
-    , _udEnrollmentId = Nothing
-    , _udUserARN = Nothing
-    , _udFirstName = Nothing
-    , _udEnrollmentStatus = Nothing
-    }
-
-
--- | The email of a user.
-udEmail :: Lens' UserData (Maybe Text)
-udEmail = lens _udEmail (\ s a -> s{_udEmail = a})
-
--- | The last name of a user.
-udLastName :: Lens' UserData (Maybe Text)
-udLastName = lens _udLastName (\ s a -> s{_udLastName = a})
-
--- | The enrollment ARN of a user.
-udEnrollmentId :: Lens' UserData (Maybe Text)
-udEnrollmentId = lens _udEnrollmentId (\ s a -> s{_udEnrollmentId = a})
-
--- | The ARN of a user.
-udUserARN :: Lens' UserData (Maybe Text)
-udUserARN = lens _udUserARN (\ s a -> s{_udUserARN = a})
-
--- | The first name of a user.
-udFirstName :: Lens' UserData (Maybe Text)
-udFirstName = lens _udFirstName (\ s a -> s{_udFirstName = a})
-
--- | The enrollment status of a user.
-udEnrollmentStatus :: Lens' UserData (Maybe EnrollmentStatus)
-udEnrollmentStatus = lens _udEnrollmentStatus (\ s a -> s{_udEnrollmentStatus = a})
-
-instance FromJSON UserData where
-        parseJSON
-          = withObject "UserData"
-              (\ x ->
-                 UserData' <$>
-                   (x .:? "Email") <*> (x .:? "LastName") <*>
-                     (x .:? "EnrollmentId")
-                     <*> (x .:? "UserArn")
-                     <*> (x .:? "FirstName")
-                     <*> (x .:? "EnrollmentStatus"))
-
-instance Hashable UserData where
-
-instance NFData UserData where
+-- | Details of a device

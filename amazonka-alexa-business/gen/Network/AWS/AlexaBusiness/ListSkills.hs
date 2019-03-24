@@ -30,7 +30,9 @@ module Network.AWS.AlexaBusiness.ListSkills
     , ListSkills
     -- * Request Lenses
     , lsSkillGroupARN
+    , lsSkillType
     , lsNextToken
+    , lsEnablementType
     , lsMaxResults
 
     -- * Destructuring the Response
@@ -52,9 +54,11 @@ import Network.AWS.Response
 
 -- | /See:/ 'listSkills' smart constructor.
 data ListSkills = ListSkills'
-  { _lsSkillGroupARN :: !(Maybe Text)
-  , _lsNextToken     :: !(Maybe Text)
-  , _lsMaxResults    :: !(Maybe Nat)
+  { _lsSkillGroupARN  :: !(Maybe Text)
+  , _lsSkillType      :: !(Maybe SkillTypeFilter)
+  , _lsNextToken      :: !(Maybe Text)
+  , _lsEnablementType :: !(Maybe EnablementTypeFilter)
+  , _lsMaxResults     :: !(Maybe Nat)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -64,7 +68,11 @@ data ListSkills = ListSkills'
 --
 -- * 'lsSkillGroupARN' - The ARN of the skill group for which to list enabled skills. Required.
 --
+-- * 'lsSkillType' - Whether the skill is publicly available or is a private skill.
+--
 -- * 'lsNextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ . Required.
+--
+-- * 'lsEnablementType' - Whether the skill is enabled under the user's account, or if it requires linking to be used.
 --
 -- * 'lsMaxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. Required.
 listSkills
@@ -72,7 +80,9 @@ listSkills
 listSkills =
   ListSkills'
     { _lsSkillGroupARN = Nothing
+    , _lsSkillType = Nothing
     , _lsNextToken = Nothing
+    , _lsEnablementType = Nothing
     , _lsMaxResults = Nothing
     }
 
@@ -81,9 +91,17 @@ listSkills =
 lsSkillGroupARN :: Lens' ListSkills (Maybe Text)
 lsSkillGroupARN = lens _lsSkillGroupARN (\ s a -> s{_lsSkillGroupARN = a})
 
+-- | Whether the skill is publicly available or is a private skill.
+lsSkillType :: Lens' ListSkills (Maybe SkillTypeFilter)
+lsSkillType = lens _lsSkillType (\ s a -> s{_lsSkillType = a})
+
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ . Required.
 lsNextToken :: Lens' ListSkills (Maybe Text)
 lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a})
+
+-- | Whether the skill is enabled under the user's account, or if it requires linking to be used.
+lsEnablementType :: Lens' ListSkills (Maybe EnablementTypeFilter)
+lsEnablementType = lens _lsEnablementType (\ s a -> s{_lsEnablementType = a})
 
 -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. Required.
 lsMaxResults :: Lens' ListSkills (Maybe Natural)
@@ -125,7 +143,9 @@ instance ToJSON ListSkills where
           = object
               (catMaybes
                  [("SkillGroupArn" .=) <$> _lsSkillGroupARN,
+                  ("SkillType" .=) <$> _lsSkillType,
                   ("NextToken" .=) <$> _lsNextToken,
+                  ("EnablementType" .=) <$> _lsEnablementType,
                   ("MaxResults" .=) <$> _lsMaxResults])
 
 instance ToPath ListSkills where

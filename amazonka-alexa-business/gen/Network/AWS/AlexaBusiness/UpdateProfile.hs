@@ -37,6 +37,7 @@ module Network.AWS.AlexaBusiness.UpdateProfile
     , upTemperatureUnit
     , upTimezone
     , upMaxVolumeLimit
+    , upIsDefault
 
     -- * Destructuring the Response
     , updateProfileResponse
@@ -64,6 +65,7 @@ data UpdateProfile = UpdateProfile'
   , _upTemperatureUnit   :: !(Maybe TemperatureUnit)
   , _upTimezone          :: !(Maybe Text)
   , _upMaxVolumeLimit    :: !(Maybe Int)
+  , _upIsDefault         :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -90,6 +92,8 @@ data UpdateProfile = UpdateProfile'
 -- * 'upTimezone' - The updated timezone for the room profile.
 --
 -- * 'upMaxVolumeLimit' - The updated maximum volume limit for the room profile.
+--
+-- * 'upIsDefault' - Sets the profile as default if selected. If this is missing, no update is done to the default status.
 updateProfile
     :: UpdateProfile
 updateProfile =
@@ -104,6 +108,7 @@ updateProfile =
     , _upTemperatureUnit = Nothing
     , _upTimezone = Nothing
     , _upMaxVolumeLimit = Nothing
+    , _upIsDefault = Nothing
     }
 
 
@@ -147,6 +152,10 @@ upTimezone = lens _upTimezone (\ s a -> s{_upTimezone = a})
 upMaxVolumeLimit :: Lens' UpdateProfile (Maybe Int)
 upMaxVolumeLimit = lens _upMaxVolumeLimit (\ s a -> s{_upMaxVolumeLimit = a})
 
+-- | Sets the profile as default if selected. If this is missing, no update is done to the default status.
+upIsDefault :: Lens' UpdateProfile (Maybe Bool)
+upIsDefault = lens _upIsDefault (\ s a -> s{_upIsDefault = a})
+
 instance AWSRequest UpdateProfile where
         type Rs UpdateProfile = UpdateProfileResponse
         request = postJSON alexaBusiness
@@ -181,7 +190,8 @@ instance ToJSON UpdateProfile where
                   ("ProfileName" .=) <$> _upProfileName,
                   ("TemperatureUnit" .=) <$> _upTemperatureUnit,
                   ("Timezone" .=) <$> _upTimezone,
-                  ("MaxVolumeLimit" .=) <$> _upMaxVolumeLimit])
+                  ("MaxVolumeLimit" .=) <$> _upMaxVolumeLimit,
+                  ("IsDefault" .=) <$> _upIsDefault])
 
 instance ToPath UpdateProfile where
         toPath = const "/"

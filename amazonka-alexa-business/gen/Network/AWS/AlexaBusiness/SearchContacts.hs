@@ -141,7 +141,7 @@ data SearchContactsResponse = SearchContactsResponse'
   , _scrsContacts       :: !(Maybe [ContactData])
   , _scrsTotalCount     :: !(Maybe Int)
   , _scrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'SearchContactsResponse' with the minimum fields required to make a request.

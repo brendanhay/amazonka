@@ -16,12 +16,36 @@ module Network.AWS.AlexaBusiness.Types
       alexaBusiness
 
     -- * Errors
+    , _SkillNotLinkedException
+    , _InvalidCertificateAuthorityException
+    , _DeviceNotRegisteredException
     , _InvalidUserStatusException
+    , _InvalidDeviceException
     , _NotFoundException
     , _NameInUseException
+    , _ConcurrentModificationException
+    , _UnauthorizedException
     , _AlreadyExistsException
     , _LimitExceededException
     , _ResourceInUseException
+
+    -- * BusinessReportFailureCode
+    , BusinessReportFailureCode (..)
+
+    -- * BusinessReportFormat
+    , BusinessReportFormat (..)
+
+    -- * BusinessReportInterval
+    , BusinessReportInterval (..)
+
+    -- * BusinessReportStatus
+    , BusinessReportStatus (..)
+
+    -- * CommsProtocol
+    , CommsProtocol (..)
+
+    -- * ConferenceProviderType
+    , ConferenceProviderType (..)
 
     -- * ConnectionStatus
     , ConnectionStatus (..)
@@ -38,11 +62,26 @@ module Network.AWS.AlexaBusiness.Types
     -- * DistanceUnit
     , DistanceUnit (..)
 
+    -- * EnablementType
+    , EnablementType (..)
+
+    -- * EnablementTypeFilter
+    , EnablementTypeFilter (..)
+
     -- * EnrollmentStatus
     , EnrollmentStatus (..)
 
     -- * Feature
     , Feature (..)
+
+    -- * RequirePin
+    , RequirePin (..)
+
+    -- * SkillType
+    , SkillType (..)
+
+    -- * SkillTypeFilter
+    , SkillTypeFilter (..)
 
     -- * SortValue
     , SortValue (..)
@@ -67,6 +106,64 @@ module Network.AWS.AlexaBusiness.Types
     , abdName
     , abdDescription
 
+    -- * BusinessReport
+    , BusinessReport
+    , businessReport
+    , brStatus
+    , brFailureCode
+    , brDeliveryTime
+    , brDownloadURL
+    , brS3Location
+
+    -- * BusinessReportContentRange
+    , BusinessReportContentRange
+    , businessReportContentRange
+    , brcrInterval
+
+    -- * BusinessReportRecurrence
+    , BusinessReportRecurrence
+    , businessReportRecurrence
+    , brrStartDate
+
+    -- * BusinessReportS3Location
+    , BusinessReportS3Location
+    , businessReportS3Location
+    , brslPath
+    , brslBucketName
+
+    -- * BusinessReportSchedule
+    , BusinessReportSchedule
+    , businessReportSchedule
+    , brsS3KeyPrefix
+    , brsLastBusinessReport
+    , brsFormat
+    , brsRecurrence
+    , brsScheduleName
+    , brsScheduleARN
+    , brsContentRange
+    , brsS3BucketName
+
+    -- * Category
+    , Category
+    , category
+    , cCategoryName
+    , cCategoryId
+
+    -- * ConferencePreference
+    , ConferencePreference
+    , conferencePreference
+    , cpDefaultConferenceProviderARN
+
+    -- * ConferenceProvider
+    , ConferenceProvider
+    , conferenceProvider
+    , cpMeetingSetting
+    , cpARN
+    , cpPSTNDialIn
+    , cpName
+    , cpType
+    , cpIPDialIn
+
     -- * Contact
     , Contact
     , contact
@@ -84,6 +181,14 @@ module Network.AWS.AlexaBusiness.Types
     , cdPhoneNumber
     , cdFirstName
     , cdDisplayName
+
+    -- * DeveloperInfo
+    , DeveloperInfo
+    , developerInfo
+    , diEmail
+    , diURL
+    , diPrivacyPolicy
+    , diDeveloperName
 
     -- * Device
     , Device
@@ -136,11 +241,31 @@ module Network.AWS.AlexaBusiness.Types
     , fKey
     , fValues
 
+    -- * IPDialIn
+    , IPDialIn
+    , ipDialIn
+    , idiEndpoint
+    , idiCommsProtocol
+
+    -- * MeetingSetting
+    , MeetingSetting
+    , meetingSetting
+    , msRequirePin
+
+    -- * PSTNDialIn
+    , PSTNDialIn
+    , pSTNDialIn
+    , pstndiCountryCode
+    , pstndiPhoneNumber
+    , pstndiOneClickIdDelay
+    , pstndiOneClickPinDelay
+
     -- * Profile
     , Profile
     , profile
     , pSetupModeDisabled
     , pPSTNEnabled
+    , pAddressBookARN
     , pDistanceUnit
     , pAddress
     , pProfileARN
@@ -149,6 +274,7 @@ module Network.AWS.AlexaBusiness.Types
     , pTemperatureUnit
     , pTimezone
     , pMaxVolumeLimit
+    , pIsDefault
 
     -- * ProfileData
     , ProfileData
@@ -160,6 +286,7 @@ module Network.AWS.AlexaBusiness.Types
     , pdProfileName
     , pdTemperatureUnit
     , pdTimezone
+    , pdIsDefault
 
     -- * Room
     , Room
@@ -186,6 +313,20 @@ module Network.AWS.AlexaBusiness.Types
     , rspParameterKey
     , rspParameterValue
 
+    -- * SkillDetails
+    , SkillDetails
+    , skillDetails
+    , sdSkillTypes
+    , sdProductDescription
+    , sdInvocationPhrase
+    , sdDeveloperInfo
+    , sdEndUserLicenseAgreement
+    , sdGenericKeywords
+    , sdReviews
+    , sdReleaseDate
+    , sdNewInThisVersionBulletPoints
+    , sdBulletPoints
+
     -- * SkillGroup
     , SkillGroup
     , skillGroup
@@ -205,7 +346,27 @@ module Network.AWS.AlexaBusiness.Types
     , skillSummary
     , ssSkillId
     , ssSupportsLinking
+    , ssSkillType
+    , ssEnablementType
     , ssSkillName
+
+    -- * SkillsStoreSkill
+    , SkillsStoreSkill
+    , skillsStoreSkill
+    , sssSkillId
+    , sssSupportsLinking
+    , sssSampleUtterances
+    , sssShortDescription
+    , sssIconURL
+    , sssSkillDetails
+    , sssSkillName
+
+    -- * SmartHomeAppliance
+    , SmartHomeAppliance
+    , smartHomeAppliance
+    , shaFriendlyName
+    , shaManufacturerName
+    , shaDescription
 
     -- * Sort
     , Sort
@@ -216,8 +377,8 @@ module Network.AWS.AlexaBusiness.Types
     -- * Tag
     , Tag
     , tag
-    , tagValue
     , tagKey
+    , tagValue
 
     -- * UserData
     , UserData
@@ -275,7 +436,31 @@ alexaBusiness =
       | otherwise = Nothing
 
 
--- | The attempt to update a user is invalid due to the user's current status. HTTP Status Code: 400
+-- | The skill must be linked to a third-party account.
+--
+--
+_SkillNotLinkedException :: AsError a => Getting (First ServiceError) a ServiceError
+_SkillNotLinkedException =
+  _MatchServiceError alexaBusiness "SkillNotLinkedException"
+
+
+-- | The Certificate Authority can't issue or revoke a certificate.
+--
+--
+_InvalidCertificateAuthorityException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidCertificateAuthorityException =
+  _MatchServiceError alexaBusiness "InvalidCertificateAuthorityException"
+
+
+-- | The request failed because this device is no longer registered and therefore no longer managed by this account.
+--
+--
+_DeviceNotRegisteredException :: AsError a => Getting (First ServiceError) a ServiceError
+_DeviceNotRegisteredException =
+  _MatchServiceError alexaBusiness "DeviceNotRegisteredException"
+
+
+-- | The attempt to update a user is invalid due to the user's current status.
 --
 --
 _InvalidUserStatusException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -283,21 +468,45 @@ _InvalidUserStatusException =
   _MatchServiceError alexaBusiness "InvalidUserStatusException"
 
 
--- | The resource is not found. HTTP Status Code: 400
+-- | The device is in an invalid state.
+--
+--
+_InvalidDeviceException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidDeviceException =
+  _MatchServiceError alexaBusiness "InvalidDeviceException"
+
+
+-- | The resource is not found.
 --
 --
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException = _MatchServiceError alexaBusiness "NotFoundException"
 
 
--- | The name sent in the request is already in use. HTTP Status Code: 400
+-- | The name sent in the request is already in use.
 --
 --
 _NameInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _NameInUseException = _MatchServiceError alexaBusiness "NameInUseException"
 
 
--- | The resource being created already exists. HTTP Status Code: 400
+-- | There is a concurrent modification of resources.
+--
+--
+_ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
+_ConcurrentModificationException =
+  _MatchServiceError alexaBusiness "ConcurrentModificationException"
+
+
+-- | The caller has no permissions to operate on the resource involved in the API call.
+--
+--
+_UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
+_UnauthorizedException =
+  _MatchServiceError alexaBusiness "UnauthorizedException"
+
+
+-- | The resource being created already exists.
 --
 --
 _AlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -305,7 +514,7 @@ _AlreadyExistsException =
   _MatchServiceError alexaBusiness "AlreadyExistsException"
 
 
--- | You are performing an action that would put you beyond your account's limits. HTTP Status Code: 400
+-- | You are performing an action that would put you beyond your account's limits.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -313,7 +522,7 @@ _LimitExceededException =
   _MatchServiceError alexaBusiness "LimitExceededException"
 
 
--- | The resource in the request is already in use. HTTP Status Code: 400
+-- | The resource in the request is already in use.
 --
 --
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError

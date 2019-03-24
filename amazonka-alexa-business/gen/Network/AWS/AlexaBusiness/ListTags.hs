@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all tags for a specific resource.
+-- Lists all tags for the specified resource.
 --
 --
 --
@@ -66,7 +66,7 @@ data ListTags = ListTags'
 --
 -- * 'ltMaxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
 --
--- * 'ltARN' - The ARN of the specific resource for which to list tags. Required.
+-- * 'ltARN' - The ARN of the specified resource for which to list tags.
 listTags
     :: Text -- ^ 'ltARN'
     -> ListTags
@@ -82,7 +82,7 @@ ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a})
 ltMaxResults :: Lens' ListTags (Maybe Natural)
 ltMaxResults = lens _ltMaxResults (\ s a -> s{_ltMaxResults = a}) . mapping _Nat
 
--- | The ARN of the specific resource for which to list tags. Required.
+-- | The ARN of the specified resource for which to list tags.
 ltARN :: Lens' ListTags Text
 ltARN = lens _ltARN (\ s a -> s{_ltARN = a})
 
@@ -144,7 +144,7 @@ data ListTagsResponse = ListTagsResponse'
 --
 -- * 'ltrsNextToken' - The token returned to indicate that there is more data available.
 --
--- * 'ltrsTags' - The list of tags requested for the specific resource.
+-- * 'ltrsTags' - The tags requested for the specified resource.
 --
 -- * 'ltrsResponseStatus' - -- | The response status code.
 listTagsResponse
@@ -162,7 +162,7 @@ listTagsResponse pResponseStatus_ =
 ltrsNextToken :: Lens' ListTagsResponse (Maybe Text)
 ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a})
 
--- | The list of tags requested for the specific resource.
+-- | The tags requested for the specified resource.
 ltrsTags :: Lens' ListTagsResponse [Tag]
 ltrsTags = lens _ltrsTags (\ s a -> s{_ltrsTags = a}) . _Default . _Coerce
 

@@ -10,9 +10,9 @@
 --
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.IoT
 import Test.AWS.IoT.Internal
+import Test.Tasty
 
 main :: IO ()
 main = defaultMain $ testGroup "IoT"

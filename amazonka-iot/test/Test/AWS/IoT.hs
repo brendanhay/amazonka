@@ -15,9 +15,9 @@ module Test.AWS.IoT
     , fixtures
     ) where
 
-import           Network.AWS.IoT
-import           Test.AWS.Gen.IoT
-import           Test.Tasty
+import Network.AWS.IoT
+import Test.AWS.Gen.IoT
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

@@ -36,6 +36,9 @@ module Network.AWS.CloudTrail
     -- ** MaximumNumberOfTrailsExceededException
     , _MaximumNumberOfTrailsExceededException
 
+    -- ** InsufficientDependencyServiceAccessPermissionException
+    , _InsufficientDependencyServiceAccessPermissionException
+
     -- ** UnsupportedOperationException
     , _UnsupportedOperationException
 
@@ -50,6 +53,9 @@ module Network.AWS.CloudTrail
 
     -- ** InvalidCloudWatchLogsRoleARNException
     , _InvalidCloudWatchLogsRoleARNException
+
+    -- ** CloudTrailAccessNotEnabledException
+    , _CloudTrailAccessNotEnabledException
 
     -- ** TagsLimitExceededException
     , _TagsLimitExceededException
@@ -72,11 +78,17 @@ module Network.AWS.CloudTrail
     -- ** CloudWatchLogsDeliveryUnavailableException
     , _CloudWatchLogsDeliveryUnavailableException
 
+    -- ** OrganizationsNotInUseException
+    , _OrganizationsNotInUseException
+
     -- ** KMSKeyNotFoundException
     , _KMSKeyNotFoundException
 
     -- ** TrailNotFoundException
     , _TrailNotFoundException
+
+    -- ** NotOrganizationMasterAccountException
+    , _NotOrganizationMasterAccountException
 
     -- ** InvalidEventSelectorsException
     , _InvalidEventSelectorsException
@@ -114,6 +126,9 @@ module Network.AWS.CloudTrail
     -- ** TrailAlreadyExistsException
     , _TrailAlreadyExistsException
 
+    -- ** OrganizationNotInAllFeaturesModeException
+    , _OrganizationNotInAllFeaturesModeException
+
     -- ** InvalidS3PrefixException
     , _InvalidS3PrefixException
 
@@ -138,7 +153,7 @@ module Network.AWS.CloudTrail
     -- ** DescribeTrails
     , module Network.AWS.CloudTrail.DescribeTrails
 
-    -- ** ListPublicKeys
+    -- ** ListPublicKeys (Paginated)
     , module Network.AWS.CloudTrail.ListPublicKeys
 
     -- ** RemoveTags
@@ -168,7 +183,7 @@ module Network.AWS.CloudTrail
     -- ** AddTags
     , module Network.AWS.CloudTrail.AddTags
 
-    -- ** ListTags
+    -- ** ListTags (Paginated)
     , module Network.AWS.CloudTrail.ListTags
 
     -- ** PutEventSelectors
@@ -199,6 +214,8 @@ module Network.AWS.CloudTrail
     , eEventTime
     , eCloudTrailEvent
     , eEventName
+    , eReadOnly
+    , eAccessKeyId
     , eEventSource
     , eEventId
 
@@ -255,6 +272,7 @@ module Network.AWS.CloudTrail
     , tName
     , tIncludeGlobalServiceEvents
     , tHasCustomEventSelectors
+    , tIsOrganizationTrail
     , tCloudWatchLogsRoleARN
     , tS3BucketName
     , tIsMultiRegionTrail

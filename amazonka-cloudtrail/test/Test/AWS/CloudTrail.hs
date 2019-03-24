@@ -15,9 +15,9 @@ module Test.AWS.CloudTrail
     , fixtures
     ) where
 
-import           Network.AWS.CloudTrail
-import           Test.AWS.Gen.CloudTrail
-import           Test.Tasty
+import Network.AWS.CloudTrail
+import Test.AWS.Gen.CloudTrail
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

@@ -33,6 +33,7 @@ module Network.AWS.CloudTrail.UpdateTrail
     , utCloudWatchLogsLogGroupARN
     , utKMSKeyId
     , utIncludeGlobalServiceEvents
+    , utIsOrganizationTrail
     , utCloudWatchLogsRoleARN
     , utS3BucketName
     , utIsMultiRegionTrail
@@ -51,6 +52,7 @@ module Network.AWS.CloudTrail.UpdateTrail
     , utrsKMSKeyId
     , utrsName
     , utrsIncludeGlobalServiceEvents
+    , utrsIsOrganizationTrail
     , utrsCloudWatchLogsRoleARN
     , utrsS3BucketName
     , utrsIsMultiRegionTrail
@@ -76,6 +78,7 @@ data UpdateTrail = UpdateTrail'
   , _utCloudWatchLogsLogGroupARN  :: !(Maybe Text)
   , _utKMSKeyId                   :: !(Maybe Text)
   , _utIncludeGlobalServiceEvents :: !(Maybe Bool)
+  , _utIsOrganizationTrail        :: !(Maybe Bool)
   , _utCloudWatchLogsRoleARN      :: !(Maybe Text)
   , _utS3BucketName               :: !(Maybe Text)
   , _utIsMultiRegionTrail         :: !(Maybe Bool)
@@ -95,9 +98,11 @@ data UpdateTrail = UpdateTrail'
 --
 -- * 'utCloudWatchLogsLogGroupARN' - Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
 --
--- * 'utKMSKeyId' - Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier. Examples:     * alias/MyAliasName     * arn:aws:kms:us-east-1:123456789012:alias/MyAliasName     * arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * 12345678-1234-1234-1234-123456789012
+-- * 'utKMSKeyId' - Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier. Examples:     * alias/MyAliasName     * arn:aws:kms:us-east-2:123456789012:alias/MyAliasName     * arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012     * 12345678-1234-1234-1234-123456789012
 --
 -- * 'utIncludeGlobalServiceEvents' - Specifies whether the trail is publishing events from global services such as IAM to the log files.
+--
+-- * 'utIsOrganizationTrail' - Specifies whether the trail is applied to all accounts in an organization in AWS Organizations, or only for the current AWS account. The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the master account for an organization in AWS Organizations. If the trail is not an organization trail and this is set to true, the trail will be created in all AWS accounts that belong to the organization. If the trail is an organization trail and this is set to false, the trail will remain in the current AWS account but be deleted from all member accounts in the organization.
 --
 -- * 'utCloudWatchLogsRoleARN' - Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
 --
@@ -105,7 +110,7 @@ data UpdateTrail = UpdateTrail'
 --
 -- * 'utIsMultiRegionTrail' - Specifies whether the trail applies only to the current region or to all regions. The default is false. If the trail exists only in the current region and this value is set to true, shadow trails (replications of the trail) will be created in the other regions. If the trail exists in all regions and this value is set to false, the trail will remain in the region where it was created, and its shadow trails in other regions will be deleted.
 --
--- * 'utName' - Specifies the name of the trail or trail ARN. If @Name@ is a trail name, the string must meet the following requirements:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)     * Start with a letter or number, and end with a letter or number     * Be between 3 and 128 characters     * Have no adjacent periods, underscores or dashes. Names like @my-_namespace@ and @my--namespace@ are invalid.     * Not be in IP address format (for example, 192.168.5.4) If @Name@ is a trail ARN, it must be in the format: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
+-- * 'utName' - Specifies the name of the trail or trail ARN. If @Name@ is a trail name, the string must meet the following requirements:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)     * Start with a letter or number, and end with a letter or number     * Be between 3 and 128 characters     * Have no adjacent periods, underscores or dashes. Names like @my-_namespace@ and @my--namespace@ are invalid.     * Not be in IP address format (for example, 192.168.5.4) If @Name@ is a trail ARN, it must be in the format: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 updateTrail
     :: Text -- ^ 'utName'
     -> UpdateTrail
@@ -117,6 +122,7 @@ updateTrail pName_ =
     , _utCloudWatchLogsLogGroupARN = Nothing
     , _utKMSKeyId = Nothing
     , _utIncludeGlobalServiceEvents = Nothing
+    , _utIsOrganizationTrail = Nothing
     , _utCloudWatchLogsRoleARN = Nothing
     , _utS3BucketName = Nothing
     , _utIsMultiRegionTrail = Nothing
@@ -140,13 +146,17 @@ utEnableLogFileValidation = lens _utEnableLogFileValidation (\ s a -> s{_utEnabl
 utCloudWatchLogsLogGroupARN :: Lens' UpdateTrail (Maybe Text)
 utCloudWatchLogsLogGroupARN = lens _utCloudWatchLogsLogGroupARN (\ s a -> s{_utCloudWatchLogsLogGroupARN = a})
 
--- | Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier. Examples:     * alias/MyAliasName     * arn:aws:kms:us-east-1:123456789012:alias/MyAliasName     * arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * 12345678-1234-1234-1234-123456789012
+-- | Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier. Examples:     * alias/MyAliasName     * arn:aws:kms:us-east-2:123456789012:alias/MyAliasName     * arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012     * 12345678-1234-1234-1234-123456789012
 utKMSKeyId :: Lens' UpdateTrail (Maybe Text)
 utKMSKeyId = lens _utKMSKeyId (\ s a -> s{_utKMSKeyId = a})
 
 -- | Specifies whether the trail is publishing events from global services such as IAM to the log files.
 utIncludeGlobalServiceEvents :: Lens' UpdateTrail (Maybe Bool)
 utIncludeGlobalServiceEvents = lens _utIncludeGlobalServiceEvents (\ s a -> s{_utIncludeGlobalServiceEvents = a})
+
+-- | Specifies whether the trail is applied to all accounts in an organization in AWS Organizations, or only for the current AWS account. The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the master account for an organization in AWS Organizations. If the trail is not an organization trail and this is set to true, the trail will be created in all AWS accounts that belong to the organization. If the trail is an organization trail and this is set to false, the trail will remain in the current AWS account but be deleted from all member accounts in the organization.
+utIsOrganizationTrail :: Lens' UpdateTrail (Maybe Bool)
+utIsOrganizationTrail = lens _utIsOrganizationTrail (\ s a -> s{_utIsOrganizationTrail = a})
 
 -- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
 utCloudWatchLogsRoleARN :: Lens' UpdateTrail (Maybe Text)
@@ -160,7 +170,7 @@ utS3BucketName = lens _utS3BucketName (\ s a -> s{_utS3BucketName = a})
 utIsMultiRegionTrail :: Lens' UpdateTrail (Maybe Bool)
 utIsMultiRegionTrail = lens _utIsMultiRegionTrail (\ s a -> s{_utIsMultiRegionTrail = a})
 
--- | Specifies the name of the trail or trail ARN. If @Name@ is a trail name, the string must meet the following requirements:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)     * Start with a letter or number, and end with a letter or number     * Be between 3 and 128 characters     * Have no adjacent periods, underscores or dashes. Names like @my-_namespace@ and @my--namespace@ are invalid.     * Not be in IP address format (for example, 192.168.5.4) If @Name@ is a trail ARN, it must be in the format: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
+-- | Specifies the name of the trail or trail ARN. If @Name@ is a trail name, the string must meet the following requirements:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)     * Start with a letter or number, and end with a letter or number     * Be between 3 and 128 characters     * Have no adjacent periods, underscores or dashes. Names like @my-_namespace@ and @my--namespace@ are invalid.     * Not be in IP address format (for example, 192.168.5.4) If @Name@ is a trail ARN, it must be in the format: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 utName :: Lens' UpdateTrail Text
 utName = lens _utName (\ s a -> s{_utName = a})
 
@@ -180,6 +190,7 @@ instance AWSRequest UpdateTrail where
                      <*> (x .?> "KmsKeyId")
                      <*> (x .?> "Name")
                      <*> (x .?> "IncludeGlobalServiceEvents")
+                     <*> (x .?> "IsOrganizationTrail")
                      <*> (x .?> "CloudWatchLogsRoleArn")
                      <*> (x .?> "S3BucketName")
                      <*> (x .?> "IsMultiRegionTrail")
@@ -212,6 +223,8 @@ instance ToJSON UpdateTrail where
                   ("KmsKeyId" .=) <$> _utKMSKeyId,
                   ("IncludeGlobalServiceEvents" .=) <$>
                     _utIncludeGlobalServiceEvents,
+                  ("IsOrganizationTrail" .=) <$>
+                    _utIsOrganizationTrail,
                   ("CloudWatchLogsRoleArn" .=) <$>
                     _utCloudWatchLogsRoleARN,
                   ("S3BucketName" .=) <$> _utS3BucketName,
@@ -239,6 +252,7 @@ data UpdateTrailResponse = UpdateTrailResponse'
   , _utrsKMSKeyId                   :: !(Maybe Text)
   , _utrsName                       :: !(Maybe Text)
   , _utrsIncludeGlobalServiceEvents :: !(Maybe Bool)
+  , _utrsIsOrganizationTrail        :: !(Maybe Bool)
   , _utrsCloudWatchLogsRoleARN      :: !(Maybe Text)
   , _utrsS3BucketName               :: !(Maybe Text)
   , _utrsIsMultiRegionTrail         :: !(Maybe Bool)
@@ -252,21 +266,23 @@ data UpdateTrailResponse = UpdateTrailResponse'
 --
 -- * 'utrsLogFileValidationEnabled' - Specifies whether log file integrity validation is enabled.
 --
--- * 'utrsTrailARN' - Specifies the ARN of the trail that was updated. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
+-- * 'utrsTrailARN' - Specifies the ARN of the trail that was updated. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 --
 -- * 'utrsS3KeyPrefix' - Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files> .
 --
--- * 'utrsSNSTopicARN' - Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is: @arn:aws:sns:us-east-1:123456789012:MyTopic@
+-- * 'utrsSNSTopicARN' - Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is: @arn:aws:sns:us-east-2:123456789012:MyTopic@
 --
 -- * 'utrsSNSTopicName' - This field is deprecated. Use SnsTopicARN.
 --
 -- * 'utrsCloudWatchLogsLogGroupARN' - Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail logs will be delivered.
 --
--- * 'utrsKMSKeyId' - Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@
+-- * 'utrsKMSKeyId' - Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format: @arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012@
 --
 -- * 'utrsName' - Specifies the name of the trail.
 --
 -- * 'utrsIncludeGlobalServiceEvents' - Specifies whether the trail is publishing events from global services such as IAM to the log files.
+--
+-- * 'utrsIsOrganizationTrail' - Specifies whether the trail is an organization trail.
 --
 -- * 'utrsCloudWatchLogsRoleARN' - Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
 --
@@ -289,6 +305,7 @@ updateTrailResponse pResponseStatus_ =
     , _utrsKMSKeyId = Nothing
     , _utrsName = Nothing
     , _utrsIncludeGlobalServiceEvents = Nothing
+    , _utrsIsOrganizationTrail = Nothing
     , _utrsCloudWatchLogsRoleARN = Nothing
     , _utrsS3BucketName = Nothing
     , _utrsIsMultiRegionTrail = Nothing
@@ -300,7 +317,7 @@ updateTrailResponse pResponseStatus_ =
 utrsLogFileValidationEnabled :: Lens' UpdateTrailResponse (Maybe Bool)
 utrsLogFileValidationEnabled = lens _utrsLogFileValidationEnabled (\ s a -> s{_utrsLogFileValidationEnabled = a})
 
--- | Specifies the ARN of the trail that was updated. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
+-- | Specifies the ARN of the trail that was updated. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 utrsTrailARN :: Lens' UpdateTrailResponse (Maybe Text)
 utrsTrailARN = lens _utrsTrailARN (\ s a -> s{_utrsTrailARN = a})
 
@@ -308,7 +325,7 @@ utrsTrailARN = lens _utrsTrailARN (\ s a -> s{_utrsTrailARN = a})
 utrsS3KeyPrefix :: Lens' UpdateTrailResponse (Maybe Text)
 utrsS3KeyPrefix = lens _utrsS3KeyPrefix (\ s a -> s{_utrsS3KeyPrefix = a})
 
--- | Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is: @arn:aws:sns:us-east-1:123456789012:MyTopic@
+-- | Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is: @arn:aws:sns:us-east-2:123456789012:MyTopic@
 utrsSNSTopicARN :: Lens' UpdateTrailResponse (Maybe Text)
 utrsSNSTopicARN = lens _utrsSNSTopicARN (\ s a -> s{_utrsSNSTopicARN = a})
 
@@ -320,7 +337,7 @@ utrsSNSTopicName = lens _utrsSNSTopicName (\ s a -> s{_utrsSNSTopicName = a})
 utrsCloudWatchLogsLogGroupARN :: Lens' UpdateTrailResponse (Maybe Text)
 utrsCloudWatchLogsLogGroupARN = lens _utrsCloudWatchLogsLogGroupARN (\ s a -> s{_utrsCloudWatchLogsLogGroupARN = a})
 
--- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@
+-- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format: @arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012@
 utrsKMSKeyId :: Lens' UpdateTrailResponse (Maybe Text)
 utrsKMSKeyId = lens _utrsKMSKeyId (\ s a -> s{_utrsKMSKeyId = a})
 
@@ -331,6 +348,10 @@ utrsName = lens _utrsName (\ s a -> s{_utrsName = a})
 -- | Specifies whether the trail is publishing events from global services such as IAM to the log files.
 utrsIncludeGlobalServiceEvents :: Lens' UpdateTrailResponse (Maybe Bool)
 utrsIncludeGlobalServiceEvents = lens _utrsIncludeGlobalServiceEvents (\ s a -> s{_utrsIncludeGlobalServiceEvents = a})
+
+-- | Specifies whether the trail is an organization trail.
+utrsIsOrganizationTrail :: Lens' UpdateTrailResponse (Maybe Bool)
+utrsIsOrganizationTrail = lens _utrsIsOrganizationTrail (\ s a -> s{_utrsIsOrganizationTrail = a})
 
 -- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
 utrsCloudWatchLogsRoleARN :: Lens' UpdateTrailResponse (Maybe Text)

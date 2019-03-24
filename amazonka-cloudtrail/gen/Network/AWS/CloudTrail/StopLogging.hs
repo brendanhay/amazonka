@@ -57,14 +57,14 @@ newtype StopLogging = StopLogging'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slName' - Specifies the name or the CloudTrail ARN of the trail for which CloudTrail will stop logging AWS API calls. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
+-- * 'slName' - Specifies the name or the CloudTrail ARN of the trail for which CloudTrail will stop logging AWS API calls. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 stopLogging
     :: Text -- ^ 'slName'
     -> StopLogging
 stopLogging pName_ = StopLogging' {_slName = pName_}
 
 
--- | Specifies the name or the CloudTrail ARN of the trail for which CloudTrail will stop logging AWS API calls. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
+-- | Specifies the name or the CloudTrail ARN of the trail for which CloudTrail will stop logging AWS API calls. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 slName :: Lens' StopLogging Text
 slName = lens _slName (\ s a -> s{_slName = a})
 

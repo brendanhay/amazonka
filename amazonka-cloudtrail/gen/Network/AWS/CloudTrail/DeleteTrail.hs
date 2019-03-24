@@ -57,14 +57,14 @@ newtype DeleteTrail = DeleteTrail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtName' - Specifies the name or the CloudTrail ARN of the trail to be deleted. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
+-- * 'dtName' - Specifies the name or the CloudTrail ARN of the trail to be deleted. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 deleteTrail
     :: Text -- ^ 'dtName'
     -> DeleteTrail
 deleteTrail pName_ = DeleteTrail' {_dtName = pName_}
 
 
--- | Specifies the name or the CloudTrail ARN of the trail to be deleted. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
+-- | Specifies the name or the CloudTrail ARN of the trail to be deleted. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 dtName :: Lens' DeleteTrail Text
 dtName = lens _dtName (\ s a -> s{_dtName = a})
 

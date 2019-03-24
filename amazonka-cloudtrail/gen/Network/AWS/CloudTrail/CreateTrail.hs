@@ -33,6 +33,7 @@ module Network.AWS.CloudTrail.CreateTrail
     , ctCloudWatchLogsLogGroupARN
     , ctKMSKeyId
     , ctIncludeGlobalServiceEvents
+    , ctIsOrganizationTrail
     , ctCloudWatchLogsRoleARN
     , ctIsMultiRegionTrail
     , ctName
@@ -51,6 +52,7 @@ module Network.AWS.CloudTrail.CreateTrail
     , ctrsKMSKeyId
     , ctrsName
     , ctrsIncludeGlobalServiceEvents
+    , ctrsIsOrganizationTrail
     , ctrsCloudWatchLogsRoleARN
     , ctrsS3BucketName
     , ctrsIsMultiRegionTrail
@@ -76,6 +78,7 @@ data CreateTrail = CreateTrail'
   , _ctCloudWatchLogsLogGroupARN  :: !(Maybe Text)
   , _ctKMSKeyId                   :: !(Maybe Text)
   , _ctIncludeGlobalServiceEvents :: !(Maybe Bool)
+  , _ctIsOrganizationTrail        :: !(Maybe Bool)
   , _ctCloudWatchLogsRoleARN      :: !(Maybe Text)
   , _ctIsMultiRegionTrail         :: !(Maybe Bool)
   , _ctName                       :: !Text
@@ -95,9 +98,11 @@ data CreateTrail = CreateTrail'
 --
 -- * 'ctCloudWatchLogsLogGroupARN' - Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
 --
--- * 'ctKMSKeyId' - Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier. Examples:     * alias/MyAliasName     * arn:aws:kms:us-east-1:123456789012:alias/MyAliasName     * arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * 12345678-1234-1234-1234-123456789012
+-- * 'ctKMSKeyId' - Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier. Examples:     * alias/MyAliasName     * arn:aws:kms:us-east-2:123456789012:alias/MyAliasName     * arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012     * 12345678-1234-1234-1234-123456789012
 --
 -- * 'ctIncludeGlobalServiceEvents' - Specifies whether the trail is publishing events from global services such as IAM to the log files.
+--
+-- * 'ctIsOrganizationTrail' - Specifies whether the trail is created for all accounts in an organization in AWS Organizations, or only for the current AWS account. The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the master account for an organization in AWS Organizations.
 --
 -- * 'ctCloudWatchLogsRoleARN' - Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
 --
@@ -118,6 +123,7 @@ createTrail pName_ pS3BucketName_ =
     , _ctCloudWatchLogsLogGroupARN = Nothing
     , _ctKMSKeyId = Nothing
     , _ctIncludeGlobalServiceEvents = Nothing
+    , _ctIsOrganizationTrail = Nothing
     , _ctCloudWatchLogsRoleARN = Nothing
     , _ctIsMultiRegionTrail = Nothing
     , _ctName = pName_
@@ -141,13 +147,17 @@ ctEnableLogFileValidation = lens _ctEnableLogFileValidation (\ s a -> s{_ctEnabl
 ctCloudWatchLogsLogGroupARN :: Lens' CreateTrail (Maybe Text)
 ctCloudWatchLogsLogGroupARN = lens _ctCloudWatchLogsLogGroupARN (\ s a -> s{_ctCloudWatchLogsLogGroupARN = a})
 
--- | Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier. Examples:     * alias/MyAliasName     * arn:aws:kms:us-east-1:123456789012:alias/MyAliasName     * arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * 12345678-1234-1234-1234-123456789012
+-- | Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier. Examples:     * alias/MyAliasName     * arn:aws:kms:us-east-2:123456789012:alias/MyAliasName     * arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012     * 12345678-1234-1234-1234-123456789012
 ctKMSKeyId :: Lens' CreateTrail (Maybe Text)
 ctKMSKeyId = lens _ctKMSKeyId (\ s a -> s{_ctKMSKeyId = a})
 
 -- | Specifies whether the trail is publishing events from global services such as IAM to the log files.
 ctIncludeGlobalServiceEvents :: Lens' CreateTrail (Maybe Bool)
 ctIncludeGlobalServiceEvents = lens _ctIncludeGlobalServiceEvents (\ s a -> s{_ctIncludeGlobalServiceEvents = a})
+
+-- | Specifies whether the trail is created for all accounts in an organization in AWS Organizations, or only for the current AWS account. The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the master account for an organization in AWS Organizations.
+ctIsOrganizationTrail :: Lens' CreateTrail (Maybe Bool)
+ctIsOrganizationTrail = lens _ctIsOrganizationTrail (\ s a -> s{_ctIsOrganizationTrail = a})
 
 -- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
 ctCloudWatchLogsRoleARN :: Lens' CreateTrail (Maybe Text)
@@ -181,6 +191,7 @@ instance AWSRequest CreateTrail where
                      <*> (x .?> "KmsKeyId")
                      <*> (x .?> "Name")
                      <*> (x .?> "IncludeGlobalServiceEvents")
+                     <*> (x .?> "IsOrganizationTrail")
                      <*> (x .?> "CloudWatchLogsRoleArn")
                      <*> (x .?> "S3BucketName")
                      <*> (x .?> "IsMultiRegionTrail")
@@ -213,6 +224,8 @@ instance ToJSON CreateTrail where
                   ("KmsKeyId" .=) <$> _ctKMSKeyId,
                   ("IncludeGlobalServiceEvents" .=) <$>
                     _ctIncludeGlobalServiceEvents,
+                  ("IsOrganizationTrail" .=) <$>
+                    _ctIsOrganizationTrail,
                   ("CloudWatchLogsRoleArn" .=) <$>
                     _ctCloudWatchLogsRoleARN,
                   ("IsMultiRegionTrail" .=) <$> _ctIsMultiRegionTrail,
@@ -240,6 +253,7 @@ data CreateTrailResponse = CreateTrailResponse'
   , _ctrsKMSKeyId                   :: !(Maybe Text)
   , _ctrsName                       :: !(Maybe Text)
   , _ctrsIncludeGlobalServiceEvents :: !(Maybe Bool)
+  , _ctrsIsOrganizationTrail        :: !(Maybe Bool)
   , _ctrsCloudWatchLogsRoleARN      :: !(Maybe Text)
   , _ctrsS3BucketName               :: !(Maybe Text)
   , _ctrsIsMultiRegionTrail         :: !(Maybe Bool)
@@ -253,21 +267,23 @@ data CreateTrailResponse = CreateTrailResponse'
 --
 -- * 'ctrsLogFileValidationEnabled' - Specifies whether log file integrity validation is enabled.
 --
--- * 'ctrsTrailARN' - Specifies the ARN of the trail that was created. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
+-- * 'ctrsTrailARN' - Specifies the ARN of the trail that was created. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 --
 -- * 'ctrsS3KeyPrefix' - Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files> .
 --
--- * 'ctrsSNSTopicARN' - Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is: @arn:aws:sns:us-east-1:123456789012:MyTopic@
+-- * 'ctrsSNSTopicARN' - Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is: @arn:aws:sns:us-east-2:123456789012:MyTopic@
 --
 -- * 'ctrsSNSTopicName' - This field is deprecated. Use SnsTopicARN.
 --
 -- * 'ctrsCloudWatchLogsLogGroupARN' - Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail logs will be delivered.
 --
--- * 'ctrsKMSKeyId' - Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@
+-- * 'ctrsKMSKeyId' - Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format: @arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012@
 --
 -- * 'ctrsName' - Specifies the name of the trail.
 --
 -- * 'ctrsIncludeGlobalServiceEvents' - Specifies whether the trail is publishing events from global services such as IAM to the log files.
+--
+-- * 'ctrsIsOrganizationTrail' - Specifies whether the trail is an organization trail.
 --
 -- * 'ctrsCloudWatchLogsRoleARN' - Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
 --
@@ -290,6 +306,7 @@ createTrailResponse pResponseStatus_ =
     , _ctrsKMSKeyId = Nothing
     , _ctrsName = Nothing
     , _ctrsIncludeGlobalServiceEvents = Nothing
+    , _ctrsIsOrganizationTrail = Nothing
     , _ctrsCloudWatchLogsRoleARN = Nothing
     , _ctrsS3BucketName = Nothing
     , _ctrsIsMultiRegionTrail = Nothing
@@ -301,7 +318,7 @@ createTrailResponse pResponseStatus_ =
 ctrsLogFileValidationEnabled :: Lens' CreateTrailResponse (Maybe Bool)
 ctrsLogFileValidationEnabled = lens _ctrsLogFileValidationEnabled (\ s a -> s{_ctrsLogFileValidationEnabled = a})
 
--- | Specifies the ARN of the trail that was created. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
+-- | Specifies the ARN of the trail that was created. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 ctrsTrailARN :: Lens' CreateTrailResponse (Maybe Text)
 ctrsTrailARN = lens _ctrsTrailARN (\ s a -> s{_ctrsTrailARN = a})
 
@@ -309,7 +326,7 @@ ctrsTrailARN = lens _ctrsTrailARN (\ s a -> s{_ctrsTrailARN = a})
 ctrsS3KeyPrefix :: Lens' CreateTrailResponse (Maybe Text)
 ctrsS3KeyPrefix = lens _ctrsS3KeyPrefix (\ s a -> s{_ctrsS3KeyPrefix = a})
 
--- | Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is: @arn:aws:sns:us-east-1:123456789012:MyTopic@
+-- | Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is: @arn:aws:sns:us-east-2:123456789012:MyTopic@
 ctrsSNSTopicARN :: Lens' CreateTrailResponse (Maybe Text)
 ctrsSNSTopicARN = lens _ctrsSNSTopicARN (\ s a -> s{_ctrsSNSTopicARN = a})
 
@@ -321,7 +338,7 @@ ctrsSNSTopicName = lens _ctrsSNSTopicName (\ s a -> s{_ctrsSNSTopicName = a})
 ctrsCloudWatchLogsLogGroupARN :: Lens' CreateTrailResponse (Maybe Text)
 ctrsCloudWatchLogsLogGroupARN = lens _ctrsCloudWatchLogsLogGroupARN (\ s a -> s{_ctrsCloudWatchLogsLogGroupARN = a})
 
--- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@
+-- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format: @arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012@
 ctrsKMSKeyId :: Lens' CreateTrailResponse (Maybe Text)
 ctrsKMSKeyId = lens _ctrsKMSKeyId (\ s a -> s{_ctrsKMSKeyId = a})
 
@@ -332,6 +349,10 @@ ctrsName = lens _ctrsName (\ s a -> s{_ctrsName = a})
 -- | Specifies whether the trail is publishing events from global services such as IAM to the log files.
 ctrsIncludeGlobalServiceEvents :: Lens' CreateTrailResponse (Maybe Bool)
 ctrsIncludeGlobalServiceEvents = lens _ctrsIncludeGlobalServiceEvents (\ s a -> s{_ctrsIncludeGlobalServiceEvents = a})
+
+-- | Specifies whether the trail is an organization trail.
+ctrsIsOrganizationTrail :: Lens' CreateTrailResponse (Maybe Bool)
+ctrsIsOrganizationTrail = lens _ctrsIsOrganizationTrail (\ s a -> s{_ctrsIsOrganizationTrail = a})
 
 -- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
 ctrsCloudWatchLogsRoleARN :: Lens' CreateTrailResponse (Maybe Text)

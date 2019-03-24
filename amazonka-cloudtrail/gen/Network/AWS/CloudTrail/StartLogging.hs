@@ -57,14 +57,14 @@ newtype StartLogging = StartLogging'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sName' - Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS API calls. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
+-- * 'sName' - Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS API calls. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 startLogging
     :: Text -- ^ 'sName'
     -> StartLogging
 startLogging pName_ = StartLogging' {_sName = pName_}
 
 
--- | Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS API calls. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
+-- | Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS API calls. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 sName :: Lens' StartLogging Text
 sName = lens _sName (\ s a -> s{_sName = a})
 

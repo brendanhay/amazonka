@@ -61,7 +61,7 @@ data AddTags = AddTags'
 --
 -- * 'atTagsList' - Contains a list of CloudTrail tags, up to a limit of 50
 --
--- * 'atResourceId' - Specifies the ARN of the trail to which one or more tags will be added. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
+-- * 'atResourceId' - Specifies the ARN of the trail to which one or more tags will be added. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 addTags
     :: Text -- ^ 'atResourceId'
     -> AddTags
@@ -73,7 +73,7 @@ addTags pResourceId_ =
 atTagsList :: Lens' AddTags [Tag]
 atTagsList = lens _atTagsList (\ s a -> s{_atTagsList = a}) . _Default . _Coerce
 
--- | Specifies the ARN of the trail to which one or more tags will be added. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
+-- | Specifies the ARN of the trail to which one or more tags will be added. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 atResourceId :: Lens' AddTags Text
 atResourceId = lens _atResourceId (\ s a -> s{_atResourceId = a})
 

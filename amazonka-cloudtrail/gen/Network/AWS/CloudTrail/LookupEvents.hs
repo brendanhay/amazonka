@@ -18,14 +18,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Looks up API activity events captured by CloudTrail that create, update, or delete resources in your account. Events for a region can be looked up for the times in which you had CloudTrail turned on in that region during the last seven days. Lookup supports the following attributes:
+-- Looks up <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events management events> captured by CloudTrail. Events for a region can be looked up in that region during the last 90 days. Lookup supports the following attributes:
 --
+--
+--     * AWS access key
 --
 --     * Event ID
 --
 --     * Event name
 --
 --     * Event source
+--
+--     * Read only
 --
 --     * Resource name
 --
@@ -35,7 +39,7 @@
 --
 --
 --
--- All attributes are optional. The default number of results returned is 10, with a maximum of 50 possible. The response includes a token that you can use to get the next page of results.
+-- All attributes are optional. The default number of results returned is 50, with a maximum of 50 possible. The response includes a token that you can use to get the next page of results.
 --
 -- /Important:/ The rate of lookup requests is limited to one per second per account. If this limit is exceeded, a throttling error occurs.
 --
@@ -98,7 +102,7 @@ data LookupEvents = LookupEvents'
 --
 -- * 'leEndTime' - Specifies that only events that occur before or at the specified time are returned. If the specified end time is before the specified start time, an error is returned.
 --
--- * 'leMaxResults' - The number of events to return. Possible values are 1 through 50. The default is 10.
+-- * 'leMaxResults' - The number of events to return. Possible values are 1 through 50. The default is 50.
 lookupEvents
     :: LookupEvents
 lookupEvents =
@@ -127,7 +131,7 @@ leNextToken = lens _leNextToken (\ s a -> s{_leNextToken = a})
 leEndTime :: Lens' LookupEvents (Maybe UTCTime)
 leEndTime = lens _leEndTime (\ s a -> s{_leEndTime = a}) . mapping _Time
 
--- | The number of events to return. Possible values are 1 through 50. The default is 10.
+-- | The number of events to return. Possible values are 1 through 50. The default is 50.
 leMaxResults :: Lens' LookupEvents (Maybe Natural)
 leMaxResults = lens _leMaxResults (\ s a -> s{_leMaxResults = a}) . mapping _Nat
 

@@ -21,6 +21,8 @@
 -- Lists the tags for the trail in the current region.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudTrail.ListTags
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.CloudTrail.ListTags
 import Network.AWS.CloudTrail.Types
 import Network.AWS.CloudTrail.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -63,7 +66,7 @@ data ListTags = ListTags'
 --
 -- * 'ltNextToken' - Reserved for future use.
 --
--- * 'ltResourceIdList' - Specifies a list of trail ARNs whose tags will be listed. The list has a limit of 20 ARNs. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
+-- * 'ltResourceIdList' - Specifies a list of trail ARNs whose tags will be listed. The list has a limit of 20 ARNs. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 listTags
     :: ListTags
 listTags = ListTags' {_ltNextToken = Nothing, _ltResourceIdList = mempty}
@@ -73,9 +76,16 @@ listTags = ListTags' {_ltNextToken = Nothing, _ltResourceIdList = mempty}
 ltNextToken :: Lens' ListTags (Maybe Text)
 ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a})
 
--- | Specifies a list of trail ARNs whose tags will be listed. The list has a limit of 20 ARNs. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
+-- | Specifies a list of trail ARNs whose tags will be listed. The list has a limit of 20 ARNs. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 ltResourceIdList :: Lens' ListTags [Text]
 ltResourceIdList = lens _ltResourceIdList (\ s a -> s{_ltResourceIdList = a}) . _Coerce
+
+instance AWSPager ListTags where
+        page rq rs
+          | stop (rs ^. ltrsNextToken) = Nothing
+          | stop (rs ^. ltrsResourceTagList) = Nothing
+          | otherwise =
+            Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
 
 instance AWSRequest ListTags where
         type Rs ListTags = ListTagsResponse

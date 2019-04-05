@@ -450,6 +450,8 @@ data ResourceStatus
   | DeleteFailed
   | DeleteInProgress
   | DeleteSkipped
+  | RollbackComplete
+  | RollbackInProgress
   | UpdateComplete
   | UpdateFailed
   | UpdateInProgress
@@ -465,11 +467,13 @@ instance FromText ResourceStatus where
         "delete_failed" -> pure DeleteFailed
         "delete_in_progress" -> pure DeleteInProgress
         "delete_skipped" -> pure DeleteSkipped
+        "rollback_complete" -> pure RollbackComplete
+        "rollback_in_progress" -> pure RollbackInProgress
         "update_complete" -> pure UpdateComplete
         "update_failed" -> pure UpdateFailed
         "update_in_progress" -> pure UpdateInProgress
         e -> fromTextError $ "Failure parsing ResourceStatus from value: '" <> e
-           <> "'. Accepted values: create_complete, create_failed, create_in_progress, delete_complete, delete_failed, delete_in_progress, delete_skipped, update_complete, update_failed, update_in_progress"
+           <> "'. Accepted values: create_complete, create_failed, create_in_progress, delete_complete, delete_failed, delete_in_progress, delete_skipped, rollback_complete, rollback_in_progress, update_complete, update_failed, update_in_progress"
 
 instance ToText ResourceStatus where
     toText = \case
@@ -480,6 +484,8 @@ instance ToText ResourceStatus where
         DeleteFailed -> "DELETE_FAILED"
         DeleteInProgress -> "DELETE_IN_PROGRESS"
         DeleteSkipped -> "DELETE_SKIPPED"
+        RollbackComplete -> "ROLLBACK_COMPLETE"
+        RollbackInProgress -> "ROLLBACK_IN_PROGRESS"
         UpdateComplete -> "UPDATE_COMPLETE"
         UpdateFailed -> "UPDATE_FAILED"
         UpdateInProgress -> "UPDATE_IN_PROGRESS"

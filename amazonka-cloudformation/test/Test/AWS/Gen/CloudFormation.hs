@@ -14,11 +14,11 @@
 module Test.AWS.Gen.CloudFormation where
 
 import Data.Proxy
-import Network.AWS.CloudFormation
-import Test.AWS.CloudFormation.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.CloudFormation
+import Test.AWS.CloudFormation.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

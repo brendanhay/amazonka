@@ -2452,7 +2452,9 @@
         "DELETE_SKIPPED",
         "UPDATE_IN_PROGRESS",
         "UPDATE_FAILED",
-        "UPDATE_COMPLETE"
+        "UPDATE_COMPLETE",
+        "ROLLBACK_COMPLETE",
+        "ROLLBACK_IN_PROGRESS"
       ]
     },
     "ResourceStatusReason":{"type":"string"},

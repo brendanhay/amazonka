@@ -62,7 +62,7 @@ full-clean: clean
 	rm -rf vendor $(GENERATE) $(STYLISH)
 
 $(MODEL_DIR): vendor/botocore
-	cp -rf vendor/botocore/botocore/data $@
+	cp -rf vendor/botocore/botocore/data/ $@
 
 vendor/botocore:
 	git clone https://github.com/boto/botocore.git $@

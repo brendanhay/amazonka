@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds an object to a bucket.
+--
+--
 module Network.AWS.S3.PutObject
     (
     -- * Creating a Request
@@ -26,6 +28,7 @@ module Network.AWS.S3.PutObject
     , PutObject
     -- * Request Lenses
     , poContentLength
+    , poObjectLockMode
     , poExpires
     , poGrantReadACP
     , poSSECustomerAlgorithm
@@ -41,9 +44,11 @@ module Network.AWS.S3.PutObject
     , poContentEncoding
     , poTagging
     , poContentMD5
+    , poObjectLockRetainUntilDate
     , poMetadata
     , poCacheControl
     , poContentLanguage
+    , poObjectLockLegalHoldStatus
     , poACL
     , poContentDisposition
     , poServerSideEncryption
@@ -76,32 +81,35 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putObject' smart constructor.
 data PutObject = PutObject'
-  { _poContentLength           :: !(Maybe Integer)
-  , _poExpires                 :: !(Maybe RFC822)
-  , _poGrantReadACP            :: !(Maybe Text)
-  , _poSSECustomerAlgorithm    :: !(Maybe Text)
-  , _poSSECustomerKey          :: !(Maybe (Sensitive Text))
-  , _poRequestPayer            :: !(Maybe RequestPayer)
-  , _poGrantWriteACP           :: !(Maybe Text)
-  , _poWebsiteRedirectLocation :: !(Maybe Text)
-  , _poGrantRead               :: !(Maybe Text)
-  , _poStorageClass            :: !(Maybe StorageClass)
-  , _poSSECustomerKeyMD5       :: !(Maybe Text)
-  , _poSSEKMSKeyId             :: !(Maybe (Sensitive Text))
-  , _poGrantFullControl        :: !(Maybe Text)
-  , _poContentEncoding         :: !(Maybe Text)
-  , _poTagging                 :: !(Maybe Text)
-  , _poContentMD5              :: !(Maybe Text)
-  , _poMetadata                :: !(Map Text Text)
-  , _poCacheControl            :: !(Maybe Text)
-  , _poContentLanguage         :: !(Maybe Text)
-  , _poACL                     :: !(Maybe ObjectCannedACL)
-  , _poContentDisposition      :: !(Maybe Text)
-  , _poServerSideEncryption    :: !(Maybe ServerSideEncryption)
-  , _poContentType             :: !(Maybe Text)
-  , _poBucket                  :: !BucketName
-  , _poKey                     :: !ObjectKey
-  , _poBody                    :: !RqBody
+  { _poContentLength             :: !(Maybe Integer)
+  , _poObjectLockMode            :: !(Maybe ObjectLockMode)
+  , _poExpires                   :: !(Maybe ISO8601)
+  , _poGrantReadACP              :: !(Maybe Text)
+  , _poSSECustomerAlgorithm      :: !(Maybe Text)
+  , _poSSECustomerKey            :: !(Maybe (Sensitive Text))
+  , _poRequestPayer              :: !(Maybe RequestPayer)
+  , _poGrantWriteACP             :: !(Maybe Text)
+  , _poWebsiteRedirectLocation   :: !(Maybe Text)
+  , _poGrantRead                 :: !(Maybe Text)
+  , _poStorageClass              :: !(Maybe StorageClass)
+  , _poSSECustomerKeyMD5         :: !(Maybe Text)
+  , _poSSEKMSKeyId               :: !(Maybe (Sensitive Text))
+  , _poGrantFullControl          :: !(Maybe Text)
+  , _poContentEncoding           :: !(Maybe Text)
+  , _poTagging                   :: !(Maybe Text)
+  , _poContentMD5                :: !(Maybe Text)
+  , _poObjectLockRetainUntilDate :: !(Maybe ISO8601)
+  , _poMetadata                  :: !(Map Text Text)
+  , _poCacheControl              :: !(Maybe Text)
+  , _poContentLanguage           :: !(Maybe Text)
+  , _poObjectLockLegalHoldStatus :: !(Maybe ObjectLockLegalHoldStatus)
+  , _poACL                       :: !(Maybe ObjectCannedACL)
+  , _poContentDisposition        :: !(Maybe Text)
+  , _poServerSideEncryption      :: !(Maybe ServerSideEncryption)
+  , _poContentType               :: !(Maybe Text)
+  , _poBucket                    :: !BucketName
+  , _poKey                       :: !ObjectKey
+  , _poBody                      :: !RqBody
   } deriving (Show, Generic)
 
 
@@ -110,6 +118,8 @@ data PutObject = PutObject'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'poContentLength' - Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
+--
+-- * 'poObjectLockMode' - The Object Lock mode that you want to apply to this object.
 --
 -- * 'poExpires' - The date and time at which the object is no longer cacheable.
 --
@@ -137,15 +147,19 @@ data PutObject = PutObject'
 --
 -- * 'poContentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 --
--- * 'poTagging' - The tag-set for the object. The tag-set must be encoded as URL Query parameters
+-- * 'poTagging' - The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")
 --
--- * 'poContentMD5' - The base64-encoded 128-bit MD5 digest of the part data.
+-- * 'poContentMD5' - The base64-encoded 128-bit MD5 digest of the part data. This parameter is auto-populated when using the command from the CLI
+--
+-- * 'poObjectLockRetainUntilDate' - The date and time when you want this object's Object Lock to expire.
 --
 -- * 'poMetadata' - A map of metadata to store with the object in S3.
 --
 -- * 'poCacheControl' - Specifies caching behavior along the request/reply chain.
 --
 -- * 'poContentLanguage' - The language the content is in.
+--
+-- * 'poObjectLockLegalHoldStatus' - The Legal Hold status that you want to apply to the specified object.
 --
 -- * 'poACL' - The canned ACL to apply to the object.
 --
@@ -168,6 +182,7 @@ putObject
 putObject pBucket_ pKey_ pBody_ =
   PutObject'
     { _poContentLength = Nothing
+    , _poObjectLockMode = Nothing
     , _poExpires = Nothing
     , _poGrantReadACP = Nothing
     , _poSSECustomerAlgorithm = Nothing
@@ -183,9 +198,11 @@ putObject pBucket_ pKey_ pBody_ =
     , _poContentEncoding = Nothing
     , _poTagging = Nothing
     , _poContentMD5 = Nothing
+    , _poObjectLockRetainUntilDate = Nothing
     , _poMetadata = mempty
     , _poCacheControl = Nothing
     , _poContentLanguage = Nothing
+    , _poObjectLockLegalHoldStatus = Nothing
     , _poACL = Nothing
     , _poContentDisposition = Nothing
     , _poServerSideEncryption = Nothing
@@ -199,6 +216,10 @@ putObject pBucket_ pKey_ pBody_ =
 -- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
 poContentLength :: Lens' PutObject (Maybe Integer)
 poContentLength = lens _poContentLength (\ s a -> s{_poContentLength = a})
+
+-- | The Object Lock mode that you want to apply to this object.
+poObjectLockMode :: Lens' PutObject (Maybe ObjectLockMode)
+poObjectLockMode = lens _poObjectLockMode (\ s a -> s{_poObjectLockMode = a})
 
 -- | The date and time at which the object is no longer cacheable.
 poExpires :: Lens' PutObject (Maybe UTCTime)
@@ -252,13 +273,17 @@ poGrantFullControl = lens _poGrantFullControl (\ s a -> s{_poGrantFullControl = 
 poContentEncoding :: Lens' PutObject (Maybe Text)
 poContentEncoding = lens _poContentEncoding (\ s a -> s{_poContentEncoding = a})
 
--- | The tag-set for the object. The tag-set must be encoded as URL Query parameters
+-- | The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")
 poTagging :: Lens' PutObject (Maybe Text)
 poTagging = lens _poTagging (\ s a -> s{_poTagging = a})
 
--- | The base64-encoded 128-bit MD5 digest of the part data.
+-- | The base64-encoded 128-bit MD5 digest of the part data. This parameter is auto-populated when using the command from the CLI
 poContentMD5 :: Lens' PutObject (Maybe Text)
 poContentMD5 = lens _poContentMD5 (\ s a -> s{_poContentMD5 = a})
+
+-- | The date and time when you want this object's Object Lock to expire.
+poObjectLockRetainUntilDate :: Lens' PutObject (Maybe UTCTime)
+poObjectLockRetainUntilDate = lens _poObjectLockRetainUntilDate (\ s a -> s{_poObjectLockRetainUntilDate = a}) . mapping _Time
 
 -- | A map of metadata to store with the object in S3.
 poMetadata :: Lens' PutObject (HashMap Text Text)
@@ -271,6 +296,10 @@ poCacheControl = lens _poCacheControl (\ s a -> s{_poCacheControl = a})
 -- | The language the content is in.
 poContentLanguage :: Lens' PutObject (Maybe Text)
 poContentLanguage = lens _poContentLanguage (\ s a -> s{_poContentLanguage = a})
+
+-- | The Legal Hold status that you want to apply to the specified object.
+poObjectLockLegalHoldStatus :: Lens' PutObject (Maybe ObjectLockLegalHoldStatus)
+poObjectLockLegalHoldStatus = lens _poObjectLockLegalHoldStatus (\ s a -> s{_poObjectLockLegalHoldStatus = a})
 
 -- | The canned ACL to apply to the object.
 poACL :: Lens' PutObject (Maybe ObjectCannedACL)
@@ -328,6 +357,7 @@ instance ToHeaders PutObject where
         toHeaders PutObject'{..}
           = mconcat
               ["Content-Length" =# _poContentLength,
+               "x-amz-object-lock-mode" =# _poObjectLockMode,
                "Expires" =# _poExpires,
                "x-amz-grant-read-acp" =# _poGrantReadACP,
                "x-amz-server-side-encryption-customer-algorithm" =#
@@ -348,9 +378,13 @@ instance ToHeaders PutObject where
                "Content-Encoding" =# _poContentEncoding,
                "x-amz-tagging" =# _poTagging,
                "Content-MD5" =# _poContentMD5,
+               "x-amz-object-lock-retain-until-date" =#
+                 _poObjectLockRetainUntilDate,
                "x-amz-meta-" =# _poMetadata,
                "Cache-Control" =# _poCacheControl,
                "Content-Language" =# _poContentLanguage,
+               "x-amz-object-lock-legal-hold" =#
+                 _poObjectLockLegalHoldStatus,
                "x-amz-acl" =# _poACL,
                "Content-Disposition" =# _poContentDisposition,
                "x-amz-server-side-encryption" =#

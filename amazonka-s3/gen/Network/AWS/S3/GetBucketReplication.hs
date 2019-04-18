@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the replication configuration of a bucket.
+--
+--
 module Network.AWS.S3.GetBucketReplication
     (
     -- * Creating a Request
@@ -52,14 +54,14 @@ newtype GetBucketReplication = GetBucketReplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbrBucket' - Undocumented member.
+-- * 'gbrBucket' -
 getBucketReplication
     :: BucketName -- ^ 'gbrBucket'
     -> GetBucketReplication
 getBucketReplication pBucket_ = GetBucketReplication' {_gbrBucket = pBucket_}
 
 
--- | Undocumented member.
+-- |
 gbrBucket :: Lens' GetBucketReplication BucketName
 gbrBucket = lens _gbrBucket (\ s a -> s{_gbrBucket = a})
 

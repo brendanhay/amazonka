@@ -24,6 +24,8 @@ import Network.AWS.S3.Types.Sum
 
 -- | Specifies the days since the initiation of an Incomplete Multipart Upload that Lifecycle will wait before permanently removing all parts of the upload.
 --
+--
+--
 -- /See:/ 'abortIncompleteMultipartUpload' smart constructor.
 newtype AbortIncompleteMultipartUpload = AbortIncompleteMultipartUpload'
   { _aimuDaysAfterInitiation :: Maybe Int
@@ -60,7 +62,11 @@ instance ToXML AbortIncompleteMultipartUpload where
           = mconcat
               ["DaysAfterInitiation" @= _aimuDaysAfterInitiation]
 
--- | /See:/ 'accelerateConfiguration' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'accelerateConfiguration' smart constructor.
 newtype AccelerateConfiguration = AccelerateConfiguration'
   { _acStatus :: Maybe BucketAccelerateStatus
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -88,7 +94,11 @@ instance ToXML AccelerateConfiguration where
         toXML AccelerateConfiguration'{..}
           = mconcat ["Status" @= _acStatus]
 
--- | /See:/ 'accessControlPolicy' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'accessControlPolicy' smart constructor.
 data AccessControlPolicy = AccessControlPolicy'
   { _acpGrants :: !(Maybe [Grant])
   , _acpOwner  :: !(Maybe Owner)
@@ -101,7 +111,7 @@ data AccessControlPolicy = AccessControlPolicy'
 --
 -- * 'acpGrants' - A list of grants.
 --
--- * 'acpOwner' - Undocumented member.
+-- * 'acpOwner' -
 accessControlPolicy
     :: AccessControlPolicy
 accessControlPolicy =
@@ -112,7 +122,7 @@ accessControlPolicy =
 acpGrants :: Lens' AccessControlPolicy [Grant]
 acpGrants = lens _acpGrants (\ s a -> s{_acpGrants = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- |
 acpOwner :: Lens' AccessControlPolicy (Maybe Owner)
 acpOwner = lens _acpOwner (\ s a -> s{_acpOwner = a})
 
@@ -127,7 +137,9 @@ instance ToXML AccessControlPolicy where
                  toXML (toXMLList "Grant" <$> _acpGrants),
                "Owner" @= _acpOwner]
 
--- | Container for information regarding the access control for replicas.
+-- | A container for information about access control for replicas.
+--
+--
 --
 -- /See:/ 'accessControlTranslation' smart constructor.
 newtype AccessControlTranslation = AccessControlTranslation'
@@ -163,7 +175,11 @@ instance ToXML AccessControlTranslation where
         toXML AccessControlTranslation'{..}
           = mconcat ["Owner" @= _actOwner]
 
--- | /See:/ 'analyticsAndOperator' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'analyticsAndOperator' smart constructor.
 data AnalyticsAndOperator = AnalyticsAndOperator'
   { _aaoPrefix :: !(Maybe Text)
   , _aaoTags   :: !(Maybe [Tag])
@@ -207,7 +223,11 @@ instance ToXML AnalyticsAndOperator where
               ["Prefix" @= _aaoPrefix,
                "Tag" @= toXML (toXMLList "Tag" <$> _aaoTags)]
 
--- | /See:/ 'analyticsConfiguration' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'analyticsConfiguration' smart constructor.
 data AnalyticsConfiguration = AnalyticsConfiguration'
   { _acFilter               :: !(Maybe AnalyticsFilter)
   , _acId                   :: !Text
@@ -264,7 +284,11 @@ instance ToXML AnalyticsConfiguration where
               ["Filter" @= _acFilter, "Id" @= _acId,
                "StorageClassAnalysis" @= _acStorageClassAnalysis]
 
--- | /See:/ 'analyticsExportDestination' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'analyticsExportDestination' smart constructor.
 newtype AnalyticsExportDestination = AnalyticsExportDestination'
   { _aedS3BucketDestination :: AnalyticsS3BucketDestination
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -300,7 +324,11 @@ instance ToXML AnalyticsExportDestination where
           = mconcat
               ["S3BucketDestination" @= _aedS3BucketDestination]
 
--- | /See:/ 'analyticsFilter' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'analyticsFilter' smart constructor.
 data AnalyticsFilter = AnalyticsFilter'
   { _afTag    :: !(Maybe Tag)
   , _afPrefix :: !(Maybe Text)
@@ -350,7 +378,11 @@ instance ToXML AnalyticsFilter where
               ["Tag" @= _afTag, "Prefix" @= _afPrefix,
                "And" @= _afAnd]
 
--- | /See:/ 'analyticsS3BucketDestination' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'analyticsS3BucketDestination' smart constructor.
 data AnalyticsS3BucketDestination = AnalyticsS3BucketDestination'
   { _asbdBucketAccountId :: !(Maybe Text)
   , _asbdPrefix          :: !(Maybe Text)
@@ -417,9 +449,13 @@ instance ToXML AnalyticsS3BucketDestination where
                "Prefix" @= _asbdPrefix, "Format" @= _asbdFormat,
                "Bucket" @= _asbdBucket]
 
--- | /See:/ 'bucket' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'bucket' smart constructor.
 data Bucket = Bucket'
-  { _bCreationDate :: !RFC822
+  { _bCreationDate :: !ISO8601
   , _bName         :: !BucketName
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -455,7 +491,11 @@ instance Hashable Bucket where
 
 instance NFData Bucket where
 
--- | /See:/ 'bucketLifecycleConfiguration' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'bucketLifecycleConfiguration' smart constructor.
 newtype BucketLifecycleConfiguration = BucketLifecycleConfiguration'
   { _blcRules :: [LifecycleRule]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -465,14 +505,14 @@ newtype BucketLifecycleConfiguration = BucketLifecycleConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'blcRules' - Undocumented member.
+-- * 'blcRules' -
 bucketLifecycleConfiguration
     :: BucketLifecycleConfiguration
 bucketLifecycleConfiguration =
   BucketLifecycleConfiguration' {_blcRules = mempty}
 
 
--- | Undocumented member.
+-- |
 blcRules :: Lens' BucketLifecycleConfiguration [LifecycleRule]
 blcRules = lens _blcRules (\ s a -> s{_blcRules = a}) . _Coerce
 
@@ -484,7 +524,11 @@ instance ToXML BucketLifecycleConfiguration where
         toXML BucketLifecycleConfiguration'{..}
           = mconcat [toXMLList "Rule" _blcRules]
 
--- | /See:/ 'bucketLoggingStatus' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'bucketLoggingStatus' smart constructor.
 newtype BucketLoggingStatus = BucketLoggingStatus'
   { _blsLoggingEnabled :: Maybe LoggingEnabled
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -512,7 +556,11 @@ instance ToXML BucketLoggingStatus where
         toXML BucketLoggingStatus'{..}
           = mconcat ["LoggingEnabled" @= _blsLoggingEnabled]
 
--- | /See:/ 'corsConfiguration' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'corsConfiguration' smart constructor.
 newtype CORSConfiguration = CORSConfiguration'
   { _ccCORSRules :: [CORSRule]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -522,13 +570,13 @@ newtype CORSConfiguration = CORSConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccCORSRules' - Undocumented member.
+-- * 'ccCORSRules' -
 corsConfiguration
     :: CORSConfiguration
 corsConfiguration = CORSConfiguration' {_ccCORSRules = mempty}
 
 
--- | Undocumented member.
+-- |
 ccCORSRules :: Lens' CORSConfiguration [CORSRule]
 ccCORSRules = lens _ccCORSRules (\ s a -> s{_ccCORSRules = a}) . _Coerce
 
@@ -540,7 +588,11 @@ instance ToXML CORSConfiguration where
         toXML CORSConfiguration'{..}
           = mconcat [toXMLList "CORSRule" _ccCORSRules]
 
--- | /See:/ 'corsRule' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'corsRule' smart constructor.
 data CORSRule = CORSRule'
   { _crMaxAgeSeconds  :: !(Maybe Int)
   , _crAllowedHeaders :: !(Maybe [Text])
@@ -621,14 +673,17 @@ instance ToXML CORSRule where
 
 -- | Describes how a CSV-formatted input object is formatted.
 --
+--
+--
 -- /See:/ 'csvInput' smart constructor.
 data CSVInput = CSVInput'
-  { _ciQuoteCharacter       :: !(Maybe Text)
-  , _ciRecordDelimiter      :: !(Maybe Text)
-  , _ciFileHeaderInfo       :: !(Maybe FileHeaderInfo)
-  , _ciQuoteEscapeCharacter :: !(Maybe Text)
-  , _ciComments             :: !(Maybe Text)
-  , _ciFieldDelimiter       :: !(Maybe Text)
+  { _ciQuoteCharacter             :: !(Maybe Text)
+  , _ciRecordDelimiter            :: !(Maybe Text)
+  , _ciAllowQuotedRecordDelimiter :: !(Maybe Bool)
+  , _ciFileHeaderInfo             :: !(Maybe FileHeaderInfo)
+  , _ciQuoteEscapeCharacter       :: !(Maybe Text)
+  , _ciComments                   :: !(Maybe Text)
+  , _ciFieldDelimiter             :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -638,21 +693,24 @@ data CSVInput = CSVInput'
 --
 -- * 'ciQuoteCharacter' - Value used for escaping where the field delimiter is part of the value.
 --
--- * 'ciRecordDelimiter' - Value used to separate individual records.
+-- * 'ciRecordDelimiter' - The value used to separate individual records.
+--
+-- * 'ciAllowQuotedRecordDelimiter' - Specifies that CSV field values may contain quoted record delimiters and such records should be allowed. Default value is FALSE. Setting this value to TRUE may lower performance.
 --
 -- * 'ciFileHeaderInfo' - Describes the first line of input. Valid values: None, Ignore, Use.
 --
--- * 'ciQuoteEscapeCharacter' - Single character used for escaping the quote character inside an already escaped value.
+-- * 'ciQuoteEscapeCharacter' - The single character used for escaping the quote character inside an already escaped value.
 --
--- * 'ciComments' - Single character used to indicate a row should be ignored when present at the start of a row.
+-- * 'ciComments' - The single character used to indicate a row should be ignored when present at the start of a row.
 --
--- * 'ciFieldDelimiter' - Value used to separate individual fields in a record.
+-- * 'ciFieldDelimiter' - The value used to separate individual fields in a record.
 csvInput
     :: CSVInput
 csvInput =
   CSVInput'
     { _ciQuoteCharacter = Nothing
     , _ciRecordDelimiter = Nothing
+    , _ciAllowQuotedRecordDelimiter = Nothing
     , _ciFileHeaderInfo = Nothing
     , _ciQuoteEscapeCharacter = Nothing
     , _ciComments = Nothing
@@ -664,23 +722,27 @@ csvInput =
 ciQuoteCharacter :: Lens' CSVInput (Maybe Text)
 ciQuoteCharacter = lens _ciQuoteCharacter (\ s a -> s{_ciQuoteCharacter = a})
 
--- | Value used to separate individual records.
+-- | The value used to separate individual records.
 ciRecordDelimiter :: Lens' CSVInput (Maybe Text)
 ciRecordDelimiter = lens _ciRecordDelimiter (\ s a -> s{_ciRecordDelimiter = a})
+
+-- | Specifies that CSV field values may contain quoted record delimiters and such records should be allowed. Default value is FALSE. Setting this value to TRUE may lower performance.
+ciAllowQuotedRecordDelimiter :: Lens' CSVInput (Maybe Bool)
+ciAllowQuotedRecordDelimiter = lens _ciAllowQuotedRecordDelimiter (\ s a -> s{_ciAllowQuotedRecordDelimiter = a})
 
 -- | Describes the first line of input. Valid values: None, Ignore, Use.
 ciFileHeaderInfo :: Lens' CSVInput (Maybe FileHeaderInfo)
 ciFileHeaderInfo = lens _ciFileHeaderInfo (\ s a -> s{_ciFileHeaderInfo = a})
 
--- | Single character used for escaping the quote character inside an already escaped value.
+-- | The single character used for escaping the quote character inside an already escaped value.
 ciQuoteEscapeCharacter :: Lens' CSVInput (Maybe Text)
 ciQuoteEscapeCharacter = lens _ciQuoteEscapeCharacter (\ s a -> s{_ciQuoteEscapeCharacter = a})
 
--- | Single character used to indicate a row should be ignored when present at the start of a row.
+-- | The single character used to indicate a row should be ignored when present at the start of a row.
 ciComments :: Lens' CSVInput (Maybe Text)
 ciComments = lens _ciComments (\ s a -> s{_ciComments = a})
 
--- | Value used to separate individual fields in a record.
+-- | The value used to separate individual fields in a record.
 ciFieldDelimiter :: Lens' CSVInput (Maybe Text)
 ciFieldDelimiter = lens _ciFieldDelimiter (\ s a -> s{_ciFieldDelimiter = a})
 
@@ -693,12 +755,16 @@ instance ToXML CSVInput where
           = mconcat
               ["QuoteCharacter" @= _ciQuoteCharacter,
                "RecordDelimiter" @= _ciRecordDelimiter,
+               "AllowQuotedRecordDelimiter" @=
+                 _ciAllowQuotedRecordDelimiter,
                "FileHeaderInfo" @= _ciFileHeaderInfo,
                "QuoteEscapeCharacter" @= _ciQuoteEscapeCharacter,
                "Comments" @= _ciComments,
                "FieldDelimiter" @= _ciFieldDelimiter]
 
 -- | Describes how CSV-formatted results are formatted.
+--
+--
 --
 -- /See:/ 'csvOutput' smart constructor.
 data CSVOutput = CSVOutput'
@@ -714,15 +780,15 @@ data CSVOutput = CSVOutput'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'coQuoteCharacter' - Value used for escaping where the field delimiter is part of the value.
+-- * 'coQuoteCharacter' - The value used for escaping where the field delimiter is part of the value.
 --
 -- * 'coQuoteFields' - Indicates whether or not all output fields should be quoted.
 --
--- * 'coRecordDelimiter' - Value used to separate individual records.
+-- * 'coRecordDelimiter' - The value used to separate individual records.
 --
--- * 'coQuoteEscapeCharacter' - Single character used for escaping the quote character inside an already escaped value.
+-- * 'coQuoteEscapeCharacter' - Th single character used for escaping the quote character inside an already escaped value.
 --
--- * 'coFieldDelimiter' - Value used to separate individual fields in a record.
+-- * 'coFieldDelimiter' - The value used to separate individual fields in a record.
 csvOutput
     :: CSVOutput
 csvOutput =
@@ -735,7 +801,7 @@ csvOutput =
     }
 
 
--- | Value used for escaping where the field delimiter is part of the value.
+-- | The value used for escaping where the field delimiter is part of the value.
 coQuoteCharacter :: Lens' CSVOutput (Maybe Text)
 coQuoteCharacter = lens _coQuoteCharacter (\ s a -> s{_coQuoteCharacter = a})
 
@@ -743,15 +809,15 @@ coQuoteCharacter = lens _coQuoteCharacter (\ s a -> s{_coQuoteCharacter = a})
 coQuoteFields :: Lens' CSVOutput (Maybe QuoteFields)
 coQuoteFields = lens _coQuoteFields (\ s a -> s{_coQuoteFields = a})
 
--- | Value used to separate individual records.
+-- | The value used to separate individual records.
 coRecordDelimiter :: Lens' CSVOutput (Maybe Text)
 coRecordDelimiter = lens _coRecordDelimiter (\ s a -> s{_coRecordDelimiter = a})
 
--- | Single character used for escaping the quote character inside an already escaped value.
+-- | Th single character used for escaping the quote character inside an already escaped value.
 coQuoteEscapeCharacter :: Lens' CSVOutput (Maybe Text)
 coQuoteEscapeCharacter = lens _coQuoteEscapeCharacter (\ s a -> s{_coQuoteEscapeCharacter = a})
 
--- | Value used to separate individual fields in a record.
+-- | The value used to separate individual fields in a record.
 coFieldDelimiter :: Lens' CSVOutput (Maybe Text)
 coFieldDelimiter = lens _coFieldDelimiter (\ s a -> s{_coFieldDelimiter = a})
 
@@ -768,7 +834,11 @@ instance ToXML CSVOutput where
                "QuoteEscapeCharacter" @= _coQuoteEscapeCharacter,
                "FieldDelimiter" @= _coFieldDelimiter]
 
--- | /See:/ 'commonPrefix' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'commonPrefix' smart constructor.
 newtype CommonPrefix = CommonPrefix'
   { _cpPrefix :: Maybe Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -778,13 +848,13 @@ newtype CommonPrefix = CommonPrefix'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpPrefix' - Undocumented member.
+-- * 'cpPrefix' -
 commonPrefix
     :: CommonPrefix
 commonPrefix = CommonPrefix' {_cpPrefix = Nothing}
 
 
--- | Undocumented member.
+-- |
 cpPrefix :: Lens' CommonPrefix (Maybe Text)
 cpPrefix = lens _cpPrefix (\ s a -> s{_cpPrefix = a})
 
@@ -795,7 +865,11 @@ instance Hashable CommonPrefix where
 
 instance NFData CommonPrefix where
 
--- | /See:/ 'completedMultipartUpload' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'completedMultipartUpload' smart constructor.
 newtype CompletedMultipartUpload = CompletedMultipartUpload'
   { _cmuParts :: Maybe (List1 CompletedPart)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -805,13 +879,13 @@ newtype CompletedMultipartUpload = CompletedMultipartUpload'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cmuParts' - Undocumented member.
+-- * 'cmuParts' -
 completedMultipartUpload
     :: CompletedMultipartUpload
 completedMultipartUpload = CompletedMultipartUpload' {_cmuParts = Nothing}
 
 
--- | Undocumented member.
+-- |
 cmuParts :: Lens' CompletedMultipartUpload (Maybe (NonEmpty CompletedPart))
 cmuParts = lens _cmuParts (\ s a -> s{_cmuParts = a}) . mapping _List1
 
@@ -823,7 +897,11 @@ instance ToXML CompletedMultipartUpload where
         toXML CompletedMultipartUpload'{..}
           = mconcat [toXML (toXMLList "Part" <$> _cmuParts)]
 
--- | /See:/ 'completedPart' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'completedPart' smart constructor.
 data CompletedPart = CompletedPart'
   { _cpPartNumber :: !Int
   , _cpETag       :: !ETag
@@ -862,7 +940,11 @@ instance ToXML CompletedPart where
           = mconcat
               ["PartNumber" @= _cpPartNumber, "ETag" @= _cpETag]
 
--- | /See:/ 'condition' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'condition' smart constructor.
 data Condition = Condition'
   { _cKeyPrefixEquals             :: !(Maybe Text)
   , _cHTTPErrorCodeReturnedEquals :: !(Maybe Text)
@@ -908,7 +990,11 @@ instance ToXML Condition where
                "HttpErrorCodeReturnedEquals" @=
                  _cHTTPErrorCodeReturnedEquals]
 
--- | /See:/ 'continuationEvent' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'continuationEvent' smart constructor.
 data ContinuationEvent =
   ContinuationEvent'
   deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -928,10 +1014,14 @@ instance Hashable ContinuationEvent where
 
 instance NFData ContinuationEvent where
 
--- | /See:/ 'copyObjectResult' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'copyObjectResult' smart constructor.
 data CopyObjectResult = CopyObjectResult'
   { _corETag         :: !(Maybe ETag)
-  , _corLastModified :: !(Maybe RFC822)
+  , _corLastModified :: !(Maybe ISO8601)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -939,20 +1029,20 @@ data CopyObjectResult = CopyObjectResult'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'corETag' - Undocumented member.
+-- * 'corETag' -
 --
--- * 'corLastModified' - Undocumented member.
+-- * 'corLastModified' -
 copyObjectResult
     :: CopyObjectResult
 copyObjectResult =
   CopyObjectResult' {_corETag = Nothing, _corLastModified = Nothing}
 
 
--- | Undocumented member.
+-- |
 corETag :: Lens' CopyObjectResult (Maybe ETag)
 corETag = lens _corETag (\ s a -> s{_corETag = a})
 
--- | Undocumented member.
+-- |
 corLastModified :: Lens' CopyObjectResult (Maybe UTCTime)
 corLastModified = lens _corLastModified (\ s a -> s{_corLastModified = a}) . mapping _Time
 
@@ -965,10 +1055,14 @@ instance Hashable CopyObjectResult where
 
 instance NFData CopyObjectResult where
 
--- | /See:/ 'copyPartResult' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'copyPartResult' smart constructor.
 data CopyPartResult = CopyPartResult'
   { _cprETag         :: !(Maybe ETag)
-  , _cprLastModified :: !(Maybe RFC822)
+  , _cprLastModified :: !(Maybe ISO8601)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1002,7 +1096,11 @@ instance Hashable CopyPartResult where
 
 instance NFData CopyPartResult where
 
--- | /See:/ 'createBucketConfiguration' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'createBucketConfiguration' smart constructor.
 newtype CreateBucketConfiguration = CreateBucketConfiguration'
   { _cbcLocationConstraint :: Maybe LocationConstraint
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -1012,14 +1110,14 @@ newtype CreateBucketConfiguration = CreateBucketConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbcLocationConstraint' - Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.
+-- * 'cbcLocationConstraint' - Specifies the region where the bucket will be created. If you don't specify a region, the bucket is created in US East (N. Virginia) Region (us-east-1).
 createBucketConfiguration
     :: CreateBucketConfiguration
 createBucketConfiguration =
   CreateBucketConfiguration' {_cbcLocationConstraint = Nothing}
 
 
--- | Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.
+-- | Specifies the region where the bucket will be created. If you don't specify a region, the bucket is created in US East (N. Virginia) Region (us-east-1).
 cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe LocationConstraint)
 cbcLocationConstraint = lens _cbcLocationConstraint (\ s a -> s{_cbcLocationConstraint = a})
 
@@ -1032,7 +1130,65 @@ instance ToXML CreateBucketConfiguration where
           = mconcat
               ["LocationConstraint" @= _cbcLocationConstraint]
 
--- | /See:/ 'delete'' smart constructor.
+-- | The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.
+--
+--
+--
+-- /See:/ 'defaultRetention' smart constructor.
+data DefaultRetention = DefaultRetention'
+  { _drDays  :: !(Maybe Int)
+  , _drMode  :: !(Maybe ObjectLockRetentionMode)
+  , _drYears :: !(Maybe Int)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DefaultRetention' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drDays' - The number of days that you want to specify for the default retention period.
+--
+-- * 'drMode' - The default Object Lock retention mode you want to apply to new objects placed in the specified bucket.
+--
+-- * 'drYears' - The number of years that you want to specify for the default retention period.
+defaultRetention
+    :: DefaultRetention
+defaultRetention =
+  DefaultRetention' {_drDays = Nothing, _drMode = Nothing, _drYears = Nothing}
+
+
+-- | The number of days that you want to specify for the default retention period.
+drDays :: Lens' DefaultRetention (Maybe Int)
+drDays = lens _drDays (\ s a -> s{_drDays = a})
+
+-- | The default Object Lock retention mode you want to apply to new objects placed in the specified bucket.
+drMode :: Lens' DefaultRetention (Maybe ObjectLockRetentionMode)
+drMode = lens _drMode (\ s a -> s{_drMode = a})
+
+-- | The number of years that you want to specify for the default retention period.
+drYears :: Lens' DefaultRetention (Maybe Int)
+drYears = lens _drYears (\ s a -> s{_drYears = a})
+
+instance FromXML DefaultRetention where
+        parseXML x
+          = DefaultRetention' <$>
+              (x .@? "Days") <*> (x .@? "Mode") <*> (x .@? "Years")
+
+instance Hashable DefaultRetention where
+
+instance NFData DefaultRetention where
+
+instance ToXML DefaultRetention where
+        toXML DefaultRetention'{..}
+          = mconcat
+              ["Days" @= _drDays, "Mode" @= _drMode,
+               "Years" @= _drYears]
+
+-- |
+--
+--
+--
+-- /See:/ 'delete'' smart constructor.
 data Delete = Delete'
   { _dQuiet   :: !(Maybe Bool)
   , _dObjects :: ![ObjectIdentifier]
@@ -1045,7 +1201,7 @@ data Delete = Delete'
 --
 -- * 'dQuiet' - Element to enable quiet mode for the request. When you add this element, you must set its value to true.
 --
--- * 'dObjects' - Undocumented member.
+-- * 'dObjects' -
 delete'
     :: Delete
 delete' = Delete' {_dQuiet = Nothing, _dObjects = mempty}
@@ -1055,7 +1211,7 @@ delete' = Delete' {_dQuiet = Nothing, _dObjects = mempty}
 dQuiet :: Lens' Delete (Maybe Bool)
 dQuiet = lens _dQuiet (\ s a -> s{_dQuiet = a})
 
--- | Undocumented member.
+-- |
 dObjects :: Lens' Delete [ObjectIdentifier]
 dObjects = lens _dObjects (\ s a -> s{_dObjects = a}) . _Coerce
 
@@ -1068,13 +1224,17 @@ instance ToXML Delete where
           = mconcat
               ["Quiet" @= _dQuiet, toXMLList "Object" _dObjects]
 
--- | /See:/ 'deleteMarkerEntry' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'deleteMarkerEntry' smart constructor.
 data DeleteMarkerEntry = DeleteMarkerEntry'
   { _dmeVersionId    :: !(Maybe ObjectVersionId)
   , _dmeIsLatest     :: !(Maybe Bool)
   , _dmeOwner        :: !(Maybe Owner)
   , _dmeKey          :: !(Maybe ObjectKey)
-  , _dmeLastModified :: !(Maybe RFC822)
+  , _dmeLastModified :: !(Maybe ISO8601)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1086,7 +1246,7 @@ data DeleteMarkerEntry = DeleteMarkerEntry'
 --
 -- * 'dmeIsLatest' - Specifies whether the object is (true) or is not (false) the latest version of an object.
 --
--- * 'dmeOwner' - Undocumented member.
+-- * 'dmeOwner' -
 --
 -- * 'dmeKey' - The object key.
 --
@@ -1111,7 +1271,7 @@ dmeVersionId = lens _dmeVersionId (\ s a -> s{_dmeVersionId = a})
 dmeIsLatest :: Lens' DeleteMarkerEntry (Maybe Bool)
 dmeIsLatest = lens _dmeIsLatest (\ s a -> s{_dmeIsLatest = a})
 
--- | Undocumented member.
+-- |
 dmeOwner :: Lens' DeleteMarkerEntry (Maybe Owner)
 dmeOwner = lens _dmeOwner (\ s a -> s{_dmeOwner = a})
 
@@ -1135,7 +1295,47 @@ instance Hashable DeleteMarkerEntry where
 
 instance NFData DeleteMarkerEntry where
 
--- | /See:/ 'deletedObject' smart constructor.
+-- | Specifies whether Amazon S3 should replicate delete makers.
+--
+--
+--
+-- /See:/ 'deleteMarkerReplication' smart constructor.
+newtype DeleteMarkerReplication = DeleteMarkerReplication'
+  { _dmrStatus :: Maybe DeleteMarkerReplicationStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'DeleteMarkerReplication' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmrStatus' - The status of the delete marker replication.
+deleteMarkerReplication
+    :: DeleteMarkerReplication
+deleteMarkerReplication = DeleteMarkerReplication' {_dmrStatus = Nothing}
+
+
+-- | The status of the delete marker replication.
+dmrStatus :: Lens' DeleteMarkerReplication (Maybe DeleteMarkerReplicationStatus)
+dmrStatus = lens _dmrStatus (\ s a -> s{_dmrStatus = a})
+
+instance FromXML DeleteMarkerReplication where
+        parseXML x
+          = DeleteMarkerReplication' <$> (x .@? "Status")
+
+instance Hashable DeleteMarkerReplication where
+
+instance NFData DeleteMarkerReplication where
+
+instance ToXML DeleteMarkerReplication where
+        toXML DeleteMarkerReplication'{..}
+          = mconcat ["Status" @= _dmrStatus]
+
+-- |
+--
+--
+--
+-- /See:/ 'deletedObject' smart constructor.
 data DeletedObject = DeletedObject'
   { _dVersionId             :: !(Maybe ObjectVersionId)
   , _dDeleteMarker          :: !(Maybe Bool)
@@ -1148,13 +1348,13 @@ data DeletedObject = DeletedObject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dVersionId' - Undocumented member.
+-- * 'dVersionId' -
 --
--- * 'dDeleteMarker' - Undocumented member.
+-- * 'dDeleteMarker' -
 --
--- * 'dDeleteMarkerVersionId' - Undocumented member.
+-- * 'dDeleteMarkerVersionId' -
 --
--- * 'dKey' - Undocumented member.
+-- * 'dKey' -
 deletedObject
     :: DeletedObject
 deletedObject =
@@ -1166,19 +1366,19 @@ deletedObject =
     }
 
 
--- | Undocumented member.
+-- |
 dVersionId :: Lens' DeletedObject (Maybe ObjectVersionId)
 dVersionId = lens _dVersionId (\ s a -> s{_dVersionId = a})
 
--- | Undocumented member.
+-- |
 dDeleteMarker :: Lens' DeletedObject (Maybe Bool)
 dDeleteMarker = lens _dDeleteMarker (\ s a -> s{_dDeleteMarker = a})
 
--- | Undocumented member.
+-- |
 dDeleteMarkerVersionId :: Lens' DeletedObject (Maybe Text)
 dDeleteMarkerVersionId = lens _dDeleteMarkerVersionId (\ s a -> s{_dDeleteMarkerVersionId = a})
 
--- | Undocumented member.
+-- |
 dKey :: Lens' DeletedObject (Maybe ObjectKey)
 dKey = lens _dKey (\ s a -> s{_dKey = a})
 
@@ -1193,7 +1393,9 @@ instance Hashable DeletedObject where
 
 instance NFData DeletedObject where
 
--- | Container for replication destination information.
+-- | A container for information about the replication destination.
+--
+--
 --
 -- /See:/ 'destination' smart constructor.
 data Destination = Destination'
@@ -1209,15 +1411,15 @@ data Destination = Destination'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dAccessControlTranslation' - Container for information regarding the access control for replicas.
+-- * 'dAccessControlTranslation' - A container for information about access control for replicas.  Use this element only in a cross-account scenario where source and destination bucket owners are not the same to change replica ownership to the AWS account that owns the destination bucket. If you don't add this element to the replication configuration, the replicas are owned by same AWS account that owns the source object.
 --
--- * 'dAccount' - Account ID of the destination bucket. Currently this is only being verified if Access Control Translation is enabled
+-- * 'dAccount' - The account ID of the destination bucket. Currently, Amazon S3 verifies this value only if Access Control Translation is enabled.  In a cross-account scenario, if you change replica ownership to the AWS account that owns the destination bucket by adding the @AccessControlTranslation@ element, this is the account ID of the owner of the destination bucket.
 --
--- * 'dStorageClass' - The class of storage used to store the object.
+-- * 'dStorageClass' - The class of storage used to store the object. By default Amazon S3 uses storage class of the source object when creating a replica.
 --
--- * 'dEncryptionConfiguration' - Container for information regarding encryption based configuration for replicas.
+-- * 'dEncryptionConfiguration' - A container that provides information about encryption. If @SourceSelectionCriteria@ is specified, you must specify this element.
 --
--- * 'dBucket' - Amazon resource name (ARN) of the bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+-- * 'dBucket' - The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store replicas of the object identified by the rule.  If there are multiple rules in your replication configuration, all rules must specify the same bucket as the destination. A replication configuration can replicate objects to only one destination bucket.
 destination
     :: BucketName -- ^ 'dBucket'
     -> Destination
@@ -1231,23 +1433,23 @@ destination pBucket_ =
     }
 
 
--- | Container for information regarding the access control for replicas.
+-- | A container for information about access control for replicas.  Use this element only in a cross-account scenario where source and destination bucket owners are not the same to change replica ownership to the AWS account that owns the destination bucket. If you don't add this element to the replication configuration, the replicas are owned by same AWS account that owns the source object.
 dAccessControlTranslation :: Lens' Destination (Maybe AccessControlTranslation)
 dAccessControlTranslation = lens _dAccessControlTranslation (\ s a -> s{_dAccessControlTranslation = a})
 
--- | Account ID of the destination bucket. Currently this is only being verified if Access Control Translation is enabled
+-- | The account ID of the destination bucket. Currently, Amazon S3 verifies this value only if Access Control Translation is enabled.  In a cross-account scenario, if you change replica ownership to the AWS account that owns the destination bucket by adding the @AccessControlTranslation@ element, this is the account ID of the owner of the destination bucket.
 dAccount :: Lens' Destination (Maybe Text)
 dAccount = lens _dAccount (\ s a -> s{_dAccount = a})
 
--- | The class of storage used to store the object.
+-- | The class of storage used to store the object. By default Amazon S3 uses storage class of the source object when creating a replica.
 dStorageClass :: Lens' Destination (Maybe StorageClass)
 dStorageClass = lens _dStorageClass (\ s a -> s{_dStorageClass = a})
 
--- | Container for information regarding encryption based configuration for replicas.
+-- | A container that provides information about encryption. If @SourceSelectionCriteria@ is specified, you must specify this element.
 dEncryptionConfiguration :: Lens' Destination (Maybe EncryptionConfiguration)
 dEncryptionConfiguration = lens _dEncryptionConfiguration (\ s a -> s{_dEncryptionConfiguration = a})
 
--- | Amazon resource name (ARN) of the bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+-- | The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store replicas of the object identified by the rule.  If there are multiple rules in your replication configuration, all rules must specify the same bucket as the destination. A replication configuration can replicate objects to only one destination bucket.
 dBucket :: Lens' Destination BucketName
 dBucket = lens _dBucket (\ s a -> s{_dBucket = a})
 
@@ -1276,6 +1478,8 @@ instance ToXML Destination where
                "Bucket" @= _dBucket]
 
 -- | Describes the server-side encryption that will be applied to the restore results.
+--
+--
 --
 -- /See:/ 'encryption' smart constructor.
 data Encryption = Encryption'
@@ -1328,7 +1532,9 @@ instance ToXML Encryption where
                "KMSContext" @= _eKMSContext,
                "EncryptionType" @= _eEncryptionType]
 
--- | Container for information regarding encryption based configuration for replicas.
+-- | A container for information about the encryption-based configuration for replicas.
+--
+--
 --
 -- /See:/ 'encryptionConfiguration' smart constructor.
 newtype EncryptionConfiguration = EncryptionConfiguration'
@@ -1340,14 +1546,14 @@ newtype EncryptionConfiguration = EncryptionConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ecReplicaKMSKeyId' - The id of the KMS key used to encrypt the replica object.
+-- * 'ecReplicaKMSKeyId' - The ID of the AWS KMS key for the AWS Region where the destination bucket resides. Amazon S3 uses this key to encrypt the replica object.
 encryptionConfiguration
     :: EncryptionConfiguration
 encryptionConfiguration =
   EncryptionConfiguration' {_ecReplicaKMSKeyId = Nothing}
 
 
--- | The id of the KMS key used to encrypt the replica object.
+-- | The ID of the AWS KMS key for the AWS Region where the destination bucket resides. Amazon S3 uses this key to encrypt the replica object.
 ecReplicaKMSKeyId :: Lens' EncryptionConfiguration (Maybe Text)
 ecReplicaKMSKeyId = lens _ecReplicaKMSKeyId (\ s a -> s{_ecReplicaKMSKeyId = a})
 
@@ -1364,7 +1570,11 @@ instance ToXML EncryptionConfiguration where
         toXML EncryptionConfiguration'{..}
           = mconcat ["ReplicaKmsKeyID" @= _ecReplicaKMSKeyId]
 
--- | /See:/ 'endEvent' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'endEvent' smart constructor.
 data EndEvent =
   EndEvent'
   deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -1384,7 +1594,11 @@ instance Hashable EndEvent where
 
 instance NFData EndEvent where
 
--- | /See:/ 'errorDocument' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'errorDocument' smart constructor.
 newtype ErrorDocument = ErrorDocument'
   { _edKey :: ObjectKey
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -1415,7 +1629,9 @@ instance NFData ErrorDocument where
 instance ToXML ErrorDocument where
         toXML ErrorDocument'{..} = mconcat ["Key" @= _edKey]
 
--- | Container for key value pair that defines the criteria for the filter rule.
+-- | A container for a key value pair that defines the criteria for the filter rule.
+--
+--
 --
 -- /See:/ 'filterRule' smart constructor.
 data FilterRule = FilterRule'
@@ -1428,19 +1644,19 @@ data FilterRule = FilterRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'frValue' - Undocumented member.
+-- * 'frValue' -
 --
--- * 'frName' - <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
+-- * 'frName' - The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum prefix length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications> in the /Amazon Simple Storage Service Developer Guide/ .
 filterRule
     :: FilterRule
 filterRule = FilterRule' {_frValue = Nothing, _frName = Nothing}
 
 
--- | Undocumented member.
+-- |
 frValue :: Lens' FilterRule (Maybe Text)
 frValue = lens _frValue (\ s a -> s{_frValue = a})
 
--- | <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
+-- | The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum prefix length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications> in the /Amazon Simple Storage Service Developer Guide/ .
 frName :: Lens' FilterRule (Maybe FilterRuleName)
 frName = lens _frName (\ s a -> s{_frName = a})
 
@@ -1456,7 +1672,11 @@ instance ToXML FilterRule where
         toXML FilterRule'{..}
           = mconcat ["Value" @= _frValue, "Name" @= _frName]
 
--- | /See:/ 'glacierJobParameters' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'glacierJobParameters' smart constructor.
 newtype GlacierJobParameters = GlacierJobParameters'
   { _gjpTier :: Tier
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -1485,7 +1705,11 @@ instance ToXML GlacierJobParameters where
         toXML GlacierJobParameters'{..}
           = mconcat ["Tier" @= _gjpTier]
 
--- | /See:/ 'grant' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'grant' smart constructor.
 data Grant = Grant'
   { _gPermission :: !(Maybe Permission)
   , _gGrantee    :: !(Maybe Grantee)
@@ -1498,7 +1722,7 @@ data Grant = Grant'
 --
 -- * 'gPermission' - Specifies the permission given to the grantee.
 --
--- * 'gGrantee' - Undocumented member.
+-- * 'gGrantee' -
 grant
     :: Grant
 grant = Grant' {_gPermission = Nothing, _gGrantee = Nothing}
@@ -1508,7 +1732,7 @@ grant = Grant' {_gPermission = Nothing, _gGrantee = Nothing}
 gPermission :: Lens' Grant (Maybe Permission)
 gPermission = lens _gPermission (\ s a -> s{_gPermission = a})
 
--- | Undocumented member.
+-- |
 gGrantee :: Lens' Grant (Maybe Grantee)
 gGrantee = lens _gGrantee (\ s a -> s{_gGrantee = a})
 
@@ -1527,7 +1751,11 @@ instance ToXML Grant where
               ["Permission" @= _gPermission,
                "Grantee" @= _gGrantee]
 
--- | /See:/ 'grantee' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'grantee' smart constructor.
 data Grantee = Grantee'
   { _gURI          :: !(Maybe Text)
   , _gEmailAddress :: !(Maybe Text)
@@ -1602,7 +1830,11 @@ instance ToXML Grantee where
                "DisplayName" @= _gDisplayName, "ID" @= _gId,
                "xsi:type" @@= _gType]
 
--- | /See:/ 'indexDocument' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'indexDocument' smart constructor.
 newtype IndexDocument = IndexDocument'
   { _idSuffix :: Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -1634,7 +1866,11 @@ instance ToXML IndexDocument where
         toXML IndexDocument'{..}
           = mconcat ["Suffix" @= _idSuffix]
 
--- | /See:/ 'initiator' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'initiator' smart constructor.
 data Initiator = Initiator'
   { _iDisplayName :: !(Maybe Text)
   , _iId          :: !(Maybe Text)
@@ -1672,10 +1908,13 @@ instance NFData Initiator where
 
 -- | Describes the serialization format of the object.
 --
+--
+--
 -- /See:/ 'inputSerialization' smart constructor.
 data InputSerialization = InputSerialization'
   { _isJSON            :: !(Maybe JSONInput)
   , _isCSV             :: !(Maybe CSVInput)
+  , _isParquet         :: !(Maybe ParquetInput)
   , _isCompressionType :: !(Maybe CompressionType)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -1688,12 +1927,18 @@ data InputSerialization = InputSerialization'
 --
 -- * 'isCSV' - Describes the serialization of a CSV-encoded object.
 --
--- * 'isCompressionType' - Specifies object's compression format. Valid values: NONE, GZIP. Default Value: NONE.
+-- * 'isParquet' - Specifies Parquet as object's input serialization format.
+--
+-- * 'isCompressionType' - Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.
 inputSerialization
     :: InputSerialization
 inputSerialization =
   InputSerialization'
-    {_isJSON = Nothing, _isCSV = Nothing, _isCompressionType = Nothing}
+    { _isJSON = Nothing
+    , _isCSV = Nothing
+    , _isParquet = Nothing
+    , _isCompressionType = Nothing
+    }
 
 
 -- | Specifies JSON as object's input serialization format.
@@ -1704,7 +1949,11 @@ isJSON = lens _isJSON (\ s a -> s{_isJSON = a})
 isCSV :: Lens' InputSerialization (Maybe CSVInput)
 isCSV = lens _isCSV (\ s a -> s{_isCSV = a})
 
--- | Specifies object's compression format. Valid values: NONE, GZIP. Default Value: NONE.
+-- | Specifies Parquet as object's input serialization format.
+isParquet :: Lens' InputSerialization (Maybe ParquetInput)
+isParquet = lens _isParquet (\ s a -> s{_isParquet = a})
+
+-- | Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.
 isCompressionType :: Lens' InputSerialization (Maybe CompressionType)
 isCompressionType = lens _isCompressionType (\ s a -> s{_isCompressionType = a})
 
@@ -1716,9 +1965,14 @@ instance ToXML InputSerialization where
         toXML InputSerialization'{..}
           = mconcat
               ["JSON" @= _isJSON, "CSV" @= _isCSV,
+               "Parquet" @= _isParquet,
                "CompressionType" @= _isCompressionType]
 
--- | /See:/ 'inventoryConfiguration' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'inventoryConfiguration' smart constructor.
 data InventoryConfiguration = InventoryConfiguration'
   { _icOptionalFields         :: !(Maybe [InventoryOptionalField])
   , _icFilter                 :: !(Maybe InventoryFilter)
@@ -1822,7 +2076,11 @@ instance ToXML InventoryConfiguration where
                  _icIncludedObjectVersions,
                "Schedule" @= _icSchedule]
 
--- | /See:/ 'inventoryDestination' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'inventoryDestination' smart constructor.
 newtype InventoryDestination = InventoryDestination'
   { _idS3BucketDestination :: InventoryS3BucketDestination
   } deriving (Eq, Show, Data, Typeable, Generic)
@@ -1860,6 +2118,8 @@ instance ToXML InventoryDestination where
 
 -- | Contains the type of server-side encryption used to encrypt the inventory results.
 --
+--
+--
 -- /See:/ 'inventoryEncryption' smart constructor.
 data InventoryEncryption = InventoryEncryption'
   { _ieSSES3  :: !(Maybe SSES3)
@@ -1871,20 +2131,20 @@ data InventoryEncryption = InventoryEncryption'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ieSSES3' - Specifies the use of SSE-S3 to encrypt delievered Inventory reports.
+-- * 'ieSSES3' - Specifies the use of SSE-S3 to encrypt delivered Inventory reports.
 --
--- * 'ieSSEKMS' - Specifies the use of SSE-KMS to encrypt delievered Inventory reports.
+-- * 'ieSSEKMS' - Specifies the use of SSE-KMS to encrypt delivered Inventory reports.
 inventoryEncryption
     :: InventoryEncryption
 inventoryEncryption =
   InventoryEncryption' {_ieSSES3 = Nothing, _ieSSEKMS = Nothing}
 
 
--- | Specifies the use of SSE-S3 to encrypt delievered Inventory reports.
+-- | Specifies the use of SSE-S3 to encrypt delivered Inventory reports.
 ieSSES3 :: Lens' InventoryEncryption (Maybe SSES3)
 ieSSES3 = lens _ieSSES3 (\ s a -> s{_ieSSES3 = a})
 
--- | Specifies the use of SSE-KMS to encrypt delievered Inventory reports.
+-- | Specifies the use of SSE-KMS to encrypt delivered Inventory reports.
 ieSSEKMS :: Lens' InventoryEncryption (Maybe SSEKMS)
 ieSSEKMS = lens _ieSSEKMS (\ s a -> s{_ieSSEKMS = a})
 
@@ -1902,7 +2162,11 @@ instance ToXML InventoryEncryption where
           = mconcat
               ["SSE-S3" @= _ieSSES3, "SSE-KMS" @= _ieSSEKMS]
 
--- | /See:/ 'inventoryFilter' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'inventoryFilter' smart constructor.
 newtype InventoryFilter = InventoryFilter'
   { _ifPrefix :: Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -1934,7 +2198,11 @@ instance ToXML InventoryFilter where
         toXML InventoryFilter'{..}
           = mconcat ["Prefix" @= _ifPrefix]
 
--- | /See:/ 'inventoryS3BucketDestination' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'inventoryS3BucketDestination' smart constructor.
 data InventoryS3BucketDestination = InventoryS3BucketDestination'
   { _isbdPrefix     :: !(Maybe Text)
   , _isbdAccountId  :: !(Maybe Text)
@@ -2011,7 +2279,11 @@ instance ToXML InventoryS3BucketDestination where
                "Encryption" @= _isbdEncryption,
                "Bucket" @= _isbdBucket, "Format" @= _isbdFormat]
 
--- | /See:/ 'inventorySchedule' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'inventorySchedule' smart constructor.
 newtype InventorySchedule = InventorySchedule'
   { _isFrequency :: InventoryFrequency
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -2044,7 +2316,11 @@ instance ToXML InventorySchedule where
         toXML InventorySchedule'{..}
           = mconcat ["Frequency" @= _isFrequency]
 
--- | /See:/ 'jsonInput' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'jsonInput' smart constructor.
 newtype JSONInput = JSONInput'
   { _jiType :: Maybe JSONType
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -2071,7 +2347,11 @@ instance NFData JSONInput where
 instance ToXML JSONInput where
         toXML JSONInput'{..} = mconcat ["Type" @= _jiType]
 
--- | /See:/ 'jsonOutput' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'jsonOutput' smart constructor.
 newtype JSONOutput = JSONOutput'
   { _joRecordDelimiter :: Maybe Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -2099,7 +2379,9 @@ instance ToXML JSONOutput where
         toXML JSONOutput'{..}
           = mconcat ["RecordDelimiter" @= _joRecordDelimiter]
 
--- | Container for specifying the AWS Lambda notification configuration.
+-- | A container for specifying the configuration for AWS Lambda notifications.
+--
+--
 --
 -- /See:/ 'lambdaFunctionConfiguration' smart constructor.
 data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
@@ -2118,9 +2400,9 @@ data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
 --
 -- * 'lfcFilter' - Undocumented member.
 --
--- * 'lfcLambdaFunctionARN' - Lambda cloud function ARN that Amazon S3 can invoke when it detects events of the specified type.
+-- * 'lfcLambdaFunctionARN' - The Amazon Resource Name (ARN) of the Lambda cloud function that Amazon S3 can invoke when it detects events of the specified type.
 --
--- * 'lfcEvents' - Undocumented member.
+-- * 'lfcEvents' -
 lambdaFunctionConfiguration
     :: Text -- ^ 'lfcLambdaFunctionARN'
     -> LambdaFunctionConfiguration
@@ -2141,11 +2423,11 @@ lfcId = lens _lfcId (\ s a -> s{_lfcId = a})
 lfcFilter :: Lens' LambdaFunctionConfiguration (Maybe NotificationConfigurationFilter)
 lfcFilter = lens _lfcFilter (\ s a -> s{_lfcFilter = a})
 
--- | Lambda cloud function ARN that Amazon S3 can invoke when it detects events of the specified type.
+-- | The Amazon Resource Name (ARN) of the Lambda cloud function that Amazon S3 can invoke when it detects events of the specified type.
 lfcLambdaFunctionARN :: Lens' LambdaFunctionConfiguration Text
 lfcLambdaFunctionARN = lens _lfcLambdaFunctionARN (\ s a -> s{_lfcLambdaFunctionARN = a})
 
--- | Undocumented member.
+-- |
 lfcEvents :: Lens' LambdaFunctionConfiguration [Event]
 lfcEvents = lens _lfcEvents (\ s a -> s{_lfcEvents = a}) . _Coerce
 
@@ -2167,10 +2449,14 @@ instance ToXML LambdaFunctionConfiguration where
                "CloudFunction" @= _lfcLambdaFunctionARN,
                toXMLList "Event" _lfcEvents]
 
--- | /See:/ 'lifecycleExpiration' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'lifecycleExpiration' smart constructor.
 data LifecycleExpiration = LifecycleExpiration'
   { _leDays                      :: !(Maybe Int)
-  , _leDate                      :: !(Maybe RFC822)
+  , _leDate                      :: !(Maybe ISO8601)
   , _leExpiredObjectDeleteMarker :: !(Maybe Bool)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -2223,7 +2509,11 @@ instance ToXML LifecycleExpiration where
                "ExpiredObjectDeleteMarker" @=
                  _leExpiredObjectDeleteMarker]
 
--- | /See:/ 'lifecycleRule' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'lifecycleRule' smart constructor.
 data LifecycleRule = LifecycleRule'
   { _lrTransitions                    :: !(Maybe [Transition])
   , _lrNoncurrentVersionExpiration    :: !(Maybe NoncurrentVersionExpiration)
@@ -2241,15 +2531,15 @@ data LifecycleRule = LifecycleRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrTransitions' - Undocumented member.
+-- * 'lrTransitions' -
 --
 -- * 'lrNoncurrentVersionExpiration' - Undocumented member.
 --
--- * 'lrPrefix' - Prefix identifying one or more objects to which the rule applies. This is deprecated; use Filter instead.
+-- * 'lrPrefix' - Prefix identifying one or more objects to which the rule applies. This is No longer used; use Filter instead.
 --
--- * 'lrNoncurrentVersionTransitions' - Undocumented member.
+-- * 'lrNoncurrentVersionTransitions' -
 --
--- * 'lrExpiration' - Undocumented member.
+-- * 'lrExpiration' -
 --
 -- * 'lrId' - Unique identifier for the rule. The value cannot be longer than 255 characters.
 --
@@ -2275,7 +2565,7 @@ lifecycleRule pStatus_ =
     }
 
 
--- | Undocumented member.
+-- |
 lrTransitions :: Lens' LifecycleRule [Transition]
 lrTransitions = lens _lrTransitions (\ s a -> s{_lrTransitions = a}) . _Default . _Coerce
 
@@ -2283,15 +2573,15 @@ lrTransitions = lens _lrTransitions (\ s a -> s{_lrTransitions = a}) . _Default 
 lrNoncurrentVersionExpiration :: Lens' LifecycleRule (Maybe NoncurrentVersionExpiration)
 lrNoncurrentVersionExpiration = lens _lrNoncurrentVersionExpiration (\ s a -> s{_lrNoncurrentVersionExpiration = a})
 
--- | Prefix identifying one or more objects to which the rule applies. This is deprecated; use Filter instead.
+-- | Prefix identifying one or more objects to which the rule applies. This is No longer used; use Filter instead.
 lrPrefix :: Lens' LifecycleRule (Maybe Text)
 lrPrefix = lens _lrPrefix (\ s a -> s{_lrPrefix = a})
 
--- | Undocumented member.
+-- |
 lrNoncurrentVersionTransitions :: Lens' LifecycleRule [NoncurrentVersionTransition]
 lrNoncurrentVersionTransitions = lens _lrNoncurrentVersionTransitions (\ s a -> s{_lrNoncurrentVersionTransitions = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- |
 lrExpiration :: Lens' LifecycleRule (Maybe LifecycleExpiration)
 lrExpiration = lens _lrExpiration (\ s a -> s{_lrExpiration = a})
 
@@ -2347,6 +2637,8 @@ instance ToXML LifecycleRule where
 
 -- | This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.
 --
+--
+--
 -- /See:/ 'lifecycleRuleAndOperator' smart constructor.
 data LifecycleRuleAndOperator = LifecycleRuleAndOperator'
   { _lraoPrefix :: !(Maybe Text)
@@ -2358,7 +2650,7 @@ data LifecycleRuleAndOperator = LifecycleRuleAndOperator'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lraoPrefix' - Undocumented member.
+-- * 'lraoPrefix' -
 --
 -- * 'lraoTags' - All of these tags must exist in the object's tag set in order for the rule to apply.
 lifecycleRuleAndOperator
@@ -2367,7 +2659,7 @@ lifecycleRuleAndOperator =
   LifecycleRuleAndOperator' {_lraoPrefix = Nothing, _lraoTags = Nothing}
 
 
--- | Undocumented member.
+-- |
 lraoPrefix :: Lens' LifecycleRuleAndOperator (Maybe Text)
 lraoPrefix = lens _lraoPrefix (\ s a -> s{_lraoPrefix = a})
 
@@ -2392,6 +2684,8 @@ instance ToXML LifecycleRuleAndOperator where
                "Tag" @= toXML (toXMLList "Tag" <$> _lraoTags)]
 
 -- | The Filter is used to identify objects that a Lifecycle Rule applies to. A Filter must have exactly one of Prefix, Tag, or And specified.
+--
+--
 --
 -- /See:/ 'lifecycleRuleFilter' smart constructor.
 data LifecycleRuleFilter = LifecycleRuleFilter'
@@ -2446,6 +2740,8 @@ instance ToXML LifecycleRuleFilter where
 
 -- | Container for logging information. Presence of this element indicates that logging is enabled. Parameters TargetBucket and TargetPrefix are required in this case.
 --
+--
+--
 -- /See:/ 'loggingEnabled' smart constructor.
 data LoggingEnabled = LoggingEnabled'
   { _leTargetGrants :: !(Maybe [TargetGrant])
@@ -2458,7 +2754,7 @@ data LoggingEnabled = LoggingEnabled'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'leTargetGrants' - Undocumented member.
+-- * 'leTargetGrants' -
 --
 -- * 'leTargetBucket' - Specifies the bucket where you want Amazon S3 to store server access logs. You can have your logs delivered to any bucket that you own, including the same bucket that is being logged. You can also configure multiple buckets to deliver their logs to the same target bucket. In this case you should choose a different TargetPrefix for each source bucket so that the delivered log files can be distinguished by key.
 --
@@ -2475,7 +2771,7 @@ loggingEnabled pTargetBucket_ pTargetPrefix_ =
     }
 
 
--- | Undocumented member.
+-- |
 leTargetGrants :: Lens' LoggingEnabled [TargetGrant]
 leTargetGrants = lens _leTargetGrants (\ s a -> s{_leTargetGrants = a}) . _Default . _Coerce
 
@@ -2509,6 +2805,8 @@ instance ToXML LoggingEnabled where
 
 -- | A metadata key-value pair to store with an object.
 --
+--
+--
 -- /See:/ 'metadataEntry' smart constructor.
 data MetadataEntry = MetadataEntry'
   { _meValue :: !(Maybe Text)
@@ -2520,19 +2818,19 @@ data MetadataEntry = MetadataEntry'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'meValue' - Undocumented member.
+-- * 'meValue' -
 --
--- * 'meName' - Undocumented member.
+-- * 'meName' -
 metadataEntry
     :: MetadataEntry
 metadataEntry = MetadataEntry' {_meValue = Nothing, _meName = Nothing}
 
 
--- | Undocumented member.
+-- |
 meValue :: Lens' MetadataEntry (Maybe Text)
 meValue = lens _meValue (\ s a -> s{_meValue = a})
 
--- | Undocumented member.
+-- |
 meName :: Lens' MetadataEntry (Maybe Text)
 meName = lens _meName (\ s a -> s{_meName = a})
 
@@ -2544,7 +2842,11 @@ instance ToXML MetadataEntry where
         toXML MetadataEntry'{..}
           = mconcat ["Value" @= _meValue, "Name" @= _meName]
 
--- | /See:/ 'metricsAndOperator' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'metricsAndOperator' smart constructor.
 data MetricsAndOperator = MetricsAndOperator'
   { _maoPrefix :: !(Maybe Text)
   , _maoTags   :: !(Maybe [Tag])
@@ -2588,7 +2890,11 @@ instance ToXML MetricsAndOperator where
               ["Prefix" @= _maoPrefix,
                "Tag" @= toXML (toXMLList "Tag" <$> _maoTags)]
 
--- | /See:/ 'metricsConfiguration' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'metricsConfiguration' smart constructor.
 data MetricsConfiguration = MetricsConfiguration'
   { _mcFilter :: !(Maybe MetricsFilter)
   , _mcId     :: !Text
@@ -2630,7 +2936,11 @@ instance ToXML MetricsConfiguration where
         toXML MetricsConfiguration'{..}
           = mconcat ["Filter" @= _mcFilter, "Id" @= _mcId]
 
--- | /See:/ 'metricsFilter' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'metricsFilter' smart constructor.
 data MetricsFilter = MetricsFilter'
   { _mfTag    :: !(Maybe Tag)
   , _mfPrefix :: !(Maybe Text)
@@ -2680,9 +2990,13 @@ instance ToXML MetricsFilter where
               ["Tag" @= _mfTag, "Prefix" @= _mfPrefix,
                "And" @= _mfAnd]
 
--- | /See:/ 'multipartUpload' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'multipartUpload' smart constructor.
 data MultipartUpload = MultipartUpload'
-  { _muInitiated    :: !(Maybe RFC822)
+  { _muInitiated    :: !(Maybe ISO8601)
   , _muInitiator    :: !(Maybe Initiator)
   , _muOwner        :: !(Maybe Owner)
   , _muKey          :: !(Maybe ObjectKey)
@@ -2699,7 +3013,7 @@ data MultipartUpload = MultipartUpload'
 --
 -- * 'muInitiator' - Identifies who initiated the multipart upload.
 --
--- * 'muOwner' - Undocumented member.
+-- * 'muOwner' -
 --
 -- * 'muKey' - Key of the object for which the multipart upload was initiated.
 --
@@ -2727,7 +3041,7 @@ muInitiated = lens _muInitiated (\ s a -> s{_muInitiated = a}) . mapping _Time
 muInitiator :: Lens' MultipartUpload (Maybe Initiator)
 muInitiator = lens _muInitiator (\ s a -> s{_muInitiator = a})
 
--- | Undocumented member.
+-- |
 muOwner :: Lens' MultipartUpload (Maybe Owner)
 muOwner = lens _muOwner (\ s a -> s{_muOwner = a})
 
@@ -2758,6 +3072,8 @@ instance NFData MultipartUpload where
 
 -- | Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.
 --
+--
+--
 -- /See:/ 'noncurrentVersionExpiration' smart constructor.
 newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration'
   { _nveNoncurrentDays :: Int
@@ -2768,7 +3084,7 @@ newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'nveNoncurrentDays' - <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>
+-- * 'nveNoncurrentDays' - Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent> in the Amazon Simple Storage Service Developer Guide.
 noncurrentVersionExpiration
     :: Int -- ^ 'nveNoncurrentDays'
     -> NoncurrentVersionExpiration
@@ -2776,7 +3092,7 @@ noncurrentVersionExpiration pNoncurrentDays_ =
   NoncurrentVersionExpiration' {_nveNoncurrentDays = pNoncurrentDays_}
 
 
--- | <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>
+-- | Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent> in the Amazon Simple Storage Service Developer Guide.
 nveNoncurrentDays :: Lens' NoncurrentVersionExpiration Int
 nveNoncurrentDays = lens _nveNoncurrentDays (\ s a -> s{_nveNoncurrentDays = a})
 
@@ -2793,7 +3109,9 @@ instance ToXML NoncurrentVersionExpiration where
         toXML NoncurrentVersionExpiration'{..}
           = mconcat ["NoncurrentDays" @= _nveNoncurrentDays]
 
--- | Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA or GLACIER storage class at a specific period in the object's lifetime.
+-- | Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
+--
+--
 --
 -- /See:/ 'noncurrentVersionTransition' smart constructor.
 data NoncurrentVersionTransition = NoncurrentVersionTransition'
@@ -2806,7 +3124,7 @@ data NoncurrentVersionTransition = NoncurrentVersionTransition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'nvtNoncurrentDays' - <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>
+-- * 'nvtNoncurrentDays' - Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent> in the Amazon Simple Storage Service Developer Guide.
 --
 -- * 'nvtStorageClass' - The class of storage used to store the object.
 noncurrentVersionTransition
@@ -2818,7 +3136,7 @@ noncurrentVersionTransition pNoncurrentDays_ pStorageClass_ =
     {_nvtNoncurrentDays = pNoncurrentDays_, _nvtStorageClass = pStorageClass_}
 
 
--- | <http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent>
+-- | Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html How Amazon S3 Calculates When an Object Became Noncurrent> in the Amazon Simple Storage Service Developer Guide.
 nvtNoncurrentDays :: Lens' NoncurrentVersionTransition Int
 nvtNoncurrentDays = lens _nvtNoncurrentDays (\ s a -> s{_nvtNoncurrentDays = a})
 
@@ -2841,7 +3159,9 @@ instance ToXML NoncurrentVersionTransition where
               ["NoncurrentDays" @= _nvtNoncurrentDays,
                "StorageClass" @= _nvtStorageClass]
 
--- | Container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off on the bucket.
+-- | A container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off for the bucket.
+--
+--
 --
 -- /See:/ 'notificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
@@ -2855,11 +3175,11 @@ data NotificationConfiguration = NotificationConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ncQueueConfigurations' - Undocumented member.
+-- * 'ncQueueConfigurations' -
 --
--- * 'ncTopicConfigurations' - Undocumented member.
+-- * 'ncTopicConfigurations' -
 --
--- * 'ncLambdaFunctionConfigurations' - Undocumented member.
+-- * 'ncLambdaFunctionConfigurations' -
 notificationConfiguration
     :: NotificationConfiguration
 notificationConfiguration =
@@ -2870,15 +3190,15 @@ notificationConfiguration =
     }
 
 
--- | Undocumented member.
+-- |
 ncQueueConfigurations :: Lens' NotificationConfiguration [QueueConfiguration]
 ncQueueConfigurations = lens _ncQueueConfigurations (\ s a -> s{_ncQueueConfigurations = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- |
 ncTopicConfigurations :: Lens' NotificationConfiguration [TopicConfiguration]
 ncTopicConfigurations = lens _ncTopicConfigurations (\ s a -> s{_ncTopicConfigurations = a}) . _Default . _Coerce
 
--- | Undocumented member.
+-- |
 ncLambdaFunctionConfigurations :: Lens' NotificationConfiguration [LambdaFunctionConfiguration]
 ncLambdaFunctionConfigurations = lens _ncLambdaFunctionConfigurations (\ s a -> s{_ncLambdaFunctionConfigurations = a}) . _Default . _Coerce
 
@@ -2907,7 +3227,9 @@ instance ToXML NotificationConfiguration where
                  (toXMLList "CloudFunctionConfiguration" <$>
                     _ncLambdaFunctionConfigurations)]
 
--- | <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
+-- | A container for object key name filtering rules. For information about key name filtering, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications> in the /Amazon Simple Storage Service Developer Guide/ .
+--
+--
 --
 -- /See:/ 'notificationConfigurationFilter' smart constructor.
 newtype NotificationConfigurationFilter = NotificationConfigurationFilter'
@@ -2945,14 +3267,18 @@ instance ToXML NotificationConfigurationFilter where
         toXML NotificationConfigurationFilter'{..}
           = mconcat ["S3Key" @= _ncfKey]
 
--- | /See:/ 'object'' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'object'' smart constructor.
 data Object = Object'
   { _oOwner        :: !(Maybe Owner)
   , _oETag         :: !ETag
   , _oSize         :: !Int
   , _oKey          :: !ObjectKey
   , _oStorageClass :: !ObjectStorageClass
-  , _oLastModified :: !RFC822
+  , _oLastModified :: !ISO8601
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2960,17 +3286,17 @@ data Object = Object'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oOwner' - Undocumented member.
+-- * 'oOwner' -
 --
--- * 'oETag' - Undocumented member.
+-- * 'oETag' -
 --
--- * 'oSize' - Undocumented member.
+-- * 'oSize' -
 --
--- * 'oKey' - Undocumented member.
+-- * 'oKey' -
 --
 -- * 'oStorageClass' - The class of storage used to store the object.
 --
--- * 'oLastModified' - Undocumented member.
+-- * 'oLastModified' -
 object'
     :: ETag -- ^ 'oETag'
     -> Int -- ^ 'oSize'
@@ -2989,19 +3315,19 @@ object' pETag_ pSize_ pKey_ pStorageClass_ pLastModified_ =
     }
 
 
--- | Undocumented member.
+-- |
 oOwner :: Lens' Object (Maybe Owner)
 oOwner = lens _oOwner (\ s a -> s{_oOwner = a})
 
--- | Undocumented member.
+-- |
 oETag :: Lens' Object ETag
 oETag = lens _oETag (\ s a -> s{_oETag = a})
 
--- | Undocumented member.
+-- |
 oSize :: Lens' Object Int
 oSize = lens _oSize (\ s a -> s{_oSize = a})
 
--- | Undocumented member.
+-- |
 oKey :: Lens' Object ObjectKey
 oKey = lens _oKey (\ s a -> s{_oKey = a})
 
@@ -3009,7 +3335,7 @@ oKey = lens _oKey (\ s a -> s{_oKey = a})
 oStorageClass :: Lens' Object ObjectStorageClass
 oStorageClass = lens _oStorageClass (\ s a -> s{_oStorageClass = a})
 
--- | Undocumented member.
+-- |
 oLastModified :: Lens' Object UTCTime
 oLastModified = lens _oLastModified (\ s a -> s{_oLastModified = a}) . _Time
 
@@ -3025,7 +3351,11 @@ instance Hashable Object where
 
 instance NFData Object where
 
--- | /See:/ 'objectIdentifier' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'objectIdentifier' smart constructor.
 data ObjectIdentifier = ObjectIdentifier'
   { _oiVersionId :: !(Maybe ObjectVersionId)
   , _oiKey       :: !ObjectKey
@@ -3063,7 +3393,178 @@ instance ToXML ObjectIdentifier where
           = mconcat
               ["VersionId" @= _oiVersionId, "Key" @= _oiKey]
 
--- | /See:/ 'objectVersion' smart constructor.
+-- | The container element for Object Lock configuration parameters.
+--
+--
+--
+-- /See:/ 'objectLockConfiguration' smart constructor.
+data ObjectLockConfiguration = ObjectLockConfiguration'
+  { _olcObjectLockEnabled :: !(Maybe ObjectLockEnabled)
+  , _olcRule              :: !(Maybe ObjectLockRule)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ObjectLockConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'olcObjectLockEnabled' - Indicates whether this bucket has an Object Lock configuration enabled.
+--
+-- * 'olcRule' - The Object Lock rule in place for the specified object.
+objectLockConfiguration
+    :: ObjectLockConfiguration
+objectLockConfiguration =
+  ObjectLockConfiguration' {_olcObjectLockEnabled = Nothing, _olcRule = Nothing}
+
+
+-- | Indicates whether this bucket has an Object Lock configuration enabled.
+olcObjectLockEnabled :: Lens' ObjectLockConfiguration (Maybe ObjectLockEnabled)
+olcObjectLockEnabled = lens _olcObjectLockEnabled (\ s a -> s{_olcObjectLockEnabled = a})
+
+-- | The Object Lock rule in place for the specified object.
+olcRule :: Lens' ObjectLockConfiguration (Maybe ObjectLockRule)
+olcRule = lens _olcRule (\ s a -> s{_olcRule = a})
+
+instance FromXML ObjectLockConfiguration where
+        parseXML x
+          = ObjectLockConfiguration' <$>
+              (x .@? "ObjectLockEnabled") <*> (x .@? "Rule")
+
+instance Hashable ObjectLockConfiguration where
+
+instance NFData ObjectLockConfiguration where
+
+instance ToXML ObjectLockConfiguration where
+        toXML ObjectLockConfiguration'{..}
+          = mconcat
+              ["ObjectLockEnabled" @= _olcObjectLockEnabled,
+               "Rule" @= _olcRule]
+
+-- | A Legal Hold configuration for an object.
+--
+--
+--
+-- /See:/ 'objectLockLegalHold' smart constructor.
+newtype ObjectLockLegalHold = ObjectLockLegalHold'
+  { _ollhStatus :: Maybe ObjectLockLegalHoldStatus
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ObjectLockLegalHold' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ollhStatus' - Indicates whether the specified object has a Legal Hold in place.
+objectLockLegalHold
+    :: ObjectLockLegalHold
+objectLockLegalHold = ObjectLockLegalHold' {_ollhStatus = Nothing}
+
+
+-- | Indicates whether the specified object has a Legal Hold in place.
+ollhStatus :: Lens' ObjectLockLegalHold (Maybe ObjectLockLegalHoldStatus)
+ollhStatus = lens _ollhStatus (\ s a -> s{_ollhStatus = a})
+
+instance FromXML ObjectLockLegalHold where
+        parseXML x
+          = ObjectLockLegalHold' <$> (x .@? "Status")
+
+instance Hashable ObjectLockLegalHold where
+
+instance NFData ObjectLockLegalHold where
+
+instance ToXML ObjectLockLegalHold where
+        toXML ObjectLockLegalHold'{..}
+          = mconcat ["Status" @= _ollhStatus]
+
+-- | A Retention configuration for an object.
+--
+--
+--
+-- /See:/ 'objectLockRetention' smart constructor.
+data ObjectLockRetention = ObjectLockRetention'
+  { _olrMode            :: !(Maybe ObjectLockRetentionMode)
+  , _olrRetainUntilDate :: !(Maybe ISO8601)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ObjectLockRetention' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'olrMode' - Indicates the Retention mode for the specified object.
+--
+-- * 'olrRetainUntilDate' - The date on which this Object Lock Retention will expire.
+objectLockRetention
+    :: ObjectLockRetention
+objectLockRetention =
+  ObjectLockRetention' {_olrMode = Nothing, _olrRetainUntilDate = Nothing}
+
+
+-- | Indicates the Retention mode for the specified object.
+olrMode :: Lens' ObjectLockRetention (Maybe ObjectLockRetentionMode)
+olrMode = lens _olrMode (\ s a -> s{_olrMode = a})
+
+-- | The date on which this Object Lock Retention will expire.
+olrRetainUntilDate :: Lens' ObjectLockRetention (Maybe UTCTime)
+olrRetainUntilDate = lens _olrRetainUntilDate (\ s a -> s{_olrRetainUntilDate = a}) . mapping _Time
+
+instance FromXML ObjectLockRetention where
+        parseXML x
+          = ObjectLockRetention' <$>
+              (x .@? "Mode") <*> (x .@? "RetainUntilDate")
+
+instance Hashable ObjectLockRetention where
+
+instance NFData ObjectLockRetention where
+
+instance ToXML ObjectLockRetention where
+        toXML ObjectLockRetention'{..}
+          = mconcat
+              ["Mode" @= _olrMode,
+               "RetainUntilDate" @= _olrRetainUntilDate]
+
+-- | The container element for an Object Lock rule.
+--
+--
+--
+-- /See:/ 'objectLockRule' smart constructor.
+newtype ObjectLockRule = ObjectLockRule'
+  { _olrDefaultRetention :: Maybe DefaultRetention
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ObjectLockRule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'olrDefaultRetention' - The default retention period that you want to apply to new objects placed in the specified bucket.
+objectLockRule
+    :: ObjectLockRule
+objectLockRule = ObjectLockRule' {_olrDefaultRetention = Nothing}
+
+
+-- | The default retention period that you want to apply to new objects placed in the specified bucket.
+olrDefaultRetention :: Lens' ObjectLockRule (Maybe DefaultRetention)
+olrDefaultRetention = lens _olrDefaultRetention (\ s a -> s{_olrDefaultRetention = a})
+
+instance FromXML ObjectLockRule where
+        parseXML x
+          = ObjectLockRule' <$> (x .@? "DefaultRetention")
+
+instance Hashable ObjectLockRule where
+
+instance NFData ObjectLockRule where
+
+instance ToXML ObjectLockRule where
+        toXML ObjectLockRule'{..}
+          = mconcat
+              ["DefaultRetention" @= _olrDefaultRetention]
+
+-- |
+--
+--
+--
+-- /See:/ 'objectVersion' smart constructor.
 data ObjectVersion = ObjectVersion'
   { _ovETag         :: !(Maybe ETag)
   , _ovVersionId    :: !(Maybe ObjectVersionId)
@@ -3072,7 +3573,7 @@ data ObjectVersion = ObjectVersion'
   , _ovOwner        :: !(Maybe Owner)
   , _ovKey          :: !(Maybe ObjectKey)
   , _ovStorageClass :: !(Maybe ObjectVersionStorageClass)
-  , _ovLastModified :: !(Maybe RFC822)
+  , _ovLastModified :: !(Maybe ISO8601)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3080,7 +3581,7 @@ data ObjectVersion = ObjectVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ovETag' - Undocumented member.
+-- * 'ovETag' -
 --
 -- * 'ovVersionId' - Version ID of an object.
 --
@@ -3088,7 +3589,7 @@ data ObjectVersion = ObjectVersion'
 --
 -- * 'ovIsLatest' - Specifies whether the object is (true) or is not (false) the latest version of an object.
 --
--- * 'ovOwner' - Undocumented member.
+-- * 'ovOwner' -
 --
 -- * 'ovKey' - The object key.
 --
@@ -3110,7 +3611,7 @@ objectVersion =
     }
 
 
--- | Undocumented member.
+-- |
 ovETag :: Lens' ObjectVersion (Maybe ETag)
 ovETag = lens _ovETag (\ s a -> s{_ovETag = a})
 
@@ -3126,7 +3627,7 @@ ovSize = lens _ovSize (\ s a -> s{_ovSize = a})
 ovIsLatest :: Lens' ObjectVersion (Maybe Bool)
 ovIsLatest = lens _ovIsLatest (\ s a -> s{_ovIsLatest = a})
 
--- | Undocumented member.
+-- |
 ovOwner :: Lens' ObjectVersion (Maybe Owner)
 ovOwner = lens _ovOwner (\ s a -> s{_ovOwner = a})
 
@@ -3159,6 +3660,8 @@ instance NFData ObjectVersion where
 
 -- | Describes the location where the restore job's output is stored.
 --
+--
+--
 -- /See:/ 'outputLocation' smart constructor.
 newtype OutputLocation = OutputLocation'
   { _olS3 :: Maybe S3Location
@@ -3187,6 +3690,8 @@ instance ToXML OutputLocation where
         toXML OutputLocation'{..} = mconcat ["S3" @= _olS3]
 
 -- | Describes how results of the Select job are serialized.
+--
+--
 --
 -- /See:/ 'outputSerialization' smart constructor.
 data OutputSerialization = OutputSerialization'
@@ -3223,7 +3728,11 @@ instance ToXML OutputSerialization where
         toXML OutputSerialization'{..}
           = mconcat ["JSON" @= _osJSON, "CSV" @= _osCSV]
 
--- | /See:/ 'owner' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'owner' smart constructor.
 data Owner = Owner'
   { _oDisplayName :: !(Maybe Text)
   , _oId          :: !(Maybe Text)
@@ -3234,19 +3743,19 @@ data Owner = Owner'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oDisplayName' - Undocumented member.
+-- * 'oDisplayName' -
 --
--- * 'oId' - Undocumented member.
+-- * 'oId' -
 owner
     :: Owner
 owner = Owner' {_oDisplayName = Nothing, _oId = Nothing}
 
 
--- | Undocumented member.
+-- |
 oDisplayName :: Lens' Owner (Maybe Text)
 oDisplayName = lens _oDisplayName (\ s a -> s{_oDisplayName = a})
 
--- | Undocumented member.
+-- |
 oId :: Lens' Owner (Maybe Text)
 oId = lens _oId (\ s a -> s{_oId = a})
 
@@ -3263,12 +3772,40 @@ instance ToXML Owner where
           = mconcat
               ["DisplayName" @= _oDisplayName, "ID" @= _oId]
 
--- | /See:/ 'part' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'parquetInput' smart constructor.
+data ParquetInput =
+  ParquetInput'
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ParquetInput' with the minimum fields required to make a request.
+--
+parquetInput
+    :: ParquetInput
+parquetInput = ParquetInput'
+
+
+instance Hashable ParquetInput where
+
+instance NFData ParquetInput where
+
+instance ToXML ParquetInput where
+        toXML = const mempty
+
+-- |
+--
+--
+--
+-- /See:/ 'part' smart constructor.
 data Part = Part'
   { _pETag         :: !(Maybe ETag)
   , _pSize         :: !(Maybe Int)
   , _pPartNumber   :: !(Maybe Int)
-  , _pLastModified :: !(Maybe RFC822)
+  , _pLastModified :: !(Maybe ISO8601)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -3278,7 +3815,7 @@ data Part = Part'
 --
 -- * 'pETag' - Entity tag returned when the part was uploaded.
 --
--- * 'pSize' - Size of the uploaded part data.
+-- * 'pSize' - Size in bytes of the uploaded part data.
 --
 -- * 'pPartNumber' - Part number identifying the part. This is a positive integer between 1 and 10,000.
 --
@@ -3298,7 +3835,7 @@ part =
 pETag :: Lens' Part (Maybe ETag)
 pETag = lens _pETag (\ s a -> s{_pETag = a})
 
--- | Size of the uploaded part data.
+-- | Size in bytes of the uploaded part data.
 pSize :: Lens' Part (Maybe Int)
 pSize = lens _pSize (\ s a -> s{_pSize = a})
 
@@ -3321,7 +3858,42 @@ instance Hashable Part where
 
 instance NFData Part where
 
--- | /See:/ 'progress' smart constructor.
+-- | The container element for a bucket's policy status.
+--
+--
+--
+-- /See:/ 'policyStatus' smart constructor.
+newtype PolicyStatus = PolicyStatus'
+  { _psIsPublic :: Maybe Bool
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'PolicyStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'psIsPublic' - The policy status for this bucket. @TRUE@ indicates that this bucket is public. @FALSE@ indicates that the bucket is not public.
+policyStatus
+    :: PolicyStatus
+policyStatus = PolicyStatus' {_psIsPublic = Nothing}
+
+
+-- | The policy status for this bucket. @TRUE@ indicates that this bucket is public. @FALSE@ indicates that the bucket is not public.
+psIsPublic :: Lens' PolicyStatus (Maybe Bool)
+psIsPublic = lens _psIsPublic (\ s a -> s{_psIsPublic = a})
+
+instance FromXML PolicyStatus where
+        parseXML x = PolicyStatus' <$> (x .@? "IsPublic")
+
+instance Hashable PolicyStatus where
+
+instance NFData PolicyStatus where
+
+-- |
+--
+--
+--
+-- /See:/ 'progress' smart constructor.
 data Progress = Progress'
   { _pBytesReturned  :: !(Maybe Integer)
   , _pBytesScanned   :: !(Maybe Integer)
@@ -3333,11 +3905,11 @@ data Progress = Progress'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pBytesReturned' - Current number of bytes of records payload data returned.
+-- * 'pBytesReturned' - The current number of bytes of records payload data returned.
 --
--- * 'pBytesScanned' - Current number of object bytes scanned.
+-- * 'pBytesScanned' - The current number of object bytes scanned.
 --
--- * 'pBytesProcessed' - Current number of uncompressed object bytes processed.
+-- * 'pBytesProcessed' - The current number of uncompressed object bytes processed.
 progress
     :: Progress
 progress =
@@ -3348,15 +3920,15 @@ progress =
     }
 
 
--- | Current number of bytes of records payload data returned.
+-- | The current number of bytes of records payload data returned.
 pBytesReturned :: Lens' Progress (Maybe Integer)
 pBytesReturned = lens _pBytesReturned (\ s a -> s{_pBytesReturned = a})
 
--- | Current number of object bytes scanned.
+-- | The current number of object bytes scanned.
 pBytesScanned :: Lens' Progress (Maybe Integer)
 pBytesScanned = lens _pBytesScanned (\ s a -> s{_pBytesScanned = a})
 
--- | Current number of uncompressed object bytes processed.
+-- | The current number of uncompressed object bytes processed.
 pBytesProcessed :: Lens' Progress (Maybe Integer)
 pBytesProcessed = lens _pBytesProcessed (\ s a -> s{_pBytesProcessed = a})
 
@@ -3370,7 +3942,11 @@ instance Hashable Progress where
 
 instance NFData Progress where
 
--- | /See:/ 'progressEvent' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'progressEvent' smart constructor.
 newtype ProgressEvent = ProgressEvent'
   { _peDetails :: Maybe Progress
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -3397,7 +3973,82 @@ instance Hashable ProgressEvent where
 
 instance NFData ProgressEvent where
 
--- | Container for specifying an configuration when you want Amazon S3 to publish events to an Amazon Simple Queue Service (Amazon SQS) queue.
+-- |
+--
+--
+--
+-- /See:/ 'publicAccessBlockConfiguration' smart constructor.
+data PublicAccessBlockConfiguration = PublicAccessBlockConfiguration'
+  { _pabcIgnorePublicACLs      :: !(Maybe Bool)
+  , _pabcBlockPublicACLs       :: !(Maybe Bool)
+  , _pabcRestrictPublicBuckets :: !(Maybe Bool)
+  , _pabcBlockPublicPolicy     :: !(Maybe Bool)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'PublicAccessBlockConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pabcIgnorePublicACLs' - Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to @TRUE@ causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+--
+-- * 'pabcBlockPublicACLs' - Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to @TRUE@ causes the following behavior:     * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.     * PUT Object calls fail if the request includes a public ACL. Enabling this setting doesn't affect existing policies or ACLs.
+--
+-- * 'pabcRestrictPublicBuckets' - Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to @TRUE@ restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy. Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+--
+-- * 'pabcBlockPublicPolicy' - Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to @TRUE@ causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access.  Enabling this setting doesn't affect existing bucket policies.
+publicAccessBlockConfiguration
+    :: PublicAccessBlockConfiguration
+publicAccessBlockConfiguration =
+  PublicAccessBlockConfiguration'
+    { _pabcIgnorePublicACLs = Nothing
+    , _pabcBlockPublicACLs = Nothing
+    , _pabcRestrictPublicBuckets = Nothing
+    , _pabcBlockPublicPolicy = Nothing
+    }
+
+
+-- | Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to @TRUE@ causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+pabcIgnorePublicACLs :: Lens' PublicAccessBlockConfiguration (Maybe Bool)
+pabcIgnorePublicACLs = lens _pabcIgnorePublicACLs (\ s a -> s{_pabcIgnorePublicACLs = a})
+
+-- | Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to @TRUE@ causes the following behavior:     * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.     * PUT Object calls fail if the request includes a public ACL. Enabling this setting doesn't affect existing policies or ACLs.
+pabcBlockPublicACLs :: Lens' PublicAccessBlockConfiguration (Maybe Bool)
+pabcBlockPublicACLs = lens _pabcBlockPublicACLs (\ s a -> s{_pabcBlockPublicACLs = a})
+
+-- | Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to @TRUE@ restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy. Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+pabcRestrictPublicBuckets :: Lens' PublicAccessBlockConfiguration (Maybe Bool)
+pabcRestrictPublicBuckets = lens _pabcRestrictPublicBuckets (\ s a -> s{_pabcRestrictPublicBuckets = a})
+
+-- | Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to @TRUE@ causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access.  Enabling this setting doesn't affect existing bucket policies.
+pabcBlockPublicPolicy :: Lens' PublicAccessBlockConfiguration (Maybe Bool)
+pabcBlockPublicPolicy = lens _pabcBlockPublicPolicy (\ s a -> s{_pabcBlockPublicPolicy = a})
+
+instance FromXML PublicAccessBlockConfiguration where
+        parseXML x
+          = PublicAccessBlockConfiguration' <$>
+              (x .@? "IgnorePublicAcls") <*>
+                (x .@? "BlockPublicAcls")
+                <*> (x .@? "RestrictPublicBuckets")
+                <*> (x .@? "BlockPublicPolicy")
+
+instance Hashable PublicAccessBlockConfiguration
+         where
+
+instance NFData PublicAccessBlockConfiguration where
+
+instance ToXML PublicAccessBlockConfiguration where
+        toXML PublicAccessBlockConfiguration'{..}
+          = mconcat
+              ["IgnorePublicAcls" @= _pabcIgnorePublicACLs,
+               "BlockPublicAcls" @= _pabcBlockPublicACLs,
+               "RestrictPublicBuckets" @=
+                 _pabcRestrictPublicBuckets,
+               "BlockPublicPolicy" @= _pabcBlockPublicPolicy]
+
+-- | A container for specifying the configuration for publication of messages to an Amazon Simple Queue Service (Amazon SQS) queue.when Amazon S3 detects specified events.
+--
+--
 --
 -- /See:/ 'queueConfiguration' smart constructor.
 data QueueConfiguration = QueueConfiguration'
@@ -3416,9 +4067,9 @@ data QueueConfiguration = QueueConfiguration'
 --
 -- * 'qcFilter' - Undocumented member.
 --
--- * 'qcQueueARN' - Amazon SQS queue ARN to which Amazon S3 will publish a message when it detects events of specified type.
+-- * 'qcQueueARN' - The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 will publish a message when it detects events of the specified type.
 --
--- * 'qcEvents' - Undocumented member.
+-- * 'qcEvents' -
 queueConfiguration
     :: Text -- ^ 'qcQueueARN'
     -> QueueConfiguration
@@ -3439,11 +4090,11 @@ qcId = lens _qcId (\ s a -> s{_qcId = a})
 qcFilter :: Lens' QueueConfiguration (Maybe NotificationConfigurationFilter)
 qcFilter = lens _qcFilter (\ s a -> s{_qcFilter = a})
 
--- | Amazon SQS queue ARN to which Amazon S3 will publish a message when it detects events of specified type.
+-- | The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 will publish a message when it detects events of the specified type.
 qcQueueARN :: Lens' QueueConfiguration Text
 qcQueueARN = lens _qcQueueARN (\ s a -> s{_qcQueueARN = a})
 
--- | Undocumented member.
+-- |
 qcEvents :: Lens' QueueConfiguration [Event]
 qcEvents = lens _qcEvents (\ s a -> s{_qcEvents = a}) . _Coerce
 
@@ -3463,7 +4114,11 @@ instance ToXML QueueConfiguration where
               ["Id" @= _qcId, "Filter" @= _qcFilter,
                "Queue" @= _qcQueueARN, toXMLList "Event" _qcEvents]
 
--- | /See:/ 'recordsEvent' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'recordsEvent' smart constructor.
 newtype RecordsEvent = RecordsEvent'
   { _rePayload :: Maybe Base64
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -3490,7 +4145,11 @@ instance Hashable RecordsEvent where
 
 instance NFData RecordsEvent where
 
--- | /See:/ 'redirect' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'redirect' smart constructor.
 data Redirect = Redirect'
   { _rHostName             :: !(Maybe Text)
   , _rProtocol             :: !(Maybe Protocol)
@@ -3565,7 +4224,11 @@ instance ToXML Redirect where
                "ReplaceKeyWith" @= _rReplaceKeyWith,
                "ReplaceKeyPrefixWith" @= _rReplaceKeyPrefixWith]
 
--- | /See:/ 'redirectAllRequestsTo' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'redirectAllRequestsTo' smart constructor.
 data RedirectAllRequestsTo = RedirectAllRequestsTo'
   { _rartProtocol :: !(Maybe Protocol)
   , _rartHostName :: !Text
@@ -3609,7 +4272,9 @@ instance ToXML RedirectAllRequestsTo where
               ["Protocol" @= _rartProtocol,
                "HostName" @= _rartHostName]
 
--- | Container for replication rules. You can add as many as 1,000 rules. Total replication configuration size can be up to 2 MB.
+-- | A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB.
+--
+--
 --
 -- /See:/ 'replicationConfiguration' smart constructor.
 data ReplicationConfiguration = ReplicationConfiguration'
@@ -3622,9 +4287,9 @@ data ReplicationConfiguration = ReplicationConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcRole' - Amazon Resource Name (ARN) of an IAM role for Amazon S3 to assume when replicating the objects.
+-- * 'rcRole' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 can assume when replicating the objects.
 --
--- * 'rcRules' - Container for information about a particular replication rule. Replication configuration must have at least one rule and can contain up to 1,000 rules.
+-- * 'rcRules' - A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.
 replicationConfiguration
     :: Text -- ^ 'rcRole'
     -> ReplicationConfiguration
@@ -3632,11 +4297,11 @@ replicationConfiguration pRole_ =
   ReplicationConfiguration' {_rcRole = pRole_, _rcRules = mempty}
 
 
--- | Amazon Resource Name (ARN) of an IAM role for Amazon S3 to assume when replicating the objects.
+-- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 can assume when replicating the objects.
 rcRole :: Lens' ReplicationConfiguration Text
 rcRole = lens _rcRole (\ s a -> s{_rcRole = a})
 
--- | Container for information about a particular replication rule. Replication configuration must have at least one rule and can contain up to 1,000 rules.
+-- | A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.
 rcRules :: Lens' ReplicationConfiguration [ReplicationRule]
 rcRules = lens _rcRules (\ s a -> s{_rcRules = a}) . _Coerce
 
@@ -3654,13 +4319,18 @@ instance ToXML ReplicationConfiguration where
           = mconcat
               ["Role" @= _rcRole, toXMLList "Rule" _rcRules]
 
--- | Container for information about a particular replication rule.
+-- | A container for information about a specific replication rule.
+--
+--
 --
 -- /See:/ 'replicationRule' smart constructor.
 data ReplicationRule = ReplicationRule'
-  { _rrId                      :: !(Maybe Text)
+  { _rrDeleteMarkerReplication :: !(Maybe DeleteMarkerReplication)
+  , _rrPriority                :: !(Maybe Int)
+  , _rrPrefix                  :: !(Maybe Text)
+  , _rrId                      :: !(Maybe Text)
+  , _rrFilter                  :: !(Maybe ReplicationRuleFilter)
   , _rrSourceSelectionCriteria :: !(Maybe SourceSelectionCriteria)
-  , _rrPrefix                  :: !Text
   , _rrStatus                  :: !ReplicationRuleStatus
   , _rrDestination             :: !Destination
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -3670,55 +4340,79 @@ data ReplicationRule = ReplicationRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrId' - Unique identifier for the rule. The value cannot be longer than 255 characters.
+-- * 'rrDeleteMarkerReplication' - Undocumented member.
 --
--- * 'rrSourceSelectionCriteria' - Container for filters that define which source objects should be replicated.
+-- * 'rrPriority' - The priority associated with the rule. If you specify multiple rules in a replication configuration, Amazon S3 prioritizes the rules to prevent conflicts when filtering. If two or more rules identify the same object based on a specified filter, the rule with higher priority takes precedence. For example:     * Same object quality prefix based filter criteria If prefixes you specified in multiple rules overlap      * Same object qualify tag based filter criteria specified in multiple rules For more information, see < https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html Cross-Region Replication (CRR)> in the /Amazon S3 Developer Guide/ .
 --
--- * 'rrPrefix' - Object keyname prefix identifying one or more objects to which the rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes are not supported.
+-- * 'rrPrefix' - An object keyname prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters.
 --
--- * 'rrStatus' - The rule is ignored if status is not Enabled.
+-- * 'rrId' - A unique identifier for the rule. The maximum value is 255 characters.
 --
--- * 'rrDestination' - Container for replication destination information.
+-- * 'rrFilter' - Undocumented member.
+--
+-- * 'rrSourceSelectionCriteria' - A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects. Currently, Amazon S3 supports only the filter that you can specify for objects created with server-side encryption using an AWS KMS-Managed Key (SSE-KMS).  If you want Amazon S3 to replicate objects created with server-side encryption using AWS KMS-Managed Keys.
+--
+-- * 'rrStatus' - If status isn't enabled, the rule is ignored.
+--
+-- * 'rrDestination' - A container for information about the replication destination.
 replicationRule
-    :: Text -- ^ 'rrPrefix'
-    -> ReplicationRuleStatus -- ^ 'rrStatus'
+    :: ReplicationRuleStatus -- ^ 'rrStatus'
     -> Destination -- ^ 'rrDestination'
     -> ReplicationRule
-replicationRule pPrefix_ pStatus_ pDestination_ =
+replicationRule pStatus_ pDestination_ =
   ReplicationRule'
-    { _rrId = Nothing
+    { _rrDeleteMarkerReplication = Nothing
+    , _rrPriority = Nothing
+    , _rrPrefix = Nothing
+    , _rrId = Nothing
+    , _rrFilter = Nothing
     , _rrSourceSelectionCriteria = Nothing
-    , _rrPrefix = pPrefix_
     , _rrStatus = pStatus_
     , _rrDestination = pDestination_
     }
 
 
--- | Unique identifier for the rule. The value cannot be longer than 255 characters.
+-- | Undocumented member.
+rrDeleteMarkerReplication :: Lens' ReplicationRule (Maybe DeleteMarkerReplication)
+rrDeleteMarkerReplication = lens _rrDeleteMarkerReplication (\ s a -> s{_rrDeleteMarkerReplication = a})
+
+-- | The priority associated with the rule. If you specify multiple rules in a replication configuration, Amazon S3 prioritizes the rules to prevent conflicts when filtering. If two or more rules identify the same object based on a specified filter, the rule with higher priority takes precedence. For example:     * Same object quality prefix based filter criteria If prefixes you specified in multiple rules overlap      * Same object qualify tag based filter criteria specified in multiple rules For more information, see < https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html Cross-Region Replication (CRR)> in the /Amazon S3 Developer Guide/ .
+rrPriority :: Lens' ReplicationRule (Maybe Int)
+rrPriority = lens _rrPriority (\ s a -> s{_rrPriority = a})
+
+-- | An object keyname prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters.
+rrPrefix :: Lens' ReplicationRule (Maybe Text)
+rrPrefix = lens _rrPrefix (\ s a -> s{_rrPrefix = a})
+
+-- | A unique identifier for the rule. The maximum value is 255 characters.
 rrId :: Lens' ReplicationRule (Maybe Text)
 rrId = lens _rrId (\ s a -> s{_rrId = a})
 
--- | Container for filters that define which source objects should be replicated.
+-- | Undocumented member.
+rrFilter :: Lens' ReplicationRule (Maybe ReplicationRuleFilter)
+rrFilter = lens _rrFilter (\ s a -> s{_rrFilter = a})
+
+-- | A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects. Currently, Amazon S3 supports only the filter that you can specify for objects created with server-side encryption using an AWS KMS-Managed Key (SSE-KMS).  If you want Amazon S3 to replicate objects created with server-side encryption using AWS KMS-Managed Keys.
 rrSourceSelectionCriteria :: Lens' ReplicationRule (Maybe SourceSelectionCriteria)
 rrSourceSelectionCriteria = lens _rrSourceSelectionCriteria (\ s a -> s{_rrSourceSelectionCriteria = a})
 
--- | Object keyname prefix identifying one or more objects to which the rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes are not supported.
-rrPrefix :: Lens' ReplicationRule Text
-rrPrefix = lens _rrPrefix (\ s a -> s{_rrPrefix = a})
-
--- | The rule is ignored if status is not Enabled.
+-- | If status isn't enabled, the rule is ignored.
 rrStatus :: Lens' ReplicationRule ReplicationRuleStatus
 rrStatus = lens _rrStatus (\ s a -> s{_rrStatus = a})
 
--- | Container for replication destination information.
+-- | A container for information about the replication destination.
 rrDestination :: Lens' ReplicationRule Destination
 rrDestination = lens _rrDestination (\ s a -> s{_rrDestination = a})
 
 instance FromXML ReplicationRule where
         parseXML x
           = ReplicationRule' <$>
-              (x .@? "ID") <*> (x .@? "SourceSelectionCriteria")
-                <*> (x .@ "Prefix")
+              (x .@? "DeleteMarkerReplication") <*>
+                (x .@? "Priority")
+                <*> (x .@? "Prefix")
+                <*> (x .@? "ID")
+                <*> (x .@? "Filter")
+                <*> (x .@? "SourceSelectionCriteria")
                 <*> (x .@ "Status")
                 <*> (x .@ "Destination")
 
@@ -3729,13 +4423,123 @@ instance NFData ReplicationRule where
 instance ToXML ReplicationRule where
         toXML ReplicationRule'{..}
           = mconcat
-              ["ID" @= _rrId,
+              ["DeleteMarkerReplication" @=
+                 _rrDeleteMarkerReplication,
+               "Priority" @= _rrPriority, "Prefix" @= _rrPrefix,
+               "ID" @= _rrId, "Filter" @= _rrFilter,
                "SourceSelectionCriteria" @=
                  _rrSourceSelectionCriteria,
-               "Prefix" @= _rrPrefix, "Status" @= _rrStatus,
+               "Status" @= _rrStatus,
                "Destination" @= _rrDestination]
 
--- | /See:/ 'requestPaymentConfiguration' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'replicationRuleAndOperator' smart constructor.
+data ReplicationRuleAndOperator = ReplicationRuleAndOperator'
+  { _rraoPrefix :: !(Maybe Text)
+  , _rraoTags   :: !(Maybe [Tag])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ReplicationRuleAndOperator' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rraoPrefix' -
+--
+-- * 'rraoTags' -
+replicationRuleAndOperator
+    :: ReplicationRuleAndOperator
+replicationRuleAndOperator =
+  ReplicationRuleAndOperator' {_rraoPrefix = Nothing, _rraoTags = Nothing}
+
+
+-- |
+rraoPrefix :: Lens' ReplicationRuleAndOperator (Maybe Text)
+rraoPrefix = lens _rraoPrefix (\ s a -> s{_rraoPrefix = a})
+
+-- |
+rraoTags :: Lens' ReplicationRuleAndOperator [Tag]
+rraoTags = lens _rraoTags (\ s a -> s{_rraoTags = a}) . _Default . _Coerce
+
+instance FromXML ReplicationRuleAndOperator where
+        parseXML x
+          = ReplicationRuleAndOperator' <$>
+              (x .@? "Prefix") <*>
+                (x .@? "Tag" .!@ mempty >>= may (parseXMLList "Tag"))
+
+instance Hashable ReplicationRuleAndOperator where
+
+instance NFData ReplicationRuleAndOperator where
+
+instance ToXML ReplicationRuleAndOperator where
+        toXML ReplicationRuleAndOperator'{..}
+          = mconcat
+              ["Prefix" @= _rraoPrefix,
+               "Tag" @= toXML (toXMLList "Tag" <$> _rraoTags)]
+
+-- | A filter that identifies the subset of objects to which the replication rule applies. A @Filter@ must specify exactly one @Prefix@ , @Tag@ , or an @And@ child element.
+--
+--
+--
+-- /See:/ 'replicationRuleFilter' smart constructor.
+data ReplicationRuleFilter = ReplicationRuleFilter'
+  { _rrfTag    :: !(Maybe Tag)
+  , _rrfPrefix :: !(Maybe Text)
+  , _rrfAnd    :: !(Maybe ReplicationRuleAndOperator)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ReplicationRuleFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rrfTag' - A container for specifying a tag key and value.  The rule applies only to objects that have the tag in their tag set.
+--
+-- * 'rrfPrefix' - An object keyname prefix that identifies the subset of objects to which the rule applies.
+--
+-- * 'rrfAnd' - A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example:      * If you specify both a @Prefix@ and a @Tag@ filter, wrap these filters in an @And@ tag.     * If you specify a filter based on multiple tags, wrap the @Tag@ elements in an @And@ tag.
+replicationRuleFilter
+    :: ReplicationRuleFilter
+replicationRuleFilter =
+  ReplicationRuleFilter'
+    {_rrfTag = Nothing, _rrfPrefix = Nothing, _rrfAnd = Nothing}
+
+
+-- | A container for specifying a tag key and value.  The rule applies only to objects that have the tag in their tag set.
+rrfTag :: Lens' ReplicationRuleFilter (Maybe Tag)
+rrfTag = lens _rrfTag (\ s a -> s{_rrfTag = a})
+
+-- | An object keyname prefix that identifies the subset of objects to which the rule applies.
+rrfPrefix :: Lens' ReplicationRuleFilter (Maybe Text)
+rrfPrefix = lens _rrfPrefix (\ s a -> s{_rrfPrefix = a})
+
+-- | A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example:      * If you specify both a @Prefix@ and a @Tag@ filter, wrap these filters in an @And@ tag.     * If you specify a filter based on multiple tags, wrap the @Tag@ elements in an @And@ tag.
+rrfAnd :: Lens' ReplicationRuleFilter (Maybe ReplicationRuleAndOperator)
+rrfAnd = lens _rrfAnd (\ s a -> s{_rrfAnd = a})
+
+instance FromXML ReplicationRuleFilter where
+        parseXML x
+          = ReplicationRuleFilter' <$>
+              (x .@? "Tag") <*> (x .@? "Prefix") <*> (x .@? "And")
+
+instance Hashable ReplicationRuleFilter where
+
+instance NFData ReplicationRuleFilter where
+
+instance ToXML ReplicationRuleFilter where
+        toXML ReplicationRuleFilter'{..}
+          = mconcat
+              ["Tag" @= _rrfTag, "Prefix" @= _rrfPrefix,
+               "And" @= _rrfAnd]
+
+-- |
+--
+--
+--
+-- /See:/ 'requestPaymentConfiguration' smart constructor.
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration'
   { _rpcPayer :: Payer
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -3765,7 +4569,11 @@ instance ToXML RequestPaymentConfiguration where
         toXML RequestPaymentConfiguration'{..}
           = mconcat ["Payer" @= _rpcPayer]
 
--- | /See:/ 'requestProgress' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'requestProgress' smart constructor.
 newtype RequestProgress = RequestProgress'
   { _rpEnabled :: Maybe Bool
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -3794,6 +4602,8 @@ instance ToXML RequestProgress where
           = mconcat ["Enabled" @= _rpEnabled]
 
 -- | Container for restore job parameters.
+--
+--
 --
 -- /See:/ 'restoreRequest' smart constructor.
 data RestoreRequest = RestoreRequest'
@@ -3880,7 +4690,11 @@ instance ToXML RestoreRequest where
                "GlacierJobParameters" @= _rrGlacierJobParameters,
                "Type" @= _rrType, "Description" @= _rrDescription]
 
--- | /See:/ 'routingRule' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'routingRule' smart constructor.
 data RoutingRule = RoutingRule'
   { _rrCondition :: !(Maybe Condition)
   , _rrRedirect  :: !Redirect
@@ -3893,7 +4707,7 @@ data RoutingRule = RoutingRule'
 --
 -- * 'rrCondition' - A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the /docs folder, redirect to the /documents folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.
 --
--- * 'rrRedirect' - Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can can specify a different error code to return.
+-- * 'rrRedirect' - Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.
 routingRule
     :: Redirect -- ^ 'rrRedirect'
     -> RoutingRule
@@ -3905,7 +4719,7 @@ routingRule pRedirect_ =
 rrCondition :: Lens' RoutingRule (Maybe Condition)
 rrCondition = lens _rrCondition (\ s a -> s{_rrCondition = a})
 
--- | Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can can specify a different error code to return.
+-- | Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.
 rrRedirect :: Lens' RoutingRule Redirect
 rrRedirect = lens _rrRedirect (\ s a -> s{_rrRedirect = a})
 
@@ -3924,7 +4738,9 @@ instance ToXML RoutingRule where
               ["Condition" @= _rrCondition,
                "Redirect" @= _rrRedirect]
 
--- | Container for object key name prefix and suffix filtering rules.
+-- | A container for object key name prefix and suffix filtering rules.
+--
+--
 --
 -- /See:/ 's3KeyFilter' smart constructor.
 newtype S3KeyFilter = S3KeyFilter'
@@ -3961,6 +4777,8 @@ instance ToXML S3KeyFilter where
               [toXML (toXMLList "FilterRule" <$> _skfFilterRules)]
 
 -- | Describes an S3 location that will receive the results of the restore request.
+--
+--
 --
 -- /See:/ 's3Location' smart constructor.
 data S3Location = S3Location'
@@ -4061,7 +4879,11 @@ instance ToXML S3Location where
                "Tagging" @= _slTagging,
                "BucketName" @= _slBucketName, "Prefix" @= _slPrefix]
 
--- | /See:/ 's3ServiceError' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 's3ServiceError' smart constructor.
 data S3ServiceError = S3ServiceError'
   { _sseVersionId :: !(Maybe ObjectVersionId)
   , _sseKey       :: !(Maybe ObjectKey)
@@ -4074,13 +4896,13 @@ data S3ServiceError = S3ServiceError'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sseVersionId' - Undocumented member.
+-- * 'sseVersionId' -
 --
--- * 'sseKey' - Undocumented member.
+-- * 'sseKey' -
 --
--- * 'sseCode' - Undocumented member.
+-- * 'sseCode' -
 --
--- * 'sseMessage' - Undocumented member.
+-- * 'sseMessage' -
 s3ServiceError
     :: S3ServiceError
 s3ServiceError =
@@ -4092,19 +4914,19 @@ s3ServiceError =
     }
 
 
--- | Undocumented member.
+-- |
 sseVersionId :: Lens' S3ServiceError (Maybe ObjectVersionId)
 sseVersionId = lens _sseVersionId (\ s a -> s{_sseVersionId = a})
 
--- | Undocumented member.
+-- |
 sseKey :: Lens' S3ServiceError (Maybe ObjectKey)
 sseKey = lens _sseKey (\ s a -> s{_sseKey = a})
 
--- | Undocumented member.
+-- |
 sseCode :: Lens' S3ServiceError (Maybe Text)
 sseCode = lens _sseCode (\ s a -> s{_sseCode = a})
 
--- | Undocumented member.
+-- |
 sseMessage :: Lens' S3ServiceError (Maybe Text)
 sseMessage = lens _sseMessage (\ s a -> s{_sseMessage = a})
 
@@ -4119,7 +4941,9 @@ instance Hashable S3ServiceError where
 
 instance NFData S3ServiceError where
 
--- | Specifies the use of SSE-KMS to encrypt delievered Inventory reports.
+-- | Specifies the use of SSE-KMS to encrypt delivered Inventory reports.
+--
+--
 --
 -- /See:/ 'sSEKMS' smart constructor.
 newtype SSEKMS = SSEKMS'
@@ -4152,7 +4976,9 @@ instance NFData SSEKMS where
 instance ToXML SSEKMS where
         toXML SSEKMS'{..} = mconcat ["KeyId" @= _ssekKeyId]
 
--- | Specifies the use of SSE-S3 to encrypt delievered Inventory reports.
+-- | Specifies the use of SSE-S3 to encrypt delivered Inventory reports.
+--
+--
 --
 -- /See:/ 'sSES3' smart constructor.
 data SSES3 =
@@ -4177,7 +5003,11 @@ instance NFData SSES3 where
 instance ToXML SSES3 where
         toXML = const mempty
 
--- | /See:/ 'selectObjectContentEventStream' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'selectObjectContentEventStream' smart constructor.
 data SelectObjectContentEventStream = SelectObjectContentEventStream'
   { _socesProgress :: !(Maybe ProgressEvent)
   , _socesRecords  :: !(Maybe RecordsEvent)
@@ -4247,6 +5077,8 @@ instance NFData SelectObjectContentEventStream where
 
 -- | Describes the parameters for Select job types.
 --
+--
+--
 -- /See:/ 'selectParameters' smart constructor.
 data SelectParameters = SelectParameters'
   { _spInputSerialization  :: !InputSerialization
@@ -4312,6 +5144,8 @@ instance ToXML SelectParameters where
 
 -- | Describes the default server-side encryption to apply to new objects in the bucket. If Put Object request does not specify any server-side encryption, this default encryption will be applied.
 --
+--
+--
 -- /See:/ 'serverSideEncryptionByDefault' smart constructor.
 data ServerSideEncryptionByDefault = ServerSideEncryptionByDefault'
   { _ssebdKMSMasterKeyId :: !(Maybe (Sensitive Text))
@@ -4359,6 +5193,8 @@ instance ToXML ServerSideEncryptionByDefault where
 
 -- | Container for server-side encryption configuration rules. Currently S3 supports one rule only.
 --
+--
+--
 -- /See:/ 'serverSideEncryptionConfiguration' smart constructor.
 newtype ServerSideEncryptionConfiguration = ServerSideEncryptionConfiguration'
   { _ssecRules :: [ServerSideEncryptionRule]
@@ -4399,6 +5235,8 @@ instance ToXML ServerSideEncryptionConfiguration
 
 -- | Container for information about a particular server-side encryption configuration rule.
 --
+--
+--
 -- /See:/ 'serverSideEncryptionRule' smart constructor.
 newtype ServerSideEncryptionRule = ServerSideEncryptionRule'
   { _sserApplyServerSideEncryptionByDefault :: Maybe ServerSideEncryptionByDefault
@@ -4435,7 +5273,9 @@ instance ToXML ServerSideEncryptionRule where
               ["ApplyServerSideEncryptionByDefault" @=
                  _sserApplyServerSideEncryptionByDefault]
 
--- | Container for filters that define which source objects should be replicated.
+-- | A container for filters that define which source objects should be replicated.
+--
+--
 --
 -- /See:/ 'sourceSelectionCriteria' smart constructor.
 newtype SourceSelectionCriteria = SourceSelectionCriteria'
@@ -4447,14 +5287,14 @@ newtype SourceSelectionCriteria = SourceSelectionCriteria'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sscSseKMSEncryptedObjects' - Container for filter information of selection of KMS Encrypted S3 objects.
+-- * 'sscSseKMSEncryptedObjects' - A container for filter information for the selection of S3 objects encrypted with AWS KMS. If you include @SourceSelectionCriteria@ in the replication configuration, this element is required.
 sourceSelectionCriteria
     :: SourceSelectionCriteria
 sourceSelectionCriteria =
   SourceSelectionCriteria' {_sscSseKMSEncryptedObjects = Nothing}
 
 
--- | Container for filter information of selection of KMS Encrypted S3 objects.
+-- | A container for filter information for the selection of S3 objects encrypted with AWS KMS. If you include @SourceSelectionCriteria@ in the replication configuration, this element is required.
 sscSseKMSEncryptedObjects :: Lens' SourceSelectionCriteria (Maybe SseKMSEncryptedObjects)
 sscSseKMSEncryptedObjects = lens _sscSseKMSEncryptedObjects (\ s a -> s{_sscSseKMSEncryptedObjects = a})
 
@@ -4473,7 +5313,9 @@ instance ToXML SourceSelectionCriteria where
               ["SseKmsEncryptedObjects" @=
                  _sscSseKMSEncryptedObjects]
 
--- | Container for filter information of selection of KMS Encrypted S3 objects.
+-- | A container for filter information for the selection of S3 objects encrypted with AWS KMS.
+--
+--
 --
 -- /See:/ 'sseKMSEncryptedObjects' smart constructor.
 newtype SseKMSEncryptedObjects = SseKMSEncryptedObjects'
@@ -4485,7 +5327,7 @@ newtype SseKMSEncryptedObjects = SseKMSEncryptedObjects'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'skeoStatus' - The replication for KMS encrypted S3 objects is disabled if status is not Enabled.
+-- * 'skeoStatus' - If the status is not @Enabled@ , replication for S3 objects encrypted with AWS KMS is disabled.
 sseKMSEncryptedObjects
     :: SseKMSEncryptedObjectsStatus -- ^ 'skeoStatus'
     -> SseKMSEncryptedObjects
@@ -4493,7 +5335,7 @@ sseKMSEncryptedObjects pStatus_ =
   SseKMSEncryptedObjects' {_skeoStatus = pStatus_}
 
 
--- | The replication for KMS encrypted S3 objects is disabled if status is not Enabled.
+-- | If the status is not @Enabled@ , replication for S3 objects encrypted with AWS KMS is disabled.
 skeoStatus :: Lens' SseKMSEncryptedObjects SseKMSEncryptedObjectsStatus
 skeoStatus = lens _skeoStatus (\ s a -> s{_skeoStatus = a})
 
@@ -4509,7 +5351,11 @@ instance ToXML SseKMSEncryptedObjects where
         toXML SseKMSEncryptedObjects'{..}
           = mconcat ["Status" @= _skeoStatus]
 
--- | /See:/ 'stats' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'stats' smart constructor.
 data Stats = Stats'
   { _sBytesReturned  :: !(Maybe Integer)
   , _sBytesScanned   :: !(Maybe Integer)
@@ -4521,11 +5367,11 @@ data Stats = Stats'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sBytesReturned' - Total number of bytes of records payload data returned.
+-- * 'sBytesReturned' - The total number of bytes of records payload data returned.
 --
--- * 'sBytesScanned' - Total number of object bytes scanned.
+-- * 'sBytesScanned' - The total number of object bytes scanned.
 --
--- * 'sBytesProcessed' - Total number of uncompressed object bytes processed.
+-- * 'sBytesProcessed' - The total number of uncompressed object bytes processed.
 stats
     :: Stats
 stats =
@@ -4536,15 +5382,15 @@ stats =
     }
 
 
--- | Total number of bytes of records payload data returned.
+-- | The total number of bytes of records payload data returned.
 sBytesReturned :: Lens' Stats (Maybe Integer)
 sBytesReturned = lens _sBytesReturned (\ s a -> s{_sBytesReturned = a})
 
--- | Total number of object bytes scanned.
+-- | The total number of object bytes scanned.
 sBytesScanned :: Lens' Stats (Maybe Integer)
 sBytesScanned = lens _sBytesScanned (\ s a -> s{_sBytesScanned = a})
 
--- | Total number of uncompressed object bytes processed.
+-- | The total number of uncompressed object bytes processed.
 sBytesProcessed :: Lens' Stats (Maybe Integer)
 sBytesProcessed = lens _sBytesProcessed (\ s a -> s{_sBytesProcessed = a})
 
@@ -4558,7 +5404,11 @@ instance Hashable Stats where
 
 instance NFData Stats where
 
--- | /See:/ 'statsEvent' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'statsEvent' smart constructor.
 newtype StatsEvent = StatsEvent'
   { _seDetails :: Maybe Stats
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -4585,7 +5435,11 @@ instance Hashable StatsEvent where
 
 instance NFData StatsEvent where
 
--- | /See:/ 'storageClassAnalysis' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'storageClassAnalysis' smart constructor.
 newtype StorageClassAnalysis = StorageClassAnalysis'
   { _scaDataExport :: Maybe StorageClassAnalysisDataExport
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -4617,7 +5471,11 @@ instance ToXML StorageClassAnalysis where
         toXML StorageClassAnalysis'{..}
           = mconcat ["DataExport" @= _scaDataExport]
 
--- | /See:/ 'storageClassAnalysisDataExport' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'storageClassAnalysisDataExport' smart constructor.
 data StorageClassAnalysisDataExport = StorageClassAnalysisDataExport'
   { _scadeOutputSchemaVersion :: !StorageClassAnalysisSchemaVersion
   , _scadeDestination         :: !AnalyticsExportDestination
@@ -4666,7 +5524,11 @@ instance ToXML StorageClassAnalysisDataExport where
               ["OutputSchemaVersion" @= _scadeOutputSchemaVersion,
                "Destination" @= _scadeDestination]
 
--- | /See:/ 'tag' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'tag' smart constructor.
 data Tag = Tag'
   { _tagKey   :: !ObjectKey
   , _tagValue :: !Text
@@ -4706,7 +5568,11 @@ instance ToXML Tag where
         toXML Tag'{..}
           = mconcat ["Key" @= _tagKey, "Value" @= _tagValue]
 
--- | /See:/ 'tagging' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'tagging' smart constructor.
 newtype Tagging = Tagging'
   { _tTagSet :: [Tag]
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -4716,13 +5582,13 @@ newtype Tagging = Tagging'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tTagSet' - Undocumented member.
+-- * 'tTagSet' -
 tagging
     :: Tagging
 tagging = Tagging' {_tTagSet = mempty}
 
 
--- | Undocumented member.
+-- |
 tTagSet :: Lens' Tagging [Tag]
 tTagSet = lens _tTagSet (\ s a -> s{_tTagSet = a}) . _Coerce
 
@@ -4734,7 +5600,11 @@ instance ToXML Tagging where
         toXML Tagging'{..}
           = mconcat ["TagSet" @= toXMLList "Tag" _tTagSet]
 
--- | /See:/ 'targetGrant' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'targetGrant' smart constructor.
 data TargetGrant = TargetGrant'
   { _tgPermission :: !(Maybe BucketLogsPermission)
   , _tgGrantee    :: !(Maybe Grantee)
@@ -4747,7 +5617,7 @@ data TargetGrant = TargetGrant'
 --
 -- * 'tgPermission' - Logging permissions assigned to the Grantee for the bucket.
 --
--- * 'tgGrantee' - Undocumented member.
+-- * 'tgGrantee' -
 targetGrant
     :: TargetGrant
 targetGrant = TargetGrant' {_tgPermission = Nothing, _tgGrantee = Nothing}
@@ -4757,7 +5627,7 @@ targetGrant = TargetGrant' {_tgPermission = Nothing, _tgGrantee = Nothing}
 tgPermission :: Lens' TargetGrant (Maybe BucketLogsPermission)
 tgPermission = lens _tgPermission (\ s a -> s{_tgPermission = a})
 
--- | Undocumented member.
+-- |
 tgGrantee :: Lens' TargetGrant (Maybe Grantee)
 tgGrantee = lens _tgGrantee (\ s a -> s{_tgGrantee = a})
 
@@ -4776,7 +5646,9 @@ instance ToXML TargetGrant where
               ["Permission" @= _tgPermission,
                "Grantee" @= _tgGrantee]
 
--- | Container for specifying the configuration when you want Amazon S3 to publish events to an Amazon Simple Notification Service (Amazon SNS) topic.
+-- | A container for specifying the configuration for publication of messages to an Amazon Simple Notification Service (Amazon SNS) topic.when Amazon S3 detects specified events.
+--
+--
 --
 -- /See:/ 'topicConfiguration' smart constructor.
 data TopicConfiguration = TopicConfiguration'
@@ -4795,9 +5667,9 @@ data TopicConfiguration = TopicConfiguration'
 --
 -- * 'tcFilter' - Undocumented member.
 --
--- * 'tcTopicARN' - Amazon SNS topic ARN to which Amazon S3 will publish a message when it detects events of specified type.
+-- * 'tcTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 will publish a message when it detects events of the specified type.
 --
--- * 'tcEvents' - Undocumented member.
+-- * 'tcEvents' -
 topicConfiguration
     :: Text -- ^ 'tcTopicARN'
     -> TopicConfiguration
@@ -4818,11 +5690,11 @@ tcId = lens _tcId (\ s a -> s{_tcId = a})
 tcFilter :: Lens' TopicConfiguration (Maybe NotificationConfigurationFilter)
 tcFilter = lens _tcFilter (\ s a -> s{_tcFilter = a})
 
--- | Amazon SNS topic ARN to which Amazon S3 will publish a message when it detects events of specified type.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 will publish a message when it detects events of the specified type.
 tcTopicARN :: Lens' TopicConfiguration Text
 tcTopicARN = lens _tcTopicARN (\ s a -> s{_tcTopicARN = a})
 
--- | Undocumented member.
+-- |
 tcEvents :: Lens' TopicConfiguration [Event]
 tcEvents = lens _tcEvents (\ s a -> s{_tcEvents = a}) . _Coerce
 
@@ -4842,10 +5714,14 @@ instance ToXML TopicConfiguration where
               ["Id" @= _tcId, "Filter" @= _tcFilter,
                "Topic" @= _tcTopicARN, toXMLList "Event" _tcEvents]
 
--- | /See:/ 'transition' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'transition' smart constructor.
 data Transition = Transition'
   { _tDays         :: !(Maybe Int)
-  , _tDate         :: !(Maybe RFC822)
+  , _tDate         :: !(Maybe ISO8601)
   , _tStorageClass :: !(Maybe TransitionStorageClass)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -4893,7 +5769,11 @@ instance ToXML Transition where
               ["Days" @= _tDays, "Date" @= _tDate,
                "StorageClass" @= _tStorageClass]
 
--- | /See:/ 'versioningConfiguration' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'versioningConfiguration' smart constructor.
 data VersioningConfiguration = VersioningConfiguration'
   { _vcStatus    :: !(Maybe BucketVersioningStatus)
   , _vcMFADelete :: !(Maybe MFADelete)
@@ -4930,7 +5810,11 @@ instance ToXML VersioningConfiguration where
           = mconcat
               ["Status" @= _vcStatus, "MfaDelete" @= _vcMFADelete]
 
--- | /See:/ 'websiteConfiguration' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'websiteConfiguration' smart constructor.
 data WebsiteConfiguration = WebsiteConfiguration'
   { _wcRedirectAllRequestsTo :: !(Maybe RedirectAllRequestsTo)
   , _wcErrorDocument         :: !(Maybe ErrorDocument)
@@ -4943,13 +5827,13 @@ data WebsiteConfiguration = WebsiteConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'wcRedirectAllRequestsTo' - Undocumented member.
+-- * 'wcRedirectAllRequestsTo' -
 --
--- * 'wcErrorDocument' - Undocumented member.
+-- * 'wcErrorDocument' -
 --
--- * 'wcIndexDocument' - Undocumented member.
+-- * 'wcIndexDocument' -
 --
--- * 'wcRoutingRules' - Undocumented member.
+-- * 'wcRoutingRules' -
 websiteConfiguration
     :: WebsiteConfiguration
 websiteConfiguration =
@@ -4961,19 +5845,19 @@ websiteConfiguration =
     }
 
 
--- | Undocumented member.
+-- |
 wcRedirectAllRequestsTo :: Lens' WebsiteConfiguration (Maybe RedirectAllRequestsTo)
 wcRedirectAllRequestsTo = lens _wcRedirectAllRequestsTo (\ s a -> s{_wcRedirectAllRequestsTo = a})
 
--- | Undocumented member.
+-- |
 wcErrorDocument :: Lens' WebsiteConfiguration (Maybe ErrorDocument)
 wcErrorDocument = lens _wcErrorDocument (\ s a -> s{_wcErrorDocument = a})
 
--- | Undocumented member.
+-- |
 wcIndexDocument :: Lens' WebsiteConfiguration (Maybe IndexDocument)
 wcIndexDocument = lens _wcIndexDocument (\ s a -> s{_wcIndexDocument = a})
 
--- | Undocumented member.
+-- |
 wcRoutingRules :: Lens' WebsiteConfiguration [RoutingRule]
 wcRoutingRules = lens _wcRoutingRules (\ s a -> s{_wcRoutingRules = a}) . _Default . _Coerce
 

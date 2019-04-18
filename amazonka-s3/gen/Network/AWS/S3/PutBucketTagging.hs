@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the tags for a bucket.
+--
+--
 module Network.AWS.S3.PutBucketTagging
     (
     -- * Creating a Request
@@ -53,11 +55,11 @@ data PutBucketTagging = PutBucketTagging'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbtContentMD5' - Undocumented member.
+-- * 'pbtContentMD5' -
 --
--- * 'pbtBucket' - Undocumented member.
+-- * 'pbtBucket' -
 --
--- * 'pbtTagging' - Undocumented member.
+-- * 'pbtTagging' -
 putBucketTagging
     :: BucketName -- ^ 'pbtBucket'
     -> Tagging -- ^ 'pbtTagging'
@@ -67,15 +69,15 @@ putBucketTagging pBucket_ pTagging_ =
     {_pbtContentMD5 = Nothing, _pbtBucket = pBucket_, _pbtTagging = pTagging_}
 
 
--- | Undocumented member.
+-- |
 pbtContentMD5 :: Lens' PutBucketTagging (Maybe Text)
 pbtContentMD5 = lens _pbtContentMD5 (\ s a -> s{_pbtContentMD5 = a})
 
--- | Undocumented member.
+-- |
 pbtBucket :: Lens' PutBucketTagging BucketName
 pbtBucket = lens _pbtBucket (\ s a -> s{_pbtBucket = a})
 
--- | Undocumented member.
+-- |
 pbtTagging :: Lens' PutBucketTagging Tagging
 pbtTagging = lens _pbtTagging (\ s a -> s{_pbtTagging = a})
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Set the logging parameters for a bucket and to specify permissions for who can view and modify the logging parameters. To set the logging status of a bucket, you must be the bucket owner.
+--
+--
 module Network.AWS.S3.PutBucketLogging
     (
     -- * Creating a Request
@@ -53,11 +55,11 @@ data PutBucketLogging = PutBucketLogging'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pblContentMD5' - Undocumented member.
+-- * 'pblContentMD5' -
 --
--- * 'pblBucket' - Undocumented member.
+-- * 'pblBucket' -
 --
--- * 'pblBucketLoggingStatus' - Undocumented member.
+-- * 'pblBucketLoggingStatus' -
 putBucketLogging
     :: BucketName -- ^ 'pblBucket'
     -> BucketLoggingStatus -- ^ 'pblBucketLoggingStatus'
@@ -70,15 +72,15 @@ putBucketLogging pBucket_ pBucketLoggingStatus_ =
     }
 
 
--- | Undocumented member.
+-- |
 pblContentMD5 :: Lens' PutBucketLogging (Maybe Text)
 pblContentMD5 = lens _pblContentMD5 (\ s a -> s{_pblContentMD5 = a})
 
--- | Undocumented member.
+-- |
 pblBucket :: Lens' PutBucketLogging BucketName
 pblBucket = lens _pblBucket (\ s a -> s{_pblBucket = a})
 
--- | Undocumented member.
+-- |
 pblBucketLoggingStatus :: Lens' PutBucketLogging BucketLoggingStatus
 pblBucketLoggingStatus = lens _pblBucketLoggingStatus (\ s a -> s{_pblBucketLoggingStatus = a})
 

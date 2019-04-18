@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables notifications of specified events for a bucket.
+--
+--
 module Network.AWS.S3.PutBucketNotificationConfiguration
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ data PutBucketNotificationConfiguration = PutBucketNotificationConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbncBucket' - Undocumented member.
+-- * 'pbncBucket' -
 --
 -- * 'pbncNotificationConfiguration' - Undocumented member.
 putBucketNotificationConfiguration
@@ -65,7 +67,7 @@ putBucketNotificationConfiguration pBucket_ pNotificationConfiguration_ =
     }
 
 
--- | Undocumented member.
+-- |
 pbncBucket :: Lens' PutBucketNotificationConfiguration BucketName
 pbncBucket = lens _pbncBucket (\ s a -> s{_pbncBucket = a})
 

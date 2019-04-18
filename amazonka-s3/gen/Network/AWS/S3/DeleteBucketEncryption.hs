@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the server-side encryption configuration from the bucket.
+--
+--
 module Network.AWS.S3.DeleteBucketEncryption
     (
     -- * Creating a Request

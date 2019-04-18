@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the cors configuration for a bucket.
+-- Sets the CORS configuration for a bucket.
+--
+--
 module Network.AWS.S3.PutBucketCORS
     (
     -- * Creating a Request
@@ -53,11 +55,11 @@ data PutBucketCORS = PutBucketCORS'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbcContentMD5' - Undocumented member.
+-- * 'pbcContentMD5' -
 --
--- * 'pbcBucket' - Undocumented member.
+-- * 'pbcBucket' -
 --
--- * 'pbcCORSConfiguration' - Undocumented member.
+-- * 'pbcCORSConfiguration' -
 putBucketCORS
     :: BucketName -- ^ 'pbcBucket'
     -> CORSConfiguration -- ^ 'pbcCORSConfiguration'
@@ -70,15 +72,15 @@ putBucketCORS pBucket_ pCORSConfiguration_ =
     }
 
 
--- | Undocumented member.
+-- |
 pbcContentMD5 :: Lens' PutBucketCORS (Maybe Text)
 pbcContentMD5 = lens _pbcContentMD5 (\ s a -> s{_pbcContentMD5 = a})
 
--- | Undocumented member.
+-- |
 pbcBucket :: Lens' PutBucketCORS BucketName
 pbcBucket = lens _pbcBucket (\ s a -> s{_pbcBucket = a})
 
--- | Undocumented member.
+-- |
 pbcCORSConfiguration :: Lens' PutBucketCORS CORSConfiguration
 pbcCORSConfiguration = lens _pbcCORSConfiguration (\ s a -> s{_pbcCORSConfiguration = a})
 

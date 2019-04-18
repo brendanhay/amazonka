@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the accelerate configuration of an existing bucket.
+--
+--
 module Network.AWS.S3.PutBucketAccelerateConfiguration
     (
     -- * Creating a Request

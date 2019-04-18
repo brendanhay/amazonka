@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the website configuration for a bucket.
+--
+--
 module Network.AWS.S3.GetBucketWebsite
     (
     -- * Creating a Request
@@ -55,14 +57,14 @@ newtype GetBucketWebsite = GetBucketWebsite'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbwBucket' - Undocumented member.
+-- * 'gbwBucket' -
 getBucketWebsite
     :: BucketName -- ^ 'gbwBucket'
     -> GetBucketWebsite
 getBucketWebsite pBucket_ = GetBucketWebsite' {_gbwBucket = pBucket_}
 
 
--- | Undocumented member.
+-- |
 gbwBucket :: Lens' GetBucketWebsite BucketName
 gbwBucket = lens _gbwBucket (\ s a -> s{_gbwBucket = a})
 
@@ -109,13 +111,13 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbwrsRedirectAllRequestsTo' - Undocumented member.
+-- * 'gbwrsRedirectAllRequestsTo' -
 --
--- * 'gbwrsErrorDocument' - Undocumented member.
+-- * 'gbwrsErrorDocument' -
 --
--- * 'gbwrsIndexDocument' - Undocumented member.
+-- * 'gbwrsIndexDocument' -
 --
--- * 'gbwrsRoutingRules' - Undocumented member.
+-- * 'gbwrsRoutingRules' -
 --
 -- * 'gbwrsResponseStatus' - -- | The response status code.
 getBucketWebsiteResponse
@@ -131,19 +133,19 @@ getBucketWebsiteResponse pResponseStatus_ =
     }
 
 
--- | Undocumented member.
+-- |
 gbwrsRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
 gbwrsRedirectAllRequestsTo = lens _gbwrsRedirectAllRequestsTo (\ s a -> s{_gbwrsRedirectAllRequestsTo = a})
 
--- | Undocumented member.
+-- |
 gbwrsErrorDocument :: Lens' GetBucketWebsiteResponse (Maybe ErrorDocument)
 gbwrsErrorDocument = lens _gbwrsErrorDocument (\ s a -> s{_gbwrsErrorDocument = a})
 
--- | Undocumented member.
+-- |
 gbwrsIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
 gbwrsIndexDocument = lens _gbwrsIndexDocument (\ s a -> s{_gbwrsIndexDocument = a})
 
--- | Undocumented member.
+-- |
 gbwrsRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
 gbwrsRoutingRules = lens _gbwrsRoutingRules (\ s a -> s{_gbwrsRoutingRules = a}) . _Default . _Coerce
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns an inventory configuration (identified by the inventory ID) from the bucket.
+--
+--
 module Network.AWS.S3.GetBucketInventoryConfiguration
     (
     -- * Creating a Request

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of inventory configurations for the bucket.
+--
+--
 module Network.AWS.S3.ListBucketInventoryConfigurations
     (
     -- * Creating a Request

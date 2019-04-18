@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the cors configuration for the bucket.
+-- Returns the CORS configuration for the bucket.
+--
+--
 module Network.AWS.S3.GetBucketCORS
     (
     -- * Creating a Request
@@ -52,14 +54,14 @@ newtype GetBucketCORS = GetBucketCORS'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbcBucket' - Undocumented member.
+-- * 'gbcBucket' -
 getBucketCORS
     :: BucketName -- ^ 'gbcBucket'
     -> GetBucketCORS
 getBucketCORS pBucket_ = GetBucketCORS' {_gbcBucket = pBucket_}
 
 
--- | Undocumented member.
+-- |
 gbcBucket :: Lens' GetBucketCORS BucketName
 gbcBucket = lens _gbcBucket (\ s a -> s{_gbcBucket = a})
 
@@ -98,7 +100,7 @@ data GetBucketCORSResponse = GetBucketCORSResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbcrsCORSRules' - Undocumented member.
+-- * 'gbcrsCORSRules' -
 --
 -- * 'gbcrsResponseStatus' - -- | The response status code.
 getBucketCORSResponse
@@ -109,7 +111,7 @@ getBucketCORSResponse pResponseStatus_ =
     {_gbcrsCORSRules = Nothing, _gbcrsResponseStatus = pResponseStatus_}
 
 
--- | Undocumented member.
+-- |
 gbcrsCORSRules :: Lens' GetBucketCORSResponse [CORSRule]
 gbcrsCORSRules = lens _gbcrsCORSRules (\ s a -> s{_gbcrsCORSRules = a}) . _Default . _Coerce
 

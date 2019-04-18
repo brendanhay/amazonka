@@ -29,6 +29,7 @@ module Network.AWS.S3.CreateMultipartUpload
       createMultipartUpload
     , CreateMultipartUpload
     -- * Request Lenses
+    , cmuObjectLockMode
     , cmuExpires
     , cmuGrantReadACP
     , cmuSSECustomerAlgorithm
@@ -43,9 +44,11 @@ module Network.AWS.S3.CreateMultipartUpload
     , cmuGrantFullControl
     , cmuContentEncoding
     , cmuTagging
+    , cmuObjectLockRetainUntilDate
     , cmuMetadata
     , cmuCacheControl
     , cmuContentLanguage
+    , cmuObjectLockLegalHoldStatus
     , cmuACL
     , cmuContentDisposition
     , cmuServerSideEncryption
@@ -79,35 +82,40 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'createMultipartUpload' smart constructor.
 data CreateMultipartUpload = CreateMultipartUpload'
-  { _cmuExpires                 :: !(Maybe RFC822)
-  , _cmuGrantReadACP            :: !(Maybe Text)
-  , _cmuSSECustomerAlgorithm    :: !(Maybe Text)
-  , _cmuSSECustomerKey          :: !(Maybe (Sensitive Text))
-  , _cmuRequestPayer            :: !(Maybe RequestPayer)
-  , _cmuGrantWriteACP           :: !(Maybe Text)
-  , _cmuWebsiteRedirectLocation :: !(Maybe Text)
-  , _cmuGrantRead               :: !(Maybe Text)
-  , _cmuStorageClass            :: !(Maybe StorageClass)
-  , _cmuSSECustomerKeyMD5       :: !(Maybe Text)
-  , _cmuSSEKMSKeyId             :: !(Maybe (Sensitive Text))
-  , _cmuGrantFullControl        :: !(Maybe Text)
-  , _cmuContentEncoding         :: !(Maybe Text)
-  , _cmuTagging                 :: !(Maybe Text)
-  , _cmuMetadata                :: !(Map Text Text)
-  , _cmuCacheControl            :: !(Maybe Text)
-  , _cmuContentLanguage         :: !(Maybe Text)
-  , _cmuACL                     :: !(Maybe ObjectCannedACL)
-  , _cmuContentDisposition      :: !(Maybe Text)
-  , _cmuServerSideEncryption    :: !(Maybe ServerSideEncryption)
-  , _cmuContentType             :: !(Maybe Text)
-  , _cmuBucket                  :: !BucketName
-  , _cmuKey                     :: !ObjectKey
+  { _cmuObjectLockMode            :: !(Maybe ObjectLockMode)
+  , _cmuExpires                   :: !(Maybe ISO8601)
+  , _cmuGrantReadACP              :: !(Maybe Text)
+  , _cmuSSECustomerAlgorithm      :: !(Maybe Text)
+  , _cmuSSECustomerKey            :: !(Maybe (Sensitive Text))
+  , _cmuRequestPayer              :: !(Maybe RequestPayer)
+  , _cmuGrantWriteACP             :: !(Maybe Text)
+  , _cmuWebsiteRedirectLocation   :: !(Maybe Text)
+  , _cmuGrantRead                 :: !(Maybe Text)
+  , _cmuStorageClass              :: !(Maybe StorageClass)
+  , _cmuSSECustomerKeyMD5         :: !(Maybe Text)
+  , _cmuSSEKMSKeyId               :: !(Maybe (Sensitive Text))
+  , _cmuGrantFullControl          :: !(Maybe Text)
+  , _cmuContentEncoding           :: !(Maybe Text)
+  , _cmuTagging                   :: !(Maybe Text)
+  , _cmuObjectLockRetainUntilDate :: !(Maybe ISO8601)
+  , _cmuMetadata                  :: !(Map Text Text)
+  , _cmuCacheControl              :: !(Maybe Text)
+  , _cmuContentLanguage           :: !(Maybe Text)
+  , _cmuObjectLockLegalHoldStatus :: !(Maybe ObjectLockLegalHoldStatus)
+  , _cmuACL                       :: !(Maybe ObjectCannedACL)
+  , _cmuContentDisposition        :: !(Maybe Text)
+  , _cmuServerSideEncryption      :: !(Maybe ServerSideEncryption)
+  , _cmuContentType               :: !(Maybe Text)
+  , _cmuBucket                    :: !BucketName
+  , _cmuKey                       :: !ObjectKey
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'CreateMultipartUpload' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cmuObjectLockMode' - Specifies the Object Lock mode that you want to apply to the uploaded object.
 --
 -- * 'cmuExpires' - The date and time at which the object is no longer cacheable.
 --
@@ -137,11 +145,15 @@ data CreateMultipartUpload = CreateMultipartUpload'
 --
 -- * 'cmuTagging' - The tag-set for the object. The tag-set must be encoded as URL Query parameters
 --
+-- * 'cmuObjectLockRetainUntilDate' - Specifies the date and time when you want the Object Lock to expire.
+--
 -- * 'cmuMetadata' - A map of metadata to store with the object in S3.
 --
 -- * 'cmuCacheControl' - Specifies caching behavior along the request/reply chain.
 --
 -- * 'cmuContentLanguage' - The language the content is in.
+--
+-- * 'cmuObjectLockLegalHoldStatus' - Specifies whether you want to apply a Legal Hold to the uploaded object.
 --
 -- * 'cmuACL' - The canned ACL to apply to the object.
 --
@@ -151,16 +163,17 @@ data CreateMultipartUpload = CreateMultipartUpload'
 --
 -- * 'cmuContentType' - A standard MIME type describing the format of the object data.
 --
--- * 'cmuBucket' - Undocumented member.
+-- * 'cmuBucket' -
 --
--- * 'cmuKey' - Undocumented member.
+-- * 'cmuKey' -
 createMultipartUpload
     :: BucketName -- ^ 'cmuBucket'
     -> ObjectKey -- ^ 'cmuKey'
     -> CreateMultipartUpload
 createMultipartUpload pBucket_ pKey_ =
   CreateMultipartUpload'
-    { _cmuExpires = Nothing
+    { _cmuObjectLockMode = Nothing
+    , _cmuExpires = Nothing
     , _cmuGrantReadACP = Nothing
     , _cmuSSECustomerAlgorithm = Nothing
     , _cmuSSECustomerKey = Nothing
@@ -174,9 +187,11 @@ createMultipartUpload pBucket_ pKey_ =
     , _cmuGrantFullControl = Nothing
     , _cmuContentEncoding = Nothing
     , _cmuTagging = Nothing
+    , _cmuObjectLockRetainUntilDate = Nothing
     , _cmuMetadata = mempty
     , _cmuCacheControl = Nothing
     , _cmuContentLanguage = Nothing
+    , _cmuObjectLockLegalHoldStatus = Nothing
     , _cmuACL = Nothing
     , _cmuContentDisposition = Nothing
     , _cmuServerSideEncryption = Nothing
@@ -185,6 +200,10 @@ createMultipartUpload pBucket_ pKey_ =
     , _cmuKey = pKey_
     }
 
+
+-- | Specifies the Object Lock mode that you want to apply to the uploaded object.
+cmuObjectLockMode :: Lens' CreateMultipartUpload (Maybe ObjectLockMode)
+cmuObjectLockMode = lens _cmuObjectLockMode (\ s a -> s{_cmuObjectLockMode = a})
 
 -- | The date and time at which the object is no longer cacheable.
 cmuExpires :: Lens' CreateMultipartUpload (Maybe UTCTime)
@@ -242,6 +261,10 @@ cmuContentEncoding = lens _cmuContentEncoding (\ s a -> s{_cmuContentEncoding = 
 cmuTagging :: Lens' CreateMultipartUpload (Maybe Text)
 cmuTagging = lens _cmuTagging (\ s a -> s{_cmuTagging = a})
 
+-- | Specifies the date and time when you want the Object Lock to expire.
+cmuObjectLockRetainUntilDate :: Lens' CreateMultipartUpload (Maybe UTCTime)
+cmuObjectLockRetainUntilDate = lens _cmuObjectLockRetainUntilDate (\ s a -> s{_cmuObjectLockRetainUntilDate = a}) . mapping _Time
+
 -- | A map of metadata to store with the object in S3.
 cmuMetadata :: Lens' CreateMultipartUpload (HashMap Text Text)
 cmuMetadata = lens _cmuMetadata (\ s a -> s{_cmuMetadata = a}) . _Map
@@ -253,6 +276,10 @@ cmuCacheControl = lens _cmuCacheControl (\ s a -> s{_cmuCacheControl = a})
 -- | The language the content is in.
 cmuContentLanguage :: Lens' CreateMultipartUpload (Maybe Text)
 cmuContentLanguage = lens _cmuContentLanguage (\ s a -> s{_cmuContentLanguage = a})
+
+-- | Specifies whether you want to apply a Legal Hold to the uploaded object.
+cmuObjectLockLegalHoldStatus :: Lens' CreateMultipartUpload (Maybe ObjectLockLegalHoldStatus)
+cmuObjectLockLegalHoldStatus = lens _cmuObjectLockLegalHoldStatus (\ s a -> s{_cmuObjectLockLegalHoldStatus = a})
 
 -- | The canned ACL to apply to the object.
 cmuACL :: Lens' CreateMultipartUpload (Maybe ObjectCannedACL)
@@ -270,11 +297,11 @@ cmuServerSideEncryption = lens _cmuServerSideEncryption (\ s a -> s{_cmuServerSi
 cmuContentType :: Lens' CreateMultipartUpload (Maybe Text)
 cmuContentType = lens _cmuContentType (\ s a -> s{_cmuContentType = a})
 
--- | Undocumented member.
+-- |
 cmuBucket :: Lens' CreateMultipartUpload BucketName
 cmuBucket = lens _cmuBucket (\ s a -> s{_cmuBucket = a})
 
--- | Undocumented member.
+-- |
 cmuKey :: Lens' CreateMultipartUpload ObjectKey
 cmuKey = lens _cmuKey (\ s a -> s{_cmuKey = a})
 
@@ -309,7 +336,8 @@ instance NFData CreateMultipartUpload where
 instance ToHeaders CreateMultipartUpload where
         toHeaders CreateMultipartUpload'{..}
           = mconcat
-              ["Expires" =# _cmuExpires,
+              ["x-amz-object-lock-mode" =# _cmuObjectLockMode,
+               "Expires" =# _cmuExpires,
                "x-amz-grant-read-acp" =# _cmuGrantReadACP,
                "x-amz-server-side-encryption-customer-algorithm" =#
                  _cmuSSECustomerAlgorithm,
@@ -328,9 +356,13 @@ instance ToHeaders CreateMultipartUpload where
                "x-amz-grant-full-control" =# _cmuGrantFullControl,
                "Content-Encoding" =# _cmuContentEncoding,
                "x-amz-tagging" =# _cmuTagging,
+               "x-amz-object-lock-retain-until-date" =#
+                 _cmuObjectLockRetainUntilDate,
                "x-amz-meta-" =# _cmuMetadata,
                "Cache-Control" =# _cmuCacheControl,
                "Content-Language" =# _cmuContentLanguage,
+               "x-amz-object-lock-legal-hold" =#
+                 _cmuObjectLockLegalHoldStatus,
                "x-amz-acl" =# _cmuACL,
                "Content-Disposition" =# _cmuContentDisposition,
                "x-amz-server-side-encryption" =#
@@ -349,7 +381,7 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
   { _cmursRequestCharged       :: !(Maybe RequestCharged)
   , _cmursBucket               :: !(Maybe BucketName)
   , _cmursSSECustomerAlgorithm :: !(Maybe Text)
-  , _cmursAbortDate            :: !(Maybe RFC822)
+  , _cmursAbortDate            :: !(Maybe ISO8601)
   , _cmursAbortRuleId          :: !(Maybe Text)
   , _cmursKey                  :: !(Maybe ObjectKey)
   , _cmursSSECustomerKeyMD5    :: !(Maybe Text)

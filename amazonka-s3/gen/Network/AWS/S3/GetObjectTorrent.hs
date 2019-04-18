@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Return torrent files from a bucket.
+--
+--
 module Network.AWS.S3.GetObjectTorrent
     (
     -- * Creating a Request
@@ -59,9 +61,9 @@ data GetObjectTorrent = GetObjectTorrent'
 --
 -- * 'gotRequestPayer' - Undocumented member.
 --
--- * 'gotBucket' - Undocumented member.
+-- * 'gotBucket' -
 --
--- * 'gotKey' - Undocumented member.
+-- * 'gotKey' -
 getObjectTorrent
     :: BucketName -- ^ 'gotBucket'
     -> ObjectKey -- ^ 'gotKey'
@@ -75,11 +77,11 @@ getObjectTorrent pBucket_ pKey_ =
 gotRequestPayer :: Lens' GetObjectTorrent (Maybe RequestPayer)
 gotRequestPayer = lens _gotRequestPayer (\ s a -> s{_gotRequestPayer = a})
 
--- | Undocumented member.
+-- |
 gotBucket :: Lens' GetObjectTorrent BucketName
 gotBucket = lens _gotBucket (\ s a -> s{_gotBucket = a})
 
--- | Undocumented member.
+-- |
 gotKey :: Lens' GetObjectTorrent ObjectKey
 gotKey = lens _gotKey (\ s a -> s{_gotKey = a})
 
@@ -125,7 +127,7 @@ data GetObjectTorrentResponse = GetObjectTorrentResponse'
 --
 -- * 'getrsResponseStatus' - -- | The response status code.
 --
--- * 'getrsBody' - Undocumented member.
+-- * 'getrsBody' -
 getObjectTorrentResponse
     :: Int -- ^ 'getrsResponseStatus'
     -> RsBody -- ^ 'getrsBody'
@@ -146,6 +148,6 @@ getrsRequestCharged = lens _getrsRequestCharged (\ s a -> s{_getrsRequestCharged
 getrsResponseStatus :: Lens' GetObjectTorrentResponse Int
 getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a})
 
--- | Undocumented member.
+-- |
 getrsBody :: Lens' GetObjectTorrentResponse RsBody
 getrsBody = lens _getrsBody (\ s a -> s{_getrsBody = a})

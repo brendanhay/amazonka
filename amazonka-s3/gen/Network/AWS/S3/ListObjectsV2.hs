@@ -20,6 +20,8 @@
 --
 -- Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket. Note: ListObjectsV2 is the revised List Objects API and we recommend you use this revised API for new application development.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.S3.ListObjectsV2
     (

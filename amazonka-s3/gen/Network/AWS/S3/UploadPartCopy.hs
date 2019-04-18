@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Uploads a part by copying data from an existing object as data source.
+--
+--
 module Network.AWS.S3.UploadPartCopy
     (
     -- * Creating a Request
@@ -66,8 +68,8 @@ import Network.AWS.S3.Types.Product
 
 -- | /See:/ 'uploadPartCopy' smart constructor.
 data UploadPartCopy = UploadPartCopy'
-  { _upcCopySourceIfModifiedSince      :: !(Maybe RFC822)
-  , _upcCopySourceIfUnmodifiedSince    :: !(Maybe RFC822)
+  { _upcCopySourceIfModifiedSince      :: !(Maybe ISO8601)
+  , _upcCopySourceIfUnmodifiedSince    :: !(Maybe ISO8601)
   , _upcCopySourceRange                :: !(Maybe Text)
   , _upcCopySourceSSECustomerKeyMD5    :: !(Maybe Text)
   , _upcCopySourceIfNoneMatch          :: !(Maybe Text)
@@ -94,7 +96,7 @@ data UploadPartCopy = UploadPartCopy'
 --
 -- * 'upcCopySourceIfUnmodifiedSince' - Copies the object if it hasn't been modified since the specified time.
 --
--- * 'upcCopySourceRange' - The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 GB.
+-- * 'upcCopySourceRange' - The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 MB.
 --
 -- * 'upcCopySourceSSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
 --
@@ -114,11 +116,11 @@ data UploadPartCopy = UploadPartCopy'
 --
 -- * 'upcCopySourceSSECustomerAlgorithm' - Specifies the algorithm to use when decrypting the source object (e.g., AES256).
 --
--- * 'upcBucket' - Undocumented member.
+-- * 'upcBucket' -
 --
 -- * 'upcCopySource' - The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.
 --
--- * 'upcKey' - Undocumented member.
+-- * 'upcKey' -
 --
 -- * 'upcPartNumber' - Part number of part being copied. This is a positive integer between 1 and 10,000.
 --
@@ -160,7 +162,7 @@ upcCopySourceIfModifiedSince = lens _upcCopySourceIfModifiedSince (\ s a -> s{_u
 upcCopySourceIfUnmodifiedSince :: Lens' UploadPartCopy (Maybe UTCTime)
 upcCopySourceIfUnmodifiedSince = lens _upcCopySourceIfUnmodifiedSince (\ s a -> s{_upcCopySourceIfUnmodifiedSince = a}) . mapping _Time
 
--- | The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 GB.
+-- | The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 MB.
 upcCopySourceRange :: Lens' UploadPartCopy (Maybe Text)
 upcCopySourceRange = lens _upcCopySourceRange (\ s a -> s{_upcCopySourceRange = a})
 
@@ -200,7 +202,7 @@ upcCopySourceSSECustomerKey = lens _upcCopySourceSSECustomerKey (\ s a -> s{_upc
 upcCopySourceSSECustomerAlgorithm :: Lens' UploadPartCopy (Maybe Text)
 upcCopySourceSSECustomerAlgorithm = lens _upcCopySourceSSECustomerAlgorithm (\ s a -> s{_upcCopySourceSSECustomerAlgorithm = a})
 
--- | Undocumented member.
+-- |
 upcBucket :: Lens' UploadPartCopy BucketName
 upcBucket = lens _upcBucket (\ s a -> s{_upcBucket = a})
 
@@ -208,7 +210,7 @@ upcBucket = lens _upcBucket (\ s a -> s{_upcBucket = a})
 upcCopySource :: Lens' UploadPartCopy Text
 upcCopySource = lens _upcCopySource (\ s a -> s{_upcCopySource = a})
 
--- | Undocumented member.
+-- |
 upcKey :: Lens' UploadPartCopy ObjectKey
 upcKey = lens _upcKey (\ s a -> s{_upcKey = a})
 
@@ -299,7 +301,7 @@ data UploadPartCopyResponse = UploadPartCopyResponse'
 --
 -- * 'upcrsRequestCharged' - Undocumented member.
 --
--- * 'upcrsCopyPartResult' - Undocumented member.
+-- * 'upcrsCopyPartResult' -
 --
 -- * 'upcrsSSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 --
@@ -332,7 +334,7 @@ uploadPartCopyResponse pResponseStatus_ =
 upcrsRequestCharged :: Lens' UploadPartCopyResponse (Maybe RequestCharged)
 upcrsRequestCharged = lens _upcrsRequestCharged (\ s a -> s{_upcrsRequestCharged = a})
 
--- | Undocumented member.
+-- |
 upcrsCopyPartResult :: Lens' UploadPartCopyResponse (Maybe CopyPartResult)
 upcrsCopyPartResult = lens _upcrsCopyPartResult (\ s a -> s{_upcrsCopyPartResult = a})
 

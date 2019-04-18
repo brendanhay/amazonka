@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the policy from the bucket.
+--
+--
 module Network.AWS.S3.DeleteBucketPolicy
     (
     -- * Creating a Request
@@ -49,14 +51,14 @@ newtype DeleteBucketPolicy = DeleteBucketPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbpBucket' - Undocumented member.
+-- * 'dbpBucket' -
 deleteBucketPolicy
     :: BucketName -- ^ 'dbpBucket'
     -> DeleteBucketPolicy
 deleteBucketPolicy pBucket_ = DeleteBucketPolicy' {_dbpBucket = pBucket_}
 
 
--- | Undocumented member.
+-- |
 dbpBucket :: Lens' DeleteBucketPolicy BucketName
 dbpBucket = lens _dbpBucket (\ s a -> s{_dbpBucket = a})
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets a metrics configuration (specified by the metrics configuration ID) for the bucket.
+--
+--
 module Network.AWS.S3.PutBucketMetricsConfiguration
     (
     -- * Creating a Request

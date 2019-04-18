@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the accelerate configuration of a bucket.
+--
+--
 module Network.AWS.S3.GetBucketAccelerateConfiguration
     (
     -- * Creating a Request

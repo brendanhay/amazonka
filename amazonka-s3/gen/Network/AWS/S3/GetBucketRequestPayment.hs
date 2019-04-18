@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the request payment configuration of a bucket.
+--
+--
 module Network.AWS.S3.GetBucketRequestPayment
     (
     -- * Creating a Request
@@ -52,7 +54,7 @@ newtype GetBucketRequestPayment = GetBucketRequestPayment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbrpBucket' - Undocumented member.
+-- * 'gbrpBucket' -
 getBucketRequestPayment
     :: BucketName -- ^ 'gbrpBucket'
     -> GetBucketRequestPayment
@@ -60,7 +62,7 @@ getBucketRequestPayment pBucket_ =
   GetBucketRequestPayment' {_gbrpBucket = pBucket_}
 
 
--- | Undocumented member.
+-- |
 gbrpBucket :: Lens' GetBucketRequestPayment BucketName
 gbrpBucket = lens _gbrpBucket (\ s a -> s{_gbrpBucket = a})
 

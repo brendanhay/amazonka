@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The HEAD operation retrieves metadata from an object without returning the object itself. This operation is useful if you're only interested in an object's metadata. To use HEAD, you must have READ access to the object.
+--
+--
 module Network.AWS.S3.HeadObject
     (
     -- * Creating a Request
@@ -48,6 +50,7 @@ module Network.AWS.S3.HeadObject
     , horsETag
     , horsVersionId
     , horsContentLength
+    , horsObjectLockMode
     , horsExpires
     , horsRestore
     , horsExpiration
@@ -60,11 +63,13 @@ module Network.AWS.S3.HeadObject
     , horsSSECustomerKeyMD5
     , horsSSEKMSKeyId
     , horsContentEncoding
+    , horsObjectLockRetainUntilDate
     , horsMetadata
     , horsReplicationStatus
     , horsCacheControl
     , horsContentLanguage
     , horsLastModified
+    , horsObjectLockLegalHoldStatus
     , horsContentDisposition
     , horsServerSideEncryption
     , horsContentType
@@ -85,10 +90,10 @@ data HeadObject = HeadObject'
   , _hoSSECustomerAlgorithm :: !(Maybe Text)
   , _hoSSECustomerKey       :: !(Maybe (Sensitive Text))
   , _hoRequestPayer         :: !(Maybe RequestPayer)
-  , _hoIfModifiedSince      :: !(Maybe RFC822)
+  , _hoIfModifiedSince      :: !(Maybe ISO8601)
   , _hoPartNumber           :: !(Maybe Int)
   , _hoRange                :: !(Maybe Text)
-  , _hoIfUnmodifiedSince    :: !(Maybe RFC822)
+  , _hoIfUnmodifiedSince    :: !(Maybe ISO8601)
   , _hoSSECustomerKeyMD5    :: !(Maybe Text)
   , _hoIfNoneMatch          :: !(Maybe Text)
   , _hoBucket               :: !BucketName
@@ -122,9 +127,9 @@ data HeadObject = HeadObject'
 --
 -- * 'hoIfNoneMatch' - Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
 --
--- * 'hoBucket' - Undocumented member.
+-- * 'hoBucket' -
 --
--- * 'hoKey' - Undocumented member.
+-- * 'hoKey' -
 headObject
     :: BucketName -- ^ 'hoBucket'
     -> ObjectKey -- ^ 'hoKey'
@@ -191,11 +196,11 @@ hoSSECustomerKeyMD5 = lens _hoSSECustomerKeyMD5 (\ s a -> s{_hoSSECustomerKeyMD5
 hoIfNoneMatch :: Lens' HeadObject (Maybe Text)
 hoIfNoneMatch = lens _hoIfNoneMatch (\ s a -> s{_hoIfNoneMatch = a})
 
--- | Undocumented member.
+-- |
 hoBucket :: Lens' HeadObject BucketName
 hoBucket = lens _hoBucket (\ s a -> s{_hoBucket = a})
 
--- | Undocumented member.
+-- |
 hoKey :: Lens' HeadObject ObjectKey
 hoKey = lens _hoKey (\ s a -> s{_hoKey = a})
 
@@ -211,6 +216,7 @@ instance AWSRequest HeadObject where
                      <*> (h .#? "ETag")
                      <*> (h .#? "x-amz-version-id")
                      <*> (h .#? "Content-Length")
+                     <*> (h .#? "x-amz-object-lock-mode")
                      <*> (h .#? "Expires")
                      <*> (h .#? "x-amz-restore")
                      <*> (h .#? "x-amz-expiration")
@@ -228,11 +234,13 @@ instance AWSRequest HeadObject where
                      <*>
                      (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
                      <*> (h .#? "Content-Encoding")
+                     <*> (h .#? "x-amz-object-lock-retain-until-date")
                      <*> (parseHeadersMap "x-amz-meta-" h)
                      <*> (h .#? "x-amz-replication-status")
                      <*> (h .#? "Cache-Control")
                      <*> (h .#? "Content-Language")
                      <*> (h .#? "Last-Modified")
+                     <*> (h .#? "x-amz-object-lock-legal-hold")
                      <*> (h .#? "Content-Disposition")
                      <*> (h .#? "x-amz-server-side-encryption")
                      <*> (h .#? "Content-Type")
@@ -270,32 +278,35 @@ instance ToQuery HeadObject where
 
 -- | /See:/ 'headObjectResponse' smart constructor.
 data HeadObjectResponse = HeadObjectResponse'
-  { _horsRequestCharged          :: !(Maybe RequestCharged)
-  , _horsPartsCount              :: !(Maybe Int)
-  , _horsETag                    :: !(Maybe ETag)
-  , _horsVersionId               :: !(Maybe ObjectVersionId)
-  , _horsContentLength           :: !(Maybe Integer)
-  , _horsExpires                 :: !(Maybe RFC822)
-  , _horsRestore                 :: !(Maybe Text)
-  , _horsExpiration              :: !(Maybe Text)
-  , _horsDeleteMarker            :: !(Maybe Bool)
-  , _horsSSECustomerAlgorithm    :: !(Maybe Text)
-  , _horsMissingMeta             :: !(Maybe Int)
-  , _horsWebsiteRedirectLocation :: !(Maybe Text)
-  , _horsAcceptRanges            :: !(Maybe Text)
-  , _horsStorageClass            :: !(Maybe StorageClass)
-  , _horsSSECustomerKeyMD5       :: !(Maybe Text)
-  , _horsSSEKMSKeyId             :: !(Maybe (Sensitive Text))
-  , _horsContentEncoding         :: !(Maybe Text)
-  , _horsMetadata                :: !(Map Text Text)
-  , _horsReplicationStatus       :: !(Maybe ReplicationStatus)
-  , _horsCacheControl            :: !(Maybe Text)
-  , _horsContentLanguage         :: !(Maybe Text)
-  , _horsLastModified            :: !(Maybe RFC822)
-  , _horsContentDisposition      :: !(Maybe Text)
-  , _horsServerSideEncryption    :: !(Maybe ServerSideEncryption)
-  , _horsContentType             :: !(Maybe Text)
-  , _horsResponseStatus          :: !Int
+  { _horsRequestCharged            :: !(Maybe RequestCharged)
+  , _horsPartsCount                :: !(Maybe Int)
+  , _horsETag                      :: !(Maybe ETag)
+  , _horsVersionId                 :: !(Maybe ObjectVersionId)
+  , _horsContentLength             :: !(Maybe Integer)
+  , _horsObjectLockMode            :: !(Maybe ObjectLockMode)
+  , _horsExpires                   :: !(Maybe ISO8601)
+  , _horsRestore                   :: !(Maybe Text)
+  , _horsExpiration                :: !(Maybe Text)
+  , _horsDeleteMarker              :: !(Maybe Bool)
+  , _horsSSECustomerAlgorithm      :: !(Maybe Text)
+  , _horsMissingMeta               :: !(Maybe Int)
+  , _horsWebsiteRedirectLocation   :: !(Maybe Text)
+  , _horsAcceptRanges              :: !(Maybe Text)
+  , _horsStorageClass              :: !(Maybe StorageClass)
+  , _horsSSECustomerKeyMD5         :: !(Maybe Text)
+  , _horsSSEKMSKeyId               :: !(Maybe (Sensitive Text))
+  , _horsContentEncoding           :: !(Maybe Text)
+  , _horsObjectLockRetainUntilDate :: !(Maybe ISO8601)
+  , _horsMetadata                  :: !(Map Text Text)
+  , _horsReplicationStatus         :: !(Maybe ReplicationStatus)
+  , _horsCacheControl              :: !(Maybe Text)
+  , _horsContentLanguage           :: !(Maybe Text)
+  , _horsLastModified              :: !(Maybe ISO8601)
+  , _horsObjectLockLegalHoldStatus :: !(Maybe ObjectLockLegalHoldStatus)
+  , _horsContentDisposition        :: !(Maybe Text)
+  , _horsServerSideEncryption      :: !(Maybe ServerSideEncryption)
+  , _horsContentType               :: !(Maybe Text)
+  , _horsResponseStatus            :: !Int
   } deriving (Eq, Show, Data, Typeable, Generic)
 
 
@@ -313,6 +324,8 @@ data HeadObjectResponse = HeadObjectResponse'
 --
 -- * 'horsContentLength' - Size of the body in bytes.
 --
+-- * 'horsObjectLockMode' - The Object Lock mode currently in place for this object.
+--
 -- * 'horsExpires' - The date and time at which the object is no longer cacheable.
 --
 -- * 'horsRestore' - Provides information about object restoration operation and expiration time of the restored object copy.
@@ -327,9 +340,9 @@ data HeadObjectResponse = HeadObjectResponse'
 --
 -- * 'horsWebsiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
 --
--- * 'horsAcceptRanges' - Undocumented member.
+-- * 'horsAcceptRanges' -
 --
--- * 'horsStorageClass' - Undocumented member.
+-- * 'horsStorageClass' -
 --
 -- * 'horsSSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
 --
@@ -337,15 +350,19 @@ data HeadObjectResponse = HeadObjectResponse'
 --
 -- * 'horsContentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 --
+-- * 'horsObjectLockRetainUntilDate' - The date and time when this object's Object Lock will expire.
+--
 -- * 'horsMetadata' - A map of metadata to store with the object in S3.
 --
--- * 'horsReplicationStatus' - Undocumented member.
+-- * 'horsReplicationStatus' -
 --
 -- * 'horsCacheControl' - Specifies caching behavior along the request/reply chain.
 --
 -- * 'horsContentLanguage' - The language the content is in.
 --
 -- * 'horsLastModified' - Last modified date of the object
+--
+-- * 'horsObjectLockLegalHoldStatus' - The Legal Hold status for the specified object.
 --
 -- * 'horsContentDisposition' - Specifies presentational information for the object.
 --
@@ -364,6 +381,7 @@ headObjectResponse pResponseStatus_ =
     , _horsETag = Nothing
     , _horsVersionId = Nothing
     , _horsContentLength = Nothing
+    , _horsObjectLockMode = Nothing
     , _horsExpires = Nothing
     , _horsRestore = Nothing
     , _horsExpiration = Nothing
@@ -376,11 +394,13 @@ headObjectResponse pResponseStatus_ =
     , _horsSSECustomerKeyMD5 = Nothing
     , _horsSSEKMSKeyId = Nothing
     , _horsContentEncoding = Nothing
+    , _horsObjectLockRetainUntilDate = Nothing
     , _horsMetadata = mempty
     , _horsReplicationStatus = Nothing
     , _horsCacheControl = Nothing
     , _horsContentLanguage = Nothing
     , _horsLastModified = Nothing
+    , _horsObjectLockLegalHoldStatus = Nothing
     , _horsContentDisposition = Nothing
     , _horsServerSideEncryption = Nothing
     , _horsContentType = Nothing
@@ -407,6 +427,10 @@ horsVersionId = lens _horsVersionId (\ s a -> s{_horsVersionId = a})
 -- | Size of the body in bytes.
 horsContentLength :: Lens' HeadObjectResponse (Maybe Integer)
 horsContentLength = lens _horsContentLength (\ s a -> s{_horsContentLength = a})
+
+-- | The Object Lock mode currently in place for this object.
+horsObjectLockMode :: Lens' HeadObjectResponse (Maybe ObjectLockMode)
+horsObjectLockMode = lens _horsObjectLockMode (\ s a -> s{_horsObjectLockMode = a})
 
 -- | The date and time at which the object is no longer cacheable.
 horsExpires :: Lens' HeadObjectResponse (Maybe UTCTime)
@@ -436,11 +460,11 @@ horsMissingMeta = lens _horsMissingMeta (\ s a -> s{_horsMissingMeta = a})
 horsWebsiteRedirectLocation :: Lens' HeadObjectResponse (Maybe Text)
 horsWebsiteRedirectLocation = lens _horsWebsiteRedirectLocation (\ s a -> s{_horsWebsiteRedirectLocation = a})
 
--- | Undocumented member.
+-- |
 horsAcceptRanges :: Lens' HeadObjectResponse (Maybe Text)
 horsAcceptRanges = lens _horsAcceptRanges (\ s a -> s{_horsAcceptRanges = a})
 
--- | Undocumented member.
+-- |
 horsStorageClass :: Lens' HeadObjectResponse (Maybe StorageClass)
 horsStorageClass = lens _horsStorageClass (\ s a -> s{_horsStorageClass = a})
 
@@ -456,11 +480,15 @@ horsSSEKMSKeyId = lens _horsSSEKMSKeyId (\ s a -> s{_horsSSEKMSKeyId = a}) . map
 horsContentEncoding :: Lens' HeadObjectResponse (Maybe Text)
 horsContentEncoding = lens _horsContentEncoding (\ s a -> s{_horsContentEncoding = a})
 
+-- | The date and time when this object's Object Lock will expire.
+horsObjectLockRetainUntilDate :: Lens' HeadObjectResponse (Maybe UTCTime)
+horsObjectLockRetainUntilDate = lens _horsObjectLockRetainUntilDate (\ s a -> s{_horsObjectLockRetainUntilDate = a}) . mapping _Time
+
 -- | A map of metadata to store with the object in S3.
 horsMetadata :: Lens' HeadObjectResponse (HashMap Text Text)
 horsMetadata = lens _horsMetadata (\ s a -> s{_horsMetadata = a}) . _Map
 
--- | Undocumented member.
+-- |
 horsReplicationStatus :: Lens' HeadObjectResponse (Maybe ReplicationStatus)
 horsReplicationStatus = lens _horsReplicationStatus (\ s a -> s{_horsReplicationStatus = a})
 
@@ -475,6 +503,10 @@ horsContentLanguage = lens _horsContentLanguage (\ s a -> s{_horsContentLanguage
 -- | Last modified date of the object
 horsLastModified :: Lens' HeadObjectResponse (Maybe UTCTime)
 horsLastModified = lens _horsLastModified (\ s a -> s{_horsLastModified = a}) . mapping _Time
+
+-- | The Legal Hold status for the specified object.
+horsObjectLockLegalHoldStatus :: Lens' HeadObjectResponse (Maybe ObjectLockLegalHoldStatus)
+horsObjectLockLegalHoldStatus = lens _horsObjectLockLegalHoldStatus (\ s a -> s{_horsObjectLockLegalHoldStatus = a})
 
 -- | Specifies presentational information for the object.
 horsContentDisposition :: Lens' HeadObjectResponse (Maybe Text)

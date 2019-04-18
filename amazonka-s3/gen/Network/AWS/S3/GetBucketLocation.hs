@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the region the bucket resides in.
+--
+--
 module Network.AWS.S3.GetBucketLocation
     (
     -- * Creating a Request
@@ -52,14 +54,14 @@ newtype GetBucketLocation = GetBucketLocation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gblBucket' - Undocumented member.
+-- * 'gblBucket' -
 getBucketLocation
     :: BucketName -- ^ 'gblBucket'
     -> GetBucketLocation
 getBucketLocation pBucket_ = GetBucketLocation' {_gblBucket = pBucket_}
 
 
--- | Undocumented member.
+-- |
 gblBucket :: Lens' GetBucketLocation BucketName
 gblBucket = lens _gblBucket (\ s a -> s{_gblBucket = a})
 
@@ -99,7 +101,7 @@ data GetBucketLocationResponse = GetBucketLocationResponse'
 --
 -- * 'gblbrsResponseStatus' - -- | The response status code.
 --
--- * 'gblbrsLocationConstraint' - Undocumented member.
+-- * 'gblbrsLocationConstraint' -
 getBucketLocationResponse
     :: Int -- ^ 'gblbrsResponseStatus'
     -> LocationConstraint -- ^ 'gblbrsLocationConstraint'
@@ -115,7 +117,7 @@ getBucketLocationResponse pResponseStatus_ pLocationConstraint_ =
 gblbrsResponseStatus :: Lens' GetBucketLocationResponse Int
 gblbrsResponseStatus = lens _gblbrsResponseStatus (\ s a -> s{_gblbrsResponseStatus = a})
 
--- | Undocumented member.
+-- |
 gblbrsLocationConstraint :: Lens' GetBucketLocationResponse LocationConstraint
 gblbrsLocationConstraint = lens _gblbrsLocationConstraint (\ s a -> s{_gblbrsLocationConstraint = a})
 

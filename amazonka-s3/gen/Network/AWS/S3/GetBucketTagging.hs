@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the tag set associated with the bucket.
+--
+--
 module Network.AWS.S3.GetBucketTagging
     (
     -- * Creating a Request
@@ -52,14 +54,14 @@ newtype GetBucketTagging = GetBucketTagging'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbtBucket' - Undocumented member.
+-- * 'gbtBucket' -
 getBucketTagging
     :: BucketName -- ^ 'gbtBucket'
     -> GetBucketTagging
 getBucketTagging pBucket_ = GetBucketTagging' {_gbtBucket = pBucket_}
 
 
--- | Undocumented member.
+-- |
 gbtBucket :: Lens' GetBucketTagging BucketName
 gbtBucket = lens _gbtBucket (\ s a -> s{_gbtBucket = a})
 
@@ -100,7 +102,7 @@ data GetBucketTaggingResponse = GetBucketTaggingResponse'
 --
 -- * 'gbtrsResponseStatus' - -- | The response status code.
 --
--- * 'gbtrsTagSet' - Undocumented member.
+-- * 'gbtrsTagSet' -
 getBucketTaggingResponse
     :: Int -- ^ 'gbtrsResponseStatus'
     -> GetBucketTaggingResponse
@@ -113,7 +115,7 @@ getBucketTaggingResponse pResponseStatus_ =
 gbtrsResponseStatus :: Lens' GetBucketTaggingResponse Int
 gbtrsResponseStatus = lens _gbtrsResponseStatus (\ s a -> s{_gbtrsResponseStatus = a})
 
--- | Undocumented member.
+-- |
 gbtrsTagSet :: Lens' GetBucketTaggingResponse [Tag]
 gbtrsTagSet = lens _gbtrsTagSet (\ s a -> s{_gbtrsTagSet = a}) . _Coerce
 

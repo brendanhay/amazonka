@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a metrics configuration (specified by the metrics configuration ID) from the bucket.
+--
+--
 module Network.AWS.S3.DeleteBucketMetricsConfiguration
     (
     -- * Creating a Request

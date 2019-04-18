@@ -45,6 +45,9 @@ module Network.AWS.S3.Types
     -- * CompressionType
     , CompressionType (..)
 
+    -- * DeleteMarkerReplicationStatus
+    , DeleteMarkerReplicationStatus (..)
+
     -- * EncodingType
     , EncodingType (..)
 
@@ -89,6 +92,18 @@ module Network.AWS.S3.Types
 
     -- * ObjectCannedACL
     , ObjectCannedACL (..)
+
+    -- * ObjectLockEnabled
+    , ObjectLockEnabled (..)
+
+    -- * ObjectLockLegalHoldStatus
+    , ObjectLockLegalHoldStatus (..)
+
+    -- * ObjectLockMode
+    , ObjectLockMode (..)
+
+    -- * ObjectLockRetentionMode
+    , ObjectLockRetentionMode (..)
 
     -- * ObjectStorageClass
     , ObjectStorageClass (..)
@@ -239,6 +254,7 @@ module Network.AWS.S3.Types
     , csvInput
     , ciQuoteCharacter
     , ciRecordDelimiter
+    , ciAllowQuotedRecordDelimiter
     , ciFileHeaderInfo
     , ciQuoteEscapeCharacter
     , ciComments
@@ -296,6 +312,13 @@ module Network.AWS.S3.Types
     , createBucketConfiguration
     , cbcLocationConstraint
 
+    -- * DefaultRetention
+    , DefaultRetention
+    , defaultRetention
+    , drDays
+    , drMode
+    , drYears
+
     -- * Delete
     , Delete
     , delete'
@@ -310,6 +333,11 @@ module Network.AWS.S3.Types
     , dmeOwner
     , dmeKey
     , dmeLastModified
+
+    -- * DeleteMarkerReplication
+    , DeleteMarkerReplication
+    , deleteMarkerReplication
+    , dmrStatus
 
     -- * DeletedObject
     , DeletedObject
@@ -391,6 +419,7 @@ module Network.AWS.S3.Types
     , inputSerialization
     , isJSON
     , isCSV
+    , isParquet
     , isCompressionType
 
     -- * InventoryConfiguration
@@ -566,6 +595,28 @@ module Network.AWS.S3.Types
     , oiVersionId
     , oiKey
 
+    -- * ObjectLockConfiguration
+    , ObjectLockConfiguration
+    , objectLockConfiguration
+    , olcObjectLockEnabled
+    , olcRule
+
+    -- * ObjectLockLegalHold
+    , ObjectLockLegalHold
+    , objectLockLegalHold
+    , ollhStatus
+
+    -- * ObjectLockRetention
+    , ObjectLockRetention
+    , objectLockRetention
+    , olrMode
+    , olrRetainUntilDate
+
+    -- * ObjectLockRule
+    , ObjectLockRule
+    , objectLockRule
+    , olrDefaultRetention
+
     -- * ObjectVersion
     , ObjectVersion
     , objectVersion
@@ -595,6 +646,10 @@ module Network.AWS.S3.Types
     , oDisplayName
     , oId
 
+    -- * ParquetInput
+    , ParquetInput
+    , parquetInput
+
     -- * Part
     , Part
     , part
@@ -602,6 +657,11 @@ module Network.AWS.S3.Types
     , pSize
     , pPartNumber
     , pLastModified
+
+    -- * PolicyStatus
+    , PolicyStatus
+    , policyStatus
+    , psIsPublic
 
     -- * Progress
     , Progress
@@ -614,6 +674,14 @@ module Network.AWS.S3.Types
     , ProgressEvent
     , progressEvent
     , peDetails
+
+    -- * PublicAccessBlockConfiguration
+    , PublicAccessBlockConfiguration
+    , publicAccessBlockConfiguration
+    , pabcIgnorePublicACLs
+    , pabcBlockPublicACLs
+    , pabcRestrictPublicBuckets
+    , pabcBlockPublicPolicy
 
     -- * QueueConfiguration
     , QueueConfiguration
@@ -652,11 +720,27 @@ module Network.AWS.S3.Types
     -- * ReplicationRule
     , ReplicationRule
     , replicationRule
-    , rrId
-    , rrSourceSelectionCriteria
+    , rrDeleteMarkerReplication
+    , rrPriority
     , rrPrefix
+    , rrId
+    , rrFilter
+    , rrSourceSelectionCriteria
     , rrStatus
     , rrDestination
+
+    -- * ReplicationRuleAndOperator
+    , ReplicationRuleAndOperator
+    , replicationRuleAndOperator
+    , rraoPrefix
+    , rraoTags
+
+    -- * ReplicationRuleFilter
+    , ReplicationRuleFilter
+    , replicationRuleFilter
+    , rrfTag
+    , rrfPrefix
+    , rrfAnd
 
     -- * RequestPaymentConfiguration
     , RequestPaymentConfiguration
@@ -880,38 +964,52 @@ s3 =
       | otherwise = Nothing
 
 
--- | Prism for BucketAlreadyOwnedByYou' errors.
+-- |
+--
+--
 _BucketAlreadyOwnedByYou :: AsError a => Getting (First ServiceError) a ServiceError
 _BucketAlreadyOwnedByYou = _MatchServiceError s3 "BucketAlreadyOwnedByYou"
 
 
 -- | This operation is not allowed against this storage tier
+--
+--
 _ObjectAlreadyInActiveTierError :: AsError a => Getting (First ServiceError) a ServiceError
 _ObjectAlreadyInActiveTierError =
   _MatchServiceError s3 "ObjectAlreadyInActiveTierError"
 
 
 -- | The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again.
+--
+--
 _BucketAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _BucketAlreadyExists = _MatchServiceError s3 "BucketAlreadyExists"
 
 
 -- | The source object of the COPY operation is not in the active tier and is only stored in Amazon Glacier.
+--
+--
 _ObjectNotInActiveTierError :: AsError a => Getting (First ServiceError) a ServiceError
 _ObjectNotInActiveTierError = _MatchServiceError s3 "ObjectNotInActiveTierError"
 
 
 -- | The specified multipart upload does not exist.
+--
+--
 _NoSuchUpload :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchUpload = _MatchServiceError s3 "NoSuchUpload"
 
 
 -- | The specified bucket does not exist.
+--
+--
 _NoSuchBucket :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchBucket = _MatchServiceError s3 "NoSuchBucket"
 
 
 -- | The specified key does not exist.
+--
+--
 _NoSuchKey :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchKey = _MatchServiceError s3 "NoSuchKey"
 

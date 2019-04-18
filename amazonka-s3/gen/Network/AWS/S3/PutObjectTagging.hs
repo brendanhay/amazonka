@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the supplied tag-set to an object that already exists in a bucket
+--
+--
 module Network.AWS.S3.PutObjectTagging
     (
     -- * Creating a Request
@@ -60,15 +62,15 @@ data PutObjectTagging = PutObjectTagging'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'potVersionId' - Undocumented member.
+-- * 'potVersionId' -
 --
--- * 'potContentMD5' - Undocumented member.
+-- * 'potContentMD5' -
 --
--- * 'potBucket' - Undocumented member.
+-- * 'potBucket' -
 --
--- * 'potKey' - Undocumented member.
+-- * 'potKey' -
 --
--- * 'potTagging' - Undocumented member.
+-- * 'potTagging' -
 putObjectTagging
     :: BucketName -- ^ 'potBucket'
     -> ObjectKey -- ^ 'potKey'
@@ -84,23 +86,23 @@ putObjectTagging pBucket_ pKey_ pTagging_ =
     }
 
 
--- | Undocumented member.
+-- |
 potVersionId :: Lens' PutObjectTagging (Maybe ObjectVersionId)
 potVersionId = lens _potVersionId (\ s a -> s{_potVersionId = a})
 
--- | Undocumented member.
+-- |
 potContentMD5 :: Lens' PutObjectTagging (Maybe Text)
 potContentMD5 = lens _potContentMD5 (\ s a -> s{_potContentMD5 = a})
 
--- | Undocumented member.
+-- |
 potBucket :: Lens' PutObjectTagging BucketName
 potBucket = lens _potBucket (\ s a -> s{_potBucket = a})
 
--- | Undocumented member.
+-- |
 potKey :: Lens' PutObjectTagging ObjectKey
 potKey = lens _potKey (\ s a -> s{_potKey = a})
 
--- | Undocumented member.
+-- |
 potTagging :: Lens' PutObjectTagging Tagging
 potTagging = lens _potTagging (\ s a -> s{_potTagging = a})
 
@@ -147,7 +149,7 @@ data PutObjectTaggingResponse = PutObjectTaggingResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'potrsVersionId' - Undocumented member.
+-- * 'potrsVersionId' -
 --
 -- * 'potrsResponseStatus' - -- | The response status code.
 putObjectTaggingResponse
@@ -158,7 +160,7 @@ putObjectTaggingResponse pResponseStatus_ =
     {_potrsVersionId = Nothing, _potrsResponseStatus = pResponseStatus_}
 
 
--- | Undocumented member.
+-- |
 potrsVersionId :: Lens' PutObjectTaggingResponse (Maybe ObjectVersionId)
 potrsVersionId = lens _potrsVersionId (\ s a -> s{_potrsVersionId = a})
 

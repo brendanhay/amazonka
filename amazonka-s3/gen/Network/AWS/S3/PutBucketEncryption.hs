@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new server-side encryption configuration (or replaces an existing one, if present).
+--
+--
 module Network.AWS.S3.PutBucketEncryption
     (
     -- * Creating a Request
@@ -53,7 +55,7 @@ data PutBucketEncryption = PutBucketEncryption'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbeContentMD5' - The base64-encoded 128-bit MD5 digest of the server-side encryption configuration.
+-- * 'pbeContentMD5' - The base64-encoded 128-bit MD5 digest of the server-side encryption configuration. This parameter is auto-populated when using the command from the CLI
 --
 -- * 'pbeBucket' - The name of the bucket for which the server-side encryption configuration is set.
 --
@@ -71,7 +73,7 @@ putBucketEncryption pBucket_ pServerSideEncryptionConfiguration_ =
     }
 
 
--- | The base64-encoded 128-bit MD5 digest of the server-side encryption configuration.
+-- | The base64-encoded 128-bit MD5 digest of the server-side encryption configuration. This parameter is auto-populated when using the command from the CLI
 pbeContentMD5 :: Lens' PutBucketEncryption (Maybe Text)
 pbeContentMD5 = lens _pbeContentMD5 (\ s a -> s{_pbeContentMD5 = a})
 

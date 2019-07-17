@@ -55,7 +55,7 @@ data DetachUserPolicy = DetachUserPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dUserName' - The name (friendly name, not ARN) of the IAM user to detach the policy from. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'dUserName' - The name (friendly name, not ARN) of the IAM user to detach the policy from. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'dPolicyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to detach. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 detachUserPolicy
@@ -66,7 +66,7 @@ detachUserPolicy pUserName_ pPolicyARN_ =
   DetachUserPolicy' {_dUserName = pUserName_, _dPolicyARN = pPolicyARN_}
 
 
--- | The name (friendly name, not ARN) of the IAM user to detach the policy from. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | The name (friendly name, not ARN) of the IAM user to detach the policy from. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 dUserName :: Lens' DetachUserPolicy Text
 dUserName = lens _dUserName (\ s a -> s{_dUserName = a})
 

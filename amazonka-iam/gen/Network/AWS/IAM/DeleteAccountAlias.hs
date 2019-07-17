@@ -51,7 +51,7 @@ newtype DeleteAccountAlias = DeleteAccountAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daaAccountAlias' - The name of the account alias to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
+-- * 'daaAccountAlias' - The name of the account alias to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
 deleteAccountAlias
     :: Text -- ^ 'daaAccountAlias'
     -> DeleteAccountAlias
@@ -59,7 +59,7 @@ deleteAccountAlias pAccountAlias_ =
   DeleteAccountAlias' {_daaAccountAlias = pAccountAlias_}
 
 
--- | The name of the account alias to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
+-- | The name of the account alias to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
 daaAccountAlias :: Lens' DeleteAccountAlias Text
 daaAccountAlias = lens _daaAccountAlias (\ s a -> s{_daaAccountAlias = a})
 

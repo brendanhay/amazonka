@@ -55,9 +55,9 @@ data DeleteGroupPolicy = DeleteGroupPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dGroupName' - The name (friendly name, not ARN) identifying the group that the policy is embedded in. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'dGroupName' - The name (friendly name, not ARN) identifying the group that the policy is embedded in. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
--- * 'dPolicyName' - The name identifying the policy document to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'dPolicyName' - The name identifying the policy document to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 deleteGroupPolicy
     :: Text -- ^ 'dGroupName'
     -> Text -- ^ 'dPolicyName'
@@ -66,11 +66,11 @@ deleteGroupPolicy pGroupName_ pPolicyName_ =
   DeleteGroupPolicy' {_dGroupName = pGroupName_, _dPolicyName = pPolicyName_}
 
 
--- | The name (friendly name, not ARN) identifying the group that the policy is embedded in. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | The name (friendly name, not ARN) identifying the group that the policy is embedded in. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 dGroupName :: Lens' DeleteGroupPolicy Text
 dGroupName = lens _dGroupName (\ s a -> s{_dGroupName = a})
 
--- | The name identifying the policy document to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | The name identifying the policy document to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 dPolicyName :: Lens' DeleteGroupPolicy Text
 dPolicyName = lens _dPolicyName (\ s a -> s{_dPolicyName = a})
 

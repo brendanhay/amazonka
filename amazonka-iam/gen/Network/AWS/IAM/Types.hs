@@ -32,6 +32,7 @@ module Network.AWS.IAM.Types
     , _UnrecognizedPublicKeyEncodingException
     , _InvalidUserTypeException
     , _ServiceFailureException
+    , _ConcurrentModificationException
     , _InvalidInputException
     , _InvalidPublicKeyException
     , _InvalidAuthenticationCodeException
@@ -57,14 +58,29 @@ module Network.AWS.IAM.Types
     -- * EntityType
     , EntityType (..)
 
+    -- * JobStatusType
+    , JobStatusType (..)
+
+    -- * PermissionsBoundaryAttachmentType
+    , PermissionsBoundaryAttachmentType (..)
+
     -- * PolicyEvaluationDecisionType
     , PolicyEvaluationDecisionType (..)
+
+    -- * PolicyOwnerEntityType
+    , PolicyOwnerEntityType (..)
 
     -- * PolicyScopeType
     , PolicyScopeType (..)
 
     -- * PolicySourceType
     , PolicySourceType (..)
+
+    -- * PolicyType
+    , PolicyType (..)
+
+    -- * PolicyUsageType
+    , PolicyUsageType (..)
 
     -- * ReportFormatType
     , ReportFormatType (..)
@@ -102,6 +118,12 @@ module Network.AWS.IAM.Types
     , akmUserName
     , akmAccessKeyId
 
+    -- * AttachedPermissionsBoundary
+    , AttachedPermissionsBoundary
+    , attachedPermissionsBoundary
+    , apbPermissionsBoundaryType
+    , apbPermissionsBoundaryARN
+
     -- * AttachedPolicy
     , AttachedPolicy
     , attachedPolicy
@@ -120,6 +142,27 @@ module Network.AWS.IAM.Types
     , deletionTaskFailureReasonType
     , dtfrtRoleUsageList
     , dtfrtReason
+
+    -- * EntityDetails
+    , EntityDetails
+    , entityDetails
+    , edLastAuthenticated
+    , edEntityInfo
+
+    -- * EntityInfo
+    , EntityInfo
+    , entityInfo
+    , eiPath
+    , eiARN
+    , eiName
+    , eiType
+    , eiId
+
+    -- * ErrorDetails
+    , ErrorDetails
+    , errorDetails
+    , edMessage
+    , edCode
 
     -- * EvaluationResult
     , EvaluationResult
@@ -168,6 +211,12 @@ module Network.AWS.IAM.Types
     , ipCreateDate
     , ipRoles
 
+    -- * ListPoliciesGrantingServiceAccessEntry
+    , ListPoliciesGrantingServiceAccessEntry
+    , listPoliciesGrantingServiceAccessEntry
+    , lpgsaeServiceNamespace
+    , lpgsaePolicies
+
     -- * LoginProfile
     , LoginProfile
     , loginProfile
@@ -193,6 +242,7 @@ module Network.AWS.IAM.Types
     , mpdPolicyVersionList
     , mpdCreateDate
     , mpdIsAttachable
+    , mpdPermissionsBoundaryUsageCount
     , mpdDefaultVersionId
     , mpdAttachmentCount
     , mpdDescription
@@ -231,6 +281,7 @@ module Network.AWS.IAM.Types
     , pPath
     , pCreateDate
     , pIsAttachable
+    , pPermissionsBoundaryUsageCount
     , pDefaultVersionId
     , pAttachmentCount
     , pDescription
@@ -240,6 +291,15 @@ module Network.AWS.IAM.Types
     , policyDetail
     , pdPolicyDocument
     , pdPolicyName
+
+    -- * PolicyGrantingServiceAccess
+    , PolicyGrantingServiceAccess
+    , policyGrantingServiceAccess
+    , pgsaEntityName
+    , pgsaEntityType
+    , pgsaPolicyARN
+    , pgsaPolicyName
+    , pgsaPolicyType
 
     -- * PolicyGroup
     , PolicyGroup
@@ -287,7 +347,9 @@ module Network.AWS.IAM.Types
     , role'
     , rMaxSessionDuration
     , rAssumeRolePolicyDocument
+    , rPermissionsBoundary
     , rDescription
+    , rTags
     , rPath
     , rRoleName
     , rRoleId
@@ -304,7 +366,9 @@ module Network.AWS.IAM.Types
     , rdCreateDate
     , rdRoleName
     , rdRoleId
+    , rdPermissionsBoundary
     , rdRolePolicyList
+    , rdTags
     , rdAttachedManagedPolicies
 
     -- * RoleUsageType
@@ -355,6 +419,15 @@ module Network.AWS.IAM.Types
     , scmServerCertificateId
     , scmARN
 
+    -- * ServiceLastAccessed
+    , ServiceLastAccessed
+    , serviceLastAccessed
+    , slaLastAuthenticated
+    , slaLastAuthenticatedEntity
+    , slaTotalAuthenticatedEntities
+    , slaServiceName
+    , slaServiceNamespace
+
     -- * ServiceSpecificCredential
     , ServiceSpecificCredential
     , serviceSpecificCredential
@@ -400,10 +473,18 @@ module Network.AWS.IAM.Types
     , sEndPosition
     , sStartPosition
 
+    -- * Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
+
     -- * User
     , User
     , user
     , uPasswordLastUsed
+    , uPermissionsBoundary
+    , uTags
     , uPath
     , uUserName
     , uUserId
@@ -419,7 +500,9 @@ module Network.AWS.IAM.Types
     , udCreateDate
     , udUserName
     , udUserId
+    , udPermissionsBoundary
     , udUserPolicyList
+    , udTags
     , udAttachedManagedPolicies
 
     -- * VirtualMFADevice
@@ -549,7 +632,7 @@ _DeleteConflictException =
   _MatchServiceError iam "DeleteConflict" . hasStatus 409
 
 
--- | The request was rejected because it referenced an entity that does not exist. The error message describes the entity.
+-- | The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
 --
 --
 _NoSuchEntityException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -602,6 +685,14 @@ _InvalidUserTypeException =
 _ServiceFailureException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceFailureException =
   _MatchServiceError iam "ServiceFailure" . hasStatus 500
+
+
+-- | The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.
+--
+--
+_ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
+_ConcurrentModificationException =
+  _MatchServiceError iam "ConcurrentModification" . hasStatus 409
 
 
 -- | The request was rejected because an invalid or out-of-range value was supplied for an input parameter.

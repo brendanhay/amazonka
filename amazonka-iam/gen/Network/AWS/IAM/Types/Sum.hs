@@ -101,28 +101,28 @@ instance ToQuery      ContextKeyTypeEnum
 instance ToHeader     ContextKeyTypeEnum
 
 data DeletionTaskStatusType
-  = Failed
-  | InProgress
-  | NotStarted
-  | Succeeded
+  = DTSTFailed
+  | DTSTInProgress
+  | DTSTNotStarted
+  | DTSTSucceeded
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
 
 
 instance FromText DeletionTaskStatusType where
     parser = takeLowerText >>= \case
-        "failed" -> pure Failed
-        "in_progress" -> pure InProgress
-        "not_started" -> pure NotStarted
-        "succeeded" -> pure Succeeded
+        "failed" -> pure DTSTFailed
+        "in_progress" -> pure DTSTInProgress
+        "not_started" -> pure DTSTNotStarted
+        "succeeded" -> pure DTSTSucceeded
         e -> fromTextError $ "Failure parsing DeletionTaskStatusType from value: '" <> e
            <> "'. Accepted values: failed, in_progress, not_started, succeeded"
 
 instance ToText DeletionTaskStatusType where
     toText = \case
-        Failed -> "FAILED"
-        InProgress -> "IN_PROGRESS"
-        NotStarted -> "NOT_STARTED"
-        Succeeded -> "SUCCEEDED"
+        DTSTFailed -> "FAILED"
+        DTSTInProgress -> "IN_PROGRESS"
+        DTSTNotStarted -> "NOT_STARTED"
+        DTSTSucceeded -> "SUCCEEDED"
 
 instance Hashable     DeletionTaskStatusType
 instance NFData       DeletionTaskStatusType
@@ -190,6 +190,60 @@ instance ToByteString EntityType
 instance ToQuery      EntityType
 instance ToHeader     EntityType
 
+data JobStatusType
+  = Completed
+  | Failed
+  | InProgress
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText JobStatusType where
+    parser = takeLowerText >>= \case
+        "completed" -> pure Completed
+        "failed" -> pure Failed
+        "in_progress" -> pure InProgress
+        e -> fromTextError $ "Failure parsing JobStatusType from value: '" <> e
+           <> "'. Accepted values: completed, failed, in_progress"
+
+instance ToText JobStatusType where
+    toText = \case
+        Completed -> "COMPLETED"
+        Failed -> "FAILED"
+        InProgress -> "IN_PROGRESS"
+
+instance Hashable     JobStatusType
+instance NFData       JobStatusType
+instance ToByteString JobStatusType
+instance ToQuery      JobStatusType
+instance ToHeader     JobStatusType
+
+instance FromXML JobStatusType where
+    parseXML = parseXMLText "JobStatusType"
+
+data PermissionsBoundaryAttachmentType =
+  PermissionsBoundaryPolicy
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PermissionsBoundaryAttachmentType where
+    parser = takeLowerText >>= \case
+        "permissionsboundarypolicy" -> pure PermissionsBoundaryPolicy
+        e -> fromTextError $ "Failure parsing PermissionsBoundaryAttachmentType from value: '" <> e
+           <> "'. Accepted values: permissionsboundarypolicy"
+
+instance ToText PermissionsBoundaryAttachmentType where
+    toText = \case
+        PermissionsBoundaryPolicy -> "PermissionsBoundaryPolicy"
+
+instance Hashable     PermissionsBoundaryAttachmentType
+instance NFData       PermissionsBoundaryAttachmentType
+instance ToByteString PermissionsBoundaryAttachmentType
+instance ToQuery      PermissionsBoundaryAttachmentType
+instance ToHeader     PermissionsBoundaryAttachmentType
+
+instance FromXML PermissionsBoundaryAttachmentType where
+    parseXML = parseXMLText "PermissionsBoundaryAttachmentType"
+
 data PolicyEvaluationDecisionType
   = Allowed
   | ExplicitDeny
@@ -219,6 +273,36 @@ instance ToHeader     PolicyEvaluationDecisionType
 
 instance FromXML PolicyEvaluationDecisionType where
     parseXML = parseXMLText "PolicyEvaluationDecisionType"
+
+data PolicyOwnerEntityType
+  = POETGroup
+  | POETRole
+  | POETUser
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PolicyOwnerEntityType where
+    parser = takeLowerText >>= \case
+        "group" -> pure POETGroup
+        "role" -> pure POETRole
+        "user" -> pure POETUser
+        e -> fromTextError $ "Failure parsing PolicyOwnerEntityType from value: '" <> e
+           <> "'. Accepted values: group, role, user"
+
+instance ToText PolicyOwnerEntityType where
+    toText = \case
+        POETGroup -> "GROUP"
+        POETRole -> "ROLE"
+        POETUser -> "USER"
+
+instance Hashable     PolicyOwnerEntityType
+instance NFData       PolicyOwnerEntityType
+instance ToByteString PolicyOwnerEntityType
+instance ToQuery      PolicyOwnerEntityType
+instance ToHeader     PolicyOwnerEntityType
+
+instance FromXML PolicyOwnerEntityType where
+    parseXML = parseXMLText "PolicyOwnerEntityType"
 
 data PolicyScopeType
   = AWS
@@ -288,6 +372,62 @@ instance ToHeader     PolicySourceType
 
 instance FromXML PolicySourceType where
     parseXML = parseXMLText "PolicySourceType"
+
+data PolicyType
+  = Inline
+  | Managed
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PolicyType where
+    parser = takeLowerText >>= \case
+        "inline" -> pure Inline
+        "managed" -> pure Managed
+        e -> fromTextError $ "Failure parsing PolicyType from value: '" <> e
+           <> "'. Accepted values: inline, managed"
+
+instance ToText PolicyType where
+    toText = \case
+        Inline -> "INLINE"
+        Managed -> "MANAGED"
+
+instance Hashable     PolicyType
+instance NFData       PolicyType
+instance ToByteString PolicyType
+instance ToQuery      PolicyType
+instance ToHeader     PolicyType
+
+instance FromXML PolicyType where
+    parseXML = parseXMLText "PolicyType"
+
+-- | The policy usage type that indicates whether the policy is used as a permissions policy or as the permissions boundary for an entity.
+--
+--
+-- For more information about permissions boundaries, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+--
+data PolicyUsageType
+  = PermissionsBoundary
+  | PermissionsPolicy
+  deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
+
+
+instance FromText PolicyUsageType where
+    parser = takeLowerText >>= \case
+        "permissionsboundary" -> pure PermissionsBoundary
+        "permissionspolicy" -> pure PermissionsPolicy
+        e -> fromTextError $ "Failure parsing PolicyUsageType from value: '" <> e
+           <> "'. Accepted values: permissionsboundary, permissionspolicy"
+
+instance ToText PolicyUsageType where
+    toText = \case
+        PermissionsBoundary -> "PermissionsBoundary"
+        PermissionsPolicy -> "PermissionsPolicy"
+
+instance Hashable     PolicyUsageType
+instance NFData       PolicyUsageType
+instance ToByteString PolicyUsageType
+instance ToQuery      PolicyUsageType
+instance ToHeader     PolicyUsageType
 
 data ReportFormatType =
   TextCSV

@@ -66,7 +66,7 @@ data GetPolicyVersion = GetPolicyVersion'
 --
 -- * 'gpvPolicyARN' - The Amazon Resource Name (ARN) of the managed policy that you want information about. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 --
--- * 'gpvVersionId' - Identifies the policy version to retrieve. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits.
+-- * 'gpvVersionId' - Identifies the policy version to retrieve. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits.
 getPolicyVersion
     :: Text -- ^ 'gpvPolicyARN'
     -> Text -- ^ 'gpvVersionId'
@@ -79,7 +79,7 @@ getPolicyVersion pPolicyARN_ pVersionId_ =
 gpvPolicyARN :: Lens' GetPolicyVersion Text
 gpvPolicyARN = lens _gpvPolicyARN (\ s a -> s{_gpvPolicyARN = a})
 
--- | Identifies the policy version to retrieve. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits.
+-- | Identifies the policy version to retrieve. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits.
 gpvVersionId :: Lens' GetPolicyVersion Text
 gpvVersionId = lens _gpvVersionId (\ s a -> s{_gpvVersionId = a})
 

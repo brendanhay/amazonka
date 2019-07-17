@@ -100,7 +100,7 @@ data GetAccountSummaryResponse = GetAccountSummaryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gasrsSummaryMap' - A set of key value pairs containing information about IAM entity usage and IAM quotas.
+-- * 'gasrsSummaryMap' - A set of key–value pairs containing information about IAM entity usage and IAM quotas.
 --
 -- * 'gasrsResponseStatus' - -- | The response status code.
 getAccountSummaryResponse
@@ -111,7 +111,7 @@ getAccountSummaryResponse pResponseStatus_ =
     {_gasrsSummaryMap = Nothing, _gasrsResponseStatus = pResponseStatus_}
 
 
--- | A set of key value pairs containing information about IAM entity usage and IAM quotas.
+-- | A set of key–value pairs containing information about IAM entity usage and IAM quotas.
 gasrsSummaryMap :: Lens' GetAccountSummaryResponse (HashMap SummaryKeyType Int)
 gasrsSummaryMap = lens _gasrsSummaryMap (\ s a -> s{_gasrsSummaryMap = a}) . _Default . _Map
 

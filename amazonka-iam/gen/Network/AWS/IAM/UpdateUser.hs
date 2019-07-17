@@ -29,9 +29,9 @@ module Network.AWS.IAM.UpdateUser
       updateUser
     , UpdateUser
     -- * Request Lenses
-    , uuNewUserName
-    , uuNewPath
-    , uuUserName
+    , updNewUserName
+    , updNewPath
+    , updUserName
 
     -- * Destructuring the Response
     , updateUserResponse
@@ -47,9 +47,9 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateUser' smart constructor.
 data UpdateUser = UpdateUser'
-  { _uuNewUserName :: !(Maybe Text)
-  , _uuNewPath     :: !(Maybe Text)
-  , _uuUserName    :: !Text
+  { _updNewUserName :: !(Maybe Text)
+  , _updNewPath     :: !(Maybe Text)
+  , _updUserName    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -57,30 +57,33 @@ data UpdateUser = UpdateUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uuNewUserName' - New name for the user. Include this parameter only if you're changing the user's name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'updNewUserName' - New name for the user. Include this parameter only if you're changing the user's name. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
--- * 'uuNewPath' - New path for the IAM user. Include this parameter only if you're changing the user's path. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- * 'updNewPath' - New path for the IAM user. Include this parameter only if you're changing the user's path. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
--- * 'uuUserName' - Name of the user to update. If you're changing the name of the user, this is the original user name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'updUserName' - Name of the user to update. If you're changing the name of the user, this is the original user name. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 updateUser
-    :: Text -- ^ 'uuUserName'
+    :: Text -- ^ 'updUserName'
     -> UpdateUser
 updateUser pUserName_ =
   UpdateUser'
-    {_uuNewUserName = Nothing, _uuNewPath = Nothing, _uuUserName = pUserName_}
+    { _updNewUserName = Nothing
+    , _updNewPath = Nothing
+    , _updUserName = pUserName_
+    }
 
 
--- | New name for the user. Include this parameter only if you're changing the user's name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-uuNewUserName :: Lens' UpdateUser (Maybe Text)
-uuNewUserName = lens _uuNewUserName (\ s a -> s{_uuNewUserName = a})
+-- | New name for the user. Include this parameter only if you're changing the user's name. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+updNewUserName :: Lens' UpdateUser (Maybe Text)
+updNewUserName = lens _updNewUserName (\ s a -> s{_updNewUserName = a})
 
--- | New path for the IAM user. Include this parameter only if you're changing the user's path. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
-uuNewPath :: Lens' UpdateUser (Maybe Text)
-uuNewPath = lens _uuNewPath (\ s a -> s{_uuNewPath = a})
+-- | New path for the IAM user. Include this parameter only if you're changing the user's path. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+updNewPath :: Lens' UpdateUser (Maybe Text)
+updNewPath = lens _updNewPath (\ s a -> s{_updNewPath = a})
 
--- | Name of the user to update. If you're changing the name of the user, this is the original user name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-uuUserName :: Lens' UpdateUser Text
-uuUserName = lens _uuUserName (\ s a -> s{_uuUserName = a})
+-- | Name of the user to update. If you're changing the name of the user, this is the original user name. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+updUserName :: Lens' UpdateUser Text
+updUserName = lens _updUserName (\ s a -> s{_updUserName = a})
 
 instance AWSRequest UpdateUser where
         type Rs UpdateUser = UpdateUserResponse
@@ -102,8 +105,8 @@ instance ToQuery UpdateUser where
           = mconcat
               ["Action" =: ("UpdateUser" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "NewUserName" =: _uuNewUserName,
-               "NewPath" =: _uuNewPath, "UserName" =: _uuUserName]
+               "NewUserName" =: _updNewUserName,
+               "NewPath" =: _updNewPath, "UserName" =: _updUserName]
 
 -- | /See:/ 'updateUserResponse' smart constructor.
 data UpdateUserResponse =

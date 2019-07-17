@@ -78,6 +78,7 @@ library
         , Network.AWS.IAM.DeletePolicy
         , Network.AWS.IAM.DeletePolicyVersion
         , Network.AWS.IAM.DeleteRole
+        , Network.AWS.IAM.DeleteRolePermissionsBoundary
         , Network.AWS.IAM.DeleteRolePolicy
         , Network.AWS.IAM.DeleteSAMLProvider
         , Network.AWS.IAM.DeleteSSHPublicKey
@@ -86,6 +87,7 @@ library
         , Network.AWS.IAM.DeleteServiceSpecificCredential
         , Network.AWS.IAM.DeleteSigningCertificate
         , Network.AWS.IAM.DeleteUser
+        , Network.AWS.IAM.DeleteUserPermissionsBoundary
         , Network.AWS.IAM.DeleteUserPolicy
         , Network.AWS.IAM.DeleteVirtualMFADevice
         , Network.AWS.IAM.DetachGroupPolicy
@@ -93,6 +95,7 @@ library
         , Network.AWS.IAM.DetachUserPolicy
         , Network.AWS.IAM.EnableMFADevice
         , Network.AWS.IAM.GenerateCredentialReport
+        , Network.AWS.IAM.GenerateServiceLastAccessedDetails
         , Network.AWS.IAM.GetAccessKeyLastUsed
         , Network.AWS.IAM.GetAccountAuthorizationDetails
         , Network.AWS.IAM.GetAccountPasswordPolicy
@@ -112,6 +115,8 @@ library
         , Network.AWS.IAM.GetSAMLProvider
         , Network.AWS.IAM.GetSSHPublicKey
         , Network.AWS.IAM.GetServerCertificate
+        , Network.AWS.IAM.GetServiceLastAccessedDetails
+        , Network.AWS.IAM.GetServiceLastAccessedDetailsWithEntities
         , Network.AWS.IAM.GetServiceLinkedRoleDeletionStatus
         , Network.AWS.IAM.GetUser
         , Network.AWS.IAM.GetUserPolicy
@@ -129,8 +134,10 @@ library
         , Network.AWS.IAM.ListMFADevices
         , Network.AWS.IAM.ListOpenIdConnectProviders
         , Network.AWS.IAM.ListPolicies
+        , Network.AWS.IAM.ListPoliciesGrantingServiceAccess
         , Network.AWS.IAM.ListPolicyVersions
         , Network.AWS.IAM.ListRolePolicies
+        , Network.AWS.IAM.ListRoleTags
         , Network.AWS.IAM.ListRoles
         , Network.AWS.IAM.ListSAMLProviders
         , Network.AWS.IAM.ListSSHPublicKeys
@@ -138,10 +145,13 @@ library
         , Network.AWS.IAM.ListServiceSpecificCredentials
         , Network.AWS.IAM.ListSigningCertificates
         , Network.AWS.IAM.ListUserPolicies
+        , Network.AWS.IAM.ListUserTags
         , Network.AWS.IAM.ListUsers
         , Network.AWS.IAM.ListVirtualMFADevices
         , Network.AWS.IAM.PutGroupPolicy
+        , Network.AWS.IAM.PutRolePermissionsBoundary
         , Network.AWS.IAM.PutRolePolicy
+        , Network.AWS.IAM.PutUserPermissionsBoundary
         , Network.AWS.IAM.PutUserPolicy
         , Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
         , Network.AWS.IAM.RemoveRoleFromInstanceProfile
@@ -151,7 +161,11 @@ library
         , Network.AWS.IAM.SetDefaultPolicyVersion
         , Network.AWS.IAM.SimulateCustomPolicy
         , Network.AWS.IAM.SimulatePrincipalPolicy
+        , Network.AWS.IAM.TagRole
+        , Network.AWS.IAM.TagUser
         , Network.AWS.IAM.Types
+        , Network.AWS.IAM.UntagRole
+        , Network.AWS.IAM.UntagUser
         , Network.AWS.IAM.UpdateAccessKey
         , Network.AWS.IAM.UpdateAccountPasswordPolicy
         , Network.AWS.IAM.UpdateAssumeRolePolicy

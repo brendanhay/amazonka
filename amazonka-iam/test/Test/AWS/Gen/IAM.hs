@@ -14,11 +14,11 @@
 module Test.AWS.Gen.IAM where
 
 import Data.Proxy
-import Network.AWS.IAM
 import Test.AWS.Fixture
-import Test.AWS.IAM.Internal
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.IAM
+import Test.AWS.IAM.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -45,6 +45,9 @@ import Test.Tasty
 --
 --         , requestCreateAccessKey $
 --             createAccessKey
+--
+--         , requestListRoleTags $
+--             listRoleTags
 --
 --         , requestListSSHPublicKeys $
 --             listSSHPublicKeys
@@ -100,8 +103,14 @@ import Test.Tasty
 --         , requestListUserPolicies $
 --             listUserPolicies
 --
+--         , requestPutRolePermissionsBoundary $
+--             putRolePermissionsBoundary
+--
 --         , requestUploadSSHPublicKey $
 --             uploadSSHPublicKey
+--
+--         , requestDeleteRolePermissionsBoundary $
+--             deleteRolePermissionsBoundary
 --
 --         , requestSimulateCustomPolicy $
 --             simulateCustomPolicy
@@ -124,14 +133,23 @@ import Test.Tasty
 --         , requestGetSSHPublicKey $
 --             getSSHPublicKey
 --
+--         , requestUntagUser $
+--             untagUser
+--
 --         , requestDetachGroupPolicy $
 --             detachGroupPolicy
 --
 --         , requestGetOpenIdConnectProvider $
 --             getOpenIdConnectProvider
 --
+--         , requestPutUserPermissionsBoundary $
+--             putUserPermissionsBoundary
+--
 --         , requestDeleteUserPolicy $
 --             deleteUserPolicy
+--
+--         , requestDeleteUserPermissionsBoundary $
+--             deleteUserPermissionsBoundary
 --
 --         , requestCreateRole $
 --             createRole
@@ -145,11 +163,17 @@ import Test.Tasty
 --         , requestGetAccountSummary $
 --             getAccountSummary
 --
+--         , requestGenerateServiceLastAccessedDetails $
+--             generateServiceLastAccessedDetails
+--
 --         , requestListGroupPolicies $
 --             listGroupPolicies
 --
 --         , requestDeletePolicyVersion $
 --             deletePolicyVersion
+--
+--         , requestTagUser $
+--             tagUser
 --
 --         , requestDeleteInstanceProfile $
 --             deleteInstanceProfile
@@ -187,6 +211,9 @@ import Test.Tasty
 --         , requestDeleteGroupPolicy $
 --             deleteGroupPolicy
 --
+--         , requestTagRole $
+--             tagRole
+--
 --         , requestPutGroupPolicy $
 --             putGroupPolicy
 --
@@ -210,6 +237,9 @@ import Test.Tasty
 --
 --         , requestUpdateAssumeRolePolicy $
 --             updateAssumeRolePolicy
+--
+--         , requestGetServiceLastAccessedDetailsWithEntities $
+--             getServiceLastAccessedDetailsWithEntities
 --
 --         , requestGetInstanceProfile $
 --             getInstanceProfile
@@ -283,11 +313,17 @@ import Test.Tasty
 --         , requestUpdateAccessKey $
 --             updateAccessKey
 --
+--         , requestListUserTags $
+--             listUserTags
+--
 --         , requestListAccessKeys $
 --             listAccessKeys
 --
 --         , requestGetRolePolicy $
 --             getRolePolicy
+--
+--         , requestUntagRole $
+--             untagRole
 --
 --         , requestCreateUser $
 --             createUser
@@ -325,6 +361,9 @@ import Test.Tasty
 --         , requestCreateAccountAlias $
 --             createAccountAlias
 --
+--         , requestListPoliciesGrantingServiceAccess $
+--             listPoliciesGrantingServiceAccess
+--
 --         , requestListInstanceProfiles $
 --             listInstanceProfiles
 --
@@ -360,6 +399,9 @@ import Test.Tasty
 --
 --         , requestListSAMLProviders $
 --             listSAMLProviders
+--
+--         , requestGetServiceLastAccessedDetails $
+--             getServiceLastAccessedDetails
 --
 --         , requestGetServerCertificate $
 --             getServerCertificate
@@ -418,6 +460,9 @@ import Test.Tasty
 --         , responseCreateAccessKey $
 --             createAccessKeyResponse
 --
+--         , responseListRoleTags $
+--             listRoleTagsResponse
+--
 --         , responseListSSHPublicKeys $
 --             listSSHPublicKeysResponse
 --
@@ -472,8 +517,14 @@ import Test.Tasty
 --         , responseListUserPolicies $
 --             listUserPoliciesResponse
 --
+--         , responsePutRolePermissionsBoundary $
+--             putRolePermissionsBoundaryResponse
+--
 --         , responseUploadSSHPublicKey $
 --             uploadSSHPublicKeyResponse
+--
+--         , responseDeleteRolePermissionsBoundary $
+--             deleteRolePermissionsBoundaryResponse
 --
 --         , responseSimulateCustomPolicy $
 --             simulatePolicyResponse
@@ -496,14 +547,23 @@ import Test.Tasty
 --         , responseGetSSHPublicKey $
 --             getSSHPublicKeyResponse
 --
+--         , responseUntagUser $
+--             untagUserResponse
+--
 --         , responseDetachGroupPolicy $
 --             detachGroupPolicyResponse
 --
 --         , responseGetOpenIdConnectProvider $
 --             getOpenIdConnectProviderResponse
 --
+--         , responsePutUserPermissionsBoundary $
+--             putUserPermissionsBoundaryResponse
+--
 --         , responseDeleteUserPolicy $
 --             deleteUserPolicyResponse
+--
+--         , responseDeleteUserPermissionsBoundary $
+--             deleteUserPermissionsBoundaryResponse
 --
 --         , responseCreateRole $
 --             createRoleResponse
@@ -517,11 +577,17 @@ import Test.Tasty
 --         , responseGetAccountSummary $
 --             getAccountSummaryResponse
 --
+--         , responseGenerateServiceLastAccessedDetails $
+--             generateServiceLastAccessedDetailsResponse
+--
 --         , responseListGroupPolicies $
 --             listGroupPoliciesResponse
 --
 --         , responseDeletePolicyVersion $
 --             deletePolicyVersionResponse
+--
+--         , responseTagUser $
+--             tagUserResponse
 --
 --         , responseDeleteInstanceProfile $
 --             deleteInstanceProfileResponse
@@ -559,6 +625,9 @@ import Test.Tasty
 --         , responseDeleteGroupPolicy $
 --             deleteGroupPolicyResponse
 --
+--         , responseTagRole $
+--             tagRoleResponse
+--
 --         , responsePutGroupPolicy $
 --             putGroupPolicyResponse
 --
@@ -582,6 +651,9 @@ import Test.Tasty
 --
 --         , responseUpdateAssumeRolePolicy $
 --             updateAssumeRolePolicyResponse
+--
+--         , responseGetServiceLastAccessedDetailsWithEntities $
+--             getServiceLastAccessedDetailsWithEntitiesResponse
 --
 --         , responseGetInstanceProfile $
 --             getInstanceProfileResponse
@@ -655,11 +727,17 @@ import Test.Tasty
 --         , responseUpdateAccessKey $
 --             updateAccessKeyResponse
 --
+--         , responseListUserTags $
+--             listUserTagsResponse
+--
 --         , responseListAccessKeys $
 --             listAccessKeysResponse
 --
 --         , responseGetRolePolicy $
 --             getRolePolicyResponse
+--
+--         , responseUntagRole $
+--             untagRoleResponse
 --
 --         , responseCreateUser $
 --             createUserResponse
@@ -697,6 +775,9 @@ import Test.Tasty
 --         , responseCreateAccountAlias $
 --             createAccountAliasResponse
 --
+--         , responseListPoliciesGrantingServiceAccess $
+--             listPoliciesGrantingServiceAccessResponse
+--
 --         , responseListInstanceProfiles $
 --             listInstanceProfilesResponse
 --
@@ -732,6 +813,9 @@ import Test.Tasty
 --
 --         , responseListSAMLProviders $
 --             listSAMLProvidersResponse
+--
+--         , responseGetServiceLastAccessedDetails $
+--             getServiceLastAccessedDetailsResponse
 --
 --         , responseGetServerCertificate $
 --             getServerCertificateResponse
@@ -803,6 +887,11 @@ requestCreateAccessKey :: CreateAccessKey -> TestTree
 requestCreateAccessKey = req
     "CreateAccessKey"
     "fixture/CreateAccessKey.yaml"
+
+requestListRoleTags :: ListRoleTags -> TestTree
+requestListRoleTags = req
+    "ListRoleTags"
+    "fixture/ListRoleTags.yaml"
 
 requestListSSHPublicKeys :: ListSSHPublicKeys -> TestTree
 requestListSSHPublicKeys = req
@@ -894,10 +983,20 @@ requestListUserPolicies = req
     "ListUserPolicies"
     "fixture/ListUserPolicies.yaml"
 
+requestPutRolePermissionsBoundary :: PutRolePermissionsBoundary -> TestTree
+requestPutRolePermissionsBoundary = req
+    "PutRolePermissionsBoundary"
+    "fixture/PutRolePermissionsBoundary.yaml"
+
 requestUploadSSHPublicKey :: UploadSSHPublicKey -> TestTree
 requestUploadSSHPublicKey = req
     "UploadSSHPublicKey"
     "fixture/UploadSSHPublicKey.yaml"
+
+requestDeleteRolePermissionsBoundary :: DeleteRolePermissionsBoundary -> TestTree
+requestDeleteRolePermissionsBoundary = req
+    "DeleteRolePermissionsBoundary"
+    "fixture/DeleteRolePermissionsBoundary.yaml"
 
 requestSimulateCustomPolicy :: SimulateCustomPolicy -> TestTree
 requestSimulateCustomPolicy = req
@@ -934,6 +1033,11 @@ requestGetSSHPublicKey = req
     "GetSSHPublicKey"
     "fixture/GetSSHPublicKey.yaml"
 
+requestUntagUser :: UntagUser -> TestTree
+requestUntagUser = req
+    "UntagUser"
+    "fixture/UntagUser.yaml"
+
 requestDetachGroupPolicy :: DetachGroupPolicy -> TestTree
 requestDetachGroupPolicy = req
     "DetachGroupPolicy"
@@ -944,10 +1048,20 @@ requestGetOpenIdConnectProvider = req
     "GetOpenIdConnectProvider"
     "fixture/GetOpenIdConnectProvider.yaml"
 
+requestPutUserPermissionsBoundary :: PutUserPermissionsBoundary -> TestTree
+requestPutUserPermissionsBoundary = req
+    "PutUserPermissionsBoundary"
+    "fixture/PutUserPermissionsBoundary.yaml"
+
 requestDeleteUserPolicy :: DeleteUserPolicy -> TestTree
 requestDeleteUserPolicy = req
     "DeleteUserPolicy"
     "fixture/DeleteUserPolicy.yaml"
+
+requestDeleteUserPermissionsBoundary :: DeleteUserPermissionsBoundary -> TestTree
+requestDeleteUserPermissionsBoundary = req
+    "DeleteUserPermissionsBoundary"
+    "fixture/DeleteUserPermissionsBoundary.yaml"
 
 requestCreateRole :: CreateRole -> TestTree
 requestCreateRole = req
@@ -969,6 +1083,11 @@ requestGetAccountSummary = req
     "GetAccountSummary"
     "fixture/GetAccountSummary.yaml"
 
+requestGenerateServiceLastAccessedDetails :: GenerateServiceLastAccessedDetails -> TestTree
+requestGenerateServiceLastAccessedDetails = req
+    "GenerateServiceLastAccessedDetails"
+    "fixture/GenerateServiceLastAccessedDetails.yaml"
+
 requestListGroupPolicies :: ListGroupPolicies -> TestTree
 requestListGroupPolicies = req
     "ListGroupPolicies"
@@ -978,6 +1097,11 @@ requestDeletePolicyVersion :: DeletePolicyVersion -> TestTree
 requestDeletePolicyVersion = req
     "DeletePolicyVersion"
     "fixture/DeletePolicyVersion.yaml"
+
+requestTagUser :: TagUser -> TestTree
+requestTagUser = req
+    "TagUser"
+    "fixture/TagUser.yaml"
 
 requestDeleteInstanceProfile :: DeleteInstanceProfile -> TestTree
 requestDeleteInstanceProfile = req
@@ -1039,6 +1163,11 @@ requestDeleteGroupPolicy = req
     "DeleteGroupPolicy"
     "fixture/DeleteGroupPolicy.yaml"
 
+requestTagRole :: TagRole -> TestTree
+requestTagRole = req
+    "TagRole"
+    "fixture/TagRole.yaml"
+
 requestPutGroupPolicy :: PutGroupPolicy -> TestTree
 requestPutGroupPolicy = req
     "PutGroupPolicy"
@@ -1078,6 +1207,11 @@ requestUpdateAssumeRolePolicy :: UpdateAssumeRolePolicy -> TestTree
 requestUpdateAssumeRolePolicy = req
     "UpdateAssumeRolePolicy"
     "fixture/UpdateAssumeRolePolicy.yaml"
+
+requestGetServiceLastAccessedDetailsWithEntities :: GetServiceLastAccessedDetailsWithEntities -> TestTree
+requestGetServiceLastAccessedDetailsWithEntities = req
+    "GetServiceLastAccessedDetailsWithEntities"
+    "fixture/GetServiceLastAccessedDetailsWithEntities.yaml"
 
 requestGetInstanceProfile :: GetInstanceProfile -> TestTree
 requestGetInstanceProfile = req
@@ -1199,6 +1333,11 @@ requestUpdateAccessKey = req
     "UpdateAccessKey"
     "fixture/UpdateAccessKey.yaml"
 
+requestListUserTags :: ListUserTags -> TestTree
+requestListUserTags = req
+    "ListUserTags"
+    "fixture/ListUserTags.yaml"
+
 requestListAccessKeys :: ListAccessKeys -> TestTree
 requestListAccessKeys = req
     "ListAccessKeys"
@@ -1208,6 +1347,11 @@ requestGetRolePolicy :: GetRolePolicy -> TestTree
 requestGetRolePolicy = req
     "GetRolePolicy"
     "fixture/GetRolePolicy.yaml"
+
+requestUntagRole :: UntagRole -> TestTree
+requestUntagRole = req
+    "UntagRole"
+    "fixture/UntagRole.yaml"
 
 requestCreateUser :: CreateUser -> TestTree
 requestCreateUser = req
@@ -1269,6 +1413,11 @@ requestCreateAccountAlias = req
     "CreateAccountAlias"
     "fixture/CreateAccountAlias.yaml"
 
+requestListPoliciesGrantingServiceAccess :: ListPoliciesGrantingServiceAccess -> TestTree
+requestListPoliciesGrantingServiceAccess = req
+    "ListPoliciesGrantingServiceAccess"
+    "fixture/ListPoliciesGrantingServiceAccess.yaml"
+
 requestListInstanceProfiles :: ListInstanceProfiles -> TestTree
 requestListInstanceProfiles = req
     "ListInstanceProfiles"
@@ -1328,6 +1477,11 @@ requestListSAMLProviders :: ListSAMLProviders -> TestTree
 requestListSAMLProviders = req
     "ListSAMLProviders"
     "fixture/ListSAMLProviders.yaml"
+
+requestGetServiceLastAccessedDetails :: GetServiceLastAccessedDetails -> TestTree
+requestGetServiceLastAccessedDetails = req
+    "GetServiceLastAccessedDetails"
+    "fixture/GetServiceLastAccessedDetails.yaml"
 
 requestGetServerCertificate :: GetServerCertificate -> TestTree
 requestGetServerCertificate = req
@@ -1432,6 +1586,13 @@ responseCreateAccessKey = res
     "fixture/CreateAccessKeyResponse.proto"
     iam
     (Proxy :: Proxy CreateAccessKey)
+
+responseListRoleTags :: ListRoleTagsResponse -> TestTree
+responseListRoleTags = res
+    "ListRoleTagsResponse"
+    "fixture/ListRoleTagsResponse.proto"
+    iam
+    (Proxy :: Proxy ListRoleTags)
 
 responseListSSHPublicKeys :: ListSSHPublicKeysResponse -> TestTree
 responseListSSHPublicKeys = res
@@ -1559,12 +1720,26 @@ responseListUserPolicies = res
     iam
     (Proxy :: Proxy ListUserPolicies)
 
+responsePutRolePermissionsBoundary :: PutRolePermissionsBoundaryResponse -> TestTree
+responsePutRolePermissionsBoundary = res
+    "PutRolePermissionsBoundaryResponse"
+    "fixture/PutRolePermissionsBoundaryResponse.proto"
+    iam
+    (Proxy :: Proxy PutRolePermissionsBoundary)
+
 responseUploadSSHPublicKey :: UploadSSHPublicKeyResponse -> TestTree
 responseUploadSSHPublicKey = res
     "UploadSSHPublicKeyResponse"
     "fixture/UploadSSHPublicKeyResponse.proto"
     iam
     (Proxy :: Proxy UploadSSHPublicKey)
+
+responseDeleteRolePermissionsBoundary :: DeleteRolePermissionsBoundaryResponse -> TestTree
+responseDeleteRolePermissionsBoundary = res
+    "DeleteRolePermissionsBoundaryResponse"
+    "fixture/DeleteRolePermissionsBoundaryResponse.proto"
+    iam
+    (Proxy :: Proxy DeleteRolePermissionsBoundary)
 
 responseSimulateCustomPolicy :: SimulatePolicyResponse -> TestTree
 responseSimulateCustomPolicy = res
@@ -1615,6 +1790,13 @@ responseGetSSHPublicKey = res
     iam
     (Proxy :: Proxy GetSSHPublicKey)
 
+responseUntagUser :: UntagUserResponse -> TestTree
+responseUntagUser = res
+    "UntagUserResponse"
+    "fixture/UntagUserResponse.proto"
+    iam
+    (Proxy :: Proxy UntagUser)
+
 responseDetachGroupPolicy :: DetachGroupPolicyResponse -> TestTree
 responseDetachGroupPolicy = res
     "DetachGroupPolicyResponse"
@@ -1629,12 +1811,26 @@ responseGetOpenIdConnectProvider = res
     iam
     (Proxy :: Proxy GetOpenIdConnectProvider)
 
+responsePutUserPermissionsBoundary :: PutUserPermissionsBoundaryResponse -> TestTree
+responsePutUserPermissionsBoundary = res
+    "PutUserPermissionsBoundaryResponse"
+    "fixture/PutUserPermissionsBoundaryResponse.proto"
+    iam
+    (Proxy :: Proxy PutUserPermissionsBoundary)
+
 responseDeleteUserPolicy :: DeleteUserPolicyResponse -> TestTree
 responseDeleteUserPolicy = res
     "DeleteUserPolicyResponse"
     "fixture/DeleteUserPolicyResponse.proto"
     iam
     (Proxy :: Proxy DeleteUserPolicy)
+
+responseDeleteUserPermissionsBoundary :: DeleteUserPermissionsBoundaryResponse -> TestTree
+responseDeleteUserPermissionsBoundary = res
+    "DeleteUserPermissionsBoundaryResponse"
+    "fixture/DeleteUserPermissionsBoundaryResponse.proto"
+    iam
+    (Proxy :: Proxy DeleteUserPermissionsBoundary)
 
 responseCreateRole :: CreateRoleResponse -> TestTree
 responseCreateRole = res
@@ -1664,6 +1860,13 @@ responseGetAccountSummary = res
     iam
     (Proxy :: Proxy GetAccountSummary)
 
+responseGenerateServiceLastAccessedDetails :: GenerateServiceLastAccessedDetailsResponse -> TestTree
+responseGenerateServiceLastAccessedDetails = res
+    "GenerateServiceLastAccessedDetailsResponse"
+    "fixture/GenerateServiceLastAccessedDetailsResponse.proto"
+    iam
+    (Proxy :: Proxy GenerateServiceLastAccessedDetails)
+
 responseListGroupPolicies :: ListGroupPoliciesResponse -> TestTree
 responseListGroupPolicies = res
     "ListGroupPoliciesResponse"
@@ -1677,6 +1880,13 @@ responseDeletePolicyVersion = res
     "fixture/DeletePolicyVersionResponse.proto"
     iam
     (Proxy :: Proxy DeletePolicyVersion)
+
+responseTagUser :: TagUserResponse -> TestTree
+responseTagUser = res
+    "TagUserResponse"
+    "fixture/TagUserResponse.proto"
+    iam
+    (Proxy :: Proxy TagUser)
 
 responseDeleteInstanceProfile :: DeleteInstanceProfileResponse -> TestTree
 responseDeleteInstanceProfile = res
@@ -1762,6 +1972,13 @@ responseDeleteGroupPolicy = res
     iam
     (Proxy :: Proxy DeleteGroupPolicy)
 
+responseTagRole :: TagRoleResponse -> TestTree
+responseTagRole = res
+    "TagRoleResponse"
+    "fixture/TagRoleResponse.proto"
+    iam
+    (Proxy :: Proxy TagRole)
+
 responsePutGroupPolicy :: PutGroupPolicyResponse -> TestTree
 responsePutGroupPolicy = res
     "PutGroupPolicyResponse"
@@ -1817,6 +2034,13 @@ responseUpdateAssumeRolePolicy = res
     "fixture/UpdateAssumeRolePolicyResponse.proto"
     iam
     (Proxy :: Proxy UpdateAssumeRolePolicy)
+
+responseGetServiceLastAccessedDetailsWithEntities :: GetServiceLastAccessedDetailsWithEntitiesResponse -> TestTree
+responseGetServiceLastAccessedDetailsWithEntities = res
+    "GetServiceLastAccessedDetailsWithEntitiesResponse"
+    "fixture/GetServiceLastAccessedDetailsWithEntitiesResponse.proto"
+    iam
+    (Proxy :: Proxy GetServiceLastAccessedDetailsWithEntities)
 
 responseGetInstanceProfile :: GetInstanceProfileResponse -> TestTree
 responseGetInstanceProfile = res
@@ -1986,6 +2210,13 @@ responseUpdateAccessKey = res
     iam
     (Proxy :: Proxy UpdateAccessKey)
 
+responseListUserTags :: ListUserTagsResponse -> TestTree
+responseListUserTags = res
+    "ListUserTagsResponse"
+    "fixture/ListUserTagsResponse.proto"
+    iam
+    (Proxy :: Proxy ListUserTags)
+
 responseListAccessKeys :: ListAccessKeysResponse -> TestTree
 responseListAccessKeys = res
     "ListAccessKeysResponse"
@@ -1999,6 +2230,13 @@ responseGetRolePolicy = res
     "fixture/GetRolePolicyResponse.proto"
     iam
     (Proxy :: Proxy GetRolePolicy)
+
+responseUntagRole :: UntagRoleResponse -> TestTree
+responseUntagRole = res
+    "UntagRoleResponse"
+    "fixture/UntagRoleResponse.proto"
+    iam
+    (Proxy :: Proxy UntagRole)
 
 responseCreateUser :: CreateUserResponse -> TestTree
 responseCreateUser = res
@@ -2084,6 +2322,13 @@ responseCreateAccountAlias = res
     iam
     (Proxy :: Proxy CreateAccountAlias)
 
+responseListPoliciesGrantingServiceAccess :: ListPoliciesGrantingServiceAccessResponse -> TestTree
+responseListPoliciesGrantingServiceAccess = res
+    "ListPoliciesGrantingServiceAccessResponse"
+    "fixture/ListPoliciesGrantingServiceAccessResponse.proto"
+    iam
+    (Proxy :: Proxy ListPoliciesGrantingServiceAccess)
+
 responseListInstanceProfiles :: ListInstanceProfilesResponse -> TestTree
 responseListInstanceProfiles = res
     "ListInstanceProfilesResponse"
@@ -2167,6 +2412,13 @@ responseListSAMLProviders = res
     "fixture/ListSAMLProvidersResponse.proto"
     iam
     (Proxy :: Proxy ListSAMLProviders)
+
+responseGetServiceLastAccessedDetails :: GetServiceLastAccessedDetailsResponse -> TestTree
+responseGetServiceLastAccessedDetails = res
+    "GetServiceLastAccessedDetailsResponse"
+    "fixture/GetServiceLastAccessedDetailsResponse.proto"
+    iam
+    (Proxy :: Proxy GetServiceLastAccessedDetails)
 
 responseGetServerCertificate :: GetServerCertificateResponse -> TestTree
 responseGetServerCertificate = res

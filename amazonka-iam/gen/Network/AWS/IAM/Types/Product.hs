@@ -98,7 +98,7 @@ instance Hashable AccessKeyInfo where
 
 instance NFData AccessKeyInfo where
 
--- | Contains information about the last time an AWS access key was used.
+-- | Contains information about the last time an AWS access key was used since IAM began tracking this information on April 22, 2015.
 --
 --
 -- This data type is used as a response element in the 'GetAccessKeyLastUsed' operation.
@@ -116,11 +116,11 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'akluLastUsedDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the access key was most recently used. This field is null in the following situations:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user
+-- * 'akluLastUsedDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the access key was most recently used. This field is null in the following situations:     * The user does not have an access key.     * An access key exists but has not been used since IAM began tracking this information.     * There is no sign-in data associated with the user
 --
--- * 'akluServiceName' - The name of the AWS service with which this access key was most recently used. This field displays "N/A" in the following situations:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user
+-- * 'akluServiceName' - The name of the AWS service with which this access key was most recently used. The value of this field is "N/A" in the following situations:     * The user does not have an access key.     * An access key exists but has not been used since IAM started tracking this information.     * There is no sign-in data associated with the user
 --
--- * 'akluRegion' - The AWS region where this access key was most recently used. This field is displays "N/A" in the following situations:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> in the Amazon Web Services General Reference.
+-- * 'akluRegion' - The AWS region where this access key was most recently used. The value for this field is "N/A" in the following situations:     * The user does not have an access key.     * An access key exists but has not been used since IAM began tracking this information.     * There is no sign-in data associated with the user For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> in the Amazon Web Services General Reference.
 accessKeyLastUsed
     :: UTCTime -- ^ 'akluLastUsedDate'
     -> Text -- ^ 'akluServiceName'
@@ -134,15 +134,15 @@ accessKeyLastUsed pLastUsedDate_ pServiceName_ pRegion_ =
     }
 
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the access key was most recently used. This field is null in the following situations:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the access key was most recently used. This field is null in the following situations:     * The user does not have an access key.     * An access key exists but has not been used since IAM began tracking this information.     * There is no sign-in data associated with the user
 akluLastUsedDate :: Lens' AccessKeyLastUsed UTCTime
 akluLastUsedDate = lens _akluLastUsedDate (\ s a -> s{_akluLastUsedDate = a}) . _Time
 
--- | The name of the AWS service with which this access key was most recently used. This field displays "N/A" in the following situations:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user
+-- | The name of the AWS service with which this access key was most recently used. The value of this field is "N/A" in the following situations:     * The user does not have an access key.     * An access key exists but has not been used since IAM started tracking this information.     * There is no sign-in data associated with the user
 akluServiceName :: Lens' AccessKeyLastUsed Text
 akluServiceName = lens _akluServiceName (\ s a -> s{_akluServiceName = a})
 
--- | The AWS region where this access key was most recently used. This field is displays "N/A" in the following situations:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> in the Amazon Web Services General Reference.
+-- | The AWS region where this access key was most recently used. The value for this field is "N/A" in the following situations:     * The user does not have an access key.     * An access key exists but has not been used since IAM began tracking this information.     * There is no sign-in data associated with the user For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> in the Amazon Web Services General Reference.
 akluRegion :: Lens' AccessKeyLastUsed Text
 akluRegion = lens _akluRegion (\ s a -> s{_akluRegion = a})
 
@@ -175,7 +175,7 @@ data AccessKeyMetadata = AccessKeyMetadata'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'akmStatus' - The status of the access key. @Active@ means the key is valid for API calls; @Inactive@ means it is not.
+-- * 'akmStatus' - The status of the access key. @Active@ means that the key is valid for API calls; @Inactive@ means it is not.
 --
 -- * 'akmCreateDate' - The date when the access key was created.
 --
@@ -193,7 +193,7 @@ accessKeyMetadata =
     }
 
 
--- | The status of the access key. @Active@ means the key is valid for API calls; @Inactive@ means it is not.
+-- | The status of the access key. @Active@ means that the key is valid for API calls; @Inactive@ means it is not.
 akmStatus :: Lens' AccessKeyMetadata (Maybe StatusType)
 akmStatus = lens _akmStatus (\ s a -> s{_akmStatus = a})
 
@@ -219,6 +219,55 @@ instance FromXML AccessKeyMetadata where
 instance Hashable AccessKeyMetadata where
 
 instance NFData AccessKeyMetadata where
+
+-- | Contains information about an attached permissions boundary.
+--
+--
+-- An attached permissions boundary is a managed policy that has been attached to a user or role to set the permissions boundary.
+--
+-- For more information about permissions boundaries, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+--
+--
+-- /See:/ 'attachedPermissionsBoundary' smart constructor.
+data AttachedPermissionsBoundary = AttachedPermissionsBoundary'
+  { _apbPermissionsBoundaryType :: !(Maybe PermissionsBoundaryAttachmentType)
+  , _apbPermissionsBoundaryARN  :: !(Maybe Text)
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AttachedPermissionsBoundary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'apbPermissionsBoundaryType' - The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of @Policy@ .
+--
+-- * 'apbPermissionsBoundaryARN' - The ARN of the policy used to set the permissions boundary for the user or role.
+attachedPermissionsBoundary
+    :: AttachedPermissionsBoundary
+attachedPermissionsBoundary =
+  AttachedPermissionsBoundary'
+    { _apbPermissionsBoundaryType = Nothing
+    , _apbPermissionsBoundaryARN = Nothing
+    }
+
+
+-- | The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of @Policy@ .
+apbPermissionsBoundaryType :: Lens' AttachedPermissionsBoundary (Maybe PermissionsBoundaryAttachmentType)
+apbPermissionsBoundaryType = lens _apbPermissionsBoundaryType (\ s a -> s{_apbPermissionsBoundaryType = a})
+
+-- | The ARN of the policy used to set the permissions boundary for the user or role.
+apbPermissionsBoundaryARN :: Lens' AttachedPermissionsBoundary (Maybe Text)
+apbPermissionsBoundaryARN = lens _apbPermissionsBoundaryARN (\ s a -> s{_apbPermissionsBoundaryARN = a})
+
+instance FromXML AttachedPermissionsBoundary where
+        parseXML x
+          = AttachedPermissionsBoundary' <$>
+              (x .@? "PermissionsBoundaryType") <*>
+                (x .@? "PermissionsBoundaryArn")
+
+instance Hashable AttachedPermissionsBoundary where
+
+instance NFData AttachedPermissionsBoundary where
 
 -- | Contains information about an attached policy.
 --
@@ -369,6 +418,171 @@ instance Hashable DeletionTaskFailureReasonType where
 
 instance NFData DeletionTaskFailureReasonType where
 
+-- | An object that contains details about when the IAM entities (users or roles) were last used in an attempt to access the specified AWS service.
+--
+--
+-- This data type is a response element in the 'GetServiceLastAccessedDetailsWithEntities' operation.
+--
+--
+-- /See:/ 'entityDetails' smart constructor.
+data EntityDetails = EntityDetails'
+  { _edLastAuthenticated :: !(Maybe ISO8601)
+  , _edEntityInfo        :: !EntityInfo
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'EntityDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'edLastAuthenticated' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the authenticated entity last attempted to access AWS. AWS does not report unauthenticated requests. This field is null if no IAM entities attempted to access the service within the <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+--
+-- * 'edEntityInfo' - The @EntityInfo@ object that contains details about the entity (user or role).
+entityDetails
+    :: EntityInfo -- ^ 'edEntityInfo'
+    -> EntityDetails
+entityDetails pEntityInfo_ =
+  EntityDetails' {_edLastAuthenticated = Nothing, _edEntityInfo = pEntityInfo_}
+
+
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the authenticated entity last attempted to access AWS. AWS does not report unauthenticated requests. This field is null if no IAM entities attempted to access the service within the <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+edLastAuthenticated :: Lens' EntityDetails (Maybe UTCTime)
+edLastAuthenticated = lens _edLastAuthenticated (\ s a -> s{_edLastAuthenticated = a}) . mapping _Time
+
+-- | The @EntityInfo@ object that contains details about the entity (user or role).
+edEntityInfo :: Lens' EntityDetails EntityInfo
+edEntityInfo = lens _edEntityInfo (\ s a -> s{_edEntityInfo = a})
+
+instance FromXML EntityDetails where
+        parseXML x
+          = EntityDetails' <$>
+              (x .@? "LastAuthenticated") <*> (x .@ "EntityInfo")
+
+instance Hashable EntityDetails where
+
+instance NFData EntityDetails where
+
+-- | Contains details about the specified entity (user or role).
+--
+--
+-- This data type is an element of the 'EntityDetails' object.
+--
+--
+-- /See:/ 'entityInfo' smart constructor.
+data EntityInfo = EntityInfo'
+  { _eiPath :: !(Maybe Text)
+  , _eiARN  :: !Text
+  , _eiName :: !Text
+  , _eiType :: !PolicyOwnerEntityType
+  , _eiId   :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'EntityInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eiPath' - The path to the entity (user or role). For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+--
+-- * 'eiARN' - Undocumented member.
+--
+-- * 'eiName' - The name of the entity (user or role).
+--
+-- * 'eiType' - The type of entity (user or role).
+--
+-- * 'eiId' - The identifier of the entity (user or role).
+entityInfo
+    :: Text -- ^ 'eiARN'
+    -> Text -- ^ 'eiName'
+    -> PolicyOwnerEntityType -- ^ 'eiType'
+    -> Text -- ^ 'eiId'
+    -> EntityInfo
+entityInfo pARN_ pName_ pType_ pId_ =
+  EntityInfo'
+    { _eiPath = Nothing
+    , _eiARN = pARN_
+    , _eiName = pName_
+    , _eiType = pType_
+    , _eiId = pId_
+    }
+
+
+-- | The path to the entity (user or role). For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+eiPath :: Lens' EntityInfo (Maybe Text)
+eiPath = lens _eiPath (\ s a -> s{_eiPath = a})
+
+-- | Undocumented member.
+eiARN :: Lens' EntityInfo Text
+eiARN = lens _eiARN (\ s a -> s{_eiARN = a})
+
+-- | The name of the entity (user or role).
+eiName :: Lens' EntityInfo Text
+eiName = lens _eiName (\ s a -> s{_eiName = a})
+
+-- | The type of entity (user or role).
+eiType :: Lens' EntityInfo PolicyOwnerEntityType
+eiType = lens _eiType (\ s a -> s{_eiType = a})
+
+-- | The identifier of the entity (user or role).
+eiId :: Lens' EntityInfo Text
+eiId = lens _eiId (\ s a -> s{_eiId = a})
+
+instance FromXML EntityInfo where
+        parseXML x
+          = EntityInfo' <$>
+              (x .@? "Path") <*> (x .@ "Arn") <*> (x .@ "Name") <*>
+                (x .@ "Type")
+                <*> (x .@ "Id")
+
+instance Hashable EntityInfo where
+
+instance NFData EntityInfo where
+
+-- | Contains information about the reason that the operation failed.
+--
+--
+-- This data type is used as a response element in the 'GetServiceLastAccessedDetails' operation and the 'GetServiceLastAccessedDetailsWithEntities' operation.
+--
+--
+-- /See:/ 'errorDetails' smart constructor.
+data ErrorDetails = ErrorDetails'
+  { _edMessage :: !Text
+  , _edCode    :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ErrorDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'edMessage' - Detailed information about the reason that the operation failed.
+--
+-- * 'edCode' - The error code associated with the operation failure.
+errorDetails
+    :: Text -- ^ 'edMessage'
+    -> Text -- ^ 'edCode'
+    -> ErrorDetails
+errorDetails pMessage_ pCode_ =
+  ErrorDetails' {_edMessage = pMessage_, _edCode = pCode_}
+
+
+-- | Detailed information about the reason that the operation failed.
+edMessage :: Lens' ErrorDetails Text
+edMessage = lens _edMessage (\ s a -> s{_edMessage = a})
+
+-- | The error code associated with the operation failure.
+edCode :: Lens' ErrorDetails Text
+edCode = lens _edCode (\ s a -> s{_edCode = a})
+
+instance FromXML ErrorDetails where
+        parseXML x
+          = ErrorDetails' <$>
+              (x .@ "Message") <*> (x .@ "Code")
+
+instance Hashable ErrorDetails where
+
+instance NFData ErrorDetails where
+
 -- | Contains the results of a simulation.
 --
 --
@@ -392,7 +606,7 @@ data EvaluationResult = EvaluationResult'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'erMatchedStatements' - A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow, and the deny statement is the only entry included in the result.
+-- * 'erMatchedStatements' - A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow. Inaddition, the deny statement is the only entry included in the result.
 --
 -- * 'erEvalDecisionDetails' - Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access. See <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html How IAM Roles Differ from Resource-based Policies>
 --
@@ -424,7 +638,7 @@ evaluationResult pEvalActionName_ pEvalDecision_ =
     }
 
 
--- | A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow, and the deny statement is the only entry included in the result.
+-- | A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow. Inaddition, the deny statement is the only entry included in the result.
 erMatchedStatements :: Lens' EvaluationResult [Statement]
 erMatchedStatements = lens _erMatchedStatements (\ s a -> s{_erMatchedStatements = a}) . _Default . _Coerce
 
@@ -795,6 +1009,58 @@ instance Hashable InstanceProfile where
 
 instance NFData InstanceProfile where
 
+-- | Contains details about the permissions policies that are attached to the specified identity (user, group, or role).
+--
+--
+-- This data type is used as a response element in the 'ListPoliciesGrantingServiceAccess' operation.
+--
+--
+-- /See:/ 'listPoliciesGrantingServiceAccessEntry' smart constructor.
+data ListPoliciesGrantingServiceAccessEntry = ListPoliciesGrantingServiceAccessEntry'
+  { _lpgsaeServiceNamespace :: !(Maybe Text)
+  , _lpgsaePolicies         :: !(Maybe [PolicyGrantingServiceAccess])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ListPoliciesGrantingServiceAccessEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lpgsaeServiceNamespace' - The namespace of the service that was accessed. To learn the service namespace of a service, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
+--
+-- * 'lpgsaePolicies' - The @PoliciesGrantingServiceAccess@ object that contains details about the policy.
+listPoliciesGrantingServiceAccessEntry
+    :: ListPoliciesGrantingServiceAccessEntry
+listPoliciesGrantingServiceAccessEntry =
+  ListPoliciesGrantingServiceAccessEntry'
+    {_lpgsaeServiceNamespace = Nothing, _lpgsaePolicies = Nothing}
+
+
+-- | The namespace of the service that was accessed. To learn the service namespace of a service, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
+lpgsaeServiceNamespace :: Lens' ListPoliciesGrantingServiceAccessEntry (Maybe Text)
+lpgsaeServiceNamespace = lens _lpgsaeServiceNamespace (\ s a -> s{_lpgsaeServiceNamespace = a})
+
+-- | The @PoliciesGrantingServiceAccess@ object that contains details about the policy.
+lpgsaePolicies :: Lens' ListPoliciesGrantingServiceAccessEntry [PolicyGrantingServiceAccess]
+lpgsaePolicies = lens _lpgsaePolicies (\ s a -> s{_lpgsaePolicies = a}) . _Default . _Coerce
+
+instance FromXML
+           ListPoliciesGrantingServiceAccessEntry
+         where
+        parseXML x
+          = ListPoliciesGrantingServiceAccessEntry' <$>
+              (x .@? "ServiceNamespace") <*>
+                (x .@? "Policies" .!@ mempty >>=
+                   may (parseXMLList "member"))
+
+instance Hashable
+           ListPoliciesGrantingServiceAccessEntry
+         where
+
+instance NFData
+           ListPoliciesGrantingServiceAccessEntry
+         where
+
 -- | Contains the user name and password create date for a user.
 --
 --
@@ -920,17 +1186,18 @@ instance NFData MFADevice where
 --
 -- /See:/ 'managedPolicyDetail' smart constructor.
 data ManagedPolicyDetail = ManagedPolicyDetail'
-  { _mpdPolicyName        :: !(Maybe Text)
-  , _mpdARN               :: !(Maybe Text)
-  , _mpdUpdateDate        :: !(Maybe ISO8601)
-  , _mpdPolicyId          :: !(Maybe Text)
-  , _mpdPath              :: !(Maybe Text)
-  , _mpdPolicyVersionList :: !(Maybe [PolicyVersion])
-  , _mpdCreateDate        :: !(Maybe ISO8601)
-  , _mpdIsAttachable      :: !(Maybe Bool)
-  , _mpdDefaultVersionId  :: !(Maybe Text)
-  , _mpdAttachmentCount   :: !(Maybe Int)
-  , _mpdDescription       :: !(Maybe Text)
+  { _mpdPolicyName                    :: !(Maybe Text)
+  , _mpdARN                           :: !(Maybe Text)
+  , _mpdUpdateDate                    :: !(Maybe ISO8601)
+  , _mpdPolicyId                      :: !(Maybe Text)
+  , _mpdPath                          :: !(Maybe Text)
+  , _mpdPolicyVersionList             :: !(Maybe [PolicyVersion])
+  , _mpdCreateDate                    :: !(Maybe ISO8601)
+  , _mpdIsAttachable                  :: !(Maybe Bool)
+  , _mpdPermissionsBoundaryUsageCount :: !(Maybe Int)
+  , _mpdDefaultVersionId              :: !(Maybe Text)
+  , _mpdAttachmentCount               :: !(Maybe Int)
+  , _mpdDescription                   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -954,6 +1221,8 @@ data ManagedPolicyDetail = ManagedPolicyDetail'
 --
 -- * 'mpdIsAttachable' - Specifies whether the policy can be attached to an IAM user, group, or role.
 --
+-- * 'mpdPermissionsBoundaryUsageCount' - The number of entities (users and roles) for which the policy is used as the permissions boundary.  For more information about permissions boundaries, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+--
 -- * 'mpdDefaultVersionId' - The identifier for the version of the policy that is set as the default (operative) version. For more information about policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /Using IAM/ guide.
 --
 -- * 'mpdAttachmentCount' - The number of principal entities (users, groups, and roles) that the policy is attached to.
@@ -971,6 +1240,7 @@ managedPolicyDetail =
     , _mpdPolicyVersionList = Nothing
     , _mpdCreateDate = Nothing
     , _mpdIsAttachable = Nothing
+    , _mpdPermissionsBoundaryUsageCount = Nothing
     , _mpdDefaultVersionId = Nothing
     , _mpdAttachmentCount = Nothing
     , _mpdDescription = Nothing
@@ -1009,6 +1279,10 @@ mpdCreateDate = lens _mpdCreateDate (\ s a -> s{_mpdCreateDate = a}) . mapping _
 mpdIsAttachable :: Lens' ManagedPolicyDetail (Maybe Bool)
 mpdIsAttachable = lens _mpdIsAttachable (\ s a -> s{_mpdIsAttachable = a})
 
+-- | The number of entities (users and roles) for which the policy is used as the permissions boundary.  For more information about permissions boundaries, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+mpdPermissionsBoundaryUsageCount :: Lens' ManagedPolicyDetail (Maybe Int)
+mpdPermissionsBoundaryUsageCount = lens _mpdPermissionsBoundaryUsageCount (\ s a -> s{_mpdPermissionsBoundaryUsageCount = a})
+
 -- | The identifier for the version of the policy that is set as the default (operative) version. For more information about policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /Using IAM/ guide.
 mpdDefaultVersionId :: Lens' ManagedPolicyDetail (Maybe Text)
 mpdDefaultVersionId = lens _mpdDefaultVersionId (\ s a -> s{_mpdDefaultVersionId = a})
@@ -1033,6 +1307,7 @@ instance FromXML ManagedPolicyDetail where
                    may (parseXMLList "member"))
                 <*> (x .@? "CreateDate")
                 <*> (x .@? "IsAttachable")
+                <*> (x .@? "PermissionsBoundaryUsageCount")
                 <*> (x .@? "DefaultVersionId")
                 <*> (x .@? "AttachmentCount")
                 <*> (x .@? "Description")
@@ -1238,16 +1513,17 @@ instance NFData PasswordPolicy where
 --
 -- /See:/ 'policy' smart constructor.
 data Policy = Policy'
-  { _pPolicyName       :: !(Maybe Text)
-  , _pARN              :: !(Maybe Text)
-  , _pUpdateDate       :: !(Maybe ISO8601)
-  , _pPolicyId         :: !(Maybe Text)
-  , _pPath             :: !(Maybe Text)
-  , _pCreateDate       :: !(Maybe ISO8601)
-  , _pIsAttachable     :: !(Maybe Bool)
-  , _pDefaultVersionId :: !(Maybe Text)
-  , _pAttachmentCount  :: !(Maybe Int)
-  , _pDescription      :: !(Maybe Text)
+  { _pPolicyName                    :: !(Maybe Text)
+  , _pARN                           :: !(Maybe Text)
+  , _pUpdateDate                    :: !(Maybe ISO8601)
+  , _pPolicyId                      :: !(Maybe Text)
+  , _pPath                          :: !(Maybe Text)
+  , _pCreateDate                    :: !(Maybe ISO8601)
+  , _pIsAttachable                  :: !(Maybe Bool)
+  , _pPermissionsBoundaryUsageCount :: !(Maybe Int)
+  , _pDefaultVersionId              :: !(Maybe Text)
+  , _pAttachmentCount               :: !(Maybe Int)
+  , _pDescription                   :: !(Maybe Text)
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -1269,6 +1545,8 @@ data Policy = Policy'
 --
 -- * 'pIsAttachable' - Specifies whether the policy can be attached to an IAM user, group, or role.
 --
+-- * 'pPermissionsBoundaryUsageCount' - The number of entities (users and roles) for which the policy is used to set the permissions boundary.  For more information about permissions boundaries, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+--
 -- * 'pDefaultVersionId' - The identifier for the version of the policy that is set as the default version.
 --
 -- * 'pAttachmentCount' - The number of entities (users, groups, and roles) that the policy is attached to.
@@ -1285,6 +1563,7 @@ policy =
     , _pPath = Nothing
     , _pCreateDate = Nothing
     , _pIsAttachable = Nothing
+    , _pPermissionsBoundaryUsageCount = Nothing
     , _pDefaultVersionId = Nothing
     , _pAttachmentCount = Nothing
     , _pDescription = Nothing
@@ -1319,6 +1598,10 @@ pCreateDate = lens _pCreateDate (\ s a -> s{_pCreateDate = a}) . mapping _Time
 pIsAttachable :: Lens' Policy (Maybe Bool)
 pIsAttachable = lens _pIsAttachable (\ s a -> s{_pIsAttachable = a})
 
+-- | The number of entities (users and roles) for which the policy is used to set the permissions boundary.  For more information about permissions boundaries, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+pPermissionsBoundaryUsageCount :: Lens' Policy (Maybe Int)
+pPermissionsBoundaryUsageCount = lens _pPermissionsBoundaryUsageCount (\ s a -> s{_pPermissionsBoundaryUsageCount = a})
+
 -- | The identifier for the version of the policy that is set as the default version.
 pDefaultVersionId :: Lens' Policy (Maybe Text)
 pDefaultVersionId = lens _pDefaultVersionId (\ s a -> s{_pDefaultVersionId = a})
@@ -1340,6 +1623,7 @@ instance FromXML Policy where
                 <*> (x .@? "Path")
                 <*> (x .@? "CreateDate")
                 <*> (x .@? "IsAttachable")
+                <*> (x .@? "PermissionsBoundaryUsageCount")
                 <*> (x .@? "DefaultVersionId")
                 <*> (x .@? "AttachmentCount")
                 <*> (x .@? "Description")
@@ -1390,6 +1674,81 @@ instance FromXML PolicyDetail where
 instance Hashable PolicyDetail where
 
 instance NFData PolicyDetail where
+
+-- | Contains details about the permissions policies that are attached to the specified identity (user, group, or role).
+--
+--
+-- This data type is an element of the 'ListPoliciesGrantingServiceAccessEntry' object.
+--
+--
+-- /See:/ 'policyGrantingServiceAccess' smart constructor.
+data PolicyGrantingServiceAccess = PolicyGrantingServiceAccess'
+  { _pgsaEntityName :: !(Maybe Text)
+  , _pgsaEntityType :: !(Maybe PolicyOwnerEntityType)
+  , _pgsaPolicyARN  :: !(Maybe Text)
+  , _pgsaPolicyName :: !Text
+  , _pgsaPolicyType :: !PolicyType
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'PolicyGrantingServiceAccess' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pgsaEntityName' - The name of the entity (user or role) to which the inline policy is attached. This field is null for managed policies. For more information about these policy types, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+--
+-- * 'pgsaEntityType' - The type of entity (user or role) that used the policy to access the service to which the inline policy is attached. This field is null for managed policies. For more information about these policy types, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+--
+-- * 'pgsaPolicyARN' - Undocumented member.
+--
+-- * 'pgsaPolicyName' - The policy name.
+--
+-- * 'pgsaPolicyType' - The policy type. For more information about these policy types, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+policyGrantingServiceAccess
+    :: Text -- ^ 'pgsaPolicyName'
+    -> PolicyType -- ^ 'pgsaPolicyType'
+    -> PolicyGrantingServiceAccess
+policyGrantingServiceAccess pPolicyName_ pPolicyType_ =
+  PolicyGrantingServiceAccess'
+    { _pgsaEntityName = Nothing
+    , _pgsaEntityType = Nothing
+    , _pgsaPolicyARN = Nothing
+    , _pgsaPolicyName = pPolicyName_
+    , _pgsaPolicyType = pPolicyType_
+    }
+
+
+-- | The name of the entity (user or role) to which the inline policy is attached. This field is null for managed policies. For more information about these policy types, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+pgsaEntityName :: Lens' PolicyGrantingServiceAccess (Maybe Text)
+pgsaEntityName = lens _pgsaEntityName (\ s a -> s{_pgsaEntityName = a})
+
+-- | The type of entity (user or role) that used the policy to access the service to which the inline policy is attached. This field is null for managed policies. For more information about these policy types, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+pgsaEntityType :: Lens' PolicyGrantingServiceAccess (Maybe PolicyOwnerEntityType)
+pgsaEntityType = lens _pgsaEntityType (\ s a -> s{_pgsaEntityType = a})
+
+-- | Undocumented member.
+pgsaPolicyARN :: Lens' PolicyGrantingServiceAccess (Maybe Text)
+pgsaPolicyARN = lens _pgsaPolicyARN (\ s a -> s{_pgsaPolicyARN = a})
+
+-- | The policy name.
+pgsaPolicyName :: Lens' PolicyGrantingServiceAccess Text
+pgsaPolicyName = lens _pgsaPolicyName (\ s a -> s{_pgsaPolicyName = a})
+
+-- | The policy type. For more information about these policy types, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+pgsaPolicyType :: Lens' PolicyGrantingServiceAccess PolicyType
+pgsaPolicyType = lens _pgsaPolicyType (\ s a -> s{_pgsaPolicyType = a})
+
+instance FromXML PolicyGrantingServiceAccess where
+        parseXML x
+          = PolicyGrantingServiceAccess' <$>
+              (x .@? "EntityName") <*> (x .@? "EntityType") <*>
+                (x .@? "PolicyArn")
+                <*> (x .@ "PolicyName")
+                <*> (x .@ "PolicyType")
+
+instance Hashable PolicyGrantingServiceAccess where
+
+instance NFData PolicyGrantingServiceAccess where
 
 -- | Contains information about a group that a managed policy is attached to.
 --
@@ -1650,7 +2009,7 @@ data ResourceSpecificResult = ResourceSpecificResult'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsrMatchedStatements' - A list of the statements in the input policies that determine the result for this part of the simulation. Remember that even if multiple statements allow the operation on the resource, if /any/ statement denies that operation, then the explicit deny overrides any allow, and the deny statement is the only entry included in the result.
+-- * 'rsrMatchedStatements' - A list of the statements in the input policies that determine the result for this part of the simulation. Remember that even if multiple statements allow the operation on the resource, if /any/ statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.
 --
 -- * 'rsrEvalDecisionDetails' - Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access.
 --
@@ -1673,7 +2032,7 @@ resourceSpecificResult pEvalResourceName_ pEvalResourceDecision_ =
     }
 
 
--- | A list of the statements in the input policies that determine the result for this part of the simulation. Remember that even if multiple statements allow the operation on the resource, if /any/ statement denies that operation, then the explicit deny overrides any allow, and the deny statement is the only entry included in the result.
+-- | A list of the statements in the input policies that determine the result for this part of the simulation. Remember that even if multiple statements allow the operation on the resource, if /any/ statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.
 rsrMatchedStatements :: Lens' ResourceSpecificResult [Statement]
 rsrMatchedStatements = lens _rsrMatchedStatements (\ s a -> s{_rsrMatchedStatements = a}) . _Default . _Coerce
 
@@ -1719,7 +2078,9 @@ instance NFData ResourceSpecificResult where
 data Role = Role'
   { _rMaxSessionDuration       :: !(Maybe Nat)
   , _rAssumeRolePolicyDocument :: !(Maybe Text)
+  , _rPermissionsBoundary      :: !(Maybe AttachedPermissionsBoundary)
   , _rDescription              :: !(Maybe Text)
+  , _rTags                     :: !(Maybe [Tag])
   , _rPath                     :: !Text
   , _rRoleName                 :: !Text
   , _rRoleId                   :: !Text
@@ -1732,11 +2093,15 @@ data Role = Role'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rMaxSessionDuration' - The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI or API to assume the role can specify the duration using the optional @DurationSeconds@ API parameter or @duration-seconds@ CLI parameter.
+-- * 'rMaxSessionDuration' - The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional @DurationSeconds@ API parameter or @duration-seconds@ CLI parameter.
 --
 -- * 'rAssumeRolePolicyDocument' - The policy that grants an entity permission to assume the role.
 --
+-- * 'rPermissionsBoundary' - The ARN of the policy used to set the permissions boundary for the role. For more information about permissions boundaries, see <IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+--
 -- * 'rDescription' - A description of the role that you provide.
+--
+-- * 'rTags' - A list of tags that are attached to the specified role. For more information about tagging, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
 --
 -- * 'rPath' - The path to the role. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
@@ -1758,7 +2123,9 @@ role' pPath_ pRoleName_ pRoleId_ pARN_ pCreateDate_ =
   Role'
     { _rMaxSessionDuration = Nothing
     , _rAssumeRolePolicyDocument = Nothing
+    , _rPermissionsBoundary = Nothing
     , _rDescription = Nothing
+    , _rTags = Nothing
     , _rPath = pPath_
     , _rRoleName = pRoleName_
     , _rRoleId = pRoleId_
@@ -1767,7 +2134,7 @@ role' pPath_ pRoleName_ pRoleId_ pARN_ pCreateDate_ =
     }
 
 
--- | The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI or API to assume the role can specify the duration using the optional @DurationSeconds@ API parameter or @duration-seconds@ CLI parameter.
+-- | The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional @DurationSeconds@ API parameter or @duration-seconds@ CLI parameter.
 rMaxSessionDuration :: Lens' Role (Maybe Natural)
 rMaxSessionDuration = lens _rMaxSessionDuration (\ s a -> s{_rMaxSessionDuration = a}) . mapping _Nat
 
@@ -1775,9 +2142,17 @@ rMaxSessionDuration = lens _rMaxSessionDuration (\ s a -> s{_rMaxSessionDuration
 rAssumeRolePolicyDocument :: Lens' Role (Maybe Text)
 rAssumeRolePolicyDocument = lens _rAssumeRolePolicyDocument (\ s a -> s{_rAssumeRolePolicyDocument = a})
 
+-- | The ARN of the policy used to set the permissions boundary for the role. For more information about permissions boundaries, see <IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+rPermissionsBoundary :: Lens' Role (Maybe AttachedPermissionsBoundary)
+rPermissionsBoundary = lens _rPermissionsBoundary (\ s a -> s{_rPermissionsBoundary = a})
+
 -- | A description of the role that you provide.
 rDescription :: Lens' Role (Maybe Text)
 rDescription = lens _rDescription (\ s a -> s{_rDescription = a})
+
+-- | A list of tags that are attached to the specified role. For more information about tagging, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
+rTags :: Lens' Role [Tag]
+rTags = lens _rTags (\ s a -> s{_rTags = a}) . _Default . _Coerce
 
 -- | The path to the role. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 rPath :: Lens' Role Text
@@ -1804,7 +2179,11 @@ instance FromXML Role where
           = Role' <$>
               (x .@? "MaxSessionDuration") <*>
                 (x .@? "AssumeRolePolicyDocument")
+                <*> (x .@? "PermissionsBoundary")
                 <*> (x .@? "Description")
+                <*>
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList "member"))
                 <*> (x .@ "Path")
                 <*> (x .@ "RoleName")
                 <*> (x .@ "RoleId")
@@ -1830,7 +2209,9 @@ data RoleDetail = RoleDetail'
   , _rdCreateDate               :: !(Maybe ISO8601)
   , _rdRoleName                 :: !(Maybe Text)
   , _rdRoleId                   :: !(Maybe Text)
+  , _rdPermissionsBoundary      :: !(Maybe AttachedPermissionsBoundary)
   , _rdRolePolicyList           :: !(Maybe [PolicyDetail])
+  , _rdTags                     :: !(Maybe [Tag])
   , _rdAttachedManagedPolicies  :: !(Maybe [AttachedPolicy])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -1853,7 +2234,11 @@ data RoleDetail = RoleDetail'
 --
 -- * 'rdRoleId' - The stable and unique string identifying the role. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
+-- * 'rdPermissionsBoundary' - The ARN of the policy used to set the permissions boundary for the role. For more information about permissions boundaries, see <IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+--
 -- * 'rdRolePolicyList' - A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.
+--
+-- * 'rdTags' - A list of tags that are attached to the specified role. For more information about tagging, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
 --
 -- * 'rdAttachedManagedPolicies' - A list of managed policies attached to the role. These policies are the role's access (permissions) policies.
 roleDetail
@@ -1867,7 +2252,9 @@ roleDetail =
     , _rdCreateDate = Nothing
     , _rdRoleName = Nothing
     , _rdRoleId = Nothing
+    , _rdPermissionsBoundary = Nothing
     , _rdRolePolicyList = Nothing
+    , _rdTags = Nothing
     , _rdAttachedManagedPolicies = Nothing
     }
 
@@ -1900,9 +2287,17 @@ rdRoleName = lens _rdRoleName (\ s a -> s{_rdRoleName = a})
 rdRoleId :: Lens' RoleDetail (Maybe Text)
 rdRoleId = lens _rdRoleId (\ s a -> s{_rdRoleId = a})
 
+-- | The ARN of the policy used to set the permissions boundary for the role. For more information about permissions boundaries, see <IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+rdPermissionsBoundary :: Lens' RoleDetail (Maybe AttachedPermissionsBoundary)
+rdPermissionsBoundary = lens _rdPermissionsBoundary (\ s a -> s{_rdPermissionsBoundary = a})
+
 -- | A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.
 rdRolePolicyList :: Lens' RoleDetail [PolicyDetail]
 rdRolePolicyList = lens _rdRolePolicyList (\ s a -> s{_rdRolePolicyList = a}) . _Default . _Coerce
+
+-- | A list of tags that are attached to the specified role. For more information about tagging, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
+rdTags :: Lens' RoleDetail [Tag]
+rdTags = lens _rdTags (\ s a -> s{_rdTags = a}) . _Default . _Coerce
 
 -- | A list of managed policies attached to the role. These policies are the role's access (permissions) policies.
 rdAttachedManagedPolicies :: Lens' RoleDetail [AttachedPolicy]
@@ -1919,8 +2314,12 @@ instance FromXML RoleDetail where
                 <*> (x .@? "CreateDate")
                 <*> (x .@? "RoleName")
                 <*> (x .@? "RoleId")
+                <*> (x .@? "PermissionsBoundary")
                 <*>
                 (x .@? "RolePolicyList" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*>
+                (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "member"))
                 <*>
                 (x .@? "AttachedManagedPolicies" .!@ mempty >>=
@@ -2326,6 +2725,82 @@ instance Hashable ServerCertificateMetadata where
 
 instance NFData ServerCertificateMetadata where
 
+-- | Contains details about the most recent attempt to access the service.
+--
+--
+-- This data type is used as a response element in the 'GetServiceLastAccessedDetails' operation.
+--
+--
+-- /See:/ 'serviceLastAccessed' smart constructor.
+data ServiceLastAccessed = ServiceLastAccessed'
+  { _slaLastAuthenticated          :: !(Maybe ISO8601)
+  , _slaLastAuthenticatedEntity    :: !(Maybe Text)
+  , _slaTotalAuthenticatedEntities :: !(Maybe Int)
+  , _slaServiceName                :: !Text
+  , _slaServiceNamespace           :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'ServiceLastAccessed' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slaLastAuthenticated' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when an authenticated entity most recently attempted to access the service. AWS does not report unauthenticated requests. This field is null if no IAM entities attempted to access the service within the <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+--
+-- * 'slaLastAuthenticatedEntity' - The ARN of the authenticated entity (user or role) that last attempted to access the service. AWS does not report unauthenticated requests. This field is null if no IAM entities attempted to access the service within the <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+--
+-- * 'slaTotalAuthenticatedEntities' - The total number of authenticated entities that have attempted to access the service. This field is null if no IAM entities attempted to access the service within the <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+--
+-- * 'slaServiceName' - The name of the service in which access was attempted.
+--
+-- * 'slaServiceNamespace' - The namespace of the service in which access was attempted. To learn the service namespace of a service, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
+serviceLastAccessed
+    :: Text -- ^ 'slaServiceName'
+    -> Text -- ^ 'slaServiceNamespace'
+    -> ServiceLastAccessed
+serviceLastAccessed pServiceName_ pServiceNamespace_ =
+  ServiceLastAccessed'
+    { _slaLastAuthenticated = Nothing
+    , _slaLastAuthenticatedEntity = Nothing
+    , _slaTotalAuthenticatedEntities = Nothing
+    , _slaServiceName = pServiceName_
+    , _slaServiceNamespace = pServiceNamespace_
+    }
+
+
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when an authenticated entity most recently attempted to access the service. AWS does not report unauthenticated requests. This field is null if no IAM entities attempted to access the service within the <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+slaLastAuthenticated :: Lens' ServiceLastAccessed (Maybe UTCTime)
+slaLastAuthenticated = lens _slaLastAuthenticated (\ s a -> s{_slaLastAuthenticated = a}) . mapping _Time
+
+-- | The ARN of the authenticated entity (user or role) that last attempted to access the service. AWS does not report unauthenticated requests. This field is null if no IAM entities attempted to access the service within the <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+slaLastAuthenticatedEntity :: Lens' ServiceLastAccessed (Maybe Text)
+slaLastAuthenticatedEntity = lens _slaLastAuthenticatedEntity (\ s a -> s{_slaLastAuthenticatedEntity = a})
+
+-- | The total number of authenticated entities that have attempted to access the service. This field is null if no IAM entities attempted to access the service within the <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+slaTotalAuthenticatedEntities :: Lens' ServiceLastAccessed (Maybe Int)
+slaTotalAuthenticatedEntities = lens _slaTotalAuthenticatedEntities (\ s a -> s{_slaTotalAuthenticatedEntities = a})
+
+-- | The name of the service in which access was attempted.
+slaServiceName :: Lens' ServiceLastAccessed Text
+slaServiceName = lens _slaServiceName (\ s a -> s{_slaServiceName = a})
+
+-- | The namespace of the service in which access was attempted. To learn the service namespace of a service, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
+slaServiceNamespace :: Lens' ServiceLastAccessed Text
+slaServiceNamespace = lens _slaServiceNamespace (\ s a -> s{_slaServiceNamespace = a})
+
+instance FromXML ServiceLastAccessed where
+        parseXML x
+          = ServiceLastAccessed' <$>
+              (x .@? "LastAuthenticated") <*>
+                (x .@? "LastAuthenticatedEntity")
+                <*> (x .@? "TotalAuthenticatedEntities")
+                <*> (x .@ "ServiceName")
+                <*> (x .@ "ServiceNamespace")
+
+instance Hashable ServiceLastAccessed where
+
+instance NFData ServiceLastAccessed where
+
 -- | Contains the details of a service-specific credential.
 --
 --
@@ -2608,7 +3083,7 @@ data SimulatePolicyResponse = SimulatePolicyResponse'
 --
 -- * 'spMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 --
--- * 'spIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
+-- * 'spIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
 simulatePolicyResponse
     :: SimulatePolicyResponse
 simulatePolicyResponse =
@@ -2627,7 +3102,7 @@ spEvaluationResults = lens _spEvaluationResults (\ s a -> s{_spEvaluationResults
 spMarker :: Lens' SimulatePolicyResponse (Maybe Text)
 spMarker = lens _spMarker (\ s a -> s{_spMarker = a})
 
--- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
+-- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
 spIsTruncated :: Lens' SimulatePolicyResponse (Maybe Bool)
 spIsTruncated = lens _spIsTruncated (\ s a -> s{_spIsTruncated = a})
 
@@ -2708,6 +3183,50 @@ instance Hashable Statement where
 
 instance NFData Statement where
 
+-- | A structure that represents user-provided metadata that can be associated with a resource such as an IAM user or role. For more information about tagging, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
+--
+--
+--
+-- /See:/ 'tag' smart constructor.
+data Tag = Tag'
+  { _tagKey   :: !Text
+  , _tagValue :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagKey' - The key name that can be used to look up or retrieve the associated value. For example, @Department@ or @Cost Center@ are common choices.
+--
+-- * 'tagValue' - The value associated with this tag. For example, tags with a key name of @Department@ could have values such as @Human Resources@ , @Accounting@ , and @Support@ . Tags with a key name of @Cost Center@ might have values that consist of the number associated with the different cost centers in your company. Typically, many resources have tags with the same key name but with different values.
+tag
+    :: Text -- ^ 'tagKey'
+    -> Text -- ^ 'tagValue'
+    -> Tag
+tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
+
+
+-- | The key name that can be used to look up or retrieve the associated value. For example, @Department@ or @Cost Center@ are common choices.
+tagKey :: Lens' Tag Text
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
+
+-- | The value associated with this tag. For example, tags with a key name of @Department@ could have values such as @Human Resources@ , @Accounting@ , and @Support@ . Tags with a key name of @Cost Center@ might have values that consist of the number associated with the different cost centers in your company. Typically, many resources have tags with the same key name but with different values.
+tagValue :: Lens' Tag Text
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
+
+instance FromXML Tag where
+        parseXML x = Tag' <$> (x .@ "Key") <*> (x .@ "Value")
+
+instance Hashable Tag where
+
+instance NFData Tag where
+
+instance ToQuery Tag where
+        toQuery Tag'{..}
+          = mconcat ["Key" =: _tagKey, "Value" =: _tagValue]
+
 -- | Contains information about an IAM user entity.
 --
 --
@@ -2724,12 +3243,14 @@ instance NFData Statement where
 --
 -- /See:/ 'user' smart constructor.
 data User = User'
-  { _uPasswordLastUsed :: !(Maybe ISO8601)
-  , _uPath             :: !Text
-  , _uUserName         :: !Text
-  , _uUserId           :: !Text
-  , _uARN              :: !Text
-  , _uCreateDate       :: !ISO8601
+  { _uPasswordLastUsed    :: !(Maybe ISO8601)
+  , _uPermissionsBoundary :: !(Maybe AttachedPermissionsBoundary)
+  , _uTags                :: !(Maybe [Tag])
+  , _uPath                :: !Text
+  , _uUserName            :: !Text
+  , _uUserId              :: !Text
+  , _uARN                 :: !Text
+  , _uCreateDate          :: !ISO8601
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -2737,7 +3258,11 @@ data User = User'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uPasswordLastUsed' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Credential Reports> topic in the /Using IAM/ guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:     * The user never had a password.     * A password exists but has not been used since IAM started tracking this information on October 20th, 2014. A null does not mean that the user /never/ had a password. Also, if the user does not currently have a password, but had one in the past, then this field contains the date and time the most recent password was used. This value is returned only in the 'GetUser' and 'ListUsers' operations.
+-- * 'uPasswordLastUsed' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Credential Reports> topic in the /Using IAM/ guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:     * The user never had a password.     * A password exists but has not been used since IAM started tracking this information on October 20, 2014. A null valuedoes not mean that the user /never/ had a password. Also, if the user does not currently have a password, but had one in the past, then this field contains the date and time the most recent password was used. This value is returned only in the 'GetUser' and 'ListUsers' operations.
+--
+-- * 'uPermissionsBoundary' - The ARN of the policy used to set the permissions boundary for the user. For more information about permissions boundaries, see <IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+--
+-- * 'uTags' - A list of tags that are associated with the specified user. For more information about tagging, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
 --
 -- * 'uPath' - The path to the user. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
@@ -2758,6 +3283,8 @@ user
 user pPath_ pUserName_ pUserId_ pARN_ pCreateDate_ =
   User'
     { _uPasswordLastUsed = Nothing
+    , _uPermissionsBoundary = Nothing
+    , _uTags = Nothing
     , _uPath = pPath_
     , _uUserName = pUserName_
     , _uUserId = pUserId_
@@ -2766,9 +3293,17 @@ user pPath_ pUserName_ pUserId_ pARN_ pCreateDate_ =
     }
 
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Credential Reports> topic in the /Using IAM/ guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value) then it indicates that they never signed in with a password. This can be because:     * The user never had a password.     * A password exists but has not been used since IAM started tracking this information on October 20th, 2014. A null does not mean that the user /never/ had a password. Also, if the user does not currently have a password, but had one in the past, then this field contains the date and time the most recent password was used. This value is returned only in the 'GetUser' and 'ListUsers' operations.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Credential Reports> topic in the /Using IAM/ guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:     * The user never had a password.     * A password exists but has not been used since IAM started tracking this information on October 20, 2014. A null valuedoes not mean that the user /never/ had a password. Also, if the user does not currently have a password, but had one in the past, then this field contains the date and time the most recent password was used. This value is returned only in the 'GetUser' and 'ListUsers' operations.
 uPasswordLastUsed :: Lens' User (Maybe UTCTime)
 uPasswordLastUsed = lens _uPasswordLastUsed (\ s a -> s{_uPasswordLastUsed = a}) . mapping _Time
+
+-- | The ARN of the policy used to set the permissions boundary for the user. For more information about permissions boundaries, see <IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+uPermissionsBoundary :: Lens' User (Maybe AttachedPermissionsBoundary)
+uPermissionsBoundary = lens _uPermissionsBoundary (\ s a -> s{_uPermissionsBoundary = a})
+
+-- | A list of tags that are associated with the specified user. For more information about tagging, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
+uTags :: Lens' User [Tag]
+uTags = lens _uTags (\ s a -> s{_uTags = a}) . _Default . _Coerce
 
 -- | The path to the user. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 uPath :: Lens' User Text
@@ -2793,8 +3328,13 @@ uCreateDate = lens _uCreateDate (\ s a -> s{_uCreateDate = a}) . _Time
 instance FromXML User where
         parseXML x
           = User' <$>
-              (x .@? "PasswordLastUsed") <*> (x .@ "Path") <*>
-                (x .@ "UserName")
+              (x .@? "PasswordLastUsed") <*>
+                (x .@? "PermissionsBoundary")
+                <*>
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*> (x .@ "Path")
+                <*> (x .@ "UserName")
                 <*> (x .@ "UserId")
                 <*> (x .@ "Arn")
                 <*> (x .@ "CreateDate")
@@ -2817,7 +3357,9 @@ data UserDetail = UserDetail'
   , _udCreateDate              :: !(Maybe ISO8601)
   , _udUserName                :: !(Maybe Text)
   , _udUserId                  :: !(Maybe Text)
+  , _udPermissionsBoundary     :: !(Maybe AttachedPermissionsBoundary)
   , _udUserPolicyList          :: !(Maybe [PolicyDetail])
+  , _udTags                    :: !(Maybe [Tag])
   , _udAttachedManagedPolicies :: !(Maybe [AttachedPolicy])
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
@@ -2838,7 +3380,11 @@ data UserDetail = UserDetail'
 --
 -- * 'udUserId' - The stable and unique string identifying the user. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
+-- * 'udPermissionsBoundary' - The ARN of the policy used to set the permissions boundary for the user. For more information about permissions boundaries, see <IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+--
 -- * 'udUserPolicyList' - A list of the inline policies embedded in the user.
+--
+-- * 'udTags' - A list of tags that are associated with the specified user. For more information about tagging, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
 --
 -- * 'udAttachedManagedPolicies' - A list of the managed policies attached to the user.
 userDetail
@@ -2851,7 +3397,9 @@ userDetail =
     , _udCreateDate = Nothing
     , _udUserName = Nothing
     , _udUserId = Nothing
+    , _udPermissionsBoundary = Nothing
     , _udUserPolicyList = Nothing
+    , _udTags = Nothing
     , _udAttachedManagedPolicies = Nothing
     }
 
@@ -2880,9 +3428,17 @@ udUserName = lens _udUserName (\ s a -> s{_udUserName = a})
 udUserId :: Lens' UserDetail (Maybe Text)
 udUserId = lens _udUserId (\ s a -> s{_udUserId = a})
 
+-- | The ARN of the policy used to set the permissions boundary for the user. For more information about permissions boundaries, see <IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+udPermissionsBoundary :: Lens' UserDetail (Maybe AttachedPermissionsBoundary)
+udPermissionsBoundary = lens _udPermissionsBoundary (\ s a -> s{_udPermissionsBoundary = a})
+
 -- | A list of the inline policies embedded in the user.
 udUserPolicyList :: Lens' UserDetail [PolicyDetail]
 udUserPolicyList = lens _udUserPolicyList (\ s a -> s{_udUserPolicyList = a}) . _Default . _Coerce
+
+-- | A list of tags that are associated with the specified user. For more information about tagging, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
+udTags :: Lens' UserDetail [Tag]
+udTags = lens _udTags (\ s a -> s{_udTags = a}) . _Default . _Coerce
 
 -- | A list of the managed policies attached to the user.
 udAttachedManagedPolicies :: Lens' UserDetail [AttachedPolicy]
@@ -2898,8 +3454,12 @@ instance FromXML UserDetail where
                 <*> (x .@? "CreateDate")
                 <*> (x .@? "UserName")
                 <*> (x .@? "UserId")
+                <*> (x .@? "PermissionsBoundary")
                 <*>
                 (x .@? "UserPolicyList" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*>
+                (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "member"))
                 <*>
                 (x .@? "AttachedManagedPolicies" .!@ mempty >>=
@@ -2927,9 +3487,9 @@ data VirtualMFADevice = VirtualMFADevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vmdQRCodePNG' - A QR code PNG image that encodes @otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String@ where @> virtualMFADeviceName@ is one of the create call arguments, @AccountName@ is the user name if set (otherwise, the account ID otherwise), and @Base32String@ is the seed in Base32 format. The @Base32String@ value is Base64-encoded. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'vmdQRCodePNG' - A QR code PNG image that encodes @otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String@ where @> virtualMFADeviceName@ is one of the create call arguments. @AccountName@ is the user name if set (otherwise, the account ID otherwise), and @Base32String@ is the seed in base32 format. The @Base32String@ value is base64-encoded. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'vmdBase32StringSeed' - The Base32 seed defined as specified in <https://tools.ietf.org/html/rfc3548.txt RFC3548> . The @Base32StringSeed@ is Base64-encoded. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'vmdBase32StringSeed' - The base32 seed defined as specified in <https://tools.ietf.org/html/rfc3548.txt RFC3548> . The @Base32StringSeed@ is base64-encoded. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
 -- * 'vmdUser' - The IAM user associated with this virtual MFA device.
 --
@@ -2949,11 +3509,11 @@ virtualMFADevice pSerialNumber_ =
     }
 
 
--- | A QR code PNG image that encodes @otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String@ where @> virtualMFADeviceName@ is one of the create call arguments, @AccountName@ is the user name if set (otherwise, the account ID otherwise), and @Base32String@ is the seed in Base32 format. The @Base32String@ value is Base64-encoded. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | A QR code PNG image that encodes @otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String@ where @> virtualMFADeviceName@ is one of the create call arguments. @AccountName@ is the user name if set (otherwise, the account ID otherwise), and @Base32String@ is the seed in base32 format. The @Base32String@ value is base64-encoded. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 vmdQRCodePNG :: Lens' VirtualMFADevice (Maybe ByteString)
 vmdQRCodePNG = lens _vmdQRCodePNG (\ s a -> s{_vmdQRCodePNG = a}) . mapping (_Sensitive . _Base64)
 
--- | The Base32 seed defined as specified in <https://tools.ietf.org/html/rfc3548.txt RFC3548> . The @Base32StringSeed@ is Base64-encoded. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | The base32 seed defined as specified in <https://tools.ietf.org/html/rfc3548.txt RFC3548> . The @Base32StringSeed@ is base64-encoded. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 vmdBase32StringSeed :: Lens' VirtualMFADevice (Maybe ByteString)
 vmdBase32StringSeed = lens _vmdBase32StringSeed (\ s a -> s{_vmdBase32StringSeed = a}) . mapping (_Sensitive . _Base64)
 

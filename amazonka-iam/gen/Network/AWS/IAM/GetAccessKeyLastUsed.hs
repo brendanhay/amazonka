@@ -55,7 +55,7 @@ newtype GetAccessKeyLastUsed = GetAccessKeyLastUsed'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gakluAccessKeyId' - The identifier of an access key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+-- * 'gakluAccessKeyId' - The identifier of an access key. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 getAccessKeyLastUsed
     :: AccessKey -- ^ 'gakluAccessKeyId'
     -> GetAccessKeyLastUsed
@@ -63,7 +63,7 @@ getAccessKeyLastUsed pAccessKeyId_ =
   GetAccessKeyLastUsed' {_gakluAccessKeyId = pAccessKeyId_}
 
 
--- | The identifier of an access key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+-- | The identifier of an access key. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 gakluAccessKeyId :: Lens' GetAccessKeyLastUsed AccessKey
 gakluAccessKeyId = lens _gakluAccessKeyId (\ s a -> s{_gakluAccessKeyId = a})
 

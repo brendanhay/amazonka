@@ -188,14 +188,14 @@
       ],
       "documentation":"<p>Creates an authorizer.</p>"
     },
-    "CreateCertificateFromCsr":{
-      "name":"CreateCertificateFromCsr",
+    "CreateCertificateFromCSR":{
+      "name":"CreateCertificateFromCSR",
       "http":{
         "method":"POST",
         "requestUri":"/certificates"
       },
-      "input":{"shape":"CreateCertificateFromCsrRequest"},
-      "output":{"shape":"CreateCertificateFromCsrResponse"},
+      "input":{"shape":"CreateCertificateFromCSRRequest"},
+      "output":{"shape":"CreateCertificateFromCSRResponse"},
       "errors":[
         {"shape":"InvalidRequestException"},
         {"shape":"ThrottlingException"},
@@ -3056,7 +3056,7 @@
         }
       }
     },
-    "CreateCertificateFromCsrRequest":{
+    "CreateCertificateFromCSRRequest":{
       "type":"structure",
       "required":["certificateSigningRequest"],
       "members":{
@@ -3071,9 +3071,9 @@
           "locationName":"setAsActive"
         }
       },
-      "documentation":"<p>The input for the CreateCertificateFromCsr operation.</p>"
+      "documentation":"<p>The input for the CreateCertificateFromCSR operation.</p>"
     },
-    "CreateCertificateFromCsrResponse":{
+    "CreateCertificateFromCSRResponse":{
       "type":"structure",
       "members":{
         "certificateArn":{
@@ -3089,7 +3089,7 @@
           "documentation":"<p>The certificate data, in PEM format.</p>"
         }
       },
-      "documentation":"<p>The output from the CreateCertificateFromCsr operation.</p>"
+      "documentation":"<p>The output from the CreateCertificateFromCSR operation.</p>"
     },
     "CreateJobRequest":{
       "type":"structure",

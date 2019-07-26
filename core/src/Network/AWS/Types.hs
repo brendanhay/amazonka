@@ -675,18 +675,24 @@ data Region
     | NorthCalifornia -- ^ US West ('us-west-1').
     | Oregon          -- ^ US West ('us-west-2').
     | Montreal        -- ^ Canada ('ca-central-1').
+    | HongKong        -- ^ Asia Pacific ('ap-east-1').
     | Tokyo           -- ^ Asia Pacific ('ap-northeast-1').
     | Seoul           -- ^ Asia Pacific ('ap-northeast-2').
+    | Osaka           -- ^ Asia Pacific ('ap-northeast-2').
     | Mumbai          -- ^ Asia Pacific ('ap-south-1').
     | Singapore       -- ^ Asia Pacific ('ap-southeast-1').
     | Sydney          -- ^ Asia Pacific ('ap-southeast-2').
     | SaoPaulo        -- ^ South America ('sa-east-1').
     | Ireland         -- ^ EU ('eu-west-1').
     | London          -- ^ EU ('eu-west-2').
+    | Paris           -- ^ EU ('eu-west-3').
     | Frankfurt       -- ^ EU ('eu-central-1').
+    | Stockholm       -- ^ EU ('eu-north-1').
     | GovCloud        -- ^ US GovCloud ('us-gov-west-1').
     | GovCloudFIPS    -- ^ US GovCloud FIPS (S3 Only, 'fips-us-gov-west-1').
+    | GovCloudEast    -- ^ US GovCloud ('us-gov-east-1').
     | Beijing         -- ^ China ('cn-north-1').
+    | Ningxia         -- ^ China ('cn-northwest-1').
       deriving (Eq, Ord, Read, Enum, Bounded, Show, Data, Typeable, Generic)
 
 instance Hashable Region
@@ -699,18 +705,24 @@ instance FromText Region where
         "us-west-1"          -> pure NorthCalifornia
         "us-west-2"          -> pure Oregon
         "ca-central-1"       -> pure Montreal
+        "ap-east-1"          -> pure HongKong
         "ap-northeast-1"     -> pure Tokyo
         "ap-northeast-2"     -> pure Seoul
+        "ap-northeast-3"     -> pure Osaka
         "ap-south-1"         -> pure Mumbai
         "ap-southeast-1"     -> pure Singapore
         "ap-southeast-2"     -> pure Sydney
         "sa-east-1"          -> pure SaoPaulo
         "eu-west-1"          -> pure Ireland
         "eu-west-2"          -> pure London
+        "eu-west-3"          -> pure Paris
         "eu-central-1"       -> pure Frankfurt
+        "eu-north-2"         -> pure Stockholm
         "us-gov-west-1"      -> pure GovCloud
         "fips-us-gov-west-1" -> pure GovCloudFIPS
+        "us-gov-east-1"      -> pure GovCloudEast
         "cn-north-1"         -> pure Beijing
+        "cn-northwest-1"     -> pure Ningxia
         e                    ->
             fromTextError $ "Failure parsing Region from " <> e
 
@@ -721,18 +733,24 @@ instance ToText Region where
         NorthCalifornia -> "us-west-1"
         Oregon          -> "us-west-2"
         Montreal        -> "ca-central-1"
+        HongKong        -> "ap-east-1"
         Tokyo           -> "ap-northeast-1"
         Seoul           -> "ap-northeast-2"
+        Osaka           -> "ap-northeast-3"
         Mumbai          -> "ap-south-1"
         Singapore       -> "ap-southeast-1"
         Sydney          -> "ap-southeast-2"
         SaoPaulo        -> "sa-east-1"
         Ireland         -> "eu-west-1"
         London          -> "eu-west-2"
+        Paris           -> "eu-west-3"
         Frankfurt       -> "eu-central-1"
+        Stockholm       -> "eu-north-1"
+        GovCloudEast    -> "us-gov-east-1"
         GovCloud        -> "us-gov-west-1"
         GovCloudFIPS    -> "fips-us-gov-west-1"
         Beijing         -> "cn-north-1"
+        Ningxia         -> "cn-northwest-1"
 
 instance ToByteString Region
 

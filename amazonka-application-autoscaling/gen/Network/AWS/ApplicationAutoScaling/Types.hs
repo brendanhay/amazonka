@@ -174,7 +174,7 @@ applicationAutoScaling =
   Service
     { _svcAbbrev = "ApplicationAutoScaling"
     , _svcSigner = v4
-    , _svcPrefix = "autoscaling"
+    , _svcPrefix = "application-autoscaling"
     , _svcVersion = "2016-02-06"
     , _svcEndpoint = defaultEndpoint applicationAutoScaling
     , _svcTimeout = Just 70

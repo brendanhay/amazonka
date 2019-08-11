@@ -86,4 +86,10 @@ getHostedZoneId = \case
     Frankfurt       -> Just "Z21DNDUVLTQW6Q"
     GovCloud        -> Just "Z31GFT0UA1I2HV"
     GovCloudFIPS    -> Just "Z31GFT0UA1I2HV"
+    Paris           -> Just "Z3R1K369G5AVDG"
+    Stockholm       -> Just "Z3BAZG2TWCNX0D"
+    GovCloudEast    -> Nothing
+    HongKong        -> Just "ZNB98KWMFR0R6"
+    Osaka           -> Just "Z2YQB5RD63NC85"
+    Ningxia         -> Nothing
     Beijing         -> Nothing

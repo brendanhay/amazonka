@@ -38,5 +38,11 @@ getAccountId = \case
     Ireland         -> Just "210876761215"
     London          -> Just "307160386991"
     GovCloud        -> Nothing
+    GovCloudEast    -> Nothing
     GovCloudFIPS    -> Nothing
     Beijing         -> Nothing
+    Ningxia         -> Nothing
+    Stockholm       -> Just "729911121831"
+    Paris           -> Just "915173422425"
+    Osaka           -> Just "090321488786"
+    HongKong        -> Just "313564881002"

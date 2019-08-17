@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the configuration parameters for the specified Lambda function by using the values provided in the request. You provide only the parameters you want to change. This operation must only be used on an existing Lambda function and cannot be used to update the function's code.
+-- Modify the version-specific settings of a Lambda function.
 --
 --
--- If you are using the versioning feature, note this API will always update the $LATEST version of your Lambda function. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases> .
+-- These settings can vary between versions of a function and are locked when you publish a version. You can't modify the configuration of a published version, only the unpublished version.
 --
--- This operation requires permission for the @lambda:UpdateFunctionConfiguration@ action.
+-- To configure function concurrency, use 'PutFunctionConcurrency' . To grant invoke permissions to an account or AWS service, use 'AddPermission' .
 --
 module Network.AWS.Lambda.UpdateFunctionConfiguration
     (
@@ -38,6 +38,7 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     , ufcDeadLetterConfig
     , ufcRole
     , ufcVPCConfig
+    , ufcLayers
     , ufcHandler
     , ufcTimeout
     , ufcTracingConfig
@@ -59,6 +60,7 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     , fcVPCConfig
     , fcVersion
     , fcFunctionName
+    , fcLayers
     , fcCodeSize
     , fcHandler
     , fcTimeout
@@ -77,11 +79,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- |
---
---
---
--- /See:/ 'updateFunctionConfiguration' smart constructor.
+-- | /See:/ 'updateFunctionConfiguration' smart constructor.
 data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
   { _ufcMemorySize       :: !(Maybe Nat)
   , _ufcRuntime          :: !(Maybe Runtime)
@@ -90,6 +88,7 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
   , _ufcDeadLetterConfig :: !(Maybe DeadLetterConfig)
   , _ufcRole             :: !(Maybe Text)
   , _ufcVPCConfig        :: !(Maybe VPCConfig)
+  , _ufcLayers           :: !(Maybe [Text])
   , _ufcHandler          :: !(Maybe Text)
   , _ufcTimeout          :: !(Maybe Nat)
   , _ufcTracingConfig    :: !(Maybe TracingConfig)
@@ -103,31 +102,33 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufcMemorySize' - The amount of memory, in MB, your Lambda function is given. AWS Lambda uses this memory size to infer the amount of CPU allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB.
+-- * 'ufcMemorySize' - The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
 --
--- * 'ufcRuntime' - The runtime environment for the Lambda function. To use the Python runtime v3.6, set the value to "python3.6". To use the Python runtime v2.7, set the value to "python2.7". To use the Node.js runtime v6.10, set the value to "nodejs6.10". To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use the .NET Core runtime v1.0, set the value to "dotnetcore1.0". To use the .NET Core runtime v2.0, set the value to "dotnetcore2.0".
+-- * 'ufcRuntime' - The identifier of the function's <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime> .
 --
--- * 'ufcKMSKeyARN' - The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If you elect to use the AWS Lambda default service key, pass in an empty string ("") for this parameter.
+-- * 'ufcKMSKeyARN' - The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
 --
--- * 'ufcEnvironment' - The parent object that contains your environment's configuration settings.
+-- * 'ufcEnvironment' - Environment variables that are accessible from function code during execution.
 --
--- * 'ufcDeadLetterConfig' - The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic. For more information, see 'dlq' .
+-- * 'ufcDeadLetterConfig' - A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/dlq.html Dead Letter Queues> .
 --
--- * 'ufcRole' - The Amazon Resource Name (ARN) of the IAM role that Lambda will assume when it executes your function.
+-- * 'ufcRole' - The Amazon Resource Name (ARN) of the function's execution role.
 --
--- * 'ufcVPCConfig' - Undocumented member.
+-- * 'ufcVPCConfig' - For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/vpc.html VPC Settings> .
 --
--- * 'ufcHandler' - The function that Lambda calls to begin executing your function. For Node.js, it is the @module-name.export@ value in your function.
+-- * 'ufcLayers' - A list of <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers> to add to the function's execution environment. Specify each layer by its ARN, including the version.
 --
--- * 'ufcTimeout' - The function execution time at which AWS Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.
+-- * 'ufcHandler' - The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model> .
 --
--- * 'ufcTracingConfig' - The parent object that contains your function's tracing settings.
+-- * 'ufcTimeout' - The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
 --
--- * 'ufcDescription' - A short user-defined function description. AWS Lambda does not use this value. Assign a meaningful description as you see fit.
+-- * 'ufcTracingConfig' - Set @Mode@ to @Active@ to sample and trace a subset of incoming requests with AWS X-Ray.
 --
--- * 'ufcRevisionId' - An optional value you can use to ensure you are updating the latest update of the function version or alias. If the @RevisionID@ you pass doesn't match the latest @RevisionId@ of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias @RevisionID@ using either or .
+-- * 'ufcDescription' - A description of the function.
 --
--- * 'ufcFunctionName' - The name of the Lambda function. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- * 'ufcRevisionId' - Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.
+--
+-- * 'ufcFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @my-function@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 updateFunctionConfiguration
     :: Text -- ^ 'ufcFunctionName'
     -> UpdateFunctionConfiguration
@@ -140,6 +141,7 @@ updateFunctionConfiguration pFunctionName_ =
     , _ufcDeadLetterConfig = Nothing
     , _ufcRole = Nothing
     , _ufcVPCConfig = Nothing
+    , _ufcLayers = Nothing
     , _ufcHandler = Nothing
     , _ufcTimeout = Nothing
     , _ufcTracingConfig = Nothing
@@ -149,55 +151,59 @@ updateFunctionConfiguration pFunctionName_ =
     }
 
 
--- | The amount of memory, in MB, your Lambda function is given. AWS Lambda uses this memory size to infer the amount of CPU allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB.
+-- | The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
 ufcMemorySize :: Lens' UpdateFunctionConfiguration (Maybe Natural)
 ufcMemorySize = lens _ufcMemorySize (\ s a -> s{_ufcMemorySize = a}) . mapping _Nat
 
--- | The runtime environment for the Lambda function. To use the Python runtime v3.6, set the value to "python3.6". To use the Python runtime v2.7, set the value to "python2.7". To use the Node.js runtime v6.10, set the value to "nodejs6.10". To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use the .NET Core runtime v1.0, set the value to "dotnetcore1.0". To use the .NET Core runtime v2.0, set the value to "dotnetcore2.0".
+-- | The identifier of the function's <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime> .
 ufcRuntime :: Lens' UpdateFunctionConfiguration (Maybe Runtime)
 ufcRuntime = lens _ufcRuntime (\ s a -> s{_ufcRuntime = a})
 
--- | The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If you elect to use the AWS Lambda default service key, pass in an empty string ("") for this parameter.
+-- | The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
 ufcKMSKeyARN :: Lens' UpdateFunctionConfiguration (Maybe Text)
 ufcKMSKeyARN = lens _ufcKMSKeyARN (\ s a -> s{_ufcKMSKeyARN = a})
 
--- | The parent object that contains your environment's configuration settings.
+-- | Environment variables that are accessible from function code during execution.
 ufcEnvironment :: Lens' UpdateFunctionConfiguration (Maybe Environment)
 ufcEnvironment = lens _ufcEnvironment (\ s a -> s{_ufcEnvironment = a})
 
--- | The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic. For more information, see 'dlq' .
+-- | A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/dlq.html Dead Letter Queues> .
 ufcDeadLetterConfig :: Lens' UpdateFunctionConfiguration (Maybe DeadLetterConfig)
 ufcDeadLetterConfig = lens _ufcDeadLetterConfig (\ s a -> s{_ufcDeadLetterConfig = a})
 
--- | The Amazon Resource Name (ARN) of the IAM role that Lambda will assume when it executes your function.
+-- | The Amazon Resource Name (ARN) of the function's execution role.
 ufcRole :: Lens' UpdateFunctionConfiguration (Maybe Text)
 ufcRole = lens _ufcRole (\ s a -> s{_ufcRole = a})
 
--- | Undocumented member.
+-- | For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/vpc.html VPC Settings> .
 ufcVPCConfig :: Lens' UpdateFunctionConfiguration (Maybe VPCConfig)
 ufcVPCConfig = lens _ufcVPCConfig (\ s a -> s{_ufcVPCConfig = a})
 
--- | The function that Lambda calls to begin executing your function. For Node.js, it is the @module-name.export@ value in your function.
+-- | A list of <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers> to add to the function's execution environment. Specify each layer by its ARN, including the version.
+ufcLayers :: Lens' UpdateFunctionConfiguration [Text]
+ufcLayers = lens _ufcLayers (\ s a -> s{_ufcLayers = a}) . _Default . _Coerce
+
+-- | The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model> .
 ufcHandler :: Lens' UpdateFunctionConfiguration (Maybe Text)
 ufcHandler = lens _ufcHandler (\ s a -> s{_ufcHandler = a})
 
--- | The function execution time at which AWS Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.
+-- | The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
 ufcTimeout :: Lens' UpdateFunctionConfiguration (Maybe Natural)
 ufcTimeout = lens _ufcTimeout (\ s a -> s{_ufcTimeout = a}) . mapping _Nat
 
--- | The parent object that contains your function's tracing settings.
+-- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests with AWS X-Ray.
 ufcTracingConfig :: Lens' UpdateFunctionConfiguration (Maybe TracingConfig)
 ufcTracingConfig = lens _ufcTracingConfig (\ s a -> s{_ufcTracingConfig = a})
 
--- | A short user-defined function description. AWS Lambda does not use this value. Assign a meaningful description as you see fit.
+-- | A description of the function.
 ufcDescription :: Lens' UpdateFunctionConfiguration (Maybe Text)
 ufcDescription = lens _ufcDescription (\ s a -> s{_ufcDescription = a})
 
--- | An optional value you can use to ensure you are updating the latest update of the function version or alias. If the @RevisionID@ you pass doesn't match the latest @RevisionId@ of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias @RevisionID@ using either or .
+-- | Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.
 ufcRevisionId :: Lens' UpdateFunctionConfiguration (Maybe Text)
 ufcRevisionId = lens _ufcRevisionId (\ s a -> s{_ufcRevisionId = a})
 
--- | The name of the Lambda function. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- | The name of the Lambda function. __Name formats__      * __Function name__ - @my-function@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 ufcFunctionName :: Lens' UpdateFunctionConfiguration Text
 ufcFunctionName = lens _ufcFunctionName (\ s a -> s{_ufcFunctionName = a})
 
@@ -225,6 +231,7 @@ instance ToJSON UpdateFunctionConfiguration where
                   ("DeadLetterConfig" .=) <$> _ufcDeadLetterConfig,
                   ("Role" .=) <$> _ufcRole,
                   ("VpcConfig" .=) <$> _ufcVPCConfig,
+                  ("Layers" .=) <$> _ufcLayers,
                   ("Handler" .=) <$> _ufcHandler,
                   ("Timeout" .=) <$> _ufcTimeout,
                   ("TracingConfig" .=) <$> _ufcTracingConfig,

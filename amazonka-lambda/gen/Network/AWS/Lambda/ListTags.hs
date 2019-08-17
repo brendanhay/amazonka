@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of tags assigned to a function when supplied the function ARN (Amazon Resource Name). For more information on Tagging, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
+-- Returns a function's <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> . You can also view tags with 'GetFunction' .
 --
 --
 module Network.AWS.Lambda.ListTags
@@ -54,14 +54,14 @@ newtype ListTags = ListTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltResource' - The ARN (Amazon Resource Name) of the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
+-- * 'ltResource' - The function's Amazon Resource Name (ARN).
 listTags
     :: Text -- ^ 'ltResource'
     -> ListTags
 listTags pResource_ = ListTags' {_ltResource = pResource_}
 
 
--- | The ARN (Amazon Resource Name) of the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
+-- | The function's Amazon Resource Name (ARN).
 ltResource :: Lens' ListTags Text
 ltResource = lens _ltResource (\ s a -> s{_ltResource = a})
 
@@ -99,7 +99,7 @@ data ListTagsResponse = ListTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltrsTags' - The list of tags assigned to the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
+-- * 'ltrsTags' - The function's tags.
 --
 -- * 'ltrsResponseStatus' - -- | The response status code.
 listTagsResponse
@@ -110,7 +110,7 @@ listTagsResponse pResponseStatus_ =
     {_ltrsTags = Nothing, _ltrsResponseStatus = pResponseStatus_}
 
 
--- | The list of tags assigned to the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
+-- | The function's tags.
 ltrsTags :: Lens' ListTagsResponse (HashMap Text Text)
 ltrsTags = lens _ltrsTags (\ s a -> s{_ltrsTags = a}) . _Default . _Map
 

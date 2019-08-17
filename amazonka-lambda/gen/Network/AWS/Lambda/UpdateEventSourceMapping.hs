@@ -18,14 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- You can update an event source mapping. This is useful if you want to change the parameters of the existing mapping without losing your position in the stream. You can change which function will receive the stream records, but to change the stream itself, you must create a new mapping.
+-- Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.
 --
---
--- If you are using the versioning feature, you can update the event source mapping to map to a specific Lambda function version or alias as described in the @FunctionName@ parameter. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases> .
---
--- If you disable the event source mapping, AWS Lambda stops polling. If you enable again, it will resume polling from the time it had stopped polling, so you don't lose processing of any records. However, if you delete event source mapping and create it again, it will reset.
---
--- This operation requires permission for the @lambda:UpdateEventSourceMapping@ action.
 --
 module Network.AWS.Lambda.UpdateEventSourceMapping
     (
@@ -59,11 +53,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- |
---
---
---
--- /See:/ 'updateEventSourceMapping' smart constructor.
+-- | /See:/ 'updateEventSourceMapping' smart constructor.
 data UpdateEventSourceMapping = UpdateEventSourceMapping'
   { _uesmEnabled      :: !(Maybe Bool)
   , _uesmBatchSize    :: !(Maybe Nat)
@@ -76,13 +66,13 @@ data UpdateEventSourceMapping = UpdateEventSourceMapping'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uesmEnabled' - Specifies whether AWS Lambda should actively poll the stream or not. If disabled, AWS Lambda will not poll the stream.
+-- * 'uesmEnabled' - Disables the event source mapping to pause polling and invocation.
 --
--- * 'uesmBatchSize' - The maximum number of stream records that can be sent to your Lambda function for a single invocation.
+-- * 'uesmBatchSize' - The maximum number of items to retrieve in a single batch.     * __Amazon Kinesis__ - Default 100. Max 10,000.     * __Amazon DynamoDB Streams__ - Default 100. Max 1,000.     * __Amazon Simple Queue Service__ - Default 10. Max 10.
 --
--- * 'uesmFunctionName' - The Lambda function to which you want the stream records sent. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.  If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). For more information about versioning, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>  Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- * 'uesmFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Version or Alias ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
 --
--- * 'uesmUUId' - The event source mapping identifier.
+-- * 'uesmUUId' - The identifier of the event source mapping.
 updateEventSourceMapping
     :: Text -- ^ 'uesmUUId'
     -> UpdateEventSourceMapping
@@ -95,19 +85,19 @@ updateEventSourceMapping pUUId_ =
     }
 
 
--- | Specifies whether AWS Lambda should actively poll the stream or not. If disabled, AWS Lambda will not poll the stream.
+-- | Disables the event source mapping to pause polling and invocation.
 uesmEnabled :: Lens' UpdateEventSourceMapping (Maybe Bool)
 uesmEnabled = lens _uesmEnabled (\ s a -> s{_uesmEnabled = a})
 
--- | The maximum number of stream records that can be sent to your Lambda function for a single invocation.
+-- | The maximum number of items to retrieve in a single batch.     * __Amazon Kinesis__ - Default 100. Max 10,000.     * __Amazon DynamoDB Streams__ - Default 100. Max 1,000.     * __Amazon Simple Queue Service__ - Default 10. Max 10.
 uesmBatchSize :: Lens' UpdateEventSourceMapping (Maybe Natural)
 uesmBatchSize = lens _uesmBatchSize (\ s a -> s{_uesmBatchSize = a}) . mapping _Nat
 
--- | The Lambda function to which you want the stream records sent. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.  If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). For more information about versioning, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>  Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- | The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Version or Alias ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
 uesmFunctionName :: Lens' UpdateEventSourceMapping (Maybe Text)
 uesmFunctionName = lens _uesmFunctionName (\ s a -> s{_uesmFunctionName = a})
 
--- | The event source mapping identifier.
+-- | The identifier of the event source mapping.
 uesmUUId :: Lens' UpdateEventSourceMapping Text
 uesmUUId = lens _uesmUUId (\ s a -> s{_uesmUUId = a})
 

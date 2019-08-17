@@ -18,10 +18,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Invokes a specific Lambda function. For an example, see <http://docs.aws.amazon.com/lambda/latest/dg/with-dynamodb-create-function.html#with-dbb-invoke-manually Create the Lambda Function and Test It Manually> .
+-- Invokes a Lambda function. You can invoke a function synchronously (and wait for the response), or asynchronously. To invoke a function asynchronously, set @InvocationType@ to @Event@ .
 --
 --
--- If you are using the versioning feature, you can invoke the specific function version by providing function version or alias name that is pointing to the function version using the @Qualifier@ parameter in the request. If you don't provide the @Qualifier@ parameter, the @> LATEST@ version of the Lambda function is invoked. Invocations occur at least once in response to an event and functions must be idempotent to handle this. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases> .
+-- For synchronous invocation, details about the function response, including errors, are included in the response body and headers. For either invocation type, you can find more information in the <https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html execution log> and <https://docs.aws.amazon.com/lambda/latest/dg/dlq.html trace> . To record function errors for asynchronous invocations, configure your function with a <https://docs.aws.amazon.com/lambda/latest/dg/dlq.html dead letter queue> .
+--
+-- When an error occurs, your function may be invoked multiple times. Retry behavior varies by error type, client, event source, and invocation type. For example, if you invoke a function asynchronously and it returns an error, Lambda executes the function up to two more times. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/retries-on-errors.html Retry Behavior> .
+--
+-- The status code in the API response doesn't reflect function errors. Error codes are reserved for errors that prevent your function from executing, such as permissions errors, <https://docs.aws.amazon.com/lambda/latest/dg/limits.html limit errors> , or issues with your function's code and configuration. For example, Lambda returns @TooManyRequestsException@ if executing the function would cause you to exceed a concurrency limit at either the account level (@ConcurrentInvocationLimitExceeded@ ) or function level (@ReservedFunctionConcurrentInvocationLimitExceeded@ ).
+--
+-- For functions with a long timeout, your client might be disconnected during synchronous invocation while it waits for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long connections with timeout or keep-alive settings.
 --
 -- This operation requires permission for the @lambda:InvokeFunction@ action.
 --
@@ -56,11 +62,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- |
---
---
---
--- /See:/ 'invoke' smart constructor.
+-- | /See:/ 'invoke' smart constructor.
 data Invoke = Invoke'
   { _iInvocationType :: !(Maybe InvocationType)
   , _iLogType        :: !(Maybe LogType)
@@ -75,17 +77,17 @@ data Invoke = Invoke'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iInvocationType' - By default, the @Invoke@ API assumes @RequestResponse@ invocation type. You can optionally request asynchronous execution by specifying @Event@ as the @InvocationType@ . You can also use this parameter to request AWS Lambda to not execute the function but do some verification, such as if the caller is authorized to invoke the function and if the inputs are valid. You request this by specifying @DryRun@ as the @InvocationType@ . This is useful in a cross-account scenario when you want to verify access to a function without running it.
+-- * 'iInvocationType' - Choose from the following options.     * @RequestResponse@ (default) - Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.     * @Event@ - Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if it's configured). The API response only includes a status code.     * @DryRun@ - Validate parameter values and verify that the user or role has permission to invoke the function.
 --
--- * 'iLogType' - You can set this optional parameter to @Tail@ in the request only if you specify the @InvocationType@ parameter with value @RequestResponse@ . In this case, AWS Lambda returns the base64-encoded last 4 KB of log data produced by your Lambda function in the @x-amz-log-result@ header.
+-- * 'iLogType' - Set to @Tail@ to include the execution log in the response.
 --
--- * 'iQualifier' - You can use this optional parameter to specify a Lambda function version or alias name. If you specify a function version, the API uses the qualified function ARN to invoke a specific Lambda function. If you specify an alias name, the API uses the alias ARN to invoke the Lambda function version to which the alias points. If you don't provide this parameter, then the API uses unqualified function ARN which results in invocation of the @> LATEST@ version.
+-- * 'iQualifier' - Specify a version or alias to invoke a published version of the function.
 --
--- * 'iClientContext' - Using the @ClientContext@ you can pass client-specific information to the Lambda function you are invoking. You can then process the client information in your Lambda function as you choose through the context variable. For an example of a @ClientContext@ JSON, see <http://docs.aws.amazon.com/mobileanalytics/latest/ug/PutEvents.html PutEvents> in the /Amazon Mobile Analytics API Reference and User Guide/ . The ClientContext JSON must be base64-encoded and has a maximum size of 3583 bytes.
+-- * 'iClientContext' - Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.
 --
--- * 'iFunctionName' - The Lambda function name. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'iFunctionName' - The name of the Lambda function, version, or alias. __Name formats__      * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
--- * 'iPayload' - JSON that you want to provide to your Lambda function as input.
+-- * 'iPayload' - The JSON that you want to provide to your Lambda function as input.
 invoke
     :: Text -- ^ 'iFunctionName'
     -> ByteString -- ^ 'iPayload'
@@ -101,27 +103,27 @@ invoke pFunctionName_ pPayload_ =
     }
 
 
--- | By default, the @Invoke@ API assumes @RequestResponse@ invocation type. You can optionally request asynchronous execution by specifying @Event@ as the @InvocationType@ . You can also use this parameter to request AWS Lambda to not execute the function but do some verification, such as if the caller is authorized to invoke the function and if the inputs are valid. You request this by specifying @DryRun@ as the @InvocationType@ . This is useful in a cross-account scenario when you want to verify access to a function without running it.
+-- | Choose from the following options.     * @RequestResponse@ (default) - Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.     * @Event@ - Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if it's configured). The API response only includes a status code.     * @DryRun@ - Validate parameter values and verify that the user or role has permission to invoke the function.
 iInvocationType :: Lens' Invoke (Maybe InvocationType)
 iInvocationType = lens _iInvocationType (\ s a -> s{_iInvocationType = a})
 
--- | You can set this optional parameter to @Tail@ in the request only if you specify the @InvocationType@ parameter with value @RequestResponse@ . In this case, AWS Lambda returns the base64-encoded last 4 KB of log data produced by your Lambda function in the @x-amz-log-result@ header.
+-- | Set to @Tail@ to include the execution log in the response.
 iLogType :: Lens' Invoke (Maybe LogType)
 iLogType = lens _iLogType (\ s a -> s{_iLogType = a})
 
--- | You can use this optional parameter to specify a Lambda function version or alias name. If you specify a function version, the API uses the qualified function ARN to invoke a specific Lambda function. If you specify an alias name, the API uses the alias ARN to invoke the Lambda function version to which the alias points. If you don't provide this parameter, then the API uses unqualified function ARN which results in invocation of the @> LATEST@ version.
+-- | Specify a version or alias to invoke a published version of the function.
 iQualifier :: Lens' Invoke (Maybe Text)
 iQualifier = lens _iQualifier (\ s a -> s{_iQualifier = a})
 
--- | Using the @ClientContext@ you can pass client-specific information to the Lambda function you are invoking. You can then process the client information in your Lambda function as you choose through the context variable. For an example of a @ClientContext@ JSON, see <http://docs.aws.amazon.com/mobileanalytics/latest/ug/PutEvents.html PutEvents> in the /Amazon Mobile Analytics API Reference and User Guide/ . The ClientContext JSON must be base64-encoded and has a maximum size of 3583 bytes.
+-- | Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.
 iClientContext :: Lens' Invoke (Maybe Text)
 iClientContext = lens _iClientContext (\ s a -> s{_iClientContext = a})
 
--- | The Lambda function name. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- | The name of the Lambda function, version, or alias. __Name formats__      * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 iFunctionName :: Lens' Invoke Text
 iFunctionName = lens _iFunctionName (\ s a -> s{_iFunctionName = a})
 
--- | JSON that you want to provide to your Lambda function as input.
+-- | The JSON that you want to provide to your Lambda function as input.
 iPayload :: Lens' Invoke ByteString
 iPayload = lens _iPayload (\ s a -> s{_iPayload = a})
 
@@ -162,11 +164,7 @@ instance ToQuery Invoke where
         toQuery Invoke'{..}
           = mconcat ["Qualifier" =: _iQualifier]
 
--- | Upon success, returns an empty response. Otherwise, throws an exception.
---
---
---
--- /See:/ 'invokeResponse' smart constructor.
+-- | /See:/ 'invokeResponse' smart constructor.
 data InvokeResponse = InvokeResponse'
   { _irsFunctionError   :: !(Maybe Text)
   , _irsLogResult       :: !(Maybe Text)
@@ -180,15 +178,15 @@ data InvokeResponse = InvokeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'irsFunctionError' - Indicates whether an error occurred while executing the Lambda function. If an error occurred this field will have one of two values; @Handled@ or @Unhandled@ . @Handled@ errors are errors that are reported by the function while the @Unhandled@ errors are those detected and reported by AWS Lambda. Unhandled errors include out of memory errors and function timeouts. For information about how to report an @Handled@ error, see <http://docs.aws.amazon.com/lambda/latest/dg/programming-model.html Programming Model> .
+-- * 'irsFunctionError' - If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.     * @Handled@ - The runtime caught an error thrown by the function and formatted it into a JSON document.     * @Unhandled@ - The runtime didn't handle the error. For example, the function ran out of memory or timed out.
 --
--- * 'irsLogResult' - It is the base64-encoded logs for the Lambda function invocation. This is present only if the invocation type is @RequestResponse@ and the logs were requested.
+-- * 'irsLogResult' - The last 4 KB of the execution log, which is base64 encoded.
 --
--- * 'irsPayload' - It is the JSON representation of the object returned by the Lambda function. This is present only if the invocation type is @RequestResponse@ .  In the event of a function error this field contains a message describing the error. For the @Handled@ errors the Lambda function will report this message. For @Unhandled@ errors AWS Lambda reports the message.
+-- * 'irsPayload' - The response from the function, or an error object.
 --
--- * 'irsExecutedVersion' - The function version that has been executed. This value is returned only if the invocation type is @RequestResponse@ . For more information, see 'lambda-traffic-shifting-using-aliases' .
+-- * 'irsExecutedVersion' - The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.
 --
--- * 'irsStatusCode' - The HTTP status code will be in the 200 range for successful request. For the @RequestResponse@ invocation type this status code will be 200. For the @Event@ invocation type this status code will be 202. For the @DryRun@ invocation type the status code will be 204.
+-- * 'irsStatusCode' - The HTTP status code is in the 200 range for a successful request. For the @RequestResponse@ invocation type, this status code is 200. For the @Event@ invocation type, this status code is 202. For the @DryRun@ invocation type, the status code is 204.
 invokeResponse
     :: Int -- ^ 'irsStatusCode'
     -> InvokeResponse
@@ -202,23 +200,23 @@ invokeResponse pStatusCode_ =
     }
 
 
--- | Indicates whether an error occurred while executing the Lambda function. If an error occurred this field will have one of two values; @Handled@ or @Unhandled@ . @Handled@ errors are errors that are reported by the function while the @Unhandled@ errors are those detected and reported by AWS Lambda. Unhandled errors include out of memory errors and function timeouts. For information about how to report an @Handled@ error, see <http://docs.aws.amazon.com/lambda/latest/dg/programming-model.html Programming Model> .
+-- | If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.     * @Handled@ - The runtime caught an error thrown by the function and formatted it into a JSON document.     * @Unhandled@ - The runtime didn't handle the error. For example, the function ran out of memory or timed out.
 irsFunctionError :: Lens' InvokeResponse (Maybe Text)
 irsFunctionError = lens _irsFunctionError (\ s a -> s{_irsFunctionError = a})
 
--- | It is the base64-encoded logs for the Lambda function invocation. This is present only if the invocation type is @RequestResponse@ and the logs were requested.
+-- | The last 4 KB of the execution log, which is base64 encoded.
 irsLogResult :: Lens' InvokeResponse (Maybe Text)
 irsLogResult = lens _irsLogResult (\ s a -> s{_irsLogResult = a})
 
--- | It is the JSON representation of the object returned by the Lambda function. This is present only if the invocation type is @RequestResponse@ .  In the event of a function error this field contains a message describing the error. For the @Handled@ errors the Lambda function will report this message. For @Unhandled@ errors AWS Lambda reports the message.
+-- | The response from the function, or an error object.
 irsPayload :: Lens' InvokeResponse (Maybe ByteString)
 irsPayload = lens _irsPayload (\ s a -> s{_irsPayload = a})
 
--- | The function version that has been executed. This value is returned only if the invocation type is @RequestResponse@ . For more information, see 'lambda-traffic-shifting-using-aliases' .
+-- | The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.
 irsExecutedVersion :: Lens' InvokeResponse (Maybe Text)
 irsExecutedVersion = lens _irsExecutedVersion (\ s a -> s{_irsExecutedVersion = a})
 
--- | The HTTP status code will be in the 200 range for successful request. For the @RequestResponse@ invocation type this status code will be 200. For the @Event@ invocation type this status code will be 202. For the @DryRun@ invocation type the status code will be 204.
+-- | The HTTP status code is in the 200 range for a successful request. For the @RequestResponse@ invocation type, this status code is 200. For the @Event@ invocation type, this status code is 202. For the @DryRun@ invocation type, the status code is 204.
 irsStatusCode :: Lens' InvokeResponse Int
 irsStatusCode = lens _irsStatusCode (\ s a -> s{_irsStatusCode = a})
 

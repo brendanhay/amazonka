@@ -18,10 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified Lambda function alias. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases> .
+-- Deletes a Lambda function <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html alias> .
 --
---
--- This requires permission for the lambda:DeleteAlias action.
 --
 module Network.AWS.Lambda.DeleteAlias
     (
@@ -55,9 +53,9 @@ data DeleteAlias = DeleteAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daFunctionName' - The Lambda function name for which the alias is created. Deleting an alias does not delete the function version to which it is pointing. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'daFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
--- * 'daName' - Name of the alias to delete.
+-- * 'daName' - The name of the alias.
 deleteAlias
     :: Text -- ^ 'daFunctionName'
     -> Text -- ^ 'daName'
@@ -66,11 +64,11 @@ deleteAlias pFunctionName_ pName_ =
   DeleteAlias' {_daFunctionName = pFunctionName_, _daName = pName_}
 
 
--- | The Lambda function name for which the alias is created. Deleting an alias does not delete the function version to which it is pointing. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- | The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 daFunctionName :: Lens' DeleteAlias Text
 daFunctionName = lens _daFunctionName (\ s a -> s{_daFunctionName = a})
 
--- | Name of the alias to delete.
+-- | The name of the alias.
 daName :: Lens' DeleteAlias Text
 daName = lens _daName (\ s a -> s{_daName = a})
 

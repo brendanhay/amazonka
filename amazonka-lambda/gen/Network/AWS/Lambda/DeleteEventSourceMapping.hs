@@ -18,10 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes an event source mapping. This means AWS Lambda will no longer invoke the function for events in the associated source.
+-- Deletes an <https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html event source mapping> . You can get the identifier of a mapping from the output of 'ListEventSourceMappings' .
 --
---
--- This operation requires permission for the @lambda:DeleteEventSourceMapping@ action.
 --
 module Network.AWS.Lambda.DeleteEventSourceMapping
     (
@@ -52,11 +50,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- |
---
---
---
--- /See:/ 'deleteEventSourceMapping' smart constructor.
+-- | /See:/ 'deleteEventSourceMapping' smart constructor.
 newtype DeleteEventSourceMapping = DeleteEventSourceMapping'
   { _desmUUId :: Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -66,14 +60,14 @@ newtype DeleteEventSourceMapping = DeleteEventSourceMapping'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desmUUId' - The event source mapping ID.
+-- * 'desmUUId' - The identifier of the event source mapping.
 deleteEventSourceMapping
     :: Text -- ^ 'desmUUId'
     -> DeleteEventSourceMapping
 deleteEventSourceMapping pUUId_ = DeleteEventSourceMapping' {_desmUUId = pUUId_}
 
 
--- | The event source mapping ID.
+-- | The identifier of the event source mapping.
 desmUUId :: Lens' DeleteEventSourceMapping Text
 desmUUId = lens _desmUUId (\ s a -> s{_desmUUId = a})
 

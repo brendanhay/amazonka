@@ -15,7 +15,7 @@
 --
 -- __Overview__
 --
--- This is the /AWS Lambda API Reference/ . The AWS Lambda Developer Guide provides additional information. For the service overview, see <http://docs.aws.amazon.com/lambda/latest/dg/welcome.html What is AWS Lambda> , and for information about how the service works, see <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> in the __AWS Lambda Developer Guide__ .
+-- This is the /AWS Lambda API Reference/ . The AWS Lambda Developer Guide provides additional information. For the service overview, see <https://docs.aws.amazon.com/lambda/latest/dg/welcome.html What is AWS Lambda> , and for information about how the service works, see <https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> in the __AWS Lambda Developer Guide__ .
 --
 module Network.AWS.Lambda
     (
@@ -97,8 +97,14 @@ module Network.AWS.Lambda
     -- ** KMSAccessDeniedException
     , _KMSAccessDeniedException
 
+    -- ** ResourceInUseException
+    , _ResourceInUseException
+
     -- * Waiters
     -- $waiters
+
+    -- ** FunctionExists
+    , functionExists
 
     -- * Operations
     -- $operations
@@ -112,10 +118,13 @@ module Network.AWS.Lambda
     -- ** UpdateEventSourceMapping
     , module Network.AWS.Lambda.UpdateEventSourceMapping
 
+    -- ** GetLayerVersion
+    , module Network.AWS.Lambda.GetLayerVersion
+
     -- ** CreateAlias
     , module Network.AWS.Lambda.CreateAlias
 
-    -- ** ListVersionsByFunction
+    -- ** ListVersionsByFunction (Paginated)
     , module Network.AWS.Lambda.ListVersionsByFunction
 
     -- ** ListAliases (Paginated)
@@ -127,11 +136,20 @@ module Network.AWS.Lambda
     -- ** Invoke
     , module Network.AWS.Lambda.Invoke
 
+    -- ** DeleteLayerVersion
+    , module Network.AWS.Lambda.DeleteLayerVersion
+
     -- ** GetAlias
     , module Network.AWS.Lambda.GetAlias
 
+    -- ** PublishLayerVersion
+    , module Network.AWS.Lambda.PublishLayerVersion
+
     -- ** GetEventSourceMapping
     , module Network.AWS.Lambda.GetEventSourceMapping
+
+    -- ** AddLayerVersionPermission
+    , module Network.AWS.Lambda.AddLayerVersionPermission
 
     -- ** PutFunctionConcurrency
     , module Network.AWS.Lambda.PutFunctionConcurrency
@@ -142,14 +160,23 @@ module Network.AWS.Lambda
     -- ** DeleteFunctionConcurrency
     , module Network.AWS.Lambda.DeleteFunctionConcurrency
 
+    -- ** GetLayerVersionByARN
+    , module Network.AWS.Lambda.GetLayerVersionByARN
+
     -- ** CreateEventSourceMapping
     , module Network.AWS.Lambda.CreateEventSourceMapping
+
+    -- ** RemoveLayerVersionPermission
+    , module Network.AWS.Lambda.RemoveLayerVersionPermission
 
     -- ** GetFunction
     , module Network.AWS.Lambda.GetFunction
 
     -- ** ListEventSourceMappings (Paginated)
     , module Network.AWS.Lambda.ListEventSourceMappings
+
+    -- ** GetLayerVersionPolicy
+    , module Network.AWS.Lambda.GetLayerVersionPolicy
 
     -- ** DeleteAlias
     , module Network.AWS.Lambda.DeleteAlias
@@ -162,6 +189,12 @@ module Network.AWS.Lambda
 
     -- ** AddPermission
     , module Network.AWS.Lambda.AddPermission
+
+    -- ** ListLayers (Paginated)
+    , module Network.AWS.Lambda.ListLayers
+
+    -- ** ListLayerVersions (Paginated)
+    , module Network.AWS.Lambda.ListLayerVersions
 
     -- ** TagResource
     , module Network.AWS.Lambda.TagResource
@@ -306,6 +339,7 @@ module Network.AWS.Lambda
     , fcVPCConfig
     , fcVersion
     , fcFunctionName
+    , fcLayers
     , fcCodeSize
     , fcHandler
     , fcTimeout
@@ -315,6 +349,56 @@ module Network.AWS.Lambda
     , fcDescription
     , fcRevisionId
     , fcMasterARN
+
+    -- ** GetLayerVersionResponse
+    , GetLayerVersionResponse
+    , getLayerVersionResponse
+    , glvLayerVersionARN
+    , glvContent
+    , glvCreatedDate
+    , glvVersion
+    , glvLicenseInfo
+    , glvLayerARN
+    , glvDescription
+    , glvCompatibleRuntimes
+
+    -- ** Layer
+    , Layer
+    , layer
+    , lARN
+    , lCodeSize
+
+    -- ** LayerVersionContentInput
+    , LayerVersionContentInput
+    , layerVersionContentInput
+    , lvciS3ObjectVersion
+    , lvciS3Key
+    , lvciZipFile
+    , lvciS3Bucket
+
+    -- ** LayerVersionContentOutput
+    , LayerVersionContentOutput
+    , layerVersionContentOutput
+    , lvcoLocation
+    , lvcoCodeSize
+    , lvcoCodeSha256
+
+    -- ** LayerVersionsListItem
+    , LayerVersionsListItem
+    , layerVersionsListItem
+    , lvliLayerVersionARN
+    , lvliCreatedDate
+    , lvliVersion
+    , lvliLicenseInfo
+    , lvliDescription
+    , lvliCompatibleRuntimes
+
+    -- ** LayersListItem
+    , LayersListItem
+    , layersListItem
+    , lliLayerName
+    , lliLatestMatchingVersion
+    , lliLayerARN
 
     -- ** TracingConfig
     , TracingConfig
@@ -340,6 +424,7 @@ module Network.AWS.Lambda
     , vcVPCId
     ) where
 
+import Network.AWS.Lambda.AddLayerVersionPermission
 import Network.AWS.Lambda.AddPermission
 import Network.AWS.Lambda.CreateAlias
 import Network.AWS.Lambda.CreateEventSourceMapping
@@ -348,20 +433,28 @@ import Network.AWS.Lambda.DeleteAlias
 import Network.AWS.Lambda.DeleteEventSourceMapping
 import Network.AWS.Lambda.DeleteFunction
 import Network.AWS.Lambda.DeleteFunctionConcurrency
+import Network.AWS.Lambda.DeleteLayerVersion
 import Network.AWS.Lambda.GetAccountSettings
 import Network.AWS.Lambda.GetAlias
 import Network.AWS.Lambda.GetEventSourceMapping
 import Network.AWS.Lambda.GetFunction
 import Network.AWS.Lambda.GetFunctionConfiguration
+import Network.AWS.Lambda.GetLayerVersion
+import Network.AWS.Lambda.GetLayerVersionByARN
+import Network.AWS.Lambda.GetLayerVersionPolicy
 import Network.AWS.Lambda.GetPolicy
 import Network.AWS.Lambda.Invoke
 import Network.AWS.Lambda.ListAliases
 import Network.AWS.Lambda.ListEventSourceMappings
 import Network.AWS.Lambda.ListFunctions
+import Network.AWS.Lambda.ListLayers
+import Network.AWS.Lambda.ListLayerVersions
 import Network.AWS.Lambda.ListTags
 import Network.AWS.Lambda.ListVersionsByFunction
+import Network.AWS.Lambda.PublishLayerVersion
 import Network.AWS.Lambda.PublishVersion
 import Network.AWS.Lambda.PutFunctionConcurrency
+import Network.AWS.Lambda.RemoveLayerVersionPermission
 import Network.AWS.Lambda.RemovePermission
 import Network.AWS.Lambda.TagResource
 import Network.AWS.Lambda.Types

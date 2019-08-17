@@ -45,6 +45,7 @@ library
 
     exposed-modules:
           Network.AWS.Lambda
+        , Network.AWS.Lambda.AddLayerVersionPermission
         , Network.AWS.Lambda.AddPermission
         , Network.AWS.Lambda.CreateAlias
         , Network.AWS.Lambda.CreateEventSourceMapping
@@ -53,20 +54,28 @@ library
         , Network.AWS.Lambda.DeleteEventSourceMapping
         , Network.AWS.Lambda.DeleteFunction
         , Network.AWS.Lambda.DeleteFunctionConcurrency
+        , Network.AWS.Lambda.DeleteLayerVersion
         , Network.AWS.Lambda.GetAccountSettings
         , Network.AWS.Lambda.GetAlias
         , Network.AWS.Lambda.GetEventSourceMapping
         , Network.AWS.Lambda.GetFunction
         , Network.AWS.Lambda.GetFunctionConfiguration
+        , Network.AWS.Lambda.GetLayerVersion
+        , Network.AWS.Lambda.GetLayerVersionByARN
+        , Network.AWS.Lambda.GetLayerVersionPolicy
         , Network.AWS.Lambda.GetPolicy
         , Network.AWS.Lambda.Invoke
         , Network.AWS.Lambda.ListAliases
         , Network.AWS.Lambda.ListEventSourceMappings
         , Network.AWS.Lambda.ListFunctions
+        , Network.AWS.Lambda.ListLayerVersions
+        , Network.AWS.Lambda.ListLayers
         , Network.AWS.Lambda.ListTags
         , Network.AWS.Lambda.ListVersionsByFunction
+        , Network.AWS.Lambda.PublishLayerVersion
         , Network.AWS.Lambda.PublishVersion
         , Network.AWS.Lambda.PutFunctionConcurrency
+        , Network.AWS.Lambda.RemoveLayerVersionPermission
         , Network.AWS.Lambda.RemovePermission
         , Network.AWS.Lambda.TagResource
         , Network.AWS.Lambda.Types

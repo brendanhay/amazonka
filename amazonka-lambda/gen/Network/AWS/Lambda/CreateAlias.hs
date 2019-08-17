@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an alias that points to the specified Lambda function version. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases> .
+-- Creates an <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html alias> for a Lambda function version. Use aliases to provide clients with a function identifier that you can update to invoke a different version.
 --
 --
--- Alias names are unique for a given function. This requires permission for the lambda:CreateAlias action.
+-- You can also map an alias to split invocation requests between two versions. Use the @RoutingConfig@ parameter to specify a second version and the percentage of invocation requests that it receives.
 --
 module Network.AWS.Lambda.CreateAlias
     (
@@ -68,15 +68,15 @@ data CreateAlias = CreateAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caRoutingConfig' - Specifies an additional version your alias can point to, allowing you to dictate what percentage of traffic will invoke each version. For more information, see 'lambda-traffic-shifting-using-aliases' .
+-- * 'caRoutingConfig' - The <https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html routing configuration> of the alias.
 --
--- * 'caDescription' - Description of the alias.
+-- * 'caDescription' - A description of the alias.
 --
--- * 'caFunctionName' - Name of the Lambda function for which you want to create an alias. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'caFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
--- * 'caName' - Name for the alias you are creating.
+-- * 'caName' - The name of the alias.
 --
--- * 'caFunctionVersion' - Lambda function version for which you are creating the alias.
+-- * 'caFunctionVersion' - The function version that the alias invokes.
 createAlias
     :: Text -- ^ 'caFunctionName'
     -> Text -- ^ 'caName'
@@ -92,23 +92,23 @@ createAlias pFunctionName_ pName_ pFunctionVersion_ =
     }
 
 
--- | Specifies an additional version your alias can point to, allowing you to dictate what percentage of traffic will invoke each version. For more information, see 'lambda-traffic-shifting-using-aliases' .
+-- | The <https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html routing configuration> of the alias.
 caRoutingConfig :: Lens' CreateAlias (Maybe AliasRoutingConfiguration)
 caRoutingConfig = lens _caRoutingConfig (\ s a -> s{_caRoutingConfig = a})
 
--- | Description of the alias.
+-- | A description of the alias.
 caDescription :: Lens' CreateAlias (Maybe Text)
 caDescription = lens _caDescription (\ s a -> s{_caDescription = a})
 
--- | Name of the Lambda function for which you want to create an alias. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- | The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 caFunctionName :: Lens' CreateAlias Text
 caFunctionName = lens _caFunctionName (\ s a -> s{_caFunctionName = a})
 
--- | Name for the alias you are creating.
+-- | The name of the alias.
 caName :: Lens' CreateAlias Text
 caName = lens _caName (\ s a -> s{_caName = a})
 
--- | Lambda function version for which you are creating the alias.
+-- | The function version that the alias invokes.
 caFunctionVersion :: Lens' CreateAlias Text
 caFunctionVersion = lens _caFunctionVersion (\ s a -> s{_caFunctionVersion = a})
 

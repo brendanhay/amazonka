@@ -18,8 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Publishes a version of your function from the current snapshot of $LATEST. That is, AWS Lambda takes a snapshot of the function code and configuration information from $LATEST and publishes a new version. The code and configuration cannot be modified after publication. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases> .
+-- Creates a <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html version> from the current code and configuration of a function. Use versions to create a snapshot of your function code and configuration that doesn't change.
 --
+--
+-- AWS Lambda doesn't publish a version if the function's configuration and code haven't changed since the last version. Use 'UpdateFunctionCode' or 'UpdateFunctionConfiguration' to update the function before publishing a version.
+--
+-- Clients can invoke versions directly or with an alias. To create an alias, use 'CreateAlias' .
 --
 module Network.AWS.Lambda.PublishVersion
     (
@@ -46,6 +50,7 @@ module Network.AWS.Lambda.PublishVersion
     , fcVPCConfig
     , fcVersion
     , fcFunctionName
+    , fcLayers
     , fcCodeSize
     , fcHandler
     , fcTimeout
@@ -64,11 +69,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- |
---
---
---
--- /See:/ 'publishVersion' smart constructor.
+-- | /See:/ 'publishVersion' smart constructor.
 data PublishVersion = PublishVersion'
   { _pvCodeSha256   :: !(Maybe Text)
   , _pvDescription  :: !(Maybe Text)
@@ -81,13 +82,13 @@ data PublishVersion = PublishVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pvCodeSha256' - The SHA256 hash of the deployment package you want to publish. This provides validation on the code you are publishing. If you provide this parameter, the value must match the SHA256 of the $LATEST version for the publication to succeed. You can use the __DryRun__ parameter of 'UpdateFunctionCode' to verify the hash value that will be returned before publishing your new version.
+-- * 'pvCodeSha256' - Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of 'UpdateFunctionCode' .
 --
--- * 'pvDescription' - The description for the version you are publishing. If not provided, AWS Lambda copies the description from the $LATEST version.
+-- * 'pvDescription' - A description for the version to override the description in the function configuration.
 --
--- * 'pvRevisionId' - An optional value you can use to ensure you are updating the latest update of the function version or alias. If the @RevisionID@ you pass doesn't match the latest @RevisionId@ of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias @RevisionID@ using either or .
+-- * 'pvRevisionId' - Only update the function if the revision ID matches the ID that's specified. Use this option to avoid publishing a version if the function configuration has changed since you last updated it.
 --
--- * 'pvFunctionName' - The Lambda function name. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'pvFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 publishVersion
     :: Text -- ^ 'pvFunctionName'
     -> PublishVersion
@@ -100,19 +101,19 @@ publishVersion pFunctionName_ =
     }
 
 
--- | The SHA256 hash of the deployment package you want to publish. This provides validation on the code you are publishing. If you provide this parameter, the value must match the SHA256 of the $LATEST version for the publication to succeed. You can use the __DryRun__ parameter of 'UpdateFunctionCode' to verify the hash value that will be returned before publishing your new version.
+-- | Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of 'UpdateFunctionCode' .
 pvCodeSha256 :: Lens' PublishVersion (Maybe Text)
 pvCodeSha256 = lens _pvCodeSha256 (\ s a -> s{_pvCodeSha256 = a})
 
--- | The description for the version you are publishing. If not provided, AWS Lambda copies the description from the $LATEST version.
+-- | A description for the version to override the description in the function configuration.
 pvDescription :: Lens' PublishVersion (Maybe Text)
 pvDescription = lens _pvDescription (\ s a -> s{_pvDescription = a})
 
--- | An optional value you can use to ensure you are updating the latest update of the function version or alias. If the @RevisionID@ you pass doesn't match the latest @RevisionId@ of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias @RevisionID@ using either or .
+-- | Only update the function if the revision ID matches the ID that's specified. Use this option to avoid publishing a version if the function configuration has changed since you last updated it.
 pvRevisionId :: Lens' PublishVersion (Maybe Text)
 pvRevisionId = lens _pvRevisionId (\ s a -> s{_pvRevisionId = a})
 
--- | The Lambda function name. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- | The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 pvFunctionName :: Lens' PublishVersion Text
 pvFunctionName = lens _pvFunctionName (\ s a -> s{_pvFunctionName = a})
 

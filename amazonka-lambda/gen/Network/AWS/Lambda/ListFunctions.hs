@@ -18,12 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of your Lambda functions. For each function, the response includes the function configuration information. You must use 'GetFunction' to retrieve the code for your function.
+-- Returns a list of Lambda functions, with the version-specific configuration of each.
 --
 --
--- This operation requires permission for the @lambda:ListFunctions@ action.
---
--- If you are using the versioning feature, you can list all of your functions or only @> LATEST@ versions. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases> .
+-- Set @FunctionVersion@ to @ALL@ to include all published versions of each function in addition to the unpublished version. To get more information about a function or version, use 'GetFunction' .
 --
 --
 -- This operation returns paginated results.
@@ -55,11 +53,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- |
---
---
---
--- /See:/ 'listFunctions' smart constructor.
+-- | /See:/ 'listFunctions' smart constructor.
 data ListFunctions = ListFunctions'
   { _lfMasterRegion    :: !(Maybe Text)
   , _lfMarker          :: !(Maybe Text)
@@ -72,13 +66,13 @@ data ListFunctions = ListFunctions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfMasterRegion' - Optional string. If not specified, will return only regular function versions (i.e., non-replicated versions). Valid values are: The region from which the functions are replicated. For example, if you specify @us-east-1@ , only functions replicated from that region will be returned. @ALL@ : Will return all functions from any region. If specified, you also must specify a valid FunctionVersion parameter.
+-- * 'lfMasterRegion' - For Lambda@Edge functions, the AWS Region of the master function. For example, @us-east-2@ or @ALL@ . If specified, you must set @FunctionVersion@ to @ALL@ .
 --
--- * 'lfMarker' - Optional string. An opaque pagination token returned from a previous @ListFunctions@ operation. If present, indicates where to continue the listing.
+-- * 'lfMarker' - Specify the pagination token that's returned by a previous request to retrieve the next page of results.
 --
--- * 'lfMaxItems' - Optional integer. Specifies the maximum number of AWS Lambda functions to return in response. This parameter value must be greater than 0.
+-- * 'lfMaxItems' - Specify a value between 1 and 50 to limit the number of functions in the response.
 --
--- * 'lfFunctionVersion' - Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource Names) will be returned. Valid value: @ALL@ : Will return all versions, including @> LATEST@ which will have fully qualified ARNs (Amazon Resource Names).
+-- * 'lfFunctionVersion' - Set to @ALL@ to include entries for all published versions of each function.
 listFunctions
     :: ListFunctions
 listFunctions =
@@ -90,19 +84,19 @@ listFunctions =
     }
 
 
--- | Optional string. If not specified, will return only regular function versions (i.e., non-replicated versions). Valid values are: The region from which the functions are replicated. For example, if you specify @us-east-1@ , only functions replicated from that region will be returned. @ALL@ : Will return all functions from any region. If specified, you also must specify a valid FunctionVersion parameter.
+-- | For Lambda@Edge functions, the AWS Region of the master function. For example, @us-east-2@ or @ALL@ . If specified, you must set @FunctionVersion@ to @ALL@ .
 lfMasterRegion :: Lens' ListFunctions (Maybe Text)
 lfMasterRegion = lens _lfMasterRegion (\ s a -> s{_lfMasterRegion = a})
 
--- | Optional string. An opaque pagination token returned from a previous @ListFunctions@ operation. If present, indicates where to continue the listing.
+-- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
 lfMarker :: Lens' ListFunctions (Maybe Text)
 lfMarker = lens _lfMarker (\ s a -> s{_lfMarker = a})
 
--- | Optional integer. Specifies the maximum number of AWS Lambda functions to return in response. This parameter value must be greater than 0.
+-- | Specify a value between 1 and 50 to limit the number of functions in the response.
 lfMaxItems :: Lens' ListFunctions (Maybe Natural)
 lfMaxItems = lens _lfMaxItems (\ s a -> s{_lfMaxItems = a}) . mapping _Nat
 
--- | Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource Names) will be returned. Valid value: @ALL@ : Will return all versions, including @> LATEST@ which will have fully qualified ARNs (Amazon Resource Names).
+-- | Set to @ALL@ to include entries for all published versions of each function.
 lfFunctionVersion :: Lens' ListFunctions (Maybe FunctionVersion)
 lfFunctionVersion = lens _lfFunctionVersion (\ s a -> s{_lfFunctionVersion = a})
 
@@ -141,7 +135,7 @@ instance ToQuery ListFunctions where
                "Marker" =: _lfMarker, "MaxItems" =: _lfMaxItems,
                "FunctionVersion" =: _lfFunctionVersion]
 
--- | Contains a list of AWS Lambda function configurations (see 'FunctionConfiguration' .
+-- | A list of Lambda functions.
 --
 --
 --
@@ -157,7 +151,7 @@ data ListFunctionsResponse = ListFunctionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfrsNextMarker' - A string, present if there are more functions.
+-- * 'lfrsNextMarker' - The pagination token that's included if more results are available.
 --
 -- * 'lfrsFunctions' - A list of Lambda functions.
 --
@@ -173,7 +167,7 @@ listFunctionsResponse pResponseStatus_ =
     }
 
 
--- | A string, present if there are more functions.
+-- | The pagination token that's included if more results are available.
 lfrsNextMarker :: Lens' ListFunctionsResponse (Maybe Text)
 lfrsNextMarker = lens _lfrsNextMarker (\ s a -> s{_lfrsNextMarker = a})
 

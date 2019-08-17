@@ -75,15 +75,21 @@ getHostedZoneId = \case
     NorthCalifornia -> Just "Z2F56UZL2M1ACD"
     Oregon          -> Just "Z3BJ6K6RIION7M"
     Montreal        -> Just "Z1QDHH18159H29"
+    HongKong        -> Just "ZNB98KWMFR0R6"
     Tokyo           -> Just "Z2M4EHUR26P7ZW"
     Seoul           -> Just "Z3W03O7B5YMIYP"
+    Osaka           -> Just "Z2YQB5RD63NC85"
     Mumbai          -> Just "Z11RGJOFQNVJUP"
     Singapore       -> Just "Z3O0J2DXBE1FTB"
     Sydney          -> Just "Z1WCIGYICN2BYD"
     SaoPaulo        -> Just "Z7KQH4QJS55SO"
     Ireland         -> Just "Z1BKCTXD74EZPE"
     London          -> Just "Z3GKZC51ZF0DB4"
+    Paris           -> Just "Z3R1K369G5AVDG"
     Frankfurt       -> Just "Z21DNDUVLTQW6Q"
+    Stockholm       -> Just "Z3BAZG2TWCNX0D"
     GovCloud        -> Just "Z31GFT0UA1I2HV"
     GovCloudFIPS    -> Just "Z31GFT0UA1I2HV"
+    GovCloudEast    -> Nothing
+    Ningxia         -> Nothing
     Beijing         -> Nothing

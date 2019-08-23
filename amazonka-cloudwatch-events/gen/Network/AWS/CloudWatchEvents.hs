@@ -11,18 +11,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon CloudWatch Events helps you to respond to state changes in your AWS resources. When your resources change state, they automatically send events into an event stream. You can create rules that match selected events in the stream and route them to targets to take action. You can also use rules to take action on a pre-determined schedule. For example, you can configure rules to:
+-- Amazon EventBridge helps you to respond to state changes in your AWS resources. When your resources change state, they automatically send events into an event stream. You can create rules that match selected events in the stream and route them to targets to take action. You can also use rules to take action on a predetermined schedule. For example, you can configure rules to:
 --
 --
---     * Automatically invoke an AWS Lambda function to update DNS entries when an event notifies you that Amazon EC2 instance enters the running state.
+--     * Automatically invoke an AWS Lambda function to update DNS entries when an event notifies you that Amazon EC2 instance enters the running state
 --
---     * Direct specific API records from CloudTrail to an Amazon Kinesis stream for detailed analysis of potential security or availability risks.
+--     * Direct specific API records from AWS CloudTrail to an Amazon Kinesis data stream for detailed analysis of potential security or availability risks
 --
---     * Periodically invoke a built-in target to create a snapshot of an Amazon EBS volume.
+--     * Periodically invoke a built-in target to create a snapshot of an Amazon EBS volume
 --
 --
 --
--- For more information about the features of Amazon CloudWatch Events, see the <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events Amazon CloudWatch Events User Guide> .
+-- For more information about the features of Amazon EventBridge, see the <https://docs.aws.amazon.com/eventbridge/latest/userguide/ Amazon EventBridge User Guide> .
 --
 module Network.AWS.CloudWatchEvents
     (
@@ -32,8 +32,14 @@ module Network.AWS.CloudWatchEvents
     -- * Errors
     -- $errors
 
+    -- ** ManagedRuleException
+    , _ManagedRuleException
+
     -- ** PolicyLengthExceededException
     , _PolicyLengthExceededException
+
+    -- ** ResourceAlreadyExistsException
+    , _ResourceAlreadyExistsException
 
     -- ** ConcurrentModificationException
     , _ConcurrentModificationException
@@ -46,6 +52,9 @@ module Network.AWS.CloudWatchEvents
 
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
+
+    -- ** InvalidStateException
+    , _InvalidStateException
 
     -- ** LimitExceededException
     , _LimitExceededException
@@ -62,7 +71,10 @@ module Network.AWS.CloudWatchEvents
     -- ** DeleteRule
     , module Network.AWS.CloudWatchEvents.DeleteRule
 
-    -- ** ListRules
+    -- ** ListPartnerEventSourceAccounts
+    , module Network.AWS.CloudWatchEvents.ListPartnerEventSourceAccounts
+
+    -- ** ListRules (Paginated)
     , module Network.AWS.CloudWatchEvents.ListRules
 
     -- ** PutRule
@@ -74,37 +86,98 @@ module Network.AWS.CloudWatchEvents
     -- ** PutPermission
     , module Network.AWS.CloudWatchEvents.PutPermission
 
-    -- ** ListTargetsByRule
+    -- ** ListTagsForResource
+    , module Network.AWS.CloudWatchEvents.ListTagsForResource
+
+    -- ** ListTargetsByRule (Paginated)
     , module Network.AWS.CloudWatchEvents.ListTargetsByRule
 
     -- ** RemovePermission
     , module Network.AWS.CloudWatchEvents.RemovePermission
 
+    -- ** ActivateEventSource
+    , module Network.AWS.CloudWatchEvents.ActivateEventSource
+
+    -- ** PutPartnerEvents
+    , module Network.AWS.CloudWatchEvents.PutPartnerEvents
+
     -- ** DescribeRule
     , module Network.AWS.CloudWatchEvents.DescribeRule
+
+    -- ** DeletePartnerEventSource
+    , module Network.AWS.CloudWatchEvents.DeletePartnerEventSource
+
+    -- ** ListEventBuses
+    , module Network.AWS.CloudWatchEvents.ListEventBuses
+
+    -- ** CreateEventBus
+    , module Network.AWS.CloudWatchEvents.CreateEventBus
+
+    -- ** DescribeEventSource
+    , module Network.AWS.CloudWatchEvents.DescribeEventSource
 
     -- ** EnableRule
     , module Network.AWS.CloudWatchEvents.EnableRule
 
-    -- ** ListRuleNamesByTarget
+    -- ** ListRuleNamesByTarget (Paginated)
     , module Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
 
     -- ** TestEventPattern
     , module Network.AWS.CloudWatchEvents.TestEventPattern
 
+    -- ** DescribePartnerEventSource
+    , module Network.AWS.CloudWatchEvents.DescribePartnerEventSource
+
     -- ** DescribeEventBus
     , module Network.AWS.CloudWatchEvents.DescribeEventBus
+
+    -- ** ListEventSources
+    , module Network.AWS.CloudWatchEvents.ListEventSources
+
+    -- ** TagResource
+    , module Network.AWS.CloudWatchEvents.TagResource
+
+    -- ** CreatePartnerEventSource
+    , module Network.AWS.CloudWatchEvents.CreatePartnerEventSource
 
     -- ** PutTargets
     , module Network.AWS.CloudWatchEvents.PutTargets
 
+    -- ** UntagResource
+    , module Network.AWS.CloudWatchEvents.UntagResource
+
     -- ** PutEvents
     , module Network.AWS.CloudWatchEvents.PutEvents
 
+    -- ** ListPartnerEventSources
+    , module Network.AWS.CloudWatchEvents.ListPartnerEventSources
+
+    -- ** DeactivateEventSource
+    , module Network.AWS.CloudWatchEvents.DeactivateEventSource
+
+    -- ** DeleteEventBus
+    , module Network.AWS.CloudWatchEvents.DeleteEventBus
+
     -- * Types
+
+    -- ** AssignPublicIP
+    , AssignPublicIP (..)
+
+    -- ** EventSourceState
+    , EventSourceState (..)
+
+    -- ** LaunchType
+    , LaunchType (..)
 
     -- ** RuleState
     , RuleState (..)
+
+    -- ** AWSVPCConfiguration
+    , AWSVPCConfiguration
+    , awsVPCConfiguration
+    , avcSecurityGroups
+    , avcAssignPublicIP
+    , avcSubnets
 
     -- ** BatchArrayProperties
     , BatchArrayProperties
@@ -124,11 +197,39 @@ module Network.AWS.CloudWatchEvents
     , batchRetryStrategy
     , brsAttempts
 
+    -- ** Condition
+    , Condition
+    , condition
+    , cType
+    , cKey
+    , cValue
+
     -- ** EcsParameters
     , EcsParameters
     , ecsParameters
+    , epGroup
+    , epPlatformVersion
+    , epLaunchType
     , epTaskCount
+    , epNetworkConfiguration
     , epTaskDefinitionARN
+
+    -- ** EventBus
+    , EventBus
+    , eventBus
+    , ebARN
+    , ebName
+    , ebPolicy
+
+    -- ** EventSource
+    , EventSource
+    , eventSource
+    , esCreationTime
+    , esState
+    , esARN
+    , esCreatedBy
+    , esName
+    , esExpirationTime
 
     -- ** InputTransformer
     , InputTransformer
@@ -141,12 +242,32 @@ module Network.AWS.CloudWatchEvents
     , kinesisParameters
     , kpPartitionKeyPath
 
+    -- ** NetworkConfiguration
+    , NetworkConfiguration
+    , networkConfiguration
+    , ncAwsvpcConfiguration
+
+    -- ** PartnerEventSource
+    , PartnerEventSource
+    , partnerEventSource
+    , pesARN
+    , pesName
+
+    -- ** PartnerEventSourceAccount
+    , PartnerEventSourceAccount
+    , partnerEventSourceAccount
+    , pesaCreationTime
+    , pesaState
+    , pesaAccount
+    , pesaExpirationTime
+
     -- ** PutEventsRequestEntry
     , PutEventsRequestEntry
     , putEventsRequestEntry
     , pereTime
     , pereDetailType
     , pereResources
+    , pereEventBusName
     , pereSource
     , pereDetail
 
@@ -156,6 +277,22 @@ module Network.AWS.CloudWatchEvents
     , pereErrorCode
     , pereErrorMessage
     , pereEventId
+
+    -- ** PutPartnerEventsRequestEntry
+    , PutPartnerEventsRequestEntry
+    , putPartnerEventsRequestEntry
+    , ppereTime
+    , ppereDetailType
+    , ppereResources
+    , ppereSource
+    , ppereDetail
+
+    -- ** PutPartnerEventsResultEntry
+    , PutPartnerEventsResultEntry
+    , putPartnerEventsResultEntry
+    , ppereErrorCode
+    , ppereErrorMessage
+    , ppereEventId
 
     -- ** PutTargetsResultEntry
     , PutTargetsResultEntry
@@ -177,9 +314,11 @@ module Network.AWS.CloudWatchEvents
     , rEventPattern
     , rState
     , rARN
+    , rEventBusName
     , rScheduleExpression
     , rName
     , rDescription
+    , rManagedBy
     , rRoleARN
 
     -- ** RunCommandParameters
@@ -198,6 +337,12 @@ module Network.AWS.CloudWatchEvents
     , sqsParameters
     , spMessageGroupId
 
+    -- ** Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
+
     -- ** Target
     , Target
     , target
@@ -214,22 +359,38 @@ module Network.AWS.CloudWatchEvents
     , tARN
     ) where
 
+import Network.AWS.CloudWatchEvents.ActivateEventSource
+import Network.AWS.CloudWatchEvents.CreateEventBus
+import Network.AWS.CloudWatchEvents.CreatePartnerEventSource
+import Network.AWS.CloudWatchEvents.DeactivateEventSource
+import Network.AWS.CloudWatchEvents.DeleteEventBus
+import Network.AWS.CloudWatchEvents.DeletePartnerEventSource
 import Network.AWS.CloudWatchEvents.DeleteRule
 import Network.AWS.CloudWatchEvents.DescribeEventBus
+import Network.AWS.CloudWatchEvents.DescribeEventSource
+import Network.AWS.CloudWatchEvents.DescribePartnerEventSource
 import Network.AWS.CloudWatchEvents.DescribeRule
 import Network.AWS.CloudWatchEvents.DisableRule
 import Network.AWS.CloudWatchEvents.EnableRule
+import Network.AWS.CloudWatchEvents.ListEventBuses
+import Network.AWS.CloudWatchEvents.ListEventSources
+import Network.AWS.CloudWatchEvents.ListPartnerEventSourceAccounts
+import Network.AWS.CloudWatchEvents.ListPartnerEventSources
 import Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
 import Network.AWS.CloudWatchEvents.ListRules
+import Network.AWS.CloudWatchEvents.ListTagsForResource
 import Network.AWS.CloudWatchEvents.ListTargetsByRule
 import Network.AWS.CloudWatchEvents.PutEvents
+import Network.AWS.CloudWatchEvents.PutPartnerEvents
 import Network.AWS.CloudWatchEvents.PutPermission
 import Network.AWS.CloudWatchEvents.PutRule
 import Network.AWS.CloudWatchEvents.PutTargets
 import Network.AWS.CloudWatchEvents.RemovePermission
 import Network.AWS.CloudWatchEvents.RemoveTargets
+import Network.AWS.CloudWatchEvents.TagResource
 import Network.AWS.CloudWatchEvents.TestEventPattern
 import Network.AWS.CloudWatchEvents.Types
+import Network.AWS.CloudWatchEvents.UntagResource
 import Network.AWS.CloudWatchEvents.Waiters
 
 {- $errors

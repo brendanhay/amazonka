@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Revokes the permission of another AWS account to be able to put events to your default event bus. Specify the account to revoke by the @StatementId@ value that you associated with the account when you granted it permission with @PutPermission@ . You can find the @StatementId@ by using 'DescribeEventBus' .
+-- Revokes the permission of another AWS account to be able to put events to the specified event bus. Specify the account to revoke by the @StatementId@ value that you associated with the account when you granted it permission with @PutPermission@ . You can find the @StatementId@ by using 'DescribeEventBus' .
 --
 --
 module Network.AWS.CloudWatchEvents.RemovePermission
@@ -27,6 +27,7 @@ module Network.AWS.CloudWatchEvents.RemovePermission
       removePermission
     , RemovePermission
     -- * Request Lenses
+    , rpEventBusName
     , rpStatementId
 
     -- * Destructuring the Response
@@ -42,8 +43,9 @@ import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'removePermission' smart constructor.
-newtype RemovePermission = RemovePermission'
-  { _rpStatementId :: Text
+data RemovePermission = RemovePermission'
+  { _rpEventBusName :: !(Maybe Text)
+  , _rpStatementId  :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -51,13 +53,19 @@ newtype RemovePermission = RemovePermission'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'rpEventBusName' - The name of the event bus to revoke permissions for. If you omit this, the default event bus is used.
+--
 -- * 'rpStatementId' - The statement ID corresponding to the account that is no longer allowed to put events to the default event bus.
 removePermission
     :: Text -- ^ 'rpStatementId'
     -> RemovePermission
 removePermission pStatementId_ =
-  RemovePermission' {_rpStatementId = pStatementId_}
+  RemovePermission' {_rpEventBusName = Nothing, _rpStatementId = pStatementId_}
 
+
+-- | The name of the event bus to revoke permissions for. If you omit this, the default event bus is used.
+rpEventBusName :: Lens' RemovePermission (Maybe Text)
+rpEventBusName = lens _rpEventBusName (\ s a -> s{_rpEventBusName = a})
 
 -- | The statement ID corresponding to the account that is no longer allowed to put events to the default event bus.
 rpStatementId :: Lens' RemovePermission Text
@@ -84,7 +92,9 @@ instance ToHeaders RemovePermission where
 instance ToJSON RemovePermission where
         toJSON RemovePermission'{..}
           = object
-              (catMaybes [Just ("StatementId" .= _rpStatementId)])
+              (catMaybes
+                 [("EventBusName" .=) <$> _rpEventBusName,
+                  Just ("StatementId" .= _rpStatementId)])
 
 instance ToPath RemovePermission where
         toPath = const "/"

@@ -1,6 +1,6 @@
 name:                  amazonka-cloudwatch-events
 version:               1.6.1
-synopsis:              Amazon CloudWatch Events SDK.
+synopsis:              Amazon EventBridge SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
 license:               MPL-2.0
@@ -45,22 +45,38 @@ library
 
     exposed-modules:
           Network.AWS.CloudWatchEvents
+        , Network.AWS.CloudWatchEvents.ActivateEventSource
+        , Network.AWS.CloudWatchEvents.CreateEventBus
+        , Network.AWS.CloudWatchEvents.CreatePartnerEventSource
+        , Network.AWS.CloudWatchEvents.DeactivateEventSource
+        , Network.AWS.CloudWatchEvents.DeleteEventBus
+        , Network.AWS.CloudWatchEvents.DeletePartnerEventSource
         , Network.AWS.CloudWatchEvents.DeleteRule
         , Network.AWS.CloudWatchEvents.DescribeEventBus
+        , Network.AWS.CloudWatchEvents.DescribeEventSource
+        , Network.AWS.CloudWatchEvents.DescribePartnerEventSource
         , Network.AWS.CloudWatchEvents.DescribeRule
         , Network.AWS.CloudWatchEvents.DisableRule
         , Network.AWS.CloudWatchEvents.EnableRule
+        , Network.AWS.CloudWatchEvents.ListEventBuses
+        , Network.AWS.CloudWatchEvents.ListEventSources
+        , Network.AWS.CloudWatchEvents.ListPartnerEventSourceAccounts
+        , Network.AWS.CloudWatchEvents.ListPartnerEventSources
         , Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
         , Network.AWS.CloudWatchEvents.ListRules
+        , Network.AWS.CloudWatchEvents.ListTagsForResource
         , Network.AWS.CloudWatchEvents.ListTargetsByRule
         , Network.AWS.CloudWatchEvents.PutEvents
+        , Network.AWS.CloudWatchEvents.PutPartnerEvents
         , Network.AWS.CloudWatchEvents.PutPermission
         , Network.AWS.CloudWatchEvents.PutRule
         , Network.AWS.CloudWatchEvents.PutTargets
         , Network.AWS.CloudWatchEvents.RemovePermission
         , Network.AWS.CloudWatchEvents.RemoveTargets
+        , Network.AWS.CloudWatchEvents.TagResource
         , Network.AWS.CloudWatchEvents.TestEventPattern
         , Network.AWS.CloudWatchEvents.Types
+        , Network.AWS.CloudWatchEvents.UntagResource
         , Network.AWS.CloudWatchEvents.Waiters
 
     other-modules:

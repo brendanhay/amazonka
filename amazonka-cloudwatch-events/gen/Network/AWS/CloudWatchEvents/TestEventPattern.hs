@@ -21,7 +21,7 @@
 -- Tests whether the specified event pattern matches the provided event.
 --
 --
--- Most services in AWS treat : or / as the same character in Amazon Resource Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.
+-- Most services in AWS treat @:@ or @/@ as the same character in Amazon Resource Names (ARNs). However, EventBridge uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event that you want to match.
 --
 module Network.AWS.CloudWatchEvents.TestEventPattern
     (
@@ -58,7 +58,7 @@ data TestEventPattern = TestEventPattern'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tepEventPattern' - The event pattern. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
+-- * 'tepEventPattern' - The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Event Patterns> in the /Amazon EventBridge User Guide/ .
 --
 -- * 'tepEvent' - The event, in JSON format, to test against the event pattern.
 testEventPattern
@@ -69,7 +69,7 @@ testEventPattern pEventPattern_ pEvent_ =
   TestEventPattern' {_tepEventPattern = pEventPattern_, _tepEvent = pEvent_}
 
 
--- | The event pattern. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
+-- | The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Event Patterns> in the /Amazon EventBridge User Guide/ .
 tepEventPattern :: Lens' TestEventPattern Text
 tepEventPattern = lens _tepEventPattern (\ s a -> s{_tepEventPattern = a})
 

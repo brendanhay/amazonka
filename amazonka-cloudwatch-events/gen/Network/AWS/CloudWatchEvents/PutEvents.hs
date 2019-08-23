@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sends custom events to Amazon CloudWatch Events so that they can be matched to rules.
+-- Sends custom events to EventBridge so that they can be matched to rules. These events can be from your custom applications and services.
 --
 --
 module Network.AWS.CloudWatchEvents.PutEvents

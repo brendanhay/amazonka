@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the rules for the specified target. You can see which of the rules in Amazon CloudWatch Events can invoke a specific target in your account.
+-- Lists the rules for the specified target. You can see which rules can invoke a specific target in your account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
     (
     -- * Creating a Request
@@ -28,6 +30,7 @@ module Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
     , ListRuleNamesByTarget
     -- * Request Lenses
     , lrnbtNextToken
+    , lrnbtEventBusName
     , lrnbtLimit
     , lrnbtTargetARN
 
@@ -43,15 +46,17 @@ module Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
 import Network.AWS.CloudWatchEvents.Types
 import Network.AWS.CloudWatchEvents.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'listRuleNamesByTarget' smart constructor.
 data ListRuleNamesByTarget = ListRuleNamesByTarget'
-  { _lrnbtNextToken :: !(Maybe Text)
-  , _lrnbtLimit     :: !(Maybe Nat)
-  , _lrnbtTargetARN :: !Text
+  { _lrnbtNextToken    :: !(Maybe Text)
+  , _lrnbtEventBusName :: !(Maybe Text)
+  , _lrnbtLimit        :: !(Maybe Nat)
+  , _lrnbtTargetARN    :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -60,6 +65,8 @@ data ListRuleNamesByTarget = ListRuleNamesByTarget'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lrnbtNextToken' - The token returned by a previous call to retrieve the next set of results.
+--
+-- * 'lrnbtEventBusName' - Limits the results to show only the rules associated with the specified event bus.
 --
 -- * 'lrnbtLimit' - The maximum number of results to return.
 --
@@ -70,6 +77,7 @@ listRuleNamesByTarget
 listRuleNamesByTarget pTargetARN_ =
   ListRuleNamesByTarget'
     { _lrnbtNextToken = Nothing
+    , _lrnbtEventBusName = Nothing
     , _lrnbtLimit = Nothing
     , _lrnbtTargetARN = pTargetARN_
     }
@@ -79,6 +87,10 @@ listRuleNamesByTarget pTargetARN_ =
 lrnbtNextToken :: Lens' ListRuleNamesByTarget (Maybe Text)
 lrnbtNextToken = lens _lrnbtNextToken (\ s a -> s{_lrnbtNextToken = a})
 
+-- | Limits the results to show only the rules associated with the specified event bus.
+lrnbtEventBusName :: Lens' ListRuleNamesByTarget (Maybe Text)
+lrnbtEventBusName = lens _lrnbtEventBusName (\ s a -> s{_lrnbtEventBusName = a})
+
 -- | The maximum number of results to return.
 lrnbtLimit :: Lens' ListRuleNamesByTarget (Maybe Natural)
 lrnbtLimit = lens _lrnbtLimit (\ s a -> s{_lrnbtLimit = a}) . mapping _Nat
@@ -86,6 +98,13 @@ lrnbtLimit = lens _lrnbtLimit (\ s a -> s{_lrnbtLimit = a}) . mapping _Nat
 -- | The Amazon Resource Name (ARN) of the target resource.
 lrnbtTargetARN :: Lens' ListRuleNamesByTarget Text
 lrnbtTargetARN = lens _lrnbtTargetARN (\ s a -> s{_lrnbtTargetARN = a})
+
+instance AWSPager ListRuleNamesByTarget where
+        page rq rs
+          | stop (rs ^. lrnbtrsNextToken) = Nothing
+          | stop (rs ^. lrnbtrsRuleNames) = Nothing
+          | otherwise =
+            Just $ rq & lrnbtNextToken .~ rs ^. lrnbtrsNextToken
 
 instance AWSRequest ListRuleNamesByTarget where
         type Rs ListRuleNamesByTarget =
@@ -117,6 +136,7 @@ instance ToJSON ListRuleNamesByTarget where
           = object
               (catMaybes
                  [("NextToken" .=) <$> _lrnbtNextToken,
+                  ("EventBusName" .=) <$> _lrnbtEventBusName,
                   ("Limit" .=) <$> _lrnbtLimit,
                   Just ("TargetArn" .= _lrnbtTargetARN)])
 

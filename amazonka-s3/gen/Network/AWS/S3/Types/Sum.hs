@@ -681,6 +681,7 @@ instance ToXML ObjectCannedACL where
 
 data ObjectStorageClass
   = OSCGlacier
+  | OSCIntelligentTiering
   | OSCReducedRedundancy
   | OSCStandard
   | OSCStandardIA
@@ -690,15 +691,17 @@ data ObjectStorageClass
 instance FromText ObjectStorageClass where
     parser = takeLowerText >>= \case
         "glacier" -> pure OSCGlacier
+        "intelligent_tiering" -> pure OSCIntelligentTiering
         "reduced_redundancy" -> pure OSCReducedRedundancy
         "standard" -> pure OSCStandard
         "standard_ia" -> pure OSCStandardIA
         e -> fromTextError $ "Failure parsing ObjectStorageClass from value: '" <> e
-           <> "'. Accepted values: glacier, reduced_redundancy, standard, standard_ia"
+           <> "'. Accepted values: glacier, intelligent_tiering, reduced_redundancy, standard, standard_ia"
 
 instance ToText ObjectStorageClass where
     toText = \case
         OSCGlacier -> "GLACIER"
+        OSCIntelligentTiering -> "INTELLIGENT_TIERING"
         OSCReducedRedundancy -> "REDUCED_REDUNDANCY"
         OSCStandard -> "STANDARD"
         OSCStandardIA -> "STANDARD_IA"

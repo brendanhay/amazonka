@@ -15,7 +15,8 @@
                 "STANDARD",
                 "STANDARD_IA",
                 "REDUCED_REDUNDANCY",
-                "GLACIER"
+                "GLACIER",
+                "INTELLIGENT_TIERING"
             ]
         },
         "GetBucketLocationOutput": {
@@ -34,4 +35,3 @@
         }
     }
 }
-

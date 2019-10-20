@@ -168,6 +168,9 @@ import Control.Monad.State.Class
 import Control.Monad.Trans.Control
 import Control.Monad.Trans.Resource
 import Control.Monad.Writer.Class
+#if MIN_VERSION_base(4,9,0)
+import Control.Monad.Fail
+#endif
 
 import Data.Conduit      hiding (await)
 import Data.Conduit.Lazy (MonadActive (..))
@@ -202,6 +205,9 @@ newtype AWST' r m a = AWST' { unAWST :: ReaderT r m a }
         , MonadIO
         , MonadActive
         , MonadTrans
+#if MIN_VERSION_base(4,9,0)
+        , MonadFail
+#endif
         )
 
 instance MonadThrow m => MonadThrow (AWST' r m) where

@@ -26,36 +26,6 @@ module Network.AWS.CloudWatch
     -- * Errors
     -- $errors
 
-    -- ** LimitExceededFault
-    , _LimitExceededFault
-
-    -- ** DashboardNotFoundError
-    , _DashboardNotFoundError
-
-    -- ** InvalidNextToken
-    , _InvalidNextToken
-
-    -- ** InternalServiceFault
-    , _InternalServiceFault
-
-    -- ** DashboardInvalidInputError
-    , _DashboardInvalidInputError
-
-    -- ** InvalidParameterValueException
-    , _InvalidParameterValueException
-
-    -- ** InvalidFormatFault
-    , _InvalidFormatFault
-
-    -- ** MissingRequiredParameterException
-    , _MissingRequiredParameterException
-
-    -- ** InvalidParameterCombinationException
-    , _InvalidParameterCombinationException
-
-    -- ** ResourceNotFound
-    , _ResourceNotFound
-
     -- * Waiters
     -- $waiters
 
@@ -68,8 +38,17 @@ module Network.AWS.CloudWatch
     -- ** EnableAlarmActions
     , module Network.AWS.CloudWatch.EnableAlarmActions
 
+    -- ** DeleteAnomalyDetector
+    , module Network.AWS.CloudWatch.DeleteAnomalyDetector
+
     -- ** GetDashboard
     , module Network.AWS.CloudWatch.GetDashboard
+
+    -- ** PutAnomalyDetector
+    , module Network.AWS.CloudWatch.PutAnomalyDetector
+
+    -- ** ListTagsForResource
+    , module Network.AWS.CloudWatch.ListTagsForResource
 
     -- ** GetMetricData
     , module Network.AWS.CloudWatch.GetMetricData
@@ -89,6 +68,9 @@ module Network.AWS.CloudWatch
     -- ** DeleteDashboards
     , module Network.AWS.CloudWatch.DeleteDashboards
 
+    -- ** GetMetricWidgetImage
+    , module Network.AWS.CloudWatch.GetMetricWidgetImage
+
     -- ** DeleteAlarms
     , module Network.AWS.CloudWatch.DeleteAlarms
 
@@ -104,8 +86,17 @@ module Network.AWS.CloudWatch
     -- ** DisableAlarmActions
     , module Network.AWS.CloudWatch.DisableAlarmActions
 
+    -- ** DescribeAnomalyDetectors
+    , module Network.AWS.CloudWatch.DescribeAnomalyDetectors
+
     -- ** PutDashboard
     , module Network.AWS.CloudWatch.PutDashboard
+
+    -- ** TagResource
+    , module Network.AWS.CloudWatch.TagResource
+
+    -- ** UntagResource
+    , module Network.AWS.CloudWatch.UntagResource
 
     -- ** PutMetricAlarm
     , module Network.AWS.CloudWatch.PutMetricAlarm
@@ -144,6 +135,21 @@ module Network.AWS.CloudWatch
     , ahiHistoryData
     , ahiHistorySummary
     , ahiTimestamp
+
+    -- ** AnomalyDetector
+    , AnomalyDetector
+    , anomalyDetector
+    , adMetricName
+    , adNamespace
+    , adStat
+    , adConfiguration
+    , adDimensions
+
+    -- ** AnomalyDetectorConfiguration
+    , AnomalyDetectorConfiguration
+    , anomalyDetectorConfiguration
+    , adcMetricTimezone
+    , adcExcludedTimeRanges
 
     -- ** DashboardEntry
     , DashboardEntry
@@ -201,12 +207,14 @@ module Network.AWS.CloudWatch
     , metricAlarm
     , maAlarmName
     , maStateUpdatedTimestamp
+    , maMetrics
     , maTreatMissingData
     , maPeriod
     , maAlarmDescription
     , maEvaluationPeriods
     , maMetricName
     , maNamespace
+    , maThresholdMetricId
     , maComparisonOperator
     , maOKActions
     , maEvaluateLowSampleCountPercentile
@@ -247,6 +255,8 @@ module Network.AWS.CloudWatch
     -- ** MetricDatum
     , MetricDatum
     , metricDatum
+    , mdValues
+    , mdCounts
     , mdValue
     , mdStorageResolution
     , mdDimensions
@@ -263,6 +273,12 @@ module Network.AWS.CloudWatch
     , msPeriod
     , msStat
 
+    -- ** Range
+    , Range
+    , range
+    , rStartTime
+    , rEndTime
+
     -- ** StatisticSet
     , StatisticSet
     , statisticSet
@@ -270,25 +286,38 @@ module Network.AWS.CloudWatch
     , ssSum
     , ssMinimum
     , ssMaximum
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
     ) where
 
 import Network.AWS.CloudWatch.DeleteAlarms
+import Network.AWS.CloudWatch.DeleteAnomalyDetector
 import Network.AWS.CloudWatch.DeleteDashboards
 import Network.AWS.CloudWatch.DescribeAlarmHistory
 import Network.AWS.CloudWatch.DescribeAlarms
 import Network.AWS.CloudWatch.DescribeAlarmsForMetric
+import Network.AWS.CloudWatch.DescribeAnomalyDetectors
 import Network.AWS.CloudWatch.DisableAlarmActions
 import Network.AWS.CloudWatch.EnableAlarmActions
 import Network.AWS.CloudWatch.GetDashboard
 import Network.AWS.CloudWatch.GetMetricData
 import Network.AWS.CloudWatch.GetMetricStatistics
+import Network.AWS.CloudWatch.GetMetricWidgetImage
 import Network.AWS.CloudWatch.ListDashboards
 import Network.AWS.CloudWatch.ListMetrics
+import Network.AWS.CloudWatch.ListTagsForResource
+import Network.AWS.CloudWatch.PutAnomalyDetector
 import Network.AWS.CloudWatch.PutDashboard
 import Network.AWS.CloudWatch.PutMetricAlarm
 import Network.AWS.CloudWatch.PutMetricData
 import Network.AWS.CloudWatch.SetAlarmState
+import Network.AWS.CloudWatch.TagResource
 import Network.AWS.CloudWatch.Types
+import Network.AWS.CloudWatch.UntagResource
 import Network.AWS.CloudWatch.Waiters
 
 {- $errors

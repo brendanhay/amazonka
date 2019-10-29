@@ -16,16 +16,6 @@ module Network.AWS.CloudWatch.Types
       cloudWatch
 
     -- * Errors
-    , _LimitExceededFault
-    , _DashboardNotFoundError
-    , _InvalidNextToken
-    , _InternalServiceFault
-    , _DashboardInvalidInputError
-    , _InvalidParameterValueException
-    , _InvalidFormatFault
-    , _MissingRequiredParameterException
-    , _InvalidParameterCombinationException
-    , _ResourceNotFound
 
     -- * ComparisonOperator
     , ComparisonOperator (..)
@@ -56,6 +46,21 @@ module Network.AWS.CloudWatch.Types
     , ahiHistoryData
     , ahiHistorySummary
     , ahiTimestamp
+
+    -- * AnomalyDetector
+    , AnomalyDetector
+    , anomalyDetector
+    , adMetricName
+    , adNamespace
+    , adStat
+    , adConfiguration
+    , adDimensions
+
+    -- * AnomalyDetectorConfiguration
+    , AnomalyDetectorConfiguration
+    , anomalyDetectorConfiguration
+    , adcMetricTimezone
+    , adcExcludedTimeRanges
 
     -- * DashboardEntry
     , DashboardEntry
@@ -113,12 +118,14 @@ module Network.AWS.CloudWatch.Types
     , metricAlarm
     , maAlarmName
     , maStateUpdatedTimestamp
+    , maMetrics
     , maTreatMissingData
     , maPeriod
     , maAlarmDescription
     , maEvaluationPeriods
     , maMetricName
     , maNamespace
+    , maThresholdMetricId
     , maComparisonOperator
     , maOKActions
     , maEvaluateLowSampleCountPercentile
@@ -159,6 +166,8 @@ module Network.AWS.CloudWatch.Types
     -- * MetricDatum
     , MetricDatum
     , metricDatum
+    , mdValues
+    , mdCounts
     , mdValue
     , mdStorageResolution
     , mdDimensions
@@ -175,6 +184,12 @@ module Network.AWS.CloudWatch.Types
     , msPeriod
     , msStat
 
+    -- * Range
+    , Range
+    , range
+    , rStartTime
+    , rEndTime
+
     -- * StatisticSet
     , StatisticSet
     , statisticSet
@@ -182,6 +197,12 @@ module Network.AWS.CloudWatch.Types
     , ssSum
     , ssMinimum
     , ssMaximum
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
     ) where
 
 import Network.AWS.CloudWatch.Types.Product
@@ -227,84 +248,4 @@ cloudWatch =
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
-
-
--- | The quota for alarms for this customer has already been reached.
---
---
-_LimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededFault =
-  _MatchServiceError cloudWatch "LimitExceeded" . hasStatus 400
-
-
--- | The specified dashboard does not exist.
---
---
-_DashboardNotFoundError :: AsError a => Getting (First ServiceError) a ServiceError
-_DashboardNotFoundError =
-  _MatchServiceError cloudWatch "ResourceNotFound" . hasStatus 404
-
-
--- | The next token specified is invalid.
---
---
-_InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNextToken =
-  _MatchServiceError cloudWatch "InvalidNextToken" . hasStatus 400
-
-
--- | Request processing has failed due to some unknown error, exception, or failure.
---
---
-_InternalServiceFault :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServiceFault =
-  _MatchServiceError cloudWatch "InternalServiceError" . hasStatus 500
-
-
--- | Some part of the dashboard data is invalid.
---
---
-_DashboardInvalidInputError :: AsError a => Getting (First ServiceError) a ServiceError
-_DashboardInvalidInputError =
-  _MatchServiceError cloudWatch "InvalidParameterInput" . hasStatus 400
-
-
--- | The value of an input parameter is bad or out-of-range.
---
---
-_InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameterValueException =
-  _MatchServiceError cloudWatch "InvalidParameterValue" . hasStatus 400
-
-
--- | Data was not syntactically valid JSON.
---
---
-_InvalidFormatFault :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidFormatFault =
-  _MatchServiceError cloudWatch "InvalidFormat" . hasStatus 400
-
-
--- | An input parameter that is required is missing.
---
---
-_MissingRequiredParameterException :: AsError a => Getting (First ServiceError) a ServiceError
-_MissingRequiredParameterException =
-  _MatchServiceError cloudWatch "MissingParameter" . hasStatus 400
-
-
--- | Parameters were used together that cannot be used together.
---
---
-_InvalidParameterCombinationException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameterCombinationException =
-  _MatchServiceError cloudWatch "InvalidParameterCombination" . hasStatus 400
-
-
--- | The named resource does not exist.
---
---
-_ResourceNotFound :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFound =
-  _MatchServiceError cloudWatch "ResourceNotFound" . hasStatus 404
 

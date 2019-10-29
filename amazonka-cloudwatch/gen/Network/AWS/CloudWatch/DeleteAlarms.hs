@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified alarms. In the event of an error, no alarms are deleted.
+-- Deletes the specified alarms. You can delete up to 50 alarms in one operation. In the event of an error, no alarms are deleted.
 --
 --
 module Network.AWS.CloudWatch.DeleteAlarms

@@ -39,7 +39,6 @@ packages:
   - amazonka-cloudsearch-domains
   - amazonka-cloudtrail
   - amazonka-cloudwatch
-  - amazonka-cloudwatch-events
   - amazonka-cloudwatch-logs
   - amazonka-codebuild
   - amazonka-codecommit
@@ -74,6 +73,7 @@ packages:
   - amazonka-elb
   - amazonka-elbv2
   - amazonka-emr
+  - amazonka-eventbridge
   - amazonka-fms
   - amazonka-gamelift
   - amazonka-glacier

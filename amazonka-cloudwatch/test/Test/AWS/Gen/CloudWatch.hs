@@ -31,8 +31,17 @@ import Test.Tasty
 --         [ requestEnableAlarmActions $
 --             enableAlarmActions
 --
+--         , requestDeleteAnomalyDetector $
+--             deleteAnomalyDetector
+--
 --         , requestGetDashboard $
 --             getDashboard
+--
+--         , requestPutAnomalyDetector $
+--             putAnomalyDetector
+--
+--         , requestListTagsForResource $
+--             listTagsForResource
 --
 --         , requestGetMetricData $
 --             getMetricData
@@ -52,6 +61,9 @@ import Test.Tasty
 --         , requestDeleteDashboards $
 --             deleteDashboards
 --
+--         , requestGetMetricWidgetImage $
+--             getMetricWidgetImage
+--
 --         , requestDeleteAlarms $
 --             deleteAlarms
 --
@@ -67,8 +79,17 @@ import Test.Tasty
 --         , requestDisableAlarmActions $
 --             disableAlarmActions
 --
+--         , requestDescribeAnomalyDetectors $
+--             describeAnomalyDetectors
+--
 --         , requestPutDashboard $
 --             putDashboard
+--
+--         , requestTagResource $
+--             tagResource
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestPutMetricAlarm $
 --             putMetricAlarm
@@ -82,8 +103,17 @@ import Test.Tasty
 --         [ responseEnableAlarmActions $
 --             enableAlarmActionsResponse
 --
+--         , responseDeleteAnomalyDetector $
+--             deleteAnomalyDetectorResponse
+--
 --         , responseGetDashboard $
 --             getDashboardResponse
+--
+--         , responsePutAnomalyDetector $
+--             putAnomalyDetectorResponse
+--
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
 --
 --         , responseGetMetricData $
 --             getMetricDataResponse
@@ -103,6 +133,9 @@ import Test.Tasty
 --         , responseDeleteDashboards $
 --             deleteDashboardsResponse
 --
+--         , responseGetMetricWidgetImage $
+--             getMetricWidgetImageResponse
+--
 --         , responseDeleteAlarms $
 --             deleteAlarmsResponse
 --
@@ -118,8 +151,17 @@ import Test.Tasty
 --         , responseDisableAlarmActions $
 --             disableAlarmActionsResponse
 --
+--         , responseDescribeAnomalyDetectors $
+--             describeAnomalyDetectorsResponse
+--
 --         , responsePutDashboard $
 --             putDashboardResponse
+--
+--         , responseTagResource $
+--             tagResourceResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responsePutMetricAlarm $
 --             putMetricAlarmResponse
@@ -137,10 +179,25 @@ requestEnableAlarmActions = req
     "EnableAlarmActions"
     "fixture/EnableAlarmActions.yaml"
 
+requestDeleteAnomalyDetector :: DeleteAnomalyDetector -> TestTree
+requestDeleteAnomalyDetector = req
+    "DeleteAnomalyDetector"
+    "fixture/DeleteAnomalyDetector.yaml"
+
 requestGetDashboard :: GetDashboard -> TestTree
 requestGetDashboard = req
     "GetDashboard"
     "fixture/GetDashboard.yaml"
+
+requestPutAnomalyDetector :: PutAnomalyDetector -> TestTree
+requestPutAnomalyDetector = req
+    "PutAnomalyDetector"
+    "fixture/PutAnomalyDetector.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource = req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestGetMetricData :: GetMetricData -> TestTree
 requestGetMetricData = req
@@ -172,6 +229,11 @@ requestDeleteDashboards = req
     "DeleteDashboards"
     "fixture/DeleteDashboards.yaml"
 
+requestGetMetricWidgetImage :: GetMetricWidgetImage -> TestTree
+requestGetMetricWidgetImage = req
+    "GetMetricWidgetImage"
+    "fixture/GetMetricWidgetImage.yaml"
+
 requestDeleteAlarms :: DeleteAlarms -> TestTree
 requestDeleteAlarms = req
     "DeleteAlarms"
@@ -197,10 +259,25 @@ requestDisableAlarmActions = req
     "DisableAlarmActions"
     "fixture/DisableAlarmActions.yaml"
 
+requestDescribeAnomalyDetectors :: DescribeAnomalyDetectors -> TestTree
+requestDescribeAnomalyDetectors = req
+    "DescribeAnomalyDetectors"
+    "fixture/DescribeAnomalyDetectors.yaml"
+
 requestPutDashboard :: PutDashboard -> TestTree
 requestPutDashboard = req
     "PutDashboard"
     "fixture/PutDashboard.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestPutMetricAlarm :: PutMetricAlarm -> TestTree
 requestPutMetricAlarm = req
@@ -221,12 +298,33 @@ responseEnableAlarmActions = res
     cloudWatch
     (Proxy :: Proxy EnableAlarmActions)
 
+responseDeleteAnomalyDetector :: DeleteAnomalyDetectorResponse -> TestTree
+responseDeleteAnomalyDetector = res
+    "DeleteAnomalyDetectorResponse"
+    "fixture/DeleteAnomalyDetectorResponse.proto"
+    cloudWatch
+    (Proxy :: Proxy DeleteAnomalyDetector)
+
 responseGetDashboard :: GetDashboardResponse -> TestTree
 responseGetDashboard = res
     "GetDashboardResponse"
     "fixture/GetDashboardResponse.proto"
     cloudWatch
     (Proxy :: Proxy GetDashboard)
+
+responsePutAnomalyDetector :: PutAnomalyDetectorResponse -> TestTree
+responsePutAnomalyDetector = res
+    "PutAnomalyDetectorResponse"
+    "fixture/PutAnomalyDetectorResponse.proto"
+    cloudWatch
+    (Proxy :: Proxy PutAnomalyDetector)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource = res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    cloudWatch
+    (Proxy :: Proxy ListTagsForResource)
 
 responseGetMetricData :: GetMetricDataResponse -> TestTree
 responseGetMetricData = res
@@ -270,6 +368,13 @@ responseDeleteDashboards = res
     cloudWatch
     (Proxy :: Proxy DeleteDashboards)
 
+responseGetMetricWidgetImage :: GetMetricWidgetImageResponse -> TestTree
+responseGetMetricWidgetImage = res
+    "GetMetricWidgetImageResponse"
+    "fixture/GetMetricWidgetImageResponse.proto"
+    cloudWatch
+    (Proxy :: Proxy GetMetricWidgetImage)
+
 responseDeleteAlarms :: DeleteAlarmsResponse -> TestTree
 responseDeleteAlarms = res
     "DeleteAlarmsResponse"
@@ -305,12 +410,33 @@ responseDisableAlarmActions = res
     cloudWatch
     (Proxy :: Proxy DisableAlarmActions)
 
+responseDescribeAnomalyDetectors :: DescribeAnomalyDetectorsResponse -> TestTree
+responseDescribeAnomalyDetectors = res
+    "DescribeAnomalyDetectorsResponse"
+    "fixture/DescribeAnomalyDetectorsResponse.proto"
+    cloudWatch
+    (Proxy :: Proxy DescribeAnomalyDetectors)
+
 responsePutDashboard :: PutDashboardResponse -> TestTree
 responsePutDashboard = res
     "PutDashboardResponse"
     "fixture/PutDashboardResponse.proto"
     cloudWatch
     (Proxy :: Proxy PutDashboard)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    cloudWatch
+    (Proxy :: Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    cloudWatch
+    (Proxy :: Proxy UntagResource)
 
 responsePutMetricAlarm :: PutMetricAlarmResponse -> TestTree
 responsePutMetricAlarm = res

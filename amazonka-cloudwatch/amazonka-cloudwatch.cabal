@@ -46,22 +46,29 @@ library
     exposed-modules:
           Network.AWS.CloudWatch
         , Network.AWS.CloudWatch.DeleteAlarms
+        , Network.AWS.CloudWatch.DeleteAnomalyDetector
         , Network.AWS.CloudWatch.DeleteDashboards
         , Network.AWS.CloudWatch.DescribeAlarmHistory
         , Network.AWS.CloudWatch.DescribeAlarms
         , Network.AWS.CloudWatch.DescribeAlarmsForMetric
+        , Network.AWS.CloudWatch.DescribeAnomalyDetectors
         , Network.AWS.CloudWatch.DisableAlarmActions
         , Network.AWS.CloudWatch.EnableAlarmActions
         , Network.AWS.CloudWatch.GetDashboard
         , Network.AWS.CloudWatch.GetMetricData
         , Network.AWS.CloudWatch.GetMetricStatistics
+        , Network.AWS.CloudWatch.GetMetricWidgetImage
         , Network.AWS.CloudWatch.ListDashboards
         , Network.AWS.CloudWatch.ListMetrics
+        , Network.AWS.CloudWatch.ListTagsForResource
+        , Network.AWS.CloudWatch.PutAnomalyDetector
         , Network.AWS.CloudWatch.PutDashboard
         , Network.AWS.CloudWatch.PutMetricAlarm
         , Network.AWS.CloudWatch.PutMetricData
         , Network.AWS.CloudWatch.SetAlarmState
+        , Network.AWS.CloudWatch.TagResource
         , Network.AWS.CloudWatch.Types
+        , Network.AWS.CloudWatch.UntagResource
         , Network.AWS.CloudWatch.Waiters
 
     other-modules:

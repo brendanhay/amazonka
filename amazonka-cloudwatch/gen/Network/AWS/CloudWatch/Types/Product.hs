@@ -92,6 +92,131 @@ instance Hashable AlarmHistoryItem where
 
 instance NFData AlarmHistoryItem where
 
+-- | An anomaly detection model associated with a particular CloudWatch metric athresnd statistic. You can use the model to display a band of expected normal values when the metric is graphed.
+--
+--
+--
+-- /See:/ 'anomalyDetector' smart constructor.
+data AnomalyDetector = AnomalyDetector'
+  { _adMetricName    :: !(Maybe Text)
+  , _adNamespace     :: !(Maybe Text)
+  , _adStat          :: !(Maybe Text)
+  , _adConfiguration :: !(Maybe AnomalyDetectorConfiguration)
+  , _adDimensions    :: !(Maybe [Dimension])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AnomalyDetector' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'adMetricName' - The name of the metric associated with the anomaly detection model.
+--
+-- * 'adNamespace' - The namespace of the metric associated with the anomaly detection model.
+--
+-- * 'adStat' - The statistic associated with the anomaly detection model.
+--
+-- * 'adConfiguration' - The configuration specifies details about how the anomaly detection model is to be trained, including time ranges to exclude from use for training the model, and the time zone to use for the metric.
+--
+-- * 'adDimensions' - The metric dimensions associated with the anomaly detection model.
+anomalyDetector
+    :: AnomalyDetector
+anomalyDetector =
+  AnomalyDetector'
+    { _adMetricName = Nothing
+    , _adNamespace = Nothing
+    , _adStat = Nothing
+    , _adConfiguration = Nothing
+    , _adDimensions = Nothing
+    }
+
+
+-- | The name of the metric associated with the anomaly detection model.
+adMetricName :: Lens' AnomalyDetector (Maybe Text)
+adMetricName = lens _adMetricName (\ s a -> s{_adMetricName = a})
+
+-- | The namespace of the metric associated with the anomaly detection model.
+adNamespace :: Lens' AnomalyDetector (Maybe Text)
+adNamespace = lens _adNamespace (\ s a -> s{_adNamespace = a})
+
+-- | The statistic associated with the anomaly detection model.
+adStat :: Lens' AnomalyDetector (Maybe Text)
+adStat = lens _adStat (\ s a -> s{_adStat = a})
+
+-- | The configuration specifies details about how the anomaly detection model is to be trained, including time ranges to exclude from use for training the model, and the time zone to use for the metric.
+adConfiguration :: Lens' AnomalyDetector (Maybe AnomalyDetectorConfiguration)
+adConfiguration = lens _adConfiguration (\ s a -> s{_adConfiguration = a})
+
+-- | The metric dimensions associated with the anomaly detection model.
+adDimensions :: Lens' AnomalyDetector [Dimension]
+adDimensions = lens _adDimensions (\ s a -> s{_adDimensions = a}) . _Default . _Coerce
+
+instance FromXML AnomalyDetector where
+        parseXML x
+          = AnomalyDetector' <$>
+              (x .@? "MetricName") <*> (x .@? "Namespace") <*>
+                (x .@? "Stat")
+                <*> (x .@? "Configuration")
+                <*>
+                (x .@? "Dimensions" .!@ mempty >>=
+                   may (parseXMLList "member"))
+
+instance Hashable AnomalyDetector where
+
+instance NFData AnomalyDetector where
+
+-- | The configuration specifies details about how the anomaly detection model is to be trained, including time ranges to exclude from use for training the model and the time zone to use for the metric.
+--
+--
+--
+-- /See:/ 'anomalyDetectorConfiguration' smart constructor.
+data AnomalyDetectorConfiguration = AnomalyDetectorConfiguration'
+  { _adcMetricTimezone     :: !(Maybe Text)
+  , _adcExcludedTimeRanges :: !(Maybe [Range])
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'AnomalyDetectorConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'adcMetricTimezone' - The time zone to use for the metric. This is useful to enable the model to automatically account for daylight savings time changes if the metric is sensitive to such time changes. To specify a time zone, use the name of the time zone as specified in the standard tz database. For more information, see <https://en.wikipedia.org/wiki/Tz_database tz database> .
+--
+-- * 'adcExcludedTimeRanges' - An array of time ranges to exclude from use when the anomaly detection model is trained. Use this to make sure that events that could cause unusual values for the metric, such as deployments, aren't used when CloudWatch creates the model.
+anomalyDetectorConfiguration
+    :: AnomalyDetectorConfiguration
+anomalyDetectorConfiguration =
+  AnomalyDetectorConfiguration'
+    {_adcMetricTimezone = Nothing, _adcExcludedTimeRanges = Nothing}
+
+
+-- | The time zone to use for the metric. This is useful to enable the model to automatically account for daylight savings time changes if the metric is sensitive to such time changes. To specify a time zone, use the name of the time zone as specified in the standard tz database. For more information, see <https://en.wikipedia.org/wiki/Tz_database tz database> .
+adcMetricTimezone :: Lens' AnomalyDetectorConfiguration (Maybe Text)
+adcMetricTimezone = lens _adcMetricTimezone (\ s a -> s{_adcMetricTimezone = a})
+
+-- | An array of time ranges to exclude from use when the anomaly detection model is trained. Use this to make sure that events that could cause unusual values for the metric, such as deployments, aren't used when CloudWatch creates the model.
+adcExcludedTimeRanges :: Lens' AnomalyDetectorConfiguration [Range]
+adcExcludedTimeRanges = lens _adcExcludedTimeRanges (\ s a -> s{_adcExcludedTimeRanges = a}) . _Default . _Coerce
+
+instance FromXML AnomalyDetectorConfiguration where
+        parseXML x
+          = AnomalyDetectorConfiguration' <$>
+              (x .@? "MetricTimezone") <*>
+                (x .@? "ExcludedTimeRanges" .!@ mempty >>=
+                   may (parseXMLList "member"))
+
+instance Hashable AnomalyDetectorConfiguration where
+
+instance NFData AnomalyDetectorConfiguration where
+
+instance ToQuery AnomalyDetectorConfiguration where
+        toQuery AnomalyDetectorConfiguration'{..}
+          = mconcat
+              ["MetricTimezone" =: _adcMetricTimezone,
+               "ExcludedTimeRanges" =:
+                 toQuery
+                   (toQueryList "member" <$> _adcExcludedTimeRanges)]
+
 -- | Represents a specific dashboard.
 --
 --
@@ -435,7 +560,7 @@ data Metric = Metric'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mMetricName' - The name of the metric.
+-- * 'mMetricName' - The name of the metric. This is a required field.
 --
 -- * 'mNamespace' - The namespace of the metric.
 --
@@ -447,7 +572,7 @@ metric =
     {_mMetricName = Nothing, _mNamespace = Nothing, _mDimensions = Nothing}
 
 
--- | The name of the metric.
+-- | The name of the metric. This is a required field.
 mMetricName :: Lens' Metric (Maybe Text)
 mMetricName = lens _mMetricName (\ s a -> s{_mMetricName = a})
 
@@ -486,12 +611,14 @@ instance ToQuery Metric where
 data MetricAlarm = MetricAlarm'
   { _maAlarmName                          :: !(Maybe Text)
   , _maStateUpdatedTimestamp              :: !(Maybe ISO8601)
+  , _maMetrics                            :: !(Maybe [MetricDataQuery])
   , _maTreatMissingData                   :: !(Maybe Text)
   , _maPeriod                             :: !(Maybe Nat)
   , _maAlarmDescription                   :: !(Maybe Text)
   , _maEvaluationPeriods                  :: !(Maybe Nat)
   , _maMetricName                         :: !(Maybe Text)
   , _maNamespace                          :: !(Maybe Text)
+  , _maThresholdMetricId                  :: !(Maybe Text)
   , _maComparisonOperator                 :: !(Maybe ComparisonOperator)
   , _maOKActions                          :: !(Maybe [Text])
   , _maEvaluateLowSampleCountPercentile   :: !(Maybe Text)
@@ -520,6 +647,8 @@ data MetricAlarm = MetricAlarm'
 --
 -- * 'maStateUpdatedTimestamp' - The time stamp of the last update to the alarm state.
 --
+-- * 'maMetrics' - An array of MetricDataQuery structures, used in an alarm based on a metric math expression. Each structure either retrieves a metric or performs a math expression. One item in the Metrics array is the math expression that the alarm watches. This expression by designated by having @ReturnValue@ set to true.
+--
 -- * 'maTreatMissingData' - Sets how this alarm is to handle missing data points. If this parameter is omitted, the default behavior of @missing@ is used.
 --
 -- * 'maPeriod' - The period, in seconds, over which the statistic is applied.
@@ -528,9 +657,11 @@ data MetricAlarm = MetricAlarm'
 --
 -- * 'maEvaluationPeriods' - The number of periods over which data is compared to the specified threshold.
 --
--- * 'maMetricName' - The name of the metric associated with the alarm.
+-- * 'maMetricName' - The name of the metric associated with the alarm, if this is an alarm based on a single metric.
 --
 -- * 'maNamespace' - The namespace of the metric associated with the alarm.
+--
+-- * 'maThresholdMetricId' - In an alarm based on an anomaly detection model, this is the ID of the @ANOMALY_DETECTION_BAND@ function used as the threshold for the alarm.
 --
 -- * 'maComparisonOperator' - The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
 --
@@ -571,12 +702,14 @@ metricAlarm =
   MetricAlarm'
     { _maAlarmName = Nothing
     , _maStateUpdatedTimestamp = Nothing
+    , _maMetrics = Nothing
     , _maTreatMissingData = Nothing
     , _maPeriod = Nothing
     , _maAlarmDescription = Nothing
     , _maEvaluationPeriods = Nothing
     , _maMetricName = Nothing
     , _maNamespace = Nothing
+    , _maThresholdMetricId = Nothing
     , _maComparisonOperator = Nothing
     , _maOKActions = Nothing
     , _maEvaluateLowSampleCountPercentile = Nothing
@@ -605,6 +738,10 @@ maAlarmName = lens _maAlarmName (\ s a -> s{_maAlarmName = a})
 maStateUpdatedTimestamp :: Lens' MetricAlarm (Maybe UTCTime)
 maStateUpdatedTimestamp = lens _maStateUpdatedTimestamp (\ s a -> s{_maStateUpdatedTimestamp = a}) . mapping _Time
 
+-- | An array of MetricDataQuery structures, used in an alarm based on a metric math expression. Each structure either retrieves a metric or performs a math expression. One item in the Metrics array is the math expression that the alarm watches. This expression by designated by having @ReturnValue@ set to true.
+maMetrics :: Lens' MetricAlarm [MetricDataQuery]
+maMetrics = lens _maMetrics (\ s a -> s{_maMetrics = a}) . _Default . _Coerce
+
 -- | Sets how this alarm is to handle missing data points. If this parameter is omitted, the default behavior of @missing@ is used.
 maTreatMissingData :: Lens' MetricAlarm (Maybe Text)
 maTreatMissingData = lens _maTreatMissingData (\ s a -> s{_maTreatMissingData = a})
@@ -621,13 +758,17 @@ maAlarmDescription = lens _maAlarmDescription (\ s a -> s{_maAlarmDescription = 
 maEvaluationPeriods :: Lens' MetricAlarm (Maybe Natural)
 maEvaluationPeriods = lens _maEvaluationPeriods (\ s a -> s{_maEvaluationPeriods = a}) . mapping _Nat
 
--- | The name of the metric associated with the alarm.
+-- | The name of the metric associated with the alarm, if this is an alarm based on a single metric.
 maMetricName :: Lens' MetricAlarm (Maybe Text)
 maMetricName = lens _maMetricName (\ s a -> s{_maMetricName = a})
 
 -- | The namespace of the metric associated with the alarm.
 maNamespace :: Lens' MetricAlarm (Maybe Text)
 maNamespace = lens _maNamespace (\ s a -> s{_maNamespace = a})
+
+-- | In an alarm based on an anomaly detection model, this is the ID of the @ANOMALY_DETECTION_BAND@ function used as the threshold for the alarm.
+maThresholdMetricId :: Lens' MetricAlarm (Maybe Text)
+maThresholdMetricId = lens _maThresholdMetricId (\ s a -> s{_maThresholdMetricId = a})
 
 -- | The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
 maComparisonOperator :: Lens' MetricAlarm (Maybe ComparisonOperator)
@@ -702,12 +843,16 @@ instance FromXML MetricAlarm where
           = MetricAlarm' <$>
               (x .@? "AlarmName") <*>
                 (x .@? "StateUpdatedTimestamp")
+                <*>
+                (x .@? "Metrics" .!@ mempty >>=
+                   may (parseXMLList "member"))
                 <*> (x .@? "TreatMissingData")
                 <*> (x .@? "Period")
                 <*> (x .@? "AlarmDescription")
                 <*> (x .@? "EvaluationPeriods")
                 <*> (x .@? "MetricName")
                 <*> (x .@? "Namespace")
+                <*> (x .@? "ThresholdMetricId")
                 <*> (x .@? "ComparisonOperator")
                 <*>
                 (x .@? "OKActions" .!@ mempty >>=
@@ -738,8 +883,16 @@ instance Hashable MetricAlarm where
 
 instance NFData MetricAlarm where
 
--- | This structure indicates the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data. A single @GetMetricData@ call can include up to 100 @MetricDataQuery@ structures.
+-- | This structure is used in both @GetMetricData@ and @PutMetricAlarm@ . The supported use of this structure is different for those two operations.
 --
+--
+-- When used in @GetMetricData@ , it indicates the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data. A single @GetMetricData@ call can include up to 100 @MetricDataQuery@ structures.
+--
+-- When used in @PutMetricAlarm@ , it enables you to create an alarm based on a metric math expression. Each @MetricDataQuery@ in the array specifies either a metric to retrieve, or a math expression to be performed on retrieved metrics. A single @PutMetricAlarm@ call can include up to 20 @MetricDataQuery@ structures in the array. The 20 structures can include as many as 10 structures that contain a @MetricStat@ parameter to retrieve a metric, and as many as 10 structures that contain the @Expression@ parameter to perform a math expression. Of those @Expression@ structures, one must have @True@ as the value for @ReturnData@ . The result of this expression is the value the alarm watches.
+--
+-- Any expression used in a @PutMetricAlarm@ operation must return a single time series. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax Metric Math Syntax and Functions> in the /Amazon CloudWatch User Guide/ .
+--
+-- Some of the parameters of this structure also have different uses whether you are using this structure in a @GetMetricData@ operation or a @PutMetricAlarm@ operation. These differences are explained in the following parameter list.
 --
 --
 -- /See:/ 'metricDataQuery' smart constructor.
@@ -756,15 +909,15 @@ data MetricDataQuery = MetricDataQuery'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mdqReturnData' - Indicates whether to return the time stamps and raw data values of this metric. If you are performing this call just to do math expressions and do not also need the raw data returned, you can specify @False@ . If you omit this, the default of @True@ is used.
+-- * 'mdqReturnData' - When used in @GetMetricData@ , this option indicates whether to return the timestamps and raw data values of this metric. If you are performing this call just to do math expressions and do not also need the raw data returned, you can specify @False@ . If you omit this, the default of @True@ is used. When used in @PutMetricAlarm@ , specify @True@ for the one expression result to use as the alarm. For all other metrics and expressions in the same @PutMetricAlarm@ operation, specify @ReturnData@ as False.
 --
--- * 'mdqExpression' - The math expression to be performed on the returned data, if this structure is performing a math expression. For more information about metric math expressions, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax Metric Math Syntax and Functions> in the /Amazon CloudWatch User Guide/ . Within one MetricDataQuery structure, you must specify either @Expression@ or @MetricStat@ but not both.
+-- * 'mdqExpression' - The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the @Id@ of the other metrics to refer to those metrics, and can also use the @Id@ of other expressions to use the result of those expressions. For more information about metric math expressions, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax Metric Math Syntax and Functions> in the /Amazon CloudWatch User Guide/ . Within each MetricDataQuery object, you must specify either @Expression@ or @MetricStat@ but not both.
 --
 -- * 'mdqLabel' - A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents. If the metric or expression is shown in a CloudWatch dashboard widget, the label is shown. If Label is omitted, CloudWatch generates a default.
 --
--- * 'mdqMetricStat' - The metric to be returned, along with statistics, period, and units. Use this parameter only if this structure is performing a data retrieval and not performing a math expression on the returned data. Within one MetricDataQuery structure, you must specify either @Expression@ or @MetricStat@ but not both.
+-- * 'mdqMetricStat' - The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data. Within one MetricDataQuery object, you must specify either @Expression@ or @MetricStat@ but not both.
 --
--- * 'mdqId' - A short name used to tie this structure to the results in the response. This name must be unique within a single call to @GetMetricData@ . If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
+-- * 'mdqId' - A short name used to tie this object to the results in the response. This name must be unique within a single call to @GetMetricData@ . If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
 metricDataQuery
     :: Text -- ^ 'mdqId'
     -> MetricDataQuery
@@ -778,11 +931,11 @@ metricDataQuery pId_ =
     }
 
 
--- | Indicates whether to return the time stamps and raw data values of this metric. If you are performing this call just to do math expressions and do not also need the raw data returned, you can specify @False@ . If you omit this, the default of @True@ is used.
+-- | When used in @GetMetricData@ , this option indicates whether to return the timestamps and raw data values of this metric. If you are performing this call just to do math expressions and do not also need the raw data returned, you can specify @False@ . If you omit this, the default of @True@ is used. When used in @PutMetricAlarm@ , specify @True@ for the one expression result to use as the alarm. For all other metrics and expressions in the same @PutMetricAlarm@ operation, specify @ReturnData@ as False.
 mdqReturnData :: Lens' MetricDataQuery (Maybe Bool)
 mdqReturnData = lens _mdqReturnData (\ s a -> s{_mdqReturnData = a})
 
--- | The math expression to be performed on the returned data, if this structure is performing a math expression. For more information about metric math expressions, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax Metric Math Syntax and Functions> in the /Amazon CloudWatch User Guide/ . Within one MetricDataQuery structure, you must specify either @Expression@ or @MetricStat@ but not both.
+-- | The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the @Id@ of the other metrics to refer to those metrics, and can also use the @Id@ of other expressions to use the result of those expressions. For more information about metric math expressions, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax Metric Math Syntax and Functions> in the /Amazon CloudWatch User Guide/ . Within each MetricDataQuery object, you must specify either @Expression@ or @MetricStat@ but not both.
 mdqExpression :: Lens' MetricDataQuery (Maybe Text)
 mdqExpression = lens _mdqExpression (\ s a -> s{_mdqExpression = a})
 
@@ -790,13 +943,21 @@ mdqExpression = lens _mdqExpression (\ s a -> s{_mdqExpression = a})
 mdqLabel :: Lens' MetricDataQuery (Maybe Text)
 mdqLabel = lens _mdqLabel (\ s a -> s{_mdqLabel = a})
 
--- | The metric to be returned, along with statistics, period, and units. Use this parameter only if this structure is performing a data retrieval and not performing a math expression on the returned data. Within one MetricDataQuery structure, you must specify either @Expression@ or @MetricStat@ but not both.
+-- | The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data. Within one MetricDataQuery object, you must specify either @Expression@ or @MetricStat@ but not both.
 mdqMetricStat :: Lens' MetricDataQuery (Maybe MetricStat)
 mdqMetricStat = lens _mdqMetricStat (\ s a -> s{_mdqMetricStat = a})
 
--- | A short name used to tie this structure to the results in the response. This name must be unique within a single call to @GetMetricData@ . If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
+-- | A short name used to tie this object to the results in the response. This name must be unique within a single call to @GetMetricData@ . If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
 mdqId :: Lens' MetricDataQuery Text
 mdqId = lens _mdqId (\ s a -> s{_mdqId = a})
+
+instance FromXML MetricDataQuery where
+        parseXML x
+          = MetricDataQuery' <$>
+              (x .@? "ReturnData") <*> (x .@? "Expression") <*>
+                (x .@? "Label")
+                <*> (x .@? "MetricStat")
+                <*> (x .@ "Id")
 
 instance Hashable MetricDataQuery where
 
@@ -809,7 +970,7 @@ instance ToQuery MetricDataQuery where
                "Expression" =: _mdqExpression, "Label" =: _mdqLabel,
                "MetricStat" =: _mdqMetricStat, "Id" =: _mdqId]
 
--- | A @GetMetricData@ call returns an array of @MetricDataResult@ structures. Each of these structures includes the data points for that metric, along with the time stamps of those data points and other identifying information.
+-- | A @GetMetricData@ call returns an array of @MetricDataResult@ structures. Each of these structures includes the data points for that metric, along with the timestamps of those data points and other identifying information.
 --
 --
 --
@@ -828,11 +989,11 @@ data MetricDataResult = MetricDataResult'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mdrValues' - The data points for the metric corresponding to @Timestamps@ . The number of values always matches the number of time stamps and the time stamp for Values[x] is Timestamps[x].
+-- * 'mdrValues' - The data points for the metric corresponding to @Timestamps@ . The number of values always matches the number of timestamps and the timestamp for Values[x] is Timestamps[x].
 --
 -- * 'mdrId' - The short name you specified to represent this metric.
 --
--- * 'mdrTimestamps' - The time stamps for the data points, formatted in Unix timestamp format. The number of time stamps always matches the number of values and the value for Timestamps[x] is Values[x].
+-- * 'mdrTimestamps' - The timestamps for the data points, formatted in Unix timestamp format. The number of timestamps always matches the number of values and the value for Timestamps[x] is Values[x].
 --
 -- * 'mdrMessages' - A list of messages with additional information about the data returned.
 --
@@ -852,7 +1013,7 @@ metricDataResult =
     }
 
 
--- | The data points for the metric corresponding to @Timestamps@ . The number of values always matches the number of time stamps and the time stamp for Values[x] is Timestamps[x].
+-- | The data points for the metric corresponding to @Timestamps@ . The number of values always matches the number of timestamps and the timestamp for Values[x] is Timestamps[x].
 mdrValues :: Lens' MetricDataResult [Double]
 mdrValues = lens _mdrValues (\ s a -> s{_mdrValues = a}) . _Default . _Coerce
 
@@ -860,7 +1021,7 @@ mdrValues = lens _mdrValues (\ s a -> s{_mdrValues = a}) . _Default . _Coerce
 mdrId :: Lens' MetricDataResult (Maybe Text)
 mdrId = lens _mdrId (\ s a -> s{_mdrId = a})
 
--- | The time stamps for the data points, formatted in Unix timestamp format. The number of time stamps always matches the number of values and the value for Timestamps[x] is Values[x].
+-- | The timestamps for the data points, formatted in Unix timestamp format. The number of timestamps always matches the number of values and the value for Timestamps[x] is Values[x].
 mdrTimestamps :: Lens' MetricDataResult [UTCTime]
 mdrTimestamps = lens _mdrTimestamps (\ s a -> s{_mdrTimestamps = a}) . _Default . _Coerce
 
@@ -901,7 +1062,9 @@ instance NFData MetricDataResult where
 --
 -- /See:/ 'metricDatum' smart constructor.
 data MetricDatum = MetricDatum'
-  { _mdValue             :: !(Maybe Double)
+  { _mdValues            :: !(Maybe [Double])
+  , _mdCounts            :: !(Maybe [Double])
+  , _mdValue             :: !(Maybe Double)
   , _mdStorageResolution :: !(Maybe Nat)
   , _mdDimensions        :: !(Maybe [Dimension])
   , _mdUnit              :: !(Maybe StandardUnit)
@@ -915,13 +1078,17 @@ data MetricDatum = MetricDatum'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'mdValues' - Array of numbers representing the values for the metric during the period. Each unique value is listed just once in this array, and the corresponding number in the @Counts@ array specifies the number of times that value occurred during the period. You can include up to 150 unique values in each @PutMetricData@ action that specifies a @Values@ array. Although the @Values@ array accepts numbers of type @Double@ , CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.
+--
+-- * 'mdCounts' - Array of numbers that is used along with the @Values@ array. Each number in the @Count@ array is the number of times the corresponding value in the @Values@ array occurred during the period.  If you omit the @Counts@ array, the default of 1 is used as the value for each count. If you include a @Counts@ array, it must include the same amount of values as the @Values@ array.
+--
 -- * 'mdValue' - The value for the metric. Although the parameter accepts numbers of type Double, CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.
 --
--- * 'mdStorageResolution' - Valid values are 1 and 60. Setting this to 1 specifies this metric as a high-resolution metric, so that CloudWatch stores the metric with sub-minute resolution down to one second. Setting this to 60 specifies this metric as a regular-resolution metric, which CloudWatch stores at 1-minute resolution. Currently, high resolution is available only for custom metrics. For more information about high-resolution metrics, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html#high-resolution-metrics High-Resolution Metrics> in the /Amazon CloudWatch User Guide/ .  This field is optional, if you do not specify it the default of 60 is used.
+-- * 'mdStorageResolution' - Valid values are 1 and 60. Setting this to 1 specifies this metric as a high-resolution metric, so that CloudWatch stores the metric with sub-minute resolution down to one second. Setting this to 60 specifies this metric as a regular-resolution metric, which CloudWatch stores at 1-minute resolution. Currently, high resolution is available only for custom metrics. For more information about high-resolution metrics, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html#high-resolution-metrics High-Resolution Metrics> in the /Amazon CloudWatch User Guide/ .  This field is optional, if you do not specify it the default of 60 is used.
 --
 -- * 'mdDimensions' - The dimensions associated with the metric.
 --
--- * 'mdUnit' - The unit of the metric.
+-- * 'mdUnit' - When you are using a @Put@ operation, this defines what unit you want to use when storing the metric. In a @Get@ operation, this displays the unit that is used for the metric.
 --
 -- * 'mdTimestamp' - The time the metric data was received, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 --
@@ -933,7 +1100,9 @@ metricDatum
     -> MetricDatum
 metricDatum pMetricName_ =
   MetricDatum'
-    { _mdValue = Nothing
+    { _mdValues = Nothing
+    , _mdCounts = Nothing
+    , _mdValue = Nothing
     , _mdStorageResolution = Nothing
     , _mdDimensions = Nothing
     , _mdUnit = Nothing
@@ -943,11 +1112,19 @@ metricDatum pMetricName_ =
     }
 
 
+-- | Array of numbers representing the values for the metric during the period. Each unique value is listed just once in this array, and the corresponding number in the @Counts@ array specifies the number of times that value occurred during the period. You can include up to 150 unique values in each @PutMetricData@ action that specifies a @Values@ array. Although the @Values@ array accepts numbers of type @Double@ , CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.
+mdValues :: Lens' MetricDatum [Double]
+mdValues = lens _mdValues (\ s a -> s{_mdValues = a}) . _Default . _Coerce
+
+-- | Array of numbers that is used along with the @Values@ array. Each number in the @Count@ array is the number of times the corresponding value in the @Values@ array occurred during the period.  If you omit the @Counts@ array, the default of 1 is used as the value for each count. If you include a @Counts@ array, it must include the same amount of values as the @Values@ array.
+mdCounts :: Lens' MetricDatum [Double]
+mdCounts = lens _mdCounts (\ s a -> s{_mdCounts = a}) . _Default . _Coerce
+
 -- | The value for the metric. Although the parameter accepts numbers of type Double, CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.
 mdValue :: Lens' MetricDatum (Maybe Double)
 mdValue = lens _mdValue (\ s a -> s{_mdValue = a})
 
--- | Valid values are 1 and 60. Setting this to 1 specifies this metric as a high-resolution metric, so that CloudWatch stores the metric with sub-minute resolution down to one second. Setting this to 60 specifies this metric as a regular-resolution metric, which CloudWatch stores at 1-minute resolution. Currently, high resolution is available only for custom metrics. For more information about high-resolution metrics, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html#high-resolution-metrics High-Resolution Metrics> in the /Amazon CloudWatch User Guide/ .  This field is optional, if you do not specify it the default of 60 is used.
+-- | Valid values are 1 and 60. Setting this to 1 specifies this metric as a high-resolution metric, so that CloudWatch stores the metric with sub-minute resolution down to one second. Setting this to 60 specifies this metric as a regular-resolution metric, which CloudWatch stores at 1-minute resolution. Currently, high resolution is available only for custom metrics. For more information about high-resolution metrics, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html#high-resolution-metrics High-Resolution Metrics> in the /Amazon CloudWatch User Guide/ .  This field is optional, if you do not specify it the default of 60 is used.
 mdStorageResolution :: Lens' MetricDatum (Maybe Natural)
 mdStorageResolution = lens _mdStorageResolution (\ s a -> s{_mdStorageResolution = a}) . mapping _Nat
 
@@ -955,7 +1132,7 @@ mdStorageResolution = lens _mdStorageResolution (\ s a -> s{_mdStorageResolution
 mdDimensions :: Lens' MetricDatum [Dimension]
 mdDimensions = lens _mdDimensions (\ s a -> s{_mdDimensions = a}) . _Default . _Coerce
 
--- | The unit of the metric.
+-- | When you are using a @Put@ operation, this defines what unit you want to use when storing the metric. In a @Get@ operation, this displays the unit that is used for the metric.
 mdUnit :: Lens' MetricDatum (Maybe StandardUnit)
 mdUnit = lens _mdUnit (\ s a -> s{_mdUnit = a})
 
@@ -978,7 +1155,11 @@ instance NFData MetricDatum where
 instance ToQuery MetricDatum where
         toQuery MetricDatum'{..}
           = mconcat
-              ["Value" =: _mdValue,
+              ["Values" =:
+                 toQuery (toQueryList "member" <$> _mdValues),
+               "Counts" =:
+                 toQuery (toQueryList "member" <$> _mdCounts),
+               "Value" =: _mdValue,
                "StorageResolution" =: _mdStorageResolution,
                "Dimensions" =:
                  toQuery (toQueryList "member" <$> _mdDimensions),
@@ -1003,11 +1184,11 @@ data MetricStat = MetricStat'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'msUnit' - The unit to use for the returned data points.
+-- * 'msUnit' - When you are using a @Put@ operation, this defines what unit you want to use when storing the metric. In a @Get@ operation, if you omit @Unit@ then all data that was collected with any unit is returned, along with the corresponding units that were specified when the data was reported to CloudWatch. If you specify a unit, the operation returns only data data that was collected with that unit specified. If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.
 --
 -- * 'msMetric' - The metric to return, including the metric name, namespace, and dimensions.
 --
--- * 'msPeriod' - The period to use when retrieving the metric.
+-- * 'msPeriod' - The period, in seconds, to use when retrieving the metric.
 --
 -- * 'msStat' - The statistic to return. It can include any CloudWatch statistic or extended statistic.
 metricStat
@@ -1024,7 +1205,7 @@ metricStat pMetric_ pPeriod_ pStat_ =
     }
 
 
--- | The unit to use for the returned data points.
+-- | When you are using a @Put@ operation, this defines what unit you want to use when storing the metric. In a @Get@ operation, if you omit @Unit@ then all data that was collected with any unit is returned, along with the corresponding units that were specified when the data was reported to CloudWatch. If you specify a unit, the operation returns only data data that was collected with that unit specified. If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.
 msUnit :: Lens' MetricStat (Maybe StandardUnit)
 msUnit = lens _msUnit (\ s a -> s{_msUnit = a})
 
@@ -1032,13 +1213,20 @@ msUnit = lens _msUnit (\ s a -> s{_msUnit = a})
 msMetric :: Lens' MetricStat Metric
 msMetric = lens _msMetric (\ s a -> s{_msMetric = a})
 
--- | The period to use when retrieving the metric.
+-- | The period, in seconds, to use when retrieving the metric.
 msPeriod :: Lens' MetricStat Natural
 msPeriod = lens _msPeriod (\ s a -> s{_msPeriod = a}) . _Nat
 
 -- | The statistic to return. It can include any CloudWatch statistic or extended statistic.
 msStat :: Lens' MetricStat Text
 msStat = lens _msStat (\ s a -> s{_msStat = a})
+
+instance FromXML MetricStat where
+        parseXML x
+          = MetricStat' <$>
+              (x .@? "Unit") <*> (x .@ "Metric") <*>
+                (x .@ "Period")
+                <*> (x .@ "Stat")
 
 instance Hashable MetricStat where
 
@@ -1049,6 +1237,53 @@ instance ToQuery MetricStat where
           = mconcat
               ["Unit" =: _msUnit, "Metric" =: _msMetric,
                "Period" =: _msPeriod, "Stat" =: _msStat]
+
+-- | Specifies one range of days or times to exclude from use for training an anomaly detection model.
+--
+--
+--
+-- /See:/ 'range' smart constructor.
+data Range = Range'
+  { _rStartTime :: !ISO8601
+  , _rEndTime   :: !ISO8601
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Range' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rStartTime' - The start time of the range to exclude. The format is @yyyy-MM-dd'T'HH:mm:ss@ . For example, @2019-07-01T23:59:59@ .
+--
+-- * 'rEndTime' - The end time of the range to exclude. The format is @yyyy-MM-dd'T'HH:mm:ss@ . For example, @2019-07-01T23:59:59@ .
+range
+    :: UTCTime -- ^ 'rStartTime'
+    -> UTCTime -- ^ 'rEndTime'
+    -> Range
+range pStartTime_ pEndTime_ =
+  Range' {_rStartTime = _Time # pStartTime_, _rEndTime = _Time # pEndTime_}
+
+
+-- | The start time of the range to exclude. The format is @yyyy-MM-dd'T'HH:mm:ss@ . For example, @2019-07-01T23:59:59@ .
+rStartTime :: Lens' Range UTCTime
+rStartTime = lens _rStartTime (\ s a -> s{_rStartTime = a}) . _Time
+
+-- | The end time of the range to exclude. The format is @yyyy-MM-dd'T'HH:mm:ss@ . For example, @2019-07-01T23:59:59@ .
+rEndTime :: Lens' Range UTCTime
+rEndTime = lens _rEndTime (\ s a -> s{_rEndTime = a}) . _Time
+
+instance FromXML Range where
+        parseXML x
+          = Range' <$> (x .@ "StartTime") <*> (x .@ "EndTime")
+
+instance Hashable Range where
+
+instance NFData Range where
+
+instance ToQuery Range where
+        toQuery Range'{..}
+          = mconcat
+              ["StartTime" =: _rStartTime, "EndTime" =: _rEndTime]
 
 -- | Represents a set of statistics that describes a specific metric.
 --
@@ -1114,3 +1349,47 @@ instance ToQuery StatisticSet where
           = mconcat
               ["SampleCount" =: _ssSampleCount, "Sum" =: _ssSum,
                "Minimum" =: _ssMinimum, "Maximum" =: _ssMaximum]
+
+-- | A key-value pair associated with a CloudWatch resource.
+--
+--
+--
+-- /See:/ 'tag' smart constructor.
+data Tag = Tag'
+  { _tagKey   :: !Text
+  , _tagValue :: !Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagKey' - A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+--
+-- * 'tagValue' - The value for the specified tag key.
+tag
+    :: Text -- ^ 'tagKey'
+    -> Text -- ^ 'tagValue'
+    -> Tag
+tag pKey_ pValue_ = Tag' {_tagKey = pKey_, _tagValue = pValue_}
+
+
+-- | A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+tagKey :: Lens' Tag Text
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a})
+
+-- | The value for the specified tag key.
+tagValue :: Lens' Tag Text
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a})
+
+instance FromXML Tag where
+        parseXML x = Tag' <$> (x .@ "Key") <*> (x .@ "Value")
+
+instance Hashable Tag where
+
+instance NFData Tag where
+
+instance ToQuery Tag where
+        toQuery Tag'{..}
+          = mconcat ["Key" =: _tagKey, "Value" =: _tagValue]

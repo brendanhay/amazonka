@@ -149,9 +149,6 @@ matrix:
     - env: LIBRARY=amazonka-cloudwatch GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-cloudwatch-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
-    - env: LIBRARY=amazonka-cloudwatch-events GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-cloudwatch-events-8.2.2
-      compiler: ": #stack 8.2.2"
-      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-cloudwatch-logs GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-cloudwatch-logs-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
@@ -246,6 +243,9 @@ matrix:
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-elbv2 GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-elbv2-8.2.2
+      compiler: ": #stack 8.2.2"
+      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
+    - env: LIBRARY=amazonka-eventbridge GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-eventbridge-8.2.2
       compiler: ": #stack 8.2.2"
       addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-fms GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-fms-8.2.2

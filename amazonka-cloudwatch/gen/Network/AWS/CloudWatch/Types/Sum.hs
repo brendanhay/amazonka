@@ -22,6 +22,9 @@ import Network.AWS.Prelude
 data ComparisonOperator
   = GreaterThanOrEqualToThreshold
   | GreaterThanThreshold
+  | GreaterThanUpperThreshold
+  | LessThanLowerOrGreaterThanUpperThreshold
+  | LessThanLowerThreshold
   | LessThanOrEqualToThreshold
   | LessThanThreshold
   deriving (Eq, Ord, Read, Show, Enum, Bounded, Data, Typeable, Generic)
@@ -31,15 +34,21 @@ instance FromText ComparisonOperator where
     parser = takeLowerText >>= \case
         "greaterthanorequaltothreshold" -> pure GreaterThanOrEqualToThreshold
         "greaterthanthreshold" -> pure GreaterThanThreshold
+        "greaterthanupperthreshold" -> pure GreaterThanUpperThreshold
+        "lessthanlowerorgreaterthanupperthreshold" -> pure LessThanLowerOrGreaterThanUpperThreshold
+        "lessthanlowerthreshold" -> pure LessThanLowerThreshold
         "lessthanorequaltothreshold" -> pure LessThanOrEqualToThreshold
         "lessthanthreshold" -> pure LessThanThreshold
         e -> fromTextError $ "Failure parsing ComparisonOperator from value: '" <> e
-           <> "'. Accepted values: greaterthanorequaltothreshold, greaterthanthreshold, lessthanorequaltothreshold, lessthanthreshold"
+           <> "'. Accepted values: greaterthanorequaltothreshold, greaterthanthreshold, greaterthanupperthreshold, lessthanlowerorgreaterthanupperthreshold, lessthanlowerthreshold, lessthanorequaltothreshold, lessthanthreshold"
 
 instance ToText ComparisonOperator where
     toText = \case
         GreaterThanOrEqualToThreshold -> "GreaterThanOrEqualToThreshold"
         GreaterThanThreshold -> "GreaterThanThreshold"
+        GreaterThanUpperThreshold -> "GreaterThanUpperThreshold"
+        LessThanLowerOrGreaterThanUpperThreshold -> "LessThanLowerOrGreaterThanUpperThreshold"
+        LessThanLowerThreshold -> "LessThanLowerThreshold"
         LessThanOrEqualToThreshold -> "LessThanOrEqualToThreshold"
         LessThanThreshold -> "LessThanThreshold"
 

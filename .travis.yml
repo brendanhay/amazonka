@@ -11,6 +11,7 @@ cache:
 
 before_install:
   - unset CC
+  - sudo apt-get -y install happy
   - export PATH=$HOME/.local/bin:/opt/ghc/$GHCVER/bin:$PATH
   - ./script/travis-install
 

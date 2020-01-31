@@ -525,6 +525,6 @@ library to output useful information and diagnostics.
 The 'newLogger' function can be used to construct a simple logger which writes
 output to a 'Handle', but in most production code you should probably consider
 using a more robust logging library such as
-<http://hackage.haskell.org/package/tiny-log tiny-log> or
+<http://hackage.haskell.org/package/tinylog tinylog> or
 <http://hackage.haskell.org/package/fast-logger fast-logger>.
 -}

@@ -200,8 +200,10 @@ class ( Functor     m
     -- | Lift a computation to the 'AWS' monad.
     liftAWS :: AWS a -> m a
 
-instance MonadAWS AWS where
-    liftAWS = id
+instance (MonadResource m, MonadCatch m) => MonadAWS (AWST m) where
+    liftAWS action = do
+        env <- AWST.askEnv
+        liftResourceT (AWST.runAWST env action)
 
 instance MonadAWS m => MonadAWS (IdentityT   m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (ListT       m) where liftAWS = lift . liftAWS

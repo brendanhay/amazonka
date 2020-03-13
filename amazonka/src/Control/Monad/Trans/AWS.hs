@@ -40,6 +40,7 @@ module Control.Monad.Trans.AWS
     , newEnv
     , Env
     , HasEnv       (..)
+    , askEnv
 
     -- ** Credential Discovery
     , Credentials  (..)
@@ -183,7 +184,7 @@ import Network.AWS.Env
 import Network.AWS.Internal.Body
 import Network.AWS.Internal.HTTP
 import Network.AWS.Internal.Logger
-import Network.AWS.Lens            (catching, throwingM, trying, view)
+import Network.AWS.Lens            (catching, throwingM, trying, view, (^.))
 import Network.AWS.Pager           (AWSPager (..))
 import Network.AWS.Prelude         as AWS
 import Network.AWS.Request         (requestURL)
@@ -284,6 +285,9 @@ instance PrimMonad m => PrimMonad (AWST' r m) where
 -- | Run an 'AWST' action with the specified environment.
 runAWST :: HasEnv r => r -> AWST' r m a -> m a
 runAWST r (AWST' m) = runReaderT m r
+
+askEnv :: (Monad m, HasEnv r) => AWST' r m Env
+askEnv = AWST' (asks (^. environment))
 
 -- | An alias for the constraints required to send requests,
 -- which 'AWST' implicitly fulfils.

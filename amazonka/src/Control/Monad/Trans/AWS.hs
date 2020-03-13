@@ -250,8 +250,13 @@ instance MonadBaseControl b m => MonadBaseControl b (AWST' r m) where
 
 instance MonadUnliftIO m => MonadUnliftIO (AWST' r m) where
 #if MIN_VERSION_unliftio_core(0,2,0)
-    withRunInIO inner = (AWST' $ (\(UnliftIO f) -> UnliftIO $ f . unAWST) <$> askUnliftIO) >>= \u -> liftIO (inner (unliftIO u))
+    {-# INLINE withRunInIO #-}
+    withRunInIO inner =
+        AWST' $
+        withRunInIO $ \run ->
+        inner (run . unAWST)
 #else
+    {-# INLINE askUnliftIO #-}
     askUnliftIO = AWST' $ (\(UnliftIO f) -> UnliftIO $ f . unAWST)
         <$> askUnliftIO
 #endif

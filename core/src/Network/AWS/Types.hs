@@ -717,7 +717,7 @@ instance FromText Region where
         "eu-west-2"          -> pure London
         "eu-west-3"          -> pure Paris
         "eu-central-1"       -> pure Frankfurt
-        "eu-north-2"         -> pure Stockholm
+        "eu-north-1"         -> pure Stockholm
         "us-gov-west-1"      -> pure GovCloud
         "fips-us-gov-west-1" -> pure GovCloudFIPS
         "us-gov-east-1"      -> pure GovCloudEast

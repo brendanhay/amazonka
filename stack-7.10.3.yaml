@@ -126,6 +126,7 @@ packages:
   - amazonka-pinpoint
   - amazonka-polly
   - amazonka-pricing
+  - amazonka-qldb
   - amazonka-rds
   - amazonka-redshift
   - amazonka-rekognition

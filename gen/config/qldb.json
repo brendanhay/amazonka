@@ -1,0 +1,8 @@
+{
+    "libraryName": "amazonka-qldb",
+    "typeOverrides": {
+        "Service": {
+            "renamedTo": "QLDB"
+        }
+    }
+}

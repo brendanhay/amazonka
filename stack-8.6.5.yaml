@@ -8,6 +8,8 @@ nix:
   add-gc-roots: true
 
 extra-deps:
+  - HsYAML-0.2.1.0
+  - HsYAML-aeson-0.2.0.0  
   - ede-0.2.9
   - hindent-5.3.1
   - text-regex-replace-0.1.1.3

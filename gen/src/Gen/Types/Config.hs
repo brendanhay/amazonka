@@ -138,6 +138,7 @@ data Config = Config
     , _typeModules       :: [NS]
     , _typeOverrides     :: Map Id Override
     , _ignoredWaiters    :: Set Id
+    , _ignoredPaginators :: Set Id
     , _extraDependencies :: [Text]
     }
 
@@ -151,6 +152,7 @@ instance FromJSON Config where
         <*> o .:? "typeModules"       .!= mempty
         <*> o .:? "typeOverrides"     .!= mempty
         <*> o .:? "ignoredWaiters"    .!= mempty
+        <*> o .:? "ignoredPaginators" .!= mempty
         <*> o .:? "extraDependencies" .!= mempty
 
 data Library = Library

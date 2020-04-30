@@ -49,9 +49,13 @@ deprecate :: Service f a b c -> Service f a b c
 deprecate = operations %~ Map.filter (not . view opDeprecated)
 
 ignore :: Config -> Service f a b c -> Service f a b c
-ignore c = waiters %~ Map.filterWithKey (const . valid)
+ignore c srv =
+    srv
+      & waiters %~ Map.filterWithKey (const . validWaiter)
+      & operations %~ Map.mapWithKey (\k v -> if validPager k then v else (opPager .~ Nothing) v)
   where
-    valid k = not $ Set.member k (c ^. ignoredWaiters)
+    validWaiter k = not $ Set.member k (c ^. ignoredWaiters)
+    validPager k  = not $ Set.member k (c ^. ignoredPaginators)
 
 rewriteService :: Config
                -> Service Maybe (RefF ()) (ShapeF ()) (Waiter Id)

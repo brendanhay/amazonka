@@ -33,27 +33,9 @@ matrix:
     - env: LIBRARY=amazonka-core GHCVER=8.6.5 STACK_YAML=stack-8.6.5.yaml CACHE_NAME=amazonka-core-8.6.5
       compiler: ": #stack 8.6.5"
       addons: {apt: {packages: [ghc-8.6.5], sources: [hvr-ghc]}}
-    - env: LIBRARY=amazonka-core GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-core-8.2.2
-      compiler: ": #stack 8.2.2"
-      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
-    - env: LIBRARY=amazonka-core GHCVER=8.0.2 STACK_YAML=stack-8.0.2.yaml CACHE_NAME=amazonka-core-8.0.2
-      compiler: ": #stack 8.0.2"
-      addons: {apt: {packages: [ghc-8.0.2], sources: [hvr-ghc]}}
-    - env: LIBRARY=amazonka-core GHCVER=7.10.3 STACK_YAML=stack-7.10.3.yaml CACHE_NAME=amazonka-core-7.10.3
-      compiler: ": #stack 7.10.3"
-      addons: {apt: {packages: [ghc-7.10.3], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka GHCVER=8.6.5 STACK_YAML=stack-8.6.5.yaml CACHE_NAME=amazonka-8.6.5
       compiler: ": #stack 8.6.5"
       addons: {apt: {packages: [ghc-8.6.5], sources: [hvr-ghc]}}
-    - env: LIBRARY=amazonka GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-8.2.2
-      compiler: ": #stack 8.2.2"
-      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
-    - env: LIBRARY=amazonka GHCVER=8.0.2 STACK_YAML=stack-8.0.2.yaml CACHE_NAME=amazonka-8.0.2
-      compiler: ": #stack 8.0.2"
-      addons: {apt: {packages: [ghc-8.0.2], sources: [hvr-ghc]}}
-    - env: LIBRARY=amazonka GHCVER=7.10.3 STACK_YAML=stack-7.10.3.yaml CACHE_NAME=amazonka-7.10.3
-      compiler: ": #stack 7.10.3"
-      addons: {apt: {packages: [ghc-7.10.3], sources: [hvr-ghc]}}
 
     # Test
     - env: LIBRARY=amazonka-test GHCVER=8.6.5 STACK_YAML=stack-8.6.5.yaml CACHE_NAME=amazonka-test-8.6.5
@@ -64,39 +46,12 @@ matrix:
     - env: LIBRARY=amazonka-s3 GHCVER=8.6.5 STACK_YAML=stack-8.6.5.yaml CACHE_NAME=amazonka-s3-8.6.5
       compiler: ": #stack 8.6.5"
       addons: {apt: {packages: [ghc-8.6.5], sources: [hvr-ghc]}}
-    - env: LIBRARY=amazonka-s3 GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-s3-8.2.2
-      compiler: ": #stack 8.2.2"
-      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
-    - env: LIBRARY=amazonka-s3 GHCVER=8.0.2 STACK_YAML=stack-8.0.2.yaml CACHE_NAME=amazonka-s3-8.0.2
-      compiler: ": #stack 8.0.2"
-      addons: {apt: {packages: [ghc-8.0.2], sources: [hvr-ghc]}}
-    - env: LIBRARY=amazonka-s3 GHCVER=7.10.3 STACK_YAML=stack-7.10.3.yaml CACHE_NAME=amazonka-s3-7.10.3
-      compiler: ": #stack 7.10.3"
-      addons: {apt: {packages: [ghc-7.10.3], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-dynamodb GHCVER=8.6.5 STACK_YAML=stack-8.6.5.yaml CACHE_NAME=amazonka-dynamodb-8.6.5
       compiler: ": #stack 8.6.5"
       addons: {apt: {packages: [ghc-8.6.5], sources: [hvr-ghc]}}
-    - env: LIBRARY=amazonka-dynamodb GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-dynamodb-8.2.2
-      compiler: ": #stack 8.2.2"
-      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
-    - env: LIBRARY=amazonka-dynamodb GHCVER=8.0.2 STACK_YAML=stack-8.0.2.yaml CACHE_NAME=amazonka-dynamodb-8.0.2
-      compiler: ": #stack 8.0.2"
-      addons: {apt: {packages: [ghc-8.0.2], sources: [hvr-ghc]}}
-    - env: LIBRARY=amazonka-dynamodb GHCVER=7.10.3 STACK_YAML=stack-7.10.3.yaml CACHE_NAME=amazonka-dynamodb-7.10.3
-      compiler: ": #stack 7.10.3"
-      addons: {apt: {packages: [ghc-7.10.3], sources: [hvr-ghc]}}
     - env: LIBRARY=amazonka-emr GHCVER=8.6.5 STACK_YAML=stack-8.6.5.yaml CACHE_NAME=amazonka-emr-8.6.5
       compiler: ": #stack 8.6.5"
       addons: {apt: {packages: [ghc-8.6.5], sources: [hvr-ghc]}}
-    - env: LIBRARY=amazonka-emr GHCVER=8.2.2 STACK_YAML=stack-8.2.2.yaml CACHE_NAME=amazonka-emr-8.2.2
-      compiler: ": #stack 8.2.2"
-      addons: {apt: {packages: [ghc-8.2.2], sources: [hvr-ghc]}}
-    - env: LIBRARY=amazonka-emr GHCVER=8.0.2 STACK_YAML=stack-8.0.2.yaml CACHE_NAME=amazonka-emr-8.0.2
-      compiler: ": #stack 8.0.2"
-      addons: {apt: {packages: [ghc-8.0.2], sources: [hvr-ghc]}}
-    - env: LIBRARY=amazonka-emr GHCVER=7.10.3 STACK_YAML=stack-7.10.3.yaml CACHE_NAME=amazonka-emr-7.10.3
-      compiler: ": #stack 7.10.3"
-      addons: {apt: {packages: [ghc-7.10.3], sources: [hvr-ghc]}}
 
     # Remainder
     - env: LIBRARY=amazonka-alexa-business GHCVER=8.6.5 STACK_YAML=stack-8.6.5.yaml CACHE_NAME=amazonka-alexa-business-8.6.5

@@ -69,6 +69,7 @@ executable amazonka-gen
           aeson                >= 1.2
         , attoparsec
         , base                 >= 4.9
+        , brittany
         , bytestring
         , case-insensitive
         , comonad
@@ -82,7 +83,6 @@ executable amazonka-gen
         , free
         , hashable
         , haskell-src-exts     >= 1.19.0 && < 1.24.0
-        , hindent
         , html-conduit
         , lens
         , mtl

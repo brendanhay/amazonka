@@ -4,6 +4,7 @@ MODEL_DIR := model
 OUT_DIR   := ..
 BIN_DIR   := ../bin
 GENERATE  := $(BIN_DIR)/amazonka-gen
+BRITTANY  := $(BIN_DIR)/brittany
 STYLISH   := $(BIN_DIR)/stylish-haskell
 
 define version =
@@ -43,10 +44,13 @@ format: $(STYLISH)
 	$(wildcard $(OUT_DIR)/amazonka-*/test/Test/AWS/Gen) \
 	-type f \
 	-name '*.hs' \
-	-exec sh -c "printf ' -> %s\n' $1 {}; $(STYLISH) -i {}" \;
+	-exec sh -c "printf ' -> %s\n' $1 {}; $(BRITTANY) --write-mode=inplace {}; $(STYLISH) -i {}" \;
 
 $(GENERATE): $(BIN_DIR)
 	stack install --nix amazonka-gen
+
+$(BRITTANY): $(BIN_DIR)
+	stack install --nix brittany
 
 $(STYLISH): $(BIN_DIR)
 	stack install --nix stylish-haskell

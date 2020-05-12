@@ -1,5 +1,50 @@
 # Change Log
 
+## [1.7.0](https://github.com/brendanhay/amazonka/tree/1.7.0)
+Released: **unreleased**, Compare: [1.7.0](https://github.com/brendanhay/amazonka/compare/1.6.1...1.7.0)
+
+### Fixed
+
+- Fix trailing slash bug in gen model
+[\#528](https://github.com/brendanhay/amazonka/pull/528)
+- Close connections immediately (when we know that we cane
+[\#493](https://github.com/brendanhay/amazonka/pull/493)
+- Remove the Content-Length header when doing V4 streaming signatures
+[\#547](https://github.com/brendanhay/amazonka/pull/547)
+- Ensure that KerberosAttributes is parsed correctly from an empty response
+[\#512](https://github.com/brendanhay/amazonka/pull/512)
+- Correct Stockholm in FromText Region
+[\#565](https://github.com/brendanhay/amazonka/pull/572)
+- Fix MonadUnlifIO compiler errors on ghc-8.10.1
+[\#572](https://github.com/brendanhay/amazonka/pull/572)
+- Deduplicate CreateCertificateFromCSR fixtures
+[\#500](https://github.com/brendanhay/amazonka/pull/500)
+
+### Changed
+
+- Bump the upper bound in the dependency on http-client
+[\#526](https://github.com/brendanhay/amazonka/pull/526)
+- Added new regions to ELB, RedShift, Route53.
+[\#541](https://github.com/brendanhay/amazonka/pull/541)
+- Update service definitions for cloudwatch-events
+[\#544](https://github.com/brendanhay/amazonka/pull/544)
+- Add MonadFail instance for AWST
+[\#551](https://github.com/brendanhay/amazonka/pull/551)
+- Add an instance for `PrimMonad m => PrimMonad (AWST' r m)`
+[\#510](https://github.com/brendanhay/amazonka/pull/510)
+- Set startedAt as optional in AWS batch
+[\#561](https://github.com/brendanhay/amazonka/pull/561)
+- Add `ignoredPaginators` to service definition.
+[\#578](https://github.com/brendanhay/amazonka/pull/578)
+- Adds paginators to AWS Secrets Manager API
+[\#576](https://github.com/brendanhay/amazonka/pull/576)
+- Add intelligent tiering S3 type
+[\#570](https://github.com/brendanhay/amazonka/pull/570)
+
+### New libraries
+
+- `amazonka-apigatewaymanagementapi`: API management strategies allow you to monitor and manage APIs in a secure and scalable way. [Overview](https://aws.amazon.com/api-gateway/api-management/)
+
 ## [1.6.1](https://github.com/brendanhay/amazonka/tree/1.6.1)
 Released: **03 Feb, 2019**, Compare: [1.6.0](https://github.com/brendanhay/amazonka/compare/1.6.0...1.6.1)
 

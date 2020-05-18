@@ -24,6 +24,7 @@ module Network.AWS.Internal.HTTP
 import Control.Arrow                (first)
 import Control.Monad
 import Control.Monad.Catch (MonadThrow, MonadCatch, Handler(Handler), catches)
+import Control.Monad.IO.Class
 import Control.Monad.Reader
 import Control.Monad.Trans.Resource
 import Control.Retry

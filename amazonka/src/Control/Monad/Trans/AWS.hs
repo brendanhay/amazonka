@@ -159,6 +159,7 @@ module Control.Monad.Trans.AWS
     ) where
 
 import Control.Applicative
+import Control.Monad
 import Control.Monad.Base
 import Control.Monad.Catch
 import Control.Monad.Error.Class    (MonadError (..))

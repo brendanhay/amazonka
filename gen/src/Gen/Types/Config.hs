@@ -200,21 +200,21 @@ instance ToJSON Library where
             ]
 
 -- FIXME: Remove explicit construction of getters, just use functions.
-libraryNS, typesNS, sumNS, productNS, waitersNS, fixturesNS :: Getter Library NS
+libraryNS, typesNS, waitersNS, fixturesNS :: Getter Library NS
 libraryNS  = serviceAbbrev . to (mappend "Network.AWS"  . mkNS)
 typesNS    = libraryNS     . to (<> "Types")
-sumNS      = typesNS       . to (<> "Sum")
-productNS  = typesNS       . to (<> "Product")
 waitersNS  = libraryNS     . to (<> "Waiters")
 fixturesNS = serviceAbbrev . to (mappend "Test.AWS.Gen" . mkNS)
 
 otherModules :: Getter Library [NS]
 otherModules = to f
   where
-    f x = x ^. sumNS
-        : x ^. productNS
-        : x ^. operationModules
+    f x = x ^. operationModules
        <> x ^. typeModules
+       <> mapMaybe (shapeNS x) (x ^.. shapes . each)
+    shapeNS x s@(Prod _ _ _) = Just $ (x ^. typesNS) <> ((mkNS . typeId) $ identifier s)
+    shapeNS x s@(Sum  _ _ _) = Just $ (x ^. typesNS) <> ((mkNS . typeId) $ identifier s)
+    shapeNS _   (Fun  _)     = Nothing
 
 exposedModules :: Getter Library [NS]
 exposedModules = to f

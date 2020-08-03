@@ -99,6 +99,6 @@ executable amazonka-gen
         , text-regex-replace
         , time                 >= 1.5
         , transformers
-        , unexceptionalio
+        , unexceptionalio      <  0.4
         , unordered-containers
         , xml-conduit

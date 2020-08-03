@@ -25,7 +25,6 @@ import Control.Lens           hiding ((:<))
 import Data.Aeson
 import Data.Function (on)
 import Data.Hashable
-import Data.Monoid
 import Data.Semigroup (Semigroup)
 import Data.Text     (Text)
 

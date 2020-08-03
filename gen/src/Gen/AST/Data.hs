@@ -50,7 +50,6 @@ import qualified Data.Set                     as Set
 import qualified Data.Text                    as Text
 import qualified Data.Text.Encoding           as Text
 import qualified Data.Text.Lazy               as LText
-import qualified Data.Text.Lazy.Encoding      as LText
 import qualified Language.Haskell.Exts        as Exts
 
 operationData :: HasMetadata a Identity

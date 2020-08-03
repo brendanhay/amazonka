@@ -22,8 +22,6 @@ import Control.Lens
 import Control.Monad.Except (throwError)
 import Control.Monad.State
 
-import Data.Monoid
-
 import Gen.AST.Cofree
 import Gen.AST.Data
 import Gen.AST.Override

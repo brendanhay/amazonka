@@ -26,7 +26,6 @@ import Control.Lens
 import Data.Function        (on)
 import Data.List            (elemIndex, sortBy)
 import Data.Maybe
-import Data.Monoid
 import Data.Text            (Text)
 import Data.Text.Manipulate
 

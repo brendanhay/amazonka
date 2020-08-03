@@ -24,7 +24,6 @@ import Control.Lens
 import Data.Aeson
 import Data.Aeson.Types
 import Data.Maybe
-import Data.Monoid
 import Data.Text            (Text)
 import Data.Text.Manipulate
 

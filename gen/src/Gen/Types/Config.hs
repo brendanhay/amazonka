@@ -34,7 +34,6 @@ import Control.Lens  hiding ((.=))
 
 import Data.Aeson
 import Data.List   (sort, sortOn, (\\))
-import Data.Monoid hiding (Product, Sum)
 import Data.Ord
 import Data.Text   (Text)
 import Data.Time
@@ -179,8 +178,10 @@ instance HasVersions Library where
 instance ToJSON Library where
     toJSON l = Object (x <> y)
       where
-        Object y = toJSON (l ^. metadata)
-        Object x = object
+        y = case toJSON (l ^. metadata) of
+          Object obj -> obj
+          oops -> error $ "metadata: expected JSON object, got " ++ show oops
+        x = mconcat
             [ "documentation"     .= (l ^. documentation)
             , "libraryName"       .= (l ^. libraryName)
             , "libraryNamespace"  .= (l ^. libraryNS)

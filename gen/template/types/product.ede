@@ -14,10 +14,5 @@ module {{ moduleName }} where
 {% for import in moduleImports %}
 import {{ import.value }}
 {% endfor %}
-{% for shape in shapes %}
-  {% case shape.value.type %}
-  {% when "product" %}
 
-{% include "_include/product.ede" with shape = shape.value %}
-  {% endcase %}
-{% endfor %}
+{% include "_include/product.ede" %}

@@ -18,7 +18,6 @@ import Control.Lens
 
 import Data.List   (sort)
 import Data.Maybe
-import Data.Monoid
 
 import Gen.Types
 

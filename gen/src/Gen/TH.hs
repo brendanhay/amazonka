@@ -67,7 +67,7 @@ aeson TH{..} = defaultOptions
     , fieldLabelModifier     = f _field
     , allNullaryToStringTag  = True
     , sumEncoding            =
-        defaultTaggedObject
+        TaggedObject
             { tagFieldName      = "type"
             , contentsFieldName = "contents"
             }

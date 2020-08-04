@@ -18,7 +18,6 @@ import Control.Monad
 
 import Data.Bifunctor
 import Data.Char
-import Data.Monoid
 import Data.String
 import Data.Text             (Text)
 import Data.Text.ICU         (Regex)

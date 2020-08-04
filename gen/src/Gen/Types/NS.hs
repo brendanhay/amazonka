@@ -13,7 +13,6 @@
 module Gen.Types.NS where
 
 import Data.Aeson
-import Data.Monoid
 import Data.String
 import Data.Text   (Text)
 

@@ -90,7 +90,7 @@ library
         , deepseq              >= 1.4
         , exceptions           >= 0.6
         , hashable             >= 1.2
-        , http-client          >= 0.4 && < 0.6
+        , http-client          >= 0.4 && < 0.7
         , http-conduit         >= 2.1.4 && < 3
         , http-types           >= 0.8 && (<0.11 || >=0.12)
         , lens                 >= 4.4

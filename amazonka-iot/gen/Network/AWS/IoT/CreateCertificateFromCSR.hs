@@ -73,7 +73,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | The input for the CreateCertificateFromCsr operation.
+-- | The input for the CreateCertificateFromCSR operation.
 --
 --
 --
@@ -143,7 +143,7 @@ instance ToQuery CreateCertificateFromCSR where
         toQuery CreateCertificateFromCSR'{..}
           = mconcat ["setAsActive" =: _ccfcsrSetAsActive]
 
--- | The output from the CreateCertificateFromCsr operation.
+-- | The output from the CreateCertificateFromCSR operation.
 --
 --
 --

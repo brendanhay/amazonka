@@ -57,7 +57,15 @@ presign ex rq a r ts = signRequest meta mempty auth
 
     digest = Tag "UNSIGNED-PAYLOAD"
 
-    prepare = rqHeaders %~ ( hdr hHost (_endpointHost end) )
+    host =
+      let
+        secure = _endpointSecure end
+        port = _endpointPort end
+      in
+        if (secure && port == 443) || (not secure && port == 80)
+          then _endpointHost end
+          else _endpointHost end <> ":" <> toBS port
+    prepare = rqHeaders %~ (hdr hHost host)
     end     = _svcEndpoint (_rqService rq) r
 
 sign :: Algorithm a

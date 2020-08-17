@@ -21,6 +21,8 @@
 -- Lists the targets assigned to the specified rule.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatchEvents.ListTargetsByRule
     (
     -- * Creating a Request
@@ -28,6 +30,7 @@ module Network.AWS.CloudWatchEvents.ListTargetsByRule
     , ListTargetsByRule
     -- * Request Lenses
     , ltbrNextToken
+    , ltbrEventBusName
     , ltbrLimit
     , ltbrRule
 
@@ -43,15 +46,17 @@ module Network.AWS.CloudWatchEvents.ListTargetsByRule
 import Network.AWS.CloudWatchEvents.Types
 import Network.AWS.CloudWatchEvents.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'listTargetsByRule' smart constructor.
 data ListTargetsByRule = ListTargetsByRule'
-  { _ltbrNextToken :: !(Maybe Text)
-  , _ltbrLimit     :: !(Maybe Nat)
-  , _ltbrRule      :: !Text
+  { _ltbrNextToken    :: !(Maybe Text)
+  , _ltbrEventBusName :: !(Maybe Text)
+  , _ltbrLimit        :: !(Maybe Nat)
+  , _ltbrRule         :: !Text
   } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
@@ -61,6 +66,8 @@ data ListTargetsByRule = ListTargetsByRule'
 --
 -- * 'ltbrNextToken' - The token returned by a previous call to retrieve the next set of results.
 --
+-- * 'ltbrEventBusName' - The event bus associated with the rule. If you omit this, the default event bus is used.
+--
 -- * 'ltbrLimit' - The maximum number of results to return.
 --
 -- * 'ltbrRule' - The name of the rule.
@@ -69,12 +76,20 @@ listTargetsByRule
     -> ListTargetsByRule
 listTargetsByRule pRule_ =
   ListTargetsByRule'
-    {_ltbrNextToken = Nothing, _ltbrLimit = Nothing, _ltbrRule = pRule_}
+    { _ltbrNextToken = Nothing
+    , _ltbrEventBusName = Nothing
+    , _ltbrLimit = Nothing
+    , _ltbrRule = pRule_
+    }
 
 
 -- | The token returned by a previous call to retrieve the next set of results.
 ltbrNextToken :: Lens' ListTargetsByRule (Maybe Text)
 ltbrNextToken = lens _ltbrNextToken (\ s a -> s{_ltbrNextToken = a})
+
+-- | The event bus associated with the rule. If you omit this, the default event bus is used.
+ltbrEventBusName :: Lens' ListTargetsByRule (Maybe Text)
+ltbrEventBusName = lens _ltbrEventBusName (\ s a -> s{_ltbrEventBusName = a})
 
 -- | The maximum number of results to return.
 ltbrLimit :: Lens' ListTargetsByRule (Maybe Natural)
@@ -83,6 +98,13 @@ ltbrLimit = lens _ltbrLimit (\ s a -> s{_ltbrLimit = a}) . mapping _Nat
 -- | The name of the rule.
 ltbrRule :: Lens' ListTargetsByRule Text
 ltbrRule = lens _ltbrRule (\ s a -> s{_ltbrRule = a})
+
+instance AWSPager ListTargetsByRule where
+        page rq rs
+          | stop (rs ^. ltbrrsNextToken) = Nothing
+          | stop (rs ^. ltbrrsTargets) = Nothing
+          | otherwise =
+            Just $ rq & ltbrNextToken .~ rs ^. ltbrrsNextToken
 
 instance AWSRequest ListTargetsByRule where
         type Rs ListTargetsByRule = ListTargetsByRuleResponse
@@ -112,6 +134,7 @@ instance ToJSON ListTargetsByRule where
           = object
               (catMaybes
                  [("NextToken" .=) <$> _ltbrNextToken,
+                  ("EventBusName" .=) <$> _ltbrEventBusName,
                   ("Limit" .=) <$> _ltbrLimit,
                   Just ("Rule" .= _ltbrRule)])
 

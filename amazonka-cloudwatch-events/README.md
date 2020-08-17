@@ -1,4 +1,4 @@
-# Amazon CloudWatch Events SDK
+# Amazon EventBridge SDK
 
 * [Version](#version)
 * [Description](#description)

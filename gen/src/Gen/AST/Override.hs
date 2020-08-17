@@ -27,7 +27,6 @@ import Control.Monad.State
 
 import Data.Bifunctor
 import Data.List      ((\\))
-import Data.Monoid
 
 import Gen.Types
 

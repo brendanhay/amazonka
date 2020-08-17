@@ -23,7 +23,6 @@ import Control.Monad.Except
 
 import Data.Aeson
 import Data.List   (find, partition)
-import Data.Monoid
 import Data.Text   (Text)
 
 import Gen.AST.Data.Field

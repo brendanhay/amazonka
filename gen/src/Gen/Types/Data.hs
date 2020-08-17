@@ -29,6 +29,7 @@ import Gen.Types.Id
 import Gen.Types.Map
 import Gen.Types.TypeOf
 
+import qualified Data.Set       as Set
 import qualified Data.Text      as Text
 import qualified Data.Text.Lazy as LText
 
@@ -56,6 +57,7 @@ data Prod = Prod'
     , _prodDecl   :: Rendered
     , _prodCtor   :: Fun
     , _prodLenses :: [Fun]
+    , _prodDeps   :: Set.Set Text
     } deriving (Eq, Show)
 
 prodToJSON :: ToJSON a => Solved -> Prod -> Map Text a -> [Pair]

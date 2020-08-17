@@ -18,14 +18,20 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Displays the external AWS accounts that are permitted to write events to your account using your account's event bus, and the associated policy. To enable your account to receive events from other accounts, use 'PutPermission' .
+-- Displays details about an event bus in your account. This can include the external AWS accounts that are permitted to write events to your default event bus, and the associated policy. For custom event buses and partner event buses, it displays the name, ARN, policy, state, and creation time.
 --
+--
+-- To enable your account to receive events from other accounts on its default event bus, use 'PutPermission' .
+--
+-- For more information about partner event buses, see 'CreateEventBus' .
 --
 module Network.AWS.CloudWatchEvents.DescribeEventBus
     (
     -- * Creating a Request
       describeEventBus
     , DescribeEventBus
+    -- * Request Lenses
+    , debName
 
     -- * Destructuring the Response
     , describeEventBusResponse
@@ -45,17 +51,24 @@ import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'describeEventBus' smart constructor.
-data DescribeEventBus =
-  DescribeEventBus'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+newtype DescribeEventBus = DescribeEventBus'
+  { _debName :: Maybe Text
+  } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 
 -- | Creates a value of 'DescribeEventBus' with the minimum fields required to make a request.
 --
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'debName' - The name of the event bus to show details for. If you omit this, the default event bus is displayed.
 describeEventBus
     :: DescribeEventBus
-describeEventBus = DescribeEventBus'
+describeEventBus = DescribeEventBus' {_debName = Nothing}
 
+
+-- | The name of the event bus to show details for. If you omit this, the default event bus is displayed.
+debName :: Lens' DescribeEventBus (Maybe Text)
+debName = lens _debName (\ s a -> s{_debName = a})
 
 instance AWSRequest DescribeEventBus where
         type Rs DescribeEventBus = DescribeEventBusResponse
@@ -81,7 +94,8 @@ instance ToHeaders DescribeEventBus where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON DescribeEventBus where
-        toJSON = const (Object mempty)
+        toJSON DescribeEventBus'{..}
+          = object (catMaybes [("Name" .=) <$> _debName])
 
 instance ToPath DescribeEventBus where
         toPath = const "/"

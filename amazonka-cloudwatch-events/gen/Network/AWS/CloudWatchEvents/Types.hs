@@ -16,15 +16,34 @@ module Network.AWS.CloudWatchEvents.Types
       cloudWatchEvents
 
     -- * Errors
+    , _ManagedRuleException
     , _PolicyLengthExceededException
+    , _ResourceAlreadyExistsException
     , _ConcurrentModificationException
     , _InvalidEventPatternException
     , _InternalException
     , _ResourceNotFoundException
+    , _InvalidStateException
     , _LimitExceededException
+
+    -- * AssignPublicIP
+    , AssignPublicIP (..)
+
+    -- * EventSourceState
+    , EventSourceState (..)
+
+    -- * LaunchType
+    , LaunchType (..)
 
     -- * RuleState
     , RuleState (..)
+
+    -- * AWSVPCConfiguration
+    , AWSVPCConfiguration
+    , awsVPCConfiguration
+    , avcSecurityGroups
+    , avcAssignPublicIP
+    , avcSubnets
 
     -- * BatchArrayProperties
     , BatchArrayProperties
@@ -44,11 +63,39 @@ module Network.AWS.CloudWatchEvents.Types
     , batchRetryStrategy
     , brsAttempts
 
+    -- * Condition
+    , Condition
+    , condition
+    , cType
+    , cKey
+    , cValue
+
     -- * EcsParameters
     , EcsParameters
     , ecsParameters
+    , epGroup
+    , epPlatformVersion
+    , epLaunchType
     , epTaskCount
+    , epNetworkConfiguration
     , epTaskDefinitionARN
+
+    -- * EventBus
+    , EventBus
+    , eventBus
+    , ebARN
+    , ebName
+    , ebPolicy
+
+    -- * EventSource
+    , EventSource
+    , eventSource
+    , esCreationTime
+    , esState
+    , esARN
+    , esCreatedBy
+    , esName
+    , esExpirationTime
 
     -- * InputTransformer
     , InputTransformer
@@ -61,12 +108,32 @@ module Network.AWS.CloudWatchEvents.Types
     , kinesisParameters
     , kpPartitionKeyPath
 
+    -- * NetworkConfiguration
+    , NetworkConfiguration
+    , networkConfiguration
+    , ncAwsvpcConfiguration
+
+    -- * PartnerEventSource
+    , PartnerEventSource
+    , partnerEventSource
+    , pesARN
+    , pesName
+
+    -- * PartnerEventSourceAccount
+    , PartnerEventSourceAccount
+    , partnerEventSourceAccount
+    , pesaCreationTime
+    , pesaState
+    , pesaAccount
+    , pesaExpirationTime
+
     -- * PutEventsRequestEntry
     , PutEventsRequestEntry
     , putEventsRequestEntry
     , pereTime
     , pereDetailType
     , pereResources
+    , pereEventBusName
     , pereSource
     , pereDetail
 
@@ -76,6 +143,22 @@ module Network.AWS.CloudWatchEvents.Types
     , pereErrorCode
     , pereErrorMessage
     , pereEventId
+
+    -- * PutPartnerEventsRequestEntry
+    , PutPartnerEventsRequestEntry
+    , putPartnerEventsRequestEntry
+    , ppereTime
+    , ppereDetailType
+    , ppereResources
+    , ppereSource
+    , ppereDetail
+
+    -- * PutPartnerEventsResultEntry
+    , PutPartnerEventsResultEntry
+    , putPartnerEventsResultEntry
+    , ppereErrorCode
+    , ppereErrorMessage
+    , ppereEventId
 
     -- * PutTargetsResultEntry
     , PutTargetsResultEntry
@@ -97,9 +180,11 @@ module Network.AWS.CloudWatchEvents.Types
     , rEventPattern
     , rState
     , rARN
+    , rEventBusName
     , rScheduleExpression
     , rName
     , rDescription
+    , rManagedBy
     , rRoleARN
 
     -- * RunCommandParameters
@@ -117,6 +202,12 @@ module Network.AWS.CloudWatchEvents.Types
     , SqsParameters
     , sqsParameters
     , spMessageGroupId
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
 
     -- * Target
     , Target
@@ -140,7 +231,7 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Sign.V4
 
--- | API version @2015-10-07@ of the Amazon CloudWatch Events SDK configuration.
+-- | API version @2015-10-07@ of the Amazon EventBridge SDK configuration.
 cloudWatchEvents :: Service
 cloudWatchEvents =
   Service
@@ -179,6 +270,14 @@ cloudWatchEvents =
       | otherwise = Nothing
 
 
+-- | An AWS service created this rule on behalf of your account. That service manages it. If you see this error in response to @DeleteRule@ or @RemoveTargets@ , you can use the @Force@ parameter in those calls to delete the rule or remove targets from the rule. You can't modify these managed rules by using @DisableRule@ , @EnableRule@ , @PutTargets@ , @PutRule@ , @TagResource@ , or @UntagResource@ .
+--
+--
+_ManagedRuleException :: AsError a => Getting (First ServiceError) a ServiceError
+_ManagedRuleException =
+  _MatchServiceError cloudWatchEvents "ManagedRuleException"
+
+
 -- | The event bus policy is too long. For more information, see the limits.
 --
 --
@@ -187,7 +286,15 @@ _PolicyLengthExceededException =
   _MatchServiceError cloudWatchEvents "PolicyLengthExceededException"
 
 
--- | There is concurrent modification on a rule or target.
+-- | The resource that you're trying to create already exists.
+--
+--
+_ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceAlreadyExistsException =
+  _MatchServiceError cloudWatchEvents "ResourceAlreadyExistsException"
+
+
+-- | There is concurrent modification on a resource.
 --
 --
 _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -195,7 +302,7 @@ _ConcurrentModificationException =
   _MatchServiceError cloudWatchEvents "ConcurrentModificationException"
 
 
--- | The event pattern is not valid.
+-- | The event pattern isn't valid.
 --
 --
 _InvalidEventPatternException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -210,7 +317,7 @@ _InternalException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalException = _MatchServiceError cloudWatchEvents "InternalException"
 
 
--- | An entity that you specified does not exist.
+-- | An entity that you specified doesn't exist.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -218,7 +325,15 @@ _ResourceNotFoundException =
   _MatchServiceError cloudWatchEvents "ResourceNotFoundException"
 
 
--- | You tried to create more rules or add more targets to a rule than is allowed.
+-- | The specified state isn't a valid state for an event source.
+--
+--
+_InvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidStateException =
+  _MatchServiceError cloudWatchEvents "InvalidStateException"
+
+
+-- | You tried to create more resources than is allowed.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError

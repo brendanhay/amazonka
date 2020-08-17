@@ -44,17 +44,13 @@ import Gen.Types
 
 import Language.Haskell.Exts.Pretty (Pretty)
 
-import qualified Data.ByteString.Builder      as Build
 import qualified Data.ByteString.Char8        as BS8
 import qualified Data.HashMap.Strict          as Map
+import qualified Data.Set                     as Set
 import qualified Data.Text                    as Text
 import qualified Data.Text.Encoding           as Text
 import qualified Data.Text.Lazy               as LText
-import qualified Data.Text.Lazy.Encoding      as LText
-import qualified HIndent
-import qualified HIndent.Types                as HIndent
-import qualified Language.Haskell.Exts.Pretty as Exts
-import qualified Language.Haskell.Exts.Syntax as Exts
+import qualified Language.Haskell.Exts        as Exts
 
 operationData :: HasMetadata a Identity
               => Config
@@ -128,8 +124,8 @@ errorData :: HasMetadata a Identity
 errorData m s i = Fun <$> mk
   where
     mk = Fun' p h
-        <$> pp None   (errorS p)
-        <*> pp Indent (errorD m p status code)
+        <$> pp None  (errorS p)
+        <*> pp Print (errorD m p status code)
 
     h = flip fromMaybe (i ^. infoDocumentation)
         . fromString
@@ -150,7 +146,7 @@ sumData :: Protocol
 sumData p s i vs = Sum s <$> mk <*> (Map.keys <$> insts)
   where
     mk = Sum' (typeId n) (i ^. infoDocumentation)
-        <$> pp Indent decl
+        <$> pp Print decl
         <*> pure bs
 
     decl = dataD n (map f . sort $ Map.keys bs) (derivingOf s)
@@ -170,9 +166,10 @@ prodData :: HasMetadata a Identity
 prodData m s st = (,fields) <$> mk
   where
     mk = Prod' (typeId n) (st ^. infoDocumentation)
-        <$> pp Indent decl
+        <$> pp Print decl
         <*> mkCtor
         <*> traverse mkLens fields
+        <*> pure dependencies
 
     decl = dataD n [recordD m n fields] (derivingOf s)
 
@@ -186,8 +183,8 @@ prodData m s st = (,fields) <$> mk
 
     mkCtor :: Either Error Fun
     mkCtor = Fun' (smartCtorId n) mkHelp
-        <$> (pp None   (ctorS m n fields) <&> addParamComments fields)
-        <*>  pp Indent (ctorD n fields)
+        <$> (pp None  (ctorS m n fields) <&> addParamComments fields)
+        <*>  pp Print (ctorD n fields)
 
     mkHelp :: Help
     mkHelp = Help $
@@ -208,6 +205,27 @@ prodData m s st = (,fields) <$> mk
 
         ps = map Just (filter fieldIsParam fs) ++ repeat Nothing
 
+    dependencies = foldMap go fields
+      where
+        tTypeDep :: Text -> Set.Set Text
+
+        go :: TypeOf a => a -> Set.Set Text
+        go f = case (typeOf f) of
+            TType      x _ -> tTypeDep x
+            TLit       _   -> Set.empty
+            TNatural       -> Set.empty
+            TStream        -> Set.empty
+            TMaybe     x   -> go x
+            TSensitive x   -> go x
+            TList      x   -> go x
+            TList1     x   -> go x
+            TMap       k v -> go k <> go v
+
+        tTypeDep x = if (stripped /= typeId n)
+                     then Set.singleton stripped
+                     else Set.empty
+          where stripped = fromMaybe x $ Text.stripPrefix "(Maybe " =<< Text.stripSuffix ")" x
+
     n = s ^. annId
 
 renderInsts :: Protocol -> Id -> [Inst] -> Either Error (Map Text LText.Text)
@@ -220,8 +238,8 @@ serviceData :: HasMetadata a Identity
             -> Retry
             -> Either Error Fun
 serviceData m r = Fun' (m ^. serviceConfig) (Help h)
-    <$> pp None   (serviceS m)
-    <*> pp Indent (serviceD m r)
+    <$> pp None  (serviceS m)
+    <*> pp Print (serviceD m r)
   where
     h = sformat ("API version @" % stext % "@ of the " % stext % " configuration.")
                 (m ^. apiVersion) (m ^. serviceFullName)
@@ -236,8 +254,8 @@ waiterData m os n w = do
     o  <- note (missingErr k (k, Map.map _opName os)) $ Map.lookup k os
     wf <- waiterFields m o w
     c  <- Fun' (smartCtorId n) (Help h)
-        <$> pp None   (waiterS n wf)
-        <*> pp Indent (waiterD n wf)
+        <$> pp None  (waiterS n wf)
+        <*> pp Print (waiterD n wf)
     return $! WData (typeId n) (_opName o) c
   where
     missingErr = format
@@ -341,28 +359,14 @@ notation m = go
         format ("Unable to descend into nested reference " % iprimary)
 
 data PP
-    = Indent
-    | Print
+    = Print
     | None
       deriving (Eq)
 
 pp :: Pretty a => PP -> a -> Either Error Rendered
 pp i d
-    | i == Indent = bimap errorMessage render (reformat printed)
     | otherwise   = pure (LText.fromStrict (Text.decodeUtf8 printed))
   where
-    render =
-        LText.decodeUtf8 . Build.toLazyByteString
-
-    reformat =
-        HIndent.reformat HIndent.defaultConfig Nothing Nothing
-
-    errorMessage =
-        LText.fromStrict
-            . Text.decodeUtf8
-            . flip mappend (", when formatting datatype:\n\n" <> printed <> "\n")
-            . BS8.pack
-
     printed =
         BS8.dropWhile isSpace . BS8.pack $
             Exts.prettyPrintStyleMode style mode d
@@ -374,7 +378,6 @@ pp i d
         }
 
     mode | i == Print  = Exts.defaultMode
-         | i == Indent = Exts.defaultMode
          | otherwise   =
              Exts.defaultMode
                  { Exts.layout  = Exts.PPNoLayout

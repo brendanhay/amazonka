@@ -31,7 +31,6 @@ import Control.Lens           hiding ((:<), List, enum, mapping, (??))
 
 import Data.Foldable (foldr')
 import Data.List     (delete, intersect, nub, sort)
-import Data.Monoid
 
 import Gen.Types.Ann
 import Gen.Types.Id

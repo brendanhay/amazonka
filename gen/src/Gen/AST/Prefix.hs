@@ -30,7 +30,6 @@ import Data.CaseInsensitive (CI)
 import Data.Char            (isLower)
 import Data.Hashable
 import Data.Maybe
-import Data.Monoid
 import Data.Text            (Text)
 import Data.Text.Manipulate
 

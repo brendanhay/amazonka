@@ -13,7 +13,6 @@
 module Gen.Types.NS where
 
 import Data.Aeson
-import Data.Monoid
 import Data.String
 import Data.Text   (Text)
 
@@ -36,12 +35,15 @@ instance IsString NS where
     fromString "" = mempty
     fromString s  = mkNS (fromString s)
 
-instance Monoid NS where
-    mempty = NS []
-    mappend (NS xs) (NS ys)
+instance Semigroup NS where
+    (NS xs) <> (NS ys)
         | null xs   = NS ys
         | null ys   = NS xs
         | otherwise = NS (xs <> ys)
+
+instance Monoid NS where
+    mempty = NS []
+    mappend = (<>)
 
 instance FromJSON NS where
     parseJSON = withText "namespace" (pure . mkNS)

@@ -147,11 +147,15 @@ sumData p s i vs = Sum s <$> mk <*> (Map.keys <$> insts)
   where
     mk = Sum' (typeId n) (i ^. infoDocumentation)
         <$> pp Print decl
+        <*> pure ctor
         <*> pure bs
 
-    decl = dataD n (map f . sort $ Map.keys bs) (derivingOf s)
+    decl = dataD n [newt] (derivingOf s)
       where
-        f x = conD (Exts.ConDecl () (ident x) [])
+        newt = conD (Exts.ConDecl () (ident ctor) [tyapp (tycon "CI") (tycon "Text")])
+
+    -- Sometimes the values share a name with a type, so we prime the data constructor to avoid clashes.
+    ctor = ((<> "'") . typeId) n
 
     insts = renderInsts p n $ shapeInsts p (s ^. relMode) []
 

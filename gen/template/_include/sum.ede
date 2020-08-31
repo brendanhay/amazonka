@@ -3,19 +3,51 @@
 {% endif %}
 {{ shape.declaration }}
 
+{% for ctor in shape.constructors %}
+pattern {{ ctor.key }} :: {{ shape.name }}
+pattern {{ ctor.key }} = {{ shape.constructor }} "{{ ctor.value }}"
+
+{% endfor %}
+{-# COMPLETE
+{% for ctor in shape.constructors %}
+  {{ ctor.key }},
+{% endfor %}
+  {{ shape.constructor }} #-}
+
 instance FromText {{ shape.name }} where
-    parser = takeLowerText >>= \case
-      {% for ctor in shape.constructors %}
-        "{{ ctor.value | toLower }}" -> pure {{ ctor.key }}
-      {% endfor %}
-        e -> fromTextError $ "Failure parsing {{ shape.name }} from value: '" <> e
-           <> "'. Accepted values: {% for c in shape.constructors %}{{ c.value | toLower }}{% if !c.last %}, {% endif %}{%endfor %}"
+    parser = ({{ shape.constructor}} . mk) <$> takeText
 
 instance ToText {{ shape.name }} where
-    toText = \case
-      {% for ctor in shape.constructors %}
-        {{ ctor.key }} -> "{{ ctor.value }}"
-      {% endfor %}
+    toText ({{ shape.constructor }} ci) = original ci
+
+-- | Represents an enum of /known/ ${{shape.name}}.
+--   AWS may have added more since the source was generated.
+--   This instance exists only for backward compatibility.
+--   fromEnum is a partial function, and will error on values unknown at generation time.
+instance Enum {{ shape.name }} where
+    toEnum i = case i of
+        {% for ctor in shape.constructors %}
+        {{ ctor.index0 }} -> {{ ctor.key }}
+        {% endfor %}
+        _ -> (error . showText) $ "Unknown index for {{ shape.name }}: " <> toText i
+    fromEnum x = case x of
+        {% for ctor in shape.constructors %}
+        {{ ctor.key }} -> {{ ctor.index0 }}
+        {% endfor %}    
+        {{ shape.constructor }} name -> (error . showText) $ "Unknown {{ shape.name }}: " <> original name
+
+-- | Represents the bounds of /known/ ${{shape.name}}.
+--   AWS may have added more since the source was generated.
+--   This instance exists only for backward compatibility.
+instance Bounded {{ shape.name }} where
+    {% for ctor in shape.constructors %}
+    {% if ctor.first %}
+    minBound = {{ ctor.key }}
+    {% endif %}
+    {% if ctor.last %}
+    maxBound = {{ ctor.key }}
+    {% endif %}
+    {% endfor %}
 
 instance Hashable     {{ shape.name }}
 instance NFData       {{ shape.name }}

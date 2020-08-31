@@ -178,7 +178,6 @@ operation' l t o = module' n is t $ do
 
     is = operationImports l o
 
-
 shape' :: Library
        -> Template
        -> SData
@@ -205,7 +204,9 @@ module' ns is tmpl f =
         return $! x <> fromPairs
             [ "moduleName"    .= ns
             , "moduleImports" .= is
+            , "templateName"  .= (templateName ns)
             ]
+      where templateName (NS xs) = last xs
 
 file' :: ToJSON a
       => Path

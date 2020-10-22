@@ -3,6 +3,9 @@
     "typeOverrides": {
         "Service": {
             "renamedTo": "ContainerService"
+        },
+        "PropagateTags": {
+            "enumPrefix": "PT"
         }
     },
     "ignoredWaiters": [

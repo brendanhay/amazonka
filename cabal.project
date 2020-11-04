@@ -1,1 +1,6 @@
 packages: */
+
+source-repository-package
+  type: git
+  location: https://github.com/brendanhay/ede.git
+  tag: 5a8756c1b3105af55b055f78ea273d00620a6731

@@ -82,7 +82,7 @@ executable amazonka-gen
         , formatting
         , free
         , hashable
-        , haskell-src-exts     >= 1.19.0 && < 1.24.0
+        , haskell-src-exts     >= 1.19.0 && < 1.22.0
         , html-conduit
         , lens
         , mtl

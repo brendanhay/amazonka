@@ -1,4 +1,4 @@
-resolver: lts-11.9
+resolver: lts-11.22
 
 local-bin-path: bin
 
@@ -10,6 +10,8 @@ nix:
 extra-deps:
   - ede-0.2.9
   - text-regex-replace-0.1.1.1
+  - unexceptionalio-0.5.1
+  - errors-2.3.0
 
 packages:
   - gen

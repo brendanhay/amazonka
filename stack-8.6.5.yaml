@@ -13,7 +13,7 @@ extra-deps:
   - ede-0.2.9
   - hindent-5.3.1
   - text-regex-replace-0.1.1.3
-  - unexceptionalio-0.3.0
+  - unexceptionalio-0.5.1
 
 packages:
   - gen

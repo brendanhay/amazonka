@@ -1,4 +1,6 @@
-#!/bin/sh -eux
+#!/usr/bin/env bash 
+
+# Usage: bump-version <VERSION> <DEPENDENCY>
 
 set -euo pipefail
 

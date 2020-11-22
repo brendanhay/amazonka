@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Usage: fmt-nix
+
+set -euo pipefail
+
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+echo "Formatting Nix"
+
+find nix \
+    -type f -name '*.nix' \
+    -exec nixfmt {} \+

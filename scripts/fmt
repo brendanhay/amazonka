@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Usage: fmt
+
+# Run all formatters and linters ensuring codebase consistency
+
+set -euo pipefail
+
+cd "$(dirname "${BASH_SOURCE[0]}")"
+
+./fmt-haskell
+./fmt-nix
+./fmt-shell
+
+echo 'Done.'

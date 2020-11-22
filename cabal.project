@@ -1,1 +1,13 @@
-packages: */
+-- Ensure deterministic package set.
+index-state: 2020-11-03T23:50:49Z
+
+-- Writing environment files prevents reproducible builds.
+write-ghc-environment-files: never
+
+-- 01 by default. You can override this locally via:
+--   cabal new-configure --disable-optimization
+optimization: 1
+
+-- Local packages.
+packages:
+  */

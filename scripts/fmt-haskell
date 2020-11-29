@@ -5,26 +5,23 @@
 set -euo pipefail
 
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
-
 dir="${1:-.}"
-
 
 echo "Formatting Cabal"
 
-find $dir \
+find "$dir" \
     -path ./dist-newstyle -prune -o \
     -type f -name '*.cabal' \
     -exec cabal-fmt --inplace --indent=2 {} \+
 
 echo "Formatting Haskell"
 
-find $dir \
+find "$dir" \
     -path ./dist-newstyle -prune -o \
     -type f -name '*.hs' \
     -exec ormolu -i \
     -o '-XBangPatterns' \
     -o '-XPatternSynonyms' \
-    -o '-XImportQualifiedPost' \
     -o '-XTypeApplications' \
     -o '-XPatternSynonyms' \
     {} \+

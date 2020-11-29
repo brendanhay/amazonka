@@ -3,7 +3,7 @@
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Gen.IO
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -30,8 +30,6 @@ import Gen.Types
 
 import System.IO
 
-import UnexceptionalIO (fromIO, runUIO)
-
 import qualified Data.Text         as Text
 import qualified Data.Text.Lazy    as LText
 import qualified Data.Text.Lazy.IO as LText
@@ -42,7 +40,7 @@ run :: ExceptT Error IO a -> IO a
 run = runScript . fmapLT LText.toStrict
 
 io :: MonadIO m => IO a -> ExceptT Error m a
-io = ExceptT . fmap (first (LText.pack . show)) . liftIO . runUIO . fromIO
+io = ExceptT . fmap (first (LText.pack . show)) . liftIO 
 
 title :: MonadIO m => Format (ExceptT Error m ()) a -> a
 title m = runFormat m (io . LText.putStrLn . toLazyText)

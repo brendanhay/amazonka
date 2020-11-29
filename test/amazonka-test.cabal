@@ -1,3 +1,4 @@
+cabal-version:      2.2
 name:               amazonka-test
 version:            1.6.1
 synopsis:           Common functionality for Amazonka library test-suites.
@@ -11,7 +12,6 @@ copyright:          Copyright (c) 2013-2020 Brendan Hay
 category:           Network, AWS, Cloud, Distributed Computing
 build-type:         Simple
 extra-source-files: README.md
-cabal-version:      2.0
 description:
   Common functionality depended upon by test suites of the various @amazonka-*@
   service libraries.
@@ -25,12 +25,17 @@ source-repository head
   location: git://github.com/brendanhay/amazonka.git
   subdir:   test
 
-library
+common base
   default-language: Haskell2010
-  hs-source-dirs:   src
   ghc-options:
-    -Wall -fwarn-incomplete-uni-patterns
+    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
+
+  build-depends:    base >=4.12 && <5
+
+library
+  import: base
+  hs-source-dirs:   src
 
   exposed-modules:
     Test.AWS.Assert
@@ -43,8 +48,6 @@ library
   build-depends:
       aeson                 >=0.8
     , amazonka-core         >=1.6.1 && <1.6.2
-    , base                  >=4.7   && <5
-    , bifunctors            >=4.1
     , bytestring            >=0.9
     , case-insensitive      >=1.2
     , conduit               >=1.1
@@ -59,6 +62,6 @@ library
     , template-haskell      >=2.5
     , temporary             >=1.2
     , text                  >=1.1
-    , time                  >=1.2
+    , time                  >=1.5
     , unordered-containers  >=0.2.5
     , yaml                  >=0.8.7

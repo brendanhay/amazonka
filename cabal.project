@@ -10,7 +10,7 @@ optimization: 1
 
 allow-newer:
    base
- 
+
 -- Local packages.
 packages:
    gen/

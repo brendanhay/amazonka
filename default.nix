@@ -19,7 +19,6 @@ let
 
 in pkgs.cabalProject // {
   shell = pkgs.cabalProject.shellFor {
-    withHoogle = true;
     exactDeps = true;
 
     packages = ps: 

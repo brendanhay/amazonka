@@ -74,23 +74,21 @@ executable amazonka-gen
     , data-default-class
     , deriving-compat
     , directory-tree
-    , ede                   ^>=0.3.1
-    , errors                ^>=2.2
-    , formatting
+    , ede                   >=0.3.1
+    , errors                ^>=2.3
     , free
     , hashable
-    , haskell-src-exts      ^>=1.23 
+    , haskell-src-exts      ^>=1.23
     , html-conduit
     , lens
     , mtl
     , optparse-applicative
     , scientific
     , semigroups
-    , system-fileio
     , template-haskell
     , text
     , text-icu
-    , text-manipulate      ^>=0.3
+    , text-manipulate      >=0.3
     , text-regex-replace
     , time                  >=1.5
     , transformers

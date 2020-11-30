@@ -46,8 +46,8 @@ common base
   build-depends:    base >=4.12 && <5
 
 library
-  import: base
-  hs-source-dirs:   src
+  import:          base
+  hs-source-dirs:  src
   exposed-modules:
     Control.Monad.Trans.AWS
     Network.AWS
@@ -63,14 +63,14 @@ library
     Network.AWS.Internal.Logger
 
   build-depends:
-      amazonka-core        >=1.6.1   && <1.6.2
+    , amazonka-core        >=1.6.1   && <1.6.2
     , bytestring           >=0.9
     , conduit              >=1.1
     , conduit-extra        >=1.1
     , directory            >=1.2
     , exceptions           >=0.6
-    , http-client          >=0.4
-    , http-conduit         >=2.1.7
+    , http-client          >=0.5
+    , http-conduit         >=2.3
     , http-types           >=0.8
     , ini                  >=0.3.5
     , mmorph               >=1
@@ -88,13 +88,13 @@ library
     , void                 >=0.1
 
 test-suite tests
-  import: base
-  type:             exitcode-stdio-1.0
-  hs-source-dirs:   test
-  main-is:          Main.hs
-  ghc-options:      -threaded
+  import:         base
+  type:           exitcode-stdio-1.0
+  hs-source-dirs: test
+  main-is:        Main.hs
+  ghc-options:    -threaded
   other-modules:
   build-depends:
-      amazonka
+    , amazonka
     , tasty
     , tasty-hunit

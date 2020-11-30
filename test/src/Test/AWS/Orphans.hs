@@ -1,7 +1,6 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TupleSections     #-}
-
+{-# LANGUAGE TupleSections #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
 -- |
@@ -11,11 +10,10 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Orphans where
 
 import Data.Aeson
 import Network.AWS.Prelude
 
 instance FromJSON ByteString where
-    parseJSON = withText "bytestring" (either fail pure . fromText)
+  parseJSON = withText "bytestring" (either fail pure . fromText)

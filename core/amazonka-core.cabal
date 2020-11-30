@@ -34,8 +34,8 @@ common base
   build-depends:    base >=4.12 && <5
 
 library
-  import: base
-  hs-source-dirs:   src
+  import:          base
+  hs-source-dirs:  src
   exposed-modules:
     Network.AWS.Compat.Locale
     Network.AWS.Compat.Time
@@ -74,7 +74,7 @@ library
     Network.AWS.Sign.V4.Chunked
 
   build-depends:
-      aeson                 >=0.8
+    , aeson                 >=0.8
     , attoparsec            >=0.11.3
     , bytestring            >=0.9
     , case-insensitive      >=1.2
@@ -84,8 +84,8 @@ library
     , deepseq               >=1.4
     , exceptions            >=0.6
     , hashable              >=1.2
-    , http-client           >=0.4
-    , http-conduit          >=2.1.4
+    , http-client           >=0.5
+    , http-conduit          >=2.3
     , http-types            >=0.8
     , lens                  >=4.4
     , memory                >=0.6
@@ -94,19 +94,19 @@ library
     , scientific            >=0.3
     , tagged                >=0.7
     , text                  >=1.1
+    , time                  >=1.5
     , transformers          >=0.2
     , transformers-compat   >=0.3
     , unordered-containers  >=0.2.7
     , xml-conduit           >=1.7.0.1
     , xml-types             >=0.3.4
-    , time >=1.5
 
 test-suite tests
-  import: base
-  type:             exitcode-stdio-1.0
-  hs-source-dirs:   test
-  main-is:          Main.hs
-  ghc-options:      -threaded
+  import:         base
+  type:           exitcode-stdio-1.0
+  hs-source-dirs: test
+  main-is:        Main.hs
+  ghc-options:    -threaded
   other-modules:
     Test.AWS.Arbitrary
     Test.AWS.Data.Base64
@@ -123,7 +123,7 @@ test-suite tests
     Test.AWS.Util
 
   build-depends:
-      aeson
+    , aeson
     , amazonka-core
     , base
     , bytestring

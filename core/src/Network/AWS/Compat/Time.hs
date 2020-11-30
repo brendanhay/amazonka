@@ -7,10 +7,10 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.Compat.Time
-    ( parseTime
-    ) where
+  ( parseTime,
+  )
+where
 
 #if MIN_VERSION_time(1,5,0)
 import           Data.Time.Format (ParseTime, TimeLocale, parseTimeM)

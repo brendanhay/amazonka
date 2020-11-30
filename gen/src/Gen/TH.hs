@@ -1,7 +1,7 @@
-{-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TemplateHaskell #-}
 
 -- Module      : Gen.TH
 -- Copyright   : (c) 2013-2020 Brendan Hay
@@ -14,38 +14,33 @@
 -- Portability : non-portable (GHC extensions)
 
 module Gen.TH
-    ( gParseJSON'
-    , gToJSON'
-
-    , TH
-    , field
-    , ctor
-    , lenses
-
-    , upper
-    , lower
-    , spinal
-    , camel
-    ) where
+  ( gParseJSON',
+    gToJSON',
+    TH,
+    field,
+    ctor,
+    lenses,
+    upper,
+    lower,
+    spinal,
+    camel,
+  )
+where
 
 import Control.Lens
-
 import Data.Aeson.TH
 import Data.Aeson.Types
-import Data.Text        (Text)
-
+import Data.Text (Text)
+import qualified Data.Text as Text
+import qualified Data.Text.Manipulate as Text
+import GHC.Generics
 import Gen.Text
 
-import GHC.Generics
-
-import qualified Data.Text            as Text
-import qualified Data.Text.Manipulate as Text
-
 data TH = TH
-    { _ctor   :: Text -> Text
-    , _field  :: Text -> Text
-    , _lenses :: Bool
-    }
+  { _ctor :: Text -> Text,
+    _field :: Text -> Text,
+    _lenses :: Bool
+  }
 
 makeLenses ''TH
 
@@ -56,24 +51,26 @@ gToJSON' :: (Generic a, GToJSON Zero (Rep a)) => TH -> a -> Value
 gToJSON' th = genericToJSON (aeson th)
 
 upper, lower, spinal, camel :: TH
-upper  = TH Text.toUpper  Text.toUpper  False
-lower  = TH Text.toLower  Text.toLower  False
+upper = TH Text.toUpper Text.toUpper False
+lower = TH Text.toLower Text.toLower False
 spinal = TH Text.toSpinal Text.toSpinal False
-camel  = TH Text.toCamel  Text.toCamel  False
+camel = TH Text.toCamel Text.toCamel False
 
 aeson :: TH -> Options
-aeson TH{..} = defaultOptions
-    { constructorTagModifier = f _ctor
-    , fieldLabelModifier     = f _field
-    , allNullaryToStringTag  = True
-    , sumEncoding            =
+aeson TH {..} =
+  defaultOptions
+    { constructorTagModifier = f _ctor,
+      fieldLabelModifier = f _field,
+      allNullaryToStringTag = True,
+      sumEncoding =
         TaggedObject
-            { tagFieldName      = "type"
-            , contentsFieldName = "contents"
-            }
+          { tagFieldName = "type",
+            contentsFieldName = "contents"
+          }
     }
   where
     f g = asText (g . camelAcronym . h . stripSuffix "'")
 
-    h | _lenses   = stripLens
+    h
+      | _lenses = stripLens
       | otherwise = stripPrefix "_"

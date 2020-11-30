@@ -21,15 +21,15 @@ source-repository head
 common base
   default-language: Haskell2010
   ghc-options:
-    -threaded -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
-    -fwarn-incomplete-record-updates
+    -threaded -Wall -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns -fwarn-incomplete-record-updates
 
   build-depends:    base >=4.12 && <5
 
 executable amazonka-gen
-  import: base
-  hs-source-dirs:   src
-  main-is:          Main.hs
+  import:         base
+  hs-source-dirs: src
+  main-is:        Main.hs
   other-modules:
     Gen.AST
     Gen.AST.Cofree
@@ -65,7 +65,7 @@ executable amazonka-gen
     Gen.Types.Waiter
 
   build-depends:
-      aeson                 >=1.2
+    , aeson                 >=1.2
     , attoparsec
     , bytestring
     , case-insensitive
@@ -88,7 +88,7 @@ executable amazonka-gen
     , template-haskell
     , text
     , text-icu
-    , text-manipulate      >=0.3
+    , text-manipulate       >=0.3
     , text-regex-replace
     , time                  >=1.5
     , transformers

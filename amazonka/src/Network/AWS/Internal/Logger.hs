@@ -10,30 +10,30 @@
 --
 -- Types and functions for constructing loggers and emitting log messages.
 module Network.AWS.Internal.Logger
-    (
-    -- * Constructing a Logger
-      Logger
-    , newLogger
+  ( -- * Constructing a Logger
+    Logger,
+    newLogger,
 
     -- * Levels
-    , LogLevel (..)
-    , logError
-    , logInfo
-    , logDebug
-    , logTrace
+    LogLevel (..),
+    logError,
+    logInfo,
+    logDebug,
+    logTrace,
 
     -- * Building Messages
-    , ToLog    (..)
-    , buildLines
-    ) where
+    ToLog (..),
+    buildLines,
+  )
+where
 
-import           Control.Monad
-import           Control.Monad.IO.Class
+import Control.Monad
+import Control.Monad.IO.Class
 import qualified Data.ByteString.Lazy.Builder as Build
-import           Data.Monoid
-import           Network.AWS.Data.Log
-import           Network.AWS.Types
-import           System.IO
+import Data.Monoid
+import Network.AWS.Data.Log
+import Network.AWS.Types
+import System.IO
 
 -- | This is a primitive logger which can be used to log builds to a 'Handle'.
 --
@@ -43,14 +43,17 @@ import           System.IO
 -- should be used in production code.
 newLogger :: MonadIO m => LogLevel -> Handle -> m Logger
 newLogger x hd = liftIO $ do
-    hSetBuffering  hd LineBuffering
-    return $ \y b ->
-        when (x >= y) $
-            Build.hPutBuilder hd (b <> "\n")
+  hSetBuffering hd LineBuffering
+  return $ \y b ->
+    when (x >= y) $
+      Build.hPutBuilder hd (b <> "\n")
 
-logError, logInfo, logDebug, logTrace
- :: (MonadIO m, ToLog a) => Logger -> a -> m ()
+logError,
+  logInfo,
+  logDebug,
+  logTrace ::
+    (MonadIO m, ToLog a) => Logger -> a -> m ()
 logError f = liftIO . f Error . build
-logInfo  f = liftIO . f Info  . build
+logInfo f = liftIO . f Info . build
 logDebug f = liftIO . f Debug . build
 logTrace f = liftIO . f Trace . build

@@ -1,10 +1,10 @@
-{-# LANGUAGE FlexibleContexts  #-}
-{-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE CPP #-}
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RankNTypes        #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE ViewPatterns      #-}
-{-# LANGUAGE CPP               #-}
+{-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE ViewPatterns #-}
 
 -- |
 -- Module      : Network.AWS.Env
@@ -17,103 +17,99 @@
 -- Environment and AWS specific configuration for the
 -- 'Network.AWS.AWS' and 'Control.Monad.Trans.AWS.AWST' monads.
 module Network.AWS.Env
-    (
-    -- * Creating the Environment
-      newEnv
-    , newEnvWith
-
-    , Env      (..)
-    , HasEnv   (..)
+  ( -- * Creating the Environment
+    newEnv,
+    newEnvWith,
+    Env (..),
+    HasEnv (..),
 
     -- * Overriding Default Configuration
-    , override
-    , configure
+    override,
+    configure,
 
     -- * Scoped Actions
-    , reconfigure
-    , within
-    , once
-    , timeout
+    reconfigure,
+    within,
+    once,
+    timeout,
 
     -- * Retry HTTP Exceptions
-    , retryConnectionFailure
-    ) where
+    retryConnectionFailure,
+  )
+where
 
 import Control.Monad.Catch
 import Control.Monad.IO.Class
 import Control.Monad.Reader
-
 import Data.Function (on)
 import Data.IORef
-import Data.Maybe    (fromMaybe)
+import Data.Maybe (fromMaybe)
 import Data.Monoid
-
 import Network.AWS.Auth
 import Network.AWS.Internal.Logger
-import Network.AWS.Lens            (Getter, Lens')
-import Network.AWS.Lens            (lens, to)
-import Network.AWS.Lens            ((.~), (<>~), (?~))
+import Network.AWS.Lens (Getter, Lens', lens, to, (.~), (<>~), (?~))
 import Network.AWS.Types
 import Network.HTTP.Conduit
 
 -- | The environment containing the parameters required to make AWS requests.
 data Env = Env
-    { _envRegion     :: !Region
-    , _envLogger     :: !Logger
-    , _envRetryCheck :: !(Int -> HttpException -> Bool)
-    , _envOverride   :: !(Dual (Endo Service))
-    , _envManager    :: !Manager
-    , _envEC2        :: !(IORef (Maybe Bool))
-    , _envAuth       :: !Auth
-    }
+  { _envRegion :: !Region,
+    _envLogger :: !Logger,
+    _envRetryCheck :: !(Int -> HttpException -> Bool),
+    _envOverride :: !(Dual (Endo Service)),
+    _envManager :: !Manager,
+    _envEC2 :: !(IORef (Maybe Bool)),
+    _envAuth :: !Auth
+  }
 
 -- Note: The strictness annotations aobe are applied to ensure
 -- total field initialisation.
 
 class HasEnv a where
-    environment   :: Lens' a Env
-    {-# MINIMAL environment #-}
+  environment :: Lens' a Env
+  {-# MINIMAL environment #-}
 
-    -- | The current region.
-    envRegion     :: Lens' a Region
+  -- | The current region.
+  envRegion :: Lens' a Region
 
-    -- | The function used to output log messages.
-    envLogger     :: Lens' a Logger
+  -- | The function used to output log messages.
+  envLogger :: Lens' a Logger
 
-    -- | The function used to determine if an 'HttpException' should be retried.
-    envRetryCheck :: Lens' a (Int -> HttpException -> Bool)
+  -- | The function used to determine if an 'HttpException' should be retried.
+  envRetryCheck :: Lens' a (Int -> HttpException -> Bool)
 
-    -- | The currently applied overrides to all 'Service' configuration.
-    envOverride   :: Lens' a (Dual (Endo Service))
+  -- | The currently applied overrides to all 'Service' configuration.
+  envOverride :: Lens' a (Dual (Endo Service))
 
-    -- | The 'Manager' used to create and manage open HTTP connections.
-    envManager    :: Lens' a Manager
+  -- | The 'Manager' used to create and manage open HTTP connections.
+  envManager :: Lens' a Manager
 
-    -- | The credentials used to sign requests for authentication with AWS.
-    envAuth       :: Lens' a Auth
+  -- | The credentials used to sign requests for authentication with AWS.
+  envAuth :: Lens' a Auth
 
-    -- | A memoised predicate for whether the underlying host is an EC2 instance.
-    envEC2        :: Getter a (IORef (Maybe Bool))
+  -- | A memoised predicate for whether the underlying host is an EC2 instance.
+  envEC2 :: Getter a (IORef (Maybe Bool))
 
-    envRegion     = environment . lens _envRegion     (\s a -> s { _envRegion     = a })
-    envLogger     = environment . lens _envLogger     (\s a -> s { _envLogger     = a })
-    envRetryCheck = environment . lens _envRetryCheck (\s a -> s { _envRetryCheck = a })
-    envOverride   = environment . lens _envOverride   (\s a -> s { _envOverride   = a })
-    envManager    = environment . lens _envManager    (\s a -> s { _envManager    = a })
-    envAuth       = environment . lens _envAuth       (\s a -> s { _envAuth       = a })
-    envEC2        = environment . to _envEC2
+  envRegion = environment . lens _envRegion (\s a -> s {_envRegion = a})
+  envLogger = environment . lens _envLogger (\s a -> s {_envLogger = a})
+  envRetryCheck = environment . lens _envRetryCheck (\s a -> s {_envRetryCheck = a})
+  envOverride = environment . lens _envOverride (\s a -> s {_envOverride = a})
+  envManager = environment . lens _envManager (\s a -> s {_envManager = a})
+  envAuth = environment . lens _envAuth (\s a -> s {_envAuth = a})
+  envEC2 = environment . to _envEC2
 
 instance HasEnv Env where
-    environment = id
+  environment = id
 
 instance ToLog Env where
-    build Env{..} = b <> "\n" <> build _envAuth
-      where
-        b = buildLines
-            [ "[Amazonka Env] {"
-            , "  region = " <> build _envRegion
-            , "}"
-            ]
+  build Env {..} = b <> "\n" <> build _envAuth
+    where
+      b =
+        buildLines
+          [ "[Amazonka Env] {",
+            "  region = " <> build _envRegion,
+            "}"
+          ]
 
 -- | Provide a function which will be added to the existing stack
 -- of overrides applied to all service configuration.
@@ -134,8 +130,9 @@ override f = envOverride <>~ Dual (Endo f)
 configure :: HasEnv a => Service -> a -> a
 configure s = override f
   where
-    f x | on (==) _svcAbbrev s x = s
-        | otherwise              = x
+    f x
+      | on (==) _svcAbbrev s x = s
+      | otherwise = x
 
 -- | Scope an action such that all requests belonging to the supplied service
 -- will use this configuration instead of the default.
@@ -188,12 +185,14 @@ timeout s = local (override (serviceTimeout ?~ s))
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
 --
 -- /See:/ 'newEnvWith'.
-newEnv :: (Applicative m, MonadIO m, MonadCatch m)
-       => Credentials -- ^ Credential discovery mechanism.
-       -> m Env
+newEnv ::
+  (Applicative m, MonadIO m, MonadCatch m) =>
+  -- | Credential discovery mechanism.
+  Credentials ->
+  m Env
 newEnv c =
-    liftIO (newManager tlsManagerSettings)
-        >>= newEnvWith c Nothing
+  liftIO (newManager tlsManagerSettings)
+    >>= newEnvWith c Nothing
 
 -- | /See:/ 'newEnv'
 --
@@ -202,20 +201,24 @@ newEnv c =
 -- the check to be skipped and the host treated as an EC2 instance.
 --
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
-newEnvWith :: (Applicative m, MonadIO m, MonadCatch m)
-           => Credentials -- ^ Credential discovery mechanism.
-           -> Maybe Bool  -- ^ Preload the EC2 instance check.
-           -> Manager
-           -> m Env
+newEnvWith ::
+  (Applicative m, MonadIO m, MonadCatch m) =>
+  -- | Credential discovery mechanism.
+  Credentials ->
+  -- | Preload the EC2 instance check.
+  Maybe Bool ->
+  Manager ->
+  m Env
 newEnvWith c p m = do
-    (a, fromMaybe NorthVirginia -> r) <- getAuth m c
-    Env r (\_ _ -> pure ()) (retryConnectionFailure 3) mempty m
-        <$> liftIO (newIORef p)
-        <*> pure a
+  (a, fromMaybe NorthVirginia -> r) <- getAuth m c
+  Env r (\_ _ -> pure ()) (retryConnectionFailure 3) mempty m
+    <$> liftIO (newIORef p)
+    <*> pure a
 
 -- | Retry the subset of transport specific errors encompassing connection
 -- failure up to the specific number of times.
 retryConnectionFailure :: Int -> Int -> HttpException -> Bool
+
 #if MIN_VERSION_http_client(0,5,0)
 retryConnectionFailure _     _ InvalidUrlException {}      = False
 retryConnectionFailure limit n (HttpExceptionRequest _ ex)

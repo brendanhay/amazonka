@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE TypeFamilies #-}
 
 -- |
 -- Module      : Test.AWS.Error
@@ -8,55 +8,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Error (tests) where
 
-import qualified Data.ByteString.Char8    as BS8
-import qualified Data.Foldable            as Fold
-import           Data.List                (sort)
-import           Data.Monoid
-import           Data.String
-import qualified Data.Text                as Text
-import qualified Data.Text.Encoding       as Text
-import           Network.AWS.Error
-import           Network.AWS.Prelude
-import           Test.AWS.Arbitrary       ()
-import           Test.QuickCheck.Property ()
-import           Test.Tasty
-import           Test.Tasty.HUnit
+import qualified Data.ByteString.Char8 as BS8
+import qualified Data.Foldable as Fold
+import Data.List (sort)
+import Data.Monoid
+import Data.String
+import qualified Data.Text as Text
+import qualified Data.Text.Encoding as Text
+import Network.AWS.Error
+import Network.AWS.Prelude
+import Test.AWS.Arbitrary ()
+import Test.QuickCheck.Property ()
+import Test.Tasty
+import Test.Tasty.HUnit
 
 tests :: TestTree
-tests = testGroup "errors"
-    [ testGroup "xml"
-        [ testCase "ec2" $ xmlError ec2
-            "VolumeInUse"
-            "vol-8c8cea98 is already attached to an instance"
-            "c0ca7700-c515-4653-87e3-f1a9ce6416e8"
-
-        , testCase "route53" $ xmlError route53
-            "InvalidChangeBatch"
-            "Tried to delete resource record set noexist.example.com. type A,but it was not found"
-            "default_rid"
-
-        , testCase "sqs" $ xmlError sqs
-            "InvalidParameterValue"
-            "Value (quename_nonalpha) for parameter QueueName is invalid. Must be an alphanumeric String of 1 to 80 in length"
-            "42d59b56-7407-4c4a-be0f-4c88daeea257"
+tests =
+  testGroup
+    "errors"
+    [ testGroup
+        "xml"
+        [ testCase "ec2" $
+            xmlError
+              ec2
+              "VolumeInUse"
+              "vol-8c8cea98 is already attached to an instance"
+              "c0ca7700-c515-4653-87e3-f1a9ce6416e8",
+          testCase "route53" $
+            xmlError
+              route53
+              "InvalidChangeBatch"
+              "Tried to delete resource record set noexist.example.com. type A,but it was not found"
+              "default_rid",
+          testCase "sqs" $
+            xmlError
+              sqs
+              "InvalidParameterValue"
+              "Value (quename_nonalpha) for parameter QueueName is invalid. Must be an alphanumeric String of 1 to 80 in length"
+              "42d59b56-7407-4c4a-be0f-4c88daeea257"
         ]
     ]
 
-xmlError :: LazyByteString
-         -> ErrorCode
-         -> ErrorMessage
-         -> RequestId
-         -> Assertion
+xmlError ::
+  LazyByteString ->
+  ErrorCode ->
+  ErrorMessage ->
+  RequestId ->
+  Assertion
 xmlError bs c m r = actual @?= Right expect
   where
     expect = serviceError a s h (Just c) (Just m) (Just r)
     actual =
-        case parseXMLError a s h bs of
-            ServiceError e -> Right e
-            e              -> Left $ "unexpected error: " ++ show e
+      case parseXMLError a s h bs of
+        ServiceError e -> Right e
+        e -> Left $ "unexpected error: " ++ show e
 
     a = "Test"
     s = toEnum 400

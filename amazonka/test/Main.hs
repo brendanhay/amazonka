@@ -7,10 +7,11 @@
 
 module Main (main) where
 
-import           Test.Tasty
+import Test.Tasty
 
 main :: IO ()
-main = defaultMain $
-    testGroup "amazonka"
-        [
-        ]
+main =
+  defaultMain $
+    testGroup
+      "amazonka"
+      []

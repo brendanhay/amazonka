@@ -14,21 +14,21 @@
 -- and 'ToByteString' instances, making it convenient to use the type classes
 -- to convert a value to its textual representation.
 module Network.AWS.Data
-    (
-    -- * Text
-      FromText     (..)
-    , fromText
-    , fromTextError
-    , takeLowerText
-    , ToText       (..)
+  ( -- * Text
+    FromText (..),
+    fromText,
+    fromTextError,
+    takeLowerText,
+    ToText (..),
 
     -- * ByteString
-    , ToByteString (..)
+    ToByteString (..),
 
     -- * Log Messages
-    , ToLog        (..)
-    ) where
+    ToLog (..),
+  )
+where
 
-import           Network.AWS.Data.ByteString
-import           Network.AWS.Data.Log
-import           Network.AWS.Data.Text
+import Network.AWS.Data.ByteString
+import Network.AWS.Data.Log
+import Network.AWS.Data.Text

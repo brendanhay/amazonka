@@ -11,27 +11,24 @@
 -- Portability : non-portable (GHC extensions)
 
 module Gen.Formatting
-    ( module Gen.Formatting
-    , module Formatting
-    , module Formatting.Time
-    ) where
+  ( module Gen.Formatting,
+    module Formatting,
+    module Formatting.Time,
+  )
+where
 
 import Control.Monad.Except
-
 import Data.CaseInsensitive (CI)
-import Data.Text            (Text)
-
-import Gen.Types
-
-import Formatting          hiding (left, right)
-import Formatting.Internal (runFormat)
-import Formatting.Time     hiding (fmt)
-
-import qualified Data.CaseInsensitive   as CI
-import qualified Data.HashMap.Strict    as Map
-import qualified Data.Text              as Text
-import qualified Data.Text.Lazy         as LText
+import qualified Data.CaseInsensitive as CI
+import qualified Data.HashMap.Strict as Map
+import Data.Text (Text)
+import qualified Data.Text as Text
+import qualified Data.Text.Lazy as LText
 import qualified Data.Text.Lazy.Builder as Build
+import Formatting hiding (left, right)
+import Formatting.Internal (runFormat)
+import Formatting.Time hiding (fmt)
+import Gen.Types
 
 scomma :: Format a ([Text] -> a)
 scomma = later (Build.fromText . Text.intercalate ",")
@@ -52,8 +49,8 @@ partial :: Show b => Format a ((Id, Map.HashMap Id b) -> a)
 partial = later (Build.fromString . show . Map.toList . prefix)
   where
     prefix (p, m) =
-        let txt = Text.take 3 (memberId p)
-         in Map.filterWithKey (const . Text.isPrefixOf txt . memberId) m
+      let txt = Text.take 3 (memberId p)
+       in Map.filterWithKey (const . Text.isPrefixOf txt . memberId) m
 
 failure :: MonadError e m => Format LText.Text (a -> e) -> a -> m b
 failure m = throwError . format m

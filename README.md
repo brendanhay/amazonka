@@ -1,8 +1,13 @@
 # Amazonka
 
-[![Build Status](https://img.shields.io/travis/brendanhay/amazonka/develop.svg?maxAge=2592000)](https://travis-ci.org/brendanhay/amazonka)
-[![Hackage Version](https://img.shields.io/hackage/v/amazonka.svg)](http://hackage.haskell.org/package/amazonka)
-[![Gitter Chat](https://img.shields.io/gitter/room/brendanhay/amazonka.js.svg?maxAge=2592000)](https://gitter.im/brendanhay/amazonka)
+[![Build][build-badge]][build]
+[![Hackage][hackage-badge]][hackage]
+
+[build]: https://github.com/brendanhay/amazonka/actions
+[build-badge]: https://github.com/brendanhay/amazonka/workflows/Build/badge.svg
+[hackage]: http://hackage.haskell.org/package/amazonka
+[hackage-badge]: https://img.shields.io/hackage/v/amazonka.svg?style=flat
+
 
 * [Description](#description)
 * [Documentation](#documentation)

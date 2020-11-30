@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Usage: fmt
+# Usage: format
 
 # Run all formatters and linters ensuring codebase consistency
 
@@ -8,8 +8,8 @@ set -euo pipefail
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
-./fmt-haskell
-./fmt-nix
-./fmt-shell
+./format-haskell
+./format-nix
+./format-shell
 
 echo 'Done.'

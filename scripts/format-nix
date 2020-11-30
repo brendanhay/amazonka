@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Usage: fmt-nix
+# Usage: format-nix
 
 set -euo pipefail
 

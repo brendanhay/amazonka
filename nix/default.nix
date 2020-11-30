@@ -23,9 +23,6 @@ let
     # Add top-level `.sources` attribute.
     (_final: _prev: { sources = finalSources; })
 
-    # Basic library functions.
-    (import ./overlays/lib-local.nix)
-
     # Local package sets.
     (import ./overlays/haskell.nix)
   ] ++ overlays;

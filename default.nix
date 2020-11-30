@@ -17,12 +17,7 @@ let
     inherit system sources config overlays crossOverlays;
   };
 
-  components = pkgs.libLocal.collectHaskellComponents pkgs.cabalProject;
-
-in {
-  inherit (pkgs) cabalProject;
-  inherit (components) library checks exes;
-
+in pkgs.cabalProject // {
   shell = pkgs.cabalProject.shellFor {
     withHoogle = true;
     exactDeps = true;

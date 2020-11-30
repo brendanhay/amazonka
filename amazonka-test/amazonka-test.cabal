@@ -34,8 +34,9 @@ common base
   build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  src
+  import: base
+  hs-source-dirs:   src
+
   exposed-modules:
     Test.AWS.Assert
     Test.AWS.Diff
@@ -45,14 +46,14 @@ library
     Test.AWS.TH
 
   build-depends:
-    , aeson                 >=0.8
+      aeson                 >=0.8
     , amazonka-core         >=1.6.1 && <1.6.2
     , bytestring            >=0.9
     , case-insensitive      >=1.2
     , conduit               >=1.1
     , conduit-extra         >=1.1
     , groom                 >=0.1.1
-    , http-client           >=0.4.9
+    , http-client           >=0.5
     , http-types            >=0.8
     , process               >=1.2
     , resourcet             >=1.1

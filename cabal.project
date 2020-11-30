@@ -13,7 +13,4 @@ allow-newer:
 
 -- Local packages.
 packages:
-   gen/
-   core/
-   test/
-   amazonka-*/
+   amazonka*/

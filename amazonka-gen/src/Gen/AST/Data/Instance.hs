@@ -19,12 +19,11 @@ module Gen.AST.Data.Instance where
 import Control.Applicative
 import Control.Error
 import Control.Lens
-import Control.Monad.Except
+import qualified Control.Monad.Except as Except
 import Data.Aeson
-import Data.List (find, partition)
+import qualified Data.List as List
 import Data.Text (Text)
 import Gen.AST.Data.Field
-import Gen.Formatting
 import Gen.Types
 
 data Inst
@@ -98,7 +97,7 @@ requestInsts ::
   HTTP ->
   Ref ->
   [Field] ->
-  Either Error [Inst]
+  Either String [Inst]
 requestInsts m oname h r fs = do
   path' <- toPath
   concatQuery
@@ -114,7 +113,7 @@ requestInsts m oname h r fs = do
         map Right headers
           ++ map Left protocolHeaders
 
-    toPath :: Either Error Inst
+    toPath :: Either String Inst
     toPath = ToPath <$> uriFields oname h uriPath id fs
 
     toBody :: Maybe Inst
@@ -123,7 +122,7 @@ requestInsts m oname h r fs = do
     body :: Bool
     body = isJust toBody
 
-    concatQuery :: [Inst] -> Either Error [Inst]
+    concatQuery :: [Inst] -> Either String [Inst]
     concatQuery is = do
       xs <- uriFields oname h uriQuery (,Nothing) fs
       return $! merged xs : filter (not . f) is
@@ -139,7 +138,7 @@ requestInsts m oname h r fs = do
         f ToQuery {} = True
         f _ = False
 
-    replaceXML :: [Inst] -> Either Error [Inst]
+    replaceXML :: [Inst] -> Either String [Inst]
     replaceXML is
       | all nonEmptyXML is = return $! filter anyXML is
       | otherwise =
@@ -248,7 +247,7 @@ uriFields ::
   Getter s (t Segment) ->
   (Text -> a) ->
   f Field ->
-  Either Error (t (Either a Field))
+  Either String (t (Either a Field))
 uriFields oname h l f fs = traverse go (h ^. l)
   where
     go (Tok t) = return $ Left (f t)

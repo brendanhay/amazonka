@@ -24,13 +24,15 @@ where
 import Control.Comonad.Cofree
 import Control.Error
 import Control.Lens hiding ((:<))
-import Control.Monad.Except
+import qualified Control.Lens as Lens
+import qualified Control.Monad.Except as Except
 import Control.Monad.State
 import qualified Data.HashMap.Strict as Map
-import Data.List (find)
+import qualified Data.List as List
 import qualified Data.Text.Lazy as LText
+import qualified Data.Text as Text
+import qualified Control.Monad.Fail as Fail
 import Gen.AST.Override
-import Gen.Formatting
 import Gen.Types
 
 data Env a = Env
@@ -38,9 +40,9 @@ data Env a = Env
     _memo :: Map Id (Shape a)
   }
 
-makeLenses ''Env
+$(Lens.makeLenses ''Env)
 
-type MemoS a = StateT (Env a) (Either Error)
+type MemoS a = StateT (Env a) (Either String)
 
 -- | Set some appropriate defaults where needed for later stages,
 -- and ensure there are no vacant references to input/output shapes
@@ -49,7 +51,7 @@ type MemoS a = StateT (Env a) (Either Error)
 -- potentially shared shape.
 substitute ::
   Service Maybe (RefF ()) (Shape Related) a ->
-  Either Error (Service Identity (RefF ()) (Shape Related) a)
+  Either String (Service Identity (RefF ()) (Shape Related) a)
 substitute svc@Service {..} = do
   (os, e) <- runStateT (traverse operation _operations) (Env mempty _shapes)
   return $! override (e ^. overrides) $
@@ -144,7 +146,7 @@ addStatus Output = go
     go (Struct st) = Struct (maybe missing exists x)
       where
         ms = Map.toList (st ^. members)
-        x = find ((Just StatusCode ==) . view refLocation . snd) ms
+        x = List.find ((Just StatusCode ==) . view refLocation . snd) ms
 
         missing = st & required' %~ cons n & members %~ Map.insert n ref
         exists (k, _) = st & required' %~ cons k
@@ -165,28 +167,27 @@ save n s = memo %= Map.insert n s
 rename :: Id -> Id -> MemoS a ()
 rename x y = overrides %= Map.insert x (defaultOverride & renamedTo ?~ y)
 
-safe :: Show a => Id -> Map Id a -> Either Error a
+safe :: Show a => Id -> Map Id a -> Either String a
 safe n ss =
-  note
-    ( format
-        ( "Missing shape " % iprimary
-            % ", possible matches: "
-            % partial
-        )
-        n
-        (n, ss)
-    )
+  maybe
+    (Left ("Missing shape " ++ show n ++ ", possible matches: " ++ show (partial n ss)))
+    Right
     (Map.lookup n ss)
+    
+partial :: Id -> (Map.HashMap Id a) -> [(Id, a)]
+partial p m =
+  let txt = Text.take 3 (memberId p)
+   in Map.toList (Map.filterWithKey (const . Text.isPrefixOf txt . memberId) m)
 
 verify ::
-  (MonadState (Env a) m, MonadError e m) =>
   Id ->
-  Format (Id -> LText.Text) (Id -> e) ->
-  m ()
+  String ->
+  StateT (Env Related) (Either String) ()
 verify n msg = do
   p <- uses memo (Map.member n)
-  when p . throwError $
-    format (msg % " for " % iprimary) n
+  
+  when p $
+    Except.throwError (msg ++ " for " ++ show n)
 
 infixl 7 .!
 

@@ -1,9 +1,7 @@
-{-# LANGUAGE CPP #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fsimpl-tick-factor=110 #-}
 
 -- |
 -- Module      : Network.AWS.Data.Log
@@ -140,10 +138,8 @@ instance ToLog RequestBody where
 instance ToLog HttpException where
   build x = "[HttpException] {\n" <> build (show x) <> "\n}"
 
-#if MIN_VERSION_http_client(0,5,0)
 instance ToLog HttpExceptionContent where
     build x = "[HttpExceptionContent] {\n" <> build (show x) <> "\n}"
-#endif
 
 instance ToLog Request where
   build x =
@@ -153,11 +149,7 @@ instance ToLog Request where
         "  secure    = " <> build (secure x),
         "  method    = " <> build (method x),
         "  target    = " <> build target,
-#if MIN_VERSION_http_client(0,5,0)
         ,  "  timeout   = " <> build (show (responseTimeout x))
-#else
-        ,  "  timeout   = " <> build (responseTimeout x)
-#endif
         "  redirects = " <> build (redirectCount x),
         "  path      = " <> build (path x),
         "  query     = " <> build (queryString x),

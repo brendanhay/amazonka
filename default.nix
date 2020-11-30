@@ -17,15 +17,14 @@ let
     inherit system sources config overlays crossOverlays;
   };
 
-  # components = pkgs.libLocal.collectHaskellComponents cabalProject;
+  components = pkgs.libLocal.collectHaskellComponents pkgs.cabalProject;
 
 in {
-  inherit pkgs;
   inherit (pkgs) cabalProject;
-  # inherit (components) library checks exes;
+  inherit (components) library checks exes;
 
   generate =
-    pkgs.callPackage ./gen/default.nix {
+    pkgs.callPackage ./amazonka-gen/default.nix {
       botocore = pkgs.sources.botocore;
       amazonka = pkgs.cabalProject.amazonka;
       amazonka-core = pkgs.cabalProject.amazonka-core;
@@ -43,6 +42,7 @@ in {
       with ps; [
         amazonka
         amazonka-core
+        amazonka-test
         amazonka-gen
       ];
 

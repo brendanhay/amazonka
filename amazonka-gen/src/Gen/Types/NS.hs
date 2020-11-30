@@ -13,10 +13,10 @@
 module Gen.Types.NS where
 
 import Data.Aeson
-import Data.String
+import Data.String (IsString (fromString))
 import Data.Text (Text)
 import qualified Data.Text as Text
-import qualified Filesystem.Path.CurrentOS as Path
+import qualified System.FilePath as FilePath
 
 newtype NS = NS [Text]
   deriving (Eq, Ord, Show)
@@ -24,8 +24,8 @@ newtype NS = NS [Text]
 mkNS :: Text -> NS
 mkNS = NS . Text.splitOn "."
 
-nsToPath :: NS -> Path.FilePath
-nsToPath (NS xs) = Path.fromText (Text.intercalate "/" xs) Path.<.> "hs"
+nsToPath :: NS -> FilePath
+nsToPath (NS xs) = Text.unpack (Text.intercalate "/" xs) FilePath.<.> "hs"
 
 nsHyphenate :: NS -> Text
 nsHyphenate (NS xs) = Text.intercalate "-" xs

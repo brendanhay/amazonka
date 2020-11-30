@@ -4,7 +4,7 @@ MODEL_DIR := model
 OUT_DIR   := ..
 BIN_DIR   := ../bin
 GENERATE  := $(BIN_DIR)/amazonka-gen
-BRITTANY  := $(BIN_DIR)/brittany
+ORMOLU  := $(BIN_DIR)/ormolu
 STYLISH   := $(BIN_DIR)/stylish-haskell
 
 define version =
@@ -37,23 +37,17 @@ gen: $(MODEL_DIR) $(GENERATE)
  --retry=$(MODEL_DIR)/_retry.json \
  $(addprefix --model=,$(MODELS))
 
-format: $(STYLISH)
+format: 
 	@echo -e '\nFormatting...'
 	@find \
 	$(wildcard $(OUT_DIR)/amazonka-*/gen) \
 	$(wildcard $(OUT_DIR)/amazonka-*/test/Test/AWS/Gen) \
 	-type f \
 	-name '*.hs' \
-	-exec sh -c "printf ' -> %s\n' $1 {}; $(BRITTANY) --write-mode=inplace {}; $(STYLISH) -i {}" \;
+	-exec sh -c "printf ' -> %s\n' $1 {}; $(ORMOLU) -i {}" \;
 
 $(GENERATE): $(BIN_DIR)
 	stack install --nix amazonka-gen
-
-$(BRITTANY): $(BIN_DIR)
-	stack install --nix brittany
-
-$(STYLISH): $(BIN_DIR)
-	stack install --nix stylish-haskell
 
 $(BIN_DIR):
 	mkdir $@

@@ -1,4 +1,16 @@
 {
+    "botocore": {
+        "branch": "develop",
+        "description": "The low-level, core functionality of boto 3.",
+        "homepage": null,
+        "owner": "boto",
+        "repo": "botocore",
+        "rev": "6e3ec4e8544ea32e130ac42b414a2819627c475b",
+        "sha256": "1jkmpsbdiyj4hv83fyigwkyl6551786p71323giaqskg62jg2snx",
+        "type": "tarball",
+        "url": "https://github.com/boto/botocore/archive/6e3ec4e8544ea32e130ac42b414a2819627c475b.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "hackage.nix": {
         "branch": "master",
         "description": "Automatically generated Nix expressions for Hackage",

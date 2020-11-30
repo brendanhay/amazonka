@@ -17,7 +17,9 @@ let
     inherit system sources config overlays crossOverlays;
   };
 
-in pkgs.cabalProject // {
+in {
+  inherit (pkgs) cabalProject;
+
   shell = pkgs.cabalProject.shellFor {
     exactDeps = true;
 

@@ -23,7 +23,6 @@ import Control.Lens hiding ((:<))
 import Control.Monad.Except
 import Control.Monad.State
 import qualified Data.HashMap.Strict as Map
-import Gen.Formatting
 import Gen.Types
 
 newtype Fix f = Fix (f (Fix f))
@@ -71,9 +70,9 @@ memoise l f x = uses l (Map.lookup n) >>= maybe go return
 
     n = identifier x
 
-type MemoE = StateT (Map Id (Shape Id)) (Either Error)
+type MemoE = StateT (Map Id (Shape Id)) (Either String)
 
-elaborate :: Show a => Map Id (ShapeF a) -> Either Error (Map Id (Shape Id))
+elaborate :: Show a => Map Id (ShapeF a) -> Either String (Map Id (Shape Id))
 elaborate m = evalStateT (Map.traverseWithKey (shape []) m) mempty
   where
     shape :: [Id] -> Id -> ShapeF a -> MemoE (Shape Id)
@@ -95,17 +94,11 @@ elaborate m = evalStateT (Map.traverseWithKey (shape []) m) mempty
 
     safe n =
       note
-        ( format
-            ( "Missing shape " % iprimary
-                % ", possible matches: "
-                % partial
-            )
-            n
-            (n, m)
-        )
+        ("Missing shape " ++ show n ++ ", possible matches: " ++ show (partial n m))
         (Map.lookup n m)
 
-    depth = format ("Too many cycles " % shown) . reverse . map memberId
+    depth =
+      mappend "Too many cycles " . show . reverse . map memberId
 
     conseq (x : ys@(y : z : _))
       | x == y = True

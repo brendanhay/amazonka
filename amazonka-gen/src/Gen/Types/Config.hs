@@ -29,16 +29,15 @@
 
 module Gen.Types.Config where
 
-import qualified Data.Text as Text
 import Control.Error
 import Control.Lens hiding ((.=))
 import Data.Aeson
 import Data.List (sort, sortOn, (\\))
 import Data.Ord
 import Data.Text (Text)
+import qualified Data.Text as Text
 import qualified Data.Text.Lazy.Builder as Build
 import Data.Time
-import qualified System.FilePath as FilePath
 import GHC.Generics (Generic)
 import GHC.TypeLits
 import Gen.TH
@@ -50,6 +49,7 @@ import Gen.Types.Map
 import Gen.Types.NS
 import Gen.Types.Service
 import Gen.Types.TypeOf
+import qualified System.FilePath as FilePath
 import Text.EDE (Template)
 
 data Replace = Replace
@@ -112,8 +112,8 @@ newtype Version (v :: Symbol) = Version Text
 instance ToJSON (Version v) where
   toJSON (Version v) = toJSON v
 
-semver :: Version v -> Build.Builder
-semver (Version v) = Build.fromText v
+semver :: Version v -> String
+semver (Version v) = Text.unpack v
 
 type LibraryVer = Version "library"
 

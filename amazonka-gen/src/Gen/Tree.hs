@@ -28,6 +28,7 @@ where
 import Control.Lens (each, (^.), (^..))
 import Control.Monad
 import qualified Control.Monad.Except as Except
+import qualified Control.Monad.Fail as Fail
 import Data.Aeson hiding (json)
 import Data.Bifunctor
 import Data.Functor.Identity
@@ -36,15 +37,14 @@ import Data.Monoid hiding (Sum)
 import Data.Text (Text)
 import qualified Data.Text as Text
 import qualified Data.Text.Lazy as LText
-import System.FilePath ((</>), (<.>))
-import qualified System.FilePath as FilePath
 import Gen.Import
 import qualified Gen.JSON as JS
 import Gen.Types
 import System.Directory.Tree hiding (file)
+import System.FilePath ((<.>), (</>))
+import qualified System.FilePath as FilePath
 import Text.EDE hiding (failure, render)
 import Prelude hiding (mod)
-import qualified Control.Monad.Fail as Fail
 
 root :: AnchoredDirTree a -> FilePath
 root (p :/ d) = p </> name d
@@ -57,14 +57,14 @@ fold ::
   (FilePath -> a -> m b) ->
   AnchoredDirTree a ->
   m (AnchoredDirTree b)
-fold g f (p :/ t) = (p :/) <$> go ( p) t
+fold g f (p :/ t) = (p :/) <$> go (p) t
   where
     go x = \case
       Failed n e -> fail (show e) >> pure (Failed n e)
-      File n a -> File n <$> f (x </>  n) a
+      File n a -> File n <$> f (x </> n) a
       Dir n cs -> g d >> Dir n <$> mapM (go d) cs
         where
-          d = x </>  n
+          d = x </> n
 
 type Touch = Either Rendered Rendered
 
@@ -73,7 +73,7 @@ populate ::
   Templates ->
   Library ->
   Either String (AnchoredDirTree Touch)
-populate d Templates {..} l = ( d :/) . dir lib <$> layout
+populate d Templates {..} l = (d :/) . dir lib <$> layout
   where
     layout :: Either String [DirTree Touch]
     layout =

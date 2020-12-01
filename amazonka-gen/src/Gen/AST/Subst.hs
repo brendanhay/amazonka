@@ -26,12 +26,12 @@ import Control.Error
 import Control.Lens hiding ((:<))
 import qualified Control.Lens as Lens
 import qualified Control.Monad.Except as Except
+import qualified Control.Monad.Fail as Fail
 import Control.Monad.State
 import qualified Data.HashMap.Strict as Map
 import qualified Data.List as List
-import qualified Data.Text.Lazy as LText
 import qualified Data.Text as Text
-import qualified Control.Monad.Fail as Fail
+import qualified Data.Text.Lazy as LText
 import Gen.AST.Override
 import Gen.Types
 
@@ -173,11 +173,6 @@ safe n ss =
     (Left ("Missing shape " ++ show n ++ ", possible matches: " ++ show (partial n ss)))
     Right
     (Map.lookup n ss)
-    
-partial :: Id -> (Map.HashMap Id a) -> [(Id, a)]
-partial p m =
-  let txt = Text.take 3 (memberId p)
-   in Map.toList (Map.filterWithKey (const . Text.isPrefixOf txt . memberId) m)
 
 verify ::
   Id ->
@@ -185,7 +180,7 @@ verify ::
   StateT (Env Related) (Either String) ()
 verify n msg = do
   p <- uses memo (Map.member n)
-  
+
   when p $
     Except.throwError (msg ++ " for " ++ show n)
 

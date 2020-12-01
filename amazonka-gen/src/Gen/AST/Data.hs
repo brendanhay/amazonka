@@ -23,28 +23,29 @@ module Gen.AST.Data
   )
 where
 
-import Control.Comonad.Cofree
+import Control.Comonad.Cofree (Cofree ((:<)))
 import Control.Error
 import Control.Lens hiding (List, enum, mapping, (:<), (??))
-import Control.Monad
-import Control.Monad.Except
+import qualified Control.Monad as Monad
+import qualified Control.Monad.Except as Except
+import Control.Monad.Trans (lift)
 import Control.Monad.Trans.State
 import Data.Bifunctor
 import qualified Data.ByteString.Char8 as BS8
-import Data.Char (isSpace)
-import qualified Data.HashMap.Strict as Map
-import Data.List (find, sort)
-import Data.Monoid ((<>))
+import qualified Data.Char as Char
+import qualified Data.HashMap.Strict as HashMap
+import qualified Data.List as List
 import qualified Data.Set as Set
-import Data.String
+import Data.String (IsString (fromString))
 import Data.Text (Text)
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import qualified Data.Text.Lazy as LText
+import qualified Data.Text.Lazy.Builder as Text.Builder
+import qualified Data.Text.Lazy.Builder.Int as Text.Builder.Int
 import Gen.AST.Data.Field
 import Gen.AST.Data.Instance
 import Gen.AST.Data.Syntax
-import Gen.Formatting
 import Gen.Types
 import qualified Language.Haskell.Exts as Exts
 import Language.Haskell.Exts.Pretty (Pretty)
@@ -54,7 +55,7 @@ operationData ::
   Config ->
   a ->
   Operation Identity Ref (Pager Id) ->
-  Either Error (Operation Identity SData (Pager Id))
+  Either String (Operation Identity SData (Pager Id))
 operationData cfg m o = do
   (xa, x) <- struct (xr ^. refAnn)
   (ya, y) <- struct (yr ^. refAnn)
@@ -69,8 +70,8 @@ operationData cfg m o = do
 
   yis' <- renderInsts p yn (responseInsts ys)
   xis' <-
-    maybe id (Map.insert "AWSPager") mpage
-      . Map.insert "AWSRequest" cls
+    maybe id (HashMap.insert "AWSPager") mpage
+      . HashMap.insert "AWSRequest" cls
       <$> renderInsts p xn xis
 
   return
@@ -80,11 +81,7 @@ operationData cfg m o = do
       }
   where
     struct (a :< Struct s) = Right (a, s)
-    struct _ =
-      Left $
-        format
-          ("Unexpected non-struct shape for operation " % iprimary)
-          xn
+    struct _ = Left ("Unexpected non-struct shape for operation " ++ show xn)
 
     p = m ^. protocol
     h = o ^. opHTTP
@@ -99,7 +96,7 @@ shapeData ::
   HasMetadata a Identity =>
   a ->
   Shape Solved ->
-  Either Error (Maybe SData)
+  Either String (Maybe SData)
 shapeData m (a :< s) = case s of
   _ | s ^. infoException -> Just <$> errorData m a (s ^. info)
   Enum i vs -> Just <$> sumData p a i vs
@@ -124,7 +121,7 @@ errorData ::
   a ->
   Solved ->
   Info ->
-  Either Error SData
+  Either String SData
 errorData m s i = Fun <$> mk
   where
     mk =
@@ -133,10 +130,9 @@ errorData m s i = Fun <$> mk
         <*> pp Print (errorD m p status code)
 
     h =
-      flip fromMaybe (i ^. infoDocumentation)
-        . fromString
-        . LText.unpack
-        $ format ("Prism for " % iprimary % "' errors.") n
+      flip fromMaybe (i ^. infoDocumentation) $
+        fromString $
+          "Prism for '" ++ Text.unpack (memberId n) ++ "' errors."
 
     status = i ^? infoError . _Just . errStatus
     code = fromMaybe (memberId n) (i ^. infoError . _Just . errCode)
@@ -149,8 +145,8 @@ sumData ::
   Solved ->
   Info ->
   Map Id Text ->
-  Either Error SData
-sumData p s i vs = Sum s <$> mk <*> (Map.keys <$> insts)
+  Either String SData
+sumData p s i vs = Sum s <$> mk <*> (HashMap.keys <$> insts)
   where
     mk =
       Sum' (typeId n) (i ^. infoDocumentation)
@@ -175,7 +171,7 @@ prodData ::
   a ->
   Solved ->
   StructF (Shape Solved) ->
-  Either Error (Prod, [Field])
+  Either String (Prod, [Field])
 prodData m s st = (,fields) <$> mk
   where
     mk =
@@ -190,13 +186,13 @@ prodData m s st = (,fields) <$> mk
     fields :: [Field]
     fields = mkFields m s st
 
-    mkLens :: Field -> Either Error Fun
+    mkLens :: Field -> Either String Fun
     mkLens f =
       Fun' (fieldLens f) (fieldHelp f)
         <$> pp None (lensS m (s ^. annType) f)
         <*> pp None (lensD f)
 
-    mkCtor :: Either Error Fun
+    mkCtor :: Either String Fun
     mkCtor =
       Fun' (smartCtorId n) mkHelp
         <$> (pp None (ctorS m n fields) <&> addParamComments fields)
@@ -205,11 +201,9 @@ prodData m s st = (,fields) <$> mk
     mkHelp :: Help
     mkHelp =
       Help $
-        sformat
-          ( "Creates a value of '" % itype
-              % "' with the minimum fields required to make a request."
-          )
-          n
+        "Creates a value of '"
+          <> typeId n
+          <> "' with the minimum fields required to make a request."
 
     -- FIXME: dirty hack to render smart ctor parameter haddock comments.
     addParamComments :: [Field] -> Rendered -> Rendered
@@ -250,8 +244,8 @@ prodData m s st = (,fields) <$> mk
 
     n = s ^. annId
 
-renderInsts :: Protocol -> Id -> [Inst] -> Either Error (Map Text LText.Text)
-renderInsts p n = fmap Map.fromList . traverse go
+renderInsts :: Protocol -> Id -> [Inst] -> Either String (Map Text LText.Text)
+renderInsts p n = fmap HashMap.fromList . traverse go
   where
     go i = (instToText i,) <$> pp Print (instanceD p n i)
 
@@ -259,17 +253,18 @@ serviceData ::
   HasMetadata a Identity =>
   a ->
   Retry ->
-  Either Error Fun
+  Either String Fun
 serviceData m r =
-  Fun' (m ^. serviceConfig) (Help h)
+  Fun' (m ^. serviceConfig) (Help help)
     <$> pp None (serviceS m)
     <*> pp Print (serviceD m r)
   where
-    h =
-      sformat
-        ("API version @" % stext % "@ of the " % stext % " configuration.")
-        (m ^. apiVersion)
-        (m ^. serviceFullName)
+    help =
+      "API version @"
+        <> (m ^. apiVersion)
+        <> "@ of the "
+        <> (m ^. serviceFullName)
+        <> " configuration."
 
 waiterData ::
   HasMetadata a Identity =>
@@ -277,52 +272,49 @@ waiterData ::
   Map Id (Operation Identity Ref b) ->
   Id ->
   Waiter Id ->
-  Either Error WData
+  Either String WData
 waiterData m os n w = do
-  o <- note (missingErr k (k, Map.map _opName os)) $ Map.lookup k os
+  o <- note missingErr (HashMap.lookup key os)
   wf <- waiterFields m o w
   c <-
-    Fun' (smartCtorId n) (Help h)
+    Fun' (smartCtorId n) (Help help)
       <$> pp None (waiterS n wf)
       <*> pp Print (waiterD n wf)
   return $! WData (typeId n) (_opName o) c
   where
     missingErr =
-      format
-        ( "Missing operation " % iprimary
-            % " when rendering waiter "
-            % ", possible matches: "
-            % partial
-        )
+      "Missing operation "
+        ++ show key
+        ++ " when rendering waiter, possible matches: "
+        ++ show (partial key (HashMap.map _opName os))
 
-    h =
-      sformat
-        ( "Polls 'Network.AWS." % stext % "." % itype
-            % "' every "
-            % int
-            % " seconds until a "
-            % "successful state is reached. An error is returned after "
-            % int
-            % " failed checks."
-        )
-        (m ^. serviceAbbrev)
-        k
-        (_waitDelay w)
-        (_waitAttempts w)
+    help =
+      LText.toStrict $
+        Text.Builder.toLazyText $
+          "Polls 'Network.AWS."
+            <> Text.Builder.fromText (m ^. serviceAbbrev)
+            <> "."
+            <> Text.Builder.fromText (typeId key)
+            <> "' every "
+            <> Text.Builder.Int.decimal (_waitDelay w)
+            <> " seconds until a "
+            <> "successful state is reached. An error is returned after "
+            <> Text.Builder.Int.decimal (_waitAttempts w)
+            <> " failed checks."
 
-    k = _waitOperation w
+    key = _waitOperation w
 
 waiterFields ::
   HasMetadata a Identity =>
   a ->
   Operation Identity Ref b ->
   Waiter Id ->
-  Either Error (Waiter Field)
+  Either String (Waiter Field)
 waiterFields m o = traverseOf (waitAcceptors . each) go
   where
     out = o ^. opOutput . _Identity . refAnn
 
-    go :: Accept Id -> Either Error (Accept Field)
+    go :: Accept Id -> Either String (Accept Field)
     go x = do
       n <- traverse (notation m out) (x ^. acceptArgument)
       return $! x & acceptArgument .~ n
@@ -331,19 +323,19 @@ pagerFields ::
   HasMetadata a Identity =>
   a ->
   Operation Identity Ref (Pager Id) ->
-  Either Error (Maybe (Pager Field))
+  Either String (Maybe (Pager Field))
 pagerFields m o = traverse go (o ^. opPager)
   where
     inp = o ^. opInput . _Identity . refAnn
     out = o ^. opOutput . _Identity . refAnn
 
-    go :: Pager Id -> Either Error (Pager Field)
+    go :: Pager Id -> Either String (Pager Field)
     go = \case
       Only t -> Only <$> token t
       Next ks t -> Next <$> traverse (notation m out) ks <*> token t
       Many k ts -> Many <$> notation m out k <*> traverse token ts
 
-    token :: Token Id -> Either Error (Token Field)
+    token :: Token Id -> Either String (Token Field)
     token (Token x y) =
       Token
         <$> notation m inp x
@@ -354,35 +346,35 @@ notation ::
   a ->
   Shape Solved ->
   Notation Id ->
-  Either Error (Notation Field)
+  Either String (Notation Field)
 notation m = go
   where
-    go :: Shape Solved -> Notation Id -> Either Error (Notation Field)
+    go :: Shape Solved -> Notation Id -> Either String (Notation Field)
     go s = \case
       NonEmptyList k -> NonEmptyList <$> key s k
       NonEmptyText k -> NonEmptyText <$> key s k
       Choice x y -> Choice <$> go s x <*> go s y
       Access ks -> fmap Access
         . flip evalStateT s
-        . forM ks
+        . Monad.forM ks
         $ \x -> do
           k <- get >>= lift . (`key` x)
           put (skip (shape k))
           return k
 
-    key :: Shape Solved -> Key Id -> Either Error (Key Field)
+    key :: Shape Solved -> Key Id -> Either String (Key Field)
     key s = \case
       Key n -> Key <$> field' n s
       Each n -> Each <$> field' n s
       Last n -> Last <$> field' n s
 
-    field' :: Id -> Shape Solved -> Either Error Field
+    field' :: Id -> Shape Solved -> Either String Field
     field' n = \case
       a :< Struct st ->
-        note (missingErr n (identifier a) (Map.keys (st ^. members)))
-          . find ((n ==) . _fieldId)
+        note (missingErr n (identifier a) (HashMap.keys (st ^. members)))
+          . List.find ((n ==) . _fieldId)
           $ mkFields m a st
-      _ -> throwError (descendErr n)
+      _ -> Except.throwError (descendErr n)
 
     shape :: Key Field -> Shape Solved
     shape =
@@ -397,23 +389,29 @@ notation m = go
       _ :< Map x -> x ^. mapValue . refAnn
       x -> x
 
-    missingErr =
-      format ("Unable to find " % iprimary % " in members of " % iprimary % " " % shown)
+    missingErr k container ms =
+      "Unable to find "
+        ++ show k
+        ++ " in members of "
+        ++ show container
+        ++ " "
+        ++ show ms
 
-    descendErr =
-      format ("Unable to descend into nested reference " % iprimary)
+    descendErr k =
+      "Unable to descend into nested reference "
+        ++ show k
 
 data PP
   = Print
   | None
   deriving (Eq)
 
-pp :: Pretty a => PP -> a -> Either Error Rendered
+pp :: Pretty a => PP -> a -> Either String Rendered
 pp i d
   | otherwise = pure (LText.fromStrict (Text.decodeUtf8 printed))
   where
     printed =
-      BS8.dropWhile isSpace . BS8.pack $
+      BS8.dropWhile Char.isSpace . BS8.pack $
         Exts.prettyPrintStyleMode style mode d
 
     style =

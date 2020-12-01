@@ -19,15 +19,13 @@
 
 module Gen.AST.Data.Syntax where
 
-import Control.Comonad
+import qualified Control.Comonad as Comonad
 import Control.Error
 import Control.Lens hiding (iso, mapping, op, strict)
-import Data.Foldable (foldl', foldr')
-import qualified Data.Foldable as Fold
-import qualified Data.HashMap.Strict as Map
+import qualified Data.Foldable as Foldable
+import qualified Data.HashMap.Strict as HashMap
 import Data.List.NonEmpty (NonEmpty (..))
-import Data.Monoid ((<>))
-import Data.String
+import Data.String (IsString (fromString))
 import Data.Text (Text)
 import qualified Data.Text as Text
 import Gen.AST.Data.Field
@@ -106,7 +104,7 @@ toQMap = var "toQueryMap"
 ctorS :: HasMetadata a Identity => a -> Id -> [Field] -> Decl
 ctorS m n fs = Exts.TypeSig () [ident (smartCtorId n)] ty
   where
-    ty = foldr' (Exts.TyFun ()) (tycon (typeId n)) ps
+    ty = Foldable.foldr' (Exts.TyFun ()) (tycon (typeId n)) ps
 
     ps = map (external m) (filter fieldIsParam fs)
 
@@ -159,7 +157,7 @@ lensD f = Exts.sfun (ident l) [] (unguarded rhs) Exts.noBinds
 
 errorS :: Text -> Decl
 errorS n =
-  let cxt = Exts.CxSingle () (Exts.ClassA () (unqual "AsError") [tyvar "a"])
+  let cxt = Exts.CxSingle () (Exts.TypeA () (tycon "AsError" `tyapp` tyvar "a"))
       forall = Exts.TyForall () Nothing (Just cxt)
    in Exts.TypeSig () [ident n] . forall $
         tyapp
@@ -299,7 +297,7 @@ pagerD n p =
       Next ks t ->
         Exts.GuardedRhss () $
           stop (notationE (_tokenOutput t)) :
-          map (stop . notationE) (Fold.toList ks)
+          map (stop . notationE) (Foldable.toList ks)
             ++ [other [t]]
       Many k (t :| ts) ->
         Exts.GuardedRhss
@@ -311,7 +309,7 @@ pagerD n p =
 
     stop x = guardE (Exts.app (var "stop") (rs x)) nothingE
 
-    other = otherE . foldl' f rq
+    other = otherE . Foldable.foldl' f rq
       where
         f :: Exp -> Token Field -> Exp
         f e x =
@@ -319,7 +317,7 @@ pagerD n p =
             . Exts.infixApp (x ^. tokenInput . to notationE) ".~"
             $ rs (x ^. tokenOutput . to notationE)
 
-    check t ts = guardE (foldl' f (g t) ts) nothingE
+    check t ts = guardE (Foldable.foldl' f (g t) ts) nothingE
       where
         f x = Exts.infixApp x "&&" . g
         g y = Exts.app (var "isNothing") $ rs (y ^. tokenOutput . to notationE)
@@ -350,7 +348,7 @@ notationE = \case
        in Exts.paren (Exts.app (var (getterN e)) e)
 
     labels k [] = label False k
-    labels k ks = foldl' f (label True k) ks
+    labels k ks = Foldable.foldl' f (label True k) ks
       where
         f e x = Exts.infixApp e "." (label True x)
 
@@ -386,7 +384,7 @@ responseE :: Protocol -> Ref -> [Field] -> Exp
 responseE p r fs = Exts.app (responseF p r fs) bdy
   where
     n = r ^. to identifier
-    s = r ^. refAnn . to extract
+    s = r ^. refAnn . to Comonad.extract
 
     bdy :: Exp
     bdy
@@ -739,11 +737,11 @@ requestF ::
   Ref ->
   [Inst] ->
   Exp
-requestF c meta h r is = maybe e (foldr' plugin e) ps
+requestF c meta h r is = maybe e (Foldable.foldr' plugin e) ps
   where
     plugin x = Exts.infixApp (var x) "."
 
-    ps = Map.lookup (identifier r) (c ^. operationPlugins)
+    ps = HashMap.lookup (identifier r) (c ^. operationPlugins)
 
     e = Exts.app v (var n)
 

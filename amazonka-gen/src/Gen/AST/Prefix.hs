@@ -22,13 +22,13 @@ module Gen.AST.Prefix
 where
 
 import Control.Applicative
-import Control.Comonad.Cofree
+import Control.Comonad.Cofree (Cofree ((:<)))
 import Control.Lens hiding ((:<))
-import Control.Monad.Except
+import qualified Control.Monad.Except as Except
 import Control.Monad.State
 import Data.CaseInsensitive (CI)
 import qualified Data.CaseInsensitive as CI
-import Data.Char (isLower)
+import qualified Data.Char as Char
 import qualified Data.HashMap.Strict as Map
 import qualified Data.HashSet as Set
 import Data.Hashable
@@ -36,8 +36,7 @@ import Data.Maybe
 import Data.Text (Text)
 import qualified Data.Text as Text
 import Data.Text.Manipulate
-import Gen.AST.Cofree
-import Gen.Formatting
+import Gen.AST.Cofree (annotate)
 import Gen.Text
 import Gen.Types
 
@@ -51,9 +50,9 @@ data Env = Env
 
 makeLenses ''Env
 
-type MemoP = StateT Env (Either Error)
+type MemoP = StateT Env (Either String)
 
-prefixes :: Map Id (Shape Related) -> Either Error (Map Id (Shape Prefixed))
+prefixes :: Map Id (Shape Related) -> Either String (Map Id (Shape Prefixed))
 prefixes ss = evalStateT (traverse assignPrefix ss) env
   where
     env = Env mempty mempty (smartCtors ss)
@@ -66,7 +65,7 @@ smartCtors = Map.fromListWith (<>) . mapMaybe go . Map.toList
     go (s, _ :< Struct {}) = Just (k, Set.singleton v)
       where
         n = smartCtorId s
-        k = CI.mk (Text.takeWhile isLower n)
+        k = CI.mk (Text.takeWhile Char.isLower n)
         v = CI.mk (dropLower n)
     go _ = Nothing
 
@@ -88,7 +87,7 @@ assignPrefix = annotate Prefixed memo go
                 let hs = acronymPrefixes r n
                     ks = keys (st ^. members)
                 unique r fields n hs ks
-            _ -> return Nothing
+            _ -> pure Nothing
 
     unique ::
       Relation ->
@@ -99,18 +98,15 @@ assignPrefix = annotate Prefixed memo go
       MemoP Text
     unique r seen n [] ks = do
       s <- use seen
+
       let hs = acronymPrefixes r n
-          f x = sformat ("\n" % soriginal % " => " % shown) x (Map.lookup x s)
-      throwError $
-        format
-          ( "Error prefixing: " % stext
-              % ", fields: "
-              % shown
-              % scomma
-          )
-          n
-          (Set.toList ks)
-          (map f hs)
+          f x = "\n" ++ show x ++ " => " ++ show (Map.lookup x s)
+
+      Except.throwError $
+        "Error prefixing: " ++ show n
+          ++ ", fields: "
+          ++ show (Set.toList ks)
+          ++ show (map f hs)
     unique r seen n (h : hs) ks = do
       m <- uses seen (Map.lookup h)
       -- Find if this particular naming heuristic is used already, and if
@@ -121,7 +117,7 @@ assignPrefix = annotate Prefixed memo go
             unique r seen n hs ks
         _ -> do
           seen %= Map.insertWith (<>) h ks
-          return (CI.original h)
+          pure (CI.original h)
 
 overlap :: (Eq a, Hashable a) => Set a -> Set a -> Bool
 overlap xs ys = not . Set.null $ Set.intersection xs ys

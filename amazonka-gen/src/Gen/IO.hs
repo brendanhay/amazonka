@@ -14,22 +14,22 @@
 
 module Gen.IO where
 
-import qualified Control.Exception as Exception
-import qualified Data.ByteString as ByteString
 import Control.Error
+import qualified Control.Exception as Exception
 import qualified Control.Monad.Except as Except
 import Control.Monad.State
 import qualified Data.Bifunctor as Bifunctor
 import Data.ByteString (ByteString)
+import qualified Data.ByteString as ByteString
 import Data.Text (Text)
 import qualified Data.Text as Text
 import qualified Data.Text.Lazy as LText
 import Data.Text.Lazy.Builder (toLazyText)
 import qualified Data.Text.Lazy.IO as LText
-import qualified System.Directory as Directory
-import qualified System.FilePath as FilePath
-import System.FilePath ((</>))
 import Gen.Types
+import qualified System.Directory as Directory
+import System.FilePath ((</>))
+import qualified System.FilePath as FilePath
 import qualified System.IO as IO
 import qualified Text.EDE as EDE
 
@@ -44,40 +44,40 @@ done = title ""
 
 readBSFile :: MonadIO m => FilePath -> m ByteString
 readBSFile path =
- liftIO $ do
-  exists <- Directory.doesFileExist path
+  liftIO $ do
+    exists <- Directory.doesFileExist path
 
-  unless exists $
-    error ("Missing " ++ path)
-  
-  say ("Reading " ++ path)
-  ByteString.readFile path
+    unless exists $
+      error ("Missing " ++ path)
+
+    say ("Reading " ++ path)
+    ByteString.readFile path
 
 writeLTFile :: MonadIO m => FilePath -> LText.Text -> m ()
 writeLTFile path text =
- liftIO $ do
-  say ("Writing " ++ path)
-  
-  IO.withFile path IO.WriteMode $ \handle -> do
-    IO.hSetEncoding handle IO.utf8
-    LText.hPutStr handle text
+  liftIO $ do
+    say ("Writing " ++ path)
+
+    IO.withFile path IO.WriteMode $ \handle -> do
+      IO.hSetEncoding handle IO.utf8
+      LText.hPutStr handle text
 
 touchFile :: MonadIO m => FilePath -> LText.Text -> m ()
 touchFile path text =
- liftIO $ do
-  exists <- Directory.doesFileExist path
-  
-  unless exists $
-    writeLTFile path text
+  liftIO $ do
+    exists <- Directory.doesFileExist path
+
+    unless exists $
+      writeLTFile path text
 
 createDir :: MonadIO m => FilePath -> m ()
 createDir path =
- liftIO $ do
-  exists <- Directory.doesDirectoryExist path
-  
-  unless exists $ do
-    say ("Creating " ++ path)
-    Directory.createDirectoryIfMissing True path
+  liftIO $ do
+    exists <- Directory.doesDirectoryExist path
+
+    unless exists $ do
+      say ("Creating " ++ path)
+      Directory.createDirectoryIfMissing True path
 
 copyDir :: MonadIO m => FilePath -> FilePath -> m ()
 copyDir source target =
@@ -95,15 +95,15 @@ readTemplate ::
 readTemplate dir file = do
   let name = Text.pack path
       path = dir </> file
- 
+
   liftIO (readBSFile path)
     >>= EDE.parseWith EDE.defaultSyntax (load dir) name
     >>= EDE.result (Except.throwError . userError . show) pure
   where
     load parent config key _resolver = do
       let source
-           | Text.null key = Text.unpack key
-           | otherwise = parent </> Text.unpack key
-      
+            | Text.null key = Text.unpack key
+            | otherwise = parent </> Text.unpack key
+
       bytes <- liftIO (readBSFile source)
       EDE.parseWith config (load (FilePath.takeDirectory source)) key bytes

@@ -32,6 +32,9 @@ module Gen.Types.Id
     prependId,
     appendId,
     replaceId,
+
+    -- * Partial identifier matches
+    partial,
   )
 where
 
@@ -39,6 +42,7 @@ import Control.Comonad
 import Control.Comonad.Cofree
 import Control.Lens
 import Data.Aeson
+import qualified Data.HashMap.Strict as HashMap
 import Data.Hashable
 import Data.Text (Text)
 import qualified Data.Text as Text
@@ -58,7 +62,9 @@ instance (Functor f, HasId a) => HasId (Cofree f a) where
 -- | A type where the actual identifier is immutable,
 -- but the usable representation can be appended/modified.
 data Id = Id Text Text
-  deriving (Show)
+
+instance Show Id where
+  show (Id original _assigned) = Text.unpack original
 
 instance Eq Id where
   Id x _ == Id y _ = x == y
@@ -129,3 +135,9 @@ appendId i t = i & representation <>~ t
 
 replaceId :: Id -> Id -> Id
 replaceId x y = x & representation .~ y ^. representation
+
+partial :: Id -> (HashMap.HashMap Id a) -> [(Id, a)]
+partial p m =
+  let txt = Text.take 3 (memberId p)
+   in HashMap.toList $
+        HashMap.filterWithKey (const . Text.isPrefixOf txt . memberId) m

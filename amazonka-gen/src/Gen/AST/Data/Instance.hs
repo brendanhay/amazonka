@@ -88,7 +88,7 @@ responseInsts fs
   | stream = mempty
   | otherwise = [IsNFData]
   where
-    (not . null -> stream, _) = partition fieldStream (notLocated fs)
+    (not . null -> stream, _) = List.partition fieldStream (notLocated fs)
 
 requestInsts ::
   HasMetadata a f =>
@@ -117,7 +117,7 @@ requestInsts m oname h r fs = do
     toPath = ToPath <$> uriFields oname h uriPath id fs
 
     toBody :: Maybe Inst
-    toBody = ToBody <$> (stream <|> find fieldLitPayload fields)
+    toBody = ToBody <$> (stream <|> List.find fieldLitPayload fields)
 
     body :: Bool
     body = isJust toBody
@@ -131,7 +131,7 @@ requestInsts m oname h r fs = do
           let ys =
                 map Right (satisfies [Querystring] fs) <> xs
                   ++ map Left protocolQuery
-           in case find f is of
+           in case List.find f is of
                 Just (ToQuery zs) -> ToQuery (ys <> zs)
                 _ -> ToQuery ys
 
@@ -161,17 +161,12 @@ requestInsts m oname h r fs = do
 
           -- 3. Unknown.
           (ns, e, _) ->
-            throwError $
-              format
-                ( "Error determining root ToElement instance: " % iprimary
-                    % ", namespace: "
-                    % shown
-                    % ", locationName: "
-                    % shown
-                )
-                n
-                ns
-                e
+            Except.throwError $
+              "Error determining root ToElement instance: " ++ show n
+                ++ ", namespace: "
+                ++ show ns
+                ++ ", locationName: "
+                ++ show e
       where
         nonEmptyXML = notXML True
         anyXML = notXML False
@@ -196,7 +191,7 @@ requestInsts m oname h r fs = do
 
         idem = (h ^. method) `elem` [HEAD, GET, DELETE]
 
-    (listToMaybe -> stream, fields) = partition fieldStream (notLocated fs)
+    (listToMaybe -> stream, fields) = List.partition fieldStream (notLocated fs)
 
     protocolHeaders :: [(Text, Text)]
     protocolHeaders = case p of
@@ -227,7 +222,7 @@ requestInsts m oname h r fs = do
     -- already has a field serialized to the Content-Type header.
     content =
       let go x = x ^. fieldRef . refLocationName == Just "Content-Type"
-       in if isJust (find go headers)
+       in if isJust (List.find go headers)
             then Nothing
             else ("application/x-amz-json-" <>) <$> m ^. jsonVersion
 
@@ -251,21 +246,16 @@ uriFields ::
 uriFields oname h l f fs = traverse go (h ^. l)
   where
     go (Tok t) = return $ Left (f t)
-    go (Var v) = Right <$> note missing (find match fs)
+    go (Var v) = Right <$> note missing (List.find match fs)
       where
         match x = memberId v == name x
         missing =
-          format
-            ( "Missing field corresponding to URI variable "
-                % iprimary
-                % " in field names "
-                % shown
-                % "\nfor operation "
-                % iprimary
-            )
-            v
-            ids
-            oname
+          "Missing field corresponding to URI variable "
+            ++ show v
+            ++ " in field names "
+            ++ show ids
+            ++ "\nfor operation "
+            ++ show oname
 
     ids :: [Text]
     ids = foldMap ((: []) . name) fs

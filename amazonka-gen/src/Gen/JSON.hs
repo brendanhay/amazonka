@@ -1,7 +1,7 @@
 {-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 
 -- Module      : Gen.JSON
 -- Copyright   : (c) 2013-2020 Brendan Hay
@@ -15,18 +15,18 @@
 
 module Gen.JSON where
 
-import Data.Functor ((<&>))
-import Control.Monad.IO.Class (MonadIO (liftIO))
 import qualified Control.Error as Error
 import qualified Control.Exception as Exception
-import qualified Control.Monad.Except as Except
 import Control.Monad ((>=>))
+import qualified Control.Monad.Except as Except
+import Control.Monad.IO.Class (MonadIO (liftIO))
 import Data.Aeson hiding (decode)
 import Data.Aeson.Types
 import qualified Data.Bifunctor as Bifunctor
 import Data.ByteString (ByteString)
-import qualified Data.Foldable as Foldable
 import qualified Data.ByteString.Lazy as LBS
+import qualified Data.Foldable as Foldable
+import Data.Functor ((<&>))
 import qualified Data.HashMap.Strict as Map
 import qualified Data.List as List
 import qualified Data.Text.Lazy as LText
@@ -36,20 +36,20 @@ import qualified Text.EDE as EDE
 
 required :: MonadIO m => FilePath -> m Object
 required path =
- liftIO $ do
-  bytes <- readBSFile path
+  liftIO $ do
+    bytes <- readBSFile path
 
-  either (Except.throwError . userError) pure (decode bytes)
+    either (Except.throwError . userError) pure (decode bytes)
 
 optional :: MonadIO m => FilePath -> m Object
 optional path =
- liftIO $ do
-  bytes <-
-    Exception.try (readBSFile path) <&> \case
-      Left (_ :: Exception.IOException) -> "{}"
-      Right ok -> ok
-      
-  either (Except.throwError . userError) pure (decode bytes)
+  liftIO $ do
+    bytes <-
+      Exception.try (readBSFile path) <&> \case
+        Left (_ :: Exception.IOException) -> "{}"
+        Right ok -> ok
+
+    either (Except.throwError . userError) pure (decode bytes)
 
 objectErr :: ToJSON a => String -> a -> Either String Object
 objectErr name =

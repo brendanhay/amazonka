@@ -28,9 +28,6 @@ let
 
     # haskell.nix overrides + extensions.
     (import ./overlays/haskell.nix)
-
-    # Our top-level cabal.project.
-    (import ./overlays/cabal-project.nix)
   ] ++ overlays;
 
   pkgs = import finalSources.nixpkgs {

@@ -73,7 +73,7 @@ executable amazonka-gen
     , deriving-compat
     , directory
     , directory-tree
-    , ede                   >=0.3.1
+    , ede                   >=0.3.2
     , errors                ^>=2.3
     , filepath
     , free

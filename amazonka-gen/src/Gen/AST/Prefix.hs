@@ -100,13 +100,14 @@ assignPrefix = annotate Prefixed memo go
       s <- use seen
 
       let hs = acronymPrefixes r n
-          f x = "\n" ++ show x ++ " => " ++ show (Map.lookup x s)
+          f x = show x ++ " => " ++ show (Map.lookup x s)
 
       Except.throwError $
         "Error prefixing: " ++ show n
           ++ ", fields: "
           ++ show (Set.toList ks)
           ++ show (map f hs)
+    -- 
     unique r seen n (h : hs) ks = do
       m <- uses seen (Map.lookup h)
       -- Find if this particular naming heuristic is used already, and if
@@ -153,7 +154,7 @@ acronymPrefixes r (stripSuffix "Response" -> n)
           | otherwise = Text.head x
 
     xs = catMaybes [r1, r2, r3, r4, r5, r6]
-    ys = catMaybes [r1, r2, r3, r4, r6]
+    ys = catMaybes [r1, r2, r3, r4, r6, r7]
 
     a = camelAcronym n
     a' = upperAcronym n
@@ -185,3 +186,6 @@ acronymPrefixes r (stripSuffix "Response" -> n)
 
     -- SomeTestTType -> Som
     r6 = Text.take limit <$> listToMaybe (splitWords a)
+
+    -- SomeTestTType -> SomeTestTType
+    r7 = Just n

@@ -1,6 +1,6 @@
 final: prev: {
   libLocal = {
-    collectHaskellComponents = project:
+    collectComponents = project:
       let
 
         # These functions pull out from the Haskell project either all the

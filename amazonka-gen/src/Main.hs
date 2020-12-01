@@ -143,51 +143,57 @@ main = do
 
   title "Initialising..." <* done
 
-  tmpl <-
-   flip evalStateT mempty $ do
-    title ("Loading templates from " ++ _optTemplates)
+  templates <-
+    flip evalStateT mempty $ do
+      title ("Loading templates from " ++ _optTemplates)
 
-    cabalTemplate <- load "cabal.ede"
-    tocTemplate <- load "toc.ede"
-    waitersTemplate <- load "waiters.ede"
-    readmeTemplate <- load "readme.ede"
-    operationTemplate <- load "operation.ede"
-    typesTemplate <- load "types.ede"
-    sumTemplate <- load "types/sum.ede"
-    productTemplate <- load "types/product.ede"
-    testMainTemplate <- load "test/main.ede"
-    testNamespaceTemplate <- load "test/namespace.ede"
-    testInternalTemplate <- load "test/internal.ede"
-    fixturesTemplate <- load "test/fixtures.ede"
-    fixtureRequestTemplate <- load "test/fixtures/request.ede"
-    blankTemplate <- load "blank.ede"
+      cabalTemplate <- load "cabal.ede"
+      tocTemplate <- load "toc.ede"
+      waitersTemplate <- load "waiters.ede"
+      readmeTemplate <- load "readme.ede"
+      operationTemplate <- load "operation.ede"
+      typesTemplate <- load "types.ede"
+      sumTemplate <- load "types/sum.ede"
+      productTemplate <- load "types/product.ede"
+      testMainTemplate <- load "test/main.ede"
+      testNamespaceTemplate <- load "test/namespace.ede"
+      testInternalTemplate <- load "test/internal.ede"
+      fixturesTemplate <- load "test/fixtures.ede"
+      fixtureRequestTemplate <- load "test/fixtures/request.ede"
+      blankTemplate <- load "blank.ede"
 
-    done
+      done
 
-    pure Templates {..}
+      pure Templates {..}
 
-  r <- JS.required _optRetry
+  retry <- JS.required _optRetry
 
-  forM_ (zip [1 :: Int ..] _optModels) $ \(j, f) -> do
+  forM_ (zip [1 :: Int ..] _optModels) $ \(index, path) -> do
     title $
-      "[" ++ show j ++ "/" ++ show count ++ "] model:"
-        ++ FilePath.takeFileName f
+      "["
+        ++ show index
+        ++ "/"
+        ++ show count
+        ++ "] model:"
+        ++ FilePath.takeFileName path
 
-    m <- Directory.listDirectory f >>= hoistEither . loadModel f
+    model <- Directory.listDirectory path >>= hoistEither . loadModel path
 
-    say ("Using version " ++ show (m ^. modelVersion))
+    say $
+      "Using version "
+        ++ show (model ^. modelVersion)
 
-    cfg <-
-      JS.required (_optConfigs </> (m ^. configFile))
+    config <-
+      JS.required (_optConfigs </> configFile model)
         >>= hoistEither . JS.parse
 
     api <-
       sequence
-        [ JS.optional (_optAnnexes </> (m ^. annexFile)),
-          JS.required (m ^. serviceFile),
-          JS.optional (m ^. waitersFile),
-          JS.optional (m ^. pagersFile),
-          pure r
+        [ JS.optional (_optAnnexes </> annexFile model),
+          JS.required (serviceFile model),
+          JS.optional (waitersFile model),
+          JS.optional (pagersFile model),
+          pure retry
         ]
         >>= hoistEither . JS.parse . JS.merge
 
@@ -196,8 +202,8 @@ main = do
         ++ Text.unpack (api ^. serviceFullName)
         ++ "' API definition"
 
-    lib <- hoistEither (AST.rewrite _optVersions cfg api)
-    tree <- hoistEither (Tree.populate _optOutput tmpl lib)
+    lib <- hoistEither (AST.rewrite _optVersions config api)
+    tree <- hoistEither (Tree.populate _optOutput templates lib)
     dir <- Tree.fold createDir (\x -> either (touchFile x) (writeLTFile x)) tree
 
     say $
@@ -211,4 +217,6 @@ main = do
 
     done
 
-  title ("Successfully processed " ++ show count ++ " models.")
+  title $
+    "Successfully processed " ++ show count
+      ++ " models."

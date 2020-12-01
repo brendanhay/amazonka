@@ -139,7 +139,7 @@ instance ToLog HttpException where
   build x = "[HttpException] {\n" <> build (show x) <> "\n}"
 
 instance ToLog HttpExceptionContent where
-    build x = "[HttpExceptionContent] {\n" <> build (show x) <> "\n}"
+  build x = "[HttpExceptionContent] {\n" <> build (show x) <> "\n}"
 
 instance ToLog Request where
   build x =
@@ -149,7 +149,7 @@ instance ToLog Request where
         "  secure    = " <> build (secure x),
         "  method    = " <> build (method x),
         "  target    = " <> build target,
-        ,  "  timeout   = " <> build (show (responseTimeout x))
+        "  timeout   = " <> build (show (responseTimeout x)),
         "  redirects = " <> build (redirectCount x),
         "  path      = " <> build (path x),
         "  query     = " <> build (queryString x),

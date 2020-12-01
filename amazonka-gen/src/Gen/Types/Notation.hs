@@ -18,6 +18,7 @@ module Gen.Types.Notation where
 import Control.Applicative
 import Data.Aeson
 import qualified Data.Attoparsec.Text as A
+import qualified Data.Char as Char
 import Data.Bifunctor
 import Data.List.NonEmpty (NonEmpty (..))
 import Data.Text (Text)
@@ -32,8 +33,8 @@ data Key a
 
 data Notation a
   = Access (NonEmpty (Key a))
-  | NonEmptyList (Key a)
-  | NonEmptyText (Key a)
+  | NonEmptyList (Notation a)
+  | NonEmptyText (Notation a)
   | Choice (Notation a) (Notation a)
   deriving (Eq, Show, Functor, Foldable)
 
@@ -46,7 +47,7 @@ parseNotation t = mappend msg `first` A.parseOnly expr1 t
     msg =
       "Failed parsing index notation: "
         ++ Text.unpack t
-        ++ ", with: "
+        ++ ", with "
 
     expr0 = nonEmptyList <|> nonEmptyText <|> access
     expr1 = choice <|> expr0
@@ -56,31 +57,36 @@ parseNotation t = mappend msg `first` A.parseOnly expr1 t
         <$> expr0
           <* A.string "||"
         <*> expr1
+        A.<?> "expr1 || expr2"
 
     nonEmptyList =
       NonEmptyList
-        <$> (A.string "length(" *> key1 <* A.char ')')
+        <$> (A.string "length(" *> expr1 <* A.char ')')
         <* strip (A.char '>')
         <* strip (A.string "`0`")
+        A.<?> "length(list-expr) > `0`"
 
     nonEmptyText =
       NonEmptyText
-        <$> (A.string "length(" *> key0 <* A.char ')')
+        <$> (A.string "length(" *> expr1 <* A.char ')')
         <* strip (A.char '>')
         <* strip (A.string "`0`")
+        A.<?> "length(text-expr) > `0`"
 
     access = do
       x : xs <- A.sepBy1 key (A.char '.')
       pure $! Access (x :| xs)
 
     key = key1 <|> key0
-    key1 =
-      (Each <$> label <* A.string "[]")
-        <|> (Last <$> label <* A.string "[-1]")
+    key1 = (Each <$> label <* A.string "[]") <|> (Last <$> label <* A.string "[-1]")
     key0 = (Key <$> label)
 
-    label = mkId <$> strip (A.takeWhile1 delim)
+    label =
+      strip $ do
+        a <- A.satisfy Char.isUpper A.<?> "uppercase character"
+        b <- A.takeWhile1 (A.notInClass "[].`()|><= ")
+      
+        pure (mkId (Text.cons a b))
 
-    delim = A.notInClass "0-9[].`()|><= "
-
-    strip p = A.skipSpace *> p <* A.skipSpace
+    strip p =
+      A.skipSpace *> p <* A.skipSpace

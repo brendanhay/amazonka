@@ -74,7 +74,7 @@ operationData cfg m o = do
       . HashMap.insert "AWSRequest" cls
       <$> renderInsts p xn xis
 
-  return
+  pure
     $! o
       { _opInput = Identity $ Prod (xa & relShared .~ 0) xd xis',
         _opOutput = Identity $ Prod ya yd yis'
@@ -103,8 +103,8 @@ shapeData m (a :< s) = case s of
   Struct st -> do
     (d, fs) <- prodData m a st
     is <- renderInsts p (a ^. annId) (addInstances a (shapeInsts p r fs))
-    return $! Just $ Prod a d is
-  _ -> return Nothing
+    pure $! Just $ Prod a d is
+  _ -> pure Nothing
   where
     p = m ^. protocol
     r = a ^. relMode
@@ -280,7 +280,7 @@ waiterData m os n w = do
     Fun' (smartCtorId n) (Help help)
       <$> pp None (waiterS n wf)
       <*> pp Print (waiterD n wf)
-  return $! WData (typeId n) (_opName o) c
+  pure $! WData (typeId n) (_opName o) c
   where
     missingErr =
       "Missing operation "
@@ -298,7 +298,7 @@ waiterData m os n w = do
             <> "' every "
             <> Text.Builder.Int.decimal (_waitDelay w)
             <> " seconds until a "
-            <> "successful state is reached. An error is returned after "
+            <> "successful state is reached. An error is pureed after "
             <> Text.Builder.Int.decimal (_waitAttempts w)
             <> " failed checks."
 
@@ -317,7 +317,7 @@ waiterFields m o = traverseOf (waitAcceptors . each) go
     go :: Accept Id -> Either String (Accept Field)
     go x = do
       n <- traverse (notation m out) (x ^. acceptArgument)
-      return $! x & acceptArgument .~ n
+      pure $! x & acceptArgument .~ n
 
 pagerFields ::
   HasMetadata a Identity =>
@@ -347,20 +347,18 @@ notation ::
   Shape Solved ->
   Notation Id ->
   Either String (Notation Field)
-notation m = go
+notation m nid = go nid
   where
     go :: Shape Solved -> Notation Id -> Either String (Notation Field)
     go s = \case
-      NonEmptyList k -> NonEmptyList <$> key s k
-      NonEmptyText k -> NonEmptyText <$> key s k
+      NonEmptyList e -> NonEmptyList <$> go s e
+      NonEmptyText e -> NonEmptyText <$> go s e
       Choice x y -> Choice <$> go s x <*> go s y
-      Access ks -> fmap Access
-        . flip evalStateT s
-        . Monad.forM ks
-        $ \x -> do
+      Access ks ->
+       fmap Access . flip evalStateT s . Monad.forM ks $ \x -> do
           k <- get >>= lift . (`key` x)
           put (skip (shape k))
-          return k
+          pure k
 
     key :: Shape Solved -> Key Id -> Either String (Key Field)
     key s = \case
@@ -371,11 +369,11 @@ notation m = go
     field' :: Id -> Shape Solved -> Either String Field
     field' n = \case
       a :< Struct st ->
-        note (missingErr n (identifier a) (HashMap.keys (st ^. members)))
-          . List.find ((n ==) . _fieldId)
-          $ mkFields m a st
+        let fields = mkFields m a st
+        in note (missingErr n (identifier a) fields) $
+             List.find ((n ==) . _fieldId) fields
       _ -> Except.throwError (descendErr n)
-
+      
     shape :: Key Field -> Shape Solved
     shape =
       view (fieldRef . refAnn) . \case
@@ -389,13 +387,13 @@ notation m = go
       _ :< Map x -> x ^. mapValue . refAnn
       x -> x
 
-    missingErr k container ms =
+    missingErr n parent fields =
       "Unable to find "
-        ++ show k
+        ++ show n
         ++ " in members of "
-        ++ show container
+        ++ show parent
         ++ " "
-        ++ show ms
+        ++ show (map _fieldId fields)
 
     descendErr k =
       "Unable to descend into nested reference "

@@ -17,28 +17,58 @@ let
     inherit system sources config overlays crossOverlays;
   };
 
-  components = pkgs.libLocal.collectHaskellComponents pkgs.cabalProject;
+  compiler-nix-name = "ghc8102";
 
-in {
-  inherit (pkgs) cabalProject;
-  inherit (components) library checks exes;
+  hackageTool = pkgs.haskell-nix.tool compiler-nix-name;
 
-  generate =
-    pkgs.callPackage ./amazonka-gen/default.nix {
-      botocore = pkgs.sources.botocore;
-      amazonka = pkgs.cabalProject.amazonka;
-      amazonka-core = pkgs.cabalProject.amazonka-core;
-      amazonka-gen = pkgs.cabalProject.amazonka-gen;
-      models = [
-        "ec2" 
-      ];
+  cabalProject = pkgs.haskell-nix.cabalProject {
+    inherit compiler-nix-name;
+
+    src = pkgs.haskell-nix.cleanSourceHaskell {
+      name = "amazonka";
+      src = ./.;
     };
 
-  shell = pkgs.cabalProject.shellFor {
+    pkg-def-extras = [
+      (hackage: {
+        packages = {
+          # Added as part of the package set due to Cabal dependency errors.
+          cabal-fmt = hackage.cabal-fmt."0.1.5.1".revisions.default;
+        };
+      })
+    ];
+  };
+
+  components = pkgs.libLocal.collectComponents cabalProject;
+
+  tools = {
+    cabal-fmt = cabalProject.cabal-fmt.components.exes.cabal-fmt;
+    cabal = hackageTool "cabal" "3.2.0.0";
+    ormolu = hackageTool "ormolu" "0.1.3.0";
+    shellcheck = hackageTool "shellcheck" "0.7.1";
+  };
+
+in {
+  inherit cabalProject;
+  inherit (components) library checks exes;
+
+  generate = pkgs.callPackage ./amazonka-gen/default.nix {
+    inherit (tools) cabal-fmt ormolu;
+
+    botocore = pkgs.sources.botocore;
+    amazonka-gen = cabalProject.amazonka-gen.components.exes.amazonka-gen;
+
+    libraryVersion = "0.0.0";
+    clientVersion = "0.0.0";
+    coreVersion = "0.0.0";
+    models = [ "ec2" ];
+  };
+
+  shell = cabalProject.shellFor {
     withHoogle = true;
     exactDeps = true;
 
-    packages = ps: 
+    packages = ps:
       with ps; [
         amazonka
         amazonka-core
@@ -46,17 +76,16 @@ in {
         amazonka-gen
       ];
 
-      # pkgs.lib.attrValues ps;
-
-    tools = {
-      cabal = "3.2.0.0";
-      ormolu = "0.1.3.0";
-      shellcheck = "0.7.1";
-    };
+    # tools = { .. };
 
     buildInputs = [
       pkgs.nixfmt
       pkgs.shfmt
+
+      tools.cabal
+      # tools.cabal-fmt
+      tools.ormolu
+      tools.shellcheck
 
       # sources.json
       (import pkgs.sources.niv { }).niv

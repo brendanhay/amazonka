@@ -1,47 +1,43 @@
-{ lib,
-  stdenvNoCC,
-  haskell-nix,
-  amazonka,
-  amazonka-core,
-  amazonka-gen,
-  botocore,
-  models
-}:
+{ lib, stdenvNoCC, cabal-fmt, ormolu, botocore, amazonka-gen, libraryVersion
+, clientVersion, coreVersion, models }:
 
 let
 
   botocoreData = "${botocore}/botocore/data";
-    
-  modelVersion = model:
-    let filter = _name: type: type == "directory";
-        contents = builtins.readDir (botocoreData + "/${model}");
-        versions = builtins.attrNames (lib.filterAttrs filter contents);
-    in builtins.head (lib.reverseList versions);
 
   modelArguments =
     builtins.concatStringsSep " "
-      (builtins.map (v: "--model=${modelVersion v}") models);
+      (builtins.map (v: ''--model="${botocoreData + "/${v}"}"'') models);
 
 in stdenvNoCC.mkDerivation {
-  pname = amazonka-gen.identifier.name;
-  version = "${amazonka-gen.identifier.version}-${botocore.rev}";
+  pname = "amazonka-gen";
+  version = botocore.rev;
+  phases = [ "generatePhase" "formatPhase" ];
 
-  builder = ''
+  generatePhase = ''
     mkdir $out
 
-    ${amazonka-gen.components.exes.amazonka-gen}/bin/amazonka-gen \
+    echo ${amazonka-gen}/bin/amazonka-gen \
       --out=$out \
-      --library-version=${amazonka-gen.identifier.version} \
-      --client-version=${amazonka.identifier.version} \
-      --core-version=${amazonka-core.identifier.version} \ 
-      --annexes=${./annex} \
-      --configs=${./config} \
-      --templates=${./template} \
-      --static=${./static} \
+      --library-version=${libraryVersion} \
+      --client-version=${clientVersion} \
+      --core-version=${coreVersion} \
+      --annexes="${./annex}" \
+      --configs="${./config}" \
+      --templates="${./template}" \
+      --static="${./static}" \
       --retry=${botocoreData}/_retry.json \
       ${modelArguments}
+  '';
 
-    cabal-fmt
-    ormolu
-  ''; 
+  formatPhase = ''
+    find $out \
+      -type f -name '*.cabal' \
+      -exec cabal-fmt --inplace --indent=2 {} \+
+
+    find $out \
+      -type f -name '*.hs' \
+      -exec ormolu -i \
+      {} \+
+  '';
 }

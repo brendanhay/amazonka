@@ -338,8 +338,8 @@ getterN e = if go e then "^?" else "^."
 -- FIXME: doesn't support Maybe fields currently.
 notationE :: Notation Field -> Exp
 notationE = \case
-  NonEmptyText k -> Exts.app (var "nonEmptyText") (label False k)
-  NonEmptyList k -> label False k
+  NonEmptyText e -> Exts.app (var "nonEmptyText") (branch e)
+  NonEmptyList e -> branch e
   Access (k :| ks) -> labels k ks
   Choice x y -> Exts.appFun (var "choice") [branch x, branch y]
   where

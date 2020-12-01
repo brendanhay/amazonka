@@ -64,7 +64,8 @@ instance (Functor f, HasId a) => HasId (Cofree f a) where
 data Id = Id Text Text
 
 instance Show Id where
-  show (Id original _assigned) = Text.unpack original
+  show (Id original assigned) =
+    Text.unpack (original <> "<" <> assigned <> ">")
 
 instance Eq Id where
   Id x _ == Id y _ = x == y

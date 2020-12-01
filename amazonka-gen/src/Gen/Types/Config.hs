@@ -1,5 +1,6 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE DeriveFoldable #-}
+{-# LANGUAGE NamedFieldPuns #-}
 {-# LANGUAGE DeriveFunctor #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DeriveTraversable #-}
@@ -49,6 +50,7 @@ import Gen.Types.Map
 import Gen.Types.NS
 import Gen.Types.Service
 import Gen.Types.TypeOf
+import System.FilePath ((</>))
 import qualified System.FilePath as FilePath
 import Text.EDE (Template)
 
@@ -248,31 +250,35 @@ data Templates = Templates
 
 data Model = Model
   { _modelName :: Text,
-    _modelVersion :: UTCTime,
+    _modelVersion :: Day,
     _modelPath :: FilePath
   }
   deriving (Eq, Show)
 
 makeLenses ''Model
 
-configFile, annexFile :: Getter Model FilePath
-configFile = to (flip FilePath.addExtension "json" . Text.unpack . _modelName)
+configFile, annexFile :: Model -> FilePath
+configFile = flip FilePath.addExtension "json" . Text.unpack . _modelName
 annexFile = configFile
 
-serviceFile, waitersFile, pagersFile :: Getter Model FilePath
-serviceFile = to (flip FilePath.combine "service-2.json" . _modelPath)
-waitersFile = to (flip FilePath.combine "waiters-2.json" . _modelPath)
-pagersFile = to (flip FilePath.combine "paginators-1.json" . _modelPath)
+serviceFile, waitersFile, pagersFile :: Model -> FilePath
+serviceFile = flip FilePath.combine "service-2.json" . _modelPath
+waitersFile = flip FilePath.combine "waiters-2.json" . _modelPath
+pagersFile = flip FilePath.combine "paginators-1.json" . _modelPath
 
 loadModel :: FilePath -> [FilePath] -> Either String Model
-loadModel path xs =
-  uncurry (Model name)
-    <$> headErr ("No valid model versions found in " ++ show xs) vs
+loadModel path xs = do
+  (_modelVersion, _modelPath) <-
+    headErr ("No valid model versions found in " ++ show xs) versions
+  
+  pure Model
+    { _modelName = Text.pack (FilePath.takeFileName path),
+      _modelVersion,
+      _modelPath
+    }
   where
-    vs = sortOn Down (mapMaybe parse xs)
-    name = Text.pack (FilePath.takeFileName path)
+    versions = sortOn Down (mapMaybe parse xs)
 
     parse dir =
-      fmap (,dir) $
-        parseTimeM True defaultTimeLocale (iso8601DateFormat Nothing) $
-          FilePath.takeFileName dir
+      fmap (,FilePath.normalise (path </> dir)) $
+        parseTimeM True defaultTimeLocale "%Y-%-m-%-d" dir

@@ -14,3 +14,14 @@ allow-newer:
 -- Local packages.
 packages:
    amazonka*/
+
+-- Extra package constraints to feed the solver.
+extra-packages:
+  ede >= 0.3.2.0
+ 
+-- Only needs to be presnt until Hackage.nix updates (02.12.2020)
+source-repository-package
+  type: git
+  location: https://github.com/brendanhay/ede.git
+  tag: fb1e2958cd972561540750ea75114511bc04e621
+  --sha256: 1xmwvrin7z5clr2kkfq1zl6nnb84p7p0kxgkgk6bmsf23lllcm3h

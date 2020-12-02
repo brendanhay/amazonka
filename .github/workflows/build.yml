@@ -24,4 +24,4 @@ jobs:
           name: amazonka
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      - run: nix-build -A library -A checks -A tests -A exes -A shell
+      - run: nix-build -A library -A checks -A exes -A shell

@@ -15,7 +15,10 @@ if ! [ $# -eq 0 ]; then
     models="[ $(printf '"%s" ' "$@")]"
 fi
 
-cp -R "$(nix-build generate.nix --arg models "$models" --show-trace --no-out-link)"/* ./lib/
+result="$(nix-build generate.nix --arg models "$models" --show-trace --no-out-link)"
+
+echo $result
+
+cp -r $result/amazonka-* ./lib/
 
 chmod -R u+rw ./lib
- 

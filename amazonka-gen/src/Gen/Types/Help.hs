@@ -22,9 +22,7 @@ import Data.Aeson
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.Char as Char
 import qualified Data.Map.Strict as Map
-import Data.Monoid ((<>))
-import Data.Semigroup (Semigroup)
-import Data.String
+import Data.String (IsString (fromString))
 import Data.Text (Text)
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text

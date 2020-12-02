@@ -21,7 +21,6 @@ import Data.Aeson
 import qualified Data.Attoparsec.Text as A
 import qualified Control.Monad as Monad
 import Data.Bifunctor
-import qualified Data.Char as Char
 import Data.List.NonEmpty (NonEmpty (..))
 import Data.Text (Text)
 import qualified Data.Text as Text

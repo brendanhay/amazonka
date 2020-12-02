@@ -12,21 +12,13 @@ fi
 pvp="$1"
 sem="$2"
 
-specs=(
-    amazonka/amazonka.cabal
-    amazonka-core/amazonka-core.cabal
-    amazonka-gen/amazonka-gen.cabal
-    amazonka-test/amazonka-test.cabal
-    amazonka-s3-encryption/amazonka-s3-encryption.cabal
-    amazonka-examples/amazonka-examples.cabal
-)
+echo "Bumping library version to $pvp and setting dependencies == $sem"
 
-echo "Bumping version to $pvp and dependencies to == $sem ..."
-
-for cabal in "${specs[@]}"; do
-    sed -e "s/^\(version: *\).*$/\1$pvp/;" \
-        -e "s/^\(.*amazonka-[a-z0-9]* *== *\)\([0-9\.]\+\*\)$/\1$sem.*/" \
-        -e "s/^\(.*amazonka *== *\)\([0-9\.]\+\*\)$/\1$sem.*/" $cabal >$cabal.new
+for cabal in lib/amazonka*/*.cabal amazonka*/*.cabal; do
+    sed -e "s/^\(version: *\).*/\1$pvp/;" \
+        -e "s/^\( *amazonka[^ ]*\).*/\1 == $sem/g" \
+        -e "s/^\( *, amazonka[^ ]*\).*/\1 == $sem/g" \
+        $cabal >$cabal.new
 
     mv $cabal.new $cabal
 done

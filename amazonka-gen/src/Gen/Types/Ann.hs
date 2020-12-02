@@ -25,7 +25,6 @@ import Data.Aeson
 import Data.Function (on)
 import qualified Data.HashSet as Set
 import Data.Hashable
-import Data.Semigroup (Semigroup)
 import Data.Text (Text)
 import qualified Data.Text as Text
 import GHC.Generics (Generic)

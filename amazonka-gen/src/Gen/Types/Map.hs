@@ -14,7 +14,6 @@ import Control.Lens
 import qualified Data.HashMap.Strict as Map
 import Data.Hashable
 import Data.Maybe
-import qualified Data.Text as Text
 import Data.Tuple
 
 type Map = Map.HashMap

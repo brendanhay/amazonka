@@ -46,6 +46,7 @@ import qualified Data.HashMap.Strict as HashMap
 import Data.Hashable
 import Data.Text (Text)
 import qualified Data.Text as Text
+import qualified Data.Char as Char
 import Data.Text.Manipulate
 import Gen.Text
 
@@ -89,7 +90,7 @@ mkId :: Text -> Id
 mkId t = UnsafeId t (format t)
 
 format :: Text -> Text
-format = upperHead . upperAcronym
+format = upperHead . upperAcronym . Text.dropWhile (not . Char.isAlpha)
 
 representation :: Lens' Id Text
 representation =

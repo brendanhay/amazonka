@@ -6,7 +6,7 @@
         },
         "OptionalValue": {
             "replacedBy": {
-                "name": "(Maybe Text)",
+                "name": "Maybe Text",
                 "underive": []
             }
         },

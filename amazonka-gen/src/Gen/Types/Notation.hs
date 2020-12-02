@@ -19,6 +19,7 @@ module Gen.Types.Notation where
 import Control.Applicative
 import Data.Aeson
 import qualified Data.Attoparsec.Text as A
+import qualified Control.Monad as Monad
 import Data.Bifunctor
 import qualified Data.Char as Char
 import Data.List.NonEmpty (NonEmpty (..))
@@ -32,10 +33,14 @@ data Key a
   | Last {fromKey :: a}
   deriving (Eq, Show, Functor, Foldable)
 
+data Op
+  = Equal
+  | Greater
+  deriving (Eq, Show)
+
 data Notation a
-  = Access (NonEmpty (Key a))
-  | NonEmptyList (Notation a)
-  | NonEmptyText (Notation a)
+  = Deref (NonEmpty (Key a))
+  | Length Text (Notation a) Op Integer
   | Choice (Notation a) (Notation a)
   deriving (Eq, Show, Functor, Foldable)
 
@@ -43,14 +48,14 @@ instance FromJSON (Notation Id) where
   parseJSON = withText "notation" (either fail pure . parseNotation)
 
 parseNotation :: Text -> Either String (Notation Id)
-parseNotation t = mappend msg `first` A.parseOnly expr1 t
+parseNotation t = mappend msg `first` A.parseOnly (expr1 ) t
   where
     msg =
       "Failed parsing index notation: "
         ++ Text.unpack t
         ++ ", with "
 
-    expr0 = nonEmptyList <|> nonEmptyText <|> access
+    expr0 = nonEmptyList <|> nonEmptyText <|> dereference
     expr1 = choice <|> expr0
 
     choice =
@@ -61,22 +66,26 @@ parseNotation t = mappend msg `first` A.parseOnly expr1 t
         A.<?> "expr1 || expr2"
 
     nonEmptyList =
-      NonEmptyList
-        <$> (A.string "length(" *> expr1 <* A.char ')')
-        <* strip (A.char '>')
-        <* strip (A.string "`0`")
-        A.<?> "length(list-expr) > `0`"
+      apply "length" expr1
 
     nonEmptyText =
-      NonEmptyText
-        <$> (A.string "length(" *> expr1 <* A.char ')')
-        <* strip (A.char '>')
-        <* strip (A.string "`0`")
-        A.<?> "length(text-expr) > `0`"
+      apply "textLength" expr0
 
-    access = do
+    apply function p = do
+      expr <- A.string "length(" *> p <* A.char ')'
+      
+      relation <-
+       strip $
+        (A.string "==" *> pure Equal)
+          <|> (A.char '>' *> pure Greater)
+      
+      decimal <- strip (A.char '`' *> A.decimal <* A.char '`')
+
+      pure (Length function expr relation decimal)
+
+    dereference = do
       x : xs <- A.sepBy1 key (A.char '.')
-      pure $! Access (x :| xs)
+      pure $! Deref (x :| xs)
 
     key = key1 <|> key0
     key1 = (Each <$> label <* A.string "[]") <|> (Last <$> label <* A.string "[-1]")
@@ -84,14 +93,16 @@ parseNotation t = mappend msg `first` A.parseOnly expr1 t
 
     label =
       strip $ do
-        text <- A.takeWhile1 (A.notInClass "[].`)|><= ")
+        text <- A.takeWhile1 (A.notInClass "[].()|><= ")
+        next <- A.peekChar
 
-        case text of
-          "length(" ->
-            fail $
-              "encountered start of unexpected length(expr) function application "
-                ++ show text
-          _other -> pure (mkId text)
+        Monad.when (next == Just '(') $
+          fail $
+            "encountered start of unexpected function application "
+              ++ show text
+              ++ "(...)"
+
+        pure (mkId text)
 
     strip p =
       A.skipSpace *> p <* A.skipSpace

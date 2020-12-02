@@ -50,7 +50,7 @@ rewrite versions cfg svc = do
 
   rewritten <-
     rewriteService cfg
-      . ignoreWaitersAndPagers cfg
+      . ignorePagers cfg
       $ deprecateOperations ignored
 
   rendered <-
@@ -109,14 +109,11 @@ ignoreUnusedShapes svc = do
             (_shapes svc)
       }
 
-ignoreWaitersAndPagers :: Config -> Service f a b c -> Service f a b c
-ignoreWaitersAndPagers c srv =
-  srv
-    & waiters %~ Map.filterWithKey (const . validWaiter)
-    & operations %~ Map.mapWithKey (\k v -> if validPager k then v else (opPager .~ Nothing) v)
+ignorePagers :: Config -> Service f a b c -> Service f a b c
+ignorePagers cfg =
+  operations %~ Map.mapWithKey (\k v -> if validPager k then v else (opPager .~ Nothing) v)
   where
-    validWaiter k = not $ Set.member k (c ^. ignoredWaiters)
-    validPager k = not $ Set.member k (c ^. ignoredPaginators)
+    validPager k = not $ Set.member k $ _ignoredPaginators cfg
 
 rewriteService ::
   Config ->

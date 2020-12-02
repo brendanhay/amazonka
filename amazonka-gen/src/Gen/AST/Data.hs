@@ -350,11 +350,10 @@ notation m nid = go nid
   where
     go :: Shape Solved -> Notation Id -> Either String (Notation Field)
     go s = \case
-      NonEmptyList e -> NonEmptyList <$> go s e
-      NonEmptyText e -> NonEmptyText <$> go s e
       Choice x y -> Choice <$> go s x <*> go s y
-      Access ks ->
-        fmap Access . flip evalStateT s . Monad.forM ks $ \x -> do
+      Length flen e op size -> Length flen <$> go s e <*> pure op <*> pure size 
+      Deref ks ->
+        fmap Deref . flip evalStateT s . Monad.forM ks $ \x -> do
           k <- get >>= lift . (`key` x)
           put (skip (shape k))
           pure k
@@ -409,19 +408,12 @@ pp i d
   where
     printed =
       BS8.dropWhile Char.isSpace . BS8.pack $
-        Exts.prettyPrintStyleMode style mode d
-
-    style =
-      Exts.style
-        { Exts.mode = Exts.PageMode,
-          Exts.lineLength = 80,
-          Exts.ribbonsPerLine = 1.5
-        }
+        Exts.prettyPrintWithMode mode d
 
     mode
       | i == Print = Exts.defaultMode
       | otherwise =
         Exts.defaultMode
-          { Exts.layout = Exts.PPNoLayout,
+          { Exts.layout = Exts.PPInLine,
             Exts.spacing = False
           }

@@ -27,7 +27,7 @@ module Network.AWS.Waiter
     matchStatus,
 
     -- * Util
-    nonEmptyText,
+    textLength,
   )
 where
 
@@ -97,5 +97,5 @@ match f a _ = \case
   Right (_, rs) | f rs -> Just a
   _ -> Nothing
 
-nonEmptyText :: Fold a Text -> Fold a Bool
-nonEmptyText f = f . to Text.null
+textLength :: Text -> Bool
+textLength = Text.null

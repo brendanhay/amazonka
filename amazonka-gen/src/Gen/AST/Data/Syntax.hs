@@ -338,11 +338,17 @@ getterN e = if go e then "^?" else "^."
 -- FIXME: doesn't support Maybe fields currently.
 notationE :: Notation Field -> Exp
 notationE = \case
-  NonEmptyText e -> Exts.app (var "nonEmptyText") (branch e)
-  NonEmptyList e -> branch e
-  Access (k :| ks) -> labels k ks
-  Choice x y -> Exts.appFun (var "choice") [branch x, branch y]
+  Deref (k :| ks) ->
+    labels k ks
+  Length flen e op size ->
+    Exts.infixApp (Exts.app (var flen) (branch e)) (relation op) (int size)
+  Choice x y ->
+    Exts.appFun (var "choice") [branch x, branch y]
   where
+    relation = \case
+      Equal -> "=="
+      Greater -> ">"
+    
     branch x =
       let e = notationE x
        in Exts.paren (Exts.app (var (getterN e)) e)
@@ -807,7 +813,7 @@ waiterD n w = Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
 
     match x =
       case (_acceptMatch x, _acceptArgument x) of
-        (_, Just (NonEmptyList _)) ->
+        (_, Just (Length "length" _ Greater 0)) ->
           Exts.appFun (var "matchNonEmpty") (expect x : criteria x : argument' x)
         (Path, _) ->
           Exts.appFun (var "matchAll") (expect x : criteria x : argument' x)
@@ -886,8 +892,8 @@ directed i m d (typeOf -> t) = case t of
       | otherwise = tyapp (tycon "NonEmpty")
 
     hmap k v
-      | i = tyapp (tyapp (tycon "Map") (go k)) (go v)
-      | otherwise = tyapp (tyapp (tycon "HashMap") (go k)) (go v)
+      | i = tyapp (tyapp (tycon "Map") (go k)) (Exts.TyParen () (go v))
+      | otherwise = tyapp (tyapp (tycon "HashMap") (go k)) (Exts.TyParen () (go v))
 
     stream = case d of
       Nothing -> "RsBody"
@@ -937,20 +943,22 @@ literal i ts = \case
     | otherwise -> tycon "UTCTime"
   Json -> tycon "ByteString"
 
--- tyapp (tyapp (tycon "HashMap") (tycon "Text"))
---               (tycon "Value")
-
 strict :: Type -> Type
-strict =
-  Exts.TyBang () (Exts.BangedTy ()) (Exts.NoUnpackPragma ()) . \case
-    t@Exts.TyApp {} -> Exts.TyParen () t
-    t -> t
+strict = Exts.TyBang () (Exts.BangedTy ()) (Exts.NoUnpackPragma ()) . typaren
 
 tyvar :: Text -> Type
 tyvar = Exts.TyVar () . ident
 
 tycon :: Text -> Type
 tycon = Exts.TyCon () . unqual
+
+tyapp :: Type -> Type -> Type
+tyapp a b = Exts.TyApp () a (typaren b)
+
+typaren :: Type -> Type
+typaren = \case
+    t@Exts.TyApp {} -> Exts.TyParen () t
+    t -> t
 
 con :: Text -> Exp
 con = Exts.Con () . unqual
@@ -963,6 +971,9 @@ frac n = Exts.Lit () (Exts.Frac () n (show n))
 
 str :: Text -> Exp
 str = Exts.strE . Text.unpack
+
+int :: Integer -> Exp
+int = Exts.intE 
 
 pvar :: Text -> Pat
 pvar = Exts.pvar . ident
@@ -978,9 +989,6 @@ unqual = Exts.UnQual () . ident
 
 ident :: Text -> Name
 ident = Exts.name . Text.unpack
-
-tyapp :: Type -> Type -> Type
-tyapp = Exts.TyApp ()
 
 field :: QName -> Exp -> FieldUpdate
 field = Exts.FieldUpdate ()

@@ -85,17 +85,18 @@ in pkgs.stdenvNoCC.mkDerivation {
   formatPhase = ''
     export LC_ALL=C.UTF-8
 
-    echo "Formatting cabal files"
+    for dir in $out/amazonka*; do 
+      find $dir \
+        -type f \
+        -name '*.cabal' \
+        -printf ' -> Formatting %p\n' \
+        -exec cabal-fmt --inplace --indent=2 {} \+
 
-    find $out \
-      -type f -name '*.cabal' \
-      -exec cabal-fmt --inplace --indent=2 {} \+
-
-    echo "Formatting haskell files"
-
-    find $out \
-      -type f -name '*.hs' \
-      -exec ormolu -i \
-      {} \+
+      find $dir \
+        -type f \
+        -name '*.hs' \
+        -printf ' -> Formatting %p\n' \
+        -exec ormolu --mode=inplace {} \+
+    done
   '';
 }

@@ -502,7 +502,7 @@ instance FromJSON (Service Maybe (RefF ()) (ShapeF ()) (Waiter Id)) where
       <$> o .: "documentation"
       <*> (o .: "operations" <&> Map.map (pager p))
       <*> o .: "shapes"
-      <*> o .:? "waiters" .!= mempty
+      <*> (o .:? "waiters" .!= mempty <&> Map.mapMaybe id)
       <*> parseRetry (m ^. serviceAbbrev) o
     where
       pager ::

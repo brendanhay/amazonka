@@ -7,7 +7,7 @@ on:
     branches: main
 
 jobs:
-  default.nix:
+  default-nix:
     strategy:
       fail-fast: false
       matrix:
@@ -26,7 +26,7 @@ jobs:
 
       - run: nix-build default.nix -A library -A checks -A exes -A shell
 
-  generate.nix:
+  generate-nix:
     strategy:
       fail-fast: false
       matrix:

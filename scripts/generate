@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# Usage: generate [MODEL]
+
+# Perform code generation, formatting, and copy resulting artefacts
+# into their respective repository destinations from the nix-store
+
+set -euo pipefail
+
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+models="null"
+
+if ! [ $# -eq 0 ]; then
+    models="[ $(printf '"%s" ' "$@")]"
+fi
+
+result=$(nix-build generate.nix --arg models "$models" --show-trace --no-out-link)
+
+echo $result

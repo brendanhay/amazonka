@@ -10,23 +10,24 @@ if [ $# -ne 2 ]; then
 fi
 
 pvp="$1"
-semantic="$2"
+sem="$2"
 
 specs=(
     amazonka/amazonka.cabal
-    core/amazonka-core.cabal
-    examples/amazonka-examples.cabal
-    gen/amazonka-gen.cabal
-    test/amazonka-test.cabal
+    amazonka-core/amazonka-core.cabal
+    amazonka-gen/amazonka-gen.cabal
+    amazonka-test/amazonka-test.cabal
     amazonka-s3-encryption/amazonka-s3-encryption.cabal
+    amazonka-examples/amazonka-examples.cabal
 )
 
-echo "Bumping version to $pvp and dependencies to == $semantic ..."
+echo "Bumping version to $pvp and dependencies to == $sem ..."
 
-for cabal in "${specs[@]};" do
+for cabal in "${specs[@]}"; do
     sed -e "s/^\(version: *\).*$/\1$pvp/;" \
-        -e "s/^\(.*amazonka-[a-z0-9]* *== *\)\([0-9\.]\+\*\)$/\1$semantic.*/" \
-        -e "s/^\(.*amazonka *== *\)\([0-9\.]\+\*\)$/\1$semantic.*/" $cabal >$cabal.new
+        -e "s/^\(.*amazonka-[a-z0-9]* *== *\)\([0-9\.]\+\*\)$/\1$sem.*/" \
+        -e "s/^\(.*amazonka *== *\)\([0-9\.]\+\*\)$/\1$sem.*/" $cabal >$cabal.new
+
     mv $cabal.new $cabal
 done
 

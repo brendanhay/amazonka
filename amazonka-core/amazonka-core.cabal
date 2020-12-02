@@ -1,6 +1,6 @@
 cabal-version:      2.2
 name:               amazonka-core
-version:            1.6.1
+version:            2.0.0.0
 synopsis:           Core data types and functionality for Amazonka libraries.
 homepage:           https://github.com/brendanhay/amazonka
 bug-reports:        https://github.com/brendanhay/amazonka/issues
@@ -9,7 +9,7 @@ license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           Network, AWS, Cloud, Distributed Computing
+category:           AWS, Cloud
 build-type:         Simple
 extra-source-files: README.md
 description:
@@ -23,7 +23,7 @@ description:
 source-repository head
   type:     git
   location: git://github.com/brendanhay/amazonka.git
-  subdir:   core
+  subdir:   amazonka-core
 
 common base
   default-language: Haskell2010
@@ -74,7 +74,7 @@ library
     Network.AWS.Sign.V4.Chunked
 
   build-depends:
-    , aeson                 >=0.8
+    , aeson                 >=1.2
     , attoparsec            >=0.11.3
     , bytestring            >=0.9
     , case-insensitive      >=1.2
@@ -82,7 +82,7 @@ library
     , conduit-extra         >=1.1
     , cryptonite            >=0.4
     , deepseq               >=1.4
-    , exceptions            >=0.6
+    , exceptions            >=0.10
     , hashable              >=1.2
     , http-client           >=0.5
     , http-conduit          >=2.3

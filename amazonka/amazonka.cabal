@@ -1,6 +1,6 @@
 cabal-version:      2.2
 name:               amazonka
-version:            1.6.1
+version:            2.0.0.0
 synopsis:           Comprehensive Amazon Web Services SDK.
 homepage:           https://github.com/brendanhay/amazonka
 bug-reports:        https://github.com/brendanhay/amazonka/issues
@@ -9,7 +9,7 @@ license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           Network, AWS, Cloud, Distributed Computing
+category:           AWS, Cloud
 build-type:         Simple
 extra-source-files:
   CHANGELOG.md

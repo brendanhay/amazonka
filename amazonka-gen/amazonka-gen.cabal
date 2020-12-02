@@ -8,7 +8,7 @@ license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           Network, AWS, Cloud, Distributed Computing
+category:           AWS, Cloud
 build-type:         Simple
 extra-source-files: README.md
 description:        Compiler and generator for Amazonka related AWS SDKs
@@ -16,7 +16,7 @@ description:        Compiler and generator for Amazonka related AWS SDKs
 source-repository head
   type:     git
   location: git://github.com/brendanhay/amazonka.git
-  subdir:   gen
+  subdir:   amazonka-gen
 
 common base
   default-language: Haskell2010

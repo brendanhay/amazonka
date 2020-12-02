@@ -14,6 +14,7 @@ allow-newer:
 -- Local packages.
 packages:
    amazonka*/
+   lib/amazonka*/
 
 -- Extra package constraints to feed the solver.
 extra-packages:

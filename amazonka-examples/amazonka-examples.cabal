@@ -1,5 +1,5 @@
 name:               amazonka-examples
-version:            1.6.1
+version:            2.0.0.0
 synopsis:           Basic examples for various amazonka libraries.
 homepage:           https://github.com/brendanhay/amazonka
 license:            MPL-2.0

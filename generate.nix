@@ -26,10 +26,10 @@ let
   botocoreData = "${botocore}/botocore/data";
   botocoreRev = builtins.substring 0 7 botocore.rev;
 
-  annexDir = ./share/annexes;
-  configDir = ./share/configs;
-  templateDir = ./share/templates;
-  staticDir = ./share/static;
+  annexDir = ./config/annexes;
+  configDir = ./config/models;
+  templateDir = ./config/templates;
+  staticDir = ./config/static;
 
   clientVersion = cabalProject.amazonka.identifier.version;
   coreVersion = cabalProject.amazonka-core.identifier.version;
@@ -55,9 +55,10 @@ in pkgs.stdenvNoCC.mkDerivation {
     cabalProject.amazonka-gen.components.exes.amazonka-gen
   ];
 
-  src = libLocal.cleanGeneratedSource {
+  src = libLocal.cleanSource {
     name = "amazonka-generate";
-    src = ./.;
+    src = ./lib;
+    ignore = ["gen"];
   };
 
   generatePhase = ''

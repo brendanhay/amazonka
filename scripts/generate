@@ -15,6 +15,6 @@ if ! [ $# -eq 0 ]; then
     models="[ $(printf '"%s" ' "$@")]"
 fi
 
-result=$(nix-build generate.nix --arg models "$models" --show-trace --no-out-link)
+result="$(nix-build generate.nix --arg models "$models" --show-trace --no-out-link)"
 
-echo $result
+cp -R "$result/*" ./lib/

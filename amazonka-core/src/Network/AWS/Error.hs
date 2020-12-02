@@ -1,4 +1,3 @@
-{-# LANGUAGE CPP #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ViewPatterns #-}
@@ -61,14 +60,8 @@ httpStatus :: AsError a => Getting (First Status) a Status
 httpStatus = _Error . f
   where
     f g = \case
-#if MIN_VERSION_http_client(0,5,0)
-        TransportError (HttpExceptionRequest rq (StatusCodeException rs b))
-            -> (\x -> TransportError (HttpExceptionRequest rq (StatusCodeException (rs { responseStatus = x }) b)))
-               <$> g (responseStatus rs)
-#else
-        TransportError (StatusCodeException s h c)
-            -> TransportError <$> (StatusCodeException <$> g s <*> pure h <*> pure c)
-#endif
+      TransportError (HttpExceptionRequest rq (StatusCodeException rs b)) ->
+        (\x -> TransportError (HttpExceptionRequest rq (StatusCodeException (rs { responseStatus = x }) b))) <$> g (responseStatus rs)
       TransportError e ->
         pure (TransportError e)
       SerializeError (SerializeError' a s b e) ->

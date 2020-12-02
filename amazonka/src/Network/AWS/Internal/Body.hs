@@ -16,7 +16,6 @@ import Control.Monad.Trans.Resource
 import qualified Data.ByteString as BS
 import Data.Conduit
 import qualified Data.Conduit.Binary as Conduit
-import Data.Void (Void) -- required for < conduit-1.3
 import Network.AWS.Prelude
 import System.IO
 

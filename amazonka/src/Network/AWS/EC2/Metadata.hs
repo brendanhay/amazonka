@@ -1,5 +1,4 @@
 {-# LANGUAGE BangPatterns #-}
-{-# LANGUAGE CPP #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE LambdaCase #-}
@@ -58,12 +57,10 @@ module Network.AWS.EC2.Metadata
   )
 where
 
-import Control.Monad
 import Control.Monad.Catch
 import Control.Monad.IO.Class
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy as LBS
-import Data.Monoid
 import qualified Data.Text as Text
 import Network.AWS.Data.JSON
 import Network.AWS.Data.Time
@@ -103,7 +100,7 @@ data Metadata
     AMILaunchIndex
   | -- | The path to the AMI's manifest file in Amazon S3.
     -- If you used an Amazon EBS-backed AMI to launch the instance,
-    -- the returned result is unknown.
+    -- the pureed result is unknown.
     AMIManifestPath
   | -- | The AMI IDs of any instances that were rebundled to create this AMI.
     -- This value will only exist if the AMI manifest file contained an
@@ -147,11 +144,11 @@ data Metadata
   | -- | Product codes associated with the instance, if any.
     ProductCodes
   | -- | The instance's public DNS. If the instance is in a VPC, this category
-    -- is only returned if the enableDnsHostnames attribute is set to true.
+    -- is only pureed if the enableDnsHostnames attribute is set to true.
     -- For more information, see Using DNS with Your VPC.
     PublicHostname
   | -- | The public IP address. If an Elastic IP address is associated with the
-    -- instance, the value returned is the Elastic IP address.
+    -- instance, the value pureed is the Elastic IP address.
     PublicIPV4
   | -- | Public key. Only available if supplied at instance launch time.
     OpenSSHKey
@@ -235,29 +232,29 @@ data Interface
     -- the interface owner.
     IOwnerId
   | -- | The interface's public DNS. If the instance is in a VPC, this category
-    -- is only returned if the enableDnsHostnames attribute is set to true.
+    -- is only pureed if the enableDnsHostnames attribute is set to true.
     -- For more information, see Using DNS with Your VPC.
     IPublicHostname
   | -- | The Elastic IP addresses associated with the interface. There may be
     -- multiple IP addresses on an instance.
     IPublicIPV4s
-  | -- | Security groups to which the network interface belongs. Returned only
+  | -- | Security groups to which the network interface belongs. Pureed only
     -- for instances launched into a VPC.
     ISecurityGroups
   | -- | IDs of the security groups to which the network interface belongs.
-    -- Returned only for instances launched into a VPC. For more information on
+    -- Pureed only for instances launched into a VPC. For more information on
     -- security groups in the EC2-VPC platform, see Security Groups for Your VPC.
     ISecurityGroupIds
-  | -- | The ID of the subnet in which the interface resides. Returned only for
+  | -- | The ID of the subnet in which the interface resides. Pureed only for
     -- instances launched into a VPC.
     ISubnetId
-  | -- | The CIDR block of the subnet in which the interface resides. Returned
+  | -- | The CIDR block of the subnet in which the interface resides. Pureed
     -- only for instances launched into a VPC.
     ISubnetIPV4_CIDRBlock
-  | -- | The ID of the VPC in which the interface resides. Returned only for
+  | -- | The ID of the VPC in which the interface resides. Pureed only for
     -- instances launched into a VPC.
     IVPCId
-  | -- | The CIDR block of the VPC in which the interface resides. Returned only
+  | -- | The CIDR block of the VPC in which the interface resides. Pureed only
     -- for instances launched into a VPC.
     IVPCIPV4_CIDRBlock
   deriving (Eq, Ord, Show, Typeable)
@@ -280,12 +277,12 @@ instance ToText Interface where
     IVPCIPV4_CIDRBlock -> "vpc-ipv4-cidr-block"
 
 data Info
-  = -- | Returns information about the last time the instance profile was updated,
+  = -- | Pures information about the last time the instance profile was updated,
     -- including the instance's LastUpdated date, InstanceProfileArn,
     -- and InstanceProfileId.
     Info'
   | -- | Where role-name is the name of the IAM role associated with the instance.
-    -- Returns the temporary security credentials.
+    -- Pures the temporary security credentials.
     --
     -- See: 'Auth' for JSON deserialisation.
     SecurityCredentials (Maybe Text)
@@ -306,10 +303,10 @@ isEC2 m = liftIO (req `catch` err)
   where
     req = do
       !_ <- request m "http://instance-data/latest"
-      return True
+      pure True
 
     err :: HttpException -> IO Bool
-    err = const (return False)
+    err = const (pure False)
 
 -- | Retrieve the specified 'Dynamic' data.
 --
@@ -323,7 +320,7 @@ dynamic m = get m . mappend latest . toText
 metadata :: (MonadIO m, MonadThrow m) => Manager -> Metadata -> m ByteString
 metadata m = get m . mappend latest . toText
 
--- | Retrieve the user data. Returns 'Nothing' if no user data is assigned
+-- | Retrieve the user data. Pures 'Nothing' if no user data is assigned
 -- to the instance.
 --
 -- Throws 'HttpException' if HTTP communication fails.
@@ -331,17 +328,10 @@ userdata :: (MonadIO m, MonadCatch m) => Manager -> m (Maybe ByteString)
 userdata m = do
   x <- try $ get m (latest <> "user-data")
   case x of
-#if MIN_VERSION_http_client(0,5,0)
-        Left (HttpExceptionRequest _ (StatusCodeException rs _))
-            | fromEnum (responseStatus rs) == 404
-                -> return Nothing
-#else
-        Left (StatusCodeException s _ _)
-            | fromEnum s == 404
-                -> return Nothing
-#endif
+    Left (HttpExceptionRequest _ (StatusCodeException rs _))
+          | fromEnum (responseStatus rs) == 404 -> pure Nothing
     Left e -> throwM e
-    Right b -> return (Just b)
+    Right b -> pure (Just b)
 
 -- | Represents an instance's identity document.
 --
@@ -454,10 +444,10 @@ identity ::
   (MonadIO m, MonadThrow m) =>
   Manager ->
   m (Either String IdentityDocument)
-identity m = (eitherDecode . LBS.fromStrict) `liftM` dynamic m Document
+identity m = (eitherDecode . LBS.fromStrict) <$> dynamic m Document
 
 get :: (MonadIO m, MonadThrow m) => Manager -> Text -> m ByteString
-get m url = liftIO (strip `liftM` request m url)
+get m url = liftIO (strip <$> request m url)
   where
     strip bs
       | BS8.isSuffixOf "\n" bs = BS8.init bs
@@ -465,10 +455,7 @@ get m url = liftIO (strip `liftM` request m url)
 
 request :: Manager -> Text -> IO ByteString
 request m url = do
-#if MIN_VERSION_http_client(0,4,30)
-    rq <- parseUrlThrow (Text.unpack url)
-#else
-    rq <- parseUrl (Text.unpack url)
-#endif
+  rq <- parseUrlThrow (Text.unpack url)
   rs <- httpLbs rq m
-  return . LBS.toStrict $ responseBody rs
+  
+  pure . LBS.toStrict $ responseBody rs

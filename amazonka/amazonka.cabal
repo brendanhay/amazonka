@@ -68,7 +68,7 @@ library
     , conduit              >=1.1
     , conduit-extra        >=1.1
     , directory            >=1.2
-    , exceptions           >=0.6
+    , exceptions           >=0.10
     , http-client          >=0.5
     , http-conduit         >=2.3
     , http-types           >=0.8

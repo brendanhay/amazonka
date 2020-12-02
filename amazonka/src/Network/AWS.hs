@@ -155,7 +155,6 @@ import qualified Control.Monad.Trans.AWS as AWST
 import Control.Monad.Trans.Class (lift)
 import Control.Monad.Trans.Except (ExceptT)
 import Control.Monad.Trans.Identity (IdentityT)
-import Control.Monad.Trans.List (ListT)
 import Control.Monad.Trans.Maybe (MaybeT)
 import Control.Monad.Trans.Reader (ReaderT)
 import Control.Monad.Trans.Resource
@@ -196,8 +195,6 @@ instance (MonadResource m, MonadCatch m) => MonadAWS (AWST m) where
     liftResourceT (AWST.runAWST env action)
 
 instance MonadAWS m => MonadAWS (IdentityT m) where liftAWS = lift . liftAWS
-
-instance MonadAWS m => MonadAWS (ListT m) where liftAWS = lift . liftAWS
 
 instance MonadAWS m => MonadAWS (MaybeT m) where liftAWS = lift . liftAWS
 

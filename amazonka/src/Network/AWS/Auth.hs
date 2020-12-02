@@ -1,5 +1,4 @@
 {-# LANGUAGE BangPatterns #-}
-{-# LANGUAGE CPP #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE LambdaCase #-}
@@ -75,7 +74,6 @@ import qualified Data.ByteString.Lazy.Char8 as LBS8
 import Data.Char (isSpace)
 import Data.IORef
 import qualified Data.Ini as INI
-import Data.Monoid
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import Data.Time (diffUTCTime, getCurrentTime)
@@ -287,7 +285,6 @@ instance ToLog AuthError where
 class AsAuthError a where
   -- | A general authentication error.
   _AuthError :: Prism' a AuthError
-
   {-# MINIMAL _AuthError #-}
 
   -- | An error occured while communicating over HTTP with
@@ -356,8 +353,8 @@ getAuth ::
   Credentials ->
   m (Auth, Maybe Region)
 getAuth m = \case
-  FromKeys a s -> return (fromKeys a s, Nothing)
-  FromSession a s t -> return (fromSession a s t, Nothing)
+  FromKeys a s -> pure (fromKeys a s, Nothing)
+  FromSession a s t -> pure (fromSession a s t, Nothing)
   FromEnv a s t r -> fromEnvKeys a s t r
   FromProfile n -> fromProfileName m n
   FromFile n f -> fromFilePath n f
@@ -417,14 +414,14 @@ fromEnvKeys access secret session region' =
         <$> (req access <&> AccessKey . BS8.pack)
         <*> (req secret <&> Sensitive . SecretKey . BS8.pack)
         <*> (opt session <&> fmap (Sensitive . SessionToken . BS8.pack))
-        <*> return Nothing
+        <*> pure Nothing
 
     lookupRegion :: (MonadIO m, MonadThrow m) => m (Maybe Region)
     lookupRegion = runMaybeT $ do
-      k <- MaybeT (return region')
+      k <- MaybeT (pure region')
       r <- MaybeT (opt region')
       case fromText (Text.pack r) of
-        Right x -> return x
+        Right x -> pure x
         Left e ->
           throwM . InvalidEnvError $
             "Unable to parse ENV variable: " <> k <> ", " <> Text.pack e
@@ -433,10 +430,10 @@ fromEnvKeys access secret session region' =
       m <- opt (Just k)
       maybe
         (throwM . MissingEnvError $ "Unable to read ENV variable: " <> k)
-        return
+        pure
         m
 
-    opt Nothing = return Nothing
+    opt Nothing = pure Nothing
     opt (Just k) = liftIO (lookupEnv (Text.unpack k))
 
 -- | Loads the default @credentials@ INI file using the default profile name.
@@ -465,23 +462,23 @@ fromFilePath n f = do
   p <- liftIO (doesFileExist f)
   unless p $
     throwM (MissingFileError f)
-  ini <- either (invalidErr Nothing) return =<< liftIO (INI.readIniFile f)
+  ini <- either (invalidErr Nothing) pure =<< liftIO (INI.readIniFile f)
   env <-
     AuthEnv
       <$> (req credAccessKey ini <&> AccessKey)
       <*> (req credSecretKey ini <&> Sensitive . SecretKey)
       <*> (opt credSessionToken ini <&> fmap (Sensitive . SessionToken))
-      <*> return Nothing
-  return (Auth env, Nothing)
+      <*> pure Nothing
+  pure (Auth env, Nothing)
   where
     req k i =
       case INI.lookupValue n k i of
         Left e -> invalidErr (Just k) e
         Right x
           | blank x -> invalidErr (Just k) "cannot be a blank string."
-          | otherwise -> return (Text.encodeUtf8 x)
+          | otherwise -> pure (Text.encodeUtf8 x)
 
-    opt k i = return $
+    opt k i = pure $
       case INI.lookupValue n k i of
         Left _ -> Nothing
         Right x -> Just (Text.encodeUtf8 x)
@@ -527,7 +524,7 @@ fromProfile m = do
 -- terminate when 'Auth' is no longer referenced.
 --
 -- If no session token or expiration time is present the credentials will
--- be returned verbatim.
+-- be pureed verbatim.
 fromProfileName ::
   (MonadIO m, MonadCatch m) =>
   Manager ->
@@ -536,7 +533,7 @@ fromProfileName ::
 fromProfileName m name = do
   auth <- liftIO $ fetchAuthInBackground getCredentials
   reg <- getRegion
-  return (auth, Just reg)
+  pure (auth, Just reg)
   where
     getCredentials :: IO AuthEnv
     getCredentials =
@@ -549,7 +546,7 @@ fromProfileName m name = do
         >>= handleErr (fmap _region) invalidIdentityErr
 
     handleErr _ _ (Left e) = throwM (RetrievalError e)
-    handleErr f g (Right x) = either (throwM . g) return (f x)
+    handleErr f g (Right x) = either (throwM . g) pure (f x)
 
     invalidIAMErr =
       InvalidIAMError
@@ -576,7 +573,7 @@ fromProfileName m name = do
 -- periodically fetch fresh credentials before the current ones expire.
 --
 -- Throws 'MissingEnvError' if the 'envContainerCredentialsURI' environment
--- variable is not set or 'InvalidIAMError' if the payload returned by the ECS
+-- variable is not set or 'InvalidIAMError' if the payload pureed by the ECS
 -- container agent is not of the expected format.
 fromContainer ::
   (MonadIO m, MonadThrow m) =>
@@ -586,7 +583,7 @@ fromContainer m = do
   req <- getCredentialsURI
   auth <- liftIO $ fetchAuthInBackground (renew req)
   reg <- getRegion
-  return (auth, reg)
+  pure (auth, reg)
   where
     getCredentialsURI :: (MonadIO m, MonadThrow m) => m HTTP.Request
     getCredentialsURI = do
@@ -594,18 +591,15 @@ fromContainer m = do
       p <-
         maybe
           (throwM . MissingEnvError $ "Unable to read ENV variable: " <> envContainerCredentialsURI)
-          return
+          pure
           mp
-#if MIN_VERSION_http_client(0,4,30)
-        parseUrlThrow $ "http://169.254.170.2" <> p
-#else
-        parseUrl $ "http://169.254.170.2" <> p
-#endif
+          
+      parseUrlThrow $ "http://169.254.170.2" <> p
 
     renew :: HTTP.Request -> IO AuthEnv
     renew req = do
       rs <- httpLbs req m
-      either (throwM . invalidIdentityErr) return (eitherDecode (responseBody rs))
+      either (throwM . invalidIdentityErr) pure (eitherDecode (responseBody rs))
 
     invalidIdentityErr =
       InvalidIAMError
@@ -616,24 +610,24 @@ fromContainer m = do
     getRegion = runMaybeT $ do
       mr <- MaybeT . liftIO $ lookupEnv (Text.unpack envRegion)
       either
-        (const . MaybeT $ return Nothing)
-        return
+        (const . MaybeT $ pure Nothing)
+        pure
         (fromText (Text.pack mr))
 
 -- | Implements the background fetching behavior used by 'fromProfileName' and
 -- 'fromContainer'. Given an 'IO' action that produces an 'AuthEnv', this spawns
--- a thread that mutates the 'IORef' returned in the resulting 'Auth' to keep
+-- a thread that mutates the 'IORef' pureed in the resulting 'Auth' to keep
 -- the temporary credentials up to date.
 fetchAuthInBackground :: IO AuthEnv -> IO Auth
 fetchAuthInBackground menv =
   menv >>= \(!env) -> liftIO $
     case _authExpiry env of
-      Nothing -> return (Auth env)
+      Nothing -> pure (Auth env)
       Just x -> do
         r <- newIORef env
         p <- myThreadId
         s <- timer menv r p x
-        return (Ref s r)
+        pure (Ref s r)
   where
     timer :: IO AuthEnv -> IORef AuthEnv -> ThreadId -> ISO8601 -> IO ThreadId
     timer ma !r !p !x = forkIO $ do
@@ -650,10 +644,10 @@ fetchAuthInBackground menv =
         Right !a -> do
           mr <- deRefWeak w
           case mr of
-            Nothing -> return ()
+            Nothing -> pure ()
             Just r -> do
               atomicWriteIORef r a
-              maybe (return ()) (loop ma w p) (_authExpiry a)
+              maybe (pure ()) (loop ma w p) (_authExpiry a)
 
     diff (Time !x) !y = (* 1000000) $ if n > 0 then n else 1
       where

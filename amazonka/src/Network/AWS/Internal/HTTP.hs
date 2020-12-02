@@ -22,7 +22,7 @@ where
 
 import Control.Arrow (first)
 import Control.Monad
-import Control.Monad.Catch (Handler (Handler), MonadCatch, MonadThrow, catches)
+import Control.Monad.Catch (Handler (Handler), MonadCatch, catches)
 import Control.Monad.IO.Class
 import Control.Monad.Reader
 import Control.Monad.Trans.Resource
@@ -140,16 +140,10 @@ perform Env {..} x = catches go handlers
       logTrace _envLogger m -- trace:Signing:Meta
       logDebug _envLogger rq -- debug:ClientRequest
 
-#if MIN_VERSION_http_conduit(2, 3, 0)
-        rs          <- liftResourceT (http rq _envManager)
-#else
-        rs'         <- liftResourceT (http rq _envManager)
-        let resSrc   = responseBody rs'
-        (src', fin) <- liftResourceT (unwrapResumable resSrc)
-        let src = addCleanup (const fin) src'
-        let rs  = src <$ rs'
-#endif
+      rs          <- liftResourceT (http rq _envManager)
+                       
       logDebug _envLogger rs -- debug:ClientResponse
+      
       Right <$> response _envLogger (_rqService x) (p x) rs
 
     handlers =

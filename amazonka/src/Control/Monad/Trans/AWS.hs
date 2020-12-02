@@ -161,10 +161,7 @@ import Control.Monad.State.Class
 import Control.Monad.Trans.Control
 import Control.Monad.Trans.Resource
 import Control.Monad.Writer.Class
-#if MIN_VERSION_base(4,9,0)
-import Control.Monad.Fail
-#endif
-
+import qualified Control.Monad.Fail as Fail
 import Data.Conduit hiding (await)
 import Data.Conduit.Lazy (MonadActive (..))
 import Data.IORef
@@ -195,10 +192,8 @@ newtype AWST' r m a = AWST' {unAWST :: ReaderT r m a}
       MonadPlus,
       MonadIO,
       MonadActive,
-      MonadTrans
-#if MIN_VERSION_base(4,9,0)
-        , MonadFail
-#endif
+      MonadTrans,
+      Fail.MonadFail
     )
 
 instance MonadThrow m => MonadThrow (AWST' r m) where
@@ -216,13 +211,11 @@ instance MonadMask m => MonadMask (AWST' r m) where
     uninterruptibleMask $ \u ->
       unAWST $ a (AWST' . u . unAWST)
 
-#if MIN_VERSION_exceptions(0,10,0)
-    generalBracket acquire rel action = AWST' $
+  generalBracket acquire rel action = AWST' $
         generalBracket
             (unAWST acquire)
             (\a ex -> unAWST $ rel a ex)
             (\a -> unAWST $ action a)
-#endif
 
 instance MonadBase b m => MonadBase b (AWST' r m) where
   liftBase = liftBaseDefault
@@ -239,14 +232,13 @@ instance MonadBaseControl b m => MonadBaseControl b (AWST' r m) where
   liftBaseWith = defaultLiftBaseWith
   restoreM = defaultRestoreM
 
-instance MonadUnliftIO m => MonadUnliftIO (AWST' r m)
-
+instance MonadUnliftIO m => MonadUnliftIO (AWST' r m) where
 #if MIN_VERSION_unliftio_core(0,2,0)
     {-# INLINE withRunInIO #-}
     withRunInIO inner =
-        AWST' $
+      AWST' $
         withRunInIO $ \run ->
-        inner (run . unAWST)
+          inner (run . unAWST)
 #else
     {-# INLINE askUnliftIO #-}
     askUnliftIO = AWST' $ (\(UnliftIO f) -> UnliftIO $ f . unAWST)

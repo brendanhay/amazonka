@@ -30,7 +30,6 @@ where
 import Control.Monad
 import Control.Monad.IO.Class
 import qualified Data.ByteString.Lazy.Builder as Build
-import Data.Monoid
 import Network.AWS.Data.Log
 import Network.AWS.Types
 import System.IO
@@ -42,17 +41,15 @@ import System.IO
 -- <http://hackage.haskell.org/package/fast-logger fast-logger>
 -- should be used in production code.
 newLogger :: MonadIO m => LogLevel -> Handle -> m Logger
-newLogger x hd = liftIO $ do
-  hSetBuffering hd LineBuffering
-  return $ \y b ->
-    when (x >= y) $
-      Build.hPutBuilder hd (b <> "\n")
+newLogger x hd =
+  liftIO $ do
+   hSetBuffering hd LineBuffering
+  
+   pure $ \y b ->
+     when (x >= y) $
+       Build.hPutBuilder hd (b <> "\n")
 
-logError,
-  logInfo,
-  logDebug,
-  logTrace ::
-    (MonadIO m, ToLog a) => Logger -> a -> m ()
+logError, logInfo, logDebug, logTrace :: (MonadIO m, ToLog a) => Logger -> a -> m ()
 logError f = liftIO . f Error . build
 logInfo f = liftIO . f Info . build
 logDebug f = liftIO . f Debug . build

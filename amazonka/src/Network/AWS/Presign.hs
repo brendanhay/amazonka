@@ -17,13 +17,11 @@ module Network.AWS.Presign where
 
 import Control.Monad
 import Control.Monad.IO.Class
-import Network.AWS.Data.Headers (hExpect)
 import Network.AWS.Data.Time
 import Network.AWS.Lens ((%~), (&))
 import Network.AWS.Prelude
 import Network.AWS.Request (requestURL)
 import Network.AWS.Types
-import Network.HTTP.Types (Header)
 
 -- | Presign an URL that is valid from the specified time until the
 -- number of seconds expiry has elapsed.

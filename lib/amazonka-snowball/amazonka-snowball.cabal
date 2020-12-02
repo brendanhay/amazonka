@@ -1,102 +1,136 @@
-name:                  amazonka-snowball
-version:               1.6.1
-synopsis:              Amazon Import/Export Snowball SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-snowball
+version:            2.0.0.0
+synopsis:           Amazon Import/Export Snowball SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2020 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.Snowball" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with
+  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+  mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  Lenses are used for constructing and manipulating types,
+  due to the depth of nesting of AWS types and transparency regarding
+  de/serialisation into more palatable Haskell values.
+  The provided lenses should be compatible with any of the major lens libraries
+  such as <http://hackage.haskell.org/package/lens lens> or
+  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Network.AWS.Snowball" or <https://aws.amazon.com/documentation/ the AWS documentation>
+  to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-snowball
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-snowball
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.Snowball
+    Network.AWS.Snowball.CancelCluster
+    Network.AWS.Snowball.CancelJob
+    Network.AWS.Snowball.CreateAddress
+    Network.AWS.Snowball.CreateCluster
+    Network.AWS.Snowball.CreateJob
+    Network.AWS.Snowball.CreateReturnShippingLabel
+    Network.AWS.Snowball.DescribeAddress
+    Network.AWS.Snowball.DescribeAddresses
+    Network.AWS.Snowball.DescribeCluster
+    Network.AWS.Snowball.DescribeJob
+    Network.AWS.Snowball.DescribeReturnShippingLabel
+    Network.AWS.Snowball.GetJobManifest
+    Network.AWS.Snowball.GetJobUnlockCode
+    Network.AWS.Snowball.GetSnowballUsage
+    Network.AWS.Snowball.GetSoftwareUpdates
+    Network.AWS.Snowball.ListClusterJobs
+    Network.AWS.Snowball.ListClusters
+    Network.AWS.Snowball.ListCompatibleImages
+    Network.AWS.Snowball.ListJobs
+    Network.AWS.Snowball.Types
+    Network.AWS.Snowball.UpdateCluster
+    Network.AWS.Snowball.UpdateJob
+    Network.AWS.Snowball.UpdateJobShipmentState
+    Network.AWS.Snowball.Waiters
 
-    exposed-modules:
-          Network.AWS.Snowball
-        , Network.AWS.Snowball.CancelCluster
-        , Network.AWS.Snowball.CancelJob
-        , Network.AWS.Snowball.CreateAddress
-        , Network.AWS.Snowball.CreateCluster
-        , Network.AWS.Snowball.CreateJob
-        , Network.AWS.Snowball.DescribeAddress
-        , Network.AWS.Snowball.DescribeAddresses
-        , Network.AWS.Snowball.DescribeCluster
-        , Network.AWS.Snowball.DescribeJob
-        , Network.AWS.Snowball.GetJobManifest
-        , Network.AWS.Snowball.GetJobUnlockCode
-        , Network.AWS.Snowball.GetSnowballUsage
-        , Network.AWS.Snowball.ListClusterJobs
-        , Network.AWS.Snowball.ListClusters
-        , Network.AWS.Snowball.ListJobs
-        , Network.AWS.Snowball.Types
-        , Network.AWS.Snowball.UpdateCluster
-        , Network.AWS.Snowball.UpdateJob
-        , Network.AWS.Snowball.Waiters
+  other-modules:
+    Network.AWS.Snowball.Types.Address
+    Network.AWS.Snowball.Types.ClusterListEntry
+    Network.AWS.Snowball.Types.ClusterMetadata
+    Network.AWS.Snowball.Types.ClusterState
+    Network.AWS.Snowball.Types.CompatibleImage
+    Network.AWS.Snowball.Types.DataTransfer
+    Network.AWS.Snowball.Types.DeviceConfiguration
+    Network.AWS.Snowball.Types.EC2AMIResource
+    Network.AWS.Snowball.Types.EventTriggerDefinition
+    Network.AWS.Snowball.Types.INDTaxDocuments
+    Network.AWS.Snowball.Types.JobListEntry
+    Network.AWS.Snowball.Types.JobLogs
+    Network.AWS.Snowball.Types.JobMetadata
+    Network.AWS.Snowball.Types.JobResource
+    Network.AWS.Snowball.Types.JobState
+    Network.AWS.Snowball.Types.JobType
+    Network.AWS.Snowball.Types.KeyRange
+    Network.AWS.Snowball.Types.LambdaResource
+    Network.AWS.Snowball.Types.Notification
+    Network.AWS.Snowball.Types.S3Resource
+    Network.AWS.Snowball.Types.Shipment
+    Network.AWS.Snowball.Types.ShipmentState
+    Network.AWS.Snowball.Types.ShippingDetails
+    Network.AWS.Snowball.Types.ShippingLabelStatus
+    Network.AWS.Snowball.Types.ShippingOption
+    Network.AWS.Snowball.Types.SnowballCapacity
+    Network.AWS.Snowball.Types.SnowballType
+    Network.AWS.Snowball.Types.SnowconeDeviceConfiguration
+    Network.AWS.Snowball.Types.TaxDocuments
+    Network.AWS.Snowball.Types.WirelessConnection
 
-    other-modules:
-          Network.AWS.Snowball.Types.Product
-        , Network.AWS.Snowball.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.7   && <5
 
 test-suite amazonka-snowball-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.Snowball
+    Test.AWS.Snowball
+    Test.AWS.Snowball.Internal
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.Snowball
-        , Test.AWS.Gen.Snowball
-        , Test.AWS.Snowball.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-snowball
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka-snowball
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

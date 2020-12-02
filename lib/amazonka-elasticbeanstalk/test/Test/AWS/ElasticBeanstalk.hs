@@ -11,11 +11,12 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.ElasticBeanstalk
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Test.Tasty
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.DirectConnect
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.DirectConnect
-import           Test.AWS.Gen.DirectConnect
-import           Test.Tasty
+import Network.AWS.DirectConnect
+import Test.AWS.Gen.DirectConnect
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

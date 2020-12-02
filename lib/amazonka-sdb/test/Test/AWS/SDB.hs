@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.SDB
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.SDB
-import           Test.AWS.Gen.SDB
-import           Test.Tasty
+import Network.AWS.SDB
+import Test.AWS.Gen.SDB
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

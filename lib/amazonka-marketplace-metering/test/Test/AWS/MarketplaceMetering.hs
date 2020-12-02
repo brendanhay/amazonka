@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TemplateHaskell #-}
 
 -- |
 -- Module      : Test.AWS.MarketplaceMetering
@@ -8,13 +8,13 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.MarketplaceMetering
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Test.AWS.Prelude
+import Test.AWS.Prelude
 
 tests :: [TestTree]
 tests = []

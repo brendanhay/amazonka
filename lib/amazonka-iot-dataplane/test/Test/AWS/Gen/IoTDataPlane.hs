@@ -1,5 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,7 +10,6 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.IoTDataPlane where
 
 import Data.Proxy
@@ -61,50 +60,58 @@ import Test.Tasty
 -- Requests
 
 requestGetThingShadow :: GetThingShadow -> TestTree
-requestGetThingShadow = req
+requestGetThingShadow =
+  req
     "GetThingShadow"
     "fixture/GetThingShadow.yaml"
 
 requestDeleteThingShadow :: DeleteThingShadow -> TestTree
-requestDeleteThingShadow = req
+requestDeleteThingShadow =
+  req
     "DeleteThingShadow"
     "fixture/DeleteThingShadow.yaml"
 
 requestUpdateThingShadow :: UpdateThingShadow -> TestTree
-requestUpdateThingShadow = req
+requestUpdateThingShadow =
+  req
     "UpdateThingShadow"
     "fixture/UpdateThingShadow.yaml"
 
 requestPublish :: Publish -> TestTree
-requestPublish = req
+requestPublish =
+  req
     "Publish"
     "fixture/Publish.yaml"
 
 -- Responses
 
 responseGetThingShadow :: GetThingShadowResponse -> TestTree
-responseGetThingShadow = res
+responseGetThingShadow =
+  res
     "GetThingShadowResponse"
     "fixture/GetThingShadowResponse.proto"
     ioTDataPlane
     (Proxy :: Proxy GetThingShadow)
 
 responseDeleteThingShadow :: DeleteThingShadowResponse -> TestTree
-responseDeleteThingShadow = res
+responseDeleteThingShadow =
+  res
     "DeleteThingShadowResponse"
     "fixture/DeleteThingShadowResponse.proto"
     ioTDataPlane
     (Proxy :: Proxy DeleteThingShadow)
 
 responseUpdateThingShadow :: UpdateThingShadowResponse -> TestTree
-responseUpdateThingShadow = res
+responseUpdateThingShadow =
+  res
     "UpdateThingShadowResponse"
     "fixture/UpdateThingShadowResponse.proto"
     ioTDataPlane
     (Proxy :: Proxy UpdateThingShadow)
 
 responsePublish :: PublishResponse -> TestTree
-responsePublish = res
+responsePublish =
+  res
     "PublishResponse"
     "fixture/PublishResponse.proto"
     ioTDataPlane

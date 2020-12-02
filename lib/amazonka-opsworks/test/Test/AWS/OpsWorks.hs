@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.OpsWorks
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.OpsWorks
-import           Test.AWS.Gen.OpsWorks
-import           Test.Tasty
+import Network.AWS.OpsWorks
+import Test.AWS.Gen.OpsWorks
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

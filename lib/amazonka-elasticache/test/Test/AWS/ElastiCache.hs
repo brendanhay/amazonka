@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.ElastiCache
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.ElastiCache
-import           Test.AWS.Gen.ElastiCache
-import           Test.Tasty
+import Network.AWS.ElastiCache
+import Test.AWS.Gen.ElastiCache
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

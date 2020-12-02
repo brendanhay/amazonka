@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.ApplicationAutoScaling
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.ApplicationAutoScaling where
 
 import Data.Proxy
@@ -97,122 +96,142 @@ import Test.Tasty
 -- Requests
 
 requestDeleteScalingPolicy :: DeleteScalingPolicy -> TestTree
-requestDeleteScalingPolicy = req
+requestDeleteScalingPolicy =
+  req
     "DeleteScalingPolicy"
     "fixture/DeleteScalingPolicy.yaml"
 
 requestPutScalingPolicy :: PutScalingPolicy -> TestTree
-requestPutScalingPolicy = req
+requestPutScalingPolicy =
+  req
     "PutScalingPolicy"
     "fixture/PutScalingPolicy.yaml"
 
 requestRegisterScalableTarget :: RegisterScalableTarget -> TestTree
-requestRegisterScalableTarget = req
+requestRegisterScalableTarget =
+  req
     "RegisterScalableTarget"
     "fixture/RegisterScalableTarget.yaml"
 
 requestDescribeScalingPolicies :: DescribeScalingPolicies -> TestTree
-requestDescribeScalingPolicies = req
+requestDescribeScalingPolicies =
+  req
     "DescribeScalingPolicies"
     "fixture/DescribeScalingPolicies.yaml"
 
 requestPutScheduledAction :: PutScheduledAction -> TestTree
-requestPutScheduledAction = req
+requestPutScheduledAction =
+  req
     "PutScheduledAction"
     "fixture/PutScheduledAction.yaml"
 
 requestDeleteScheduledAction :: DeleteScheduledAction -> TestTree
-requestDeleteScheduledAction = req
+requestDeleteScheduledAction =
+  req
     "DeleteScheduledAction"
     "fixture/DeleteScheduledAction.yaml"
 
 requestDescribeScheduledActions :: DescribeScheduledActions -> TestTree
-requestDescribeScheduledActions = req
+requestDescribeScheduledActions =
+  req
     "DescribeScheduledActions"
     "fixture/DescribeScheduledActions.yaml"
 
 requestDescribeScalableTargets :: DescribeScalableTargets -> TestTree
-requestDescribeScalableTargets = req
+requestDescribeScalableTargets =
+  req
     "DescribeScalableTargets"
     "fixture/DescribeScalableTargets.yaml"
 
 requestDescribeScalingActivities :: DescribeScalingActivities -> TestTree
-requestDescribeScalingActivities = req
+requestDescribeScalingActivities =
+  req
     "DescribeScalingActivities"
     "fixture/DescribeScalingActivities.yaml"
 
 requestDeregisterScalableTarget :: DeregisterScalableTarget -> TestTree
-requestDeregisterScalableTarget = req
+requestDeregisterScalableTarget =
+  req
     "DeregisterScalableTarget"
     "fixture/DeregisterScalableTarget.yaml"
 
 -- Responses
 
 responseDeleteScalingPolicy :: DeleteScalingPolicyResponse -> TestTree
-responseDeleteScalingPolicy = res
+responseDeleteScalingPolicy =
+  res
     "DeleteScalingPolicyResponse"
     "fixture/DeleteScalingPolicyResponse.proto"
     applicationAutoScaling
     (Proxy :: Proxy DeleteScalingPolicy)
 
 responsePutScalingPolicy :: PutScalingPolicyResponse -> TestTree
-responsePutScalingPolicy = res
+responsePutScalingPolicy =
+  res
     "PutScalingPolicyResponse"
     "fixture/PutScalingPolicyResponse.proto"
     applicationAutoScaling
     (Proxy :: Proxy PutScalingPolicy)
 
 responseRegisterScalableTarget :: RegisterScalableTargetResponse -> TestTree
-responseRegisterScalableTarget = res
+responseRegisterScalableTarget =
+  res
     "RegisterScalableTargetResponse"
     "fixture/RegisterScalableTargetResponse.proto"
     applicationAutoScaling
     (Proxy :: Proxy RegisterScalableTarget)
 
 responseDescribeScalingPolicies :: DescribeScalingPoliciesResponse -> TestTree
-responseDescribeScalingPolicies = res
+responseDescribeScalingPolicies =
+  res
     "DescribeScalingPoliciesResponse"
     "fixture/DescribeScalingPoliciesResponse.proto"
     applicationAutoScaling
     (Proxy :: Proxy DescribeScalingPolicies)
 
 responsePutScheduledAction :: PutScheduledActionResponse -> TestTree
-responsePutScheduledAction = res
+responsePutScheduledAction =
+  res
     "PutScheduledActionResponse"
     "fixture/PutScheduledActionResponse.proto"
     applicationAutoScaling
     (Proxy :: Proxy PutScheduledAction)
 
 responseDeleteScheduledAction :: DeleteScheduledActionResponse -> TestTree
-responseDeleteScheduledAction = res
+responseDeleteScheduledAction =
+  res
     "DeleteScheduledActionResponse"
     "fixture/DeleteScheduledActionResponse.proto"
     applicationAutoScaling
     (Proxy :: Proxy DeleteScheduledAction)
 
 responseDescribeScheduledActions :: DescribeScheduledActionsResponse -> TestTree
-responseDescribeScheduledActions = res
+responseDescribeScheduledActions =
+  res
     "DescribeScheduledActionsResponse"
     "fixture/DescribeScheduledActionsResponse.proto"
     applicationAutoScaling
     (Proxy :: Proxy DescribeScheduledActions)
 
 responseDescribeScalableTargets :: DescribeScalableTargetsResponse -> TestTree
-responseDescribeScalableTargets = res
+responseDescribeScalableTargets =
+  res
     "DescribeScalableTargetsResponse"
     "fixture/DescribeScalableTargetsResponse.proto"
     applicationAutoScaling
     (Proxy :: Proxy DescribeScalableTargets)
 
 responseDescribeScalingActivities :: DescribeScalingActivitiesResponse -> TestTree
-responseDescribeScalingActivities = res
+responseDescribeScalingActivities =
+  res
     "DescribeScalingActivitiesResponse"
     "fixture/DescribeScalingActivitiesResponse.proto"
     applicationAutoScaling
     (Proxy :: Proxy DescribeScalingActivities)
 
 responseDeregisterScalableTarget :: DeregisterScalableTargetResponse -> TestTree
-responseDeregisterScalableTarget = res
+responseDeregisterScalableTarget =
+  res
     "DeregisterScalableTargetResponse"
     "fixture/DeregisterScalableTargetResponse.proto"
     applicationAutoScaling

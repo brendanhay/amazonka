@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Test.AWS.Inspector
@@ -14,7 +13,7 @@
 
 module Test.AWS.Inspector where
 
-import           Test.AWS.Prelude
+import Test.AWS.Prelude
 
 tests :: [TestTree]
 tests = []

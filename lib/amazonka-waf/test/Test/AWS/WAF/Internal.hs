@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Test.AWS.WAF.Internal
@@ -14,4 +13,4 @@
 
 module Test.AWS.WAF.Internal where
 
-import           Test.AWS.Prelude
+import Test.AWS.Prelude

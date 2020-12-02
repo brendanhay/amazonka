@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.ElasticTranscoder
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.ElasticTranscoder
-import           Test.AWS.Gen.ElasticTranscoder
-import           Test.Tasty
+import Network.AWS.ElasticTranscoder
+import Test.AWS.Gen.ElasticTranscoder
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

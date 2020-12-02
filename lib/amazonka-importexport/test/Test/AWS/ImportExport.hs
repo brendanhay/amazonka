@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.ImportExport
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.ImportExport
-import           Test.AWS.Gen.ImportExport
-import           Test.Tasty
+import Network.AWS.ImportExport
+import Test.AWS.Gen.ImportExport
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

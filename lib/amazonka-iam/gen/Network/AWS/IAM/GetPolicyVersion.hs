@@ -1,18 +1,17 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.GetPolicyVersion
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,29 +24,29 @@
 --
 -- This API retrieves information about managed policies. To retrieve information about an inline policy that is embedded in a user, group, or role, use the 'GetUserPolicy' , 'GetGroupPolicy' , or 'GetRolePolicy' API.
 --
--- For more information about the types of policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+-- For more information about the types of policies, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
 --
--- For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
---
+-- For more information about managed policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
 module Network.AWS.IAM.GetPolicyVersion
-    (
-    -- * Creating a Request
-      getPolicyVersion
-    , GetPolicyVersion
+  ( -- * Creating a Request
+    getPolicyVersion,
+    GetPolicyVersion,
+
     -- * Request Lenses
-    , gpvPolicyARN
-    , gpvVersionId
+    gpvPolicyARN,
+    gpvVersionId,
 
     -- * Destructuring the Response
-    , getPolicyVersionResponse
-    , GetPolicyVersionResponse
+    getPolicyVersionResponse,
+    GetPolicyVersionResponse,
+
     -- * Response Lenses
-    , gpvrsPolicyVersion
-    , gpvrsResponseStatus
-    ) where
+    gpvrsPolicyVersion,
+    gpvrsResponseStatus,
+  )
+where
 
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
@@ -55,60 +54,67 @@ import Network.AWS.Response
 
 -- | /See:/ 'getPolicyVersion' smart constructor.
 data GetPolicyVersion = GetPolicyVersion'
-  { _gpvPolicyARN :: !Text
-  , _gpvVersionId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _gpvPolicyARN :: !Text,
+    _gpvVersionId :: !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'GetPolicyVersion' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpvPolicyARN' - The Amazon Resource Name (ARN) of the managed policy that you want information about. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+-- * 'gpvPolicyARN' - The Amazon Resource Name (ARN) of the managed policy that you want information about. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 --
--- * 'gpvVersionId' - Identifies the policy version to retrieve. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits.
-getPolicyVersion
-    :: Text -- ^ 'gpvPolicyARN'
-    -> Text -- ^ 'gpvVersionId'
-    -> GetPolicyVersion
+-- * 'gpvVersionId' - Identifies the policy version to retrieve. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits.
+getPolicyVersion ::
+  -- | 'gpvPolicyARN'
+  Text ->
+  -- | 'gpvVersionId'
+  Text ->
+  GetPolicyVersion
 getPolicyVersion pPolicyARN_ pVersionId_ =
-  GetPolicyVersion' {_gpvPolicyARN = pPolicyARN_, _gpvVersionId = pVersionId_}
+  GetPolicyVersion'
+    { _gpvPolicyARN = pPolicyARN_,
+      _gpvVersionId = pVersionId_
+    }
 
-
--- | The Amazon Resource Name (ARN) of the managed policy that you want information about. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+-- | The Amazon Resource Name (ARN) of the managed policy that you want information about. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 gpvPolicyARN :: Lens' GetPolicyVersion Text
-gpvPolicyARN = lens _gpvPolicyARN (\ s a -> s{_gpvPolicyARN = a})
+gpvPolicyARN = lens _gpvPolicyARN (\s a -> s {_gpvPolicyARN = a})
 
--- | Identifies the policy version to retrieve. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits.
+-- | Identifies the policy version to retrieve. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits.
 gpvVersionId :: Lens' GetPolicyVersion Text
-gpvVersionId = lens _gpvVersionId (\ s a -> s{_gpvVersionId = a})
+gpvVersionId = lens _gpvVersionId (\s a -> s {_gpvVersionId = a})
 
 instance AWSRequest GetPolicyVersion where
-        type Rs GetPolicyVersion = GetPolicyVersionResponse
-        request = postQuery iam
-        response
-          = receiveXMLWrapper "GetPolicyVersionResult"
-              (\ s h x ->
-                 GetPolicyVersionResponse' <$>
-                   (x .@? "PolicyVersion") <*> (pure (fromEnum s)))
+  type Rs GetPolicyVersion = GetPolicyVersionResponse
+  request = postQuery iam
+  response =
+    receiveXMLWrapper
+      "GetPolicyVersionResult"
+      ( \s h x ->
+          GetPolicyVersionResponse'
+            <$> (x .@? "PolicyVersion") <*> (pure (fromEnum s))
+      )
 
-instance Hashable GetPolicyVersion where
+instance Hashable GetPolicyVersion
 
-instance NFData GetPolicyVersion where
+instance NFData GetPolicyVersion
 
 instance ToHeaders GetPolicyVersion where
-        toHeaders = const mempty
+  toHeaders = const mempty
 
 instance ToPath GetPolicyVersion where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery GetPolicyVersion where
-        toQuery GetPolicyVersion'{..}
-          = mconcat
-              ["Action" =: ("GetPolicyVersion" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "PolicyArn" =: _gpvPolicyARN,
-               "VersionId" =: _gpvVersionId]
+  toQuery GetPolicyVersion' {..} =
+    mconcat
+      [ "Action" =: ("GetPolicyVersion" :: ByteString),
+        "Version" =: ("2010-05-08" :: ByteString),
+        "PolicyArn" =: _gpvPolicyARN,
+        "VersionId" =: _gpvVersionId
+      ]
 
 -- | Contains the response to a successful 'GetPolicyVersion' request.
 --
@@ -116,10 +122,11 @@ instance ToQuery GetPolicyVersion where
 --
 -- /See:/ 'getPolicyVersionResponse' smart constructor.
 data GetPolicyVersionResponse = GetPolicyVersionResponse'
-  { _gpvrsPolicyVersion  :: !(Maybe PolicyVersion)
-  , _gpvrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _gpvrsPolicyVersion ::
+      !(Maybe PolicyVersion),
+    _gpvrsResponseStatus :: !Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'GetPolicyVersionResponse' with the minimum fields required to make a request.
 --
@@ -128,20 +135,22 @@ data GetPolicyVersionResponse = GetPolicyVersionResponse'
 -- * 'gpvrsPolicyVersion' - A structure containing details about the policy version.
 --
 -- * 'gpvrsResponseStatus' - -- | The response status code.
-getPolicyVersionResponse
-    :: Int -- ^ 'gpvrsResponseStatus'
-    -> GetPolicyVersionResponse
+getPolicyVersionResponse ::
+  -- | 'gpvrsResponseStatus'
+  Int ->
+  GetPolicyVersionResponse
 getPolicyVersionResponse pResponseStatus_ =
   GetPolicyVersionResponse'
-    {_gpvrsPolicyVersion = Nothing, _gpvrsResponseStatus = pResponseStatus_}
-
+    { _gpvrsPolicyVersion = Nothing,
+      _gpvrsResponseStatus = pResponseStatus_
+    }
 
 -- | A structure containing details about the policy version.
 gpvrsPolicyVersion :: Lens' GetPolicyVersionResponse (Maybe PolicyVersion)
-gpvrsPolicyVersion = lens _gpvrsPolicyVersion (\ s a -> s{_gpvrsPolicyVersion = a})
+gpvrsPolicyVersion = lens _gpvrsPolicyVersion (\s a -> s {_gpvrsPolicyVersion = a})
 
 -- | -- | The response status code.
 gpvrsResponseStatus :: Lens' GetPolicyVersionResponse Int
-gpvrsResponseStatus = lens _gpvrsResponseStatus (\ s a -> s{_gpvrsResponseStatus = a})
+gpvrsResponseStatus = lens _gpvrsResponseStatus (\s a -> s {_gpvrsResponseStatus = a})
 
-instance NFData GetPolicyVersionResponse where
+instance NFData GetPolicyVersionResponse

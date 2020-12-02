@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.IoT
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.IoT
-import           Test.AWS.Gen.IoT
-import           Test.Tasty
+import Network.AWS.IoT
+import Test.AWS.Gen.IoT
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

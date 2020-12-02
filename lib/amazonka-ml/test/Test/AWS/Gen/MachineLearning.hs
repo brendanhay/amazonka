@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.MachineLearning
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.MachineLearning where
 
 import Data.Proxy
@@ -205,338 +204,394 @@ import Test.Tasty
 -- Requests
 
 requestUpdateDataSource :: UpdateDataSource -> TestTree
-requestUpdateDataSource = req
+requestUpdateDataSource =
+  req
     "UpdateDataSource"
     "fixture/UpdateDataSource.yaml"
 
 requestDeleteDataSource :: DeleteDataSource -> TestTree
-requestDeleteDataSource = req
+requestDeleteDataSource =
+  req
     "DeleteDataSource"
     "fixture/DeleteDataSource.yaml"
 
 requestDescribeTags :: DescribeTags -> TestTree
-requestDescribeTags = req
+requestDescribeTags =
+  req
     "DescribeTags"
     "fixture/DescribeTags.yaml"
 
 requestCreateDataSourceFromRedshift :: CreateDataSourceFromRedshift -> TestTree
-requestCreateDataSourceFromRedshift = req
+requestCreateDataSourceFromRedshift =
+  req
     "CreateDataSourceFromRedshift"
     "fixture/CreateDataSourceFromRedshift.yaml"
 
 requestCreateDataSourceFromS3 :: CreateDataSourceFromS3 -> TestTree
-requestCreateDataSourceFromS3 = req
+requestCreateDataSourceFromS3 =
+  req
     "CreateDataSourceFromS3"
     "fixture/CreateDataSourceFromS3.yaml"
 
 requestCreateMLModel :: CreateMLModel -> TestTree
-requestCreateMLModel = req
+requestCreateMLModel =
+  req
     "CreateMLModel"
     "fixture/CreateMLModel.yaml"
 
 requestDeleteTags :: DeleteTags -> TestTree
-requestDeleteTags = req
+requestDeleteTags =
+  req
     "DeleteTags"
     "fixture/DeleteTags.yaml"
 
 requestDeleteBatchPrediction :: DeleteBatchPrediction -> TestTree
-requestDeleteBatchPrediction = req
+requestDeleteBatchPrediction =
+  req
     "DeleteBatchPrediction"
     "fixture/DeleteBatchPrediction.yaml"
 
 requestUpdateBatchPrediction :: UpdateBatchPrediction -> TestTree
-requestUpdateBatchPrediction = req
+requestUpdateBatchPrediction =
+  req
     "UpdateBatchPrediction"
     "fixture/UpdateBatchPrediction.yaml"
 
 requestGetMLModel :: GetMLModel -> TestTree
-requestGetMLModel = req
+requestGetMLModel =
+  req
     "GetMLModel"
     "fixture/GetMLModel.yaml"
 
 requestGetDataSource :: GetDataSource -> TestTree
-requestGetDataSource = req
+requestGetDataSource =
+  req
     "GetDataSource"
     "fixture/GetDataSource.yaml"
 
 requestUpdateEvaluation :: UpdateEvaluation -> TestTree
-requestUpdateEvaluation = req
+requestUpdateEvaluation =
+  req
     "UpdateEvaluation"
     "fixture/UpdateEvaluation.yaml"
 
 requestDeleteEvaluation :: DeleteEvaluation -> TestTree
-requestDeleteEvaluation = req
+requestDeleteEvaluation =
+  req
     "DeleteEvaluation"
     "fixture/DeleteEvaluation.yaml"
 
 requestDeleteMLModel :: DeleteMLModel -> TestTree
-requestDeleteMLModel = req
+requestDeleteMLModel =
+  req
     "DeleteMLModel"
     "fixture/DeleteMLModel.yaml"
 
 requestUpdateMLModel :: UpdateMLModel -> TestTree
-requestUpdateMLModel = req
+requestUpdateMLModel =
+  req
     "UpdateMLModel"
     "fixture/UpdateMLModel.yaml"
 
 requestGetBatchPrediction :: GetBatchPrediction -> TestTree
-requestGetBatchPrediction = req
+requestGetBatchPrediction =
+  req
     "GetBatchPrediction"
     "fixture/GetBatchPrediction.yaml"
 
 requestDescribeBatchPredictions :: DescribeBatchPredictions -> TestTree
-requestDescribeBatchPredictions = req
+requestDescribeBatchPredictions =
+  req
     "DescribeBatchPredictions"
     "fixture/DescribeBatchPredictions.yaml"
 
 requestCreateDataSourceFromRDS :: CreateDataSourceFromRDS -> TestTree
-requestCreateDataSourceFromRDS = req
+requestCreateDataSourceFromRDS =
+  req
     "CreateDataSourceFromRDS"
     "fixture/CreateDataSourceFromRDS.yaml"
 
 requestCreateEvaluation :: CreateEvaluation -> TestTree
-requestCreateEvaluation = req
+requestCreateEvaluation =
+  req
     "CreateEvaluation"
     "fixture/CreateEvaluation.yaml"
 
 requestPredict :: Predict -> TestTree
-requestPredict = req
+requestPredict =
+  req
     "Predict"
     "fixture/Predict.yaml"
 
 requestDeleteRealtimeEndpoint :: DeleteRealtimeEndpoint -> TestTree
-requestDeleteRealtimeEndpoint = req
+requestDeleteRealtimeEndpoint =
+  req
     "DeleteRealtimeEndpoint"
     "fixture/DeleteRealtimeEndpoint.yaml"
 
 requestCreateBatchPrediction :: CreateBatchPrediction -> TestTree
-requestCreateBatchPrediction = req
+requestCreateBatchPrediction =
+  req
     "CreateBatchPrediction"
     "fixture/CreateBatchPrediction.yaml"
 
 requestGetEvaluation :: GetEvaluation -> TestTree
-requestGetEvaluation = req
+requestGetEvaluation =
+  req
     "GetEvaluation"
     "fixture/GetEvaluation.yaml"
 
 requestDescribeEvaluations :: DescribeEvaluations -> TestTree
-requestDescribeEvaluations = req
+requestDescribeEvaluations =
+  req
     "DescribeEvaluations"
     "fixture/DescribeEvaluations.yaml"
 
 requestCreateRealtimeEndpoint :: CreateRealtimeEndpoint -> TestTree
-requestCreateRealtimeEndpoint = req
+requestCreateRealtimeEndpoint =
+  req
     "CreateRealtimeEndpoint"
     "fixture/CreateRealtimeEndpoint.yaml"
 
 requestAddTags :: AddTags -> TestTree
-requestAddTags = req
+requestAddTags =
+  req
     "AddTags"
     "fixture/AddTags.yaml"
 
 requestDescribeMLModels :: DescribeMLModels -> TestTree
-requestDescribeMLModels = req
+requestDescribeMLModels =
+  req
     "DescribeMLModels"
     "fixture/DescribeMLModels.yaml"
 
 requestDescribeDataSources :: DescribeDataSources -> TestTree
-requestDescribeDataSources = req
+requestDescribeDataSources =
+  req
     "DescribeDataSources"
     "fixture/DescribeDataSources.yaml"
 
 -- Responses
 
 responseUpdateDataSource :: UpdateDataSourceResponse -> TestTree
-responseUpdateDataSource = res
+responseUpdateDataSource =
+  res
     "UpdateDataSourceResponse"
     "fixture/UpdateDataSourceResponse.proto"
     machineLearning
     (Proxy :: Proxy UpdateDataSource)
 
 responseDeleteDataSource :: DeleteDataSourceResponse -> TestTree
-responseDeleteDataSource = res
+responseDeleteDataSource =
+  res
     "DeleteDataSourceResponse"
     "fixture/DeleteDataSourceResponse.proto"
     machineLearning
     (Proxy :: Proxy DeleteDataSource)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
-responseDescribeTags = res
+responseDescribeTags =
+  res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
     machineLearning
     (Proxy :: Proxy DescribeTags)
 
 responseCreateDataSourceFromRedshift :: CreateDataSourceFromRedshiftResponse -> TestTree
-responseCreateDataSourceFromRedshift = res
+responseCreateDataSourceFromRedshift =
+  res
     "CreateDataSourceFromRedshiftResponse"
     "fixture/CreateDataSourceFromRedshiftResponse.proto"
     machineLearning
     (Proxy :: Proxy CreateDataSourceFromRedshift)
 
 responseCreateDataSourceFromS3 :: CreateDataSourceFromS3Response -> TestTree
-responseCreateDataSourceFromS3 = res
+responseCreateDataSourceFromS3 =
+  res
     "CreateDataSourceFromS3Response"
     "fixture/CreateDataSourceFromS3Response.proto"
     machineLearning
     (Proxy :: Proxy CreateDataSourceFromS3)
 
 responseCreateMLModel :: CreateMLModelResponse -> TestTree
-responseCreateMLModel = res
+responseCreateMLModel =
+  res
     "CreateMLModelResponse"
     "fixture/CreateMLModelResponse.proto"
     machineLearning
     (Proxy :: Proxy CreateMLModel)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
-responseDeleteTags = res
+responseDeleteTags =
+  res
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
     machineLearning
     (Proxy :: Proxy DeleteTags)
 
 responseDeleteBatchPrediction :: DeleteBatchPredictionResponse -> TestTree
-responseDeleteBatchPrediction = res
+responseDeleteBatchPrediction =
+  res
     "DeleteBatchPredictionResponse"
     "fixture/DeleteBatchPredictionResponse.proto"
     machineLearning
     (Proxy :: Proxy DeleteBatchPrediction)
 
 responseUpdateBatchPrediction :: UpdateBatchPredictionResponse -> TestTree
-responseUpdateBatchPrediction = res
+responseUpdateBatchPrediction =
+  res
     "UpdateBatchPredictionResponse"
     "fixture/UpdateBatchPredictionResponse.proto"
     machineLearning
     (Proxy :: Proxy UpdateBatchPrediction)
 
 responseGetMLModel :: GetMLModelResponse -> TestTree
-responseGetMLModel = res
+responseGetMLModel =
+  res
     "GetMLModelResponse"
     "fixture/GetMLModelResponse.proto"
     machineLearning
     (Proxy :: Proxy GetMLModel)
 
 responseGetDataSource :: GetDataSourceResponse -> TestTree
-responseGetDataSource = res
+responseGetDataSource =
+  res
     "GetDataSourceResponse"
     "fixture/GetDataSourceResponse.proto"
     machineLearning
     (Proxy :: Proxy GetDataSource)
 
 responseUpdateEvaluation :: UpdateEvaluationResponse -> TestTree
-responseUpdateEvaluation = res
+responseUpdateEvaluation =
+  res
     "UpdateEvaluationResponse"
     "fixture/UpdateEvaluationResponse.proto"
     machineLearning
     (Proxy :: Proxy UpdateEvaluation)
 
 responseDeleteEvaluation :: DeleteEvaluationResponse -> TestTree
-responseDeleteEvaluation = res
+responseDeleteEvaluation =
+  res
     "DeleteEvaluationResponse"
     "fixture/DeleteEvaluationResponse.proto"
     machineLearning
     (Proxy :: Proxy DeleteEvaluation)
 
 responseDeleteMLModel :: DeleteMLModelResponse -> TestTree
-responseDeleteMLModel = res
+responseDeleteMLModel =
+  res
     "DeleteMLModelResponse"
     "fixture/DeleteMLModelResponse.proto"
     machineLearning
     (Proxy :: Proxy DeleteMLModel)
 
 responseUpdateMLModel :: UpdateMLModelResponse -> TestTree
-responseUpdateMLModel = res
+responseUpdateMLModel =
+  res
     "UpdateMLModelResponse"
     "fixture/UpdateMLModelResponse.proto"
     machineLearning
     (Proxy :: Proxy UpdateMLModel)
 
 responseGetBatchPrediction :: GetBatchPredictionResponse -> TestTree
-responseGetBatchPrediction = res
+responseGetBatchPrediction =
+  res
     "GetBatchPredictionResponse"
     "fixture/GetBatchPredictionResponse.proto"
     machineLearning
     (Proxy :: Proxy GetBatchPrediction)
 
 responseDescribeBatchPredictions :: DescribeBatchPredictionsResponse -> TestTree
-responseDescribeBatchPredictions = res
+responseDescribeBatchPredictions =
+  res
     "DescribeBatchPredictionsResponse"
     "fixture/DescribeBatchPredictionsResponse.proto"
     machineLearning
     (Proxy :: Proxy DescribeBatchPredictions)
 
 responseCreateDataSourceFromRDS :: CreateDataSourceFromRDSResponse -> TestTree
-responseCreateDataSourceFromRDS = res
+responseCreateDataSourceFromRDS =
+  res
     "CreateDataSourceFromRDSResponse"
     "fixture/CreateDataSourceFromRDSResponse.proto"
     machineLearning
     (Proxy :: Proxy CreateDataSourceFromRDS)
 
 responseCreateEvaluation :: CreateEvaluationResponse -> TestTree
-responseCreateEvaluation = res
+responseCreateEvaluation =
+  res
     "CreateEvaluationResponse"
     "fixture/CreateEvaluationResponse.proto"
     machineLearning
     (Proxy :: Proxy CreateEvaluation)
 
 responsePredict :: PredictResponse -> TestTree
-responsePredict = res
+responsePredict =
+  res
     "PredictResponse"
     "fixture/PredictResponse.proto"
     machineLearning
     (Proxy :: Proxy Predict)
 
 responseDeleteRealtimeEndpoint :: DeleteRealtimeEndpointResponse -> TestTree
-responseDeleteRealtimeEndpoint = res
+responseDeleteRealtimeEndpoint =
+  res
     "DeleteRealtimeEndpointResponse"
     "fixture/DeleteRealtimeEndpointResponse.proto"
     machineLearning
     (Proxy :: Proxy DeleteRealtimeEndpoint)
 
 responseCreateBatchPrediction :: CreateBatchPredictionResponse -> TestTree
-responseCreateBatchPrediction = res
+responseCreateBatchPrediction =
+  res
     "CreateBatchPredictionResponse"
     "fixture/CreateBatchPredictionResponse.proto"
     machineLearning
     (Proxy :: Proxy CreateBatchPrediction)
 
 responseGetEvaluation :: GetEvaluationResponse -> TestTree
-responseGetEvaluation = res
+responseGetEvaluation =
+  res
     "GetEvaluationResponse"
     "fixture/GetEvaluationResponse.proto"
     machineLearning
     (Proxy :: Proxy GetEvaluation)
 
 responseDescribeEvaluations :: DescribeEvaluationsResponse -> TestTree
-responseDescribeEvaluations = res
+responseDescribeEvaluations =
+  res
     "DescribeEvaluationsResponse"
     "fixture/DescribeEvaluationsResponse.proto"
     machineLearning
     (Proxy :: Proxy DescribeEvaluations)
 
 responseCreateRealtimeEndpoint :: CreateRealtimeEndpointResponse -> TestTree
-responseCreateRealtimeEndpoint = res
+responseCreateRealtimeEndpoint =
+  res
     "CreateRealtimeEndpointResponse"
     "fixture/CreateRealtimeEndpointResponse.proto"
     machineLearning
     (Proxy :: Proxy CreateRealtimeEndpoint)
 
 responseAddTags :: AddTagsResponse -> TestTree
-responseAddTags = res
+responseAddTags =
+  res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
     machineLearning
     (Proxy :: Proxy AddTags)
 
 responseDescribeMLModels :: DescribeMLModelsResponse -> TestTree
-responseDescribeMLModels = res
+responseDescribeMLModels =
+  res
     "DescribeMLModelsResponse"
     "fixture/DescribeMLModelsResponse.proto"
     machineLearning
     (Proxy :: Proxy DescribeMLModels)
 
 responseDescribeDataSources :: DescribeDataSourcesResponse -> TestTree
-responseDescribeDataSources = res
+responseDescribeDataSources =
+  res
     "DescribeDataSourcesResponse"
     "fixture/DescribeDataSourcesResponse.proto"
     machineLearning

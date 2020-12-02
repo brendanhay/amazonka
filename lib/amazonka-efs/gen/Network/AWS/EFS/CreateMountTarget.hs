@@ -1,27 +1,26 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EFS.CreateMountTarget
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a mount target for a file system. You can then mount the file system on EC2 instances via the mount target.
+-- Creates a mount target for a file system. You can then mount the file system on EC2 instances by using the mount target.
 --
 --
--- You can create one mount target in each Availability Zone in your VPC. All EC2 instances in a VPC within a given Availability Zone share a single mount target for a given file system. If you have multiple subnets in an Availability Zone, you create a mount target in one of the subnets. EC2 instances do not need to be in the same subnet as the mount target in order to access their file system. For more information, see <http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html Amazon EFS: How it Works> .
+-- You can create one mount target in each Availability Zone in your VPC. All EC2 instances in a VPC within a given Availability Zone share a single mount target for a given file system. If you have multiple subnets in an Availability Zone, you create a mount target in one of the subnets. EC2 instances do not need to be in the same subnet as the mount target in order to access their file system. For more information, see <https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html Amazon EFS: How it Works> .
 --
 -- In the request, you also specify a file system ID for which you are creating the mount target and the file system's lifecycle state must be @available@ . For more information, see 'DescribeFileSystems' .
 --
@@ -35,7 +34,7 @@
 --
 --
 --
--- After creating the mount target, Amazon EFS returns a response that includes, a @MountTargetId@ and an @IpAddress@ . You use this IP address when mounting the file system in an EC2 instance. You can also use the mount target's DNS name when mounting the file system. The EC2 instance on which you mount the file system via the mount target can resolve the mount target's DNS name to its IP address. For more information, see <http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html#how-it-works-implementation How it Works: Implementation Overview> .
+-- After creating the mount target, Amazon EFS returns a response that includes, a @MountTargetId@ and an @IpAddress@ . You use this IP address when mounting the file system in an EC2 instance. You can also use the mount target's DNS name when mounting the file system. The EC2 instance on which you mount the file system by using the mount target can resolve the mount target's DNS name to its IP address. For more information, see <https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html#how-it-works-implementation How it Works: Implementation Overview> .
 --
 -- Note that you can create mount targets for a file system in only one VPC, and there can be only one mount target per Availability Zone. That is, if the file system already has one or more mount targets created for it, the subnet specified in the request to add another mount target must meet the following requirements:
 --
@@ -65,7 +64,7 @@
 --
 --
 --
--- We recommend you create a mount target in each of the Availability Zones. There are cost considerations for using a file system in an Availability Zone through a mount target created in another Availability Zone. For more information, see <http://aws.amazon.com/efs/ Amazon EFS> . In addition, by always using a mount target local to the instance's Availability Zone, you eliminate a partial failure scenario. If the Availability Zone in which your mount target is created goes down, then you won't be able to access your file system through that mount target.
+-- We recommend that you create a mount target in each of the Availability Zones. There are cost considerations for using a file system in an Availability Zone through a mount target created in another Availability Zone. For more information, see <http://aws.amazon.com/efs/ Amazon EFS> . In addition, by always using a mount target local to the instance's Availability Zone, you eliminate a partial failure scenario. If the Availability Zone in which your mount target is created goes down, then you can't access your file system through that mount target.
 --
 -- This operation requires permissions for the following action on the file system:
 --
@@ -80,35 +79,36 @@
 --     * @ec2:DescribeNetworkInterfaces@
 --
 --     * @ec2:CreateNetworkInterface@
---
---
---
 module Network.AWS.EFS.CreateMountTarget
-    (
-    -- * Creating a Request
-      createMountTarget
-    , CreateMountTarget
+  ( -- * Creating a Request
+    createMountTarget,
+    CreateMountTarget,
+
     -- * Request Lenses
-    , cmtIPAddress
-    , cmtSecurityGroups
-    , cmtFileSystemId
-    , cmtSubnetId
+    cmtIPAddress,
+    cmtSecurityGroups,
+    cmtFileSystemId,
+    cmtSubnetId,
 
     -- * Destructuring the Response
-    , mountTargetDescription
-    , MountTargetDescription
+    mountTargetDescription,
+    MountTargetDescription,
+
     -- * Response Lenses
-    , mtdIPAddress
-    , mtdNetworkInterfaceId
-    , mtdOwnerId
-    , mtdMountTargetId
-    , mtdFileSystemId
-    , mtdSubnetId
-    , mtdLifeCycleState
-    ) where
+    mtdIPAddress,
+    mtdAvailabilityZoneId,
+    mtdVPCId,
+    mtdAvailabilityZoneName,
+    mtdNetworkInterfaceId,
+    mtdOwnerId,
+    mtdMountTargetId,
+    mtdFileSystemId,
+    mtdSubnetId,
+    mtdLifeCycleState,
+  )
+where
 
 import Network.AWS.EFS.Types
-import Network.AWS.EFS.Types.Product
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
@@ -120,12 +120,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'createMountTarget' smart constructor.
 data CreateMountTarget = CreateMountTarget'
-  { _cmtIPAddress      :: !(Maybe Text)
-  , _cmtSecurityGroups :: !(Maybe [Text])
-  , _cmtFileSystemId   :: !Text
-  , _cmtSubnetId       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _cmtIPAddress ::
+      !(Maybe Text),
+    _cmtSecurityGroups :: !(Maybe [Text]),
+    _cmtFileSystemId :: !Text,
+    _cmtSubnetId :: !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'CreateMountTarget' with the minimum fields required to make a request.
 --
@@ -135,61 +136,64 @@ data CreateMountTarget = CreateMountTarget'
 --
 -- * 'cmtSecurityGroups' - Up to five VPC security group IDs, of the form @sg-xxxxxxxx@ . These must be for the same VPC as subnet specified.
 --
--- * 'cmtFileSystemId' - ID of the file system for which to create the mount target.
+-- * 'cmtFileSystemId' - The ID of the file system for which to create the mount target.
 --
--- * 'cmtSubnetId' - ID of the subnet to add the mount target in.
-createMountTarget
-    :: Text -- ^ 'cmtFileSystemId'
-    -> Text -- ^ 'cmtSubnetId'
-    -> CreateMountTarget
+-- * 'cmtSubnetId' - The ID of the subnet to add the mount target in.
+createMountTarget ::
+  -- | 'cmtFileSystemId'
+  Text ->
+  -- | 'cmtSubnetId'
+  Text ->
+  CreateMountTarget
 createMountTarget pFileSystemId_ pSubnetId_ =
   CreateMountTarget'
-    { _cmtIPAddress = Nothing
-    , _cmtSecurityGroups = Nothing
-    , _cmtFileSystemId = pFileSystemId_
-    , _cmtSubnetId = pSubnetId_
+    { _cmtIPAddress = Nothing,
+      _cmtSecurityGroups = Nothing,
+      _cmtFileSystemId = pFileSystemId_,
+      _cmtSubnetId = pSubnetId_
     }
-
 
 -- | Valid IPv4 address within the address range of the specified subnet.
 cmtIPAddress :: Lens' CreateMountTarget (Maybe Text)
-cmtIPAddress = lens _cmtIPAddress (\ s a -> s{_cmtIPAddress = a})
+cmtIPAddress = lens _cmtIPAddress (\s a -> s {_cmtIPAddress = a})
 
 -- | Up to five VPC security group IDs, of the form @sg-xxxxxxxx@ . These must be for the same VPC as subnet specified.
 cmtSecurityGroups :: Lens' CreateMountTarget [Text]
-cmtSecurityGroups = lens _cmtSecurityGroups (\ s a -> s{_cmtSecurityGroups = a}) . _Default . _Coerce
+cmtSecurityGroups = lens _cmtSecurityGroups (\s a -> s {_cmtSecurityGroups = a}) . _Default . _Coerce
 
--- | ID of the file system for which to create the mount target.
+-- | The ID of the file system for which to create the mount target.
 cmtFileSystemId :: Lens' CreateMountTarget Text
-cmtFileSystemId = lens _cmtFileSystemId (\ s a -> s{_cmtFileSystemId = a})
+cmtFileSystemId = lens _cmtFileSystemId (\s a -> s {_cmtFileSystemId = a})
 
--- | ID of the subnet to add the mount target in.
+-- | The ID of the subnet to add the mount target in.
 cmtSubnetId :: Lens' CreateMountTarget Text
-cmtSubnetId = lens _cmtSubnetId (\ s a -> s{_cmtSubnetId = a})
+cmtSubnetId = lens _cmtSubnetId (\s a -> s {_cmtSubnetId = a})
 
 instance AWSRequest CreateMountTarget where
-        type Rs CreateMountTarget = MountTargetDescription
-        request = postJSON efs
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+  type Rs CreateMountTarget = MountTargetDescription
+  request = postJSON efs
+  response = receiveJSON (\s h x -> eitherParseJSON x)
 
-instance Hashable CreateMountTarget where
+instance Hashable CreateMountTarget
 
-instance NFData CreateMountTarget where
+instance NFData CreateMountTarget
 
 instance ToHeaders CreateMountTarget where
-        toHeaders = const mempty
+  toHeaders = const mempty
 
 instance ToJSON CreateMountTarget where
-        toJSON CreateMountTarget'{..}
-          = object
-              (catMaybes
-                 [("IpAddress" .=) <$> _cmtIPAddress,
-                  ("SecurityGroups" .=) <$> _cmtSecurityGroups,
-                  Just ("FileSystemId" .= _cmtFileSystemId),
-                  Just ("SubnetId" .= _cmtSubnetId)])
+  toJSON CreateMountTarget' {..} =
+    object
+      ( catMaybes
+          [ ("IpAddress" .=) <$> _cmtIPAddress,
+            ("SecurityGroups" .=) <$> _cmtSecurityGroups,
+            Just ("FileSystemId" .= _cmtFileSystemId),
+            Just ("SubnetId" .= _cmtSubnetId)
+          ]
+      )
 
 instance ToPath CreateMountTarget where
-        toPath = const "/2015-02-01/mount-targets"
+  toPath = const "/2015-02-01/mount-targets"
 
 instance ToQuery CreateMountTarget where
-        toQuery = const mempty
+  toQuery = const mempty

@@ -1,6 +1,5 @@
-{-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
-
 {-# OPTIONS_GHC -Wall -Werror #-}
 
 -- |
@@ -10,10 +9,10 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.Redshift.Internal
-    ( getAccountId
-    ) where
+  ( getAccountId,
+  )
+where
 
 import Network.AWS.Prelude
 
@@ -23,26 +22,26 @@ import Network.AWS.Prelude
 -- /See:/ <http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging Enabling Database Audit Logging>.
 getAccountId :: Region -> Maybe Text
 getAccountId = \case
-    NorthVirginia   -> Just "193672423079"
-    Ohio            -> Just "391106570357"
-    NorthCalifornia -> Just "262260360010"
-    Oregon          -> Just "902366379725"
-    Montreal        -> Just "907379612154"
-    HongKong        -> Just "313564881002"
-    Tokyo           -> Just "404641285394"
-    Seoul           -> Just "760740231472"
-    Osaka           -> Just "090321488786"
-    Mumbai          -> Just "865932855811"
-    Singapore       -> Just "361669875840"
-    Sydney          -> Just "762762565011"
-    SaoPaulo        -> Just "075028567923"
-    Ireland         -> Just "210876761215"
-    London          -> Just "307160386991"
-    Paris           -> Just "915173422425"
-    Frankfurt       -> Just "053454850223"
-    Stockholm       -> Just "729911121831"
-    GovCloud        -> Nothing
-    GovCloudEast    -> Nothing
-    GovCloudFIPS    -> Nothing
-    Beijing         -> Nothing
-    Ningxia         -> Nothing
+  NorthVirginia -> Just "193672423079"
+  Ohio -> Just "391106570357"
+  NorthCalifornia -> Just "262260360010"
+  Oregon -> Just "902366379725"
+  Montreal -> Just "907379612154"
+  HongKong -> Just "313564881002"
+  Tokyo -> Just "404641285394"
+  Seoul -> Just "760740231472"
+  Osaka -> Just "090321488786"
+  Mumbai -> Just "865932855811"
+  Singapore -> Just "361669875840"
+  Sydney -> Just "762762565011"
+  SaoPaulo -> Just "075028567923"
+  Ireland -> Just "210876761215"
+  London -> Just "307160386991"
+  Paris -> Just "915173422425"
+  Frankfurt -> Just "053454850223"
+  Stockholm -> Just "729911121831"
+  GovCloud -> Nothing
+  GovCloudEast -> Nothing
+  GovCloudFIPS -> Nothing
+  Beijing -> Nothing
+  Ningxia -> Nothing

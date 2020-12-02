@@ -4,144 +4,153 @@
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.OpsWorksCM.Types
-    (
-    -- * Service Configuration
-      opsWorksCM
+  ( -- * Service Configuration
+    opsWorksCM,
 
     -- * Errors
-    , _ValidationException
-    , _ResourceAlreadyExistsException
-    , _InvalidNextTokenException
-    , _ResourceNotFoundException
-    , _InvalidStateException
-    , _LimitExceededException
 
     -- * BackupStatus
-    , BackupStatus (..)
+    BackupStatus (..),
 
     -- * BackupType
-    , BackupType (..)
+    BackupType (..),
 
     -- * MaintenanceStatus
-    , MaintenanceStatus (..)
+    MaintenanceStatus (..),
 
     -- * NodeAssociationStatus
-    , NodeAssociationStatus (..)
+    NodeAssociationStatus (..),
 
     -- * ServerStatus
-    , ServerStatus (..)
+    ServerStatus (..),
 
     -- * AccountAttribute
-    , AccountAttribute
-    , accountAttribute
-    , aaUsed
-    , aaMaximum
-    , aaName
+    AccountAttribute,
+    accountAttribute,
+    aaUsed,
+    aaMaximum,
+    aaName,
 
     -- * Backup
-    , Backup
-    , backup
-    , bEngineVersion
-    , bServiceRoleARN
-    , bStatus
-    , bInstanceProfileARN
-    , bSecurityGroupIds
-    , bStatusDescription
-    , bServerName
-    , bSubnetIds
-    , bKeyPair
-    , bCreatedAt
-    , bBackupId
-    , bEngine
-    , bInstanceType
-    , bEngineModel
-    , bPreferredMaintenanceWindow
-    , bUserARN
-    , bPreferredBackupWindow
-    , bS3LogURL
-    , bS3DataSize
-    , bBackupARN
-    , bS3DataURL
-    , bDescription
-    , bBackupType
-    , bToolsVersion
+    Backup,
+    backup,
+    bEngineVersion,
+    bServiceRoleARN,
+    bStatus,
+    bInstanceProfileARN,
+    bSecurityGroupIds,
+    bStatusDescription,
+    bServerName,
+    bSubnetIds,
+    bKeyPair,
+    bCreatedAt,
+    bBackupId,
+    bEngine,
+    bInstanceType,
+    bEngineModel,
+    bPreferredMaintenanceWindow,
+    bUserARN,
+    bPreferredBackupWindow,
+    bS3LogURL,
+    bS3DataSize,
+    bBackupARN,
+    bS3DataURL,
+    bDescription,
+    bBackupType,
+    bToolsVersion,
 
     -- * EngineAttribute
-    , EngineAttribute
-    , engineAttribute
-    , eaValue
-    , eaName
+    EngineAttribute,
+    engineAttribute,
+    eaValue,
+    eaName,
 
     -- * Server
-    , Server
-    , server
-    , sEngineVersion
-    , sServiceRoleARN
-    , sDisableAutomatedBackup
-    , sStatus
-    , sInstanceProfileARN
-    , sSecurityGroupIds
-    , sAssociatePublicIPAddress
-    , sServerName
-    , sSubnetIds
-    , sKeyPair
-    , sCreatedAt
-    , sServerARN
-    , sEngine
-    , sMaintenanceStatus
-    , sInstanceType
-    , sEngineModel
-    , sEngineAttributes
-    , sPreferredMaintenanceWindow
-    , sPreferredBackupWindow
-    , sStatusReason
-    , sEndpoint
-    , sCloudFormationStackARN
-    , sBackupRetentionCount
+    Server,
+    server,
+    sEngineVersion,
+    sServiceRoleARN,
+    sDisableAutomatedBackup,
+    sStatus,
+    sInstanceProfileARN,
+    sSecurityGroupIds,
+    sAssociatePublicIPAddress,
+    sServerName,
+    sSubnetIds,
+    sKeyPair,
+    sCreatedAt,
+    sServerARN,
+    sCustomDomain,
+    sEngine,
+    sMaintenanceStatus,
+    sInstanceType,
+    sEngineModel,
+    sEngineAttributes,
+    sPreferredMaintenanceWindow,
+    sPreferredBackupWindow,
+    sStatusReason,
+    sEndpoint,
+    sCloudFormationStackARN,
+    sBackupRetentionCount,
 
     -- * ServerEvent
-    , ServerEvent
-    , serverEvent
-    , seLogURL
-    , seServerName
-    , seCreatedAt
-    , seMessage
-    ) where
+    ServerEvent,
+    serverEvent,
+    seLogURL,
+    seServerName,
+    seCreatedAt,
+    seMessage,
+
+    -- * Tag
+    Tag,
+    tag,
+    tagKey,
+    tagValue,
+  )
+where
 
 import Network.AWS.Lens
-import Network.AWS.OpsWorksCM.Types.Product
-import Network.AWS.OpsWorksCM.Types.Sum
+import Network.AWS.OpsWorksCM.Types.AccountAttribute
+import Network.AWS.OpsWorksCM.Types.Backup
+import Network.AWS.OpsWorksCM.Types.BackupStatus
+import Network.AWS.OpsWorksCM.Types.BackupType
+import Network.AWS.OpsWorksCM.Types.EngineAttribute
+import Network.AWS.OpsWorksCM.Types.MaintenanceStatus
+import Network.AWS.OpsWorksCM.Types.NodeAssociationStatus
+import Network.AWS.OpsWorksCM.Types.Server
+import Network.AWS.OpsWorksCM.Types.ServerEvent
+import Network.AWS.OpsWorksCM.Types.ServerStatus
+import Network.AWS.OpsWorksCM.Types.Tag
 import Network.AWS.Prelude
 import Network.AWS.Sign.V4
 
--- | API version @2016-11-01@ of the Amazon OpsWorks for Chef Automate SDK configuration.
+-- | API version @2016-11-01@ of the Amazon OpsWorks CM SDK configuration.
 opsWorksCM :: Service
 opsWorksCM =
   Service
-    { _svcAbbrev = "OpsWorksCM"
-    , _svcSigner = v4
-    , _svcPrefix = "opsworks-cm"
-    , _svcVersion = "2016-11-01"
-    , _svcEndpoint = defaultEndpoint opsWorksCM
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "OpsWorksCM"
-    , _svcRetry = retry
+    { _svcAbbrev = "OpsWorksCM",
+      _svcSigner = v4,
+      _svcPrefix = "opsworks-cm",
+      _svcVersion = "2016-11-01",
+      _svcEndpoint = defaultEndpoint opsWorksCM,
+      _svcTimeout = Just 70,
+      _svcCheck = statusSuccess,
+      _svcError = parseJSONError "OpsWorksCM",
+      _svcRetry = retry
     }
   where
     retry =
       Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+        { _retryBase = 5.0e-2,
+          _retryGrowth = 2,
+          _retryAttempts = 5,
+          _retryCheck = check
         }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
@@ -150,6 +159,10 @@ opsWorksCM =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has
+          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+          e =
+        Just "throughput_exceeded"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasCode "RequestThrottledException" . hasStatus 400) e =
         Just "request_throttled_exception"
@@ -158,49 +171,3 @@ opsWorksCM =
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
-
-
--- | One or more of the provided request parameters are not valid.
---
---
-_ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
-_ValidationException = _MatchServiceError opsWorksCM "ValidationException"
-
-
--- | The requested resource cannot be created because it already exists.
---
---
-_ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceAlreadyExistsException =
-  _MatchServiceError opsWorksCM "ResourceAlreadyExistsException"
-
-
--- | This occurs when the provided nextToken is not valid.
---
---
-_InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNextTokenException =
-  _MatchServiceError opsWorksCM "InvalidNextTokenException"
-
-
--- | The requested resource does not exist, or access was denied.
---
---
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundException =
-  _MatchServiceError opsWorksCM "ResourceNotFoundException"
-
-
--- | The resource is in a state that does not allow you to perform a specified action.
---
---
-_InvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidStateException = _MatchServiceError opsWorksCM "InvalidStateException"
-
-
--- | The limit of servers or backups has been reached.
---
---
-_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _MatchServiceError opsWorksCM "LimitExceededException"
-

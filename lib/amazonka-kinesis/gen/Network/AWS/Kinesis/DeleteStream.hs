@@ -1,18 +1,17 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Kinesis.DeleteStream
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -30,22 +29,22 @@
 -- You can use the 'DescribeStream' operation to check the state of the stream, which is returned in @StreamStatus@ .
 --
 -- 'DeleteStream' has a limit of five transactions per second per account.
---
 module Network.AWS.Kinesis.DeleteStream
-    (
-    -- * Creating a Request
-      deleteStream
-    , DeleteStream
+  ( -- * Creating a Request
+    deleteStream,
+    DeleteStream,
+
     -- * Request Lenses
-    , dsStreamName
+    dsEnforceConsumerDeletion,
+    dsStreamName,
 
     -- * Destructuring the Response
-    , deleteStreamResponse
-    , DeleteStreamResponse
-    ) where
+    deleteStreamResponse,
+    DeleteStreamResponse,
+  )
+where
 
 import Network.AWS.Kinesis.Types
-import Network.AWS.Kinesis.Types.Product
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
@@ -56,66 +55,78 @@ import Network.AWS.Response
 --
 --
 -- /See:/ 'deleteStream' smart constructor.
-newtype DeleteStream = DeleteStream'
-  { _dsStreamName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+data DeleteStream = DeleteStream'
+  { _dsEnforceConsumerDeletion ::
+      !(Maybe Bool),
+    _dsStreamName :: !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'DeleteStream' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'dsEnforceConsumerDeletion' - If this parameter is unset (@null@ ) or if you set it to @false@ , and the stream has registered consumers, the call to @DeleteStream@ fails with a @ResourceInUseException@ .
+--
 -- * 'dsStreamName' - The name of the stream to delete.
-deleteStream
-    :: Text -- ^ 'dsStreamName'
-    -> DeleteStream
-deleteStream pStreamName_ = DeleteStream' {_dsStreamName = pStreamName_}
+deleteStream ::
+  -- | 'dsStreamName'
+  Text ->
+  DeleteStream
+deleteStream pStreamName_ =
+  DeleteStream'
+    { _dsEnforceConsumerDeletion = Nothing,
+      _dsStreamName = pStreamName_
+    }
 
+-- | If this parameter is unset (@null@ ) or if you set it to @false@ , and the stream has registered consumers, the call to @DeleteStream@ fails with a @ResourceInUseException@ .
+dsEnforceConsumerDeletion :: Lens' DeleteStream (Maybe Bool)
+dsEnforceConsumerDeletion = lens _dsEnforceConsumerDeletion (\s a -> s {_dsEnforceConsumerDeletion = a})
 
 -- | The name of the stream to delete.
 dsStreamName :: Lens' DeleteStream Text
-dsStreamName = lens _dsStreamName (\ s a -> s{_dsStreamName = a})
+dsStreamName = lens _dsStreamName (\s a -> s {_dsStreamName = a})
 
 instance AWSRequest DeleteStream where
-        type Rs DeleteStream = DeleteStreamResponse
-        request = postJSON kinesis
-        response = receiveNull DeleteStreamResponse'
+  type Rs DeleteStream = DeleteStreamResponse
+  request = postJSON kinesis
+  response = receiveNull DeleteStreamResponse'
 
-instance Hashable DeleteStream where
+instance Hashable DeleteStream
 
-instance NFData DeleteStream where
+instance NFData DeleteStream
 
 instance ToHeaders DeleteStream where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Kinesis_20131202.DeleteStream" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target" =# ("Kinesis_20131202.DeleteStream" :: ByteString),
+            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+          ]
+      )
 
 instance ToJSON DeleteStream where
-        toJSON DeleteStream'{..}
-          = object
-              (catMaybes [Just ("StreamName" .= _dsStreamName)])
+  toJSON DeleteStream' {..} =
+    object
+      ( catMaybes
+          [ ("EnforceConsumerDeletion" .=) <$> _dsEnforceConsumerDeletion,
+            Just ("StreamName" .= _dsStreamName)
+          ]
+      )
 
 instance ToPath DeleteStream where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery DeleteStream where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | /See:/ 'deleteStreamResponse' smart constructor.
-data DeleteStreamResponse =
-  DeleteStreamResponse'
+data DeleteStreamResponse = DeleteStreamResponse'
   deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
 -- | Creates a value of 'DeleteStreamResponse' with the minimum fields required to make a request.
---
-deleteStreamResponse
-    :: DeleteStreamResponse
+deleteStreamResponse ::
+  DeleteStreamResponse
 deleteStreamResponse = DeleteStreamResponse'
 
-
-instance NFData DeleteStreamResponse where
+instance NFData DeleteStreamResponse

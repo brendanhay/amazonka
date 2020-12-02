@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.CodeCommit
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.CodeCommit
-import           Test.AWS.Gen.CodeCommit
-import           Test.Tasty
+import Network.AWS.CodeCommit
+import Test.AWS.Gen.CodeCommit
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

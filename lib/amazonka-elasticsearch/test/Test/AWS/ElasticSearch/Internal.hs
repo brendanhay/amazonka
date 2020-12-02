@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Test.AWS.ElasticSearch.Internal
@@ -14,4 +13,4 @@
 
 module Test.AWS.ElasticSearch.Internal where
 
-import           Test.AWS.Prelude
+import Test.AWS.Prelude

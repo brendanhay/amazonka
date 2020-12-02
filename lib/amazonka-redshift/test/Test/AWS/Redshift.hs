@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.Redshift
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.Redshift
-import           Test.AWS.Gen.Redshift
-import           Test.Tasty
+import Network.AWS.Redshift
+import Test.AWS.Gen.Redshift
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

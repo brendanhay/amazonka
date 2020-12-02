@@ -1,155 +1,212 @@
-name:                  amazonka-ses
-version:               1.6.1
-synopsis:              Amazon Simple Email Service SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-ses
+version:            2.0.0.0
+synopsis:           Amazon Simple Email Service SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2020 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.SES" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with
+  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+  mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  Lenses are used for constructing and manipulating types,
+  due to the depth of nesting of AWS types and transparency regarding
+  de/serialisation into more palatable Haskell values.
+  The provided lenses should be compatible with any of the major lens libraries
+  such as <http://hackage.haskell.org/package/lens lens> or
+  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Network.AWS.SES" or <https://aws.amazon.com/documentation/ the AWS documentation>
+  to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-ses
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-ses
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.SES
+    Network.AWS.SES.CloneReceiptRuleSet
+    Network.AWS.SES.CreateConfigurationSet
+    Network.AWS.SES.CreateConfigurationSetEventDestination
+    Network.AWS.SES.CreateConfigurationSetTrackingOptions
+    Network.AWS.SES.CreateCustomVerificationEmailTemplate
+    Network.AWS.SES.CreateReceiptFilter
+    Network.AWS.SES.CreateReceiptRule
+    Network.AWS.SES.CreateReceiptRuleSet
+    Network.AWS.SES.CreateTemplate
+    Network.AWS.SES.DeleteConfigurationSet
+    Network.AWS.SES.DeleteConfigurationSetEventDestination
+    Network.AWS.SES.DeleteConfigurationSetTrackingOptions
+    Network.AWS.SES.DeleteCustomVerificationEmailTemplate
+    Network.AWS.SES.DeleteIdentity
+    Network.AWS.SES.DeleteIdentityPolicy
+    Network.AWS.SES.DeleteReceiptFilter
+    Network.AWS.SES.DeleteReceiptRule
+    Network.AWS.SES.DeleteReceiptRuleSet
+    Network.AWS.SES.DeleteTemplate
+    Network.AWS.SES.DeleteVerifiedEmailAddress
+    Network.AWS.SES.DescribeActiveReceiptRuleSet
+    Network.AWS.SES.DescribeConfigurationSet
+    Network.AWS.SES.DescribeReceiptRule
+    Network.AWS.SES.DescribeReceiptRuleSet
+    Network.AWS.SES.GetAccountSendingEnabled
+    Network.AWS.SES.GetCustomVerificationEmailTemplate
+    Network.AWS.SES.GetIdentityDkimAttributes
+    Network.AWS.SES.GetIdentityMailFromDomainAttributes
+    Network.AWS.SES.GetIdentityNotificationAttributes
+    Network.AWS.SES.GetIdentityPolicies
+    Network.AWS.SES.GetIdentityVerificationAttributes
+    Network.AWS.SES.GetSendQuota
+    Network.AWS.SES.GetSendStatistics
+    Network.AWS.SES.GetTemplate
+    Network.AWS.SES.ListConfigurationSets
+    Network.AWS.SES.ListCustomVerificationEmailTemplates
+    Network.AWS.SES.ListIdentities
+    Network.AWS.SES.ListIdentityPolicies
+    Network.AWS.SES.ListReceiptFilters
+    Network.AWS.SES.ListReceiptRuleSets
+    Network.AWS.SES.ListTemplates
+    Network.AWS.SES.ListVerifiedEmailAddresses
+    Network.AWS.SES.PutConfigurationSetDeliveryOptions
+    Network.AWS.SES.PutIdentityPolicy
+    Network.AWS.SES.ReorderReceiptRuleSet
+    Network.AWS.SES.SendBounce
+    Network.AWS.SES.SendBulkTemplatedEmail
+    Network.AWS.SES.SendCustomVerificationEmail
+    Network.AWS.SES.SendEmail
+    Network.AWS.SES.SendRawEmail
+    Network.AWS.SES.SendTemplatedEmail
+    Network.AWS.SES.SetActiveReceiptRuleSet
+    Network.AWS.SES.SetIdentityDkimEnabled
+    Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
+    Network.AWS.SES.SetIdentityHeadersInNotificationsEnabled
+    Network.AWS.SES.SetIdentityMailFromDomain
+    Network.AWS.SES.SetIdentityNotificationTopic
+    Network.AWS.SES.SetReceiptRulePosition
+    Network.AWS.SES.TestRenderTemplate
+    Network.AWS.SES.Types
+    Network.AWS.SES.UpdateAccountSendingEnabled
+    Network.AWS.SES.UpdateConfigurationSetEventDestination
+    Network.AWS.SES.UpdateConfigurationSetReputationMetricsEnabled
+    Network.AWS.SES.UpdateConfigurationSetSendingEnabled
+    Network.AWS.SES.UpdateConfigurationSetTrackingOptions
+    Network.AWS.SES.UpdateCustomVerificationEmailTemplate
+    Network.AWS.SES.UpdateReceiptRule
+    Network.AWS.SES.UpdateTemplate
+    Network.AWS.SES.VerifyDomainDkim
+    Network.AWS.SES.VerifyDomainIdentity
+    Network.AWS.SES.VerifyEmailAddress
+    Network.AWS.SES.VerifyEmailIdentity
+    Network.AWS.SES.Waiters
 
-    exposed-modules:
-          Network.AWS.SES
-        , Network.AWS.SES.CloneReceiptRuleSet
-        , Network.AWS.SES.CreateConfigurationSet
-        , Network.AWS.SES.CreateConfigurationSetEventDestination
-        , Network.AWS.SES.CreateConfigurationSetTrackingOptions
-        , Network.AWS.SES.CreateCustomVerificationEmailTemplate
-        , Network.AWS.SES.CreateReceiptFilter
-        , Network.AWS.SES.CreateReceiptRule
-        , Network.AWS.SES.CreateReceiptRuleSet
-        , Network.AWS.SES.CreateTemplate
-        , Network.AWS.SES.DeleteConfigurationSet
-        , Network.AWS.SES.DeleteConfigurationSetEventDestination
-        , Network.AWS.SES.DeleteConfigurationSetTrackingOptions
-        , Network.AWS.SES.DeleteCustomVerificationEmailTemplate
-        , Network.AWS.SES.DeleteIdentity
-        , Network.AWS.SES.DeleteIdentityPolicy
-        , Network.AWS.SES.DeleteReceiptFilter
-        , Network.AWS.SES.DeleteReceiptRule
-        , Network.AWS.SES.DeleteReceiptRuleSet
-        , Network.AWS.SES.DeleteTemplate
-        , Network.AWS.SES.DeleteVerifiedEmailAddress
-        , Network.AWS.SES.DescribeActiveReceiptRuleSet
-        , Network.AWS.SES.DescribeConfigurationSet
-        , Network.AWS.SES.DescribeReceiptRule
-        , Network.AWS.SES.DescribeReceiptRuleSet
-        , Network.AWS.SES.GetAccountSendingEnabled
-        , Network.AWS.SES.GetCustomVerificationEmailTemplate
-        , Network.AWS.SES.GetIdentityDkimAttributes
-        , Network.AWS.SES.GetIdentityMailFromDomainAttributes
-        , Network.AWS.SES.GetIdentityNotificationAttributes
-        , Network.AWS.SES.GetIdentityPolicies
-        , Network.AWS.SES.GetIdentityVerificationAttributes
-        , Network.AWS.SES.GetSendQuota
-        , Network.AWS.SES.GetSendStatistics
-        , Network.AWS.SES.GetTemplate
-        , Network.AWS.SES.ListConfigurationSets
-        , Network.AWS.SES.ListCustomVerificationEmailTemplates
-        , Network.AWS.SES.ListIdentities
-        , Network.AWS.SES.ListIdentityPolicies
-        , Network.AWS.SES.ListReceiptFilters
-        , Network.AWS.SES.ListReceiptRuleSets
-        , Network.AWS.SES.ListTemplates
-        , Network.AWS.SES.ListVerifiedEmailAddresses
-        , Network.AWS.SES.PutIdentityPolicy
-        , Network.AWS.SES.ReorderReceiptRuleSet
-        , Network.AWS.SES.SendBounce
-        , Network.AWS.SES.SendBulkTemplatedEmail
-        , Network.AWS.SES.SendCustomVerificationEmail
-        , Network.AWS.SES.SendEmail
-        , Network.AWS.SES.SendRawEmail
-        , Network.AWS.SES.SendTemplatedEmail
-        , Network.AWS.SES.SetActiveReceiptRuleSet
-        , Network.AWS.SES.SetIdentityDkimEnabled
-        , Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
-        , Network.AWS.SES.SetIdentityHeadersInNotificationsEnabled
-        , Network.AWS.SES.SetIdentityMailFromDomain
-        , Network.AWS.SES.SetIdentityNotificationTopic
-        , Network.AWS.SES.SetReceiptRulePosition
-        , Network.AWS.SES.TestRenderTemplate
-        , Network.AWS.SES.Types
-        , Network.AWS.SES.UpdateAccountSendingEnabled
-        , Network.AWS.SES.UpdateConfigurationSetEventDestination
-        , Network.AWS.SES.UpdateConfigurationSetReputationMetricsEnabled
-        , Network.AWS.SES.UpdateConfigurationSetSendingEnabled
-        , Network.AWS.SES.UpdateConfigurationSetTrackingOptions
-        , Network.AWS.SES.UpdateCustomVerificationEmailTemplate
-        , Network.AWS.SES.UpdateReceiptRule
-        , Network.AWS.SES.UpdateTemplate
-        , Network.AWS.SES.VerifyDomainDkim
-        , Network.AWS.SES.VerifyDomainIdentity
-        , Network.AWS.SES.VerifyEmailAddress
-        , Network.AWS.SES.VerifyEmailIdentity
-        , Network.AWS.SES.Waiters
+  other-modules:
+    Network.AWS.SES.Types.AddHeaderAction
+    Network.AWS.SES.Types.BehaviorOnMXFailure
+    Network.AWS.SES.Types.Body
+    Network.AWS.SES.Types.BounceAction
+    Network.AWS.SES.Types.BouncedRecipientInfo
+    Network.AWS.SES.Types.BounceType
+    Network.AWS.SES.Types.BulkEmailDestination
+    Network.AWS.SES.Types.BulkEmailDestinationStatus
+    Network.AWS.SES.Types.BulkEmailStatus
+    Network.AWS.SES.Types.CloudWatchDestination
+    Network.AWS.SES.Types.CloudWatchDimensionConfiguration
+    Network.AWS.SES.Types.ConfigurationSet
+    Network.AWS.SES.Types.ConfigurationSetAttribute
+    Network.AWS.SES.Types.Content
+    Network.AWS.SES.Types.CustomMailFromStatus
+    Network.AWS.SES.Types.CustomVerificationEmailTemplate
+    Network.AWS.SES.Types.DeliveryOptions
+    Network.AWS.SES.Types.Destination
+    Network.AWS.SES.Types.DimensionValueSource
+    Network.AWS.SES.Types.DsnAction
+    Network.AWS.SES.Types.EventDestination
+    Network.AWS.SES.Types.EventType
+    Network.AWS.SES.Types.ExtensionField
+    Network.AWS.SES.Types.IdentityDkimAttributes
+    Network.AWS.SES.Types.IdentityMailFromDomainAttributes
+    Network.AWS.SES.Types.IdentityNotificationAttributes
+    Network.AWS.SES.Types.IdentityType
+    Network.AWS.SES.Types.IdentityVerificationAttributes
+    Network.AWS.SES.Types.InvocationType
+    Network.AWS.SES.Types.KinesisFirehoseDestination
+    Network.AWS.SES.Types.LambdaAction
+    Network.AWS.SES.Types.Message
+    Network.AWS.SES.Types.MessageDsn
+    Network.AWS.SES.Types.MessageTag
+    Network.AWS.SES.Types.NotificationType
+    Network.AWS.SES.Types.RawMessage
+    Network.AWS.SES.Types.ReceiptAction
+    Network.AWS.SES.Types.ReceiptFilter
+    Network.AWS.SES.Types.ReceiptFilterPolicy
+    Network.AWS.SES.Types.ReceiptIPFilter
+    Network.AWS.SES.Types.ReceiptRule
+    Network.AWS.SES.Types.ReceiptRuleSetMetadata
+    Network.AWS.SES.Types.RecipientDsnFields
+    Network.AWS.SES.Types.ReputationOptions
+    Network.AWS.SES.Types.S3Action
+    Network.AWS.SES.Types.SendDataPoint
+    Network.AWS.SES.Types.SNSAction
+    Network.AWS.SES.Types.SNSActionEncoding
+    Network.AWS.SES.Types.SNSDestination
+    Network.AWS.SES.Types.StopAction
+    Network.AWS.SES.Types.StopScope
+    Network.AWS.SES.Types.Template
+    Network.AWS.SES.Types.TemplateMetadata
+    Network.AWS.SES.Types.TLSPolicy
+    Network.AWS.SES.Types.TrackingOptions
+    Network.AWS.SES.Types.VerificationStatus
+    Network.AWS.SES.Types.WorkmailAction
 
-    other-modules:
-          Network.AWS.SES.Types.Product
-        , Network.AWS.SES.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.7   && <5
 
 test-suite amazonka-ses-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.SES
+    Test.AWS.SES
+    Test.AWS.SES.Internal
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.SES
-        , Test.AWS.Gen.SES
-        , Test.AWS.SES.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-ses
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka-ses
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

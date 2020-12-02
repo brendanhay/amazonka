@@ -1,0 +1,72 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.EC2.Types.DiskInfo
+-- Copyright   : (c) 2013-2020 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.EC2.Types.DiskInfo where
+
+import Network.AWS.EC2.Internal
+import Network.AWS.EC2.Types.DiskType
+import Network.AWS.Lens
+import Network.AWS.Prelude
+
+-- | Describes the disk.
+--
+--
+--
+-- /See:/ 'diskInfo' smart constructor.
+data DiskInfo = DiskInfo'
+  { _diCount :: !(Maybe Int),
+    _diSizeInGB :: !(Maybe Integer),
+    _diType :: !(Maybe DiskType)
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
+
+-- | Creates a value of 'DiskInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diCount' - The number of disks with this configuration.
+--
+-- * 'diSizeInGB' - The size of the disk in GB.
+--
+-- * 'diType' - The type of disk.
+diskInfo ::
+  DiskInfo
+diskInfo =
+  DiskInfo'
+    { _diCount = Nothing,
+      _diSizeInGB = Nothing,
+      _diType = Nothing
+    }
+
+-- | The number of disks with this configuration.
+diCount :: Lens' DiskInfo (Maybe Int)
+diCount = lens _diCount (\s a -> s {_diCount = a})
+
+-- | The size of the disk in GB.
+diSizeInGB :: Lens' DiskInfo (Maybe Integer)
+diSizeInGB = lens _diSizeInGB (\s a -> s {_diSizeInGB = a})
+
+-- | The type of disk.
+diType :: Lens' DiskInfo (Maybe DiskType)
+diType = lens _diType (\s a -> s {_diType = a})
+
+instance FromXML DiskInfo where
+  parseXML x =
+    DiskInfo'
+      <$> (x .@? "count") <*> (x .@? "sizeInGB") <*> (x .@? "type")
+
+instance Hashable DiskInfo
+
+instance NFData DiskInfo

@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.KMS
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.KMS
-import           Test.AWS.Gen.KMS
-import           Test.Tasty
+import Network.AWS.KMS
+import Test.AWS.Gen.KMS
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

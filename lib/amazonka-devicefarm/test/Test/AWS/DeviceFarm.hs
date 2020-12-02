@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.DeviceFarm
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.DeviceFarm
-import           Test.AWS.Gen.DeviceFarm
-import           Test.Tasty
+import Network.AWS.DeviceFarm
+import Test.AWS.Gen.DeviceFarm
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

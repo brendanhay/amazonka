@@ -4,130 +4,148 @@
 
 -- |
 -- Module      : Network.AWS.CertificateManagerPCA.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.CertificateManagerPCA.Types
-    (
-    -- * Service Configuration
-      certificateManagerPCA
+  ( -- * Service Configuration
+    certificateManagerPCA,
 
     -- * Errors
-    , _InvalidTagException
-    , _MalformedCSRException
-    , _RequestAlreadyProcessedException
-    , _MalformedCertificateException
-    , _RequestFailedException
-    , _CertificateMismatchException
-    , _TooManyTagsException
-    , _InvalidArgsException
-    , _RequestInProgressException
-    , _ConcurrentModificationException
-    , _InvalidNextTokenException
-    , _InvalidARNException
-    , _InvalidPolicyException
-    , _ResourceNotFoundException
-    , _InvalidStateException
-    , _LimitExceededException
+
+    -- * ActionType
+    ActionType (..),
 
     -- * AuditReportResponseFormat
-    , AuditReportResponseFormat (..)
+    AuditReportResponseFormat (..),
 
     -- * AuditReportStatus
-    , AuditReportStatus (..)
+    AuditReportStatus (..),
 
     -- * CertificateAuthorityStatus
-    , CertificateAuthorityStatus (..)
+    CertificateAuthorityStatus (..),
 
     -- * CertificateAuthorityType
-    , CertificateAuthorityType (..)
+    CertificateAuthorityType (..),
 
     -- * FailureReason
-    , FailureReason (..)
+    FailureReason (..),
 
     -- * KeyAlgorithm
-    , KeyAlgorithm (..)
+    KeyAlgorithm (..),
+
+    -- * ResourceOwner
+    ResourceOwner (..),
 
     -- * RevocationReason
-    , RevocationReason (..)
+    RevocationReason (..),
 
     -- * SigningAlgorithm
-    , SigningAlgorithm (..)
+    SigningAlgorithm (..),
 
     -- * ValidityPeriodType
-    , ValidityPeriodType (..)
+    ValidityPeriodType (..),
 
     -- * ASN1Subject
-    , ASN1Subject
-    , asn1Subject
-    , asGivenName
-    , asState
-    , asCommonName
-    , asOrganizationalUnit
-    , asCountry
-    , asGenerationQualifier
-    , asLocality
-    , asPseudonym
-    , asInitials
-    , asTitle
-    , asOrganization
-    , asSerialNumber
-    , asSurname
-    , asDistinguishedNameQualifier
+    ASN1Subject,
+    asn1Subject,
+    asGivenName,
+    asState,
+    asCommonName,
+    asOrganizationalUnit,
+    asCountry,
+    asGenerationQualifier,
+    asLocality,
+    asPseudonym,
+    asInitials,
+    asTitle,
+    asOrganization,
+    asSerialNumber,
+    asSurname,
+    asDistinguishedNameQualifier,
 
     -- * CertificateAuthority
-    , CertificateAuthority
-    , certificateAuthority
-    , caStatus
-    , caFailureReason
-    , caCertificateAuthorityConfiguration
-    , caARN
-    , caCreatedAt
-    , caSerial
-    , caNotBefore
-    , caType
-    , caRevocationConfiguration
-    , caLastStateChangeAt
-    , caNotAfter
+    CertificateAuthority,
+    certificateAuthority,
+    caStatus,
+    caFailureReason,
+    caCertificateAuthorityConfiguration,
+    caARN,
+    caCreatedAt,
+    caSerial,
+    caNotBefore,
+    caRestorableUntil,
+    caType,
+    caOwnerAccount,
+    caRevocationConfiguration,
+    caLastStateChangeAt,
+    caNotAfter,
 
     -- * CertificateAuthorityConfiguration
-    , CertificateAuthorityConfiguration
-    , certificateAuthorityConfiguration
-    , cacKeyAlgorithm
-    , cacSigningAlgorithm
-    , cacSubject
+    CertificateAuthorityConfiguration,
+    certificateAuthorityConfiguration,
+    cacKeyAlgorithm,
+    cacSigningAlgorithm,
+    cacSubject,
 
     -- * CrlConfiguration
-    , CrlConfiguration
-    , crlConfiguration
-    , ccCustomCname
-    , ccExpirationInDays
-    , ccS3BucketName
-    , ccEnabled
+    CrlConfiguration,
+    crlConfiguration,
+    ccCustomCname,
+    ccExpirationInDays,
+    ccS3BucketName,
+    ccEnabled,
+
+    -- * Permission
+    Permission,
+    permission,
+    pSourceAccount,
+    pActions,
+    pCreatedAt,
+    pPrincipal,
+    pPolicy,
+    pCertificateAuthorityARN,
 
     -- * RevocationConfiguration
-    , RevocationConfiguration
-    , revocationConfiguration
-    , rcCrlConfiguration
+    RevocationConfiguration,
+    revocationConfiguration,
+    rcCrlConfiguration,
 
     -- * Tag
-    , Tag
-    , tag
-    , tagValue
-    , tagKey
+    Tag,
+    tag,
+    tagValue,
+    tagKey,
 
     -- * Validity
-    , Validity
-    , validity
-    , vValue
-    , vType
-    ) where
+    Validity,
+    validity,
+    vValue,
+    vType,
+  )
+where
 
-import Network.AWS.CertificateManagerPCA.Types.Product
-import Network.AWS.CertificateManagerPCA.Types.Sum
+import Network.AWS.CertificateManagerPCA.Types.ASN1Subject
+import Network.AWS.CertificateManagerPCA.Types.ActionType
+import Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat
+import Network.AWS.CertificateManagerPCA.Types.AuditReportStatus
+import Network.AWS.CertificateManagerPCA.Types.CertificateAuthority
+import Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
+import Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityStatus
+import Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType
+import Network.AWS.CertificateManagerPCA.Types.CrlConfiguration
+import Network.AWS.CertificateManagerPCA.Types.FailureReason
+import Network.AWS.CertificateManagerPCA.Types.KeyAlgorithm
+import Network.AWS.CertificateManagerPCA.Types.Permission
+import Network.AWS.CertificateManagerPCA.Types.ResourceOwner
+import Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration
+import Network.AWS.CertificateManagerPCA.Types.RevocationReason
+import Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm
+import Network.AWS.CertificateManagerPCA.Types.Tag
+import Network.AWS.CertificateManagerPCA.Types.Validity
+import Network.AWS.CertificateManagerPCA.Types.ValidityPeriodType
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Sign.V4
@@ -136,23 +154,23 @@ import Network.AWS.Sign.V4
 certificateManagerPCA :: Service
 certificateManagerPCA =
   Service
-    { _svcAbbrev = "CertificateManagerPCA"
-    , _svcSigner = v4
-    , _svcPrefix = "acm-pca"
-    , _svcVersion = "2017-08-22"
-    , _svcEndpoint = defaultEndpoint certificateManagerPCA
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "CertificateManagerPCA"
-    , _svcRetry = retry
+    { _svcAbbrev = "CertificateManagerPCA",
+      _svcSigner = v4,
+      _svcPrefix = "acm-pca",
+      _svcVersion = "2017-08-22",
+      _svcEndpoint = defaultEndpoint certificateManagerPCA,
+      _svcTimeout = Just 70,
+      _svcCheck = statusSuccess,
+      _svcError = parseJSONError "CertificateManagerPCA",
+      _svcRetry = retry
     }
   where
     retry =
       Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+        { _retryBase = 5.0e-2,
+          _retryGrowth = 2,
+          _retryAttempts = 5,
+          _retryCheck = check
         }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
@@ -161,6 +179,10 @@ certificateManagerPCA =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has
+          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+          e =
+        Just "throughput_exceeded"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasCode "RequestThrottledException" . hasStatus 400) e =
         Just "request_throttled_exception"
@@ -169,132 +191,3 @@ certificateManagerPCA =
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
-
-
--- | The tag associated with the CA is not valid. The invalid argument is contained in the message field.
---
---
-_InvalidTagException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidTagException =
-  _MatchServiceError certificateManagerPCA "InvalidTagException"
-
-
--- | The certificate signing request is invalid.
---
---
-_MalformedCSRException :: AsError a => Getting (First ServiceError) a ServiceError
-_MalformedCSRException =
-  _MatchServiceError certificateManagerPCA "MalformedCSRException"
-
-
--- | Your request has already been completed.
---
---
-_RequestAlreadyProcessedException :: AsError a => Getting (First ServiceError) a ServiceError
-_RequestAlreadyProcessedException =
-  _MatchServiceError certificateManagerPCA "RequestAlreadyProcessedException"
-
-
--- | One or more fields in the certificate are invalid.
---
---
-_MalformedCertificateException :: AsError a => Getting (First ServiceError) a ServiceError
-_MalformedCertificateException =
-  _MatchServiceError certificateManagerPCA "MalformedCertificateException"
-
-
--- | The request has failed for an unspecified reason.
---
---
-_RequestFailedException :: AsError a => Getting (First ServiceError) a ServiceError
-_RequestFailedException =
-  _MatchServiceError certificateManagerPCA "RequestFailedException"
-
-
--- | The certificate authority certificate you are importing does not comply with conditions specified in the certificate that signed it.
---
---
-_CertificateMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
-_CertificateMismatchException =
-  _MatchServiceError certificateManagerPCA "CertificateMismatchException"
-
-
--- | You can associate up to 50 tags with a private CA. Exception information is contained in the exception message field.
---
---
-_TooManyTagsException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyTagsException =
-  _MatchServiceError certificateManagerPCA "TooManyTagsException"
-
-
--- | One or more of the specified arguments was not valid.
---
---
-_InvalidArgsException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidArgsException =
-  _MatchServiceError certificateManagerPCA "InvalidArgsException"
-
-
--- | Your request is already in progress.
---
---
-_RequestInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
-_RequestInProgressException =
-  _MatchServiceError certificateManagerPCA "RequestInProgressException"
-
-
--- | A previous update to your private CA is still ongoing.
---
---
-_ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
-_ConcurrentModificationException =
-  _MatchServiceError certificateManagerPCA "ConcurrentModificationException"
-
-
--- | The token specified in the @NextToken@ argument is not valid. Use the token returned from your previous call to 'ListCertificateAuthorities' .
---
---
-_InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNextTokenException =
-  _MatchServiceError certificateManagerPCA "InvalidNextTokenException"
-
-
--- | The requested Amazon Resource Name (ARN) does not refer to an existing resource.
---
---
-_InvalidARNException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidARNException =
-  _MatchServiceError certificateManagerPCA "InvalidArnException"
-
-
--- | The S3 bucket policy is not valid. The policy must give ACM PCA rights to read from and write to the bucket and find the bucket location.
---
---
-_InvalidPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidPolicyException =
-  _MatchServiceError certificateManagerPCA "InvalidPolicyException"
-
-
--- | A resource such as a private CA, S3 bucket, certificate, or audit report cannot be found.
---
---
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundException =
-  _MatchServiceError certificateManagerPCA "ResourceNotFoundException"
-
-
--- | The private CA is in a state during which a report cannot be generated.
---
---
-_InvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidStateException =
-  _MatchServiceError certificateManagerPCA "InvalidStateException"
-
-
--- | An ACM PCA limit has been exceeded. See the exception message returned to determine the limit that was exceeded.
---
---
-_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException =
-  _MatchServiceError certificateManagerPCA "LimitExceededException"
-

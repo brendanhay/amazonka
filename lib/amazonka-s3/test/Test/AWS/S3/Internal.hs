@@ -13,33 +13,33 @@
 
 module Test.AWS.S3.Internal where
 
-import           Data.Time
-import           Network.AWS.Prelude
-import           Network.AWS.S3
-import           Test.AWS.Fixture
-import           Test.AWS.Prelude
-import           Test.Tasty
-import           Test.Tasty.HUnit
+import Data.Time
+import Network.AWS.Prelude
+import Network.AWS.S3
+import Test.AWS.Fixture
+import Test.AWS.Prelude
+import Test.Tasty
+import Test.Tasty.HUnit
 
 -- FIXME: expand, convert to quick/smallcheck properties.
 objectKeyTests :: TestTree
-objectKeyTests = testGroup "object key"
-    [ testGroup "encoding"
+objectKeyTests =
+  testGroup
+    "object key"
+    [ testGroup
+        "encoding"
         [ testCase "without delimiters" $
-            "/key" @=?
-                enc (ObjectKey "key")
-
-        , testCase "without leading prefix" $
-            "/some/obj%23ect" @=?
-                enc (ObjectKey "some/obj#ect")
-
-        , testCase "custom delimiter" $
-            "/%5Esome%5Eobj%25ect%5Efoo" @=?
-                enc (ObjectKey "^some^obj%ect^foo")
-
-        , testCase "leading prefix" $
-            "/some%3D1/path%20to/foo%3Dbar/object%20here" @=?
-                enc (ObjectKey "/some=1/path to/foo=bar/object here")
+            "/key"
+              @=? enc (ObjectKey "key"),
+          testCase "without leading prefix" $
+            "/some/obj%23ect"
+              @=? enc (ObjectKey "some/obj#ect"),
+          testCase "custom delimiter" $
+            "/%5Esome%5Eobj%25ect%5Efoo"
+              @=? enc (ObjectKey "^some^obj%ect^foo"),
+          testCase "leading prefix" $
+            "/some%3D1/path%20to/foo%3Dbar/object%20here"
+              @=? enc (ObjectKey "/some=1/path to/foo=bar/object here")
         ]
     ]
   where
@@ -47,11 +47,13 @@ objectKeyTests = testGroup "object key"
     enc = toBS . escapePath . rawPath
 
 requestPutObjectACLWithBody :: PutObjectACL -> TestTree
-requestPutObjectACLWithBody = req
+requestPutObjectACLWithBody =
+  req
     "PutObjectACLWithBody"
     "fixture/PutObjectACLWithBody.yaml"
 
 requestPutObjectACLWithHeaders :: PutObjectACL -> TestTree
-requestPutObjectACLWithHeaders = req
+requestPutObjectACLWithHeaders =
+  req
     "PutObjectACLWithHeaders"
     "fixture/PutObjectACLWithHeaders.yaml"

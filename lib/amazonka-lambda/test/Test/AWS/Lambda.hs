@@ -11,13 +11,13 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.Lambda
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
 import Network.AWS.Lambda
-import Network.AWS.Lens   ((&), (?~))
-
+import Network.AWS.Lens ((&), (?~))
 import Test.AWS.Gen.Lambda
 import Test.Tasty
 
@@ -26,8 +26,9 @@ tests = []
 
 fixtures :: [TestTree]
 fixtures =
-    [ testGroup "response"
-        [ responseInvoke $
-            invokeResponse 200 & irsPayload ?~ ""
-        ]
-    ]
+  [ testGroup
+      "response"
+      [ responseInvoke $
+          invokeResponse 200 & irsPayload ?~ ""
+      ]
+  ]

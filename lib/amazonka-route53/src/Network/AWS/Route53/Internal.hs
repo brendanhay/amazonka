@@ -1,9 +1,8 @@
-{-# LANGUAGE DeriveDataTypeable         #-}
-{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE LambdaCase                 #-}
-{-# LANGUAGE OverloadedStrings          #-}
-
+{-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE OverloadedStrings #-}
 {-# OPTIONS_GHC -Wall -Werror #-}
 
 -- |
@@ -13,21 +12,19 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.Route53.Internal
-    ( Region     (..)
-    , ResourceId (..)
+  ( Region (..),
+    ResourceId (..),
 
-      -- * Website Endpoints
-    , getHostedZoneId
-    ) where
+    -- * Website Endpoints
+    getHostedZoneId,
+  )
+where
 
 import Data.String (IsString)
-
+import qualified Data.Text as Text
 import Network.AWS.Data.Log (ToLog)
 import Network.AWS.Prelude
-
-import qualified Data.Text as Text
 
 -- | A Route53 identifier for resources such as hosted zones and delegation sets.
 --
@@ -36,30 +33,31 @@ import qualified Data.Text as Text
 -- @ABC123@, the 'FromXML' instance will strip this prefix take care to ensure
 -- the correct input format is observed and @decodeXML . encodeXML == id@
 -- holds.
-newtype ResourceId = ResourceId { fromResourceId :: Text }
-    deriving
-        ( Eq
-        , Ord
-        , Read
-        , Show
-        , Data
-        , Typeable
-        , Generic
-        , IsString
-        , FromText
-        , ToText
-        , ToByteString
-        , ToXML
-        , ToQuery
-        , ToLog
-        )
+newtype ResourceId = ResourceId {fromResourceId :: Text}
+  deriving
+    ( Eq,
+      Ord,
+      Read,
+      Show,
+      Data,
+      Typeable,
+      Generic,
+      IsString,
+      FromText,
+      ToText,
+      ToByteString,
+      ToXML,
+      ToQuery,
+      ToLog
+    )
 
 instance Hashable ResourceId
-instance NFData   ResourceId
+
+instance NFData ResourceId
 
 -- | Handles prefixed Route53 resource identifiers.
 instance FromXML ResourceId where
-    parseXML = fmap (ResourceId . Text.takeWhileEnd (/= '/')) . parseXML
+  parseXML = fmap (ResourceId . Text.takeWhileEnd (/= '/')) . parseXML
 
 -- | Get the hosted zone identifier for an S3 website endpoint.
 --
@@ -70,26 +68,26 @@ instance FromXML ResourceId where
 -- /See:/ <http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints Amazon Simple Storage Service Website Endpoints>.
 getHostedZoneId :: Region -> Maybe ResourceId
 getHostedZoneId = \case
-    NorthVirginia   -> Just "Z3AQBSTGFYJSTF"
-    Ohio            -> Just "Z2O1EMRO9K5GLX"
-    NorthCalifornia -> Just "Z2F56UZL2M1ACD"
-    Oregon          -> Just "Z3BJ6K6RIION7M"
-    Montreal        -> Just "Z1QDHH18159H29"
-    HongKong        -> Just "ZNB98KWMFR0R6"
-    Tokyo           -> Just "Z2M4EHUR26P7ZW"
-    Seoul           -> Just "Z3W03O7B5YMIYP"
-    Osaka           -> Just "Z2YQB5RD63NC85"
-    Mumbai          -> Just "Z11RGJOFQNVJUP"
-    Singapore       -> Just "Z3O0J2DXBE1FTB"
-    Sydney          -> Just "Z1WCIGYICN2BYD"
-    SaoPaulo        -> Just "Z7KQH4QJS55SO"
-    Ireland         -> Just "Z1BKCTXD74EZPE"
-    London          -> Just "Z3GKZC51ZF0DB4"
-    Paris           -> Just "Z3R1K369G5AVDG"
-    Frankfurt       -> Just "Z21DNDUVLTQW6Q"
-    Stockholm       -> Just "Z3BAZG2TWCNX0D"
-    GovCloud        -> Just "Z31GFT0UA1I2HV"
-    GovCloudFIPS    -> Just "Z31GFT0UA1I2HV"
-    GovCloudEast    -> Nothing
-    Ningxia         -> Nothing
-    Beijing         -> Nothing
+  NorthVirginia -> Just "Z3AQBSTGFYJSTF"
+  Ohio -> Just "Z2O1EMRO9K5GLX"
+  NorthCalifornia -> Just "Z2F56UZL2M1ACD"
+  Oregon -> Just "Z3BJ6K6RIION7M"
+  Montreal -> Just "Z1QDHH18159H29"
+  HongKong -> Just "ZNB98KWMFR0R6"
+  Tokyo -> Just "Z2M4EHUR26P7ZW"
+  Seoul -> Just "Z3W03O7B5YMIYP"
+  Osaka -> Just "Z2YQB5RD63NC85"
+  Mumbai -> Just "Z11RGJOFQNVJUP"
+  Singapore -> Just "Z3O0J2DXBE1FTB"
+  Sydney -> Just "Z1WCIGYICN2BYD"
+  SaoPaulo -> Just "Z7KQH4QJS55SO"
+  Ireland -> Just "Z1BKCTXD74EZPE"
+  London -> Just "Z3GKZC51ZF0DB4"
+  Paris -> Just "Z3R1K369G5AVDG"
+  Frankfurt -> Just "Z21DNDUVLTQW6Q"
+  Stockholm -> Just "Z3BAZG2TWCNX0D"
+  GovCloud -> Just "Z31GFT0UA1I2HV"
+  GovCloudFIPS -> Just "Z31GFT0UA1I2HV"
+  GovCloudEast -> Nothing
+  Ningxia -> Nothing
+  Beijing -> Nothing

@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.Route53
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.Route53
-import           Test.AWS.Gen.Route53
-import           Test.Tasty
+import Network.AWS.Route53
+import Test.AWS.Gen.Route53
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

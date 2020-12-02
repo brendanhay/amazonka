@@ -1,18 +1,17 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SWF.RequestCancelWorkflowExecution
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,37 +32,37 @@
 --
 --
 --
--- If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's @cause@ parameter is set to @OPERATION_NOT_PERMITTED@ . For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
---
+-- If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's @cause@ parameter is set to @OPERATION_NOT_PERMITTED@ . For details and example IAM policies, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
 module Network.AWS.SWF.RequestCancelWorkflowExecution
-    (
-    -- * Creating a Request
-      requestCancelWorkflowExecution
-    , RequestCancelWorkflowExecution
+  ( -- * Creating a Request
+    requestCancelWorkflowExecution,
+    RequestCancelWorkflowExecution,
+
     -- * Request Lenses
-    , rcweRunId
-    , rcweDomain
-    , rcweWorkflowId
+    rcweRunId,
+    rcweDomain,
+    rcweWorkflowId,
 
     -- * Destructuring the Response
-    , requestCancelWorkflowExecutionResponse
-    , RequestCancelWorkflowExecutionResponse
-    ) where
+    requestCancelWorkflowExecutionResponse,
+    RequestCancelWorkflowExecutionResponse,
+  )
+where
 
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SWF.Types
-import Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'requestCancelWorkflowExecution' smart constructor.
 data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution'
-  { _rcweRunId      :: !(Maybe Text)
-  , _rcweDomain     :: !Text
-  , _rcweWorkflowId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _rcweRunId ::
+      !(Maybe Text),
+    _rcweDomain :: !Text,
+    _rcweWorkflowId :: !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'RequestCancelWorkflowExecution' with the minimum fields required to make a request.
 --
@@ -74,81 +73,78 @@ data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution'
 -- * 'rcweDomain' - The name of the domain containing the workflow execution to cancel.
 --
 -- * 'rcweWorkflowId' - The workflowId of the workflow execution to cancel.
-requestCancelWorkflowExecution
-    :: Text -- ^ 'rcweDomain'
-    -> Text -- ^ 'rcweWorkflowId'
-    -> RequestCancelWorkflowExecution
+requestCancelWorkflowExecution ::
+  -- | 'rcweDomain'
+  Text ->
+  -- | 'rcweWorkflowId'
+  Text ->
+  RequestCancelWorkflowExecution
 requestCancelWorkflowExecution pDomain_ pWorkflowId_ =
   RequestCancelWorkflowExecution'
-    { _rcweRunId = Nothing
-    , _rcweDomain = pDomain_
-    , _rcweWorkflowId = pWorkflowId_
+    { _rcweRunId = Nothing,
+      _rcweDomain = pDomain_,
+      _rcweWorkflowId = pWorkflowId_
     }
-
 
 -- | The runId of the workflow execution to cancel.
 rcweRunId :: Lens' RequestCancelWorkflowExecution (Maybe Text)
-rcweRunId = lens _rcweRunId (\ s a -> s{_rcweRunId = a})
+rcweRunId = lens _rcweRunId (\s a -> s {_rcweRunId = a})
 
 -- | The name of the domain containing the workflow execution to cancel.
 rcweDomain :: Lens' RequestCancelWorkflowExecution Text
-rcweDomain = lens _rcweDomain (\ s a -> s{_rcweDomain = a})
+rcweDomain = lens _rcweDomain (\s a -> s {_rcweDomain = a})
 
 -- | The workflowId of the workflow execution to cancel.
 rcweWorkflowId :: Lens' RequestCancelWorkflowExecution Text
-rcweWorkflowId = lens _rcweWorkflowId (\ s a -> s{_rcweWorkflowId = a})
+rcweWorkflowId = lens _rcweWorkflowId (\s a -> s {_rcweWorkflowId = a})
 
-instance AWSRequest RequestCancelWorkflowExecution
-         where
-        type Rs RequestCancelWorkflowExecution =
-             RequestCancelWorkflowExecutionResponse
-        request = postJSON swf
-        response
-          = receiveNull RequestCancelWorkflowExecutionResponse'
+instance AWSRequest RequestCancelWorkflowExecution where
+  type
+    Rs RequestCancelWorkflowExecution =
+      RequestCancelWorkflowExecutionResponse
+  request = postJSON swf
+  response = receiveNull RequestCancelWorkflowExecutionResponse'
 
 instance Hashable RequestCancelWorkflowExecution
-         where
 
-instance NFData RequestCancelWorkflowExecution where
+instance NFData RequestCancelWorkflowExecution
 
-instance ToHeaders RequestCancelWorkflowExecution
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("SimpleWorkflowService.RequestCancelWorkflowExecution"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.0" :: ByteString)])
+instance ToHeaders RequestCancelWorkflowExecution where
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target"
+              =# ( "SimpleWorkflowService.RequestCancelWorkflowExecution" ::
+                     ByteString
+                 ),
+            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+          ]
+      )
 
 instance ToJSON RequestCancelWorkflowExecution where
-        toJSON RequestCancelWorkflowExecution'{..}
-          = object
-              (catMaybes
-                 [("runId" .=) <$> _rcweRunId,
-                  Just ("domain" .= _rcweDomain),
-                  Just ("workflowId" .= _rcweWorkflowId)])
+  toJSON RequestCancelWorkflowExecution' {..} =
+    object
+      ( catMaybes
+          [ ("runId" .=) <$> _rcweRunId,
+            Just ("domain" .= _rcweDomain),
+            Just ("workflowId" .= _rcweWorkflowId)
+          ]
+      )
 
 instance ToPath RequestCancelWorkflowExecution where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery RequestCancelWorkflowExecution where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | /See:/ 'requestCancelWorkflowExecutionResponse' smart constructor.
-data RequestCancelWorkflowExecutionResponse =
-  RequestCancelWorkflowExecutionResponse'
+data RequestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResponse'
   deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
 -- | Creates a value of 'RequestCancelWorkflowExecutionResponse' with the minimum fields required to make a request.
---
-requestCancelWorkflowExecutionResponse
-    :: RequestCancelWorkflowExecutionResponse
-requestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResponse'
+requestCancelWorkflowExecutionResponse ::
+  RequestCancelWorkflowExecutionResponse
+requestCancelWorkflowExecutionResponse =
+  RequestCancelWorkflowExecutionResponse'
 
-
-instance NFData
-           RequestCancelWorkflowExecutionResponse
-         where
+instance NFData RequestCancelWorkflowExecutionResponse

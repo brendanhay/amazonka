@@ -1,104 +1,102 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetGCMChannel
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the GCM channel for an app.
+-- Retrieves information about the status and settings of the GCM channel for an application.
 module Network.AWS.Pinpoint.GetGCMChannel
-    (
-    -- * Creating a Request
-      getGCMChannel
-    , GetGCMChannel
+  ( -- * Creating a Request
+    getGCMChannel,
+    GetGCMChannel,
+
     -- * Request Lenses
-    , ggcApplicationId
+    ggcApplicationId,
 
     -- * Destructuring the Response
-    , getGCMChannelResponse
-    , GetGCMChannelResponse
+    getGCMChannelResponse,
+    GetGCMChannelResponse,
+
     -- * Response Lenses
-    , ggcrsResponseStatus
-    , ggcrsGCMChannelResponse
-    ) where
+    ggcrsResponseStatus,
+    ggcrsGCMChannelResponse,
+  )
+where
 
 import Network.AWS.Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Pinpoint.Types.Product
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'getGCMChannel' smart constructor.
-newtype GetGCMChannel = GetGCMChannel'
-  { _ggcApplicationId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+newtype GetGCMChannel = GetGCMChannel' {_ggcApplicationId :: Text}
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'GetGCMChannel' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggcApplicationId' - Undocumented member.
-getGCMChannel
-    :: Text -- ^ 'ggcApplicationId'
-    -> GetGCMChannel
+-- * 'ggcApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+getGCMChannel ::
+  -- | 'ggcApplicationId'
+  Text ->
+  GetGCMChannel
 getGCMChannel pApplicationId_ =
   GetGCMChannel' {_ggcApplicationId = pApplicationId_}
 
-
--- | Undocumented member.
+-- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 ggcApplicationId :: Lens' GetGCMChannel Text
-ggcApplicationId = lens _ggcApplicationId (\ s a -> s{_ggcApplicationId = a})
+ggcApplicationId = lens _ggcApplicationId (\s a -> s {_ggcApplicationId = a})
 
 instance AWSRequest GetGCMChannel where
-        type Rs GetGCMChannel = GetGCMChannelResponse
-        request = get pinpoint
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetGCMChannelResponse' <$>
-                   (pure (fromEnum s)) <*> (eitherParseJSON x))
+  type Rs GetGCMChannel = GetGCMChannelResponse
+  request = get pinpoint
+  response =
+    receiveJSON
+      ( \s h x ->
+          GetGCMChannelResponse'
+            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+      )
 
-instance Hashable GetGCMChannel where
+instance Hashable GetGCMChannel
 
-instance NFData GetGCMChannel where
+instance NFData GetGCMChannel
 
 instance ToHeaders GetGCMChannel where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+      )
 
 instance ToPath GetGCMChannel where
-        toPath GetGCMChannel'{..}
-          = mconcat
-              ["/v1/apps/", toBS _ggcApplicationId,
-               "/channels/gcm"]
+  toPath GetGCMChannel' {..} =
+    mconcat ["/v1/apps/", toBS _ggcApplicationId, "/channels/gcm"]
 
 instance ToQuery GetGCMChannel where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | /See:/ 'getGCMChannelResponse' smart constructor.
 data GetGCMChannelResponse = GetGCMChannelResponse'
-  { _ggcrsResponseStatus     :: !Int
-  , _ggcrsGCMChannelResponse :: !GCMChannelResponse
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _ggcrsResponseStatus ::
+      !Int,
+    _ggcrsGCMChannelResponse :: !GCMChannelResponse
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'GetGCMChannelResponse' with the minimum fields required to make a request.
 --
@@ -107,23 +105,24 @@ data GetGCMChannelResponse = GetGCMChannelResponse'
 -- * 'ggcrsResponseStatus' - -- | The response status code.
 --
 -- * 'ggcrsGCMChannelResponse' - Undocumented member.
-getGCMChannelResponse
-    :: Int -- ^ 'ggcrsResponseStatus'
-    -> GCMChannelResponse -- ^ 'ggcrsGCMChannelResponse'
-    -> GetGCMChannelResponse
+getGCMChannelResponse ::
+  -- | 'ggcrsResponseStatus'
+  Int ->
+  -- | 'ggcrsGCMChannelResponse'
+  GCMChannelResponse ->
+  GetGCMChannelResponse
 getGCMChannelResponse pResponseStatus_ pGCMChannelResponse_ =
   GetGCMChannelResponse'
-    { _ggcrsResponseStatus = pResponseStatus_
-    , _ggcrsGCMChannelResponse = pGCMChannelResponse_
+    { _ggcrsResponseStatus = pResponseStatus_,
+      _ggcrsGCMChannelResponse = pGCMChannelResponse_
     }
-
 
 -- | -- | The response status code.
 ggcrsResponseStatus :: Lens' GetGCMChannelResponse Int
-ggcrsResponseStatus = lens _ggcrsResponseStatus (\ s a -> s{_ggcrsResponseStatus = a})
+ggcrsResponseStatus = lens _ggcrsResponseStatus (\s a -> s {_ggcrsResponseStatus = a})
 
 -- | Undocumented member.
 ggcrsGCMChannelResponse :: Lens' GetGCMChannelResponse GCMChannelResponse
-ggcrsGCMChannelResponse = lens _ggcrsGCMChannelResponse (\ s a -> s{_ggcrsGCMChannelResponse = a})
+ggcrsGCMChannelResponse = lens _ggcrsGCMChannelResponse (\s a -> s {_ggcrsGCMChannelResponse = a})
 
-instance NFData GetGCMChannelResponse where
+instance NFData GetGCMChannelResponse

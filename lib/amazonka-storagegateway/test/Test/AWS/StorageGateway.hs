@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.StorageGateway
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.StorageGateway
-import           Test.AWS.Gen.StorageGateway
-import           Test.Tasty
+import Network.AWS.StorageGateway
+import Test.AWS.Gen.StorageGateway
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

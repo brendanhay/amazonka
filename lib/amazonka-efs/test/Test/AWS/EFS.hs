@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.EFS
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.EFS
-import           Test.AWS.Gen.EFS
-import           Test.Tasty
+import Network.AWS.EFS
+import Test.AWS.Gen.EFS
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

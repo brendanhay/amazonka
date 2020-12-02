@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.CostAndUsageReport
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.CostAndUsageReport where
 
 import Data.Proxy
@@ -34,6 +33,9 @@ import Test.Tasty
 --         , requestDeleteReportDefinition $
 --             deleteReportDefinition
 --
+--         , requestModifyReportDefinition $
+--             modifyReportDefinition
+--
 --         , requestDescribeReportDefinitions $
 --             describeReportDefinitions
 --
@@ -46,6 +48,9 @@ import Test.Tasty
 --         , responseDeleteReportDefinition $
 --             deleteReportDefinitionResponse
 --
+--         , responseModifyReportDefinition $
+--             modifyReportDefinitionResponse
+--
 --         , responseDescribeReportDefinitions $
 --             describeReportDefinitionsResponse
 --
@@ -55,38 +60,58 @@ import Test.Tasty
 -- Requests
 
 requestPutReportDefinition :: PutReportDefinition -> TestTree
-requestPutReportDefinition = req
+requestPutReportDefinition =
+  req
     "PutReportDefinition"
     "fixture/PutReportDefinition.yaml"
 
 requestDeleteReportDefinition :: DeleteReportDefinition -> TestTree
-requestDeleteReportDefinition = req
+requestDeleteReportDefinition =
+  req
     "DeleteReportDefinition"
     "fixture/DeleteReportDefinition.yaml"
 
+requestModifyReportDefinition :: ModifyReportDefinition -> TestTree
+requestModifyReportDefinition =
+  req
+    "ModifyReportDefinition"
+    "fixture/ModifyReportDefinition.yaml"
+
 requestDescribeReportDefinitions :: DescribeReportDefinitions -> TestTree
-requestDescribeReportDefinitions = req
+requestDescribeReportDefinitions =
+  req
     "DescribeReportDefinitions"
     "fixture/DescribeReportDefinitions.yaml"
 
 -- Responses
 
 responsePutReportDefinition :: PutReportDefinitionResponse -> TestTree
-responsePutReportDefinition = res
+responsePutReportDefinition =
+  res
     "PutReportDefinitionResponse"
     "fixture/PutReportDefinitionResponse.proto"
     costAndUsageReport
     (Proxy :: Proxy PutReportDefinition)
 
 responseDeleteReportDefinition :: DeleteReportDefinitionResponse -> TestTree
-responseDeleteReportDefinition = res
+responseDeleteReportDefinition =
+  res
     "DeleteReportDefinitionResponse"
     "fixture/DeleteReportDefinitionResponse.proto"
     costAndUsageReport
     (Proxy :: Proxy DeleteReportDefinition)
 
+responseModifyReportDefinition :: ModifyReportDefinitionResponse -> TestTree
+responseModifyReportDefinition =
+  res
+    "ModifyReportDefinitionResponse"
+    "fixture/ModifyReportDefinitionResponse.proto"
+    costAndUsageReport
+    (Proxy :: Proxy ModifyReportDefinition)
+
 responseDescribeReportDefinitions :: DescribeReportDefinitionsResponse -> TestTree
-responseDescribeReportDefinitions = res
+responseDescribeReportDefinitions =
+  res
     "DescribeReportDefinitionsResponse"
     "fixture/DescribeReportDefinitionsResponse.proto"
     costAndUsageReport

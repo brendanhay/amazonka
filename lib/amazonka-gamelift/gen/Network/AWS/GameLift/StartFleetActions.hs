@@ -1,18 +1,17 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GameLift.StartFleetActions
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -23,52 +22,42 @@
 --
 -- To start fleet actions, specify the fleet ID and the type of actions to restart. When auto-scaling fleet actions are restarted, Amazon GameLift once again initiates scaling events as triggered by the fleet's scaling policies. If actions on the fleet were never stopped, this operation will have no effect. You can view a fleet's stopped actions using 'DescribeFleetAttributes' .
 --
--- Operations related to fleet capacity scaling include:
+-- __Learn more__
 --
---     * 'DescribeFleetCapacity'
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift Fleets>
 --
---     * 'UpdateFleetCapacity'
+-- __Related operations__
 --
---     * 'DescribeEC2InstanceLimits'
+--     * 'CreateFleet'
 --
---     * Manage scaling policies:
+--     * 'ListFleets'
 --
---     * 'PutScalingPolicy' (auto-scaling)
+--     * 'DeleteFleet'
 --
---     * 'DescribeScalingPolicies' (auto-scaling)
+--     * 'DescribeFleetAttributes'
 --
---     * 'DeleteScalingPolicy' (auto-scaling)
+--     * 'UpdateFleetAttributes'
 --
---
---
---     * Manage fleet actions:
---
---     * 'StartFleetActions'
---
---     * 'StopFleetActions'
---
---
---
---
---
+--     * 'StartFleetActions' or 'StopFleetActions'
 module Network.AWS.GameLift.StartFleetActions
-    (
-    -- * Creating a Request
-      startFleetActions
-    , StartFleetActions
+  ( -- * Creating a Request
+    startFleetActions,
+    StartFleetActions,
+
     -- * Request Lenses
-    , sfaFleetId
-    , sfaActions
+    sfaFleetId,
+    sfaActions,
 
     -- * Destructuring the Response
-    , startFleetActionsResponse
-    , StartFleetActionsResponse
+    startFleetActionsResponse,
+    StartFleetActionsResponse,
+
     -- * Response Lenses
-    , sfarsResponseStatus
-    ) where
+    sfarsResponseStatus,
+  )
+where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.GameLift.Types.Product
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
@@ -76,88 +65,95 @@ import Network.AWS.Response
 
 -- | /See:/ 'startFleetActions' smart constructor.
 data StartFleetActions = StartFleetActions'
-  { _sfaFleetId :: !Text
-  , _sfaActions :: !(List1 FleetAction)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _sfaFleetId :: !Text,
+    _sfaActions :: !(List1 FleetAction)
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'StartFleetActions' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sfaFleetId' - Unique identifier for a fleet
+-- * 'sfaFleetId' - A unique identifier for a fleet to start actions on. You can use either the fleet ID or ARN value.
 --
 -- * 'sfaActions' - List of actions to restart on the fleet.
-startFleetActions
-    :: Text -- ^ 'sfaFleetId'
-    -> NonEmpty FleetAction -- ^ 'sfaActions'
-    -> StartFleetActions
+startFleetActions ::
+  -- | 'sfaFleetId'
+  Text ->
+  -- | 'sfaActions'
+  NonEmpty FleetAction ->
+  StartFleetActions
 startFleetActions pFleetId_ pActions_ =
-  StartFleetActions' {_sfaFleetId = pFleetId_, _sfaActions = _List1 # pActions_}
+  StartFleetActions'
+    { _sfaFleetId = pFleetId_,
+      _sfaActions = _List1 # pActions_
+    }
 
-
--- | Unique identifier for a fleet
+-- | A unique identifier for a fleet to start actions on. You can use either the fleet ID or ARN value.
 sfaFleetId :: Lens' StartFleetActions Text
-sfaFleetId = lens _sfaFleetId (\ s a -> s{_sfaFleetId = a})
+sfaFleetId = lens _sfaFleetId (\s a -> s {_sfaFleetId = a})
 
 -- | List of actions to restart on the fleet.
 sfaActions :: Lens' StartFleetActions (NonEmpty FleetAction)
-sfaActions = lens _sfaActions (\ s a -> s{_sfaActions = a}) . _List1
+sfaActions = lens _sfaActions (\s a -> s {_sfaActions = a}) . _List1
 
 instance AWSRequest StartFleetActions where
-        type Rs StartFleetActions = StartFleetActionsResponse
-        request = postJSON gameLift
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 StartFleetActionsResponse' <$> (pure (fromEnum s)))
+  type Rs StartFleetActions = StartFleetActionsResponse
+  request = postJSON gameLift
+  response =
+    receiveEmpty
+      (\s h x -> StartFleetActionsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable StartFleetActions where
+instance Hashable StartFleetActions
 
-instance NFData StartFleetActions where
+instance NFData StartFleetActions
 
 instance ToHeaders StartFleetActions where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("GameLift.StartFleetActions" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target" =# ("GameLift.StartFleetActions" :: ByteString),
+            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+          ]
+      )
 
 instance ToJSON StartFleetActions where
-        toJSON StartFleetActions'{..}
-          = object
-              (catMaybes
-                 [Just ("FleetId" .= _sfaFleetId),
-                  Just ("Actions" .= _sfaActions)])
+  toJSON StartFleetActions' {..} =
+    object
+      ( catMaybes
+          [Just ("FleetId" .= _sfaFleetId), Just ("Actions" .= _sfaActions)]
+      )
 
 instance ToPath StartFleetActions where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery StartFleetActions where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | /See:/ 'startFleetActionsResponse' smart constructor.
 newtype StartFleetActionsResponse = StartFleetActionsResponse'
-  { _sfarsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _sfarsResponseStatus ::
+      Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'StartFleetActionsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sfarsResponseStatus' - -- | The response status code.
-startFleetActionsResponse
-    :: Int -- ^ 'sfarsResponseStatus'
-    -> StartFleetActionsResponse
+startFleetActionsResponse ::
+  -- | 'sfarsResponseStatus'
+  Int ->
+  StartFleetActionsResponse
 startFleetActionsResponse pResponseStatus_ =
-  StartFleetActionsResponse' {_sfarsResponseStatus = pResponseStatus_}
-
+  StartFleetActionsResponse'
+    { _sfarsResponseStatus =
+        pResponseStatus_
+    }
 
 -- | -- | The response status code.
 sfarsResponseStatus :: Lens' StartFleetActionsResponse Int
-sfarsResponseStatus = lens _sfarsResponseStatus (\ s a -> s{_sfarsResponseStatus = a})
+sfarsResponseStatus = lens _sfarsResponseStatus (\s a -> s {_sfarsResponseStatus = a})
 
-instance NFData StartFleetActionsResponse where
+instance NFData StartFleetActionsResponse

@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.Glacier
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.Glacier
-import           Test.AWS.Gen.Glacier
-import           Test.Tasty
+import Network.AWS.Glacier
+import Test.AWS.Gen.Glacier
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

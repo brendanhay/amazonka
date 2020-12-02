@@ -1,46 +1,45 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EMR.AddInstanceGroups
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds one or more instance groups to a running cluster.
---
---
 module Network.AWS.EMR.AddInstanceGroups
-    (
-    -- * Creating a Request
-      addInstanceGroups
-    , AddInstanceGroups
+  ( -- * Creating a Request
+    addInstanceGroups,
+    AddInstanceGroups,
+
     -- * Request Lenses
-    , aigInstanceGroups
-    , aigJobFlowId
+    aigInstanceGroups,
+    aigJobFlowId,
 
     -- * Destructuring the Response
-    , addInstanceGroupsResponse
-    , AddInstanceGroupsResponse
+    addInstanceGroupsResponse,
+    AddInstanceGroupsResponse,
+
     -- * Response Lenses
-    , aigrsJobFlowId
-    , aigrsInstanceGroupIds
-    , aigrsResponseStatus
-    ) where
+    aigrsClusterARN,
+    aigrsJobFlowId,
+    aigrsInstanceGroupIds,
+    aigrsResponseStatus,
+  )
+where
 
 import Network.AWS.EMR.Types
-import Network.AWS.EMR.Types.Product
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
@@ -52,10 +51,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'addInstanceGroups' smart constructor.
 data AddInstanceGroups = AddInstanceGroups'
-  { _aigInstanceGroups :: ![InstanceGroupConfig]
-  , _aigJobFlowId      :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _aigInstanceGroups ::
+      ![InstanceGroupConfig],
+    _aigJobFlowId :: !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'AddInstanceGroups' with the minimum fields required to make a request.
 --
@@ -64,57 +64,65 @@ data AddInstanceGroups = AddInstanceGroups'
 -- * 'aigInstanceGroups' - Instance groups to add.
 --
 -- * 'aigJobFlowId' - Job flow in which to add the instance groups.
-addInstanceGroups
-    :: Text -- ^ 'aigJobFlowId'
-    -> AddInstanceGroups
+addInstanceGroups ::
+  -- | 'aigJobFlowId'
+  Text ->
+  AddInstanceGroups
 addInstanceGroups pJobFlowId_ =
-  AddInstanceGroups' {_aigInstanceGroups = mempty, _aigJobFlowId = pJobFlowId_}
-
+  AddInstanceGroups'
+    { _aigInstanceGroups = mempty,
+      _aigJobFlowId = pJobFlowId_
+    }
 
 -- | Instance groups to add.
 aigInstanceGroups :: Lens' AddInstanceGroups [InstanceGroupConfig]
-aigInstanceGroups = lens _aigInstanceGroups (\ s a -> s{_aigInstanceGroups = a}) . _Coerce
+aigInstanceGroups = lens _aigInstanceGroups (\s a -> s {_aigInstanceGroups = a}) . _Coerce
 
 -- | Job flow in which to add the instance groups.
 aigJobFlowId :: Lens' AddInstanceGroups Text
-aigJobFlowId = lens _aigJobFlowId (\ s a -> s{_aigJobFlowId = a})
+aigJobFlowId = lens _aigJobFlowId (\s a -> s {_aigJobFlowId = a})
 
 instance AWSRequest AddInstanceGroups where
-        type Rs AddInstanceGroups = AddInstanceGroupsResponse
-        request = postJSON emr
-        response
-          = receiveJSON
-              (\ s h x ->
-                 AddInstanceGroupsResponse' <$>
-                   (x .?> "JobFlowId") <*>
-                     (x .?> "InstanceGroupIds" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+  type Rs AddInstanceGroups = AddInstanceGroupsResponse
+  request = postJSON emr
+  response =
+    receiveJSON
+      ( \s h x ->
+          AddInstanceGroupsResponse'
+            <$> (x .?> "ClusterArn")
+            <*> (x .?> "JobFlowId")
+            <*> (x .?> "InstanceGroupIds" .!@ mempty)
+            <*> (pure (fromEnum s))
+      )
 
-instance Hashable AddInstanceGroups where
+instance Hashable AddInstanceGroups
 
-instance NFData AddInstanceGroups where
+instance NFData AddInstanceGroups
 
 instance ToHeaders AddInstanceGroups where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("ElasticMapReduce.AddInstanceGroups" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target"
+              =# ("ElasticMapReduce.AddInstanceGroups" :: ByteString),
+            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+          ]
+      )
 
 instance ToJSON AddInstanceGroups where
-        toJSON AddInstanceGroups'{..}
-          = object
-              (catMaybes
-                 [Just ("InstanceGroups" .= _aigInstanceGroups),
-                  Just ("JobFlowId" .= _aigJobFlowId)])
+  toJSON AddInstanceGroups' {..} =
+    object
+      ( catMaybes
+          [ Just ("InstanceGroups" .= _aigInstanceGroups),
+            Just ("JobFlowId" .= _aigJobFlowId)
+          ]
+      )
 
 instance ToPath AddInstanceGroups where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery AddInstanceGroups where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | Output from an AddInstanceGroups call.
 --
@@ -122,42 +130,52 @@ instance ToQuery AddInstanceGroups where
 --
 -- /See:/ 'addInstanceGroupsResponse' smart constructor.
 data AddInstanceGroupsResponse = AddInstanceGroupsResponse'
-  { _aigrsJobFlowId        :: !(Maybe Text)
-  , _aigrsInstanceGroupIds :: !(Maybe [Text])
-  , _aigrsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _aigrsClusterARN ::
+      !(Maybe Text),
+    _aigrsJobFlowId :: !(Maybe Text),
+    _aigrsInstanceGroupIds ::
+      !(Maybe [Text]),
+    _aigrsResponseStatus :: !Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'AddInstanceGroupsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aigrsClusterARN' - The Amazon Resource Name of the cluster.
 --
 -- * 'aigrsJobFlowId' - The job flow ID in which the instance groups are added.
 --
 -- * 'aigrsInstanceGroupIds' - Instance group IDs of the newly created instance groups.
 --
 -- * 'aigrsResponseStatus' - -- | The response status code.
-addInstanceGroupsResponse
-    :: Int -- ^ 'aigrsResponseStatus'
-    -> AddInstanceGroupsResponse
+addInstanceGroupsResponse ::
+  -- | 'aigrsResponseStatus'
+  Int ->
+  AddInstanceGroupsResponse
 addInstanceGroupsResponse pResponseStatus_ =
   AddInstanceGroupsResponse'
-    { _aigrsJobFlowId = Nothing
-    , _aigrsInstanceGroupIds = Nothing
-    , _aigrsResponseStatus = pResponseStatus_
+    { _aigrsClusterARN = Nothing,
+      _aigrsJobFlowId = Nothing,
+      _aigrsInstanceGroupIds = Nothing,
+      _aigrsResponseStatus = pResponseStatus_
     }
 
+-- | The Amazon Resource Name of the cluster.
+aigrsClusterARN :: Lens' AddInstanceGroupsResponse (Maybe Text)
+aigrsClusterARN = lens _aigrsClusterARN (\s a -> s {_aigrsClusterARN = a})
 
 -- | The job flow ID in which the instance groups are added.
 aigrsJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)
-aigrsJobFlowId = lens _aigrsJobFlowId (\ s a -> s{_aigrsJobFlowId = a})
+aigrsJobFlowId = lens _aigrsJobFlowId (\s a -> s {_aigrsJobFlowId = a})
 
 -- | Instance group IDs of the newly created instance groups.
 aigrsInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
-aigrsInstanceGroupIds = lens _aigrsInstanceGroupIds (\ s a -> s{_aigrsInstanceGroupIds = a}) . _Default . _Coerce
+aigrsInstanceGroupIds = lens _aigrsInstanceGroupIds (\s a -> s {_aigrsInstanceGroupIds = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 aigrsResponseStatus :: Lens' AddInstanceGroupsResponse Int
-aigrsResponseStatus = lens _aigrsResponseStatus (\ s a -> s{_aigrsResponseStatus = a})
+aigrsResponseStatus = lens _aigrsResponseStatus (\s a -> s {_aigrsResponseStatus = a})
 
-instance NFData AddInstanceGroupsResponse where
+instance NFData AddInstanceGroupsResponse

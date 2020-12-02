@@ -1,132 +1,132 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.DeleteTags
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified tags from the specified WorkSpace.
---
---
+-- Deletes the specified tags from the specified WorkSpaces resource.
 module Network.AWS.WorkSpaces.DeleteTags
-    (
-    -- * Creating a Request
-      deleteTags
-    , DeleteTags
+  ( -- * Creating a Request
+    deleteTags,
+    DeleteTags,
+
     -- * Request Lenses
-    , dResourceId
-    , dTagKeys
+    dResourceId,
+    dTagKeys,
 
     -- * Destructuring the Response
-    , deleteTagsResponse
-    , DeleteTagsResponse
+    deleteTagsResponse,
+    DeleteTagsResponse,
+
     -- * Response Lenses
-    , drsResponseStatus
-    ) where
+    dtsrsResponseStatus,
+  )
+where
 
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.WorkSpaces.Types
-import Network.AWS.WorkSpaces.Types.Product
 
 -- | /See:/ 'deleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-  { _dResourceId :: !Text
-  , _dTagKeys    :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _dResourceId :: !Text,
+    _dTagKeys :: ![Text]
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dResourceId' - The ID of the WorkSpace. To find this ID, use 'DescribeWorkspaces' .
+-- * 'dResourceId' - The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.
 --
 -- * 'dTagKeys' - The tag keys.
-deleteTags
-    :: Text -- ^ 'dResourceId'
-    -> DeleteTags
+deleteTags ::
+  -- | 'dResourceId'
+  Text ->
+  DeleteTags
 deleteTags pResourceId_ =
   DeleteTags' {_dResourceId = pResourceId_, _dTagKeys = mempty}
 
-
--- | The ID of the WorkSpace. To find this ID, use 'DescribeWorkspaces' .
+-- | The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.
 dResourceId :: Lens' DeleteTags Text
-dResourceId = lens _dResourceId (\ s a -> s{_dResourceId = a})
+dResourceId = lens _dResourceId (\s a -> s {_dResourceId = a})
 
 -- | The tag keys.
 dTagKeys :: Lens' DeleteTags [Text]
-dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a}) . _Coerce
+dTagKeys = lens _dTagKeys (\s a -> s {_dTagKeys = a}) . _Coerce
 
 instance AWSRequest DeleteTags where
-        type Rs DeleteTags = DeleteTagsResponse
-        request = postJSON workSpaces
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteTagsResponse' <$> (pure (fromEnum s)))
+  type Rs DeleteTags = DeleteTagsResponse
+  request = postJSON workSpaces
+  response =
+    receiveEmpty
+      (\s h x -> DeleteTagsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable DeleteTags where
+instance Hashable DeleteTags
 
-instance NFData DeleteTags where
+instance NFData DeleteTags
 
 instance ToHeaders DeleteTags where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("WorkspacesService.DeleteTags" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target" =# ("WorkspacesService.DeleteTags" :: ByteString),
+            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+          ]
+      )
 
 instance ToJSON DeleteTags where
-        toJSON DeleteTags'{..}
-          = object
-              (catMaybes
-                 [Just ("ResourceId" .= _dResourceId),
-                  Just ("TagKeys" .= _dTagKeys)])
+  toJSON DeleteTags' {..} =
+    object
+      ( catMaybes
+          [ Just ("ResourceId" .= _dResourceId),
+            Just ("TagKeys" .= _dTagKeys)
+          ]
+      )
 
 instance ToPath DeleteTags where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery DeleteTags where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
 newtype DeleteTagsResponse = DeleteTagsResponse'
-  { _drsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _dtsrsResponseStatus ::
+      Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus' - -- | The response status code.
-deleteTagsResponse
-    :: Int -- ^ 'drsResponseStatus'
-    -> DeleteTagsResponse
+-- * 'dtsrsResponseStatus' - -- | The response status code.
+deleteTagsResponse ::
+  -- | 'dtsrsResponseStatus'
+  Int ->
+  DeleteTagsResponse
 deleteTagsResponse pResponseStatus_ =
-  DeleteTagsResponse' {_drsResponseStatus = pResponseStatus_}
-
+  DeleteTagsResponse' {_dtsrsResponseStatus = pResponseStatus_}
 
 -- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteTagsResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
+dtsrsResponseStatus :: Lens' DeleteTagsResponse Int
+dtsrsResponseStatus = lens _dtsrsResponseStatus (\s a -> s {_dtsrsResponseStatus = a})
 
-instance NFData DeleteTagsResponse where
+instance NFData DeleteTagsResponse

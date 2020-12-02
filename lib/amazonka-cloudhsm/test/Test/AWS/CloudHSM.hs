@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.CloudHSM
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.CloudHSM
-import           Test.AWS.Gen.CloudHSM
-import           Test.Tasty
+import Network.AWS.CloudHSM
+import Test.AWS.Gen.CloudHSM
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.Kinesis
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.Kinesis
-import           Test.AWS.Gen.Kinesis
-import           Test.Tasty
+import Network.AWS.Kinesis
+import Test.AWS.Gen.Kinesis
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

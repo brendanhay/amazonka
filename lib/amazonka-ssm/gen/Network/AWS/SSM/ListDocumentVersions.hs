@@ -1,18 +1,17 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.ListDocumentVersions
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,39 +20,44 @@
 -- List all versions for a document.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.ListDocumentVersions
-    (
-    -- * Creating a Request
-      listDocumentVersions
-    , ListDocumentVersions
+  ( -- * Creating a Request
+    listDocumentVersions,
+    ListDocumentVersions,
+
     -- * Request Lenses
-    , ldvNextToken
-    , ldvMaxResults
-    , ldvName
+    ldvNextToken,
+    ldvMaxResults,
+    ldvName,
 
     -- * Destructuring the Response
-    , listDocumentVersionsResponse
-    , ListDocumentVersionsResponse
+    listDocumentVersionsResponse,
+    ListDocumentVersionsResponse,
+
     -- * Response Lenses
-    , ldvrsDocumentVersions
-    , ldvrsNextToken
-    , ldvrsResponseStatus
-    ) where
+    ldvrsDocumentVersions,
+    ldvrsNextToken,
+    ldvrsResponseStatus,
+  )
+where
 
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listDocumentVersions' smart constructor.
 data ListDocumentVersions = ListDocumentVersions'
-  { _ldvNextToken  :: !(Maybe Text)
-  , _ldvMaxResults :: !(Maybe Nat)
-  , _ldvName       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _ldvNextToken ::
+      !(Maybe Text),
+    _ldvMaxResults :: !(Maybe Nat),
+    _ldvName :: !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'ListDocumentVersions' with the minimum fields required to make a request.
 --
@@ -63,72 +67,88 @@ data ListDocumentVersions = ListDocumentVersions'
 --
 -- * 'ldvMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 --
--- * 'ldvName' - The name of the document about which you want version information.
-listDocumentVersions
-    :: Text -- ^ 'ldvName'
-    -> ListDocumentVersions
+-- * 'ldvName' - The name of the document. You can specify an Amazon Resource Name (ARN).
+listDocumentVersions ::
+  -- | 'ldvName'
+  Text ->
+  ListDocumentVersions
 listDocumentVersions pName_ =
   ListDocumentVersions'
-    {_ldvNextToken = Nothing, _ldvMaxResults = Nothing, _ldvName = pName_}
-
+    { _ldvNextToken = Nothing,
+      _ldvMaxResults = Nothing,
+      _ldvName = pName_
+    }
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 ldvNextToken :: Lens' ListDocumentVersions (Maybe Text)
-ldvNextToken = lens _ldvNextToken (\ s a -> s{_ldvNextToken = a})
+ldvNextToken = lens _ldvNextToken (\s a -> s {_ldvNextToken = a})
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 ldvMaxResults :: Lens' ListDocumentVersions (Maybe Natural)
-ldvMaxResults = lens _ldvMaxResults (\ s a -> s{_ldvMaxResults = a}) . mapping _Nat
+ldvMaxResults = lens _ldvMaxResults (\s a -> s {_ldvMaxResults = a}) . mapping _Nat
 
--- | The name of the document about which you want version information.
+-- | The name of the document. You can specify an Amazon Resource Name (ARN).
 ldvName :: Lens' ListDocumentVersions Text
-ldvName = lens _ldvName (\ s a -> s{_ldvName = a})
+ldvName = lens _ldvName (\s a -> s {_ldvName = a})
+
+instance AWSPager ListDocumentVersions where
+  page rq rs
+    | stop (rs ^. ldvrsNextToken) = Nothing
+    | stop (rs ^. ldvrsDocumentVersions) = Nothing
+    | otherwise = Just $ rq & ldvNextToken .~ rs ^. ldvrsNextToken
 
 instance AWSRequest ListDocumentVersions where
-        type Rs ListDocumentVersions =
-             ListDocumentVersionsResponse
-        request = postJSON ssm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListDocumentVersionsResponse' <$>
-                   (x .?> "DocumentVersions") <*> (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+  type Rs ListDocumentVersions = ListDocumentVersionsResponse
+  request = postJSON ssm
+  response =
+    receiveJSON
+      ( \s h x ->
+          ListDocumentVersionsResponse'
+            <$> (x .?> "DocumentVersions")
+            <*> (x .?> "NextToken")
+            <*> (pure (fromEnum s))
+      )
 
-instance Hashable ListDocumentVersions where
+instance Hashable ListDocumentVersions
 
-instance NFData ListDocumentVersions where
+instance NFData ListDocumentVersions
 
 instance ToHeaders ListDocumentVersions where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.ListDocumentVersions" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target"
+              =# ("AmazonSSM.ListDocumentVersions" :: ByteString),
+            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+          ]
+      )
 
 instance ToJSON ListDocumentVersions where
-        toJSON ListDocumentVersions'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _ldvNextToken,
-                  ("MaxResults" .=) <$> _ldvMaxResults,
-                  Just ("Name" .= _ldvName)])
+  toJSON ListDocumentVersions' {..} =
+    object
+      ( catMaybes
+          [ ("NextToken" .=) <$> _ldvNextToken,
+            ("MaxResults" .=) <$> _ldvMaxResults,
+            Just ("Name" .= _ldvName)
+          ]
+      )
 
 instance ToPath ListDocumentVersions where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery ListDocumentVersions where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | /See:/ 'listDocumentVersionsResponse' smart constructor.
 data ListDocumentVersionsResponse = ListDocumentVersionsResponse'
-  { _ldvrsDocumentVersions :: !(Maybe (List1 DocumentVersionInfo))
-  , _ldvrsNextToken        :: !(Maybe Text)
-  , _ldvrsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _ldvrsDocumentVersions ::
+      !( Maybe
+           (List1 DocumentVersionInfo)
+       ),
+    _ldvrsNextToken :: !(Maybe Text),
+    _ldvrsResponseStatus :: !Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'ListDocumentVersionsResponse' with the minimum fields required to make a request.
 --
@@ -139,27 +159,27 @@ data ListDocumentVersionsResponse = ListDocumentVersionsResponse'
 -- * 'ldvrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
 -- * 'ldvrsResponseStatus' - -- | The response status code.
-listDocumentVersionsResponse
-    :: Int -- ^ 'ldvrsResponseStatus'
-    -> ListDocumentVersionsResponse
+listDocumentVersionsResponse ::
+  -- | 'ldvrsResponseStatus'
+  Int ->
+  ListDocumentVersionsResponse
 listDocumentVersionsResponse pResponseStatus_ =
   ListDocumentVersionsResponse'
-    { _ldvrsDocumentVersions = Nothing
-    , _ldvrsNextToken = Nothing
-    , _ldvrsResponseStatus = pResponseStatus_
+    { _ldvrsDocumentVersions = Nothing,
+      _ldvrsNextToken = Nothing,
+      _ldvrsResponseStatus = pResponseStatus_
     }
-
 
 -- | The document versions.
 ldvrsDocumentVersions :: Lens' ListDocumentVersionsResponse (Maybe (NonEmpty DocumentVersionInfo))
-ldvrsDocumentVersions = lens _ldvrsDocumentVersions (\ s a -> s{_ldvrsDocumentVersions = a}) . mapping _List1
+ldvrsDocumentVersions = lens _ldvrsDocumentVersions (\s a -> s {_ldvrsDocumentVersions = a}) . mapping _List1
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 ldvrsNextToken :: Lens' ListDocumentVersionsResponse (Maybe Text)
-ldvrsNextToken = lens _ldvrsNextToken (\ s a -> s{_ldvrsNextToken = a})
+ldvrsNextToken = lens _ldvrsNextToken (\s a -> s {_ldvrsNextToken = a})
 
 -- | -- | The response status code.
 ldvrsResponseStatus :: Lens' ListDocumentVersionsResponse Int
-ldvrsResponseStatus = lens _ldvrsResponseStatus (\ s a -> s{_ldvrsResponseStatus = a})
+ldvrsResponseStatus = lens _ldvrsResponseStatus (\s a -> s {_ldvrsResponseStatus = a})
 
-instance NFData ListDocumentVersionsResponse where
+instance NFData ListDocumentVersionsResponse

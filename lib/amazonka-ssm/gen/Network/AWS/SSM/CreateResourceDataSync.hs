@@ -1,138 +1,171 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.CreateResourceDataSync
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a resource data sync configuration to a single bucket in Amazon S3. This is an asynchronous operation that returns immediately. After a successful initial sync is completed, the system continuously syncs data to the Amazon S3 bucket. To check the status of the sync, use the 'ListResourceDataSync' .
+-- A resource data sync helps you view data from multiple sources in a single location. Systems Manager offers two types of resource data sync: @SyncToDestination@ and @SyncFromSource@ .
 --
 --
--- By default, data is not encrypted in Amazon S3. We strongly recommend that you enable encryption in Amazon S3 to ensure secure data storage. We also recommend that you secure access to the Amazon S3 bucket by creating a restrictive bucket policy. To view an example of a restrictive Amazon S3 bucket policy for Resource Data Sync, see <http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-configuring.html#sysman-inventory-datasync Configuring Resource Data Sync for Inventory> .
+-- You can configure Systems Manager Inventory to use the @SyncToDestination@ type to synchronize Inventory data from multiple AWS Regions to a single S3 bucket. For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html Configuring Resource Data Sync for Inventory> in the /AWS Systems Manager User Guide/ .
 --
+-- You can configure Systems Manager Explorer to use the @SyncFromSource@ type to synchronize operational work items (OpsItems) and operational data (OpsData) from multiple AWS Regions to a single S3 bucket. This type can synchronize OpsItems and OpsData from multiple AWS accounts and Regions or @EntireOrganization@ by using AWS Organizations. For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html Setting up Systems Manager Explorer to display data from multiple accounts and Regions> in the /AWS Systems Manager User Guide/ .
+--
+-- A resource data sync is an asynchronous operation that returns immediately. After a successful initial sync is completed, the system continuously syncs data. To check the status of a sync, use the 'ListResourceDataSync' .
 module Network.AWS.SSM.CreateResourceDataSync
-    (
-    -- * Creating a Request
-      createResourceDataSync
-    , CreateResourceDataSync
+  ( -- * Creating a Request
+    createResourceDataSync,
+    CreateResourceDataSync,
+
     -- * Request Lenses
-    , crdsSyncName
-    , crdsS3Destination
+    crdsSyncType,
+    crdsSyncSource,
+    crdsS3Destination,
+    crdsSyncName,
 
     -- * Destructuring the Response
-    , createResourceDataSyncResponse
-    , CreateResourceDataSyncResponse
+    createResourceDataSyncResponse,
+    CreateResourceDataSyncResponse,
+
     -- * Response Lenses
-    , crdsrsResponseStatus
-    ) where
+    crdsrsResponseStatus,
+  )
+where
 
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createResourceDataSync' smart constructor.
 data CreateResourceDataSync = CreateResourceDataSync'
-  { _crdsSyncName      :: !Text
-  , _crdsS3Destination :: !ResourceDataSyncS3Destination
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _crdsSyncType ::
+      !(Maybe Text),
+    _crdsSyncSource ::
+      !(Maybe ResourceDataSyncSource),
+    _crdsS3Destination ::
+      !(Maybe ResourceDataSyncS3Destination),
+    _crdsSyncName :: !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'CreateResourceDataSync' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crdsSyncName' - A name for the configuration.
+-- * 'crdsSyncType' - Specify @SyncToDestination@ to create a resource data sync that synchronizes data to an S3 bucket for Inventory. If you specify @SyncToDestination@ , you must provide a value for @S3Destination@ . Specify @SyncFromSource@ to synchronize data from a single account and multiple Regions, or multiple AWS accounts and Regions, as listed in AWS Organizations for Explorer. If you specify @SyncFromSource@ , you must provide a value for @SyncSource@ . The default value is @SyncToDestination@ .
 --
--- * 'crdsS3Destination' - Amazon S3 configuration details for the sync.
-createResourceDataSync
-    :: Text -- ^ 'crdsSyncName'
-    -> ResourceDataSyncS3Destination -- ^ 'crdsS3Destination'
-    -> CreateResourceDataSync
-createResourceDataSync pSyncName_ pS3Destination_ =
+-- * 'crdsSyncSource' - Specify information about the data sources to synchronize. This parameter is required if the @SyncType@ value is SyncFromSource.
+--
+-- * 'crdsS3Destination' - Amazon S3 configuration details for the sync. This parameter is required if the @SyncType@ value is SyncToDestination.
+--
+-- * 'crdsSyncName' - A name for the configuration.
+createResourceDataSync ::
+  -- | 'crdsSyncName'
+  Text ->
+  CreateResourceDataSync
+createResourceDataSync pSyncName_ =
   CreateResourceDataSync'
-    {_crdsSyncName = pSyncName_, _crdsS3Destination = pS3Destination_}
+    { _crdsSyncType = Nothing,
+      _crdsSyncSource = Nothing,
+      _crdsS3Destination = Nothing,
+      _crdsSyncName = pSyncName_
+    }
 
+-- | Specify @SyncToDestination@ to create a resource data sync that synchronizes data to an S3 bucket for Inventory. If you specify @SyncToDestination@ , you must provide a value for @S3Destination@ . Specify @SyncFromSource@ to synchronize data from a single account and multiple Regions, or multiple AWS accounts and Regions, as listed in AWS Organizations for Explorer. If you specify @SyncFromSource@ , you must provide a value for @SyncSource@ . The default value is @SyncToDestination@ .
+crdsSyncType :: Lens' CreateResourceDataSync (Maybe Text)
+crdsSyncType = lens _crdsSyncType (\s a -> s {_crdsSyncType = a})
+
+-- | Specify information about the data sources to synchronize. This parameter is required if the @SyncType@ value is SyncFromSource.
+crdsSyncSource :: Lens' CreateResourceDataSync (Maybe ResourceDataSyncSource)
+crdsSyncSource = lens _crdsSyncSource (\s a -> s {_crdsSyncSource = a})
+
+-- | Amazon S3 configuration details for the sync. This parameter is required if the @SyncType@ value is SyncToDestination.
+crdsS3Destination :: Lens' CreateResourceDataSync (Maybe ResourceDataSyncS3Destination)
+crdsS3Destination = lens _crdsS3Destination (\s a -> s {_crdsS3Destination = a})
 
 -- | A name for the configuration.
 crdsSyncName :: Lens' CreateResourceDataSync Text
-crdsSyncName = lens _crdsSyncName (\ s a -> s{_crdsSyncName = a})
-
--- | Amazon S3 configuration details for the sync.
-crdsS3Destination :: Lens' CreateResourceDataSync ResourceDataSyncS3Destination
-crdsS3Destination = lens _crdsS3Destination (\ s a -> s{_crdsS3Destination = a})
+crdsSyncName = lens _crdsSyncName (\s a -> s {_crdsSyncName = a})
 
 instance AWSRequest CreateResourceDataSync where
-        type Rs CreateResourceDataSync =
-             CreateResourceDataSyncResponse
-        request = postJSON ssm
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 CreateResourceDataSyncResponse' <$>
-                   (pure (fromEnum s)))
+  type Rs CreateResourceDataSync = CreateResourceDataSyncResponse
+  request = postJSON ssm
+  response =
+    receiveEmpty
+      ( \s h x ->
+          CreateResourceDataSyncResponse' <$> (pure (fromEnum s))
+      )
 
-instance Hashable CreateResourceDataSync where
+instance Hashable CreateResourceDataSync
 
-instance NFData CreateResourceDataSync where
+instance NFData CreateResourceDataSync
 
 instance ToHeaders CreateResourceDataSync where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.CreateResourceDataSync" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target"
+              =# ("AmazonSSM.CreateResourceDataSync" :: ByteString),
+            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+          ]
+      )
 
 instance ToJSON CreateResourceDataSync where
-        toJSON CreateResourceDataSync'{..}
-          = object
-              (catMaybes
-                 [Just ("SyncName" .= _crdsSyncName),
-                  Just ("S3Destination" .= _crdsS3Destination)])
+  toJSON CreateResourceDataSync' {..} =
+    object
+      ( catMaybes
+          [ ("SyncType" .=) <$> _crdsSyncType,
+            ("SyncSource" .=) <$> _crdsSyncSource,
+            ("S3Destination" .=) <$> _crdsS3Destination,
+            Just ("SyncName" .= _crdsSyncName)
+          ]
+      )
 
 instance ToPath CreateResourceDataSync where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery CreateResourceDataSync where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | /See:/ 'createResourceDataSyncResponse' smart constructor.
 newtype CreateResourceDataSyncResponse = CreateResourceDataSyncResponse'
-  { _crdsrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _crdsrsResponseStatus ::
+      Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'CreateResourceDataSyncResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'crdsrsResponseStatus' - -- | The response status code.
-createResourceDataSyncResponse
-    :: Int -- ^ 'crdsrsResponseStatus'
-    -> CreateResourceDataSyncResponse
+createResourceDataSyncResponse ::
+  -- | 'crdsrsResponseStatus'
+  Int ->
+  CreateResourceDataSyncResponse
 createResourceDataSyncResponse pResponseStatus_ =
-  CreateResourceDataSyncResponse' {_crdsrsResponseStatus = pResponseStatus_}
-
+  CreateResourceDataSyncResponse'
+    { _crdsrsResponseStatus =
+        pResponseStatus_
+    }
 
 -- | -- | The response status code.
 crdsrsResponseStatus :: Lens' CreateResourceDataSyncResponse Int
-crdsrsResponseStatus = lens _crdsrsResponseStatus (\ s a -> s{_crdsrsResponseStatus = a})
+crdsrsResponseStatus = lens _crdsrsResponseStatus (\s a -> s {_crdsrsResponseStatus = a})
 
-instance NFData CreateResourceDataSyncResponse where
+instance NFData CreateResourceDataSyncResponse

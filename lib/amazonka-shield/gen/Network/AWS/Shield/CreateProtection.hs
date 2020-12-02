@@ -1,56 +1,57 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Shield.CreateProtection
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, Elastic IP Address, or an Amazon Route 53 hosted zone.
+-- Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
 --
 --
+-- You can add protection to only a single resource with each CreateProtection request. If you want to add protection to multiple resources at once, use the <https://console.aws.amazon.com/waf/ AWS WAF console> . For more information see <https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html Getting Started with AWS Shield Advanced> and <https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html Add AWS Shield Advanced Protection to more AWS Resources> .
 module Network.AWS.Shield.CreateProtection
-    (
-    -- * Creating a Request
-      createProtection
-    , CreateProtection
+  ( -- * Creating a Request
+    createProtection,
+    CreateProtection,
+
     -- * Request Lenses
-    , cpName
-    , cpResourceARN
+    cpName,
+    cpResourceARN,
 
     -- * Destructuring the Response
-    , createProtectionResponse
-    , CreateProtectionResponse
+    createProtectionResponse,
+    CreateProtectionResponse,
+
     -- * Response Lenses
-    , cprsProtectionId
-    , cprsResponseStatus
-    ) where
+    cprsProtectionId,
+    cprsResponseStatus,
+  )
+where
 
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.Shield.Types
-import Network.AWS.Shield.Types.Product
 
 -- | /See:/ 'createProtection' smart constructor.
 data CreateProtection = CreateProtection'
-  { _cpName        :: !Text
-  , _cpResourceARN :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _cpName :: !Text,
+    _cpResourceARN :: !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'CreateProtection' with the minimum fields required to make a request.
 --
@@ -58,65 +59,71 @@ data CreateProtection = CreateProtection'
 --
 -- * 'cpName' - Friendly name for the @Protection@ you are creating.
 --
--- * 'cpResourceARN' - The ARN (Amazon Resource Name) of the resource to be protected. The ARN should be in one of the following formats:     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @      * For an Elastic Load Balancer (Classic Load Balancer): @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer//load-balancer-name/ @      * For AWS CloudFront distribution: @arn:aws:cloudfront::/account-id/ :distribution//distribution-id/ @      * For Amazon Route 53: @arn:aws:route53::/account-id/ :hostedzone//hosted-zone-id/ @      * For an Elastic IP address: @arn:aws:ec2:/region/ :/account-id/ :eip-allocation//allocation-id/ @
-createProtection
-    :: Text -- ^ 'cpName'
-    -> Text -- ^ 'cpResourceARN'
-    -> CreateProtection
+-- * 'cpResourceARN' - The ARN (Amazon Resource Name) of the resource to be protected. The ARN should be in one of the following formats:     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @      * For an Elastic Load Balancer (Classic Load Balancer): @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer//load-balancer-name/ @      * For an AWS CloudFront distribution: @arn:aws:cloudfront::/account-id/ :distribution//distribution-id/ @      * For an AWS Global Accelerator accelerator: @arn:aws:globalaccelerator::/account-id/ :accelerator//accelerator-id/ @      * For Amazon Route 53: @arn:aws:route53:::hostedzone//hosted-zone-id/ @      * For an Elastic IP address: @arn:aws:ec2:/region/ :/account-id/ :eip-allocation//allocation-id/ @
+createProtection ::
+  -- | 'cpName'
+  Text ->
+  -- | 'cpResourceARN'
+  Text ->
+  CreateProtection
 createProtection pName_ pResourceARN_ =
-  CreateProtection' {_cpName = pName_, _cpResourceARN = pResourceARN_}
-
+  CreateProtection'
+    { _cpName = pName_,
+      _cpResourceARN = pResourceARN_
+    }
 
 -- | Friendly name for the @Protection@ you are creating.
 cpName :: Lens' CreateProtection Text
-cpName = lens _cpName (\ s a -> s{_cpName = a})
+cpName = lens _cpName (\s a -> s {_cpName = a})
 
--- | The ARN (Amazon Resource Name) of the resource to be protected. The ARN should be in one of the following formats:     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @      * For an Elastic Load Balancer (Classic Load Balancer): @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer//load-balancer-name/ @      * For AWS CloudFront distribution: @arn:aws:cloudfront::/account-id/ :distribution//distribution-id/ @      * For Amazon Route 53: @arn:aws:route53::/account-id/ :hostedzone//hosted-zone-id/ @      * For an Elastic IP address: @arn:aws:ec2:/region/ :/account-id/ :eip-allocation//allocation-id/ @
+-- | The ARN (Amazon Resource Name) of the resource to be protected. The ARN should be in one of the following formats:     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @      * For an Elastic Load Balancer (Classic Load Balancer): @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer//load-balancer-name/ @      * For an AWS CloudFront distribution: @arn:aws:cloudfront::/account-id/ :distribution//distribution-id/ @      * For an AWS Global Accelerator accelerator: @arn:aws:globalaccelerator::/account-id/ :accelerator//accelerator-id/ @      * For Amazon Route 53: @arn:aws:route53:::hostedzone//hosted-zone-id/ @      * For an Elastic IP address: @arn:aws:ec2:/region/ :/account-id/ :eip-allocation//allocation-id/ @
 cpResourceARN :: Lens' CreateProtection Text
-cpResourceARN = lens _cpResourceARN (\ s a -> s{_cpResourceARN = a})
+cpResourceARN = lens _cpResourceARN (\s a -> s {_cpResourceARN = a})
 
 instance AWSRequest CreateProtection where
-        type Rs CreateProtection = CreateProtectionResponse
-        request = postJSON shield
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateProtectionResponse' <$>
-                   (x .?> "ProtectionId") <*> (pure (fromEnum s)))
+  type Rs CreateProtection = CreateProtectionResponse
+  request = postJSON shield
+  response =
+    receiveJSON
+      ( \s h x ->
+          CreateProtectionResponse'
+            <$> (x .?> "ProtectionId") <*> (pure (fromEnum s))
+      )
 
-instance Hashable CreateProtection where
+instance Hashable CreateProtection
 
-instance NFData CreateProtection where
+instance NFData CreateProtection
 
 instance ToHeaders CreateProtection where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSShield_20160616.CreateProtection" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target"
+              =# ("AWSShield_20160616.CreateProtection" :: ByteString),
+            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+          ]
+      )
 
 instance ToJSON CreateProtection where
-        toJSON CreateProtection'{..}
-          = object
-              (catMaybes
-                 [Just ("Name" .= _cpName),
-                  Just ("ResourceArn" .= _cpResourceARN)])
+  toJSON CreateProtection' {..} =
+    object
+      ( catMaybes
+          [Just ("Name" .= _cpName), Just ("ResourceArn" .= _cpResourceARN)]
+      )
 
 instance ToPath CreateProtection where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery CreateProtection where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | /See:/ 'createProtectionResponse' smart constructor.
 data CreateProtectionResponse = CreateProtectionResponse'
-  { _cprsProtectionId   :: !(Maybe Text)
-  , _cprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _cprsProtectionId ::
+      !(Maybe Text),
+    _cprsResponseStatus :: !Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'CreateProtectionResponse' with the minimum fields required to make a request.
 --
@@ -125,20 +132,22 @@ data CreateProtectionResponse = CreateProtectionResponse'
 -- * 'cprsProtectionId' - The unique identifier (ID) for the 'Protection' object that is created.
 --
 -- * 'cprsResponseStatus' - -- | The response status code.
-createProtectionResponse
-    :: Int -- ^ 'cprsResponseStatus'
-    -> CreateProtectionResponse
+createProtectionResponse ::
+  -- | 'cprsResponseStatus'
+  Int ->
+  CreateProtectionResponse
 createProtectionResponse pResponseStatus_ =
   CreateProtectionResponse'
-    {_cprsProtectionId = Nothing, _cprsResponseStatus = pResponseStatus_}
-
+    { _cprsProtectionId = Nothing,
+      _cprsResponseStatus = pResponseStatus_
+    }
 
 -- | The unique identifier (ID) for the 'Protection' object that is created.
 cprsProtectionId :: Lens' CreateProtectionResponse (Maybe Text)
-cprsProtectionId = lens _cprsProtectionId (\ s a -> s{_cprsProtectionId = a})
+cprsProtectionId = lens _cprsProtectionId (\s a -> s {_cprsProtectionId = a})
 
 -- | -- | The response status code.
 cprsResponseStatus :: Lens' CreateProtectionResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a})
+cprsResponseStatus = lens _cprsResponseStatus (\s a -> s {_cprsResponseStatus = a})
 
-instance NFData CreateProtectionResponse where
+instance NFData CreateProtectionResponse

@@ -1,105 +1,561 @@
-name:                  amazonka-mediaconvert
-version:               1.6.1
-synopsis:              Amazon Elemental MediaConvert SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-mediaconvert
+version:            2.0.0.0
+synopsis:           Amazon Elemental MediaConvert SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2020 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.MediaConvert" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with
+  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+  mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  Lenses are used for constructing and manipulating types,
+  due to the depth of nesting of AWS types and transparency regarding
+  de/serialisation into more palatable Haskell values.
+  The provided lenses should be compatible with any of the major lens libraries
+  such as <http://hackage.haskell.org/package/lens lens> or
+  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Network.AWS.MediaConvert" or <https://aws.amazon.com/documentation/ the AWS documentation>
+  to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-mediaconvert
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-mediaconvert
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.MediaConvert
+    Network.AWS.MediaConvert.AssociateCertificate
+    Network.AWS.MediaConvert.CancelJob
+    Network.AWS.MediaConvert.CreateJob
+    Network.AWS.MediaConvert.CreateJobTemplate
+    Network.AWS.MediaConvert.CreatePreset
+    Network.AWS.MediaConvert.CreateQueue
+    Network.AWS.MediaConvert.DeleteJobTemplate
+    Network.AWS.MediaConvert.DeletePreset
+    Network.AWS.MediaConvert.DeleteQueue
+    Network.AWS.MediaConvert.DescribeEndpoints
+    Network.AWS.MediaConvert.DisassociateCertificate
+    Network.AWS.MediaConvert.GetJob
+    Network.AWS.MediaConvert.GetJobTemplate
+    Network.AWS.MediaConvert.GetPreset
+    Network.AWS.MediaConvert.GetQueue
+    Network.AWS.MediaConvert.ListJobs
+    Network.AWS.MediaConvert.ListJobTemplates
+    Network.AWS.MediaConvert.ListPresets
+    Network.AWS.MediaConvert.ListQueues
+    Network.AWS.MediaConvert.ListTagsForResource
+    Network.AWS.MediaConvert.TagResource
+    Network.AWS.MediaConvert.Types
+    Network.AWS.MediaConvert.UntagResource
+    Network.AWS.MediaConvert.UpdateJobTemplate
+    Network.AWS.MediaConvert.UpdatePreset
+    Network.AWS.MediaConvert.UpdateQueue
+    Network.AWS.MediaConvert.Waiters
 
-    exposed-modules:
-          Network.AWS.MediaConvert
-        , Network.AWS.MediaConvert.CancelJob
-        , Network.AWS.MediaConvert.CreateJob
-        , Network.AWS.MediaConvert.CreateJobTemplate
-        , Network.AWS.MediaConvert.CreatePreset
-        , Network.AWS.MediaConvert.CreateQueue
-        , Network.AWS.MediaConvert.DeleteJobTemplate
-        , Network.AWS.MediaConvert.DeletePreset
-        , Network.AWS.MediaConvert.DeleteQueue
-        , Network.AWS.MediaConvert.DescribeEndpoints
-        , Network.AWS.MediaConvert.GetJob
-        , Network.AWS.MediaConvert.GetJobTemplate
-        , Network.AWS.MediaConvert.GetPreset
-        , Network.AWS.MediaConvert.GetQueue
-        , Network.AWS.MediaConvert.ListJobTemplates
-        , Network.AWS.MediaConvert.ListJobs
-        , Network.AWS.MediaConvert.ListPresets
-        , Network.AWS.MediaConvert.ListQueues
-        , Network.AWS.MediaConvert.Types
-        , Network.AWS.MediaConvert.UpdateJobTemplate
-        , Network.AWS.MediaConvert.UpdatePreset
-        , Network.AWS.MediaConvert.UpdateQueue
-        , Network.AWS.MediaConvert.Waiters
+  other-modules:
+    Network.AWS.MediaConvert.Types.AacAudioDescriptionBroadcasterMix
+    Network.AWS.MediaConvert.Types.AacCodecProfile
+    Network.AWS.MediaConvert.Types.AacCodingMode
+    Network.AWS.MediaConvert.Types.AacRateControlMode
+    Network.AWS.MediaConvert.Types.AacRawFormat
+    Network.AWS.MediaConvert.Types.AacSettings
+    Network.AWS.MediaConvert.Types.AacSpecification
+    Network.AWS.MediaConvert.Types.AacVbrQuality
+    Network.AWS.MediaConvert.Types.Ac3BitstreamMode
+    Network.AWS.MediaConvert.Types.Ac3CodingMode
+    Network.AWS.MediaConvert.Types.Ac3DynamicRangeCompressionProfile
+    Network.AWS.MediaConvert.Types.Ac3LfeFilter
+    Network.AWS.MediaConvert.Types.Ac3MetadataControl
+    Network.AWS.MediaConvert.Types.Ac3Settings
+    Network.AWS.MediaConvert.Types.AccelerationMode
+    Network.AWS.MediaConvert.Types.AccelerationSettings
+    Network.AWS.MediaConvert.Types.AccelerationStatus
+    Network.AWS.MediaConvert.Types.AfdSignaling
+    Network.AWS.MediaConvert.Types.AiffSettings
+    Network.AWS.MediaConvert.Types.AlphaBehavior
+    Network.AWS.MediaConvert.Types.AncillaryConvert608To708
+    Network.AWS.MediaConvert.Types.AncillarySourceSettings
+    Network.AWS.MediaConvert.Types.AncillaryTerminateCaptions
+    Network.AWS.MediaConvert.Types.AntiAlias
+    Network.AWS.MediaConvert.Types.AudioChannelTag
+    Network.AWS.MediaConvert.Types.AudioChannelTaggingSettings
+    Network.AWS.MediaConvert.Types.AudioCodec
+    Network.AWS.MediaConvert.Types.AudioCodecSettings
+    Network.AWS.MediaConvert.Types.AudioDefaultSelection
+    Network.AWS.MediaConvert.Types.AudioDescription
+    Network.AWS.MediaConvert.Types.AudioLanguageCodeControl
+    Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm
+    Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithmControl
+    Network.AWS.MediaConvert.Types.AudioNormalizationLoudnessLogging
+    Network.AWS.MediaConvert.Types.AudioNormalizationPeakCalculation
+    Network.AWS.MediaConvert.Types.AudioNormalizationSettings
+    Network.AWS.MediaConvert.Types.AudioSelector
+    Network.AWS.MediaConvert.Types.AudioSelectorGroup
+    Network.AWS.MediaConvert.Types.AudioSelectorType
+    Network.AWS.MediaConvert.Types.AudioTypeControl
+    Network.AWS.MediaConvert.Types.AutomatedAbrSettings
+    Network.AWS.MediaConvert.Types.AutomatedEncodingSettings
+    Network.AWS.MediaConvert.Types.Av1AdaptiveQuantization
+    Network.AWS.MediaConvert.Types.Av1FramerateControl
+    Network.AWS.MediaConvert.Types.Av1FramerateConversionAlgorithm
+    Network.AWS.MediaConvert.Types.Av1QvbrSettings
+    Network.AWS.MediaConvert.Types.Av1RateControlMode
+    Network.AWS.MediaConvert.Types.Av1Settings
+    Network.AWS.MediaConvert.Types.Av1SpatialAdaptiveQuantization
+    Network.AWS.MediaConvert.Types.AvailBlanking
+    Network.AWS.MediaConvert.Types.AvcIntraClass
+    Network.AWS.MediaConvert.Types.AvcIntraFramerateControl
+    Network.AWS.MediaConvert.Types.AvcIntraFramerateConversionAlgorithm
+    Network.AWS.MediaConvert.Types.AvcIntraInterlaceMode
+    Network.AWS.MediaConvert.Types.AvcIntraSettings
+    Network.AWS.MediaConvert.Types.AvcIntraSlowPal
+    Network.AWS.MediaConvert.Types.AvcIntraTelecine
+    Network.AWS.MediaConvert.Types.BillingTagsSource
+    Network.AWS.MediaConvert.Types.BurninDestinationSettings
+    Network.AWS.MediaConvert.Types.BurninSubtitleAlignment
+    Network.AWS.MediaConvert.Types.BurninSubtitleBackgroundColor
+    Network.AWS.MediaConvert.Types.BurninSubtitleFontColor
+    Network.AWS.MediaConvert.Types.BurninSubtitleOutlineColor
+    Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor
+    Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing
+    Network.AWS.MediaConvert.Types.CaptionDescription
+    Network.AWS.MediaConvert.Types.CaptionDescriptionPreset
+    Network.AWS.MediaConvert.Types.CaptionDestinationSettings
+    Network.AWS.MediaConvert.Types.CaptionDestinationType
+    Network.AWS.MediaConvert.Types.CaptionSelector
+    Network.AWS.MediaConvert.Types.CaptionSourceFramerate
+    Network.AWS.MediaConvert.Types.CaptionSourceSettings
+    Network.AWS.MediaConvert.Types.CaptionSourceType
+    Network.AWS.MediaConvert.Types.ChannelMapping
+    Network.AWS.MediaConvert.Types.CmafAdditionalManifest
+    Network.AWS.MediaConvert.Types.CmafClientCache
+    Network.AWS.MediaConvert.Types.CmafCodecSpecification
+    Network.AWS.MediaConvert.Types.CmafEncryptionSettings
+    Network.AWS.MediaConvert.Types.CmafEncryptionType
+    Network.AWS.MediaConvert.Types.CmafGroupSettings
+    Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest
+    Network.AWS.MediaConvert.Types.CmafKeyProviderType
+    Network.AWS.MediaConvert.Types.CmafManifestCompression
+    Network.AWS.MediaConvert.Types.CmafManifestDurationFormat
+    Network.AWS.MediaConvert.Types.CmafMpdProfile
+    Network.AWS.MediaConvert.Types.CmafSegmentControl
+    Network.AWS.MediaConvert.Types.CmafStreamInfResolution
+    Network.AWS.MediaConvert.Types.CmafWriteDASHManifest
+    Network.AWS.MediaConvert.Types.CmafWriteHLSManifest
+    Network.AWS.MediaConvert.Types.CmafWriteSegmentTimelineInRepresentation
+    Network.AWS.MediaConvert.Types.CmfcAudioDuration
+    Network.AWS.MediaConvert.Types.CmfcScte35Esam
+    Network.AWS.MediaConvert.Types.CmfcScte35Source
+    Network.AWS.MediaConvert.Types.CmfcSettings
+    Network.AWS.MediaConvert.Types.ColorCorrector
+    Network.AWS.MediaConvert.Types.ColorMetadata
+    Network.AWS.MediaConvert.Types.ColorSpace
+    Network.AWS.MediaConvert.Types.ColorSpaceConversion
+    Network.AWS.MediaConvert.Types.ColorSpaceUsage
+    Network.AWS.MediaConvert.Types.Commitment
+    Network.AWS.MediaConvert.Types.ContainerSettings
+    Network.AWS.MediaConvert.Types.ContainerType
+    Network.AWS.MediaConvert.Types.DashAdditionalManifest
+    Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings
+    Network.AWS.MediaConvert.Types.DashIsoGroupSettings
+    Network.AWS.MediaConvert.Types.DashIsoHbbtvCompliance
+    Network.AWS.MediaConvert.Types.DashIsoMpdProfile
+    Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility
+    Network.AWS.MediaConvert.Types.DashIsoSegmentControl
+    Network.AWS.MediaConvert.Types.DashIsoWriteSegmentTimelineInRepresentation
+    Network.AWS.MediaConvert.Types.DecryptionMode
+    Network.AWS.MediaConvert.Types.DeinterlaceAlgorithm
+    Network.AWS.MediaConvert.Types.Deinterlacer
+    Network.AWS.MediaConvert.Types.DeinterlacerControl
+    Network.AWS.MediaConvert.Types.DeinterlacerMode
+    Network.AWS.MediaConvert.Types.DescribeEndpointsMode
+    Network.AWS.MediaConvert.Types.DestinationSettings
+    Network.AWS.MediaConvert.Types.DolbyVision
+    Network.AWS.MediaConvert.Types.DolbyVisionLevel6Metadata
+    Network.AWS.MediaConvert.Types.DolbyVisionLevel6Mode
+    Network.AWS.MediaConvert.Types.DolbyVisionProfile
+    Network.AWS.MediaConvert.Types.DropFrameTimecode
+    Network.AWS.MediaConvert.Types.DvbNitSettings
+    Network.AWS.MediaConvert.Types.DvbSdtSettings
+    Network.AWS.MediaConvert.Types.DvbSubDestinationSettings
+    Network.AWS.MediaConvert.Types.DvbSubSourceSettings
+    Network.AWS.MediaConvert.Types.DvbSubtitleAlignment
+    Network.AWS.MediaConvert.Types.DvbSubtitleBackgroundColor
+    Network.AWS.MediaConvert.Types.DvbSubtitleFontColor
+    Network.AWS.MediaConvert.Types.DvbSubtitleOutlineColor
+    Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor
+    Network.AWS.MediaConvert.Types.DvbSubtitleTeletextSpacing
+    Network.AWS.MediaConvert.Types.DvbSubtitlingType
+    Network.AWS.MediaConvert.Types.DvbTdtSettings
+    Network.AWS.MediaConvert.Types.Eac3AtmosBitstreamMode
+    Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode
+    Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence
+    Network.AWS.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine
+    Network.AWS.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionRf
+    Network.AWS.MediaConvert.Types.Eac3AtmosMeteringMode
+    Network.AWS.MediaConvert.Types.Eac3AtmosSettings
+    Network.AWS.MediaConvert.Types.Eac3AtmosStereoDownmix
+    Network.AWS.MediaConvert.Types.Eac3AtmosSurroundExMode
+    Network.AWS.MediaConvert.Types.Eac3AttenuationControl
+    Network.AWS.MediaConvert.Types.Eac3BitstreamMode
+    Network.AWS.MediaConvert.Types.Eac3CodingMode
+    Network.AWS.MediaConvert.Types.Eac3DcFilter
+    Network.AWS.MediaConvert.Types.Eac3DynamicRangeCompressionLine
+    Network.AWS.MediaConvert.Types.Eac3DynamicRangeCompressionRf
+    Network.AWS.MediaConvert.Types.Eac3LfeControl
+    Network.AWS.MediaConvert.Types.Eac3LfeFilter
+    Network.AWS.MediaConvert.Types.Eac3MetadataControl
+    Network.AWS.MediaConvert.Types.Eac3PassthroughControl
+    Network.AWS.MediaConvert.Types.Eac3PhaseControl
+    Network.AWS.MediaConvert.Types.Eac3Settings
+    Network.AWS.MediaConvert.Types.Eac3StereoDownmix
+    Network.AWS.MediaConvert.Types.Eac3SurroundExMode
+    Network.AWS.MediaConvert.Types.Eac3SurroundMode
+    Network.AWS.MediaConvert.Types.EmbeddedConvert608To708
+    Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings
+    Network.AWS.MediaConvert.Types.EmbeddedSourceSettings
+    Network.AWS.MediaConvert.Types.EmbeddedTerminateCaptions
+    Network.AWS.MediaConvert.Types.Endpoint
+    Network.AWS.MediaConvert.Types.EsamManifestConfirmConditionNotification
+    Network.AWS.MediaConvert.Types.EsamSettings
+    Network.AWS.MediaConvert.Types.EsamSignalProcessingNotification
+    Network.AWS.MediaConvert.Types.F4vMoovPlacement
+    Network.AWS.MediaConvert.Types.F4vSettings
+    Network.AWS.MediaConvert.Types.FileGroupSettings
+    Network.AWS.MediaConvert.Types.FileSourceConvert608To708
+    Network.AWS.MediaConvert.Types.FileSourceSettings
+    Network.AWS.MediaConvert.Types.FontScript
+    Network.AWS.MediaConvert.Types.FrameCaptureSettings
+    Network.AWS.MediaConvert.Types.H264AdaptiveQuantization
+    Network.AWS.MediaConvert.Types.H264CodecLevel
+    Network.AWS.MediaConvert.Types.H264CodecProfile
+    Network.AWS.MediaConvert.Types.H264DynamicSubGop
+    Network.AWS.MediaConvert.Types.H264EntropyEncoding
+    Network.AWS.MediaConvert.Types.H264FieldEncoding
+    Network.AWS.MediaConvert.Types.H264FlickerAdaptiveQuantization
+    Network.AWS.MediaConvert.Types.H264FramerateControl
+    Network.AWS.MediaConvert.Types.H264FramerateConversionAlgorithm
+    Network.AWS.MediaConvert.Types.H264GopBReference
+    Network.AWS.MediaConvert.Types.H264GopSizeUnits
+    Network.AWS.MediaConvert.Types.H264InterlaceMode
+    Network.AWS.MediaConvert.Types.H264ParControl
+    Network.AWS.MediaConvert.Types.H264QualityTuningLevel
+    Network.AWS.MediaConvert.Types.H264QvbrSettings
+    Network.AWS.MediaConvert.Types.H264RateControlMode
+    Network.AWS.MediaConvert.Types.H264RepeatPps
+    Network.AWS.MediaConvert.Types.H264SceneChangeDetect
+    Network.AWS.MediaConvert.Types.H264Settings
+    Network.AWS.MediaConvert.Types.H264SlowPal
+    Network.AWS.MediaConvert.Types.H264SpatialAdaptiveQuantization
+    Network.AWS.MediaConvert.Types.H264Syntax
+    Network.AWS.MediaConvert.Types.H264Telecine
+    Network.AWS.MediaConvert.Types.H264TemporalAdaptiveQuantization
+    Network.AWS.MediaConvert.Types.H264UnregisteredSeiTimecode
+    Network.AWS.MediaConvert.Types.H265AdaptiveQuantization
+    Network.AWS.MediaConvert.Types.H265AlternateTransferFunctionSei
+    Network.AWS.MediaConvert.Types.H265CodecLevel
+    Network.AWS.MediaConvert.Types.H265CodecProfile
+    Network.AWS.MediaConvert.Types.H265DynamicSubGop
+    Network.AWS.MediaConvert.Types.H265FlickerAdaptiveQuantization
+    Network.AWS.MediaConvert.Types.H265FramerateControl
+    Network.AWS.MediaConvert.Types.H265FramerateConversionAlgorithm
+    Network.AWS.MediaConvert.Types.H265GopBReference
+    Network.AWS.MediaConvert.Types.H265GopSizeUnits
+    Network.AWS.MediaConvert.Types.H265InterlaceMode
+    Network.AWS.MediaConvert.Types.H265ParControl
+    Network.AWS.MediaConvert.Types.H265QualityTuningLevel
+    Network.AWS.MediaConvert.Types.H265QvbrSettings
+    Network.AWS.MediaConvert.Types.H265RateControlMode
+    Network.AWS.MediaConvert.Types.H265SampleAdaptiveOffsetFilterMode
+    Network.AWS.MediaConvert.Types.H265SceneChangeDetect
+    Network.AWS.MediaConvert.Types.H265Settings
+    Network.AWS.MediaConvert.Types.H265SlowPal
+    Network.AWS.MediaConvert.Types.H265SpatialAdaptiveQuantization
+    Network.AWS.MediaConvert.Types.H265Telecine
+    Network.AWS.MediaConvert.Types.H265TemporalAdaptiveQuantization
+    Network.AWS.MediaConvert.Types.H265TemporalIds
+    Network.AWS.MediaConvert.Types.H265Tiles
+    Network.AWS.MediaConvert.Types.H265UnregisteredSeiTimecode
+    Network.AWS.MediaConvert.Types.H265WriteMp4PackagingType
+    Network.AWS.MediaConvert.Types.Hdr10Metadata
+    Network.AWS.MediaConvert.Types.HlsAdditionalManifest
+    Network.AWS.MediaConvert.Types.HlsAdMarkers
+    Network.AWS.MediaConvert.Types.HlsAudioOnlyContainer
+    Network.AWS.MediaConvert.Types.HlsAudioOnlyHeader
+    Network.AWS.MediaConvert.Types.HlsAudioTrackType
+    Network.AWS.MediaConvert.Types.HlsCaptionLanguageMapping
+    Network.AWS.MediaConvert.Types.HlsCaptionLanguageSetting
+    Network.AWS.MediaConvert.Types.HlsClientCache
+    Network.AWS.MediaConvert.Types.HlsCodecSpecification
+    Network.AWS.MediaConvert.Types.HlsDirectoryStructure
+    Network.AWS.MediaConvert.Types.HlsEncryptionSettings
+    Network.AWS.MediaConvert.Types.HlsEncryptionType
+    Network.AWS.MediaConvert.Types.HlsGroupSettings
+    Network.AWS.MediaConvert.Types.HlsIFrameOnlyManifest
+    Network.AWS.MediaConvert.Types.HlsInitializationVectorInManifest
+    Network.AWS.MediaConvert.Types.HlsKeyProviderType
+    Network.AWS.MediaConvert.Types.HlsManifestCompression
+    Network.AWS.MediaConvert.Types.HlsManifestDurationFormat
+    Network.AWS.MediaConvert.Types.HlsOfflineEncrypted
+    Network.AWS.MediaConvert.Types.HlsOutputSelection
+    Network.AWS.MediaConvert.Types.HlsProgramDateTime
+    Network.AWS.MediaConvert.Types.HlsSegmentControl
+    Network.AWS.MediaConvert.Types.HlsSettings
+    Network.AWS.MediaConvert.Types.HlsStreamInfResolution
+    Network.AWS.MediaConvert.Types.HlsTimedMetadataId3Frame
+    Network.AWS.MediaConvert.Types.HopDestination
+    Network.AWS.MediaConvert.Types.Id3Insertion
+    Network.AWS.MediaConvert.Types.ImageInserter
+    Network.AWS.MediaConvert.Types.ImscDestinationSettings
+    Network.AWS.MediaConvert.Types.ImscStylePassthrough
+    Network.AWS.MediaConvert.Types.Input
+    Network.AWS.MediaConvert.Types.InputClipping
+    Network.AWS.MediaConvert.Types.InputDeblockFilter
+    Network.AWS.MediaConvert.Types.InputDecryptionSettings
+    Network.AWS.MediaConvert.Types.InputDenoiseFilter
+    Network.AWS.MediaConvert.Types.InputFilterEnable
+    Network.AWS.MediaConvert.Types.InputPsiControl
+    Network.AWS.MediaConvert.Types.InputRotate
+    Network.AWS.MediaConvert.Types.InputScanType
+    Network.AWS.MediaConvert.Types.InputTemplate
+    Network.AWS.MediaConvert.Types.InputTimecodeSource
+    Network.AWS.MediaConvert.Types.InsertableImage
+    Network.AWS.MediaConvert.Types.Job
+    Network.AWS.MediaConvert.Types.JobMessages
+    Network.AWS.MediaConvert.Types.JobPhase
+    Network.AWS.MediaConvert.Types.JobSettings
+    Network.AWS.MediaConvert.Types.JobStatus
+    Network.AWS.MediaConvert.Types.JobTemplate
+    Network.AWS.MediaConvert.Types.JobTemplateListBy
+    Network.AWS.MediaConvert.Types.JobTemplateSettings
+    Network.AWS.MediaConvert.Types.LanguageCode
+    Network.AWS.MediaConvert.Types.M2tsAudioBufferModel
+    Network.AWS.MediaConvert.Types.M2tsAudioDuration
+    Network.AWS.MediaConvert.Types.M2tsBufferModel
+    Network.AWS.MediaConvert.Types.M2tsEbpAudioInterval
+    Network.AWS.MediaConvert.Types.M2tsEbpPlacement
+    Network.AWS.MediaConvert.Types.M2tsEsRateInPes
+    Network.AWS.MediaConvert.Types.M2tsForceTsVideoEbpOrder
+    Network.AWS.MediaConvert.Types.M2tsNielsenId3
+    Network.AWS.MediaConvert.Types.M2tsPcrControl
+    Network.AWS.MediaConvert.Types.M2tsRateMode
+    Network.AWS.MediaConvert.Types.M2tsScte35Esam
+    Network.AWS.MediaConvert.Types.M2tsScte35Source
+    Network.AWS.MediaConvert.Types.M2tsSegmentationMarkers
+    Network.AWS.MediaConvert.Types.M2tsSegmentationStyle
+    Network.AWS.MediaConvert.Types.M2tsSettings
+    Network.AWS.MediaConvert.Types.M3u8AudioDuration
+    Network.AWS.MediaConvert.Types.M3u8NielsenId3
+    Network.AWS.MediaConvert.Types.M3u8PcrControl
+    Network.AWS.MediaConvert.Types.M3u8Scte35Source
+    Network.AWS.MediaConvert.Types.M3u8Settings
+    Network.AWS.MediaConvert.Types.MotionImageInserter
+    Network.AWS.MediaConvert.Types.MotionImageInsertionFramerate
+    Network.AWS.MediaConvert.Types.MotionImageInsertionMode
+    Network.AWS.MediaConvert.Types.MotionImageInsertionOffset
+    Network.AWS.MediaConvert.Types.MotionImagePlayback
+    Network.AWS.MediaConvert.Types.MovClapAtom
+    Network.AWS.MediaConvert.Types.MovCslgAtom
+    Network.AWS.MediaConvert.Types.MovMpeg2FourCCControl
+    Network.AWS.MediaConvert.Types.MovPaddingControl
+    Network.AWS.MediaConvert.Types.MovReference
+    Network.AWS.MediaConvert.Types.MovSettings
+    Network.AWS.MediaConvert.Types.Mp2Settings
+    Network.AWS.MediaConvert.Types.Mp3RateControlMode
+    Network.AWS.MediaConvert.Types.Mp3Settings
+    Network.AWS.MediaConvert.Types.Mp4CslgAtom
+    Network.AWS.MediaConvert.Types.Mp4FreeSpaceBox
+    Network.AWS.MediaConvert.Types.Mp4MoovPlacement
+    Network.AWS.MediaConvert.Types.Mp4Settings
+    Network.AWS.MediaConvert.Types.MpdAccessibilityCaptionHints
+    Network.AWS.MediaConvert.Types.MpdAudioDuration
+    Network.AWS.MediaConvert.Types.MpdCaptionContainerType
+    Network.AWS.MediaConvert.Types.MpdScte35Esam
+    Network.AWS.MediaConvert.Types.MpdScte35Source
+    Network.AWS.MediaConvert.Types.MpdSettings
+    Network.AWS.MediaConvert.Types.Mpeg2AdaptiveQuantization
+    Network.AWS.MediaConvert.Types.Mpeg2CodecLevel
+    Network.AWS.MediaConvert.Types.Mpeg2CodecProfile
+    Network.AWS.MediaConvert.Types.Mpeg2DynamicSubGop
+    Network.AWS.MediaConvert.Types.Mpeg2FramerateControl
+    Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm
+    Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits
+    Network.AWS.MediaConvert.Types.Mpeg2InterlaceMode
+    Network.AWS.MediaConvert.Types.Mpeg2IntraDcPrecision
+    Network.AWS.MediaConvert.Types.Mpeg2ParControl
+    Network.AWS.MediaConvert.Types.Mpeg2QualityTuningLevel
+    Network.AWS.MediaConvert.Types.Mpeg2RateControlMode
+    Network.AWS.MediaConvert.Types.Mpeg2SceneChangeDetect
+    Network.AWS.MediaConvert.Types.Mpeg2Settings
+    Network.AWS.MediaConvert.Types.Mpeg2SlowPal
+    Network.AWS.MediaConvert.Types.Mpeg2SpatialAdaptiveQuantization
+    Network.AWS.MediaConvert.Types.Mpeg2Syntax
+    Network.AWS.MediaConvert.Types.Mpeg2Telecine
+    Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization
+    Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest
+    Network.AWS.MediaConvert.Types.MsSmoothAudioDeduplication
+    Network.AWS.MediaConvert.Types.MsSmoothEncryptionSettings
+    Network.AWS.MediaConvert.Types.MsSmoothGroupSettings
+    Network.AWS.MediaConvert.Types.MsSmoothManifestEncoding
+    Network.AWS.MediaConvert.Types.MxfAfdSignaling
+    Network.AWS.MediaConvert.Types.MxfProfile
+    Network.AWS.MediaConvert.Types.MxfSettings
+    Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings
+    Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType
+    Network.AWS.MediaConvert.Types.NielsenConfiguration
+    Network.AWS.MediaConvert.Types.NielsenNonLinearWatermarkSettings
+    Network.AWS.MediaConvert.Types.NielsenSourceWatermarkStatusType
+    Network.AWS.MediaConvert.Types.NielsenUniqueTicPerAudioTrackType
+    Network.AWS.MediaConvert.Types.NoiseFilterPostTemporalSharpening
+    Network.AWS.MediaConvert.Types.NoiseReducer
+    Network.AWS.MediaConvert.Types.NoiseReducerFilter
+    Network.AWS.MediaConvert.Types.NoiseReducerFilterSettings
+    Network.AWS.MediaConvert.Types.NoiseReducerSpatialFilterSettings
+    Network.AWS.MediaConvert.Types.NoiseReducerTemporalFilterSettings
+    Network.AWS.MediaConvert.Types.OpusSettings
+    Network.AWS.MediaConvert.Types.Order
+    Network.AWS.MediaConvert.Types.Output
+    Network.AWS.MediaConvert.Types.OutputChannelMapping
+    Network.AWS.MediaConvert.Types.OutputDetail
+    Network.AWS.MediaConvert.Types.OutputGroup
+    Network.AWS.MediaConvert.Types.OutputGroupDetail
+    Network.AWS.MediaConvert.Types.OutputGroupSettings
+    Network.AWS.MediaConvert.Types.OutputGroupType
+    Network.AWS.MediaConvert.Types.OutputSdt
+    Network.AWS.MediaConvert.Types.OutputSettings
+    Network.AWS.MediaConvert.Types.PartnerWatermarking
+    Network.AWS.MediaConvert.Types.Preset
+    Network.AWS.MediaConvert.Types.PresetListBy
+    Network.AWS.MediaConvert.Types.PresetSettings
+    Network.AWS.MediaConvert.Types.PricingPlan
+    Network.AWS.MediaConvert.Types.ProresCodecProfile
+    Network.AWS.MediaConvert.Types.ProresFramerateControl
+    Network.AWS.MediaConvert.Types.ProresFramerateConversionAlgorithm
+    Network.AWS.MediaConvert.Types.ProresInterlaceMode
+    Network.AWS.MediaConvert.Types.ProresParControl
+    Network.AWS.MediaConvert.Types.ProresSettings
+    Network.AWS.MediaConvert.Types.ProresSlowPal
+    Network.AWS.MediaConvert.Types.ProresTelecine
+    Network.AWS.MediaConvert.Types.Queue
+    Network.AWS.MediaConvert.Types.QueueListBy
+    Network.AWS.MediaConvert.Types.QueueStatus
+    Network.AWS.MediaConvert.Types.QueueTransition
+    Network.AWS.MediaConvert.Types.Rectangle
+    Network.AWS.MediaConvert.Types.RemixSettings
+    Network.AWS.MediaConvert.Types.RenewalType
+    Network.AWS.MediaConvert.Types.ReservationPlan
+    Network.AWS.MediaConvert.Types.ReservationPlanSettings
+    Network.AWS.MediaConvert.Types.ReservationPlanStatus
+    Network.AWS.MediaConvert.Types.ResourceTags
+    Network.AWS.MediaConvert.Types.RespondToAfd
+    Network.AWS.MediaConvert.Types.S3DestinationAccessControl
+    Network.AWS.MediaConvert.Types.S3DestinationSettings
+    Network.AWS.MediaConvert.Types.S3EncryptionSettings
+    Network.AWS.MediaConvert.Types.S3ObjectCannedACL
+    Network.AWS.MediaConvert.Types.S3ServerSideEncryptionType
+    Network.AWS.MediaConvert.Types.ScalingBehavior
+    Network.AWS.MediaConvert.Types.SccDestinationFramerate
+    Network.AWS.MediaConvert.Types.SccDestinationSettings
+    Network.AWS.MediaConvert.Types.SimulateReservedQueue
+    Network.AWS.MediaConvert.Types.SpekeKeyProvider
+    Network.AWS.MediaConvert.Types.SpekeKeyProviderCmaf
+    Network.AWS.MediaConvert.Types.StaticKeyProvider
+    Network.AWS.MediaConvert.Types.StatusUpdateInterval
+    Network.AWS.MediaConvert.Types.TeletextDestinationSettings
+    Network.AWS.MediaConvert.Types.TeletextPageType
+    Network.AWS.MediaConvert.Types.TeletextSourceSettings
+    Network.AWS.MediaConvert.Types.TimecodeBurnin
+    Network.AWS.MediaConvert.Types.TimecodeBurninPosition
+    Network.AWS.MediaConvert.Types.TimecodeConfig
+    Network.AWS.MediaConvert.Types.TimecodeSource
+    Network.AWS.MediaConvert.Types.TimedMetadata
+    Network.AWS.MediaConvert.Types.TimedMetadataInsertion
+    Network.AWS.MediaConvert.Types.Timing
+    Network.AWS.MediaConvert.Types.TrackSourceSettings
+    Network.AWS.MediaConvert.Types.TtmlDestinationSettings
+    Network.AWS.MediaConvert.Types.TtmlStylePassthrough
+    Network.AWS.MediaConvert.Types.Type
+    Network.AWS.MediaConvert.Types.Vc3Class
+    Network.AWS.MediaConvert.Types.Vc3FramerateControl
+    Network.AWS.MediaConvert.Types.Vc3FramerateConversionAlgorithm
+    Network.AWS.MediaConvert.Types.Vc3InterlaceMode
+    Network.AWS.MediaConvert.Types.Vc3Settings
+    Network.AWS.MediaConvert.Types.Vc3SlowPal
+    Network.AWS.MediaConvert.Types.Vc3Telecine
+    Network.AWS.MediaConvert.Types.VideoCodec
+    Network.AWS.MediaConvert.Types.VideoCodecSettings
+    Network.AWS.MediaConvert.Types.VideoDescription
+    Network.AWS.MediaConvert.Types.VideoDetail
+    Network.AWS.MediaConvert.Types.VideoPreprocessor
+    Network.AWS.MediaConvert.Types.VideoSelector
+    Network.AWS.MediaConvert.Types.VideoTimecodeInsertion
+    Network.AWS.MediaConvert.Types.VorbisSettings
+    Network.AWS.MediaConvert.Types.Vp8FramerateControl
+    Network.AWS.MediaConvert.Types.Vp8FramerateConversionAlgorithm
+    Network.AWS.MediaConvert.Types.Vp8ParControl
+    Network.AWS.MediaConvert.Types.Vp8QualityTuningLevel
+    Network.AWS.MediaConvert.Types.Vp8RateControlMode
+    Network.AWS.MediaConvert.Types.Vp8Settings
+    Network.AWS.MediaConvert.Types.Vp9FramerateControl
+    Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm
+    Network.AWS.MediaConvert.Types.Vp9ParControl
+    Network.AWS.MediaConvert.Types.Vp9QualityTuningLevel
+    Network.AWS.MediaConvert.Types.Vp9RateControlMode
+    Network.AWS.MediaConvert.Types.Vp9Settings
+    Network.AWS.MediaConvert.Types.WatermarkingStrength
+    Network.AWS.MediaConvert.Types.WavFormat
+    Network.AWS.MediaConvert.Types.WavSettings
 
-    other-modules:
-          Network.AWS.MediaConvert.Types.Product
-        , Network.AWS.MediaConvert.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.7   && <5
 
 test-suite amazonka-mediaconvert-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.MediaConvert
+    Test.AWS.MediaConvert
+    Test.AWS.MediaConvert.Internal
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.MediaConvert
-        , Test.AWS.Gen.MediaConvert
-        , Test.AWS.MediaConvert.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-mediaconvert
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-core          >=1.6.1 && <1.6.2
+    , amazonka-mediaconvert
+    , amazonka-test          >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.SSM
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.SSM
-import           Test.AWS.Gen.SSM
-import           Test.Tasty
+import Network.AWS.SSM
+import Test.AWS.Gen.SSM
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

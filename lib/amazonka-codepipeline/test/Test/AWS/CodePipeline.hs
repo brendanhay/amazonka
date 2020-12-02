@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.CodePipeline
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.CodePipeline
-import           Test.AWS.Gen.CodePipeline
-import           Test.Tasty
+import Network.AWS.CodePipeline
+import Test.AWS.Gen.CodePipeline
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

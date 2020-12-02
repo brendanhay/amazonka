@@ -1,79 +1,64 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ApplicationAutoScaling
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- With Application Auto Scaling, you can configure automatic scaling for your scalable AWS resources. You can use Application Auto Scaling to accomplish the following tasks:
+-- With Application Auto Scaling, you can configure automatic scaling for the following resources:
 --
 --
---     * Define scaling policies to automatically scale your AWS resources
+--     * Amazon ECS services
 --
---     * Scale your resources in response to CloudWatch alarms
+--     * Amazon EC2 Spot Fleet requests
 --
---     * Schedule one-time or recurring scaling actions
+--     * Amazon EMR clusters
 --
---     * View the history of your scaling events
+--     * Amazon AppStream 2.0 fleets
 --
+--     * Amazon DynamoDB tables and global secondary indexes throughput capacity
 --
+--     * Amazon Aurora Replicas
 --
--- Application Auto Scaling can scale the following AWS resources:
+--     * Amazon SageMaker endpoint variants
 --
---     * Amazon ECS services. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html Service Auto Scaling> in the /Amazon Elastic Container Service Developer Guide/ .
+--     * Custom resources provided by your own applications or services
 --
---     * Amazon EC2 Spot fleets. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-auto-scaling.html Automatic Scaling for Spot Fleet> in the /Amazon EC2 User Guide/ .
+--     * Amazon Comprehend document classification and entity recognizer endpoints
 --
---     * Amazon EMR clusters. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-automatic-scaling.html Using Automatic Scaling in Amazon EMR> in the /Amazon EMR Management Guide/ .
+--     * AWS Lambda function provisioned concurrency
 --
---     * AppStream 2.0 fleets. For more information, see <http://docs.aws.amazon.com/appstream2/latest/developerguide/autoscaling.html Fleet Auto Scaling for Amazon AppStream 2.0> in the /Amazon AppStream 2.0 Developer Guide/ .
+--     * Amazon Keyspaces (for Apache Cassandra) tables
 --
---     * Provisioned read and write capacity for Amazon DynamoDB tables and global secondary indexes. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html Managing Throughput Capacity Automatically with DynamoDB Auto Scaling> in the /Amazon DynamoDB Developer Guide/ .
---
---     * Amazon Aurora Replicas. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Integrating.AutoScaling.html Using Amazon Aurora Auto Scaling with Aurora Replicas> .
---
---     * Amazon SageMaker endpoints. For more information, see <http://docs.aws.amazon.com/sagemaker/latest/dg/endpoint-auto-scaling.html Automatically Scaling Amazon SageMaker Models> .
+--     * Amazon Managed Streaming for Apache Kafka cluster storage
 --
 --
 --
--- To configure automatic scaling for multiple resources across multiple services, use AWS Auto Scaling to create a scaling plan for your application. For more information, see <http://aws.amazon.com/autoscaling AWS Auto Scaling> .
+-- __API Summary__
 --
--- For a list of supported regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#as-app_region AWS Regions and Endpoints: Application Auto Scaling> in the /AWS General Reference/ .
+-- The Application Auto Scaling service API includes three key sets of actions:
 --
+--     * Register and manage scalable targets - Register AWS or custom resources as scalable targets (a resource that Application Auto Scaling can scale), set minimum and maximum capacity limits, and retrieve information on existing scalable targets.
+--
+--     * Configure and manage automatic scaling - Define scaling policies to dynamically scale your resources in response to CloudWatch alarms, schedule one-time or recurring scaling actions, and retrieve your recent scaling activity history.
+--
+--     * Suspend and resume scaling - Temporarily suspend and later resume automatic scaling by calling the <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html RegisterScalableTarget> API action for any Application Auto Scaling scalable target. You can suspend and resume (individually or in combination) scale-out activities that are triggered by a scaling policy, scale-in activities that are triggered by a scaling policy, and scheduled scaling.
+--
+--
+--
+-- To learn more about Application Auto Scaling, including information about granting IAM users required permissions for Application Auto Scaling actions, see the <https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html Application Auto Scaling User Guide> .
 module Network.AWS.ApplicationAutoScaling
-    (
-    -- * Service Configuration
-      applicationAutoScaling
+  ( -- * Service Configuration
+    applicationAutoScaling,
 
     -- * Errors
     -- $errors
-
-    -- ** ValidationException
-    , _ValidationException
-
-    -- ** FailedResourceAccessException
-    , _FailedResourceAccessException
-
-    -- ** InvalidNextTokenException
-    , _InvalidNextTokenException
-
-    -- ** ConcurrentUpdateException
-    , _ConcurrentUpdateException
-
-    -- ** InternalServiceException
-    , _InternalServiceException
-
-    -- ** ObjectNotFoundException
-    , _ObjectNotFoundException
-
-    -- ** LimitExceededException
-    , _LimitExceededException
 
     -- * Waiters
     -- $waiters
@@ -82,174 +67,183 @@ module Network.AWS.ApplicationAutoScaling
     -- $operations
 
     -- ** DeleteScalingPolicy
-    , module Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
+    module Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy,
 
     -- ** PutScalingPolicy
-    , module Network.AWS.ApplicationAutoScaling.PutScalingPolicy
+    module Network.AWS.ApplicationAutoScaling.PutScalingPolicy,
 
     -- ** RegisterScalableTarget
-    , module Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
+    module Network.AWS.ApplicationAutoScaling.RegisterScalableTarget,
 
     -- ** DescribeScalingPolicies (Paginated)
-    , module Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
+    module Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies,
 
     -- ** PutScheduledAction
-    , module Network.AWS.ApplicationAutoScaling.PutScheduledAction
+    module Network.AWS.ApplicationAutoScaling.PutScheduledAction,
 
     -- ** DeleteScheduledAction
-    , module Network.AWS.ApplicationAutoScaling.DeleteScheduledAction
+    module Network.AWS.ApplicationAutoScaling.DeleteScheduledAction,
 
-    -- ** DescribeScheduledActions
-    , module Network.AWS.ApplicationAutoScaling.DescribeScheduledActions
+    -- ** DescribeScheduledActions (Paginated)
+    module Network.AWS.ApplicationAutoScaling.DescribeScheduledActions,
 
     -- ** DescribeScalableTargets (Paginated)
-    , module Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
+    module Network.AWS.ApplicationAutoScaling.DescribeScalableTargets,
 
     -- ** DescribeScalingActivities (Paginated)
-    , module Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
+    module Network.AWS.ApplicationAutoScaling.DescribeScalingActivities,
 
     -- ** DeregisterScalableTarget
-    , module Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
+    module Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget,
 
     -- * Types
 
     -- ** AdjustmentType
-    , AdjustmentType (..)
+    AdjustmentType (..),
 
     -- ** MetricAggregationType
-    , MetricAggregationType (..)
+    MetricAggregationType (..),
 
     -- ** MetricStatistic
-    , MetricStatistic (..)
+    MetricStatistic (..),
 
     -- ** MetricType
-    , MetricType (..)
+    MetricType (..),
 
     -- ** PolicyType
-    , PolicyType (..)
+    PolicyType (..),
 
     -- ** ScalableDimension
-    , ScalableDimension (..)
+    ScalableDimension (..),
 
     -- ** ScalingActivityStatusCode
-    , ScalingActivityStatusCode (..)
+    ScalingActivityStatusCode (..),
 
     -- ** ServiceNamespace
-    , ServiceNamespace (..)
+    ServiceNamespace (..),
 
     -- ** Alarm
-    , Alarm
-    , alarm
-    , aAlarmName
-    , aAlarmARN
+    Alarm,
+    alarm,
+    aAlarmName,
+    aAlarmARN,
 
     -- ** CustomizedMetricSpecification
-    , CustomizedMetricSpecification
-    , customizedMetricSpecification
-    , cmsDimensions
-    , cmsUnit
-    , cmsMetricName
-    , cmsNamespace
-    , cmsStatistic
+    CustomizedMetricSpecification,
+    customizedMetricSpecification,
+    cmsDimensions,
+    cmsUnit,
+    cmsMetricName,
+    cmsNamespace,
+    cmsStatistic,
 
     -- ** MetricDimension
-    , MetricDimension
-    , metricDimension
-    , mdName
-    , mdValue
+    MetricDimension,
+    metricDimension,
+    mdName,
+    mdValue,
 
     -- ** PredefinedMetricSpecification
-    , PredefinedMetricSpecification
-    , predefinedMetricSpecification
-    , pmsResourceLabel
-    , pmsPredefinedMetricType
+    PredefinedMetricSpecification,
+    predefinedMetricSpecification,
+    pmsResourceLabel,
+    pmsPredefinedMetricType,
 
     -- ** ScalableTarget
-    , ScalableTarget
-    , scalableTarget
-    , stServiceNamespace
-    , stResourceId
-    , stScalableDimension
-    , stMinCapacity
-    , stMaxCapacity
-    , stRoleARN
-    , stCreationTime
+    ScalableTarget,
+    scalableTarget,
+    stSuspendedState,
+    stServiceNamespace,
+    stResourceId,
+    stScalableDimension,
+    stMinCapacity,
+    stMaxCapacity,
+    stRoleARN,
+    stCreationTime,
 
     -- ** ScalableTargetAction
-    , ScalableTargetAction
-    , scalableTargetAction
-    , staMaxCapacity
-    , staMinCapacity
+    ScalableTargetAction,
+    scalableTargetAction,
+    staMaxCapacity,
+    staMinCapacity,
 
     -- ** ScalingActivity
-    , ScalingActivity
-    , scalingActivity
-    , sStatusMessage
-    , sEndTime
-    , sDetails
-    , sActivityId
-    , sServiceNamespace
-    , sResourceId
-    , sScalableDimension
-    , sDescription
-    , sCause
-    , sStartTime
-    , sStatusCode
+    ScalingActivity,
+    scalingActivity,
+    sStatusMessage,
+    sEndTime,
+    sDetails,
+    sActivityId,
+    sServiceNamespace,
+    sResourceId,
+    sScalableDimension,
+    sDescription,
+    sCause,
+    sStartTime,
+    sStatusCode,
 
     -- ** ScalingPolicy
-    , ScalingPolicy
-    , scalingPolicy
-    , spTargetTrackingScalingPolicyConfiguration
-    , spStepScalingPolicyConfiguration
-    , spAlarms
-    , spPolicyARN
-    , spPolicyName
-    , spServiceNamespace
-    , spResourceId
-    , spScalableDimension
-    , spPolicyType
-    , spCreationTime
+    ScalingPolicy,
+    scalingPolicy,
+    spTargetTrackingScalingPolicyConfiguration,
+    spStepScalingPolicyConfiguration,
+    spAlarms,
+    spPolicyARN,
+    spPolicyName,
+    spServiceNamespace,
+    spResourceId,
+    spScalableDimension,
+    spPolicyType,
+    spCreationTime,
 
     -- ** ScheduledAction
-    , ScheduledAction
-    , scheduledAction
-    , saScalableDimension
-    , saStartTime
-    , saEndTime
-    , saScalableTargetAction
-    , saScheduledActionName
-    , saScheduledActionARN
-    , saServiceNamespace
-    , saSchedule
-    , saResourceId
-    , saCreationTime
+    ScheduledAction,
+    scheduledAction,
+    saScalableDimension,
+    saStartTime,
+    saEndTime,
+    saScalableTargetAction,
+    saScheduledActionName,
+    saScheduledActionARN,
+    saServiceNamespace,
+    saSchedule,
+    saResourceId,
+    saCreationTime,
 
     -- ** StepAdjustment
-    , StepAdjustment
-    , stepAdjustment
-    , saMetricIntervalLowerBound
-    , saMetricIntervalUpperBound
-    , saScalingAdjustment
+    StepAdjustment,
+    stepAdjustment,
+    saMetricIntervalLowerBound,
+    saMetricIntervalUpperBound,
+    saScalingAdjustment,
 
     -- ** StepScalingPolicyConfiguration
-    , StepScalingPolicyConfiguration
-    , stepScalingPolicyConfiguration
-    , sspcStepAdjustments
-    , sspcAdjustmentType
-    , sspcCooldown
-    , sspcMetricAggregationType
-    , sspcMinAdjustmentMagnitude
+    StepScalingPolicyConfiguration,
+    stepScalingPolicyConfiguration,
+    sspcStepAdjustments,
+    sspcAdjustmentType,
+    sspcCooldown,
+    sspcMetricAggregationType,
+    sspcMinAdjustmentMagnitude,
+
+    -- ** SuspendedState
+    SuspendedState,
+    suspendedState,
+    ssDynamicScalingInSuspended,
+    ssScheduledScalingSuspended,
+    ssDynamicScalingOutSuspended,
 
     -- ** TargetTrackingScalingPolicyConfiguration
-    , TargetTrackingScalingPolicyConfiguration
-    , targetTrackingScalingPolicyConfiguration
-    , ttspcPredefinedMetricSpecification
-    , ttspcScaleInCooldown
-    , ttspcCustomizedMetricSpecification
-    , ttspcDisableScaleIn
-    , ttspcScaleOutCooldown
-    , ttspcTargetValue
-    ) where
+    TargetTrackingScalingPolicyConfiguration,
+    targetTrackingScalingPolicyConfiguration,
+    ttspcPredefinedMetricSpecification,
+    ttspcScaleInCooldown,
+    ttspcCustomizedMetricSpecification,
+    ttspcDisableScaleIn,
+    ttspcScaleOutCooldown,
+    ttspcTargetValue,
+  )
+where
 
 import Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
 import Network.AWS.ApplicationAutoScaling.DeleteScheduledAction
@@ -264,32 +258,29 @@ import Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
 import Network.AWS.ApplicationAutoScaling.Types
 import Network.AWS.ApplicationAutoScaling.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'ApplicationAutoScaling'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'ApplicationAutoScaling'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

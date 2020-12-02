@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.Route53
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.Route53 where
 
 import Data.Proxy
@@ -159,6 +158,9 @@ import Test.Tasty
 --
 --         , requestGetHealthCheckStatus $
 --             getHealthCheckStatus
+--
+--         , requestListHostedZonesByVPC $
+--             listHostedZonesByVPC
 --
 --         , requestGetReusableDelegationSetLimit $
 --             getReusableDelegationSetLimit
@@ -331,6 +333,9 @@ import Test.Tasty
 --         , responseGetHealthCheckStatus $
 --             getHealthCheckStatusResponse
 --
+--         , responseListHostedZonesByVPC $
+--             listHostedZonesByVPCResponse
+--
 --         , responseGetReusableDelegationSetLimit $
 --             getReusableDelegationSetLimitResponse
 --
@@ -373,674 +378,800 @@ import Test.Tasty
 -- Requests
 
 requestGetHostedZoneLimit :: GetHostedZoneLimit -> TestTree
-requestGetHostedZoneLimit = req
+requestGetHostedZoneLimit =
+  req
     "GetHostedZoneLimit"
     "fixture/GetHostedZoneLimit.yaml"
 
 requestAssociateVPCWithHostedZone :: AssociateVPCWithHostedZone -> TestTree
-requestAssociateVPCWithHostedZone = req
+requestAssociateVPCWithHostedZone =
+  req
     "AssociateVPCWithHostedZone"
     "fixture/AssociateVPCWithHostedZone.yaml"
 
 requestDeleteTrafficPolicy :: DeleteTrafficPolicy -> TestTree
-requestDeleteTrafficPolicy = req
+requestDeleteTrafficPolicy =
+  req
     "DeleteTrafficPolicy"
     "fixture/DeleteTrafficPolicy.yaml"
 
 requestGetCheckerIPRanges :: GetCheckerIPRanges -> TestTree
-requestGetCheckerIPRanges = req
+requestGetCheckerIPRanges =
+  req
     "GetCheckerIPRanges"
     "fixture/GetCheckerIPRanges.yaml"
 
 requestGetTrafficPolicyInstance :: GetTrafficPolicyInstance -> TestTree
-requestGetTrafficPolicyInstance = req
+requestGetTrafficPolicyInstance =
+  req
     "GetTrafficPolicyInstance"
     "fixture/GetTrafficPolicyInstance.yaml"
 
 requestGetHealthCheckLastFailureReason :: GetHealthCheckLastFailureReason -> TestTree
-requestGetHealthCheckLastFailureReason = req
+requestGetHealthCheckLastFailureReason =
+  req
     "GetHealthCheckLastFailureReason"
     "fixture/GetHealthCheckLastFailureReason.yaml"
 
 requestDeleteReusableDelegationSet :: DeleteReusableDelegationSet -> TestTree
-requestDeleteReusableDelegationSet = req
+requestDeleteReusableDelegationSet =
+  req
     "DeleteReusableDelegationSet"
     "fixture/DeleteReusableDelegationSet.yaml"
 
 requestListHostedZonesByName :: ListHostedZonesByName -> TestTree
-requestListHostedZonesByName = req
+requestListHostedZonesByName =
+  req
     "ListHostedZonesByName"
     "fixture/ListHostedZonesByName.yaml"
 
 requestListReusableDelegationSets :: ListReusableDelegationSets -> TestTree
-requestListReusableDelegationSets = req
+requestListReusableDelegationSets =
+  req
     "ListReusableDelegationSets"
     "fixture/ListReusableDelegationSets.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource = req
+requestListTagsForResource =
+  req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
 requestListQueryLoggingConfigs :: ListQueryLoggingConfigs -> TestTree
-requestListQueryLoggingConfigs = req
+requestListQueryLoggingConfigs =
+  req
     "ListQueryLoggingConfigs"
     "fixture/ListQueryLoggingConfigs.yaml"
 
 requestListTrafficPolicyInstances :: ListTrafficPolicyInstances -> TestTree
-requestListTrafficPolicyInstances = req
+requestListTrafficPolicyInstances =
+  req
     "ListTrafficPolicyInstances"
     "fixture/ListTrafficPolicyInstances.yaml"
 
 requestCreateTrafficPolicyInstance :: CreateTrafficPolicyInstance -> TestTree
-requestCreateTrafficPolicyInstance = req
+requestCreateTrafficPolicyInstance =
+  req
     "CreateTrafficPolicyInstance"
     "fixture/CreateTrafficPolicyInstance.yaml"
 
 requestGetChange :: GetChange -> TestTree
-requestGetChange = req
+requestGetChange =
+  req
     "GetChange"
     "fixture/GetChange.yaml"
 
 requestChangeResourceRecordSets :: ChangeResourceRecordSets -> TestTree
-requestChangeResourceRecordSets = req
+requestChangeResourceRecordSets =
+  req
     "ChangeResourceRecordSets"
     "fixture/ChangeResourceRecordSets.yaml"
 
 requestDeleteHealthCheck :: DeleteHealthCheck -> TestTree
-requestDeleteHealthCheck = req
+requestDeleteHealthCheck =
+  req
     "DeleteHealthCheck"
     "fixture/DeleteHealthCheck.yaml"
 
 requestUpdateHealthCheck :: UpdateHealthCheck -> TestTree
-requestUpdateHealthCheck = req
+requestUpdateHealthCheck =
+  req
     "UpdateHealthCheck"
     "fixture/UpdateHealthCheck.yaml"
 
 requestCreateHostedZone :: CreateHostedZone -> TestTree
-requestCreateHostedZone = req
+requestCreateHostedZone =
+  req
     "CreateHostedZone"
     "fixture/CreateHostedZone.yaml"
 
 requestCreateVPCAssociationAuthorization :: CreateVPCAssociationAuthorization -> TestTree
-requestCreateVPCAssociationAuthorization = req
+requestCreateVPCAssociationAuthorization =
+  req
     "CreateVPCAssociationAuthorization"
     "fixture/CreateVPCAssociationAuthorization.yaml"
 
 requestListVPCAssociationAuthorizations :: ListVPCAssociationAuthorizations -> TestTree
-requestListVPCAssociationAuthorizations = req
+requestListVPCAssociationAuthorizations =
+  req
     "ListVPCAssociationAuthorizations"
     "fixture/ListVPCAssociationAuthorizations.yaml"
 
 requestListTrafficPolicyInstancesByPolicy :: ListTrafficPolicyInstancesByPolicy -> TestTree
-requestListTrafficPolicyInstancesByPolicy = req
+requestListTrafficPolicyInstancesByPolicy =
+  req
     "ListTrafficPolicyInstancesByPolicy"
     "fixture/ListTrafficPolicyInstancesByPolicy.yaml"
 
 requestDisassociateVPCFromHostedZone :: DisassociateVPCFromHostedZone -> TestTree
-requestDisassociateVPCFromHostedZone = req
+requestDisassociateVPCFromHostedZone =
+  req
     "DisassociateVPCFromHostedZone"
     "fixture/DisassociateVPCFromHostedZone.yaml"
 
 requestCreateHealthCheck :: CreateHealthCheck -> TestTree
-requestCreateHealthCheck = req
+requestCreateHealthCheck =
+  req
     "CreateHealthCheck"
     "fixture/CreateHealthCheck.yaml"
 
 requestDeleteVPCAssociationAuthorization :: DeleteVPCAssociationAuthorization -> TestTree
-requestDeleteVPCAssociationAuthorization = req
+requestDeleteVPCAssociationAuthorization =
+  req
     "DeleteVPCAssociationAuthorization"
     "fixture/DeleteVPCAssociationAuthorization.yaml"
 
 requestChangeTagsForResource :: ChangeTagsForResource -> TestTree
-requestChangeTagsForResource = req
+requestChangeTagsForResource =
+  req
     "ChangeTagsForResource"
     "fixture/ChangeTagsForResource.yaml"
 
 requestListHostedZones :: ListHostedZones -> TestTree
-requestListHostedZones = req
+requestListHostedZones =
+  req
     "ListHostedZones"
     "fixture/ListHostedZones.yaml"
 
 requestGetTrafficPolicyInstanceCount :: GetTrafficPolicyInstanceCount -> TestTree
-requestGetTrafficPolicyInstanceCount = req
+requestGetTrafficPolicyInstanceCount =
+  req
     "GetTrafficPolicyInstanceCount"
     "fixture/GetTrafficPolicyInstanceCount.yaml"
 
 requestListGeoLocations :: ListGeoLocations -> TestTree
-requestListGeoLocations = req
+requestListGeoLocations =
+  req
     "ListGeoLocations"
     "fixture/ListGeoLocations.yaml"
 
 requestGetHostedZone :: GetHostedZone -> TestTree
-requestGetHostedZone = req
+requestGetHostedZone =
+  req
     "GetHostedZone"
     "fixture/GetHostedZone.yaml"
 
 requestGetHealthCheck :: GetHealthCheck -> TestTree
-requestGetHealthCheck = req
+requestGetHealthCheck =
+  req
     "GetHealthCheck"
     "fixture/GetHealthCheck.yaml"
 
 requestListResourceRecordSets :: ListResourceRecordSets -> TestTree
-requestListResourceRecordSets = req
+requestListResourceRecordSets =
+  req
     "ListResourceRecordSets"
     "fixture/ListResourceRecordSets.yaml"
 
 requestCreateReusableDelegationSet :: CreateReusableDelegationSet -> TestTree
-requestCreateReusableDelegationSet = req
+requestCreateReusableDelegationSet =
+  req
     "CreateReusableDelegationSet"
     "fixture/CreateReusableDelegationSet.yaml"
 
 requestCreateQueryLoggingConfig :: CreateQueryLoggingConfig -> TestTree
-requestCreateQueryLoggingConfig = req
+requestCreateQueryLoggingConfig =
+  req
     "CreateQueryLoggingConfig"
     "fixture/CreateQueryLoggingConfig.yaml"
 
 requestGetHealthCheckCount :: GetHealthCheckCount -> TestTree
-requestGetHealthCheckCount = req
+requestGetHealthCheckCount =
+  req
     "GetHealthCheckCount"
     "fixture/GetHealthCheckCount.yaml"
 
 requestUpdateTrafficPolicyComment :: UpdateTrafficPolicyComment -> TestTree
-requestUpdateTrafficPolicyComment = req
+requestUpdateTrafficPolicyComment =
+  req
     "UpdateTrafficPolicyComment"
     "fixture/UpdateTrafficPolicyComment.yaml"
 
 requestGetHostedZoneCount :: GetHostedZoneCount -> TestTree
-requestGetHostedZoneCount = req
+requestGetHostedZoneCount =
+  req
     "GetHostedZoneCount"
     "fixture/GetHostedZoneCount.yaml"
 
 requestGetAccountLimit :: GetAccountLimit -> TestTree
-requestGetAccountLimit = req
+requestGetAccountLimit =
+  req
     "GetAccountLimit"
     "fixture/GetAccountLimit.yaml"
 
 requestDeleteQueryLoggingConfig :: DeleteQueryLoggingConfig -> TestTree
-requestDeleteQueryLoggingConfig = req
+requestDeleteQueryLoggingConfig =
+  req
     "DeleteQueryLoggingConfig"
     "fixture/DeleteQueryLoggingConfig.yaml"
 
 requestGetQueryLoggingConfig :: GetQueryLoggingConfig -> TestTree
-requestGetQueryLoggingConfig = req
+requestGetQueryLoggingConfig =
+  req
     "GetQueryLoggingConfig"
     "fixture/GetQueryLoggingConfig.yaml"
 
 requestGetReusableDelegationSet :: GetReusableDelegationSet -> TestTree
-requestGetReusableDelegationSet = req
+requestGetReusableDelegationSet =
+  req
     "GetReusableDelegationSet"
     "fixture/GetReusableDelegationSet.yaml"
 
 requestDeleteTrafficPolicyInstance :: DeleteTrafficPolicyInstance -> TestTree
-requestDeleteTrafficPolicyInstance = req
+requestDeleteTrafficPolicyInstance =
+  req
     "DeleteTrafficPolicyInstance"
     "fixture/DeleteTrafficPolicyInstance.yaml"
 
 requestUpdateTrafficPolicyInstance :: UpdateTrafficPolicyInstance -> TestTree
-requestUpdateTrafficPolicyInstance = req
+requestUpdateTrafficPolicyInstance =
+  req
     "UpdateTrafficPolicyInstance"
     "fixture/UpdateTrafficPolicyInstance.yaml"
 
 requestUpdateHostedZoneComment :: UpdateHostedZoneComment -> TestTree
-requestUpdateHostedZoneComment = req
+requestUpdateHostedZoneComment =
+  req
     "UpdateHostedZoneComment"
     "fixture/UpdateHostedZoneComment.yaml"
 
 requestGetHealthCheckStatus :: GetHealthCheckStatus -> TestTree
-requestGetHealthCheckStatus = req
+requestGetHealthCheckStatus =
+  req
     "GetHealthCheckStatus"
     "fixture/GetHealthCheckStatus.yaml"
 
+requestListHostedZonesByVPC :: ListHostedZonesByVPC -> TestTree
+requestListHostedZonesByVPC =
+  req
+    "ListHostedZonesByVPC"
+    "fixture/ListHostedZonesByVPC.yaml"
+
 requestGetReusableDelegationSetLimit :: GetReusableDelegationSetLimit -> TestTree
-requestGetReusableDelegationSetLimit = req
+requestGetReusableDelegationSetLimit =
+  req
     "GetReusableDelegationSetLimit"
     "fixture/GetReusableDelegationSetLimit.yaml"
 
 requestCreateTrafficPolicyVersion :: CreateTrafficPolicyVersion -> TestTree
-requestCreateTrafficPolicyVersion = req
+requestCreateTrafficPolicyVersion =
+  req
     "CreateTrafficPolicyVersion"
     "fixture/CreateTrafficPolicyVersion.yaml"
 
 requestTestDNSAnswer :: TestDNSAnswer -> TestTree
-requestTestDNSAnswer = req
+requestTestDNSAnswer =
+  req
     "TestDNSAnswer"
     "fixture/TestDNSAnswer.yaml"
 
 requestListHealthChecks :: ListHealthChecks -> TestTree
-requestListHealthChecks = req
+requestListHealthChecks =
+  req
     "ListHealthChecks"
     "fixture/ListHealthChecks.yaml"
 
 requestGetTrafficPolicy :: GetTrafficPolicy -> TestTree
-requestGetTrafficPolicy = req
+requestGetTrafficPolicy =
+  req
     "GetTrafficPolicy"
     "fixture/GetTrafficPolicy.yaml"
 
 requestListTrafficPolicyVersions :: ListTrafficPolicyVersions -> TestTree
-requestListTrafficPolicyVersions = req
+requestListTrafficPolicyVersions =
+  req
     "ListTrafficPolicyVersions"
     "fixture/ListTrafficPolicyVersions.yaml"
 
 requestDeleteHostedZone :: DeleteHostedZone -> TestTree
-requestDeleteHostedZone = req
+requestDeleteHostedZone =
+  req
     "DeleteHostedZone"
     "fixture/DeleteHostedZone.yaml"
 
 requestGetGeoLocation :: GetGeoLocation -> TestTree
-requestGetGeoLocation = req
+requestGetGeoLocation =
+  req
     "GetGeoLocation"
     "fixture/GetGeoLocation.yaml"
 
 requestListTagsForResources :: ListTagsForResources -> TestTree
-requestListTagsForResources = req
+requestListTagsForResources =
+  req
     "ListTagsForResources"
     "fixture/ListTagsForResources.yaml"
 
 requestCreateTrafficPolicy :: CreateTrafficPolicy -> TestTree
-requestCreateTrafficPolicy = req
+requestCreateTrafficPolicy =
+  req
     "CreateTrafficPolicy"
     "fixture/CreateTrafficPolicy.yaml"
 
 requestListTrafficPolicyInstancesByHostedZone :: ListTrafficPolicyInstancesByHostedZone -> TestTree
-requestListTrafficPolicyInstancesByHostedZone = req
+requestListTrafficPolicyInstancesByHostedZone =
+  req
     "ListTrafficPolicyInstancesByHostedZone"
     "fixture/ListTrafficPolicyInstancesByHostedZone.yaml"
 
 requestListTrafficPolicies :: ListTrafficPolicies -> TestTree
-requestListTrafficPolicies = req
+requestListTrafficPolicies =
+  req
     "ListTrafficPolicies"
     "fixture/ListTrafficPolicies.yaml"
 
 -- Responses
 
 responseGetHostedZoneLimit :: GetHostedZoneLimitResponse -> TestTree
-responseGetHostedZoneLimit = res
+responseGetHostedZoneLimit =
+  res
     "GetHostedZoneLimitResponse"
     "fixture/GetHostedZoneLimitResponse.proto"
     route53
     (Proxy :: Proxy GetHostedZoneLimit)
 
 responseAssociateVPCWithHostedZone :: AssociateVPCWithHostedZoneResponse -> TestTree
-responseAssociateVPCWithHostedZone = res
+responseAssociateVPCWithHostedZone =
+  res
     "AssociateVPCWithHostedZoneResponse"
     "fixture/AssociateVPCWithHostedZoneResponse.proto"
     route53
     (Proxy :: Proxy AssociateVPCWithHostedZone)
 
 responseDeleteTrafficPolicy :: DeleteTrafficPolicyResponse -> TestTree
-responseDeleteTrafficPolicy = res
+responseDeleteTrafficPolicy =
+  res
     "DeleteTrafficPolicyResponse"
     "fixture/DeleteTrafficPolicyResponse.proto"
     route53
     (Proxy :: Proxy DeleteTrafficPolicy)
 
 responseGetCheckerIPRanges :: GetCheckerIPRangesResponse -> TestTree
-responseGetCheckerIPRanges = res
+responseGetCheckerIPRanges =
+  res
     "GetCheckerIPRangesResponse"
     "fixture/GetCheckerIPRangesResponse.proto"
     route53
     (Proxy :: Proxy GetCheckerIPRanges)
 
 responseGetTrafficPolicyInstance :: GetTrafficPolicyInstanceResponse -> TestTree
-responseGetTrafficPolicyInstance = res
+responseGetTrafficPolicyInstance =
+  res
     "GetTrafficPolicyInstanceResponse"
     "fixture/GetTrafficPolicyInstanceResponse.proto"
     route53
     (Proxy :: Proxy GetTrafficPolicyInstance)
 
 responseGetHealthCheckLastFailureReason :: GetHealthCheckLastFailureReasonResponse -> TestTree
-responseGetHealthCheckLastFailureReason = res
+responseGetHealthCheckLastFailureReason =
+  res
     "GetHealthCheckLastFailureReasonResponse"
     "fixture/GetHealthCheckLastFailureReasonResponse.proto"
     route53
     (Proxy :: Proxy GetHealthCheckLastFailureReason)
 
 responseDeleteReusableDelegationSet :: DeleteReusableDelegationSetResponse -> TestTree
-responseDeleteReusableDelegationSet = res
+responseDeleteReusableDelegationSet =
+  res
     "DeleteReusableDelegationSetResponse"
     "fixture/DeleteReusableDelegationSetResponse.proto"
     route53
     (Proxy :: Proxy DeleteReusableDelegationSet)
 
 responseListHostedZonesByName :: ListHostedZonesByNameResponse -> TestTree
-responseListHostedZonesByName = res
+responseListHostedZonesByName =
+  res
     "ListHostedZonesByNameResponse"
     "fixture/ListHostedZonesByNameResponse.proto"
     route53
     (Proxy :: Proxy ListHostedZonesByName)
 
 responseListReusableDelegationSets :: ListReusableDelegationSetsResponse -> TestTree
-responseListReusableDelegationSets = res
+responseListReusableDelegationSets =
+  res
     "ListReusableDelegationSetsResponse"
     "fixture/ListReusableDelegationSetsResponse.proto"
     route53
     (Proxy :: Proxy ListReusableDelegationSets)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource = res
+responseListTagsForResource =
+  res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     route53
     (Proxy :: Proxy ListTagsForResource)
 
 responseListQueryLoggingConfigs :: ListQueryLoggingConfigsResponse -> TestTree
-responseListQueryLoggingConfigs = res
+responseListQueryLoggingConfigs =
+  res
     "ListQueryLoggingConfigsResponse"
     "fixture/ListQueryLoggingConfigsResponse.proto"
     route53
     (Proxy :: Proxy ListQueryLoggingConfigs)
 
 responseListTrafficPolicyInstances :: ListTrafficPolicyInstancesResponse -> TestTree
-responseListTrafficPolicyInstances = res
+responseListTrafficPolicyInstances =
+  res
     "ListTrafficPolicyInstancesResponse"
     "fixture/ListTrafficPolicyInstancesResponse.proto"
     route53
     (Proxy :: Proxy ListTrafficPolicyInstances)
 
 responseCreateTrafficPolicyInstance :: CreateTrafficPolicyInstanceResponse -> TestTree
-responseCreateTrafficPolicyInstance = res
+responseCreateTrafficPolicyInstance =
+  res
     "CreateTrafficPolicyInstanceResponse"
     "fixture/CreateTrafficPolicyInstanceResponse.proto"
     route53
     (Proxy :: Proxy CreateTrafficPolicyInstance)
 
 responseGetChange :: GetChangeResponse -> TestTree
-responseGetChange = res
+responseGetChange =
+  res
     "GetChangeResponse"
     "fixture/GetChangeResponse.proto"
     route53
     (Proxy :: Proxy GetChange)
 
 responseChangeResourceRecordSets :: ChangeResourceRecordSetsResponse -> TestTree
-responseChangeResourceRecordSets = res
+responseChangeResourceRecordSets =
+  res
     "ChangeResourceRecordSetsResponse"
     "fixture/ChangeResourceRecordSetsResponse.proto"
     route53
     (Proxy :: Proxy ChangeResourceRecordSets)
 
 responseDeleteHealthCheck :: DeleteHealthCheckResponse -> TestTree
-responseDeleteHealthCheck = res
+responseDeleteHealthCheck =
+  res
     "DeleteHealthCheckResponse"
     "fixture/DeleteHealthCheckResponse.proto"
     route53
     (Proxy :: Proxy DeleteHealthCheck)
 
 responseUpdateHealthCheck :: UpdateHealthCheckResponse -> TestTree
-responseUpdateHealthCheck = res
+responseUpdateHealthCheck =
+  res
     "UpdateHealthCheckResponse"
     "fixture/UpdateHealthCheckResponse.proto"
     route53
     (Proxy :: Proxy UpdateHealthCheck)
 
 responseCreateHostedZone :: CreateHostedZoneResponse -> TestTree
-responseCreateHostedZone = res
+responseCreateHostedZone =
+  res
     "CreateHostedZoneResponse"
     "fixture/CreateHostedZoneResponse.proto"
     route53
     (Proxy :: Proxy CreateHostedZone)
 
 responseCreateVPCAssociationAuthorization :: CreateVPCAssociationAuthorizationResponse -> TestTree
-responseCreateVPCAssociationAuthorization = res
+responseCreateVPCAssociationAuthorization =
+  res
     "CreateVPCAssociationAuthorizationResponse"
     "fixture/CreateVPCAssociationAuthorizationResponse.proto"
     route53
     (Proxy :: Proxy CreateVPCAssociationAuthorization)
 
 responseListVPCAssociationAuthorizations :: ListVPCAssociationAuthorizationsResponse -> TestTree
-responseListVPCAssociationAuthorizations = res
+responseListVPCAssociationAuthorizations =
+  res
     "ListVPCAssociationAuthorizationsResponse"
     "fixture/ListVPCAssociationAuthorizationsResponse.proto"
     route53
     (Proxy :: Proxy ListVPCAssociationAuthorizations)
 
 responseListTrafficPolicyInstancesByPolicy :: ListTrafficPolicyInstancesByPolicyResponse -> TestTree
-responseListTrafficPolicyInstancesByPolicy = res
+responseListTrafficPolicyInstancesByPolicy =
+  res
     "ListTrafficPolicyInstancesByPolicyResponse"
     "fixture/ListTrafficPolicyInstancesByPolicyResponse.proto"
     route53
     (Proxy :: Proxy ListTrafficPolicyInstancesByPolicy)
 
 responseDisassociateVPCFromHostedZone :: DisassociateVPCFromHostedZoneResponse -> TestTree
-responseDisassociateVPCFromHostedZone = res
+responseDisassociateVPCFromHostedZone =
+  res
     "DisassociateVPCFromHostedZoneResponse"
     "fixture/DisassociateVPCFromHostedZoneResponse.proto"
     route53
     (Proxy :: Proxy DisassociateVPCFromHostedZone)
 
 responseCreateHealthCheck :: CreateHealthCheckResponse -> TestTree
-responseCreateHealthCheck = res
+responseCreateHealthCheck =
+  res
     "CreateHealthCheckResponse"
     "fixture/CreateHealthCheckResponse.proto"
     route53
     (Proxy :: Proxy CreateHealthCheck)
 
 responseDeleteVPCAssociationAuthorization :: DeleteVPCAssociationAuthorizationResponse -> TestTree
-responseDeleteVPCAssociationAuthorization = res
+responseDeleteVPCAssociationAuthorization =
+  res
     "DeleteVPCAssociationAuthorizationResponse"
     "fixture/DeleteVPCAssociationAuthorizationResponse.proto"
     route53
     (Proxy :: Proxy DeleteVPCAssociationAuthorization)
 
 responseChangeTagsForResource :: ChangeTagsForResourceResponse -> TestTree
-responseChangeTagsForResource = res
+responseChangeTagsForResource =
+  res
     "ChangeTagsForResourceResponse"
     "fixture/ChangeTagsForResourceResponse.proto"
     route53
     (Proxy :: Proxy ChangeTagsForResource)
 
 responseListHostedZones :: ListHostedZonesResponse -> TestTree
-responseListHostedZones = res
+responseListHostedZones =
+  res
     "ListHostedZonesResponse"
     "fixture/ListHostedZonesResponse.proto"
     route53
     (Proxy :: Proxy ListHostedZones)
 
 responseGetTrafficPolicyInstanceCount :: GetTrafficPolicyInstanceCountResponse -> TestTree
-responseGetTrafficPolicyInstanceCount = res
+responseGetTrafficPolicyInstanceCount =
+  res
     "GetTrafficPolicyInstanceCountResponse"
     "fixture/GetTrafficPolicyInstanceCountResponse.proto"
     route53
     (Proxy :: Proxy GetTrafficPolicyInstanceCount)
 
 responseListGeoLocations :: ListGeoLocationsResponse -> TestTree
-responseListGeoLocations = res
+responseListGeoLocations =
+  res
     "ListGeoLocationsResponse"
     "fixture/ListGeoLocationsResponse.proto"
     route53
     (Proxy :: Proxy ListGeoLocations)
 
 responseGetHostedZone :: GetHostedZoneResponse -> TestTree
-responseGetHostedZone = res
+responseGetHostedZone =
+  res
     "GetHostedZoneResponse"
     "fixture/GetHostedZoneResponse.proto"
     route53
     (Proxy :: Proxy GetHostedZone)
 
 responseGetHealthCheck :: GetHealthCheckResponse -> TestTree
-responseGetHealthCheck = res
+responseGetHealthCheck =
+  res
     "GetHealthCheckResponse"
     "fixture/GetHealthCheckResponse.proto"
     route53
     (Proxy :: Proxy GetHealthCheck)
 
 responseListResourceRecordSets :: ListResourceRecordSetsResponse -> TestTree
-responseListResourceRecordSets = res
+responseListResourceRecordSets =
+  res
     "ListResourceRecordSetsResponse"
     "fixture/ListResourceRecordSetsResponse.proto"
     route53
     (Proxy :: Proxy ListResourceRecordSets)
 
 responseCreateReusableDelegationSet :: CreateReusableDelegationSetResponse -> TestTree
-responseCreateReusableDelegationSet = res
+responseCreateReusableDelegationSet =
+  res
     "CreateReusableDelegationSetResponse"
     "fixture/CreateReusableDelegationSetResponse.proto"
     route53
     (Proxy :: Proxy CreateReusableDelegationSet)
 
 responseCreateQueryLoggingConfig :: CreateQueryLoggingConfigResponse -> TestTree
-responseCreateQueryLoggingConfig = res
+responseCreateQueryLoggingConfig =
+  res
     "CreateQueryLoggingConfigResponse"
     "fixture/CreateQueryLoggingConfigResponse.proto"
     route53
     (Proxy :: Proxy CreateQueryLoggingConfig)
 
 responseGetHealthCheckCount :: GetHealthCheckCountResponse -> TestTree
-responseGetHealthCheckCount = res
+responseGetHealthCheckCount =
+  res
     "GetHealthCheckCountResponse"
     "fixture/GetHealthCheckCountResponse.proto"
     route53
     (Proxy :: Proxy GetHealthCheckCount)
 
 responseUpdateTrafficPolicyComment :: UpdateTrafficPolicyCommentResponse -> TestTree
-responseUpdateTrafficPolicyComment = res
+responseUpdateTrafficPolicyComment =
+  res
     "UpdateTrafficPolicyCommentResponse"
     "fixture/UpdateTrafficPolicyCommentResponse.proto"
     route53
     (Proxy :: Proxy UpdateTrafficPolicyComment)
 
 responseGetHostedZoneCount :: GetHostedZoneCountResponse -> TestTree
-responseGetHostedZoneCount = res
+responseGetHostedZoneCount =
+  res
     "GetHostedZoneCountResponse"
     "fixture/GetHostedZoneCountResponse.proto"
     route53
     (Proxy :: Proxy GetHostedZoneCount)
 
 responseGetAccountLimit :: GetAccountLimitResponse -> TestTree
-responseGetAccountLimit = res
+responseGetAccountLimit =
+  res
     "GetAccountLimitResponse"
     "fixture/GetAccountLimitResponse.proto"
     route53
     (Proxy :: Proxy GetAccountLimit)
 
 responseDeleteQueryLoggingConfig :: DeleteQueryLoggingConfigResponse -> TestTree
-responseDeleteQueryLoggingConfig = res
+responseDeleteQueryLoggingConfig =
+  res
     "DeleteQueryLoggingConfigResponse"
     "fixture/DeleteQueryLoggingConfigResponse.proto"
     route53
     (Proxy :: Proxy DeleteQueryLoggingConfig)
 
 responseGetQueryLoggingConfig :: GetQueryLoggingConfigResponse -> TestTree
-responseGetQueryLoggingConfig = res
+responseGetQueryLoggingConfig =
+  res
     "GetQueryLoggingConfigResponse"
     "fixture/GetQueryLoggingConfigResponse.proto"
     route53
     (Proxy :: Proxy GetQueryLoggingConfig)
 
 responseGetReusableDelegationSet :: GetReusableDelegationSetResponse -> TestTree
-responseGetReusableDelegationSet = res
+responseGetReusableDelegationSet =
+  res
     "GetReusableDelegationSetResponse"
     "fixture/GetReusableDelegationSetResponse.proto"
     route53
     (Proxy :: Proxy GetReusableDelegationSet)
 
 responseDeleteTrafficPolicyInstance :: DeleteTrafficPolicyInstanceResponse -> TestTree
-responseDeleteTrafficPolicyInstance = res
+responseDeleteTrafficPolicyInstance =
+  res
     "DeleteTrafficPolicyInstanceResponse"
     "fixture/DeleteTrafficPolicyInstanceResponse.proto"
     route53
     (Proxy :: Proxy DeleteTrafficPolicyInstance)
 
 responseUpdateTrafficPolicyInstance :: UpdateTrafficPolicyInstanceResponse -> TestTree
-responseUpdateTrafficPolicyInstance = res
+responseUpdateTrafficPolicyInstance =
+  res
     "UpdateTrafficPolicyInstanceResponse"
     "fixture/UpdateTrafficPolicyInstanceResponse.proto"
     route53
     (Proxy :: Proxy UpdateTrafficPolicyInstance)
 
 responseUpdateHostedZoneComment :: UpdateHostedZoneCommentResponse -> TestTree
-responseUpdateHostedZoneComment = res
+responseUpdateHostedZoneComment =
+  res
     "UpdateHostedZoneCommentResponse"
     "fixture/UpdateHostedZoneCommentResponse.proto"
     route53
     (Proxy :: Proxy UpdateHostedZoneComment)
 
 responseGetHealthCheckStatus :: GetHealthCheckStatusResponse -> TestTree
-responseGetHealthCheckStatus = res
+responseGetHealthCheckStatus =
+  res
     "GetHealthCheckStatusResponse"
     "fixture/GetHealthCheckStatusResponse.proto"
     route53
     (Proxy :: Proxy GetHealthCheckStatus)
 
+responseListHostedZonesByVPC :: ListHostedZonesByVPCResponse -> TestTree
+responseListHostedZonesByVPC =
+  res
+    "ListHostedZonesByVPCResponse"
+    "fixture/ListHostedZonesByVPCResponse.proto"
+    route53
+    (Proxy :: Proxy ListHostedZonesByVPC)
+
 responseGetReusableDelegationSetLimit :: GetReusableDelegationSetLimitResponse -> TestTree
-responseGetReusableDelegationSetLimit = res
+responseGetReusableDelegationSetLimit =
+  res
     "GetReusableDelegationSetLimitResponse"
     "fixture/GetReusableDelegationSetLimitResponse.proto"
     route53
     (Proxy :: Proxy GetReusableDelegationSetLimit)
 
 responseCreateTrafficPolicyVersion :: CreateTrafficPolicyVersionResponse -> TestTree
-responseCreateTrafficPolicyVersion = res
+responseCreateTrafficPolicyVersion =
+  res
     "CreateTrafficPolicyVersionResponse"
     "fixture/CreateTrafficPolicyVersionResponse.proto"
     route53
     (Proxy :: Proxy CreateTrafficPolicyVersion)
 
 responseTestDNSAnswer :: TestDNSAnswerResponse -> TestTree
-responseTestDNSAnswer = res
+responseTestDNSAnswer =
+  res
     "TestDNSAnswerResponse"
     "fixture/TestDNSAnswerResponse.proto"
     route53
     (Proxy :: Proxy TestDNSAnswer)
 
 responseListHealthChecks :: ListHealthChecksResponse -> TestTree
-responseListHealthChecks = res
+responseListHealthChecks =
+  res
     "ListHealthChecksResponse"
     "fixture/ListHealthChecksResponse.proto"
     route53
     (Proxy :: Proxy ListHealthChecks)
 
 responseGetTrafficPolicy :: GetTrafficPolicyResponse -> TestTree
-responseGetTrafficPolicy = res
+responseGetTrafficPolicy =
+  res
     "GetTrafficPolicyResponse"
     "fixture/GetTrafficPolicyResponse.proto"
     route53
     (Proxy :: Proxy GetTrafficPolicy)
 
 responseListTrafficPolicyVersions :: ListTrafficPolicyVersionsResponse -> TestTree
-responseListTrafficPolicyVersions = res
+responseListTrafficPolicyVersions =
+  res
     "ListTrafficPolicyVersionsResponse"
     "fixture/ListTrafficPolicyVersionsResponse.proto"
     route53
     (Proxy :: Proxy ListTrafficPolicyVersions)
 
 responseDeleteHostedZone :: DeleteHostedZoneResponse -> TestTree
-responseDeleteHostedZone = res
+responseDeleteHostedZone =
+  res
     "DeleteHostedZoneResponse"
     "fixture/DeleteHostedZoneResponse.proto"
     route53
     (Proxy :: Proxy DeleteHostedZone)
 
 responseGetGeoLocation :: GetGeoLocationResponse -> TestTree
-responseGetGeoLocation = res
+responseGetGeoLocation =
+  res
     "GetGeoLocationResponse"
     "fixture/GetGeoLocationResponse.proto"
     route53
     (Proxy :: Proxy GetGeoLocation)
 
 responseListTagsForResources :: ListTagsForResourcesResponse -> TestTree
-responseListTagsForResources = res
+responseListTagsForResources =
+  res
     "ListTagsForResourcesResponse"
     "fixture/ListTagsForResourcesResponse.proto"
     route53
     (Proxy :: Proxy ListTagsForResources)
 
 responseCreateTrafficPolicy :: CreateTrafficPolicyResponse -> TestTree
-responseCreateTrafficPolicy = res
+responseCreateTrafficPolicy =
+  res
     "CreateTrafficPolicyResponse"
     "fixture/CreateTrafficPolicyResponse.proto"
     route53
     (Proxy :: Proxy CreateTrafficPolicy)
 
 responseListTrafficPolicyInstancesByHostedZone :: ListTrafficPolicyInstancesByHostedZoneResponse -> TestTree
-responseListTrafficPolicyInstancesByHostedZone = res
+responseListTrafficPolicyInstancesByHostedZone =
+  res
     "ListTrafficPolicyInstancesByHostedZoneResponse"
     "fixture/ListTrafficPolicyInstancesByHostedZoneResponse.proto"
     route53
     (Proxy :: Proxy ListTrafficPolicyInstancesByHostedZone)
 
 responseListTrafficPolicies :: ListTrafficPoliciesResponse -> TestTree
-responseListTrafficPolicies = res
+responseListTrafficPolicies =
+  res
     "ListTrafficPoliciesResponse"
     "fixture/ListTrafficPoliciesResponse.proto"
     route53

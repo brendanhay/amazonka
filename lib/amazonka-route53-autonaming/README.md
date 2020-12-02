@@ -1,4 +1,4 @@
-# Amazon Route 53 Auto Naming SDK
+# Amazon Cloud Map SDK
 
 * [Version](#version)
 * [Description](#description)
@@ -8,7 +8,7 @@
 
 ## Version
 
-`1.6.1`
+`2.0.0.0`
 
 
 ## Description

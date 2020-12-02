@@ -4,273 +4,424 @@
 
 -- |
 -- Module      : Network.AWS.DirectoryService.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.DirectoryService.Types
-    (
-    -- * Service Configuration
-      directoryService
+  ( -- * Service Configuration
+    directoryService,
 
     -- * Errors
-    , _DirectoryUnavailableException
-    , _AuthenticationFailedException
-    , _InvalidParameterException
-    , _UnsupportedOperationException
-    , _EntityAlreadyExistsException
-    , _DirectoryLimitExceededException
-    , _IPRouteLimitExceededException
-    , _EntityDoesNotExistException
-    , _InsufficientPermissionsException
-    , _InvalidNextTokenException
-    , _ServiceException
-    , _SnapshotLimitExceededException
-    , _DomainControllerLimitExceededException
-    , _TagLimitExceededException
-    , _ClientException
+
+    -- * CertificateState
+    CertificateState (..),
 
     -- * DirectoryEdition
-    , DirectoryEdition (..)
+    DirectoryEdition (..),
 
     -- * DirectorySize
-    , DirectorySize (..)
+    DirectorySize (..),
 
     -- * DirectoryStage
-    , DirectoryStage (..)
+    DirectoryStage (..),
 
     -- * DirectoryType
-    , DirectoryType (..)
+    DirectoryType (..),
 
     -- * DomainControllerStatus
-    , DomainControllerStatus (..)
+    DomainControllerStatus (..),
 
     -- * IPRouteStatusMsg
-    , IPRouteStatusMsg (..)
+    IPRouteStatusMsg (..),
+
+    -- * LDAPSStatus
+    LDAPSStatus (..),
+
+    -- * LDAPSType
+    LDAPSType (..),
 
     -- * RadiusAuthenticationProtocol
-    , RadiusAuthenticationProtocol (..)
+    RadiusAuthenticationProtocol (..),
 
     -- * RadiusStatus
-    , RadiusStatus (..)
+    RadiusStatus (..),
+
+    -- * RegionType
+    RegionType (..),
 
     -- * ReplicationScope
-    , ReplicationScope (..)
+    ReplicationScope (..),
 
     -- * SchemaExtensionStatus
-    , SchemaExtensionStatus (..)
+    SchemaExtensionStatus (..),
+
+    -- * SelectiveAuth
+    SelectiveAuth (..),
+
+    -- * ShareMethod
+    ShareMethod (..),
+
+    -- * ShareStatus
+    ShareStatus (..),
 
     -- * SnapshotStatus
-    , SnapshotStatus (..)
+    SnapshotStatus (..),
 
     -- * SnapshotType
-    , SnapshotType (..)
+    SnapshotType (..),
+
+    -- * TargetType
+    TargetType (..),
 
     -- * TopicStatus
-    , TopicStatus (..)
+    TopicStatus (..),
 
     -- * TrustDirection
-    , TrustDirection (..)
+    TrustDirection (..),
 
     -- * TrustState
-    , TrustState (..)
+    TrustState (..),
 
     -- * TrustType
-    , TrustType (..)
+    TrustType (..),
 
     -- * Attribute
-    , Attribute
-    , attribute
-    , aValue
-    , aName
+    Attribute,
+    attribute,
+    aValue,
+    aName,
+
+    -- * Certificate
+    Certificate,
+    certificate,
+    cState,
+    cCommonName,
+    cCertificateId,
+    cExpiryDateTime,
+    cRegisteredDateTime,
+    cStateReason,
+
+    -- * CertificateInfo
+    CertificateInfo,
+    certificateInfo,
+    ciState,
+    ciCommonName,
+    ciCertificateId,
+    ciExpiryDateTime,
 
     -- * Computer
-    , Computer
-    , computer
-    , cComputerId
-    , cComputerAttributes
-    , cComputerName
+    Computer,
+    computer,
+    cComputerId,
+    cComputerAttributes,
+    cComputerName,
 
     -- * ConditionalForwarder
-    , ConditionalForwarder
-    , conditionalForwarder
-    , cfDNSIPAddrs
-    , cfRemoteDomainName
-    , cfReplicationScope
+    ConditionalForwarder,
+    conditionalForwarder,
+    cfDNSIPAddrs,
+    cfRemoteDomainName,
+    cfReplicationScope,
 
     -- * DirectoryConnectSettings
-    , DirectoryConnectSettings
-    , directoryConnectSettings
-    , dcsVPCId
-    , dcsSubnetIds
-    , dcsCustomerDNSIPs
-    , dcsCustomerUserName
+    DirectoryConnectSettings,
+    directoryConnectSettings,
+    dcsVPCId,
+    dcsSubnetIds,
+    dcsCustomerDNSIPs,
+    dcsCustomerUserName,
 
     -- * DirectoryConnectSettingsDescription
-    , DirectoryConnectSettingsDescription
-    , directoryConnectSettingsDescription
-    , dcsdCustomerUserName
-    , dcsdSubnetIds
-    , dcsdVPCId
-    , dcsdSecurityGroupId
-    , dcsdConnectIPs
-    , dcsdAvailabilityZones
+    DirectoryConnectSettingsDescription,
+    directoryConnectSettingsDescription,
+    dcsdCustomerUserName,
+    dcsdSubnetIds,
+    dcsdVPCId,
+    dcsdSecurityGroupId,
+    dcsdConnectIPs,
+    dcsdAvailabilityZones,
 
     -- * DirectoryDescription
-    , DirectoryDescription
-    , directoryDescription
-    , ddEdition
-    , ddRadiusStatus
-    , ddStage
-    , ddDirectoryId
-    , ddAccessURL
-    , ddShortName
-    , ddSize
-    , ddDesiredNumberOfDomainControllers
-    , ddRadiusSettings
-    , ddLaunchTime
-    , ddAlias
-    , ddName
-    , ddStageLastUpdatedDateTime
-    , ddSSOEnabled
-    , ddDNSIPAddrs
-    , ddVPCSettings
-    , ddType
-    , ddStageReason
-    , ddConnectSettings
-    , ddDescription
+    DirectoryDescription,
+    directoryDescription,
+    ddEdition,
+    ddRadiusStatus,
+    ddStage,
+    ddDirectoryId,
+    ddAccessURL,
+    ddShortName,
+    ddRegionsInfo,
+    ddSize,
+    ddDesiredNumberOfDomainControllers,
+    ddRadiusSettings,
+    ddLaunchTime,
+    ddAlias,
+    ddShareStatus,
+    ddName,
+    ddShareMethod,
+    ddStageLastUpdatedDateTime,
+    ddSSOEnabled,
+    ddDNSIPAddrs,
+    ddVPCSettings,
+    ddType,
+    ddStageReason,
+    ddConnectSettings,
+    ddOwnerDirectoryDescription,
+    ddDescription,
+    ddShareNotes,
 
     -- * DirectoryLimits
-    , DirectoryLimits
-    , directoryLimits
-    , dlConnectedDirectoriesCurrentCount
-    , dlCloudOnlyMicrosoftADLimitReached
-    , dlConnectedDirectoriesLimit
-    , dlConnectedDirectoriesLimitReached
-    , dlCloudOnlyMicrosoftADLimit
-    , dlCloudOnlyDirectoriesLimit
-    , dlCloudOnlyDirectoriesCurrentCount
-    , dlCloudOnlyDirectoriesLimitReached
-    , dlCloudOnlyMicrosoftADCurrentCount
+    DirectoryLimits,
+    directoryLimits,
+    dlConnectedDirectoriesCurrentCount,
+    dlCloudOnlyMicrosoftADLimitReached,
+    dlConnectedDirectoriesLimit,
+    dlConnectedDirectoriesLimitReached,
+    dlCloudOnlyMicrosoftADLimit,
+    dlCloudOnlyDirectoriesLimit,
+    dlCloudOnlyDirectoriesCurrentCount,
+    dlCloudOnlyDirectoriesLimitReached,
+    dlCloudOnlyMicrosoftADCurrentCount,
 
     -- * DirectoryVPCSettings
-    , DirectoryVPCSettings
-    , directoryVPCSettings
-    , dvsVPCId
-    , dvsSubnetIds
+    DirectoryVPCSettings,
+    directoryVPCSettings,
+    dvsVPCId,
+    dvsSubnetIds,
 
     -- * DirectoryVPCSettingsDescription
-    , DirectoryVPCSettingsDescription
-    , directoryVPCSettingsDescription
-    , dvsdSubnetIds
-    , dvsdVPCId
-    , dvsdSecurityGroupId
-    , dvsdAvailabilityZones
+    DirectoryVPCSettingsDescription,
+    directoryVPCSettingsDescription,
+    dvsdSubnetIds,
+    dvsdVPCId,
+    dvsdSecurityGroupId,
+    dvsdAvailabilityZones,
 
     -- * DomainController
-    , DomainController
-    , domainController
-    , dcStatus
-    , dcDirectoryId
-    , dcVPCId
-    , dcLaunchTime
-    , dcSubnetId
-    , dcAvailabilityZone
-    , dcStatusLastUpdatedDateTime
-    , dcStatusReason
-    , dcDNSIPAddr
-    , dcDomainControllerId
+    DomainController,
+    domainController,
+    dcStatus,
+    dcDirectoryId,
+    dcVPCId,
+    dcLaunchTime,
+    dcSubnetId,
+    dcAvailabilityZone,
+    dcStatusLastUpdatedDateTime,
+    dcStatusReason,
+    dcDNSIPAddr,
+    dcDomainControllerId,
 
     -- * EventTopic
-    , EventTopic
-    , eventTopic
-    , etStatus
-    , etDirectoryId
-    , etTopicName
-    , etTopicARN
-    , etCreatedDateTime
+    EventTopic,
+    eventTopic,
+    etStatus,
+    etDirectoryId,
+    etTopicName,
+    etTopicARN,
+    etCreatedDateTime,
 
     -- * IPRoute
-    , IPRoute
-    , ipRoute
-    , irCidrIP
-    , irDescription
+    IPRoute,
+    ipRoute,
+    irCidrIP,
+    irDescription,
 
     -- * IPRouteInfo
-    , IPRouteInfo
-    , ipRouteInfo
-    , iriDirectoryId
-    , iriIPRouteStatusReason
-    , iriAddedDateTime
-    , iriCidrIP
-    , iriIPRouteStatusMsg
-    , iriDescription
+    IPRouteInfo,
+    ipRouteInfo,
+    iriDirectoryId,
+    iriIPRouteStatusReason,
+    iriAddedDateTime,
+    iriCidrIP,
+    iriIPRouteStatusMsg,
+    iriDescription,
+
+    -- * LDAPSSettingInfo
+    LDAPSSettingInfo,
+    lDAPSSettingInfo,
+    ldapssiLastUpdatedDateTime,
+    ldapssiLDAPSStatusReason,
+    ldapssiLDAPSStatus,
+
+    -- * LogSubscription
+    LogSubscription,
+    logSubscription,
+    lsDirectoryId,
+    lsLogGroupName,
+    lsSubscriptionCreatedDateTime,
+
+    -- * OwnerDirectoryDescription
+    OwnerDirectoryDescription,
+    ownerDirectoryDescription,
+    oddRadiusStatus,
+    oddDirectoryId,
+    oddRadiusSettings,
+    oddAccountId,
+    oddDNSIPAddrs,
+    oddVPCSettings,
 
     -- * RadiusSettings
-    , RadiusSettings
-    , radiusSettings
-    , rsDisplayLabel
-    , rsRadiusRetries
-    , rsAuthenticationProtocol
-    , rsRadiusServers
-    , rsUseSameUsername
-    , rsSharedSecret
-    , rsRadiusTimeout
-    , rsRadiusPort
+    RadiusSettings,
+    radiusSettings,
+    rsDisplayLabel,
+    rsRadiusRetries,
+    rsAuthenticationProtocol,
+    rsRadiusServers,
+    rsUseSameUsername,
+    rsSharedSecret,
+    rsRadiusTimeout,
+    rsRadiusPort,
+
+    -- * RegionDescription
+    RegionDescription,
+    regionDescription,
+    rdStatus,
+    rdDirectoryId,
+    rdRegionName,
+    rdDesiredNumberOfDomainControllers,
+    rdRegionType,
+    rdLaunchTime,
+    rdLastUpdatedDateTime,
+    rdStatusLastUpdatedDateTime,
+    rdVPCSettings,
+
+    -- * RegionsInfo
+    RegionsInfo,
+    regionsInfo,
+    riPrimaryRegion,
+    riAdditionalRegions,
 
     -- * SchemaExtensionInfo
-    , SchemaExtensionInfo
-    , schemaExtensionInfo
-    , seiDirectoryId
-    , seiSchemaExtensionId
-    , seiSchemaExtensionStatusReason
-    , seiSchemaExtensionStatus
-    , seiDescription
-    , seiEndDateTime
-    , seiStartDateTime
+    SchemaExtensionInfo,
+    schemaExtensionInfo,
+    seiDirectoryId,
+    seiSchemaExtensionId,
+    seiSchemaExtensionStatusReason,
+    seiSchemaExtensionStatus,
+    seiDescription,
+    seiEndDateTime,
+    seiStartDateTime,
+
+    -- * ShareTarget
+    ShareTarget,
+    shareTarget,
+    stId,
+    stType,
+
+    -- * SharedDirectory
+    SharedDirectory,
+    sharedDirectory,
+    sSharedAccountId,
+    sOwnerAccountId,
+    sLastUpdatedDateTime,
+    sShareStatus,
+    sShareMethod,
+    sOwnerDirectoryId,
+    sSharedDirectoryId,
+    sShareNotes,
+    sCreatedDateTime,
 
     -- * Snapshot
-    , Snapshot
-    , snapshot
-    , sStatus
-    , sDirectoryId
-    , sStartTime
-    , sName
-    , sType
-    , sSnapshotId
+    Snapshot,
+    snapshot,
+    sStatus,
+    sDirectoryId,
+    sStartTime,
+    sName,
+    sType,
+    sSnapshotId,
 
     -- * SnapshotLimits
-    , SnapshotLimits
-    , snapshotLimits
-    , slManualSnapshotsLimitReached
-    , slManualSnapshotsCurrentCount
-    , slManualSnapshotsLimit
+    SnapshotLimits,
+    snapshotLimits,
+    slManualSnapshotsLimitReached,
+    slManualSnapshotsCurrentCount,
+    slManualSnapshotsLimit,
 
     -- * Tag
-    , Tag
-    , tag
-    , tagKey
-    , tagValue
+    Tag,
+    tag,
+    tagKey,
+    tagValue,
 
     -- * Trust
-    , Trust
-    , trust
-    , tDirectoryId
-    , tTrustState
-    , tLastUpdatedDateTime
-    , tTrustDirection
-    , tStateLastUpdatedDateTime
-    , tTrustType
-    , tTrustStateReason
-    , tRemoteDomainName
-    , tTrustId
-    , tCreatedDateTime
-    ) where
+    Trust,
+    trust,
+    tDirectoryId,
+    tTrustState,
+    tLastUpdatedDateTime,
+    tTrustDirection,
+    tStateLastUpdatedDateTime,
+    tTrustType,
+    tTrustStateReason,
+    tSelectiveAuth,
+    tRemoteDomainName,
+    tTrustId,
+    tCreatedDateTime,
 
-import Network.AWS.DirectoryService.Types.Product
-import Network.AWS.DirectoryService.Types.Sum
+    -- * UnshareTarget
+    UnshareTarget,
+    unshareTarget,
+    utId,
+    utType,
+  )
+where
+
+import Network.AWS.DirectoryService.Types.Attribute
+import Network.AWS.DirectoryService.Types.Certificate
+import Network.AWS.DirectoryService.Types.CertificateInfo
+import Network.AWS.DirectoryService.Types.CertificateState
+import Network.AWS.DirectoryService.Types.Computer
+import Network.AWS.DirectoryService.Types.ConditionalForwarder
+import Network.AWS.DirectoryService.Types.DirectoryConnectSettings
+import Network.AWS.DirectoryService.Types.DirectoryConnectSettingsDescription
+import Network.AWS.DirectoryService.Types.DirectoryDescription
+import Network.AWS.DirectoryService.Types.DirectoryEdition
+import Network.AWS.DirectoryService.Types.DirectoryLimits
+import Network.AWS.DirectoryService.Types.DirectorySize
+import Network.AWS.DirectoryService.Types.DirectoryStage
+import Network.AWS.DirectoryService.Types.DirectoryType
+import Network.AWS.DirectoryService.Types.DirectoryVPCSettings
+import Network.AWS.DirectoryService.Types.DirectoryVPCSettingsDescription
+import Network.AWS.DirectoryService.Types.DomainController
+import Network.AWS.DirectoryService.Types.DomainControllerStatus
+import Network.AWS.DirectoryService.Types.EventTopic
+import Network.AWS.DirectoryService.Types.IPRoute
+import Network.AWS.DirectoryService.Types.IPRouteInfo
+import Network.AWS.DirectoryService.Types.IPRouteStatusMsg
+import Network.AWS.DirectoryService.Types.LDAPSSettingInfo
+import Network.AWS.DirectoryService.Types.LDAPSStatus
+import Network.AWS.DirectoryService.Types.LDAPSType
+import Network.AWS.DirectoryService.Types.LogSubscription
+import Network.AWS.DirectoryService.Types.OwnerDirectoryDescription
+import Network.AWS.DirectoryService.Types.RadiusAuthenticationProtocol
+import Network.AWS.DirectoryService.Types.RadiusSettings
+import Network.AWS.DirectoryService.Types.RadiusStatus
+import Network.AWS.DirectoryService.Types.RegionDescription
+import Network.AWS.DirectoryService.Types.RegionType
+import Network.AWS.DirectoryService.Types.RegionsInfo
+import Network.AWS.DirectoryService.Types.ReplicationScope
+import Network.AWS.DirectoryService.Types.SchemaExtensionInfo
+import Network.AWS.DirectoryService.Types.SchemaExtensionStatus
+import Network.AWS.DirectoryService.Types.SelectiveAuth
+import Network.AWS.DirectoryService.Types.ShareMethod
+import Network.AWS.DirectoryService.Types.ShareStatus
+import Network.AWS.DirectoryService.Types.ShareTarget
+import Network.AWS.DirectoryService.Types.SharedDirectory
+import Network.AWS.DirectoryService.Types.Snapshot
+import Network.AWS.DirectoryService.Types.SnapshotLimits
+import Network.AWS.DirectoryService.Types.SnapshotStatus
+import Network.AWS.DirectoryService.Types.SnapshotType
+import Network.AWS.DirectoryService.Types.Tag
+import Network.AWS.DirectoryService.Types.TargetType
+import Network.AWS.DirectoryService.Types.TopicStatus
+import Network.AWS.DirectoryService.Types.Trust
+import Network.AWS.DirectoryService.Types.TrustDirection
+import Network.AWS.DirectoryService.Types.TrustState
+import Network.AWS.DirectoryService.Types.TrustType
+import Network.AWS.DirectoryService.Types.UnshareTarget
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Sign.V4
@@ -279,23 +430,23 @@ import Network.AWS.Sign.V4
 directoryService :: Service
 directoryService =
   Service
-    { _svcAbbrev = "DirectoryService"
-    , _svcSigner = v4
-    , _svcPrefix = "ds"
-    , _svcVersion = "2015-04-16"
-    , _svcEndpoint = defaultEndpoint directoryService
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "DirectoryService"
-    , _svcRetry = retry
+    { _svcAbbrev = "DirectoryService",
+      _svcSigner = v4,
+      _svcPrefix = "ds",
+      _svcVersion = "2015-04-16",
+      _svcEndpoint = defaultEndpoint directoryService,
+      _svcTimeout = Just 70,
+      _svcCheck = statusSuccess,
+      _svcError = parseJSONError "DirectoryService",
+      _svcRetry = retry
     }
   where
     retry =
       Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+        { _retryBase = 5.0e-2,
+          _retryGrowth = 2,
+          _retryAttempts = 5,
+          _retryCheck = check
         }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
@@ -304,6 +455,10 @@ directoryService =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has
+          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+          e =
+        Just "throughput_exceeded"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasCode "RequestThrottledException" . hasStatus 400) e =
         Just "request_throttled_exception"
@@ -312,122 +467,3 @@ directoryService =
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
-
-
--- | The specified directory is unavailable or could not be found.
---
---
-_DirectoryUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
-_DirectoryUnavailableException =
-  _MatchServiceError directoryService "DirectoryUnavailableException"
-
-
--- | An authentication error occurred.
---
---
-_AuthenticationFailedException :: AsError a => Getting (First ServiceError) a ServiceError
-_AuthenticationFailedException =
-  _MatchServiceError directoryService "AuthenticationFailedException"
-
-
--- | One or more parameters are not valid.
---
---
-_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameterException =
-  _MatchServiceError directoryService "InvalidParameterException"
-
-
--- | The operation is not supported.
---
---
-_UnsupportedOperationException :: AsError a => Getting (First ServiceError) a ServiceError
-_UnsupportedOperationException =
-  _MatchServiceError directoryService "UnsupportedOperationException"
-
-
--- | The specified entity already exists.
---
---
-_EntityAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
-_EntityAlreadyExistsException =
-  _MatchServiceError directoryService "EntityAlreadyExistsException"
-
-
--- | The maximum number of directories in the region has been reached. You can use the 'GetDirectoryLimits' operation to determine your directory limits in the region.
---
---
-_DirectoryLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_DirectoryLimitExceededException =
-  _MatchServiceError directoryService "DirectoryLimitExceededException"
-
-
--- | The maximum allowed number of IP addresses was exceeded. The default limit is 100 IP address blocks.
---
---
-_IPRouteLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_IPRouteLimitExceededException =
-  _MatchServiceError directoryService "IpRouteLimitExceededException"
-
-
--- | The specified entity could not be found.
---
---
-_EntityDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
-_EntityDoesNotExistException =
-  _MatchServiceError directoryService "EntityDoesNotExistException"
-
-
--- | The account does not have sufficient permission to perform the operation.
---
---
-_InsufficientPermissionsException :: AsError a => Getting (First ServiceError) a ServiceError
-_InsufficientPermissionsException =
-  _MatchServiceError directoryService "InsufficientPermissionsException"
-
-
--- | The /NextToken/ value is not valid.
---
---
-_InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNextTokenException =
-  _MatchServiceError directoryService "InvalidNextTokenException"
-
-
--- | An exception has occurred in AWS Directory Service.
---
---
-_ServiceException :: AsError a => Getting (First ServiceError) a ServiceError
-_ServiceException = _MatchServiceError directoryService "ServiceException"
-
-
--- | The maximum number of manual snapshots for the directory has been reached. You can use the 'GetSnapshotLimits' operation to determine the snapshot limits for a directory.
---
---
-_SnapshotLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_SnapshotLimitExceededException =
-  _MatchServiceError directoryService "SnapshotLimitExceededException"
-
-
--- | The maximum allowed number of domain controllers per directory was exceeded. The default limit per directory is 20 domain controllers.
---
---
-_DomainControllerLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_DomainControllerLimitExceededException =
-  _MatchServiceError directoryService "DomainControllerLimitExceededException"
-
-
--- | The maximum allowed number of tags was exceeded.
---
---
-_TagLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_TagLimitExceededException =
-  _MatchServiceError directoryService "TagLimitExceededException"
-
-
--- | A client exception has occurred.
---
---
-_ClientException :: AsError a => Getting (First ServiceError) a ServiceError
-_ClientException = _MatchServiceError directoryService "ClientException"
-

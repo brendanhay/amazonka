@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.WorkSpaces
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.WorkSpaces
-import           Test.AWS.Gen.WorkSpaces
-import           Test.Tasty
+import Network.AWS.WorkSpaces
+import Test.AWS.Gen.WorkSpaces
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

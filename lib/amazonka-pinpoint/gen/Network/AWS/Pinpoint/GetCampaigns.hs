@@ -1,150 +1,151 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetCampaigns
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about your campaigns.
+-- Retrieves information about the status, configuration, and other settings for all the campaigns that are associated with an application.
 module Network.AWS.Pinpoint.GetCampaigns
-    (
-    -- * Creating a Request
-      getCampaigns
-    , GetCampaigns
+  ( -- * Creating a Request
+    getCampaigns,
+    GetCampaigns,
+
     -- * Request Lenses
-    , gcsToken
-    , gcsPageSize
-    , gcsApplicationId
+    gccToken,
+    gccPageSize,
+    gccApplicationId,
 
     -- * Destructuring the Response
-    , getCampaignsResponse
-    , GetCampaignsResponse
+    getCampaignsResponse,
+    GetCampaignsResponse,
+
     -- * Response Lenses
-    , gcsrsResponseStatus
-    , gcsrsCampaignsResponse
-    ) where
+    gccrsResponseStatus,
+    gccrsCampaignsResponse,
+  )
+where
 
 import Network.AWS.Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Pinpoint.Types.Product
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'getCampaigns' smart constructor.
 data GetCampaigns = GetCampaigns'
-  { _gcsToken         :: !(Maybe Text)
-  , _gcsPageSize      :: !(Maybe Text)
-  , _gcsApplicationId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _gccToken :: !(Maybe Text),
+    _gccPageSize :: !(Maybe Text),
+    _gccApplicationId :: !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'GetCampaigns' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcsToken' - The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'gccToken' - The NextToken string that specifies which page of results to return in a paginated response.
 --
--- * 'gcsPageSize' - The number of entries you want on each page in the response.
+-- * 'gccPageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
 --
--- * 'gcsApplicationId' - Undocumented member.
-getCampaigns
-    :: Text -- ^ 'gcsApplicationId'
-    -> GetCampaigns
+-- * 'gccApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+getCampaigns ::
+  -- | 'gccApplicationId'
+  Text ->
+  GetCampaigns
 getCampaigns pApplicationId_ =
   GetCampaigns'
-    { _gcsToken = Nothing
-    , _gcsPageSize = Nothing
-    , _gcsApplicationId = pApplicationId_
+    { _gccToken = Nothing,
+      _gccPageSize = Nothing,
+      _gccApplicationId = pApplicationId_
     }
 
+-- | The NextToken string that specifies which page of results to return in a paginated response.
+gccToken :: Lens' GetCampaigns (Maybe Text)
+gccToken = lens _gccToken (\s a -> s {_gccToken = a})
 
--- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
-gcsToken :: Lens' GetCampaigns (Maybe Text)
-gcsToken = lens _gcsToken (\ s a -> s{_gcsToken = a})
+-- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+gccPageSize :: Lens' GetCampaigns (Maybe Text)
+gccPageSize = lens _gccPageSize (\s a -> s {_gccPageSize = a})
 
--- | The number of entries you want on each page in the response.
-gcsPageSize :: Lens' GetCampaigns (Maybe Text)
-gcsPageSize = lens _gcsPageSize (\ s a -> s{_gcsPageSize = a})
-
--- | Undocumented member.
-gcsApplicationId :: Lens' GetCampaigns Text
-gcsApplicationId = lens _gcsApplicationId (\ s a -> s{_gcsApplicationId = a})
+-- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+gccApplicationId :: Lens' GetCampaigns Text
+gccApplicationId = lens _gccApplicationId (\s a -> s {_gccApplicationId = a})
 
 instance AWSRequest GetCampaigns where
-        type Rs GetCampaigns = GetCampaignsResponse
-        request = get pinpoint
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetCampaignsResponse' <$>
-                   (pure (fromEnum s)) <*> (eitherParseJSON x))
+  type Rs GetCampaigns = GetCampaignsResponse
+  request = get pinpoint
+  response =
+    receiveJSON
+      ( \s h x ->
+          GetCampaignsResponse'
+            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+      )
 
-instance Hashable GetCampaigns where
+instance Hashable GetCampaigns
 
-instance NFData GetCampaigns where
+instance NFData GetCampaigns
 
 instance ToHeaders GetCampaigns where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+      )
 
 instance ToPath GetCampaigns where
-        toPath GetCampaigns'{..}
-          = mconcat
-              ["/v1/apps/", toBS _gcsApplicationId, "/campaigns"]
+  toPath GetCampaigns' {..} =
+    mconcat ["/v1/apps/", toBS _gccApplicationId, "/campaigns"]
 
 instance ToQuery GetCampaigns where
-        toQuery GetCampaigns'{..}
-          = mconcat
-              ["token" =: _gcsToken, "page-size" =: _gcsPageSize]
+  toQuery GetCampaigns' {..} =
+    mconcat ["token" =: _gccToken, "page-size" =: _gccPageSize]
 
 -- | /See:/ 'getCampaignsResponse' smart constructor.
 data GetCampaignsResponse = GetCampaignsResponse'
-  { _gcsrsResponseStatus    :: !Int
-  , _gcsrsCampaignsResponse :: !CampaignsResponse
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _gccrsResponseStatus ::
+      !Int,
+    _gccrsCampaignsResponse :: !CampaignsResponse
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'GetCampaignsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcsrsResponseStatus' - -- | The response status code.
+-- * 'gccrsResponseStatus' - -- | The response status code.
 --
--- * 'gcsrsCampaignsResponse' - Undocumented member.
-getCampaignsResponse
-    :: Int -- ^ 'gcsrsResponseStatus'
-    -> CampaignsResponse -- ^ 'gcsrsCampaignsResponse'
-    -> GetCampaignsResponse
+-- * 'gccrsCampaignsResponse' - Undocumented member.
+getCampaignsResponse ::
+  -- | 'gccrsResponseStatus'
+  Int ->
+  -- | 'gccrsCampaignsResponse'
+  CampaignsResponse ->
+  GetCampaignsResponse
 getCampaignsResponse pResponseStatus_ pCampaignsResponse_ =
   GetCampaignsResponse'
-    { _gcsrsResponseStatus = pResponseStatus_
-    , _gcsrsCampaignsResponse = pCampaignsResponse_
+    { _gccrsResponseStatus = pResponseStatus_,
+      _gccrsCampaignsResponse = pCampaignsResponse_
     }
 
-
 -- | -- | The response status code.
-gcsrsResponseStatus :: Lens' GetCampaignsResponse Int
-gcsrsResponseStatus = lens _gcsrsResponseStatus (\ s a -> s{_gcsrsResponseStatus = a})
+gccrsResponseStatus :: Lens' GetCampaignsResponse Int
+gccrsResponseStatus = lens _gccrsResponseStatus (\s a -> s {_gccrsResponseStatus = a})
 
 -- | Undocumented member.
-gcsrsCampaignsResponse :: Lens' GetCampaignsResponse CampaignsResponse
-gcsrsCampaignsResponse = lens _gcsrsCampaignsResponse (\ s a -> s{_gcsrsCampaignsResponse = a})
+gccrsCampaignsResponse :: Lens' GetCampaignsResponse CampaignsResponse
+gccrsCampaignsResponse = lens _gccrsCampaignsResponse (\s a -> s {_gccrsCampaignsResponse = a})
 
-instance NFData GetCampaignsResponse where
+instance NFData GetCampaignsResponse

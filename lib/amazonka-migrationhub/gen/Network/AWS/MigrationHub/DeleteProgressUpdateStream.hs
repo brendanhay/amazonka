@@ -1,18 +1,17 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MigrationHub.DeleteProgressUpdateStream
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -27,41 +26,41 @@
 --
 --     * If the stream takes time to be deleted, it might still show up on a @ListProgressUpdateStreams@ call.
 --
---     * @CreateProgressUpdateStream@ , @ImportMigrationTask@ , @NotifyMigrationTaskState@ , and all Associate[*] APIs realted to the tasks belonging to the stream will throw "InvalidInputException" if the stream of the same name is in the process of being deleted.
+--     * @CreateProgressUpdateStream@ , @ImportMigrationTask@ , @NotifyMigrationTaskState@ , and all Associate[*] APIs related to the tasks belonging to the stream will throw "InvalidInputException" if the stream of the same name is in the process of being deleted.
 --
 --     * Once the stream and all of its resources are deleted, @CreateProgressUpdateStream@ for a stream of the same name will succeed, and that stream will be an entirely new logical resource (without any resources associated with the old stream).
---
---
---
 module Network.AWS.MigrationHub.DeleteProgressUpdateStream
-    (
-    -- * Creating a Request
-      deleteProgressUpdateStream
-    , DeleteProgressUpdateStream
+  ( -- * Creating a Request
+    deleteProgressUpdateStream,
+    DeleteProgressUpdateStream,
+
     -- * Request Lenses
-    , dpusDryRun
-    , dpusProgressUpdateStreamName
+    dpusDryRun,
+    dpusProgressUpdateStreamName,
 
     -- * Destructuring the Response
-    , deleteProgressUpdateStreamResponse
-    , DeleteProgressUpdateStreamResponse
+    deleteProgressUpdateStreamResponse,
+    DeleteProgressUpdateStreamResponse,
+
     -- * Response Lenses
-    , dpusrsResponseStatus
-    ) where
+    dpusrsResponseStatus,
+  )
+where
 
 import Network.AWS.Lens
 import Network.AWS.MigrationHub.Types
-import Network.AWS.MigrationHub.Types.Product
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'deleteProgressUpdateStream' smart constructor.
 data DeleteProgressUpdateStream = DeleteProgressUpdateStream'
-  { _dpusDryRun                   :: !(Maybe Bool)
-  , _dpusProgressUpdateStreamName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _dpusDryRun ::
+      !(Maybe Bool),
+    _dpusProgressUpdateStreamName ::
+      !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'DeleteProgressUpdateStream' with the minimum fields required to make a request.
 --
@@ -69,85 +68,90 @@ data DeleteProgressUpdateStream = DeleteProgressUpdateStream'
 --
 -- * 'dpusDryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 --
--- * 'dpusProgressUpdateStreamName' - The name of the ProgressUpdateStream.
-deleteProgressUpdateStream
-    :: Text -- ^ 'dpusProgressUpdateStreamName'
-    -> DeleteProgressUpdateStream
+-- * 'dpusProgressUpdateStreamName' - The name of the ProgressUpdateStream. /Do not store personal data in this field./
+deleteProgressUpdateStream ::
+  -- | 'dpusProgressUpdateStreamName'
+  Text ->
+  DeleteProgressUpdateStream
 deleteProgressUpdateStream pProgressUpdateStreamName_ =
   DeleteProgressUpdateStream'
-    { _dpusDryRun = Nothing
-    , _dpusProgressUpdateStreamName = pProgressUpdateStreamName_
+    { _dpusDryRun = Nothing,
+      _dpusProgressUpdateStreamName = pProgressUpdateStreamName_
     }
-
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 dpusDryRun :: Lens' DeleteProgressUpdateStream (Maybe Bool)
-dpusDryRun = lens _dpusDryRun (\ s a -> s{_dpusDryRun = a})
+dpusDryRun = lens _dpusDryRun (\s a -> s {_dpusDryRun = a})
 
--- | The name of the ProgressUpdateStream.
+-- | The name of the ProgressUpdateStream. /Do not store personal data in this field./
 dpusProgressUpdateStreamName :: Lens' DeleteProgressUpdateStream Text
-dpusProgressUpdateStreamName = lens _dpusProgressUpdateStreamName (\ s a -> s{_dpusProgressUpdateStreamName = a})
+dpusProgressUpdateStreamName = lens _dpusProgressUpdateStreamName (\s a -> s {_dpusProgressUpdateStreamName = a})
 
 instance AWSRequest DeleteProgressUpdateStream where
-        type Rs DeleteProgressUpdateStream =
-             DeleteProgressUpdateStreamResponse
-        request = postJSON migrationHub
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteProgressUpdateStreamResponse' <$>
-                   (pure (fromEnum s)))
+  type
+    Rs DeleteProgressUpdateStream =
+      DeleteProgressUpdateStreamResponse
+  request = postJSON migrationHub
+  response =
+    receiveEmpty
+      ( \s h x ->
+          DeleteProgressUpdateStreamResponse' <$> (pure (fromEnum s))
+      )
 
-instance Hashable DeleteProgressUpdateStream where
+instance Hashable DeleteProgressUpdateStream
 
-instance NFData DeleteProgressUpdateStream where
+instance NFData DeleteProgressUpdateStream
 
 instance ToHeaders DeleteProgressUpdateStream where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSMigrationHub.DeleteProgressUpdateStream" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target"
+              =# ("AWSMigrationHub.DeleteProgressUpdateStream" :: ByteString),
+            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+          ]
+      )
 
 instance ToJSON DeleteProgressUpdateStream where
-        toJSON DeleteProgressUpdateStream'{..}
-          = object
-              (catMaybes
-                 [("DryRun" .=) <$> _dpusDryRun,
-                  Just
-                    ("ProgressUpdateStreamName" .=
-                       _dpusProgressUpdateStreamName)])
+  toJSON DeleteProgressUpdateStream' {..} =
+    object
+      ( catMaybes
+          [ ("DryRun" .=) <$> _dpusDryRun,
+            Just
+              ("ProgressUpdateStreamName" .= _dpusProgressUpdateStreamName)
+          ]
+      )
 
 instance ToPath DeleteProgressUpdateStream where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery DeleteProgressUpdateStream where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | /See:/ 'deleteProgressUpdateStreamResponse' smart constructor.
 newtype DeleteProgressUpdateStreamResponse = DeleteProgressUpdateStreamResponse'
-  { _dpusrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _dpusrsResponseStatus ::
+      Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'DeleteProgressUpdateStreamResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dpusrsResponseStatus' - -- | The response status code.
-deleteProgressUpdateStreamResponse
-    :: Int -- ^ 'dpusrsResponseStatus'
-    -> DeleteProgressUpdateStreamResponse
+deleteProgressUpdateStreamResponse ::
+  -- | 'dpusrsResponseStatus'
+  Int ->
+  DeleteProgressUpdateStreamResponse
 deleteProgressUpdateStreamResponse pResponseStatus_ =
-  DeleteProgressUpdateStreamResponse' {_dpusrsResponseStatus = pResponseStatus_}
-
+  DeleteProgressUpdateStreamResponse'
+    { _dpusrsResponseStatus =
+        pResponseStatus_
+    }
 
 -- | -- | The response status code.
 dpusrsResponseStatus :: Lens' DeleteProgressUpdateStreamResponse Int
-dpusrsResponseStatus = lens _dpusrsResponseStatus (\ s a -> s{_dpusrsResponseStatus = a})
+dpusrsResponseStatus = lens _dpusrsResponseStatus (\s a -> s {_dpusrsResponseStatus = a})
 
 instance NFData DeleteProgressUpdateStreamResponse
-         where

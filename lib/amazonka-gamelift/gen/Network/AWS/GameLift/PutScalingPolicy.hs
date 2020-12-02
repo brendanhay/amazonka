@@ -1,18 +1,17 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GameLift.PutScalingPolicy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -25,7 +24,7 @@
 --
 -- You can temporarily suspend all scaling policies for a fleet by calling 'StopFleetActions' with the fleet action AUTO_SCALING. To resume scaling policies, call 'StartFleetActions' with the same fleet action. To stop just one scaling policy--or to permanently remove it, you must delete the policy with 'DeleteScalingPolicy' .
 --
--- Learn more about how to work with auto-scaling in <http://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-autoscaling.html Set Up Fleet Automatic Scaling> .
+-- Learn more about how to work with auto-scaling in <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-autoscaling.html Set Up Fleet Automatic Scaling> .
 --
 -- __Target-based policy__
 --
@@ -51,8 +50,6 @@
 --
 -- To create or update a scaling policy, specify a unique combination of name and fleet ID, and set the policy type to "RuleBased". Specify the parameter values for a policy rule statement. On a successful request, the policy name is returned. Scaling policies are automatically in force as soon as they're successfully created. If the fleet's auto-scaling actions are temporarily suspended, the new policy will be in force once the fleet actions are restarted.
 --
--- Operations related to fleet capacity scaling include:
---
 --     * 'DescribeFleetCapacity'
 --
 --     * 'UpdateFleetCapacity'
@@ -74,71 +71,68 @@
 --     * 'StartFleetActions'
 --
 --     * 'StopFleetActions'
---
---
---
---
---
 module Network.AWS.GameLift.PutScalingPolicy
-    (
-    -- * Creating a Request
-      putScalingPolicy
-    , PutScalingPolicy
+  ( -- * Creating a Request
+    putScalingPolicy,
+    PutScalingPolicy,
+
     -- * Request Lenses
-    , pspScalingAdjustmentType
-    , pspEvaluationPeriods
-    , pspPolicyType
-    , pspComparisonOperator
-    , pspThreshold
-    , pspScalingAdjustment
-    , pspTargetConfiguration
-    , pspName
-    , pspFleetId
-    , pspMetricName
+    pspScalingAdjustmentType,
+    pspEvaluationPeriods,
+    pspPolicyType,
+    pspComparisonOperator,
+    pspThreshold,
+    pspScalingAdjustment,
+    pspTargetConfiguration,
+    pspName,
+    pspFleetId,
+    pspMetricName,
 
     -- * Destructuring the Response
-    , putScalingPolicyResponse
-    , PutScalingPolicyResponse
+    putScalingPolicyResponse,
+    PutScalingPolicyResponse,
+
     -- * Response Lenses
-    , psprsName
-    , psprsResponseStatus
-    ) where
+    psprsName,
+    psprsResponseStatus,
+  )
+where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.GameLift.Types.Product
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input for a request action.
+-- | Represents the input for a request operation.
 --
 --
 --
 -- /See:/ 'putScalingPolicy' smart constructor.
 data PutScalingPolicy = PutScalingPolicy'
-  { _pspScalingAdjustmentType :: !(Maybe ScalingAdjustmentType)
-  , _pspEvaluationPeriods     :: !(Maybe Nat)
-  , _pspPolicyType            :: !(Maybe PolicyType)
-  , _pspComparisonOperator    :: !(Maybe ComparisonOperatorType)
-  , _pspThreshold             :: !(Maybe Double)
-  , _pspScalingAdjustment     :: !(Maybe Int)
-  , _pspTargetConfiguration   :: !(Maybe TargetConfiguration)
-  , _pspName                  :: !Text
-  , _pspFleetId               :: !Text
-  , _pspMetricName            :: !MetricName
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _pspScalingAdjustmentType ::
+      !(Maybe ScalingAdjustmentType),
+    _pspEvaluationPeriods :: !(Maybe Nat),
+    _pspPolicyType :: !(Maybe PolicyType),
+    _pspComparisonOperator :: !(Maybe ComparisonOperatorType),
+    _pspThreshold :: !(Maybe Double),
+    _pspScalingAdjustment :: !(Maybe Int),
+    _pspTargetConfiguration :: !(Maybe TargetConfiguration),
+    _pspName :: !Text,
+    _pspFleetId :: !Text,
+    _pspMetricName :: !MetricName
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'PutScalingPolicy' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pspScalingAdjustmentType' - Type of adjustment to make to a fleet's instance count (see 'FleetCapacity' ):     * __ChangeInCapacity__ -- add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.     * __ExactCapacity__ -- set the instance count to the scaling adjustment value.     * __PercentChangeInCapacity__ -- increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down; for example, a value of "-10" scales the fleet down by 10%.
+-- * 'pspScalingAdjustmentType' - The type of adjustment to make to a fleet's instance count (see 'FleetCapacity' ):     * __ChangeInCapacity__ -- add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.     * __ExactCapacity__ -- set the instance count to the scaling adjustment value.     * __PercentChangeInCapacity__ -- increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down; for example, a value of "-10" scales the fleet down by 10%.
 --
 -- * 'pspEvaluationPeriods' - Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
 --
--- * 'pspPolicyType' - Type of scaling policy to create. For a target-based policy, set the parameter /MetricName/ to 'PercentAvailableGameSessions' and specify a /TargetConfiguration/ . For a rule-based policy set the following parameters: /MetricName/ , /ComparisonOperator/ , /Threshold/ , /EvaluationPeriods/ , /ScalingAdjustmentType/ , and /ScalingAdjustment/ .
+-- * 'pspPolicyType' - The type of scaling policy to create. For a target-based policy, set the parameter /MetricName/ to 'PercentAvailableGameSessions' and specify a /TargetConfiguration/ . For a rule-based policy set the following parameters: /MetricName/ , /ComparisonOperator/ , /Threshold/ , /EvaluationPeriods/ , /ScalingAdjustmentType/ , and /ScalingAdjustment/ .
 --
 -- * 'pspComparisonOperator' - Comparison operator to use when measuring the metric against the threshold value.
 --
@@ -146,150 +140,156 @@ data PutScalingPolicy = PutScalingPolicy'
 --
 -- * 'pspScalingAdjustment' - Amount of adjustment to make, based on the scaling adjustment type.
 --
--- * 'pspTargetConfiguration' - Object that contains settings for a target-based scaling policy.
+-- * 'pspTargetConfiguration' - The settings for a target-based scaling policy.
 --
--- * 'pspName' - Descriptive label that is associated with a scaling policy. Policy names do not need to be unique. A fleet can have only one scaling policy with the same name.
+-- * 'pspName' - A descriptive label that is associated with a scaling policy. Policy names do not need to be unique. A fleet can have only one scaling policy with the same name.
 --
--- * 'pspFleetId' - Unique identifier for a fleet to apply this policy to. The fleet cannot be in any of the following statuses: ERROR or DELETING.
+-- * 'pspFleetId' - A unique identifier for a fleet to apply this policy to. You can use either the fleet ID or ARN value. The fleet cannot be in any of the following statuses: ERROR or DELETING.
 --
--- * 'pspMetricName' - Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. For detailed descriptions of fleet metrics, see <http://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html Monitor Amazon GameLift with Amazon CloudWatch> .      * __ActivatingGameSessions__ -- Game sessions in the process of being created.     * __ActiveGameSessions__ -- Game sessions that are currently running.     * __ActiveInstances__ -- Fleet instances that are currently running at least one game session.     * __AvailableGameSessions__ -- Additional game sessions that fleet could host simultaneously, given current capacity.     * __AvailablePlayerSessions__ -- Empty player slots in currently active game sessions. This includes game sessions that are not currently accepting players. Reserved player slots are not included.     * __CurrentPlayerSessions__ -- Player slots in active game sessions that are being used by a player or are reserved for a player.      * __IdleInstances__ -- Active instances that are currently hosting zero game sessions.      * __PercentAvailableGameSessions__ -- Unused percentage of the total number of game sessions that a fleet could host simultaneously, given current capacity. Use this metric for a target-based scaling policy.     * __PercentIdleInstances__ -- Percentage of the total number of active instances that are hosting zero game sessions.     * __QueueDepth__ -- Pending game session placement requests, in any queue, where the current fleet is the top-priority destination.     * __WaitTime__ -- Current wait time for pending game session placement requests, in any queue, where the current fleet is the top-priority destination.
-putScalingPolicy
-    :: Text -- ^ 'pspName'
-    -> Text -- ^ 'pspFleetId'
-    -> MetricName -- ^ 'pspMetricName'
-    -> PutScalingPolicy
+-- * 'pspMetricName' - Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. For detailed descriptions of fleet metrics, see <https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html Monitor Amazon GameLift with Amazon CloudWatch> .      * __ActivatingGameSessions__ -- Game sessions in the process of being created.     * __ActiveGameSessions__ -- Game sessions that are currently running.     * __ActiveInstances__ -- Fleet instances that are currently running at least one game session.     * __AvailableGameSessions__ -- Additional game sessions that fleet could host simultaneously, given current capacity.     * __AvailablePlayerSessions__ -- Empty player slots in currently active game sessions. This includes game sessions that are not currently accepting players. Reserved player slots are not included.     * __CurrentPlayerSessions__ -- Player slots in active game sessions that are being used by a player or are reserved for a player.      * __IdleInstances__ -- Active instances that are currently hosting zero game sessions.      * __PercentAvailableGameSessions__ -- Unused percentage of the total number of game sessions that a fleet could host simultaneously, given current capacity. Use this metric for a target-based scaling policy.     * __PercentIdleInstances__ -- Percentage of the total number of active instances that are hosting zero game sessions.     * __QueueDepth__ -- Pending game session placement requests, in any queue, where the current fleet is the top-priority destination.     * __WaitTime__ -- Current wait time for pending game session placement requests, in any queue, where the current fleet is the top-priority destination.
+putScalingPolicy ::
+  -- | 'pspName'
+  Text ->
+  -- | 'pspFleetId'
+  Text ->
+  -- | 'pspMetricName'
+  MetricName ->
+  PutScalingPolicy
 putScalingPolicy pName_ pFleetId_ pMetricName_ =
   PutScalingPolicy'
-    { _pspScalingAdjustmentType = Nothing
-    , _pspEvaluationPeriods = Nothing
-    , _pspPolicyType = Nothing
-    , _pspComparisonOperator = Nothing
-    , _pspThreshold = Nothing
-    , _pspScalingAdjustment = Nothing
-    , _pspTargetConfiguration = Nothing
-    , _pspName = pName_
-    , _pspFleetId = pFleetId_
-    , _pspMetricName = pMetricName_
+    { _pspScalingAdjustmentType = Nothing,
+      _pspEvaluationPeriods = Nothing,
+      _pspPolicyType = Nothing,
+      _pspComparisonOperator = Nothing,
+      _pspThreshold = Nothing,
+      _pspScalingAdjustment = Nothing,
+      _pspTargetConfiguration = Nothing,
+      _pspName = pName_,
+      _pspFleetId = pFleetId_,
+      _pspMetricName = pMetricName_
     }
 
-
--- | Type of adjustment to make to a fleet's instance count (see 'FleetCapacity' ):     * __ChangeInCapacity__ -- add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.     * __ExactCapacity__ -- set the instance count to the scaling adjustment value.     * __PercentChangeInCapacity__ -- increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down; for example, a value of "-10" scales the fleet down by 10%.
+-- | The type of adjustment to make to a fleet's instance count (see 'FleetCapacity' ):     * __ChangeInCapacity__ -- add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.     * __ExactCapacity__ -- set the instance count to the scaling adjustment value.     * __PercentChangeInCapacity__ -- increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down; for example, a value of "-10" scales the fleet down by 10%.
 pspScalingAdjustmentType :: Lens' PutScalingPolicy (Maybe ScalingAdjustmentType)
-pspScalingAdjustmentType = lens _pspScalingAdjustmentType (\ s a -> s{_pspScalingAdjustmentType = a})
+pspScalingAdjustmentType = lens _pspScalingAdjustmentType (\s a -> s {_pspScalingAdjustmentType = a})
 
 -- | Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
 pspEvaluationPeriods :: Lens' PutScalingPolicy (Maybe Natural)
-pspEvaluationPeriods = lens _pspEvaluationPeriods (\ s a -> s{_pspEvaluationPeriods = a}) . mapping _Nat
+pspEvaluationPeriods = lens _pspEvaluationPeriods (\s a -> s {_pspEvaluationPeriods = a}) . mapping _Nat
 
--- | Type of scaling policy to create. For a target-based policy, set the parameter /MetricName/ to 'PercentAvailableGameSessions' and specify a /TargetConfiguration/ . For a rule-based policy set the following parameters: /MetricName/ , /ComparisonOperator/ , /Threshold/ , /EvaluationPeriods/ , /ScalingAdjustmentType/ , and /ScalingAdjustment/ .
+-- | The type of scaling policy to create. For a target-based policy, set the parameter /MetricName/ to 'PercentAvailableGameSessions' and specify a /TargetConfiguration/ . For a rule-based policy set the following parameters: /MetricName/ , /ComparisonOperator/ , /Threshold/ , /EvaluationPeriods/ , /ScalingAdjustmentType/ , and /ScalingAdjustment/ .
 pspPolicyType :: Lens' PutScalingPolicy (Maybe PolicyType)
-pspPolicyType = lens _pspPolicyType (\ s a -> s{_pspPolicyType = a})
+pspPolicyType = lens _pspPolicyType (\s a -> s {_pspPolicyType = a})
 
 -- | Comparison operator to use when measuring the metric against the threshold value.
 pspComparisonOperator :: Lens' PutScalingPolicy (Maybe ComparisonOperatorType)
-pspComparisonOperator = lens _pspComparisonOperator (\ s a -> s{_pspComparisonOperator = a})
+pspComparisonOperator = lens _pspComparisonOperator (\s a -> s {_pspComparisonOperator = a})
 
 -- | Metric value used to trigger a scaling event.
 pspThreshold :: Lens' PutScalingPolicy (Maybe Double)
-pspThreshold = lens _pspThreshold (\ s a -> s{_pspThreshold = a})
+pspThreshold = lens _pspThreshold (\s a -> s {_pspThreshold = a})
 
 -- | Amount of adjustment to make, based on the scaling adjustment type.
 pspScalingAdjustment :: Lens' PutScalingPolicy (Maybe Int)
-pspScalingAdjustment = lens _pspScalingAdjustment (\ s a -> s{_pspScalingAdjustment = a})
+pspScalingAdjustment = lens _pspScalingAdjustment (\s a -> s {_pspScalingAdjustment = a})
 
--- | Object that contains settings for a target-based scaling policy.
+-- | The settings for a target-based scaling policy.
 pspTargetConfiguration :: Lens' PutScalingPolicy (Maybe TargetConfiguration)
-pspTargetConfiguration = lens _pspTargetConfiguration (\ s a -> s{_pspTargetConfiguration = a})
+pspTargetConfiguration = lens _pspTargetConfiguration (\s a -> s {_pspTargetConfiguration = a})
 
--- | Descriptive label that is associated with a scaling policy. Policy names do not need to be unique. A fleet can have only one scaling policy with the same name.
+-- | A descriptive label that is associated with a scaling policy. Policy names do not need to be unique. A fleet can have only one scaling policy with the same name.
 pspName :: Lens' PutScalingPolicy Text
-pspName = lens _pspName (\ s a -> s{_pspName = a})
+pspName = lens _pspName (\s a -> s {_pspName = a})
 
--- | Unique identifier for a fleet to apply this policy to. The fleet cannot be in any of the following statuses: ERROR or DELETING.
+-- | A unique identifier for a fleet to apply this policy to. You can use either the fleet ID or ARN value. The fleet cannot be in any of the following statuses: ERROR or DELETING.
 pspFleetId :: Lens' PutScalingPolicy Text
-pspFleetId = lens _pspFleetId (\ s a -> s{_pspFleetId = a})
+pspFleetId = lens _pspFleetId (\s a -> s {_pspFleetId = a})
 
--- | Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. For detailed descriptions of fleet metrics, see <http://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html Monitor Amazon GameLift with Amazon CloudWatch> .      * __ActivatingGameSessions__ -- Game sessions in the process of being created.     * __ActiveGameSessions__ -- Game sessions that are currently running.     * __ActiveInstances__ -- Fleet instances that are currently running at least one game session.     * __AvailableGameSessions__ -- Additional game sessions that fleet could host simultaneously, given current capacity.     * __AvailablePlayerSessions__ -- Empty player slots in currently active game sessions. This includes game sessions that are not currently accepting players. Reserved player slots are not included.     * __CurrentPlayerSessions__ -- Player slots in active game sessions that are being used by a player or are reserved for a player.      * __IdleInstances__ -- Active instances that are currently hosting zero game sessions.      * __PercentAvailableGameSessions__ -- Unused percentage of the total number of game sessions that a fleet could host simultaneously, given current capacity. Use this metric for a target-based scaling policy.     * __PercentIdleInstances__ -- Percentage of the total number of active instances that are hosting zero game sessions.     * __QueueDepth__ -- Pending game session placement requests, in any queue, where the current fleet is the top-priority destination.     * __WaitTime__ -- Current wait time for pending game session placement requests, in any queue, where the current fleet is the top-priority destination.
+-- | Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. For detailed descriptions of fleet metrics, see <https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html Monitor Amazon GameLift with Amazon CloudWatch> .      * __ActivatingGameSessions__ -- Game sessions in the process of being created.     * __ActiveGameSessions__ -- Game sessions that are currently running.     * __ActiveInstances__ -- Fleet instances that are currently running at least one game session.     * __AvailableGameSessions__ -- Additional game sessions that fleet could host simultaneously, given current capacity.     * __AvailablePlayerSessions__ -- Empty player slots in currently active game sessions. This includes game sessions that are not currently accepting players. Reserved player slots are not included.     * __CurrentPlayerSessions__ -- Player slots in active game sessions that are being used by a player or are reserved for a player.      * __IdleInstances__ -- Active instances that are currently hosting zero game sessions.      * __PercentAvailableGameSessions__ -- Unused percentage of the total number of game sessions that a fleet could host simultaneously, given current capacity. Use this metric for a target-based scaling policy.     * __PercentIdleInstances__ -- Percentage of the total number of active instances that are hosting zero game sessions.     * __QueueDepth__ -- Pending game session placement requests, in any queue, where the current fleet is the top-priority destination.     * __WaitTime__ -- Current wait time for pending game session placement requests, in any queue, where the current fleet is the top-priority destination.
 pspMetricName :: Lens' PutScalingPolicy MetricName
-pspMetricName = lens _pspMetricName (\ s a -> s{_pspMetricName = a})
+pspMetricName = lens _pspMetricName (\s a -> s {_pspMetricName = a})
 
 instance AWSRequest PutScalingPolicy where
-        type Rs PutScalingPolicy = PutScalingPolicyResponse
-        request = postJSON gameLift
-        response
-          = receiveJSON
-              (\ s h x ->
-                 PutScalingPolicyResponse' <$>
-                   (x .?> "Name") <*> (pure (fromEnum s)))
+  type Rs PutScalingPolicy = PutScalingPolicyResponse
+  request = postJSON gameLift
+  response =
+    receiveJSON
+      ( \s h x ->
+          PutScalingPolicyResponse'
+            <$> (x .?> "Name") <*> (pure (fromEnum s))
+      )
 
-instance Hashable PutScalingPolicy where
+instance Hashable PutScalingPolicy
 
-instance NFData PutScalingPolicy where
+instance NFData PutScalingPolicy
 
 instance ToHeaders PutScalingPolicy where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("GameLift.PutScalingPolicy" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target" =# ("GameLift.PutScalingPolicy" :: ByteString),
+            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+          ]
+      )
 
 instance ToJSON PutScalingPolicy where
-        toJSON PutScalingPolicy'{..}
-          = object
-              (catMaybes
-                 [("ScalingAdjustmentType" .=) <$>
-                    _pspScalingAdjustmentType,
-                  ("EvaluationPeriods" .=) <$> _pspEvaluationPeriods,
-                  ("PolicyType" .=) <$> _pspPolicyType,
-                  ("ComparisonOperator" .=) <$> _pspComparisonOperator,
-                  ("Threshold" .=) <$> _pspThreshold,
-                  ("ScalingAdjustment" .=) <$> _pspScalingAdjustment,
-                  ("TargetConfiguration" .=) <$>
-                    _pspTargetConfiguration,
-                  Just ("Name" .= _pspName),
-                  Just ("FleetId" .= _pspFleetId),
-                  Just ("MetricName" .= _pspMetricName)])
+  toJSON PutScalingPolicy' {..} =
+    object
+      ( catMaybes
+          [ ("ScalingAdjustmentType" .=) <$> _pspScalingAdjustmentType,
+            ("EvaluationPeriods" .=) <$> _pspEvaluationPeriods,
+            ("PolicyType" .=) <$> _pspPolicyType,
+            ("ComparisonOperator" .=) <$> _pspComparisonOperator,
+            ("Threshold" .=) <$> _pspThreshold,
+            ("ScalingAdjustment" .=) <$> _pspScalingAdjustment,
+            ("TargetConfiguration" .=) <$> _pspTargetConfiguration,
+            Just ("Name" .= _pspName),
+            Just ("FleetId" .= _pspFleetId),
+            Just ("MetricName" .= _pspMetricName)
+          ]
+      )
 
 instance ToPath PutScalingPolicy where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery PutScalingPolicy where
-        toQuery = const mempty
+  toQuery = const mempty
 
--- | Represents the returned data in response to a request action.
+-- | Represents the returned data in response to a request operation.
 --
 --
 --
 -- /See:/ 'putScalingPolicyResponse' smart constructor.
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
-  { _psprsName           :: !(Maybe Text)
-  , _psprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _psprsName ::
+      !(Maybe Text),
+    _psprsResponseStatus :: !Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'PutScalingPolicyResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'psprsName' - Descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
+-- * 'psprsName' - A descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
 --
 -- * 'psprsResponseStatus' - -- | The response status code.
-putScalingPolicyResponse
-    :: Int -- ^ 'psprsResponseStatus'
-    -> PutScalingPolicyResponse
+putScalingPolicyResponse ::
+  -- | 'psprsResponseStatus'
+  Int ->
+  PutScalingPolicyResponse
 putScalingPolicyResponse pResponseStatus_ =
   PutScalingPolicyResponse'
-    {_psprsName = Nothing, _psprsResponseStatus = pResponseStatus_}
+    { _psprsName = Nothing,
+      _psprsResponseStatus = pResponseStatus_
+    }
 
-
--- | Descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
+-- | A descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
 psprsName :: Lens' PutScalingPolicyResponse (Maybe Text)
-psprsName = lens _psprsName (\ s a -> s{_psprsName = a})
+psprsName = lens _psprsName (\s a -> s {_psprsName = a})
 
 -- | -- | The response status code.
 psprsResponseStatus :: Lens' PutScalingPolicyResponse Int
-psprsResponseStatus = lens _psprsResponseStatus (\ s a -> s{_psprsResponseStatus = a})
+psprsResponseStatus = lens _psprsResponseStatus (\s a -> s {_psprsResponseStatus = a})
 
-instance NFData PutScalingPolicyResponse where
+instance NFData PutScalingPolicyResponse

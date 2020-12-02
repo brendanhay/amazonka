@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.CognitoIdentityProvider
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.CognitoIdentityProvider
-import           Test.AWS.Gen.CognitoIdentityProvider
-import           Test.Tasty
+import Network.AWS.CognitoIdentityProvider
+import Test.AWS.Gen.CognitoIdentityProvider
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

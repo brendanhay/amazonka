@@ -1,18 +1,17 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WAFRegional.CreateRegexMatchSet
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -33,39 +32,39 @@
 --
 --
 --
--- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
---
+-- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
 module Network.AWS.WAFRegional.CreateRegexMatchSet
-    (
-    -- * Creating a Request
-      createRegexMatchSet
-    , CreateRegexMatchSet
+  ( -- * Creating a Request
+    createRegexMatchSet,
+    CreateRegexMatchSet,
+
     -- * Request Lenses
-    , crmsName
-    , crmsChangeToken
+    crmsName,
+    crmsChangeToken,
 
     -- * Destructuring the Response
-    , createRegexMatchSetResponse
-    , CreateRegexMatchSetResponse
+    createRegexMatchSetResponse,
+    CreateRegexMatchSetResponse,
+
     -- * Response Lenses
-    , crmsrsRegexMatchSet
-    , crmsrsChangeToken
-    , crmsrsResponseStatus
-    ) where
+    crmsrsRegexMatchSet,
+    crmsrsChangeToken,
+    crmsrsResponseStatus,
+  )
+where
 
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.WAFRegional.Types
-import Network.AWS.WAFRegional.Types.Product
 
 -- | /See:/ 'createRegexMatchSet' smart constructor.
 data CreateRegexMatchSet = CreateRegexMatchSet'
-  { _crmsName        :: !Text
-  , _crmsChangeToken :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _crmsName :: !Text,
+    _crmsChangeToken :: !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'CreateRegexMatchSet' with the minimum fields required to make a request.
 --
@@ -74,67 +73,75 @@ data CreateRegexMatchSet = CreateRegexMatchSet'
 -- * 'crmsName' - A friendly name or description of the 'RegexMatchSet' . You can't change @Name@ after you create a @RegexMatchSet@ .
 --
 -- * 'crmsChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
-createRegexMatchSet
-    :: Text -- ^ 'crmsName'
-    -> Text -- ^ 'crmsChangeToken'
-    -> CreateRegexMatchSet
+createRegexMatchSet ::
+  -- | 'crmsName'
+  Text ->
+  -- | 'crmsChangeToken'
+  Text ->
+  CreateRegexMatchSet
 createRegexMatchSet pName_ pChangeToken_ =
-  CreateRegexMatchSet' {_crmsName = pName_, _crmsChangeToken = pChangeToken_}
-
+  CreateRegexMatchSet'
+    { _crmsName = pName_,
+      _crmsChangeToken = pChangeToken_
+    }
 
 -- | A friendly name or description of the 'RegexMatchSet' . You can't change @Name@ after you create a @RegexMatchSet@ .
 crmsName :: Lens' CreateRegexMatchSet Text
-crmsName = lens _crmsName (\ s a -> s{_crmsName = a})
+crmsName = lens _crmsName (\s a -> s {_crmsName = a})
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 crmsChangeToken :: Lens' CreateRegexMatchSet Text
-crmsChangeToken = lens _crmsChangeToken (\ s a -> s{_crmsChangeToken = a})
+crmsChangeToken = lens _crmsChangeToken (\s a -> s {_crmsChangeToken = a})
 
 instance AWSRequest CreateRegexMatchSet where
-        type Rs CreateRegexMatchSet =
-             CreateRegexMatchSetResponse
-        request = postJSON wAFRegional
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateRegexMatchSetResponse' <$>
-                   (x .?> "RegexMatchSet") <*> (x .?> "ChangeToken") <*>
-                     (pure (fromEnum s)))
+  type Rs CreateRegexMatchSet = CreateRegexMatchSetResponse
+  request = postJSON wAFRegional
+  response =
+    receiveJSON
+      ( \s h x ->
+          CreateRegexMatchSetResponse'
+            <$> (x .?> "RegexMatchSet")
+            <*> (x .?> "ChangeToken")
+            <*> (pure (fromEnum s))
+      )
 
-instance Hashable CreateRegexMatchSet where
+instance Hashable CreateRegexMatchSet
 
-instance NFData CreateRegexMatchSet where
+instance NFData CreateRegexMatchSet
 
 instance ToHeaders CreateRegexMatchSet where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSWAF_Regional_20161128.CreateRegexMatchSet" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target"
+              =# ("AWSWAF_Regional_20161128.CreateRegexMatchSet" :: ByteString),
+            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+          ]
+      )
 
 instance ToJSON CreateRegexMatchSet where
-        toJSON CreateRegexMatchSet'{..}
-          = object
-              (catMaybes
-                 [Just ("Name" .= _crmsName),
-                  Just ("ChangeToken" .= _crmsChangeToken)])
+  toJSON CreateRegexMatchSet' {..} =
+    object
+      ( catMaybes
+          [ Just ("Name" .= _crmsName),
+            Just ("ChangeToken" .= _crmsChangeToken)
+          ]
+      )
 
 instance ToPath CreateRegexMatchSet where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery CreateRegexMatchSet where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | /See:/ 'createRegexMatchSetResponse' smart constructor.
 data CreateRegexMatchSetResponse = CreateRegexMatchSetResponse'
-  { _crmsrsRegexMatchSet  :: !(Maybe RegexMatchSet)
-  , _crmsrsChangeToken    :: !(Maybe Text)
-  , _crmsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _crmsrsRegexMatchSet ::
+      !(Maybe RegexMatchSet),
+    _crmsrsChangeToken :: !(Maybe Text),
+    _crmsrsResponseStatus :: !Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'CreateRegexMatchSetResponse' with the minimum fields required to make a request.
 --
@@ -145,27 +152,27 @@ data CreateRegexMatchSetResponse = CreateRegexMatchSetResponse'
 -- * 'crmsrsChangeToken' - The @ChangeToken@ that you used to submit the @CreateRegexMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
 -- * 'crmsrsResponseStatus' - -- | The response status code.
-createRegexMatchSetResponse
-    :: Int -- ^ 'crmsrsResponseStatus'
-    -> CreateRegexMatchSetResponse
+createRegexMatchSetResponse ::
+  -- | 'crmsrsResponseStatus'
+  Int ->
+  CreateRegexMatchSetResponse
 createRegexMatchSetResponse pResponseStatus_ =
   CreateRegexMatchSetResponse'
-    { _crmsrsRegexMatchSet = Nothing
-    , _crmsrsChangeToken = Nothing
-    , _crmsrsResponseStatus = pResponseStatus_
+    { _crmsrsRegexMatchSet = Nothing,
+      _crmsrsChangeToken = Nothing,
+      _crmsrsResponseStatus = pResponseStatus_
     }
-
 
 -- | A 'RegexMatchSet' that contains no @RegexMatchTuple@ objects.
 crmsrsRegexMatchSet :: Lens' CreateRegexMatchSetResponse (Maybe RegexMatchSet)
-crmsrsRegexMatchSet = lens _crmsrsRegexMatchSet (\ s a -> s{_crmsrsRegexMatchSet = a})
+crmsrsRegexMatchSet = lens _crmsrsRegexMatchSet (\s a -> s {_crmsrsRegexMatchSet = a})
 
 -- | The @ChangeToken@ that you used to submit the @CreateRegexMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 crmsrsChangeToken :: Lens' CreateRegexMatchSetResponse (Maybe Text)
-crmsrsChangeToken = lens _crmsrsChangeToken (\ s a -> s{_crmsrsChangeToken = a})
+crmsrsChangeToken = lens _crmsrsChangeToken (\s a -> s {_crmsrsChangeToken = a})
 
 -- | -- | The response status code.
 crmsrsResponseStatus :: Lens' CreateRegexMatchSetResponse Int
-crmsrsResponseStatus = lens _crmsrsResponseStatus (\ s a -> s{_crmsrsResponseStatus = a})
+crmsrsResponseStatus = lens _crmsrsResponseStatus (\s a -> s {_crmsrsResponseStatus = a})
 
-instance NFData CreateRegexMatchSetResponse where
+instance NFData CreateRegexMatchSetResponse

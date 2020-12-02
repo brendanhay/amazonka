@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.MQ
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.MQ where
 
 import Data.Proxy
@@ -46,14 +45,23 @@ import Test.Tasty
 --         , requestListConfigurationRevisions $
 --             listConfigurationRevisions
 --
+--         , requestCreateTags $
+--             createTags
+--
 --         , requestListUsers $
 --             listUsers
+--
+--         , requestDeleteTags $
+--             deleteTags
 --
 --         , requestListConfigurations $
 --             listConfigurations
 --
 --         , requestDescribeUser $
 --             describeUser
+--
+--         , requestDescribeBrokerInstanceOptions $
+--             describeBrokerInstanceOptions
 --
 --         , requestListBrokers $
 --             listBrokers
@@ -69,6 +77,12 @@ import Test.Tasty
 --
 --         , requestDeleteUser $
 --             deleteUser
+--
+--         , requestListTags $
+--             listTags
+--
+--         , requestDescribeBrokerEngineTypes $
+--             describeBrokerEngineTypes
 --
 --         , requestDescribeConfigurationRevision $
 --             describeConfigurationRevision
@@ -100,14 +114,23 @@ import Test.Tasty
 --         , responseListConfigurationRevisions $
 --             listConfigurationRevisionsResponse
 --
+--         , responseCreateTags $
+--             createTagsResponse
+--
 --         , responseListUsers $
 --             listUsersResponse
+--
+--         , responseDeleteTags $
+--             deleteTagsResponse
 --
 --         , responseListConfigurations $
 --             listConfigurationsResponse
 --
 --         , responseDescribeUser $
 --             describeUserResponse
+--
+--         , responseDescribeBrokerInstanceOptions $
+--             describeBrokerInstanceOptionsResponse
 --
 --         , responseListBrokers $
 --             listBrokersResponse
@@ -124,6 +147,12 @@ import Test.Tasty
 --         , responseDeleteUser $
 --             deleteUserResponse
 --
+--         , responseListTags $
+--             listTagsResponse
+--
+--         , responseDescribeBrokerEngineTypes $
+--             describeBrokerEngineTypesResponse
+--
 --         , responseDescribeConfigurationRevision $
 --             describeConfigurationRevisionResponse
 --
@@ -139,206 +168,310 @@ import Test.Tasty
 -- Requests
 
 requestCreateConfiguration :: CreateConfiguration -> TestTree
-requestCreateConfiguration = req
+requestCreateConfiguration =
+  req
     "CreateConfiguration"
     "fixture/CreateConfiguration.yaml"
 
 requestCreateBroker :: CreateBroker -> TestTree
-requestCreateBroker = req
+requestCreateBroker =
+  req
     "CreateBroker"
     "fixture/CreateBroker.yaml"
 
 requestDeleteBroker :: DeleteBroker -> TestTree
-requestDeleteBroker = req
+requestDeleteBroker =
+  req
     "DeleteBroker"
     "fixture/DeleteBroker.yaml"
 
 requestUpdateBroker :: UpdateBroker -> TestTree
-requestUpdateBroker = req
+requestUpdateBroker =
+  req
     "UpdateBroker"
     "fixture/UpdateBroker.yaml"
 
 requestRebootBroker :: RebootBroker -> TestTree
-requestRebootBroker = req
+requestRebootBroker =
+  req
     "RebootBroker"
     "fixture/RebootBroker.yaml"
 
 requestListConfigurationRevisions :: ListConfigurationRevisions -> TestTree
-requestListConfigurationRevisions = req
+requestListConfigurationRevisions =
+  req
     "ListConfigurationRevisions"
     "fixture/ListConfigurationRevisions.yaml"
 
+requestCreateTags :: CreateTags -> TestTree
+requestCreateTags =
+  req
+    "CreateTags"
+    "fixture/CreateTags.yaml"
+
 requestListUsers :: ListUsers -> TestTree
-requestListUsers = req
+requestListUsers =
+  req
     "ListUsers"
     "fixture/ListUsers.yaml"
 
+requestDeleteTags :: DeleteTags -> TestTree
+requestDeleteTags =
+  req
+    "DeleteTags"
+    "fixture/DeleteTags.yaml"
+
 requestListConfigurations :: ListConfigurations -> TestTree
-requestListConfigurations = req
+requestListConfigurations =
+  req
     "ListConfigurations"
     "fixture/ListConfigurations.yaml"
 
 requestDescribeUser :: DescribeUser -> TestTree
-requestDescribeUser = req
+requestDescribeUser =
+  req
     "DescribeUser"
     "fixture/DescribeUser.yaml"
 
+requestDescribeBrokerInstanceOptions :: DescribeBrokerInstanceOptions -> TestTree
+requestDescribeBrokerInstanceOptions =
+  req
+    "DescribeBrokerInstanceOptions"
+    "fixture/DescribeBrokerInstanceOptions.yaml"
+
 requestListBrokers :: ListBrokers -> TestTree
-requestListBrokers = req
+requestListBrokers =
+  req
     "ListBrokers"
     "fixture/ListBrokers.yaml"
 
 requestCreateUser :: CreateUser -> TestTree
-requestCreateUser = req
+requestCreateUser =
+  req
     "CreateUser"
     "fixture/CreateUser.yaml"
 
 requestDescribeConfiguration :: DescribeConfiguration -> TestTree
-requestDescribeConfiguration = req
+requestDescribeConfiguration =
+  req
     "DescribeConfiguration"
     "fixture/DescribeConfiguration.yaml"
 
 requestUpdateUser :: UpdateUser -> TestTree
-requestUpdateUser = req
+requestUpdateUser =
+  req
     "UpdateUser"
     "fixture/UpdateUser.yaml"
 
 requestDeleteUser :: DeleteUser -> TestTree
-requestDeleteUser = req
+requestDeleteUser =
+  req
     "DeleteUser"
     "fixture/DeleteUser.yaml"
 
+requestListTags :: ListTags -> TestTree
+requestListTags =
+  req
+    "ListTags"
+    "fixture/ListTags.yaml"
+
+requestDescribeBrokerEngineTypes :: DescribeBrokerEngineTypes -> TestTree
+requestDescribeBrokerEngineTypes =
+  req
+    "DescribeBrokerEngineTypes"
+    "fixture/DescribeBrokerEngineTypes.yaml"
+
 requestDescribeConfigurationRevision :: DescribeConfigurationRevision -> TestTree
-requestDescribeConfigurationRevision = req
+requestDescribeConfigurationRevision =
+  req
     "DescribeConfigurationRevision"
     "fixture/DescribeConfigurationRevision.yaml"
 
 requestDescribeBroker :: DescribeBroker -> TestTree
-requestDescribeBroker = req
+requestDescribeBroker =
+  req
     "DescribeBroker"
     "fixture/DescribeBroker.yaml"
 
 requestUpdateConfiguration :: UpdateConfiguration -> TestTree
-requestUpdateConfiguration = req
+requestUpdateConfiguration =
+  req
     "UpdateConfiguration"
     "fixture/UpdateConfiguration.yaml"
 
 -- Responses
 
 responseCreateConfiguration :: CreateConfigurationResponse -> TestTree
-responseCreateConfiguration = res
+responseCreateConfiguration =
+  res
     "CreateConfigurationResponse"
     "fixture/CreateConfigurationResponse.proto"
     mq
     (Proxy :: Proxy CreateConfiguration)
 
 responseCreateBroker :: CreateBrokerResponse -> TestTree
-responseCreateBroker = res
+responseCreateBroker =
+  res
     "CreateBrokerResponse"
     "fixture/CreateBrokerResponse.proto"
     mq
     (Proxy :: Proxy CreateBroker)
 
 responseDeleteBroker :: DeleteBrokerResponse -> TestTree
-responseDeleteBroker = res
+responseDeleteBroker =
+  res
     "DeleteBrokerResponse"
     "fixture/DeleteBrokerResponse.proto"
     mq
     (Proxy :: Proxy DeleteBroker)
 
 responseUpdateBroker :: UpdateBrokerResponse -> TestTree
-responseUpdateBroker = res
+responseUpdateBroker =
+  res
     "UpdateBrokerResponse"
     "fixture/UpdateBrokerResponse.proto"
     mq
     (Proxy :: Proxy UpdateBroker)
 
 responseRebootBroker :: RebootBrokerResponse -> TestTree
-responseRebootBroker = res
+responseRebootBroker =
+  res
     "RebootBrokerResponse"
     "fixture/RebootBrokerResponse.proto"
     mq
     (Proxy :: Proxy RebootBroker)
 
 responseListConfigurationRevisions :: ListConfigurationRevisionsResponse -> TestTree
-responseListConfigurationRevisions = res
+responseListConfigurationRevisions =
+  res
     "ListConfigurationRevisionsResponse"
     "fixture/ListConfigurationRevisionsResponse.proto"
     mq
     (Proxy :: Proxy ListConfigurationRevisions)
 
+responseCreateTags :: CreateTagsResponse -> TestTree
+responseCreateTags =
+  res
+    "CreateTagsResponse"
+    "fixture/CreateTagsResponse.proto"
+    mq
+    (Proxy :: Proxy CreateTags)
+
 responseListUsers :: ListUsersResponse -> TestTree
-responseListUsers = res
+responseListUsers =
+  res
     "ListUsersResponse"
     "fixture/ListUsersResponse.proto"
     mq
     (Proxy :: Proxy ListUsers)
 
+responseDeleteTags :: DeleteTagsResponse -> TestTree
+responseDeleteTags =
+  res
+    "DeleteTagsResponse"
+    "fixture/DeleteTagsResponse.proto"
+    mq
+    (Proxy :: Proxy DeleteTags)
+
 responseListConfigurations :: ListConfigurationsResponse -> TestTree
-responseListConfigurations = res
+responseListConfigurations =
+  res
     "ListConfigurationsResponse"
     "fixture/ListConfigurationsResponse.proto"
     mq
     (Proxy :: Proxy ListConfigurations)
 
 responseDescribeUser :: DescribeUserResponse -> TestTree
-responseDescribeUser = res
+responseDescribeUser =
+  res
     "DescribeUserResponse"
     "fixture/DescribeUserResponse.proto"
     mq
     (Proxy :: Proxy DescribeUser)
 
+responseDescribeBrokerInstanceOptions :: DescribeBrokerInstanceOptionsResponse -> TestTree
+responseDescribeBrokerInstanceOptions =
+  res
+    "DescribeBrokerInstanceOptionsResponse"
+    "fixture/DescribeBrokerInstanceOptionsResponse.proto"
+    mq
+    (Proxy :: Proxy DescribeBrokerInstanceOptions)
+
 responseListBrokers :: ListBrokersResponse -> TestTree
-responseListBrokers = res
+responseListBrokers =
+  res
     "ListBrokersResponse"
     "fixture/ListBrokersResponse.proto"
     mq
     (Proxy :: Proxy ListBrokers)
 
 responseCreateUser :: CreateUserResponse -> TestTree
-responseCreateUser = res
+responseCreateUser =
+  res
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
     mq
     (Proxy :: Proxy CreateUser)
 
 responseDescribeConfiguration :: DescribeConfigurationResponse -> TestTree
-responseDescribeConfiguration = res
+responseDescribeConfiguration =
+  res
     "DescribeConfigurationResponse"
     "fixture/DescribeConfigurationResponse.proto"
     mq
     (Proxy :: Proxy DescribeConfiguration)
 
 responseUpdateUser :: UpdateUserResponse -> TestTree
-responseUpdateUser = res
+responseUpdateUser =
+  res
     "UpdateUserResponse"
     "fixture/UpdateUserResponse.proto"
     mq
     (Proxy :: Proxy UpdateUser)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
-responseDeleteUser = res
+responseDeleteUser =
+  res
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
     mq
     (Proxy :: Proxy DeleteUser)
 
+responseListTags :: ListTagsResponse -> TestTree
+responseListTags =
+  res
+    "ListTagsResponse"
+    "fixture/ListTagsResponse.proto"
+    mq
+    (Proxy :: Proxy ListTags)
+
+responseDescribeBrokerEngineTypes :: DescribeBrokerEngineTypesResponse -> TestTree
+responseDescribeBrokerEngineTypes =
+  res
+    "DescribeBrokerEngineTypesResponse"
+    "fixture/DescribeBrokerEngineTypesResponse.proto"
+    mq
+    (Proxy :: Proxy DescribeBrokerEngineTypes)
+
 responseDescribeConfigurationRevision :: DescribeConfigurationRevisionResponse -> TestTree
-responseDescribeConfigurationRevision = res
+responseDescribeConfigurationRevision =
+  res
     "DescribeConfigurationRevisionResponse"
     "fixture/DescribeConfigurationRevisionResponse.proto"
     mq
     (Proxy :: Proxy DescribeConfigurationRevision)
 
 responseDescribeBroker :: DescribeBrokerResponse -> TestTree
-responseDescribeBroker = res
+responseDescribeBroker =
+  res
     "DescribeBrokerResponse"
     "fixture/DescribeBrokerResponse.proto"
     mq
     (Proxy :: Proxy DescribeBroker)
 
 responseUpdateConfiguration :: UpdateConfigurationResponse -> TestTree
-responseUpdateConfiguration = res
+responseUpdateConfiguration =
+  res
     "UpdateConfigurationResponse"
     "fixture/UpdateConfigurationResponse.proto"
     mq

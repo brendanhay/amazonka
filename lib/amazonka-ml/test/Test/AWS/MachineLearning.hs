@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.MachineLearning
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.MachineLearning
-import           Test.AWS.Gen.MachineLearning
-import           Test.Tasty
+import Network.AWS.MachineLearning
+import Test.AWS.Gen.MachineLearning
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

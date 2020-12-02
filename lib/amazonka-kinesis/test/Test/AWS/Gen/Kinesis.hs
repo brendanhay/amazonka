@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.Kinesis
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.Kinesis where
 
 import Data.Proxy
@@ -31,11 +30,17 @@ import Test.Tasty
 --         [ requestPutRecord $
 --             putRecord
 --
+--         , requestSubscribeToShard $
+--             subscribeToShard
+--
 --         , requestDecreaseStreamRetentionPeriod $
 --             decreaseStreamRetentionPeriod
 --
 --         , requestMergeShards $
 --             mergeShards
+--
+--         , requestDeregisterStreamConsumer $
+--             deregisterStreamConsumer
 --
 --         , requestDescribeStreamSummary $
 --             describeStreamSummary
@@ -55,6 +60,9 @@ import Test.Tasty
 --         , requestDescribeLimits $
 --             describeLimits
 --
+--         , requestRegisterStreamConsumer $
+--             registerStreamConsumer
+--
 --         , requestDisableEnhancedMonitoring $
 --             disableEnhancedMonitoring
 --
@@ -63,6 +71,9 @@ import Test.Tasty
 --
 --         , requestListTagsForStream $
 --             listTagsForStream
+--
+--         , requestDescribeStreamConsumer $
+--             describeStreamConsumer
 --
 --         , requestAddTagsToStream $
 --             addTagsToStream
@@ -88,6 +99,9 @@ import Test.Tasty
 --         , requestStartStreamEncryption $
 --             startStreamEncryption
 --
+--         , requestListStreamConsumers $
+--             listStreamConsumers
+--
 --         , requestSplitShard $
 --             splitShard
 --
@@ -103,11 +117,17 @@ import Test.Tasty
 --         [ responsePutRecord $
 --             putRecordResponse
 --
+--         , responseSubscribeToShard $
+--             subscribeToShardResponse
+--
 --         , responseDecreaseStreamRetentionPeriod $
 --             decreaseStreamRetentionPeriodResponse
 --
 --         , responseMergeShards $
 --             mergeShardsResponse
+--
+--         , responseDeregisterStreamConsumer $
+--             deregisterStreamConsumerResponse
 --
 --         , responseDescribeStreamSummary $
 --             describeStreamSummaryResponse
@@ -127,6 +147,9 @@ import Test.Tasty
 --         , responseDescribeLimits $
 --             describeLimitsResponse
 --
+--         , responseRegisterStreamConsumer $
+--             registerStreamConsumerResponse
+--
 --         , responseDisableEnhancedMonitoring $
 --             enhancedMonitoringOutput
 --
@@ -135,6 +158,9 @@ import Test.Tasty
 --
 --         , responseListTagsForStream $
 --             listTagsForStreamResponse
+--
+--         , responseDescribeStreamConsumer $
+--             describeStreamConsumerResponse
 --
 --         , responseAddTagsToStream $
 --             addTagsToStreamResponse
@@ -160,6 +186,9 @@ import Test.Tasty
 --         , responseStartStreamEncryption $
 --             startStreamEncryptionResponse
 --
+--         , responseListStreamConsumers $
+--             listStreamConsumersResponse
+--
 --         , responseSplitShard $
 --             splitShardResponse
 --
@@ -175,278 +204,394 @@ import Test.Tasty
 -- Requests
 
 requestPutRecord :: PutRecord -> TestTree
-requestPutRecord = req
+requestPutRecord =
+  req
     "PutRecord"
     "fixture/PutRecord.yaml"
 
+requestSubscribeToShard :: SubscribeToShard -> TestTree
+requestSubscribeToShard =
+  req
+    "SubscribeToShard"
+    "fixture/SubscribeToShard.yaml"
+
 requestDecreaseStreamRetentionPeriod :: DecreaseStreamRetentionPeriod -> TestTree
-requestDecreaseStreamRetentionPeriod = req
+requestDecreaseStreamRetentionPeriod =
+  req
     "DecreaseStreamRetentionPeriod"
     "fixture/DecreaseStreamRetentionPeriod.yaml"
 
 requestMergeShards :: MergeShards -> TestTree
-requestMergeShards = req
+requestMergeShards =
+  req
     "MergeShards"
     "fixture/MergeShards.yaml"
 
+requestDeregisterStreamConsumer :: DeregisterStreamConsumer -> TestTree
+requestDeregisterStreamConsumer =
+  req
+    "DeregisterStreamConsumer"
+    "fixture/DeregisterStreamConsumer.yaml"
+
 requestDescribeStreamSummary :: DescribeStreamSummary -> TestTree
-requestDescribeStreamSummary = req
+requestDescribeStreamSummary =
+  req
     "DescribeStreamSummary"
     "fixture/DescribeStreamSummary.yaml"
 
 requestGetShardIterator :: GetShardIterator -> TestTree
-requestGetShardIterator = req
+requestGetShardIterator =
+  req
     "GetShardIterator"
     "fixture/GetShardIterator.yaml"
 
 requestGetRecords :: GetRecords -> TestTree
-requestGetRecords = req
+requestGetRecords =
+  req
     "GetRecords"
     "fixture/GetRecords.yaml"
 
 requestStopStreamEncryption :: StopStreamEncryption -> TestTree
-requestStopStreamEncryption = req
+requestStopStreamEncryption =
+  req
     "StopStreamEncryption"
     "fixture/StopStreamEncryption.yaml"
 
 requestEnableEnhancedMonitoring :: EnableEnhancedMonitoring -> TestTree
-requestEnableEnhancedMonitoring = req
+requestEnableEnhancedMonitoring =
+  req
     "EnableEnhancedMonitoring"
     "fixture/EnableEnhancedMonitoring.yaml"
 
 requestDescribeLimits :: DescribeLimits -> TestTree
-requestDescribeLimits = req
+requestDescribeLimits =
+  req
     "DescribeLimits"
     "fixture/DescribeLimits.yaml"
 
+requestRegisterStreamConsumer :: RegisterStreamConsumer -> TestTree
+requestRegisterStreamConsumer =
+  req
+    "RegisterStreamConsumer"
+    "fixture/RegisterStreamConsumer.yaml"
+
 requestDisableEnhancedMonitoring :: DisableEnhancedMonitoring -> TestTree
-requestDisableEnhancedMonitoring = req
+requestDisableEnhancedMonitoring =
+  req
     "DisableEnhancedMonitoring"
     "fixture/DisableEnhancedMonitoring.yaml"
 
 requestUpdateShardCount :: UpdateShardCount -> TestTree
-requestUpdateShardCount = req
+requestUpdateShardCount =
+  req
     "UpdateShardCount"
     "fixture/UpdateShardCount.yaml"
 
 requestListTagsForStream :: ListTagsForStream -> TestTree
-requestListTagsForStream = req
+requestListTagsForStream =
+  req
     "ListTagsForStream"
     "fixture/ListTagsForStream.yaml"
 
+requestDescribeStreamConsumer :: DescribeStreamConsumer -> TestTree
+requestDescribeStreamConsumer =
+  req
+    "DescribeStreamConsumer"
+    "fixture/DescribeStreamConsumer.yaml"
+
 requestAddTagsToStream :: AddTagsToStream -> TestTree
-requestAddTagsToStream = req
+requestAddTagsToStream =
+  req
     "AddTagsToStream"
     "fixture/AddTagsToStream.yaml"
 
 requestPutRecords :: PutRecords -> TestTree
-requestPutRecords = req
+requestPutRecords =
+  req
     "PutRecords"
     "fixture/PutRecords.yaml"
 
 requestListShards :: ListShards -> TestTree
-requestListShards = req
+requestListShards =
+  req
     "ListShards"
     "fixture/ListShards.yaml"
 
 requestDeleteStream :: DeleteStream -> TestTree
-requestDeleteStream = req
+requestDeleteStream =
+  req
     "DeleteStream"
     "fixture/DeleteStream.yaml"
 
 requestRemoveTagsFromStream :: RemoveTagsFromStream -> TestTree
-requestRemoveTagsFromStream = req
+requestRemoveTagsFromStream =
+  req
     "RemoveTagsFromStream"
     "fixture/RemoveTagsFromStream.yaml"
 
 requestListStreams :: ListStreams -> TestTree
-requestListStreams = req
+requestListStreams =
+  req
     "ListStreams"
     "fixture/ListStreams.yaml"
 
 requestCreateStream :: CreateStream -> TestTree
-requestCreateStream = req
+requestCreateStream =
+  req
     "CreateStream"
     "fixture/CreateStream.yaml"
 
 requestStartStreamEncryption :: StartStreamEncryption -> TestTree
-requestStartStreamEncryption = req
+requestStartStreamEncryption =
+  req
     "StartStreamEncryption"
     "fixture/StartStreamEncryption.yaml"
 
+requestListStreamConsumers :: ListStreamConsumers -> TestTree
+requestListStreamConsumers =
+  req
+    "ListStreamConsumers"
+    "fixture/ListStreamConsumers.yaml"
+
 requestSplitShard :: SplitShard -> TestTree
-requestSplitShard = req
+requestSplitShard =
+  req
     "SplitShard"
     "fixture/SplitShard.yaml"
 
 requestIncreaseStreamRetentionPeriod :: IncreaseStreamRetentionPeriod -> TestTree
-requestIncreaseStreamRetentionPeriod = req
+requestIncreaseStreamRetentionPeriod =
+  req
     "IncreaseStreamRetentionPeriod"
     "fixture/IncreaseStreamRetentionPeriod.yaml"
 
 requestDescribeStream :: DescribeStream -> TestTree
-requestDescribeStream = req
+requestDescribeStream =
+  req
     "DescribeStream"
     "fixture/DescribeStream.yaml"
 
 -- Responses
 
 responsePutRecord :: PutRecordResponse -> TestTree
-responsePutRecord = res
+responsePutRecord =
+  res
     "PutRecordResponse"
     "fixture/PutRecordResponse.proto"
     kinesis
     (Proxy :: Proxy PutRecord)
 
+responseSubscribeToShard :: SubscribeToShardResponse -> TestTree
+responseSubscribeToShard =
+  res
+    "SubscribeToShardResponse"
+    "fixture/SubscribeToShardResponse.proto"
+    kinesis
+    (Proxy :: Proxy SubscribeToShard)
+
 responseDecreaseStreamRetentionPeriod :: DecreaseStreamRetentionPeriodResponse -> TestTree
-responseDecreaseStreamRetentionPeriod = res
+responseDecreaseStreamRetentionPeriod =
+  res
     "DecreaseStreamRetentionPeriodResponse"
     "fixture/DecreaseStreamRetentionPeriodResponse.proto"
     kinesis
     (Proxy :: Proxy DecreaseStreamRetentionPeriod)
 
 responseMergeShards :: MergeShardsResponse -> TestTree
-responseMergeShards = res
+responseMergeShards =
+  res
     "MergeShardsResponse"
     "fixture/MergeShardsResponse.proto"
     kinesis
     (Proxy :: Proxy MergeShards)
 
+responseDeregisterStreamConsumer :: DeregisterStreamConsumerResponse -> TestTree
+responseDeregisterStreamConsumer =
+  res
+    "DeregisterStreamConsumerResponse"
+    "fixture/DeregisterStreamConsumerResponse.proto"
+    kinesis
+    (Proxy :: Proxy DeregisterStreamConsumer)
+
 responseDescribeStreamSummary :: DescribeStreamSummaryResponse -> TestTree
-responseDescribeStreamSummary = res
+responseDescribeStreamSummary =
+  res
     "DescribeStreamSummaryResponse"
     "fixture/DescribeStreamSummaryResponse.proto"
     kinesis
     (Proxy :: Proxy DescribeStreamSummary)
 
 responseGetShardIterator :: GetShardIteratorResponse -> TestTree
-responseGetShardIterator = res
+responseGetShardIterator =
+  res
     "GetShardIteratorResponse"
     "fixture/GetShardIteratorResponse.proto"
     kinesis
     (Proxy :: Proxy GetShardIterator)
 
 responseGetRecords :: GetRecordsResponse -> TestTree
-responseGetRecords = res
+responseGetRecords =
+  res
     "GetRecordsResponse"
     "fixture/GetRecordsResponse.proto"
     kinesis
     (Proxy :: Proxy GetRecords)
 
 responseStopStreamEncryption :: StopStreamEncryptionResponse -> TestTree
-responseStopStreamEncryption = res
+responseStopStreamEncryption =
+  res
     "StopStreamEncryptionResponse"
     "fixture/StopStreamEncryptionResponse.proto"
     kinesis
     (Proxy :: Proxy StopStreamEncryption)
 
 responseEnableEnhancedMonitoring :: EnhancedMonitoringOutput -> TestTree
-responseEnableEnhancedMonitoring = res
+responseEnableEnhancedMonitoring =
+  res
     "EnableEnhancedMonitoringResponse"
     "fixture/EnableEnhancedMonitoringResponse.proto"
     kinesis
     (Proxy :: Proxy EnableEnhancedMonitoring)
 
 responseDescribeLimits :: DescribeLimitsResponse -> TestTree
-responseDescribeLimits = res
+responseDescribeLimits =
+  res
     "DescribeLimitsResponse"
     "fixture/DescribeLimitsResponse.proto"
     kinesis
     (Proxy :: Proxy DescribeLimits)
 
+responseRegisterStreamConsumer :: RegisterStreamConsumerResponse -> TestTree
+responseRegisterStreamConsumer =
+  res
+    "RegisterStreamConsumerResponse"
+    "fixture/RegisterStreamConsumerResponse.proto"
+    kinesis
+    (Proxy :: Proxy RegisterStreamConsumer)
+
 responseDisableEnhancedMonitoring :: EnhancedMonitoringOutput -> TestTree
-responseDisableEnhancedMonitoring = res
+responseDisableEnhancedMonitoring =
+  res
     "DisableEnhancedMonitoringResponse"
     "fixture/DisableEnhancedMonitoringResponse.proto"
     kinesis
     (Proxy :: Proxy DisableEnhancedMonitoring)
 
 responseUpdateShardCount :: UpdateShardCountResponse -> TestTree
-responseUpdateShardCount = res
+responseUpdateShardCount =
+  res
     "UpdateShardCountResponse"
     "fixture/UpdateShardCountResponse.proto"
     kinesis
     (Proxy :: Proxy UpdateShardCount)
 
 responseListTagsForStream :: ListTagsForStreamResponse -> TestTree
-responseListTagsForStream = res
+responseListTagsForStream =
+  res
     "ListTagsForStreamResponse"
     "fixture/ListTagsForStreamResponse.proto"
     kinesis
     (Proxy :: Proxy ListTagsForStream)
 
+responseDescribeStreamConsumer :: DescribeStreamConsumerResponse -> TestTree
+responseDescribeStreamConsumer =
+  res
+    "DescribeStreamConsumerResponse"
+    "fixture/DescribeStreamConsumerResponse.proto"
+    kinesis
+    (Proxy :: Proxy DescribeStreamConsumer)
+
 responseAddTagsToStream :: AddTagsToStreamResponse -> TestTree
-responseAddTagsToStream = res
+responseAddTagsToStream =
+  res
     "AddTagsToStreamResponse"
     "fixture/AddTagsToStreamResponse.proto"
     kinesis
     (Proxy :: Proxy AddTagsToStream)
 
 responsePutRecords :: PutRecordsResponse -> TestTree
-responsePutRecords = res
+responsePutRecords =
+  res
     "PutRecordsResponse"
     "fixture/PutRecordsResponse.proto"
     kinesis
     (Proxy :: Proxy PutRecords)
 
 responseListShards :: ListShardsResponse -> TestTree
-responseListShards = res
+responseListShards =
+  res
     "ListShardsResponse"
     "fixture/ListShardsResponse.proto"
     kinesis
     (Proxy :: Proxy ListShards)
 
 responseDeleteStream :: DeleteStreamResponse -> TestTree
-responseDeleteStream = res
+responseDeleteStream =
+  res
     "DeleteStreamResponse"
     "fixture/DeleteStreamResponse.proto"
     kinesis
     (Proxy :: Proxy DeleteStream)
 
 responseRemoveTagsFromStream :: RemoveTagsFromStreamResponse -> TestTree
-responseRemoveTagsFromStream = res
+responseRemoveTagsFromStream =
+  res
     "RemoveTagsFromStreamResponse"
     "fixture/RemoveTagsFromStreamResponse.proto"
     kinesis
     (Proxy :: Proxy RemoveTagsFromStream)
 
 responseListStreams :: ListStreamsResponse -> TestTree
-responseListStreams = res
+responseListStreams =
+  res
     "ListStreamsResponse"
     "fixture/ListStreamsResponse.proto"
     kinesis
     (Proxy :: Proxy ListStreams)
 
 responseCreateStream :: CreateStreamResponse -> TestTree
-responseCreateStream = res
+responseCreateStream =
+  res
     "CreateStreamResponse"
     "fixture/CreateStreamResponse.proto"
     kinesis
     (Proxy :: Proxy CreateStream)
 
 responseStartStreamEncryption :: StartStreamEncryptionResponse -> TestTree
-responseStartStreamEncryption = res
+responseStartStreamEncryption =
+  res
     "StartStreamEncryptionResponse"
     "fixture/StartStreamEncryptionResponse.proto"
     kinesis
     (Proxy :: Proxy StartStreamEncryption)
 
+responseListStreamConsumers :: ListStreamConsumersResponse -> TestTree
+responseListStreamConsumers =
+  res
+    "ListStreamConsumersResponse"
+    "fixture/ListStreamConsumersResponse.proto"
+    kinesis
+    (Proxy :: Proxy ListStreamConsumers)
+
 responseSplitShard :: SplitShardResponse -> TestTree
-responseSplitShard = res
+responseSplitShard =
+  res
     "SplitShardResponse"
     "fixture/SplitShardResponse.proto"
     kinesis
     (Proxy :: Proxy SplitShard)
 
 responseIncreaseStreamRetentionPeriod :: IncreaseStreamRetentionPeriodResponse -> TestTree
-responseIncreaseStreamRetentionPeriod = res
+responseIncreaseStreamRetentionPeriod =
+  res
     "IncreaseStreamRetentionPeriodResponse"
     "fixture/IncreaseStreamRetentionPeriodResponse.proto"
     kinesis
     (Proxy :: Proxy IncreaseStreamRetentionPeriod)
 
 responseDescribeStream :: DescribeStreamResponse -> TestTree
-responseDescribeStream = res
+responseDescribeStream =
+  res
     "DescribeStreamResponse"
     "fixture/DescribeStreamResponse.proto"
     kinesis

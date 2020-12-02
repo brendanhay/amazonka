@@ -1,101 +1,216 @@
-name:                  amazonka-codebuild
-version:               1.6.1
-synopsis:              Amazon CodeBuild SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-codebuild
+version:            2.0.0.0
+synopsis:           Amazon CodeBuild SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2020 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.CodeBuild" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with
+  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+  mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  Lenses are used for constructing and manipulating types,
+  due to the depth of nesting of AWS types and transparency regarding
+  de/serialisation into more palatable Haskell values.
+  The provided lenses should be compatible with any of the major lens libraries
+  such as <http://hackage.haskell.org/package/lens lens> or
+  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Network.AWS.CodeBuild" or <https://aws.amazon.com/documentation/ the AWS documentation>
+  to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-codebuild
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-codebuild
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.CodeBuild
+    Network.AWS.CodeBuild.BatchDeleteBuilds
+    Network.AWS.CodeBuild.BatchGetBuildBatches
+    Network.AWS.CodeBuild.BatchGetBuilds
+    Network.AWS.CodeBuild.BatchGetProjects
+    Network.AWS.CodeBuild.BatchGetReportGroups
+    Network.AWS.CodeBuild.BatchGetReports
+    Network.AWS.CodeBuild.CreateProject
+    Network.AWS.CodeBuild.CreateReportGroup
+    Network.AWS.CodeBuild.CreateWebhook
+    Network.AWS.CodeBuild.DeleteBuildBatch
+    Network.AWS.CodeBuild.DeleteProject
+    Network.AWS.CodeBuild.DeleteReport
+    Network.AWS.CodeBuild.DeleteReportGroup
+    Network.AWS.CodeBuild.DeleteResourcePolicy
+    Network.AWS.CodeBuild.DeleteSourceCredentials
+    Network.AWS.CodeBuild.DeleteWebhook
+    Network.AWS.CodeBuild.DescribeCodeCoverages
+    Network.AWS.CodeBuild.DescribeTestCases
+    Network.AWS.CodeBuild.GetReportGroupTrend
+    Network.AWS.CodeBuild.GetResourcePolicy
+    Network.AWS.CodeBuild.ImportSourceCredentials
+    Network.AWS.CodeBuild.InvalidateProjectCache
+    Network.AWS.CodeBuild.ListBuildBatches
+    Network.AWS.CodeBuild.ListBuildBatchesForProject
+    Network.AWS.CodeBuild.ListBuilds
+    Network.AWS.CodeBuild.ListBuildsForProject
+    Network.AWS.CodeBuild.ListCuratedEnvironmentImages
+    Network.AWS.CodeBuild.ListProjects
+    Network.AWS.CodeBuild.ListReportGroups
+    Network.AWS.CodeBuild.ListReports
+    Network.AWS.CodeBuild.ListReportsForReportGroup
+    Network.AWS.CodeBuild.ListSharedProjects
+    Network.AWS.CodeBuild.ListSharedReportGroups
+    Network.AWS.CodeBuild.ListSourceCredentials
+    Network.AWS.CodeBuild.PutResourcePolicy
+    Network.AWS.CodeBuild.RetryBuild
+    Network.AWS.CodeBuild.RetryBuildBatch
+    Network.AWS.CodeBuild.StartBuild
+    Network.AWS.CodeBuild.StartBuildBatch
+    Network.AWS.CodeBuild.StopBuild
+    Network.AWS.CodeBuild.StopBuildBatch
+    Network.AWS.CodeBuild.Types
+    Network.AWS.CodeBuild.UpdateProject
+    Network.AWS.CodeBuild.UpdateReportGroup
+    Network.AWS.CodeBuild.UpdateWebhook
+    Network.AWS.CodeBuild.Waiters
 
-    exposed-modules:
-          Network.AWS.CodeBuild
-        , Network.AWS.CodeBuild.BatchDeleteBuilds
-        , Network.AWS.CodeBuild.BatchGetBuilds
-        , Network.AWS.CodeBuild.BatchGetProjects
-        , Network.AWS.CodeBuild.CreateProject
-        , Network.AWS.CodeBuild.CreateWebhook
-        , Network.AWS.CodeBuild.DeleteProject
-        , Network.AWS.CodeBuild.DeleteWebhook
-        , Network.AWS.CodeBuild.InvalidateProjectCache
-        , Network.AWS.CodeBuild.ListBuilds
-        , Network.AWS.CodeBuild.ListBuildsForProject
-        , Network.AWS.CodeBuild.ListCuratedEnvironmentImages
-        , Network.AWS.CodeBuild.ListProjects
-        , Network.AWS.CodeBuild.StartBuild
-        , Network.AWS.CodeBuild.StopBuild
-        , Network.AWS.CodeBuild.Types
-        , Network.AWS.CodeBuild.UpdateProject
-        , Network.AWS.CodeBuild.UpdateWebhook
-        , Network.AWS.CodeBuild.Waiters
+  other-modules:
+    Network.AWS.CodeBuild.Types.ArtifactNamespace
+    Network.AWS.CodeBuild.Types.ArtifactPackaging
+    Network.AWS.CodeBuild.Types.ArtifactsType
+    Network.AWS.CodeBuild.Types.AuthType
+    Network.AWS.CodeBuild.Types.BatchRestrictions
+    Network.AWS.CodeBuild.Types.Build
+    Network.AWS.CodeBuild.Types.BuildArtifacts
+    Network.AWS.CodeBuild.Types.BuildBatch
+    Network.AWS.CodeBuild.Types.BuildBatchFilter
+    Network.AWS.CodeBuild.Types.BuildBatchPhase
+    Network.AWS.CodeBuild.Types.BuildBatchPhaseType
+    Network.AWS.CodeBuild.Types.BuildGroup
+    Network.AWS.CodeBuild.Types.BuildNotDeleted
+    Network.AWS.CodeBuild.Types.BuildPhase
+    Network.AWS.CodeBuild.Types.BuildPhaseType
+    Network.AWS.CodeBuild.Types.BuildStatusConfig
+    Network.AWS.CodeBuild.Types.BuildSummary
+    Network.AWS.CodeBuild.Types.CacheMode
+    Network.AWS.CodeBuild.Types.CacheType
+    Network.AWS.CodeBuild.Types.CloudWatchLogsConfig
+    Network.AWS.CodeBuild.Types.CodeCoverage
+    Network.AWS.CodeBuild.Types.CodeCoverageReportSummary
+    Network.AWS.CodeBuild.Types.ComputeType
+    Network.AWS.CodeBuild.Types.CredentialProviderType
+    Network.AWS.CodeBuild.Types.DebugSession
+    Network.AWS.CodeBuild.Types.EnvironmentImage
+    Network.AWS.CodeBuild.Types.EnvironmentLanguage
+    Network.AWS.CodeBuild.Types.EnvironmentPlatform
+    Network.AWS.CodeBuild.Types.EnvironmentType
+    Network.AWS.CodeBuild.Types.EnvironmentVariable
+    Network.AWS.CodeBuild.Types.EnvironmentVariableType
+    Network.AWS.CodeBuild.Types.ExportedEnvironmentVariable
+    Network.AWS.CodeBuild.Types.FileSystemType
+    Network.AWS.CodeBuild.Types.GitSubmodulesConfig
+    Network.AWS.CodeBuild.Types.ImagePullCredentialsType
+    Network.AWS.CodeBuild.Types.LanguageType
+    Network.AWS.CodeBuild.Types.LogsConfig
+    Network.AWS.CodeBuild.Types.LogsConfigStatusType
+    Network.AWS.CodeBuild.Types.LogsLocation
+    Network.AWS.CodeBuild.Types.NetworkInterface
+    Network.AWS.CodeBuild.Types.PhaseContext
+    Network.AWS.CodeBuild.Types.PlatformType
+    Network.AWS.CodeBuild.Types.Project
+    Network.AWS.CodeBuild.Types.ProjectArtifacts
+    Network.AWS.CodeBuild.Types.ProjectBadge
+    Network.AWS.CodeBuild.Types.ProjectBuildBatchConfig
+    Network.AWS.CodeBuild.Types.ProjectCache
+    Network.AWS.CodeBuild.Types.ProjectEnvironment
+    Network.AWS.CodeBuild.Types.ProjectFileSystemLocation
+    Network.AWS.CodeBuild.Types.ProjectSortByType
+    Network.AWS.CodeBuild.Types.ProjectSource
+    Network.AWS.CodeBuild.Types.ProjectSourceVersion
+    Network.AWS.CodeBuild.Types.RegistryCredential
+    Network.AWS.CodeBuild.Types.Report
+    Network.AWS.CodeBuild.Types.ReportCodeCoverageSortByType
+    Network.AWS.CodeBuild.Types.ReportExportConfig
+    Network.AWS.CodeBuild.Types.ReportExportConfigType
+    Network.AWS.CodeBuild.Types.ReportFilter
+    Network.AWS.CodeBuild.Types.ReportGroup
+    Network.AWS.CodeBuild.Types.ReportGroupSortByType
+    Network.AWS.CodeBuild.Types.ReportGroupStatusType
+    Network.AWS.CodeBuild.Types.ReportGroupTrendFieldType
+    Network.AWS.CodeBuild.Types.ReportGroupTrendStats
+    Network.AWS.CodeBuild.Types.ReportPackagingType
+    Network.AWS.CodeBuild.Types.ReportStatusType
+    Network.AWS.CodeBuild.Types.ReportType
+    Network.AWS.CodeBuild.Types.ReportWithRawData
+    Network.AWS.CodeBuild.Types.ResolvedArtifact
+    Network.AWS.CodeBuild.Types.RetryBuildBatchType
+    Network.AWS.CodeBuild.Types.S3LogsConfig
+    Network.AWS.CodeBuild.Types.S3ReportExportConfig
+    Network.AWS.CodeBuild.Types.ServerType
+    Network.AWS.CodeBuild.Types.SharedResourceSortByType
+    Network.AWS.CodeBuild.Types.SortOrderType
+    Network.AWS.CodeBuild.Types.SourceAuth
+    Network.AWS.CodeBuild.Types.SourceAuthType
+    Network.AWS.CodeBuild.Types.SourceCredentialsInfo
+    Network.AWS.CodeBuild.Types.SourceType
+    Network.AWS.CodeBuild.Types.StatusType
+    Network.AWS.CodeBuild.Types.Tag
+    Network.AWS.CodeBuild.Types.TestCase
+    Network.AWS.CodeBuild.Types.TestCaseFilter
+    Network.AWS.CodeBuild.Types.TestReportSummary
+    Network.AWS.CodeBuild.Types.VPCConfig
+    Network.AWS.CodeBuild.Types.Webhook
+    Network.AWS.CodeBuild.Types.WebhookBuildType
+    Network.AWS.CodeBuild.Types.WebhookFilter
+    Network.AWS.CodeBuild.Types.WebhookFilterType
 
-    other-modules:
-          Network.AWS.CodeBuild.Types.Product
-        , Network.AWS.CodeBuild.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.7   && <5
 
 test-suite amazonka-codebuild-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.CodeBuild
+    Test.AWS.CodeBuild.Internal
+    Test.AWS.Gen.CodeBuild
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.CodeBuild
-        , Test.AWS.Gen.CodeBuild
-        , Test.AWS.CodeBuild.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-codebuild
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-codebuild
+    , amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

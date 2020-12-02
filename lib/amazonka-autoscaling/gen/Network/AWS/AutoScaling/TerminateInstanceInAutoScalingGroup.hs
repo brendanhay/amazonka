@@ -1,18 +1,17 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,27 +20,31 @@
 -- Terminates the specified instance and optionally adjusts the desired group size.
 --
 --
--- This call simply makes a termination request. The instance is not terminated immediately.
+-- This call simply makes a termination request. The instance is not terminated immediately. When an instance is terminated, the instance status changes to @terminated@ . You can't connect to or start an instance after you've terminated it.
 --
+-- If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are terminated.
+--
+-- By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you decrement the desired capacity, your Auto Scaling group can become unbalanced between Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might terminate instances in other zones. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#AutoScalingBehavior.InstanceUsage Rebalancing activities> in the /Amazon EC2 Auto Scaling User Guide/ .
 module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
-    (
-    -- * Creating a Request
-      terminateInstanceInAutoScalingGroup
-    , TerminateInstanceInAutoScalingGroup
+  ( -- * Creating a Request
+    terminateInstanceInAutoScalingGroup,
+    TerminateInstanceInAutoScalingGroup,
+
     -- * Request Lenses
-    , tiiasgInstanceId
-    , tiiasgShouldDecrementDesiredCapacity
+    tiiasgInstanceId,
+    tiiasgShouldDecrementDesiredCapacity,
 
     -- * Destructuring the Response
-    , terminateInstanceInAutoScalingGroupResponse
-    , TerminateInstanceInAutoScalingGroupResponse
+    terminateInstanceInAutoScalingGroupResponse,
+    TerminateInstanceInAutoScalingGroupResponse,
+
     -- * Response Lenses
-    , tiiasgrsActivity
-    , tiiasgrsResponseStatus
-    ) where
+    tiiasgrsActivity,
+    tiiasgrsResponseStatus,
+  )
+where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
@@ -49,10 +52,12 @@ import Network.AWS.Response
 
 -- | /See:/ 'terminateInstanceInAutoScalingGroup' smart constructor.
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
-  { _tiiasgInstanceId                     :: !Text
-  , _tiiasgShouldDecrementDesiredCapacity :: !Bool
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _tiiasgInstanceId ::
+      !Text,
+    _tiiasgShouldDecrementDesiredCapacity ::
+      !Bool
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'TerminateInstanceInAutoScalingGroup' with the minimum fields required to make a request.
 --
@@ -61,71 +66,80 @@ data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
 -- * 'tiiasgInstanceId' - The ID of the instance.
 --
 -- * 'tiiasgShouldDecrementDesiredCapacity' - Indicates whether terminating the instance also decrements the size of the Auto Scaling group.
+terminateInstanceInAutoScalingGroup ::
+  -- | 'tiiasgInstanceId'
+  Text ->
+  -- | 'tiiasgShouldDecrementDesiredCapacity'
+  Bool ->
+  TerminateInstanceInAutoScalingGroup
 terminateInstanceInAutoScalingGroup
-    :: Text -- ^ 'tiiasgInstanceId'
-    -> Bool -- ^ 'tiiasgShouldDecrementDesiredCapacity'
-    -> TerminateInstanceInAutoScalingGroup
-terminateInstanceInAutoScalingGroup pInstanceId_ pShouldDecrementDesiredCapacity_ =
-  TerminateInstanceInAutoScalingGroup'
-    { _tiiasgInstanceId = pInstanceId_
-    , _tiiasgShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
-    }
-
+  pInstanceId_
+  pShouldDecrementDesiredCapacity_ =
+    TerminateInstanceInAutoScalingGroup'
+      { _tiiasgInstanceId =
+          pInstanceId_,
+        _tiiasgShouldDecrementDesiredCapacity =
+          pShouldDecrementDesiredCapacity_
+      }
 
 -- | The ID of the instance.
 tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
-tiiasgInstanceId = lens _tiiasgInstanceId (\ s a -> s{_tiiasgInstanceId = a})
+tiiasgInstanceId = lens _tiiasgInstanceId (\s a -> s {_tiiasgInstanceId = a})
 
 -- | Indicates whether terminating the instance also decrements the size of the Auto Scaling group.
 tiiasgShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup Bool
-tiiasgShouldDecrementDesiredCapacity = lens _tiiasgShouldDecrementDesiredCapacity (\ s a -> s{_tiiasgShouldDecrementDesiredCapacity = a})
+tiiasgShouldDecrementDesiredCapacity = lens _tiiasgShouldDecrementDesiredCapacity (\s a -> s {_tiiasgShouldDecrementDesiredCapacity = a})
 
-instance AWSRequest
-           TerminateInstanceInAutoScalingGroup
-         where
-        type Rs TerminateInstanceInAutoScalingGroup =
-             TerminateInstanceInAutoScalingGroupResponse
-        request = postQuery autoScaling
-        response
-          = receiveXMLWrapper
-              "TerminateInstanceInAutoScalingGroupResult"
-              (\ s h x ->
-                 TerminateInstanceInAutoScalingGroupResponse' <$>
-                   (x .@? "Activity") <*> (pure (fromEnum s)))
+instance AWSRequest TerminateInstanceInAutoScalingGroup where
+  type
+    Rs TerminateInstanceInAutoScalingGroup =
+      TerminateInstanceInAutoScalingGroupResponse
+  request = postQuery autoScaling
+  response =
+    receiveXMLWrapper
+      "TerminateInstanceInAutoScalingGroupResult"
+      ( \s h x ->
+          TerminateInstanceInAutoScalingGroupResponse'
+            <$> (x .@? "Activity") <*> (pure (fromEnum s))
+      )
 
 instance Hashable TerminateInstanceInAutoScalingGroup
-         where
 
 instance NFData TerminateInstanceInAutoScalingGroup
-         where
 
-instance ToHeaders
-           TerminateInstanceInAutoScalingGroup
-         where
-        toHeaders = const mempty
+instance ToHeaders TerminateInstanceInAutoScalingGroup where
+  toHeaders = const mempty
 
-instance ToPath TerminateInstanceInAutoScalingGroup
-         where
-        toPath = const "/"
+instance ToPath TerminateInstanceInAutoScalingGroup where
+  toPath = const "/"
 
-instance ToQuery TerminateInstanceInAutoScalingGroup
-         where
-        toQuery TerminateInstanceInAutoScalingGroup'{..}
-          = mconcat
-              ["Action" =:
-                 ("TerminateInstanceInAutoScalingGroup" ::
-                    ByteString),
-               "Version" =: ("2011-01-01" :: ByteString),
-               "InstanceId" =: _tiiasgInstanceId,
-               "ShouldDecrementDesiredCapacity" =:
-                 _tiiasgShouldDecrementDesiredCapacity]
+instance ToQuery TerminateInstanceInAutoScalingGroup where
+  toQuery TerminateInstanceInAutoScalingGroup' {..} =
+    mconcat
+      [ "Action" =: ("TerminateInstanceInAutoScalingGroup" :: ByteString),
+        "Version" =: ("2011-01-01" :: ByteString),
+        "InstanceId" =: _tiiasgInstanceId,
+        "ShouldDecrementDesiredCapacity"
+          =: _tiiasgShouldDecrementDesiredCapacity
+      ]
 
 -- | /See:/ 'terminateInstanceInAutoScalingGroupResponse' smart constructor.
 data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'
-  { _tiiasgrsActivity       :: !(Maybe Activity)
-  , _tiiasgrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _tiiasgrsActivity ::
+      !( Maybe
+           Activity
+       ),
+    _tiiasgrsResponseStatus ::
+      !Int
+  }
+  deriving
+    ( Eq,
+      Read,
+      Show,
+      Data,
+      Typeable,
+      Generic
+    )
 
 -- | Creates a value of 'TerminateInstanceInAutoScalingGroupResponse' with the minimum fields required to make a request.
 --
@@ -134,22 +148,23 @@ data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalin
 -- * 'tiiasgrsActivity' - A scaling activity.
 --
 -- * 'tiiasgrsResponseStatus' - -- | The response status code.
-terminateInstanceInAutoScalingGroupResponse
-    :: Int -- ^ 'tiiasgrsResponseStatus'
-    -> TerminateInstanceInAutoScalingGroupResponse
+terminateInstanceInAutoScalingGroupResponse ::
+  -- | 'tiiasgrsResponseStatus'
+  Int ->
+  TerminateInstanceInAutoScalingGroupResponse
 terminateInstanceInAutoScalingGroupResponse pResponseStatus_ =
   TerminateInstanceInAutoScalingGroupResponse'
-    {_tiiasgrsActivity = Nothing, _tiiasgrsResponseStatus = pResponseStatus_}
-
+    { _tiiasgrsActivity =
+        Nothing,
+      _tiiasgrsResponseStatus = pResponseStatus_
+    }
 
 -- | A scaling activity.
 tiiasgrsActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
-tiiasgrsActivity = lens _tiiasgrsActivity (\ s a -> s{_tiiasgrsActivity = a})
+tiiasgrsActivity = lens _tiiasgrsActivity (\s a -> s {_tiiasgrsActivity = a})
 
 -- | -- | The response status code.
 tiiasgrsResponseStatus :: Lens' TerminateInstanceInAutoScalingGroupResponse Int
-tiiasgrsResponseStatus = lens _tiiasgrsResponseStatus (\ s a -> s{_tiiasgrsResponseStatus = a})
+tiiasgrsResponseStatus = lens _tiiasgrsResponseStatus (\s a -> s {_tiiasgrsResponseStatus = a})
 
-instance NFData
-           TerminateInstanceInAutoScalingGroupResponse
-         where
+instance NFData TerminateInstanceInAutoScalingGroupResponse

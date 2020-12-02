@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.CodeStar
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.CodeStar where
 
 import Data.Proxy
@@ -145,218 +144,254 @@ import Test.Tasty
 -- Requests
 
 requestListProjects :: ListProjects -> TestTree
-requestListProjects = req
+requestListProjects =
+  req
     "ListProjects"
     "fixture/ListProjects.yaml"
 
 requestListTeamMembers :: ListTeamMembers -> TestTree
-requestListTeamMembers = req
+requestListTeamMembers =
+  req
     "ListTeamMembers"
     "fixture/ListTeamMembers.yaml"
 
 requestDeleteProject :: DeleteProject -> TestTree
-requestDeleteProject = req
+requestDeleteProject =
+  req
     "DeleteProject"
     "fixture/DeleteProject.yaml"
 
 requestUpdateProject :: UpdateProject -> TestTree
-requestUpdateProject = req
+requestUpdateProject =
+  req
     "UpdateProject"
     "fixture/UpdateProject.yaml"
 
 requestDisassociateTeamMember :: DisassociateTeamMember -> TestTree
-requestDisassociateTeamMember = req
+requestDisassociateTeamMember =
+  req
     "DisassociateTeamMember"
     "fixture/DisassociateTeamMember.yaml"
 
 requestTagProject :: TagProject -> TestTree
-requestTagProject = req
+requestTagProject =
+  req
     "TagProject"
     "fixture/TagProject.yaml"
 
 requestDescribeProject :: DescribeProject -> TestTree
-requestDescribeProject = req
+requestDescribeProject =
+  req
     "DescribeProject"
     "fixture/DescribeProject.yaml"
 
 requestListUserProfiles :: ListUserProfiles -> TestTree
-requestListUserProfiles = req
+requestListUserProfiles =
+  req
     "ListUserProfiles"
     "fixture/ListUserProfiles.yaml"
 
 requestListResources :: ListResources -> TestTree
-requestListResources = req
+requestListResources =
+  req
     "ListResources"
     "fixture/ListResources.yaml"
 
 requestAssociateTeamMember :: AssociateTeamMember -> TestTree
-requestAssociateTeamMember = req
+requestAssociateTeamMember =
+  req
     "AssociateTeamMember"
     "fixture/AssociateTeamMember.yaml"
 
 requestUntagProject :: UntagProject -> TestTree
-requestUntagProject = req
+requestUntagProject =
+  req
     "UntagProject"
     "fixture/UntagProject.yaml"
 
 requestUpdateTeamMember :: UpdateTeamMember -> TestTree
-requestUpdateTeamMember = req
+requestUpdateTeamMember =
+  req
     "UpdateTeamMember"
     "fixture/UpdateTeamMember.yaml"
 
 requestDescribeUserProfile :: DescribeUserProfile -> TestTree
-requestDescribeUserProfile = req
+requestDescribeUserProfile =
+  req
     "DescribeUserProfile"
     "fixture/DescribeUserProfile.yaml"
 
 requestListTagsForProject :: ListTagsForProject -> TestTree
-requestListTagsForProject = req
+requestListTagsForProject =
+  req
     "ListTagsForProject"
     "fixture/ListTagsForProject.yaml"
 
 requestDeleteUserProfile :: DeleteUserProfile -> TestTree
-requestDeleteUserProfile = req
+requestDeleteUserProfile =
+  req
     "DeleteUserProfile"
     "fixture/DeleteUserProfile.yaml"
 
 requestUpdateUserProfile :: UpdateUserProfile -> TestTree
-requestUpdateUserProfile = req
+requestUpdateUserProfile =
+  req
     "UpdateUserProfile"
     "fixture/UpdateUserProfile.yaml"
 
 requestCreateUserProfile :: CreateUserProfile -> TestTree
-requestCreateUserProfile = req
+requestCreateUserProfile =
+  req
     "CreateUserProfile"
     "fixture/CreateUserProfile.yaml"
 
 requestCreateProject :: CreateProject -> TestTree
-requestCreateProject = req
+requestCreateProject =
+  req
     "CreateProject"
     "fixture/CreateProject.yaml"
 
 -- Responses
 
 responseListProjects :: ListProjectsResponse -> TestTree
-responseListProjects = res
+responseListProjects =
+  res
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
     codeStar
     (Proxy :: Proxy ListProjects)
 
 responseListTeamMembers :: ListTeamMembersResponse -> TestTree
-responseListTeamMembers = res
+responseListTeamMembers =
+  res
     "ListTeamMembersResponse"
     "fixture/ListTeamMembersResponse.proto"
     codeStar
     (Proxy :: Proxy ListTeamMembers)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
-responseDeleteProject = res
+responseDeleteProject =
+  res
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
     codeStar
     (Proxy :: Proxy DeleteProject)
 
 responseUpdateProject :: UpdateProjectResponse -> TestTree
-responseUpdateProject = res
+responseUpdateProject =
+  res
     "UpdateProjectResponse"
     "fixture/UpdateProjectResponse.proto"
     codeStar
     (Proxy :: Proxy UpdateProject)
 
 responseDisassociateTeamMember :: DisassociateTeamMemberResponse -> TestTree
-responseDisassociateTeamMember = res
+responseDisassociateTeamMember =
+  res
     "DisassociateTeamMemberResponse"
     "fixture/DisassociateTeamMemberResponse.proto"
     codeStar
     (Proxy :: Proxy DisassociateTeamMember)
 
 responseTagProject :: TagProjectResponse -> TestTree
-responseTagProject = res
+responseTagProject =
+  res
     "TagProjectResponse"
     "fixture/TagProjectResponse.proto"
     codeStar
     (Proxy :: Proxy TagProject)
 
 responseDescribeProject :: DescribeProjectResponse -> TestTree
-responseDescribeProject = res
+responseDescribeProject =
+  res
     "DescribeProjectResponse"
     "fixture/DescribeProjectResponse.proto"
     codeStar
     (Proxy :: Proxy DescribeProject)
 
 responseListUserProfiles :: ListUserProfilesResponse -> TestTree
-responseListUserProfiles = res
+responseListUserProfiles =
+  res
     "ListUserProfilesResponse"
     "fixture/ListUserProfilesResponse.proto"
     codeStar
     (Proxy :: Proxy ListUserProfiles)
 
 responseListResources :: ListResourcesResponse -> TestTree
-responseListResources = res
+responseListResources =
+  res
     "ListResourcesResponse"
     "fixture/ListResourcesResponse.proto"
     codeStar
     (Proxy :: Proxy ListResources)
 
 responseAssociateTeamMember :: AssociateTeamMemberResponse -> TestTree
-responseAssociateTeamMember = res
+responseAssociateTeamMember =
+  res
     "AssociateTeamMemberResponse"
     "fixture/AssociateTeamMemberResponse.proto"
     codeStar
     (Proxy :: Proxy AssociateTeamMember)
 
 responseUntagProject :: UntagProjectResponse -> TestTree
-responseUntagProject = res
+responseUntagProject =
+  res
     "UntagProjectResponse"
     "fixture/UntagProjectResponse.proto"
     codeStar
     (Proxy :: Proxy UntagProject)
 
 responseUpdateTeamMember :: UpdateTeamMemberResponse -> TestTree
-responseUpdateTeamMember = res
+responseUpdateTeamMember =
+  res
     "UpdateTeamMemberResponse"
     "fixture/UpdateTeamMemberResponse.proto"
     codeStar
     (Proxy :: Proxy UpdateTeamMember)
 
 responseDescribeUserProfile :: DescribeUserProfileResponse -> TestTree
-responseDescribeUserProfile = res
+responseDescribeUserProfile =
+  res
     "DescribeUserProfileResponse"
     "fixture/DescribeUserProfileResponse.proto"
     codeStar
     (Proxy :: Proxy DescribeUserProfile)
 
 responseListTagsForProject :: ListTagsForProjectResponse -> TestTree
-responseListTagsForProject = res
+responseListTagsForProject =
+  res
     "ListTagsForProjectResponse"
     "fixture/ListTagsForProjectResponse.proto"
     codeStar
     (Proxy :: Proxy ListTagsForProject)
 
 responseDeleteUserProfile :: DeleteUserProfileResponse -> TestTree
-responseDeleteUserProfile = res
+responseDeleteUserProfile =
+  res
     "DeleteUserProfileResponse"
     "fixture/DeleteUserProfileResponse.proto"
     codeStar
     (Proxy :: Proxy DeleteUserProfile)
 
 responseUpdateUserProfile :: UpdateUserProfileResponse -> TestTree
-responseUpdateUserProfile = res
+responseUpdateUserProfile =
+  res
     "UpdateUserProfileResponse"
     "fixture/UpdateUserProfileResponse.proto"
     codeStar
     (Proxy :: Proxy UpdateUserProfile)
 
 responseCreateUserProfile :: CreateUserProfileResponse -> TestTree
-responseCreateUserProfile = res
+responseCreateUserProfile =
+  res
     "CreateUserProfileResponse"
     "fixture/CreateUserProfileResponse.proto"
     codeStar
     (Proxy :: Proxy CreateUserProfile)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
-responseCreateProject = res
+responseCreateProject =
+  res
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
     codeStar

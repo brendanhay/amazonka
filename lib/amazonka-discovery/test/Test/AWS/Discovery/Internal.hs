@@ -11,7 +11,6 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
-
 module Test.AWS.Discovery.Internal where
 
-import           Test.AWS.Prelude
+import Test.AWS.Prelude

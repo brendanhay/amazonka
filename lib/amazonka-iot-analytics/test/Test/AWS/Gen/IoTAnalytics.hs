@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.IoTAnalytics
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.IoTAnalytics where
 
 import Data.Proxy
@@ -37,8 +36,14 @@ import Test.Tasty
 --         , requestListChannels $
 --             listChannels
 --
+--         , requestListDatasetContents $
+--             listDatasetContents
+--
 --         , requestPutLoggingOptions $
 --             putLoggingOptions
+--
+--         , requestListTagsForResource $
+--             listTagsForResource
 --
 --         , requestDeleteChannel $
 --             deleteChannel
@@ -100,8 +105,14 @@ import Test.Tasty
 --         , requestGetDatasetContent $
 --             getDatasetContent
 --
+--         , requestTagResource $
+--             tagResource
+--
 --         , requestListDatasets $
 --             listDatasets
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestRunPipelineActivity $
 --             runPipelineActivity
@@ -130,8 +141,14 @@ import Test.Tasty
 --         , responseListChannels $
 --             listChannelsResponse
 --
+--         , responseListDatasetContents $
+--             listDatasetContentsResponse
+--
 --         , responsePutLoggingOptions $
 --             putLoggingOptionsResponse
+--
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
 --
 --         , responseDeleteChannel $
 --             deleteChannelResponse
@@ -193,8 +210,14 @@ import Test.Tasty
 --         , responseGetDatasetContent $
 --             getDatasetContentResponse
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
 --         , responseListDatasets $
 --             listDatasetsResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responseRunPipelineActivity $
 --             runPipelineActivityResponse
@@ -217,362 +240,478 @@ import Test.Tasty
 -- Requests
 
 requestDescribePipeline :: DescribePipeline -> TestTree
-requestDescribePipeline = req
+requestDescribePipeline =
+  req
     "DescribePipeline"
     "fixture/DescribePipeline.yaml"
 
 requestDescribeDataset :: DescribeDataset -> TestTree
-requestDescribeDataset = req
+requestDescribeDataset =
+  req
     "DescribeDataset"
     "fixture/DescribeDataset.yaml"
 
 requestListChannels :: ListChannels -> TestTree
-requestListChannels = req
+requestListChannels =
+  req
     "ListChannels"
     "fixture/ListChannels.yaml"
 
+requestListDatasetContents :: ListDatasetContents -> TestTree
+requestListDatasetContents =
+  req
+    "ListDatasetContents"
+    "fixture/ListDatasetContents.yaml"
+
 requestPutLoggingOptions :: PutLoggingOptions -> TestTree
-requestPutLoggingOptions = req
+requestPutLoggingOptions =
+  req
     "PutLoggingOptions"
     "fixture/PutLoggingOptions.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestDeleteChannel :: DeleteChannel -> TestTree
-requestDeleteChannel = req
+requestDeleteChannel =
+  req
     "DeleteChannel"
     "fixture/DeleteChannel.yaml"
 
 requestUpdateChannel :: UpdateChannel -> TestTree
-requestUpdateChannel = req
+requestUpdateChannel =
+  req
     "UpdateChannel"
     "fixture/UpdateChannel.yaml"
 
 requestSampleChannelData :: SampleChannelData -> TestTree
-requestSampleChannelData = req
+requestSampleChannelData =
+  req
     "SampleChannelData"
     "fixture/SampleChannelData.yaml"
 
 requestCancelPipelineReprocessing :: CancelPipelineReprocessing -> TestTree
-requestCancelPipelineReprocessing = req
+requestCancelPipelineReprocessing =
+  req
     "CancelPipelineReprocessing"
     "fixture/CancelPipelineReprocessing.yaml"
 
 requestCreateDatastore :: CreateDatastore -> TestTree
-requestCreateDatastore = req
+requestCreateDatastore =
+  req
     "CreateDatastore"
     "fixture/CreateDatastore.yaml"
 
 requestUpdatePipeline :: UpdatePipeline -> TestTree
-requestUpdatePipeline = req
+requestUpdatePipeline =
+  req
     "UpdatePipeline"
     "fixture/UpdatePipeline.yaml"
 
 requestDeletePipeline :: DeletePipeline -> TestTree
-requestDeletePipeline = req
+requestDeletePipeline =
+  req
     "DeletePipeline"
     "fixture/DeletePipeline.yaml"
 
 requestDeleteDataset :: DeleteDataset -> TestTree
-requestDeleteDataset = req
+requestDeleteDataset =
+  req
     "DeleteDataset"
     "fixture/DeleteDataset.yaml"
 
 requestUpdateDataset :: UpdateDataset -> TestTree
-requestUpdateDataset = req
+requestUpdateDataset =
+  req
     "UpdateDataset"
     "fixture/UpdateDataset.yaml"
 
 requestListPipelines :: ListPipelines -> TestTree
-requestListPipelines = req
+requestListPipelines =
+  req
     "ListPipelines"
     "fixture/ListPipelines.yaml"
 
 requestDeleteDatastore :: DeleteDatastore -> TestTree
-requestDeleteDatastore = req
+requestDeleteDatastore =
+  req
     "DeleteDatastore"
     "fixture/DeleteDatastore.yaml"
 
 requestUpdateDatastore :: UpdateDatastore -> TestTree
-requestUpdateDatastore = req
+requestUpdateDatastore =
+  req
     "UpdateDatastore"
     "fixture/UpdateDatastore.yaml"
 
 requestCreateDataset :: CreateDataset -> TestTree
-requestCreateDataset = req
+requestCreateDataset =
+  req
     "CreateDataset"
     "fixture/CreateDataset.yaml"
 
 requestBatchPutMessage :: BatchPutMessage -> TestTree
-requestBatchPutMessage = req
+requestBatchPutMessage =
+  req
     "BatchPutMessage"
     "fixture/BatchPutMessage.yaml"
 
 requestListDatastores :: ListDatastores -> TestTree
-requestListDatastores = req
+requestListDatastores =
+  req
     "ListDatastores"
     "fixture/ListDatastores.yaml"
 
 requestCreateDatasetContent :: CreateDatasetContent -> TestTree
-requestCreateDatasetContent = req
+requestCreateDatasetContent =
+  req
     "CreateDatasetContent"
     "fixture/CreateDatasetContent.yaml"
 
 requestCreateChannel :: CreateChannel -> TestTree
-requestCreateChannel = req
+requestCreateChannel =
+  req
     "CreateChannel"
     "fixture/CreateChannel.yaml"
 
 requestDeleteDatasetContent :: DeleteDatasetContent -> TestTree
-requestDeleteDatasetContent = req
+requestDeleteDatasetContent =
+  req
     "DeleteDatasetContent"
     "fixture/DeleteDatasetContent.yaml"
 
 requestDescribeDatastore :: DescribeDatastore -> TestTree
-requestDescribeDatastore = req
+requestDescribeDatastore =
+  req
     "DescribeDatastore"
     "fixture/DescribeDatastore.yaml"
 
 requestGetDatasetContent :: GetDatasetContent -> TestTree
-requestGetDatasetContent = req
+requestGetDatasetContent =
+  req
     "GetDatasetContent"
     "fixture/GetDatasetContent.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestListDatasets :: ListDatasets -> TestTree
-requestListDatasets = req
+requestListDatasets =
+  req
     "ListDatasets"
     "fixture/ListDatasets.yaml"
 
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
 requestRunPipelineActivity :: RunPipelineActivity -> TestTree
-requestRunPipelineActivity = req
+requestRunPipelineActivity =
+  req
     "RunPipelineActivity"
     "fixture/RunPipelineActivity.yaml"
 
 requestDescribeChannel :: DescribeChannel -> TestTree
-requestDescribeChannel = req
+requestDescribeChannel =
+  req
     "DescribeChannel"
     "fixture/DescribeChannel.yaml"
 
 requestCreatePipeline :: CreatePipeline -> TestTree
-requestCreatePipeline = req
+requestCreatePipeline =
+  req
     "CreatePipeline"
     "fixture/CreatePipeline.yaml"
 
 requestStartPipelineReprocessing :: StartPipelineReprocessing -> TestTree
-requestStartPipelineReprocessing = req
+requestStartPipelineReprocessing =
+  req
     "StartPipelineReprocessing"
     "fixture/StartPipelineReprocessing.yaml"
 
 requestDescribeLoggingOptions :: DescribeLoggingOptions -> TestTree
-requestDescribeLoggingOptions = req
+requestDescribeLoggingOptions =
+  req
     "DescribeLoggingOptions"
     "fixture/DescribeLoggingOptions.yaml"
 
 -- Responses
 
 responseDescribePipeline :: DescribePipelineResponse -> TestTree
-responseDescribePipeline = res
+responseDescribePipeline =
+  res
     "DescribePipelineResponse"
     "fixture/DescribePipelineResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy DescribePipeline)
 
 responseDescribeDataset :: DescribeDatasetResponse -> TestTree
-responseDescribeDataset = res
+responseDescribeDataset =
+  res
     "DescribeDatasetResponse"
     "fixture/DescribeDatasetResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy DescribeDataset)
 
 responseListChannels :: ListChannelsResponse -> TestTree
-responseListChannels = res
+responseListChannels =
+  res
     "ListChannelsResponse"
     "fixture/ListChannelsResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy ListChannels)
 
+responseListDatasetContents :: ListDatasetContentsResponse -> TestTree
+responseListDatasetContents =
+  res
+    "ListDatasetContentsResponse"
+    "fixture/ListDatasetContentsResponse.proto"
+    ioTAnalytics
+    (Proxy :: Proxy ListDatasetContents)
+
 responsePutLoggingOptions :: PutLoggingOptionsResponse -> TestTree
-responsePutLoggingOptions = res
+responsePutLoggingOptions =
+  res
     "PutLoggingOptionsResponse"
     "fixture/PutLoggingOptionsResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy PutLoggingOptions)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    ioTAnalytics
+    (Proxy :: Proxy ListTagsForResource)
+
 responseDeleteChannel :: DeleteChannelResponse -> TestTree
-responseDeleteChannel = res
+responseDeleteChannel =
+  res
     "DeleteChannelResponse"
     "fixture/DeleteChannelResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy DeleteChannel)
 
 responseUpdateChannel :: UpdateChannelResponse -> TestTree
-responseUpdateChannel = res
+responseUpdateChannel =
+  res
     "UpdateChannelResponse"
     "fixture/UpdateChannelResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy UpdateChannel)
 
 responseSampleChannelData :: SampleChannelDataResponse -> TestTree
-responseSampleChannelData = res
+responseSampleChannelData =
+  res
     "SampleChannelDataResponse"
     "fixture/SampleChannelDataResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy SampleChannelData)
 
 responseCancelPipelineReprocessing :: CancelPipelineReprocessingResponse -> TestTree
-responseCancelPipelineReprocessing = res
+responseCancelPipelineReprocessing =
+  res
     "CancelPipelineReprocessingResponse"
     "fixture/CancelPipelineReprocessingResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy CancelPipelineReprocessing)
 
 responseCreateDatastore :: CreateDatastoreResponse -> TestTree
-responseCreateDatastore = res
+responseCreateDatastore =
+  res
     "CreateDatastoreResponse"
     "fixture/CreateDatastoreResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy CreateDatastore)
 
 responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
-responseUpdatePipeline = res
+responseUpdatePipeline =
+  res
     "UpdatePipelineResponse"
     "fixture/UpdatePipelineResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy UpdatePipeline)
 
 responseDeletePipeline :: DeletePipelineResponse -> TestTree
-responseDeletePipeline = res
+responseDeletePipeline =
+  res
     "DeletePipelineResponse"
     "fixture/DeletePipelineResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy DeletePipeline)
 
 responseDeleteDataset :: DeleteDatasetResponse -> TestTree
-responseDeleteDataset = res
+responseDeleteDataset =
+  res
     "DeleteDatasetResponse"
     "fixture/DeleteDatasetResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy DeleteDataset)
 
 responseUpdateDataset :: UpdateDatasetResponse -> TestTree
-responseUpdateDataset = res
+responseUpdateDataset =
+  res
     "UpdateDatasetResponse"
     "fixture/UpdateDatasetResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy UpdateDataset)
 
 responseListPipelines :: ListPipelinesResponse -> TestTree
-responseListPipelines = res
+responseListPipelines =
+  res
     "ListPipelinesResponse"
     "fixture/ListPipelinesResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy ListPipelines)
 
 responseDeleteDatastore :: DeleteDatastoreResponse -> TestTree
-responseDeleteDatastore = res
+responseDeleteDatastore =
+  res
     "DeleteDatastoreResponse"
     "fixture/DeleteDatastoreResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy DeleteDatastore)
 
 responseUpdateDatastore :: UpdateDatastoreResponse -> TestTree
-responseUpdateDatastore = res
+responseUpdateDatastore =
+  res
     "UpdateDatastoreResponse"
     "fixture/UpdateDatastoreResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy UpdateDatastore)
 
 responseCreateDataset :: CreateDatasetResponse -> TestTree
-responseCreateDataset = res
+responseCreateDataset =
+  res
     "CreateDatasetResponse"
     "fixture/CreateDatasetResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy CreateDataset)
 
 responseBatchPutMessage :: BatchPutMessageResponse -> TestTree
-responseBatchPutMessage = res
+responseBatchPutMessage =
+  res
     "BatchPutMessageResponse"
     "fixture/BatchPutMessageResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy BatchPutMessage)
 
 responseListDatastores :: ListDatastoresResponse -> TestTree
-responseListDatastores = res
+responseListDatastores =
+  res
     "ListDatastoresResponse"
     "fixture/ListDatastoresResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy ListDatastores)
 
 responseCreateDatasetContent :: CreateDatasetContentResponse -> TestTree
-responseCreateDatasetContent = res
+responseCreateDatasetContent =
+  res
     "CreateDatasetContentResponse"
     "fixture/CreateDatasetContentResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy CreateDatasetContent)
 
 responseCreateChannel :: CreateChannelResponse -> TestTree
-responseCreateChannel = res
+responseCreateChannel =
+  res
     "CreateChannelResponse"
     "fixture/CreateChannelResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy CreateChannel)
 
 responseDeleteDatasetContent :: DeleteDatasetContentResponse -> TestTree
-responseDeleteDatasetContent = res
+responseDeleteDatasetContent =
+  res
     "DeleteDatasetContentResponse"
     "fixture/DeleteDatasetContentResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy DeleteDatasetContent)
 
 responseDescribeDatastore :: DescribeDatastoreResponse -> TestTree
-responseDescribeDatastore = res
+responseDescribeDatastore =
+  res
     "DescribeDatastoreResponse"
     "fixture/DescribeDatastoreResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy DescribeDatastore)
 
 responseGetDatasetContent :: GetDatasetContentResponse -> TestTree
-responseGetDatasetContent = res
+responseGetDatasetContent =
+  res
     "GetDatasetContentResponse"
     "fixture/GetDatasetContentResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy GetDatasetContent)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    ioTAnalytics
+    (Proxy :: Proxy TagResource)
+
 responseListDatasets :: ListDatasetsResponse -> TestTree
-responseListDatasets = res
+responseListDatasets =
+  res
     "ListDatasetsResponse"
     "fixture/ListDatasetsResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy ListDatasets)
 
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    ioTAnalytics
+    (Proxy :: Proxy UntagResource)
+
 responseRunPipelineActivity :: RunPipelineActivityResponse -> TestTree
-responseRunPipelineActivity = res
+responseRunPipelineActivity =
+  res
     "RunPipelineActivityResponse"
     "fixture/RunPipelineActivityResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy RunPipelineActivity)
 
 responseDescribeChannel :: DescribeChannelResponse -> TestTree
-responseDescribeChannel = res
+responseDescribeChannel =
+  res
     "DescribeChannelResponse"
     "fixture/DescribeChannelResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy DescribeChannel)
 
 responseCreatePipeline :: CreatePipelineResponse -> TestTree
-responseCreatePipeline = res
+responseCreatePipeline =
+  res
     "CreatePipelineResponse"
     "fixture/CreatePipelineResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy CreatePipeline)
 
 responseStartPipelineReprocessing :: StartPipelineReprocessingResponse -> TestTree
-responseStartPipelineReprocessing = res
+responseStartPipelineReprocessing =
+  res
     "StartPipelineReprocessingResponse"
     "fixture/StartPipelineReprocessingResponse.proto"
     ioTAnalytics
     (Proxy :: Proxy StartPipelineReprocessing)
 
 responseDescribeLoggingOptions :: DescribeLoggingOptionsResponse -> TestTree
-responseDescribeLoggingOptions = res
+responseDescribeLoggingOptions =
+  res
     "DescribeLoggingOptionsResponse"
     "fixture/DescribeLoggingOptionsResponse.proto"
     ioTAnalytics

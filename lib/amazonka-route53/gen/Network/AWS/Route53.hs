@@ -1,11 +1,11 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -13,634 +13,498 @@
 --
 -- Amazon Route 53 is a scalable Domain Name System (DNS) web service. It provides secure and reliable routing to your infrastructure that uses Amazon Web Services (AWS) products, such as Amazon Elastic Compute Cloud (Amazon EC2), Elastic Load Balancing, or Amazon Simple Storage Service (Amazon S3). You can also use Amazon Route 53 to route users to your infrastructure outside of AWS.
 module Network.AWS.Route53
-    (
-    -- * Service Configuration
-      route53
+  ( -- * Service Configuration
+    route53,
 
     -- * Errors
     -- $errors
-
-    -- ** HealthCheckVersionMismatch
-    , _HealthCheckVersionMismatch
-
-    -- ** NoSuchQueryLoggingConfig
-    , _NoSuchQueryLoggingConfig
-
-    -- ** HostedZoneNotPrivate
-    , _HostedZoneNotPrivate
-
-    -- ** InvalidInput
-    , _InvalidInput
-
-    -- ** HostedZoneNotEmpty
-    , _HostedZoneNotEmpty
-
-    -- ** InvalidArgument
-    , _InvalidArgument
-
-    -- ** TrafficPolicyInstanceAlreadyExists
-    , _TrafficPolicyInstanceAlreadyExists
-
-    -- ** ConflictingTypes
-    , _ConflictingTypes
-
-    -- ** QueryLoggingConfigAlreadyExists
-    , _QueryLoggingConfigAlreadyExists
-
-    -- ** ConcurrentModification
-    , _ConcurrentModification
-
-    -- ** DelegationSetAlreadyReusable
-    , _DelegationSetAlreadyReusable
-
-    -- ** NotAuthorizedException
-    , _NotAuthorizedException
-
-    -- ** InsufficientCloudWatchLogsResourcePolicy
-    , _InsufficientCloudWatchLogsResourcePolicy
-
-    -- ** NoSuchCloudWatchLogsLogGroup
-    , _NoSuchCloudWatchLogsLogGroup
-
-    -- ** PriorRequestNotComplete
-    , _PriorRequestNotComplete
-
-    -- ** InvalidChangeBatch
-    , _InvalidChangeBatch
-
-    -- ** TooManyVPCAssociationAuthorizations
-    , _TooManyVPCAssociationAuthorizations
-
-    -- ** TrafficPolicyAlreadyExists
-    , _TrafficPolicyAlreadyExists
-
-    -- ** InvalidTrafficPolicyDocument
-    , _InvalidTrafficPolicyDocument
-
-    -- ** InvalidPaginationToken
-    , _InvalidPaginationToken
-
-    -- ** DelegationSetNotReusable
-    , _DelegationSetNotReusable
-
-    -- ** InvalidDomainName
-    , _InvalidDomainName
-
-    -- ** NoSuchTrafficPolicy
-    , _NoSuchTrafficPolicy
-
-    -- ** HostedZoneNotFound
-    , _HostedZoneNotFound
-
-    -- ** DelegationSetInUse
-    , _DelegationSetInUse
-
-    -- ** NoSuchDelegationSet
-    , _NoSuchDelegationSet
-
-    -- ** HealthCheckAlreadyExists
-    , _HealthCheckAlreadyExists
-
-    -- ** TooManyTrafficPolicies
-    , _TooManyTrafficPolicies
-
-    -- ** VPCAssociationAuthorizationNotFound
-    , _VPCAssociationAuthorizationNotFound
-
-    -- ** NoSuchGeoLocation
-    , _NoSuchGeoLocation
-
-    -- ** DelegationSetNotAvailable
-    , _DelegationSetNotAvailable
-
-    -- ** VPCAssociationNotFound
-    , _VPCAssociationNotFound
-
-    -- ** ThrottlingException
-    , _ThrottlingException
-
-    -- ** NoSuchChange
-    , _NoSuchChange
-
-    -- ** LimitsExceeded
-    , _LimitsExceeded
-
-    -- ** TooManyTrafficPolicyInstances
-    , _TooManyTrafficPolicyInstances
-
-    -- ** NoSuchTrafficPolicyInstance
-    , _NoSuchTrafficPolicyInstance
-
-    -- ** IncompatibleVersion
-    , _IncompatibleVersion
-
-    -- ** PublicZoneVPCAssociation
-    , _PublicZoneVPCAssociation
-
-    -- ** NoSuchHostedZone
-    , _NoSuchHostedZone
-
-    -- ** TooManyHostedZones
-    , _TooManyHostedZones
-
-    -- ** HealthCheckInUse
-    , _HealthCheckInUse
-
-    -- ** DelegationSetAlreadyCreated
-    , _DelegationSetAlreadyCreated
-
-    -- ** ConflictingDomainExists
-    , _ConflictingDomainExists
-
-    -- ** LastVPCAssociation
-    , _LastVPCAssociation
-
-    -- ** TooManyHealthChecks
-    , _TooManyHealthChecks
-
-    -- ** NoSuchHealthCheck
-    , _NoSuchHealthCheck
-
-    -- ** TrafficPolicyInUse
-    , _TrafficPolicyInUse
-
-    -- ** InvalidVPCId
-    , _InvalidVPCId
-
-    -- ** HostedZoneAlreadyExists
-    , _HostedZoneAlreadyExists
-
-    -- ** TooManyTrafficPolicyVersionsForCurrentPolicy
-    , _TooManyTrafficPolicyVersionsForCurrentPolicy
 
     -- * Waiters
     -- $waiters
 
     -- ** ResourceRecordSetsChanged
-    , resourceRecordSetsChanged
+    resourceRecordSetsChanged,
 
     -- * Operations
     -- $operations
 
     -- ** GetHostedZoneLimit
-    , module Network.AWS.Route53.GetHostedZoneLimit
+    module Network.AWS.Route53.GetHostedZoneLimit,
 
     -- ** AssociateVPCWithHostedZone
-    , module Network.AWS.Route53.AssociateVPCWithHostedZone
+    module Network.AWS.Route53.AssociateVPCWithHostedZone,
 
     -- ** DeleteTrafficPolicy
-    , module Network.AWS.Route53.DeleteTrafficPolicy
+    module Network.AWS.Route53.DeleteTrafficPolicy,
 
     -- ** GetCheckerIPRanges
-    , module Network.AWS.Route53.GetCheckerIPRanges
+    module Network.AWS.Route53.GetCheckerIPRanges,
 
     -- ** GetTrafficPolicyInstance
-    , module Network.AWS.Route53.GetTrafficPolicyInstance
+    module Network.AWS.Route53.GetTrafficPolicyInstance,
 
     -- ** GetHealthCheckLastFailureReason
-    , module Network.AWS.Route53.GetHealthCheckLastFailureReason
+    module Network.AWS.Route53.GetHealthCheckLastFailureReason,
 
     -- ** DeleteReusableDelegationSet
-    , module Network.AWS.Route53.DeleteReusableDelegationSet
+    module Network.AWS.Route53.DeleteReusableDelegationSet,
 
     -- ** ListHostedZonesByName
-    , module Network.AWS.Route53.ListHostedZonesByName
+    module Network.AWS.Route53.ListHostedZonesByName,
 
     -- ** ListReusableDelegationSets
-    , module Network.AWS.Route53.ListReusableDelegationSets
+    module Network.AWS.Route53.ListReusableDelegationSets,
 
     -- ** ListTagsForResource
-    , module Network.AWS.Route53.ListTagsForResource
+    module Network.AWS.Route53.ListTagsForResource,
 
-    -- ** ListQueryLoggingConfigs
-    , module Network.AWS.Route53.ListQueryLoggingConfigs
+    -- ** ListQueryLoggingConfigs (Paginated)
+    module Network.AWS.Route53.ListQueryLoggingConfigs,
 
     -- ** ListTrafficPolicyInstances
-    , module Network.AWS.Route53.ListTrafficPolicyInstances
+    module Network.AWS.Route53.ListTrafficPolicyInstances,
 
     -- ** CreateTrafficPolicyInstance
-    , module Network.AWS.Route53.CreateTrafficPolicyInstance
+    module Network.AWS.Route53.CreateTrafficPolicyInstance,
 
     -- ** GetChange
-    , module Network.AWS.Route53.GetChange
+    module Network.AWS.Route53.GetChange,
 
     -- ** ChangeResourceRecordSets
-    , module Network.AWS.Route53.ChangeResourceRecordSets
+    module Network.AWS.Route53.ChangeResourceRecordSets,
 
     -- ** DeleteHealthCheck
-    , module Network.AWS.Route53.DeleteHealthCheck
+    module Network.AWS.Route53.DeleteHealthCheck,
 
     -- ** UpdateHealthCheck
-    , module Network.AWS.Route53.UpdateHealthCheck
+    module Network.AWS.Route53.UpdateHealthCheck,
 
     -- ** CreateHostedZone
-    , module Network.AWS.Route53.CreateHostedZone
+    module Network.AWS.Route53.CreateHostedZone,
 
     -- ** CreateVPCAssociationAuthorization
-    , module Network.AWS.Route53.CreateVPCAssociationAuthorization
+    module Network.AWS.Route53.CreateVPCAssociationAuthorization,
 
-    -- ** ListVPCAssociationAuthorizations
-    , module Network.AWS.Route53.ListVPCAssociationAuthorizations
+    -- ** ListVPCAssociationAuthorizations (Paginated)
+    module Network.AWS.Route53.ListVPCAssociationAuthorizations,
 
     -- ** ListTrafficPolicyInstancesByPolicy
-    , module Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
+    module Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy,
 
     -- ** DisassociateVPCFromHostedZone
-    , module Network.AWS.Route53.DisassociateVPCFromHostedZone
+    module Network.AWS.Route53.DisassociateVPCFromHostedZone,
 
     -- ** CreateHealthCheck
-    , module Network.AWS.Route53.CreateHealthCheck
+    module Network.AWS.Route53.CreateHealthCheck,
 
     -- ** DeleteVPCAssociationAuthorization
-    , module Network.AWS.Route53.DeleteVPCAssociationAuthorization
+    module Network.AWS.Route53.DeleteVPCAssociationAuthorization,
 
     -- ** ChangeTagsForResource
-    , module Network.AWS.Route53.ChangeTagsForResource
+    module Network.AWS.Route53.ChangeTagsForResource,
 
     -- ** ListHostedZones (Paginated)
-    , module Network.AWS.Route53.ListHostedZones
+    module Network.AWS.Route53.ListHostedZones,
 
     -- ** GetTrafficPolicyInstanceCount
-    , module Network.AWS.Route53.GetTrafficPolicyInstanceCount
+    module Network.AWS.Route53.GetTrafficPolicyInstanceCount,
 
     -- ** ListGeoLocations
-    , module Network.AWS.Route53.ListGeoLocations
+    module Network.AWS.Route53.ListGeoLocations,
 
     -- ** GetHostedZone
-    , module Network.AWS.Route53.GetHostedZone
+    module Network.AWS.Route53.GetHostedZone,
 
     -- ** GetHealthCheck
-    , module Network.AWS.Route53.GetHealthCheck
+    module Network.AWS.Route53.GetHealthCheck,
 
     -- ** ListResourceRecordSets (Paginated)
-    , module Network.AWS.Route53.ListResourceRecordSets
+    module Network.AWS.Route53.ListResourceRecordSets,
 
     -- ** CreateReusableDelegationSet
-    , module Network.AWS.Route53.CreateReusableDelegationSet
+    module Network.AWS.Route53.CreateReusableDelegationSet,
 
     -- ** CreateQueryLoggingConfig
-    , module Network.AWS.Route53.CreateQueryLoggingConfig
+    module Network.AWS.Route53.CreateQueryLoggingConfig,
 
     -- ** GetHealthCheckCount
-    , module Network.AWS.Route53.GetHealthCheckCount
+    module Network.AWS.Route53.GetHealthCheckCount,
 
     -- ** UpdateTrafficPolicyComment
-    , module Network.AWS.Route53.UpdateTrafficPolicyComment
+    module Network.AWS.Route53.UpdateTrafficPolicyComment,
 
     -- ** GetHostedZoneCount
-    , module Network.AWS.Route53.GetHostedZoneCount
+    module Network.AWS.Route53.GetHostedZoneCount,
 
     -- ** GetAccountLimit
-    , module Network.AWS.Route53.GetAccountLimit
+    module Network.AWS.Route53.GetAccountLimit,
 
     -- ** DeleteQueryLoggingConfig
-    , module Network.AWS.Route53.DeleteQueryLoggingConfig
+    module Network.AWS.Route53.DeleteQueryLoggingConfig,
 
     -- ** GetQueryLoggingConfig
-    , module Network.AWS.Route53.GetQueryLoggingConfig
+    module Network.AWS.Route53.GetQueryLoggingConfig,
 
     -- ** GetReusableDelegationSet
-    , module Network.AWS.Route53.GetReusableDelegationSet
+    module Network.AWS.Route53.GetReusableDelegationSet,
 
     -- ** DeleteTrafficPolicyInstance
-    , module Network.AWS.Route53.DeleteTrafficPolicyInstance
+    module Network.AWS.Route53.DeleteTrafficPolicyInstance,
 
     -- ** UpdateTrafficPolicyInstance
-    , module Network.AWS.Route53.UpdateTrafficPolicyInstance
+    module Network.AWS.Route53.UpdateTrafficPolicyInstance,
 
     -- ** UpdateHostedZoneComment
-    , module Network.AWS.Route53.UpdateHostedZoneComment
+    module Network.AWS.Route53.UpdateHostedZoneComment,
 
     -- ** GetHealthCheckStatus
-    , module Network.AWS.Route53.GetHealthCheckStatus
+    module Network.AWS.Route53.GetHealthCheckStatus,
+
+    -- ** ListHostedZonesByVPC
+    module Network.AWS.Route53.ListHostedZonesByVPC,
 
     -- ** GetReusableDelegationSetLimit
-    , module Network.AWS.Route53.GetReusableDelegationSetLimit
+    module Network.AWS.Route53.GetReusableDelegationSetLimit,
 
     -- ** CreateTrafficPolicyVersion
-    , module Network.AWS.Route53.CreateTrafficPolicyVersion
+    module Network.AWS.Route53.CreateTrafficPolicyVersion,
 
     -- ** TestDNSAnswer
-    , module Network.AWS.Route53.TestDNSAnswer
+    module Network.AWS.Route53.TestDNSAnswer,
 
     -- ** ListHealthChecks (Paginated)
-    , module Network.AWS.Route53.ListHealthChecks
+    module Network.AWS.Route53.ListHealthChecks,
 
     -- ** GetTrafficPolicy
-    , module Network.AWS.Route53.GetTrafficPolicy
+    module Network.AWS.Route53.GetTrafficPolicy,
 
     -- ** ListTrafficPolicyVersions
-    , module Network.AWS.Route53.ListTrafficPolicyVersions
+    module Network.AWS.Route53.ListTrafficPolicyVersions,
 
     -- ** DeleteHostedZone
-    , module Network.AWS.Route53.DeleteHostedZone
+    module Network.AWS.Route53.DeleteHostedZone,
 
     -- ** GetGeoLocation
-    , module Network.AWS.Route53.GetGeoLocation
+    module Network.AWS.Route53.GetGeoLocation,
 
     -- ** ListTagsForResources
-    , module Network.AWS.Route53.ListTagsForResources
+    module Network.AWS.Route53.ListTagsForResources,
 
     -- ** CreateTrafficPolicy
-    , module Network.AWS.Route53.CreateTrafficPolicy
+    module Network.AWS.Route53.CreateTrafficPolicy,
 
     -- ** ListTrafficPolicyInstancesByHostedZone
-    , module Network.AWS.Route53.ListTrafficPolicyInstancesByHostedZone
+    module Network.AWS.Route53.ListTrafficPolicyInstancesByHostedZone,
 
     -- ** ListTrafficPolicies
-    , module Network.AWS.Route53.ListTrafficPolicies
+    module Network.AWS.Route53.ListTrafficPolicies,
 
     -- * Types
 
     -- ** Common
-    , module Network.AWS.Route53.Internal
+    module Network.AWS.Route53.Internal,
 
     -- ** AccountLimitType
-    , AccountLimitType (..)
+    AccountLimitType (..),
 
     -- ** ChangeAction
-    , ChangeAction (..)
+    ChangeAction (..),
 
     -- ** ChangeStatus
-    , ChangeStatus (..)
+    ChangeStatus (..),
 
     -- ** CloudWatchRegion
-    , CloudWatchRegion (..)
+    CloudWatchRegion (..),
 
     -- ** ComparisonOperator
-    , ComparisonOperator (..)
+    ComparisonOperator (..),
 
     -- ** Failover
-    , Failover (..)
+    Failover (..),
 
     -- ** HealthCheckRegion
-    , HealthCheckRegion (..)
+    HealthCheckRegion (..),
 
     -- ** HealthCheckType
-    , HealthCheckType (..)
+    HealthCheckType (..),
 
     -- ** HostedZoneLimitType
-    , HostedZoneLimitType (..)
+    HostedZoneLimitType (..),
 
     -- ** InsufficientDataHealthStatus
-    , InsufficientDataHealthStatus (..)
+    InsufficientDataHealthStatus (..),
 
     -- ** RecordType
-    , RecordType (..)
+    RecordType (..),
 
     -- ** ResettableElementName
-    , ResettableElementName (..)
+    ResettableElementName (..),
 
     -- ** ReusableDelegationSetLimitType
-    , ReusableDelegationSetLimitType (..)
+    ReusableDelegationSetLimitType (..),
 
     -- ** Statistic
-    , Statistic (..)
+    Statistic (..),
 
     -- ** TagResourceType
-    , TagResourceType (..)
+    TagResourceType (..),
 
     -- ** VPCRegion
-    , VPCRegion (..)
+    VPCRegion (..),
 
     -- ** AccountLimit
-    , AccountLimit
-    , accountLimit
-    , alType
-    , alValue
+    AccountLimit,
+    accountLimit,
+    alType,
+    alValue,
 
     -- ** AlarmIdentifier
-    , AlarmIdentifier
-    , alarmIdentifier
-    , aiRegion
-    , aiName
+    AlarmIdentifier,
+    alarmIdentifier,
+    aiRegion,
+    aiName,
 
     -- ** AliasTarget
-    , AliasTarget
-    , aliasTarget
-    , atHostedZoneId
-    , atDNSName
-    , atEvaluateTargetHealth
+    AliasTarget,
+    aliasTarget,
+    atHostedZoneId,
+    atDNSName,
+    atEvaluateTargetHealth,
 
     -- ** Change
-    , Change
-    , change
-    , cAction
-    , cResourceRecordSet
+    Change,
+    change,
+    cAction,
+    cResourceRecordSet,
 
     -- ** ChangeBatch
-    , ChangeBatch
-    , changeBatch
-    , cbComment
-    , cbChanges
+    ChangeBatch,
+    changeBatch,
+    cbComment,
+    cbChanges,
 
     -- ** ChangeInfo
-    , ChangeInfo
-    , changeInfo
-    , ciComment
-    , ciId
-    , ciStatus
-    , ciSubmittedAt
+    ChangeInfo,
+    changeInfo,
+    ciComment,
+    ciId,
+    ciStatus,
+    ciSubmittedAt,
 
     -- ** CloudWatchAlarmConfiguration
-    , CloudWatchAlarmConfiguration
-    , cloudWatchAlarmConfiguration
-    , cwacDimensions
-    , cwacEvaluationPeriods
-    , cwacThreshold
-    , cwacComparisonOperator
-    , cwacPeriod
-    , cwacMetricName
-    , cwacNamespace
-    , cwacStatistic
+    CloudWatchAlarmConfiguration,
+    cloudWatchAlarmConfiguration,
+    cwacDimensions,
+    cwacEvaluationPeriods,
+    cwacThreshold,
+    cwacComparisonOperator,
+    cwacPeriod,
+    cwacMetricName,
+    cwacNamespace,
+    cwacStatistic,
 
     -- ** DelegationSet
-    , DelegationSet
-    , delegationSet
-    , dsId
-    , dsCallerReference
-    , dsNameServers
+    DelegationSet,
+    delegationSet,
+    dsId,
+    dsCallerReference,
+    dsNameServers,
 
     -- ** Dimension
-    , Dimension
-    , dimension
-    , dName
-    , dValue
+    Dimension,
+    dimension,
+    dName,
+    dValue,
 
     -- ** GeoLocation
-    , GeoLocation
-    , geoLocation
-    , glSubdivisionCode
-    , glCountryCode
-    , glContinentCode
+    GeoLocation,
+    geoLocation,
+    glSubdivisionCode,
+    glCountryCode,
+    glContinentCode,
 
     -- ** GeoLocationDetails
-    , GeoLocationDetails
-    , geoLocationDetails
-    , gldSubdivisionName
-    , gldSubdivisionCode
-    , gldCountryName
-    , gldCountryCode
-    , gldContinentCode
-    , gldContinentName
+    GeoLocationDetails,
+    geoLocationDetails,
+    gldSubdivisionName,
+    gldSubdivisionCode,
+    gldCountryName,
+    gldCountryCode,
+    gldContinentCode,
+    gldContinentName,
 
     -- ** HealthCheck
-    , HealthCheck
-    , healthCheck
-    , hcLinkedService
-    , hcCloudWatchAlarmConfiguration
-    , hcId
-    , hcCallerReference
-    , hcHealthCheckConfig
-    , hcHealthCheckVersion
+    HealthCheck,
+    healthCheck,
+    hcLinkedService,
+    hcCloudWatchAlarmConfiguration,
+    hcId,
+    hcCallerReference,
+    hcHealthCheckConfig,
+    hcHealthCheckVersion,
 
     -- ** HealthCheckConfig
-    , HealthCheckConfig
-    , healthCheckConfig
-    , hccFailureThreshold
-    , hccIPAddress
-    , hccEnableSNI
-    , hccSearchString
-    , hccHealthThreshold
-    , hccRegions
-    , hccResourcePath
-    , hccInsufficientDataHealthStatus
-    , hccAlarmIdentifier
-    , hccMeasureLatency
-    , hccInverted
-    , hccFullyQualifiedDomainName
-    , hccChildHealthChecks
-    , hccRequestInterval
-    , hccPort
-    , hccType
+    HealthCheckConfig,
+    healthCheckConfig,
+    hccFailureThreshold,
+    hccIPAddress,
+    hccEnableSNI,
+    hccDisabled,
+    hccSearchString,
+    hccHealthThreshold,
+    hccRegions,
+    hccResourcePath,
+    hccInsufficientDataHealthStatus,
+    hccAlarmIdentifier,
+    hccMeasureLatency,
+    hccInverted,
+    hccFullyQualifiedDomainName,
+    hccChildHealthChecks,
+    hccRequestInterval,
+    hccPort,
+    hccType,
 
     -- ** HealthCheckObservation
-    , HealthCheckObservation
-    , healthCheckObservation
-    , hcoIPAddress
-    , hcoStatusReport
-    , hcoRegion
+    HealthCheckObservation,
+    healthCheckObservation,
+    hcoIPAddress,
+    hcoStatusReport,
+    hcoRegion,
 
     -- ** HostedZone
-    , HostedZone
-    , hostedZone
-    , hzLinkedService
-    , hzConfig
-    , hzResourceRecordSetCount
-    , hzId
-    , hzName
-    , hzCallerReference
+    HostedZone,
+    hostedZone,
+    hzLinkedService,
+    hzConfig,
+    hzResourceRecordSetCount,
+    hzId,
+    hzName,
+    hzCallerReference,
 
     -- ** HostedZoneConfig
-    , HostedZoneConfig
-    , hostedZoneConfig
-    , hzcPrivateZone
-    , hzcComment
+    HostedZoneConfig,
+    hostedZoneConfig,
+    hzcPrivateZone,
+    hzcComment,
 
     -- ** HostedZoneLimit
-    , HostedZoneLimit
-    , hostedZoneLimit
-    , hzlType
-    , hzlValue
+    HostedZoneLimit,
+    hostedZoneLimit,
+    hzlType,
+    hzlValue,
+
+    -- ** HostedZoneOwner
+    HostedZoneOwner,
+    hostedZoneOwner,
+    hzoOwningAccount,
+    hzoOwningService,
+
+    -- ** HostedZoneSummary
+    HostedZoneSummary,
+    hostedZoneSummary,
+    hzsHostedZoneId,
+    hzsName,
+    hzsOwner,
 
     -- ** LinkedService
-    , LinkedService
-    , linkedService
-    , lsServicePrincipal
-    , lsDescription
+    LinkedService,
+    linkedService,
+    lsServicePrincipal,
+    lsDescription,
 
     -- ** QueryLoggingConfig
-    , QueryLoggingConfig
-    , queryLoggingConfig
-    , qlcId
-    , qlcHostedZoneId
-    , qlcCloudWatchLogsLogGroupARN
+    QueryLoggingConfig,
+    queryLoggingConfig,
+    qlcId,
+    qlcHostedZoneId,
+    qlcCloudWatchLogsLogGroupARN,
 
     -- ** ResourceRecord
-    , ResourceRecord
-    , resourceRecord
-    , rrValue
+    ResourceRecord,
+    resourceRecord,
+    rrValue,
 
     -- ** ResourceRecordSet
-    , ResourceRecordSet
-    , resourceRecordSet
-    , rrsTTL
-    , rrsResourceRecords
-    , rrsAliasTarget
-    , rrsWeight
-    , rrsTrafficPolicyInstanceId
-    , rrsSetIdentifier
-    , rrsFailover
-    , rrsHealthCheckId
-    , rrsRegion
-    , rrsGeoLocation
-    , rrsMultiValueAnswer
-    , rrsName
-    , rrsType
+    ResourceRecordSet,
+    resourceRecordSet,
+    rrsTTL,
+    rrsResourceRecords,
+    rrsAliasTarget,
+    rrsWeight,
+    rrsTrafficPolicyInstanceId,
+    rrsSetIdentifier,
+    rrsFailover,
+    rrsHealthCheckId,
+    rrsRegion,
+    rrsGeoLocation,
+    rrsMultiValueAnswer,
+    rrsName,
+    rrsType,
 
     -- ** ResourceTagSet
-    , ResourceTagSet
-    , resourceTagSet
-    , rtsResourceId
-    , rtsResourceType
-    , rtsTags
+    ResourceTagSet,
+    resourceTagSet,
+    rtsResourceId,
+    rtsResourceType,
+    rtsTags,
 
     -- ** ReusableDelegationSetLimit
-    , ReusableDelegationSetLimit
-    , reusableDelegationSetLimit
-    , rdslType
-    , rdslValue
+    ReusableDelegationSetLimit,
+    reusableDelegationSetLimit,
+    rdslType,
+    rdslValue,
 
     -- ** StatusReport
-    , StatusReport
-    , statusReport
-    , srStatus
-    , srCheckedTime
+    StatusReport,
+    statusReport,
+    srStatus,
+    srCheckedTime,
 
     -- ** Tag
-    , Tag
-    , tag
-    , tagValue
-    , tagKey
+    Tag,
+    tag,
+    tagValue,
+    tagKey,
 
     -- ** TrafficPolicy
-    , TrafficPolicy
-    , trafficPolicy
-    , tpComment
-    , tpId
-    , tpVersion
-    , tpName
-    , tpType
-    , tpDocument
+    TrafficPolicy,
+    trafficPolicy,
+    tpComment,
+    tpId,
+    tpVersion,
+    tpName,
+    tpType,
+    tpDocument,
 
     -- ** TrafficPolicyInstance
-    , TrafficPolicyInstance
-    , trafficPolicyInstance
-    , tpiId
-    , tpiHostedZoneId
-    , tpiName
-    , tpiTTL
-    , tpiState
-    , tpiMessage
-    , tpiTrafficPolicyId
-    , tpiTrafficPolicyVersion
-    , tpiTrafficPolicyType
+    TrafficPolicyInstance,
+    trafficPolicyInstance,
+    tpiId,
+    tpiHostedZoneId,
+    tpiName,
+    tpiTTL,
+    tpiState,
+    tpiMessage,
+    tpiTrafficPolicyId,
+    tpiTrafficPolicyVersion,
+    tpiTrafficPolicyType,
 
     -- ** TrafficPolicySummary
-    , TrafficPolicySummary
-    , trafficPolicySummary
-    , tpsId
-    , tpsName
-    , tpsType
-    , tpsLatestVersion
-    , tpsTrafficPolicyCount
+    TrafficPolicySummary,
+    trafficPolicySummary,
+    tpsId,
+    tpsName,
+    tpsType,
+    tpsLatestVersion,
+    tpsTrafficPolicyCount,
 
     -- ** VPC
-    , VPC
-    , vpc
-    , vpcVPCRegion
-    , vpcVPCId
-    ) where
+    VPC,
+    vpc,
+    vpcVPCRegion,
+    vpcVPCId,
+  )
+where
 
 import Network.AWS.Route53.AssociateVPCWithHostedZone
 import Network.AWS.Route53.ChangeResourceRecordSets
@@ -683,6 +547,7 @@ import Network.AWS.Route53.ListGeoLocations
 import Network.AWS.Route53.ListHealthChecks
 import Network.AWS.Route53.ListHostedZones
 import Network.AWS.Route53.ListHostedZonesByName
+import Network.AWS.Route53.ListHostedZonesByVPC
 import Network.AWS.Route53.ListQueryLoggingConfigs
 import Network.AWS.Route53.ListResourceRecordSets
 import Network.AWS.Route53.ListReusableDelegationSets
@@ -702,32 +567,29 @@ import Network.AWS.Route53.UpdateTrafficPolicyComment
 import Network.AWS.Route53.UpdateTrafficPolicyInstance
 import Network.AWS.Route53.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'Route53'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'Route53'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

@@ -1,150 +1,152 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.SendAutomationSignal
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Sends a signal to an Automation execution to change the current behavior or status of the execution.
---
---
 module Network.AWS.SSM.SendAutomationSignal
-    (
-    -- * Creating a Request
-      sendAutomationSignal
-    , SendAutomationSignal
+  ( -- * Creating a Request
+    sendAutomationSignal,
+    SendAutomationSignal,
+
     -- * Request Lenses
-    , sasPayload
-    , sasAutomationExecutionId
-    , sasSignalType
+    sasPayload,
+    sasAutomationExecutionId,
+    sasSignalType,
 
     -- * Destructuring the Response
-    , sendAutomationSignalResponse
-    , SendAutomationSignalResponse
+    sendAutomationSignalResponse,
+    SendAutomationSignalResponse,
+
     -- * Response Lenses
-    , sasrsResponseStatus
-    ) where
+    sasrsResponseStatus,
+  )
+where
 
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'sendAutomationSignal' smart constructor.
 data SendAutomationSignal = SendAutomationSignal'
-  { _sasPayload               :: !(Maybe (Map Text [Text]))
-  , _sasAutomationExecutionId :: !Text
-  , _sasSignalType            :: !SignalType
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _sasPayload ::
+      !(Maybe (Map Text ([Text]))),
+    _sasAutomationExecutionId :: !Text,
+    _sasSignalType :: !SignalType
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'SendAutomationSignal' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sasPayload' - The data sent with the signal. The data schema depends on the type of signal used in the request.
+-- * 'sasPayload' - The data sent with the signal. The data schema depends on the type of signal used in the request. For @Approve@ and @Reject@ signal types, the payload is an optional comment that you can send with the signal type. For example: @Comment="Looks good"@  For @StartStep@ and @Resume@ signal types, you must send the name of the Automation step to start or resume as the payload. For example: @StepName="step1"@  For the @StopStep@ signal type, you must send the step execution ID as the payload. For example: @StepExecutionId="97fff367-fc5a-4299-aed8-0123456789ab"@
 --
 -- * 'sasAutomationExecutionId' - The unique identifier for an existing Automation execution that you want to send the signal to.
 --
--- * 'sasSignalType' - The type of signal. Valid signal types include the following: Approve and Reject
-sendAutomationSignal
-    :: Text -- ^ 'sasAutomationExecutionId'
-    -> SignalType -- ^ 'sasSignalType'
-    -> SendAutomationSignal
+-- * 'sasSignalType' - The type of signal to send to an Automation execution.
+sendAutomationSignal ::
+  -- | 'sasAutomationExecutionId'
+  Text ->
+  -- | 'sasSignalType'
+  SignalType ->
+  SendAutomationSignal
 sendAutomationSignal pAutomationExecutionId_ pSignalType_ =
   SendAutomationSignal'
-    { _sasPayload = Nothing
-    , _sasAutomationExecutionId = pAutomationExecutionId_
-    , _sasSignalType = pSignalType_
+    { _sasPayload = Nothing,
+      _sasAutomationExecutionId = pAutomationExecutionId_,
+      _sasSignalType = pSignalType_
     }
 
-
--- | The data sent with the signal. The data schema depends on the type of signal used in the request.
-sasPayload :: Lens' SendAutomationSignal (HashMap Text [Text])
-sasPayload = lens _sasPayload (\ s a -> s{_sasPayload = a}) . _Default . _Map
+-- | The data sent with the signal. The data schema depends on the type of signal used in the request. For @Approve@ and @Reject@ signal types, the payload is an optional comment that you can send with the signal type. For example: @Comment="Looks good"@  For @StartStep@ and @Resume@ signal types, you must send the name of the Automation step to start or resume as the payload. For example: @StepName="step1"@  For the @StopStep@ signal type, you must send the step execution ID as the payload. For example: @StepExecutionId="97fff367-fc5a-4299-aed8-0123456789ab"@
+sasPayload :: Lens' SendAutomationSignal (HashMap Text ([Text]))
+sasPayload = lens _sasPayload (\s a -> s {_sasPayload = a}) . _Default . _Map
 
 -- | The unique identifier for an existing Automation execution that you want to send the signal to.
 sasAutomationExecutionId :: Lens' SendAutomationSignal Text
-sasAutomationExecutionId = lens _sasAutomationExecutionId (\ s a -> s{_sasAutomationExecutionId = a})
+sasAutomationExecutionId = lens _sasAutomationExecutionId (\s a -> s {_sasAutomationExecutionId = a})
 
--- | The type of signal. Valid signal types include the following: Approve and Reject
+-- | The type of signal to send to an Automation execution.
 sasSignalType :: Lens' SendAutomationSignal SignalType
-sasSignalType = lens _sasSignalType (\ s a -> s{_sasSignalType = a})
+sasSignalType = lens _sasSignalType (\s a -> s {_sasSignalType = a})
 
 instance AWSRequest SendAutomationSignal where
-        type Rs SendAutomationSignal =
-             SendAutomationSignalResponse
-        request = postJSON ssm
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 SendAutomationSignalResponse' <$>
-                   (pure (fromEnum s)))
+  type Rs SendAutomationSignal = SendAutomationSignalResponse
+  request = postJSON ssm
+  response =
+    receiveEmpty
+      (\s h x -> SendAutomationSignalResponse' <$> (pure (fromEnum s)))
 
-instance Hashable SendAutomationSignal where
+instance Hashable SendAutomationSignal
 
-instance NFData SendAutomationSignal where
+instance NFData SendAutomationSignal
 
 instance ToHeaders SendAutomationSignal where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.SendAutomationSignal" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target"
+              =# ("AmazonSSM.SendAutomationSignal" :: ByteString),
+            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+          ]
+      )
 
 instance ToJSON SendAutomationSignal where
-        toJSON SendAutomationSignal'{..}
-          = object
-              (catMaybes
-                 [("Payload" .=) <$> _sasPayload,
-                  Just
-                    ("AutomationExecutionId" .=
-                       _sasAutomationExecutionId),
-                  Just ("SignalType" .= _sasSignalType)])
+  toJSON SendAutomationSignal' {..} =
+    object
+      ( catMaybes
+          [ ("Payload" .=) <$> _sasPayload,
+            Just ("AutomationExecutionId" .= _sasAutomationExecutionId),
+            Just ("SignalType" .= _sasSignalType)
+          ]
+      )
 
 instance ToPath SendAutomationSignal where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery SendAutomationSignal where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | /See:/ 'sendAutomationSignalResponse' smart constructor.
 newtype SendAutomationSignalResponse = SendAutomationSignalResponse'
-  { _sasrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _sasrsResponseStatus ::
+      Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'SendAutomationSignalResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sasrsResponseStatus' - -- | The response status code.
-sendAutomationSignalResponse
-    :: Int -- ^ 'sasrsResponseStatus'
-    -> SendAutomationSignalResponse
+sendAutomationSignalResponse ::
+  -- | 'sasrsResponseStatus'
+  Int ->
+  SendAutomationSignalResponse
 sendAutomationSignalResponse pResponseStatus_ =
-  SendAutomationSignalResponse' {_sasrsResponseStatus = pResponseStatus_}
-
+  SendAutomationSignalResponse'
+    { _sasrsResponseStatus =
+        pResponseStatus_
+    }
 
 -- | -- | The response status code.
 sasrsResponseStatus :: Lens' SendAutomationSignalResponse Int
-sasrsResponseStatus = lens _sasrsResponseStatus (\ s a -> s{_sasrsResponseStatus = a})
+sasrsResponseStatus = lens _sasrsResponseStatus (\s a -> s {_sasrsResponseStatus = a})
 
-instance NFData SendAutomationSignalResponse where
+instance NFData SendAutomationSignalResponse

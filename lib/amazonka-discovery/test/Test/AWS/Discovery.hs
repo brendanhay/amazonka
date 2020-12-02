@@ -10,15 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
-
 module Test.AWS.Discovery
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.Discovery
-import           Test.AWS.Gen.Discovery
-import           Test.Tasty
+import Network.AWS.Discovery
+import Test.AWS.Gen.Discovery
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

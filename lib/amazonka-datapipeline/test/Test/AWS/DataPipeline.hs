@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.DataPipeline
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.DataPipeline
-import           Test.AWS.Gen.DataPipeline
-import           Test.Tasty
+import Network.AWS.DataPipeline
+import Test.AWS.Gen.DataPipeline
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

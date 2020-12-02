@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.SNS
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.SNS where
 
 import Data.Proxy
@@ -33,6 +32,9 @@ import Test.Tasty
 --
 --         , requestDeleteEndpoint $
 --             deleteEndpoint
+--
+--         , requestListTagsForResource $
+--             listTagsForResource
 --
 --         , requestRemovePermission $
 --             removePermission
@@ -100,8 +102,14 @@ import Test.Tasty
 --         , requestCheckIfPhoneNumberIsOptedOut $
 --             checkIfPhoneNumberIsOptedOut
 --
+--         , requestTagResource $
+--             tagResource
+--
 --         , requestSubscribe $
 --             subscribe
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestUnsubscribe $
 --             unsubscribe
@@ -126,6 +134,9 @@ import Test.Tasty
 --
 --         , responseDeleteEndpoint $
 --             deleteEndpointResponse
+--
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
 --
 --         , responseRemovePermission $
 --             removePermissionResponse
@@ -193,8 +204,14 @@ import Test.Tasty
 --         , responseCheckIfPhoneNumberIsOptedOut $
 --             checkIfPhoneNumberIsOptedOutResponse
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
 --         , responseSubscribe $
 --             subscribeResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responseUnsubscribe $
 --             unsubscribeResponse
@@ -217,362 +234,464 @@ import Test.Tasty
 -- Requests
 
 requestListPhoneNumbersOptedOut :: ListPhoneNumbersOptedOut -> TestTree
-requestListPhoneNumbersOptedOut = req
+requestListPhoneNumbersOptedOut =
+  req
     "ListPhoneNumbersOptedOut"
     "fixture/ListPhoneNumbersOptedOut.yaml"
 
 requestDeleteEndpoint :: DeleteEndpoint -> TestTree
-requestDeleteEndpoint = req
+requestDeleteEndpoint =
+  req
     "DeleteEndpoint"
     "fixture/DeleteEndpoint.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestRemovePermission :: RemovePermission -> TestTree
-requestRemovePermission = req
+requestRemovePermission =
+  req
     "RemovePermission"
     "fixture/RemovePermission.yaml"
 
 requestDeleteTopic :: DeleteTopic -> TestTree
-requestDeleteTopic = req
+requestDeleteTopic =
+  req
     "DeleteTopic"
     "fixture/DeleteTopic.yaml"
 
 requestSetSMSAttributes :: SetSMSAttributes -> TestTree
-requestSetSMSAttributes = req
+requestSetSMSAttributes =
+  req
     "SetSMSAttributes"
     "fixture/SetSMSAttributes.yaml"
 
 requestListTopics :: ListTopics -> TestTree
-requestListTopics = req
+requestListTopics =
+  req
     "ListTopics"
     "fixture/ListTopics.yaml"
 
 requestCreatePlatformEndpoint :: CreatePlatformEndpoint -> TestTree
-requestCreatePlatformEndpoint = req
+requestCreatePlatformEndpoint =
+  req
     "CreatePlatformEndpoint"
     "fixture/CreatePlatformEndpoint.yaml"
 
 requestSetPlatformApplicationAttributes :: SetPlatformApplicationAttributes -> TestTree
-requestSetPlatformApplicationAttributes = req
+requestSetPlatformApplicationAttributes =
+  req
     "SetPlatformApplicationAttributes"
     "fixture/SetPlatformApplicationAttributes.yaml"
 
 requestListSubscriptionsByTopic :: ListSubscriptionsByTopic -> TestTree
-requestListSubscriptionsByTopic = req
+requestListSubscriptionsByTopic =
+  req
     "ListSubscriptionsByTopic"
     "fixture/ListSubscriptionsByTopic.yaml"
 
 requestGetTopicAttributes :: GetTopicAttributes -> TestTree
-requestGetTopicAttributes = req
+requestGetTopicAttributes =
+  req
     "GetTopicAttributes"
     "fixture/GetTopicAttributes.yaml"
 
 requestOptInPhoneNumber :: OptInPhoneNumber -> TestTree
-requestOptInPhoneNumber = req
+requestOptInPhoneNumber =
+  req
     "OptInPhoneNumber"
     "fixture/OptInPhoneNumber.yaml"
 
 requestCreatePlatformApplication :: CreatePlatformApplication -> TestTree
-requestCreatePlatformApplication = req
+requestCreatePlatformApplication =
+  req
     "CreatePlatformApplication"
     "fixture/CreatePlatformApplication.yaml"
 
 requestGetPlatformApplicationAttributes :: GetPlatformApplicationAttributes -> TestTree
-requestGetPlatformApplicationAttributes = req
+requestGetPlatformApplicationAttributes =
+  req
     "GetPlatformApplicationAttributes"
     "fixture/GetPlatformApplicationAttributes.yaml"
 
 requestListEndpointsByPlatformApplication :: ListEndpointsByPlatformApplication -> TestTree
-requestListEndpointsByPlatformApplication = req
+requestListEndpointsByPlatformApplication =
+  req
     "ListEndpointsByPlatformApplication"
     "fixture/ListEndpointsByPlatformApplication.yaml"
 
 requestSetTopicAttributes :: SetTopicAttributes -> TestTree
-requestSetTopicAttributes = req
+requestSetTopicAttributes =
+  req
     "SetTopicAttributes"
     "fixture/SetTopicAttributes.yaml"
 
 requestDeletePlatformApplication :: DeletePlatformApplication -> TestTree
-requestDeletePlatformApplication = req
+requestDeletePlatformApplication =
+  req
     "DeletePlatformApplication"
     "fixture/DeletePlatformApplication.yaml"
 
 requestGetSMSAttributes :: GetSMSAttributes -> TestTree
-requestGetSMSAttributes = req
+requestGetSMSAttributes =
+  req
     "GetSMSAttributes"
     "fixture/GetSMSAttributes.yaml"
 
 requestListPlatformApplications :: ListPlatformApplications -> TestTree
-requestListPlatformApplications = req
+requestListPlatformApplications =
+  req
     "ListPlatformApplications"
     "fixture/ListPlatformApplications.yaml"
 
 requestAddPermission :: AddPermission -> TestTree
-requestAddPermission = req
+requestAddPermission =
+  req
     "AddPermission"
     "fixture/AddPermission.yaml"
 
 requestGetEndpointAttributes :: GetEndpointAttributes -> TestTree
-requestGetEndpointAttributes = req
+requestGetEndpointAttributes =
+  req
     "GetEndpointAttributes"
     "fixture/GetEndpointAttributes.yaml"
 
 requestListSubscriptions :: ListSubscriptions -> TestTree
-requestListSubscriptions = req
+requestListSubscriptions =
+  req
     "ListSubscriptions"
     "fixture/ListSubscriptions.yaml"
 
 requestGetSubscriptionAttributes :: GetSubscriptionAttributes -> TestTree
-requestGetSubscriptionAttributes = req
+requestGetSubscriptionAttributes =
+  req
     "GetSubscriptionAttributes"
     "fixture/GetSubscriptionAttributes.yaml"
 
 requestCreateTopic :: CreateTopic -> TestTree
-requestCreateTopic = req
+requestCreateTopic =
+  req
     "CreateTopic"
     "fixture/CreateTopic.yaml"
 
 requestCheckIfPhoneNumberIsOptedOut :: CheckIfPhoneNumberIsOptedOut -> TestTree
-requestCheckIfPhoneNumberIsOptedOut = req
+requestCheckIfPhoneNumberIsOptedOut =
+  req
     "CheckIfPhoneNumberIsOptedOut"
     "fixture/CheckIfPhoneNumberIsOptedOut.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestSubscribe :: Subscribe -> TestTree
-requestSubscribe = req
+requestSubscribe =
+  req
     "Subscribe"
     "fixture/Subscribe.yaml"
 
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
 requestUnsubscribe :: Unsubscribe -> TestTree
-requestUnsubscribe = req
+requestUnsubscribe =
+  req
     "Unsubscribe"
     "fixture/Unsubscribe.yaml"
 
 requestSetEndpointAttributes :: SetEndpointAttributes -> TestTree
-requestSetEndpointAttributes = req
+requestSetEndpointAttributes =
+  req
     "SetEndpointAttributes"
     "fixture/SetEndpointAttributes.yaml"
 
 requestSetSubscriptionAttributes :: SetSubscriptionAttributes -> TestTree
-requestSetSubscriptionAttributes = req
+requestSetSubscriptionAttributes =
+  req
     "SetSubscriptionAttributes"
     "fixture/SetSubscriptionAttributes.yaml"
 
 requestConfirmSubscription :: ConfirmSubscription -> TestTree
-requestConfirmSubscription = req
+requestConfirmSubscription =
+  req
     "ConfirmSubscription"
     "fixture/ConfirmSubscription.yaml"
 
 requestPublish :: Publish -> TestTree
-requestPublish = req
+requestPublish =
+  req
     "Publish"
     "fixture/Publish.yaml"
 
 -- Responses
 
 responseListPhoneNumbersOptedOut :: ListPhoneNumbersOptedOutResponse -> TestTree
-responseListPhoneNumbersOptedOut = res
+responseListPhoneNumbersOptedOut =
+  res
     "ListPhoneNumbersOptedOutResponse"
     "fixture/ListPhoneNumbersOptedOutResponse.proto"
     sns
     (Proxy :: Proxy ListPhoneNumbersOptedOut)
 
 responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
-responseDeleteEndpoint = res
+responseDeleteEndpoint =
+  res
     "DeleteEndpointResponse"
     "fixture/DeleteEndpointResponse.proto"
     sns
     (Proxy :: Proxy DeleteEndpoint)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    sns
+    (Proxy :: Proxy ListTagsForResource)
+
 responseRemovePermission :: RemovePermissionResponse -> TestTree
-responseRemovePermission = res
+responseRemovePermission =
+  res
     "RemovePermissionResponse"
     "fixture/RemovePermissionResponse.proto"
     sns
     (Proxy :: Proxy RemovePermission)
 
 responseDeleteTopic :: DeleteTopicResponse -> TestTree
-responseDeleteTopic = res
+responseDeleteTopic =
+  res
     "DeleteTopicResponse"
     "fixture/DeleteTopicResponse.proto"
     sns
     (Proxy :: Proxy DeleteTopic)
 
 responseSetSMSAttributes :: SetSMSAttributesResponse -> TestTree
-responseSetSMSAttributes = res
+responseSetSMSAttributes =
+  res
     "SetSMSAttributesResponse"
     "fixture/SetSMSAttributesResponse.proto"
     sns
     (Proxy :: Proxy SetSMSAttributes)
 
 responseListTopics :: ListTopicsResponse -> TestTree
-responseListTopics = res
+responseListTopics =
+  res
     "ListTopicsResponse"
     "fixture/ListTopicsResponse.proto"
     sns
     (Proxy :: Proxy ListTopics)
 
 responseCreatePlatformEndpoint :: CreatePlatformEndpointResponse -> TestTree
-responseCreatePlatformEndpoint = res
+responseCreatePlatformEndpoint =
+  res
     "CreatePlatformEndpointResponse"
     "fixture/CreatePlatformEndpointResponse.proto"
     sns
     (Proxy :: Proxy CreatePlatformEndpoint)
 
 responseSetPlatformApplicationAttributes :: SetPlatformApplicationAttributesResponse -> TestTree
-responseSetPlatformApplicationAttributes = res
+responseSetPlatformApplicationAttributes =
+  res
     "SetPlatformApplicationAttributesResponse"
     "fixture/SetPlatformApplicationAttributesResponse.proto"
     sns
     (Proxy :: Proxy SetPlatformApplicationAttributes)
 
 responseListSubscriptionsByTopic :: ListSubscriptionsByTopicResponse -> TestTree
-responseListSubscriptionsByTopic = res
+responseListSubscriptionsByTopic =
+  res
     "ListSubscriptionsByTopicResponse"
     "fixture/ListSubscriptionsByTopicResponse.proto"
     sns
     (Proxy :: Proxy ListSubscriptionsByTopic)
 
 responseGetTopicAttributes :: GetTopicAttributesResponse -> TestTree
-responseGetTopicAttributes = res
+responseGetTopicAttributes =
+  res
     "GetTopicAttributesResponse"
     "fixture/GetTopicAttributesResponse.proto"
     sns
     (Proxy :: Proxy GetTopicAttributes)
 
 responseOptInPhoneNumber :: OptInPhoneNumberResponse -> TestTree
-responseOptInPhoneNumber = res
+responseOptInPhoneNumber =
+  res
     "OptInPhoneNumberResponse"
     "fixture/OptInPhoneNumberResponse.proto"
     sns
     (Proxy :: Proxy OptInPhoneNumber)
 
 responseCreatePlatformApplication :: CreatePlatformApplicationResponse -> TestTree
-responseCreatePlatformApplication = res
+responseCreatePlatformApplication =
+  res
     "CreatePlatformApplicationResponse"
     "fixture/CreatePlatformApplicationResponse.proto"
     sns
     (Proxy :: Proxy CreatePlatformApplication)
 
 responseGetPlatformApplicationAttributes :: GetPlatformApplicationAttributesResponse -> TestTree
-responseGetPlatformApplicationAttributes = res
+responseGetPlatformApplicationAttributes =
+  res
     "GetPlatformApplicationAttributesResponse"
     "fixture/GetPlatformApplicationAttributesResponse.proto"
     sns
     (Proxy :: Proxy GetPlatformApplicationAttributes)
 
 responseListEndpointsByPlatformApplication :: ListEndpointsByPlatformApplicationResponse -> TestTree
-responseListEndpointsByPlatformApplication = res
+responseListEndpointsByPlatformApplication =
+  res
     "ListEndpointsByPlatformApplicationResponse"
     "fixture/ListEndpointsByPlatformApplicationResponse.proto"
     sns
     (Proxy :: Proxy ListEndpointsByPlatformApplication)
 
 responseSetTopicAttributes :: SetTopicAttributesResponse -> TestTree
-responseSetTopicAttributes = res
+responseSetTopicAttributes =
+  res
     "SetTopicAttributesResponse"
     "fixture/SetTopicAttributesResponse.proto"
     sns
     (Proxy :: Proxy SetTopicAttributes)
 
 responseDeletePlatformApplication :: DeletePlatformApplicationResponse -> TestTree
-responseDeletePlatformApplication = res
+responseDeletePlatformApplication =
+  res
     "DeletePlatformApplicationResponse"
     "fixture/DeletePlatformApplicationResponse.proto"
     sns
     (Proxy :: Proxy DeletePlatformApplication)
 
 responseGetSMSAttributes :: GetSMSAttributesResponse -> TestTree
-responseGetSMSAttributes = res
+responseGetSMSAttributes =
+  res
     "GetSMSAttributesResponse"
     "fixture/GetSMSAttributesResponse.proto"
     sns
     (Proxy :: Proxy GetSMSAttributes)
 
 responseListPlatformApplications :: ListPlatformApplicationsResponse -> TestTree
-responseListPlatformApplications = res
+responseListPlatformApplications =
+  res
     "ListPlatformApplicationsResponse"
     "fixture/ListPlatformApplicationsResponse.proto"
     sns
     (Proxy :: Proxy ListPlatformApplications)
 
 responseAddPermission :: AddPermissionResponse -> TestTree
-responseAddPermission = res
+responseAddPermission =
+  res
     "AddPermissionResponse"
     "fixture/AddPermissionResponse.proto"
     sns
     (Proxy :: Proxy AddPermission)
 
 responseGetEndpointAttributes :: GetEndpointAttributesResponse -> TestTree
-responseGetEndpointAttributes = res
+responseGetEndpointAttributes =
+  res
     "GetEndpointAttributesResponse"
     "fixture/GetEndpointAttributesResponse.proto"
     sns
     (Proxy :: Proxy GetEndpointAttributes)
 
 responseListSubscriptions :: ListSubscriptionsResponse -> TestTree
-responseListSubscriptions = res
+responseListSubscriptions =
+  res
     "ListSubscriptionsResponse"
     "fixture/ListSubscriptionsResponse.proto"
     sns
     (Proxy :: Proxy ListSubscriptions)
 
 responseGetSubscriptionAttributes :: GetSubscriptionAttributesResponse -> TestTree
-responseGetSubscriptionAttributes = res
+responseGetSubscriptionAttributes =
+  res
     "GetSubscriptionAttributesResponse"
     "fixture/GetSubscriptionAttributesResponse.proto"
     sns
     (Proxy :: Proxy GetSubscriptionAttributes)
 
 responseCreateTopic :: CreateTopicResponse -> TestTree
-responseCreateTopic = res
+responseCreateTopic =
+  res
     "CreateTopicResponse"
     "fixture/CreateTopicResponse.proto"
     sns
     (Proxy :: Proxy CreateTopic)
 
 responseCheckIfPhoneNumberIsOptedOut :: CheckIfPhoneNumberIsOptedOutResponse -> TestTree
-responseCheckIfPhoneNumberIsOptedOut = res
+responseCheckIfPhoneNumberIsOptedOut =
+  res
     "CheckIfPhoneNumberIsOptedOutResponse"
     "fixture/CheckIfPhoneNumberIsOptedOutResponse.proto"
     sns
     (Proxy :: Proxy CheckIfPhoneNumberIsOptedOut)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    sns
+    (Proxy :: Proxy TagResource)
+
 responseSubscribe :: SubscribeResponse -> TestTree
-responseSubscribe = res
+responseSubscribe =
+  res
     "SubscribeResponse"
     "fixture/SubscribeResponse.proto"
     sns
     (Proxy :: Proxy Subscribe)
 
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    sns
+    (Proxy :: Proxy UntagResource)
+
 responseUnsubscribe :: UnsubscribeResponse -> TestTree
-responseUnsubscribe = res
+responseUnsubscribe =
+  res
     "UnsubscribeResponse"
     "fixture/UnsubscribeResponse.proto"
     sns
     (Proxy :: Proxy Unsubscribe)
 
 responseSetEndpointAttributes :: SetEndpointAttributesResponse -> TestTree
-responseSetEndpointAttributes = res
+responseSetEndpointAttributes =
+  res
     "SetEndpointAttributesResponse"
     "fixture/SetEndpointAttributesResponse.proto"
     sns
     (Proxy :: Proxy SetEndpointAttributes)
 
 responseSetSubscriptionAttributes :: SetSubscriptionAttributesResponse -> TestTree
-responseSetSubscriptionAttributes = res
+responseSetSubscriptionAttributes =
+  res
     "SetSubscriptionAttributesResponse"
     "fixture/SetSubscriptionAttributesResponse.proto"
     sns
     (Proxy :: Proxy SetSubscriptionAttributes)
 
 responseConfirmSubscription :: ConfirmSubscriptionResponse -> TestTree
-responseConfirmSubscription = res
+responseConfirmSubscription =
+  res
     "ConfirmSubscriptionResponse"
     "fixture/ConfirmSubscriptionResponse.proto"
     sns
     (Proxy :: Proxy ConfirmSubscription)
 
 responsePublish :: PublishResponse -> TestTree
-responsePublish = res
+responsePublish =
+  res
     "PublishResponse"
     "fixture/PublishResponse.proto"
     sns

@@ -1,18 +1,17 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.CreateCertificateFromCSR
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -46,43 +45,44 @@
 -- On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is:
 --
 -- > forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path"
---
 module Network.AWS.IoT.CreateCertificateFromCSR
-    (
-    -- * Creating a Request
-      createCertificateFromCSR
-    , CreateCertificateFromCSR
+  ( -- * Creating a Request
+    createCertificateFromCSR,
+    CreateCertificateFromCSR,
+
     -- * Request Lenses
-    , ccfcsrSetAsActive
-    , ccfcsrCertificateSigningRequest
+    ccfcsrSetAsActive,
+    ccfcsrCertificateSigningRequest,
 
     -- * Destructuring the Response
-    , createCertificateFromCSRResponse
-    , CreateCertificateFromCSRResponse
+    createCertificateFromCSRResponse,
+    CreateCertificateFromCSRResponse,
+
     -- * Response Lenses
-    , ccfcsrrsCertificatePem
-    , ccfcsrrsCertificateARN
-    , ccfcsrrsCertificateId
-    , ccfcsrrsResponseStatus
-    ) where
+    ccfcsrrsCertificatePem,
+    ccfcsrrsCertificateARN,
+    ccfcsrrsCertificateId,
+    ccfcsrrsResponseStatus,
+  )
+where
 
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | The input for the CreateCertificateFromCSR operation.
+-- | The input for the CreateCertificateFromCsr operation.
 --
 --
 --
 -- /See:/ 'createCertificateFromCSR' smart constructor.
 data CreateCertificateFromCSR = CreateCertificateFromCSR'
-  { _ccfcsrSetAsActive               :: !(Maybe Bool)
-  , _ccfcsrCertificateSigningRequest :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _ccfcsrSetAsActive ::
+      !(Maybe Bool),
+    _ccfcsrCertificateSigningRequest :: !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'CreateCertificateFromCSR' with the minimum fields required to make a request.
 --
@@ -91,70 +91,76 @@ data CreateCertificateFromCSR = CreateCertificateFromCSR'
 -- * 'ccfcsrSetAsActive' - Specifies whether the certificate is active.
 --
 -- * 'ccfcsrCertificateSigningRequest' - The certificate signing request (CSR).
-createCertificateFromCSR
-    :: Text -- ^ 'ccfcsrCertificateSigningRequest'
-    -> CreateCertificateFromCSR
+createCertificateFromCSR ::
+  -- | 'ccfcsrCertificateSigningRequest'
+  Text ->
+  CreateCertificateFromCSR
 createCertificateFromCSR pCertificateSigningRequest_ =
   CreateCertificateFromCSR'
-    { _ccfcsrSetAsActive = Nothing
-    , _ccfcsrCertificateSigningRequest = pCertificateSigningRequest_
+    { _ccfcsrSetAsActive = Nothing,
+      _ccfcsrCertificateSigningRequest = pCertificateSigningRequest_
     }
-
 
 -- | Specifies whether the certificate is active.
 ccfcsrSetAsActive :: Lens' CreateCertificateFromCSR (Maybe Bool)
-ccfcsrSetAsActive = lens _ccfcsrSetAsActive (\ s a -> s{_ccfcsrSetAsActive = a})
+ccfcsrSetAsActive = lens _ccfcsrSetAsActive (\s a -> s {_ccfcsrSetAsActive = a})
 
 -- | The certificate signing request (CSR).
 ccfcsrCertificateSigningRequest :: Lens' CreateCertificateFromCSR Text
-ccfcsrCertificateSigningRequest = lens _ccfcsrCertificateSigningRequest (\ s a -> s{_ccfcsrCertificateSigningRequest = a})
+ccfcsrCertificateSigningRequest = lens _ccfcsrCertificateSigningRequest (\s a -> s {_ccfcsrCertificateSigningRequest = a})
 
 instance AWSRequest CreateCertificateFromCSR where
-        type Rs CreateCertificateFromCSR =
-             CreateCertificateFromCSRResponse
-        request = postJSON ioT
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateCertificateFromCSRResponse' <$>
-                   (x .?> "certificatePem") <*> (x .?> "certificateArn")
-                     <*> (x .?> "certificateId")
-                     <*> (pure (fromEnum s)))
+  type Rs CreateCertificateFromCSR = CreateCertificateFromCSRResponse
+  request = postJSON ioT
+  response =
+    receiveJSON
+      ( \s h x ->
+          CreateCertificateFromCSRResponse'
+            <$> (x .?> "certificatePem")
+            <*> (x .?> "certificateArn")
+            <*> (x .?> "certificateId")
+            <*> (pure (fromEnum s))
+      )
 
-instance Hashable CreateCertificateFromCSR where
+instance Hashable CreateCertificateFromCSR
 
-instance NFData CreateCertificateFromCSR where
+instance NFData CreateCertificateFromCSR
 
 instance ToHeaders CreateCertificateFromCSR where
-        toHeaders = const mempty
+  toHeaders = const mempty
 
 instance ToJSON CreateCertificateFromCSR where
-        toJSON CreateCertificateFromCSR'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("certificateSigningRequest" .=
-                       _ccfcsrCertificateSigningRequest)])
+  toJSON CreateCertificateFromCSR' {..} =
+    object
+      ( catMaybes
+          [ Just
+              ("certificateSigningRequest" .= _ccfcsrCertificateSigningRequest)
+          ]
+      )
 
 instance ToPath CreateCertificateFromCSR where
-        toPath = const "/certificates"
+  toPath = const "/certificates"
 
 instance ToQuery CreateCertificateFromCSR where
-        toQuery CreateCertificateFromCSR'{..}
-          = mconcat ["setAsActive" =: _ccfcsrSetAsActive]
+  toQuery CreateCertificateFromCSR' {..} =
+    mconcat ["setAsActive" =: _ccfcsrSetAsActive]
 
--- | The output from the CreateCertificateFromCSR operation.
+-- | The output from the CreateCertificateFromCsr operation.
 --
 --
 --
 -- /See:/ 'createCertificateFromCSRResponse' smart constructor.
 data CreateCertificateFromCSRResponse = CreateCertificateFromCSRResponse'
-  { _ccfcsrrsCertificatePem :: !(Maybe Text)
-  , _ccfcsrrsCertificateARN :: !(Maybe Text)
-  , _ccfcsrrsCertificateId  :: !(Maybe Text)
-  , _ccfcsrrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _ccfcsrrsCertificatePem ::
+      !(Maybe Text),
+    _ccfcsrrsCertificateARN ::
+      !(Maybe Text),
+    _ccfcsrrsCertificateId ::
+      !(Maybe Text),
+    _ccfcsrrsResponseStatus ::
+      !Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'CreateCertificateFromCSRResponse' with the minimum fields required to make a request.
 --
@@ -167,33 +173,33 @@ data CreateCertificateFromCSRResponse = CreateCertificateFromCSRResponse'
 -- * 'ccfcsrrsCertificateId' - The ID of the certificate. Certificate management operations only take a certificateId.
 --
 -- * 'ccfcsrrsResponseStatus' - -- | The response status code.
-createCertificateFromCSRResponse
-    :: Int -- ^ 'ccfcsrrsResponseStatus'
-    -> CreateCertificateFromCSRResponse
+createCertificateFromCSRResponse ::
+  -- | 'ccfcsrrsResponseStatus'
+  Int ->
+  CreateCertificateFromCSRResponse
 createCertificateFromCSRResponse pResponseStatus_ =
   CreateCertificateFromCSRResponse'
-    { _ccfcsrrsCertificatePem = Nothing
-    , _ccfcsrrsCertificateARN = Nothing
-    , _ccfcsrrsCertificateId = Nothing
-    , _ccfcsrrsResponseStatus = pResponseStatus_
+    { _ccfcsrrsCertificatePem =
+        Nothing,
+      _ccfcsrrsCertificateARN = Nothing,
+      _ccfcsrrsCertificateId = Nothing,
+      _ccfcsrrsResponseStatus = pResponseStatus_
     }
-
 
 -- | The certificate data, in PEM format.
 ccfcsrrsCertificatePem :: Lens' CreateCertificateFromCSRResponse (Maybe Text)
-ccfcsrrsCertificatePem = lens _ccfcsrrsCertificatePem (\ s a -> s{_ccfcsrrsCertificatePem = a})
+ccfcsrrsCertificatePem = lens _ccfcsrrsCertificatePem (\s a -> s {_ccfcsrrsCertificatePem = a})
 
 -- | The Amazon Resource Name (ARN) of the certificate. You can use the ARN as a principal for policy operations.
 ccfcsrrsCertificateARN :: Lens' CreateCertificateFromCSRResponse (Maybe Text)
-ccfcsrrsCertificateARN = lens _ccfcsrrsCertificateARN (\ s a -> s{_ccfcsrrsCertificateARN = a})
+ccfcsrrsCertificateARN = lens _ccfcsrrsCertificateARN (\s a -> s {_ccfcsrrsCertificateARN = a})
 
 -- | The ID of the certificate. Certificate management operations only take a certificateId.
 ccfcsrrsCertificateId :: Lens' CreateCertificateFromCSRResponse (Maybe Text)
-ccfcsrrsCertificateId = lens _ccfcsrrsCertificateId (\ s a -> s{_ccfcsrrsCertificateId = a})
+ccfcsrrsCertificateId = lens _ccfcsrrsCertificateId (\s a -> s {_ccfcsrrsCertificateId = a})
 
 -- | -- | The response status code.
 ccfcsrrsResponseStatus :: Lens' CreateCertificateFromCSRResponse Int
-ccfcsrrsResponseStatus = lens _ccfcsrrsResponseStatus (\ s a -> s{_ccfcsrrsResponseStatus = a})
+ccfcsrrsResponseStatus = lens _ccfcsrrsResponseStatus (\s a -> s {_ccfcsrrsResponseStatus = a})
 
 instance NFData CreateCertificateFromCSRResponse
-         where

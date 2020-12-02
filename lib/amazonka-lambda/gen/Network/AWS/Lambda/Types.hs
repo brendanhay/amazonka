@@ -4,193 +4,376 @@
 
 -- |
 -- Module      : Network.AWS.Lambda.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.Lambda.Types
-    (
-    -- * Service Configuration
-      lambda
+  ( -- * Service Configuration
+    lambda,
 
     -- * Errors
-    , _KMSInvalidStateException
-    , _EC2ThrottledException
-    , _InvalidRuntimeException
-    , _PolicyLengthExceededException
-    , _PreconditionFailedException
-    , _EC2AccessDeniedException
-    , _InvalidSubnetIdException
-    , _UnsupportedMediaTypeException
-    , _InvalidRequestContentException
-    , _KMSNotFoundException
-    , _ENILimitReachedException
-    , _InvalidParameterValueException
-    , _RequestTooLargeException
-    , _TooManyRequestsException
-    , _InvalidSecurityGroupIdException
-    , _KMSDisabledException
-    , _SubnetIPAddressLimitReachedException
-    , _ServiceException
-    , _CodeStorageExceededException
-    , _InvalidZipFileException
-    , _ResourceConflictException
-    , _EC2UnexpectedException
-    , _ResourceNotFoundException
-    , _KMSAccessDeniedException
+
+    -- * CodeSigningPolicy
+    CodeSigningPolicy (..),
 
     -- * EventSourcePosition
-    , EventSourcePosition (..)
+    EventSourcePosition (..),
 
     -- * FunctionVersion
-    , FunctionVersion (..)
+    FunctionVersion (..),
 
     -- * InvocationType
-    , InvocationType (..)
+    InvocationType (..),
+
+    -- * LastUpdateStatus
+    LastUpdateStatus (..),
+
+    -- * LastUpdateStatusReasonCode
+    LastUpdateStatusReasonCode (..),
 
     -- * LogType
-    , LogType (..)
+    LogType (..),
+
+    -- * ProvisionedConcurrencyStatusEnum
+    ProvisionedConcurrencyStatusEnum (..),
 
     -- * Runtime
-    , Runtime (..)
+    Runtime (..),
+
+    -- * SourceAccessType
+    SourceAccessType (..),
+
+    -- * State
+    State (..),
+
+    -- * StateReasonCode
+    StateReasonCode (..),
 
     -- * TracingMode
-    , TracingMode (..)
+    TracingMode (..),
 
     -- * AccountLimit
-    , AccountLimit
-    , accountLimit
-    , alConcurrentExecutions
-    , alTotalCodeSize
-    , alUnreservedConcurrentExecutions
-    , alCodeSizeUnzipped
-    , alCodeSizeZipped
+    AccountLimit,
+    accountLimit,
+    alConcurrentExecutions,
+    alTotalCodeSize,
+    alUnreservedConcurrentExecutions,
+    alCodeSizeUnzipped,
+    alCodeSizeZipped,
 
     -- * AccountUsage
-    , AccountUsage
-    , accountUsage
-    , auTotalCodeSize
-    , auFunctionCount
+    AccountUsage,
+    accountUsage,
+    auTotalCodeSize,
+    auFunctionCount,
 
     -- * AliasConfiguration
-    , AliasConfiguration
-    , aliasConfiguration
-    , acRoutingConfig
-    , acName
-    , acFunctionVersion
-    , acAliasARN
-    , acDescription
-    , acRevisionId
+    AliasConfiguration,
+    aliasConfiguration,
+    acRoutingConfig,
+    acName,
+    acFunctionVersion,
+    acAliasARN,
+    acDescription,
+    acRevisionId,
 
     -- * AliasRoutingConfiguration
-    , AliasRoutingConfiguration
-    , aliasRoutingConfiguration
-    , arcAdditionalVersionWeights
+    AliasRoutingConfiguration,
+    aliasRoutingConfiguration,
+    arcAdditionalVersionWeights,
+
+    -- * AllowedPublishers
+    AllowedPublishers,
+    allowedPublishers,
+    apSigningProfileVersionARNs,
+
+    -- * CodeSigningConfig
+    CodeSigningConfig,
+    codeSigningConfig,
+    cscDescription,
+    cscCodeSigningConfigId,
+    cscCodeSigningConfigARN,
+    cscAllowedPublishers,
+    cscCodeSigningPolicies,
+    cscLastModified,
+
+    -- * CodeSigningPolicies
+    CodeSigningPolicies,
+    codeSigningPolicies,
+    cspUntrustedArtifactOnDeployment,
 
     -- * Concurrency
-    , Concurrency
-    , concurrency
-    , cReservedConcurrentExecutions
+    Concurrency,
+    concurrency,
+    cReservedConcurrentExecutions,
 
     -- * DeadLetterConfig
-    , DeadLetterConfig
-    , deadLetterConfig
-    , dlcTargetARN
+    DeadLetterConfig,
+    deadLetterConfig,
+    dlcTargetARN,
+
+    -- * DestinationConfig
+    DestinationConfig,
+    destinationConfig,
+    dcOnSuccess,
+    dcOnFailure,
 
     -- * Environment
-    , Environment
-    , environment
-    , eVariables
+    Environment,
+    environment,
+    eVariables,
 
     -- * EnvironmentError
-    , EnvironmentError
-    , environmentError
-    , eeErrorCode
-    , eeMessage
+    EnvironmentError,
+    environmentError,
+    eeErrorCode,
+    eeMessage,
 
     -- * EnvironmentResponse
-    , EnvironmentResponse
-    , environmentResponse
-    , envVariables
-    , envError
+    EnvironmentResponse,
+    environmentResponse,
+    envVariables,
+    envError,
 
     -- * EventSourceMappingConfiguration
-    , EventSourceMappingConfiguration
-    , eventSourceMappingConfiguration
-    , esmcEventSourceARN
-    , esmcState
-    , esmcFunctionARN
-    , esmcUUId
-    , esmcLastProcessingResult
-    , esmcBatchSize
-    , esmcStateTransitionReason
-    , esmcLastModified
+    EventSourceMappingConfiguration,
+    eventSourceMappingConfiguration,
+    esmcEventSourceARN,
+    esmcState,
+    esmcStartingPositionTimestamp,
+    esmcFunctionARN,
+    esmcTopics,
+    esmcQueues,
+    esmcBisectBatchOnFunctionError,
+    esmcUUId,
+    esmcParallelizationFactor,
+    esmcLastProcessingResult,
+    esmcMaximumRetryAttempts,
+    esmcBatchSize,
+    esmcStateTransitionReason,
+    esmcMaximumBatchingWindowInSeconds,
+    esmcSourceAccessConfigurations,
+    esmcMaximumRecordAgeInSeconds,
+    esmcLastModified,
+    esmcDestinationConfig,
+    esmcStartingPosition,
+
+    -- * FileSystemConfig
+    FileSystemConfig,
+    fileSystemConfig,
+    fscARN,
+    fscLocalMountPath,
 
     -- * FunctionCode
-    , FunctionCode
-    , functionCode
-    , fcS3ObjectVersion
-    , fcS3Key
-    , fcZipFile
-    , fcS3Bucket
+    FunctionCode,
+    functionCode,
+    fcS3ObjectVersion,
+    fcS3Key,
+    fcZipFile,
+    fcS3Bucket,
 
     -- * FunctionCodeLocation
-    , FunctionCodeLocation
-    , functionCodeLocation
-    , fclLocation
-    , fclRepositoryType
+    FunctionCodeLocation,
+    functionCodeLocation,
+    fclLocation,
+    fclRepositoryType,
 
     -- * FunctionConfiguration
-    , FunctionConfiguration
-    , functionConfiguration
-    , fcMemorySize
-    , fcRuntime
-    , fcFunctionARN
-    , fcKMSKeyARN
-    , fcEnvironment
-    , fcDeadLetterConfig
-    , fcRole
-    , fcVPCConfig
-    , fcVersion
-    , fcFunctionName
-    , fcCodeSize
-    , fcHandler
-    , fcTimeout
-    , fcLastModified
-    , fcCodeSha256
-    , fcTracingConfig
-    , fcDescription
-    , fcRevisionId
-    , fcMasterARN
+    FunctionConfiguration,
+    functionConfiguration,
+    fcMemorySize,
+    fcRuntime,
+    fcState,
+    fcSigningProfileVersionARN,
+    fcLastUpdateStatus,
+    fcFunctionARN,
+    fcKMSKeyARN,
+    fcFileSystemConfigs,
+    fcEnvironment,
+    fcDeadLetterConfig,
+    fcSigningJobARN,
+    fcRole,
+    fcVPCConfig,
+    fcVersion,
+    fcFunctionName,
+    fcLayers,
+    fcCodeSize,
+    fcHandler,
+    fcTimeout,
+    fcLastUpdateStatusReason,
+    fcStateReason,
+    fcLastModified,
+    fcCodeSha256,
+    fcTracingConfig,
+    fcStateReasonCode,
+    fcDescription,
+    fcLastUpdateStatusReasonCode,
+    fcRevisionId,
+    fcMasterARN,
+
+    -- * FunctionEventInvokeConfig
+    FunctionEventInvokeConfig,
+    functionEventInvokeConfig,
+    feicFunctionARN,
+    feicMaximumEventAgeInSeconds,
+    feicMaximumRetryAttempts,
+    feicLastModified,
+    feicDestinationConfig,
+
+    -- * GetLayerVersionResponse
+    GetLayerVersionResponse,
+    getLayerVersionResponse,
+    glvLayerVersionARN,
+    glvContent,
+    glvCreatedDate,
+    glvVersion,
+    glvLicenseInfo,
+    glvLayerARN,
+    glvDescription,
+    glvCompatibleRuntimes,
+
+    -- * Layer
+    Layer,
+    layer,
+    lSigningProfileVersionARN,
+    lARN,
+    lSigningJobARN,
+    lCodeSize,
+
+    -- * LayerVersionContentInput
+    LayerVersionContentInput,
+    layerVersionContentInput,
+    lvciS3ObjectVersion,
+    lvciS3Key,
+    lvciZipFile,
+    lvciS3Bucket,
+
+    -- * LayerVersionContentOutput
+    LayerVersionContentOutput,
+    layerVersionContentOutput,
+    lvcoSigningProfileVersionARN,
+    lvcoLocation,
+    lvcoSigningJobARN,
+    lvcoCodeSize,
+    lvcoCodeSha256,
+
+    -- * LayerVersionsListItem
+    LayerVersionsListItem,
+    layerVersionsListItem,
+    lvliLayerVersionARN,
+    lvliCreatedDate,
+    lvliVersion,
+    lvliLicenseInfo,
+    lvliDescription,
+    lvliCompatibleRuntimes,
+
+    -- * LayersListItem
+    LayersListItem,
+    layersListItem,
+    lliLayerName,
+    lliLatestMatchingVersion,
+    lliLayerARN,
+
+    -- * OnFailure
+    OnFailure,
+    onFailure,
+    ofDestination,
+
+    -- * OnSuccess
+    OnSuccess,
+    onSuccess,
+    osDestination,
+
+    -- * ProvisionedConcurrencyConfigListItem
+    ProvisionedConcurrencyConfigListItem,
+    provisionedConcurrencyConfigListItem,
+    pccliStatus,
+    pccliFunctionARN,
+    pccliRequestedProvisionedConcurrentExecutions,
+    pccliAvailableProvisionedConcurrentExecutions,
+    pccliStatusReason,
+    pccliAllocatedProvisionedConcurrentExecutions,
+    pccliLastModified,
+
+    -- * SourceAccessConfiguration
+    SourceAccessConfiguration,
+    sourceAccessConfiguration,
+    sacURI,
+    sacType,
 
     -- * TracingConfig
-    , TracingConfig
-    , tracingConfig
-    , tMode
+    TracingConfig,
+    tracingConfig,
+    tMode,
 
     -- * TracingConfigResponse
-    , TracingConfigResponse
-    , tracingConfigResponse
-    , tcMode
+    TracingConfigResponse,
+    tracingConfigResponse,
+    tcMode,
 
     -- * VPCConfig
-    , VPCConfig
-    , vpcConfig
-    , vpccSecurityGroupIds
-    , vpccSubnetIds
+    VPCConfig,
+    vpcConfig,
+    vpccSecurityGroupIds,
+    vpccSubnetIds,
 
     -- * VPCConfigResponse
-    , VPCConfigResponse
-    , vpcConfigResponse
-    , vcSecurityGroupIds
-    , vcSubnetIds
-    , vcVPCId
-    ) where
+    VPCConfigResponse,
+    vpcConfigResponse,
+    vcSecurityGroupIds,
+    vcSubnetIds,
+    vcVPCId,
+  )
+where
 
-import Network.AWS.Lambda.Types.Product
-import Network.AWS.Lambda.Types.Sum
+import Network.AWS.Lambda.Types.AccountLimit
+import Network.AWS.Lambda.Types.AccountUsage
+import Network.AWS.Lambda.Types.AliasConfiguration
+import Network.AWS.Lambda.Types.AliasRoutingConfiguration
+import Network.AWS.Lambda.Types.AllowedPublishers
+import Network.AWS.Lambda.Types.CodeSigningConfig
+import Network.AWS.Lambda.Types.CodeSigningPolicies
+import Network.AWS.Lambda.Types.CodeSigningPolicy
+import Network.AWS.Lambda.Types.Concurrency
+import Network.AWS.Lambda.Types.DeadLetterConfig
+import Network.AWS.Lambda.Types.DestinationConfig
+import Network.AWS.Lambda.Types.Environment
+import Network.AWS.Lambda.Types.EnvironmentError
+import Network.AWS.Lambda.Types.EnvironmentResponse
+import Network.AWS.Lambda.Types.EventSourceMappingConfiguration
+import Network.AWS.Lambda.Types.EventSourcePosition
+import Network.AWS.Lambda.Types.FileSystemConfig
+import Network.AWS.Lambda.Types.FunctionCode
+import Network.AWS.Lambda.Types.FunctionCodeLocation
+import Network.AWS.Lambda.Types.FunctionConfiguration
+import Network.AWS.Lambda.Types.FunctionEventInvokeConfig
+import Network.AWS.Lambda.Types.FunctionVersion
+import Network.AWS.Lambda.Types.GetLayerVersionResponse
+import Network.AWS.Lambda.Types.InvocationType
+import Network.AWS.Lambda.Types.LastUpdateStatus
+import Network.AWS.Lambda.Types.LastUpdateStatusReasonCode
+import Network.AWS.Lambda.Types.Layer
+import Network.AWS.Lambda.Types.LayerVersionContentInput
+import Network.AWS.Lambda.Types.LayerVersionContentOutput
+import Network.AWS.Lambda.Types.LayerVersionsListItem
+import Network.AWS.Lambda.Types.LayersListItem
+import Network.AWS.Lambda.Types.LogType
+import Network.AWS.Lambda.Types.OnFailure
+import Network.AWS.Lambda.Types.OnSuccess
+import Network.AWS.Lambda.Types.ProvisionedConcurrencyConfigListItem
+import Network.AWS.Lambda.Types.ProvisionedConcurrencyStatusEnum
+import Network.AWS.Lambda.Types.Runtime
+import Network.AWS.Lambda.Types.SourceAccessConfiguration
+import Network.AWS.Lambda.Types.SourceAccessType
+import Network.AWS.Lambda.Types.State
+import Network.AWS.Lambda.Types.StateReasonCode
+import Network.AWS.Lambda.Types.TracingConfig
+import Network.AWS.Lambda.Types.TracingConfigResponse
+import Network.AWS.Lambda.Types.TracingMode
+import Network.AWS.Lambda.Types.VPCConfig
+import Network.AWS.Lambda.Types.VPCConfigResponse
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Sign.V4
@@ -199,23 +382,23 @@ import Network.AWS.Sign.V4
 lambda :: Service
 lambda =
   Service
-    { _svcAbbrev = "Lambda"
-    , _svcSigner = v4
-    , _svcPrefix = "lambda"
-    , _svcVersion = "2015-03-31"
-    , _svcEndpoint = defaultEndpoint lambda
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "Lambda"
-    , _svcRetry = retry
+    { _svcAbbrev = "Lambda",
+      _svcSigner = v4,
+      _svcPrefix = "lambda",
+      _svcVersion = "2015-03-31",
+      _svcEndpoint = defaultEndpoint lambda,
+      _svcTimeout = Just 70,
+      _svcCheck = statusSuccess,
+      _svcError = parseJSONError "Lambda",
+      _svcRetry = retry
     }
   where
     retry =
       Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+        { _retryBase = 5.0e-2,
+          _retryGrowth = 2,
+          _retryAttempts = 5,
+          _retryCheck = check
         }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
@@ -224,6 +407,10 @@ lambda =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has
+          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+          e =
+        Just "throughput_exceeded"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasCode "RequestThrottledException" . hasStatus 400) e =
         Just "request_throttled_exception"
@@ -232,196 +419,3 @@ lambda =
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
-
-
--- | Lambda was unable to decrypt the environment variables because the KMS key used is in an invalid state for Decrypt. Check the function's KMS key settings.
---
---
-_KMSInvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
-_KMSInvalidStateException =
-  _MatchServiceError lambda "KMSInvalidStateException" . hasStatus 502
-
-
--- | AWS Lambda was throttled by Amazon EC2 during Lambda function initialization using the execution role provided for the Lambda function.
---
---
-_EC2ThrottledException :: AsError a => Getting (First ServiceError) a ServiceError
-_EC2ThrottledException =
-  _MatchServiceError lambda "EC2ThrottledException" . hasStatus 502
-
-
--- | The runtime or runtime version specified is not supported.
---
---
-_InvalidRuntimeException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRuntimeException =
-  _MatchServiceError lambda "InvalidRuntimeException" . hasStatus 502
-
-
--- | Lambda function access policy is limited to 20 KB.
---
---
-_PolicyLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_PolicyLengthExceededException =
-  _MatchServiceError lambda "PolicyLengthExceededException" . hasStatus 400
-
-
--- | The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the @GetFunction@ or the @GetAlias@ API to retrieve the latest RevisionId for your resource.
---
---
-_PreconditionFailedException :: AsError a => Getting (First ServiceError) a ServiceError
-_PreconditionFailedException =
-  _MatchServiceError lambda "PreconditionFailedException" . hasStatus 412
-
-
--- |
---
---
-_EC2AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
-_EC2AccessDeniedException =
-  _MatchServiceError lambda "EC2AccessDeniedException" . hasStatus 502
-
-
--- | The Subnet ID provided in the Lambda function VPC configuration is invalid.
---
---
-_InvalidSubnetIdException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidSubnetIdException =
-  _MatchServiceError lambda "InvalidSubnetIDException" . hasStatus 502
-
-
--- | The content type of the @Invoke@ request body is not JSON.
---
---
-_UnsupportedMediaTypeException :: AsError a => Getting (First ServiceError) a ServiceError
-_UnsupportedMediaTypeException =
-  _MatchServiceError lambda "UnsupportedMediaTypeException" . hasStatus 415
-
-
--- | The request body could not be parsed as JSON.
---
---
-_InvalidRequestContentException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRequestContentException =
-  _MatchServiceError lambda "InvalidRequestContentException" . hasStatus 400
-
-
--- | Lambda was unable to decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.
---
---
-_KMSNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_KMSNotFoundException =
-  _MatchServiceError lambda "KMSNotFoundException" . hasStatus 502
-
-
--- | AWS Lambda was not able to create an Elastic Network Interface (ENI) in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached.
---
---
-_ENILimitReachedException :: AsError a => Getting (First ServiceError) a ServiceError
-_ENILimitReachedException =
-  _MatchServiceError lambda "ENILimitReachedException" . hasStatus 502
-
-
--- | One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda to assume in the @CreateFunction@ or the @UpdateFunctionConfiguration@ API, that AWS Lambda is unable to assume you will get this exception.
---
---
-_InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameterValueException =
-  _MatchServiceError lambda "InvalidParameterValueException" . hasStatus 400
-
-
--- | The request payload exceeded the @Invoke@ request body JSON input limit. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/limits.html Limits> .
---
---
-_RequestTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
-_RequestTooLargeException =
-  _MatchServiceError lambda "RequestTooLargeException" . hasStatus 413
-
-
--- |
---
---
-_TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyRequestsException =
-  _MatchServiceError lambda "TooManyRequestsException" . hasStatus 429
-
-
--- | The Security Group ID provided in the Lambda function VPC configuration is invalid.
---
---
-_InvalidSecurityGroupIdException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidSecurityGroupIdException =
-  _MatchServiceError lambda "InvalidSecurityGroupIDException" . hasStatus 502
-
-
--- | Lambda was unable to decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.
---
---
-_KMSDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
-_KMSDisabledException =
-  _MatchServiceError lambda "KMSDisabledException" . hasStatus 502
-
-
--- | AWS Lambda was not able to set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.
---
---
-_SubnetIPAddressLimitReachedException :: AsError a => Getting (First ServiceError) a ServiceError
-_SubnetIPAddressLimitReachedException =
-  _MatchServiceError lambda "SubnetIPAddressLimitReachedException" .
-  hasStatus 502
-
-
--- | The AWS Lambda service encountered an internal error.
---
---
-_ServiceException :: AsError a => Getting (First ServiceError) a ServiceError
-_ServiceException = _MatchServiceError lambda "ServiceException" . hasStatus 500
-
-
--- | You have exceeded your maximum total code size per account. <http://docs.aws.amazon.com/lambda/latest/dg/limits.html Limits>
---
---
-_CodeStorageExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_CodeStorageExceededException =
-  _MatchServiceError lambda "CodeStorageExceededException" . hasStatus 400
-
-
--- | AWS Lambda could not unzip the function zip file.
---
---
-_InvalidZipFileException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidZipFileException =
-  _MatchServiceError lambda "InvalidZipFileException" . hasStatus 502
-
-
--- | The resource already exists.
---
---
-_ResourceConflictException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceConflictException =
-  _MatchServiceError lambda "ResourceConflictException" . hasStatus 409
-
-
--- | AWS Lambda received an unexpected EC2 client exception while setting up for the Lambda function.
---
---
-_EC2UnexpectedException :: AsError a => Getting (First ServiceError) a ServiceError
-_EC2UnexpectedException =
-  _MatchServiceError lambda "EC2UnexpectedException" . hasStatus 502
-
-
--- | The resource (for example, a Lambda function or access policy statement) specified in the request does not exist.
---
---
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundException =
-  _MatchServiceError lambda "ResourceNotFoundException" . hasStatus 404
-
-
--- | Lambda was unable to decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.
---
---
-_KMSAccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
-_KMSAccessDeniedException =
-  _MatchServiceError lambda "KMSAccessDeniedException" . hasStatus 502
-

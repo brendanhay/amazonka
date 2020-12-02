@@ -4,89 +4,96 @@
 
 -- |
 -- Module      : Network.AWS.MigrationHub.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.MigrationHub.Types
-    (
-    -- * Service Configuration
-      migrationHub
+  ( -- * Service Configuration
+    migrationHub,
 
     -- * Errors
-    , _AccessDeniedException
-    , _DryRunOperation
-    , _PolicyErrorException
-    , _InternalServerError
-    , _InvalidInputException
-    , _ServiceUnavailableException
-    , _ResourceNotFoundException
-    , _UnauthorizedOperation
 
     -- * ApplicationStatus
-    , ApplicationStatus (..)
+    ApplicationStatus (..),
 
     -- * MigrationStatus
-    , MigrationStatus (..)
+    MigrationStatus (..),
 
     -- * ResourceAttributeType
-    , ResourceAttributeType (..)
+    ResourceAttributeType (..),
+
+    -- * ApplicationState
+    ApplicationState,
+    applicationState,
+    asLastUpdatedTime,
+    asApplicationId,
+    asApplicationStatus,
 
     -- * CreatedArtifact
-    , CreatedArtifact
-    , createdArtifact
-    , caDescription
-    , caName
+    CreatedArtifact,
+    createdArtifact,
+    caDescription,
+    caName,
 
     -- * DiscoveredResource
-    , DiscoveredResource
-    , discoveredResource
-    , drDescription
-    , drConfigurationId
+    DiscoveredResource,
+    discoveredResource,
+    drDescription,
+    drConfigurationId,
 
     -- * MigrationTask
-    , MigrationTask
-    , migrationTask
-    , mtUpdateDateTime
-    , mtResourceAttributeList
-    , mtTask
-    , mtProgressUpdateStream
-    , mtMigrationTaskName
+    MigrationTask,
+    migrationTask,
+    mtUpdateDateTime,
+    mtResourceAttributeList,
+    mtTask,
+    mtProgressUpdateStream,
+    mtMigrationTaskName,
 
     -- * MigrationTaskSummary
-    , MigrationTaskSummary
-    , migrationTaskSummary
-    , mtsStatus
-    , mtsUpdateDateTime
-    , mtsProgressPercent
-    , mtsStatusDetail
-    , mtsProgressUpdateStream
-    , mtsMigrationTaskName
+    MigrationTaskSummary,
+    migrationTaskSummary,
+    mtsStatus,
+    mtsUpdateDateTime,
+    mtsProgressPercent,
+    mtsStatusDetail,
+    mtsProgressUpdateStream,
+    mtsMigrationTaskName,
 
     -- * ProgressUpdateStreamSummary
-    , ProgressUpdateStreamSummary
-    , progressUpdateStreamSummary
-    , pussProgressUpdateStreamName
+    ProgressUpdateStreamSummary,
+    progressUpdateStreamSummary,
+    pussProgressUpdateStreamName,
 
     -- * ResourceAttribute
-    , ResourceAttribute
-    , resourceAttribute
-    , raType
-    , raValue
+    ResourceAttribute,
+    resourceAttribute,
+    raType,
+    raValue,
 
     -- * Task
-    , Task
-    , task
-    , tProgressPercent
-    , tStatusDetail
-    , tStatus
-    ) where
+    Task,
+    task,
+    tProgressPercent,
+    tStatusDetail,
+    tStatus,
+  )
+where
 
 import Network.AWS.Lens
-import Network.AWS.MigrationHub.Types.Product
-import Network.AWS.MigrationHub.Types.Sum
+import Network.AWS.MigrationHub.Types.ApplicationState
+import Network.AWS.MigrationHub.Types.ApplicationStatus
+import Network.AWS.MigrationHub.Types.CreatedArtifact
+import Network.AWS.MigrationHub.Types.DiscoveredResource
+import Network.AWS.MigrationHub.Types.MigrationStatus
+import Network.AWS.MigrationHub.Types.MigrationTask
+import Network.AWS.MigrationHub.Types.MigrationTaskSummary
+import Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary
+import Network.AWS.MigrationHub.Types.ResourceAttribute
+import Network.AWS.MigrationHub.Types.ResourceAttributeType
+import Network.AWS.MigrationHub.Types.Task
 import Network.AWS.Prelude
 import Network.AWS.Sign.V4
 
@@ -94,23 +101,23 @@ import Network.AWS.Sign.V4
 migrationHub :: Service
 migrationHub =
   Service
-    { _svcAbbrev = "MigrationHub"
-    , _svcSigner = v4
-    , _svcPrefix = "mgh"
-    , _svcVersion = "2017-05-31"
-    , _svcEndpoint = defaultEndpoint migrationHub
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "MigrationHub"
-    , _svcRetry = retry
+    { _svcAbbrev = "MigrationHub",
+      _svcSigner = v4,
+      _svcPrefix = "mgh",
+      _svcVersion = "2017-05-31",
+      _svcEndpoint = defaultEndpoint migrationHub,
+      _svcTimeout = Just 70,
+      _svcCheck = statusSuccess,
+      _svcError = parseJSONError "MigrationHub",
+      _svcRetry = retry
     }
   where
     retry =
       Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+        { _retryBase = 5.0e-2,
+          _retryGrowth = 2,
+          _retryAttempts = 5,
+          _retryCheck = check
         }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
@@ -119,6 +126,10 @@ migrationHub =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has
+          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+          e =
+        Just "throughput_exceeded"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasCode "RequestThrottledException" . hasStatus 400) e =
         Just "request_throttled_exception"
@@ -127,62 +138,3 @@ migrationHub =
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
-
-
--- | You do not have sufficient access to perform this action.
---
---
-_AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
-_AccessDeniedException = _MatchServiceError migrationHub "AccessDeniedException"
-
-
--- | Exception raised to indicate a successfully authorized action when the @DryRun@ flag is set to "true".
---
---
-_DryRunOperation :: AsError a => Getting (First ServiceError) a ServiceError
-_DryRunOperation = _MatchServiceError migrationHub "DryRunOperation"
-
-
--- | Exception raised when there are problems accessing ADS (Application Discovery Service); most likely due to a misconfigured policy or the @migrationhub-discovery@ role is missing or not configured correctly.
---
---
-_PolicyErrorException :: AsError a => Getting (First ServiceError) a ServiceError
-_PolicyErrorException = _MatchServiceError migrationHub "PolicyErrorException"
-
-
--- | Exception raised when there is an internal, configuration, or dependency error encountered.
---
---
-_InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServerError = _MatchServiceError migrationHub "InternalServerError"
-
-
--- | Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.
---
---
-_InvalidInputException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidInputException = _MatchServiceError migrationHub "InvalidInputException"
-
-
--- | Exception raised when there is an internal, configuration, or dependency error encountered.
---
---
-_ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
-_ServiceUnavailableException =
-  _MatchServiceError migrationHub "ServiceUnavailableException"
-
-
--- | Exception raised when the request references a resource (ADS configuration, update stream, migration task, etc.) that does not exist in ADS (Application Discovery Service) or in Migration Hub's repository.
---
---
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundException =
-  _MatchServiceError migrationHub "ResourceNotFoundException"
-
-
--- | Exception raised to indicate a request was not authorized when the @DryRun@ flag is set to "true".
---
---
-_UnauthorizedOperation :: AsError a => Getting (First ServiceError) a ServiceError
-_UnauthorizedOperation = _MatchServiceError migrationHub "UnauthorizedOperation"
-

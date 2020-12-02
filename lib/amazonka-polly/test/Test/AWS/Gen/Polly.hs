@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.Polly
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.Polly where
 
 import Data.Proxy
@@ -31,6 +30,9 @@ import Test.Tasty
 --         [ requestGetLexicon $
 --             getLexicon
 --
+--         , requestGetSpeechSynthesisTask $
+--             getSpeechSynthesisTask
+--
 --         , requestDescribeVoices $
 --             describeVoices
 --
@@ -40,17 +42,26 @@ import Test.Tasty
 --         , requestSynthesizeSpeech $
 --             synthesizeSpeech
 --
+--         , requestListSpeechSynthesisTasks $
+--             listSpeechSynthesisTasks
+--
 --         , requestPutLexicon $
 --             putLexicon
 --
 --         , requestDeleteLexicon $
 --             deleteLexicon
 --
+--         , requestStartSpeechSynthesisTask $
+--             startSpeechSynthesisTask
+--
 --           ]
 
 --     , testGroup "response"
 --         [ responseGetLexicon $
 --             getLexiconResponse
+--
+--         , responseGetSpeechSynthesisTask $
+--             getSpeechSynthesisTaskResponse
 --
 --         , responseDescribeVoices $
 --             describeVoicesResponse
@@ -61,11 +72,17 @@ import Test.Tasty
 --         , responseSynthesizeSpeech $
 --             synthesizeSpeechResponse
 --
+--         , responseListSpeechSynthesisTasks $
+--             listSpeechSynthesisTasksResponse
+--
 --         , responsePutLexicon $
 --             putLexiconResponse
 --
 --         , responseDeleteLexicon $
 --             deleteLexiconResponse
+--
+--         , responseStartSpeechSynthesisTask $
+--             startSpeechSynthesisTaskResponse
 --
 --           ]
 --     ]
@@ -73,68 +90,121 @@ import Test.Tasty
 -- Requests
 
 requestGetLexicon :: GetLexicon -> TestTree
-requestGetLexicon = req
+requestGetLexicon =
+  req
     "GetLexicon"
     "fixture/GetLexicon.yaml"
 
+requestGetSpeechSynthesisTask :: GetSpeechSynthesisTask -> TestTree
+requestGetSpeechSynthesisTask =
+  req
+    "GetSpeechSynthesisTask"
+    "fixture/GetSpeechSynthesisTask.yaml"
+
 requestDescribeVoices :: DescribeVoices -> TestTree
-requestDescribeVoices = req
+requestDescribeVoices =
+  req
     "DescribeVoices"
     "fixture/DescribeVoices.yaml"
 
 requestListLexicons :: ListLexicons -> TestTree
-requestListLexicons = req
+requestListLexicons =
+  req
     "ListLexicons"
     "fixture/ListLexicons.yaml"
 
 requestSynthesizeSpeech :: SynthesizeSpeech -> TestTree
-requestSynthesizeSpeech = req
+requestSynthesizeSpeech =
+  req
     "SynthesizeSpeech"
     "fixture/SynthesizeSpeech.yaml"
 
+requestListSpeechSynthesisTasks :: ListSpeechSynthesisTasks -> TestTree
+requestListSpeechSynthesisTasks =
+  req
+    "ListSpeechSynthesisTasks"
+    "fixture/ListSpeechSynthesisTasks.yaml"
+
 requestPutLexicon :: PutLexicon -> TestTree
-requestPutLexicon = req
+requestPutLexicon =
+  req
     "PutLexicon"
     "fixture/PutLexicon.yaml"
 
 requestDeleteLexicon :: DeleteLexicon -> TestTree
-requestDeleteLexicon = req
+requestDeleteLexicon =
+  req
     "DeleteLexicon"
     "fixture/DeleteLexicon.yaml"
+
+requestStartSpeechSynthesisTask :: StartSpeechSynthesisTask -> TestTree
+requestStartSpeechSynthesisTask =
+  req
+    "StartSpeechSynthesisTask"
+    "fixture/StartSpeechSynthesisTask.yaml"
 
 -- Responses
 
 responseGetLexicon :: GetLexiconResponse -> TestTree
-responseGetLexicon = res
+responseGetLexicon =
+  res
     "GetLexiconResponse"
     "fixture/GetLexiconResponse.proto"
     polly
     (Proxy :: Proxy GetLexicon)
 
+responseGetSpeechSynthesisTask :: GetSpeechSynthesisTaskResponse -> TestTree
+responseGetSpeechSynthesisTask =
+  res
+    "GetSpeechSynthesisTaskResponse"
+    "fixture/GetSpeechSynthesisTaskResponse.proto"
+    polly
+    (Proxy :: Proxy GetSpeechSynthesisTask)
+
 responseDescribeVoices :: DescribeVoicesResponse -> TestTree
-responseDescribeVoices = res
+responseDescribeVoices =
+  res
     "DescribeVoicesResponse"
     "fixture/DescribeVoicesResponse.proto"
     polly
     (Proxy :: Proxy DescribeVoices)
 
 responseListLexicons :: ListLexiconsResponse -> TestTree
-responseListLexicons = res
+responseListLexicons =
+  res
     "ListLexiconsResponse"
     "fixture/ListLexiconsResponse.proto"
     polly
     (Proxy :: Proxy ListLexicons)
 
+responseListSpeechSynthesisTasks :: ListSpeechSynthesisTasksResponse -> TestTree
+responseListSpeechSynthesisTasks =
+  res
+    "ListSpeechSynthesisTasksResponse"
+    "fixture/ListSpeechSynthesisTasksResponse.proto"
+    polly
+    (Proxy :: Proxy ListSpeechSynthesisTasks)
+
 responsePutLexicon :: PutLexiconResponse -> TestTree
-responsePutLexicon = res
+responsePutLexicon =
+  res
     "PutLexiconResponse"
     "fixture/PutLexiconResponse.proto"
     polly
     (Proxy :: Proxy PutLexicon)
 
 responseDeleteLexicon :: DeleteLexiconResponse -> TestTree
-responseDeleteLexicon = res
+responseDeleteLexicon =
+  res
     "DeleteLexiconResponse"
     "fixture/DeleteLexiconResponse.proto"
     polly
     (Proxy :: Proxy DeleteLexicon)
+
+responseStartSpeechSynthesisTask :: StartSpeechSynthesisTaskResponse -> TestTree
+responseStartSpeechSynthesisTask =
+  res
+    "StartSpeechSynthesisTaskResponse"
+    "fixture/StartSpeechSynthesisTaskResponse.proto"
+    polly
+    (Proxy :: Proxy StartSpeechSynthesisTask)

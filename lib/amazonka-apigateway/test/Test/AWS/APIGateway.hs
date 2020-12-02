@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TemplateHaskell #-}
 
 -- Module      : Test.AWS.APIGateway
 -- Copyright   : (c) 2013-2018 Brendan Hay
@@ -12,33 +12,35 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.APIGateway
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Data.Time
-import           Network.AWS.APIGateway
-import           Network.AWS.Lens        ((&), (?~))
-import           Network.AWS.Prelude
-import           Test.AWS.Gen.APIGateway
-import           Test.AWS.TH
-import           Test.Tasty
+import Data.Time
+import Network.AWS.APIGateway
+import Network.AWS.Lens ((&), (?~))
+import Network.AWS.Prelude
+import Test.AWS.Gen.APIGateway
+import Test.AWS.TH
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []
 
 fixtures :: [TestTree]
 fixtures =
-    [ testGroup "request"
-        [ requestCreateRestAPI $
-            createRestAPI "testAPI"
-        ]
-
-    , testGroup "response"
-        [ responseCreateRestAPI $
-            restAPI
-                & raId          ?~ "4x69hrdz0g"
-                & raName        ?~ "testAPI"
-                & raCreatedDate ?~ $(mkTime "2016-06-07T17:39:19+02:00")
-        ]
-    ]
+  [ testGroup
+      "request"
+      [ requestCreateRestAPI $
+          createRestAPI "testAPI"
+      ],
+    testGroup
+      "response"
+      [ responseCreateRestAPI $
+          restAPI
+            & raId ?~ "4x69hrdz0g"
+            & raName ?~ "testAPI"
+            & raCreatedDate ?~ $(mkTime "2016-06-07T17:39:19+02:00")
+      ]
+  ]

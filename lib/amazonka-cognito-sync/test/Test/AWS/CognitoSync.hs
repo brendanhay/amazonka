@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.CognitoSync
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.CognitoSync
-import           Test.AWS.Gen.CognitoSync
-import           Test.Tasty
+import Network.AWS.CognitoSync
+import Test.AWS.Gen.CognitoSync
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

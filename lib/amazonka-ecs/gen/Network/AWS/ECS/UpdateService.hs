@@ -1,25 +1,32 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ECS.UpdateService
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the desired count, deployment configuration, network configuration, or task definition used in a service.
+-- /Important:/ Updating the task placement strategies and constraints on an Amazon ECS service remains in preview and is a Beta Service as defined by and subject to the Beta Service Participation Service Terms located at <https://aws.amazon.com/service-terms https://aws.amazon.com/service-terms> ("Beta Terms"). These Beta Terms apply to your participation in this preview.
 --
+--
+-- Modifies the parameters of a service.
+--
+-- For services using the rolling update (@ECS@ ) deployment controller, the desired count, deployment configuration, network configuration, task placement constraints and strategies, or task definition used can be updated.
+--
+-- For services using the blue/green (@CODE_DEPLOY@ ) deployment controller, only the desired count, deployment configuration, task placement constraints and strategies, and health check grace period can be updated using this API. If the network configuration, platform version, or task definition need to be updated, a new AWS CodeDeploy deployment should be created. For more information, see <https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html CreateDeployment> in the /AWS CodeDeploy API Reference/ .
+--
+-- For services using an external deployment controller, you can update only the desired count, task placement constraints and strategies, and health check grace period using this API. If the launch type, load balancer, network configuration, platform version, or task definition need to be updated, you should create a new task set. For more information, see 'CreateTaskSet' .
 --
 -- You can add to or subtract from the number of instantiations of a task definition in a service by specifying the cluster that the service is running in and a new @desiredCount@ parameter.
 --
@@ -54,35 +61,36 @@
 --     * Sort the container instances by the largest number of running tasks for this service in the same Availability Zone as the instance. For example, if zone A has one running service task and zones B and C each have two, container instances in either zone B or C are considered optimal for termination.
 --
 --     * Stop the task on a container instance in an optimal Availability Zone (based on the previous steps), favoring container instances with the largest number of running tasks for this service.
---
---
---
 module Network.AWS.ECS.UpdateService
-    (
-    -- * Creating a Request
-      updateService
-    , UpdateService
+  ( -- * Creating a Request
+    updateService,
+    UpdateService,
+
     -- * Request Lenses
-    , usCluster
-    , usPlatformVersion
-    , usDesiredCount
-    , usForceNewDeployment
-    , usTaskDefinition
-    , usHealthCheckGracePeriodSeconds
-    , usNetworkConfiguration
-    , usDeploymentConfiguration
-    , usService
+    usCluster,
+    usPlatformVersion,
+    usDesiredCount,
+    usPlacementConstraints,
+    usPlacementStrategy,
+    usForceNewDeployment,
+    usTaskDefinition,
+    usHealthCheckGracePeriodSeconds,
+    usNetworkConfiguration,
+    usCapacityProviderStrategy,
+    usDeploymentConfiguration,
+    usService,
 
     -- * Destructuring the Response
-    , updateServiceResponse
-    , UpdateServiceResponse
+    updateServiceResponse,
+    UpdateServiceResponse,
+
     -- * Response Lenses
-    , usrsService
-    , usrsResponseStatus
-    ) where
+    usrsService,
+    usrsResponseStatus,
+  )
+where
 
 import Network.AWS.ECS.Types
-import Network.AWS.ECS.Types.Product
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
@@ -90,17 +98,21 @@ import Network.AWS.Response
 
 -- | /See:/ 'updateService' smart constructor.
 data UpdateService = UpdateService'
-  { _usCluster                       :: !(Maybe Text)
-  , _usPlatformVersion               :: !(Maybe Text)
-  , _usDesiredCount                  :: !(Maybe Int)
-  , _usForceNewDeployment            :: !(Maybe Bool)
-  , _usTaskDefinition                :: !(Maybe Text)
-  , _usHealthCheckGracePeriodSeconds :: !(Maybe Int)
-  , _usNetworkConfiguration          :: !(Maybe NetworkConfiguration)
-  , _usDeploymentConfiguration       :: !(Maybe DeploymentConfiguration)
-  , _usService                       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _usCluster :: !(Maybe Text),
+    _usPlatformVersion :: !(Maybe Text),
+    _usDesiredCount :: !(Maybe Int),
+    _usPlacementConstraints :: !(Maybe [PlacementConstraint]),
+    _usPlacementStrategy :: !(Maybe [PlacementStrategy]),
+    _usForceNewDeployment :: !(Maybe Bool),
+    _usTaskDefinition :: !(Maybe Text),
+    _usHealthCheckGracePeriodSeconds :: !(Maybe Int),
+    _usNetworkConfiguration :: !(Maybe NetworkConfiguration),
+    _usCapacityProviderStrategy ::
+      !(Maybe [CapacityProviderStrategyItem]),
+    _usDeploymentConfiguration :: !(Maybe DeploymentConfiguration),
+    _usService :: !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'UpdateService' with the minimum fields required to make a request.
 --
@@ -108,126 +120,152 @@ data UpdateService = UpdateService'
 --
 -- * 'usCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'usPlatformVersion' - The platform version you want to update your service to run.
+-- * 'usPlatformVersion' - The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If a platform version is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 -- * 'usDesiredCount' - The number of instantiations of the task to place and keep running in your service.
+--
+-- * 'usPlacementConstraints' - An array of task placement constraint objects to update the service to use. If no value is specified, the existing placement constraints for the service will remain unchanged. If this value is specified, it will override any existing placement constraints defined for the service. To remove all existing placement constraints, specify an empty array. You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at runtime).
+--
+-- * 'usPlacementStrategy' - The task placement strategy objects to update the service to use. If no value is specified, the existing placement strategy for the service will remain unchanged. If this value is specified, it will override the existing placement strategy defined for the service. To remove an existing placement strategy, specify an empty object. You can specify a maximum of five strategy rules per service.
 --
 -- * 'usForceNewDeployment' - Whether to force a new deployment of the service. Deployments are not forced by default. You can use this option to trigger a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (@my_image:latest@ ) or to roll Fargate tasks onto a newer platform version.
 --
 -- * 'usTaskDefinition' - The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used. If you modify the task definition with @UpdateService@ , Amazon ECS spawns a task with the new version of the task definition and then stops an old task after the new version is running.
 --
--- * 'usHealthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 1,800 seconds during which the ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
+-- * 'usHealthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
 --
--- * 'usNetworkConfiguration' - The network configuration for the service. This parameter is required for task definitions that use the @awsvpc@ network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task Networking> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'usNetworkConfiguration' - Undocumented member.
+--
+-- * 'usCapacityProviderStrategy' - The capacity provider strategy to update the service to use. If the service is using the default capacity provider strategy for the cluster, the service can be updated to use one or more capacity providers as opposed to the default capacity provider strategy. However, when a service is using a capacity provider strategy that is not the default capacity provider strategy, the service cannot be updated to use the cluster's default capacity provider strategy. A capacity provider strategy consists of one or more capacity providers along with the @base@ and @weight@ to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The 'PutClusterCapacityProviders' API is used to associate a capacity provider with a cluster. Only capacity providers with an @ACTIVE@ or @UPDATING@ status can be used. If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation. To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used. The 'PutClusterCapacityProviders' API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
 --
 -- * 'usDeploymentConfiguration' - Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 --
 -- * 'usService' - The name of the service to update.
-updateService
-    :: Text -- ^ 'usService'
-    -> UpdateService
+updateService ::
+  -- | 'usService'
+  Text ->
+  UpdateService
 updateService pService_ =
   UpdateService'
-    { _usCluster = Nothing
-    , _usPlatformVersion = Nothing
-    , _usDesiredCount = Nothing
-    , _usForceNewDeployment = Nothing
-    , _usTaskDefinition = Nothing
-    , _usHealthCheckGracePeriodSeconds = Nothing
-    , _usNetworkConfiguration = Nothing
-    , _usDeploymentConfiguration = Nothing
-    , _usService = pService_
+    { _usCluster = Nothing,
+      _usPlatformVersion = Nothing,
+      _usDesiredCount = Nothing,
+      _usPlacementConstraints = Nothing,
+      _usPlacementStrategy = Nothing,
+      _usForceNewDeployment = Nothing,
+      _usTaskDefinition = Nothing,
+      _usHealthCheckGracePeriodSeconds = Nothing,
+      _usNetworkConfiguration = Nothing,
+      _usCapacityProviderStrategy = Nothing,
+      _usDeploymentConfiguration = Nothing,
+      _usService = pService_
     }
-
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that your service is running on. If you do not specify a cluster, the default cluster is assumed.
 usCluster :: Lens' UpdateService (Maybe Text)
-usCluster = lens _usCluster (\ s a -> s{_usCluster = a})
+usCluster = lens _usCluster (\s a -> s {_usCluster = a})
 
--- | The platform version you want to update your service to run.
+-- | The platform version on which your tasks in the service are running. A platform version is only specified for tasks using the Fargate launch type. If a platform version is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
 usPlatformVersion :: Lens' UpdateService (Maybe Text)
-usPlatformVersion = lens _usPlatformVersion (\ s a -> s{_usPlatformVersion = a})
+usPlatformVersion = lens _usPlatformVersion (\s a -> s {_usPlatformVersion = a})
 
 -- | The number of instantiations of the task to place and keep running in your service.
 usDesiredCount :: Lens' UpdateService (Maybe Int)
-usDesiredCount = lens _usDesiredCount (\ s a -> s{_usDesiredCount = a})
+usDesiredCount = lens _usDesiredCount (\s a -> s {_usDesiredCount = a})
+
+-- | An array of task placement constraint objects to update the service to use. If no value is specified, the existing placement constraints for the service will remain unchanged. If this value is specified, it will override any existing placement constraints defined for the service. To remove all existing placement constraints, specify an empty array. You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at runtime).
+usPlacementConstraints :: Lens' UpdateService [PlacementConstraint]
+usPlacementConstraints = lens _usPlacementConstraints (\s a -> s {_usPlacementConstraints = a}) . _Default . _Coerce
+
+-- | The task placement strategy objects to update the service to use. If no value is specified, the existing placement strategy for the service will remain unchanged. If this value is specified, it will override the existing placement strategy defined for the service. To remove an existing placement strategy, specify an empty object. You can specify a maximum of five strategy rules per service.
+usPlacementStrategy :: Lens' UpdateService [PlacementStrategy]
+usPlacementStrategy = lens _usPlacementStrategy (\s a -> s {_usPlacementStrategy = a}) . _Default . _Coerce
 
 -- | Whether to force a new deployment of the service. Deployments are not forced by default. You can use this option to trigger a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (@my_image:latest@ ) or to roll Fargate tasks onto a newer platform version.
 usForceNewDeployment :: Lens' UpdateService (Maybe Bool)
-usForceNewDeployment = lens _usForceNewDeployment (\ s a -> s{_usForceNewDeployment = a})
+usForceNewDeployment = lens _usForceNewDeployment (\s a -> s {_usForceNewDeployment = a})
 
 -- | The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used. If you modify the task definition with @UpdateService@ , Amazon ECS spawns a task with the new version of the task definition and then stops an old task after the new version is running.
 usTaskDefinition :: Lens' UpdateService (Maybe Text)
-usTaskDefinition = lens _usTaskDefinition (\ s a -> s{_usTaskDefinition = a})
+usTaskDefinition = lens _usTaskDefinition (\s a -> s {_usTaskDefinition = a})
 
--- | The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 1,800 seconds during which the ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
+-- | The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only valid if your service is configured to use a load balancer. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler ignores the Elastic Load Balancing health check status. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
 usHealthCheckGracePeriodSeconds :: Lens' UpdateService (Maybe Int)
-usHealthCheckGracePeriodSeconds = lens _usHealthCheckGracePeriodSeconds (\ s a -> s{_usHealthCheckGracePeriodSeconds = a})
+usHealthCheckGracePeriodSeconds = lens _usHealthCheckGracePeriodSeconds (\s a -> s {_usHealthCheckGracePeriodSeconds = a})
 
--- | The network configuration for the service. This parameter is required for task definitions that use the @awsvpc@ network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task Networking> in the /Amazon Elastic Container Service Developer Guide/ .
+-- | Undocumented member.
 usNetworkConfiguration :: Lens' UpdateService (Maybe NetworkConfiguration)
-usNetworkConfiguration = lens _usNetworkConfiguration (\ s a -> s{_usNetworkConfiguration = a})
+usNetworkConfiguration = lens _usNetworkConfiguration (\s a -> s {_usNetworkConfiguration = a})
+
+-- | The capacity provider strategy to update the service to use. If the service is using the default capacity provider strategy for the cluster, the service can be updated to use one or more capacity providers as opposed to the default capacity provider strategy. However, when a service is using a capacity provider strategy that is not the default capacity provider strategy, the service cannot be updated to use the cluster's default capacity provider strategy. A capacity provider strategy consists of one or more capacity providers along with the @base@ and @weight@ to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The 'PutClusterCapacityProviders' API is used to associate a capacity provider with a cluster. Only capacity providers with an @ACTIVE@ or @UPDATING@ status can be used. If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation. To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used. The 'PutClusterCapacityProviders' API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
+usCapacityProviderStrategy :: Lens' UpdateService [CapacityProviderStrategyItem]
+usCapacityProviderStrategy = lens _usCapacityProviderStrategy (\s a -> s {_usCapacityProviderStrategy = a}) . _Default . _Coerce
 
 -- | Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 usDeploymentConfiguration :: Lens' UpdateService (Maybe DeploymentConfiguration)
-usDeploymentConfiguration = lens _usDeploymentConfiguration (\ s a -> s{_usDeploymentConfiguration = a})
+usDeploymentConfiguration = lens _usDeploymentConfiguration (\s a -> s {_usDeploymentConfiguration = a})
 
 -- | The name of the service to update.
 usService :: Lens' UpdateService Text
-usService = lens _usService (\ s a -> s{_usService = a})
+usService = lens _usService (\s a -> s {_usService = a})
 
 instance AWSRequest UpdateService where
-        type Rs UpdateService = UpdateServiceResponse
-        request = postJSON ecs
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateServiceResponse' <$>
-                   (x .?> "service") <*> (pure (fromEnum s)))
+  type Rs UpdateService = UpdateServiceResponse
+  request = postJSON ecs
+  response =
+    receiveJSON
+      ( \s h x ->
+          UpdateServiceResponse'
+            <$> (x .?> "service") <*> (pure (fromEnum s))
+      )
 
-instance Hashable UpdateService where
+instance Hashable UpdateService
 
-instance NFData UpdateService where
+instance NFData UpdateService
 
 instance ToHeaders UpdateService where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonEC2ContainerServiceV20141113.UpdateService"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target"
+              =# ("AmazonEC2ContainerServiceV20141113.UpdateService" :: ByteString),
+            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+          ]
+      )
 
 instance ToJSON UpdateService where
-        toJSON UpdateService'{..}
-          = object
-              (catMaybes
-                 [("cluster" .=) <$> _usCluster,
-                  ("platformVersion" .=) <$> _usPlatformVersion,
-                  ("desiredCount" .=) <$> _usDesiredCount,
-                  ("forceNewDeployment" .=) <$> _usForceNewDeployment,
-                  ("taskDefinition" .=) <$> _usTaskDefinition,
-                  ("healthCheckGracePeriodSeconds" .=) <$>
-                    _usHealthCheckGracePeriodSeconds,
-                  ("networkConfiguration" .=) <$>
-                    _usNetworkConfiguration,
-                  ("deploymentConfiguration" .=) <$>
-                    _usDeploymentConfiguration,
-                  Just ("service" .= _usService)])
+  toJSON UpdateService' {..} =
+    object
+      ( catMaybes
+          [ ("cluster" .=) <$> _usCluster,
+            ("platformVersion" .=) <$> _usPlatformVersion,
+            ("desiredCount" .=) <$> _usDesiredCount,
+            ("placementConstraints" .=) <$> _usPlacementConstraints,
+            ("placementStrategy" .=) <$> _usPlacementStrategy,
+            ("forceNewDeployment" .=) <$> _usForceNewDeployment,
+            ("taskDefinition" .=) <$> _usTaskDefinition,
+            ("healthCheckGracePeriodSeconds" .=)
+              <$> _usHealthCheckGracePeriodSeconds,
+            ("networkConfiguration" .=) <$> _usNetworkConfiguration,
+            ("capacityProviderStrategy" .=) <$> _usCapacityProviderStrategy,
+            ("deploymentConfiguration" .=) <$> _usDeploymentConfiguration,
+            Just ("service" .= _usService)
+          ]
+      )
 
 instance ToPath UpdateService where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery UpdateService where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | /See:/ 'updateServiceResponse' smart constructor.
 data UpdateServiceResponse = UpdateServiceResponse'
-  { _usrsService        :: !(Maybe ContainerService)
-  , _usrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _usrsService ::
+      !(Maybe ContainerService),
+    _usrsResponseStatus :: !Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'UpdateServiceResponse' with the minimum fields required to make a request.
 --
@@ -236,20 +274,22 @@ data UpdateServiceResponse = UpdateServiceResponse'
 -- * 'usrsService' - The full description of your service following the update call.
 --
 -- * 'usrsResponseStatus' - -- | The response status code.
-updateServiceResponse
-    :: Int -- ^ 'usrsResponseStatus'
-    -> UpdateServiceResponse
+updateServiceResponse ::
+  -- | 'usrsResponseStatus'
+  Int ->
+  UpdateServiceResponse
 updateServiceResponse pResponseStatus_ =
   UpdateServiceResponse'
-    {_usrsService = Nothing, _usrsResponseStatus = pResponseStatus_}
-
+    { _usrsService = Nothing,
+      _usrsResponseStatus = pResponseStatus_
+    }
 
 -- | The full description of your service following the update call.
 usrsService :: Lens' UpdateServiceResponse (Maybe ContainerService)
-usrsService = lens _usrsService (\ s a -> s{_usrsService = a})
+usrsService = lens _usrsService (\s a -> s {_usrsService = a})
 
 -- | -- | The response status code.
 usrsResponseStatus :: Lens' UpdateServiceResponse Int
-usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a})
+usrsResponseStatus = lens _usrsResponseStatus (\s a -> s {_usrsResponseStatus = a})
 
-instance NFData UpdateServiceResponse where
+instance NFData UpdateServiceResponse

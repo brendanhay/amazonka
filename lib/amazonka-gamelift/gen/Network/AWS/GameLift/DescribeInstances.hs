@@ -1,188 +1,216 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeInstances
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about a fleet's instances, including instance IDs. Use this action to get details on all instances in the fleet or get details on one specific instance.
+-- Retrieves information about a fleet's instances, including instance IDs. Use this operation to get details on all instances in the fleet or get details on one specific instance.
 --
 --
 -- To get a specific instance, specify fleet ID and instance ID. To get all instances in a fleet, specify a fleet ID only. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, an 'Instance' object is returned for each result.
 --
+-- __Learn more__
+--
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html Remotely Access Fleet Instances>
+--
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html Debug Fleet Issues>
+--
+-- __Related operations__
+--
+--     * 'DescribeInstances'
+--
+--     * 'GetInstanceAccess'
+--
+--
+--
+--
+-- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeInstances
-    (
-    -- * Creating a Request
-      describeInstances
-    , DescribeInstances
+  ( -- * Creating a Request
+    describeInstances,
+    DescribeInstances,
+
     -- * Request Lenses
-    , diInstanceId
-    , diNextToken
-    , diLimit
-    , diFleetId
+    diInstanceId,
+    diNextToken,
+    diLimit,
+    diFleetId,
 
     -- * Destructuring the Response
-    , describeInstancesResponse
-    , DescribeInstancesResponse
+    describeInstancesResponse,
+    DescribeInstancesResponse,
+
     -- * Response Lenses
-    , dirsNextToken
-    , dirsInstances
-    , dirsResponseStatus
-    ) where
+    dirsNextToken,
+    dirsInstances,
+    dirsResponseStatus,
+  )
+where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.GameLift.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
--- | Represents the input for a request action.
+-- | Represents the input for a request operation.
 --
 --
 --
 -- /See:/ 'describeInstances' smart constructor.
 data DescribeInstances = DescribeInstances'
-  { _diInstanceId :: !(Maybe Text)
-  , _diNextToken  :: !(Maybe Text)
-  , _diLimit      :: !(Maybe Nat)
-  , _diFleetId    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _diInstanceId ::
+      !(Maybe Text),
+    _diNextToken :: !(Maybe Text),
+    _diLimit :: !(Maybe Nat),
+    _diFleetId :: !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'DescribeInstances' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diInstanceId' - Unique identifier for an instance to retrieve. Specify an instance ID or leave blank to retrieve all instances in the fleet.
+-- * 'diInstanceId' - A unique identifier for an instance to retrieve. Specify an instance ID or leave blank to retrieve all instances in the fleet.
 --
--- * 'diNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
+-- * 'diNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
 --
--- * 'diLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
+-- * 'diLimit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 --
--- * 'diFleetId' - Unique identifier for a fleet to retrieve instance information for.
-describeInstances
-    :: Text -- ^ 'diFleetId'
-    -> DescribeInstances
+-- * 'diFleetId' - A unique identifier for a fleet to retrieve instance information for. You can use either the fleet ID or ARN value.
+describeInstances ::
+  -- | 'diFleetId'
+  Text ->
+  DescribeInstances
 describeInstances pFleetId_ =
   DescribeInstances'
-    { _diInstanceId = Nothing
-    , _diNextToken = Nothing
-    , _diLimit = Nothing
-    , _diFleetId = pFleetId_
+    { _diInstanceId = Nothing,
+      _diNextToken = Nothing,
+      _diLimit = Nothing,
+      _diFleetId = pFleetId_
     }
 
-
--- | Unique identifier for an instance to retrieve. Specify an instance ID or leave blank to retrieve all instances in the fleet.
+-- | A unique identifier for an instance to retrieve. Specify an instance ID or leave blank to retrieve all instances in the fleet.
 diInstanceId :: Lens' DescribeInstances (Maybe Text)
-diInstanceId = lens _diInstanceId (\ s a -> s{_diInstanceId = a})
+diInstanceId = lens _diInstanceId (\s a -> s {_diInstanceId = a})
 
--- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
 diNextToken :: Lens' DescribeInstances (Maybe Text)
-diNextToken = lens _diNextToken (\ s a -> s{_diNextToken = a})
+diNextToken = lens _diNextToken (\s a -> s {_diNextToken = a})
 
--- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
+-- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 diLimit :: Lens' DescribeInstances (Maybe Natural)
-diLimit = lens _diLimit (\ s a -> s{_diLimit = a}) . mapping _Nat
+diLimit = lens _diLimit (\s a -> s {_diLimit = a}) . mapping _Nat
 
--- | Unique identifier for a fleet to retrieve instance information for.
+-- | A unique identifier for a fleet to retrieve instance information for. You can use either the fleet ID or ARN value.
 diFleetId :: Lens' DescribeInstances Text
-diFleetId = lens _diFleetId (\ s a -> s{_diFleetId = a})
+diFleetId = lens _diFleetId (\s a -> s {_diFleetId = a})
+
+instance AWSPager DescribeInstances where
+  page rq rs
+    | stop (rs ^. dirsNextToken) = Nothing
+    | stop (rs ^. dirsInstances) = Nothing
+    | otherwise = Just $ rq & diNextToken .~ rs ^. dirsNextToken
 
 instance AWSRequest DescribeInstances where
-        type Rs DescribeInstances = DescribeInstancesResponse
-        request = postJSON gameLift
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeInstancesResponse' <$>
-                   (x .?> "NextToken") <*>
-                     (x .?> "Instances" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+  type Rs DescribeInstances = DescribeInstancesResponse
+  request = postJSON gameLift
+  response =
+    receiveJSON
+      ( \s h x ->
+          DescribeInstancesResponse'
+            <$> (x .?> "NextToken")
+            <*> (x .?> "Instances" .!@ mempty)
+            <*> (pure (fromEnum s))
+      )
 
-instance Hashable DescribeInstances where
+instance Hashable DescribeInstances
 
-instance NFData DescribeInstances where
+instance NFData DescribeInstances
 
 instance ToHeaders DescribeInstances where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("GameLift.DescribeInstances" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target" =# ("GameLift.DescribeInstances" :: ByteString),
+            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+          ]
+      )
 
 instance ToJSON DescribeInstances where
-        toJSON DescribeInstances'{..}
-          = object
-              (catMaybes
-                 [("InstanceId" .=) <$> _diInstanceId,
-                  ("NextToken" .=) <$> _diNextToken,
-                  ("Limit" .=) <$> _diLimit,
-                  Just ("FleetId" .= _diFleetId)])
+  toJSON DescribeInstances' {..} =
+    object
+      ( catMaybes
+          [ ("InstanceId" .=) <$> _diInstanceId,
+            ("NextToken" .=) <$> _diNextToken,
+            ("Limit" .=) <$> _diLimit,
+            Just ("FleetId" .= _diFleetId)
+          ]
+      )
 
 instance ToPath DescribeInstances where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery DescribeInstances where
-        toQuery = const mempty
+  toQuery = const mempty
 
--- | Represents the returned data in response to a request action.
+-- | Represents the returned data in response to a request operation.
 --
 --
 --
 -- /See:/ 'describeInstancesResponse' smart constructor.
 data DescribeInstancesResponse = DescribeInstancesResponse'
-  { _dirsNextToken      :: !(Maybe Text)
-  , _dirsInstances      :: !(Maybe [Instance])
-  , _dirsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _dirsNextToken ::
+      !(Maybe Text),
+    _dirsInstances :: !(Maybe [Instance]),
+    _dirsResponseStatus :: !Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'DescribeInstancesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dirsNextToken' - Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- * 'dirsNextToken' - Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
 --
--- * 'dirsInstances' - Collection of objects containing properties for each instance returned.
+-- * 'dirsInstances' - A collection of objects containing properties for each instance returned.
 --
 -- * 'dirsResponseStatus' - -- | The response status code.
-describeInstancesResponse
-    :: Int -- ^ 'dirsResponseStatus'
-    -> DescribeInstancesResponse
+describeInstancesResponse ::
+  -- | 'dirsResponseStatus'
+  Int ->
+  DescribeInstancesResponse
 describeInstancesResponse pResponseStatus_ =
   DescribeInstancesResponse'
-    { _dirsNextToken = Nothing
-    , _dirsInstances = Nothing
-    , _dirsResponseStatus = pResponseStatus_
+    { _dirsNextToken = Nothing,
+      _dirsInstances = Nothing,
+      _dirsResponseStatus = pResponseStatus_
     }
 
-
--- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- | Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
 dirsNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
-dirsNextToken = lens _dirsNextToken (\ s a -> s{_dirsNextToken = a})
+dirsNextToken = lens _dirsNextToken (\s a -> s {_dirsNextToken = a})
 
--- | Collection of objects containing properties for each instance returned.
+-- | A collection of objects containing properties for each instance returned.
 dirsInstances :: Lens' DescribeInstancesResponse [Instance]
-dirsInstances = lens _dirsInstances (\ s a -> s{_dirsInstances = a}) . _Default . _Coerce
+dirsInstances = lens _dirsInstances (\s a -> s {_dirsInstances = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 dirsResponseStatus :: Lens' DescribeInstancesResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a})
+dirsResponseStatus = lens _dirsResponseStatus (\s a -> s {_dirsResponseStatus = a})
 
-instance NFData DescribeInstancesResponse where
+instance NFData DescribeInstancesResponse

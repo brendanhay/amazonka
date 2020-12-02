@@ -1,149 +1,262 @@
-name:                  amazonka-redshift
-version:               1.6.1
-synopsis:              Amazon Redshift SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-redshift
+version:            2.0.0.0
+synopsis:           Amazon Redshift SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2020 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.Redshift" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with
+  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+  mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  Lenses are used for constructing and manipulating types,
+  due to the depth of nesting of AWS types and transparency regarding
+  de/serialisation into more palatable Haskell values.
+  The provided lenses should be compatible with any of the major lens libraries
+  such as <http://hackage.haskell.org/package/lens lens> or
+  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Network.AWS.Redshift" or <https://aws.amazon.com/documentation/ the AWS documentation>
+  to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-redshift
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-redshift
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.Redshift
+    Network.AWS.Redshift.AcceptReservedNodeExchange
+    Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
+    Network.AWS.Redshift.AuthorizeSnapshotAccess
+    Network.AWS.Redshift.BatchDeleteClusterSnapshots
+    Network.AWS.Redshift.BatchModifyClusterSnapshots
+    Network.AWS.Redshift.CancelResize
+    Network.AWS.Redshift.CopyClusterSnapshot
+    Network.AWS.Redshift.CreateCluster
+    Network.AWS.Redshift.CreateClusterParameterGroup
+    Network.AWS.Redshift.CreateClusterSecurityGroup
+    Network.AWS.Redshift.CreateClusterSnapshot
+    Network.AWS.Redshift.CreateClusterSubnetGroup
+    Network.AWS.Redshift.CreateEventSubscription
+    Network.AWS.Redshift.CreateHSMClientCertificate
+    Network.AWS.Redshift.CreateHSMConfiguration
+    Network.AWS.Redshift.CreateScheduledAction
+    Network.AWS.Redshift.CreateSnapshotCopyGrant
+    Network.AWS.Redshift.CreateSnapshotSchedule
+    Network.AWS.Redshift.CreateTags
+    Network.AWS.Redshift.CreateUsageLimit
+    Network.AWS.Redshift.DeleteCluster
+    Network.AWS.Redshift.DeleteClusterParameterGroup
+    Network.AWS.Redshift.DeleteClusterSecurityGroup
+    Network.AWS.Redshift.DeleteClusterSnapshot
+    Network.AWS.Redshift.DeleteClusterSubnetGroup
+    Network.AWS.Redshift.DeleteEventSubscription
+    Network.AWS.Redshift.DeleteHSMClientCertificate
+    Network.AWS.Redshift.DeleteHSMConfiguration
+    Network.AWS.Redshift.DeleteScheduledAction
+    Network.AWS.Redshift.DeleteSnapshotCopyGrant
+    Network.AWS.Redshift.DeleteSnapshotSchedule
+    Network.AWS.Redshift.DeleteTags
+    Network.AWS.Redshift.DeleteUsageLimit
+    Network.AWS.Redshift.DescribeAccountAttributes
+    Network.AWS.Redshift.DescribeClusterDBRevisions
+    Network.AWS.Redshift.DescribeClusterParameterGroups
+    Network.AWS.Redshift.DescribeClusterParameters
+    Network.AWS.Redshift.DescribeClusters
+    Network.AWS.Redshift.DescribeClusterSecurityGroups
+    Network.AWS.Redshift.DescribeClusterSnapshots
+    Network.AWS.Redshift.DescribeClusterSubnetGroups
+    Network.AWS.Redshift.DescribeClusterTracks
+    Network.AWS.Redshift.DescribeClusterVersions
+    Network.AWS.Redshift.DescribeDefaultClusterParameters
+    Network.AWS.Redshift.DescribeEventCategories
+    Network.AWS.Redshift.DescribeEvents
+    Network.AWS.Redshift.DescribeEventSubscriptions
+    Network.AWS.Redshift.DescribeHSMClientCertificates
+    Network.AWS.Redshift.DescribeHSMConfigurations
+    Network.AWS.Redshift.DescribeLoggingStatus
+    Network.AWS.Redshift.DescribeNodeConfigurationOptions
+    Network.AWS.Redshift.DescribeOrderableClusterOptions
+    Network.AWS.Redshift.DescribeReservedNodeOfferings
+    Network.AWS.Redshift.DescribeReservedNodes
+    Network.AWS.Redshift.DescribeResize
+    Network.AWS.Redshift.DescribeScheduledActions
+    Network.AWS.Redshift.DescribeSnapshotCopyGrants
+    Network.AWS.Redshift.DescribeSnapshotSchedules
+    Network.AWS.Redshift.DescribeStorage
+    Network.AWS.Redshift.DescribeTableRestoreStatus
+    Network.AWS.Redshift.DescribeTags
+    Network.AWS.Redshift.DescribeUsageLimits
+    Network.AWS.Redshift.DisableLogging
+    Network.AWS.Redshift.DisableSnapshotCopy
+    Network.AWS.Redshift.EnableLogging
+    Network.AWS.Redshift.EnableSnapshotCopy
+    Network.AWS.Redshift.GetClusterCredentials
+    Network.AWS.Redshift.GetReservedNodeExchangeOfferings
+    Network.AWS.Redshift.ModifyCluster
+    Network.AWS.Redshift.ModifyClusterDBRevision
+    Network.AWS.Redshift.ModifyClusterIAMRoles
+    Network.AWS.Redshift.ModifyClusterMaintenance
+    Network.AWS.Redshift.ModifyClusterParameterGroup
+    Network.AWS.Redshift.ModifyClusterSnapshot
+    Network.AWS.Redshift.ModifyClusterSnapshotSchedule
+    Network.AWS.Redshift.ModifyClusterSubnetGroup
+    Network.AWS.Redshift.ModifyEventSubscription
+    Network.AWS.Redshift.ModifyScheduledAction
+    Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
+    Network.AWS.Redshift.ModifySnapshotSchedule
+    Network.AWS.Redshift.ModifyUsageLimit
+    Network.AWS.Redshift.PauseCluster
+    Network.AWS.Redshift.PurchaseReservedNodeOffering
+    Network.AWS.Redshift.RebootCluster
+    Network.AWS.Redshift.ResetClusterParameterGroup
+    Network.AWS.Redshift.ResizeCluster
+    Network.AWS.Redshift.RestoreFromClusterSnapshot
+    Network.AWS.Redshift.RestoreTableFromClusterSnapshot
+    Network.AWS.Redshift.ResumeCluster
+    Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
+    Network.AWS.Redshift.RevokeSnapshotAccess
+    Network.AWS.Redshift.RotateEncryptionKey
+    Network.AWS.Redshift.Types
+    Network.AWS.Redshift.Waiters
 
-    exposed-modules:
-          Network.AWS.Redshift
-        , Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
-        , Network.AWS.Redshift.AuthorizeSnapshotAccess
-        , Network.AWS.Redshift.CopyClusterSnapshot
-        , Network.AWS.Redshift.CreateCluster
-        , Network.AWS.Redshift.CreateClusterParameterGroup
-        , Network.AWS.Redshift.CreateClusterSecurityGroup
-        , Network.AWS.Redshift.CreateClusterSnapshot
-        , Network.AWS.Redshift.CreateClusterSubnetGroup
-        , Network.AWS.Redshift.CreateEventSubscription
-        , Network.AWS.Redshift.CreateHSMClientCertificate
-        , Network.AWS.Redshift.CreateHSMConfiguration
-        , Network.AWS.Redshift.CreateSnapshotCopyGrant
-        , Network.AWS.Redshift.CreateTags
-        , Network.AWS.Redshift.DeleteCluster
-        , Network.AWS.Redshift.DeleteClusterParameterGroup
-        , Network.AWS.Redshift.DeleteClusterSecurityGroup
-        , Network.AWS.Redshift.DeleteClusterSnapshot
-        , Network.AWS.Redshift.DeleteClusterSubnetGroup
-        , Network.AWS.Redshift.DeleteEventSubscription
-        , Network.AWS.Redshift.DeleteHSMClientCertificate
-        , Network.AWS.Redshift.DeleteHSMConfiguration
-        , Network.AWS.Redshift.DeleteSnapshotCopyGrant
-        , Network.AWS.Redshift.DeleteTags
-        , Network.AWS.Redshift.DescribeClusterParameterGroups
-        , Network.AWS.Redshift.DescribeClusterParameters
-        , Network.AWS.Redshift.DescribeClusterSecurityGroups
-        , Network.AWS.Redshift.DescribeClusterSnapshots
-        , Network.AWS.Redshift.DescribeClusterSubnetGroups
-        , Network.AWS.Redshift.DescribeClusterVersions
-        , Network.AWS.Redshift.DescribeClusters
-        , Network.AWS.Redshift.DescribeDefaultClusterParameters
-        , Network.AWS.Redshift.DescribeEventCategories
-        , Network.AWS.Redshift.DescribeEventSubscriptions
-        , Network.AWS.Redshift.DescribeEvents
-        , Network.AWS.Redshift.DescribeHSMClientCertificates
-        , Network.AWS.Redshift.DescribeHSMConfigurations
-        , Network.AWS.Redshift.DescribeLoggingStatus
-        , Network.AWS.Redshift.DescribeOrderableClusterOptions
-        , Network.AWS.Redshift.DescribeReservedNodeOfferings
-        , Network.AWS.Redshift.DescribeReservedNodes
-        , Network.AWS.Redshift.DescribeResize
-        , Network.AWS.Redshift.DescribeSnapshotCopyGrants
-        , Network.AWS.Redshift.DescribeTableRestoreStatus
-        , Network.AWS.Redshift.DescribeTags
-        , Network.AWS.Redshift.DisableLogging
-        , Network.AWS.Redshift.DisableSnapshotCopy
-        , Network.AWS.Redshift.EnableLogging
-        , Network.AWS.Redshift.EnableSnapshotCopy
-        , Network.AWS.Redshift.GetClusterCredentials
-        , Network.AWS.Redshift.ModifyCluster
-        , Network.AWS.Redshift.ModifyClusterIAMRoles
-        , Network.AWS.Redshift.ModifyClusterParameterGroup
-        , Network.AWS.Redshift.ModifyClusterSubnetGroup
-        , Network.AWS.Redshift.ModifyEventSubscription
-        , Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
-        , Network.AWS.Redshift.PurchaseReservedNodeOffering
-        , Network.AWS.Redshift.RebootCluster
-        , Network.AWS.Redshift.ResetClusterParameterGroup
-        , Network.AWS.Redshift.RestoreFromClusterSnapshot
-        , Network.AWS.Redshift.RestoreTableFromClusterSnapshot
-        , Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
-        , Network.AWS.Redshift.RevokeSnapshotAccess
-        , Network.AWS.Redshift.RotateEncryptionKey
-        , Network.AWS.Redshift.Types
-        , Network.AWS.Redshift.Waiters
+  other-modules:
+    Network.AWS.Redshift.Internal
+    Network.AWS.Redshift.Types.AccountAttribute
+    Network.AWS.Redshift.Types.AccountWithRestoreAccess
+    Network.AWS.Redshift.Types.ActionType
+    Network.AWS.Redshift.Types.AttributeValueTarget
+    Network.AWS.Redshift.Types.AvailabilityZone
+    Network.AWS.Redshift.Types.Cluster
+    Network.AWS.Redshift.Types.ClusterAssociatedToSchedule
+    Network.AWS.Redshift.Types.ClusterDBRevision
+    Network.AWS.Redshift.Types.ClusterIAMRole
+    Network.AWS.Redshift.Types.ClusterNode
+    Network.AWS.Redshift.Types.ClusterParameterGroup
+    Network.AWS.Redshift.Types.ClusterParameterGroupNameMessage
+    Network.AWS.Redshift.Types.ClusterParameterGroupStatus
+    Network.AWS.Redshift.Types.ClusterParameterStatus
+    Network.AWS.Redshift.Types.ClusterSecurityGroup
+    Network.AWS.Redshift.Types.ClusterSecurityGroupMembership
+    Network.AWS.Redshift.Types.ClusterSnapshotCopyStatus
+    Network.AWS.Redshift.Types.ClusterSubnetGroup
+    Network.AWS.Redshift.Types.ClusterVersion
+    Network.AWS.Redshift.Types.DataTransferProgress
+    Network.AWS.Redshift.Types.DefaultClusterParameters
+    Network.AWS.Redshift.Types.DeferredMaintenanceWindow
+    Network.AWS.Redshift.Types.DeleteClusterSnapshotMessage
+    Network.AWS.Redshift.Types.EC2SecurityGroup
+    Network.AWS.Redshift.Types.ElasticIPStatus
+    Network.AWS.Redshift.Types.Endpoint
+    Network.AWS.Redshift.Types.Event
+    Network.AWS.Redshift.Types.EventCategoriesMap
+    Network.AWS.Redshift.Types.EventInfoMap
+    Network.AWS.Redshift.Types.EventSubscription
+    Network.AWS.Redshift.Types.HSMClientCertificate
+    Network.AWS.Redshift.Types.HSMConfiguration
+    Network.AWS.Redshift.Types.HSMStatus
+    Network.AWS.Redshift.Types.IPRange
+    Network.AWS.Redshift.Types.LoggingStatus
+    Network.AWS.Redshift.Types.MaintenanceTrack
+    Network.AWS.Redshift.Types.Mode
+    Network.AWS.Redshift.Types.NodeConfigurationOption
+    Network.AWS.Redshift.Types.NodeConfigurationOptionsFilter
+    Network.AWS.Redshift.Types.NodeConfigurationOptionsFilterName
+    Network.AWS.Redshift.Types.OperatorType
+    Network.AWS.Redshift.Types.OrderableClusterOption
+    Network.AWS.Redshift.Types.Parameter
+    Network.AWS.Redshift.Types.ParameterApplyType
+    Network.AWS.Redshift.Types.PauseClusterMessage
+    Network.AWS.Redshift.Types.PendingModifiedValues
+    Network.AWS.Redshift.Types.RecurringCharge
+    Network.AWS.Redshift.Types.ReservedNode
+    Network.AWS.Redshift.Types.ReservedNodeOffering
+    Network.AWS.Redshift.Types.ReservedNodeOfferingType
+    Network.AWS.Redshift.Types.ResizeClusterMessage
+    Network.AWS.Redshift.Types.ResizeInfo
+    Network.AWS.Redshift.Types.ResizeProgressMessage
+    Network.AWS.Redshift.Types.RestoreStatus
+    Network.AWS.Redshift.Types.ResumeClusterMessage
+    Network.AWS.Redshift.Types.RevisionTarget
+    Network.AWS.Redshift.Types.ScheduledAction
+    Network.AWS.Redshift.Types.ScheduledActionFilter
+    Network.AWS.Redshift.Types.ScheduledActionFilterName
+    Network.AWS.Redshift.Types.ScheduledActionState
+    Network.AWS.Redshift.Types.ScheduledActionType
+    Network.AWS.Redshift.Types.ScheduledActionTypeValues
+    Network.AWS.Redshift.Types.ScheduleState
+    Network.AWS.Redshift.Types.Snapshot
+    Network.AWS.Redshift.Types.SnapshotAttributeToSortBy
+    Network.AWS.Redshift.Types.SnapshotCopyGrant
+    Network.AWS.Redshift.Types.SnapshotErrorMessage
+    Network.AWS.Redshift.Types.SnapshotSchedule
+    Network.AWS.Redshift.Types.SnapshotSortingEntity
+    Network.AWS.Redshift.Types.SortByOrder
+    Network.AWS.Redshift.Types.SourceType
+    Network.AWS.Redshift.Types.Subnet
+    Network.AWS.Redshift.Types.SupportedOperation
+    Network.AWS.Redshift.Types.SupportedPlatform
+    Network.AWS.Redshift.Types.TableRestoreStatus
+    Network.AWS.Redshift.Types.TableRestoreStatusType
+    Network.AWS.Redshift.Types.Tag
+    Network.AWS.Redshift.Types.TaggedResource
+    Network.AWS.Redshift.Types.UpdateTarget
+    Network.AWS.Redshift.Types.UsageLimit
+    Network.AWS.Redshift.Types.UsageLimitBreachAction
+    Network.AWS.Redshift.Types.UsageLimitFeatureType
+    Network.AWS.Redshift.Types.UsageLimitLimitType
+    Network.AWS.Redshift.Types.UsageLimitPeriod
+    Network.AWS.Redshift.Types.VPCSecurityGroupMembership
 
-    other-modules:
-          Network.AWS.Redshift.Internal
-        , Network.AWS.Redshift.Types.Product
-        , Network.AWS.Redshift.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.7   && <5
 
 test-suite amazonka-redshift-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.Redshift
+    Test.AWS.Redshift
+    Test.AWS.Redshift.Internal
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.Redshift
-        , Test.AWS.Gen.Redshift
-        , Test.AWS.Redshift.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-redshift
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka-redshift
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

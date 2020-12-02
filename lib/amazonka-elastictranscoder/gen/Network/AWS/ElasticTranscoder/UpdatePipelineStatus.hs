@@ -1,18 +1,17 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder.UpdatePipelineStatus
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -22,26 +21,26 @@
 --
 --
 -- Changing the pipeline status is useful if you want to cancel one or more jobs. You can't cancel jobs after Elastic Transcoder has started processing them; if you pause the pipeline to which you submitted the jobs, you have more time to get the job IDs for the jobs that you want to cancel, and to send a 'CancelJob' request.
---
 module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
-    (
-    -- * Creating a Request
-      updatePipelineStatus
-    , UpdatePipelineStatus
+  ( -- * Creating a Request
+    updatePipelineStatus,
+    UpdatePipelineStatus,
+
     -- * Request Lenses
-    , upsId
-    , upsStatus
+    upsId,
+    upsStatus,
 
     -- * Destructuring the Response
-    , updatePipelineStatusResponse
-    , UpdatePipelineStatusResponse
+    updatePipelineStatusResponse,
+    UpdatePipelineStatusResponse,
+
     -- * Response Lenses
-    , upsrsPipeline
-    , upsrsResponseStatus
-    ) where
+    upsrsPipeline,
+    upsrsResponseStatus,
+  )
+where
 
 import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.ElasticTranscoder.Types.Product
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
@@ -53,10 +52,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'updatePipelineStatus' smart constructor.
 data UpdatePipelineStatus = UpdatePipelineStatus'
-  { _upsId     :: !Text
-  , _upsStatus :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _upsId :: !Text,
+    _upsStatus :: !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'UpdatePipelineStatus' with the minimum fields required to make a request.
 --
@@ -65,50 +64,50 @@ data UpdatePipelineStatus = UpdatePipelineStatus'
 -- * 'upsId' - The identifier of the pipeline to update.
 --
 -- * 'upsStatus' - The desired status of the pipeline:     * @Active@ : The pipeline is processing jobs.     * @Paused@ : The pipeline is not currently processing jobs.
-updatePipelineStatus
-    :: Text -- ^ 'upsId'
-    -> Text -- ^ 'upsStatus'
-    -> UpdatePipelineStatus
+updatePipelineStatus ::
+  -- | 'upsId'
+  Text ->
+  -- | 'upsStatus'
+  Text ->
+  UpdatePipelineStatus
 updatePipelineStatus pId_ pStatus_ =
   UpdatePipelineStatus' {_upsId = pId_, _upsStatus = pStatus_}
 
-
 -- | The identifier of the pipeline to update.
 upsId :: Lens' UpdatePipelineStatus Text
-upsId = lens _upsId (\ s a -> s{_upsId = a})
+upsId = lens _upsId (\s a -> s {_upsId = a})
 
 -- | The desired status of the pipeline:     * @Active@ : The pipeline is processing jobs.     * @Paused@ : The pipeline is not currently processing jobs.
 upsStatus :: Lens' UpdatePipelineStatus Text
-upsStatus = lens _upsStatus (\ s a -> s{_upsStatus = a})
+upsStatus = lens _upsStatus (\s a -> s {_upsStatus = a})
 
 instance AWSRequest UpdatePipelineStatus where
-        type Rs UpdatePipelineStatus =
-             UpdatePipelineStatusResponse
-        request = postJSON elasticTranscoder
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdatePipelineStatusResponse' <$>
-                   (x .?> "Pipeline") <*> (pure (fromEnum s)))
+  type Rs UpdatePipelineStatus = UpdatePipelineStatusResponse
+  request = postJSON elasticTranscoder
+  response =
+    receiveJSON
+      ( \s h x ->
+          UpdatePipelineStatusResponse'
+            <$> (x .?> "Pipeline") <*> (pure (fromEnum s))
+      )
 
-instance Hashable UpdatePipelineStatus where
+instance Hashable UpdatePipelineStatus
 
-instance NFData UpdatePipelineStatus where
+instance NFData UpdatePipelineStatus
 
 instance ToHeaders UpdatePipelineStatus where
-        toHeaders = const mempty
+  toHeaders = const mempty
 
 instance ToJSON UpdatePipelineStatus where
-        toJSON UpdatePipelineStatus'{..}
-          = object (catMaybes [Just ("Status" .= _upsStatus)])
+  toJSON UpdatePipelineStatus' {..} =
+    object (catMaybes [Just ("Status" .= _upsStatus)])
 
 instance ToPath UpdatePipelineStatus where
-        toPath UpdatePipelineStatus'{..}
-          = mconcat
-              ["/2012-09-25/pipelines/", toBS _upsId, "/status"]
+  toPath UpdatePipelineStatus' {..} =
+    mconcat ["/2012-09-25/pipelines/", toBS _upsId, "/status"]
 
 instance ToQuery UpdatePipelineStatus where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | When you update status for a pipeline, Elastic Transcoder returns the values that you specified in the request.
 --
@@ -116,10 +115,11 @@ instance ToQuery UpdatePipelineStatus where
 --
 -- /See:/ 'updatePipelineStatusResponse' smart constructor.
 data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'
-  { _upsrsPipeline       :: !(Maybe Pipeline)
-  , _upsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _upsrsPipeline ::
+      !(Maybe Pipeline),
+    _upsrsResponseStatus :: !Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'UpdatePipelineStatusResponse' with the minimum fields required to make a request.
 --
@@ -128,20 +128,22 @@ data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'
 -- * 'upsrsPipeline' - A section of the response body that provides information about the pipeline.
 --
 -- * 'upsrsResponseStatus' - -- | The response status code.
-updatePipelineStatusResponse
-    :: Int -- ^ 'upsrsResponseStatus'
-    -> UpdatePipelineStatusResponse
+updatePipelineStatusResponse ::
+  -- | 'upsrsResponseStatus'
+  Int ->
+  UpdatePipelineStatusResponse
 updatePipelineStatusResponse pResponseStatus_ =
   UpdatePipelineStatusResponse'
-    {_upsrsPipeline = Nothing, _upsrsResponseStatus = pResponseStatus_}
-
+    { _upsrsPipeline = Nothing,
+      _upsrsResponseStatus = pResponseStatus_
+    }
 
 -- | A section of the response body that provides information about the pipeline.
 upsrsPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
-upsrsPipeline = lens _upsrsPipeline (\ s a -> s{_upsrsPipeline = a})
+upsrsPipeline = lens _upsrsPipeline (\s a -> s {_upsrsPipeline = a})
 
 -- | -- | The response status code.
 upsrsResponseStatus :: Lens' UpdatePipelineStatusResponse Int
-upsrsResponseStatus = lens _upsrsResponseStatus (\ s a -> s{_upsrsResponseStatus = a})
+upsrsResponseStatus = lens _upsrsResponseStatus (\s a -> s {_upsrsResponseStatus = a})
 
-instance NFData UpdatePipelineStatusResponse where
+instance NFData UpdatePipelineStatusResponse

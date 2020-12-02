@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.EMR
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.EMR
-import           Test.AWS.Gen.EMR
-import           Test.Tasty
+import Network.AWS.EMR
+import Test.AWS.Gen.EMR
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

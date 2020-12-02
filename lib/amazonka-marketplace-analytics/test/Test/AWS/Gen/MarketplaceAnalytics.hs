@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.MarketplaceAnalytics
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.MarketplaceAnalytics where
 
 import Data.Proxy
@@ -49,26 +48,30 @@ import Test.Tasty
 -- Requests
 
 requestStartSupportDataExport :: StartSupportDataExport -> TestTree
-requestStartSupportDataExport = req
+requestStartSupportDataExport =
+  req
     "StartSupportDataExport"
     "fixture/StartSupportDataExport.yaml"
 
 requestGenerateDataSet :: GenerateDataSet -> TestTree
-requestGenerateDataSet = req
+requestGenerateDataSet =
+  req
     "GenerateDataSet"
     "fixture/GenerateDataSet.yaml"
 
 -- Responses
 
 responseStartSupportDataExport :: StartSupportDataExportResponse -> TestTree
-responseStartSupportDataExport = res
+responseStartSupportDataExport =
+  res
     "StartSupportDataExportResponse"
     "fixture/StartSupportDataExportResponse.proto"
     marketplaceAnalytics
     (Proxy :: Proxy StartSupportDataExport)
 
 responseGenerateDataSet :: GenerateDataSetResponse -> TestTree
-responseGenerateDataSet = res
+responseGenerateDataSet =
+  res
     "GenerateDataSetResponse"
     "fixture/GenerateDataSetResponse.proto"
     marketplaceAnalytics

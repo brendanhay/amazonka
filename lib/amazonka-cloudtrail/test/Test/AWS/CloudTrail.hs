@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.CloudTrail
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.CloudTrail
-import           Test.AWS.Gen.CloudTrail
-import           Test.Tasty
+import Network.AWS.CloudTrail
+import Test.AWS.Gen.CloudTrail
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

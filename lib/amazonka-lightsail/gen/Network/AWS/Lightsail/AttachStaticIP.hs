@@ -1,56 +1,54 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.AttachStaticIP
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Attaches a static IP address to a specific Amazon Lightsail instance.
---
---
 module Network.AWS.Lightsail.AttachStaticIP
-    (
-    -- * Creating a Request
-      attachStaticIP
-    , AttachStaticIP
+  ( -- * Creating a Request
+    attachStaticIP,
+    AttachStaticIP,
+
     -- * Request Lenses
-    , asipStaticIPName
-    , asipInstanceName
+    asipStaticIPName,
+    asipInstanceName,
 
     -- * Destructuring the Response
-    , attachStaticIPResponse
-    , AttachStaticIPResponse
+    attachStaticIPResponse,
+    AttachStaticIPResponse,
+
     -- * Response Lenses
-    , asiprsOperations
-    , asiprsResponseStatus
-    ) where
+    asiprsOperations,
+    asiprsResponseStatus,
+  )
+where
 
 import Network.AWS.Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'attachStaticIP' smart constructor.
 data AttachStaticIP = AttachStaticIP'
-  { _asipStaticIPName :: !Text
-  , _asipInstanceName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _asipStaticIPName :: !Text,
+    _asipInstanceName :: !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'AttachStaticIP' with the minimum fields required to make a request.
 --
@@ -59,87 +57,96 @@ data AttachStaticIP = AttachStaticIP'
 -- * 'asipStaticIPName' - The name of the static IP.
 --
 -- * 'asipInstanceName' - The instance name to which you want to attach the static IP address.
-attachStaticIP
-    :: Text -- ^ 'asipStaticIPName'
-    -> Text -- ^ 'asipInstanceName'
-    -> AttachStaticIP
+attachStaticIP ::
+  -- | 'asipStaticIPName'
+  Text ->
+  -- | 'asipInstanceName'
+  Text ->
+  AttachStaticIP
 attachStaticIP pStaticIPName_ pInstanceName_ =
   AttachStaticIP'
-    {_asipStaticIPName = pStaticIPName_, _asipInstanceName = pInstanceName_}
-
+    { _asipStaticIPName = pStaticIPName_,
+      _asipInstanceName = pInstanceName_
+    }
 
 -- | The name of the static IP.
 asipStaticIPName :: Lens' AttachStaticIP Text
-asipStaticIPName = lens _asipStaticIPName (\ s a -> s{_asipStaticIPName = a})
+asipStaticIPName = lens _asipStaticIPName (\s a -> s {_asipStaticIPName = a})
 
 -- | The instance name to which you want to attach the static IP address.
 asipInstanceName :: Lens' AttachStaticIP Text
-asipInstanceName = lens _asipInstanceName (\ s a -> s{_asipInstanceName = a})
+asipInstanceName = lens _asipInstanceName (\s a -> s {_asipInstanceName = a})
 
 instance AWSRequest AttachStaticIP where
-        type Rs AttachStaticIP = AttachStaticIPResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 AttachStaticIPResponse' <$>
-                   (x .?> "operations" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+  type Rs AttachStaticIP = AttachStaticIPResponse
+  request = postJSON lightsail
+  response =
+    receiveJSON
+      ( \s h x ->
+          AttachStaticIPResponse'
+            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+      )
 
-instance Hashable AttachStaticIP where
+instance Hashable AttachStaticIP
 
-instance NFData AttachStaticIP where
+instance NFData AttachStaticIP
 
 instance ToHeaders AttachStaticIP where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.AttachStaticIp" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target"
+              =# ("Lightsail_20161128.AttachStaticIp" :: ByteString),
+            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+          ]
+      )
 
 instance ToJSON AttachStaticIP where
-        toJSON AttachStaticIP'{..}
-          = object
-              (catMaybes
-                 [Just ("staticIpName" .= _asipStaticIPName),
-                  Just ("instanceName" .= _asipInstanceName)])
+  toJSON AttachStaticIP' {..} =
+    object
+      ( catMaybes
+          [ Just ("staticIpName" .= _asipStaticIPName),
+            Just ("instanceName" .= _asipInstanceName)
+          ]
+      )
 
 instance ToPath AttachStaticIP where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery AttachStaticIP where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | /See:/ 'attachStaticIPResponse' smart constructor.
 data AttachStaticIPResponse = AttachStaticIPResponse'
-  { _asiprsOperations     :: !(Maybe [Operation])
-  , _asiprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _asiprsOperations ::
+      !(Maybe [Operation]),
+    _asiprsResponseStatus :: !Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'AttachStaticIPResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asiprsOperations' - An array of key-value pairs containing information about your API operations.
+-- * 'asiprsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- * 'asiprsResponseStatus' - -- | The response status code.
-attachStaticIPResponse
-    :: Int -- ^ 'asiprsResponseStatus'
-    -> AttachStaticIPResponse
+attachStaticIPResponse ::
+  -- | 'asiprsResponseStatus'
+  Int ->
+  AttachStaticIPResponse
 attachStaticIPResponse pResponseStatus_ =
   AttachStaticIPResponse'
-    {_asiprsOperations = Nothing, _asiprsResponseStatus = pResponseStatus_}
+    { _asiprsOperations = Nothing,
+      _asiprsResponseStatus = pResponseStatus_
+    }
 
-
--- | An array of key-value pairs containing information about your API operations.
+-- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 asiprsOperations :: Lens' AttachStaticIPResponse [Operation]
-asiprsOperations = lens _asiprsOperations (\ s a -> s{_asiprsOperations = a}) . _Default . _Coerce
+asiprsOperations = lens _asiprsOperations (\s a -> s {_asiprsOperations = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 asiprsResponseStatus :: Lens' AttachStaticIPResponse Int
-asiprsResponseStatus = lens _asiprsResponseStatus (\ s a -> s{_asiprsResponseStatus = a})
+asiprsResponseStatus = lens _asiprsResponseStatus (\s a -> s {_asiprsResponseStatus = a})
 
-instance NFData AttachStaticIPResponse where
+instance NFData AttachStaticIPResponse

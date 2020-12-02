@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.ELB
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.ELB
-import           Test.AWS.Gen.ELB
-import           Test.Tasty
+import Network.AWS.ELB
+import Test.AWS.Gen.ELB
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

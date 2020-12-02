@@ -1,126 +1,225 @@
-name:                  amazonka-cloudformation
-version:               1.6.1
-synopsis:              Amazon CloudFormation SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-cloudformation
+version:            2.0.0.0
+synopsis:           Amazon CloudFormation SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2020 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.CloudFormation" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with
+  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+  mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  Lenses are used for constructing and manipulating types,
+  due to the depth of nesting of AWS types and transparency regarding
+  de/serialisation into more palatable Haskell values.
+  The provided lenses should be compatible with any of the major lens libraries
+  such as <http://hackage.haskell.org/package/lens lens> or
+  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Network.AWS.CloudFormation" or <https://aws.amazon.com/documentation/ the AWS documentation>
+  to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-cloudformation
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-cloudformation
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.CloudFormation
+    Network.AWS.CloudFormation.CancelUpdateStack
+    Network.AWS.CloudFormation.ContinueUpdateRollback
+    Network.AWS.CloudFormation.CreateChangeSet
+    Network.AWS.CloudFormation.CreateStack
+    Network.AWS.CloudFormation.CreateStackInstances
+    Network.AWS.CloudFormation.CreateStackSet
+    Network.AWS.CloudFormation.DeleteChangeSet
+    Network.AWS.CloudFormation.DeleteStack
+    Network.AWS.CloudFormation.DeleteStackInstances
+    Network.AWS.CloudFormation.DeleteStackSet
+    Network.AWS.CloudFormation.DeregisterType
+    Network.AWS.CloudFormation.DescribeAccountLimits
+    Network.AWS.CloudFormation.DescribeChangeSet
+    Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus
+    Network.AWS.CloudFormation.DescribeStackEvents
+    Network.AWS.CloudFormation.DescribeStackInstance
+    Network.AWS.CloudFormation.DescribeStackResource
+    Network.AWS.CloudFormation.DescribeStackResourceDrifts
+    Network.AWS.CloudFormation.DescribeStackResources
+    Network.AWS.CloudFormation.DescribeStacks
+    Network.AWS.CloudFormation.DescribeStackSet
+    Network.AWS.CloudFormation.DescribeStackSetOperation
+    Network.AWS.CloudFormation.DescribeType
+    Network.AWS.CloudFormation.DescribeTypeRegistration
+    Network.AWS.CloudFormation.DetectStackDrift
+    Network.AWS.CloudFormation.DetectStackResourceDrift
+    Network.AWS.CloudFormation.DetectStackSetDrift
+    Network.AWS.CloudFormation.EstimateTemplateCost
+    Network.AWS.CloudFormation.ExecuteChangeSet
+    Network.AWS.CloudFormation.GetStackPolicy
+    Network.AWS.CloudFormation.GetTemplate
+    Network.AWS.CloudFormation.GetTemplateSummary
+    Network.AWS.CloudFormation.ListChangeSets
+    Network.AWS.CloudFormation.ListExports
+    Network.AWS.CloudFormation.ListImports
+    Network.AWS.CloudFormation.ListStackInstances
+    Network.AWS.CloudFormation.ListStackResources
+    Network.AWS.CloudFormation.ListStacks
+    Network.AWS.CloudFormation.ListStackSetOperationResults
+    Network.AWS.CloudFormation.ListStackSetOperations
+    Network.AWS.CloudFormation.ListStackSets
+    Network.AWS.CloudFormation.ListTypeRegistrations
+    Network.AWS.CloudFormation.ListTypes
+    Network.AWS.CloudFormation.ListTypeVersions
+    Network.AWS.CloudFormation.RecordHandlerProgress
+    Network.AWS.CloudFormation.RegisterType
+    Network.AWS.CloudFormation.SetStackPolicy
+    Network.AWS.CloudFormation.SetTypeDefaultVersion
+    Network.AWS.CloudFormation.SignalResource
+    Network.AWS.CloudFormation.StopStackSetOperation
+    Network.AWS.CloudFormation.Types
+    Network.AWS.CloudFormation.UpdateStack
+    Network.AWS.CloudFormation.UpdateStackInstances
+    Network.AWS.CloudFormation.UpdateStackSet
+    Network.AWS.CloudFormation.UpdateTerminationProtection
+    Network.AWS.CloudFormation.ValidateTemplate
+    Network.AWS.CloudFormation.Waiters
 
-    exposed-modules:
-          Network.AWS.CloudFormation
-        , Network.AWS.CloudFormation.CancelUpdateStack
-        , Network.AWS.CloudFormation.ContinueUpdateRollback
-        , Network.AWS.CloudFormation.CreateChangeSet
-        , Network.AWS.CloudFormation.CreateStack
-        , Network.AWS.CloudFormation.CreateStackInstances
-        , Network.AWS.CloudFormation.CreateStackSet
-        , Network.AWS.CloudFormation.DeleteChangeSet
-        , Network.AWS.CloudFormation.DeleteStack
-        , Network.AWS.CloudFormation.DeleteStackInstances
-        , Network.AWS.CloudFormation.DeleteStackSet
-        , Network.AWS.CloudFormation.DescribeAccountLimits
-        , Network.AWS.CloudFormation.DescribeChangeSet
-        , Network.AWS.CloudFormation.DescribeStackEvents
-        , Network.AWS.CloudFormation.DescribeStackInstance
-        , Network.AWS.CloudFormation.DescribeStackResource
-        , Network.AWS.CloudFormation.DescribeStackResources
-        , Network.AWS.CloudFormation.DescribeStackSet
-        , Network.AWS.CloudFormation.DescribeStackSetOperation
-        , Network.AWS.CloudFormation.DescribeStacks
-        , Network.AWS.CloudFormation.EstimateTemplateCost
-        , Network.AWS.CloudFormation.ExecuteChangeSet
-        , Network.AWS.CloudFormation.GetStackPolicy
-        , Network.AWS.CloudFormation.GetTemplate
-        , Network.AWS.CloudFormation.GetTemplateSummary
-        , Network.AWS.CloudFormation.ListChangeSets
-        , Network.AWS.CloudFormation.ListExports
-        , Network.AWS.CloudFormation.ListImports
-        , Network.AWS.CloudFormation.ListStackInstances
-        , Network.AWS.CloudFormation.ListStackResources
-        , Network.AWS.CloudFormation.ListStackSetOperationResults
-        , Network.AWS.CloudFormation.ListStackSetOperations
-        , Network.AWS.CloudFormation.ListStackSets
-        , Network.AWS.CloudFormation.ListStacks
-        , Network.AWS.CloudFormation.SetStackPolicy
-        , Network.AWS.CloudFormation.SignalResource
-        , Network.AWS.CloudFormation.StopStackSetOperation
-        , Network.AWS.CloudFormation.Types
-        , Network.AWS.CloudFormation.UpdateStack
-        , Network.AWS.CloudFormation.UpdateStackInstances
-        , Network.AWS.CloudFormation.UpdateStackSet
-        , Network.AWS.CloudFormation.UpdateTerminationProtection
-        , Network.AWS.CloudFormation.ValidateTemplate
-        , Network.AWS.CloudFormation.Waiters
+  other-modules:
+    Network.AWS.CloudFormation.Types.AccountGateResult
+    Network.AWS.CloudFormation.Types.AccountGateStatus
+    Network.AWS.CloudFormation.Types.AccountLimit
+    Network.AWS.CloudFormation.Types.AutoDeployment
+    Network.AWS.CloudFormation.Types.Capability
+    Network.AWS.CloudFormation.Types.Change
+    Network.AWS.CloudFormation.Types.ChangeAction
+    Network.AWS.CloudFormation.Types.ChangeSetStatus
+    Network.AWS.CloudFormation.Types.ChangeSetSummary
+    Network.AWS.CloudFormation.Types.ChangeSetType
+    Network.AWS.CloudFormation.Types.ChangeSource
+    Network.AWS.CloudFormation.Types.ChangeType
+    Network.AWS.CloudFormation.Types.DeploymentTargets
+    Network.AWS.CloudFormation.Types.DeprecatedStatus
+    Network.AWS.CloudFormation.Types.DifferenceType
+    Network.AWS.CloudFormation.Types.EvaluationType
+    Network.AWS.CloudFormation.Types.ExecutionStatus
+    Network.AWS.CloudFormation.Types.Export
+    Network.AWS.CloudFormation.Types.HandlerErrorCode
+    Network.AWS.CloudFormation.Types.LoggingConfig
+    Network.AWS.CloudFormation.Types.ModuleInfo
+    Network.AWS.CloudFormation.Types.OnFailure
+    Network.AWS.CloudFormation.Types.OperationStatus
+    Network.AWS.CloudFormation.Types.Output
+    Network.AWS.CloudFormation.Types.Parameter
+    Network.AWS.CloudFormation.Types.ParameterConstraints
+    Network.AWS.CloudFormation.Types.ParameterDeclaration
+    Network.AWS.CloudFormation.Types.PermissionModels
+    Network.AWS.CloudFormation.Types.PhysicalResourceIdContextKeyValuePair
+    Network.AWS.CloudFormation.Types.PropertyDifference
+    Network.AWS.CloudFormation.Types.ProvisioningType
+    Network.AWS.CloudFormation.Types.RegistrationStatus
+    Network.AWS.CloudFormation.Types.RegistryType
+    Network.AWS.CloudFormation.Types.Replacement
+    Network.AWS.CloudFormation.Types.RequiresRecreation
+    Network.AWS.CloudFormation.Types.ResourceAttribute
+    Network.AWS.CloudFormation.Types.ResourceChange
+    Network.AWS.CloudFormation.Types.ResourceChangeDetail
+    Network.AWS.CloudFormation.Types.ResourceIdentifierSummary
+    Network.AWS.CloudFormation.Types.ResourceSignalStatus
+    Network.AWS.CloudFormation.Types.ResourceStatus
+    Network.AWS.CloudFormation.Types.ResourceTargetDefinition
+    Network.AWS.CloudFormation.Types.ResourceToImport
+    Network.AWS.CloudFormation.Types.RollbackConfiguration
+    Network.AWS.CloudFormation.Types.RollbackTrigger
+    Network.AWS.CloudFormation.Types.Stack
+    Network.AWS.CloudFormation.Types.StackDriftDetectionStatus
+    Network.AWS.CloudFormation.Types.StackDriftInformation
+    Network.AWS.CloudFormation.Types.StackDriftInformationSummary
+    Network.AWS.CloudFormation.Types.StackDriftStatus
+    Network.AWS.CloudFormation.Types.StackEvent
+    Network.AWS.CloudFormation.Types.StackInstance
+    Network.AWS.CloudFormation.Types.StackInstanceComprehensiveStatus
+    Network.AWS.CloudFormation.Types.StackInstanceDetailedStatus
+    Network.AWS.CloudFormation.Types.StackInstanceFilter
+    Network.AWS.CloudFormation.Types.StackInstanceFilterName
+    Network.AWS.CloudFormation.Types.StackInstanceStatus
+    Network.AWS.CloudFormation.Types.StackInstanceSummary
+    Network.AWS.CloudFormation.Types.StackResource
+    Network.AWS.CloudFormation.Types.StackResourceDetail
+    Network.AWS.CloudFormation.Types.StackResourceDrift
+    Network.AWS.CloudFormation.Types.StackResourceDriftInformation
+    Network.AWS.CloudFormation.Types.StackResourceDriftInformationSummary
+    Network.AWS.CloudFormation.Types.StackResourceDriftStatus
+    Network.AWS.CloudFormation.Types.StackResourceSummary
+    Network.AWS.CloudFormation.Types.StackSet
+    Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails
+    Network.AWS.CloudFormation.Types.StackSetDriftDetectionStatus
+    Network.AWS.CloudFormation.Types.StackSetDriftStatus
+    Network.AWS.CloudFormation.Types.StackSetOperation
+    Network.AWS.CloudFormation.Types.StackSetOperationAction
+    Network.AWS.CloudFormation.Types.StackSetOperationPreferences
+    Network.AWS.CloudFormation.Types.StackSetOperationResultStatus
+    Network.AWS.CloudFormation.Types.StackSetOperationResultSummary
+    Network.AWS.CloudFormation.Types.StackSetOperationStatus
+    Network.AWS.CloudFormation.Types.StackSetOperationSummary
+    Network.AWS.CloudFormation.Types.StackSetStatus
+    Network.AWS.CloudFormation.Types.StackSetSummary
+    Network.AWS.CloudFormation.Types.StackStatus
+    Network.AWS.CloudFormation.Types.StackSummary
+    Network.AWS.CloudFormation.Types.Tag
+    Network.AWS.CloudFormation.Types.TemplateParameter
+    Network.AWS.CloudFormation.Types.TemplateStage
+    Network.AWS.CloudFormation.Types.TypeSummary
+    Network.AWS.CloudFormation.Types.TypeVersionSummary
+    Network.AWS.CloudFormation.Types.Visibility
 
-    other-modules:
-          Network.AWS.CloudFormation.Types.Product
-        , Network.AWS.CloudFormation.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.7   && <5
 
 test-suite amazonka-cloudformation-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.CloudFormation
+    Test.AWS.CloudFormation.Internal
+    Test.AWS.Gen.CloudFormation
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.CloudFormation
-        , Test.AWS.Gen.CloudFormation
-        , Test.AWS.CloudFormation.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-cloudformation
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-cloudformation
+    , amazonka-core            >=1.6.1 && <1.6.2
+    , amazonka-test            >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

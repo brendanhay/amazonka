@@ -1,95 +1,146 @@
-name:                  amazonka-shield
-version:               1.6.1
-synopsis:              Amazon Shield SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-shield
+version:            2.0.0.0
+synopsis:           Amazon Shield SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2020 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.Shield" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with
+  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+  mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  Lenses are used for constructing and manipulating types,
+  due to the depth of nesting of AWS types and transparency regarding
+  de/serialisation into more palatable Haskell values.
+  The provided lenses should be compatible with any of the major lens libraries
+  such as <http://hackage.haskell.org/package/lens lens> or
+  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Network.AWS.Shield" or <https://aws.amazon.com/documentation/ the AWS documentation>
+  to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-shield
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-shield
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.Shield
+    Network.AWS.Shield.AssociateDRTLogBucket
+    Network.AWS.Shield.AssociateDRTRole
+    Network.AWS.Shield.AssociateHealthCheck
+    Network.AWS.Shield.AssociateProactiveEngagementDetails
+    Network.AWS.Shield.CreateProtection
+    Network.AWS.Shield.CreateProtectionGroup
+    Network.AWS.Shield.CreateSubscription
+    Network.AWS.Shield.DeleteProtection
+    Network.AWS.Shield.DeleteProtectionGroup
+    Network.AWS.Shield.DescribeAttack
+    Network.AWS.Shield.DescribeAttackStatistics
+    Network.AWS.Shield.DescribeDRTAccess
+    Network.AWS.Shield.DescribeEmergencyContactSettings
+    Network.AWS.Shield.DescribeProtection
+    Network.AWS.Shield.DescribeProtectionGroup
+    Network.AWS.Shield.DescribeSubscription
+    Network.AWS.Shield.DisableProactiveEngagement
+    Network.AWS.Shield.DisassociateDRTLogBucket
+    Network.AWS.Shield.DisassociateDRTRole
+    Network.AWS.Shield.DisassociateHealthCheck
+    Network.AWS.Shield.EnableProactiveEngagement
+    Network.AWS.Shield.GetSubscriptionState
+    Network.AWS.Shield.ListAttacks
+    Network.AWS.Shield.ListProtectionGroups
+    Network.AWS.Shield.ListProtections
+    Network.AWS.Shield.ListResourcesInProtectionGroup
+    Network.AWS.Shield.Types
+    Network.AWS.Shield.UpdateEmergencyContactSettings
+    Network.AWS.Shield.UpdateProtectionGroup
+    Network.AWS.Shield.UpdateSubscription
+    Network.AWS.Shield.Waiters
 
-    exposed-modules:
-          Network.AWS.Shield
-        , Network.AWS.Shield.CreateProtection
-        , Network.AWS.Shield.CreateSubscription
-        , Network.AWS.Shield.DeleteProtection
-        , Network.AWS.Shield.DeleteSubscription
-        , Network.AWS.Shield.DescribeAttack
-        , Network.AWS.Shield.DescribeProtection
-        , Network.AWS.Shield.DescribeSubscription
-        , Network.AWS.Shield.GetSubscriptionState
-        , Network.AWS.Shield.ListAttacks
-        , Network.AWS.Shield.ListProtections
-        , Network.AWS.Shield.Types
-        , Network.AWS.Shield.Waiters
+  other-modules:
+    Network.AWS.Shield.Types.AttackDetail
+    Network.AWS.Shield.Types.AttackLayer
+    Network.AWS.Shield.Types.AttackProperty
+    Network.AWS.Shield.Types.AttackPropertyIdentifier
+    Network.AWS.Shield.Types.AttackStatisticsDataItem
+    Network.AWS.Shield.Types.AttackSummary
+    Network.AWS.Shield.Types.AttackVectorDescription
+    Network.AWS.Shield.Types.AttackVolume
+    Network.AWS.Shield.Types.AttackVolumeStatistics
+    Network.AWS.Shield.Types.AutoRenew
+    Network.AWS.Shield.Types.Contributor
+    Network.AWS.Shield.Types.EmergencyContact
+    Network.AWS.Shield.Types.Limit
+    Network.AWS.Shield.Types.Mitigation
+    Network.AWS.Shield.Types.ProactiveEngagementStatus
+    Network.AWS.Shield.Types.ProtectedResourceType
+    Network.AWS.Shield.Types.Protection
+    Network.AWS.Shield.Types.ProtectionGroup
+    Network.AWS.Shield.Types.ProtectionGroupAggregation
+    Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits
+    Network.AWS.Shield.Types.ProtectionGroupLimits
+    Network.AWS.Shield.Types.ProtectionGroupPattern
+    Network.AWS.Shield.Types.ProtectionGroupPatternTypeLimits
+    Network.AWS.Shield.Types.ProtectionLimits
+    Network.AWS.Shield.Types.SubResourceSummary
+    Network.AWS.Shield.Types.SubResourceType
+    Network.AWS.Shield.Types.Subscription
+    Network.AWS.Shield.Types.SubscriptionLimits
+    Network.AWS.Shield.Types.SubscriptionState
+    Network.AWS.Shield.Types.SummarizedAttackVector
+    Network.AWS.Shield.Types.SummarizedCounter
+    Network.AWS.Shield.Types.TimeRange
+    Network.AWS.Shield.Types.Unit
 
-    other-modules:
-          Network.AWS.Shield.Types.Product
-        , Network.AWS.Shield.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.7   && <5
 
 test-suite amazonka-shield-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.Shield
+    Test.AWS.Shield
+    Test.AWS.Shield.Internal
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.Shield
-        , Test.AWS.Gen.Shield
-        , Test.AWS.Shield.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-shield
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka-shield
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

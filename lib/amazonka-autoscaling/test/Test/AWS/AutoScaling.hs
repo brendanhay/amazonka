@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.AutoScaling
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.AutoScaling
-import           Test.AWS.Gen.AutoScaling
-import           Test.Tasty
+import Network.AWS.AutoScaling
+import Test.AWS.Gen.AutoScaling
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

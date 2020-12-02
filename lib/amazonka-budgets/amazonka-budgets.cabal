@@ -1,98 +1,137 @@
-name:                  amazonka-budgets
-version:               1.6.1
-synopsis:              Amazon Budgets SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-budgets
+version:            2.0.0.0
+synopsis:           Amazon Budgets SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2020 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.Budgets" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with
+  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+  mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  Lenses are used for constructing and manipulating types,
+  due to the depth of nesting of AWS types and transparency regarding
+  de/serialisation into more palatable Haskell values.
+  The provided lenses should be compatible with any of the major lens libraries
+  such as <http://hackage.haskell.org/package/lens lens> or
+  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Network.AWS.Budgets" or <https://aws.amazon.com/documentation/ the AWS documentation>
+  to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-budgets
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-budgets
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.Budgets
+    Network.AWS.Budgets.CreateBudget
+    Network.AWS.Budgets.CreateBudgetAction
+    Network.AWS.Budgets.CreateNotification
+    Network.AWS.Budgets.CreateSubscriber
+    Network.AWS.Budgets.DeleteBudget
+    Network.AWS.Budgets.DeleteBudgetAction
+    Network.AWS.Budgets.DeleteNotification
+    Network.AWS.Budgets.DeleteSubscriber
+    Network.AWS.Budgets.DescribeBudget
+    Network.AWS.Budgets.DescribeBudgetAction
+    Network.AWS.Budgets.DescribeBudgetActionHistories
+    Network.AWS.Budgets.DescribeBudgetActionsForAccount
+    Network.AWS.Budgets.DescribeBudgetActionsForBudget
+    Network.AWS.Budgets.DescribeBudgetPerformanceHistory
+    Network.AWS.Budgets.DescribeBudgets
+    Network.AWS.Budgets.DescribeNotificationsForBudget
+    Network.AWS.Budgets.DescribeSubscribersForNotification
+    Network.AWS.Budgets.ExecuteBudgetAction
+    Network.AWS.Budgets.Types
+    Network.AWS.Budgets.UpdateBudget
+    Network.AWS.Budgets.UpdateBudgetAction
+    Network.AWS.Budgets.UpdateNotification
+    Network.AWS.Budgets.UpdateSubscriber
+    Network.AWS.Budgets.Waiters
 
-    exposed-modules:
-          Network.AWS.Budgets
-        , Network.AWS.Budgets.CreateBudget
-        , Network.AWS.Budgets.CreateNotification
-        , Network.AWS.Budgets.CreateSubscriber
-        , Network.AWS.Budgets.DeleteBudget
-        , Network.AWS.Budgets.DeleteNotification
-        , Network.AWS.Budgets.DeleteSubscriber
-        , Network.AWS.Budgets.DescribeBudget
-        , Network.AWS.Budgets.DescribeBudgets
-        , Network.AWS.Budgets.DescribeNotificationsForBudget
-        , Network.AWS.Budgets.DescribeSubscribersForNotification
-        , Network.AWS.Budgets.Types
-        , Network.AWS.Budgets.UpdateBudget
-        , Network.AWS.Budgets.UpdateNotification
-        , Network.AWS.Budgets.UpdateSubscriber
-        , Network.AWS.Budgets.Waiters
+  other-modules:
+    Network.AWS.Budgets.Types.Action
+    Network.AWS.Budgets.Types.ActionHistory
+    Network.AWS.Budgets.Types.ActionHistoryDetails
+    Network.AWS.Budgets.Types.ActionStatus
+    Network.AWS.Budgets.Types.ActionSubType
+    Network.AWS.Budgets.Types.ActionThreshold
+    Network.AWS.Budgets.Types.ActionType
+    Network.AWS.Budgets.Types.ApprovalModel
+    Network.AWS.Budgets.Types.Budget
+    Network.AWS.Budgets.Types.BudgetedAndActualAmounts
+    Network.AWS.Budgets.Types.BudgetPerformanceHistory
+    Network.AWS.Budgets.Types.BudgetType
+    Network.AWS.Budgets.Types.CalculatedSpend
+    Network.AWS.Budgets.Types.ComparisonOperator
+    Network.AWS.Budgets.Types.CostTypes
+    Network.AWS.Budgets.Types.Definition
+    Network.AWS.Budgets.Types.EventType
+    Network.AWS.Budgets.Types.ExecutionType
+    Network.AWS.Budgets.Types.IAMActionDefinition
+    Network.AWS.Budgets.Types.Notification
+    Network.AWS.Budgets.Types.NotificationState
+    Network.AWS.Budgets.Types.NotificationType
+    Network.AWS.Budgets.Types.NotificationWithSubscribers
+    Network.AWS.Budgets.Types.ScpActionDefinition
+    Network.AWS.Budgets.Types.Spend
+    Network.AWS.Budgets.Types.SsmActionDefinition
+    Network.AWS.Budgets.Types.Subscriber
+    Network.AWS.Budgets.Types.SubscriptionType
+    Network.AWS.Budgets.Types.ThresholdType
+    Network.AWS.Budgets.Types.TimePeriod
+    Network.AWS.Budgets.Types.TimeUnit
 
-    other-modules:
-          Network.AWS.Budgets.Types.Product
-        , Network.AWS.Budgets.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.7   && <5
 
 test-suite amazonka-budgets-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Budgets
+    Test.AWS.Budgets.Internal
+    Test.AWS.Gen.Budgets
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.Budgets
-        , Test.AWS.Gen.Budgets
-        , Test.AWS.Budgets.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-budgets
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-budgets
+    , amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.DynamoDB
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.DynamoDB
-import           Test.AWS.Gen.DynamoDB
-import           Test.Tasty
+import Network.AWS.DynamoDB
+import Test.AWS.Gen.DynamoDB
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

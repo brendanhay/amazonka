@@ -1,18 +1,17 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaLive.DescribeInput
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,32 +19,39 @@
 --
 -- Produces details about an input
 module Network.AWS.MediaLive.DescribeInput
-    (
-    -- * Creating a Request
-      describeInput
-    , DescribeInput
+  ( -- * Creating a Request
+    describeInput,
+    DescribeInput,
+
     -- * Request Lenses
-    , dInputId
+    dInputId,
 
     -- * Destructuring the Response
-    , describeInputResponse
-    , DescribeInputResponse
+    describeInputResponse,
+    DescribeInputResponse,
+
     -- * Response Lenses
-    , diirsState
-    , diirsSecurityGroups
-    , diirsARN
-    , diirsSources
-    , diirsDestinations
-    , diirsName
-    , diirsAttachedChannels
-    , diirsId
-    , diirsType
-    , diirsResponseStatus
-    ) where
+    diirsState,
+    diirsSecurityGroups,
+    diirsARN,
+    diirsInputDevices,
+    diirsSources,
+    diirsDestinations,
+    diirsName,
+    diirsAttachedChannels,
+    diirsId,
+    diirsInputClass,
+    diirsType,
+    diirsMediaConnectFlows,
+    diirsInputSourceType,
+    diirsTags,
+    diirsRoleARN,
+    diirsResponseStatus,
+  )
+where
 
 import Network.AWS.Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.MediaLive.Types.Product
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
@@ -53,78 +59,94 @@ import Network.AWS.Response
 -- | Placeholder documentation for DescribeInputRequest
 --
 -- /See:/ 'describeInput' smart constructor.
-newtype DescribeInput = DescribeInput'
-  { _dInputId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+newtype DescribeInput = DescribeInput' {_dInputId :: Text}
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'DescribeInput' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dInputId' - Unique ID of the input
-describeInput
-    :: Text -- ^ 'dInputId'
-    -> DescribeInput
+describeInput ::
+  -- | 'dInputId'
+  Text ->
+  DescribeInput
 describeInput pInputId_ = DescribeInput' {_dInputId = pInputId_}
-
 
 -- | Unique ID of the input
 dInputId :: Lens' DescribeInput Text
-dInputId = lens _dInputId (\ s a -> s{_dInputId = a})
+dInputId = lens _dInputId (\s a -> s {_dInputId = a})
 
 instance AWSRequest DescribeInput where
-        type Rs DescribeInput = DescribeInputResponse
-        request = get mediaLive
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeInputResponse' <$>
-                   (x .?> "state") <*>
-                     (x .?> "securityGroups" .!@ mempty)
-                     <*> (x .?> "arn")
-                     <*> (x .?> "sources" .!@ mempty)
-                     <*> (x .?> "destinations" .!@ mempty)
-                     <*> (x .?> "name")
-                     <*> (x .?> "attachedChannels" .!@ mempty)
-                     <*> (x .?> "id")
-                     <*> (x .?> "type")
-                     <*> (pure (fromEnum s)))
+  type Rs DescribeInput = DescribeInputResponse
+  request = get mediaLive
+  response =
+    receiveJSON
+      ( \s h x ->
+          DescribeInputResponse'
+            <$> (x .?> "state")
+            <*> (x .?> "securityGroups" .!@ mempty)
+            <*> (x .?> "arn")
+            <*> (x .?> "inputDevices" .!@ mempty)
+            <*> (x .?> "sources" .!@ mempty)
+            <*> (x .?> "destinations" .!@ mempty)
+            <*> (x .?> "name")
+            <*> (x .?> "attachedChannels" .!@ mempty)
+            <*> (x .?> "id")
+            <*> (x .?> "inputClass")
+            <*> (x .?> "type")
+            <*> (x .?> "mediaConnectFlows" .!@ mempty)
+            <*> (x .?> "inputSourceType")
+            <*> (x .?> "tags" .!@ mempty)
+            <*> (x .?> "roleArn")
+            <*> (pure (fromEnum s))
+      )
 
-instance Hashable DescribeInput where
+instance Hashable DescribeInput
 
-instance NFData DescribeInput where
+instance NFData DescribeInput
 
 instance ToHeaders DescribeInput where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+      )
 
 instance ToPath DescribeInput where
-        toPath DescribeInput'{..}
-          = mconcat ["/prod/inputs/", toBS _dInputId]
+  toPath DescribeInput' {..} =
+    mconcat ["/prod/inputs/", toBS _dInputId]
 
 instance ToQuery DescribeInput where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | Placeholder documentation for DescribeInputResponse
 --
 -- /See:/ 'describeInputResponse' smart constructor.
 data DescribeInputResponse = DescribeInputResponse'
-  { _diirsState            :: !(Maybe InputState)
-  , _diirsSecurityGroups   :: !(Maybe [Text])
-  , _diirsARN              :: !(Maybe Text)
-  , _diirsSources          :: !(Maybe [InputSource])
-  , _diirsDestinations     :: !(Maybe [InputDestination])
-  , _diirsName             :: !(Maybe Text)
-  , _diirsAttachedChannels :: !(Maybe [Text])
-  , _diirsId               :: !(Maybe Text)
-  , _diirsType             :: !(Maybe InputType)
-  , _diirsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _diirsState ::
+      !(Maybe InputState),
+    _diirsSecurityGroups :: !(Maybe [Text]),
+    _diirsARN :: !(Maybe Text),
+    _diirsInputDevices ::
+      !(Maybe [InputDeviceSettings]),
+    _diirsSources :: !(Maybe [InputSource]),
+    _diirsDestinations ::
+      !(Maybe [InputDestination]),
+    _diirsName :: !(Maybe Text),
+    _diirsAttachedChannels :: !(Maybe [Text]),
+    _diirsId :: !(Maybe Text),
+    _diirsInputClass :: !(Maybe InputClass),
+    _diirsType :: !(Maybe InputType),
+    _diirsMediaConnectFlows ::
+      !(Maybe [MediaConnectFlow]),
+    _diirsInputSourceType ::
+      !(Maybe InputSourceType),
+    _diirsTags :: !(Maybe (Map Text (Text))),
+    _diirsRoleARN :: !(Maybe Text),
+    _diirsResponseStatus :: !Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'DescribeInputResponse' with the minimum fields required to make a request.
 --
@@ -132,9 +154,11 @@ data DescribeInputResponse = DescribeInputResponse'
 --
 -- * 'diirsState' - Undocumented member.
 --
--- * 'diirsSecurityGroups' - A list of IDs for all the security groups attached to the input.
+-- * 'diirsSecurityGroups' - A list of IDs for all the Input Security Groups attached to the input.
 --
 -- * 'diirsARN' - The Unique ARN of the input (generated, immutable).
+--
+-- * 'diirsInputDevices' - Settings for the input devices.
 --
 -- * 'diirsSources' - A list of the sources of the input (PULL-type).
 --
@@ -146,65 +170,105 @@ data DescribeInputResponse = DescribeInputResponse'
 --
 -- * 'diirsId' - The generated ID of the input (unique for user account, immutable).
 --
+-- * 'diirsInputClass' - STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails. SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
+--
 -- * 'diirsType' - Undocumented member.
 --
+-- * 'diirsMediaConnectFlows' - A list of MediaConnect Flows for this input.
+--
+-- * 'diirsInputSourceType' - Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes during input switch actions. Presently, this functionality only works with MP4_FILE inputs.
+--
+-- * 'diirsTags' - A collection of key-value pairs.
+--
+-- * 'diirsRoleARN' - The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
+--
 -- * 'diirsResponseStatus' - -- | The response status code.
-describeInputResponse
-    :: Int -- ^ 'diirsResponseStatus'
-    -> DescribeInputResponse
+describeInputResponse ::
+  -- | 'diirsResponseStatus'
+  Int ->
+  DescribeInputResponse
 describeInputResponse pResponseStatus_ =
   DescribeInputResponse'
-    { _diirsState = Nothing
-    , _diirsSecurityGroups = Nothing
-    , _diirsARN = Nothing
-    , _diirsSources = Nothing
-    , _diirsDestinations = Nothing
-    , _diirsName = Nothing
-    , _diirsAttachedChannels = Nothing
-    , _diirsId = Nothing
-    , _diirsType = Nothing
-    , _diirsResponseStatus = pResponseStatus_
+    { _diirsState = Nothing,
+      _diirsSecurityGroups = Nothing,
+      _diirsARN = Nothing,
+      _diirsInputDevices = Nothing,
+      _diirsSources = Nothing,
+      _diirsDestinations = Nothing,
+      _diirsName = Nothing,
+      _diirsAttachedChannels = Nothing,
+      _diirsId = Nothing,
+      _diirsInputClass = Nothing,
+      _diirsType = Nothing,
+      _diirsMediaConnectFlows = Nothing,
+      _diirsInputSourceType = Nothing,
+      _diirsTags = Nothing,
+      _diirsRoleARN = Nothing,
+      _diirsResponseStatus = pResponseStatus_
     }
-
 
 -- | Undocumented member.
 diirsState :: Lens' DescribeInputResponse (Maybe InputState)
-diirsState = lens _diirsState (\ s a -> s{_diirsState = a})
+diirsState = lens _diirsState (\s a -> s {_diirsState = a})
 
--- | A list of IDs for all the security groups attached to the input.
+-- | A list of IDs for all the Input Security Groups attached to the input.
 diirsSecurityGroups :: Lens' DescribeInputResponse [Text]
-diirsSecurityGroups = lens _diirsSecurityGroups (\ s a -> s{_diirsSecurityGroups = a}) . _Default . _Coerce
+diirsSecurityGroups = lens _diirsSecurityGroups (\s a -> s {_diirsSecurityGroups = a}) . _Default . _Coerce
 
 -- | The Unique ARN of the input (generated, immutable).
 diirsARN :: Lens' DescribeInputResponse (Maybe Text)
-diirsARN = lens _diirsARN (\ s a -> s{_diirsARN = a})
+diirsARN = lens _diirsARN (\s a -> s {_diirsARN = a})
+
+-- | Settings for the input devices.
+diirsInputDevices :: Lens' DescribeInputResponse [InputDeviceSettings]
+diirsInputDevices = lens _diirsInputDevices (\s a -> s {_diirsInputDevices = a}) . _Default . _Coerce
 
 -- | A list of the sources of the input (PULL-type).
 diirsSources :: Lens' DescribeInputResponse [InputSource]
-diirsSources = lens _diirsSources (\ s a -> s{_diirsSources = a}) . _Default . _Coerce
+diirsSources = lens _diirsSources (\s a -> s {_diirsSources = a}) . _Default . _Coerce
 
 -- | A list of the destinations of the input (PUSH-type).
 diirsDestinations :: Lens' DescribeInputResponse [InputDestination]
-diirsDestinations = lens _diirsDestinations (\ s a -> s{_diirsDestinations = a}) . _Default . _Coerce
+diirsDestinations = lens _diirsDestinations (\s a -> s {_diirsDestinations = a}) . _Default . _Coerce
 
 -- | The user-assigned name (This is a mutable value).
 diirsName :: Lens' DescribeInputResponse (Maybe Text)
-diirsName = lens _diirsName (\ s a -> s{_diirsName = a})
+diirsName = lens _diirsName (\s a -> s {_diirsName = a})
 
 -- | A list of channel IDs that that input is attached to (currently an input can only be attached to one channel).
 diirsAttachedChannels :: Lens' DescribeInputResponse [Text]
-diirsAttachedChannels = lens _diirsAttachedChannels (\ s a -> s{_diirsAttachedChannels = a}) . _Default . _Coerce
+diirsAttachedChannels = lens _diirsAttachedChannels (\s a -> s {_diirsAttachedChannels = a}) . _Default . _Coerce
 
 -- | The generated ID of the input (unique for user account, immutable).
 diirsId :: Lens' DescribeInputResponse (Maybe Text)
-diirsId = lens _diirsId (\ s a -> s{_diirsId = a})
+diirsId = lens _diirsId (\s a -> s {_diirsId = a})
+
+-- | STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails. SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
+diirsInputClass :: Lens' DescribeInputResponse (Maybe InputClass)
+diirsInputClass = lens _diirsInputClass (\s a -> s {_diirsInputClass = a})
 
 -- | Undocumented member.
 diirsType :: Lens' DescribeInputResponse (Maybe InputType)
-diirsType = lens _diirsType (\ s a -> s{_diirsType = a})
+diirsType = lens _diirsType (\s a -> s {_diirsType = a})
+
+-- | A list of MediaConnect Flows for this input.
+diirsMediaConnectFlows :: Lens' DescribeInputResponse [MediaConnectFlow]
+diirsMediaConnectFlows = lens _diirsMediaConnectFlows (\s a -> s {_diirsMediaConnectFlows = a}) . _Default . _Coerce
+
+-- | Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes during input switch actions. Presently, this functionality only works with MP4_FILE inputs.
+diirsInputSourceType :: Lens' DescribeInputResponse (Maybe InputSourceType)
+diirsInputSourceType = lens _diirsInputSourceType (\s a -> s {_diirsInputSourceType = a})
+
+-- | A collection of key-value pairs.
+diirsTags :: Lens' DescribeInputResponse (HashMap Text (Text))
+diirsTags = lens _diirsTags (\s a -> s {_diirsTags = a}) . _Default . _Map
+
+-- | The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
+diirsRoleARN :: Lens' DescribeInputResponse (Maybe Text)
+diirsRoleARN = lens _diirsRoleARN (\s a -> s {_diirsRoleARN = a})
 
 -- | -- | The response status code.
 diirsResponseStatus :: Lens' DescribeInputResponse Int
-diirsResponseStatus = lens _diirsResponseStatus (\ s a -> s{_diirsResponseStatus = a})
+diirsResponseStatus = lens _diirsResponseStatus (\s a -> s {_diirsResponseStatus = a})
 
-instance NFData DescribeInputResponse where
+instance NFData DescribeInputResponse

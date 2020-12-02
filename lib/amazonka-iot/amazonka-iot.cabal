@@ -1,204 +1,517 @@
-name:                  amazonka-iot
-version:               1.6.1
-synopsis:              Amazon IoT SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-iot
+version:            2.0.0.0
+synopsis:           Amazon IoT SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2020 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.IoT" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with
+  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+  mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  Lenses are used for constructing and manipulating types,
+  due to the depth of nesting of AWS types and transparency regarding
+  de/serialisation into more palatable Haskell values.
+  The provided lenses should be compatible with any of the major lens libraries
+  such as <http://hackage.haskell.org/package/lens lens> or
+  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Network.AWS.IoT" or <https://aws.amazon.com/documentation/ the AWS documentation>
+  to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-iot
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-iot
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.IoT
+    Network.AWS.IoT.AcceptCertificateTransfer
+    Network.AWS.IoT.AddThingToBillingGroup
+    Network.AWS.IoT.AddThingToThingGroup
+    Network.AWS.IoT.AssociateTargetsWithJob
+    Network.AWS.IoT.AttachPolicy
+    Network.AWS.IoT.AttachSecurityProfile
+    Network.AWS.IoT.AttachThingPrincipal
+    Network.AWS.IoT.CancelAuditMitigationActionsTask
+    Network.AWS.IoT.CancelAuditTask
+    Network.AWS.IoT.CancelCertificateTransfer
+    Network.AWS.IoT.CancelJob
+    Network.AWS.IoT.CancelJobExecution
+    Network.AWS.IoT.ClearDefaultAuthorizer
+    Network.AWS.IoT.ConfirmTopicRuleDestination
+    Network.AWS.IoT.CreateAuditSuppression
+    Network.AWS.IoT.CreateAuthorizer
+    Network.AWS.IoT.CreateBillingGroup
+    Network.AWS.IoT.CreateCertificateFromCSR
+    Network.AWS.IoT.CreateDimension
+    Network.AWS.IoT.CreateDomainConfiguration
+    Network.AWS.IoT.CreateDynamicThingGroup
+    Network.AWS.IoT.CreateJob
+    Network.AWS.IoT.CreateKeysAndCertificate
+    Network.AWS.IoT.CreateMitigationAction
+    Network.AWS.IoT.CreateOTAUpdate
+    Network.AWS.IoT.CreatePolicy
+    Network.AWS.IoT.CreatePolicyVersion
+    Network.AWS.IoT.CreateProvisioningClaim
+    Network.AWS.IoT.CreateProvisioningTemplate
+    Network.AWS.IoT.CreateProvisioningTemplateVersion
+    Network.AWS.IoT.CreateRoleAlias
+    Network.AWS.IoT.CreateScheduledAudit
+    Network.AWS.IoT.CreateSecurityProfile
+    Network.AWS.IoT.CreateStream
+    Network.AWS.IoT.CreateThing
+    Network.AWS.IoT.CreateThingGroup
+    Network.AWS.IoT.CreateThingType
+    Network.AWS.IoT.CreateTopicRule
+    Network.AWS.IoT.CreateTopicRuleDestination
+    Network.AWS.IoT.DeleteAccountAuditConfiguration
+    Network.AWS.IoT.DeleteAuditSuppression
+    Network.AWS.IoT.DeleteAuthorizer
+    Network.AWS.IoT.DeleteBillingGroup
+    Network.AWS.IoT.DeleteCACertificate
+    Network.AWS.IoT.DeleteCertificate
+    Network.AWS.IoT.DeleteDimension
+    Network.AWS.IoT.DeleteDomainConfiguration
+    Network.AWS.IoT.DeleteDynamicThingGroup
+    Network.AWS.IoT.DeleteJob
+    Network.AWS.IoT.DeleteJobExecution
+    Network.AWS.IoT.DeleteMitigationAction
+    Network.AWS.IoT.DeleteOTAUpdate
+    Network.AWS.IoT.DeletePolicy
+    Network.AWS.IoT.DeletePolicyVersion
+    Network.AWS.IoT.DeleteProvisioningTemplate
+    Network.AWS.IoT.DeleteProvisioningTemplateVersion
+    Network.AWS.IoT.DeleteRegistrationCode
+    Network.AWS.IoT.DeleteRoleAlias
+    Network.AWS.IoT.DeleteScheduledAudit
+    Network.AWS.IoT.DeleteSecurityProfile
+    Network.AWS.IoT.DeleteStream
+    Network.AWS.IoT.DeleteThing
+    Network.AWS.IoT.DeleteThingGroup
+    Network.AWS.IoT.DeleteThingType
+    Network.AWS.IoT.DeleteTopicRule
+    Network.AWS.IoT.DeleteTopicRuleDestination
+    Network.AWS.IoT.DeleteV2LoggingLevel
+    Network.AWS.IoT.DeprecateThingType
+    Network.AWS.IoT.DescribeAccountAuditConfiguration
+    Network.AWS.IoT.DescribeAuditFinding
+    Network.AWS.IoT.DescribeAuditMitigationActionsTask
+    Network.AWS.IoT.DescribeAuditSuppression
+    Network.AWS.IoT.DescribeAuditTask
+    Network.AWS.IoT.DescribeAuthorizer
+    Network.AWS.IoT.DescribeBillingGroup
+    Network.AWS.IoT.DescribeCACertificate
+    Network.AWS.IoT.DescribeCertificate
+    Network.AWS.IoT.DescribeDefaultAuthorizer
+    Network.AWS.IoT.DescribeDimension
+    Network.AWS.IoT.DescribeDomainConfiguration
+    Network.AWS.IoT.DescribeEndpoint
+    Network.AWS.IoT.DescribeEventConfigurations
+    Network.AWS.IoT.DescribeIndex
+    Network.AWS.IoT.DescribeJob
+    Network.AWS.IoT.DescribeJobExecution
+    Network.AWS.IoT.DescribeMitigationAction
+    Network.AWS.IoT.DescribeProvisioningTemplate
+    Network.AWS.IoT.DescribeProvisioningTemplateVersion
+    Network.AWS.IoT.DescribeRoleAlias
+    Network.AWS.IoT.DescribeScheduledAudit
+    Network.AWS.IoT.DescribeSecurityProfile
+    Network.AWS.IoT.DescribeStream
+    Network.AWS.IoT.DescribeThing
+    Network.AWS.IoT.DescribeThingGroup
+    Network.AWS.IoT.DescribeThingRegistrationTask
+    Network.AWS.IoT.DescribeThingType
+    Network.AWS.IoT.DetachPolicy
+    Network.AWS.IoT.DetachSecurityProfile
+    Network.AWS.IoT.DetachThingPrincipal
+    Network.AWS.IoT.DisableTopicRule
+    Network.AWS.IoT.EnableTopicRule
+    Network.AWS.IoT.GetCardinality
+    Network.AWS.IoT.GetEffectivePolicies
+    Network.AWS.IoT.GetIndexingConfiguration
+    Network.AWS.IoT.GetJobDocument
+    Network.AWS.IoT.GetLoggingOptions
+    Network.AWS.IoT.GetOTAUpdate
+    Network.AWS.IoT.GetPercentiles
+    Network.AWS.IoT.GetPolicy
+    Network.AWS.IoT.GetPolicyVersion
+    Network.AWS.IoT.GetRegistrationCode
+    Network.AWS.IoT.GetStatistics
+    Network.AWS.IoT.GetTopicRule
+    Network.AWS.IoT.GetTopicRuleDestination
+    Network.AWS.IoT.GetV2LoggingOptions
+    Network.AWS.IoT.ListActiveViolations
+    Network.AWS.IoT.ListAttachedPolicies
+    Network.AWS.IoT.ListAuditFindings
+    Network.AWS.IoT.ListAuditMitigationActionsExecutions
+    Network.AWS.IoT.ListAuditMitigationActionsTasks
+    Network.AWS.IoT.ListAuditSuppressions
+    Network.AWS.IoT.ListAuditTasks
+    Network.AWS.IoT.ListAuthorizers
+    Network.AWS.IoT.ListBillingGroups
+    Network.AWS.IoT.ListCACertificates
+    Network.AWS.IoT.ListCertificates
+    Network.AWS.IoT.ListCertificatesByCA
+    Network.AWS.IoT.ListDimensions
+    Network.AWS.IoT.ListDomainConfigurations
+    Network.AWS.IoT.ListIndices
+    Network.AWS.IoT.ListJobExecutionsForJob
+    Network.AWS.IoT.ListJobExecutionsForThing
+    Network.AWS.IoT.ListJobs
+    Network.AWS.IoT.ListMitigationActions
+    Network.AWS.IoT.ListOTAUpdates
+    Network.AWS.IoT.ListOutgoingCertificates
+    Network.AWS.IoT.ListPolicies
+    Network.AWS.IoT.ListPolicyVersions
+    Network.AWS.IoT.ListPrincipalThings
+    Network.AWS.IoT.ListProvisioningTemplates
+    Network.AWS.IoT.ListProvisioningTemplateVersions
+    Network.AWS.IoT.ListRoleAliases
+    Network.AWS.IoT.ListScheduledAudits
+    Network.AWS.IoT.ListSecurityProfiles
+    Network.AWS.IoT.ListSecurityProfilesForTarget
+    Network.AWS.IoT.ListStreams
+    Network.AWS.IoT.ListTagsForResource
+    Network.AWS.IoT.ListTargetsForPolicy
+    Network.AWS.IoT.ListTargetsForSecurityProfile
+    Network.AWS.IoT.ListThingGroups
+    Network.AWS.IoT.ListThingGroupsForThing
+    Network.AWS.IoT.ListThingPrincipals
+    Network.AWS.IoT.ListThingRegistrationTaskReports
+    Network.AWS.IoT.ListThingRegistrationTasks
+    Network.AWS.IoT.ListThings
+    Network.AWS.IoT.ListThingsInBillingGroup
+    Network.AWS.IoT.ListThingsInThingGroup
+    Network.AWS.IoT.ListThingTypes
+    Network.AWS.IoT.ListTopicRuleDestinations
+    Network.AWS.IoT.ListTopicRules
+    Network.AWS.IoT.ListV2LoggingLevels
+    Network.AWS.IoT.ListViolationEvents
+    Network.AWS.IoT.RegisterCACertificate
+    Network.AWS.IoT.RegisterCertificate
+    Network.AWS.IoT.RegisterCertificateWithoutCA
+    Network.AWS.IoT.RegisterThing
+    Network.AWS.IoT.RejectCertificateTransfer
+    Network.AWS.IoT.RemoveThingFromBillingGroup
+    Network.AWS.IoT.RemoveThingFromThingGroup
+    Network.AWS.IoT.ReplaceTopicRule
+    Network.AWS.IoT.SearchIndex
+    Network.AWS.IoT.SetDefaultAuthorizer
+    Network.AWS.IoT.SetDefaultPolicyVersion
+    Network.AWS.IoT.SetLoggingOptions
+    Network.AWS.IoT.SetV2LoggingLevel
+    Network.AWS.IoT.SetV2LoggingOptions
+    Network.AWS.IoT.StartAuditMitigationActionsTask
+    Network.AWS.IoT.StartOnDemandAuditTask
+    Network.AWS.IoT.StartThingRegistrationTask
+    Network.AWS.IoT.StopThingRegistrationTask
+    Network.AWS.IoT.TagResource
+    Network.AWS.IoT.TestAuthorization
+    Network.AWS.IoT.TestInvokeAuthorizer
+    Network.AWS.IoT.TransferCertificate
+    Network.AWS.IoT.Types
+    Network.AWS.IoT.UntagResource
+    Network.AWS.IoT.UpdateAccountAuditConfiguration
+    Network.AWS.IoT.UpdateAuditSuppression
+    Network.AWS.IoT.UpdateAuthorizer
+    Network.AWS.IoT.UpdateBillingGroup
+    Network.AWS.IoT.UpdateCACertificate
+    Network.AWS.IoT.UpdateCertificate
+    Network.AWS.IoT.UpdateDimension
+    Network.AWS.IoT.UpdateDomainConfiguration
+    Network.AWS.IoT.UpdateDynamicThingGroup
+    Network.AWS.IoT.UpdateEventConfigurations
+    Network.AWS.IoT.UpdateIndexingConfiguration
+    Network.AWS.IoT.UpdateJob
+    Network.AWS.IoT.UpdateMitigationAction
+    Network.AWS.IoT.UpdateProvisioningTemplate
+    Network.AWS.IoT.UpdateRoleAlias
+    Network.AWS.IoT.UpdateScheduledAudit
+    Network.AWS.IoT.UpdateSecurityProfile
+    Network.AWS.IoT.UpdateStream
+    Network.AWS.IoT.UpdateThing
+    Network.AWS.IoT.UpdateThingGroup
+    Network.AWS.IoT.UpdateThingGroupsForThing
+    Network.AWS.IoT.UpdateTopicRuleDestination
+    Network.AWS.IoT.ValidateSecurityProfileBehaviors
+    Network.AWS.IoT.Waiters
 
-    exposed-modules:
-          Network.AWS.IoT
-        , Network.AWS.IoT.AcceptCertificateTransfer
-        , Network.AWS.IoT.AddThingToThingGroup
-        , Network.AWS.IoT.AssociateTargetsWithJob
-        , Network.AWS.IoT.AttachPolicy
-        , Network.AWS.IoT.AttachThingPrincipal
-        , Network.AWS.IoT.CancelCertificateTransfer
-        , Network.AWS.IoT.CancelJob
-        , Network.AWS.IoT.ClearDefaultAuthorizer
-        , Network.AWS.IoT.CreateAuthorizer
-        , Network.AWS.IoT.CreateCertificateFromCSR
-        , Network.AWS.IoT.CreateJob
-        , Network.AWS.IoT.CreateKeysAndCertificate
-        , Network.AWS.IoT.CreateOTAUpdate
-        , Network.AWS.IoT.CreatePolicy
-        , Network.AWS.IoT.CreatePolicyVersion
-        , Network.AWS.IoT.CreateRoleAlias
-        , Network.AWS.IoT.CreateStream
-        , Network.AWS.IoT.CreateThing
-        , Network.AWS.IoT.CreateThingGroup
-        , Network.AWS.IoT.CreateThingType
-        , Network.AWS.IoT.CreateTopicRule
-        , Network.AWS.IoT.DeleteAuthorizer
-        , Network.AWS.IoT.DeleteCACertificate
-        , Network.AWS.IoT.DeleteCertificate
-        , Network.AWS.IoT.DeleteOTAUpdate
-        , Network.AWS.IoT.DeletePolicy
-        , Network.AWS.IoT.DeletePolicyVersion
-        , Network.AWS.IoT.DeleteRegistrationCode
-        , Network.AWS.IoT.DeleteRoleAlias
-        , Network.AWS.IoT.DeleteStream
-        , Network.AWS.IoT.DeleteThing
-        , Network.AWS.IoT.DeleteThingGroup
-        , Network.AWS.IoT.DeleteThingType
-        , Network.AWS.IoT.DeleteTopicRule
-        , Network.AWS.IoT.DeleteV2LoggingLevel
-        , Network.AWS.IoT.DeprecateThingType
-        , Network.AWS.IoT.DescribeAuthorizer
-        , Network.AWS.IoT.DescribeCACertificate
-        , Network.AWS.IoT.DescribeCertificate
-        , Network.AWS.IoT.DescribeDefaultAuthorizer
-        , Network.AWS.IoT.DescribeEndpoint
-        , Network.AWS.IoT.DescribeEventConfigurations
-        , Network.AWS.IoT.DescribeIndex
-        , Network.AWS.IoT.DescribeJob
-        , Network.AWS.IoT.DescribeJobExecution
-        , Network.AWS.IoT.DescribeRoleAlias
-        , Network.AWS.IoT.DescribeStream
-        , Network.AWS.IoT.DescribeThing
-        , Network.AWS.IoT.DescribeThingGroup
-        , Network.AWS.IoT.DescribeThingRegistrationTask
-        , Network.AWS.IoT.DescribeThingType
-        , Network.AWS.IoT.DetachPolicy
-        , Network.AWS.IoT.DetachThingPrincipal
-        , Network.AWS.IoT.DisableTopicRule
-        , Network.AWS.IoT.EnableTopicRule
-        , Network.AWS.IoT.GetEffectivePolicies
-        , Network.AWS.IoT.GetIndexingConfiguration
-        , Network.AWS.IoT.GetJobDocument
-        , Network.AWS.IoT.GetLoggingOptions
-        , Network.AWS.IoT.GetOTAUpdate
-        , Network.AWS.IoT.GetPolicy
-        , Network.AWS.IoT.GetPolicyVersion
-        , Network.AWS.IoT.GetRegistrationCode
-        , Network.AWS.IoT.GetTopicRule
-        , Network.AWS.IoT.GetV2LoggingOptions
-        , Network.AWS.IoT.ListAttachedPolicies
-        , Network.AWS.IoT.ListAuthorizers
-        , Network.AWS.IoT.ListCACertificates
-        , Network.AWS.IoT.ListCertificates
-        , Network.AWS.IoT.ListCertificatesByCA
-        , Network.AWS.IoT.ListIndices
-        , Network.AWS.IoT.ListJobExecutionsForJob
-        , Network.AWS.IoT.ListJobExecutionsForThing
-        , Network.AWS.IoT.ListJobs
-        , Network.AWS.IoT.ListOTAUpdates
-        , Network.AWS.IoT.ListOutgoingCertificates
-        , Network.AWS.IoT.ListPolicies
-        , Network.AWS.IoT.ListPolicyVersions
-        , Network.AWS.IoT.ListPrincipalThings
-        , Network.AWS.IoT.ListRoleAliases
-        , Network.AWS.IoT.ListStreams
-        , Network.AWS.IoT.ListTargetsForPolicy
-        , Network.AWS.IoT.ListThingGroups
-        , Network.AWS.IoT.ListThingGroupsForThing
-        , Network.AWS.IoT.ListThingPrincipals
-        , Network.AWS.IoT.ListThingRegistrationTaskReports
-        , Network.AWS.IoT.ListThingRegistrationTasks
-        , Network.AWS.IoT.ListThingTypes
-        , Network.AWS.IoT.ListThings
-        , Network.AWS.IoT.ListThingsInThingGroup
-        , Network.AWS.IoT.ListTopicRules
-        , Network.AWS.IoT.ListV2LoggingLevels
-        , Network.AWS.IoT.RegisterCACertificate
-        , Network.AWS.IoT.RegisterCertificate
-        , Network.AWS.IoT.RegisterThing
-        , Network.AWS.IoT.RejectCertificateTransfer
-        , Network.AWS.IoT.RemoveThingFromThingGroup
-        , Network.AWS.IoT.ReplaceTopicRule
-        , Network.AWS.IoT.SearchIndex
-        , Network.AWS.IoT.SetDefaultAuthorizer
-        , Network.AWS.IoT.SetDefaultPolicyVersion
-        , Network.AWS.IoT.SetLoggingOptions
-        , Network.AWS.IoT.SetV2LoggingLevel
-        , Network.AWS.IoT.SetV2LoggingOptions
-        , Network.AWS.IoT.StartThingRegistrationTask
-        , Network.AWS.IoT.StopThingRegistrationTask
-        , Network.AWS.IoT.TestAuthorization
-        , Network.AWS.IoT.TestInvokeAuthorizer
-        , Network.AWS.IoT.TransferCertificate
-        , Network.AWS.IoT.Types
-        , Network.AWS.IoT.UpdateAuthorizer
-        , Network.AWS.IoT.UpdateCACertificate
-        , Network.AWS.IoT.UpdateCertificate
-        , Network.AWS.IoT.UpdateEventConfigurations
-        , Network.AWS.IoT.UpdateIndexingConfiguration
-        , Network.AWS.IoT.UpdateRoleAlias
-        , Network.AWS.IoT.UpdateStream
-        , Network.AWS.IoT.UpdateThing
-        , Network.AWS.IoT.UpdateThingGroup
-        , Network.AWS.IoT.UpdateThingGroupsForThing
-        , Network.AWS.IoT.Waiters
+  other-modules:
+    Network.AWS.IoT.Types.AbortAction
+    Network.AWS.IoT.Types.AbortConfig
+    Network.AWS.IoT.Types.AbortCriteria
+    Network.AWS.IoT.Types.Action
+    Network.AWS.IoT.Types.ActionType
+    Network.AWS.IoT.Types.ActiveViolation
+    Network.AWS.IoT.Types.AddThingsToThingGroupParams
+    Network.AWS.IoT.Types.AlertTarget
+    Network.AWS.IoT.Types.AlertTargetType
+    Network.AWS.IoT.Types.Allowed
+    Network.AWS.IoT.Types.AssetPropertyTimestamp
+    Network.AWS.IoT.Types.AssetPropertyValue
+    Network.AWS.IoT.Types.AssetPropertyVariant
+    Network.AWS.IoT.Types.AttributePayload
+    Network.AWS.IoT.Types.AuditCheckConfiguration
+    Network.AWS.IoT.Types.AuditCheckDetails
+    Network.AWS.IoT.Types.AuditCheckRunStatus
+    Network.AWS.IoT.Types.AuditFinding
+    Network.AWS.IoT.Types.AuditFindingSeverity
+    Network.AWS.IoT.Types.AuditFrequency
+    Network.AWS.IoT.Types.AuditMitigationActionExecutionMetadata
+    Network.AWS.IoT.Types.AuditMitigationActionsExecutionStatus
+    Network.AWS.IoT.Types.AuditMitigationActionsTaskMetadata
+    Network.AWS.IoT.Types.AuditMitigationActionsTaskStatus
+    Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget
+    Network.AWS.IoT.Types.AuditNotificationTarget
+    Network.AWS.IoT.Types.AuditNotificationType
+    Network.AWS.IoT.Types.AuditSuppression
+    Network.AWS.IoT.Types.AuditTaskMetadata
+    Network.AWS.IoT.Types.AuditTaskStatus
+    Network.AWS.IoT.Types.AuditTaskType
+    Network.AWS.IoT.Types.AuthDecision
+    Network.AWS.IoT.Types.AuthInfo
+    Network.AWS.IoT.Types.AuthorizerConfig
+    Network.AWS.IoT.Types.AuthorizerDescription
+    Network.AWS.IoT.Types.AuthorizerStatus
+    Network.AWS.IoT.Types.AuthorizerSummary
+    Network.AWS.IoT.Types.AuthResult
+    Network.AWS.IoT.Types.AutoRegistrationStatus
+    Network.AWS.IoT.Types.AWSJobAbortConfig
+    Network.AWS.IoT.Types.AWSJobAbortCriteria
+    Network.AWS.IoT.Types.AWSJobAbortCriteriaAbortAction
+    Network.AWS.IoT.Types.AWSJobAbortCriteriaFailureType
+    Network.AWS.IoT.Types.AWSJobExecutionsRolloutConfig
+    Network.AWS.IoT.Types.AWSJobExponentialRolloutRate
+    Network.AWS.IoT.Types.AWSJobPresignedURLConfig
+    Network.AWS.IoT.Types.AWSJobRateIncreaseCriteria
+    Network.AWS.IoT.Types.AWSJobTimeoutConfig
+    Network.AWS.IoT.Types.Behavior
+    Network.AWS.IoT.Types.BehaviorCriteria
+    Network.AWS.IoT.Types.BillingGroupMetadata
+    Network.AWS.IoT.Types.BillingGroupProperties
+    Network.AWS.IoT.Types.CACertificate
+    Network.AWS.IoT.Types.CACertificateDescription
+    Network.AWS.IoT.Types.CACertificateStatus
+    Network.AWS.IoT.Types.CACertificateUpdateAction
+    Network.AWS.IoT.Types.CannedAccessControlList
+    Network.AWS.IoT.Types.Certificate
+    Network.AWS.IoT.Types.CertificateDescription
+    Network.AWS.IoT.Types.CertificateMode
+    Network.AWS.IoT.Types.CertificateStatus
+    Network.AWS.IoT.Types.CertificateValidity
+    Network.AWS.IoT.Types.CloudwatchAlarmAction
+    Network.AWS.IoT.Types.CloudwatchLogsAction
+    Network.AWS.IoT.Types.CloudwatchMetricAction
+    Network.AWS.IoT.Types.CodeSigning
+    Network.AWS.IoT.Types.CodeSigningCertificateChain
+    Network.AWS.IoT.Types.CodeSigningSignature
+    Network.AWS.IoT.Types.ComparisonOperator
+    Network.AWS.IoT.Types.Configuration
+    Network.AWS.IoT.Types.CustomCodeSigning
+    Network.AWS.IoT.Types.DayOfWeek
+    Network.AWS.IoT.Types.Denied
+    Network.AWS.IoT.Types.Destination
+    Network.AWS.IoT.Types.DeviceCertificateUpdateAction
+    Network.AWS.IoT.Types.DimensionType
+    Network.AWS.IoT.Types.DimensionValueOperator
+    Network.AWS.IoT.Types.DomainConfigurationStatus
+    Network.AWS.IoT.Types.DomainConfigurationSummary
+    Network.AWS.IoT.Types.DomainType
+    Network.AWS.IoT.Types.DynamicGroupStatus
+    Network.AWS.IoT.Types.DynamoDBAction
+    Network.AWS.IoT.Types.DynamoDBv2Action
+    Network.AWS.IoT.Types.DynamoKeyType
+    Network.AWS.IoT.Types.EffectivePolicy
+    Network.AWS.IoT.Types.ElasticsearchAction
+    Network.AWS.IoT.Types.EnableIOTLoggingParams
+    Network.AWS.IoT.Types.ErrorInfo
+    Network.AWS.IoT.Types.EventType
+    Network.AWS.IoT.Types.ExplicitDeny
+    Network.AWS.IoT.Types.ExponentialRolloutRate
+    Network.AWS.IoT.Types.Field
+    Network.AWS.IoT.Types.FieldType
+    Network.AWS.IoT.Types.FileLocation
+    Network.AWS.IoT.Types.FirehoseAction
+    Network.AWS.IoT.Types.GroupNameAndARN
+    Network.AWS.IoT.Types.HTTPAction
+    Network.AWS.IoT.Types.HTTPActionHeader
+    Network.AWS.IoT.Types.HTTPAuthorization
+    Network.AWS.IoT.Types.HTTPContext
+    Network.AWS.IoT.Types.HTTPURLDestinationConfiguration
+    Network.AWS.IoT.Types.HTTPURLDestinationProperties
+    Network.AWS.IoT.Types.HTTPURLDestinationSummary
+    Network.AWS.IoT.Types.ImplicitDeny
+    Network.AWS.IoT.Types.IndexStatus
+    Network.AWS.IoT.Types.IotAnalyticsAction
+    Network.AWS.IoT.Types.IotEventsAction
+    Network.AWS.IoT.Types.IotSiteWiseAction
+    Network.AWS.IoT.Types.Job
+    Network.AWS.IoT.Types.JobExecution
+    Network.AWS.IoT.Types.JobExecutionFailureType
+    Network.AWS.IoT.Types.JobExecutionsRolloutConfig
+    Network.AWS.IoT.Types.JobExecutionStatus
+    Network.AWS.IoT.Types.JobExecutionStatusDetails
+    Network.AWS.IoT.Types.JobExecutionSummary
+    Network.AWS.IoT.Types.JobExecutionSummaryForJob
+    Network.AWS.IoT.Types.JobExecutionSummaryForThing
+    Network.AWS.IoT.Types.JobProcessDetails
+    Network.AWS.IoT.Types.JobStatus
+    Network.AWS.IoT.Types.JobSummary
+    Network.AWS.IoT.Types.KeyPair
+    Network.AWS.IoT.Types.KinesisAction
+    Network.AWS.IoT.Types.LambdaAction
+    Network.AWS.IoT.Types.LoggingOptionsPayload
+    Network.AWS.IoT.Types.LogLevel
+    Network.AWS.IoT.Types.LogTarget
+    Network.AWS.IoT.Types.LogTargetConfiguration
+    Network.AWS.IoT.Types.LogTargetType
+    Network.AWS.IoT.Types.MessageFormat
+    Network.AWS.IoT.Types.MetricDimension
+    Network.AWS.IoT.Types.MetricToRetain
+    Network.AWS.IoT.Types.MetricValue
+    Network.AWS.IoT.Types.MitigationAction
+    Network.AWS.IoT.Types.MitigationActionIdentifier
+    Network.AWS.IoT.Types.MitigationActionParams
+    Network.AWS.IoT.Types.MitigationActionType
+    Network.AWS.IoT.Types.MqttContext
+    Network.AWS.IoT.Types.NonCompliantResource
+    Network.AWS.IoT.Types.OTAUpdateFile
+    Network.AWS.IoT.Types.OTAUpdateInfo
+    Network.AWS.IoT.Types.OTAUpdateStatus
+    Network.AWS.IoT.Types.OTAUpdateSummary
+    Network.AWS.IoT.Types.OutgoingCertificate
+    Network.AWS.IoT.Types.PercentPair
+    Network.AWS.IoT.Types.Policy
+    Network.AWS.IoT.Types.PolicyTemplateName
+    Network.AWS.IoT.Types.PolicyVersion
+    Network.AWS.IoT.Types.PolicyVersionIdentifier
+    Network.AWS.IoT.Types.PresignedURLConfig
+    Network.AWS.IoT.Types.Protocol
+    Network.AWS.IoT.Types.ProvisioningHook
+    Network.AWS.IoT.Types.ProvisioningTemplateSummary
+    Network.AWS.IoT.Types.ProvisioningTemplateVersionSummary
+    Network.AWS.IoT.Types.PublishFindingToSNSParams
+    Network.AWS.IoT.Types.PutAssetPropertyValueEntry
+    Network.AWS.IoT.Types.PutItemInput
+    Network.AWS.IoT.Types.RateIncreaseCriteria
+    Network.AWS.IoT.Types.RegistrationConfig
+    Network.AWS.IoT.Types.RelatedResource
+    Network.AWS.IoT.Types.ReplaceDefaultPolicyVersionParams
+    Network.AWS.IoT.Types.ReportType
+    Network.AWS.IoT.Types.RepublishAction
+    Network.AWS.IoT.Types.ResourceIdentifier
+    Network.AWS.IoT.Types.ResourceType
+    Network.AWS.IoT.Types.RoleAliasDescription
+    Network.AWS.IoT.Types.S3Action
+    Network.AWS.IoT.Types.S3Destination
+    Network.AWS.IoT.Types.S3Location
+    Network.AWS.IoT.Types.SalesforceAction
+    Network.AWS.IoT.Types.ScheduledAuditMetadata
+    Network.AWS.IoT.Types.SecurityProfileIdentifier
+    Network.AWS.IoT.Types.SecurityProfileTarget
+    Network.AWS.IoT.Types.SecurityProfileTargetMapping
+    Network.AWS.IoT.Types.ServerCertificateStatus
+    Network.AWS.IoT.Types.ServerCertificateSummary
+    Network.AWS.IoT.Types.ServiceType
+    Network.AWS.IoT.Types.SigningProfileParameter
+    Network.AWS.IoT.Types.SigV4Authorization
+    Network.AWS.IoT.Types.SNSAction
+    Network.AWS.IoT.Types.SqsAction
+    Network.AWS.IoT.Types.StartSigningJobParameter
+    Network.AWS.IoT.Types.StatisticalThreshold
+    Network.AWS.IoT.Types.Statistics
+    Network.AWS.IoT.Types.StepFunctionsAction
+    Network.AWS.IoT.Types.Stream
+    Network.AWS.IoT.Types.StreamFile
+    Network.AWS.IoT.Types.StreamInfo
+    Network.AWS.IoT.Types.StreamSummary
+    Network.AWS.IoT.Types.Tag
+    Network.AWS.IoT.Types.TargetSelection
+    Network.AWS.IoT.Types.TaskStatistics
+    Network.AWS.IoT.Types.TaskStatisticsForAuditCheck
+    Network.AWS.IoT.Types.TaskStatus
+    Network.AWS.IoT.Types.ThingAttribute
+    Network.AWS.IoT.Types.ThingConnectivity
+    Network.AWS.IoT.Types.ThingConnectivityIndexingMode
+    Network.AWS.IoT.Types.ThingDocument
+    Network.AWS.IoT.Types.ThingGroupDocument
+    Network.AWS.IoT.Types.ThingGroupIndexingConfiguration
+    Network.AWS.IoT.Types.ThingGroupIndexingMode
+    Network.AWS.IoT.Types.ThingGroupMetadata
+    Network.AWS.IoT.Types.ThingGroupProperties
+    Network.AWS.IoT.Types.ThingIndexingConfiguration
+    Network.AWS.IoT.Types.ThingIndexingMode
+    Network.AWS.IoT.Types.ThingTypeDefinition
+    Network.AWS.IoT.Types.ThingTypeMetadata
+    Network.AWS.IoT.Types.ThingTypeProperties
+    Network.AWS.IoT.Types.TimeoutConfig
+    Network.AWS.IoT.Types.TimestreamAction
+    Network.AWS.IoT.Types.TimestreamDimension
+    Network.AWS.IoT.Types.TimestreamTimestamp
+    Network.AWS.IoT.Types.TLSContext
+    Network.AWS.IoT.Types.TopicRule
+    Network.AWS.IoT.Types.TopicRuleDestination
+    Network.AWS.IoT.Types.TopicRuleDestinationConfiguration
+    Network.AWS.IoT.Types.TopicRuleDestinationStatus
+    Network.AWS.IoT.Types.TopicRuleDestinationSummary
+    Network.AWS.IoT.Types.TopicRuleListItem
+    Network.AWS.IoT.Types.TopicRulePayload
+    Network.AWS.IoT.Types.TransferData
+    Network.AWS.IoT.Types.UpdateCACertificateParams
+    Network.AWS.IoT.Types.UpdateDeviceCertificateParams
+    Network.AWS.IoT.Types.ValidationError
+    Network.AWS.IoT.Types.ViolationEvent
+    Network.AWS.IoT.Types.ViolationEventType
 
-    other-modules:
-          Network.AWS.IoT.Types.Product
-        , Network.AWS.IoT.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.7   && <5
 
 test-suite amazonka-iot-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.IoT
+    Test.AWS.IoT
+    Test.AWS.IoT.Internal
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.IoT
-        , Test.AWS.Gen.IoT
-        , Test.AWS.IoT.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-iot
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka-iot
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

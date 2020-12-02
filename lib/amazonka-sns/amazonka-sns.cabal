@@ -1,115 +1,123 @@
-name:                  amazonka-sns
-version:               1.6.1
-synopsis:              Amazon Simple Notification Service SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-sns
+version:            2.0.0.0
+synopsis:           Amazon Simple Notification Service SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2020 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.SNS" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with
+  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+  mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  Lenses are used for constructing and manipulating types,
+  due to the depth of nesting of AWS types and transparency regarding
+  de/serialisation into more palatable Haskell values.
+  The provided lenses should be compatible with any of the major lens libraries
+  such as <http://hackage.haskell.org/package/lens lens> or
+  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Network.AWS.SNS" or <https://aws.amazon.com/documentation/ the AWS documentation>
+  to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-sns
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-sns
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.SNS
+    Network.AWS.SNS.AddPermission
+    Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut
+    Network.AWS.SNS.ConfirmSubscription
+    Network.AWS.SNS.CreatePlatformApplication
+    Network.AWS.SNS.CreatePlatformEndpoint
+    Network.AWS.SNS.CreateTopic
+    Network.AWS.SNS.DeleteEndpoint
+    Network.AWS.SNS.DeletePlatformApplication
+    Network.AWS.SNS.DeleteTopic
+    Network.AWS.SNS.GetEndpointAttributes
+    Network.AWS.SNS.GetPlatformApplicationAttributes
+    Network.AWS.SNS.GetSMSAttributes
+    Network.AWS.SNS.GetSubscriptionAttributes
+    Network.AWS.SNS.GetTopicAttributes
+    Network.AWS.SNS.ListEndpointsByPlatformApplication
+    Network.AWS.SNS.ListPhoneNumbersOptedOut
+    Network.AWS.SNS.ListPlatformApplications
+    Network.AWS.SNS.ListSubscriptions
+    Network.AWS.SNS.ListSubscriptionsByTopic
+    Network.AWS.SNS.ListTagsForResource
+    Network.AWS.SNS.ListTopics
+    Network.AWS.SNS.OptInPhoneNumber
+    Network.AWS.SNS.Publish
+    Network.AWS.SNS.RemovePermission
+    Network.AWS.SNS.SetEndpointAttributes
+    Network.AWS.SNS.SetPlatformApplicationAttributes
+    Network.AWS.SNS.SetSMSAttributes
+    Network.AWS.SNS.SetSubscriptionAttributes
+    Network.AWS.SNS.SetTopicAttributes
+    Network.AWS.SNS.Subscribe
+    Network.AWS.SNS.TagResource
+    Network.AWS.SNS.Types
+    Network.AWS.SNS.Unsubscribe
+    Network.AWS.SNS.UntagResource
+    Network.AWS.SNS.Waiters
 
-    exposed-modules:
-          Network.AWS.SNS
-        , Network.AWS.SNS.AddPermission
-        , Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut
-        , Network.AWS.SNS.ConfirmSubscription
-        , Network.AWS.SNS.CreatePlatformApplication
-        , Network.AWS.SNS.CreatePlatformEndpoint
-        , Network.AWS.SNS.CreateTopic
-        , Network.AWS.SNS.DeleteEndpoint
-        , Network.AWS.SNS.DeletePlatformApplication
-        , Network.AWS.SNS.DeleteTopic
-        , Network.AWS.SNS.GetEndpointAttributes
-        , Network.AWS.SNS.GetPlatformApplicationAttributes
-        , Network.AWS.SNS.GetSMSAttributes
-        , Network.AWS.SNS.GetSubscriptionAttributes
-        , Network.AWS.SNS.GetTopicAttributes
-        , Network.AWS.SNS.ListEndpointsByPlatformApplication
-        , Network.AWS.SNS.ListPhoneNumbersOptedOut
-        , Network.AWS.SNS.ListPlatformApplications
-        , Network.AWS.SNS.ListSubscriptions
-        , Network.AWS.SNS.ListSubscriptionsByTopic
-        , Network.AWS.SNS.ListTopics
-        , Network.AWS.SNS.OptInPhoneNumber
-        , Network.AWS.SNS.Publish
-        , Network.AWS.SNS.RemovePermission
-        , Network.AWS.SNS.SetEndpointAttributes
-        , Network.AWS.SNS.SetPlatformApplicationAttributes
-        , Network.AWS.SNS.SetSMSAttributes
-        , Network.AWS.SNS.SetSubscriptionAttributes
-        , Network.AWS.SNS.SetTopicAttributes
-        , Network.AWS.SNS.Subscribe
-        , Network.AWS.SNS.Types
-        , Network.AWS.SNS.Unsubscribe
-        , Network.AWS.SNS.Waiters
+  other-modules:
+    Network.AWS.SNS.Types.Endpoint
+    Network.AWS.SNS.Types.MessageAttributeValue
+    Network.AWS.SNS.Types.PlatformApplication
+    Network.AWS.SNS.Types.Subscription
+    Network.AWS.SNS.Types.Tag
+    Network.AWS.SNS.Types.Topic
 
-    other-modules:
-          Network.AWS.SNS.Types.Product
-        , Network.AWS.SNS.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.7   && <5
 
 test-suite amazonka-sns-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.SNS
+    Test.AWS.SNS
+    Test.AWS.SNS.Internal
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.SNS
-        , Test.AWS.Gen.SNS
-        , Test.AWS.SNS.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-sns
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka-sns
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

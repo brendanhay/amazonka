@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Test.AWS.MarketplaceAnalytics.Internal
@@ -14,4 +13,4 @@
 
 module Test.AWS.MarketplaceAnalytics.Internal where
 
-import           Test.AWS.Prelude
+import Test.AWS.Prelude

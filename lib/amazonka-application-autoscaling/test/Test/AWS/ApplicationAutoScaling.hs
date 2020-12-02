@@ -10,15 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
-
 module Test.AWS.ApplicationAutoScaling
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.ApplicationAutoScaling
-import           Test.AWS.Gen.ApplicationAutoScaling
-import           Test.Tasty
+import Network.AWS.ApplicationAutoScaling
+import Test.AWS.Gen.ApplicationAutoScaling
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

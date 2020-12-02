@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.KinesisAnalytics
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.KinesisAnalytics where
 
 import Data.Proxy
@@ -39,6 +38,9 @@ import Test.Tasty
 --
 --         , requestStartApplication $
 --             startApplication
+--
+--         , requestListTagsForResource $
+--             listTagsForResource
 --
 --         , requestDeleteApplicationReferenceDataSource $
 --             deleteApplicationReferenceDataSource
@@ -70,11 +72,17 @@ import Test.Tasty
 --         , requestAddApplicationInput $
 --             addApplicationInput
 --
+--         , requestTagResource $
+--             tagResource
+--
 --         , requestAddApplicationCloudWatchLoggingOption $
 --             addApplicationCloudWatchLoggingOption
 --
 --         , requestListApplications $
 --             listApplications
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestDeleteApplicationInputProcessingConfiguration $
 --             deleteApplicationInputProcessingConfiguration
@@ -93,6 +101,9 @@ import Test.Tasty
 --
 --         , responseStartApplication $
 --             startApplicationResponse
+--
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
 --
 --         , responseDeleteApplicationReferenceDataSource $
 --             deleteApplicationReferenceDataSourceResponse
@@ -124,11 +135,17 @@ import Test.Tasty
 --         , responseAddApplicationInput $
 --             addApplicationInputResponse
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
 --         , responseAddApplicationCloudWatchLoggingOption $
 --             addApplicationCloudWatchLoggingOptionResponse
 --
 --         , responseListApplications $
 --             listApplicationsResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responseDeleteApplicationInputProcessingConfiguration $
 --             deleteApplicationInputProcessingConfigurationResponse
@@ -139,206 +156,282 @@ import Test.Tasty
 -- Requests
 
 requestAddApplicationOutput :: AddApplicationOutput -> TestTree
-requestAddApplicationOutput = req
+requestAddApplicationOutput =
+  req
     "AddApplicationOutput"
     "fixture/AddApplicationOutput.yaml"
 
 requestDiscoverInputSchema :: DiscoverInputSchema -> TestTree
-requestDiscoverInputSchema = req
+requestDiscoverInputSchema =
+  req
     "DiscoverInputSchema"
     "fixture/DiscoverInputSchema.yaml"
 
 requestDescribeApplication :: DescribeApplication -> TestTree
-requestDescribeApplication = req
+requestDescribeApplication =
+  req
     "DescribeApplication"
     "fixture/DescribeApplication.yaml"
 
 requestStartApplication :: StartApplication -> TestTree
-requestStartApplication = req
+requestStartApplication =
+  req
     "StartApplication"
     "fixture/StartApplication.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestDeleteApplicationReferenceDataSource :: DeleteApplicationReferenceDataSource -> TestTree
-requestDeleteApplicationReferenceDataSource = req
+requestDeleteApplicationReferenceDataSource =
+  req
     "DeleteApplicationReferenceDataSource"
     "fixture/DeleteApplicationReferenceDataSource.yaml"
 
 requestDeleteApplication :: DeleteApplication -> TestTree
-requestDeleteApplication = req
+requestDeleteApplication =
+  req
     "DeleteApplication"
     "fixture/DeleteApplication.yaml"
 
 requestUpdateApplication :: UpdateApplication -> TestTree
-requestUpdateApplication = req
+requestUpdateApplication =
+  req
     "UpdateApplication"
     "fixture/UpdateApplication.yaml"
 
 requestDeleteApplicationCloudWatchLoggingOption :: DeleteApplicationCloudWatchLoggingOption -> TestTree
-requestDeleteApplicationCloudWatchLoggingOption = req
+requestDeleteApplicationCloudWatchLoggingOption =
+  req
     "DeleteApplicationCloudWatchLoggingOption"
     "fixture/DeleteApplicationCloudWatchLoggingOption.yaml"
 
 requestAddApplicationInputProcessingConfiguration :: AddApplicationInputProcessingConfiguration -> TestTree
-requestAddApplicationInputProcessingConfiguration = req
+requestAddApplicationInputProcessingConfiguration =
+  req
     "AddApplicationInputProcessingConfiguration"
     "fixture/AddApplicationInputProcessingConfiguration.yaml"
 
 requestCreateApplication :: CreateApplication -> TestTree
-requestCreateApplication = req
+requestCreateApplication =
+  req
     "CreateApplication"
     "fixture/CreateApplication.yaml"
 
 requestDeleteApplicationOutput :: DeleteApplicationOutput -> TestTree
-requestDeleteApplicationOutput = req
+requestDeleteApplicationOutput =
+  req
     "DeleteApplicationOutput"
     "fixture/DeleteApplicationOutput.yaml"
 
 requestStopApplication :: StopApplication -> TestTree
-requestStopApplication = req
+requestStopApplication =
+  req
     "StopApplication"
     "fixture/StopApplication.yaml"
 
 requestAddApplicationReferenceDataSource :: AddApplicationReferenceDataSource -> TestTree
-requestAddApplicationReferenceDataSource = req
+requestAddApplicationReferenceDataSource =
+  req
     "AddApplicationReferenceDataSource"
     "fixture/AddApplicationReferenceDataSource.yaml"
 
 requestAddApplicationInput :: AddApplicationInput -> TestTree
-requestAddApplicationInput = req
+requestAddApplicationInput =
+  req
     "AddApplicationInput"
     "fixture/AddApplicationInput.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestAddApplicationCloudWatchLoggingOption :: AddApplicationCloudWatchLoggingOption -> TestTree
-requestAddApplicationCloudWatchLoggingOption = req
+requestAddApplicationCloudWatchLoggingOption =
+  req
     "AddApplicationCloudWatchLoggingOption"
     "fixture/AddApplicationCloudWatchLoggingOption.yaml"
 
 requestListApplications :: ListApplications -> TestTree
-requestListApplications = req
+requestListApplications =
+  req
     "ListApplications"
     "fixture/ListApplications.yaml"
 
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
 requestDeleteApplicationInputProcessingConfiguration :: DeleteApplicationInputProcessingConfiguration -> TestTree
-requestDeleteApplicationInputProcessingConfiguration = req
+requestDeleteApplicationInputProcessingConfiguration =
+  req
     "DeleteApplicationInputProcessingConfiguration"
     "fixture/DeleteApplicationInputProcessingConfiguration.yaml"
 
 -- Responses
 
 responseAddApplicationOutput :: AddApplicationOutputResponse -> TestTree
-responseAddApplicationOutput = res
+responseAddApplicationOutput =
+  res
     "AddApplicationOutputResponse"
     "fixture/AddApplicationOutputResponse.proto"
     kinesisAnalytics
     (Proxy :: Proxy AddApplicationOutput)
 
 responseDiscoverInputSchema :: DiscoverInputSchemaResponse -> TestTree
-responseDiscoverInputSchema = res
+responseDiscoverInputSchema =
+  res
     "DiscoverInputSchemaResponse"
     "fixture/DiscoverInputSchemaResponse.proto"
     kinesisAnalytics
     (Proxy :: Proxy DiscoverInputSchema)
 
 responseDescribeApplication :: DescribeApplicationResponse -> TestTree
-responseDescribeApplication = res
+responseDescribeApplication =
+  res
     "DescribeApplicationResponse"
     "fixture/DescribeApplicationResponse.proto"
     kinesisAnalytics
     (Proxy :: Proxy DescribeApplication)
 
 responseStartApplication :: StartApplicationResponse -> TestTree
-responseStartApplication = res
+responseStartApplication =
+  res
     "StartApplicationResponse"
     "fixture/StartApplicationResponse.proto"
     kinesisAnalytics
     (Proxy :: Proxy StartApplication)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    kinesisAnalytics
+    (Proxy :: Proxy ListTagsForResource)
+
 responseDeleteApplicationReferenceDataSource :: DeleteApplicationReferenceDataSourceResponse -> TestTree
-responseDeleteApplicationReferenceDataSource = res
+responseDeleteApplicationReferenceDataSource =
+  res
     "DeleteApplicationReferenceDataSourceResponse"
     "fixture/DeleteApplicationReferenceDataSourceResponse.proto"
     kinesisAnalytics
     (Proxy :: Proxy DeleteApplicationReferenceDataSource)
 
 responseDeleteApplication :: DeleteApplicationResponse -> TestTree
-responseDeleteApplication = res
+responseDeleteApplication =
+  res
     "DeleteApplicationResponse"
     "fixture/DeleteApplicationResponse.proto"
     kinesisAnalytics
     (Proxy :: Proxy DeleteApplication)
 
 responseUpdateApplication :: UpdateApplicationResponse -> TestTree
-responseUpdateApplication = res
+responseUpdateApplication =
+  res
     "UpdateApplicationResponse"
     "fixture/UpdateApplicationResponse.proto"
     kinesisAnalytics
     (Proxy :: Proxy UpdateApplication)
 
 responseDeleteApplicationCloudWatchLoggingOption :: DeleteApplicationCloudWatchLoggingOptionResponse -> TestTree
-responseDeleteApplicationCloudWatchLoggingOption = res
+responseDeleteApplicationCloudWatchLoggingOption =
+  res
     "DeleteApplicationCloudWatchLoggingOptionResponse"
     "fixture/DeleteApplicationCloudWatchLoggingOptionResponse.proto"
     kinesisAnalytics
     (Proxy :: Proxy DeleteApplicationCloudWatchLoggingOption)
 
 responseAddApplicationInputProcessingConfiguration :: AddApplicationInputProcessingConfigurationResponse -> TestTree
-responseAddApplicationInputProcessingConfiguration = res
+responseAddApplicationInputProcessingConfiguration =
+  res
     "AddApplicationInputProcessingConfigurationResponse"
     "fixture/AddApplicationInputProcessingConfigurationResponse.proto"
     kinesisAnalytics
     (Proxy :: Proxy AddApplicationInputProcessingConfiguration)
 
 responseCreateApplication :: CreateApplicationResponse -> TestTree
-responseCreateApplication = res
+responseCreateApplication =
+  res
     "CreateApplicationResponse"
     "fixture/CreateApplicationResponse.proto"
     kinesisAnalytics
     (Proxy :: Proxy CreateApplication)
 
 responseDeleteApplicationOutput :: DeleteApplicationOutputResponse -> TestTree
-responseDeleteApplicationOutput = res
+responseDeleteApplicationOutput =
+  res
     "DeleteApplicationOutputResponse"
     "fixture/DeleteApplicationOutputResponse.proto"
     kinesisAnalytics
     (Proxy :: Proxy DeleteApplicationOutput)
 
 responseStopApplication :: StopApplicationResponse -> TestTree
-responseStopApplication = res
+responseStopApplication =
+  res
     "StopApplicationResponse"
     "fixture/StopApplicationResponse.proto"
     kinesisAnalytics
     (Proxy :: Proxy StopApplication)
 
 responseAddApplicationReferenceDataSource :: AddApplicationReferenceDataSourceResponse -> TestTree
-responseAddApplicationReferenceDataSource = res
+responseAddApplicationReferenceDataSource =
+  res
     "AddApplicationReferenceDataSourceResponse"
     "fixture/AddApplicationReferenceDataSourceResponse.proto"
     kinesisAnalytics
     (Proxy :: Proxy AddApplicationReferenceDataSource)
 
 responseAddApplicationInput :: AddApplicationInputResponse -> TestTree
-responseAddApplicationInput = res
+responseAddApplicationInput =
+  res
     "AddApplicationInputResponse"
     "fixture/AddApplicationInputResponse.proto"
     kinesisAnalytics
     (Proxy :: Proxy AddApplicationInput)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    kinesisAnalytics
+    (Proxy :: Proxy TagResource)
+
 responseAddApplicationCloudWatchLoggingOption :: AddApplicationCloudWatchLoggingOptionResponse -> TestTree
-responseAddApplicationCloudWatchLoggingOption = res
+responseAddApplicationCloudWatchLoggingOption =
+  res
     "AddApplicationCloudWatchLoggingOptionResponse"
     "fixture/AddApplicationCloudWatchLoggingOptionResponse.proto"
     kinesisAnalytics
     (Proxy :: Proxy AddApplicationCloudWatchLoggingOption)
 
 responseListApplications :: ListApplicationsResponse -> TestTree
-responseListApplications = res
+responseListApplications =
+  res
     "ListApplicationsResponse"
     "fixture/ListApplicationsResponse.proto"
     kinesisAnalytics
     (Proxy :: Proxy ListApplications)
 
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    kinesisAnalytics
+    (Proxy :: Proxy UntagResource)
+
 responseDeleteApplicationInputProcessingConfiguration :: DeleteApplicationInputProcessingConfigurationResponse -> TestTree
-responseDeleteApplicationInputProcessingConfiguration = res
+responseDeleteApplicationInputProcessingConfiguration =
+  res
     "DeleteApplicationInputProcessingConfigurationResponse"
     "fixture/DeleteApplicationInputProcessingConfigurationResponse.proto"
     kinesisAnalytics

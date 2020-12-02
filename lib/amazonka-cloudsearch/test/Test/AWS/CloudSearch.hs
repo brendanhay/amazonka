@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.CloudSearch
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.CloudSearch
-import           Test.AWS.Gen.CloudSearch
-import           Test.Tasty
+import Network.AWS.CloudSearch
+import Test.AWS.Gen.CloudSearch
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

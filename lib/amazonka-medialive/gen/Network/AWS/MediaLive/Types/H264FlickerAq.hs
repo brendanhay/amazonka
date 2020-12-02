@@ -1,0 +1,65 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.MediaLive.Types.H264FlickerAq
+-- Copyright   : (c) 2013-2020 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.MediaLive.Types.H264FlickerAq where
+
+import Network.AWS.Prelude
+
+-- | H264 Flicker Aq
+data H264FlickerAq
+  = Disabled
+  | Enabled
+  deriving
+    ( Eq,
+      Ord,
+      Read,
+      Show,
+      Enum,
+      Bounded,
+      Data,
+      Typeable,
+      Generic
+    )
+
+instance FromText H264FlickerAq where
+  parser =
+    takeLowerText >>= \case
+      "disabled" -> pure Disabled
+      "enabled" -> pure Enabled
+      e ->
+        fromTextError $
+          "Failure parsing H264FlickerAq from value: '" <> e
+            <> "'. Accepted values: disabled, enabled"
+
+instance ToText H264FlickerAq where
+  toText = \case
+    Disabled -> "DISABLED"
+    Enabled -> "ENABLED"
+
+instance Hashable H264FlickerAq
+
+instance NFData H264FlickerAq
+
+instance ToByteString H264FlickerAq
+
+instance ToQuery H264FlickerAq
+
+instance ToHeader H264FlickerAq
+
+instance ToJSON H264FlickerAq where
+  toJSON = toJSONText
+
+instance FromJSON H264FlickerAq where
+  parseJSON = parseJSONText "H264FlickerAq"

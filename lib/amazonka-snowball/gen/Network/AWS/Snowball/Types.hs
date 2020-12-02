@@ -4,212 +4,278 @@
 
 -- |
 -- Module      : Network.AWS.Snowball.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.Snowball.Types
-    (
-    -- * Service Configuration
-      snowball
+  ( -- * Service Configuration
+    snowball,
 
     -- * Errors
-    , _InvalidResourceException
-    , _UnsupportedAddressException
-    , _KMSRequestFailedException
-    , _InvalidJobStateException
-    , _InvalidInputCombinationException
-    , _InvalidNextTokenException
-    , _InvalidAddressException
-    , _ClusterLimitExceededException
 
     -- * ClusterState
-    , ClusterState (..)
+    ClusterState (..),
 
     -- * JobState
-    , JobState (..)
+    JobState (..),
 
     -- * JobType
-    , JobType (..)
+    JobType (..),
+
+    -- * ShipmentState
+    ShipmentState (..),
+
+    -- * ShippingLabelStatus
+    ShippingLabelStatus (..),
 
     -- * ShippingOption
-    , ShippingOption (..)
+    ShippingOption (..),
 
     -- * SnowballCapacity
-    , SnowballCapacity (..)
+    SnowballCapacity (..),
 
     -- * SnowballType
-    , SnowballType (..)
+    SnowballType (..),
 
     -- * Address
-    , Address
-    , address
-    , aIsRestricted
-    , aStreet3
-    , aLandmark
-    , aPostalCode
-    , aCountry
-    , aStateOrProvince
-    , aStreet2
-    , aAddressId
-    , aCity
-    , aPhoneNumber
-    , aCompany
-    , aName
-    , aPrefectureOrDistrict
-    , aStreet1
+    Address,
+    address,
+    aIsRestricted,
+    aStreet3,
+    aLandmark,
+    aPostalCode,
+    aCountry,
+    aStateOrProvince,
+    aStreet2,
+    aAddressId,
+    aCity,
+    aPhoneNumber,
+    aCompany,
+    aName,
+    aPrefectureOrDistrict,
+    aStreet1,
 
     -- * ClusterListEntry
-    , ClusterListEntry
-    , clusterListEntry
-    , cleClusterState
-    , cleClusterId
-    , cleCreationDate
-    , cleDescription
+    ClusterListEntry,
+    clusterListEntry,
+    cleClusterState,
+    cleClusterId,
+    cleCreationDate,
+    cleDescription,
 
     -- * ClusterMetadata
-    , ClusterMetadata
-    , clusterMetadata
-    , cmJobType
-    , cmKMSKeyARN
-    , cmClusterState
-    , cmNotification
-    , cmForwardingAddressId
-    , cmAddressId
-    , cmSnowballType
-    , cmShippingOption
-    , cmResources
-    , cmClusterId
-    , cmCreationDate
-    , cmDescription
-    , cmRoleARN
+    ClusterMetadata,
+    clusterMetadata,
+    cmJobType,
+    cmKMSKeyARN,
+    cmClusterState,
+    cmNotification,
+    cmForwardingAddressId,
+    cmAddressId,
+    cmSnowballType,
+    cmShippingOption,
+    cmResources,
+    cmClusterId,
+    cmCreationDate,
+    cmDescription,
+    cmTaxDocuments,
+    cmRoleARN,
+
+    -- * CompatibleImage
+    CompatibleImage,
+    compatibleImage,
+    ciName,
+    ciAMIId,
 
     -- * DataTransfer
-    , DataTransfer
-    , dataTransfer
-    , dtTotalObjects
-    , dtTotalBytes
-    , dtObjectsTransferred
-    , dtBytesTransferred
+    DataTransfer,
+    dataTransfer,
+    dtTotalObjects,
+    dtTotalBytes,
+    dtObjectsTransferred,
+    dtBytesTransferred,
+
+    -- * DeviceConfiguration
+    DeviceConfiguration,
+    deviceConfiguration,
+    dcSnowconeDeviceConfiguration,
+
+    -- * EC2AMIResource
+    EC2AMIResource,
+    ec2AMIResource,
+    earSnowballAMIId,
+    earAMIId,
 
     -- * EventTriggerDefinition
-    , EventTriggerDefinition
-    , eventTriggerDefinition
-    , etdEventResourceARN
+    EventTriggerDefinition,
+    eventTriggerDefinition,
+    etdEventResourceARN,
+
+    -- * INDTaxDocuments
+    INDTaxDocuments,
+    iNDTaxDocuments,
+    indtdGSTIN,
 
     -- * JobListEntry
-    , JobListEntry
-    , jobListEntry
-    , jleJobType
-    , jleJobId
-    , jleJobState
-    , jleSnowballType
-    , jleCreationDate
-    , jleDescription
-    , jleIsMaster
+    JobListEntry,
+    jobListEntry,
+    jleJobType,
+    jleJobId,
+    jleJobState,
+    jleSnowballType,
+    jleCreationDate,
+    jleDescription,
+    jleIsMaster,
 
     -- * JobLogs
-    , JobLogs
-    , jobLogs
-    , jlJobFailureLogURI
-    , jlJobCompletionReportURI
-    , jlJobSuccessLogURI
+    JobLogs,
+    jobLogs,
+    jlJobFailureLogURI,
+    jlJobCompletionReportURI,
+    jlJobSuccessLogURI,
 
     -- * JobMetadata
-    , JobMetadata
-    , jobMetadata
-    , jmJobType
-    , jmKMSKeyARN
-    , jmJobId
-    , jmJobLogInfo
-    , jmNotification
-    , jmJobState
-    , jmForwardingAddressId
-    , jmShippingDetails
-    , jmAddressId
-    , jmSnowballType
-    , jmDataTransferProgress
-    , jmResources
-    , jmClusterId
-    , jmCreationDate
-    , jmDescription
-    , jmRoleARN
-    , jmSnowballCapacityPreference
+    JobMetadata,
+    jobMetadata,
+    jmJobType,
+    jmKMSKeyARN,
+    jmJobId,
+    jmJobLogInfo,
+    jmNotification,
+    jmJobState,
+    jmForwardingAddressId,
+    jmShippingDetails,
+    jmAddressId,
+    jmSnowballType,
+    jmDataTransferProgress,
+    jmResources,
+    jmClusterId,
+    jmCreationDate,
+    jmDeviceConfiguration,
+    jmDescription,
+    jmTaxDocuments,
+    jmRoleARN,
+    jmSnowballCapacityPreference,
 
     -- * JobResource
-    , JobResource
-    , jobResource
-    , jrLambdaResources
-    , jrS3Resources
+    JobResource,
+    jobResource,
+    jrEC2AMIResources,
+    jrLambdaResources,
+    jrS3Resources,
 
     -- * KeyRange
-    , KeyRange
-    , keyRange
-    , krEndMarker
-    , krBeginMarker
+    KeyRange,
+    keyRange,
+    krEndMarker,
+    krBeginMarker,
 
     -- * LambdaResource
-    , LambdaResource
-    , lambdaResource
-    , lrEventTriggers
-    , lrLambdaARN
+    LambdaResource,
+    lambdaResource,
+    lrEventTriggers,
+    lrLambdaARN,
 
     -- * Notification
-    , Notification
-    , notification
-    , nNotifyAll
-    , nSNSTopicARN
-    , nJobStatesToNotify
+    Notification,
+    notification,
+    nNotifyAll,
+    nSNSTopicARN,
+    nJobStatesToNotify,
 
     -- * S3Resource
-    , S3Resource
-    , s3Resource
-    , srKeyRange
-    , srBucketARN
+    S3Resource,
+    s3Resource,
+    srKeyRange,
+    srBucketARN,
 
     -- * Shipment
-    , Shipment
-    , shipment
-    , sStatus
-    , sTrackingNumber
+    Shipment,
+    shipment,
+    sStatus,
+    sTrackingNumber,
 
     -- * ShippingDetails
-    , ShippingDetails
-    , shippingDetails
-    , sdShippingOption
-    , sdOutboundShipment
-    , sdInboundShipment
-    ) where
+    ShippingDetails,
+    shippingDetails,
+    sdShippingOption,
+    sdOutboundShipment,
+    sdInboundShipment,
+
+    -- * SnowconeDeviceConfiguration
+    SnowconeDeviceConfiguration,
+    snowconeDeviceConfiguration,
+    sdcWirelessConnection,
+
+    -- * TaxDocuments
+    TaxDocuments,
+    taxDocuments,
+    tdIND,
+
+    -- * WirelessConnection
+    WirelessConnection,
+    wirelessConnection,
+    wcIsWifiEnabled,
+  )
+where
 
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Sign.V4
-import Network.AWS.Snowball.Types.Product
-import Network.AWS.Snowball.Types.Sum
+import Network.AWS.Snowball.Types.Address
+import Network.AWS.Snowball.Types.ClusterListEntry
+import Network.AWS.Snowball.Types.ClusterMetadata
+import Network.AWS.Snowball.Types.ClusterState
+import Network.AWS.Snowball.Types.CompatibleImage
+import Network.AWS.Snowball.Types.DataTransfer
+import Network.AWS.Snowball.Types.DeviceConfiguration
+import Network.AWS.Snowball.Types.EC2AMIResource
+import Network.AWS.Snowball.Types.EventTriggerDefinition
+import Network.AWS.Snowball.Types.INDTaxDocuments
+import Network.AWS.Snowball.Types.JobListEntry
+import Network.AWS.Snowball.Types.JobLogs
+import Network.AWS.Snowball.Types.JobMetadata
+import Network.AWS.Snowball.Types.JobResource
+import Network.AWS.Snowball.Types.JobState
+import Network.AWS.Snowball.Types.JobType
+import Network.AWS.Snowball.Types.KeyRange
+import Network.AWS.Snowball.Types.LambdaResource
+import Network.AWS.Snowball.Types.Notification
+import Network.AWS.Snowball.Types.S3Resource
+import Network.AWS.Snowball.Types.Shipment
+import Network.AWS.Snowball.Types.ShipmentState
+import Network.AWS.Snowball.Types.ShippingDetails
+import Network.AWS.Snowball.Types.ShippingLabelStatus
+import Network.AWS.Snowball.Types.ShippingOption
+import Network.AWS.Snowball.Types.SnowballCapacity
+import Network.AWS.Snowball.Types.SnowballType
+import Network.AWS.Snowball.Types.SnowconeDeviceConfiguration
+import Network.AWS.Snowball.Types.TaxDocuments
+import Network.AWS.Snowball.Types.WirelessConnection
 
 -- | API version @2016-06-30@ of the Amazon Import/Export Snowball SDK configuration.
 snowball :: Service
 snowball =
   Service
-    { _svcAbbrev = "Snowball"
-    , _svcSigner = v4
-    , _svcPrefix = "snowball"
-    , _svcVersion = "2016-06-30"
-    , _svcEndpoint = defaultEndpoint snowball
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "Snowball"
-    , _svcRetry = retry
+    { _svcAbbrev = "Snowball",
+      _svcSigner = v4,
+      _svcPrefix = "snowball",
+      _svcVersion = "2016-06-30",
+      _svcEndpoint = defaultEndpoint snowball,
+      _svcTimeout = Just 70,
+      _svcCheck = statusSuccess,
+      _svcError = parseJSONError "Snowball",
+      _svcRetry = retry
     }
   where
     retry =
       Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+        { _retryBase = 5.0e-2,
+          _retryGrowth = 2,
+          _retryAttempts = 5,
+          _retryCheck = check
         }
     check e
       | has (hasCode "ThrottledException" . hasStatus 400) e =
@@ -218,6 +284,10 @@ snowball =
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
         Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has
+          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+          e =
+        Just "throughput_exceeded"
       | has (hasStatus 504) e = Just "gateway_timeout"
       | has (hasCode "RequestThrottledException" . hasStatus 400) e =
         Just "request_throttled_exception"
@@ -226,67 +296,3 @@ snowball =
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
-
-
--- | The specified resource can't be found. Check the information you provided in your last request, and try again.
---
---
-_InvalidResourceException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidResourceException =
-  _MatchServiceError snowball "InvalidResourceException"
-
-
--- | The address is either outside the serviceable area for your region, or an error occurred. Check the address with your region's carrier and try again. If the issue persists, contact AWS Support.
---
---
-_UnsupportedAddressException :: AsError a => Getting (First ServiceError) a ServiceError
-_UnsupportedAddressException =
-  _MatchServiceError snowball "UnsupportedAddressException"
-
-
--- | The provided AWS Key Management Service key lacks the permissions to perform the specified 'CreateJob' or 'UpdateJob' action.
---
---
-_KMSRequestFailedException :: AsError a => Getting (First ServiceError) a ServiceError
-_KMSRequestFailedException =
-  _MatchServiceError snowball "KMSRequestFailedException"
-
-
--- | The action can't be performed because the job's current state doesn't allow that action to be performed.
---
---
-_InvalidJobStateException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidJobStateException =
-  _MatchServiceError snowball "InvalidJobStateException"
-
-
--- | Job or cluster creation failed. One ore more inputs were invalid. Confirm that the 'CreateClusterRequest$SnowballType' value supports your 'CreateJobRequest$JobType' , and try again.
---
---
-_InvalidInputCombinationException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidInputCombinationException =
-  _MatchServiceError snowball "InvalidInputCombinationException"
-
-
--- | The @NextToken@ string was altered unexpectedly, and the operation has stopped. Run the operation without changing the @NextToken@ string, and try again.
---
---
-_InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNextTokenException =
-  _MatchServiceError snowball "InvalidNextTokenException"
-
-
--- | The address provided was invalid. Check the address with your region's carrier, and try again.
---
---
-_InvalidAddressException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidAddressException = _MatchServiceError snowball "InvalidAddressException"
-
-
--- | Job creation failed. Currently, clusters support five nodes. If you have less than five nodes for your cluster and you have more nodes to create for this cluster, try again and create jobs until your cluster has exactly five notes.
---
---
-_ClusterLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_ClusterLimitExceededException =
-  _MatchServiceError snowball "ClusterLimitExceededException"
-

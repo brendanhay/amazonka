@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.DeviceFarm
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.DeviceFarm where
 
 import Data.Proxy
@@ -55,17 +54,41 @@ import Test.Tasty
 --         , requestListArtifacts $
 --             listArtifacts
 --
+--         , requestListTestGridSessionActions $
+--             listTestGridSessionActions
+--
 --         , requestCreateUpload $
 --             createUpload
 --
 --         , requestGetDeviceInstance $
 --             getDeviceInstance
 --
+--         , requestStopJob $
+--             stopJob
+--
 --         , requestDeleteRemoteAccessSession $
 --             deleteRemoteAccessSession
 --
+--         , requestListTestGridSessionArtifacts $
+--             listTestGridSessionArtifacts
+--
+--         , requestListTestGridProjects $
+--             listTestGridProjects
+--
 --         , requestDeleteUpload $
 --             deleteUpload
+--
+--         , requestUpdateUpload $
+--             updateUpload
+--
+--         , requestDeleteTestGridProject $
+--             deleteTestGridProject
+--
+--         , requestUpdateTestGridProject $
+--             updateTestGridProject
+--
+--         , requestListTagsForResource $
+--             listTagsForResource
 --
 --         , requestGetDevicePool $
 --             getDevicePool
@@ -121,6 +144,9 @@ import Test.Tasty
 --         , requestListJobs $
 --             listJobs
 --
+--         , requestGetTestGridSession $
+--             getTestGridSession
+--
 --         , requestGetVPCEConfiguration $
 --             getVPCEConfiguration
 --
@@ -151,6 +177,9 @@ import Test.Tasty
 --         , requestScheduleRun $
 --             scheduleRun
 --
+--         , requestCreateTestGridProject $
+--             createTestGridProject
+--
 --         , requestGetRun $
 --             getRun
 --
@@ -178,8 +207,14 @@ import Test.Tasty
 --         , requestListUploads $
 --             listUploads
 --
+--         , requestGetTestGridProject $
+--             getTestGridProject
+--
 --         , requestGetSuite $
 --             getSuite
+--
+--         , requestTagResource $
+--             tagResource
 --
 --         , requestGetRemoteAccessSession $
 --             getRemoteAccessSession
@@ -192,6 +227,9 @@ import Test.Tasty
 --
 --         , requestListInstanceProfiles $
 --             listInstanceProfiles
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestGetProject $
 --             getProject
@@ -210,6 +248,12 @@ import Test.Tasty
 --
 --         , requestCreateProject $
 --             createProject
+--
+--         , requestListTestGridSessions $
+--             listTestGridSessions
+--
+--         , requestCreateTestGridURL $
+--             createTestGridURL
 --
 --         , requestListOfferings $
 --             listOfferings
@@ -244,17 +288,41 @@ import Test.Tasty
 --         , responseListArtifacts $
 --             listArtifactsResponse
 --
+--         , responseListTestGridSessionActions $
+--             listTestGridSessionActionsResponse
+--
 --         , responseCreateUpload $
 --             createUploadResponse
 --
 --         , responseGetDeviceInstance $
 --             getDeviceInstanceResponse
 --
+--         , responseStopJob $
+--             stopJobResponse
+--
 --         , responseDeleteRemoteAccessSession $
 --             deleteRemoteAccessSessionResponse
 --
+--         , responseListTestGridSessionArtifacts $
+--             listTestGridSessionArtifactsResponse
+--
+--         , responseListTestGridProjects $
+--             listTestGridProjectsResponse
+--
 --         , responseDeleteUpload $
 --             deleteUploadResponse
+--
+--         , responseUpdateUpload $
+--             updateUploadResponse
+--
+--         , responseDeleteTestGridProject $
+--             deleteTestGridProjectResponse
+--
+--         , responseUpdateTestGridProject $
+--             updateTestGridProjectResponse
+--
+--         , responseListTagsForResource $
+--             listTagsForResourceResponse
 --
 --         , responseGetDevicePool $
 --             getDevicePoolResponse
@@ -310,6 +378,9 @@ import Test.Tasty
 --         , responseListJobs $
 --             listJobsResponse
 --
+--         , responseGetTestGridSession $
+--             getTestGridSessionResponse
+--
 --         , responseGetVPCEConfiguration $
 --             getVPCEConfigurationResponse
 --
@@ -340,6 +411,9 @@ import Test.Tasty
 --         , responseScheduleRun $
 --             scheduleRunResponse
 --
+--         , responseCreateTestGridProject $
+--             createTestGridProjectResponse
+--
 --         , responseGetRun $
 --             getRunResponse
 --
@@ -367,8 +441,14 @@ import Test.Tasty
 --         , responseListUploads $
 --             listUploadsResponse
 --
+--         , responseGetTestGridProject $
+--             getTestGridProjectResponse
+--
 --         , responseGetSuite $
 --             getSuiteResponse
+--
+--         , responseTagResource $
+--             tagResourceResponse
 --
 --         , responseGetRemoteAccessSession $
 --             getRemoteAccessSessionResponse
@@ -381,6 +461,9 @@ import Test.Tasty
 --
 --         , responseListInstanceProfiles $
 --             listInstanceProfilesResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responseGetProject $
 --             getProjectResponse
@@ -400,6 +483,12 @@ import Test.Tasty
 --         , responseCreateProject $
 --             createProjectResponse
 --
+--         , responseListTestGridSessions $
+--             listTestGridSessionsResponse
+--
+--         , responseCreateTestGridURL $
+--             createTestGridURLResponse
+--
 --         , responseListOfferings $
 --             listOfferingsResponse
 --
@@ -409,746 +498,1080 @@ import Test.Tasty
 -- Requests
 
 requestListProjects :: ListProjects -> TestTree
-requestListProjects = req
+requestListProjects =
+  req
     "ListProjects"
     "fixture/ListProjects.yaml"
 
 requestDeleteProject :: DeleteProject -> TestTree
-requestDeleteProject = req
+requestDeleteProject =
+  req
     "DeleteProject"
     "fixture/DeleteProject.yaml"
 
 requestUpdateProject :: UpdateProject -> TestTree
-requestUpdateProject = req
+requestUpdateProject =
+  req
     "UpdateProject"
     "fixture/UpdateProject.yaml"
 
 requestUpdateNetworkProfile :: UpdateNetworkProfile -> TestTree
-requestUpdateNetworkProfile = req
+requestUpdateNetworkProfile =
+  req
     "UpdateNetworkProfile"
     "fixture/UpdateNetworkProfile.yaml"
 
 requestDeleteNetworkProfile :: DeleteNetworkProfile -> TestTree
-requestDeleteNetworkProfile = req
+requestDeleteNetworkProfile =
+  req
     "DeleteNetworkProfile"
     "fixture/DeleteNetworkProfile.yaml"
 
 requestGetDevicePoolCompatibility :: GetDevicePoolCompatibility -> TestTree
-requestGetDevicePoolCompatibility = req
+requestGetDevicePoolCompatibility =
+  req
     "GetDevicePoolCompatibility"
     "fixture/GetDevicePoolCompatibility.yaml"
 
 requestInstallToRemoteAccessSession :: InstallToRemoteAccessSession -> TestTree
-requestInstallToRemoteAccessSession = req
+requestInstallToRemoteAccessSession =
+  req
     "InstallToRemoteAccessSession"
     "fixture/InstallToRemoteAccessSession.yaml"
 
 requestListTests :: ListTests -> TestTree
-requestListTests = req
+requestListTests =
+  req
     "ListTests"
     "fixture/ListTests.yaml"
 
 requestListArtifacts :: ListArtifacts -> TestTree
-requestListArtifacts = req
+requestListArtifacts =
+  req
     "ListArtifacts"
     "fixture/ListArtifacts.yaml"
 
+requestListTestGridSessionActions :: ListTestGridSessionActions -> TestTree
+requestListTestGridSessionActions =
+  req
+    "ListTestGridSessionActions"
+    "fixture/ListTestGridSessionActions.yaml"
+
 requestCreateUpload :: CreateUpload -> TestTree
-requestCreateUpload = req
+requestCreateUpload =
+  req
     "CreateUpload"
     "fixture/CreateUpload.yaml"
 
 requestGetDeviceInstance :: GetDeviceInstance -> TestTree
-requestGetDeviceInstance = req
+requestGetDeviceInstance =
+  req
     "GetDeviceInstance"
     "fixture/GetDeviceInstance.yaml"
 
+requestStopJob :: StopJob -> TestTree
+requestStopJob =
+  req
+    "StopJob"
+    "fixture/StopJob.yaml"
+
 requestDeleteRemoteAccessSession :: DeleteRemoteAccessSession -> TestTree
-requestDeleteRemoteAccessSession = req
+requestDeleteRemoteAccessSession =
+  req
     "DeleteRemoteAccessSession"
     "fixture/DeleteRemoteAccessSession.yaml"
 
+requestListTestGridSessionArtifacts :: ListTestGridSessionArtifacts -> TestTree
+requestListTestGridSessionArtifacts =
+  req
+    "ListTestGridSessionArtifacts"
+    "fixture/ListTestGridSessionArtifacts.yaml"
+
+requestListTestGridProjects :: ListTestGridProjects -> TestTree
+requestListTestGridProjects =
+  req
+    "ListTestGridProjects"
+    "fixture/ListTestGridProjects.yaml"
+
 requestDeleteUpload :: DeleteUpload -> TestTree
-requestDeleteUpload = req
+requestDeleteUpload =
+  req
     "DeleteUpload"
     "fixture/DeleteUpload.yaml"
 
+requestUpdateUpload :: UpdateUpload -> TestTree
+requestUpdateUpload =
+  req
+    "UpdateUpload"
+    "fixture/UpdateUpload.yaml"
+
+requestDeleteTestGridProject :: DeleteTestGridProject -> TestTree
+requestDeleteTestGridProject =
+  req
+    "DeleteTestGridProject"
+    "fixture/DeleteTestGridProject.yaml"
+
+requestUpdateTestGridProject :: UpdateTestGridProject -> TestTree
+requestUpdateTestGridProject =
+  req
+    "UpdateTestGridProject"
+    "fixture/UpdateTestGridProject.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestGetDevicePool :: GetDevicePool -> TestTree
-requestGetDevicePool = req
+requestGetDevicePool =
+  req
     "GetDevicePool"
     "fixture/GetDevicePool.yaml"
 
 requestListDevicePools :: ListDevicePools -> TestTree
-requestListDevicePools = req
+requestListDevicePools =
+  req
     "ListDevicePools"
     "fixture/ListDevicePools.yaml"
 
 requestUpdateDevicePool :: UpdateDevicePool -> TestTree
-requestUpdateDevicePool = req
+requestUpdateDevicePool =
+  req
     "UpdateDevicePool"
     "fixture/UpdateDevicePool.yaml"
 
 requestDeleteDevicePool :: DeleteDevicePool -> TestTree
-requestDeleteDevicePool = req
+requestDeleteDevicePool =
+  req
     "DeleteDevicePool"
     "fixture/DeleteDevicePool.yaml"
 
 requestGetUpload :: GetUpload -> TestTree
-requestGetUpload = req
+requestGetUpload =
+  req
     "GetUpload"
     "fixture/GetUpload.yaml"
 
 requestListOfferingTransactions :: ListOfferingTransactions -> TestTree
-requestListOfferingTransactions = req
+requestListOfferingTransactions =
+  req
     "ListOfferingTransactions"
     "fixture/ListOfferingTransactions.yaml"
 
 requestCreateDevicePool :: CreateDevicePool -> TestTree
-requestCreateDevicePool = req
+requestCreateDevicePool =
+  req
     "CreateDevicePool"
     "fixture/CreateDevicePool.yaml"
 
 requestDeleteRun :: DeleteRun -> TestTree
-requestDeleteRun = req
+requestDeleteRun =
+  req
     "DeleteRun"
     "fixture/DeleteRun.yaml"
 
 requestListRuns :: ListRuns -> TestTree
-requestListRuns = req
+requestListRuns =
+  req
     "ListRuns"
     "fixture/ListRuns.yaml"
 
 requestGetTest :: GetTest -> TestTree
-requestGetTest = req
+requestGetTest =
+  req
     "GetTest"
     "fixture/GetTest.yaml"
 
 requestUpdateDeviceInstance :: UpdateDeviceInstance -> TestTree
-requestUpdateDeviceInstance = req
+requestUpdateDeviceInstance =
+  req
     "UpdateDeviceInstance"
     "fixture/UpdateDeviceInstance.yaml"
 
 requestGetNetworkProfile :: GetNetworkProfile -> TestTree
-requestGetNetworkProfile = req
+requestGetNetworkProfile =
+  req
     "GetNetworkProfile"
     "fixture/GetNetworkProfile.yaml"
 
 requestRenewOffering :: RenewOffering -> TestTree
-requestRenewOffering = req
+requestRenewOffering =
+  req
     "RenewOffering"
     "fixture/RenewOffering.yaml"
 
 requestDeleteInstanceProfile :: DeleteInstanceProfile -> TestTree
-requestDeleteInstanceProfile = req
+requestDeleteInstanceProfile =
+  req
     "DeleteInstanceProfile"
     "fixture/DeleteInstanceProfile.yaml"
 
 requestUpdateInstanceProfile :: UpdateInstanceProfile -> TestTree
-requestUpdateInstanceProfile = req
+requestUpdateInstanceProfile =
+  req
     "UpdateInstanceProfile"
     "fixture/UpdateInstanceProfile.yaml"
 
 requestCreateInstanceProfile :: CreateInstanceProfile -> TestTree
-requestCreateInstanceProfile = req
+requestCreateInstanceProfile =
+  req
     "CreateInstanceProfile"
     "fixture/CreateInstanceProfile.yaml"
 
 requestGetDevice :: GetDevice -> TestTree
-requestGetDevice = req
+requestGetDevice =
+  req
     "GetDevice"
     "fixture/GetDevice.yaml"
 
 requestListJobs :: ListJobs -> TestTree
-requestListJobs = req
+requestListJobs =
+  req
     "ListJobs"
     "fixture/ListJobs.yaml"
 
+requestGetTestGridSession :: GetTestGridSession -> TestTree
+requestGetTestGridSession =
+  req
+    "GetTestGridSession"
+    "fixture/GetTestGridSession.yaml"
+
 requestGetVPCEConfiguration :: GetVPCEConfiguration -> TestTree
-requestGetVPCEConfiguration = req
+requestGetVPCEConfiguration =
+  req
     "GetVPCEConfiguration"
     "fixture/GetVPCEConfiguration.yaml"
 
 requestStopRemoteAccessSession :: StopRemoteAccessSession -> TestTree
-requestStopRemoteAccessSession = req
+requestStopRemoteAccessSession =
+  req
     "StopRemoteAccessSession"
     "fixture/StopRemoteAccessSession.yaml"
 
 requestCreateNetworkProfile :: CreateNetworkProfile -> TestTree
-requestCreateNetworkProfile = req
+requestCreateNetworkProfile =
+  req
     "CreateNetworkProfile"
     "fixture/CreateNetworkProfile.yaml"
 
 requestDeleteVPCEConfiguration :: DeleteVPCEConfiguration -> TestTree
-requestDeleteVPCEConfiguration = req
+requestDeleteVPCEConfiguration =
+  req
     "DeleteVPCEConfiguration"
     "fixture/DeleteVPCEConfiguration.yaml"
 
 requestUpdateVPCEConfiguration :: UpdateVPCEConfiguration -> TestTree
-requestUpdateVPCEConfiguration = req
+requestUpdateVPCEConfiguration =
+  req
     "UpdateVPCEConfiguration"
     "fixture/UpdateVPCEConfiguration.yaml"
 
 requestGetJob :: GetJob -> TestTree
-requestGetJob = req
+requestGetJob =
+  req
     "GetJob"
     "fixture/GetJob.yaml"
 
 requestGetInstanceProfile :: GetInstanceProfile -> TestTree
-requestGetInstanceProfile = req
+requestGetInstanceProfile =
+  req
     "GetInstanceProfile"
     "fixture/GetInstanceProfile.yaml"
 
 requestListNetworkProfiles :: ListNetworkProfiles -> TestTree
-requestListNetworkProfiles = req
+requestListNetworkProfiles =
+  req
     "ListNetworkProfiles"
     "fixture/ListNetworkProfiles.yaml"
 
 requestCreateVPCEConfiguration :: CreateVPCEConfiguration -> TestTree
-requestCreateVPCEConfiguration = req
+requestCreateVPCEConfiguration =
+  req
     "CreateVPCEConfiguration"
     "fixture/CreateVPCEConfiguration.yaml"
 
 requestScheduleRun :: ScheduleRun -> TestTree
-requestScheduleRun = req
+requestScheduleRun =
+  req
     "ScheduleRun"
     "fixture/ScheduleRun.yaml"
 
+requestCreateTestGridProject :: CreateTestGridProject -> TestTree
+requestCreateTestGridProject =
+  req
+    "CreateTestGridProject"
+    "fixture/CreateTestGridProject.yaml"
+
 requestGetRun :: GetRun -> TestTree
-requestGetRun = req
+requestGetRun =
+  req
     "GetRun"
     "fixture/GetRun.yaml"
 
 requestListSamples :: ListSamples -> TestTree
-requestListSamples = req
+requestListSamples =
+  req
     "ListSamples"
     "fixture/ListSamples.yaml"
 
 requestListSuites :: ListSuites -> TestTree
-requestListSuites = req
+requestListSuites =
+  req
     "ListSuites"
     "fixture/ListSuites.yaml"
 
 requestListRemoteAccessSessions :: ListRemoteAccessSessions -> TestTree
-requestListRemoteAccessSessions = req
+requestListRemoteAccessSessions =
+  req
     "ListRemoteAccessSessions"
     "fixture/ListRemoteAccessSessions.yaml"
 
 requestGetAccountSettings :: GetAccountSettings -> TestTree
-requestGetAccountSettings = req
+requestGetAccountSettings =
+  req
     "GetAccountSettings"
     "fixture/GetAccountSettings.yaml"
 
 requestCreateRemoteAccessSession :: CreateRemoteAccessSession -> TestTree
-requestCreateRemoteAccessSession = req
+requestCreateRemoteAccessSession =
+  req
     "CreateRemoteAccessSession"
     "fixture/CreateRemoteAccessSession.yaml"
 
 requestListOfferingPromotions :: ListOfferingPromotions -> TestTree
-requestListOfferingPromotions = req
+requestListOfferingPromotions =
+  req
     "ListOfferingPromotions"
     "fixture/ListOfferingPromotions.yaml"
 
 requestGetOfferingStatus :: GetOfferingStatus -> TestTree
-requestGetOfferingStatus = req
+requestGetOfferingStatus =
+  req
     "GetOfferingStatus"
     "fixture/GetOfferingStatus.yaml"
 
 requestListUploads :: ListUploads -> TestTree
-requestListUploads = req
+requestListUploads =
+  req
     "ListUploads"
     "fixture/ListUploads.yaml"
 
+requestGetTestGridProject :: GetTestGridProject -> TestTree
+requestGetTestGridProject =
+  req
+    "GetTestGridProject"
+    "fixture/GetTestGridProject.yaml"
+
 requestGetSuite :: GetSuite -> TestTree
-requestGetSuite = req
+requestGetSuite =
+  req
     "GetSuite"
     "fixture/GetSuite.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestGetRemoteAccessSession :: GetRemoteAccessSession -> TestTree
-requestGetRemoteAccessSession = req
+requestGetRemoteAccessSession =
+  req
     "GetRemoteAccessSession"
     "fixture/GetRemoteAccessSession.yaml"
 
 requestListDeviceInstances :: ListDeviceInstances -> TestTree
-requestListDeviceInstances = req
+requestListDeviceInstances =
+  req
     "ListDeviceInstances"
     "fixture/ListDeviceInstances.yaml"
 
 requestPurchaseOffering :: PurchaseOffering -> TestTree
-requestPurchaseOffering = req
+requestPurchaseOffering =
+  req
     "PurchaseOffering"
     "fixture/PurchaseOffering.yaml"
 
 requestListInstanceProfiles :: ListInstanceProfiles -> TestTree
-requestListInstanceProfiles = req
+requestListInstanceProfiles =
+  req
     "ListInstanceProfiles"
     "fixture/ListInstanceProfiles.yaml"
 
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
 requestGetProject :: GetProject -> TestTree
-requestGetProject = req
+requestGetProject =
+  req
     "GetProject"
     "fixture/GetProject.yaml"
 
 requestListUniqueProblems :: ListUniqueProblems -> TestTree
-requestListUniqueProblems = req
+requestListUniqueProblems =
+  req
     "ListUniqueProblems"
     "fixture/ListUniqueProblems.yaml"
 
 requestListVPCEConfigurations :: ListVPCEConfigurations -> TestTree
-requestListVPCEConfigurations = req
+requestListVPCEConfigurations =
+  req
     "ListVPCEConfigurations"
     "fixture/ListVPCEConfigurations.yaml"
 
 requestStopRun :: StopRun -> TestTree
-requestStopRun = req
+requestStopRun =
+  req
     "StopRun"
     "fixture/StopRun.yaml"
 
 requestListDevices :: ListDevices -> TestTree
-requestListDevices = req
+requestListDevices =
+  req
     "ListDevices"
     "fixture/ListDevices.yaml"
 
 requestCreateProject :: CreateProject -> TestTree
-requestCreateProject = req
+requestCreateProject =
+  req
     "CreateProject"
     "fixture/CreateProject.yaml"
 
+requestListTestGridSessions :: ListTestGridSessions -> TestTree
+requestListTestGridSessions =
+  req
+    "ListTestGridSessions"
+    "fixture/ListTestGridSessions.yaml"
+
+requestCreateTestGridURL :: CreateTestGridURL -> TestTree
+requestCreateTestGridURL =
+  req
+    "CreateTestGridURL"
+    "fixture/CreateTestGridURL.yaml"
+
 requestListOfferings :: ListOfferings -> TestTree
-requestListOfferings = req
+requestListOfferings =
+  req
     "ListOfferings"
     "fixture/ListOfferings.yaml"
 
 -- Responses
 
 responseListProjects :: ListProjectsResponse -> TestTree
-responseListProjects = res
+responseListProjects =
+  res
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListProjects)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
-responseDeleteProject = res
+responseDeleteProject =
+  res
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
     deviceFarm
     (Proxy :: Proxy DeleteProject)
 
 responseUpdateProject :: UpdateProjectResponse -> TestTree
-responseUpdateProject = res
+responseUpdateProject =
+  res
     "UpdateProjectResponse"
     "fixture/UpdateProjectResponse.proto"
     deviceFarm
     (Proxy :: Proxy UpdateProject)
 
 responseUpdateNetworkProfile :: UpdateNetworkProfileResponse -> TestTree
-responseUpdateNetworkProfile = res
+responseUpdateNetworkProfile =
+  res
     "UpdateNetworkProfileResponse"
     "fixture/UpdateNetworkProfileResponse.proto"
     deviceFarm
     (Proxy :: Proxy UpdateNetworkProfile)
 
 responseDeleteNetworkProfile :: DeleteNetworkProfileResponse -> TestTree
-responseDeleteNetworkProfile = res
+responseDeleteNetworkProfile =
+  res
     "DeleteNetworkProfileResponse"
     "fixture/DeleteNetworkProfileResponse.proto"
     deviceFarm
     (Proxy :: Proxy DeleteNetworkProfile)
 
 responseGetDevicePoolCompatibility :: GetDevicePoolCompatibilityResponse -> TestTree
-responseGetDevicePoolCompatibility = res
+responseGetDevicePoolCompatibility =
+  res
     "GetDevicePoolCompatibilityResponse"
     "fixture/GetDevicePoolCompatibilityResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetDevicePoolCompatibility)
 
 responseInstallToRemoteAccessSession :: InstallToRemoteAccessSessionResponse -> TestTree
-responseInstallToRemoteAccessSession = res
+responseInstallToRemoteAccessSession =
+  res
     "InstallToRemoteAccessSessionResponse"
     "fixture/InstallToRemoteAccessSessionResponse.proto"
     deviceFarm
     (Proxy :: Proxy InstallToRemoteAccessSession)
 
 responseListTests :: ListTestsResponse -> TestTree
-responseListTests = res
+responseListTests =
+  res
     "ListTestsResponse"
     "fixture/ListTestsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListTests)
 
 responseListArtifacts :: ListArtifactsResponse -> TestTree
-responseListArtifacts = res
+responseListArtifacts =
+  res
     "ListArtifactsResponse"
     "fixture/ListArtifactsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListArtifacts)
 
+responseListTestGridSessionActions :: ListTestGridSessionActionsResponse -> TestTree
+responseListTestGridSessionActions =
+  res
+    "ListTestGridSessionActionsResponse"
+    "fixture/ListTestGridSessionActionsResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy ListTestGridSessionActions)
+
 responseCreateUpload :: CreateUploadResponse -> TestTree
-responseCreateUpload = res
+responseCreateUpload =
+  res
     "CreateUploadResponse"
     "fixture/CreateUploadResponse.proto"
     deviceFarm
     (Proxy :: Proxy CreateUpload)
 
 responseGetDeviceInstance :: GetDeviceInstanceResponse -> TestTree
-responseGetDeviceInstance = res
+responseGetDeviceInstance =
+  res
     "GetDeviceInstanceResponse"
     "fixture/GetDeviceInstanceResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetDeviceInstance)
 
+responseStopJob :: StopJobResponse -> TestTree
+responseStopJob =
+  res
+    "StopJobResponse"
+    "fixture/StopJobResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy StopJob)
+
 responseDeleteRemoteAccessSession :: DeleteRemoteAccessSessionResponse -> TestTree
-responseDeleteRemoteAccessSession = res
+responseDeleteRemoteAccessSession =
+  res
     "DeleteRemoteAccessSessionResponse"
     "fixture/DeleteRemoteAccessSessionResponse.proto"
     deviceFarm
     (Proxy :: Proxy DeleteRemoteAccessSession)
 
+responseListTestGridSessionArtifacts :: ListTestGridSessionArtifactsResponse -> TestTree
+responseListTestGridSessionArtifacts =
+  res
+    "ListTestGridSessionArtifactsResponse"
+    "fixture/ListTestGridSessionArtifactsResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy ListTestGridSessionArtifacts)
+
+responseListTestGridProjects :: ListTestGridProjectsResponse -> TestTree
+responseListTestGridProjects =
+  res
+    "ListTestGridProjectsResponse"
+    "fixture/ListTestGridProjectsResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy ListTestGridProjects)
+
 responseDeleteUpload :: DeleteUploadResponse -> TestTree
-responseDeleteUpload = res
+responseDeleteUpload =
+  res
     "DeleteUploadResponse"
     "fixture/DeleteUploadResponse.proto"
     deviceFarm
     (Proxy :: Proxy DeleteUpload)
 
+responseUpdateUpload :: UpdateUploadResponse -> TestTree
+responseUpdateUpload =
+  res
+    "UpdateUploadResponse"
+    "fixture/UpdateUploadResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy UpdateUpload)
+
+responseDeleteTestGridProject :: DeleteTestGridProjectResponse -> TestTree
+responseDeleteTestGridProject =
+  res
+    "DeleteTestGridProjectResponse"
+    "fixture/DeleteTestGridProjectResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy DeleteTestGridProject)
+
+responseUpdateTestGridProject :: UpdateTestGridProjectResponse -> TestTree
+responseUpdateTestGridProject =
+  res
+    "UpdateTestGridProjectResponse"
+    "fixture/UpdateTestGridProjectResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy UpdateTestGridProject)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy ListTagsForResource)
+
 responseGetDevicePool :: GetDevicePoolResponse -> TestTree
-responseGetDevicePool = res
+responseGetDevicePool =
+  res
     "GetDevicePoolResponse"
     "fixture/GetDevicePoolResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetDevicePool)
 
 responseListDevicePools :: ListDevicePoolsResponse -> TestTree
-responseListDevicePools = res
+responseListDevicePools =
+  res
     "ListDevicePoolsResponse"
     "fixture/ListDevicePoolsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListDevicePools)
 
 responseUpdateDevicePool :: UpdateDevicePoolResponse -> TestTree
-responseUpdateDevicePool = res
+responseUpdateDevicePool =
+  res
     "UpdateDevicePoolResponse"
     "fixture/UpdateDevicePoolResponse.proto"
     deviceFarm
     (Proxy :: Proxy UpdateDevicePool)
 
 responseDeleteDevicePool :: DeleteDevicePoolResponse -> TestTree
-responseDeleteDevicePool = res
+responseDeleteDevicePool =
+  res
     "DeleteDevicePoolResponse"
     "fixture/DeleteDevicePoolResponse.proto"
     deviceFarm
     (Proxy :: Proxy DeleteDevicePool)
 
 responseGetUpload :: GetUploadResponse -> TestTree
-responseGetUpload = res
+responseGetUpload =
+  res
     "GetUploadResponse"
     "fixture/GetUploadResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetUpload)
 
 responseListOfferingTransactions :: ListOfferingTransactionsResponse -> TestTree
-responseListOfferingTransactions = res
+responseListOfferingTransactions =
+  res
     "ListOfferingTransactionsResponse"
     "fixture/ListOfferingTransactionsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListOfferingTransactions)
 
 responseCreateDevicePool :: CreateDevicePoolResponse -> TestTree
-responseCreateDevicePool = res
+responseCreateDevicePool =
+  res
     "CreateDevicePoolResponse"
     "fixture/CreateDevicePoolResponse.proto"
     deviceFarm
     (Proxy :: Proxy CreateDevicePool)
 
 responseDeleteRun :: DeleteRunResponse -> TestTree
-responseDeleteRun = res
+responseDeleteRun =
+  res
     "DeleteRunResponse"
     "fixture/DeleteRunResponse.proto"
     deviceFarm
     (Proxy :: Proxy DeleteRun)
 
 responseListRuns :: ListRunsResponse -> TestTree
-responseListRuns = res
+responseListRuns =
+  res
     "ListRunsResponse"
     "fixture/ListRunsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListRuns)
 
 responseGetTest :: GetTestResponse -> TestTree
-responseGetTest = res
+responseGetTest =
+  res
     "GetTestResponse"
     "fixture/GetTestResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetTest)
 
 responseUpdateDeviceInstance :: UpdateDeviceInstanceResponse -> TestTree
-responseUpdateDeviceInstance = res
+responseUpdateDeviceInstance =
+  res
     "UpdateDeviceInstanceResponse"
     "fixture/UpdateDeviceInstanceResponse.proto"
     deviceFarm
     (Proxy :: Proxy UpdateDeviceInstance)
 
 responseGetNetworkProfile :: GetNetworkProfileResponse -> TestTree
-responseGetNetworkProfile = res
+responseGetNetworkProfile =
+  res
     "GetNetworkProfileResponse"
     "fixture/GetNetworkProfileResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetNetworkProfile)
 
 responseRenewOffering :: RenewOfferingResponse -> TestTree
-responseRenewOffering = res
+responseRenewOffering =
+  res
     "RenewOfferingResponse"
     "fixture/RenewOfferingResponse.proto"
     deviceFarm
     (Proxy :: Proxy RenewOffering)
 
 responseDeleteInstanceProfile :: DeleteInstanceProfileResponse -> TestTree
-responseDeleteInstanceProfile = res
+responseDeleteInstanceProfile =
+  res
     "DeleteInstanceProfileResponse"
     "fixture/DeleteInstanceProfileResponse.proto"
     deviceFarm
     (Proxy :: Proxy DeleteInstanceProfile)
 
 responseUpdateInstanceProfile :: UpdateInstanceProfileResponse -> TestTree
-responseUpdateInstanceProfile = res
+responseUpdateInstanceProfile =
+  res
     "UpdateInstanceProfileResponse"
     "fixture/UpdateInstanceProfileResponse.proto"
     deviceFarm
     (Proxy :: Proxy UpdateInstanceProfile)
 
 responseCreateInstanceProfile :: CreateInstanceProfileResponse -> TestTree
-responseCreateInstanceProfile = res
+responseCreateInstanceProfile =
+  res
     "CreateInstanceProfileResponse"
     "fixture/CreateInstanceProfileResponse.proto"
     deviceFarm
     (Proxy :: Proxy CreateInstanceProfile)
 
 responseGetDevice :: GetDeviceResponse -> TestTree
-responseGetDevice = res
+responseGetDevice =
+  res
     "GetDeviceResponse"
     "fixture/GetDeviceResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetDevice)
 
 responseListJobs :: ListJobsResponse -> TestTree
-responseListJobs = res
+responseListJobs =
+  res
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListJobs)
 
+responseGetTestGridSession :: GetTestGridSessionResponse -> TestTree
+responseGetTestGridSession =
+  res
+    "GetTestGridSessionResponse"
+    "fixture/GetTestGridSessionResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy GetTestGridSession)
+
 responseGetVPCEConfiguration :: GetVPCEConfigurationResponse -> TestTree
-responseGetVPCEConfiguration = res
+responseGetVPCEConfiguration =
+  res
     "GetVPCEConfigurationResponse"
     "fixture/GetVPCEConfigurationResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetVPCEConfiguration)
 
 responseStopRemoteAccessSession :: StopRemoteAccessSessionResponse -> TestTree
-responseStopRemoteAccessSession = res
+responseStopRemoteAccessSession =
+  res
     "StopRemoteAccessSessionResponse"
     "fixture/StopRemoteAccessSessionResponse.proto"
     deviceFarm
     (Proxy :: Proxy StopRemoteAccessSession)
 
 responseCreateNetworkProfile :: CreateNetworkProfileResponse -> TestTree
-responseCreateNetworkProfile = res
+responseCreateNetworkProfile =
+  res
     "CreateNetworkProfileResponse"
     "fixture/CreateNetworkProfileResponse.proto"
     deviceFarm
     (Proxy :: Proxy CreateNetworkProfile)
 
 responseDeleteVPCEConfiguration :: DeleteVPCEConfigurationResponse -> TestTree
-responseDeleteVPCEConfiguration = res
+responseDeleteVPCEConfiguration =
+  res
     "DeleteVPCEConfigurationResponse"
     "fixture/DeleteVPCEConfigurationResponse.proto"
     deviceFarm
     (Proxy :: Proxy DeleteVPCEConfiguration)
 
 responseUpdateVPCEConfiguration :: UpdateVPCEConfigurationResponse -> TestTree
-responseUpdateVPCEConfiguration = res
+responseUpdateVPCEConfiguration =
+  res
     "UpdateVPCEConfigurationResponse"
     "fixture/UpdateVPCEConfigurationResponse.proto"
     deviceFarm
     (Proxy :: Proxy UpdateVPCEConfiguration)
 
 responseGetJob :: GetJobResponse -> TestTree
-responseGetJob = res
+responseGetJob =
+  res
     "GetJobResponse"
     "fixture/GetJobResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetJob)
 
 responseGetInstanceProfile :: GetInstanceProfileResponse -> TestTree
-responseGetInstanceProfile = res
+responseGetInstanceProfile =
+  res
     "GetInstanceProfileResponse"
     "fixture/GetInstanceProfileResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetInstanceProfile)
 
 responseListNetworkProfiles :: ListNetworkProfilesResponse -> TestTree
-responseListNetworkProfiles = res
+responseListNetworkProfiles =
+  res
     "ListNetworkProfilesResponse"
     "fixture/ListNetworkProfilesResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListNetworkProfiles)
 
 responseCreateVPCEConfiguration :: CreateVPCEConfigurationResponse -> TestTree
-responseCreateVPCEConfiguration = res
+responseCreateVPCEConfiguration =
+  res
     "CreateVPCEConfigurationResponse"
     "fixture/CreateVPCEConfigurationResponse.proto"
     deviceFarm
     (Proxy :: Proxy CreateVPCEConfiguration)
 
 responseScheduleRun :: ScheduleRunResponse -> TestTree
-responseScheduleRun = res
+responseScheduleRun =
+  res
     "ScheduleRunResponse"
     "fixture/ScheduleRunResponse.proto"
     deviceFarm
     (Proxy :: Proxy ScheduleRun)
 
+responseCreateTestGridProject :: CreateTestGridProjectResponse -> TestTree
+responseCreateTestGridProject =
+  res
+    "CreateTestGridProjectResponse"
+    "fixture/CreateTestGridProjectResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy CreateTestGridProject)
+
 responseGetRun :: GetRunResponse -> TestTree
-responseGetRun = res
+responseGetRun =
+  res
     "GetRunResponse"
     "fixture/GetRunResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetRun)
 
 responseListSamples :: ListSamplesResponse -> TestTree
-responseListSamples = res
+responseListSamples =
+  res
     "ListSamplesResponse"
     "fixture/ListSamplesResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListSamples)
 
 responseListSuites :: ListSuitesResponse -> TestTree
-responseListSuites = res
+responseListSuites =
+  res
     "ListSuitesResponse"
     "fixture/ListSuitesResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListSuites)
 
 responseListRemoteAccessSessions :: ListRemoteAccessSessionsResponse -> TestTree
-responseListRemoteAccessSessions = res
+responseListRemoteAccessSessions =
+  res
     "ListRemoteAccessSessionsResponse"
     "fixture/ListRemoteAccessSessionsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListRemoteAccessSessions)
 
 responseGetAccountSettings :: GetAccountSettingsResponse -> TestTree
-responseGetAccountSettings = res
+responseGetAccountSettings =
+  res
     "GetAccountSettingsResponse"
     "fixture/GetAccountSettingsResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetAccountSettings)
 
 responseCreateRemoteAccessSession :: CreateRemoteAccessSessionResponse -> TestTree
-responseCreateRemoteAccessSession = res
+responseCreateRemoteAccessSession =
+  res
     "CreateRemoteAccessSessionResponse"
     "fixture/CreateRemoteAccessSessionResponse.proto"
     deviceFarm
     (Proxy :: Proxy CreateRemoteAccessSession)
 
 responseListOfferingPromotions :: ListOfferingPromotionsResponse -> TestTree
-responseListOfferingPromotions = res
+responseListOfferingPromotions =
+  res
     "ListOfferingPromotionsResponse"
     "fixture/ListOfferingPromotionsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListOfferingPromotions)
 
 responseGetOfferingStatus :: GetOfferingStatusResponse -> TestTree
-responseGetOfferingStatus = res
+responseGetOfferingStatus =
+  res
     "GetOfferingStatusResponse"
     "fixture/GetOfferingStatusResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetOfferingStatus)
 
 responseListUploads :: ListUploadsResponse -> TestTree
-responseListUploads = res
+responseListUploads =
+  res
     "ListUploadsResponse"
     "fixture/ListUploadsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListUploads)
 
+responseGetTestGridProject :: GetTestGridProjectResponse -> TestTree
+responseGetTestGridProject =
+  res
+    "GetTestGridProjectResponse"
+    "fixture/GetTestGridProjectResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy GetTestGridProject)
+
 responseGetSuite :: GetSuiteResponse -> TestTree
-responseGetSuite = res
+responseGetSuite =
+  res
     "GetSuiteResponse"
     "fixture/GetSuiteResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetSuite)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy TagResource)
+
 responseGetRemoteAccessSession :: GetRemoteAccessSessionResponse -> TestTree
-responseGetRemoteAccessSession = res
+responseGetRemoteAccessSession =
+  res
     "GetRemoteAccessSessionResponse"
     "fixture/GetRemoteAccessSessionResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetRemoteAccessSession)
 
 responseListDeviceInstances :: ListDeviceInstancesResponse -> TestTree
-responseListDeviceInstances = res
+responseListDeviceInstances =
+  res
     "ListDeviceInstancesResponse"
     "fixture/ListDeviceInstancesResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListDeviceInstances)
 
 responsePurchaseOffering :: PurchaseOfferingResponse -> TestTree
-responsePurchaseOffering = res
+responsePurchaseOffering =
+  res
     "PurchaseOfferingResponse"
     "fixture/PurchaseOfferingResponse.proto"
     deviceFarm
     (Proxy :: Proxy PurchaseOffering)
 
 responseListInstanceProfiles :: ListInstanceProfilesResponse -> TestTree
-responseListInstanceProfiles = res
+responseListInstanceProfiles =
+  res
     "ListInstanceProfilesResponse"
     "fixture/ListInstanceProfilesResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListInstanceProfiles)
 
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy UntagResource)
+
 responseGetProject :: GetProjectResponse -> TestTree
-responseGetProject = res
+responseGetProject =
+  res
     "GetProjectResponse"
     "fixture/GetProjectResponse.proto"
     deviceFarm
     (Proxy :: Proxy GetProject)
 
 responseListUniqueProblems :: ListUniqueProblemsResponse -> TestTree
-responseListUniqueProblems = res
+responseListUniqueProblems =
+  res
     "ListUniqueProblemsResponse"
     "fixture/ListUniqueProblemsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListUniqueProblems)
 
 responseListVPCEConfigurations :: ListVPCEConfigurationsResponse -> TestTree
-responseListVPCEConfigurations = res
+responseListVPCEConfigurations =
+  res
     "ListVPCEConfigurationsResponse"
     "fixture/ListVPCEConfigurationsResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListVPCEConfigurations)
 
 responseStopRun :: StopRunResponse -> TestTree
-responseStopRun = res
+responseStopRun =
+  res
     "StopRunResponse"
     "fixture/StopRunResponse.proto"
     deviceFarm
     (Proxy :: Proxy StopRun)
 
 responseListDevices :: ListDevicesResponse -> TestTree
-responseListDevices = res
+responseListDevices =
+  res
     "ListDevicesResponse"
     "fixture/ListDevicesResponse.proto"
     deviceFarm
     (Proxy :: Proxy ListDevices)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
-responseCreateProject = res
+responseCreateProject =
+  res
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
     deviceFarm
     (Proxy :: Proxy CreateProject)
 
+responseListTestGridSessions :: ListTestGridSessionsResponse -> TestTree
+responseListTestGridSessions =
+  res
+    "ListTestGridSessionsResponse"
+    "fixture/ListTestGridSessionsResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy ListTestGridSessions)
+
+responseCreateTestGridURL :: CreateTestGridURLResponse -> TestTree
+responseCreateTestGridURL =
+  res
+    "CreateTestGridURLResponse"
+    "fixture/CreateTestGridURLResponse.proto"
+    deviceFarm
+    (Proxy :: Proxy CreateTestGridURL)
+
 responseListOfferings :: ListOfferingsResponse -> TestTree
-responseListOfferings = res
+responseListOfferings =
+  res
     "ListOfferingsResponse"
     "fixture/ListOfferingsResponse.proto"
     deviceFarm

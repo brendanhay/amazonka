@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.CloudFormation
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.CloudFormation
-import           Test.AWS.Gen.CloudFormation
-import           Test.Tasty
+import Network.AWS.CloudFormation
+import Test.AWS.Gen.CloudFormation
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

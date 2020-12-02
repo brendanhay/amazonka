@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.DirectoryService
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.DirectoryService
-import           Test.AWS.Gen.DirectoryService
-import           Test.Tasty
+import Network.AWS.DirectoryService
+import Test.AWS.Gen.DirectoryService
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

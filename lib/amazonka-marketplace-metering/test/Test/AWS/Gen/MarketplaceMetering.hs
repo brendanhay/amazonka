@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.MarketplaceMetering
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.MarketplaceMetering where
 
 import Data.Proxy
@@ -28,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestBatchMeterUsage $
+--         [ requestRegisterUsage $
+--             registerUsage
+--
+--         , requestBatchMeterUsage $
 --             batchMeterUsage
 --
 --         , requestResolveCustomer $
@@ -40,7 +42,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseBatchMeterUsage $
+--         [ responseRegisterUsage $
+--             registerUsageResponse
+--
+--         , responseBatchMeterUsage $
 --             batchMeterUsageResponse
 --
 --         , responseResolveCustomer $
@@ -54,39 +59,59 @@ import Test.Tasty
 
 -- Requests
 
+requestRegisterUsage :: RegisterUsage -> TestTree
+requestRegisterUsage =
+  req
+    "RegisterUsage"
+    "fixture/RegisterUsage.yaml"
+
 requestBatchMeterUsage :: BatchMeterUsage -> TestTree
-requestBatchMeterUsage = req
+requestBatchMeterUsage =
+  req
     "BatchMeterUsage"
     "fixture/BatchMeterUsage.yaml"
 
 requestResolveCustomer :: ResolveCustomer -> TestTree
-requestResolveCustomer = req
+requestResolveCustomer =
+  req
     "ResolveCustomer"
     "fixture/ResolveCustomer.yaml"
 
 requestMeterUsage :: MeterUsage -> TestTree
-requestMeterUsage = req
+requestMeterUsage =
+  req
     "MeterUsage"
     "fixture/MeterUsage.yaml"
 
 -- Responses
 
+responseRegisterUsage :: RegisterUsageResponse -> TestTree
+responseRegisterUsage =
+  res
+    "RegisterUsageResponse"
+    "fixture/RegisterUsageResponse.proto"
+    marketplaceMetering
+    (Proxy :: Proxy RegisterUsage)
+
 responseBatchMeterUsage :: BatchMeterUsageResponse -> TestTree
-responseBatchMeterUsage = res
+responseBatchMeterUsage =
+  res
     "BatchMeterUsageResponse"
     "fixture/BatchMeterUsageResponse.proto"
     marketplaceMetering
     (Proxy :: Proxy BatchMeterUsage)
 
 responseResolveCustomer :: ResolveCustomerResponse -> TestTree
-responseResolveCustomer = res
+responseResolveCustomer =
+  res
     "ResolveCustomerResponse"
     "fixture/ResolveCustomerResponse.proto"
     marketplaceMetering
     (Proxy :: Proxy ResolveCustomer)
 
 responseMeterUsage :: MeterUsageResponse -> TestTree
-responseMeterUsage = res
+responseMeterUsage =
+  res
     "MeterUsageResponse"
     "fixture/MeterUsageResponse.proto"
     marketplaceMetering

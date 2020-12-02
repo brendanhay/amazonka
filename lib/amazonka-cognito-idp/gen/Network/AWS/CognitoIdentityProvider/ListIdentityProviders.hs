@@ -1,18 +1,17 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListIdentityProviders
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,39 +20,44 @@
 -- Lists information about all identity providers for a user pool.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CognitoIdentityProvider.ListIdentityProviders
-    (
-    -- * Creating a Request
-      listIdentityProviders
-    , ListIdentityProviders
+  ( -- * Creating a Request
+    listIdentityProviders,
+    ListIdentityProviders,
+
     -- * Request Lenses
-    , lipNextToken
-    , lipMaxResults
-    , lipUserPoolId
+    lipNextToken,
+    lipMaxResults,
+    lipUserPoolId,
 
     -- * Destructuring the Response
-    , listIdentityProvidersResponse
-    , ListIdentityProvidersResponse
+    listIdentityProvidersResponse,
+    ListIdentityProvidersResponse,
+
     -- * Response Lenses
-    , liprsNextToken
-    , liprsResponseStatus
-    , liprsProviders
-    ) where
+    liprsNextToken,
+    liprsResponseStatus,
+    liprsProviders,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'listIdentityProviders' smart constructor.
 data ListIdentityProviders = ListIdentityProviders'
-  { _lipNextToken  :: !(Maybe Text)
-  , _lipMaxResults :: !(Maybe Nat)
-  , _lipUserPoolId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _lipNextToken ::
+      !(Maybe Text),
+    _lipMaxResults :: !(Maybe Nat),
+    _lipUserPoolId :: !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'ListIdentityProviders' with the minimum fields required to make a request.
 --
@@ -64,75 +68,88 @@ data ListIdentityProviders = ListIdentityProviders'
 -- * 'lipMaxResults' - The maximum number of identity providers to return.
 --
 -- * 'lipUserPoolId' - The user pool ID.
-listIdentityProviders
-    :: Text -- ^ 'lipUserPoolId'
-    -> ListIdentityProviders
+listIdentityProviders ::
+  -- | 'lipUserPoolId'
+  Text ->
+  ListIdentityProviders
 listIdentityProviders pUserPoolId_ =
   ListIdentityProviders'
-    { _lipNextToken = Nothing
-    , _lipMaxResults = Nothing
-    , _lipUserPoolId = pUserPoolId_
+    { _lipNextToken = Nothing,
+      _lipMaxResults = Nothing,
+      _lipUserPoolId = pUserPoolId_
     }
-
 
 -- | A pagination token.
 lipNextToken :: Lens' ListIdentityProviders (Maybe Text)
-lipNextToken = lens _lipNextToken (\ s a -> s{_lipNextToken = a})
+lipNextToken = lens _lipNextToken (\s a -> s {_lipNextToken = a})
 
 -- | The maximum number of identity providers to return.
 lipMaxResults :: Lens' ListIdentityProviders (Maybe Natural)
-lipMaxResults = lens _lipMaxResults (\ s a -> s{_lipMaxResults = a}) . mapping _Nat
+lipMaxResults = lens _lipMaxResults (\s a -> s {_lipMaxResults = a}) . mapping _Nat
 
 -- | The user pool ID.
 lipUserPoolId :: Lens' ListIdentityProviders Text
-lipUserPoolId = lens _lipUserPoolId (\ s a -> s{_lipUserPoolId = a})
+lipUserPoolId = lens _lipUserPoolId (\s a -> s {_lipUserPoolId = a})
+
+instance AWSPager ListIdentityProviders where
+  page rq rs
+    | stop (rs ^. liprsNextToken) = Nothing
+    | stop (rs ^. liprsProviders) = Nothing
+    | otherwise = Just $ rq & lipNextToken .~ rs ^. liprsNextToken
 
 instance AWSRequest ListIdentityProviders where
-        type Rs ListIdentityProviders =
-             ListIdentityProvidersResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListIdentityProvidersResponse' <$>
-                   (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
-                     (x .?> "Providers" .!@ mempty))
+  type Rs ListIdentityProviders = ListIdentityProvidersResponse
+  request = postJSON cognitoIdentityProvider
+  response =
+    receiveJSON
+      ( \s h x ->
+          ListIdentityProvidersResponse'
+            <$> (x .?> "NextToken")
+            <*> (pure (fromEnum s))
+            <*> (x .?> "Providers" .!@ mempty)
+      )
 
-instance Hashable ListIdentityProviders where
+instance Hashable ListIdentityProviders
 
-instance NFData ListIdentityProviders where
+instance NFData ListIdentityProviders
 
 instance ToHeaders ListIdentityProviders where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.ListIdentityProviders"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target"
+              =# ( "AWSCognitoIdentityProviderService.ListIdentityProviders" ::
+                     ByteString
+                 ),
+            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+          ]
+      )
 
 instance ToJSON ListIdentityProviders where
-        toJSON ListIdentityProviders'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _lipNextToken,
-                  ("MaxResults" .=) <$> _lipMaxResults,
-                  Just ("UserPoolId" .= _lipUserPoolId)])
+  toJSON ListIdentityProviders' {..} =
+    object
+      ( catMaybes
+          [ ("NextToken" .=) <$> _lipNextToken,
+            ("MaxResults" .=) <$> _lipMaxResults,
+            Just ("UserPoolId" .= _lipUserPoolId)
+          ]
+      )
 
 instance ToPath ListIdentityProviders where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery ListIdentityProviders where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | /See:/ 'listIdentityProvidersResponse' smart constructor.
 data ListIdentityProvidersResponse = ListIdentityProvidersResponse'
-  { _liprsNextToken      :: !(Maybe Text)
-  , _liprsResponseStatus :: !Int
-  , _liprsProviders      :: ![ProviderDescription]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _liprsNextToken ::
+      !(Maybe Text),
+    _liprsResponseStatus :: !Int,
+    _liprsProviders ::
+      ![ProviderDescription]
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'ListIdentityProvidersResponse' with the minimum fields required to make a request.
 --
@@ -143,27 +160,27 @@ data ListIdentityProvidersResponse = ListIdentityProvidersResponse'
 -- * 'liprsResponseStatus' - -- | The response status code.
 --
 -- * 'liprsProviders' - A list of identity provider objects.
-listIdentityProvidersResponse
-    :: Int -- ^ 'liprsResponseStatus'
-    -> ListIdentityProvidersResponse
+listIdentityProvidersResponse ::
+  -- | 'liprsResponseStatus'
+  Int ->
+  ListIdentityProvidersResponse
 listIdentityProvidersResponse pResponseStatus_ =
   ListIdentityProvidersResponse'
-    { _liprsNextToken = Nothing
-    , _liprsResponseStatus = pResponseStatus_
-    , _liprsProviders = mempty
+    { _liprsNextToken = Nothing,
+      _liprsResponseStatus = pResponseStatus_,
+      _liprsProviders = mempty
     }
-
 
 -- | A pagination token.
 liprsNextToken :: Lens' ListIdentityProvidersResponse (Maybe Text)
-liprsNextToken = lens _liprsNextToken (\ s a -> s{_liprsNextToken = a})
+liprsNextToken = lens _liprsNextToken (\s a -> s {_liprsNextToken = a})
 
 -- | -- | The response status code.
 liprsResponseStatus :: Lens' ListIdentityProvidersResponse Int
-liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus = a})
+liprsResponseStatus = lens _liprsResponseStatus (\s a -> s {_liprsResponseStatus = a})
 
 -- | A list of identity provider objects.
 liprsProviders :: Lens' ListIdentityProvidersResponse [ProviderDescription]
-liprsProviders = lens _liprsProviders (\ s a -> s{_liprsProviders = a}) . _Coerce
+liprsProviders = lens _liprsProviders (\s a -> s {_liprsProviders = a}) . _Coerce
 
-instance NFData ListIdentityProvidersResponse where
+instance NFData ListIdentityProvidersResponse

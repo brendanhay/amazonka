@@ -1,11 +1,11 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeStar
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -60,55 +60,12 @@
 --     * @ListUserProfiles@ , which lists all user profiles.
 --
 --     * @UpdateUserProfile@ , which updates the profile for a user.
---
---
---
 module Network.AWS.CodeStar
-    (
-    -- * Service Configuration
-      codeStar
+  ( -- * Service Configuration
+    codeStar,
 
     -- * Errors
     -- $errors
-
-    -- ** TeamMemberAlreadyAssociatedException
-    , _TeamMemberAlreadyAssociatedException
-
-    -- ** ValidationException
-    , _ValidationException
-
-    -- ** InvalidServiceRoleException
-    , _InvalidServiceRoleException
-
-    -- ** ProjectCreationFailedException
-    , _ProjectCreationFailedException
-
-    -- ** UserProfileAlreadyExistsException
-    , _UserProfileAlreadyExistsException
-
-    -- ** ProjectNotFoundException
-    , _ProjectNotFoundException
-
-    -- ** TeamMemberNotFoundException
-    , _TeamMemberNotFoundException
-
-    -- ** ProjectAlreadyExistsException
-    , _ProjectAlreadyExistsException
-
-    -- ** ProjectConfigurationException
-    , _ProjectConfigurationException
-
-    -- ** ConcurrentModificationException
-    , _ConcurrentModificationException
-
-    -- ** InvalidNextTokenException
-    , _InvalidNextTokenException
-
-    -- ** UserProfileNotFoundException
-    , _UserProfileNotFoundException
-
-    -- ** LimitExceededException
-    , _LimitExceededException
 
     -- * Waiters
     -- $waiters
@@ -116,88 +73,146 @@ module Network.AWS.CodeStar
     -- * Operations
     -- $operations
 
-    -- ** ListProjects
-    , module Network.AWS.CodeStar.ListProjects
+    -- ** ListProjects (Paginated)
+    module Network.AWS.CodeStar.ListProjects,
 
-    -- ** ListTeamMembers
-    , module Network.AWS.CodeStar.ListTeamMembers
+    -- ** ListTeamMembers (Paginated)
+    module Network.AWS.CodeStar.ListTeamMembers,
 
     -- ** DeleteProject
-    , module Network.AWS.CodeStar.DeleteProject
+    module Network.AWS.CodeStar.DeleteProject,
 
     -- ** UpdateProject
-    , module Network.AWS.CodeStar.UpdateProject
+    module Network.AWS.CodeStar.UpdateProject,
 
     -- ** DisassociateTeamMember
-    , module Network.AWS.CodeStar.DisassociateTeamMember
+    module Network.AWS.CodeStar.DisassociateTeamMember,
 
     -- ** TagProject
-    , module Network.AWS.CodeStar.TagProject
+    module Network.AWS.CodeStar.TagProject,
 
     -- ** DescribeProject
-    , module Network.AWS.CodeStar.DescribeProject
+    module Network.AWS.CodeStar.DescribeProject,
 
-    -- ** ListUserProfiles
-    , module Network.AWS.CodeStar.ListUserProfiles
+    -- ** ListUserProfiles (Paginated)
+    module Network.AWS.CodeStar.ListUserProfiles,
 
-    -- ** ListResources
-    , module Network.AWS.CodeStar.ListResources
+    -- ** ListResources (Paginated)
+    module Network.AWS.CodeStar.ListResources,
 
     -- ** AssociateTeamMember
-    , module Network.AWS.CodeStar.AssociateTeamMember
+    module Network.AWS.CodeStar.AssociateTeamMember,
 
     -- ** UntagProject
-    , module Network.AWS.CodeStar.UntagProject
+    module Network.AWS.CodeStar.UntagProject,
 
     -- ** UpdateTeamMember
-    , module Network.AWS.CodeStar.UpdateTeamMember
+    module Network.AWS.CodeStar.UpdateTeamMember,
 
     -- ** DescribeUserProfile
-    , module Network.AWS.CodeStar.DescribeUserProfile
+    module Network.AWS.CodeStar.DescribeUserProfile,
 
     -- ** ListTagsForProject
-    , module Network.AWS.CodeStar.ListTagsForProject
+    module Network.AWS.CodeStar.ListTagsForProject,
 
     -- ** DeleteUserProfile
-    , module Network.AWS.CodeStar.DeleteUserProfile
+    module Network.AWS.CodeStar.DeleteUserProfile,
 
     -- ** UpdateUserProfile
-    , module Network.AWS.CodeStar.UpdateUserProfile
+    module Network.AWS.CodeStar.UpdateUserProfile,
 
     -- ** CreateUserProfile
-    , module Network.AWS.CodeStar.CreateUserProfile
+    module Network.AWS.CodeStar.CreateUserProfile,
 
     -- ** CreateProject
-    , module Network.AWS.CodeStar.CreateProject
+    module Network.AWS.CodeStar.CreateProject,
 
     -- * Types
 
+    -- ** Code
+    Code,
+    code,
+    cSource,
+    cDestination,
+
+    -- ** CodeCommitCodeDestination
+    CodeCommitCodeDestination,
+    codeCommitCodeDestination,
+    cccdName,
+
+    -- ** CodeDestination
+    CodeDestination,
+    codeDestination,
+    cdCodeCommit,
+    cdGitHub,
+
+    -- ** CodeSource
+    CodeSource,
+    codeSource,
+    csS3,
+
+    -- ** GitHubCodeDestination
+    GitHubCodeDestination,
+    gitHubCodeDestination,
+    ghcdDescription,
+    ghcdName,
+    ghcdType,
+    ghcdOwner,
+    ghcdPrivateRepository,
+    ghcdIssuesEnabled,
+    ghcdToken,
+
+    -- ** ProjectStatus
+    ProjectStatus,
+    projectStatus,
+    psReason,
+    psState,
+
     -- ** ProjectSummary
-    , ProjectSummary
-    , projectSummary
-    , psProjectARN
-    , psProjectId
+    ProjectSummary,
+    projectSummary,
+    psProjectARN,
+    psProjectId,
 
     -- ** Resource
-    , Resource
-    , resource
-    , rId
+    Resource,
+    resource,
+    rId,
+
+    -- ** S3Location
+    S3Location,
+    s3Location,
+    slBucketKey,
+    slBucketName,
 
     -- ** TeamMember
-    , TeamMember
-    , teamMember
-    , tmRemoteAccessAllowed
-    , tmUserARN
-    , tmProjectRole
+    TeamMember,
+    teamMember,
+    tmRemoteAccessAllowed,
+    tmUserARN,
+    tmProjectRole,
+
+    -- ** Toolchain
+    Toolchain,
+    toolchain,
+    tStackParameters,
+    tRoleARN,
+    tSource,
+
+    -- ** ToolchainSource
+    ToolchainSource,
+    toolchainSource,
+    tsS3,
 
     -- ** UserProfileSummary
-    , UserProfileSummary
-    , userProfileSummary
-    , upsSshPublicKey
-    , upsUserARN
-    , upsEmailAddress
-    , upsDisplayName
-    ) where
+    UserProfileSummary,
+    userProfileSummary,
+    upsSshPublicKey,
+    upsUserARN,
+    upsEmailAddress,
+    upsDisplayName,
+  )
+where
 
 import Network.AWS.CodeStar.AssociateTeamMember
 import Network.AWS.CodeStar.CreateProject
@@ -220,32 +235,29 @@ import Network.AWS.CodeStar.UpdateTeamMember
 import Network.AWS.CodeStar.UpdateUserProfile
 import Network.AWS.CodeStar.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'CodeStar'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'CodeStar'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

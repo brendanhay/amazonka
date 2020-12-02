@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.Support
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.Support
-import           Test.AWS.Gen.Support
-import           Test.Tasty
+import Network.AWS.Support
+import Test.AWS.Gen.Support
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

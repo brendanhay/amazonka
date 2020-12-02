@@ -1,95 +1,176 @@
-name:                  amazonka-kinesis-firehose
-version:               1.6.1
-synopsis:              Amazon Kinesis Firehose SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-kinesis-firehose
+version:            2.0.0.0
+synopsis:           Amazon Kinesis Firehose SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2020 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.Firehose" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with
+  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+  mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  Lenses are used for constructing and manipulating types,
+  due to the depth of nesting of AWS types and transparency regarding
+  de/serialisation into more palatable Haskell values.
+  The provided lenses should be compatible with any of the major lens libraries
+  such as <http://hackage.haskell.org/package/lens lens> or
+  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Network.AWS.Firehose" or <https://aws.amazon.com/documentation/ the AWS documentation>
+  to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-kinesis-firehose
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-kinesis-firehose
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.Firehose
+    Network.AWS.Firehose.CreateDeliveryStream
+    Network.AWS.Firehose.DeleteDeliveryStream
+    Network.AWS.Firehose.DescribeDeliveryStream
+    Network.AWS.Firehose.ListDeliveryStreams
+    Network.AWS.Firehose.ListTagsForDeliveryStream
+    Network.AWS.Firehose.PutRecord
+    Network.AWS.Firehose.PutRecordBatch
+    Network.AWS.Firehose.StartDeliveryStreamEncryption
+    Network.AWS.Firehose.StopDeliveryStreamEncryption
+    Network.AWS.Firehose.TagDeliveryStream
+    Network.AWS.Firehose.Types
+    Network.AWS.Firehose.UntagDeliveryStream
+    Network.AWS.Firehose.UpdateDestination
+    Network.AWS.Firehose.Waiters
 
-    exposed-modules:
-          Network.AWS.Firehose
-        , Network.AWS.Firehose.CreateDeliveryStream
-        , Network.AWS.Firehose.DeleteDeliveryStream
-        , Network.AWS.Firehose.DescribeDeliveryStream
-        , Network.AWS.Firehose.ListDeliveryStreams
-        , Network.AWS.Firehose.ListTagsForDeliveryStream
-        , Network.AWS.Firehose.PutRecord
-        , Network.AWS.Firehose.PutRecordBatch
-        , Network.AWS.Firehose.TagDeliveryStream
-        , Network.AWS.Firehose.Types
-        , Network.AWS.Firehose.UntagDeliveryStream
-        , Network.AWS.Firehose.UpdateDestination
-        , Network.AWS.Firehose.Waiters
+  other-modules:
+    Network.AWS.Firehose.Types.BufferingHints
+    Network.AWS.Firehose.Types.CloudWatchLoggingOptions
+    Network.AWS.Firehose.Types.CompressionFormat
+    Network.AWS.Firehose.Types.ContentEncoding
+    Network.AWS.Firehose.Types.CopyCommand
+    Network.AWS.Firehose.Types.DataFormatConversionConfiguration
+    Network.AWS.Firehose.Types.DeliveryStreamDescription
+    Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfiguration
+    Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfigurationInput
+    Network.AWS.Firehose.Types.DeliveryStreamEncryptionStatus
+    Network.AWS.Firehose.Types.DeliveryStreamFailureType
+    Network.AWS.Firehose.Types.DeliveryStreamStatus
+    Network.AWS.Firehose.Types.DeliveryStreamType
+    Network.AWS.Firehose.Types.Deserializer
+    Network.AWS.Firehose.Types.DestinationDescription
+    Network.AWS.Firehose.Types.ElasticsearchBufferingHints
+    Network.AWS.Firehose.Types.ElasticsearchDestinationConfiguration
+    Network.AWS.Firehose.Types.ElasticsearchDestinationDescription
+    Network.AWS.Firehose.Types.ElasticsearchDestinationUpdate
+    Network.AWS.Firehose.Types.ElasticsearchIndexRotationPeriod
+    Network.AWS.Firehose.Types.ElasticsearchRetryOptions
+    Network.AWS.Firehose.Types.ElasticsearchS3BackupMode
+    Network.AWS.Firehose.Types.EncryptionConfiguration
+    Network.AWS.Firehose.Types.ExtendedS3DestinationConfiguration
+    Network.AWS.Firehose.Types.ExtendedS3DestinationDescription
+    Network.AWS.Firehose.Types.ExtendedS3DestinationUpdate
+    Network.AWS.Firehose.Types.FailureDescription
+    Network.AWS.Firehose.Types.HECEndpointType
+    Network.AWS.Firehose.Types.HiveJSONSerDe
+    Network.AWS.Firehose.Types.HTTPEndpointBufferingHints
+    Network.AWS.Firehose.Types.HTTPEndpointCommonAttribute
+    Network.AWS.Firehose.Types.HTTPEndpointConfiguration
+    Network.AWS.Firehose.Types.HTTPEndpointDescription
+    Network.AWS.Firehose.Types.HTTPEndpointDestinationConfiguration
+    Network.AWS.Firehose.Types.HTTPEndpointDestinationDescription
+    Network.AWS.Firehose.Types.HTTPEndpointDestinationUpdate
+    Network.AWS.Firehose.Types.HTTPEndpointRequestConfiguration
+    Network.AWS.Firehose.Types.HTTPEndpointRetryOptions
+    Network.AWS.Firehose.Types.HTTPEndpointS3BackupMode
+    Network.AWS.Firehose.Types.InputFormatConfiguration
+    Network.AWS.Firehose.Types.KeyType
+    Network.AWS.Firehose.Types.KinesisStreamSourceConfiguration
+    Network.AWS.Firehose.Types.KinesisStreamSourceDescription
+    Network.AWS.Firehose.Types.KMSEncryptionConfig
+    Network.AWS.Firehose.Types.NoEncryptionConfig
+    Network.AWS.Firehose.Types.OpenXJSONSerDe
+    Network.AWS.Firehose.Types.OrcCompression
+    Network.AWS.Firehose.Types.OrcFormatVersion
+    Network.AWS.Firehose.Types.OrcSerDe
+    Network.AWS.Firehose.Types.OutputFormatConfiguration
+    Network.AWS.Firehose.Types.ParquetCompression
+    Network.AWS.Firehose.Types.ParquetSerDe
+    Network.AWS.Firehose.Types.ParquetWriterVersion
+    Network.AWS.Firehose.Types.ProcessingConfiguration
+    Network.AWS.Firehose.Types.Processor
+    Network.AWS.Firehose.Types.ProcessorParameter
+    Network.AWS.Firehose.Types.ProcessorParameterName
+    Network.AWS.Firehose.Types.ProcessorType
+    Network.AWS.Firehose.Types.PutRecordBatchResponseEntry
+    Network.AWS.Firehose.Types.Record
+    Network.AWS.Firehose.Types.RedshiftDestinationConfiguration
+    Network.AWS.Firehose.Types.RedshiftDestinationDescription
+    Network.AWS.Firehose.Types.RedshiftDestinationUpdate
+    Network.AWS.Firehose.Types.RedshiftRetryOptions
+    Network.AWS.Firehose.Types.RedshiftS3BackupMode
+    Network.AWS.Firehose.Types.S3BackupMode
+    Network.AWS.Firehose.Types.S3DestinationConfiguration
+    Network.AWS.Firehose.Types.S3DestinationDescription
+    Network.AWS.Firehose.Types.S3DestinationUpdate
+    Network.AWS.Firehose.Types.SchemaConfiguration
+    Network.AWS.Firehose.Types.Serializer
+    Network.AWS.Firehose.Types.SourceDescription
+    Network.AWS.Firehose.Types.SplunkDestinationConfiguration
+    Network.AWS.Firehose.Types.SplunkDestinationDescription
+    Network.AWS.Firehose.Types.SplunkDestinationUpdate
+    Network.AWS.Firehose.Types.SplunkRetryOptions
+    Network.AWS.Firehose.Types.SplunkS3BackupMode
+    Network.AWS.Firehose.Types.Tag
+    Network.AWS.Firehose.Types.VPCConfiguration
+    Network.AWS.Firehose.Types.VPCConfigurationDescription
 
-    other-modules:
-          Network.AWS.Firehose.Types.Product
-        , Network.AWS.Firehose.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.7   && <5
 
 test-suite amazonka-kinesis-firehose-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Firehose
+    Test.AWS.Firehose.Internal
+    Test.AWS.Gen.Firehose
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.Firehose
-        , Test.AWS.Gen.Firehose
-        , Test.AWS.Firehose.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-kinesis-firehose
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-core              >=1.6.1 && <1.6.2
+    , amazonka-kinesis-firehose
+    , amazonka-test              >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

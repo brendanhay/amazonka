@@ -1,147 +1,237 @@
-name:                  amazonka-devicefarm
-version:               1.6.1
-synopsis:              Amazon Device Farm SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-devicefarm
+version:            2.0.0.0
+synopsis:           Amazon Device Farm SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2020 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.DeviceFarm" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with
+  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+  mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  Lenses are used for constructing and manipulating types,
+  due to the depth of nesting of AWS types and transparency regarding
+  de/serialisation into more palatable Haskell values.
+  The provided lenses should be compatible with any of the major lens libraries
+  such as <http://hackage.haskell.org/package/lens lens> or
+  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Network.AWS.DeviceFarm" or <https://aws.amazon.com/documentation/ the AWS documentation>
+  to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-devicefarm
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-devicefarm
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.DeviceFarm
+    Network.AWS.DeviceFarm.CreateDevicePool
+    Network.AWS.DeviceFarm.CreateInstanceProfile
+    Network.AWS.DeviceFarm.CreateNetworkProfile
+    Network.AWS.DeviceFarm.CreateProject
+    Network.AWS.DeviceFarm.CreateRemoteAccessSession
+    Network.AWS.DeviceFarm.CreateTestGridProject
+    Network.AWS.DeviceFarm.CreateTestGridURL
+    Network.AWS.DeviceFarm.CreateUpload
+    Network.AWS.DeviceFarm.CreateVPCEConfiguration
+    Network.AWS.DeviceFarm.DeleteDevicePool
+    Network.AWS.DeviceFarm.DeleteInstanceProfile
+    Network.AWS.DeviceFarm.DeleteNetworkProfile
+    Network.AWS.DeviceFarm.DeleteProject
+    Network.AWS.DeviceFarm.DeleteRemoteAccessSession
+    Network.AWS.DeviceFarm.DeleteRun
+    Network.AWS.DeviceFarm.DeleteTestGridProject
+    Network.AWS.DeviceFarm.DeleteUpload
+    Network.AWS.DeviceFarm.DeleteVPCEConfiguration
+    Network.AWS.DeviceFarm.GetAccountSettings
+    Network.AWS.DeviceFarm.GetDevice
+    Network.AWS.DeviceFarm.GetDeviceInstance
+    Network.AWS.DeviceFarm.GetDevicePool
+    Network.AWS.DeviceFarm.GetDevicePoolCompatibility
+    Network.AWS.DeviceFarm.GetInstanceProfile
+    Network.AWS.DeviceFarm.GetJob
+    Network.AWS.DeviceFarm.GetNetworkProfile
+    Network.AWS.DeviceFarm.GetOfferingStatus
+    Network.AWS.DeviceFarm.GetProject
+    Network.AWS.DeviceFarm.GetRemoteAccessSession
+    Network.AWS.DeviceFarm.GetRun
+    Network.AWS.DeviceFarm.GetSuite
+    Network.AWS.DeviceFarm.GetTest
+    Network.AWS.DeviceFarm.GetTestGridProject
+    Network.AWS.DeviceFarm.GetTestGridSession
+    Network.AWS.DeviceFarm.GetUpload
+    Network.AWS.DeviceFarm.GetVPCEConfiguration
+    Network.AWS.DeviceFarm.InstallToRemoteAccessSession
+    Network.AWS.DeviceFarm.ListArtifacts
+    Network.AWS.DeviceFarm.ListDeviceInstances
+    Network.AWS.DeviceFarm.ListDevicePools
+    Network.AWS.DeviceFarm.ListDevices
+    Network.AWS.DeviceFarm.ListInstanceProfiles
+    Network.AWS.DeviceFarm.ListJobs
+    Network.AWS.DeviceFarm.ListNetworkProfiles
+    Network.AWS.DeviceFarm.ListOfferingPromotions
+    Network.AWS.DeviceFarm.ListOfferings
+    Network.AWS.DeviceFarm.ListOfferingTransactions
+    Network.AWS.DeviceFarm.ListProjects
+    Network.AWS.DeviceFarm.ListRemoteAccessSessions
+    Network.AWS.DeviceFarm.ListRuns
+    Network.AWS.DeviceFarm.ListSamples
+    Network.AWS.DeviceFarm.ListSuites
+    Network.AWS.DeviceFarm.ListTagsForResource
+    Network.AWS.DeviceFarm.ListTestGridProjects
+    Network.AWS.DeviceFarm.ListTestGridSessionActions
+    Network.AWS.DeviceFarm.ListTestGridSessionArtifacts
+    Network.AWS.DeviceFarm.ListTestGridSessions
+    Network.AWS.DeviceFarm.ListTests
+    Network.AWS.DeviceFarm.ListUniqueProblems
+    Network.AWS.DeviceFarm.ListUploads
+    Network.AWS.DeviceFarm.ListVPCEConfigurations
+    Network.AWS.DeviceFarm.PurchaseOffering
+    Network.AWS.DeviceFarm.RenewOffering
+    Network.AWS.DeviceFarm.ScheduleRun
+    Network.AWS.DeviceFarm.StopJob
+    Network.AWS.DeviceFarm.StopRemoteAccessSession
+    Network.AWS.DeviceFarm.StopRun
+    Network.AWS.DeviceFarm.TagResource
+    Network.AWS.DeviceFarm.Types
+    Network.AWS.DeviceFarm.UntagResource
+    Network.AWS.DeviceFarm.UpdateDeviceInstance
+    Network.AWS.DeviceFarm.UpdateDevicePool
+    Network.AWS.DeviceFarm.UpdateInstanceProfile
+    Network.AWS.DeviceFarm.UpdateNetworkProfile
+    Network.AWS.DeviceFarm.UpdateProject
+    Network.AWS.DeviceFarm.UpdateTestGridProject
+    Network.AWS.DeviceFarm.UpdateUpload
+    Network.AWS.DeviceFarm.UpdateVPCEConfiguration
+    Network.AWS.DeviceFarm.Waiters
 
-    exposed-modules:
-          Network.AWS.DeviceFarm
-        , Network.AWS.DeviceFarm.CreateDevicePool
-        , Network.AWS.DeviceFarm.CreateInstanceProfile
-        , Network.AWS.DeviceFarm.CreateNetworkProfile
-        , Network.AWS.DeviceFarm.CreateProject
-        , Network.AWS.DeviceFarm.CreateRemoteAccessSession
-        , Network.AWS.DeviceFarm.CreateUpload
-        , Network.AWS.DeviceFarm.CreateVPCEConfiguration
-        , Network.AWS.DeviceFarm.DeleteDevicePool
-        , Network.AWS.DeviceFarm.DeleteInstanceProfile
-        , Network.AWS.DeviceFarm.DeleteNetworkProfile
-        , Network.AWS.DeviceFarm.DeleteProject
-        , Network.AWS.DeviceFarm.DeleteRemoteAccessSession
-        , Network.AWS.DeviceFarm.DeleteRun
-        , Network.AWS.DeviceFarm.DeleteUpload
-        , Network.AWS.DeviceFarm.DeleteVPCEConfiguration
-        , Network.AWS.DeviceFarm.GetAccountSettings
-        , Network.AWS.DeviceFarm.GetDevice
-        , Network.AWS.DeviceFarm.GetDeviceInstance
-        , Network.AWS.DeviceFarm.GetDevicePool
-        , Network.AWS.DeviceFarm.GetDevicePoolCompatibility
-        , Network.AWS.DeviceFarm.GetInstanceProfile
-        , Network.AWS.DeviceFarm.GetJob
-        , Network.AWS.DeviceFarm.GetNetworkProfile
-        , Network.AWS.DeviceFarm.GetOfferingStatus
-        , Network.AWS.DeviceFarm.GetProject
-        , Network.AWS.DeviceFarm.GetRemoteAccessSession
-        , Network.AWS.DeviceFarm.GetRun
-        , Network.AWS.DeviceFarm.GetSuite
-        , Network.AWS.DeviceFarm.GetTest
-        , Network.AWS.DeviceFarm.GetUpload
-        , Network.AWS.DeviceFarm.GetVPCEConfiguration
-        , Network.AWS.DeviceFarm.InstallToRemoteAccessSession
-        , Network.AWS.DeviceFarm.ListArtifacts
-        , Network.AWS.DeviceFarm.ListDeviceInstances
-        , Network.AWS.DeviceFarm.ListDevicePools
-        , Network.AWS.DeviceFarm.ListDevices
-        , Network.AWS.DeviceFarm.ListInstanceProfiles
-        , Network.AWS.DeviceFarm.ListJobs
-        , Network.AWS.DeviceFarm.ListNetworkProfiles
-        , Network.AWS.DeviceFarm.ListOfferingPromotions
-        , Network.AWS.DeviceFarm.ListOfferingTransactions
-        , Network.AWS.DeviceFarm.ListOfferings
-        , Network.AWS.DeviceFarm.ListProjects
-        , Network.AWS.DeviceFarm.ListRemoteAccessSessions
-        , Network.AWS.DeviceFarm.ListRuns
-        , Network.AWS.DeviceFarm.ListSamples
-        , Network.AWS.DeviceFarm.ListSuites
-        , Network.AWS.DeviceFarm.ListTests
-        , Network.AWS.DeviceFarm.ListUniqueProblems
-        , Network.AWS.DeviceFarm.ListUploads
-        , Network.AWS.DeviceFarm.ListVPCEConfigurations
-        , Network.AWS.DeviceFarm.PurchaseOffering
-        , Network.AWS.DeviceFarm.RenewOffering
-        , Network.AWS.DeviceFarm.ScheduleRun
-        , Network.AWS.DeviceFarm.StopRemoteAccessSession
-        , Network.AWS.DeviceFarm.StopRun
-        , Network.AWS.DeviceFarm.Types
-        , Network.AWS.DeviceFarm.UpdateDeviceInstance
-        , Network.AWS.DeviceFarm.UpdateDevicePool
-        , Network.AWS.DeviceFarm.UpdateInstanceProfile
-        , Network.AWS.DeviceFarm.UpdateNetworkProfile
-        , Network.AWS.DeviceFarm.UpdateProject
-        , Network.AWS.DeviceFarm.UpdateVPCEConfiguration
-        , Network.AWS.DeviceFarm.Waiters
+  other-modules:
+    Network.AWS.DeviceFarm.Types.AccountSettings
+    Network.AWS.DeviceFarm.Types.Artifact
+    Network.AWS.DeviceFarm.Types.ArtifactCategory
+    Network.AWS.DeviceFarm.Types.ArtifactType
+    Network.AWS.DeviceFarm.Types.BillingMethod
+    Network.AWS.DeviceFarm.Types.Counters
+    Network.AWS.DeviceFarm.Types.CPU
+    Network.AWS.DeviceFarm.Types.CreateRemoteAccessSessionConfiguration
+    Network.AWS.DeviceFarm.Types.CurrencyCode
+    Network.AWS.DeviceFarm.Types.CustomerArtifactPaths
+    Network.AWS.DeviceFarm.Types.Device
+    Network.AWS.DeviceFarm.Types.DeviceAttribute
+    Network.AWS.DeviceFarm.Types.DeviceAvailability
+    Network.AWS.DeviceFarm.Types.DeviceFilter
+    Network.AWS.DeviceFarm.Types.DeviceFilterAttribute
+    Network.AWS.DeviceFarm.Types.DeviceFormFactor
+    Network.AWS.DeviceFarm.Types.DeviceInstance
+    Network.AWS.DeviceFarm.Types.DeviceMinutes
+    Network.AWS.DeviceFarm.Types.DevicePlatform
+    Network.AWS.DeviceFarm.Types.DevicePool
+    Network.AWS.DeviceFarm.Types.DevicePoolCompatibilityResult
+    Network.AWS.DeviceFarm.Types.DevicePoolType
+    Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration
+    Network.AWS.DeviceFarm.Types.DeviceSelectionResult
+    Network.AWS.DeviceFarm.Types.ExecutionConfiguration
+    Network.AWS.DeviceFarm.Types.ExecutionResult
+    Network.AWS.DeviceFarm.Types.ExecutionResultCode
+    Network.AWS.DeviceFarm.Types.ExecutionStatus
+    Network.AWS.DeviceFarm.Types.IncompatibilityMessage
+    Network.AWS.DeviceFarm.Types.InstanceProfile
+    Network.AWS.DeviceFarm.Types.InstanceStatus
+    Network.AWS.DeviceFarm.Types.InteractionMode
+    Network.AWS.DeviceFarm.Types.Job
+    Network.AWS.DeviceFarm.Types.Location
+    Network.AWS.DeviceFarm.Types.MonetaryAmount
+    Network.AWS.DeviceFarm.Types.NetworkProfile
+    Network.AWS.DeviceFarm.Types.NetworkProfileType
+    Network.AWS.DeviceFarm.Types.Offering
+    Network.AWS.DeviceFarm.Types.OfferingPromotion
+    Network.AWS.DeviceFarm.Types.OfferingStatus
+    Network.AWS.DeviceFarm.Types.OfferingTransaction
+    Network.AWS.DeviceFarm.Types.OfferingTransactionType
+    Network.AWS.DeviceFarm.Types.OfferingType
+    Network.AWS.DeviceFarm.Types.Problem
+    Network.AWS.DeviceFarm.Types.ProblemDetail
+    Network.AWS.DeviceFarm.Types.Project
+    Network.AWS.DeviceFarm.Types.Radios
+    Network.AWS.DeviceFarm.Types.RecurringCharge
+    Network.AWS.DeviceFarm.Types.RecurringChargeFrequency
+    Network.AWS.DeviceFarm.Types.RemoteAccessSession
+    Network.AWS.DeviceFarm.Types.Resolution
+    Network.AWS.DeviceFarm.Types.Rule
+    Network.AWS.DeviceFarm.Types.RuleOperator
+    Network.AWS.DeviceFarm.Types.Run
+    Network.AWS.DeviceFarm.Types.Sample
+    Network.AWS.DeviceFarm.Types.SampleType
+    Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration
+    Network.AWS.DeviceFarm.Types.ScheduleRunTest
+    Network.AWS.DeviceFarm.Types.Suite
+    Network.AWS.DeviceFarm.Types.Tag
+    Network.AWS.DeviceFarm.Types.Test
+    Network.AWS.DeviceFarm.Types.TestGridProject
+    Network.AWS.DeviceFarm.Types.TestGridSession
+    Network.AWS.DeviceFarm.Types.TestGridSessionAction
+    Network.AWS.DeviceFarm.Types.TestGridSessionArtifact
+    Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory
+    Network.AWS.DeviceFarm.Types.TestGridSessionArtifactType
+    Network.AWS.DeviceFarm.Types.TestGridSessionStatus
+    Network.AWS.DeviceFarm.Types.TestType
+    Network.AWS.DeviceFarm.Types.TrialMinutes
+    Network.AWS.DeviceFarm.Types.UniqueProblem
+    Network.AWS.DeviceFarm.Types.Upload
+    Network.AWS.DeviceFarm.Types.UploadCategory
+    Network.AWS.DeviceFarm.Types.UploadStatus
+    Network.AWS.DeviceFarm.Types.UploadType
+    Network.AWS.DeviceFarm.Types.VPCEConfiguration
 
-    other-modules:
-          Network.AWS.DeviceFarm.Types.Product
-        , Network.AWS.DeviceFarm.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.7   && <5
 
 test-suite amazonka-devicefarm-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.DeviceFarm
+    Test.AWS.DeviceFarm.Internal
+    Test.AWS.Gen.DeviceFarm
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.DeviceFarm
-        , Test.AWS.Gen.DeviceFarm
-        , Test.AWS.DeviceFarm.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-devicefarm
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka-devicefarm
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

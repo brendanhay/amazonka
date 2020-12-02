@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.CloudWatch
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.CloudWatch
-import           Test.AWS.Gen.CloudWatch
-import           Test.Tasty
+import Network.AWS.CloudWatch
+import Test.AWS.Gen.CloudWatch
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

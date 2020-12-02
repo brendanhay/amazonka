@@ -1,18 +1,17 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EFS.ModifyMountTargetSecurityGroups
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -28,25 +27,22 @@
 --     * @elasticfilesystem:ModifyMountTargetSecurityGroups@ action on the mount target's file system.
 --
 --     * @ec2:ModifyNetworkInterfaceAttribute@ action on the mount target's network interface.
---
---
---
 module Network.AWS.EFS.ModifyMountTargetSecurityGroups
-    (
-    -- * Creating a Request
-      modifyMountTargetSecurityGroups
-    , ModifyMountTargetSecurityGroups
+  ( -- * Creating a Request
+    modifyMountTargetSecurityGroups,
+    ModifyMountTargetSecurityGroups,
+
     -- * Request Lenses
-    , mmtsgSecurityGroups
-    , mmtsgMountTargetId
+    mmtsgSecurityGroups,
+    mmtsgMountTargetId,
 
     -- * Destructuring the Response
-    , modifyMountTargetSecurityGroupsResponse
-    , ModifyMountTargetSecurityGroupsResponse
-    ) where
+    modifyMountTargetSecurityGroupsResponse,
+    ModifyMountTargetSecurityGroupsResponse,
+  )
+where
 
 import Network.AWS.EFS.Types
-import Network.AWS.EFS.Types.Product
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
@@ -58,82 +54,76 @@ import Network.AWS.Response
 --
 -- /See:/ 'modifyMountTargetSecurityGroups' smart constructor.
 data ModifyMountTargetSecurityGroups = ModifyMountTargetSecurityGroups'
-  { _mmtsgSecurityGroups :: !(Maybe [Text])
-  , _mmtsgMountTargetId  :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _mmtsgSecurityGroups ::
+      !(Maybe [Text]),
+    _mmtsgMountTargetId ::
+      !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'ModifyMountTargetSecurityGroups' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mmtsgSecurityGroups' - Array of up to five VPC security group IDs.
+-- * 'mmtsgSecurityGroups' - An array of up to five VPC security group IDs.
 --
--- * 'mmtsgMountTargetId' - ID of the mount target whose security groups you want to modify.
-modifyMountTargetSecurityGroups
-    :: Text -- ^ 'mmtsgMountTargetId'
-    -> ModifyMountTargetSecurityGroups
+-- * 'mmtsgMountTargetId' - The ID of the mount target whose security groups you want to modify.
+modifyMountTargetSecurityGroups ::
+  -- | 'mmtsgMountTargetId'
+  Text ->
+  ModifyMountTargetSecurityGroups
 modifyMountTargetSecurityGroups pMountTargetId_ =
   ModifyMountTargetSecurityGroups'
-    {_mmtsgSecurityGroups = Nothing, _mmtsgMountTargetId = pMountTargetId_}
+    { _mmtsgSecurityGroups = Nothing,
+      _mmtsgMountTargetId = pMountTargetId_
+    }
 
-
--- | Array of up to five VPC security group IDs.
+-- | An array of up to five VPC security group IDs.
 mmtsgSecurityGroups :: Lens' ModifyMountTargetSecurityGroups [Text]
-mmtsgSecurityGroups = lens _mmtsgSecurityGroups (\ s a -> s{_mmtsgSecurityGroups = a}) . _Default . _Coerce
+mmtsgSecurityGroups = lens _mmtsgSecurityGroups (\s a -> s {_mmtsgSecurityGroups = a}) . _Default . _Coerce
 
--- | ID of the mount target whose security groups you want to modify.
+-- | The ID of the mount target whose security groups you want to modify.
 mmtsgMountTargetId :: Lens' ModifyMountTargetSecurityGroups Text
-mmtsgMountTargetId = lens _mmtsgMountTargetId (\ s a -> s{_mmtsgMountTargetId = a})
+mmtsgMountTargetId = lens _mmtsgMountTargetId (\s a -> s {_mmtsgMountTargetId = a})
 
-instance AWSRequest ModifyMountTargetSecurityGroups
-         where
-        type Rs ModifyMountTargetSecurityGroups =
-             ModifyMountTargetSecurityGroupsResponse
-        request = putJSON efs
-        response
-          = receiveNull
-              ModifyMountTargetSecurityGroupsResponse'
+instance AWSRequest ModifyMountTargetSecurityGroups where
+  type
+    Rs ModifyMountTargetSecurityGroups =
+      ModifyMountTargetSecurityGroupsResponse
+  request = putJSON efs
+  response = receiveNull ModifyMountTargetSecurityGroupsResponse'
 
 instance Hashable ModifyMountTargetSecurityGroups
-         where
 
-instance NFData ModifyMountTargetSecurityGroups where
+instance NFData ModifyMountTargetSecurityGroups
 
-instance ToHeaders ModifyMountTargetSecurityGroups
-         where
-        toHeaders = const mempty
+instance ToHeaders ModifyMountTargetSecurityGroups where
+  toHeaders = const mempty
 
 instance ToJSON ModifyMountTargetSecurityGroups where
-        toJSON ModifyMountTargetSecurityGroups'{..}
-          = object
-              (catMaybes
-                 [("SecurityGroups" .=) <$> _mmtsgSecurityGroups])
+  toJSON ModifyMountTargetSecurityGroups' {..} =
+    object
+      (catMaybes [("SecurityGroups" .=) <$> _mmtsgSecurityGroups])
 
 instance ToPath ModifyMountTargetSecurityGroups where
-        toPath ModifyMountTargetSecurityGroups'{..}
-          = mconcat
-              ["/2015-02-01/mount-targets/",
-               toBS _mmtsgMountTargetId, "/security-groups"]
+  toPath ModifyMountTargetSecurityGroups' {..} =
+    mconcat
+      [ "/2015-02-01/mount-targets/",
+        toBS _mmtsgMountTargetId,
+        "/security-groups"
+      ]
 
-instance ToQuery ModifyMountTargetSecurityGroups
-         where
-        toQuery = const mempty
+instance ToQuery ModifyMountTargetSecurityGroups where
+  toQuery = const mempty
 
 -- | /See:/ 'modifyMountTargetSecurityGroupsResponse' smart constructor.
-data ModifyMountTargetSecurityGroupsResponse =
-  ModifyMountTargetSecurityGroupsResponse'
+data ModifyMountTargetSecurityGroupsResponse = ModifyMountTargetSecurityGroupsResponse'
   deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
 -- | Creates a value of 'ModifyMountTargetSecurityGroupsResponse' with the minimum fields required to make a request.
---
-modifyMountTargetSecurityGroupsResponse
-    :: ModifyMountTargetSecurityGroupsResponse
+modifyMountTargetSecurityGroupsResponse ::
+  ModifyMountTargetSecurityGroupsResponse
 modifyMountTargetSecurityGroupsResponse =
   ModifyMountTargetSecurityGroupsResponse'
 
-
-instance NFData
-           ModifyMountTargetSecurityGroupsResponse
-         where
+instance NFData ModifyMountTargetSecurityGroupsResponse

@@ -1,49 +1,47 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.SetUserPoolMFAConfig
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Set the user pool MFA configuration.
---
---
+-- Set the user pool multi-factor authentication (MFA) configuration.
 module Network.AWS.CognitoIdentityProvider.SetUserPoolMFAConfig
-    (
-    -- * Creating a Request
-      setUserPoolMFAConfig
-    , SetUserPoolMFAConfig
+  ( -- * Creating a Request
+    setUserPoolMFAConfig,
+    SetUserPoolMFAConfig,
+
     -- * Request Lenses
-    , supmcSmsMFAConfiguration
-    , supmcSoftwareTokenMFAConfiguration
-    , supmcMFAConfiguration
-    , supmcUserPoolId
+    supmcSmsMFAConfiguration,
+    supmcSoftwareTokenMFAConfiguration,
+    supmcMFAConfiguration,
+    supmcUserPoolId,
 
     -- * Destructuring the Response
-    , setUserPoolMFAConfigResponse
-    , SetUserPoolMFAConfigResponse
+    setUserPoolMFAConfigResponse,
+    SetUserPoolMFAConfigResponse,
+
     -- * Response Lenses
-    , supmcrsSmsMFAConfiguration
-    , supmcrsSoftwareTokenMFAConfiguration
-    , supmcrsMFAConfiguration
-    , supmcrsResponseStatus
-    ) where
+    supmcrsSmsMFAConfiguration,
+    supmcrsSoftwareTokenMFAConfiguration,
+    supmcrsMFAConfiguration,
+    supmcrsResponseStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
@@ -51,12 +49,15 @@ import Network.AWS.Response
 
 -- | /See:/ 'setUserPoolMFAConfig' smart constructor.
 data SetUserPoolMFAConfig = SetUserPoolMFAConfig'
-  { _supmcSmsMFAConfiguration           :: !(Maybe SmsMFAConfigType)
-  , _supmcSoftwareTokenMFAConfiguration :: !(Maybe SoftwareTokenMFAConfigType)
-  , _supmcMFAConfiguration              :: !(Maybe UserPoolMFAType)
-  , _supmcUserPoolId                    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _supmcSmsMFAConfiguration ::
+      !(Maybe SmsMFAConfigType),
+    _supmcSoftwareTokenMFAConfiguration ::
+      !(Maybe SoftwareTokenMFAConfigType),
+    _supmcMFAConfiguration ::
+      !(Maybe UserPoolMFAType),
+    _supmcUserPoolId :: !Text
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'SetUserPoolMFAConfig' with the minimum fields required to make a request.
 --
@@ -66,89 +67,97 @@ data SetUserPoolMFAConfig = SetUserPoolMFAConfig'
 --
 -- * 'supmcSoftwareTokenMFAConfiguration' - The software token MFA configuration.
 --
--- * 'supmcMFAConfiguration' - The MFA configuration.
+-- * 'supmcMFAConfiguration' - The MFA configuration. Valid values include:     * @OFF@ MFA will not be used for any users.     * @ON@ MFA is required for all users to sign in.     * @OPTIONAL@ MFA will be required only for individual users who have an MFA factor enabled.
 --
 -- * 'supmcUserPoolId' - The user pool ID.
-setUserPoolMFAConfig
-    :: Text -- ^ 'supmcUserPoolId'
-    -> SetUserPoolMFAConfig
+setUserPoolMFAConfig ::
+  -- | 'supmcUserPoolId'
+  Text ->
+  SetUserPoolMFAConfig
 setUserPoolMFAConfig pUserPoolId_ =
   SetUserPoolMFAConfig'
-    { _supmcSmsMFAConfiguration = Nothing
-    , _supmcSoftwareTokenMFAConfiguration = Nothing
-    , _supmcMFAConfiguration = Nothing
-    , _supmcUserPoolId = pUserPoolId_
+    { _supmcSmsMFAConfiguration = Nothing,
+      _supmcSoftwareTokenMFAConfiguration = Nothing,
+      _supmcMFAConfiguration = Nothing,
+      _supmcUserPoolId = pUserPoolId_
     }
-
 
 -- | The SMS text message MFA configuration.
 supmcSmsMFAConfiguration :: Lens' SetUserPoolMFAConfig (Maybe SmsMFAConfigType)
-supmcSmsMFAConfiguration = lens _supmcSmsMFAConfiguration (\ s a -> s{_supmcSmsMFAConfiguration = a})
+supmcSmsMFAConfiguration = lens _supmcSmsMFAConfiguration (\s a -> s {_supmcSmsMFAConfiguration = a})
 
 -- | The software token MFA configuration.
 supmcSoftwareTokenMFAConfiguration :: Lens' SetUserPoolMFAConfig (Maybe SoftwareTokenMFAConfigType)
-supmcSoftwareTokenMFAConfiguration = lens _supmcSoftwareTokenMFAConfiguration (\ s a -> s{_supmcSoftwareTokenMFAConfiguration = a})
+supmcSoftwareTokenMFAConfiguration = lens _supmcSoftwareTokenMFAConfiguration (\s a -> s {_supmcSoftwareTokenMFAConfiguration = a})
 
--- | The MFA configuration.
+-- | The MFA configuration. Valid values include:     * @OFF@ MFA will not be used for any users.     * @ON@ MFA is required for all users to sign in.     * @OPTIONAL@ MFA will be required only for individual users who have an MFA factor enabled.
 supmcMFAConfiguration :: Lens' SetUserPoolMFAConfig (Maybe UserPoolMFAType)
-supmcMFAConfiguration = lens _supmcMFAConfiguration (\ s a -> s{_supmcMFAConfiguration = a})
+supmcMFAConfiguration = lens _supmcMFAConfiguration (\s a -> s {_supmcMFAConfiguration = a})
 
 -- | The user pool ID.
 supmcUserPoolId :: Lens' SetUserPoolMFAConfig Text
-supmcUserPoolId = lens _supmcUserPoolId (\ s a -> s{_supmcUserPoolId = a})
+supmcUserPoolId = lens _supmcUserPoolId (\s a -> s {_supmcUserPoolId = a})
 
 instance AWSRequest SetUserPoolMFAConfig where
-        type Rs SetUserPoolMFAConfig =
-             SetUserPoolMFAConfigResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveJSON
-              (\ s h x ->
-                 SetUserPoolMFAConfigResponse' <$>
-                   (x .?> "SmsMfaConfiguration") <*>
-                     (x .?> "SoftwareTokenMfaConfiguration")
-                     <*> (x .?> "MfaConfiguration")
-                     <*> (pure (fromEnum s)))
+  type Rs SetUserPoolMFAConfig = SetUserPoolMFAConfigResponse
+  request = postJSON cognitoIdentityProvider
+  response =
+    receiveJSON
+      ( \s h x ->
+          SetUserPoolMFAConfigResponse'
+            <$> (x .?> "SmsMfaConfiguration")
+            <*> (x .?> "SoftwareTokenMfaConfiguration")
+            <*> (x .?> "MfaConfiguration")
+            <*> (pure (fromEnum s))
+      )
 
-instance Hashable SetUserPoolMFAConfig where
+instance Hashable SetUserPoolMFAConfig
 
-instance NFData SetUserPoolMFAConfig where
+instance NFData SetUserPoolMFAConfig
 
 instance ToHeaders SetUserPoolMFAConfig where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.SetUserPoolMfaConfig"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target"
+              =# ( "AWSCognitoIdentityProviderService.SetUserPoolMfaConfig" ::
+                     ByteString
+                 ),
+            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+          ]
+      )
 
 instance ToJSON SetUserPoolMFAConfig where
-        toJSON SetUserPoolMFAConfig'{..}
-          = object
-              (catMaybes
-                 [("SmsMfaConfiguration" .=) <$>
-                    _supmcSmsMFAConfiguration,
-                  ("SoftwareTokenMfaConfiguration" .=) <$>
-                    _supmcSoftwareTokenMFAConfiguration,
-                  ("MfaConfiguration" .=) <$> _supmcMFAConfiguration,
-                  Just ("UserPoolId" .= _supmcUserPoolId)])
+  toJSON SetUserPoolMFAConfig' {..} =
+    object
+      ( catMaybes
+          [ ("SmsMfaConfiguration" .=) <$> _supmcSmsMFAConfiguration,
+            ("SoftwareTokenMfaConfiguration" .=)
+              <$> _supmcSoftwareTokenMFAConfiguration,
+            ("MfaConfiguration" .=) <$> _supmcMFAConfiguration,
+            Just ("UserPoolId" .= _supmcUserPoolId)
+          ]
+      )
 
 instance ToPath SetUserPoolMFAConfig where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery SetUserPoolMFAConfig where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | /See:/ 'setUserPoolMFAConfigResponse' smart constructor.
 data SetUserPoolMFAConfigResponse = SetUserPoolMFAConfigResponse'
-  { _supmcrsSmsMFAConfiguration           :: !(Maybe SmsMFAConfigType)
-  , _supmcrsSoftwareTokenMFAConfiguration :: !(Maybe SoftwareTokenMFAConfigType)
-  , _supmcrsMFAConfiguration              :: !(Maybe UserPoolMFAType)
-  , _supmcrsResponseStatus                :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _supmcrsSmsMFAConfiguration ::
+      !(Maybe SmsMFAConfigType),
+    _supmcrsSoftwareTokenMFAConfiguration ::
+      !( Maybe
+           SoftwareTokenMFAConfigType
+       ),
+    _supmcrsMFAConfiguration ::
+      !(Maybe UserPoolMFAType),
+    _supmcrsResponseStatus :: !Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'SetUserPoolMFAConfigResponse' with the minimum fields required to make a request.
 --
@@ -158,35 +167,36 @@ data SetUserPoolMFAConfigResponse = SetUserPoolMFAConfigResponse'
 --
 -- * 'supmcrsSoftwareTokenMFAConfiguration' - The software token MFA configuration.
 --
--- * 'supmcrsMFAConfiguration' - The MFA configuration.
+-- * 'supmcrsMFAConfiguration' - The MFA configuration. Valid values include:     * @OFF@ MFA will not be used for any users.     * @ON@ MFA is required for all users to sign in.     * @OPTIONAL@ MFA will be required only for individual users who have an MFA factor enabled.
 --
 -- * 'supmcrsResponseStatus' - -- | The response status code.
-setUserPoolMFAConfigResponse
-    :: Int -- ^ 'supmcrsResponseStatus'
-    -> SetUserPoolMFAConfigResponse
+setUserPoolMFAConfigResponse ::
+  -- | 'supmcrsResponseStatus'
+  Int ->
+  SetUserPoolMFAConfigResponse
 setUserPoolMFAConfigResponse pResponseStatus_ =
   SetUserPoolMFAConfigResponse'
-    { _supmcrsSmsMFAConfiguration = Nothing
-    , _supmcrsSoftwareTokenMFAConfiguration = Nothing
-    , _supmcrsMFAConfiguration = Nothing
-    , _supmcrsResponseStatus = pResponseStatus_
+    { _supmcrsSmsMFAConfiguration =
+        Nothing,
+      _supmcrsSoftwareTokenMFAConfiguration = Nothing,
+      _supmcrsMFAConfiguration = Nothing,
+      _supmcrsResponseStatus = pResponseStatus_
     }
-
 
 -- | The SMS text message MFA configuration.
 supmcrsSmsMFAConfiguration :: Lens' SetUserPoolMFAConfigResponse (Maybe SmsMFAConfigType)
-supmcrsSmsMFAConfiguration = lens _supmcrsSmsMFAConfiguration (\ s a -> s{_supmcrsSmsMFAConfiguration = a})
+supmcrsSmsMFAConfiguration = lens _supmcrsSmsMFAConfiguration (\s a -> s {_supmcrsSmsMFAConfiguration = a})
 
 -- | The software token MFA configuration.
 supmcrsSoftwareTokenMFAConfiguration :: Lens' SetUserPoolMFAConfigResponse (Maybe SoftwareTokenMFAConfigType)
-supmcrsSoftwareTokenMFAConfiguration = lens _supmcrsSoftwareTokenMFAConfiguration (\ s a -> s{_supmcrsSoftwareTokenMFAConfiguration = a})
+supmcrsSoftwareTokenMFAConfiguration = lens _supmcrsSoftwareTokenMFAConfiguration (\s a -> s {_supmcrsSoftwareTokenMFAConfiguration = a})
 
--- | The MFA configuration.
+-- | The MFA configuration. Valid values include:     * @OFF@ MFA will not be used for any users.     * @ON@ MFA is required for all users to sign in.     * @OPTIONAL@ MFA will be required only for individual users who have an MFA factor enabled.
 supmcrsMFAConfiguration :: Lens' SetUserPoolMFAConfigResponse (Maybe UserPoolMFAType)
-supmcrsMFAConfiguration = lens _supmcrsMFAConfiguration (\ s a -> s{_supmcrsMFAConfiguration = a})
+supmcrsMFAConfiguration = lens _supmcrsMFAConfiguration (\s a -> s {_supmcrsMFAConfiguration = a})
 
 -- | -- | The response status code.
 supmcrsResponseStatus :: Lens' SetUserPoolMFAConfigResponse Int
-supmcrsResponseStatus = lens _supmcrsResponseStatus (\ s a -> s{_supmcrsResponseStatus = a})
+supmcrsResponseStatus = lens _supmcrsResponseStatus (\s a -> s {_supmcrsResponseStatus = a})
 
-instance NFData SetUserPoolMFAConfigResponse where
+instance NFData SetUserPoolMFAConfigResponse

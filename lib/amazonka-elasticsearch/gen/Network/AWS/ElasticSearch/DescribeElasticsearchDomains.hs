@@ -1,44 +1,42 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.DescribeElasticsearchDomains
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.
---
---
 module Network.AWS.ElasticSearch.DescribeElasticsearchDomains
-    (
-    -- * Creating a Request
-      describeElasticsearchDomains
-    , DescribeElasticsearchDomains
+  ( -- * Creating a Request
+    describeElasticsearchDomains,
+    DescribeElasticsearchDomains,
+
     -- * Request Lenses
-    , dedDomainNames
+    dedDomainNames,
 
     -- * Destructuring the Response
-    , describeElasticsearchDomainsResponse
-    , DescribeElasticsearchDomainsResponse
+    describeElasticsearchDomainsResponse,
+    DescribeElasticsearchDomainsResponse,
+
     -- * Response Lenses
-    , drsResponseStatus
-    , drsDomainStatusList
-    ) where
+    dedsrsResponseStatus,
+    dedsrsDomainStatusList,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types
-import Network.AWS.ElasticSearch.Types.Product
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
@@ -50,54 +48,53 @@ import Network.AWS.Response
 --
 -- /See:/ 'describeElasticsearchDomains' smart constructor.
 newtype DescribeElasticsearchDomains = DescribeElasticsearchDomains'
-  { _dedDomainNames :: [Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _dedDomainNames ::
+      [Text]
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'DescribeElasticsearchDomains' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dedDomainNames' - The Elasticsearch domains for which you want information.
-describeElasticsearchDomains
-    :: DescribeElasticsearchDomains
+describeElasticsearchDomains ::
+  DescribeElasticsearchDomains
 describeElasticsearchDomains =
   DescribeElasticsearchDomains' {_dedDomainNames = mempty}
 
-
 -- | The Elasticsearch domains for which you want information.
 dedDomainNames :: Lens' DescribeElasticsearchDomains [Text]
-dedDomainNames = lens _dedDomainNames (\ s a -> s{_dedDomainNames = a}) . _Coerce
+dedDomainNames = lens _dedDomainNames (\s a -> s {_dedDomainNames = a}) . _Coerce
 
-instance AWSRequest DescribeElasticsearchDomains
-         where
-        type Rs DescribeElasticsearchDomains =
-             DescribeElasticsearchDomainsResponse
-        request = postJSON elasticSearch
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeElasticsearchDomainsResponse' <$>
-                   (pure (fromEnum s)) <*>
-                     (x .?> "DomainStatusList" .!@ mempty))
+instance AWSRequest DescribeElasticsearchDomains where
+  type
+    Rs DescribeElasticsearchDomains =
+      DescribeElasticsearchDomainsResponse
+  request = postJSON elasticSearch
+  response =
+    receiveJSON
+      ( \s h x ->
+          DescribeElasticsearchDomainsResponse'
+            <$> (pure (fromEnum s)) <*> (x .?> "DomainStatusList" .!@ mempty)
+      )
 
-instance Hashable DescribeElasticsearchDomains where
+instance Hashable DescribeElasticsearchDomains
 
-instance NFData DescribeElasticsearchDomains where
+instance NFData DescribeElasticsearchDomains
 
 instance ToHeaders DescribeElasticsearchDomains where
-        toHeaders = const mempty
+  toHeaders = const mempty
 
 instance ToJSON DescribeElasticsearchDomains where
-        toJSON DescribeElasticsearchDomains'{..}
-          = object
-              (catMaybes [Just ("DomainNames" .= _dedDomainNames)])
+  toJSON DescribeElasticsearchDomains' {..} =
+    object (catMaybes [Just ("DomainNames" .= _dedDomainNames)])
 
 instance ToPath DescribeElasticsearchDomains where
-        toPath = const "/2015-01-01/es/domain-info"
+  toPath = const "/2015-01-01/es/domain-info"
 
 instance ToQuery DescribeElasticsearchDomains where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | The result of a @DescribeElasticsearchDomains@ request. Contains the status of the specified domains or all domains owned by the account.
 --
@@ -105,33 +102,37 @@ instance ToQuery DescribeElasticsearchDomains where
 --
 -- /See:/ 'describeElasticsearchDomainsResponse' smart constructor.
 data DescribeElasticsearchDomainsResponse = DescribeElasticsearchDomainsResponse'
-  { _drsResponseStatus   :: !Int
-  , _drsDomainStatusList :: ![ElasticsearchDomainStatus]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _dedsrsResponseStatus ::
+      !Int,
+    _dedsrsDomainStatusList ::
+      ![ElasticsearchDomainStatus]
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'DescribeElasticsearchDomainsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus' - -- | The response status code.
+-- * 'dedsrsResponseStatus' - -- | The response status code.
 --
--- * 'drsDomainStatusList' - The status of the domains requested in the @DescribeElasticsearchDomains@ request.
-describeElasticsearchDomainsResponse
-    :: Int -- ^ 'drsResponseStatus'
-    -> DescribeElasticsearchDomainsResponse
+-- * 'dedsrsDomainStatusList' - The status of the domains requested in the @DescribeElasticsearchDomains@ request.
+describeElasticsearchDomainsResponse ::
+  -- | 'dedsrsResponseStatus'
+  Int ->
+  DescribeElasticsearchDomainsResponse
 describeElasticsearchDomainsResponse pResponseStatus_ =
   DescribeElasticsearchDomainsResponse'
-    {_drsResponseStatus = pResponseStatus_, _drsDomainStatusList = mempty}
-
+    { _dedsrsResponseStatus =
+        pResponseStatus_,
+      _dedsrsDomainStatusList = mempty
+    }
 
 -- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeElasticsearchDomainsResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
+dedsrsResponseStatus :: Lens' DescribeElasticsearchDomainsResponse Int
+dedsrsResponseStatus = lens _dedsrsResponseStatus (\s a -> s {_dedsrsResponseStatus = a})
 
 -- | The status of the domains requested in the @DescribeElasticsearchDomains@ request.
-drsDomainStatusList :: Lens' DescribeElasticsearchDomainsResponse [ElasticsearchDomainStatus]
-drsDomainStatusList = lens _drsDomainStatusList (\ s a -> s{_drsDomainStatusList = a}) . _Coerce
+dedsrsDomainStatusList :: Lens' DescribeElasticsearchDomainsResponse [ElasticsearchDomainStatus]
+dedsrsDomainStatusList = lens _dedsrsDomainStatusList (\s a -> s {_dedsrsDomainStatusList = a}) . _Coerce
 
 instance NFData DescribeElasticsearchDomainsResponse
-         where

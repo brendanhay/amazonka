@@ -1,18 +1,17 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminListUserAuthEvents
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -21,41 +20,46 @@
 -- Lists a history of user activity and any risks detected as part of Amazon Cognito advanced security.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CognitoIdentityProvider.AdminListUserAuthEvents
-    (
-    -- * Creating a Request
-      adminListUserAuthEvents
-    , AdminListUserAuthEvents
+  ( -- * Creating a Request
+    adminListUserAuthEvents,
+    AdminListUserAuthEvents,
+
     -- * Request Lenses
-    , aluaeNextToken
-    , aluaeMaxResults
-    , aluaeUserPoolId
-    , aluaeUsername
+    aluaeNextToken,
+    aluaeMaxResults,
+    aluaeUserPoolId,
+    aluaeUsername,
 
     -- * Destructuring the Response
-    , adminListUserAuthEventsResponse
-    , AdminListUserAuthEventsResponse
+    adminListUserAuthEventsResponse,
+    AdminListUserAuthEventsResponse,
+
     -- * Response Lenses
-    , aluaersNextToken
-    , aluaersAuthEvents
-    , aluaersResponseStatus
-    ) where
+    aluaersNextToken,
+    aluaersAuthEvents,
+    aluaersResponseStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
 import Network.AWS.Lens
+import Network.AWS.Pager
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 
 -- | /See:/ 'adminListUserAuthEvents' smart constructor.
 data AdminListUserAuthEvents = AdminListUserAuthEvents'
-  { _aluaeNextToken  :: !(Maybe Text)
-  , _aluaeMaxResults :: !(Maybe Nat)
-  , _aluaeUserPoolId :: !Text
-  , _aluaeUsername   :: !(Sensitive Text)
-  } deriving (Eq, Show, Data, Typeable, Generic)
-
+  { _aluaeNextToken ::
+      !(Maybe Text),
+    _aluaeMaxResults :: !(Maybe Nat),
+    _aluaeUserPoolId :: !Text,
+    _aluaeUsername :: !(Sensitive Text)
+  }
+  deriving (Eq, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'AdminListUserAuthEvents' with the minimum fields required to make a request.
 --
@@ -68,83 +72,97 @@ data AdminListUserAuthEvents = AdminListUserAuthEvents'
 -- * 'aluaeUserPoolId' - The user pool ID.
 --
 -- * 'aluaeUsername' - The user pool username or an alias.
-adminListUserAuthEvents
-    :: Text -- ^ 'aluaeUserPoolId'
-    -> Text -- ^ 'aluaeUsername'
-    -> AdminListUserAuthEvents
+adminListUserAuthEvents ::
+  -- | 'aluaeUserPoolId'
+  Text ->
+  -- | 'aluaeUsername'
+  Text ->
+  AdminListUserAuthEvents
 adminListUserAuthEvents pUserPoolId_ pUsername_ =
   AdminListUserAuthEvents'
-    { _aluaeNextToken = Nothing
-    , _aluaeMaxResults = Nothing
-    , _aluaeUserPoolId = pUserPoolId_
-    , _aluaeUsername = _Sensitive # pUsername_
+    { _aluaeNextToken = Nothing,
+      _aluaeMaxResults = Nothing,
+      _aluaeUserPoolId = pUserPoolId_,
+      _aluaeUsername = _Sensitive # pUsername_
     }
-
 
 -- | A pagination token.
 aluaeNextToken :: Lens' AdminListUserAuthEvents (Maybe Text)
-aluaeNextToken = lens _aluaeNextToken (\ s a -> s{_aluaeNextToken = a})
+aluaeNextToken = lens _aluaeNextToken (\s a -> s {_aluaeNextToken = a})
 
 -- | The maximum number of authentication events to return.
 aluaeMaxResults :: Lens' AdminListUserAuthEvents (Maybe Natural)
-aluaeMaxResults = lens _aluaeMaxResults (\ s a -> s{_aluaeMaxResults = a}) . mapping _Nat
+aluaeMaxResults = lens _aluaeMaxResults (\s a -> s {_aluaeMaxResults = a}) . mapping _Nat
 
 -- | The user pool ID.
 aluaeUserPoolId :: Lens' AdminListUserAuthEvents Text
-aluaeUserPoolId = lens _aluaeUserPoolId (\ s a -> s{_aluaeUserPoolId = a})
+aluaeUserPoolId = lens _aluaeUserPoolId (\s a -> s {_aluaeUserPoolId = a})
 
 -- | The user pool username or an alias.
 aluaeUsername :: Lens' AdminListUserAuthEvents Text
-aluaeUsername = lens _aluaeUsername (\ s a -> s{_aluaeUsername = a}) . _Sensitive
+aluaeUsername = lens _aluaeUsername (\s a -> s {_aluaeUsername = a}) . _Sensitive
+
+instance AWSPager AdminListUserAuthEvents where
+  page rq rs
+    | stop (rs ^. aluaersNextToken) = Nothing
+    | stop (rs ^. aluaersAuthEvents) = Nothing
+    | otherwise = Just $ rq & aluaeNextToken .~ rs ^. aluaersNextToken
 
 instance AWSRequest AdminListUserAuthEvents where
-        type Rs AdminListUserAuthEvents =
-             AdminListUserAuthEventsResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveJSON
-              (\ s h x ->
-                 AdminListUserAuthEventsResponse' <$>
-                   (x .?> "NextToken") <*>
-                     (x .?> "AuthEvents" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+  type Rs AdminListUserAuthEvents = AdminListUserAuthEventsResponse
+  request = postJSON cognitoIdentityProvider
+  response =
+    receiveJSON
+      ( \s h x ->
+          AdminListUserAuthEventsResponse'
+            <$> (x .?> "NextToken")
+            <*> (x .?> "AuthEvents" .!@ mempty)
+            <*> (pure (fromEnum s))
+      )
 
-instance Hashable AdminListUserAuthEvents where
+instance Hashable AdminListUserAuthEvents
 
-instance NFData AdminListUserAuthEvents where
+instance NFData AdminListUserAuthEvents
 
 instance ToHeaders AdminListUserAuthEvents where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.AdminListUserAuthEvents"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target"
+              =# ( "AWSCognitoIdentityProviderService.AdminListUserAuthEvents" ::
+                     ByteString
+                 ),
+            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+          ]
+      )
 
 instance ToJSON AdminListUserAuthEvents where
-        toJSON AdminListUserAuthEvents'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _aluaeNextToken,
-                  ("MaxResults" .=) <$> _aluaeMaxResults,
-                  Just ("UserPoolId" .= _aluaeUserPoolId),
-                  Just ("Username" .= _aluaeUsername)])
+  toJSON AdminListUserAuthEvents' {..} =
+    object
+      ( catMaybes
+          [ ("NextToken" .=) <$> _aluaeNextToken,
+            ("MaxResults" .=) <$> _aluaeMaxResults,
+            Just ("UserPoolId" .= _aluaeUserPoolId),
+            Just ("Username" .= _aluaeUsername)
+          ]
+      )
 
 instance ToPath AdminListUserAuthEvents where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery AdminListUserAuthEvents where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | /See:/ 'adminListUserAuthEventsResponse' smart constructor.
 data AdminListUserAuthEventsResponse = AdminListUserAuthEventsResponse'
-  { _aluaersNextToken      :: !(Maybe Text)
-  , _aluaersAuthEvents     :: !(Maybe [AuthEventType])
-  , _aluaersResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _aluaersNextToken ::
+      !(Maybe Text),
+    _aluaersAuthEvents ::
+      !(Maybe [AuthEventType]),
+    _aluaersResponseStatus ::
+      !Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'AdminListUserAuthEventsResponse' with the minimum fields required to make a request.
 --
@@ -155,27 +173,27 @@ data AdminListUserAuthEventsResponse = AdminListUserAuthEventsResponse'
 -- * 'aluaersAuthEvents' - The response object. It includes the @EventID@ , @EventType@ , @CreationDate@ , @EventRisk@ , and @EventResponse@ .
 --
 -- * 'aluaersResponseStatus' - -- | The response status code.
-adminListUserAuthEventsResponse
-    :: Int -- ^ 'aluaersResponseStatus'
-    -> AdminListUserAuthEventsResponse
+adminListUserAuthEventsResponse ::
+  -- | 'aluaersResponseStatus'
+  Int ->
+  AdminListUserAuthEventsResponse
 adminListUserAuthEventsResponse pResponseStatus_ =
   AdminListUserAuthEventsResponse'
-    { _aluaersNextToken = Nothing
-    , _aluaersAuthEvents = Nothing
-    , _aluaersResponseStatus = pResponseStatus_
+    { _aluaersNextToken = Nothing,
+      _aluaersAuthEvents = Nothing,
+      _aluaersResponseStatus = pResponseStatus_
     }
-
 
 -- | A pagination token.
 aluaersNextToken :: Lens' AdminListUserAuthEventsResponse (Maybe Text)
-aluaersNextToken = lens _aluaersNextToken (\ s a -> s{_aluaersNextToken = a})
+aluaersNextToken = lens _aluaersNextToken (\s a -> s {_aluaersNextToken = a})
 
 -- | The response object. It includes the @EventID@ , @EventType@ , @CreationDate@ , @EventRisk@ , and @EventResponse@ .
 aluaersAuthEvents :: Lens' AdminListUserAuthEventsResponse [AuthEventType]
-aluaersAuthEvents = lens _aluaersAuthEvents (\ s a -> s{_aluaersAuthEvents = a}) . _Default . _Coerce
+aluaersAuthEvents = lens _aluaersAuthEvents (\s a -> s {_aluaersAuthEvents = a}) . _Default . _Coerce
 
 -- | -- | The response status code.
 aluaersResponseStatus :: Lens' AdminListUserAuthEventsResponse Int
-aluaersResponseStatus = lens _aluaersResponseStatus (\ s a -> s{_aluaersResponseStatus = a})
+aluaersResponseStatus = lens _aluaersResponseStatus (\s a -> s {_aluaersResponseStatus = a})
 
-instance NFData AdminListUserAuthEventsResponse where
+instance NFData AdminListUserAuthEventsResponse

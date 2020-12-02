@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.IAM
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.IAM
-import           Test.AWS.Gen.IAM
-import           Test.Tasty
+import Network.AWS.IAM
+import Test.AWS.Gen.IAM
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

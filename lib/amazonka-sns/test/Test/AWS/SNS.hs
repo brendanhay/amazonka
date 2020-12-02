@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.SNS
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.SNS
-import           Test.AWS.Gen.SNS
-import           Test.Tasty
+import Network.AWS.SNS
+import Test.AWS.Gen.SNS
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

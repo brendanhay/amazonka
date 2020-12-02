@@ -1,18 +1,17 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.PutComplianceItems
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -52,50 +51,53 @@
 --     * PatchGroup: The name of a patch group.
 --
 --     * InstalledTime: The time the association, patch, or custom compliance item was applied to the resource. Specify the time by using the following format: yyyy-MM-dd'T'HH:mm:ss'Z'
---
---
---
 module Network.AWS.SSM.PutComplianceItems
-    (
-    -- * Creating a Request
-      putComplianceItems
-    , PutComplianceItems
+  ( -- * Creating a Request
+    putComplianceItems,
+    PutComplianceItems,
+
     -- * Request Lenses
-    , pciItemContentHash
-    , pciResourceId
-    , pciResourceType
-    , pciComplianceType
-    , pciExecutionSummary
-    , pciItems
+    pciUploadType,
+    pciItemContentHash,
+    pciResourceId,
+    pciResourceType,
+    pciComplianceType,
+    pciExecutionSummary,
+    pciItems,
 
     -- * Destructuring the Response
-    , putComplianceItemsResponse
-    , PutComplianceItemsResponse
+    putComplianceItemsResponse,
+    PutComplianceItemsResponse,
+
     -- * Response Lenses
-    , pcirsResponseStatus
-    ) where
+    pcirsResponseStatus,
+  )
+where
 
 import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'putComplianceItems' smart constructor.
 data PutComplianceItems = PutComplianceItems'
-  { _pciItemContentHash  :: !(Maybe Text)
-  , _pciResourceId       :: !Text
-  , _pciResourceType     :: !Text
-  , _pciComplianceType   :: !Text
-  , _pciExecutionSummary :: !ComplianceExecutionSummary
-  , _pciItems            :: ![ComplianceItemEntry]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _pciUploadType ::
+      !(Maybe ComplianceUploadType),
+    _pciItemContentHash :: !(Maybe Text),
+    _pciResourceId :: !Text,
+    _pciResourceType :: !Text,
+    _pciComplianceType :: !Text,
+    _pciExecutionSummary :: !ComplianceExecutionSummary,
+    _pciItems :: ![ComplianceItemEntry]
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'PutComplianceItems' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pciUploadType' - The mode for uploading compliance items. You can specify @COMPLETE@ or @PARTIAL@ . In @COMPLETE@ mode, the system overwrites all existing compliance information for the resource. You must provide a full list of compliance items each time you send the request. In @PARTIAL@ mode, the system overwrites compliance information for a specific association. The association must be configured with @SyncCompliance@ set to @MANUAL@ . By default, all requests use @COMPLETE@ mode.
 --
 -- * 'pciItemContentHash' - MD5 or SHA-256 content hash. The content hash is used to determine if existing information should be overwritten or ignored. If the content hashes match, the request to put compliance information is ignored.
 --
@@ -107,107 +109,124 @@ data PutComplianceItems = PutComplianceItems'
 --
 -- * 'pciExecutionSummary' - A summary of the call execution that includes an execution ID, the type of execution (for example, @Command@ ), and the date/time of the execution using a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
 --
--- * 'pciItems' - Information about the compliance as defined by the resource type. For example, for a patch compliance type, @Items@ includes information about the PatchSeverity, Classification, etc.
+-- * 'pciItems' - Information about the compliance as defined by the resource type. For example, for a patch compliance type, @Items@ includes information about the PatchSeverity, Classification, and so on.
+putComplianceItems ::
+  -- | 'pciResourceId'
+  Text ->
+  -- | 'pciResourceType'
+  Text ->
+  -- | 'pciComplianceType'
+  Text ->
+  -- | 'pciExecutionSummary'
+  ComplianceExecutionSummary ->
+  PutComplianceItems
 putComplianceItems
-    :: Text -- ^ 'pciResourceId'
-    -> Text -- ^ 'pciResourceType'
-    -> Text -- ^ 'pciComplianceType'
-    -> ComplianceExecutionSummary -- ^ 'pciExecutionSummary'
-    -> PutComplianceItems
-putComplianceItems pResourceId_ pResourceType_ pComplianceType_ pExecutionSummary_ =
-  PutComplianceItems'
-    { _pciItemContentHash = Nothing
-    , _pciResourceId = pResourceId_
-    , _pciResourceType = pResourceType_
-    , _pciComplianceType = pComplianceType_
-    , _pciExecutionSummary = pExecutionSummary_
-    , _pciItems = mempty
-    }
+  pResourceId_
+  pResourceType_
+  pComplianceType_
+  pExecutionSummary_ =
+    PutComplianceItems'
+      { _pciUploadType = Nothing,
+        _pciItemContentHash = Nothing,
+        _pciResourceId = pResourceId_,
+        _pciResourceType = pResourceType_,
+        _pciComplianceType = pComplianceType_,
+        _pciExecutionSummary = pExecutionSummary_,
+        _pciItems = mempty
+      }
 
+-- | The mode for uploading compliance items. You can specify @COMPLETE@ or @PARTIAL@ . In @COMPLETE@ mode, the system overwrites all existing compliance information for the resource. You must provide a full list of compliance items each time you send the request. In @PARTIAL@ mode, the system overwrites compliance information for a specific association. The association must be configured with @SyncCompliance@ set to @MANUAL@ . By default, all requests use @COMPLETE@ mode.
+pciUploadType :: Lens' PutComplianceItems (Maybe ComplianceUploadType)
+pciUploadType = lens _pciUploadType (\s a -> s {_pciUploadType = a})
 
 -- | MD5 or SHA-256 content hash. The content hash is used to determine if existing information should be overwritten or ignored. If the content hashes match, the request to put compliance information is ignored.
 pciItemContentHash :: Lens' PutComplianceItems (Maybe Text)
-pciItemContentHash = lens _pciItemContentHash (\ s a -> s{_pciItemContentHash = a})
+pciItemContentHash = lens _pciItemContentHash (\s a -> s {_pciItemContentHash = a})
 
 -- | Specify an ID for this resource. For a managed instance, this is the instance ID.
 pciResourceId :: Lens' PutComplianceItems Text
-pciResourceId = lens _pciResourceId (\ s a -> s{_pciResourceId = a})
+pciResourceId = lens _pciResourceId (\s a -> s {_pciResourceId = a})
 
 -- | Specify the type of resource. @ManagedInstance@ is currently the only supported resource type.
 pciResourceType :: Lens' PutComplianceItems Text
-pciResourceType = lens _pciResourceType (\ s a -> s{_pciResourceType = a})
+pciResourceType = lens _pciResourceType (\s a -> s {_pciResourceType = a})
 
 -- | Specify the compliance type. For example, specify Association (for a State Manager association), Patch, or Custom:@string@ .
 pciComplianceType :: Lens' PutComplianceItems Text
-pciComplianceType = lens _pciComplianceType (\ s a -> s{_pciComplianceType = a})
+pciComplianceType = lens _pciComplianceType (\s a -> s {_pciComplianceType = a})
 
 -- | A summary of the call execution that includes an execution ID, the type of execution (for example, @Command@ ), and the date/time of the execution using a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
 pciExecutionSummary :: Lens' PutComplianceItems ComplianceExecutionSummary
-pciExecutionSummary = lens _pciExecutionSummary (\ s a -> s{_pciExecutionSummary = a})
+pciExecutionSummary = lens _pciExecutionSummary (\s a -> s {_pciExecutionSummary = a})
 
--- | Information about the compliance as defined by the resource type. For example, for a patch compliance type, @Items@ includes information about the PatchSeverity, Classification, etc.
+-- | Information about the compliance as defined by the resource type. For example, for a patch compliance type, @Items@ includes information about the PatchSeverity, Classification, and so on.
 pciItems :: Lens' PutComplianceItems [ComplianceItemEntry]
-pciItems = lens _pciItems (\ s a -> s{_pciItems = a}) . _Coerce
+pciItems = lens _pciItems (\s a -> s {_pciItems = a}) . _Coerce
 
 instance AWSRequest PutComplianceItems where
-        type Rs PutComplianceItems =
-             PutComplianceItemsResponse
-        request = postJSON ssm
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 PutComplianceItemsResponse' <$> (pure (fromEnum s)))
+  type Rs PutComplianceItems = PutComplianceItemsResponse
+  request = postJSON ssm
+  response =
+    receiveEmpty
+      (\s h x -> PutComplianceItemsResponse' <$> (pure (fromEnum s)))
 
-instance Hashable PutComplianceItems where
+instance Hashable PutComplianceItems
 
-instance NFData PutComplianceItems where
+instance NFData PutComplianceItems
 
 instance ToHeaders PutComplianceItems where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.PutComplianceItems" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+  toHeaders =
+    const
+      ( mconcat
+          [ "X-Amz-Target" =# ("AmazonSSM.PutComplianceItems" :: ByteString),
+            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+          ]
+      )
 
 instance ToJSON PutComplianceItems where
-        toJSON PutComplianceItems'{..}
-          = object
-              (catMaybes
-                 [("ItemContentHash" .=) <$> _pciItemContentHash,
-                  Just ("ResourceId" .= _pciResourceId),
-                  Just ("ResourceType" .= _pciResourceType),
-                  Just ("ComplianceType" .= _pciComplianceType),
-                  Just ("ExecutionSummary" .= _pciExecutionSummary),
-                  Just ("Items" .= _pciItems)])
+  toJSON PutComplianceItems' {..} =
+    object
+      ( catMaybes
+          [ ("UploadType" .=) <$> _pciUploadType,
+            ("ItemContentHash" .=) <$> _pciItemContentHash,
+            Just ("ResourceId" .= _pciResourceId),
+            Just ("ResourceType" .= _pciResourceType),
+            Just ("ComplianceType" .= _pciComplianceType),
+            Just ("ExecutionSummary" .= _pciExecutionSummary),
+            Just ("Items" .= _pciItems)
+          ]
+      )
 
 instance ToPath PutComplianceItems where
-        toPath = const "/"
+  toPath = const "/"
 
 instance ToQuery PutComplianceItems where
-        toQuery = const mempty
+  toQuery = const mempty
 
 -- | /See:/ 'putComplianceItemsResponse' smart constructor.
 newtype PutComplianceItemsResponse = PutComplianceItemsResponse'
-  { _pcirsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
+  { _pcirsResponseStatus ::
+      Int
+  }
+  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 -- | Creates a value of 'PutComplianceItemsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pcirsResponseStatus' - -- | The response status code.
-putComplianceItemsResponse
-    :: Int -- ^ 'pcirsResponseStatus'
-    -> PutComplianceItemsResponse
+putComplianceItemsResponse ::
+  -- | 'pcirsResponseStatus'
+  Int ->
+  PutComplianceItemsResponse
 putComplianceItemsResponse pResponseStatus_ =
-  PutComplianceItemsResponse' {_pcirsResponseStatus = pResponseStatus_}
-
+  PutComplianceItemsResponse'
+    { _pcirsResponseStatus =
+        pResponseStatus_
+    }
 
 -- | -- | The response status code.
 pcirsResponseStatus :: Lens' PutComplianceItemsResponse Int
-pcirsResponseStatus = lens _pcirsResponseStatus (\ s a -> s{_pcirsResponseStatus = a})
+pcirsResponseStatus = lens _pcirsResponseStatus (\s a -> s {_pcirsResponseStatus = a})
 
-instance NFData PutComplianceItemsResponse where
+instance NFData PutComplianceItemsResponse

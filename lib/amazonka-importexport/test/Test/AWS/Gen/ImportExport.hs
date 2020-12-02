@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.ImportExport
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.ImportExport where
 
 import Data.Proxy
@@ -73,74 +72,86 @@ import Test.Tasty
 -- Requests
 
 requestGetShippingLabel :: GetShippingLabel -> TestTree
-requestGetShippingLabel = req
+requestGetShippingLabel =
+  req
     "GetShippingLabel"
     "fixture/GetShippingLabel.yaml"
 
 requestCreateJob :: CreateJob -> TestTree
-requestCreateJob = req
+requestCreateJob =
+  req
     "CreateJob"
     "fixture/CreateJob.yaml"
 
 requestListJobs :: ListJobs -> TestTree
-requestListJobs = req
+requestListJobs =
+  req
     "ListJobs"
     "fixture/ListJobs.yaml"
 
 requestUpdateJob :: UpdateJob -> TestTree
-requestUpdateJob = req
+requestUpdateJob =
+  req
     "UpdateJob"
     "fixture/UpdateJob.yaml"
 
 requestGetStatus :: GetStatus -> TestTree
-requestGetStatus = req
+requestGetStatus =
+  req
     "GetStatus"
     "fixture/GetStatus.yaml"
 
 requestCancelJob :: CancelJob -> TestTree
-requestCancelJob = req
+requestCancelJob =
+  req
     "CancelJob"
     "fixture/CancelJob.yaml"
 
 -- Responses
 
 responseGetShippingLabel :: GetShippingLabelResponse -> TestTree
-responseGetShippingLabel = res
+responseGetShippingLabel =
+  res
     "GetShippingLabelResponse"
     "fixture/GetShippingLabelResponse.proto"
     importExport
     (Proxy :: Proxy GetShippingLabel)
 
 responseCreateJob :: CreateJobResponse -> TestTree
-responseCreateJob = res
+responseCreateJob =
+  res
     "CreateJobResponse"
     "fixture/CreateJobResponse.proto"
     importExport
     (Proxy :: Proxy CreateJob)
 
 responseListJobs :: ListJobsResponse -> TestTree
-responseListJobs = res
+responseListJobs =
+  res
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
     importExport
     (Proxy :: Proxy ListJobs)
 
 responseUpdateJob :: UpdateJobResponse -> TestTree
-responseUpdateJob = res
+responseUpdateJob =
+  res
     "UpdateJobResponse"
     "fixture/UpdateJobResponse.proto"
     importExport
     (Proxy :: Proxy UpdateJob)
 
 responseGetStatus :: GetStatusResponse -> TestTree
-responseGetStatus = res
+responseGetStatus =
+  res
     "GetStatusResponse"
     "fixture/GetStatusResponse.proto"
     importExport
     (Proxy :: Proxy GetStatus)
 
 responseCancelJob :: CancelJobResponse -> TestTree
-responseCancelJob = res
+responseCancelJob =
+  res
     "CancelJobResponse"
     "fixture/CancelJobResponse.proto"
     importExport

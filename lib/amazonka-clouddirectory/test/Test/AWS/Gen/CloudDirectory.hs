@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.CloudDirectory
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.CloudDirectory where
 
 import Data.Proxy
@@ -79,6 +78,9 @@ import Test.Tasty
 --         , requestListFacetAttributes $
 --             listFacetAttributes
 --
+--         , requestListManagedSchemaARNs $
+--             listManagedSchemaARNs
+--
 --         , requestUpdateTypedLinkFacet $
 --             updateTypedLinkFacet
 --
@@ -126,6 +128,9 @@ import Test.Tasty
 --
 --         , requestCreateFacet $
 --             createFacet
+--
+--         , requestGetLinkAttributes $
+--             getLinkAttributes
 --
 --         , requestGetObjectAttributes $
 --             getObjectAttributes
@@ -211,6 +216,9 @@ import Test.Tasty
 --         , requestPutSchemaFromJSON $
 --             putSchemaFromJSON
 --
+--         , requestUpdateLinkAttributes $
+--             updateLinkAttributes
+--
 --         , requestAttachToIndex $
 --             attachToIndex
 --
@@ -271,6 +279,9 @@ import Test.Tasty
 --         , responseListFacetAttributes $
 --             listFacetAttributesResponse
 --
+--         , responseListManagedSchemaARNs $
+--             listManagedSchemaARNsResponse
+--
 --         , responseUpdateTypedLinkFacet $
 --             updateTypedLinkFacetResponse
 --
@@ -318,6 +329,9 @@ import Test.Tasty
 --
 --         , responseCreateFacet $
 --             createFacetResponse
+--
+--         , responseGetLinkAttributes $
+--             getLinkAttributesResponse
 --
 --         , responseGetObjectAttributes $
 --             getObjectAttributesResponse
@@ -403,6 +417,9 @@ import Test.Tasty
 --         , responsePutSchemaFromJSON $
 --             putSchemaFromJSONResponse
 --
+--         , responseUpdateLinkAttributes $
+--             updateLinkAttributesResponse
+--
 --         , responseAttachToIndex $
 --             attachToIndexResponse
 --
@@ -415,758 +432,926 @@ import Test.Tasty
 -- Requests
 
 requestListTypedLinkFacetAttributes :: ListTypedLinkFacetAttributes -> TestTree
-requestListTypedLinkFacetAttributes = req
+requestListTypedLinkFacetAttributes =
+  req
     "ListTypedLinkFacetAttributes"
     "fixture/ListTypedLinkFacetAttributes.yaml"
 
 requestDeleteObject :: DeleteObject -> TestTree
-requestDeleteObject = req
+requestDeleteObject =
+  req
     "DeleteObject"
     "fixture/DeleteObject.yaml"
 
 requestListIndex :: ListIndex -> TestTree
-requestListIndex = req
+requestListIndex =
+  req
     "ListIndex"
     "fixture/ListIndex.yaml"
 
 requestUpgradeAppliedSchema :: UpgradeAppliedSchema -> TestTree
-requestUpgradeAppliedSchema = req
+requestUpgradeAppliedSchema =
+  req
     "UpgradeAppliedSchema"
     "fixture/UpgradeAppliedSchema.yaml"
 
 requestGetDirectory :: GetDirectory -> TestTree
-requestGetDirectory = req
+requestGetDirectory =
+  req
     "GetDirectory"
     "fixture/GetDirectory.yaml"
 
 requestGetObjectInformation :: GetObjectInformation -> TestTree
-requestGetObjectInformation = req
+requestGetObjectInformation =
+  req
     "GetObjectInformation"
     "fixture/GetObjectInformation.yaml"
 
 requestListAttachedIndices :: ListAttachedIndices -> TestTree
-requestListAttachedIndices = req
+requestListAttachedIndices =
+  req
     "ListAttachedIndices"
     "fixture/ListAttachedIndices.yaml"
 
 requestDetachFromIndex :: DetachFromIndex -> TestTree
-requestDetachFromIndex = req
+requestDetachFromIndex =
+  req
     "DetachFromIndex"
     "fixture/DetachFromIndex.yaml"
 
 requestLookupPolicy :: LookupPolicy -> TestTree
-requestLookupPolicy = req
+requestLookupPolicy =
+  req
     "LookupPolicy"
     "fixture/LookupPolicy.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource = req
+requestListTagsForResource =
+  req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
 requestListPublishedSchemaARNs :: ListPublishedSchemaARNs -> TestTree
-requestListPublishedSchemaARNs = req
+requestListPublishedSchemaARNs =
+  req
     "ListPublishedSchemaARNs"
     "fixture/ListPublishedSchemaARNs.yaml"
 
 requestListDirectories :: ListDirectories -> TestTree
-requestListDirectories = req
+requestListDirectories =
+  req
     "ListDirectories"
     "fixture/ListDirectories.yaml"
 
 requestCreateTypedLinkFacet :: CreateTypedLinkFacet -> TestTree
-requestCreateTypedLinkFacet = req
+requestCreateTypedLinkFacet =
+  req
     "CreateTypedLinkFacet"
     "fixture/CreateTypedLinkFacet.yaml"
 
 requestListObjectParentPaths :: ListObjectParentPaths -> TestTree
-requestListObjectParentPaths = req
+requestListObjectParentPaths =
+  req
     "ListObjectParentPaths"
     "fixture/ListObjectParentPaths.yaml"
 
 requestDisableDirectory :: DisableDirectory -> TestTree
-requestDisableDirectory = req
+requestDisableDirectory =
+  req
     "DisableDirectory"
     "fixture/DisableDirectory.yaml"
 
 requestCreateDirectory :: CreateDirectory -> TestTree
-requestCreateDirectory = req
+requestCreateDirectory =
+  req
     "CreateDirectory"
     "fixture/CreateDirectory.yaml"
 
 requestListFacetAttributes :: ListFacetAttributes -> TestTree
-requestListFacetAttributes = req
+requestListFacetAttributes =
+  req
     "ListFacetAttributes"
     "fixture/ListFacetAttributes.yaml"
 
+requestListManagedSchemaARNs :: ListManagedSchemaARNs -> TestTree
+requestListManagedSchemaARNs =
+  req
+    "ListManagedSchemaARNs"
+    "fixture/ListManagedSchemaARNs.yaml"
+
 requestUpdateTypedLinkFacet :: UpdateTypedLinkFacet -> TestTree
-requestUpdateTypedLinkFacet = req
+requestUpdateTypedLinkFacet =
+  req
     "UpdateTypedLinkFacet"
     "fixture/UpdateTypedLinkFacet.yaml"
 
 requestDeleteTypedLinkFacet :: DeleteTypedLinkFacet -> TestTree
-requestDeleteTypedLinkFacet = req
+requestDeleteTypedLinkFacet =
+  req
     "DeleteTypedLinkFacet"
     "fixture/DeleteTypedLinkFacet.yaml"
 
 requestGetAppliedSchemaVersion :: GetAppliedSchemaVersion -> TestTree
-requestGetAppliedSchemaVersion = req
+requestGetAppliedSchemaVersion =
+  req
     "GetAppliedSchemaVersion"
     "fixture/GetAppliedSchemaVersion.yaml"
 
 requestRemoveFacetFromObject :: RemoveFacetFromObject -> TestTree
-requestRemoveFacetFromObject = req
+requestRemoveFacetFromObject =
+  req
     "RemoveFacetFromObject"
     "fixture/RemoveFacetFromObject.yaml"
 
 requestEnableDirectory :: EnableDirectory -> TestTree
-requestEnableDirectory = req
+requestEnableDirectory =
+  req
     "EnableDirectory"
     "fixture/EnableDirectory.yaml"
 
 requestListObjectAttributes :: ListObjectAttributes -> TestTree
-requestListObjectAttributes = req
+requestListObjectAttributes =
+  req
     "ListObjectAttributes"
     "fixture/ListObjectAttributes.yaml"
 
 requestListAppliedSchemaARNs :: ListAppliedSchemaARNs -> TestTree
-requestListAppliedSchemaARNs = req
+requestListAppliedSchemaARNs =
+  req
     "ListAppliedSchemaARNs"
     "fixture/ListAppliedSchemaARNs.yaml"
 
 requestListIncomingTypedLinks :: ListIncomingTypedLinks -> TestTree
-requestListIncomingTypedLinks = req
+requestListIncomingTypedLinks =
+  req
     "ListIncomingTypedLinks"
     "fixture/ListIncomingTypedLinks.yaml"
 
 requestGetFacet :: GetFacet -> TestTree
-requestGetFacet = req
+requestGetFacet =
+  req
     "GetFacet"
     "fixture/GetFacet.yaml"
 
 requestGetTypedLinkFacetInformation :: GetTypedLinkFacetInformation -> TestTree
-requestGetTypedLinkFacetInformation = req
+requestGetTypedLinkFacetInformation =
+  req
     "GetTypedLinkFacetInformation"
     "fixture/GetTypedLinkFacetInformation.yaml"
 
 requestListDevelopmentSchemaARNs :: ListDevelopmentSchemaARNs -> TestTree
-requestListDevelopmentSchemaARNs = req
+requestListDevelopmentSchemaARNs =
+  req
     "ListDevelopmentSchemaARNs"
     "fixture/ListDevelopmentSchemaARNs.yaml"
 
 requestAttachObject :: AttachObject -> TestTree
-requestAttachObject = req
+requestAttachObject =
+  req
     "AttachObject"
     "fixture/AttachObject.yaml"
 
 requestBatchWrite :: BatchWrite -> TestTree
-requestBatchWrite = req
+requestBatchWrite =
+  req
     "BatchWrite"
     "fixture/BatchWrite.yaml"
 
 requestCreateObject :: CreateObject -> TestTree
-requestCreateObject = req
+requestCreateObject =
+  req
     "CreateObject"
     "fixture/CreateObject.yaml"
 
 requestUpgradePublishedSchema :: UpgradePublishedSchema -> TestTree
-requestUpgradePublishedSchema = req
+requestUpgradePublishedSchema =
+  req
     "UpgradePublishedSchema"
     "fixture/UpgradePublishedSchema.yaml"
 
 requestCreateFacet :: CreateFacet -> TestTree
-requestCreateFacet = req
+requestCreateFacet =
+  req
     "CreateFacet"
     "fixture/CreateFacet.yaml"
 
+requestGetLinkAttributes :: GetLinkAttributes -> TestTree
+requestGetLinkAttributes =
+  req
+    "GetLinkAttributes"
+    "fixture/GetLinkAttributes.yaml"
+
 requestGetObjectAttributes :: GetObjectAttributes -> TestTree
-requestGetObjectAttributes = req
+requestGetObjectAttributes =
+  req
     "GetObjectAttributes"
     "fixture/GetObjectAttributes.yaml"
 
 requestDeleteFacet :: DeleteFacet -> TestTree
-requestDeleteFacet = req
+requestDeleteFacet =
+  req
     "DeleteFacet"
     "fixture/DeleteFacet.yaml"
 
 requestUpdateFacet :: UpdateFacet -> TestTree
-requestUpdateFacet = req
+requestUpdateFacet =
+  req
     "UpdateFacet"
     "fixture/UpdateFacet.yaml"
 
 requestListObjectChildren :: ListObjectChildren -> TestTree
-requestListObjectChildren = req
+requestListObjectChildren =
+  req
     "ListObjectChildren"
     "fixture/ListObjectChildren.yaml"
 
 requestListTypedLinkFacetNames :: ListTypedLinkFacetNames -> TestTree
-requestListTypedLinkFacetNames = req
+requestListTypedLinkFacetNames =
+  req
     "ListTypedLinkFacetNames"
     "fixture/ListTypedLinkFacetNames.yaml"
 
 requestAttachTypedLink :: AttachTypedLink -> TestTree
-requestAttachTypedLink = req
+requestAttachTypedLink =
+  req
     "AttachTypedLink"
     "fixture/AttachTypedLink.yaml"
 
 requestDetachPolicy :: DetachPolicy -> TestTree
-requestDetachPolicy = req
+requestDetachPolicy =
+  req
     "DetachPolicy"
     "fixture/DetachPolicy.yaml"
 
 requestCreateIndex :: CreateIndex -> TestTree
-requestCreateIndex = req
+requestCreateIndex =
+  req
     "CreateIndex"
     "fixture/CreateIndex.yaml"
 
 requestDetachObject :: DetachObject -> TestTree
-requestDetachObject = req
+requestDetachObject =
+  req
     "DetachObject"
     "fixture/DetachObject.yaml"
 
 requestAddFacetToObject :: AddFacetToObject -> TestTree
-requestAddFacetToObject = req
+requestAddFacetToObject =
+  req
     "AddFacetToObject"
     "fixture/AddFacetToObject.yaml"
 
 requestApplySchema :: ApplySchema -> TestTree
-requestApplySchema = req
+requestApplySchema =
+  req
     "ApplySchema"
     "fixture/ApplySchema.yaml"
 
 requestCreateSchema :: CreateSchema -> TestTree
-requestCreateSchema = req
+requestCreateSchema =
+  req
     "CreateSchema"
     "fixture/CreateSchema.yaml"
 
 requestGetSchemaAsJSON :: GetSchemaAsJSON -> TestTree
-requestGetSchemaAsJSON = req
+requestGetSchemaAsJSON =
+  req
     "GetSchemaAsJSON"
     "fixture/GetSchemaAsJSON.yaml"
 
 requestPublishSchema :: PublishSchema -> TestTree
-requestPublishSchema = req
+requestPublishSchema =
+  req
     "PublishSchema"
     "fixture/PublishSchema.yaml"
 
 requestDeleteDirectory :: DeleteDirectory -> TestTree
-requestDeleteDirectory = req
+requestDeleteDirectory =
+  req
     "DeleteDirectory"
     "fixture/DeleteDirectory.yaml"
 
 requestListObjectParents :: ListObjectParents -> TestTree
-requestListObjectParents = req
+requestListObjectParents =
+  req
     "ListObjectParents"
     "fixture/ListObjectParents.yaml"
 
 requestListPolicyAttachments :: ListPolicyAttachments -> TestTree
-requestListPolicyAttachments = req
+requestListPolicyAttachments =
+  req
     "ListPolicyAttachments"
     "fixture/ListPolicyAttachments.yaml"
 
 requestTagResource :: TagResource -> TestTree
-requestTagResource = req
+requestTagResource =
+  req
     "TagResource"
     "fixture/TagResource.yaml"
 
 requestUpdateSchema :: UpdateSchema -> TestTree
-requestUpdateSchema = req
+requestUpdateSchema =
+  req
     "UpdateSchema"
     "fixture/UpdateSchema.yaml"
 
 requestDeleteSchema :: DeleteSchema -> TestTree
-requestDeleteSchema = req
+requestDeleteSchema =
+  req
     "DeleteSchema"
     "fixture/DeleteSchema.yaml"
 
 requestDetachTypedLink :: DetachTypedLink -> TestTree
-requestDetachTypedLink = req
+requestDetachTypedLink =
+  req
     "DetachTypedLink"
     "fixture/DetachTypedLink.yaml"
 
 requestListFacetNames :: ListFacetNames -> TestTree
-requestListFacetNames = req
+requestListFacetNames =
+  req
     "ListFacetNames"
     "fixture/ListFacetNames.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
-requestUntagResource = req
+requestUntagResource =
+  req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
 requestListOutgoingTypedLinks :: ListOutgoingTypedLinks -> TestTree
-requestListOutgoingTypedLinks = req
+requestListOutgoingTypedLinks =
+  req
     "ListOutgoingTypedLinks"
     "fixture/ListOutgoingTypedLinks.yaml"
 
 requestUpdateObjectAttributes :: UpdateObjectAttributes -> TestTree
-requestUpdateObjectAttributes = req
+requestUpdateObjectAttributes =
+  req
     "UpdateObjectAttributes"
     "fixture/UpdateObjectAttributes.yaml"
 
 requestAttachPolicy :: AttachPolicy -> TestTree
-requestAttachPolicy = req
+requestAttachPolicy =
+  req
     "AttachPolicy"
     "fixture/AttachPolicy.yaml"
 
 requestBatchRead :: BatchRead -> TestTree
-requestBatchRead = req
+requestBatchRead =
+  req
     "BatchRead"
     "fixture/BatchRead.yaml"
 
 requestPutSchemaFromJSON :: PutSchemaFromJSON -> TestTree
-requestPutSchemaFromJSON = req
+requestPutSchemaFromJSON =
+  req
     "PutSchemaFromJSON"
     "fixture/PutSchemaFromJSON.yaml"
 
+requestUpdateLinkAttributes :: UpdateLinkAttributes -> TestTree
+requestUpdateLinkAttributes =
+  req
+    "UpdateLinkAttributes"
+    "fixture/UpdateLinkAttributes.yaml"
+
 requestAttachToIndex :: AttachToIndex -> TestTree
-requestAttachToIndex = req
+requestAttachToIndex =
+  req
     "AttachToIndex"
     "fixture/AttachToIndex.yaml"
 
 requestListObjectPolicies :: ListObjectPolicies -> TestTree
-requestListObjectPolicies = req
+requestListObjectPolicies =
+  req
     "ListObjectPolicies"
     "fixture/ListObjectPolicies.yaml"
 
 -- Responses
 
 responseListTypedLinkFacetAttributes :: ListTypedLinkFacetAttributesResponse -> TestTree
-responseListTypedLinkFacetAttributes = res
+responseListTypedLinkFacetAttributes =
+  res
     "ListTypedLinkFacetAttributesResponse"
     "fixture/ListTypedLinkFacetAttributesResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListTypedLinkFacetAttributes)
 
 responseDeleteObject :: DeleteObjectResponse -> TestTree
-responseDeleteObject = res
+responseDeleteObject =
+  res
     "DeleteObjectResponse"
     "fixture/DeleteObjectResponse.proto"
     cloudDirectory
     (Proxy :: Proxy DeleteObject)
 
 responseListIndex :: ListIndexResponse -> TestTree
-responseListIndex = res
+responseListIndex =
+  res
     "ListIndexResponse"
     "fixture/ListIndexResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListIndex)
 
 responseUpgradeAppliedSchema :: UpgradeAppliedSchemaResponse -> TestTree
-responseUpgradeAppliedSchema = res
+responseUpgradeAppliedSchema =
+  res
     "UpgradeAppliedSchemaResponse"
     "fixture/UpgradeAppliedSchemaResponse.proto"
     cloudDirectory
     (Proxy :: Proxy UpgradeAppliedSchema)
 
 responseGetDirectory :: GetDirectoryResponse -> TestTree
-responseGetDirectory = res
+responseGetDirectory =
+  res
     "GetDirectoryResponse"
     "fixture/GetDirectoryResponse.proto"
     cloudDirectory
     (Proxy :: Proxy GetDirectory)
 
 responseGetObjectInformation :: GetObjectInformationResponse -> TestTree
-responseGetObjectInformation = res
+responseGetObjectInformation =
+  res
     "GetObjectInformationResponse"
     "fixture/GetObjectInformationResponse.proto"
     cloudDirectory
     (Proxy :: Proxy GetObjectInformation)
 
 responseListAttachedIndices :: ListAttachedIndicesResponse -> TestTree
-responseListAttachedIndices = res
+responseListAttachedIndices =
+  res
     "ListAttachedIndicesResponse"
     "fixture/ListAttachedIndicesResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListAttachedIndices)
 
 responseDetachFromIndex :: DetachFromIndexResponse -> TestTree
-responseDetachFromIndex = res
+responseDetachFromIndex =
+  res
     "DetachFromIndexResponse"
     "fixture/DetachFromIndexResponse.proto"
     cloudDirectory
     (Proxy :: Proxy DetachFromIndex)
 
 responseLookupPolicy :: LookupPolicyResponse -> TestTree
-responseLookupPolicy = res
+responseLookupPolicy =
+  res
     "LookupPolicyResponse"
     "fixture/LookupPolicyResponse.proto"
     cloudDirectory
     (Proxy :: Proxy LookupPolicy)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource = res
+responseListTagsForResource =
+  res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListTagsForResource)
 
 responseListPublishedSchemaARNs :: ListPublishedSchemaARNsResponse -> TestTree
-responseListPublishedSchemaARNs = res
+responseListPublishedSchemaARNs =
+  res
     "ListPublishedSchemaARNsResponse"
     "fixture/ListPublishedSchemaARNsResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListPublishedSchemaARNs)
 
 responseListDirectories :: ListDirectoriesResponse -> TestTree
-responseListDirectories = res
+responseListDirectories =
+  res
     "ListDirectoriesResponse"
     "fixture/ListDirectoriesResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListDirectories)
 
 responseCreateTypedLinkFacet :: CreateTypedLinkFacetResponse -> TestTree
-responseCreateTypedLinkFacet = res
+responseCreateTypedLinkFacet =
+  res
     "CreateTypedLinkFacetResponse"
     "fixture/CreateTypedLinkFacetResponse.proto"
     cloudDirectory
     (Proxy :: Proxy CreateTypedLinkFacet)
 
 responseListObjectParentPaths :: ListObjectParentPathsResponse -> TestTree
-responseListObjectParentPaths = res
+responseListObjectParentPaths =
+  res
     "ListObjectParentPathsResponse"
     "fixture/ListObjectParentPathsResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListObjectParentPaths)
 
 responseDisableDirectory :: DisableDirectoryResponse -> TestTree
-responseDisableDirectory = res
+responseDisableDirectory =
+  res
     "DisableDirectoryResponse"
     "fixture/DisableDirectoryResponse.proto"
     cloudDirectory
     (Proxy :: Proxy DisableDirectory)
 
 responseCreateDirectory :: CreateDirectoryResponse -> TestTree
-responseCreateDirectory = res
+responseCreateDirectory =
+  res
     "CreateDirectoryResponse"
     "fixture/CreateDirectoryResponse.proto"
     cloudDirectory
     (Proxy :: Proxy CreateDirectory)
 
 responseListFacetAttributes :: ListFacetAttributesResponse -> TestTree
-responseListFacetAttributes = res
+responseListFacetAttributes =
+  res
     "ListFacetAttributesResponse"
     "fixture/ListFacetAttributesResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListFacetAttributes)
 
+responseListManagedSchemaARNs :: ListManagedSchemaARNsResponse -> TestTree
+responseListManagedSchemaARNs =
+  res
+    "ListManagedSchemaARNsResponse"
+    "fixture/ListManagedSchemaARNsResponse.proto"
+    cloudDirectory
+    (Proxy :: Proxy ListManagedSchemaARNs)
+
 responseUpdateTypedLinkFacet :: UpdateTypedLinkFacetResponse -> TestTree
-responseUpdateTypedLinkFacet = res
+responseUpdateTypedLinkFacet =
+  res
     "UpdateTypedLinkFacetResponse"
     "fixture/UpdateTypedLinkFacetResponse.proto"
     cloudDirectory
     (Proxy :: Proxy UpdateTypedLinkFacet)
 
 responseDeleteTypedLinkFacet :: DeleteTypedLinkFacetResponse -> TestTree
-responseDeleteTypedLinkFacet = res
+responseDeleteTypedLinkFacet =
+  res
     "DeleteTypedLinkFacetResponse"
     "fixture/DeleteTypedLinkFacetResponse.proto"
     cloudDirectory
     (Proxy :: Proxy DeleteTypedLinkFacet)
 
 responseGetAppliedSchemaVersion :: GetAppliedSchemaVersionResponse -> TestTree
-responseGetAppliedSchemaVersion = res
+responseGetAppliedSchemaVersion =
+  res
     "GetAppliedSchemaVersionResponse"
     "fixture/GetAppliedSchemaVersionResponse.proto"
     cloudDirectory
     (Proxy :: Proxy GetAppliedSchemaVersion)
 
 responseRemoveFacetFromObject :: RemoveFacetFromObjectResponse -> TestTree
-responseRemoveFacetFromObject = res
+responseRemoveFacetFromObject =
+  res
     "RemoveFacetFromObjectResponse"
     "fixture/RemoveFacetFromObjectResponse.proto"
     cloudDirectory
     (Proxy :: Proxy RemoveFacetFromObject)
 
 responseEnableDirectory :: EnableDirectoryResponse -> TestTree
-responseEnableDirectory = res
+responseEnableDirectory =
+  res
     "EnableDirectoryResponse"
     "fixture/EnableDirectoryResponse.proto"
     cloudDirectory
     (Proxy :: Proxy EnableDirectory)
 
 responseListObjectAttributes :: ListObjectAttributesResponse -> TestTree
-responseListObjectAttributes = res
+responseListObjectAttributes =
+  res
     "ListObjectAttributesResponse"
     "fixture/ListObjectAttributesResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListObjectAttributes)
 
 responseListAppliedSchemaARNs :: ListAppliedSchemaARNsResponse -> TestTree
-responseListAppliedSchemaARNs = res
+responseListAppliedSchemaARNs =
+  res
     "ListAppliedSchemaARNsResponse"
     "fixture/ListAppliedSchemaARNsResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListAppliedSchemaARNs)
 
 responseListIncomingTypedLinks :: ListIncomingTypedLinksResponse -> TestTree
-responseListIncomingTypedLinks = res
+responseListIncomingTypedLinks =
+  res
     "ListIncomingTypedLinksResponse"
     "fixture/ListIncomingTypedLinksResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListIncomingTypedLinks)
 
 responseGetFacet :: GetFacetResponse -> TestTree
-responseGetFacet = res
+responseGetFacet =
+  res
     "GetFacetResponse"
     "fixture/GetFacetResponse.proto"
     cloudDirectory
     (Proxy :: Proxy GetFacet)
 
 responseGetTypedLinkFacetInformation :: GetTypedLinkFacetInformationResponse -> TestTree
-responseGetTypedLinkFacetInformation = res
+responseGetTypedLinkFacetInformation =
+  res
     "GetTypedLinkFacetInformationResponse"
     "fixture/GetTypedLinkFacetInformationResponse.proto"
     cloudDirectory
     (Proxy :: Proxy GetTypedLinkFacetInformation)
 
 responseListDevelopmentSchemaARNs :: ListDevelopmentSchemaARNsResponse -> TestTree
-responseListDevelopmentSchemaARNs = res
+responseListDevelopmentSchemaARNs =
+  res
     "ListDevelopmentSchemaARNsResponse"
     "fixture/ListDevelopmentSchemaARNsResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListDevelopmentSchemaARNs)
 
 responseAttachObject :: AttachObjectResponse -> TestTree
-responseAttachObject = res
+responseAttachObject =
+  res
     "AttachObjectResponse"
     "fixture/AttachObjectResponse.proto"
     cloudDirectory
     (Proxy :: Proxy AttachObject)
 
 responseBatchWrite :: BatchWriteResponse -> TestTree
-responseBatchWrite = res
+responseBatchWrite =
+  res
     "BatchWriteResponse"
     "fixture/BatchWriteResponse.proto"
     cloudDirectory
     (Proxy :: Proxy BatchWrite)
 
 responseCreateObject :: CreateObjectResponse -> TestTree
-responseCreateObject = res
+responseCreateObject =
+  res
     "CreateObjectResponse"
     "fixture/CreateObjectResponse.proto"
     cloudDirectory
     (Proxy :: Proxy CreateObject)
 
 responseUpgradePublishedSchema :: UpgradePublishedSchemaResponse -> TestTree
-responseUpgradePublishedSchema = res
+responseUpgradePublishedSchema =
+  res
     "UpgradePublishedSchemaResponse"
     "fixture/UpgradePublishedSchemaResponse.proto"
     cloudDirectory
     (Proxy :: Proxy UpgradePublishedSchema)
 
 responseCreateFacet :: CreateFacetResponse -> TestTree
-responseCreateFacet = res
+responseCreateFacet =
+  res
     "CreateFacetResponse"
     "fixture/CreateFacetResponse.proto"
     cloudDirectory
     (Proxy :: Proxy CreateFacet)
 
+responseGetLinkAttributes :: GetLinkAttributesResponse -> TestTree
+responseGetLinkAttributes =
+  res
+    "GetLinkAttributesResponse"
+    "fixture/GetLinkAttributesResponse.proto"
+    cloudDirectory
+    (Proxy :: Proxy GetLinkAttributes)
+
 responseGetObjectAttributes :: GetObjectAttributesResponse -> TestTree
-responseGetObjectAttributes = res
+responseGetObjectAttributes =
+  res
     "GetObjectAttributesResponse"
     "fixture/GetObjectAttributesResponse.proto"
     cloudDirectory
     (Proxy :: Proxy GetObjectAttributes)
 
 responseDeleteFacet :: DeleteFacetResponse -> TestTree
-responseDeleteFacet = res
+responseDeleteFacet =
+  res
     "DeleteFacetResponse"
     "fixture/DeleteFacetResponse.proto"
     cloudDirectory
     (Proxy :: Proxy DeleteFacet)
 
 responseUpdateFacet :: UpdateFacetResponse -> TestTree
-responseUpdateFacet = res
+responseUpdateFacet =
+  res
     "UpdateFacetResponse"
     "fixture/UpdateFacetResponse.proto"
     cloudDirectory
     (Proxy :: Proxy UpdateFacet)
 
 responseListObjectChildren :: ListObjectChildrenResponse -> TestTree
-responseListObjectChildren = res
+responseListObjectChildren =
+  res
     "ListObjectChildrenResponse"
     "fixture/ListObjectChildrenResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListObjectChildren)
 
 responseListTypedLinkFacetNames :: ListTypedLinkFacetNamesResponse -> TestTree
-responseListTypedLinkFacetNames = res
+responseListTypedLinkFacetNames =
+  res
     "ListTypedLinkFacetNamesResponse"
     "fixture/ListTypedLinkFacetNamesResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListTypedLinkFacetNames)
 
 responseAttachTypedLink :: AttachTypedLinkResponse -> TestTree
-responseAttachTypedLink = res
+responseAttachTypedLink =
+  res
     "AttachTypedLinkResponse"
     "fixture/AttachTypedLinkResponse.proto"
     cloudDirectory
     (Proxy :: Proxy AttachTypedLink)
 
 responseDetachPolicy :: DetachPolicyResponse -> TestTree
-responseDetachPolicy = res
+responseDetachPolicy =
+  res
     "DetachPolicyResponse"
     "fixture/DetachPolicyResponse.proto"
     cloudDirectory
     (Proxy :: Proxy DetachPolicy)
 
 responseCreateIndex :: CreateIndexResponse -> TestTree
-responseCreateIndex = res
+responseCreateIndex =
+  res
     "CreateIndexResponse"
     "fixture/CreateIndexResponse.proto"
     cloudDirectory
     (Proxy :: Proxy CreateIndex)
 
 responseDetachObject :: DetachObjectResponse -> TestTree
-responseDetachObject = res
+responseDetachObject =
+  res
     "DetachObjectResponse"
     "fixture/DetachObjectResponse.proto"
     cloudDirectory
     (Proxy :: Proxy DetachObject)
 
 responseAddFacetToObject :: AddFacetToObjectResponse -> TestTree
-responseAddFacetToObject = res
+responseAddFacetToObject =
+  res
     "AddFacetToObjectResponse"
     "fixture/AddFacetToObjectResponse.proto"
     cloudDirectory
     (Proxy :: Proxy AddFacetToObject)
 
 responseApplySchema :: ApplySchemaResponse -> TestTree
-responseApplySchema = res
+responseApplySchema =
+  res
     "ApplySchemaResponse"
     "fixture/ApplySchemaResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ApplySchema)
 
 responseCreateSchema :: CreateSchemaResponse -> TestTree
-responseCreateSchema = res
+responseCreateSchema =
+  res
     "CreateSchemaResponse"
     "fixture/CreateSchemaResponse.proto"
     cloudDirectory
     (Proxy :: Proxy CreateSchema)
 
 responseGetSchemaAsJSON :: GetSchemaAsJSONResponse -> TestTree
-responseGetSchemaAsJSON = res
+responseGetSchemaAsJSON =
+  res
     "GetSchemaAsJSONResponse"
     "fixture/GetSchemaAsJSONResponse.proto"
     cloudDirectory
     (Proxy :: Proxy GetSchemaAsJSON)
 
 responsePublishSchema :: PublishSchemaResponse -> TestTree
-responsePublishSchema = res
+responsePublishSchema =
+  res
     "PublishSchemaResponse"
     "fixture/PublishSchemaResponse.proto"
     cloudDirectory
     (Proxy :: Proxy PublishSchema)
 
 responseDeleteDirectory :: DeleteDirectoryResponse -> TestTree
-responseDeleteDirectory = res
+responseDeleteDirectory =
+  res
     "DeleteDirectoryResponse"
     "fixture/DeleteDirectoryResponse.proto"
     cloudDirectory
     (Proxy :: Proxy DeleteDirectory)
 
 responseListObjectParents :: ListObjectParentsResponse -> TestTree
-responseListObjectParents = res
+responseListObjectParents =
+  res
     "ListObjectParentsResponse"
     "fixture/ListObjectParentsResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListObjectParents)
 
 responseListPolicyAttachments :: ListPolicyAttachmentsResponse -> TestTree
-responseListPolicyAttachments = res
+responseListPolicyAttachments =
+  res
     "ListPolicyAttachmentsResponse"
     "fixture/ListPolicyAttachmentsResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListPolicyAttachments)
 
 responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource = res
+responseTagResource =
+  res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     cloudDirectory
     (Proxy :: Proxy TagResource)
 
 responseUpdateSchema :: UpdateSchemaResponse -> TestTree
-responseUpdateSchema = res
+responseUpdateSchema =
+  res
     "UpdateSchemaResponse"
     "fixture/UpdateSchemaResponse.proto"
     cloudDirectory
     (Proxy :: Proxy UpdateSchema)
 
 responseDeleteSchema :: DeleteSchemaResponse -> TestTree
-responseDeleteSchema = res
+responseDeleteSchema =
+  res
     "DeleteSchemaResponse"
     "fixture/DeleteSchemaResponse.proto"
     cloudDirectory
     (Proxy :: Proxy DeleteSchema)
 
 responseDetachTypedLink :: DetachTypedLinkResponse -> TestTree
-responseDetachTypedLink = res
+responseDetachTypedLink =
+  res
     "DetachTypedLinkResponse"
     "fixture/DetachTypedLinkResponse.proto"
     cloudDirectory
     (Proxy :: Proxy DetachTypedLink)
 
 responseListFacetNames :: ListFacetNamesResponse -> TestTree
-responseListFacetNames = res
+responseListFacetNames =
+  res
     "ListFacetNamesResponse"
     "fixture/ListFacetNamesResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListFacetNames)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource = res
+responseUntagResource =
+  res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     cloudDirectory
     (Proxy :: Proxy UntagResource)
 
 responseListOutgoingTypedLinks :: ListOutgoingTypedLinksResponse -> TestTree
-responseListOutgoingTypedLinks = res
+responseListOutgoingTypedLinks =
+  res
     "ListOutgoingTypedLinksResponse"
     "fixture/ListOutgoingTypedLinksResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListOutgoingTypedLinks)
 
 responseUpdateObjectAttributes :: UpdateObjectAttributesResponse -> TestTree
-responseUpdateObjectAttributes = res
+responseUpdateObjectAttributes =
+  res
     "UpdateObjectAttributesResponse"
     "fixture/UpdateObjectAttributesResponse.proto"
     cloudDirectory
     (Proxy :: Proxy UpdateObjectAttributes)
 
 responseAttachPolicy :: AttachPolicyResponse -> TestTree
-responseAttachPolicy = res
+responseAttachPolicy =
+  res
     "AttachPolicyResponse"
     "fixture/AttachPolicyResponse.proto"
     cloudDirectory
     (Proxy :: Proxy AttachPolicy)
 
 responseBatchRead :: BatchReadResponse -> TestTree
-responseBatchRead = res
+responseBatchRead =
+  res
     "BatchReadResponse"
     "fixture/BatchReadResponse.proto"
     cloudDirectory
     (Proxy :: Proxy BatchRead)
 
 responsePutSchemaFromJSON :: PutSchemaFromJSONResponse -> TestTree
-responsePutSchemaFromJSON = res
+responsePutSchemaFromJSON =
+  res
     "PutSchemaFromJSONResponse"
     "fixture/PutSchemaFromJSONResponse.proto"
     cloudDirectory
     (Proxy :: Proxy PutSchemaFromJSON)
 
+responseUpdateLinkAttributes :: UpdateLinkAttributesResponse -> TestTree
+responseUpdateLinkAttributes =
+  res
+    "UpdateLinkAttributesResponse"
+    "fixture/UpdateLinkAttributesResponse.proto"
+    cloudDirectory
+    (Proxy :: Proxy UpdateLinkAttributes)
+
 responseAttachToIndex :: AttachToIndexResponse -> TestTree
-responseAttachToIndex = res
+responseAttachToIndex =
+  res
     "AttachToIndexResponse"
     "fixture/AttachToIndexResponse.proto"
     cloudDirectory
     (Proxy :: Proxy AttachToIndex)
 
 responseListObjectPolicies :: ListObjectPoliciesResponse -> TestTree
-responseListObjectPolicies = res
+responseListObjectPolicies =
+  res
     "ListObjectPoliciesResponse"
     "fixture/ListObjectPoliciesResponse.proto"
     cloudDirectory

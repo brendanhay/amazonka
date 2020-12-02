@@ -11,13 +11,14 @@
 -- Portability : non-portable (GHC extensions)
 
 module Test.AWS.IoTDataPlane
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.IoTDataPlane
-import           Test.AWS.Gen.IoTDataPlane
-import           Test.Tasty
+import Network.AWS.IoTDataPlane
+import Test.AWS.Gen.IoTDataPlane
+import Test.Tasty
 
 tests :: [TestTree]
 tests = []

@@ -7,7 +7,7 @@ on:
     branches: main
 
 jobs:
-  haskell:
+  default.nix:
     strategy:
       fail-fast: false
       matrix:
@@ -24,4 +24,23 @@ jobs:
           name: amazonka
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      - run: nix-build -A library -A checks -A exes -A shell
+      - run: nix-build default.nix -A library -A checks -A exes -A shell
+
+  generate.nix:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-latest }
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cachix/install-nix-action@v12
+      - uses: cachix/cachix-action@v8
+        with:
+          name: amazonka
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+      - run: nix-build generate.nix

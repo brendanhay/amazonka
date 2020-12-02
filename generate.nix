@@ -66,10 +66,9 @@ in pkgs.stdenvNoCC.mkDerivation {
     mkdir -p $out
     cp -R $src/amazonka-* $out/
     chmod -R u+rw $out
-    cd $out
 
     amazonka-gen \
-      --out=. \
+      --out=$out \
       --library-version=${libraryVersion} \
       --client-version=${clientVersion} \
       --core-version=${coreVersion} \

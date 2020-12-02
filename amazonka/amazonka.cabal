@@ -12,8 +12,8 @@ copyright:          Copyright (c) 2013-2020 Brendan Hay
 category:           Network, AWS, Cloud, Distributed Computing
 build-type:         Simple
 extra-source-files:
-  README.md
   CHANGELOG.md
+  README.md
 
 description:
   This client library contains request and response logic to communicate

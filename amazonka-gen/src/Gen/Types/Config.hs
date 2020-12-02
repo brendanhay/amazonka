@@ -1,6 +1,5 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE DeriveFoldable #-}
-{-# LANGUAGE NamedFieldPuns #-}
 {-# LANGUAGE DeriveFunctor #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DeriveTraversable #-}
@@ -10,6 +9,7 @@
 {-# LANGUAGE KindSignatures #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE NamedFieldPuns #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE RecordWildCards #-}
@@ -270,12 +270,13 @@ loadModel :: FilePath -> [FilePath] -> Either String Model
 loadModel path xs = do
   (_modelVersion, _modelPath) <-
     headErr ("No valid model versions found in " ++ show xs) versions
-  
-  pure Model
-    { _modelName = Text.pack (FilePath.takeFileName path),
-      _modelVersion,
-      _modelPath
-    }
+
+  pure
+    Model
+      { _modelName = Text.pack (FilePath.takeFileName path),
+        _modelVersion,
+        _modelPath
+      }
   where
     versions = sortOn Down (mapMaybe parse xs)
 

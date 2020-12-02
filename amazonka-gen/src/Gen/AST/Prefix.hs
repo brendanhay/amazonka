@@ -107,7 +107,7 @@ assignPrefix = annotate Prefixed memo go
           ++ ", fields: "
           ++ show (Set.toList ks)
           ++ show (map f hs)
-    -- 
+    --
     unique r seen n (h : hs) ks = do
       m <- uses seen (Map.lookup h)
       -- Find if this particular naming heuristic is used already, and if

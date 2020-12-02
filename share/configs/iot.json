@@ -3,6 +3,9 @@
     "typeOverrides": {
         "Status": {
             "renamedTo": "TaskStatus"
+        },
+        "DeleteStream": {
+            "renamedTo": "DeleteStreamAfterOTA"
         }
     }
 }

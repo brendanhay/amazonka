@@ -45,11 +45,6 @@ done = title ""
 readBSFile :: MonadIO m => FilePath -> m ByteString
 readBSFile path =
   liftIO $ do
-    exists <- Directory.doesFileExist path
-
-    unless exists $
-      error ("Missing " ++ path)
-
     say ("Reading " ++ path)
     ByteString.readFile path
 
@@ -81,12 +76,16 @@ createDir path =
 
 copyDir :: MonadIO m => FilePath -> FilePath -> m ()
 copyDir source target =
-  liftIO (Directory.listDirectory source >>= mapM_ copy)
-  where
-    copy file = do
-      let path = target </> FilePath.takeFileName file
-      say ("Copying " ++ path ++ " to " ++ target)
-      Directory.copyFile file path
+  liftIO $ do
+    contents <- Directory.listDirectory source
+
+    flip mapM_ contents $ \name -> do
+      let a = source </> name
+          b = target </> name
+
+      say ("Copying " ++ a ++ " to " ++ b)
+
+      Directory.copyFile a b
 
 readTemplate ::
   FilePath ->

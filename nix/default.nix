@@ -26,7 +26,7 @@ let
     # Basic library functions.
     (import ./overlays/lib-local.nix)
 
-    # haskell.nix overrides + extensions.
+    # haskell.nix cabalProject, overrides, and extensions.
     (import ./overlays/haskell.nix)
   ] ++ overlays;
 

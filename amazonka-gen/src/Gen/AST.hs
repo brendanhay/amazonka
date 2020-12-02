@@ -2,6 +2,7 @@
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE MultiWayIf #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TupleSections #-}
 
 -- Module      : Gen.AST
@@ -21,8 +22,14 @@ import Control.Error
 import Control.Lens
 import qualified Control.Monad.Except as Except
 import Control.Monad.State
+import qualified Data.Foldable as Foldable
+import Data.Graph (Graph, Vertex)
+import qualified Data.Graph as Graph
 import qualified Data.HashMap.Strict as Map
 import qualified Data.HashSet as Set
+import qualified Data.Maybe as Maybe
+import qualified Data.Tree as Tree
+import Debug.Trace
 import Gen.AST.Cofree
 import Gen.AST.Data
 import Gen.AST.Override
@@ -37,15 +44,73 @@ rewrite ::
   Config ->
   Service Maybe (RefF ()) (ShapeF ()) (Waiter Id) ->
   Either String Library
-rewrite v cfg s' = do
-  s <- rewriteService cfg (ignore cfg (deprecate s')) >>= renderShapes cfg
-  Library v cfg s <$> serviceData (s ^. metadata) (s ^. retry)
+rewrite versions cfg svc = do
+  ignored <-
+    ignoreUnusedShapes svc
 
-deprecate :: Service f a b c -> Service f a b c
-deprecate = operations %~ Map.filter (not . view opDeprecated)
+  rewritten <-
+    rewriteService cfg
+      . ignoreWaitersAndPagers cfg
+      $ deprecateOperations ignored
 
-ignore :: Config -> Service f a b c -> Service f a b c
-ignore c srv =
+  rendered <-
+    renderShapes cfg rewritten
+
+  Library versions cfg rendered
+    <$> serviceData (rendered ^. metadata) (rendered ^. retry)
+
+deprecateOperations :: Service f a b c -> Service f a b c
+deprecateOperations = operations %~ Map.filter (not . view opDeprecated)
+
+ignoreUnusedShapes ::
+  Service Maybe (RefF ()) (ShapeF ()) c ->
+  Either String (Service Maybe (RefF ()) (ShapeF ()) c)
+ignoreUnusedShapes svc = do
+  shapes' :: Map Id (Shape Id) <- elaborate (_shapes svc)
+
+  let shapeIds :: Map Id [Id]
+      shapeIds =
+        Map.map Foldable.toList shapes'
+
+      ( graph :: Graph,
+        nodeFromVertex :: Vertex -> ((), Id, [Id]),
+        vertexFromId :: Id -> Maybe Vertex
+        ) =
+          Graph.graphFromEdges
+            . map (\(k, vs) -> ((), k, vs))
+            $ Map.toList shapeIds
+
+      requestResponseIds :: [Id]
+      requestResponseIds =
+        flip concatMap (Map.elems (_operations svc)) $ \op ->
+          Maybe.maybeToList (_refShape <$> _opInput op :: Maybe Id)
+            ++ Maybe.maybeToList (_refShape <$> _opOutput op :: Maybe Id)
+
+      rootVertices :: [Vertex]
+      rootVertices =
+        Maybe.mapMaybe vertexFromId requestResponseIds
+
+      reachableVertices :: [Vertex]
+      reachableVertices =
+        concatMap Tree.flatten (Graph.dfs graph rootVertices)
+
+      reachableSet :: Set Id
+      reachableSet =
+        Set.fromList (map (view _2 . nodeFromVertex) reachableVertices)
+
+  pure
+    svc
+      { _shapes =
+          Map.filterWithKey
+            (\k _v -> Set.member k reachableSet)
+            -- if Set.member k reachableSet
+            --   then True
+            --   else trace ("Ignoring" ++ show k) False)
+            (_shapes svc)
+      }
+
+ignoreWaitersAndPagers :: Config -> Service f a b c -> Service f a b c
+ignoreWaitersAndPagers c srv =
   srv
     & waiters %~ Map.filterWithKey (const . validWaiter)
     & operations %~ Map.mapWithKey (\k v -> if validPager k then v else (opPager .~ Nothing) v)

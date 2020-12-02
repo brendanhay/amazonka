@@ -114,6 +114,7 @@ substitute svc@Service {..} = do
       -- No Ref exists, safely insert an empty shape and return a related Ref.
       save n (Related n (mkRelation Nothing d) :< emptyStruct)
       return (emptyRef n)
+    --
     subst d n (Just r) = do
       let k = r ^. refShape
       x :< s <- lift (safe k _shapes)

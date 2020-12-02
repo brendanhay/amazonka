@@ -70,8 +70,7 @@ operationData cfg m o = do
 
   yis' <- renderInsts p yn (responseInsts ys)
   xis' <-
-    maybe id (HashMap.insert "AWSPager") mpage
-      . HashMap.insert "AWSRequest" cls
+    maybe id (HashMap.insert "AWSPager") mpage . HashMap.insert "AWSRequest" cls
       <$> renderInsts p xn xis
 
   pure
@@ -355,7 +354,7 @@ notation m nid = go nid
       NonEmptyText e -> NonEmptyText <$> go s e
       Choice x y -> Choice <$> go s x <*> go s y
       Access ks ->
-       fmap Access . flip evalStateT s . Monad.forM ks $ \x -> do
+        fmap Access . flip evalStateT s . Monad.forM ks $ \x -> do
           k <- get >>= lift . (`key` x)
           put (skip (shape k))
           pure k
@@ -370,10 +369,10 @@ notation m nid = go nid
     field' n = \case
       a :< Struct st ->
         let fields = mkFields m a st
-        in note (missingErr n (identifier a) fields) $
-             List.find ((n ==) . _fieldId) fields
+         in note (missingErr n (identifier a) fields) $
+              List.find ((n ==) . _fieldId) fields
       _ -> Except.throwError (descendErr n)
-      
+
     shape :: Key Field -> Shape Solved
     shape =
       view (fieldRef . refAnn) . \case

@@ -32,6 +32,7 @@ import qualified Data.List as List
 import qualified Data.Text.Lazy as LText
 import Gen.IO
 import Gen.Types
+import qualified System.Directory as Directory
 import qualified Text.EDE as EDE
 
 required :: MonadIO m => FilePath -> m Object
@@ -44,10 +45,11 @@ required path =
 optional :: MonadIO m => FilePath -> m Object
 optional path =
   liftIO $ do
+    exists <- Directory.doesFileExist path
     bytes <-
-      Exception.try (readBSFile path) <&> \case
-        Left (_ :: Exception.IOException) -> "{}"
-        Right ok -> ok
+      if exists
+        then readBSFile path
+        else pure "{}"
 
     either (Except.throwError . userError) pure (decode bytes)
 

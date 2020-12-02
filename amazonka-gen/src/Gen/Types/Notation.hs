@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveFoldable #-}
 {-# LANGUAGE DeriveFunctor #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Gen.Types.Notation
@@ -18,8 +19,8 @@ module Gen.Types.Notation where
 import Control.Applicative
 import Data.Aeson
 import qualified Data.Attoparsec.Text as A
-import qualified Data.Char as Char
 import Data.Bifunctor
+import qualified Data.Char as Char
 import Data.List.NonEmpty (NonEmpty (..))
 import Data.Text (Text)
 import qualified Data.Text as Text
@@ -83,10 +84,14 @@ parseNotation t = mappend msg `first` A.parseOnly expr1 t
 
     label =
       strip $ do
-        a <- A.satisfy Char.isUpper A.<?> "uppercase character"
-        b <- A.takeWhile1 (A.notInClass "[].`()|><= ")
-      
-        pure (mkId (Text.cons a b))
+        text <- A.takeWhile1 (A.notInClass "[].`)|><= ")
+
+        case text of
+          "length(" ->
+            fail $
+              "encountered start of unexpected length(expr) function application "
+                ++ show text
+          _other -> pure (mkId text)
 
     strip p =
       A.skipSpace *> p <* A.skipSpace

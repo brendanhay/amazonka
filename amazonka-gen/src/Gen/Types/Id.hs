@@ -16,7 +16,7 @@ module Gen.Types.Id
     HasId (..),
 
     -- * Identifier
-    Id,
+    Id (UnsafeId),
     mkId,
 
     -- * Lenses
@@ -61,17 +61,20 @@ instance (Functor f, HasId a) => HasId (Cofree f a) where
 
 -- | A type where the actual identifier is immutable,
 -- but the usable representation can be appended/modified.
-data Id = Id Text Text
+data Id = UnsafeId Text Text
 
 instance Show Id where
-  show (Id original assigned) =
+  show (UnsafeId original assigned) =
     Text.unpack (original <> "<" <> assigned <> ">")
 
 instance Eq Id where
-  Id x _ == Id y _ = x == y
+  UnsafeId x _ == UnsafeId y _ = x == y
+
+instance Ord Id where
+  UnsafeId x _ `compare` UnsafeId y _ = x `compare` y
 
 instance Hashable Id where
-  hashWithSalt n (Id x _) = hashWithSalt n x
+  hashWithSalt n (UnsafeId x _) = hashWithSalt n x
 
 instance FromJSONKey Id where
   fromJSONKey = mkId <$> fromJSONKey
@@ -83,7 +86,7 @@ instance ToJSON Id where
   toJSON = toJSON . view representation
 
 mkId :: Text -> Id
-mkId t = Id t (format t)
+mkId t = UnsafeId t (format t)
 
 format :: Text -> Text
 format = upperHead . upperAcronym
@@ -91,11 +94,11 @@ format = upperHead . upperAcronym
 representation :: Lens' Id Text
 representation =
   lens
-    (\(Id _ t) -> t)
-    (\(Id x _) t -> Id x (format t))
+    (\(UnsafeId _ t) -> t)
+    (\(UnsafeId x _) t -> UnsafeId x (format t))
 
 memberId :: Id -> Text
-memberId (Id x _) = x
+memberId (UnsafeId x _) = x
 
 typeId :: Id -> Text
 typeId = view representation

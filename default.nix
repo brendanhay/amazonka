@@ -1,6 +1,6 @@
-# The build system where packages will be _built_.
+# The build system where packages will be built.
 { system ? builtins.currentSystem
-  # The host system where packages will _run_.
+  # The host system where packages will run.
 , crossSystem ? null
   # Additional sources.json overrides.
 , sources ? { }
@@ -17,56 +17,17 @@ let
     inherit system sources config overlays crossOverlays;
   };
 
-  compiler-nix-name = "ghc8102";
+  inherit (pkgs) libLocal cabalProject tools;
 
-  hackageTool = pkgs.haskell-nix.tool compiler-nix-name;
-
-  cabalProject = pkgs.haskell-nix.cabalProject {
-    inherit compiler-nix-name;
-
-    src = pkgs.haskell-nix.cleanSourceHaskell {
-      name = "amazonka";
-      src = ./.;
-    };
-
-    pkg-def-extras = [
-      (hackage: {
-        packages = {
-          # Added as part of the package set due to Cabal dependency errors.
-          cabal-fmt = hackage.cabal-fmt."0.1.5.1".revisions.default;
-        };
-      })
-    ];
-  };
-
-  components = pkgs.libLocal.collectComponents cabalProject;
-
-  tools = {
-    cabal-fmt = cabalProject.cabal-fmt.components.exes.cabal-fmt;
-    cabal = hackageTool "cabal" "3.2.0.0";
-    ormolu = hackageTool "ormolu" "0.1.3.0";
-    shellcheck = hackageTool "shellcheck" "0.7.1";
-  };
+  components = libLocal.collectProjectComponents cabalProject;
 
 in {
   inherit cabalProject;
-  inherit (components) library checks exes;
-
-  generate = pkgs.callPackage ./amazonka-gen/default.nix {
-    inherit (tools) cabal-fmt ormolu;
-
-    botocore = pkgs.sources.botocore;
-    amazonka-gen = cabalProject.amazonka-gen.components.exes.amazonka-gen;
-
-    libraryVersion = "0.0.0";
-    clientVersion = "0.0.0";
-    coreVersion = "0.0.0";
-    models = [ "ec2" ];
-  };
+  inherit (components) library exes checks;
 
   shell = cabalProject.shellFor {
-    withHoogle = true;
     exactDeps = true;
+    withHoogle = false;
 
     packages = ps:
       with ps; [
@@ -83,11 +44,10 @@ in {
       pkgs.shfmt
 
       tools.cabal
-      # tools.cabal-fmt
+      tools.cabal-fmt
       tools.ormolu
       tools.shellcheck
 
-      # sources.json
       (import pkgs.sources.niv { }).niv
     ];
   };

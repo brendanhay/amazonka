@@ -42,11 +42,11 @@ import Control.Comonad
 import Control.Comonad.Cofree
 import Control.Lens
 import Data.Aeson
+import qualified Data.Char as Char
 import qualified Data.HashMap.Strict as HashMap
 import Data.Hashable
 import Data.Text (Text)
 import qualified Data.Text as Text
-import qualified Data.Char as Char
 import Data.Text.Manipulate
 import Gen.Text
 

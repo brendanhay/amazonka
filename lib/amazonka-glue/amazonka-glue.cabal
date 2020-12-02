@@ -1,3 +1,4 @@
+cabal-version:      2.2
 name:               amazonka-glue
 version:            2.0.0.0
 synopsis:           Amazon Glue SDK.
@@ -8,9 +9,8 @@ license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           Network, AWS, Cloud, Distributed Computing
+category:           AWS, Cloud
 build-type:         Simple
-cabal-version:      >=1.10
 extra-source-files:
   fixture/*.proto
   fixture/*.yaml
@@ -36,7 +36,7 @@ description:
 source-repository head
   type:     git
   location: git://github.com/brendanhay/amazonka.git
-  subdir:   amazonka-glue
+  subdir:   lib/amazonka-glue
 
 library
   default-language: Haskell2010
@@ -409,8 +409,8 @@ library
     Network.AWS.Glue.Types.XMLClassifier
 
   build-depends:
-      amazonka-core  >=1.6.1 && <1.6.2
-    , base           >=4.7   && <5
+    , amazonka-core  >=2.0.0.0 && <2.0.0.1
+    , base           >=4.12    && <5
 
 test-suite amazonka-glue-test
   type:             exitcode-stdio-1.0
@@ -428,9 +428,9 @@ test-suite amazonka-glue-test
     Test.AWS.Glue.Internal
 
   build-depends:
-      amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka-core         >=2.0.0.0 && <2.0.0.1
     , amazonka-glue
-    , amazonka-test         >=1.6.1 && <1.6.2
+    , amazonka-test         >=2.0.0.0 && <2.0.0.1
     , base
     , bytestring
     , tasty

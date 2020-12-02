@@ -12,8 +12,7 @@
 , crossOverlays ? [ ]
   # The names of the models to generate - ie. [ "ec2", "s3" ]
   # Setting to null will use file names from ./config
-, models ? null
-}:
+, models ? null }:
 
 let
 

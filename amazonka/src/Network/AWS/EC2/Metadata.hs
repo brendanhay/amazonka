@@ -329,7 +329,7 @@ userdata m = do
   x <- try $ get m (latest <> "user-data")
   case x of
     Left (HttpExceptionRequest _ (StatusCodeException rs _))
-          | fromEnum (responseStatus rs) == 404 -> pure Nothing
+      | fromEnum (responseStatus rs) == 404 -> pure Nothing
     Left e -> throwM e
     Right b -> pure (Just b)
 
@@ -457,5 +457,5 @@ request :: Manager -> Text -> IO ByteString
 request m url = do
   rq <- parseUrlThrow (Text.unpack url)
   rs <- httpLbs rq m
-  
+
   pure . LBS.toStrict $ responseBody rs

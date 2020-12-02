@@ -17,9 +17,9 @@
 module Gen.Types.Notation where
 
 import Control.Applicative
+import qualified Control.Monad as Monad
 import Data.Aeson
 import qualified Data.Attoparsec.Text as A
-import qualified Control.Monad as Monad
 import Data.Bifunctor
 import Data.List.NonEmpty (NonEmpty (..))
 import Data.Text (Text)
@@ -47,7 +47,7 @@ instance FromJSON (Notation Id) where
   parseJSON = withText "notation" (either fail pure . parseNotation)
 
 parseNotation :: Text -> Either String (Notation Id)
-parseNotation t = mappend msg `first` A.parseOnly (expr1 ) t
+parseNotation t = mappend msg `first` A.parseOnly (expr1) t
   where
     msg =
       "Failed parsing index notation: "
@@ -72,12 +72,12 @@ parseNotation t = mappend msg `first` A.parseOnly (expr1 ) t
 
     apply function p = do
       expr <- A.string "length(" *> p <* A.char ')'
-      
+
       relation <-
-       strip $
-        (A.string "==" *> pure Equal)
-          <|> (A.char '>' *> pure Greater)
-      
+        strip $
+          (A.string "==" *> pure Equal)
+            <|> (A.char '>' *> pure Greater)
+
       decimal <- strip (A.char '`' *> A.decimal <* A.char '`')
 
       pure (Length function expr relation decimal)

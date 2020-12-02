@@ -61,7 +61,7 @@ httpStatus = _Error . f
   where
     f g = \case
       TransportError (HttpExceptionRequest rq (StatusCodeException rs b)) ->
-        (\x -> TransportError (HttpExceptionRequest rq (StatusCodeException (rs { responseStatus = x }) b))) <$> g (responseStatus rs)
+        (\x -> TransportError (HttpExceptionRequest rq (StatusCodeException (rs {responseStatus = x}) b))) <$> g (responseStatus rs)
       TransportError e ->
         pure (TransportError e)
       SerializeError (SerializeError' a s b e) ->

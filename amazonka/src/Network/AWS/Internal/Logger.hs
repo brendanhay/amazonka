@@ -43,11 +43,11 @@ import System.IO
 newLogger :: MonadIO m => LogLevel -> Handle -> m Logger
 newLogger x hd =
   liftIO $ do
-   hSetBuffering hd LineBuffering
-  
-   pure $ \y b ->
-     when (x >= y) $
-       Build.hPutBuilder hd (b <> "\n")
+    hSetBuffering hd LineBuffering
+
+    pure $ \y b ->
+      when (x >= y) $
+        Build.hPutBuilder hd (b <> "\n")
 
 logError, logInfo, logDebug, logTrace :: (MonadIO m, ToLog a) => Logger -> a -> m ()
 logError f = liftIO . f Error . build

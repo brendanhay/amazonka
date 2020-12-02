@@ -63,7 +63,7 @@ library
     Network.AWS.Internal.Logger
 
   build-depends:
-    , amazonka-core        >=1.6.1   && <1.6.2
+    , amazonka-core        >=2.0.0   && <2.0.1
     , bytestring           >=0.9
     , conduit              >=1.1
     , conduit-extra        >=1.1
@@ -95,6 +95,6 @@ test-suite tests
   ghc-options:    -threaded
   other-modules:
   build-depends:
-    , amazonka
+    , amazonka     >=2.0.0 && <2.0.1
     , tasty
     , tasty-hunit

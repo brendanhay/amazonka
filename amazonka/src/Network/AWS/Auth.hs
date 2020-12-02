@@ -285,6 +285,7 @@ instance ToLog AuthError where
 class AsAuthError a where
   -- | A general authentication error.
   _AuthError :: Prism' a AuthError
+
   {-# MINIMAL _AuthError #-}
 
   -- | An error occured while communicating over HTTP with
@@ -593,7 +594,7 @@ fromContainer m = do
           (throwM . MissingEnvError $ "Unable to read ENV variable: " <> envContainerCredentialsURI)
           pure
           mp
-          
+
       parseUrlThrow $ "http://169.254.170.2" <> p
 
     renew :: HTTP.Request -> IO AuthEnv

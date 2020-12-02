@@ -124,7 +124,7 @@ test-suite tests
 
   build-depends:
     , aeson
-    , amazonka-core
+    , amazonka-core       >=2.0.0 && <2.0.1
     , base
     , bytestring
     , case-insensitive

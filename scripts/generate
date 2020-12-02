@@ -17,8 +17,6 @@ fi
 
 result="$(nix-build generate.nix --arg models "$models" --show-trace --no-out-link)"
 
-echo $result
-
-cp -r $result/amazonka-* ./lib/
+cp -r "$result"/amazonka-* ./lib/
 
 chmod -R u+rw ./lib

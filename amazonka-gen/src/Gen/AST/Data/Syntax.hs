@@ -348,7 +348,7 @@ notationE = \case
     relation = \case
       Equal -> "=="
       Greater -> ">"
-    
+
     branch x =
       let e = notationE x
        in Exts.paren (Exts.app (var (getterN e)) e)
@@ -957,8 +957,8 @@ tyapp a b = Exts.TyApp () a (typaren b)
 
 typaren :: Type -> Type
 typaren = \case
-    t@Exts.TyApp {} -> Exts.TyParen () t
-    t -> t
+  t@Exts.TyApp {} -> Exts.TyParen () t
+  t -> t
 
 con :: Text -> Exp
 con = Exts.Con () . unqual
@@ -973,7 +973,7 @@ str :: Text -> Exp
 str = Exts.strE . Text.unpack
 
 int :: Integer -> Exp
-int = Exts.intE 
+int = Exts.intE
 
 pvar :: Text -> Pat
 pvar = Exts.pvar . ident

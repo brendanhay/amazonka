@@ -18,9 +18,9 @@ for cabal in lib/amazonka*/*.cabal amazonka*/*.cabal; do
     sed -e "s/^\(version: *\).*/\1$pvp/;" \
         -e "s/^\( *amazonka[^ ]*\).*/\1 == $sem/g" \
         -e "s/^\( *, amazonka[^ ]*\).*/\1 == $sem/g" \
-        $cabal >$cabal.new
+        "$cabal" >"$cabal.new"
 
-    mv $cabal.new $cabal
+    mv "$cabal.new" "$cabal"
 done
 
 echo "Done."

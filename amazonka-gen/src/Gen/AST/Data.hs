@@ -351,7 +351,7 @@ notation m nid = go nid
     go :: Shape Solved -> Notation Id -> Either String (Notation Field)
     go s = \case
       Choice x y -> Choice <$> go s x <*> go s y
-      Length flen e op size -> Length flen <$> go s e <*> pure op <*> pure size 
+      Length flen e op size -> Length flen <$> go s e <*> pure op <*> pure size
       Deref ks ->
         fmap Deref . flip evalStateT s . Monad.forM ks $ \x -> do
           k <- get >>= lift . (`key` x)

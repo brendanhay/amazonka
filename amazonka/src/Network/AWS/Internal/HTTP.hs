@@ -139,11 +139,9 @@ perform Env {..} x = catches go handlers
 
       logTrace _envLogger m -- trace:Signing:Meta
       logDebug _envLogger rq -- debug:ClientRequest
+      rs <- liftResourceT (http rq _envManager)
 
-      rs          <- liftResourceT (http rq _envManager)
-                       
       logDebug _envLogger rs -- debug:ClientResponse
-      
       Right <$> response _envLogger (_rqService x) (p x) rs
 
     handlers =

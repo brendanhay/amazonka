@@ -1,3 +1,4 @@
+cabal-version:      2.2
 name:               amazonka-certificatemanager-pca
 version:            2.0.0.0
 synopsis:
@@ -10,9 +11,8 @@ license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           Network, AWS, Cloud, Distributed Computing
+category:           AWS, Cloud
 build-type:         Simple
-cabal-version:      >=1.10
 extra-source-files:
   fixture/*.proto
   fixture/*.yaml
@@ -38,7 +38,7 @@ description:
 source-repository head
   type:     git
   location: git://github.com/brendanhay/amazonka.git
-  subdir:   amazonka-certificatemanager-pca
+  subdir:   lib/amazonka-certificatemanager-pca
 
 library
   default-language: Haskell2010
@@ -97,8 +97,8 @@ library
     Network.AWS.CertificateManagerPCA.Types.ValidityPeriodType
 
   build-depends:
-      amazonka-core  >=1.6.1 && <1.6.2
-    , base           >=4.7   && <5
+    , amazonka-core  >=2.0.0.0 && <2.0.0.1
+    , base           >=4.12    && <5
 
 test-suite amazonka-certificatemanager-pca-test
   type:             exitcode-stdio-1.0
@@ -116,9 +116,9 @@ test-suite amazonka-certificatemanager-pca-test
     Test.AWS.Gen.CertificateManagerPCA
 
   build-depends:
-      amazonka-certificatemanager-pca
-    , amazonka-core                    >=1.6.1 && <1.6.2
-    , amazonka-test                    >=1.6.1 && <1.6.2
+    , amazonka-certificatemanager-pca
+    , amazonka-core                    >=2.0.0.0 && <2.0.0.1
+    , amazonka-test                    >=2.0.0.0 && <2.0.0.1
     , base
     , bytestring
     , tasty

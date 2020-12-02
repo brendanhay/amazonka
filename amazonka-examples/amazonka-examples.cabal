@@ -32,13 +32,13 @@ library
     Example.SQS
 
   build-depends:
-      amazonka              >=1.6.1 && <1.6.2
-    , amazonka-apigateway
-    , amazonka-core
-    , amazonka-dynamodb
-    , amazonka-ec2
-    , amazonka-s3
-    , amazonka-sqs
+      amazonka              >=2.0.0 && <2.0.1
+    , amazonka-apigateway   >=2.0.0 && <2.0.1
+    , amazonka-core         >=2.0.0 && <2.0.1
+    , amazonka-dynamodb     >=2.0.0 && <2.0.1
+    , amazonka-ec2          >=2.0.0 && <2.0.1
+    , amazonka-s3           >=2.0.0 && <2.0.1
+    , amazonka-sqs          >=2.0.0 && <2.0.1
     , base                  >=4.7
     , bytestring
     , conduit

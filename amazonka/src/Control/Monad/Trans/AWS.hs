@@ -153,6 +153,7 @@ import Control.Monad
 import Control.Monad.Base
 import Control.Monad.Catch
 import Control.Monad.Error.Class (MonadError (..))
+import qualified Control.Monad.Fail as Fail
 import Control.Monad.IO.Unlift
 import Control.Monad.Morph
 import Control.Monad.Primitive
@@ -161,7 +162,6 @@ import Control.Monad.State.Class
 import Control.Monad.Trans.Control
 import Control.Monad.Trans.Resource
 import Control.Monad.Writer.Class
-import qualified Control.Monad.Fail as Fail
 import Data.Conduit hiding (await)
 import Data.Conduit.Lazy (MonadActive (..))
 import Data.IORef
@@ -211,11 +211,12 @@ instance MonadMask m => MonadMask (AWST' r m) where
     uninterruptibleMask $ \u ->
       unAWST $ a (AWST' . u . unAWST)
 
-  generalBracket acquire rel action = AWST' $
-        generalBracket
-            (unAWST acquire)
-            (\a ex -> unAWST $ rel a ex)
-            (\a -> unAWST $ action a)
+  generalBracket acquire rel action =
+    AWST' $
+      generalBracket
+        (unAWST acquire)
+        (\a ex -> unAWST $ rel a ex)
+        (\a -> unAWST $ action a)
 
 instance MonadBase b m => MonadBase b (AWST' r m) where
   liftBase = liftBaseDefault
@@ -232,7 +233,8 @@ instance MonadBaseControl b m => MonadBaseControl b (AWST' r m) where
   liftBaseWith = defaultLiftBaseWith
   restoreM = defaultRestoreM
 
-instance MonadUnliftIO m => MonadUnliftIO (AWST' r m) where
+instance MonadUnliftIO m => MonadUnliftIO (AWST' r m)
+
 #if MIN_VERSION_unliftio_core(0,2,0)
     {-# INLINE withRunInIO #-}
     withRunInIO inner =

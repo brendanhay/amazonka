@@ -1,14 +1,13 @@
 final: prev: {
   libLocal = {
-    cleanSource = { src, name ? null, ignore ? [ ] }:
+    cleanGeneratedSource = { src, name ? null }:
       let
         clean = prev.lib.cleanSourceWith {
           inherit name;
 
           src = prev.lib.cleanSource src;
           filter = path: type:
-            let base = baseNameOf (toString path);
-            in builtins.all (n: base != n) ignore
+            baseNameOf (toString path) != "gen"
             && prev.haskell-nix.haskellSourceFilter path type;
         };
       in if (builtins.typeOf src) == "path" then clean else src;

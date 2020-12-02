@@ -12,7 +12,8 @@
 , crossOverlays ? [ ]
   # The names of the models to generate - ie. [ "ec2", "s3" ]
   # Setting to null will use file names from ./config
-, models ? null }:
+, models ? null
+}:
 
 let
 
@@ -55,10 +56,9 @@ in pkgs.stdenvNoCC.mkDerivation {
     cabalProject.amazonka-gen.components.exes.amazonka-gen
   ];
 
-  src = libLocal.cleanSource {
+  src = libLocal.cleanGeneratedSource {
     name = "amazonka-generate";
     src = ./lib;
-    ignore = ["gen"];
   };
 
   generatePhase = ''

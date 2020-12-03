@@ -30,15 +30,21 @@ fleetStopped =
         [ matchAll
             "INACTIVE"
             AcceptSuccess
-            (folding (concatOf dfsrsFleets) . fState . to toTextCI),
+            ( folding (concatOf (dfsrsFleets . to toList)) . fState
+                . to toTextCI
+            ),
           matchAny
             "PENDING_ACTIVATE"
             AcceptFailure
-            (folding (concatOf dfsrsFleets) . fState . to toTextCI),
+            ( folding (concatOf (dfsrsFleets . to toList)) . fState
+                . to toTextCI
+            ),
           matchAny
             "ACTIVE"
             AcceptFailure
-            (folding (concatOf dfsrsFleets) . fState . to toTextCI)
+            ( folding (concatOf (dfsrsFleets . to toList)) . fState
+                . to toTextCI
+            )
         ]
     }
 
@@ -53,14 +59,20 @@ fleetStarted =
         [ matchAll
             "ACTIVE"
             AcceptSuccess
-            (folding (concatOf dfsrsFleets) . fState . to toTextCI),
+            ( folding (concatOf (dfsrsFleets . to toList)) . fState
+                . to toTextCI
+            ),
           matchAny
             "PENDING_DEACTIVATE"
             AcceptFailure
-            (folding (concatOf dfsrsFleets) . fState . to toTextCI),
+            ( folding (concatOf (dfsrsFleets . to toList)) . fState
+                . to toTextCI
+            ),
           matchAny
             "INACTIVE"
             AcceptFailure
-            (folding (concatOf dfsrsFleets) . fState . to toTextCI)
+            ( folding (concatOf (dfsrsFleets . to toList)) . fState
+                . to toTextCI
+            )
         ]
     }

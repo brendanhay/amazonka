@@ -31,7 +31,7 @@ certificateValidated =
             "SUCCESS"
             AcceptSuccess
             ( dcrsCertificate . _Just
-                . folding (concatOf cdDomainValidationOptions)
+                . folding (concatOf (cdDomainValidationOptions . _Just . to toList))
                 . dvValidationStatus
                 . _Just
                 . to toTextCI
@@ -40,7 +40,7 @@ certificateValidated =
             "PENDING_VALIDATION"
             AcceptRetry
             ( dcrsCertificate . _Just
-                . folding (concatOf cdDomainValidationOptions)
+                . folding (concatOf (cdDomainValidationOptions . _Just . to toList))
                 . dvValidationStatus
                 . _Just
                 . to toTextCI

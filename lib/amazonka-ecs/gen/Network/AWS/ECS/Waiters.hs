@@ -31,11 +31,13 @@ servicesInactive =
         [ matchAny
             "MISSING"
             AcceptFailure
-            (folding (concatOf dssrsFailures) . fReason . _Just . to toTextCI),
+            ( folding (concatOf (dssrsFailures . to toList)) . fReason . _Just
+                . to toTextCI
+            ),
           matchAny
             "INACTIVE"
             AcceptSuccess
-            ( folding (concatOf dssrsServices) . csStatus . _Just
+            ( folding (concatOf (dssrsServices . to toList)) . csStatus . _Just
                 . to toTextCI
             )
         ]
@@ -52,15 +54,19 @@ tasksRunning =
         [ matchAny
             "STOPPED"
             AcceptFailure
-            (folding (concatOf dtrsTasks) . tLastStatus . _Just . to toTextCI),
+            ( folding (concatOf (dtrsTasks . to toList)) . tLastStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "MISSING"
             AcceptFailure
-            (folding (concatOf dtrsFailures) . fReason . _Just . to toTextCI),
+            ( folding (concatOf (dtrsFailures . to toList)) . fReason . _Just
+                . to toTextCI
+            ),
           matchAll
             "RUNNING"
             AcceptSuccess
-            ( folding (concatOf dtrsTasks) . tLastStatus . _Just
+            ( folding (concatOf (dtrsTasks . to toList)) . tLastStatus . _Just
                 . to toTextCI
             )
         ]
@@ -77,7 +83,7 @@ tasksStopped =
         [ matchAll
             "STOPPED"
             AcceptSuccess
-            ( folding (concatOf dtrsTasks) . tLastStatus . _Just
+            ( folding (concatOf (dtrsTasks . to toList)) . tLastStatus . _Just
                 . to toTextCI
             )
         ]

@@ -32,27 +32,39 @@ stackImportComplete =
         [ matchAll
             "IMPORT_COMPLETE"
             AcceptSuccess
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "ROLLBACK_COMPLETE"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "ROLLBACK_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "IMPORT_ROLLBACK_IN_PROGRESS"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "IMPORT_ROLLBACK_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "IMPORT_ROLLBACK_COMPLETE"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchError "ValidationError" AcceptFailure
         ]
     }
@@ -68,27 +80,39 @@ stackCreateComplete =
         [ matchAll
             "CREATE_COMPLETE"
             AcceptSuccess
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "CREATE_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "DELETE_COMPLETE"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "DELETE_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "ROLLBACK_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "ROLLBACK_COMPLETE"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchError "ValidationError" AcceptFailure
         ]
     }
@@ -104,19 +128,27 @@ stackRollbackComplete =
         [ matchAll
             "UPDATE_ROLLBACK_COMPLETE"
             AcceptSuccess
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "UPDATE_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "UPDATE_ROLLBACK_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "DELETE_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchError "ValidationError" AcceptFailure
         ]
     }
@@ -151,19 +183,27 @@ stackUpdateComplete =
         [ matchAll
             "UPDATE_COMPLETE"
             AcceptSuccess
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "UPDATE_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "UPDATE_ROLLBACK_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "UPDATE_ROLLBACK_COMPLETE"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchError "ValidationError" AcceptFailure
         ]
     }
@@ -192,32 +232,46 @@ stackDeleteComplete =
         [ matchAll
             "DELETE_COMPLETE"
             AcceptSuccess
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchError "ValidationError" AcceptSuccess,
           matchAny
             "DELETE_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "CREATE_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "ROLLBACK_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "UPDATE_ROLLBACK_IN_PROGRESS"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "UPDATE_ROLLBACK_FAILED"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI),
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            ),
           matchAny
             "UPDATE_ROLLBACK_COMPLETE"
             AcceptFailure
-            (folding (concatOf dsrsStacks) . staStackStatus . to toTextCI)
+            ( folding (concatOf (dsrsStacks . to toList)) . staStackStatus
+                . to toTextCI
+            )
         ]
     }
 

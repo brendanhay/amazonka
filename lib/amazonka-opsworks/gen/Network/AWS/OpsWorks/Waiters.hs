@@ -32,40 +32,56 @@ instanceTerminated =
         [ matchAll
             "terminated"
             AcceptSuccess
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchError "ResourceNotFoundException" AcceptSuccess,
           matchAny
             "booting"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "online"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "pending"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "rebooting"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "requested"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "running_setup"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "setup_failed"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "start_failed"
             AcceptFailure
-            ( folding (concatOf dirsInstances) . iStatus . _Just
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
                 . to toTextCI
             )
         ]
@@ -82,13 +98,13 @@ deploymentSuccessful =
         [ matchAll
             "successful"
             AcceptSuccess
-            ( folding (concatOf ddrsDeployments) . dStatus . _Just
+            ( folding (concatOf (ddrsDeployments . to toList)) . dStatus . _Just
                 . to toTextCI
             ),
           matchAny
             "failed"
             AcceptFailure
-            ( folding (concatOf ddrsDeployments) . dStatus . _Just
+            ( folding (concatOf (ddrsDeployments . to toList)) . dStatus . _Just
                 . to toTextCI
             )
         ]
@@ -105,39 +121,55 @@ instanceStopped =
         [ matchAll
             "stopped"
             AcceptSuccess
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "booting"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "pending"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "rebooting"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "requested"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "running_setup"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "setup_failed"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "start_failed"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "stop_failed"
             AcceptFailure
-            ( folding (concatOf dirsInstances) . iStatus . _Just
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
                 . to toTextCI
             )
         ]
@@ -154,39 +186,55 @@ instanceOnline =
         [ matchAll
             "online"
             AcceptSuccess
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "setup_failed"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "shutting_down"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "start_failed"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "stopped"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "stopping"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "terminating"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "terminated"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "stop_failed"
             AcceptFailure
-            ( folding (concatOf dirsInstances) . iStatus . _Just
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
                 . to toTextCI
             )
         ]
@@ -214,35 +262,49 @@ instanceRegistered =
         [ matchAll
             "registered"
             AcceptSuccess
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "setup_failed"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "shutting_down"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "stopped"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "stopping"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "terminating"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "terminated"
             AcceptFailure
-            (folding (concatOf dirsInstances) . iStatus . _Just . to toTextCI),
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "stop_failed"
             AcceptFailure
-            ( folding (concatOf dirsInstances) . iStatus . _Just
+            ( folding (concatOf (dirsInstances . to toList)) . iStatus . _Just
                 . to toTextCI
             )
         ]

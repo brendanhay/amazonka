@@ -33,7 +33,7 @@ replicationInstanceAvailable =
         [ matchAll
             "available"
             AcceptSuccess
-            ( folding (concatOf drisrsReplicationInstances)
+            ( folding (concatOf (drisrsReplicationInstances . to toList))
                 . riReplicationInstanceStatus
                 . _Just
                 . to toTextCI
@@ -41,7 +41,7 @@ replicationInstanceAvailable =
           matchAny
             "deleting"
             AcceptFailure
-            ( folding (concatOf drisrsReplicationInstances)
+            ( folding (concatOf (drisrsReplicationInstances . to toList))
                 . riReplicationInstanceStatus
                 . _Just
                 . to toTextCI
@@ -49,7 +49,7 @@ replicationInstanceAvailable =
           matchAny
             "incompatible-credentials"
             AcceptFailure
-            ( folding (concatOf drisrsReplicationInstances)
+            ( folding (concatOf (drisrsReplicationInstances . to toList))
                 . riReplicationInstanceStatus
                 . _Just
                 . to toTextCI
@@ -57,7 +57,7 @@ replicationInstanceAvailable =
           matchAny
             "incompatible-network"
             AcceptFailure
-            ( folding (concatOf drisrsReplicationInstances)
+            ( folding (concatOf (drisrsReplicationInstances . to toList))
                 . riReplicationInstanceStatus
                 . _Just
                 . to toTextCI
@@ -65,7 +65,7 @@ replicationInstanceAvailable =
           matchAny
             "inaccessible-encryption-credentials"
             AcceptFailure
-            ( folding (concatOf drisrsReplicationInstances)
+            ( folding (concatOf (drisrsReplicationInstances . to toList))
                 . riReplicationInstanceStatus
                 . _Just
                 . to toTextCI
@@ -84,31 +84,41 @@ replicationTaskDeleted =
         [ matchAny
             "ready"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "creating"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "stopped"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "running"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "failed"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchError "ResourceNotFoundFault" AcceptSuccess
@@ -126,55 +136,73 @@ replicationTaskReady =
         [ matchAll
             "ready"
             AcceptSuccess
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "starting"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "running"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "stopping"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "stopped"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "failed"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "modifying"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "testing"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "deleting"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             )
         ]
@@ -191,7 +219,7 @@ replicationInstanceDeleted =
         [ matchAny
             "available"
             AcceptFailure
-            ( folding (concatOf drisrsReplicationInstances)
+            ( folding (concatOf (drisrsReplicationInstances . to toList))
                 . riReplicationInstanceStatus
                 . _Just
                 . to toTextCI
@@ -212,11 +240,13 @@ endpointDeleted =
           matchAny
             "active"
             AcceptFailure
-            (folding (concatOf dersEndpoints) . eStatus . _Just . to toTextCI),
+            ( folding (concatOf (dersEndpoints . to toList)) . eStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "creating"
             AcceptFailure
-            ( folding (concatOf dersEndpoints) . eStatus . _Just
+            ( folding (concatOf (dersEndpoints . to toList)) . eStatus . _Just
                 . to toTextCI
             )
         ]
@@ -233,55 +263,73 @@ replicationTaskStopped =
         [ matchAll
             "stopped"
             AcceptSuccess
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "ready"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "creating"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "starting"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "running"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "failed"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "modifying"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "testing"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "deleting"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             )
         ]
@@ -298,55 +346,73 @@ replicationTaskRunning =
         [ matchAll
             "running"
             AcceptSuccess
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "ready"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "creating"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "stopping"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "stopped"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "failed"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "modifying"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "testing"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "deleting"
             AcceptFailure
-            ( folding (concatOf drtsrsReplicationTasks) . repStatus . _Just
+            ( folding (concatOf (drtsrsReplicationTasks . to toList))
+                . repStatus
+                . _Just
                 . to toTextCI
             )
         ]
@@ -363,13 +429,17 @@ testConnectionSucceeds =
         [ matchAll
             "successful"
             AcceptSuccess
-            ( folding (concatOf dcsrsConnections) . cStatus . _Just
+            ( folding (concatOf (dcsrsConnections . to toList))
+                . cStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "failed"
             AcceptFailure
-            ( folding (concatOf dcsrsConnections) . cStatus . _Just
+            ( folding (concatOf (dcsrsConnections . to toList))
+                . cStatus
+                . _Just
                 . to toTextCI
             )
         ]

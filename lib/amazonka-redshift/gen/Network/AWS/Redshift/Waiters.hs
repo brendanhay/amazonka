@@ -31,7 +31,9 @@ clusterRestored =
         [ matchAll
             "completed"
             AcceptSuccess
-            ( folding (concatOf dcrsClusters) . cRestoreStatus . _Just
+            ( folding (concatOf (dcrsClusters . to toList))
+                . cRestoreStatus
+                . _Just
                 . rsStatus
                 . _Just
                 . to toTextCI
@@ -39,7 +41,9 @@ clusterRestored =
           matchAny
             "deleting"
             AcceptFailure
-            ( folding (concatOf dcrsClusters) . cClusterStatus . _Just
+            ( folding (concatOf (dcrsClusters . to toList))
+                . cClusterStatus
+                . _Just
                 . to toTextCI
             )
         ]
@@ -57,13 +61,17 @@ clusterDeleted =
           matchAny
             "creating"
             AcceptFailure
-            ( folding (concatOf dcrsClusters) . cClusterStatus . _Just
+            ( folding (concatOf (dcrsClusters . to toList))
+                . cClusterStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "modifying"
             AcceptFailure
-            ( folding (concatOf dcrsClusters) . cClusterStatus . _Just
+            ( folding (concatOf (dcrsClusters . to toList))
+                . cClusterStatus
+                . _Just
                 . to toTextCI
             )
         ]
@@ -80,19 +88,19 @@ snapshotAvailable =
         [ matchAll
             "available"
             AcceptSuccess
-            ( folding (concatOf dcssrsSnapshots) . sStatus . _Just
+            ( folding (concatOf (dcssrsSnapshots . to toList)) . sStatus . _Just
                 . to toTextCI
             ),
           matchAny
             "failed"
             AcceptFailure
-            ( folding (concatOf dcssrsSnapshots) . sStatus . _Just
+            ( folding (concatOf (dcssrsSnapshots . to toList)) . sStatus . _Just
                 . to toTextCI
             ),
           matchAny
             "deleted"
             AcceptFailure
-            ( folding (concatOf dcssrsSnapshots) . sStatus . _Just
+            ( folding (concatOf (dcssrsSnapshots . to toList)) . sStatus . _Just
                 . to toTextCI
             )
         ]
@@ -109,13 +117,17 @@ clusterAvailable =
         [ matchAll
             "available"
             AcceptSuccess
-            ( folding (concatOf dcrsClusters) . cClusterStatus . _Just
+            ( folding (concatOf (dcrsClusters . to toList))
+                . cClusterStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "deleting"
             AcceptFailure
-            ( folding (concatOf dcrsClusters) . cClusterStatus . _Just
+            ( folding (concatOf (dcrsClusters . to toList))
+                . cClusterStatus
+                . _Just
                 . to toTextCI
             ),
           matchError "ClusterNotFound" AcceptRetry

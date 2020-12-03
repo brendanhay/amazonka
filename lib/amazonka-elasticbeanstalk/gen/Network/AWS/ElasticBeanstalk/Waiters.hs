@@ -30,13 +30,13 @@ environmentExists =
         [ matchAll
             "Ready"
             AcceptSuccess
-            ( folding (concatOf edmEnvironments) . eStatus . _Just
+            ( folding (concatOf (edmEnvironments . to toList)) . eStatus . _Just
                 . to toTextCI
             ),
           matchAll
             "Launching"
             AcceptRetry
-            ( folding (concatOf edmEnvironments) . eStatus . _Just
+            ( folding (concatOf (edmEnvironments . to toList)) . eStatus . _Just
                 . to toTextCI
             )
         ]
@@ -53,13 +53,13 @@ environmentUpdated =
         [ matchAll
             "Ready"
             AcceptSuccess
-            ( folding (concatOf edmEnvironments) . eStatus . _Just
+            ( folding (concatOf (edmEnvironments . to toList)) . eStatus . _Just
                 . to toTextCI
             ),
           matchAll
             "Updating"
             AcceptRetry
-            ( folding (concatOf edmEnvironments) . eStatus . _Just
+            ( folding (concatOf (edmEnvironments . to toList)) . eStatus . _Just
                 . to toTextCI
             )
         ]
@@ -76,13 +76,13 @@ environmentTerminated =
         [ matchAll
             "Terminated"
             AcceptSuccess
-            ( folding (concatOf edmEnvironments) . eStatus . _Just
+            ( folding (concatOf (edmEnvironments . to toList)) . eStatus . _Just
                 . to toTextCI
             ),
           matchAll
             "Terminating"
             AcceptRetry
-            ( folding (concatOf edmEnvironments) . eStatus . _Just
+            ( folding (concatOf (edmEnvironments . to toList)) . eStatus . _Just
                 . to toTextCI
             )
         ]

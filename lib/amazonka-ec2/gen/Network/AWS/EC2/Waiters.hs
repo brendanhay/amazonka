@@ -48,8 +48,8 @@ instanceTerminated =
         [ matchAll
             "terminated"
             AcceptSuccess
-            ( folding (concatOf dirsReservations)
-                . folding (concatOf rInstances)
+            ( folding (concatOf (dirsReservations . to toList))
+                . folding (concatOf (rInstances . to toList))
                 . insState
                 . isName
                 . to toTextCI
@@ -57,8 +57,8 @@ instanceTerminated =
           matchAny
             "pending"
             AcceptFailure
-            ( folding (concatOf dirsReservations)
-                . folding (concatOf rInstances)
+            ( folding (concatOf (dirsReservations . to toList))
+                . folding (concatOf (rInstances . to toList))
                 . insState
                 . isName
                 . to toTextCI
@@ -66,8 +66,8 @@ instanceTerminated =
           matchAny
             "stopping"
             AcceptFailure
-            ( folding (concatOf dirsReservations)
-                . folding (concatOf rInstances)
+            ( folding (concatOf (dirsReservations . to toList))
+                . folding (concatOf (rInstances . to toList))
                 . insState
                 . isName
                 . to toTextCI
@@ -86,11 +86,15 @@ volumeInUse =
         [ matchAll
             "in-use"
             AcceptSuccess
-            (folding (concatOf dvvrsVolumes) . vState . to toTextCI),
+            ( folding (concatOf (dvvrsVolumes . to toList)) . vState
+                . to toTextCI
+            ),
           matchAny
             "deleted"
             AcceptFailure
-            (folding (concatOf dvvrsVolumes) . vState . to toTextCI)
+            ( folding (concatOf (dvvrsVolumes . to toList)) . vState
+                . to toTextCI
+            )
         ]
     }
 
@@ -105,7 +109,7 @@ imageExists =
         [ matchNonEmpty
             True
             AcceptSuccess
-            (length (^. (folding (concatOf diirsImages))) > 0),
+            (length (^. (folding (concatOf (diirsImages . to toList)))) > 0),
           matchError "InvalidAMIID.NotFound" AcceptRetry
         ]
     }
@@ -121,25 +125,33 @@ natGatewayAvailable =
         [ matchAll
             "available"
             AcceptSuccess
-            ( folding (concatOf dngrsNatGateways) . ngState . _Just
+            ( folding (concatOf (dngrsNatGateways . to toList))
+                . ngState
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "failed"
             AcceptFailure
-            ( folding (concatOf dngrsNatGateways) . ngState . _Just
+            ( folding (concatOf (dngrsNatGateways . to toList))
+                . ngState
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "deleting"
             AcceptFailure
-            ( folding (concatOf dngrsNatGateways) . ngState . _Just
+            ( folding (concatOf (dngrsNatGateways . to toList))
+                . ngState
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "deleted"
             AcceptFailure
-            ( folding (concatOf dngrsNatGateways) . ngState . _Just
+            ( folding (concatOf (dngrsNatGateways . to toList))
+                . ngState
+                . _Just
                 . to toTextCI
             ),
           matchError "NatGatewayNotFound" AcceptRetry
@@ -157,7 +169,9 @@ subnetAvailable =
         [ matchAll
             "available"
             AcceptSuccess
-            (folding (concatOf dsrsSubnets) . subState . to toTextCI)
+            ( folding (concatOf (dsrsSubnets . to toList)) . subState
+                . to toTextCI
+            )
         ]
     }
 
@@ -172,7 +186,9 @@ networkInterfaceAvailable =
         [ matchAll
             "available"
             AcceptSuccess
-            ( folding (concatOf dnirsNetworkInterfaces) . niStatus . _Just
+            ( folding (concatOf (dnirsNetworkInterfaces . to toList))
+                . niStatus
+                . _Just
                 . to toTextCI
             ),
           matchError "InvalidNetworkInterfaceID.NotFound" AcceptFailure
@@ -191,7 +207,12 @@ keyPairExists =
             True
             AcceptSuccess
             ( length
-                (^? (folding (concatOf dkprsKeyPairs) . kpiKeyName . _Just))
+                ( ^?
+                    ( folding (concatOf (dkprsKeyPairs . to toList))
+                        . kpiKeyName
+                        . _Just
+                    )
+                )
                 > 0
             ),
           matchError "InvalidKeyPair.NotFound" AcceptRetry
@@ -209,7 +230,9 @@ systemStatusOK =
         [ matchAll
             "ok"
             AcceptSuccess
-            ( folding (concatOf disrsInstanceStatuses) . iSystemStatus . _Just
+            ( folding (concatOf (disrsInstanceStatuses . to toList))
+                . iSystemStatus
+                . _Just
                 . issStatus
                 . to toTextCI
             )
@@ -227,19 +250,19 @@ customerGatewayAvailable =
         [ matchAll
             "available"
             AcceptSuccess
-            ( folding (concatOf dcgcrsCustomerGateways) . cusState
+            ( folding (concatOf (dcgcrsCustomerGateways . to toList)) . cusState
                 . to toTextCI
             ),
           matchAny
             "deleted"
             AcceptFailure
-            ( folding (concatOf dcgcrsCustomerGateways) . cusState
+            ( folding (concatOf (dcgcrsCustomerGateways . to toList)) . cusState
                 . to toTextCI
             ),
           matchAny
             "deleting"
             AcceptFailure
-            ( folding (concatOf dcgcrsCustomerGateways) . cusState
+            ( folding (concatOf (dcgcrsCustomerGateways . to toList)) . cusState
                 . to toTextCI
             )
         ]
@@ -256,19 +279,25 @@ conversionTaskCompleted =
         [ matchAll
             "completed"
             AcceptSuccess
-            ( folding (concatOf dctrsConversionTasks) . ctState . _Just
+            ( folding (concatOf (dctrsConversionTasks . to toList))
+                . ctState
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "cancelled"
             AcceptFailure
-            ( folding (concatOf dctrsConversionTasks) . ctState . _Just
+            ( folding (concatOf (dctrsConversionTasks . to toList))
+                . ctState
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "cancelling"
             AcceptFailure
-            ( folding (concatOf dctrsConversionTasks) . ctState . _Just
+            ( folding (concatOf (dctrsConversionTasks . to toList))
+                . ctState
+                . _Just
                 . to toTextCI
             )
         ]
@@ -285,8 +314,8 @@ instanceStopped =
         [ matchAll
             "stopped"
             AcceptSuccess
-            ( folding (concatOf dirsReservations)
-                . folding (concatOf rInstances)
+            ( folding (concatOf (dirsReservations . to toList))
+                . folding (concatOf (rInstances . to toList))
                 . insState
                 . isName
                 . to toTextCI
@@ -294,8 +323,8 @@ instanceStopped =
           matchAny
             "pending"
             AcceptFailure
-            ( folding (concatOf dirsReservations)
-                . folding (concatOf rInstances)
+            ( folding (concatOf (dirsReservations . to toList))
+                . folding (concatOf (rInstances . to toList))
                 . insState
                 . isName
                 . to toTextCI
@@ -303,8 +332,8 @@ instanceStopped =
           matchAny
             "terminated"
             AcceptFailure
-            ( folding (concatOf dirsReservations)
-                . folding (concatOf rInstances)
+            ( folding (concatOf (dirsReservations . to toList))
+                . folding (concatOf (rInstances . to toList))
                 . insState
                 . isName
                 . to toTextCI
@@ -323,7 +352,9 @@ conversionTaskDeleted =
         [ matchAll
             "deleted"
             AcceptSuccess
-            ( folding (concatOf dctrsConversionTasks) . ctState . _Just
+            ( folding (concatOf (dctrsConversionTasks . to toList))
+                . ctState
+                . _Just
                 . to toTextCI
             )
         ]
@@ -355,8 +386,8 @@ instanceRunning =
         [ matchAll
             "running"
             AcceptSuccess
-            ( folding (concatOf dirsReservations)
-                . folding (concatOf rInstances)
+            ( folding (concatOf (dirsReservations . to toList))
+                . folding (concatOf (rInstances . to toList))
                 . insState
                 . isName
                 . to toTextCI
@@ -364,8 +395,8 @@ instanceRunning =
           matchAny
             "shutting-down"
             AcceptFailure
-            ( folding (concatOf dirsReservations)
-                . folding (concatOf rInstances)
+            ( folding (concatOf (dirsReservations . to toList))
+                . folding (concatOf (rInstances . to toList))
                 . insState
                 . isName
                 . to toTextCI
@@ -373,8 +404,8 @@ instanceRunning =
           matchAny
             "terminated"
             AcceptFailure
-            ( folding (concatOf dirsReservations)
-                . folding (concatOf rInstances)
+            ( folding (concatOf (dirsReservations . to toList))
+                . folding (concatOf (rInstances . to toList))
                 . insState
                 . isName
                 . to toTextCI
@@ -382,8 +413,8 @@ instanceRunning =
           matchAny
             "stopping"
             AcceptFailure
-            ( folding (concatOf dirsReservations)
-                . folding (concatOf rInstances)
+            ( folding (concatOf (dirsReservations . to toList))
+                . folding (concatOf (rInstances . to toList))
                 . insState
                 . isName
                 . to toTextCI
@@ -403,7 +434,10 @@ securityGroupExists =
         [ matchNonEmpty
             True
             AcceptSuccess
-            ( length (^. (folding (concatOf dsgrsSecurityGroups) . sgGroupId))
+            ( length
+                ( ^.
+                    (folding (concatOf (dsgrsSecurityGroups . to toList)) . sgGroupId)
+                )
                 > 0
             ),
           matchError "InvalidGroupNotFound" AcceptRetry
@@ -421,7 +455,9 @@ spotInstanceRequestFulfilled =
         [ matchAll
             "fulfilled"
             AcceptSuccess
-            ( folding (concatOf dsirrsSpotInstanceRequests) . sirStatus . _Just
+            ( folding (concatOf (dsirrsSpotInstanceRequests . to toList))
+                . sirStatus
+                . _Just
                 . sisCode
                 . _Just
                 . to toTextCI
@@ -429,7 +465,9 @@ spotInstanceRequestFulfilled =
           matchAll
             "request-canceled-and-instance-running"
             AcceptSuccess
-            ( folding (concatOf dsirrsSpotInstanceRequests) . sirStatus . _Just
+            ( folding (concatOf (dsirrsSpotInstanceRequests . to toList))
+                . sirStatus
+                . _Just
                 . sisCode
                 . _Just
                 . to toTextCI
@@ -437,7 +475,9 @@ spotInstanceRequestFulfilled =
           matchAny
             "schedule-expired"
             AcceptFailure
-            ( folding (concatOf dsirrsSpotInstanceRequests) . sirStatus . _Just
+            ( folding (concatOf (dsirrsSpotInstanceRequests . to toList))
+                . sirStatus
+                . _Just
                 . sisCode
                 . _Just
                 . to toTextCI
@@ -445,7 +485,9 @@ spotInstanceRequestFulfilled =
           matchAny
             "canceled-before-fulfillment"
             AcceptFailure
-            ( folding (concatOf dsirrsSpotInstanceRequests) . sirStatus . _Just
+            ( folding (concatOf (dsirrsSpotInstanceRequests . to toList))
+                . sirStatus
+                . _Just
                 . sisCode
                 . _Just
                 . to toTextCI
@@ -453,7 +495,9 @@ spotInstanceRequestFulfilled =
           matchAny
             "bad-parameters"
             AcceptFailure
-            ( folding (concatOf dsirrsSpotInstanceRequests) . sirStatus . _Just
+            ( folding (concatOf (dsirrsSpotInstanceRequests . to toList))
+                . sirStatus
+                . _Just
                 . sisCode
                 . _Just
                 . to toTextCI
@@ -461,7 +505,9 @@ spotInstanceRequestFulfilled =
           matchAny
             "system-error"
             AcceptFailure
-            ( folding (concatOf dsirrsSpotInstanceRequests) . sirStatus . _Just
+            ( folding (concatOf (dsirrsSpotInstanceRequests . to toList))
+                . sirStatus
+                . _Just
                 . sisCode
                 . _Just
                 . to toTextCI
@@ -481,7 +527,9 @@ vpcAvailable =
         [ matchAll
             "available"
             AcceptSuccess
-            (folding (concatOf dvrsVPCs) . vpcState . to toTextCI)
+            ( folding (concatOf (dvrsVPCs . to toList)) . vpcState
+                . to toTextCI
+            )
         ]
     }
 
@@ -496,7 +544,9 @@ exportTaskCompleted =
         [ matchAll
             "completed"
             AcceptSuccess
-            (folding (concatOf detrsExportTasks) . etState . to toTextCI)
+            ( folding (concatOf (detrsExportTasks . to toList)) . etState
+                . to toTextCI
+            )
         ]
     }
 
@@ -511,7 +561,7 @@ vpcPeeringConnectionDeleted =
         [ matchAll
             "deleted"
             AcceptSuccess
-            ( folding (concatOf dvpcpcrsVPCPeeringConnections)
+            ( folding (concatOf (dvpcpcrsVPCPeeringConnections . to toList))
                 . vpcpcStatus
                 . _Just
                 . vpcsrCode
@@ -533,15 +583,21 @@ vpnConnectionAvailable =
         [ matchAll
             "available"
             AcceptSuccess
-            (folding (concatOf dvcrsVPNConnections) . vcState . to toTextCI),
+            ( folding (concatOf (dvcrsVPNConnections . to toList)) . vcState
+                . to toTextCI
+            ),
           matchAny
             "deleting"
             AcceptFailure
-            (folding (concatOf dvcrsVPNConnections) . vcState . to toTextCI),
+            ( folding (concatOf (dvcrsVPNConnections . to toList)) . vcState
+                . to toTextCI
+            ),
           matchAny
             "deleted"
             AcceptFailure
-            (folding (concatOf dvcrsVPNConnections) . vcState . to toTextCI)
+            ( folding (concatOf (dvcrsVPNConnections . to toList)) . vcState
+                . to toTextCI
+            )
         ]
     }
 
@@ -556,7 +612,9 @@ exportTaskCancelled =
         [ matchAll
             "cancelled"
             AcceptSuccess
-            (folding (concatOf detrsExportTasks) . etState . to toTextCI)
+            ( folding (concatOf (detrsExportTasks . to toList)) . etState
+                . to toTextCI
+            )
         ]
     }
 
@@ -571,7 +629,9 @@ volumeDeleted =
         [ matchAll
             "deleted"
             AcceptSuccess
-            (folding (concatOf dvvrsVolumes) . vState . to toTextCI),
+            ( folding (concatOf (dvvrsVolumes . to toList)) . vState
+                . to toTextCI
+            ),
           matchError "InvalidVolume.NotFound" AcceptSuccess
         ]
     }
@@ -600,11 +660,15 @@ bundleTaskComplete =
         [ matchAll
             "complete"
             AcceptSuccess
-            (folding (concatOf dbtrsBundleTasks) . btState . to toTextCI),
+            ( folding (concatOf (dbtrsBundleTasks . to toList)) . btState
+                . to toTextCI
+            ),
           matchAny
             "failed"
             AcceptFailure
-            (folding (concatOf dbtrsBundleTasks) . btState . to toTextCI)
+            ( folding (concatOf (dbtrsBundleTasks . to toList)) . btState
+                . to toTextCI
+            )
         ]
     }
 
@@ -619,11 +683,15 @@ vpnConnectionDeleted =
         [ matchAll
             "deleted"
             AcceptSuccess
-            (folding (concatOf dvcrsVPNConnections) . vcState . to toTextCI),
+            ( folding (concatOf (dvcrsVPNConnections . to toList)) . vcState
+                . to toTextCI
+            ),
           matchAny
             "pending"
             AcceptFailure
-            (folding (concatOf dvcrsVPNConnections) . vcState . to toTextCI)
+            ( folding (concatOf (dvcrsVPNConnections . to toList)) . vcState
+                . to toTextCI
+            )
         ]
     }
 
@@ -638,7 +706,9 @@ conversionTaskCancelled =
         [ matchAll
             "cancelled"
             AcceptSuccess
-            ( folding (concatOf dctrsConversionTasks) . ctState . _Just
+            ( folding (concatOf (dctrsConversionTasks . to toList))
+                . ctState
+                . _Just
                 . to toTextCI
             )
         ]
@@ -655,11 +725,15 @@ imageAvailable =
         [ matchAll
             "available"
             AcceptSuccess
-            (folding (concatOf diirsImages) . iState . to toTextCI),
+            ( folding (concatOf (diirsImages . to toList)) . iState
+                . to toTextCI
+            ),
           matchAny
             "deregistered"
             AcceptFailure
-            (folding (concatOf diirsImages) . iState . to toTextCI)
+            ( folding (concatOf (diirsImages . to toList)) . iState
+                . to toTextCI
+            )
         ]
     }
 
@@ -687,7 +761,9 @@ snapshotCompleted =
         [ matchAll
             "completed"
             AcceptSuccess
-            (folding (concatOf dssrsSnapshots) . sState . to toTextCI)
+            ( folding (concatOf (dssrsSnapshots . to toList)) . sState
+                . to toTextCI
+            )
         ]
     }
 
@@ -715,7 +791,9 @@ instanceStatusOK =
         [ matchAll
             "ok"
             AcceptSuccess
-            ( folding (concatOf disrsInstanceStatuses) . iInstanceStatus . _Just
+            ( folding (concatOf (disrsInstanceStatuses . to toList))
+                . iInstanceStatus
+                . _Just
                 . issStatus
                 . to toTextCI
             ),
@@ -734,10 +812,14 @@ volumeAvailable =
         [ matchAll
             "available"
             AcceptSuccess
-            (folding (concatOf dvvrsVolumes) . vState . to toTextCI),
+            ( folding (concatOf (dvvrsVolumes . to toList)) . vState
+                . to toTextCI
+            ),
           matchAny
             "deleted"
             AcceptFailure
-            (folding (concatOf dvvrsVolumes) . vState . to toTextCI)
+            ( folding (concatOf (dvvrsVolumes . to toList)) . vState
+                . to toTextCI
+            )
         ]
     }

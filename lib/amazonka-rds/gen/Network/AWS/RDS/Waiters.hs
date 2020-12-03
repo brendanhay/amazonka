@@ -32,37 +32,49 @@ dbInstanceAvailable =
         [ matchAll
             "available"
             AcceptSuccess
-            ( folding (concatOf ddbirsDBInstances) . diDBInstanceStatus . _Just
+            ( folding (concatOf (ddbirsDBInstances . to toList))
+                . diDBInstanceStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "deleted"
             AcceptFailure
-            ( folding (concatOf ddbirsDBInstances) . diDBInstanceStatus . _Just
+            ( folding (concatOf (ddbirsDBInstances . to toList))
+                . diDBInstanceStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "deleting"
             AcceptFailure
-            ( folding (concatOf ddbirsDBInstances) . diDBInstanceStatus . _Just
+            ( folding (concatOf (ddbirsDBInstances . to toList))
+                . diDBInstanceStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "failed"
             AcceptFailure
-            ( folding (concatOf ddbirsDBInstances) . diDBInstanceStatus . _Just
+            ( folding (concatOf (ddbirsDBInstances . to toList))
+                . diDBInstanceStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "incompatible-restore"
             AcceptFailure
-            ( folding (concatOf ddbirsDBInstances) . diDBInstanceStatus . _Just
+            ( folding (concatOf (ddbirsDBInstances . to toList))
+                . diDBInstanceStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "incompatible-parameters"
             AcceptFailure
-            ( folding (concatOf ddbirsDBInstances) . diDBInstanceStatus . _Just
+            ( folding (concatOf (ddbirsDBInstances . to toList))
+                . diDBInstanceStatus
+                . _Just
                 . to toTextCI
             )
         ]
@@ -80,7 +92,9 @@ dbSnapshotCompleted =
           matchAll
             "available"
             AcceptSuccess
-            ( folding (concatOf ddsrsDBSnapshots) . dsStatus . _Just
+            ( folding (concatOf (ddsrsDBSnapshots . to toList))
+                . dsStatus
+                . _Just
                 . to toTextCI
             )
         ]
@@ -99,25 +113,33 @@ dbSnapshotDeleted =
           matchAny
             "creating"
             AcceptFailure
-            ( folding (concatOf ddsrsDBSnapshots) . dsStatus . _Just
+            ( folding (concatOf (ddsrsDBSnapshots . to toList))
+                . dsStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "modifying"
             AcceptFailure
-            ( folding (concatOf ddsrsDBSnapshots) . dsStatus . _Just
+            ( folding (concatOf (ddsrsDBSnapshots . to toList))
+                . dsStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "rebooting"
             AcceptFailure
-            ( folding (concatOf ddsrsDBSnapshots) . dsStatus . _Just
+            ( folding (concatOf (ddsrsDBSnapshots . to toList))
+                . dsStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "resetting-master-credentials"
             AcceptFailure
-            ( folding (concatOf ddsrsDBSnapshots) . dsStatus . _Just
+            ( folding (concatOf (ddsrsDBSnapshots . to toList))
+                . dsStatus
+                . _Just
                 . to toTextCI
             )
         ]
@@ -136,25 +158,33 @@ dbInstanceDeleted =
           matchAny
             "creating"
             AcceptFailure
-            ( folding (concatOf ddbirsDBInstances) . diDBInstanceStatus . _Just
+            ( folding (concatOf (ddbirsDBInstances . to toList))
+                . diDBInstanceStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "modifying"
             AcceptFailure
-            ( folding (concatOf ddbirsDBInstances) . diDBInstanceStatus . _Just
+            ( folding (concatOf (ddbirsDBInstances . to toList))
+                . diDBInstanceStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "rebooting"
             AcceptFailure
-            ( folding (concatOf ddbirsDBInstances) . diDBInstanceStatus . _Just
+            ( folding (concatOf (ddbirsDBInstances . to toList))
+                . diDBInstanceStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "resetting-master-credentials"
             AcceptFailure
-            ( folding (concatOf ddbirsDBInstances) . diDBInstanceStatus . _Just
+            ( folding (concatOf (ddbirsDBInstances . to toList))
+                . diDBInstanceStatus
+                . _Just
                 . to toTextCI
             )
         ]
@@ -176,25 +206,33 @@ dbClusterSnapshotDeleted =
           matchAny
             "creating"
             AcceptFailure
-            ( folding (concatOf ddbcsrsDBClusterSnapshots) . dcsStatus . _Just
+            ( folding (concatOf (ddbcsrsDBClusterSnapshots . to toList))
+                . dcsStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "modifying"
             AcceptFailure
-            ( folding (concatOf ddbcsrsDBClusterSnapshots) . dcsStatus . _Just
+            ( folding (concatOf (ddbcsrsDBClusterSnapshots . to toList))
+                . dcsStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "rebooting"
             AcceptFailure
-            ( folding (concatOf ddbcsrsDBClusterSnapshots) . dcsStatus . _Just
+            ( folding (concatOf (ddbcsrsDBClusterSnapshots . to toList))
+                . dcsStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "resetting-master-credentials"
             AcceptFailure
-            ( folding (concatOf ddbcsrsDBClusterSnapshots) . dcsStatus . _Just
+            ( folding (concatOf (ddbcsrsDBClusterSnapshots . to toList))
+                . dcsStatus
+                . _Just
                 . to toTextCI
             )
         ]
@@ -211,37 +249,49 @@ dbSnapshotAvailable =
         [ matchAll
             "available"
             AcceptSuccess
-            ( folding (concatOf ddsrsDBSnapshots) . dsStatus . _Just
+            ( folding (concatOf (ddsrsDBSnapshots . to toList))
+                . dsStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "deleted"
             AcceptFailure
-            ( folding (concatOf ddsrsDBSnapshots) . dsStatus . _Just
+            ( folding (concatOf (ddsrsDBSnapshots . to toList))
+                . dsStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "deleting"
             AcceptFailure
-            ( folding (concatOf ddsrsDBSnapshots) . dsStatus . _Just
+            ( folding (concatOf (ddsrsDBSnapshots . to toList))
+                . dsStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "failed"
             AcceptFailure
-            ( folding (concatOf ddsrsDBSnapshots) . dsStatus . _Just
+            ( folding (concatOf (ddsrsDBSnapshots . to toList))
+                . dsStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "incompatible-restore"
             AcceptFailure
-            ( folding (concatOf ddsrsDBSnapshots) . dsStatus . _Just
+            ( folding (concatOf (ddsrsDBSnapshots . to toList))
+                . dsStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "incompatible-parameters"
             AcceptFailure
-            ( folding (concatOf ddsrsDBSnapshots) . dsStatus . _Just
+            ( folding (concatOf (ddsrsDBSnapshots . to toList))
+                . dsStatus
+                . _Just
                 . to toTextCI
             )
         ]
@@ -258,37 +308,49 @@ dbClusterSnapshotAvailable =
         [ matchAll
             "available"
             AcceptSuccess
-            ( folding (concatOf ddbcsrsDBClusterSnapshots) . dcsStatus . _Just
+            ( folding (concatOf (ddbcsrsDBClusterSnapshots . to toList))
+                . dcsStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "deleted"
             AcceptFailure
-            ( folding (concatOf ddbcsrsDBClusterSnapshots) . dcsStatus . _Just
+            ( folding (concatOf (ddbcsrsDBClusterSnapshots . to toList))
+                . dcsStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "deleting"
             AcceptFailure
-            ( folding (concatOf ddbcsrsDBClusterSnapshots) . dcsStatus . _Just
+            ( folding (concatOf (ddbcsrsDBClusterSnapshots . to toList))
+                . dcsStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "failed"
             AcceptFailure
-            ( folding (concatOf ddbcsrsDBClusterSnapshots) . dcsStatus . _Just
+            ( folding (concatOf (ddbcsrsDBClusterSnapshots . to toList))
+                . dcsStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "incompatible-restore"
             AcceptFailure
-            ( folding (concatOf ddbcsrsDBClusterSnapshots) . dcsStatus . _Just
+            ( folding (concatOf (ddbcsrsDBClusterSnapshots . to toList))
+                . dcsStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "incompatible-parameters"
             AcceptFailure
-            ( folding (concatOf ddbcsrsDBClusterSnapshots) . dcsStatus . _Just
+            ( folding (concatOf (ddbcsrsDBClusterSnapshots . to toList))
+                . dcsStatus
+                . _Just
                 . to toTextCI
             )
         ]

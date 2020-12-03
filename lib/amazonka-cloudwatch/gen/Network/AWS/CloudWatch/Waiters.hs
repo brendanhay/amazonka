@@ -30,7 +30,9 @@ compositeAlarmExists =
         [ matchNonEmpty
             True
             AcceptSuccess
-            (length (^. (folding (concatOf darsCompositeAlarms))) > 0)
+            ( length (^. (folding (concatOf (darsCompositeAlarms . to toList))))
+                > 0
+            )
         ]
     }
 
@@ -45,6 +47,8 @@ alarmExists =
         [ matchNonEmpty
             True
             AcceptSuccess
-            (length (^. (folding (concatOf darsMetricAlarms))) > 0)
+            ( length (^. (folding (concatOf (darsMetricAlarms . to toList))))
+                > 0
+            )
         ]
     }

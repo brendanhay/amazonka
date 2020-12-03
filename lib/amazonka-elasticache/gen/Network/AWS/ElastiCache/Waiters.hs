@@ -31,31 +31,41 @@ cacheClusterAvailable =
         [ matchAll
             "available"
             AcceptSuccess
-            ( folding (concatOf drsCacheClusters) . ccCacheClusterStatus . _Just
+            ( folding (concatOf (drsCacheClusters . to toList))
+                . ccCacheClusterStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "deleted"
             AcceptFailure
-            ( folding (concatOf drsCacheClusters) . ccCacheClusterStatus . _Just
+            ( folding (concatOf (drsCacheClusters . to toList))
+                . ccCacheClusterStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "deleting"
             AcceptFailure
-            ( folding (concatOf drsCacheClusters) . ccCacheClusterStatus . _Just
+            ( folding (concatOf (drsCacheClusters . to toList))
+                . ccCacheClusterStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "incompatible-network"
             AcceptFailure
-            ( folding (concatOf drsCacheClusters) . ccCacheClusterStatus . _Just
+            ( folding (concatOf (drsCacheClusters . to toList))
+                . ccCacheClusterStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "restore-failed"
             AcceptFailure
-            ( folding (concatOf drsCacheClusters) . ccCacheClusterStatus . _Just
+            ( folding (concatOf (drsCacheClusters . to toList))
+                . ccCacheClusterStatus
+                . _Just
                 . to toTextCI
             )
         ]
@@ -72,44 +82,58 @@ cacheClusterDeleted =
         [ matchAll
             "deleted"
             AcceptSuccess
-            ( folding (concatOf drsCacheClusters) . ccCacheClusterStatus . _Just
+            ( folding (concatOf (drsCacheClusters . to toList))
+                . ccCacheClusterStatus
+                . _Just
                 . to toTextCI
             ),
           matchError "CacheClusterNotFound" AcceptSuccess,
           matchAny
             "available"
             AcceptFailure
-            ( folding (concatOf drsCacheClusters) . ccCacheClusterStatus . _Just
+            ( folding (concatOf (drsCacheClusters . to toList))
+                . ccCacheClusterStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "creating"
             AcceptFailure
-            ( folding (concatOf drsCacheClusters) . ccCacheClusterStatus . _Just
+            ( folding (concatOf (drsCacheClusters . to toList))
+                . ccCacheClusterStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "incompatible-network"
             AcceptFailure
-            ( folding (concatOf drsCacheClusters) . ccCacheClusterStatus . _Just
+            ( folding (concatOf (drsCacheClusters . to toList))
+                . ccCacheClusterStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "modifying"
             AcceptFailure
-            ( folding (concatOf drsCacheClusters) . ccCacheClusterStatus . _Just
+            ( folding (concatOf (drsCacheClusters . to toList))
+                . ccCacheClusterStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "restore-failed"
             AcceptFailure
-            ( folding (concatOf drsCacheClusters) . ccCacheClusterStatus . _Just
+            ( folding (concatOf (drsCacheClusters . to toList))
+                . ccCacheClusterStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "snapshotting"
             AcceptFailure
-            ( folding (concatOf drsCacheClusters) . ccCacheClusterStatus . _Just
+            ( folding (concatOf (drsCacheClusters . to toList))
+                . ccCacheClusterStatus
+                . _Just
                 . to toTextCI
             )
         ]
@@ -126,13 +150,17 @@ replicationGroupDeleted =
         [ matchAll
             "deleted"
             AcceptSuccess
-            ( folding (concatOf drgrsReplicationGroups) . rgStatus . _Just
+            ( folding (concatOf (drgrsReplicationGroups . to toList))
+                . rgStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "available"
             AcceptFailure
-            ( folding (concatOf drgrsReplicationGroups) . rgStatus . _Just
+            ( folding (concatOf (drgrsReplicationGroups . to toList))
+                . rgStatus
+                . _Just
                 . to toTextCI
             ),
           matchError "ReplicationGroupNotFoundFault" AcceptSuccess
@@ -150,13 +178,17 @@ replicationGroupAvailable =
         [ matchAll
             "available"
             AcceptSuccess
-            ( folding (concatOf drgrsReplicationGroups) . rgStatus . _Just
+            ( folding (concatOf (drgrsReplicationGroups . to toList))
+                . rgStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "deleted"
             AcceptFailure
-            ( folding (concatOf drgrsReplicationGroups) . rgStatus . _Just
+            ( folding (concatOf (drgrsReplicationGroups . to toList))
+                . rgStatus
+                . _Just
                 . to toTextCI
             )
         ]

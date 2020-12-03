@@ -129,9 +129,6 @@ module Network.AWS.Types
     -- * Isomorphisms
     _Coerce,
     _Default,
-
-    -- * Lists
-    ListLike (..),
   )
 where
 

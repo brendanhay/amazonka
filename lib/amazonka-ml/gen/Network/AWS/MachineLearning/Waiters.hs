@@ -33,13 +33,17 @@ mLModelAvailable =
         [ matchAll
             "COMPLETED"
             AcceptSuccess
-            ( folding (concatOf dmlmsrsResults) . mlmStatus . _Just
+            ( folding (concatOf (dmlmsrsResults . to toList))
+                . mlmStatus
+                . _Just
                 . to toTextCI
             ),
           matchAny
             "FAILED"
             AcceptFailure
-            ( folding (concatOf dmlmsrsResults) . mlmStatus . _Just
+            ( folding (concatOf (dmlmsrsResults . to toList))
+                . mlmStatus
+                . _Just
                 . to toTextCI
             )
         ]
@@ -56,13 +60,13 @@ batchPredictionAvailable =
         [ matchAll
             "COMPLETED"
             AcceptSuccess
-            ( folding (concatOf dbpsrsResults) . bpStatus . _Just
+            ( folding (concatOf (dbpsrsResults . to toList)) . bpStatus . _Just
                 . to toTextCI
             ),
           matchAny
             "FAILED"
             AcceptFailure
-            ( folding (concatOf dbpsrsResults) . bpStatus . _Just
+            ( folding (concatOf (dbpsrsResults . to toList)) . bpStatus . _Just
                 . to toTextCI
             )
         ]
@@ -79,13 +83,13 @@ dataSourceAvailable =
         [ matchAll
             "COMPLETED"
             AcceptSuccess
-            ( folding (concatOf ddssrsResults) . dsStatus . _Just
+            ( folding (concatOf (ddssrsResults . to toList)) . dsStatus . _Just
                 . to toTextCI
             ),
           matchAny
             "FAILED"
             AcceptFailure
-            ( folding (concatOf ddssrsResults) . dsStatus . _Just
+            ( folding (concatOf (ddssrsResults . to toList)) . dsStatus . _Just
                 . to toTextCI
             )
         ]
@@ -102,10 +106,14 @@ evaluationAvailable =
         [ matchAll
             "COMPLETED"
             AcceptSuccess
-            (folding (concatOf desrsResults) . eStatus . _Just . to toTextCI),
+            ( folding (concatOf (desrsResults . to toList)) . eStatus . _Just
+                . to toTextCI
+            ),
           matchAny
             "FAILED"
             AcceptFailure
-            (folding (concatOf desrsResults) . eStatus . _Just . to toTextCI)
+            ( folding (concatOf (desrsResults . to toList)) . eStatus . _Just
+                . to toTextCI
+            )
         ]
     }

@@ -30,7 +30,9 @@ anyInstanceInService =
         [ matchAny
             "InService"
             AcceptSuccess
-            ( folding (concatOf dihrsInstanceStates) . isState . _Just
+            ( folding (concatOf (dihrsInstanceStates . to toList))
+                . isState
+                . _Just
                 . to toTextCI
             )
         ]
@@ -47,7 +49,9 @@ instanceDeregistered =
         [ matchAll
             "OutOfService"
             AcceptSuccess
-            ( folding (concatOf dihrsInstanceStates) . isState . _Just
+            ( folding (concatOf (dihrsInstanceStates . to toList))
+                . isState
+                . _Just
                 . to toTextCI
             ),
           matchError "InvalidInstance" AcceptSuccess
@@ -65,7 +69,9 @@ instanceInService =
         [ matchAll
             "InService"
             AcceptSuccess
-            ( folding (concatOf dihrsInstanceStates) . isState . _Just
+            ( folding (concatOf (dihrsInstanceStates . to toList))
+                . isState
+                . _Just
                 . to toTextCI
             ),
           matchError "InvalidInstance" AcceptRetry

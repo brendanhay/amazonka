@@ -43,3 +43,6 @@ cabal.project.local*
 # Curl
 .cookies
 *.log
+
+# Generator Output
+/_build

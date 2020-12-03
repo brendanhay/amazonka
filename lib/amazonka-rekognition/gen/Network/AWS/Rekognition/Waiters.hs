@@ -30,7 +30,7 @@ projectVersionRunning =
         [ matchAll
             "RUNNING"
             AcceptSuccess
-            ( folding (concatOf dpvrsProjectVersionDescriptions)
+            ( folding (concatOf (dpvrsProjectVersionDescriptions . to toList))
                 . pvdStatus
                 . _Just
                 . to toTextCI
@@ -38,7 +38,7 @@ projectVersionRunning =
           matchAny
             "FAILED"
             AcceptFailure
-            ( folding (concatOf dpvrsProjectVersionDescriptions)
+            ( folding (concatOf (dpvrsProjectVersionDescriptions . to toList))
                 . pvdStatus
                 . _Just
                 . to toTextCI
@@ -57,7 +57,7 @@ projectVersionTrainingCompleted =
         [ matchAll
             "TRAINING_COMPLETED"
             AcceptSuccess
-            ( folding (concatOf dpvrsProjectVersionDescriptions)
+            ( folding (concatOf (dpvrsProjectVersionDescriptions . to toList))
                 . pvdStatus
                 . _Just
                 . to toTextCI
@@ -65,7 +65,7 @@ projectVersionTrainingCompleted =
           matchAny
             "TRAINING_FAILED"
             AcceptFailure
-            ( folding (concatOf dpvrsProjectVersionDescriptions)
+            ( folding (concatOf (dpvrsProjectVersionDescriptions . to toList))
                 . pvdStatus
                 . _Just
                 . to toTextCI

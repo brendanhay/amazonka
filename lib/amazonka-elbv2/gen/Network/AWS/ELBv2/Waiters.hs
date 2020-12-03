@@ -31,7 +31,9 @@ loadBalancersDeleted =
         [ matchAll
             "active"
             AcceptRetry
-            ( folding (concatOf dlbrsLoadBalancers) . lbState . _Just
+            ( folding (concatOf (dlbrsLoadBalancers . to toList))
+                . lbState
+                . _Just
                 . lbsCode
                 . _Just
                 . to toTextCI
@@ -52,7 +54,7 @@ targetDeregistered =
           matchAll
             "unused"
             AcceptSuccess
-            ( folding (concatOf dthrsTargetHealthDescriptions)
+            ( folding (concatOf (dthrsTargetHealthDescriptions . to toList))
                 . thdTargetHealth
                 . _Just
                 . thState
@@ -73,7 +75,9 @@ loadBalancerAvailable =
         [ matchAll
             "active"
             AcceptSuccess
-            ( folding (concatOf dlbrsLoadBalancers) . lbState . _Just
+            ( folding (concatOf (dlbrsLoadBalancers . to toList))
+                . lbState
+                . _Just
                 . lbsCode
                 . _Just
                 . to toTextCI
@@ -81,7 +85,9 @@ loadBalancerAvailable =
           matchAny
             "provisioning"
             AcceptRetry
-            ( folding (concatOf dlbrsLoadBalancers) . lbState . _Just
+            ( folding (concatOf (dlbrsLoadBalancers . to toList))
+                . lbState
+                . _Just
                 . lbsCode
                 . _Just
                 . to toTextCI
@@ -101,7 +107,7 @@ targetInService =
         [ matchAll
             "healthy"
             AcceptSuccess
-            ( folding (concatOf dthrsTargetHealthDescriptions)
+            ( folding (concatOf (dthrsTargetHealthDescriptions . to toList))
                 . thdTargetHealth
                 . _Just
                 . thState

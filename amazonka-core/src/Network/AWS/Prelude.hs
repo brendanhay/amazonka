@@ -20,6 +20,7 @@ import Data.Hashable as Export (Hashable)
 import Data.List.NonEmpty as Export (NonEmpty (..))
 import Data.Maybe as Export
 import Data.Monoid as Export (First, mconcat, mempty, (<>))
+import GHC.Exts as Export (toList)
 import GHC.Generics as Export (Generic)
 import Network.AWS.Data.Base64 as Export
 import Network.AWS.Data.Body as Export

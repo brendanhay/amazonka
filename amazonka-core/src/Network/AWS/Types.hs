@@ -1,9 +1,12 @@
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE FunctionalDependencies #-}
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE RecordWildCards #-}
@@ -126,6 +129,9 @@ module Network.AWS.Types
     -- * Isomorphisms
     _Coerce,
     _Default,
+
+    -- * Lists
+    ListLike (..),
   )
 where
 
@@ -142,7 +148,10 @@ import Data.Conduit
 import Data.Data (Data, Typeable)
 import Data.Hashable
 import Data.IORef
+import Data.List.NonEmpty (NonEmpty)
+import qualified Data.List.NonEmpty as NonEmpty
 import Data.Maybe
+import qualified Data.Maybe as Maybe
 import Data.Proxy
 import Data.String
 import qualified Data.Text as Text

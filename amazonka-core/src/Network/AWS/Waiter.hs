@@ -31,8 +31,9 @@ module Network.AWS.Waiter
   )
 where
 
-import Control.Lens ( Fold, allOf, anyOf, (^..), (^?))
-import Data.Maybe
+import Control.Lens (Fold, (^..), (^?))
+import qualified Control.Lens as Lens
+import qualified Data.Maybe as Maybe
 import Data.Text (Text)
 import qualified Data.Text as Text
 import Network.AWS.Data.ByteString
@@ -63,13 +64,16 @@ data Wait a = Wait
   }
 
 accept :: Wait a -> Acceptor a
-accept w rq rs = listToMaybe . mapMaybe (\f -> f rq rs) $ _waitAcceptors w
+accept w rq rs =
+  Maybe.listToMaybe
+    . Maybe.mapMaybe (\f -> f rq rs)
+    $ _waitAcceptors w
 
 matchAll :: Eq b => b -> Accept -> Fold (Rs a) b -> Acceptor a
-matchAll x a l = match (allOf l (== x)) a
+matchAll x a l = match (Lens.allOf l (== x)) a
 
 matchAny :: Eq b => b -> Accept -> Fold (Rs a) b -> Acceptor a
-matchAny x a l = match (anyOf l (== x)) a
+matchAny x a l = match (Lens.anyOf l (== x)) a
 
 matchNonEmpty :: Bool -> Accept -> Fold (Rs a) b -> Acceptor a
 matchNonEmpty x a l = match (\rs -> null (rs ^.. l) == x) a

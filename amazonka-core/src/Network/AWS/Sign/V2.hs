@@ -17,7 +17,6 @@ module Network.AWS.Sign.V2
 where
 
 import qualified Data.ByteString.Char8 as BS8
-import Data.Monoid
 import Data.Time
 import Network.AWS.Data.Body
 import Network.AWS.Data.ByteString

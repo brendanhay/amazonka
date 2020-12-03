@@ -33,7 +33,6 @@ module Network.AWS.Response
   )
 where
 
-import Control.Applicative (pure)
 import Control.Monad.Catch
 import Control.Monad.IO.Class
 import Control.Monad.Trans.Resource
@@ -41,7 +40,6 @@ import Data.Aeson
 import qualified Data.ByteString.Lazy as LBS
 import Data.Conduit
 import qualified Data.Conduit.Binary as Conduit
-import Data.Monoid
 import Data.Proxy
 import Data.Text (Text)
 import Network.AWS.Data.Body

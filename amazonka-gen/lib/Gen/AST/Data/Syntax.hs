@@ -351,8 +351,12 @@ notationE = \case
 
     label b = \case
       Key f -> key b f
-      Each f -> Exts.app (var "folding") . Exts.paren $ Exts.app (var "concatOf") (key False f)
       Last f -> Exts.infixApp (key False f) "." (var "_last")
+      Each f ->
+        Exts.app (var "folding")
+          . Exts.paren
+          . Exts.app (var "concatOf")
+          $ Exts.infixApp (key b f) "." (Exts.app (var "to") (var "toList"))
 
     key False f = var (fieldLens f)
     key True f
@@ -831,10 +835,11 @@ waiterD n w = Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
 
     argument' x = go <$> maybeToList (notationE <$> _acceptArgument x)
       where
-        go = case _acceptExpect x of
-          Textual {} ->
-            \y -> Exts.infixApp y "." (Exts.app (var "to") (var "toTextCI"))
-          _ -> id
+        go y =
+          case _acceptExpect x of
+            Textual {} ->
+              Exts.infixApp y "." (Exts.app (var "to") (var "toTextCI"))
+            _ -> y
 
 signature :: HasMetadata a Identity => a -> TType -> Type
 signature m = directed False m Nothing

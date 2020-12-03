@@ -44,7 +44,6 @@ module Network.AWS.Request
 where
 
 import Data.Maybe
-import Data.Monoid
 import Network.AWS.Data.Body
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Headers

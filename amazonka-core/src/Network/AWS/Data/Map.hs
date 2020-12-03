@@ -34,7 +34,6 @@ import Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as Map
 import Data.Hashable
 import Data.Maybe
-import Data.Semigroup
 import qualified Data.Text.Encoding as Text
 import GHC.Exts
 import GHC.Generics (Generic)

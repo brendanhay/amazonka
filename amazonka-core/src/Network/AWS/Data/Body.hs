@@ -27,7 +27,6 @@ import qualified Data.ByteString.Lazy as LBS
 import qualified Data.ByteString.Lazy.Char8 as LBS8
 import Data.Conduit
 import Data.HashMap.Strict (HashMap)
-import Data.Monoid
 import Data.String
 import Data.Text (Text)
 import qualified Data.Text.Encoding as Text

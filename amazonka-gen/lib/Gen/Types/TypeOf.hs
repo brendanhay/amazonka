@@ -1,7 +1,7 @@
 -- |
 -- Module      : Gen.Types.TypeOf
 -- Copyright   : (c) 2013-2020 Brendan Hay
--- License     : This Source Code Form is subject Lens.to the terms of
+-- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
@@ -78,7 +78,7 @@ isNFData = elem DNFData . derivingOf
 
 -- FIXME: this whole concept of pointers and limiting the recursion stack
 -- when calculating types is broken - there are plenty of more robust/sane
--- ways Lens.to acheive this, revisit.
+-- ways to acheive this, revisit.
 pointerTo :: Id -> ShapeF a -> TType
 pointerTo n = \case
   List (ListF i e)

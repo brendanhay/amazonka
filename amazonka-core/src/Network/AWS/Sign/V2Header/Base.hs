@@ -30,7 +30,6 @@ import qualified Data.ByteString.Lazy as LBS
 import qualified Data.CaseInsensitive as CI
 import Data.Function (on)
 import qualified Data.List as List
-import Data.Monoid (mempty, (<>))
 import qualified Network.AWS.Data.Query as Query
 import qualified Network.HTTP.Types as HTTP
 import Network.HTTP.Types.URI (urlEncode)

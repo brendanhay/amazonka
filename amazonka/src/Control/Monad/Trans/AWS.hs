@@ -233,8 +233,7 @@ instance MonadBaseControl b m => MonadBaseControl b (AWST' r m) where
   liftBaseWith = defaultLiftBaseWith
   restoreM = defaultRestoreM
 
-instance MonadUnliftIO m => MonadUnliftIO (AWST' r m)
-
+instance MonadUnliftIO m => MonadUnliftIO (AWST' r m) where
 #if MIN_VERSION_unliftio_core(0,2,0)
     {-# INLINE withRunInIO #-}
     withRunInIO inner =

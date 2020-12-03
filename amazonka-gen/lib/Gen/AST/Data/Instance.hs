@@ -1,7 +1,7 @@
 -- |
 -- Module      : Gen.AST.Data.Instance
 -- Copyright   : (c) 2013-2020 Brendan Hay
--- License     : This Source Code Form is subject Lens.to the terms of
+-- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
@@ -143,7 +143,7 @@ requestInsts m oname h r fs = do
           (ns, Just e, _) ->
             pure $! ToElement (ns <|> m ^. xmlNamespace) (Left e) : is
           -- 2. Otherwise, a single field should be found in the ToXML instance
-          -- and lifted Lens.to a single ToElement instance.
+          -- and lifted to a single ToElement instance.
           (_, _, Just f) ->
             pure $! ToElement ns (Right f) : filter anyXML is
             where
@@ -211,7 +211,7 @@ requestInsts m oname h r fs = do
     target = (<> ("." <> action)) <$> m ^. targetPrefix
 
     -- Skip adding the x-amz-json-* JSON version if the request data structure
-    -- already has a field serialized Lens.to the Content-Type header.
+    -- already has a field serialized to the Content-Type header.
     content =
       let go x = x ^. fieldRef . refLocationName == Just "Content-Type"
        in if isJust (List.find go headers)
@@ -242,7 +242,7 @@ uriFields oname h l f fs = traverse go (h ^. l)
       where
         match x = memberId v == name x
         missing =
-          "Missing field corresponding Lens.to URI variable "
+          "Missing field corresponding to URI variable "
             ++ show v
             ++ " in field names "
             ++ show ids

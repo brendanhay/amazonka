@@ -1,7 +1,7 @@
 -- |
 -- Module      : Gen.AST.Data
 -- Copyright   : (c) 2013-2020 Brendan Hay
--- License     : This Source Code Form is subject Lens.to the terms of
+-- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
@@ -194,9 +194,9 @@ prodData m s st = (,fields) <$> mk
       Help $
         "Creates a value of '"
           <> typeId n
-          <> "' with the minimum fields required Lens.to make a request."
+          <> "' with the minimum fields required to make a request."
 
-    -- FIXME: dirty hack Lens.to render smart ctor parameter haddock comments.
+    -- FIXME: dirty hack to render smart ctor parameter haddock comments.
     addParamComments :: [Field] -> Rendered -> Rendered
     addParamComments fs =
       Text.Lazy.replace " :: " "\n    :: "
@@ -378,7 +378,7 @@ notation m nid = go nid
       x -> x
 
     missingErr n parent fields =
-      "Unable Lens.to find "
+      "Unable to find "
         ++ show n
         ++ " in members of "
         ++ show parent
@@ -386,7 +386,7 @@ notation m nid = go nid
         ++ show (map _fieldId fields)
 
     descendErr k =
-      "Unable Lens.to descend into nested reference "
+      "Unable to descend into nested reference "
         ++ show k
 
 data PP

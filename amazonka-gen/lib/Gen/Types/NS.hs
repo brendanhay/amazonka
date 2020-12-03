@@ -1,7 +1,7 @@
 -- |
 -- Module      : Gen.Types.NS
 -- Copyright   : (c) 2013-2020 Brendan Hay
--- License     : This Source Code Form is subject Lens.to the terms of
+-- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.

@@ -1,7 +1,7 @@
 -- |
 -- Module      : Gen.JSON
 -- Copyright   : (c) 2013-2020 Brendan Hay
--- License     : This Source Code Form is subject Lens.to the terms of
+-- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
@@ -43,7 +43,7 @@ optional path =
 
 objectErr :: ToJSON a => String -> a -> Either String Object
 objectErr name =
-  maybe (Left ("Failed Lens.to Comonad.extract JSON object from value " ++ name)) Right
+  maybe (Left ("Failed to Comonad.extract JSON object from value " ++ name)) Right
     . EDE.fromValue
     . Aeson.toJSON
 

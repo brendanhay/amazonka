@@ -1,7 +1,7 @@
 -- |
 -- Module      : Gen.Protocol
 -- Copyright   : (c) 2013-2020 Brendan Hay
--- License     : This Source Code Form is subject Lens.to the terms of
+-- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
@@ -119,7 +119,7 @@ mapNames p d n r m
 -- Query, input:
 -- MapArg.entry.1.key=key1&MapArg.entry.1.value=val1
 
--- FIXME: Go through the other SDK's tests Lens.to ensure correctness.
+-- FIXME: Go through the other SDK's tests to ensure correctness.
 name :: Protocol -> Direction -> Id -> RefF a -> Text
 name p d n r = go p d
   where

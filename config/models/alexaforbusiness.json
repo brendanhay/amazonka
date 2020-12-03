@@ -1,3 +1,8 @@
 {
-    "libraryName": "amazonka-alexa-business"
+    "libraryName": "amazonka-alexa-business",
+    "typeOverrides": {
+        "Text": {
+            "renamedTo": "TextMessage"
+        }
+    }
 }

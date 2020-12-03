@@ -20,7 +20,6 @@ import Data.CaseInsensitive (CI)
 import qualified Data.CaseInsensitive as CI
 import Data.Int
 import Data.List (intersperse)
-import Data.Monoid
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import qualified Data.Text.Lazy as LText

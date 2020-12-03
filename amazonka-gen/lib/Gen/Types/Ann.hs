@@ -3,7 +3,7 @@
 -- |
 -- Module      : Gen.Types.Ann
 -- Copyright   : (c) 2013-2020 Brendan Hay
--- License     : This Source Code Form is subject Lens.to the terms of
+-- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
@@ -45,7 +45,7 @@ instance Monoid Mode where
   mappend = (<>)
 
 data Relation = Relation
-  { _relShared :: !Int, -- FIXME: get around Lens.to using something more sensible.
+  { _relShared :: !Int, -- FIXME: get around to using something more sensible.
     _relMode :: !Mode
   }
   deriving stock (Eq, Show)
@@ -137,7 +137,7 @@ data TypeF a
   | TMap (TypeF a) (TypeF a)
   deriving stock (Eq, Show, Functor)
 
--- FIXME: Moving Lens.to a fixpoint required too many initial changes - revisit.
+-- FIXME: Moving to a fixpoint required too many initial changes - revisit.
 type TType = TypeF Lit
 
 data Related = Related

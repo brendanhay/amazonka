@@ -1,7 +1,7 @@
 -- |
 -- Module      : Gen.Types.Help
 -- Copyright   : (c) 2013-2020 Brendan Hay
--- License     : This Source Code Form is subject Lens.to the terms of
+-- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
@@ -28,7 +28,7 @@ newtype Help = Help Text
   deriving stock (Eq)
   deriving newtype (Semigroup, Monoid)
 
--- | Empty Show instance Lens.to avoid verbose debugging output.
+-- | Empty Show instance to avoid verbose debugging output.
 instance Show Help where
   show = const mempty
 

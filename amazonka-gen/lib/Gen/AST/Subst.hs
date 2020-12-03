@@ -3,7 +3,7 @@
 -- |
 -- Module      : Gen.AST.Subst
 -- Copyright   : (c) 2013-2020 Brendan Hay
--- License     : This Source Code Form is subject Lens.to the terms of
+-- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
@@ -35,9 +35,9 @@ $(Lens.makeLenses ''Env)
 type MemoS a = StateT (Env a) (Either String)
 
 -- | Set some appropriate defaults where needed for later stages,
--- and ensure there are no vacant references Lens.to input/output shapes
+-- and ensure there are no vacant references to input/output shapes
 -- by either adding any empty request or response shapes,
--- or creating a wrapper type for the request/response pointing Lens.to a
+-- or creating a wrapper type for the request/response pointing to a
 -- potentially shared shape.
 substitute ::
   Service Maybe (RefF ()) (Shape Related) a ->
@@ -75,8 +75,8 @@ substitute svc@Service {..} = do
           }
 
     -- This ensures the Response type has a unique name
-    -- even in the presence of sharing. A check is performed Lens.to ensure that
-    -- a response type isn't inserted before we get Lens.to another top-level
+    -- even in the presence of sharing. A check is performed to ensure that
+    -- a response type isn't inserted before we get to another top-level
     -- operation with the same name.
     name :: Direction -> Id -> Id
     name Input n = n
@@ -86,10 +86,10 @@ substitute svc@Service {..} = do
       where
         rs = mkId (typeId (appendId n "Response"))
 
-    -- Fill out missing Refs with a default Ref pointing Lens.to an empty Shape,
+    -- Fill out missing Refs with a default Ref pointing to an empty Shape,
     -- which is also inserted into the resulting Shape universe.
     --
-    -- For shared Shapes, perform a copy of the destination Shape Lens.to a new Shape.
+    -- For shared Shapes, perform a copy of the destination Shape to a new Shape.
     subst ::
       Direction ->
       Id ->
@@ -100,7 +100,7 @@ substitute svc@Service {..} = do
     -- on de/serialisation for any protocol, and takes into account a successful
     -- status code on responses.
     subst d n Nothing = do
-      verify n "Failure attempting Lens.to substitute fresh shape"
+      verify n "Failure attempting to substitute fresh shape"
       -- No Ref exists, safely insert an empty shape and pure a related Ref.
       save n (Related n (mkRelation Nothing d) :< emptyStruct)
       pure (emptyRef n)
@@ -112,19 +112,19 @@ substitute svc@Service {..} = do
           | isShared x,
             d == Input -> do
             -- Check that the desired name is not in use
-            -- Lens.to prevent accidental override.
-            verify n "Failed attempting Lens.to copy existing shape"
+            -- to prevent accidental override.
+            verify n "Failed attempting to copy existing shape"
             -- Copy the shape by saving it under the desired name.
             save n ((x & annId .~ n) :< s)
-            -- Update the Ref Lens.to point Lens.to the new wrapper.
+            -- Update the Ref to point to the new wrapper.
             pure (r & refShape .~ n)
           | isShared x -> pure r
           | otherwise -> do
-            -- Ref exists, and is not referred Lens.to by any other Shape.
-            -- Insert override Lens.to rename the Ref/Shape Lens.to the desired name.
+            -- Ref exists, and is not referred to by any other Shape.
+            -- Insert override to rename the Ref/Shape to the desired name.
             -- Ensure the annotation is updated.
             --
-            -- Also adds a required status code field Lens.to any
+            -- Also adds a required status code field to any
             -- non-shared response.
             save k (Related k (_annRelation x) :< addStatus d s)
             rename k n

@@ -143,7 +143,6 @@ import Data.Data (Data, Typeable)
 import Data.Hashable
 import Data.IORef
 import Data.Maybe
-import Data.Monoid
 import Data.Proxy
 import Data.String
 import qualified Data.Text as Text

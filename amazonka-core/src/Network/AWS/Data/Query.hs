@@ -1,4 +1,3 @@
-{-# LANGUAGE CPP #-}
 {-# LANGUAGE DefaultSignatures #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE FlexibleContexts #-}
@@ -26,8 +25,6 @@ import qualified Data.ByteString.Lazy as LBS
 import Data.Data
 import Data.List (sort)
 import Data.Maybe (fromMaybe)
-import Data.Monoid (Monoid)
-import Data.Semigroup (Semigroup, (<>))
 import Data.String
 import qualified Data.Text.Encoding as Text
 import GHC.Exts
@@ -76,14 +73,7 @@ parseQueryString bs
         _ -> QValue (Just (fromMaybe x (stripPrefix "=" x)))
 
 stripPrefix :: ByteString -> ByteString -> Maybe ByteString
-
-#if MIN_VERSION_bytestring(0,10,8)
 stripPrefix = BS8.stripPrefix
-#else
-stripPrefix bs1 bs2
-   | bs1 `BS8.isPrefixOf` bs2 = Just (BS8.drop (BS8.length bs1) bs2)
-   | otherwise = Nothing
-#endif
 
 -- FIXME: use Builder
 instance ToByteString QueryString where

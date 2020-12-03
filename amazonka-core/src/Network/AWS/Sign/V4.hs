@@ -23,7 +23,6 @@ module Network.AWS.Sign.V4
 where
 
 import qualified Data.CaseInsensitive as CI
-import Data.Monoid
 import Network.AWS.Data.Body
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Headers

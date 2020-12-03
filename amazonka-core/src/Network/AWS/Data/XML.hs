@@ -22,9 +22,6 @@ import Data.Conduit
 import Data.Conduit.Lazy (lazyConsume)
 import qualified Data.Conduit.List as Conduit
 import Data.Maybe
-import Data.Monoid (Monoid)
-import Data.Semigroup (Semigroup, (<>))
-import Data.Traversable (traverse)
 import Data.XML.Types (Event (..))
 import GHC.Exts
 import Network.AWS.Data.ByteString

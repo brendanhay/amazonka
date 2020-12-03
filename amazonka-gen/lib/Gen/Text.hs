@@ -1,7 +1,7 @@
 -- |
 -- Module      : Gen.Text
 -- Copyright   : (c) 2013-2020 Brendan Hay
--- License     : This Source Code Form is subject Lens.to the terms of
+-- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
@@ -69,7 +69,7 @@ renameService =
 -- Since 'takeLowerText' is used for FromText parser instances,
 -- the branch value is lowercased here.
 --
--- Tangentially the 'takeLowerText' function exists Lens.to avoid the
+-- Tangentially the 'takeLowerText' function exists to avoid the
 -- horrendous inlining that use Data.CaseInsensitive provokes and
 -- the subsequent compilation time explosion on a project of this size.
 renameBranch :: Text -> (Text, Text)
@@ -135,7 +135,7 @@ renameReserved x
           ++ map Text.pack (Parsec.Token.reservedNames Parsec.Language.haskellDef)
 
 -- Pass in Relation, check if Uni directional + not shared and then add
--- rq + rs Lens.to a simplified acronym prefix algo?
+-- rq + rs to a simplified acronym prefix algo?
 
 camelAcronym :: Text -> Text
 camelAcronym x = replaceAll x xs

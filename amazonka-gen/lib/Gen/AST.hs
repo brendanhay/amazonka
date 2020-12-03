@@ -1,7 +1,7 @@
 -- |
 -- Module      : Gen.AST
 -- Copyright   : (c) 2013-2020 Brendan Hay
--- License     : This Source Code Form is subject Lens.to the terms of
+-- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
@@ -28,7 +28,7 @@ import Gen.AST.Subst
 import Gen.Prelude
 import Gen.Types
 
--- FIXME: Relations need Lens.to be updated by the solving step.
+-- FIXME: Relations need to be updated by the solving step.
 
 rewrite ::
   Versions ->
@@ -105,7 +105,7 @@ rewriteService cfg s = do
     -- Annotate the comonadic tree with the associated
     -- bi/unidirectional (input/output/both) relation for shapes.
     >>= traverse (pure . attach Related rs)
-    -- Apply the override configuration Lens.to the service, and default any
+    -- Apply the override configuration to the service, and default any
     -- optional fields from the JSON where needed.
     >>= pure . (\ss -> override (cfg ^. typeOverrides) (s {_shapes = ss}))
     -- Ensure no empty operation references exist, and that operation shapes
@@ -119,7 +119,7 @@ renderShapes ::
   Either String (Service Identity SData SData WData)
 renderShapes cfg svc = do
   -- Generate unique prefixes for struct (product) members and
-  -- enum (sum) branches Lens.to avoid ambiguity.
+  -- enum (sum) branches to avoid ambiguity.
   (x, y) <-
     prefixes (svc ^. shapes)
       -- Determine the appropriate Haskell AST type, auto deriveable instances,
@@ -197,7 +197,7 @@ relations os ss = fst <$> State.execStateT (traverse go os) (mempty, mempty)
         Just ok ->
           Right ok
 
--- FIXME: Necessary Lens.to update the Relation?
+-- FIXME: Necessary to update the Relation?
 solve ::
   Traversable t =>
   Config ->
@@ -218,7 +218,7 @@ solve cfg ss = State.evalState (go ss) (replaced typeOf cfg)
 type MemoS a = StateT (HashMap Id a) (Either String)
 
 -- | Filter the ids representing operation input/outputs from the supplied map,
--- and attach the associated shape Lens.to the appropriate operation.
+-- and attach the associated shape to the appropriate operation.
 --
 -- Pures either an error result or the operations paired with
 -- the respective data types.

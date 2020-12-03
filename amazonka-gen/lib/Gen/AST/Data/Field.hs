@@ -3,7 +3,7 @@
 -- |
 -- Module      : Gen.AST.Data.Field
 -- Copyright   : (c) 2013-2020 Brendan Hay
--- License     : This Source Code Form is subject Lens.to the terms of
+-- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
@@ -24,7 +24,7 @@ import Gen.Prelude
 import Gen.Types
 import Language.Haskell.Exts.Syntax (Name (..))
 
--- | Convenience type Lens.to package up some information from the struct with the
+-- | Convenience type to package up some information from the struct with the
 -- related field, namely the memberId and the (Set.member required).
 data Field = Field
   { _fieldMeta :: Metadata Identity,
@@ -79,7 +79,7 @@ instance TypeOf Field where
 instance HasInfo Field where
   info = fieldAnn . info
 
--- FIXME: Can just add the metadata Lens.to field as well since
+-- FIXME: Can just add the metadata to field as well since
 -- the protocol/timestamp are passed in everywhere in the .Syntax module.
 mkFields ::
   HasMetadata a Identity =>
@@ -162,7 +162,7 @@ fieldHelp f =
 
     base64 =
       "--\n-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.\n\
-      \-- The underlying isomorphism will encode Lens.to Base64 representation during\n\
+      \-- The underlying isomorphism will encode to Base64 representation during\n\
       \-- serialisation, and decode from Base64 representation during deserialisation.\n\
       \-- This 'Lens' accepts and returns only raw unencoded data."
 
@@ -177,7 +177,7 @@ fieldStream x =
   x ^. fieldRef . refStreaming
     || x ^. fieldAnn . infoStreaming
 
--- | Does the field have its location set Lens.to 'Body'?
+-- | Does the field have its location set to 'Body'?
 fieldBody :: Field -> Bool
 fieldBody x =
   case fieldLocation x of

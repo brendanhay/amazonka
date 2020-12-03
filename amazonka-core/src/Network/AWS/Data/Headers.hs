@@ -21,7 +21,6 @@ where
 
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.CaseInsensitive as CI
-import Data.Monoid
 import qualified Data.Text.Encoding as Text
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Text

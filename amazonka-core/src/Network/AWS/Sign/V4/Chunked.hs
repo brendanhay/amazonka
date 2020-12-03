@@ -28,7 +28,6 @@ import Data.ByteString.Builder
 import qualified Data.ByteString.Char8 as BS8
 import Data.Conduit
 import Data.Maybe
-import Data.Monoid
 import Network.AWS.Data.Body
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Crypto

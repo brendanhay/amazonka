@@ -35,7 +35,6 @@ import qualified Data.ByteString.Char8 as BS8
 import Data.CaseInsensitive (CI)
 import qualified Data.CaseInsensitive as CI
 import Data.Int
-import Data.Monoid
 import Data.Scientific
 import Data.Text (Text)
 import qualified Data.Text as Text

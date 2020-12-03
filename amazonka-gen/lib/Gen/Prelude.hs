@@ -2,11 +2,11 @@
 --
 -- Please consider long and hard before adding any addtional types exports to
 -- this module - they should either be in pervasive use throughout the project
--- or have zero ambiguity. If you ever are forced Lens.to disambiguate at any point,
+-- or have zero ambiguity. If you ever are forced to disambiguate at any point,
 -- it's a bad export.
 --
 -- Try and avoid any value, operator, or symbol exports. Most of the ones here
--- (such as Lens) exist Lens.to ease legacy code-migration.
+-- (such as Lens) exist to ease legacy code-migration.
 module Gen.Prelude
   ( module Export,
     module Gen.Prelude,

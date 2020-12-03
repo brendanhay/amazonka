@@ -19,7 +19,6 @@ module Network.AWS.Sign.V2Header
   )
 where
 
-import Data.Monoid
 import Data.Time
 import Network.AWS.Data.Body
 import Network.AWS.Data.ByteString
@@ -75,7 +74,7 @@ sign Request {..} AuthEnv {..} r t = Signed meta rq
     meth = toBS _rqMethod
     path' = toBS (escapePath _rqPath)
 
-    end@Endpoint {..} = _svcEndpoint r
+    end@Endpoint {} = _svcEndpoint r
 
     Service {..} = _rqService
 

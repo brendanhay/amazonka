@@ -17,29 +17,29 @@ import Control.Applicative as Export (Alternative ((<|>)))
 import Control.Comonad.Cofree as Export (Cofree ((:<)))
 import Control.Exception as Export (Exception, SomeException)
 import Control.Lens as Export
-  ( Lens,
+  ( Getter,
+    Lens,
     Lens',
     Prism,
     Prism',
     Traversal,
     Traversal',
+    (%=),
     (%~),
     (.~),
     (<>~),
-    (^.),
     (?~),
+    (^.),
     (^..),
-    (%=),
     (^?),
-    Getter,
   )
-import Control.Monad as Export (join, void, (<=<), (>=>), when, unless)
-import Control.Monad.Except as Export ( Except, ExceptT (ExceptT), MonadError)
+import Control.Monad as Export (join, unless, void, when, (<=<), (>=>))
+import Control.Monad.Except as Export (Except, ExceptT (ExceptT), MonadError)
 import Control.Monad.IO.Class as Export (MonadIO (liftIO))
-import Control.Monad.Reader as Export ( MonadReader, Reader, ReaderT (ReaderT))
+import Control.Monad.Reader as Export (MonadReader, Reader, ReaderT (ReaderT))
 import Control.Monad.State.Strict as Export (MonadState, State, StateT (StateT))
 import Control.Monad.Trans as Export (MonadTrans (lift))
-import Data.Aeson as Export ( FromJSON, FromJSONKey, ToJSON, ToJSONKey)
+import Data.Aeson as Export (FromJSON, FromJSONKey, ToJSON, ToJSONKey)
 import Data.Bifoldable as Export (Bifoldable)
 import Data.Bifunctor as Export (Bifunctor (bimap, first, second))
 import Data.Bitraversable as Export (Bitraversable)

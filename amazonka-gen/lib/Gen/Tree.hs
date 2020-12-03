@@ -18,7 +18,7 @@ where
 import qualified Control.Lens as Lens
 import qualified Control.Monad.Fail as Fail
 import qualified Data.Aeson as Aeson
-import Data.Aeson.Types (Value, Object, (.=))
+import Data.Aeson.Types (Object, Value, (.=))
 import qualified Data.Maybe as Maybe
 import qualified Data.Text as Text
 import Gen.Import
@@ -29,8 +29,8 @@ import System.Directory.Tree (AnchoredDirTree ((:/)), DirTree)
 import qualified System.Directory.Tree as DirTree
 import System.FilePath ((<.>), (</>))
 import qualified System.FilePath as FilePath
-import qualified Text.EDE as EDE
 import Text.EDE (Template)
+import qualified Text.EDE as EDE
 
 root :: AnchoredDirTree a -> FilePath
 root (p :/ d) = p </> DirTree.name d

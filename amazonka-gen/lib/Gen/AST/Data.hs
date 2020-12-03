@@ -28,9 +28,9 @@ import qualified Data.HashMap.Strict as HashMap
 import qualified Data.List as List
 import qualified Data.Set as Set
 import qualified Data.Text as Text
+import qualified Data.Text.Encoding as Text
 import qualified Data.Text.Encoding as Text.Encoding
 import qualified Data.Text.Lazy as Text.Lazy
-import qualified Data.Text.Encoding as Text
 import qualified Data.Text.Lazy.Builder as Text.Builder
 import qualified Data.Text.Lazy.Builder.Int as Text.Builder.Int
 import Gen.AST.Data.Field
@@ -57,7 +57,7 @@ operationData cfg m o = do
   xis <- addInstances xa <$> requestInsts m (_opName o) h xr xs
 
   cls <- pp Print $ requestD cfg m h (xr, xis) (yr, ys)
-  
+
   mpage <- pagerFields m o >>= traverse (pp Print . pagerD xn)
 
   yis' <- renderInsts p yn (responseInsts ys)

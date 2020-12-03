@@ -22,9 +22,9 @@ where
 
 import qualified Control.Comonad.Cofree as Comonad.Cofree
 import qualified Control.Lens as Lens
-import qualified Data.Map as Map
 import qualified Data.Foldable as Foldable
 import qualified Data.List as List
+import qualified Data.Map as Map
 import Gen.Prelude
 import Gen.Types.Ann
 import Gen.Types.Id

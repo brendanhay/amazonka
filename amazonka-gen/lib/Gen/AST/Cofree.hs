@@ -75,7 +75,7 @@ elaborate m = State.evalStateT (HashMap.traverseWithKey (shape []) m) mempty
       | conseq seen = pure $! n :< Ptr (s ^. info) (pointerTo n s)
       | otherwise = do
         ms <- State.gets (HashMap.lookup n)
-        
+
         case ms of
           Just x -> pure x
           Nothing -> do

@@ -15,10 +15,9 @@ module Gen.Types.URI where
 import Control.Applicative (some)
 import qualified Control.Lens as Lens
 import qualified Data.Aeson as Aeson
-import qualified Data.Attoparsec.Text as Parsec
+import Data.Aeson.Types (Value (..), (.:))
 import qualified Data.Attoparsec.Text as Parsec
 import qualified Data.Text as Text
-import Data.Aeson.Types (Value (..), (.:))
 import qualified Data.Text.Read as Text.Read
 import qualified GHC.Generics as Generics
 import Gen.Prelude

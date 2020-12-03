@@ -13,8 +13,8 @@ module Gen.JSON where
 import qualified Control.Exception as Exception
 import qualified Control.Monad.Except as Except
 import qualified Data.Aeson as Aeson
+import Data.Aeson.Types (Object, Value (..))
 import qualified Data.Aeson.Types as Aeson.Types
-import Data.Aeson.Types (Value (..), Object)
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.Foldable as Foldable
 import qualified Data.HashMap.Strict as HashMap

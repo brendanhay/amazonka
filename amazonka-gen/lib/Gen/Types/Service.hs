@@ -16,7 +16,7 @@ import qualified Control.Comonad as Comonad
 import qualified Control.Comonad.Cofree as Comonad.Cofree
 import qualified Control.Lens as Lens
 import qualified Data.Aeson as Aeson
-import Data.Aeson.Types ((.:), (.:?), (.!=), (.=))
+import Data.Aeson.Types ((.!=), (.:), (.:?), (.=))
 import qualified Data.Bifunctor as Bifunctor
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.HashSet as HashSet
@@ -26,8 +26,8 @@ import qualified Data.Scientific as Scientific
 import qualified Data.Text as Text
 import qualified GHC.Generics as Generics
 import Gen.Prelude
-import qualified Gen.TH 
-import Gen.Text 
+import qualified Gen.TH
+import Gen.Text
 import Gen.Types.Ann
 import Gen.Types.Help
 import Gen.Types.Id

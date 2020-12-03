@@ -67,7 +67,7 @@ substitute svc@Service {..} = do
     operation o@Operation {..} = do
       inp <- subst Input (name Input _opName) _opInput
       out <- subst Output (name Output _opName) _opOutput
-      pure 
+      pure
         $! o
           { _opDocumentation = _opDocumentation .! "-- | Undocumented operation.",
             _opInput = Identity inp,

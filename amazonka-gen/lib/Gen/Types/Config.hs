@@ -14,26 +14,26 @@ module Gen.Types.Config where
 
 import qualified Control.Lens as Lens
 import qualified Data.Aeson as Aeson
+import Data.Aeson.Types (Value (..), (.!=), (.:), (.:?), (.=))
 import qualified Data.List as List
 import qualified Data.Ord as Ord
-import Data.Aeson.Types (Value (..), (.:), (.:?), (.!=), (.=))
 import qualified Data.Text as Text
 import qualified Data.Text.Lazy.Builder as Text.Builder
 import qualified Data.Time as Time
+import Gen.Prelude
+import qualified Gen.TH
+import Gen.Text
+import Gen.Types.Ann
+import Gen.Types.Data
+import Gen.Types.Id
+import Gen.Types.Map
+import Gen.Types.NS
+import Gen.Types.Service
+import Gen.Types.TypeOf
 import System.FilePath ((</>))
-import Gen.Prelude 
-import qualified Gen.TH 
-import  Gen.Text 
-import  Gen.Types.Ann 
-import  Gen.Types.Data 
-import  Gen.Types.Id 
-import  Gen.Types.Map 
-import  Gen.Types.NS 
-import  Gen.Types.Service 
-import  Gen.Types.TypeOf 
 import qualified System.FilePath as FilePath
-import qualified Text.EDE as EDE
 import Text.EDE (Template)
+import qualified Text.EDE as EDE
 
 data Replace = Replace
   { _replaceName :: Id,
@@ -249,8 +249,8 @@ loadModel :: FilePath -> [FilePath] -> Either String Model
 loadModel path xs = do
   (_modelVersion, _modelPath) <-
     case versions of
-       [] -> Left ("No valid model versions found in " ++ show xs) 
-       y:_ -> Right y
+      [] -> Left ("No valid model versions found in " ++ show xs)
+      y : _ -> Right y
 
   pure
     Model

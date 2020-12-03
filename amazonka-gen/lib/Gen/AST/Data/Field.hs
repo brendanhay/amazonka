@@ -10,7 +10,6 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Gen.AST.Data.Field where
 
 import qualified Control.Comonad.Cofree as Comonad.Cofree
@@ -21,8 +20,8 @@ import qualified Data.List as List
 import qualified Data.Maybe as Maybe
 import qualified Data.Text as Text
 import qualified Data.Text.Manipulate as Manipulate
-import Gen.Types
 import Gen.Prelude
+import Gen.Types
 import Language.Haskell.Exts.Syntax (Name (..))
 
 -- | Convenience type Lens.to package up some information from the struct with the

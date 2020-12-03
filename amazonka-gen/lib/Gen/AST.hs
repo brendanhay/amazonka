@@ -161,12 +161,12 @@ relations os ss = fst <$> State.execStateT (traverse go os) (mempty, mempty)
     go o =
       count Nothing Input (o ^? opInput . Lens._Just . refShape)
         >> count Nothing Output (o ^? opOutput . Lens._Just . refShape)
-      
+
     count :: Maybe Id -> Direction -> Maybe Id -> MemoR ()
     count _ _ Nothing = pure ()
     count p d (Just n) = do
       Lens._1 %= HashMap.insertWith (<>) n (mkRelation p d)
-      
+
       check p d n $ do
         s <- lift (safe n)
         shape n d s
@@ -188,11 +188,12 @@ relations os ss = fst <$> State.execStateT (traverse go os) (mempty, mempty)
     safe n =
       case HashMap.lookup n ss of
         Nothing ->
-          Left $ "Missing shape "
-            ++ show n
-            ++ " when counting relations "
-            ++ ", possible matches: "
-            ++ show (partial n ss)
+          Left $
+            "Missing shape "
+              ++ show n
+              ++ " when counting relations "
+              ++ ", possible matches: "
+              ++ show (partial n ss)
         Just ok ->
           Right ok
 
@@ -257,5 +258,5 @@ separate os = State.runStateT (traverse go os)
         Just x -> do
           when (d == Input || not (isShared x)) $
             State.modify (HashMap.delete n)
-            
+
           pure x

@@ -19,10 +19,10 @@ source-repository head
   subdir:   amazonka-gen
 
 common base
-  default-language: Haskell2010
+  default-language:   Haskell2010
   ghc-options:
-    -funbox-strict-fields
-    -fwarn-incomplete-uni-patterns -fwarn-incomplete-record-updates
+    -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
@@ -73,13 +73,13 @@ common base
     TypeSynonymInstances
     ViewPatterns
 
-  build-depends:    base >=4.12 && <5
-  
+  build-depends:      base >=4.12 && <5
+
 library
-  import: base
-  hs-source-dirs: lib
+  import:          base
+  hs-source-dirs:  lib
   build-depends:
-      aeson                 >=1.2
+    , aeson                 >=1.2
     , attoparsec
     , bytestring
     , case-insensitive
@@ -123,6 +123,7 @@ library
     Gen.Import
     Gen.IO
     Gen.JSON
+    Gen.Prelude
     Gen.Protocol
     Gen.Text
     Gen.TH
@@ -142,17 +143,16 @@ library
     Gen.Types.TypeOf
     Gen.Types.URI
     Gen.Types.Waiter
-    Gen.Prelude
- 
+
 executable amazonka-gen
   import:         base
   hs-source-dirs: app
   main-is:        Main.hs
   ghc-options:    -threaded -rtsopts -with-rtsopts=-A128m
   build-depends:
-     amazonka-gen
-   , optparse-applicative
-   , text
-   , mtl
-   , directory
-   , filepath
+    , amazonka-gen
+    , directory
+    , filepath
+    , mtl
+    , optparse-applicative
+    , text

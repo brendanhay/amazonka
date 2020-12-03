@@ -41,7 +41,7 @@ override ::
   Service f (RefF a) (Shape Related) b
 override ovs svc =
   svc & operations . Lens.each %~ operation
-      & shapes .~ State.evalState ss (Env rename replace mempty)
+    & shapes .~ State.evalState ss (Env rename replace mempty)
   where
     ss =
       fmap HashMap.fromList
@@ -58,12 +58,12 @@ override ovs svc =
 
     ref :: RefF a -> RefF a
     ref r
-        | Just x <- HashMap.lookup ptr rename  = r & refShape .~ x
-        | Just x <- HashMap.lookup ptr replace = r & refShape .~ _replaceName x
-        | otherwise             = r
+      | Just x <- HashMap.lookup ptr rename = r & refShape .~ x
+      | Just x <- HashMap.lookup ptr replace = r & refShape .~ _replaceName x
+      | otherwise = r
       where
         ptr = _refShape r
-        
+
     rename :: HashMap Id Id
     rename = vMapMaybe _renamedTo ovs
 
@@ -130,11 +130,11 @@ overrideShape ovs n c@(_ :< s) = go -- env memo n >>= maybe go (return . (n,))
     retype x = do
       rp <- Lens.use replaced
       rn <- Lens.use renamed
-      
+
       let f g m v =
             maybe v (flip (Lens.set refShape) v . g) $
               HashMap.lookup (v ^. refShape) m
-              
+
       pure $! x
         & references
         %~ f _replaceName rp . f id rn

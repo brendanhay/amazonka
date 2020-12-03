@@ -14,7 +14,7 @@ module Gen.Types.Waiter where
 
 import qualified Control.Lens as Lens
 import qualified Data.Aeson as Aeson
-import Data.Aeson.Types (Value (..) , (.:), (.:?))
+import Data.Aeson.Types (Value (..), (.:), (.:?))
 import qualified Data.Text as Text
 import qualified GHC.Generics as Generics
 import Gen.Prelude

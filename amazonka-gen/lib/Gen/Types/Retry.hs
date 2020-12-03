@@ -14,9 +14,9 @@ module Gen.Types.Retry where
 
 import qualified Control.Lens as Lens
 import qualified Data.Aeson as Aeson
+import Data.Aeson.Types (Value (..), (.:), (.:?))
 import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.Maybe as Maybe
-import Data.Aeson.Types (Value (..), (.:), (.:?))
 import qualified Data.Text as Text
 import qualified Data.Text.Manipulate as Manipulate
 import qualified GHC.Generics as Generics
@@ -114,7 +114,7 @@ parseRetry svc o = do
     Nothing -> fail $ "Missing: " ++ show defKey
     Just x -> do
       Identity d <- Aeson.parseJSON (Object x)
-      
+
       case r ^. Lens.at (Text.toLower svc) of
         Nothing -> pure (d & retryPolicies .~ p)
         Just y -> do

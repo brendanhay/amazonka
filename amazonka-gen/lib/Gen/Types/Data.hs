@@ -14,11 +14,11 @@ module Gen.Types.Data where
 
 import qualified Control.Lens as Lens
 import qualified Data.Aeson as Aeson
+import Data.Aeson.Types (Pair, (.!=), (.:), (.:?), (.=))
 import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.Function as Function
 import qualified Data.Set as Set
 import qualified Data.Text as Text
-import Data.Aeson.Types ((.:), (.:?), (.!=), (.=), Pair)
 import qualified Data.Text as Text.Lazy
 import Gen.Prelude
 import Gen.Types.Ann

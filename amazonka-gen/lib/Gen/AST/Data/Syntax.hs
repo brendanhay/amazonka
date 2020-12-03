@@ -10,7 +10,6 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Gen.AST.Data.Syntax where
 
 import qualified Control.Comonad as Comonad

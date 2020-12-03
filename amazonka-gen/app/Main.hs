@@ -8,16 +8,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Main (main) where
 
-import Gen.Prelude
 import qualified Control.Monad.State.Strict as State
 import qualified Data.Foldable as Foldable
 import qualified Data.Text as Text
 import qualified Gen.AST as AST
 import Gen.IO
 import qualified Gen.JSON as JSON
+import Gen.Prelude
 import qualified Gen.Tree as Tree
 import Gen.Types hiding (info)
 import qualified Options.Applicative as Options

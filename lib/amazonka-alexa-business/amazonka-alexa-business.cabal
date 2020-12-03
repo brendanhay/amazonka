@@ -226,7 +226,7 @@ library
     Network.AWS.AlexaBusiness.Types.Ssml
     Network.AWS.AlexaBusiness.Types.Tag
     Network.AWS.AlexaBusiness.Types.TemperatureUnit
-    Network.AWS.AlexaBusiness.Types.Text
+    Network.AWS.AlexaBusiness.Types.TextMessage
     Network.AWS.AlexaBusiness.Types.UpdateEndOfMeetingReminder
     Network.AWS.AlexaBusiness.Types.UpdateInstantBooking
     Network.AWS.AlexaBusiness.Types.UpdateMeetingRoomConfiguration

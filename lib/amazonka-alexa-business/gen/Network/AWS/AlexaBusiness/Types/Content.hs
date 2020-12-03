@@ -17,7 +17,7 @@ module Network.AWS.AlexaBusiness.Types.Content where
 
 import Network.AWS.AlexaBusiness.Types.Audio
 import Network.AWS.AlexaBusiness.Types.Ssml
-import Network.AWS.AlexaBusiness.Types.Text
+import Network.AWS.AlexaBusiness.Types.TextMessage
 import Network.AWS.Lens
 import Network.AWS.Prelude
 
@@ -28,7 +28,7 @@ import Network.AWS.Prelude
 -- /See:/ 'content' smart constructor.
 data Content = Content'
   { _cAudioList :: !(Maybe [Audio]),
-    _cTextList :: !(Maybe [Text]),
+    _cTextList :: !(Maybe [TextMessage]),
     _cSsmlList :: !(Maybe [Ssml])
   }
   deriving (Eq, Read, Show, Data, Typeable, Generic)
@@ -56,7 +56,7 @@ cAudioList :: Lens' Content [Audio]
 cAudioList = lens _cAudioList (\s a -> s {_cAudioList = a}) . _Default . _Coerce
 
 -- | The list of text messages.
-cTextList :: Lens' Content [Text]
+cTextList :: Lens' Content [TextMessage]
 cTextList = lens _cTextList (\s a -> s {_cTextList = a}) . _Default . _Coerce
 
 -- | The list of SSML messages.

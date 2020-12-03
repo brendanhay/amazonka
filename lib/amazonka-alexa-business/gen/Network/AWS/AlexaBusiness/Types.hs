@@ -549,11 +549,11 @@ module Network.AWS.AlexaBusiness.Types
     tagKey,
     tagValue,
 
-    -- * Text
-    Text,
-    text,
-    tLocale,
-    tValue,
+    -- * TextMessage
+    TextMessage,
+    textMessage,
+    tmLocale,
+    tmValue,
 
     -- * UpdateEndOfMeetingReminder
     UpdateEndOfMeetingReminder,
@@ -676,7 +676,7 @@ import Network.AWS.AlexaBusiness.Types.SortValue
 import Network.AWS.AlexaBusiness.Types.Ssml
 import Network.AWS.AlexaBusiness.Types.Tag
 import Network.AWS.AlexaBusiness.Types.TemperatureUnit
-import Network.AWS.AlexaBusiness.Types.Text
+import Network.AWS.AlexaBusiness.Types.TextMessage
 import Network.AWS.AlexaBusiness.Types.UpdateEndOfMeetingReminder
 import Network.AWS.AlexaBusiness.Types.UpdateInstantBooking
 import Network.AWS.AlexaBusiness.Types.UpdateMeetingRoomConfiguration

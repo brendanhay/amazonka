@@ -45,7 +45,7 @@ data EncryptionError
 
 instance Exception EncryptionError
 
-makeClassyPrisms ''EncryptionError
+$(Lens.makeClassyPrisms ''EncryptionError)
 
 instance AsEncryptionError SomeException where
   _EncryptionError = exception

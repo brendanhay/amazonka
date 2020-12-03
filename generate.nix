@@ -47,7 +47,7 @@ let
 in pkgs.stdenvNoCC.mkDerivation {
   pname = "amazonka";
   version = botocoreRev;
-  phases = [ "generatePhase" "formatPhase" "fixupPhase" ];
+  phases = [ "unpackPhase" "generatePhase" "formatPhase" ];
 
   buildInputs = [
     tools.cabal-fmt
@@ -60,13 +60,13 @@ in pkgs.stdenvNoCC.mkDerivation {
     src = ./lib;
   };
 
-  generatePhase = ''
-    echo "Copying sources"
-
+  unpackPhase = ''
     mkdir -p $out
     cp -R $src/amazonka-* $out/
     chmod -R u+rw $out
+  '';
 
+  generatePhase = ''
     amazonka-gen \
       --out=$out \
       --library-version=${libraryVersion} \

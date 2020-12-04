@@ -9,5 +9,5 @@ cd "$(dirname "${BASH_SOURCE[0]}")/.."
 echo "Formatting Nix"
 
 find . \
-    -type f -name '*.nix' \
-    -exec nixfmt {} \+
+  -type f -name '*.nix' \
+  -exec nixfmt {} \+

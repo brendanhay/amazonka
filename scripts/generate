@@ -1,24 +1,79 @@
 #!/usr/bin/env bash
 
-# Usage: generate [MODEL]
-
-# Perform code generation, formatting, and copy resulting artefacts
-# into their respective repository destinations from the nix-store
+# Usage: generate-all
 
 set -euo pipefail
 
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
-models="null"
+script="$(basename "$0")"
 
-if ! [ $# -eq 0 ]; then
-    models="[ $(printf '"%s" ' "$@")]"
+say() {
+  echo "$1" >&2
+}
+
+usage() {
+  cat >&2 <<EOF
+  Usage:
+    $script (-h|--help) (--no-format) [MODEL..]
+
+  Synopsis:
+    A wrapper around nix-build generate.nix that also copies the 
+    resulting artefacts into their respective repository destinations 
+    from the nix-store.
+
+  Options:
+    --no-format Don't run cabal-fmt and ormolu by skipping the formatPhase.
+    -h|--help   Show this usage information.
+
+  Examples:
+    $script
+    $script ec2 
+    $script --no-format ec2 s3 cloudformation
+EOF
+}
+
+format='true'
+models=()
+
+parse_options() {
+  while test $# -gt 0; do
+    case "$1" in
+    --no-format)
+      format='false'
+      ;;
+    -h | --help)
+      usage
+      exit 0
+      ;;
+    -h*)
+      usage
+      exit 0
+      ;;
+    *)
+      models+=("$1")
+      ;;
+    esac
+    shift
+  done
+}
+
+parse_options "$@"
+
+args=(--no-out-link --arg format "$format")
+
+if ! [ ${#models[@]} -eq 0 ]; then
+  args+=(--arg models "[ $(printf '"%s" ' "${models[@]}")]")
 fi
 
-result="$(nix-build generate.nix --arg models "$models" --show-trace --no-out-link)"
+result=$(nix-build generate.nix "${args[@]}")
 
-rm -rf _build && mkdir -p _build
+say "copying $result to lib..."
 
-cp -r "$result"/amazonka-* ./_build/
+cp -r "$result"/amazonka-* ./lib/
 
-chmod -R u+rw ./_build
+say "setting u+rw lib permissions..."
+
+chmod -R u+rw ./lib
+
+say "done."

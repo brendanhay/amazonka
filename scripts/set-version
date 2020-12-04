@@ -5,8 +5,8 @@
 set -euo pipefail
 
 if [ $# -ne 2 ]; then
-    echo "Usage: bump-version <VERSION> <DEPENDENCY>"
-    exit 1
+  echo "Usage: bump-version <VERSION> <DEPENDENCY>"
+  exit 1
 fi
 
 pvp="$1"
@@ -15,12 +15,12 @@ sem="$2"
 echo "Bumping library version to $pvp and setting dependencies == $sem"
 
 for cabal in lib/amazonka*/*.cabal amazonka*/*.cabal; do
-    sed -e "s/^\(version: *\).*/\1$pvp/;" \
-        -e "s/^\( *amazonka[^ ]*\).*/\1 == $sem/g" \
-        -e "s/^\( *, amazonka[^ ]*\).*/\1 == $sem/g" \
-        "$cabal" >"$cabal.new"
+  sed -e "s/^\(version: *\).*/\1$pvp/;" \
+    -e "s/^\( *amazonka[^ ]*\).*/\1 == $sem/g" \
+    -e "s/^\( *, amazonka[^ ]*\).*/\1 == $sem/g" \
+    "$cabal" >"$cabal.new"
 
-    mv "$cabal.new" "$cabal"
+  mv "$cabal.new" "$cabal"
 done
 
 echo "Done."

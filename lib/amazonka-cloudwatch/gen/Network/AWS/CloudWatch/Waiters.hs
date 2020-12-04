@@ -19,7 +19,7 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.CloudWatch.DescribeAlarms' every 5 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.CloudWatch.DescribeAlarms' every 5 seconds until a successful state is reached. An error is returned after 40 failed checks.
 compositeAlarmExists :: Wait DescribeAlarms
 compositeAlarmExists =
   Wait
@@ -36,7 +36,7 @@ compositeAlarmExists =
         ]
     }
 
--- | Polls 'Network.AWS.CloudWatch.DescribeAlarms' every 5 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.CloudWatch.DescribeAlarms' every 5 seconds until a successful state is reached. An error is returned after 40 failed checks.
 alarmExists :: Wait DescribeAlarms
 alarmExists =
   Wait

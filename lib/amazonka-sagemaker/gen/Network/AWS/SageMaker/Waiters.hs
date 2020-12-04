@@ -23,7 +23,7 @@ import Network.AWS.SageMaker.DescribeTransformJob
 import Network.AWS.SageMaker.Types
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 notebookInstanceDeleted :: Wait DescribeNotebookInstance
 notebookInstanceDeleted =
   Wait
@@ -39,7 +39,7 @@ notebookInstanceDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 endpointDeleted :: Wait DescribeEndpoint
 endpointDeleted =
   Wait
@@ -55,7 +55,7 @@ endpointDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is pureed after 120 failed checks.
+-- | Polls 'Network.AWS.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 endpointInService :: Wait DescribeEndpoint
 endpointInService =
   Wait
@@ -72,7 +72,7 @@ endpointInService =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeTransformJob' every 60 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.SageMaker.DescribeTransformJob' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
 transformJobCompletedOrStopped :: Wait DescribeTransformJob
 transformJobCompletedOrStopped =
   Wait
@@ -96,7 +96,7 @@ transformJobCompletedOrStopped =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 notebookInstanceInService :: Wait DescribeNotebookInstance
 notebookInstanceInService =
   Wait
@@ -115,7 +115,7 @@ notebookInstanceInService =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeProcessingJob' every 60 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.SageMaker.DescribeProcessingJob' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
 processingJobCompletedOrStopped :: Wait DescribeProcessingJob
 processingJobCompletedOrStopped =
   Wait
@@ -139,7 +139,7 @@ processingJobCompletedOrStopped =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeTrainingJob' every 120 seconds until a successful state is reached. An error is pureed after 180 failed checks.
+-- | Polls 'Network.AWS.SageMaker.DescribeTrainingJob' every 120 seconds until a successful state is reached. An error is returned after 180 failed checks.
 trainingJobCompletedOrStopped :: Wait DescribeTrainingJob
 trainingJobCompletedOrStopped =
   Wait
@@ -163,7 +163,7 @@ trainingJobCompletedOrStopped =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 notebookInstanceStopped :: Wait DescribeNotebookInstance
 notebookInstanceStopped =
   Wait

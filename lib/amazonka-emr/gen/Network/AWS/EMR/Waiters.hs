@@ -20,7 +20,7 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.EMR.DescribeStep' every 30 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.EMR.DescribeStep' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 stepComplete :: Wait DescribeStep
 stepComplete =
   Wait
@@ -49,7 +49,7 @@ stepComplete =
         ]
     }
 
--- | Polls 'Network.AWS.EMR.DescribeCluster' every 30 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.EMR.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 clusterTerminated :: Wait DescribeCluster
 clusterTerminated =
   Wait
@@ -68,7 +68,7 @@ clusterTerminated =
         ]
     }
 
--- | Polls 'Network.AWS.EMR.DescribeCluster' every 30 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.EMR.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 clusterRunning :: Wait DescribeCluster
 clusterRunning =
   Wait

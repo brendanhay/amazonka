@@ -21,7 +21,7 @@ import Network.AWS.MediaLive.Types
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.MediaLive.DescribeChannel' every 5 seconds until a successful state is reached. An error is pureed after 120 failed checks.
+-- | Polls 'Network.AWS.MediaLive.DescribeChannel' every 5 seconds until a successful state is reached. An error is returned after 120 failed checks.
 channelRunning :: Wait DescribeChannel
 channelRunning =
   Wait
@@ -35,7 +35,7 @@ channelRunning =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeInput' every 5 seconds until a successful state is reached. An error is pureed after 20 failed checks.
+-- | Polls 'Network.AWS.MediaLive.DescribeInput' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 inputAttached :: Wait DescribeInput
 inputAttached =
   Wait
@@ -49,7 +49,7 @@ inputAttached =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeMultiplex' every 5 seconds until a successful state is reached. An error is pureed after 120 failed checks.
+-- | Polls 'Network.AWS.MediaLive.DescribeMultiplex' every 5 seconds until a successful state is reached. An error is returned after 120 failed checks.
 multiplexRunning :: Wait DescribeMultiplex
 multiplexRunning =
   Wait
@@ -63,7 +63,7 @@ multiplexRunning =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeMultiplex' every 5 seconds until a successful state is reached. An error is pureed after 20 failed checks.
+-- | Polls 'Network.AWS.MediaLive.DescribeMultiplex' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 multiplexDeleted :: Wait DescribeMultiplex
 multiplexDeleted =
   Wait
@@ -77,7 +77,7 @@ multiplexDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeInput' every 5 seconds until a successful state is reached. An error is pureed after 84 failed checks.
+-- | Polls 'Network.AWS.MediaLive.DescribeInput' every 5 seconds until a successful state is reached. An error is returned after 84 failed checks.
 inputDetached :: Wait DescribeInput
 inputDetached =
   Wait
@@ -92,7 +92,7 @@ inputDetached =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeInput' every 5 seconds until a successful state is reached. An error is pureed after 20 failed checks.
+-- | Polls 'Network.AWS.MediaLive.DescribeInput' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 inputDeleted :: Wait DescribeInput
 inputDeleted =
   Wait
@@ -106,7 +106,7 @@ inputDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeChannel' every 5 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.MediaLive.DescribeChannel' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
 channelStopped :: Wait DescribeChannel
 channelStopped =
   Wait
@@ -120,7 +120,7 @@ channelStopped =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeMultiplex' every 3 seconds until a successful state is reached. An error is pureed after 5 failed checks.
+-- | Polls 'Network.AWS.MediaLive.DescribeMultiplex' every 3 seconds until a successful state is reached. An error is returned after 5 failed checks.
 multiplexCreated :: Wait DescribeMultiplex
 multiplexCreated =
   Wait
@@ -135,7 +135,7 @@ multiplexCreated =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeChannel' every 3 seconds until a successful state is reached. An error is pureed after 5 failed checks.
+-- | Polls 'Network.AWS.MediaLive.DescribeChannel' every 3 seconds until a successful state is reached. An error is returned after 5 failed checks.
 channelCreated :: Wait DescribeChannel
 channelCreated =
   Wait
@@ -150,7 +150,7 @@ channelCreated =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeChannel' every 5 seconds until a successful state is reached. An error is pureed after 84 failed checks.
+-- | Polls 'Network.AWS.MediaLive.DescribeChannel' every 5 seconds until a successful state is reached. An error is returned after 84 failed checks.
 channelDeleted :: Wait DescribeChannel
 channelDeleted =
   Wait
@@ -164,7 +164,7 @@ channelDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeMultiplex' every 5 seconds until a successful state is reached. An error is pureed after 28 failed checks.
+-- | Polls 'Network.AWS.MediaLive.DescribeMultiplex' every 5 seconds until a successful state is reached. An error is returned after 28 failed checks.
 multiplexStopped :: Wait DescribeMultiplex
 multiplexStopped =
   Wait

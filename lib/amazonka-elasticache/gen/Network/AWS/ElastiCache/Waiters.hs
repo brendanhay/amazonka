@@ -20,7 +20,7 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.ElastiCache.DescribeCacheClusters' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.ElastiCache.DescribeCacheClusters' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 cacheClusterAvailable :: Wait DescribeCacheClusters
 cacheClusterAvailable =
   Wait
@@ -71,7 +71,7 @@ cacheClusterAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.ElastiCache.DescribeCacheClusters' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.ElastiCache.DescribeCacheClusters' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 cacheClusterDeleted :: Wait DescribeCacheClusters
 cacheClusterDeleted =
   Wait
@@ -139,7 +139,7 @@ cacheClusterDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.ElastiCache.DescribeReplicationGroups' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.ElastiCache.DescribeReplicationGroups' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 replicationGroupDeleted :: Wait DescribeReplicationGroups
 replicationGroupDeleted =
   Wait
@@ -167,7 +167,7 @@ replicationGroupDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.ElastiCache.DescribeReplicationGroups' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.ElastiCache.DescribeReplicationGroups' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 replicationGroupAvailable :: Wait DescribeReplicationGroups
 replicationGroupAvailable =
   Wait

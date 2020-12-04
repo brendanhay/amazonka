@@ -37,7 +37,7 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 instanceTerminated :: Wait DescribeInstances
 instanceTerminated =
   Wait
@@ -75,7 +75,7 @@ instanceTerminated =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 volumeInUse :: Wait DescribeVolumes
 volumeInUse =
   Wait
@@ -98,7 +98,7 @@ volumeInUse =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeImages' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeImages' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 imageExists :: Wait DescribeImages
 imageExists =
   Wait
@@ -114,7 +114,7 @@ imageExists =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeNatGateways' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeNatGateways' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 natGatewayAvailable :: Wait DescribeNatGateways
 natGatewayAvailable =
   Wait
@@ -158,7 +158,7 @@ natGatewayAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeSubnets' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeSubnets' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 subnetAvailable :: Wait DescribeSubnets
 subnetAvailable =
   Wait
@@ -175,7 +175,7 @@ subnetAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeNetworkInterfaces' every 20 seconds until a successful state is reached. An error is pureed after 10 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeNetworkInterfaces' every 20 seconds until a successful state is reached. An error is returned after 10 failed checks.
 networkInterfaceAvailable :: Wait DescribeNetworkInterfaces
 networkInterfaceAvailable =
   Wait
@@ -195,7 +195,7 @@ networkInterfaceAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeKeyPairs' every 5 seconds until a successful state is reached. An error is pureed after 6 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeKeyPairs' every 5 seconds until a successful state is reached. An error is returned after 6 failed checks.
 keyPairExists :: Wait DescribeKeyPairs
 keyPairExists =
   Wait
@@ -219,7 +219,7 @@ keyPairExists =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeInstanceStatus' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeInstanceStatus' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 systemStatusOK :: Wait DescribeInstanceStatus
 systemStatusOK =
   Wait
@@ -239,7 +239,7 @@ systemStatusOK =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeCustomerGateways' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeCustomerGateways' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 customerGatewayAvailable :: Wait DescribeCustomerGateways
 customerGatewayAvailable =
   Wait
@@ -268,7 +268,7 @@ customerGatewayAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 conversionTaskCompleted :: Wait DescribeConversionTasks
 conversionTaskCompleted =
   Wait
@@ -303,7 +303,7 @@ conversionTaskCompleted =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 instanceStopped :: Wait DescribeInstances
 instanceStopped =
   Wait
@@ -341,7 +341,7 @@ instanceStopped =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 conversionTaskDeleted :: Wait DescribeConversionTasks
 conversionTaskDeleted =
   Wait
@@ -360,7 +360,7 @@ conversionTaskDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.GetPasswordData' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.GetPasswordData' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 passwordDataAvailable :: Wait GetPasswordData
 passwordDataAvailable =
   Wait
@@ -375,7 +375,7 @@ passwordDataAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 instanceRunning :: Wait DescribeInstances
 instanceRunning =
   Wait
@@ -423,7 +423,7 @@ instanceRunning =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeSecurityGroups' every 5 seconds until a successful state is reached. An error is pureed after 6 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeSecurityGroups' every 5 seconds until a successful state is reached. An error is returned after 6 failed checks.
 securityGroupExists :: Wait DescribeSecurityGroups
 securityGroupExists =
   Wait
@@ -444,7 +444,7 @@ securityGroupExists =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeSpotInstanceRequests' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeSpotInstanceRequests' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 spotInstanceRequestFulfilled :: Wait DescribeSpotInstanceRequests
 spotInstanceRequestFulfilled =
   Wait
@@ -516,7 +516,7 @@ spotInstanceRequestFulfilled =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVPCs' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeVPCs' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 vpcAvailable :: Wait DescribeVPCs
 vpcAvailable =
   Wait
@@ -533,7 +533,7 @@ vpcAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeExportTasks' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeExportTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 exportTaskCompleted :: Wait DescribeExportTasks
 exportTaskCompleted =
   Wait
@@ -550,7 +550,7 @@ exportTaskCompleted =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVPCPeeringConnections' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeVPCPeeringConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 vpcPeeringConnectionDeleted :: Wait DescribeVPCPeeringConnections
 vpcPeeringConnectionDeleted =
   Wait
@@ -572,7 +572,7 @@ vpcPeeringConnectionDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVPNConnections' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeVPNConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 vpnConnectionAvailable :: Wait DescribeVPNConnections
 vpnConnectionAvailable =
   Wait
@@ -601,7 +601,7 @@ vpnConnectionAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeExportTasks' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeExportTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 exportTaskCancelled :: Wait DescribeExportTasks
 exportTaskCancelled =
   Wait
@@ -618,7 +618,7 @@ exportTaskCancelled =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 volumeDeleted :: Wait DescribeVolumes
 volumeDeleted =
   Wait
@@ -636,7 +636,7 @@ volumeDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVPCs' every 1 seconds until a successful state is reached. An error is pureed after 5 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeVPCs' every 1 seconds until a successful state is reached. An error is returned after 5 failed checks.
 vpcExists :: Wait DescribeVPCs
 vpcExists =
   Wait
@@ -649,7 +649,7 @@ vpcExists =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeBundleTasks' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeBundleTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 bundleTaskComplete :: Wait DescribeBundleTasks
 bundleTaskComplete =
   Wait
@@ -672,7 +672,7 @@ bundleTaskComplete =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVPNConnections' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeVPNConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 vpnConnectionDeleted :: Wait DescribeVPNConnections
 vpnConnectionDeleted =
   Wait
@@ -695,7 +695,7 @@ vpnConnectionDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 conversionTaskCancelled :: Wait DescribeConversionTasks
 conversionTaskCancelled =
   Wait
@@ -714,7 +714,7 @@ conversionTaskCancelled =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeImages' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeImages' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 imageAvailable :: Wait DescribeImages
 imageAvailable =
   Wait
@@ -737,7 +737,7 @@ imageAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVPCPeeringConnections' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeVPCPeeringConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 vpcPeeringConnectionExists :: Wait DescribeVPCPeeringConnections
 vpcPeeringConnectionExists =
   Wait
@@ -750,7 +750,7 @@ vpcPeeringConnectionExists =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeSnapshots' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeSnapshots' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 snapshotCompleted :: Wait DescribeSnapshots
 snapshotCompleted =
   Wait
@@ -767,7 +767,7 @@ snapshotCompleted =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeInstances' every 5 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeInstances' every 5 seconds until a successful state is reached. An error is returned after 40 failed checks.
 instanceExists :: Wait DescribeInstances
 instanceExists =
   Wait
@@ -780,7 +780,7 @@ instanceExists =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeInstanceStatus' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeInstanceStatus' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 instanceStatusOK :: Wait DescribeInstanceStatus
 instanceStatusOK =
   Wait
@@ -801,7 +801,7 @@ instanceStatusOK =
         ]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 volumeAvailable :: Wait DescribeVolumes
 volumeAvailable =
   Wait

@@ -19,7 +19,7 @@ import Network.AWS.OpsWorksCM.Types
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus' every 15 seconds until a successful state is reached. An error is pureed after 15 failed checks.
+-- | Polls 'Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus' every 15 seconds until a successful state is reached. An error is returned after 15 failed checks.
 nodeAssociated :: Wait DescribeNodeAssociationStatus
 nodeAssociated =
   Wait

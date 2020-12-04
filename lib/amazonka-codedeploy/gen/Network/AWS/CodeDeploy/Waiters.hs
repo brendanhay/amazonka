@@ -19,7 +19,7 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.CodeDeploy.GetDeployment' every 15 seconds until a successful state is reached. An error is pureed after 120 failed checks.
+-- | Polls 'Network.AWS.CodeDeploy.GetDeployment' every 15 seconds until a successful state is reached. An error is returned after 120 failed checks.
 deploymentSuccessful :: Wait GetDeployment
 deploymentSuccessful =
   Wait

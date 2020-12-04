@@ -21,7 +21,7 @@ import Network.AWS.RDS.DescribeDBSnapshots
 import Network.AWS.RDS.Types
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.RDS.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.RDS.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 dbInstanceAvailable :: Wait DescribeDBInstances
 dbInstanceAvailable =
   Wait
@@ -80,7 +80,7 @@ dbInstanceAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.RDS.DescribeDBSnapshots' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.RDS.DescribeDBSnapshots' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 dbSnapshotCompleted :: Wait DescribeDBSnapshots
 dbSnapshotCompleted =
   Wait
@@ -100,7 +100,7 @@ dbSnapshotCompleted =
         ]
     }
 
--- | Polls 'Network.AWS.RDS.DescribeDBSnapshots' every 30 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.RDS.DescribeDBSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 dbSnapshotDeleted :: Wait DescribeDBSnapshots
 dbSnapshotDeleted =
   Wait
@@ -145,7 +145,7 @@ dbSnapshotDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.RDS.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.RDS.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 dbInstanceDeleted :: Wait DescribeDBInstances
 dbInstanceDeleted =
   Wait
@@ -190,7 +190,7 @@ dbInstanceDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.RDS.DescribeDBClusterSnapshots' every 30 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.RDS.DescribeDBClusterSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 dbClusterSnapshotDeleted :: Wait DescribeDBClusterSnapshots
 dbClusterSnapshotDeleted =
   Wait
@@ -238,7 +238,7 @@ dbClusterSnapshotDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.RDS.DescribeDBSnapshots' every 30 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.RDS.DescribeDBSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 dbSnapshotAvailable :: Wait DescribeDBSnapshots
 dbSnapshotAvailable =
   Wait
@@ -297,7 +297,7 @@ dbSnapshotAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.RDS.DescribeDBClusterSnapshots' every 30 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.RDS.DescribeDBClusterSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 dbClusterSnapshotAvailable :: Wait DescribeDBClusterSnapshots
 dbClusterSnapshotAvailable =
   Wait

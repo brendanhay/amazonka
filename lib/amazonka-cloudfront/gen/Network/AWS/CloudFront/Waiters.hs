@@ -21,7 +21,7 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.CloudFront.GetStreamingDistribution' every 60 seconds until a successful state is reached. An error is pureed after 25 failed checks.
+-- | Polls 'Network.AWS.CloudFront.GetStreamingDistribution' every 60 seconds until a successful state is reached. An error is returned after 25 failed checks.
 streamingDistributionDeployed :: Wait GetStreamingDistribution
 streamingDistributionDeployed =
   Wait
@@ -36,7 +36,7 @@ streamingDistributionDeployed =
         ]
     }
 
--- | Polls 'Network.AWS.CloudFront.GetDistribution' every 60 seconds until a successful state is reached. An error is pureed after 35 failed checks.
+-- | Polls 'Network.AWS.CloudFront.GetDistribution' every 60 seconds until a successful state is reached. An error is returned after 35 failed checks.
 distributionDeployed :: Wait GetDistribution
 distributionDeployed =
   Wait
@@ -51,7 +51,7 @@ distributionDeployed =
         ]
     }
 
--- | Polls 'Network.AWS.CloudFront.GetInvalidation' every 20 seconds until a successful state is reached. An error is pureed after 30 failed checks.
+-- | Polls 'Network.AWS.CloudFront.GetInvalidation' every 20 seconds until a successful state is reached. An error is returned after 30 failed checks.
 invalidationCompleted :: Wait GetInvalidation
 invalidationCompleted =
   Wait

@@ -19,7 +19,7 @@ import Network.AWS.Rekognition.DescribeProjectVersions
 import Network.AWS.Rekognition.Types
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.Rekognition.DescribeProjectVersions' every 30 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.Rekognition.DescribeProjectVersions' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
 projectVersionRunning :: Wait DescribeProjectVersions
 projectVersionRunning =
   Wait
@@ -46,7 +46,7 @@ projectVersionRunning =
         ]
     }
 
--- | Polls 'Network.AWS.Rekognition.DescribeProjectVersions' every 120 seconds until a successful state is reached. An error is pureed after 360 failed checks.
+-- | Polls 'Network.AWS.Rekognition.DescribeProjectVersions' every 120 seconds until a successful state is reached. An error is returned after 360 failed checks.
 projectVersionTrainingCompleted :: Wait DescribeProjectVersions
 projectVersionTrainingCompleted =
   Wait

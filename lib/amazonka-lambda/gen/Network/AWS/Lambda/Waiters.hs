@@ -20,7 +20,7 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.Lambda.GetFunction' every 1 seconds until a successful state is reached. An error is pureed after 20 failed checks.
+-- | Polls 'Network.AWS.Lambda.GetFunction' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
 functionExists :: Wait GetFunction
 functionExists =
   Wait
@@ -33,7 +33,7 @@ functionExists =
         ]
     }
 
--- | Polls 'Network.AWS.Lambda.GetFunctionConfiguration' every 5 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.Lambda.GetFunctionConfiguration' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
 functionActive :: Wait GetFunctionConfiguration
 functionActive =
   Wait
@@ -47,7 +47,7 @@ functionActive =
         ]
     }
 
--- | Polls 'Network.AWS.Lambda.GetFunctionConfiguration' every 5 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.Lambda.GetFunctionConfiguration' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
 functionUpdated :: Wait GetFunctionConfiguration
 functionUpdated =
   Wait

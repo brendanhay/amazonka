@@ -21,7 +21,7 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.CertificateManagerPCA.GetCertificate' every 3 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.CertificateManagerPCA.GetCertificate' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
 certificateIssued :: Wait GetCertificate
 certificateIssued =
   Wait
@@ -34,7 +34,7 @@ certificateIssued =
         ]
     }
 
--- | Polls 'Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport' every 3 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
 auditReportCreated :: Wait DescribeCertificateAuthorityAuditReport
 auditReportCreated =
   Wait
@@ -53,7 +53,7 @@ auditReportCreated =
         ]
     }
 
--- | Polls 'Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCSR' every 3 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCSR' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
 certificateAuthorityCSRCreated :: Wait GetCertificateAuthorityCSR
 certificateAuthorityCSRCreated =
   Wait

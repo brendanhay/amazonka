@@ -21,7 +21,7 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is pureed after 120 failed checks.
+-- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 stackImportComplete :: Wait DescribeStacks
 stackImportComplete =
   Wait
@@ -69,7 +69,7 @@ stackImportComplete =
         ]
     }
 
--- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is pureed after 120 failed checks.
+-- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 stackCreateComplete :: Wait DescribeStacks
 stackCreateComplete =
   Wait
@@ -117,7 +117,7 @@ stackCreateComplete =
         ]
     }
 
--- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is pureed after 120 failed checks.
+-- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 stackRollbackComplete :: Wait DescribeStacks
 stackRollbackComplete =
   Wait
@@ -153,7 +153,7 @@ stackRollbackComplete =
         ]
     }
 
--- | Polls 'Network.AWS.CloudFormation.DescribeTypeRegistration' every 30 seconds until a successful state is reached. An error is pureed after 120 failed checks.
+-- | Polls 'Network.AWS.CloudFormation.DescribeTypeRegistration' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 typeRegistrationComplete :: Wait DescribeTypeRegistration
 typeRegistrationComplete =
   Wait
@@ -164,15 +164,15 @@ typeRegistrationComplete =
         [ matchAll
             "COMPLETE"
             AcceptSuccess
-            (dtrrsProgressStatus . to toTextCI),
+            (dtrrsProgressStatus . _Just . to toTextCI),
           matchAll
             "FAILED"
             AcceptFailure
-            (dtrrsProgressStatus . to toTextCI)
+            (dtrrsProgressStatus . _Just . to toTextCI)
         ]
     }
 
--- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is pureed after 120 failed checks.
+-- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 stackUpdateComplete :: Wait DescribeStacks
 stackUpdateComplete =
   Wait
@@ -208,7 +208,7 @@ stackUpdateComplete =
         ]
     }
 
--- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 5 seconds until a successful state is reached. An error is pureed after 20 failed checks.
+-- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 stackExists :: Wait DescribeStacks
 stackExists =
   Wait
@@ -221,7 +221,7 @@ stackExists =
         ]
     }
 
--- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is pureed after 120 failed checks.
+-- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 stackDeleteComplete :: Wait DescribeStacks
 stackDeleteComplete =
   Wait
@@ -275,7 +275,7 @@ stackDeleteComplete =
         ]
     }
 
--- | Polls 'Network.AWS.CloudFormation.DescribeChangeSet' every 30 seconds until a successful state is reached. An error is pureed after 120 failed checks.
+-- | Polls 'Network.AWS.CloudFormation.DescribeChangeSet' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 changeSetCreateComplete :: Wait DescribeChangeSet
 changeSetCreateComplete =
   Wait

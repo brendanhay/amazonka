@@ -22,7 +22,7 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.DMS.DescribeReplicationInstances' every 60 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.DMS.DescribeReplicationInstances' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
 replicationInstanceAvailable :: Wait DescribeReplicationInstances
 replicationInstanceAvailable =
   Wait
@@ -73,7 +73,7 @@ replicationInstanceAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
 replicationTaskDeleted :: Wait DescribeReplicationTasks
 replicationTaskDeleted =
   Wait
@@ -125,7 +125,7 @@ replicationTaskDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
 replicationTaskReady :: Wait DescribeReplicationTasks
 replicationTaskReady =
   Wait
@@ -208,7 +208,7 @@ replicationTaskReady =
         ]
     }
 
--- | Polls 'Network.AWS.DMS.DescribeReplicationInstances' every 15 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.DMS.DescribeReplicationInstances' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
 replicationInstanceDeleted :: Wait DescribeReplicationInstances
 replicationInstanceDeleted =
   Wait
@@ -228,7 +228,7 @@ replicationInstanceDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.DMS.DescribeEndpoints' every 5 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.DMS.DescribeEndpoints' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
 endpointDeleted :: Wait DescribeEndpoints
 endpointDeleted =
   Wait
@@ -252,7 +252,7 @@ endpointDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
 replicationTaskStopped :: Wait DescribeReplicationTasks
 replicationTaskStopped =
   Wait
@@ -335,7 +335,7 @@ replicationTaskStopped =
         ]
     }
 
--- | Polls 'Network.AWS.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
 replicationTaskRunning :: Wait DescribeReplicationTasks
 replicationTaskRunning =
   Wait
@@ -418,7 +418,7 @@ replicationTaskRunning =
         ]
     }
 
--- | Polls 'Network.AWS.DMS.DescribeConnections' every 5 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.DMS.DescribeConnections' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
 testConnectionSucceeds :: Wait DescribeConnections
 testConnectionSucceeds =
   Wait

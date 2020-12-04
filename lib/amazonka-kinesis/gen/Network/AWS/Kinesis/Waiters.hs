@@ -19,7 +19,7 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.Kinesis.DescribeStream' every 10 seconds until a successful state is reached. An error is pureed after 18 failed checks.
+-- | Polls 'Network.AWS.Kinesis.DescribeStream' every 10 seconds until a successful state is reached. An error is returned after 18 failed checks.
 streamExists :: Wait DescribeStream
 streamExists =
   Wait
@@ -34,7 +34,7 @@ streamExists =
         ]
     }
 
--- | Polls 'Network.AWS.Kinesis.DescribeStream' every 10 seconds until a successful state is reached. An error is pureed after 18 failed checks.
+-- | Polls 'Network.AWS.Kinesis.DescribeStream' every 10 seconds until a successful state is reached. An error is returned after 18 failed checks.
 streamNotExists :: Wait DescribeStream
 streamNotExists =
   Wait

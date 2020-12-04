@@ -20,7 +20,7 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.ELBv2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.ELBv2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 loadBalancersDeleted :: Wait DescribeLoadBalancers
 loadBalancersDeleted =
   Wait
@@ -42,7 +42,7 @@ loadBalancersDeleted =
         ]
     }
 
--- | Polls 'Network.AWS.ELBv2.DescribeTargetHealth' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.ELBv2.DescribeTargetHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 targetDeregistered :: Wait DescribeTargetHealth
 targetDeregistered =
   Wait
@@ -64,7 +64,7 @@ targetDeregistered =
         ]
     }
 
--- | Polls 'Network.AWS.ELBv2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.ELBv2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 loadBalancerAvailable :: Wait DescribeLoadBalancers
 loadBalancerAvailable =
   Wait
@@ -96,7 +96,7 @@ loadBalancerAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.ELBv2.DescribeTargetHealth' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.ELBv2.DescribeTargetHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 targetInService :: Wait DescribeTargetHealth
 targetInService =
   Wait
@@ -118,7 +118,7 @@ targetInService =
         ]
     }
 
--- | Polls 'Network.AWS.ELBv2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.ELBv2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 loadBalancerExists :: Wait DescribeLoadBalancers
 loadBalancerExists =
   Wait

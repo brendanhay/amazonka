@@ -19,7 +19,7 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is pureed after 20 failed checks.
+-- | Polls 'Network.AWS.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is returned after 20 failed checks.
 environmentExists :: Wait DescribeEnvironments
 environmentExists =
   Wait
@@ -42,7 +42,7 @@ environmentExists =
         ]
     }
 
--- | Polls 'Network.AWS.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is pureed after 20 failed checks.
+-- | Polls 'Network.AWS.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is returned after 20 failed checks.
 environmentUpdated :: Wait DescribeEnvironments
 environmentUpdated =
   Wait
@@ -65,7 +65,7 @@ environmentUpdated =
         ]
     }
 
--- | Polls 'Network.AWS.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is pureed after 20 failed checks.
+-- | Polls 'Network.AWS.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is returned after 20 failed checks.
 environmentTerminated :: Wait DescribeEnvironments
 environmentTerminated =
   Wait

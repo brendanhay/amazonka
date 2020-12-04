@@ -20,7 +20,7 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.ECR.GetLifecyclePolicyPreview' every 5 seconds until a successful state is reached. An error is pureed after 20 failed checks.
+-- | Polls 'Network.AWS.ECR.GetLifecyclePolicyPreview' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 lifecyclePolicyPreviewComplete :: Wait GetLifecyclePolicyPreview
 lifecyclePolicyPreviewComplete =
   Wait
@@ -33,7 +33,7 @@ lifecyclePolicyPreviewComplete =
         ]
     }
 
--- | Polls 'Network.AWS.ECR.DescribeImageScanFindings' every 5 seconds until a successful state is reached. An error is pureed after 60 failed checks.
+-- | Polls 'Network.AWS.ECR.DescribeImageScanFindings' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
 imageScanComplete :: Wait DescribeImageScanFindings
 imageScanComplete =
   Wait

@@ -19,7 +19,7 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is pureed after 15 failed checks.
+-- | Polls 'Network.AWS.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is returned after 15 failed checks.
 vaultNotExists :: Wait DescribeVault
 vaultNotExists =
   Wait
@@ -32,7 +32,7 @@ vaultNotExists =
         ]
     }
 
--- | Polls 'Network.AWS.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is pureed after 15 failed checks.
+-- | Polls 'Network.AWS.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is returned after 15 failed checks.
 vaultExists :: Wait DescribeVault
 vaultExists =
   Wait

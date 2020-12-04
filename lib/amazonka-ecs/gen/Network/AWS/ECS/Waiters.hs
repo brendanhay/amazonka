@@ -20,7 +20,7 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.ECS.DescribeServices' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.ECS.DescribeServices' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 servicesInactive :: Wait DescribeServices
 servicesInactive =
   Wait
@@ -43,7 +43,7 @@ servicesInactive =
         ]
     }
 
--- | Polls 'Network.AWS.ECS.DescribeTasks' every 6 seconds until a successful state is reached. An error is pureed after 100 failed checks.
+-- | Polls 'Network.AWS.ECS.DescribeTasks' every 6 seconds until a successful state is reached. An error is returned after 100 failed checks.
 tasksRunning :: Wait DescribeTasks
 tasksRunning =
   Wait
@@ -72,7 +72,7 @@ tasksRunning =
         ]
     }
 
--- | Polls 'Network.AWS.ECS.DescribeTasks' every 6 seconds until a successful state is reached. An error is pureed after 100 failed checks.
+-- | Polls 'Network.AWS.ECS.DescribeTasks' every 6 seconds until a successful state is reached. An error is returned after 100 failed checks.
 tasksStopped :: Wait DescribeTasks
 tasksStopped =
   Wait

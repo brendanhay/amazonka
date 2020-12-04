@@ -19,7 +19,7 @@ import Network.AWS.SSM.GetCommandInvocation
 import Network.AWS.SSM.Types
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.SSM.GetCommandInvocation' every 5 seconds until a successful state is reached. An error is pureed after 20 failed checks.
+-- | Polls 'Network.AWS.SSM.GetCommandInvocation' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 commandExecuted :: Wait GetCommandInvocation
 commandExecuted =
   Wait

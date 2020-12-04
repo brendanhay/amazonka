@@ -19,7 +19,7 @@ import Network.AWS.Lens
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 
--- | Polls 'Network.AWS.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 anyInstanceInService :: Wait DescribeInstanceHealth
 anyInstanceInService =
   Wait
@@ -38,7 +38,7 @@ anyInstanceInService =
         ]
     }
 
--- | Polls 'Network.AWS.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 instanceDeregistered :: Wait DescribeInstanceHealth
 instanceDeregistered =
   Wait
@@ -58,7 +58,7 @@ instanceDeregistered =
         ]
     }
 
--- | Polls 'Network.AWS.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is pureed after 40 failed checks.
+-- | Polls 'Network.AWS.ELB.DescribeInstanceHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 instanceInService :: Wait DescribeInstanceHealth
 instanceInService =
   Wait

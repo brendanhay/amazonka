@@ -289,7 +289,7 @@ waiterData m os n w = do
             <> "' every "
             <> Text.Builder.Int.decimal (_waitDelay w)
             <> " seconds until a "
-            <> "successful state is reached. An error is pureed after "
+            <> "successful state is reached. An error is returned after "
             <> Text.Builder.Int.decimal (_waitAttempts w)
             <> " failed checks."
 

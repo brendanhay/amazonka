@@ -282,18 +282,18 @@ pagerD n p =
       Only t ->
         Exts.GuardedRhss
           ()
-          [ stop (notationE (_tokenOutput t)),
+          [ stop (notationE False (_tokenOutput t)),
             other [t]
           ]
       Next ks t ->
         Exts.GuardedRhss () $
-          stop (notationE (_tokenOutput t)) :
-          map (stop . notationE) (Foldable.toList ks)
+          stop (notationE False (_tokenOutput t)) :
+          map (stop . notationE False) (Foldable.toList ks)
             ++ [other [t]]
       Many k (t :| ts) ->
         Exts.GuardedRhss
           ()
-          [ stop (notationE k),
+          [ stop (notationE False k),
             check t ts,
             other (t : ts)
           ]
@@ -305,13 +305,13 @@ pagerD n p =
         f :: Exp -> Token Field -> Exp
         f e x =
           Exts.infixApp e "&"
-            . Exts.infixApp (x ^. tokenInput . Lens.to notationE) ".~"
-            $ rs (x ^. tokenOutput . Lens.to notationE)
+            . Exts.infixApp (x ^. tokenInput . Lens.to (notationE False)) ".~"
+            $ rs (x ^. tokenOutput . Lens.to (notationE False))
 
     check t ts = guardE (Foldable.foldl' f (g t) ts) nothingE
       where
         f x = Exts.infixApp x "&&" . g
-        g y = Exts.app (var "isNothing") $ rs (y ^. tokenOutput . Lens.to notationE)
+        g y = Exts.app (var "isNothing") $ rs (y ^. tokenOutput . Lens.to (notationE False))
 
     rq = Exts.infixApp justE "$" (var "rq")
     rs x = Exts.infixApp (var "rs") (qop (getterN x)) x
@@ -327,8 +327,8 @@ getterN e = if go e then "^?" else "^."
       _ -> False
 
 -- FIXME: doesn't support Maybe fields currently.
-notationE :: Notation Field -> Exp
-notationE = \case
+notationE :: Bool -> Notation Field -> Exp
+notationE force = \case
   Deref (k :| ks) ->
     labels k ks
   Length flen e op size ->
@@ -341,10 +341,10 @@ notationE = \case
       Greater -> ">"
 
     branch x =
-      let e = notationE x
+      let e = notationE force x
        in Exts.paren (Exts.app (var (getterN e)) e)
 
-    labels k [] = label False k
+    labels k [] = label force k
     labels k ks = Foldable.foldl' f (label True k) ks
       where
         f e x = Exts.infixApp e "." (label True x)
@@ -833,7 +833,7 @@ waiterD n w = Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
         Success -> var "AcceptSuccess"
         Failure -> var "AcceptFailure"
 
-    argument' x = go <$> maybeToList (notationE <$> _acceptArgument x)
+    argument' x = go <$> maybeToList (notationE True <$> _acceptArgument x)
       where
         go y =
           case _acceptExpect x of

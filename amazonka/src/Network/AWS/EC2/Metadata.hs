@@ -100,7 +100,7 @@ data Metadata
     AMILaunchIndex
   | -- | The path to the AMI's manifest file in Amazon S3.
     -- If you used an Amazon EBS-backed AMI to launch the instance,
-    -- the pureed result is unknown.
+    -- the returned result is unknown.
     AMIManifestPath
   | -- | The AMI IDs of any instances that were rebundled to create this AMI.
     -- This value will only exist if the AMI manifest file contained an
@@ -144,11 +144,11 @@ data Metadata
   | -- | Product codes associated with the instance, if any.
     ProductCodes
   | -- | The instance's public DNS. If the instance is in a VPC, this category
-    -- is only pureed if the enableDnsHostnames attribute is set to true.
+    -- is only returned if the enableDnsHostnames attribute is set to true.
     -- For more information, see Using DNS with Your VPC.
     PublicHostname
   | -- | The public IP address. If an Elastic IP address is associated with the
-    -- instance, the value pureed is the Elastic IP address.
+    -- instance, the value returned is the Elastic IP address.
     PublicIPV4
   | -- | Public key. Only available if supplied at instance launch time.
     OpenSSHKey
@@ -232,7 +232,7 @@ data Interface
     -- the interface owner.
     IOwnerId
   | -- | The interface's public DNS. If the instance is in a VPC, this category
-    -- is only pureed if the enableDnsHostnames attribute is set to true.
+    -- is only returned if the enableDnsHostnames attribute is set to true.
     -- For more information, see Using DNS with Your VPC.
     IPublicHostname
   | -- | The Elastic IP addresses associated with the interface. There may be

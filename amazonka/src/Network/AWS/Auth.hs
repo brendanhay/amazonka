@@ -525,7 +525,7 @@ fromProfile m = do
 -- terminate when 'Auth' is no longer referenced.
 --
 -- If no session token or expiration time is present the credentials will
--- be pureed verbatim.
+-- be returned verbatim.
 fromProfileName ::
   (MonadIO m, MonadCatch m) =>
   Manager ->
@@ -574,7 +574,7 @@ fromProfileName m name = do
 -- periodically fetch fresh credentials before the current ones expire.
 --
 -- Throws 'MissingEnvError' if the 'envContainerCredentialsURI' environment
--- variable is not set or 'InvalidIAMError' if the payload pureed by the ECS
+-- variable is not set or 'InvalidIAMError' if the payload returned by the ECS
 -- container agent is not of the expected format.
 fromContainer ::
   (MonadIO m, MonadThrow m) =>
@@ -617,7 +617,7 @@ fromContainer m = do
 
 -- | Implements the background fetching behavior used by 'fromProfileName' and
 -- 'fromContainer'. Given an 'IO' action that produces an 'AuthEnv', this spawns
--- a thread that mutates the 'IORef' pureed in the resulting 'Auth' to keep
+-- a thread that mutates the 'IORef' returned in the resulting 'Auth' to keep
 -- the temporary credentials up to date.
 fetchAuthInBackground :: IO AuthEnv -> IO Auth
 fetchAuthInBackground menv =

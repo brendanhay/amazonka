@@ -41,9 +41,9 @@ functionActive =
       _waitAttempts = 60,
       _waitDelay = 5,
       _waitAcceptors =
-        [ matchAll "Active" AcceptSuccess (fcState . to toTextCI),
-          matchAll "Failed" AcceptFailure (fcState . to toTextCI),
-          matchAll "Pending" AcceptRetry (fcState . to toTextCI)
+        [ matchAll "Active" AcceptSuccess (fcState . _Just . to toTextCI),
+          matchAll "Failed" AcceptFailure (fcState . _Just . to toTextCI),
+          matchAll "Pending" AcceptRetry (fcState . _Just . to toTextCI)
         ]
     }
 
@@ -58,11 +58,14 @@ functionUpdated =
         [ matchAll
             "Successful"
             AcceptSuccess
-            (fcLastUpdateStatus . to toTextCI),
-          matchAll "Failed" AcceptFailure (fcLastUpdateStatus . to toTextCI),
+            (fcLastUpdateStatus . _Just . to toTextCI),
+          matchAll
+            "Failed"
+            AcceptFailure
+            (fcLastUpdateStatus . _Just . to toTextCI),
           matchAll
             "InProgress"
             AcceptRetry
-            (fcLastUpdateStatus . to toTextCI)
+            (fcLastUpdateStatus . _Just . to toTextCI)
         ]
     }

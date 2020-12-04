@@ -28,8 +28,14 @@ lifecyclePolicyPreviewComplete =
       _waitAttempts = 20,
       _waitDelay = 5,
       _waitAcceptors =
-        [ matchAll "COMPLETE" AcceptSuccess (glpprsStatus . to toTextCI),
-          matchAll "FAILED" AcceptFailure (glpprsStatus . to toTextCI)
+        [ matchAll
+            "COMPLETE"
+            AcceptSuccess
+            (glpprsStatus . _Just . to toTextCI),
+          matchAll
+            "FAILED"
+            AcceptFailure
+            (glpprsStatus . _Just . to toTextCI)
         ]
     }
 

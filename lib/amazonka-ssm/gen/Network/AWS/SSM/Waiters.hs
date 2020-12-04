@@ -27,13 +27,34 @@ commandExecuted =
       _waitAttempts = 20,
       _waitDelay = 5,
       _waitAcceptors =
-        [ matchAll "Pending" AcceptRetry (gcirsStatus . to toTextCI),
-          matchAll "InProgress" AcceptRetry (gcirsStatus . to toTextCI),
-          matchAll "Delayed" AcceptRetry (gcirsStatus . to toTextCI),
-          matchAll "Success" AcceptSuccess (gcirsStatus . to toTextCI),
-          matchAll "Cancelled" AcceptFailure (gcirsStatus . to toTextCI),
-          matchAll "TimedOut" AcceptFailure (gcirsStatus . to toTextCI),
-          matchAll "Failed" AcceptFailure (gcirsStatus . to toTextCI),
-          matchAll "Cancelling" AcceptFailure (gcirsStatus . to toTextCI)
+        [ matchAll
+            "Pending"
+            AcceptRetry
+            (gcirsStatus . _Just . to toTextCI),
+          matchAll
+            "InProgress"
+            AcceptRetry
+            (gcirsStatus . _Just . to toTextCI),
+          matchAll "Delayed" AcceptRetry (gcirsStatus . _Just . to toTextCI),
+          matchAll
+            "Success"
+            AcceptSuccess
+            (gcirsStatus . _Just . to toTextCI),
+          matchAll
+            "Cancelled"
+            AcceptFailure
+            (gcirsStatus . _Just . to toTextCI),
+          matchAll
+            "TimedOut"
+            AcceptFailure
+            (gcirsStatus . _Just . to toTextCI),
+          matchAll
+            "Failed"
+            AcceptFailure
+            (gcirsStatus . _Just . to toTextCI),
+          matchAll
+            "Cancelling"
+            AcceptFailure
+            (gcirsStatus . _Just . to toTextCI)
         ]
     }

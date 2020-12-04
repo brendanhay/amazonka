@@ -45,11 +45,11 @@ auditReportCreated =
         [ matchAll
             "SUCCESS"
             AcceptSuccess
-            (dcaarrsAuditReportStatus . to toTextCI),
+            (dcaarrsAuditReportStatus . _Just . to toTextCI),
           matchAll
             "FAILED"
             AcceptFailure
-            (dcaarrsAuditReportStatus . to toTextCI)
+            (dcaarrsAuditReportStatus . _Just . to toTextCI)
         ]
     }
 

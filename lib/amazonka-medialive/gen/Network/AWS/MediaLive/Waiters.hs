@@ -29,8 +29,11 @@ channelRunning =
       _waitAttempts = 120,
       _waitDelay = 5,
       _waitAcceptors =
-        [ matchAll "RUNNING" AcceptSuccess (dcrsState . to toTextCI),
-          matchAll "STARTING" AcceptRetry (dcrsState . to toTextCI),
+        [ matchAll
+            "RUNNING"
+            AcceptSuccess
+            (dcrsState . _Just . to toTextCI),
+          matchAll "STARTING" AcceptRetry (dcrsState . _Just . to toTextCI),
           matchStatus 500 AcceptRetry
         ]
     }
@@ -43,8 +46,11 @@ inputAttached =
       _waitAttempts = 20,
       _waitDelay = 5,
       _waitAcceptors =
-        [ matchAll "ATTACHED" AcceptSuccess (diirsState . to toTextCI),
-          matchAll "DETACHED" AcceptRetry (diirsState . to toTextCI),
+        [ matchAll
+            "ATTACHED"
+            AcceptSuccess
+            (diirsState . _Just . to toTextCI),
+          matchAll "DETACHED" AcceptRetry (diirsState . _Just . to toTextCI),
           matchStatus 500 AcceptRetry
         ]
     }
@@ -57,8 +63,11 @@ multiplexRunning =
       _waitAttempts = 120,
       _waitDelay = 5,
       _waitAcceptors =
-        [ matchAll "RUNNING" AcceptSuccess (dmrsState . to toTextCI),
-          matchAll "STARTING" AcceptRetry (dmrsState . to toTextCI),
+        [ matchAll
+            "RUNNING"
+            AcceptSuccess
+            (dmrsState . _Just . to toTextCI),
+          matchAll "STARTING" AcceptRetry (dmrsState . _Just . to toTextCI),
           matchStatus 500 AcceptRetry
         ]
     }
@@ -71,8 +80,11 @@ multiplexDeleted =
       _waitAttempts = 20,
       _waitDelay = 5,
       _waitAcceptors =
-        [ matchAll "DELETED" AcceptSuccess (dmrsState . to toTextCI),
-          matchAll "DELETING" AcceptRetry (dmrsState . to toTextCI),
+        [ matchAll
+            "DELETED"
+            AcceptSuccess
+            (dmrsState . _Just . to toTextCI),
+          matchAll "DELETING" AcceptRetry (dmrsState . _Just . to toTextCI),
           matchStatus 500 AcceptRetry
         ]
     }
@@ -85,9 +97,12 @@ inputDetached =
       _waitAttempts = 84,
       _waitDelay = 5,
       _waitAcceptors =
-        [ matchAll "DETACHED" AcceptSuccess (diirsState . to toTextCI),
-          matchAll "CREATING" AcceptRetry (diirsState . to toTextCI),
-          matchAll "ATTACHED" AcceptRetry (diirsState . to toTextCI),
+        [ matchAll
+            "DETACHED"
+            AcceptSuccess
+            (diirsState . _Just . to toTextCI),
+          matchAll "CREATING" AcceptRetry (diirsState . _Just . to toTextCI),
+          matchAll "ATTACHED" AcceptRetry (diirsState . _Just . to toTextCI),
           matchStatus 500 AcceptRetry
         ]
     }
@@ -100,8 +115,11 @@ inputDeleted =
       _waitAttempts = 20,
       _waitDelay = 5,
       _waitAcceptors =
-        [ matchAll "DELETED" AcceptSuccess (diirsState . to toTextCI),
-          matchAll "DELETING" AcceptRetry (diirsState . to toTextCI),
+        [ matchAll
+            "DELETED"
+            AcceptSuccess
+            (diirsState . _Just . to toTextCI),
+          matchAll "DELETING" AcceptRetry (diirsState . _Just . to toTextCI),
           matchStatus 500 AcceptRetry
         ]
     }
@@ -114,8 +132,8 @@ channelStopped =
       _waitAttempts = 60,
       _waitDelay = 5,
       _waitAcceptors =
-        [ matchAll "IDLE" AcceptSuccess (dcrsState . to toTextCI),
-          matchAll "STOPPING" AcceptRetry (dcrsState . to toTextCI),
+        [ matchAll "IDLE" AcceptSuccess (dcrsState . _Just . to toTextCI),
+          matchAll "STOPPING" AcceptRetry (dcrsState . _Just . to toTextCI),
           matchStatus 500 AcceptRetry
         ]
     }
@@ -128,10 +146,13 @@ multiplexCreated =
       _waitAttempts = 5,
       _waitDelay = 3,
       _waitAcceptors =
-        [ matchAll "IDLE" AcceptSuccess (dmrsState . to toTextCI),
-          matchAll "CREATING" AcceptRetry (dmrsState . to toTextCI),
+        [ matchAll "IDLE" AcceptSuccess (dmrsState . _Just . to toTextCI),
+          matchAll "CREATING" AcceptRetry (dmrsState . _Just . to toTextCI),
           matchStatus 500 AcceptRetry,
-          matchAll "CREATE_FAILED" AcceptFailure (dmrsState . to toTextCI)
+          matchAll
+            "CREATE_FAILED"
+            AcceptFailure
+            (dmrsState . _Just . to toTextCI)
         ]
     }
 
@@ -143,10 +164,13 @@ channelCreated =
       _waitAttempts = 5,
       _waitDelay = 3,
       _waitAcceptors =
-        [ matchAll "IDLE" AcceptSuccess (dcrsState . to toTextCI),
-          matchAll "CREATING" AcceptRetry (dcrsState . to toTextCI),
+        [ matchAll "IDLE" AcceptSuccess (dcrsState . _Just . to toTextCI),
+          matchAll "CREATING" AcceptRetry (dcrsState . _Just . to toTextCI),
           matchStatus 500 AcceptRetry,
-          matchAll "CREATE_FAILED" AcceptFailure (dcrsState . to toTextCI)
+          matchAll
+            "CREATE_FAILED"
+            AcceptFailure
+            (dcrsState . _Just . to toTextCI)
         ]
     }
 
@@ -158,8 +182,11 @@ channelDeleted =
       _waitAttempts = 84,
       _waitDelay = 5,
       _waitAcceptors =
-        [ matchAll "DELETED" AcceptSuccess (dcrsState . to toTextCI),
-          matchAll "DELETING" AcceptRetry (dcrsState . to toTextCI),
+        [ matchAll
+            "DELETED"
+            AcceptSuccess
+            (dcrsState . _Just . to toTextCI),
+          matchAll "DELETING" AcceptRetry (dcrsState . _Just . to toTextCI),
           matchStatus 500 AcceptRetry
         ]
     }
@@ -172,8 +199,8 @@ multiplexStopped =
       _waitAttempts = 28,
       _waitDelay = 5,
       _waitAcceptors =
-        [ matchAll "IDLE" AcceptSuccess (dmrsState . to toTextCI),
-          matchAll "STOPPING" AcceptRetry (dmrsState . to toTextCI),
+        [ matchAll "IDLE" AcceptSuccess (dmrsState . _Just . to toTextCI),
+          matchAll "STOPPING" AcceptRetry (dmrsState . _Just . to toTextCI),
           matchStatus 500 AcceptRetry
         ]
     }

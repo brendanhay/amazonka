@@ -11,8 +11,12 @@
   # Overlays to apply to the last package set in cross compilation.
 , crossOverlays ? [ ]
   # The names of the models to generate - ie. [ "ec2", "s3" ]
-  # Setting to null will use file names from ./config
-, models ? null }:
+  # Setting to an empty list will use file names from ./config
+, models ? [ ]
+  # Whether the formatPhase (cabal-fmt, ormolu) should be run.
+, format ? false
+  # Report botocore service definitions lacking amazonka configuration.
+, audit ? false }:
 
 let
 
@@ -20,10 +24,10 @@ let
     inherit system sources config overlays crossOverlays;
   };
 
-  inherit (pkgs) libLocal cabalProject tools;
+  inherit (pkgs) lib libLocal cabalProject tools;
 
   botocore = pkgs.sources.botocore;
-  botocoreData = "${botocore}/botocore/data";
+  botocoreDir = "${botocore}/botocore/data";
   botocoreRev = builtins.substring 0 7 botocore.rev;
 
   annexDir = ./config/annexes;
@@ -35,19 +39,43 @@ let
   coreVersion = cabalProject.amazonka-core.identifier.version;
   libraryVersion = cabalProject.amazonka-gen.identifier.version;
 
-  modelNamesFromDir = path:
-    builtins.map (pkgs.lib.strings.removeSuffix ".json")
-    (builtins.attrNames (builtins.readDir path));
+  configNames = dir:
+    let names = builtins.attrNames (builtins.readDir dir);
+    in builtins.map (lib.removeSuffix ".json") names;
 
-  modelNames = if models == null then modelNamesFromDir configDir else models;
+  modelNames = let
+    # The available botocore service definitions.
+    available = configNames botocoreDir;
+    # The available amazonka config files.
+    configured = configNames configDir;
+    # Botocore service definitions _without_ a corresponding amazonka config.
+    unconfigured = lib.subtractLists configured available;
+    # Supplied 'models' arguments that don't correspond to an amazonka config.
+    missing = lib.subtractLists configured models;
+    # Check the selected model names or default to all, if necessary.
+    selected = if models == [ ] then
+      configured
+    else if missing == [ ] then
+      models
+    else
+      throw ''
+        Unknown model(s): ${lib.concatStringsSep ", " missing}
+      '';
+    # Report any unconfigured botocore service definitions.
+  in lib.traceIf (audit && unconfigured != [ ]) ''
+    Unconfigured model(s): 
+     - ${lib.concatStringsSep "\n - " unconfigured}
+  '' selected;
 
-  modelArguments = builtins.concatStringsSep " "
-    (builtins.map (v: ''--model="${botocoreData + "/${v}"}"'') modelNames);
+  modelArguments =
+    builtins.map (v: ''--model="${botocoreDir + "/${v}"}"'') modelNames;
 
 in pkgs.stdenvNoCC.mkDerivation {
   pname = "amazonka";
   version = botocoreRev;
-  phases = [ "unpackPhase" "generatePhase" "formatPhase" ];
+
+  phases = [ "unpackPhase" "generatePhase" ]
+    ++ lib.optionals format [ "formatPhase" ];
 
   buildInputs = [
     tools.cabal-fmt
@@ -76,8 +104,8 @@ in pkgs.stdenvNoCC.mkDerivation {
       --configs="${configDir}" \
       --templates="${templateDir}" \
       --static="${staticDir}" \
-      --retry=${botocoreData}/_retry.json \
-      ${modelArguments}
+      --retry=${botocoreDir}/_retry.json \
+      ${builtins.concatStringsSep " " modelArguments}
   '';
 
   formatPhase = ''

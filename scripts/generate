@@ -70,7 +70,7 @@ result=$(nix-build generate.nix "${args[@]}")
 
 say "copying $result to lib..."
 
-cp -r "$result"/amazonka-* ./lib/
+cp -r "$result"/* ./lib/
 
 say "setting u+rw lib permissions..."
 

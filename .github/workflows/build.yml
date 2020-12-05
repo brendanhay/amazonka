@@ -43,4 +43,4 @@ jobs:
           name: amazonka
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      - run: nix-build generate.nix
+      - run: nix-build generate.nix --arg audit true --arg format false

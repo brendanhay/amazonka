@@ -9,17 +9,19 @@
   # Additional nixpkgs.overlays.
 , overlays ? [ ]
   # Overlays to apply to the last package set in cross compilation.
-, crossOverlays ? [ ] }:
+, crossOverlays ? [ ]
+  # The GHC version to use. (compiler-nix-name in haskell.nix)
+, ghcVersion ? "ghc8102" }:
 
 let
 
   pkgs = import ./nix/default.nix {
-    inherit system sources config overlays crossOverlays;
+    inherit system sources config overlays crossOverlays ghcVersion;
   };
 
-  inherit (pkgs) libLocal cabalProject tools;
+  inherit (pkgs) localLib localTools cabalProject;
 
-  components = libLocal.collectProjectComponents cabalProject;
+  components = localLib.collectProjectComponents cabalProject;
 
 in {
   inherit cabalProject;
@@ -43,10 +45,10 @@ in {
       pkgs.nixfmt
       pkgs.shfmt
 
-      tools.cabal
-      tools.cabal-fmt
-      tools.ormolu
-      tools.shellcheck
+      localTools.cabal
+      localTools.cabal-fmt
+      localTools.ormolu
+      localTools.shellcheck
 
       (import pkgs.sources.niv { }).niv
     ];

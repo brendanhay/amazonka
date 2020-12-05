@@ -10,6 +10,8 @@
 , overlays ? [ ]
   # Overlays to apply to the last package set in cross compilation.
 , crossOverlays ? [ ]
+  # The GHC version to use. (compiler-nix-name in haskell.nix)
+, ghcVersion ? "ghc8102"
   # The names of the models to generate - ie. [ "ec2", "s3" ]
   # Setting to an empty list will use file names from ./config
 , models ? [ ]
@@ -21,10 +23,10 @@
 let
 
   pkgs = import ./nix/default.nix {
-    inherit system sources config overlays crossOverlays;
+    inherit system sources config overlays crossOverlays ghcVersion;
   };
 
-  inherit (pkgs) lib libLocal cabalProject tools;
+  inherit (pkgs) lib localLib localTools cabalProject;
 
   botocore = pkgs.sources.botocore;
   botocoreDir = "${botocore}/botocore/data";
@@ -78,12 +80,12 @@ in pkgs.stdenvNoCC.mkDerivation {
     ++ lib.optionals format [ "formatPhase" ];
 
   buildInputs = [
-    tools.cabal-fmt
-    tools.ormolu
+    localTools.cabal-fmt
+    localTools.ormolu
     cabalProject.amazonka-gen.components.exes.amazonka-gen
   ];
 
-  src = libLocal.cleanGeneratedSource {
+  src = localLib.cleanGeneratedSource {
     name = "amazonka-generate";
     src = ./lib;
   };

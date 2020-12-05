@@ -9,7 +9,8 @@ write-ghc-environment-files: never
 optimization: 1
 
 allow-newer:
-   base
+   base,
+   optparse-applicative
 
 -- Local packages.
 packages:

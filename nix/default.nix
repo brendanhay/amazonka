@@ -9,7 +9,9 @@
   # Additional nixpkgs.overlays.
 , overlays ? [ ]
   # Overlays to apply to the last package set in cross compilation.
-, crossOverlays ? [ ] }:
+, crossOverlays ? [ ]
+  # The GHC version to use. (compiler-nix-name in haskell.nix)
+, ghcVersion ? "ghc8102" }:
 
 let
 
@@ -23,11 +25,9 @@ let
     # Add top-level `.sources` attribute.
     (_final: _prev: { sources = finalSources; })
 
-    # Basic library functions.
-    (import ./overlays/lib-local.nix)
-
-    # haskell.nix cabalProject, overrides, and extensions.
-    (import ./overlays/haskell.nix)
+    (import ./overlays/cabal-project.nix { inherit ghcVersion; })
+    (import ./overlays/local-tools.nix)
+    (import ./overlays/local-lib.nix)
   ] ++ overlays;
 
   pkgs = import finalSources.nixpkgs {

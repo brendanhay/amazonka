@@ -11,8 +11,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - { os: ubuntu-latest }
+        os: [ubuntu-latest, macos-latest]
+        ghc: [ghc8102, ghc884]
 
     runs-on: ${{ matrix.os }}
 
@@ -24,14 +24,13 @@ jobs:
           name: amazonka
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      - run: nix-build default.nix -A library -A checks -A exes -A shell
+      - run: nix-build default.nix -A library -A checks --argstr ghcVersion ${{ matrix.ghc }}
 
   generate-nix:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - { os: ubuntu-latest }
+        os: [ubuntu-latest]
 
     runs-on: ${{ matrix.os }}
 

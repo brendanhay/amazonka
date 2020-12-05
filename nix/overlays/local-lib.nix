@@ -1,5 +1,5 @@
 final: prev: {
-  libLocal = {
+  localLib = {
     cleanGeneratedSource = { src, name ? null }:
       let
         clean = prev.lib.cleanSourceWith {

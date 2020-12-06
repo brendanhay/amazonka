@@ -2,6 +2,7 @@ name: generate
 
 on:
   push:
+    branches: main
     paths_ignore:
      - 'lib/**'
 

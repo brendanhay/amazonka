@@ -109,7 +109,7 @@ imageExists =
         [ matchNonEmpty
             True
             AcceptSuccess
-            (length (^. (folding (concatOf (diirsImages . to toList)))) > 0),
+            (folding (concatOf (diirsImages . to toList))),
           matchError "InvalidAMIID.NotFound" AcceptRetry
         ]
     }
@@ -206,14 +206,9 @@ keyPairExists =
         [ matchNonEmpty
             True
             AcceptSuccess
-            ( length
-                ( ^?
-                    ( folding (concatOf (dkprsKeyPairs . to toList))
-                        . kpiKeyName
-                        . _Just
-                    )
-                )
-                > 0
+            ( folding (concatOf (dkprsKeyPairs . to toList))
+                . kpiKeyName
+                . _Just
             ),
           matchError "InvalidKeyPair.NotFound" AcceptRetry
         ]
@@ -368,11 +363,7 @@ passwordDataAvailable =
       _waitAttempts = 40,
       _waitDelay = 15,
       _waitAcceptors =
-        [ matchNonEmpty
-            True
-            AcceptSuccess
-            (length (^. gpdrsPasswordData) > 0)
-        ]
+        [matchNonEmpty True AcceptSuccess gpdrsPasswordData]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
@@ -434,12 +425,7 @@ securityGroupExists =
         [ matchNonEmpty
             True
             AcceptSuccess
-            ( length
-                ( ^.
-                    (folding (concatOf (dsgrsSecurityGroups . to toList)) . sgGroupId)
-                )
-                > 0
-            ),
+            (folding (concatOf (dsgrsSecurityGroups . to toList)) . sgGroupId),
           matchError "InvalidGroupNotFound" AcceptRetry
         ]
     }

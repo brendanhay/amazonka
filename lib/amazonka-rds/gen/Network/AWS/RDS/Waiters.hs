@@ -108,7 +108,7 @@ dbSnapshotDeleted =
       _waitAttempts = 60,
       _waitDelay = 30,
       _waitAcceptors =
-        [ matchAll True AcceptSuccess (length (^. ddsrsDBSnapshots) == 0),
+        [ matchEmpty True AcceptSuccess ddsrsDBSnapshots,
           matchError "DBSnapshotNotFound" AcceptSuccess,
           matchAny
             "creating"
@@ -153,7 +153,7 @@ dbInstanceDeleted =
       _waitAttempts = 60,
       _waitDelay = 30,
       _waitAcceptors =
-        [ matchAll True AcceptSuccess (length (^. ddbirsDBInstances) == 0),
+        [ matchEmpty True AcceptSuccess ddbirsDBInstances,
           matchError "DBInstanceNotFound" AcceptSuccess,
           matchAny
             "creating"
@@ -198,10 +198,7 @@ dbClusterSnapshotDeleted =
       _waitAttempts = 60,
       _waitDelay = 30,
       _waitAcceptors =
-        [ matchAll
-            True
-            AcceptSuccess
-            (length (^. ddbcsrsDBClusterSnapshots) == 0),
+        [ matchEmpty True AcceptSuccess ddbcsrsDBClusterSnapshots,
           matchError "DBClusterSnapshotNotFoundFault" AcceptSuccess,
           matchAny
             "creating"

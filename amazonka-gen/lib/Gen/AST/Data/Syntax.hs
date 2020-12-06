@@ -329,17 +329,10 @@ getterN e = if go e then "^?" else "^."
 -- FIXME: doesn't support Maybe fields currently.
 notationE :: Bool -> Notation Field -> Exp
 notationE force = \case
-  Deref (k :| ks) ->
-    labels k ks
-  Length flen e op size ->
-    Exts.infixApp (Exts.app (var flen) (branch e)) (relation op) (int size)
-  Choice x y ->
-    Exts.appFun (var "choice") [branch x, branch y]
+  Deref (k :| ks) -> labels k ks
+  Infix _lens x -> notationE force x
+  Choice x y -> Exts.appFun (var "choice") [branch x, branch y]
   where
-    relation = \case
-      Equal -> "=="
-      Greater -> ">"
-
     branch x =
       let e = notationE force x
        in Exts.paren (Exts.app (var (getterN e)) e)
@@ -808,8 +801,8 @@ waiterD n w = Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
 
     match x =
       case (_acceptMatch x, _acceptArgument x) of
-        (_, Just (Length "length" _ Greater 0)) ->
-          Exts.appFun (var "matchNonEmpty") (expect x : criteria x : argument' x)
+        (_, Just (Infix lens _)) ->
+          Exts.appFun (var lens) (expect x : criteria x : argument' x)
         (Path, _) ->
           Exts.appFun (var "matchAll") (expect x : criteria x : argument' x)
         (PathAll, _) ->

@@ -25,14 +25,9 @@ data Key a
   | Last {fromKey :: a}
   deriving stock (Eq, Show, Functor, Foldable)
 
-data Op
-  = Equal
-  | Greater
-  deriving stock (Eq, Show)
-
 data Notation a
   = Deref (NonEmpty (Key a))
-  | Length Text (Notation a) Op Integer
+  | Infix Text (Notation a)
   | Choice (Notation a) (Notation a)
   deriving stock (Eq, Show, Functor, Foldable)
 
@@ -47,7 +42,7 @@ parseNotation t = mappend msg `first` A.parseOnly (expr1) t
         ++ Text.unpack t
         ++ ", with "
 
-    expr0 = nonEmptyList <|> nonEmptyText <|> dereference
+    expr0 = empty dereference <|> nonEmpty dereference <|> dereference
     expr1 = choice <|> expr0
 
     choice =
@@ -57,23 +52,15 @@ parseNotation t = mappend msg `first` A.parseOnly (expr1) t
         <*> expr1
         A.<?> "expr1 || expr2"
 
-    nonEmptyList =
-      apply "length" expr1
+    empty p =
+         A.string "length(" *> fmap (Infix "matchEmpty") p <* A.char ')'
+            <* strip (A.string "==")
+            <* strip (A.string "`0`")
 
-    nonEmptyText =
-      apply "textLength" expr0
-
-    apply function p = do
-      expr <- A.string "length(" *> p <* A.char ')'
-
-      relation <-
-        strip $
-          (A.string "==" *> pure Equal)
-            <|> (A.char '>' *> pure Greater)
-
-      decimal <- strip (A.char '`' *> A.decimal <* A.char '`')
-
-      pure (Length function expr relation decimal)
+    nonEmpty p =
+         A.string "length(" *> fmap (Infix "matchNonEmpty") p <* A.char ')'
+            <* strip (A.char '>')
+            <* strip (A.string "`0`")
 
     dereference = do
       x : xs <- A.sepBy1 key (A.char '.')

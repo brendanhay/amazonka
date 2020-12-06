@@ -343,7 +343,7 @@ notation m nid = go nid
     go :: Shape Solved -> Notation Id -> Either String (Notation Field)
     go s = \case
       Choice x y -> Choice <$> go s x <*> go s y
-      Length flen e op size -> Length flen <$> go s e <*> pure op <*> pure size
+      Infix lens e -> Infix lens <$> go s e
       Deref ks ->
         fmap Deref . flip State.evalStateT s . Monad.forM ks $ \x -> do
           k <- State.get >>= lift . (`key` x)

@@ -12,7 +12,7 @@ final: prev: {
         };
       in if (builtins.typeOf src) == "path" then clean else src;
 
-    collectProjectComponents = project:
+    collectProjectComponents = predicate: project:
       let
 
         # These functions pull out from the Haskell project either all the

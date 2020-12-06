@@ -53,14 +53,14 @@ parseNotation t = mappend msg `first` A.parseOnly (expr1) t
         A.<?> "expr1 || expr2"
 
     empty p =
-         A.string "length(" *> fmap (Infix "matchEmpty") p <* A.char ')'
-            <* strip (A.string "==")
-            <* strip (A.string "`0`")
+      A.string "length(" *> fmap (Infix "matchEmpty") p <* A.char ')'
+        <* strip (A.string "==")
+        <* strip (A.string "`0`")
 
     nonEmpty p =
-         A.string "length(" *> fmap (Infix "matchNonEmpty") p <* A.char ')'
-            <* strip (A.char '>')
-            <* strip (A.string "`0`")
+      A.string "length(" *> fmap (Infix "matchNonEmpty") p <* A.char ')'
+        <* strip (A.char '>')
+        <* strip (A.string "`0`")
 
     dereference = do
       x : xs <- A.sepBy1 key (A.char '.')

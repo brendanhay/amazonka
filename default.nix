@@ -21,11 +21,20 @@ let
 
   inherit (pkgs) localLib localTools cabalProject;
 
-  components = localLib.collectProjectComponents cabalProject;
+  components = member:
+    localLib.collectProjectComponents (n:
+      member (builtins.elem n [
+        "amazonka"
+        "amazonka-core"
+        "amazonka-test"
+        "amazonka-gen"
+      ])) cabalProject;
 
-in {
-  inherit cabalProject;
-  inherit (components) library exes checks;
+in cabalProject // {
+  workflow = {
+    core = components pkgs.lib.id;
+    libs = components (core: !core);
+  };
 
   shell = cabalProject.shellFor {
     exactDeps = true;

@@ -21,19 +21,21 @@ let
 
   inherit (pkgs) localLib localTools cabalProject;
 
-  components = member:
-    localLib.collectProjectComponents (n:
-      member (builtins.elem n [
-        "amazonka"
-        "amazonka-core"
-        "amazonka-test"
-        "amazonka-gen"
-      ])) cabalProject;
+  isCore = name:
+    builtins.elem name [
+      "amazonka"
+      "amazonka-core"
+      "amazonka-test"
+      "amazonka-gen"
+    ];
+
+  components = predicate:
+    localLib.collectProjectComponents predicate cabalProject;
 
 in cabalProject // {
   workflow = {
-    core = components pkgs.lib.id;
-    libs = components (core: !core);
+    core = components isCore;
+    libs = components (name: !(isCore name));
   };
 
   shell = cabalProject.shellFor {

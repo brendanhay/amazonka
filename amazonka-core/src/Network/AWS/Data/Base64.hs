@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
@@ -17,9 +16,7 @@ where
 
 import Control.DeepSeq
 import Data.Aeson.Types
-import qualified Data.Attoparsec.Text as AText
 import qualified Data.ByteArray.Encoding as BA
-import Data.Data (Data, Typeable)
 import Data.Hashable
 import qualified Data.Text.Encoding as Text
 import GHC.Generics (Generic)
@@ -36,7 +33,7 @@ import Network.AWS.Lens (Iso', iso)
 -- Encoding\/decoding is automatically deferred to serialisation and deserialisation
 -- respectively.
 newtype Base64 = Base64 {unBase64 :: ByteString}
-  deriving (Eq, Read, Ord, Data, Typeable, Generic)
+  deriving (Eq, Read, Ord, Generic)
 
 instance Hashable Base64
 
@@ -48,11 +45,10 @@ _Base64 = iso unBase64 Base64
 -- FIXME: probably a mistake to wrap a ByteString since
 -- the underlying serialisers (JSON, XML) use Text internally.
 instance FromText Base64 where
-  parser =
-    AText.takeText
-      >>= either fail (pure . Base64)
-        . BA.convertFromBase BA.Base64
-        . Text.encodeUtf8
+  fromText =
+    fmap Base64
+      . BA.convertFromBase BA.Base64
+      . Text.encodeUtf8
 
 instance ToByteString Base64 where
   toBS = BA.convertToBase BA.Base64 . unBase64

@@ -11,7 +11,7 @@
 module Gen.Types.TypeOf
   ( TypeOf (..),
     derivingOf,
-    derivingBase,
+    derivable,
     pointerTo,
     isEq,
     isHashable,
@@ -47,7 +47,7 @@ instance HasId a => TypeOf (Shape a) where
       shape = \case
         Ptr _ t -> t
         Struct st -> TType (typeId n) (struct st)
-        Enum {} -> TType (typeId n) (ord <> derivingBase)
+        Enum {} -> TType (typeId n) (synonym <> derivable)
         List (ListF i e)
           | nonEmpty i -> TList1 (typeOf e)
           | otherwise -> TList (typeOf e)
@@ -64,7 +64,8 @@ instance HasId a => TypeOf (Shape a) where
       struct st
         | isStreaming st = stream
         | otherwise =
-          uniq $ Foldable.foldr' (List.intersect . derivingOf) derivingBase $ st ^.. references
+          uniq $
+            Foldable.foldr' (List.intersect . derivingOf) derivable (st ^.. references)
 
 instance HasId a => TypeOf (RefF (Shape a)) where
   typeOf r
@@ -87,7 +88,7 @@ pointerTo n = \case
   Map (MapF _ k v) -> TMap (t (_refShape k)) (t (_refShape v))
   _ -> t n
   where
-    t x = TType (typeId x) derivingBase
+    t x = TType (typeId x) derivable
 
 derivingOf :: TypeOf a => a -> [Derive]
 derivingOf = uniq . typ . typeOf
@@ -95,36 +96,36 @@ derivingOf = uniq . typ . typeOf
     typ = \case
       TType _ ds -> ds
       TLit l -> lit l
-      TNatural -> derivingBase <> num
+      TNatural -> derivable <> num
       TStream -> stream
       TMaybe t -> typ t
       TSensitive t -> DShow : List.delete DRead (typ t)
-      TList e -> monoid <> List.intersect derivingBase (typ e)
-      TList1 e -> DSemigroup : List.intersect derivingBase (typ e)
+      TList e -> monoid <> List.intersect derivable (typ e)
+      TList1 e -> DSemigroup : List.intersect derivable (typ e)
       TMap k v -> monoid <> List.intersect (typ k) (typ v)
 
     lit = \case
-      Int -> derivingBase <> num
-      Long -> derivingBase <> num
-      Double -> derivingBase <> frac
-      Text -> derivingBase <> string
-      Base64 -> derivingBase
-      Bytes -> derivingBase
-      Time -> DOrd : derivingBase
-      Bool -> derivingBase <> enum
-      Json -> [DEq, DShow, DData, DTypeable, DGeneric, DHashable, DNFData]
+      Int -> derivable <> num
+      Long -> derivable <> num
+      Double -> derivable <> frac
+      Text -> derivable <> string
+      Base64 -> derivable
+      Bytes -> derivable
+      Time -> derivable
+      Bool -> derivable <> enum
+      Json -> [DEq, DShow, DGeneric, DHashable, DNFData]
 
-stream, string, num, frac, monoid, enum, ord :: [Derive]
+stream, string, num, frac, monoid, enum, synonym :: [Derive]
 stream = [DShow, DGeneric]
 string = [DOrd, DIsString]
-num = DNum : DIntegral : DReal : enum
-frac = [DOrd, DRealFrac, DRealFloat]
+num = [DEnum, DBounded, DNum, DIntegral, DReal]
+frac = [DRealFrac, DRealFloat]
 monoid = [DMonoid, DSemigroup]
-enum   = [DOrd, DEnum, DBounded]
-ord    = [DOrd]
+enum = [DEnum, DBounded]
+synonym = [DToText, DFromText, DToByteString, DToQuery, DToHeader]
 
-derivingBase :: [Derive]
-derivingBase = [DEq, DRead, DShow, DData, DTypeable, DGeneric, DHashable, DNFData]
+derivable :: [Derive]
+derivable = [DEq, DOrd, DRead, DShow, DGeneric, DHashable, DNFData]
 
 typeDefault :: TType -> Bool
 typeDefault = \case

@@ -20,34 +20,33 @@ import Gen.Types
 operationImports :: Library -> Operation Identity SData a -> [NS]
 operationImports l o =
   List.sort $
-    "Network.AWS.Request" :
-    "Network.AWS.Response" :
-    "Network.AWS.Lens" :
-    "Network.AWS.Prelude" :
+    "qualified Network.AWS.Request as Request" :
+    "qualified Network.AWS.Response as Response" :
+    qualifiedLude :
+    qualifiedLens :
     l ^. typesNS :
     l ^. operationModules
-      ++ maybeToList (const "Network.AWS.Pager" <$> o ^. opPager)
+      ++ maybeToList (const "qualified Network.AWS.Pager as Pager" <$> o ^. opPager)
 
 typeImports :: Library -> [NS]
 typeImports l =
   List.sort $
-    "Network.AWS.Lens" :
-    "Network.AWS.Prelude" :
+    qualifiedLude :
+    qualifiedLens :
     signatureImport (l ^. signatureVersion) :
     l ^. typeModules
 
 sumImports :: Library -> [NS]
 sumImports l =
   List.sort $
-    "Data.CaseInsensitive" :
-    "Network.AWS.Prelude" :
+    qualifiedLude :
     l ^. typeModules
 
 productImports :: Library -> Prod -> [NS]
 productImports l p =
   List.sort $
-    "Network.AWS.Lens" :
-    "Network.AWS.Prelude" :
+    qualifiedLude :
+    qualifiedLens :
     l ^. typeModules
       ++ (Set.toList $ Set.map (l ^. typesNS <>) moduleDependencies)
   where
@@ -58,9 +57,9 @@ productImports l p =
 waiterImports :: Library -> [NS]
 waiterImports l =
   List.sort $
-    "Network.AWS.Lens" :
-    "Network.AWS.Prelude" :
-    "Network.AWS.Waiter" :
+    qualifiedLens :
+    qualifiedLude :
+    "qualified Network.AWS.Waiter as Waiter" :
     l ^. typesNS :
     map (operationNS ns . _waitOpName) (l ^.. waiters . Lens.each)
   where
@@ -68,8 +67,8 @@ waiterImports l =
 
 signatureImport :: Signature -> NS
 signatureImport = \case
-  V2 -> "Network.AWS.Sign.V2"
-  _ -> "Network.AWS.Sign.V4"
+  V2 -> "qualified Network.AWS.Sign.V2 as Sign"
+  _ -> "qualified Network.AWS.Sign.V4 as Sign"
 
 testImports :: Library -> [NS]
 testImports l =
@@ -82,3 +81,7 @@ fixtureImports l =
   [ l ^. libraryNS,
     mkNS $ "Test.AWS." <> l ^. serviceAbbrev <> ".Internal"
   ]
+
+qualifiedLens, qualifiedLude :: NS
+qualifiedLens = "qualified Network.AWS.Lens as Lens"
+qualifiedLude = "qualified Network.AWS.Prelude as Prelude"

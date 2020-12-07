@@ -61,6 +61,6 @@ library
     , template-haskell      >=2.5
     , temporary             >=1.2
     , text                  >=1.1
-    , time                  >=1.5
-    , unordered-containers  >=0.2.5
+    , time                  >=1.9
+    , unordered-containers  >=0.2.9
     , yaml                  >=0.8.7

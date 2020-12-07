@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE FlexibleInstances #-}
@@ -8,6 +7,7 @@
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE PatternSynonyms #-}
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -106,7 +106,32 @@ module Network.AWS.Types
     RequestId (..),
 
     -- * Regions
-    Region (..),
+    Region
+      ( Region',
+        NorthVirginia,
+        Ohio,
+        NorthCalifornia,
+        Oregon,
+        Montreal,
+        HongKong,
+        Tokyo,
+        Seoul,
+        Osaka,
+        Mumbai,
+        Singapore,
+        Sydney,
+        SaoPaulo,
+        Ireland,
+        London,
+        Paris,
+        Frankfurt,
+        Stockholm,
+        GovCloudEast,
+        GovCloud,
+        GovCloudFIPS,
+        Beijing,
+        Ningxia
+      ),
 
     -- * Endpoints
     Endpoint (..),
@@ -125,10 +150,6 @@ module Network.AWS.Types
     Seconds (..),
     seconds,
     microseconds,
-
-    -- * Isomorphisms
-    _Coerce,
-    _Default,
   )
 where
 
@@ -140,15 +161,10 @@ import Control.Monad.IO.Class
 import Control.Monad.Trans.Resource
 import Data.Aeson hiding (Error)
 import Data.ByteString.Builder (Builder)
-import Data.Coerce
 import Data.Conduit
-import Data.Data (Data, Typeable)
 import Data.Hashable
 import Data.IORef
-import Data.List.NonEmpty (NonEmpty)
-import qualified Data.List.NonEmpty as NonEmpty
 import Data.Maybe
-import qualified Data.Maybe as Maybe
 import Data.Proxy
 import Data.String
 import qualified Data.Text as Text
@@ -165,12 +181,10 @@ import Network.AWS.Data.Text
 import Network.AWS.Data.Time (ISO8601, _Time)
 import Network.AWS.Data.XML
 import Network.AWS.Lens
-  ( Iso',
-    Lens',
+  ( Lens',
     Prism',
     Setter',
     exception,
-    iso,
     lens,
     mapping,
     prism,
@@ -199,14 +213,17 @@ newtype Abbrev = Abbrev Text
 newtype ErrorCode = ErrorCode Text
   deriving (Eq, Ord, Show, ToText, ToLog)
 
-instance IsString ErrorCode where fromString = errorCode . fromString
+instance IsString ErrorCode where
+  fromString = errorCode . fromString
 
-instance FromJSON ErrorCode where parseJSON = parseJSONText "ErrorCode"
+instance FromJSON ErrorCode where
+  parseJSON = parseJSONText "ErrorCode"
 
-instance FromXML ErrorCode where parseXML = parseXMLText "ErrorCode"
+instance FromXML ErrorCode where
+  parseXML = parseXMLText "ErrorCode"
 
 instance FromText ErrorCode where
-  parser = errorCode <$> parser
+  fromText = fmap errorCode . fromText
 
 -- | Construct an 'ErrorCode'.
 errorCode :: Text -> ErrorCode
@@ -237,7 +254,7 @@ data Error
   = TransportError HttpException
   | SerializeError SerializeError
   | ServiceError ServiceError
-  deriving (Show, Typeable)
+  deriving (Show)
 
 instance Exception Error
 
@@ -254,7 +271,7 @@ data SerializeError = SerializeError'
     _serializeBody :: Maybe LazyByteString,
     _serializeMessage :: String
   }
-  deriving (Eq, Show, Typeable)
+  deriving (Eq, Show)
 
 instance ToLog SerializeError where
   build SerializeError' {..} =
@@ -284,7 +301,7 @@ data ServiceError = ServiceError'
     _serviceMessage :: Maybe ErrorMessage,
     _serviceRequestId :: Maybe RequestId
   }
-  deriving (Eq, Show, Typeable)
+  deriving (Eq, Show)
 
 instance ToLog ServiceError where
   build ServiceError' {..} =
@@ -359,7 +376,7 @@ data Endpoint = Endpoint
     _endpointPort :: !Int,
     _endpointScope :: ByteString
   }
-  deriving (Eq, Show, Data, Typeable)
+  deriving (Eq, Show)
 
 endpointHost :: Lens' Endpoint ByteString
 endpointHost = lens _endpointHost (\s a -> s {_endpointHost = a})
@@ -382,16 +399,15 @@ data LogLevel
     Debug
   | -- | Includes potentially sensitive signing metadata, and non-streaming response bodies.
     Trace
-  deriving (Eq, Ord, Enum, Show, Data, Typeable)
+  deriving (Eq, Ord, Enum, Show)
 
 instance FromText LogLevel where
-  parser =
-    takeLowerText >>= \case
-      "info" -> pure Info
-      "error" -> pure Error
-      "debug" -> pure Debug
-      "trace" -> pure Trace
-      e -> fromTextError $ "Failure parsing LogLevel from " <> e
+  fromText = \case
+    "info" -> pure Info
+    "error" -> pure Error
+    "debug" -> pure Debug
+    "trace" -> pure Trace
+    e -> Left ("Failure parsing LogLevel from " ++ show e)
 
 instance ToText LogLevel where
   toText = \case
@@ -553,8 +569,6 @@ newtype AccessKey = AccessKey ByteString
     ( Eq,
       Show,
       Read,
-      Data,
-      Typeable,
       IsString,
       ToText,
       FromText,
@@ -567,9 +581,11 @@ newtype AccessKey = AccessKey ByteString
       NFData
     )
 
-instance ToJSON AccessKey where toJSON = toJSONText
+instance ToJSON AccessKey where
+  toJSON = toJSONText
 
-instance FromJSON AccessKey where parseJSON = parseJSONText "AccessKey"
+instance FromJSON AccessKey where
+  parseJSON = parseJSONText "AccessKey"
 
 -- | Secret access key credential.
 --
@@ -579,8 +595,6 @@ instance FromJSON AccessKey where parseJSON = parseJSONText "AccessKey"
 newtype SecretKey = SecretKey ByteString
   deriving
     ( Eq,
-      Data,
-      Typeable,
       IsString,
       ToText,
       FromText,
@@ -591,9 +605,11 @@ newtype SecretKey = SecretKey ByteString
       NFData
     )
 
-instance ToJSON SecretKey where toJSON = toJSONText
+instance ToJSON SecretKey where
+  toJSON = toJSONText
 
-instance FromJSON SecretKey where parseJSON = parseJSONText "SecretKey"
+instance FromJSON SecretKey where
+  parseJSON = parseJSONText "SecretKey"
 
 -- | A session token used by STS to temporarily authorise access to
 -- an AWS resource.
@@ -602,8 +618,6 @@ instance FromJSON SecretKey where parseJSON = parseJSONText "SecretKey"
 newtype SessionToken = SessionToken ByteString
   deriving
     ( Eq,
-      Data,
-      Typeable,
       IsString,
       ToText,
       FromText,
@@ -614,9 +628,11 @@ newtype SessionToken = SessionToken ByteString
       NFData
     )
 
-instance ToJSON SessionToken where toJSON = toJSONText
+instance ToJSON SessionToken where
+  toJSON = toJSONText
 
-instance FromJSON SessionToken where parseJSON = parseJSONText "SessionToken"
+instance FromJSON SessionToken where
+  parseJSON = parseJSONText "SessionToken"
 
 -- | The AuthN/AuthZ credential environment.
 data AuthEnv = AuthEnv
@@ -625,7 +641,7 @@ data AuthEnv = AuthEnv
     _authToken :: Maybe (Sensitive SessionToken),
     _authExpiry :: Maybe ISO8601
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving (Eq, Show, Generic)
 
 instance NFData AuthEnv
 
@@ -694,126 +710,119 @@ withAuth (Ref _ r) f = liftIO (readIORef r) >>= f
 withAuth (Auth e) f = f e
 
 -- | The available AWS regions.
-data Region
-  = -- | US East ('us-east-1').
-    NorthVirginia
-  | -- | US East ('us-east-2').
-    Ohio
-  | -- | US West ('us-west-1').
-    NorthCalifornia
-  | -- | US West ('us-west-2').
-    Oregon
-  | -- | Canada ('ca-central-1').
-    Montreal
-  | -- | Asia Pacific ('ap-east-1').
-    HongKong
-  | -- | Asia Pacific ('ap-northeast-1').
-    Tokyo
-  | -- | Asia Pacific ('ap-northeast-2').
-    Seoul
-  | -- | Asia Pacific ('ap-northeast-2').
-    Osaka
-  | -- | Asia Pacific ('ap-south-1').
-    Mumbai
-  | -- | Asia Pacific ('ap-southeast-1').
-    Singapore
-  | -- | Asia Pacific ('ap-southeast-2').
-    Sydney
-  | -- | South America ('sa-east-1').
-    SaoPaulo
-  | -- | EU ('eu-west-1').
-    Ireland
-  | -- | EU ('eu-west-2').
-    London
-  | -- | EU ('eu-west-3').
-    Paris
-  | -- | EU ('eu-central-1').
-    Frankfurt
-  | -- | EU ('eu-north-1').
-    Stockholm
-  | -- | US GovCloud ('us-gov-west-1').
-    GovCloud
-  | -- | US GovCloud FIPS (S3 Only, 'fips-us-gov-west-1').
-    GovCloudFIPS
-  | -- | US GovCloud ('us-gov-east-1').
-    GovCloudEast
-  | -- | China ('cn-north-1').
-    Beijing
-  | -- | China ('cn-northwest-1').
-    Ningxia
-  deriving (Eq, Ord, Read, Enum, Bounded, Show, Data, Typeable, Generic)
+newtype Region = Region' Text
+  deriving
+    ( Eq,
+      Ord,
+      Show,
+      Read,
+      IsString,
+      Hashable,
+      ToXML,
+      FromXML,
+      ToJSON,
+      FromJSON,
+      ToText,
+      FromText,
+      ToByteString,
+      ToLog
+    )
 
-instance Hashable Region
+pattern NorthVirginia :: Region
+pattern NorthVirginia = Region' "us-east-1"
 
-instance NFData Region
+pattern Ohio :: Region
+pattern Ohio = Region' "us-east-2"
 
-instance FromText Region where
-  parser =
-    takeLowerText >>= \case
-      "us-east-1" -> pure NorthVirginia
-      "us-east-2" -> pure Ohio
-      "us-west-1" -> pure NorthCalifornia
-      "us-west-2" -> pure Oregon
-      "ca-central-1" -> pure Montreal
-      "ap-east-1" -> pure HongKong
-      "ap-northeast-1" -> pure Tokyo
-      "ap-northeast-2" -> pure Seoul
-      "ap-northeast-3" -> pure Osaka
-      "ap-south-1" -> pure Mumbai
-      "ap-southeast-1" -> pure Singapore
-      "ap-southeast-2" -> pure Sydney
-      "sa-east-1" -> pure SaoPaulo
-      "eu-west-1" -> pure Ireland
-      "eu-west-2" -> pure London
-      "eu-west-3" -> pure Paris
-      "eu-central-1" -> pure Frankfurt
-      "eu-north-1" -> pure Stockholm
-      "us-gov-west-1" -> pure GovCloud
-      "fips-us-gov-west-1" -> pure GovCloudFIPS
-      "us-gov-east-1" -> pure GovCloudEast
-      "cn-north-1" -> pure Beijing
-      "cn-northwest-1" -> pure Ningxia
-      e ->
-        fromTextError $ "Failure parsing Region from " <> e
+pattern NorthCalifornia :: Region
+pattern NorthCalifornia = Region' "us-west-1"
 
-instance ToText Region where
-  toText = \case
-    NorthVirginia -> "us-east-1"
-    Ohio -> "us-east-2"
-    NorthCalifornia -> "us-west-1"
-    Oregon -> "us-west-2"
-    Montreal -> "ca-central-1"
-    HongKong -> "ap-east-1"
-    Tokyo -> "ap-northeast-1"
-    Seoul -> "ap-northeast-2"
-    Osaka -> "ap-northeast-3"
-    Mumbai -> "ap-south-1"
-    Singapore -> "ap-southeast-1"
-    Sydney -> "ap-southeast-2"
-    SaoPaulo -> "sa-east-1"
-    Ireland -> "eu-west-1"
-    London -> "eu-west-2"
-    Paris -> "eu-west-3"
-    Frankfurt -> "eu-central-1"
-    Stockholm -> "eu-north-1"
-    GovCloudEast -> "us-gov-east-1"
-    GovCloud -> "us-gov-west-1"
-    GovCloudFIPS -> "fips-us-gov-west-1"
-    Beijing -> "cn-north-1"
-    Ningxia -> "cn-northwest-1"
+pattern Oregon :: Region
+pattern Oregon = Region' "us-west-2"
 
-instance ToByteString Region
+pattern Montreal :: Region
+pattern Montreal = Region' "ca-central-1"
 
-instance ToLog Region where
-  build = build . toBS
+pattern HongKong :: Region
+pattern HongKong = Region' "ap-east-1"
 
-instance FromXML Region where parseXML = parseXMLText "Region"
+pattern Tokyo :: Region
+pattern Tokyo = Region' "ap-northeast-1"
 
-instance ToXML Region where toXML = toXMLText
+pattern Seoul :: Region
+pattern Seoul = Region' "ap-northeast-2"
 
-instance FromJSON Region where parseJSON = parseJSONText "Region"
+pattern Osaka :: Region
+pattern Osaka = Region' "ap-northeast-3"
 
-instance ToJSON Region where toJSON = toJSONText
+pattern Mumbai :: Region
+pattern Mumbai = Region' "ap-south-1"
+
+pattern Singapore :: Region
+pattern Singapore = Region' "ap-southeast-1"
+
+pattern Sydney :: Region
+pattern Sydney = Region' "ap-southeast-2"
+
+pattern SaoPaulo :: Region
+pattern SaoPaulo = Region' "sa-east-1"
+
+pattern Ireland :: Region
+pattern Ireland = Region' "eu-west-1"
+
+pattern London :: Region
+pattern London = Region' "eu-west-2"
+
+pattern Paris :: Region
+pattern Paris = Region' "eu-west-3"
+
+pattern Frankfurt :: Region
+pattern Frankfurt = Region' "eu-central-1"
+
+pattern Stockholm :: Region
+pattern Stockholm = Region' "eu-north-1"
+
+pattern GovCloudEast :: Region
+pattern GovCloudEast = Region' "us-gov-east-1"
+
+pattern GovCloud :: Region
+pattern GovCloud = Region' "us-gov-west-1"
+
+pattern GovCloudFIPS :: Region
+pattern GovCloudFIPS = Region' "fips-us-gov-west-1"
+
+pattern Beijing :: Region
+pattern Beijing = Region' "cn-north-1"
+
+pattern Ningxia :: Region
+pattern Ningxia = Region' "cn-northwest-1"
+
+{-# COMPLETE
+  NorthVirginia,
+  Ohio,
+  NorthCalifornia,
+  Oregon,
+  Montreal,
+  HongKong,
+  Tokyo,
+  Seoul,
+  Osaka,
+  Mumbai,
+  Singapore,
+  Sydney,
+  SaoPaulo,
+  Ireland,
+  London,
+  Paris,
+  Frankfurt,
+  Stockholm,
+  GovCloudEast,
+  GovCloud,
+  GovCloudFIPS,
+  Beijing,
+  Ningxia,
+  Region'
+  #-}
 
 -- | An integral value representing seconds.
 newtype Seconds = Seconds Int
@@ -827,8 +836,6 @@ newtype Seconds = Seconds Int
       Bounded,
       Integral,
       Real,
-      Data,
-      Typeable,
       Generic,
       ToQuery,
       ToByteString,
@@ -850,14 +857,3 @@ seconds (Seconds n)
 
 microseconds :: Seconds -> Int
 microseconds = (1000000 *) . seconds
-
-_Coerce :: (Coercible a b, Coercible b a) => Iso' a b
-_Coerce = iso coerce coerce
-
--- | Invalid Iso, should be a Prism but exists for ease of composition
--- with the current 'Lens . Iso' chaining to hide internal types from the user.
-_Default :: Monoid a => Iso' (Maybe a) a
-_Default = iso f Just
-  where
-    f (Just x) = x
-    f Nothing = mempty

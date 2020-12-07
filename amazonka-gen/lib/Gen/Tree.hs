@@ -20,6 +20,7 @@ import qualified Control.Monad.Fail as Fail
 import qualified Data.Aeson as Aeson
 import Data.Aeson.Types (Object, Value, (.=))
 import qualified Data.Maybe as Maybe
+import qualified Data.Set as Set
 import qualified Data.Text as Text
 import Gen.Import
 import qualified Gen.JSON as JSON
@@ -77,8 +78,7 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
                 [ dir
                     "AWS"
                     [ dir svc $
-                        [ dir "Types" $
-                            mapMaybe shape (l ^.. shapes . Lens.each),
+                        [ dir "Types" (mapMaybe shape (l ^.. shapes . Lens.each)),
                           mod (l ^. typesNS) (typeImports l) typesTemplate,
                           mod (l ^. waitersNS) (waiterImports l) waitersTemplate
                         ]
@@ -198,10 +198,11 @@ module' ns is tmpl f =
     pure $! x
       <> EDE.fromPairs
         [ "moduleName" .= ns,
-          "moduleImports" .= is,
-          "templateName"  .= (templateName ns)
+          "moduleImports" .= Set.fromList is,
+          "templateName" .= (templateName ns)
         ]
-      where templateName (NS xs) = last xs
+  where
+    templateName (NS xs) = last xs
 
 file' ::
   ToJSON a =>

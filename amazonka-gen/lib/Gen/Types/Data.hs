@@ -33,7 +33,8 @@ data Fun = Fun'
   { _funName :: Text,
     _funDoc :: Help,
     _funSig :: Rendered,
-    _funDecl :: Rendered
+    _funDecl :: Rendered,
+    _funPragmas :: [Rendered]
   }
   deriving stock (Eq, Show)
 
@@ -44,7 +45,8 @@ instance ToJSON Fun where
         "name" .= _funName,
         "documentation" .= _funDoc,
         "signature" .= _funSig,
-        "declaration" .= _funDecl
+        "declaration" .= _funDecl,
+        "pragmas" .= _funPragmas
       ]
 
 data Prod = Prod'
@@ -53,6 +55,7 @@ data Prod = Prod'
     _prodDecl :: Rendered,
     _prodCtor :: Fun,
     _prodLenses :: [Fun],
+    _prodAccessors :: HashMap Text Help,
     _prodDeps :: Set.Set Text
   }
   deriving stock (Eq, Show)
@@ -65,6 +68,7 @@ prodToJSON s Prod' {..} is =
     "documentation" .= _prodDoc,
     "declaration" .= _prodDecl,
     "lenses" .= map flatten _prodLenses,
+    "accessors" .= _prodAccessors,
     "instances" .= is,
     "shared" .= isShared s,
     "eq" .= isEq s
@@ -78,8 +82,8 @@ data Sum = Sum'
   { _sumName :: Text,
     _sumDoc :: Maybe Help,
     _sumDecl :: Rendered,
-    _sumCtor  :: Text,
-    _sumCtors :: HashMap Text Text
+    _sumCtor :: Text,
+    _sumPatterns :: HashMap Text Text
   }
   deriving stock (Eq, Show)
 
@@ -87,8 +91,8 @@ sumToJSON :: Solved -> Sum -> [Text] -> [Pair]
 sumToJSON s Sum' {..} is =
   [ "type" .= Text.pack "sum",
     "name" .= _sumName,
-    "constructor"   .= _sumCtor,
-    "constructors" .= _sumCtors,
+    "constructor" .= _sumCtor,
+    "patterns" .= _sumPatterns,
     "documentation" .= _sumDoc,
     "declaration" .= _sumDecl,
     "instances" .= is,
@@ -142,7 +146,7 @@ instance HasId SData where
   identifier = \case
     Prod _ p _ -> mkId (_prodName p)
     Sum _ s _ -> mkId (_sumName s)
-    Fun (Fun' n _ _ _) -> mkId n
+    Fun (Fun' n _ _ _ _) -> mkId n
 
 data WData = WData
   { _waitName :: Text,

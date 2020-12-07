@@ -96,11 +96,14 @@ data Derive
   | DMonoid
   | DSemigroup
   | DIsString
-  | DData
-  | DTypeable
   | DGeneric
   | DHashable
   | DNFData
+  | DToText
+  | DFromText
+  | DToByteString
+  | DToQuery
+  | DToHeader
   deriving stock (Eq, Ord, Show, Generic)
 
 instance Hashable Derive
@@ -108,10 +111,26 @@ instance Hashable Derive
 instance FromJSON Derive where
   parseJSON = Gen.TH.genericParseJSON (Gen.TH.spinal & Gen.TH.ctor %~ (. Text.drop 1))
 
-derivingName :: Derive -> Maybe String
-derivingName DHashable = Nothing
-derivingName DNFData = Nothing
-derivingName d = Just $ drop 1 (show d)
+derivingName :: Derive -> Text
+derivingName = mappend "Prelude." . Text.pack . drop 1 . show
+
+derivingStrategy :: Derive -> Either Text Text
+derivingStrategy derive =
+  ($ derivingName derive) $
+    if isStockDerivable derive
+      then Left
+      else Right
+
+isStockDerivable :: Derive -> Bool
+isStockDerivable =
+  flip
+    elem
+    [ DEq,
+      DOrd,
+      DRead,
+      DShow,
+      DGeneric
+    ]
 
 data Lit
   = Int

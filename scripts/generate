@@ -68,12 +68,11 @@ fi
 
 result=$(nix-build generate.nix "${args[@]}")
 
-say "copying $result to lib..."
+say "removing lib/*/gen directories..."
+rm -r ./lib/*/gen
 
+say "copying $result to lib..."
 cp -r "$result"/* ./lib/
 
 say "setting u+rw lib permissions..."
-
 chmod -R u+rw ./lib
-
-say "done."

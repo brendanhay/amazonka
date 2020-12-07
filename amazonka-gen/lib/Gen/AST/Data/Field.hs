@@ -35,7 +35,7 @@ data Field = Field
     _fieldRef :: Ref,
     -- | Does the struct have this member in the required set.
     _fieldRequire :: !Bool,
-    -- | Does the struct have this memeber marked as the payload.
+    -- | Does the struct have this member marked as the payload.
     _fieldPayload :: !Bool,
     _fieldPrefix :: Maybe Text,
     _fieldNamespace :: Maybe Text,
@@ -136,7 +136,15 @@ fieldAnn = fieldRef . refAnn
 
 fieldLens, fieldAccessor :: Field -> Text
 fieldLens f = lensId (_fieldPrefix f) (_fieldId f)
-fieldAccessor f = accessorId (_fieldPrefix f) (_fieldId f)
+fieldAccessor f = accessorId (_fieldId f)
+
+fieldDeprecated :: Field -> Text
+fieldDeprecated f =
+  "{-# DEPRECATED "
+    <> fieldLens f
+    <> " \"Use generic-lens or generic-optics with '"
+    <> fieldAccessor f
+    <> "' instead.\" #-}"
 
 fieldIsParam :: Field -> Bool
 fieldIsParam f = not (fieldMaybe f) && not (fieldMonoid f)
@@ -166,7 +174,7 @@ fieldHelp f =
       \-- serialisation, and decode from Base64 representation during deserialisation.\n\
       \-- This 'Lens' accepts and returns only raw unencoded data."
 
-    def = "Undocumented member."
+    def = "Undocumented field."
 
 fieldLocation :: Field -> Maybe Location
 fieldLocation = Lens.view (fieldRef . refLocation)

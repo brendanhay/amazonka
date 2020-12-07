@@ -105,7 +105,7 @@ library
     , text-icu
     , text-manipulate       >=0.3
     , text-regex-replace
-    , time                  >=1.5
+    , time                  >=1.9
     , transformers
     , unordered-containers
     , xml-conduit
@@ -148,7 +148,7 @@ executable amazonka-gen
   import:         base
   hs-source-dirs: app
   main-is:        Main.hs
-  ghc-options:    -threaded -rtsopts -with-rtsopts=-A128m
+  ghc-options:    -threaded -rtsopts
   build-depends:
     , amazonka-gen
     , directory

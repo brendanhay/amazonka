@@ -1,5 +1,4 @@
 {-# LANGUAGE BangPatterns #-}
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -82,7 +81,7 @@ data Dynamic
     -- signature.
     PKCS7
   | Signature
-  deriving (Eq, Ord, Show, Typeable)
+  deriving (Eq, Ord, Show)
 
 instance ToText Dynamic where
   toText = \case
@@ -158,7 +157,7 @@ data Metadata
     ReservationId
   | -- | The names of the security groups applied to the instance.
     SecurityGroups
-  deriving (Eq, Ord, Show, Typeable)
+  deriving (Eq, Ord, Show)
 
 instance ToText Metadata where
   toText = \case
@@ -202,7 +201,7 @@ data Mapping
     Root
   | -- | The virtual devices associated with swap. Not always present.
     Swap
-  deriving (Eq, Ord, Show, Typeable)
+  deriving (Eq, Ord, Show)
 
 instance ToText Mapping where
   toText = \case
@@ -257,7 +256,7 @@ data Interface
   | -- | The CIDR block of the VPC in which the interface resides. Pureed only
     -- for instances launched into a VPC.
     IVPCIPV4_CIDRBlock
-  deriving (Eq, Ord, Show, Typeable)
+  deriving (Eq, Ord, Show)
 
 instance ToText Interface where
   toText = \case
@@ -286,7 +285,7 @@ data Info
     --
     -- See: 'Auth' for JSON deserialisation.
     SecurityCredentials (Maybe Text)
-  deriving (Eq, Ord, Show, Typeable)
+  deriving (Eq, Ord, Show)
 
 instance ToText Info where
   toText = \case

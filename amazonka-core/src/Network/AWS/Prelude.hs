@@ -11,15 +11,12 @@ module Network.AWS.Prelude
   )
 where
 
-import Control.Applicative as Export (Applicative, pure, (<$>), (<*>), (<|>))
 import Control.DeepSeq as Export (NFData)
-import Data.Data as Export (Data, Typeable)
-import Data.Foldable as Export (Foldable)
 import Data.HashMap.Strict as Export (HashMap)
 import Data.Hashable as Export (Hashable)
 import Data.List.NonEmpty as Export (NonEmpty (..))
 import Data.Maybe as Export
-import Data.Monoid as Export (First, mconcat, mempty, (<>))
+import Data.Monoid as Export (First)
 import GHC.Exts as Export (toList)
 import GHC.Generics as Export (Generic)
 import Network.AWS.Data.Base64 as Export
@@ -59,6 +56,7 @@ import Network.AWS.Types as Export hiding
 import Network.HTTP.Types.Status as Export (Status (..))
 import Network.HTTP.Types.URI as Export (urlDecode, urlEncode)
 import Numeric.Natural as Export (Natural)
+import Prelude as Export
 
 infixl 7 .!@
 

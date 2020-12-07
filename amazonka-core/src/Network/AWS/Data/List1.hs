@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveFoldable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DeriveTraversable #-}
@@ -18,7 +17,6 @@ import Control.DeepSeq
 import Control.Monad
 import Data.Aeson
 import Data.Coerce
-import Data.Data (Data, Typeable)
 import qualified Data.Foldable as Fold
 import Data.Hashable
 import Data.List.NonEmpty (NonEmpty (..))
@@ -30,58 +28,55 @@ import Network.AWS.Data.XML
 import Network.AWS.Lens (Iso', iso)
 import Text.XML (Node)
 
-newtype List1 a = List1 {toNonEmpty :: NonEmpty a}
-  deriving
-    ( Functor,
-      Monad,
-      Applicative,
-      Foldable,
-      Traversable,
-      Semigroup,
-      Eq,
-      Ord,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
-    )
+-- newtype List1 a = List1 {toNonEmpty :: NonEmpty a}
+--   deriving
+--     ( Functor,
+--       Monad,
+--       Applicative,
+--       Foldable,
+--       Traversable,
+--       Semigroup,
+--       Eq,
+--       Ord,
+--       Read,
+--       Show,
+--       Generic
+--     )
 
-instance NFData a => NFData (List1 a)
+-- instance NFData a => NFData (List1 a)
 
-_List1 :: (Coercible a b, Coercible b a) => Iso' (List1 a) (NonEmpty b)
-_List1 = iso (coerce . toNonEmpty) (List1 . coerce)
+-- _List1 :: (Coercible a b, Coercible b a) => Iso' (List1 a) (NonEmpty b)
+-- _List1 = iso (coerce . toNonEmpty) (List1 . coerce)
 
-instance IsList (List1 a) where
-  type Item (List1 a) = a
+-- instance IsList (List1 a) where
+--   type Item (List1 a) = a
 
-  fromList = List1 . NonEmpty.fromList
-  toList = NonEmpty.toList . toNonEmpty
+--   fromList = List1 . NonEmpty.fromList
+--   toList = NonEmpty.toList . toNonEmpty
 
-instance FromJSON a => FromJSON (List1 a) where
-  parseJSON = withArray "List1" (go >=> traverse parseJSON)
-    where
-      go =
-        maybe
-          (fail "Error parsing empty List1 when expecting at least one element.")
-          (pure . List1)
-          . NonEmpty.nonEmpty
-          . Fold.toList
+-- instance FromJSON a => FromJSON (List1 a) where
+--   parseJSON = withArray "List1" (go >=> traverse parseJSON)
+--     where
+--       go =
+--         maybe
+--           (fail "Error parsing empty List1 when expecting at least one element.")
+--           (pure . List1)
+--           . NonEmpty.nonEmpty
+--           . Fold.toList
 
-instance ToJSON a => ToJSON (List1 a) where
-  toJSON = toJSON . toList
+-- instance ToJSON a => ToJSON (List1 a) where
+--   toJSON = toJSON . toList
 
-instance Hashable a => Hashable (List1 a)
+-- instance Hashable a => Hashable (List1 a)
 
-parseXMLList1 ::
+parseXMLNonEmpty ::
   FromXML a =>
   Text ->
   [Node] ->
-  Either String (List1 a)
-parseXMLList1 n = parseXMLList n >=> parse
-  where
-    parse xs =
-      maybe
-        (Left $ "Error parsing empty List1 when expecting at least one element: " ++ show n)
-        (Right . List1)
-        (NonEmpty.nonEmpty xs)
+  Either String (NonEmpty a)
+parseXMLNonEmpty name =
+  parseXMLList name
+    >=> maybe
+      (Left $ "Error parsing empty NonEmpty when expecting at least one element: " ++ show name)
+      pure
+      . NonEmpty.nonEmpty

@@ -53,44 +53,44 @@ type ConDecl = Exts.ConDecl ()
 type FieldUpdate = Exts.FieldUpdate ()
 
 pX, pXMay, pXDef :: QOp
-pX = ".@"
-pXMay = ".@?"
-pXDef = ".!@"
+pX = "Prelude..@"
+pXMay = "Prelude..@?"
+pXDef = "Prelude..!@"
 
 pJ, pJMay, pJDef :: QOp
-pJ = ".:"
-pJMay = ".:?"
-pJDef = ".!="
+pJ = "Prelude..:"
+pJMay = "Prelude..:?"
+pJDef = "Prelude..!="
 
 pJE, pJEMay, pJEDef :: QOp
-pJE = ".:>"
-pJEMay = ".?>"
+pJE = "Prelude..:>"
+pJEMay = "Prelude..?>"
 pJEDef = pXDef
 
 pH, pHMay :: QOp
-pH = ".#"
-pHMay = ".#?"
+pH = "Prelude..#"
+pHMay = "Prelude..#?"
 
 pXMap, pXList, pXList1, pHMap :: Exp
-pXMap = var "parseXMLMap"
-pXList = var "parseXMLList"
-pXList1 = var "parseXMLList1"
-pHMap = var "parseHeadersMap"
+pXMap = var "Prelude.parseXMLMap"
+pXList = var "Prelude.parseXMLList"
+pXList1 = var "Prelude.parseXMLNonEmpty"
+pHMap = var "Prelude.parseHeadersMap"
 
 toX, toXAttr, toJ, toQ, toH :: QOp
-toX = "@="
-toXAttr = "@@="
-toJ = ".="
-toQ = "=:"
-toH = "=#"
+toX = "Prelude.@="
+toXAttr = "Prelude.@@="
+toJ = "Prelude..="
+toQ = "Prelude.=:"
+toH = "Prelude.=#"
 
 toQList, toXList :: Exp
-toQList = var "toQueryList"
-toXList = var "toXMLList"
+toQList = var "Prelude.toQueryList"
+toXList = var "Prelude.toXMLList"
 
 toXMap, toQMap :: Exp
-toXMap = var "toXMLMap"
-toQMap = var "toQueryMap"
+toXMap = var "Prelude.toXMLMap"
+toQMap = var "Prelude.toQueryMap"
 
 ctorS :: HasMetadata a Identity => a -> Id -> [Field] -> Decl
 ctorS m n fs = Exts.TypeSig () [ident (smartCtorId n)] ty
@@ -114,7 +114,7 @@ fieldUpdate f = field (unqual (fieldAccessor f)) rhs
     rhs
       | fieldMaybe f = nothingE
       | fieldMonoid f = memptyE
-      | Just v <- iso (typeOf f) = Exts.infixApp v "#" pat
+      | Just v <- iso (typeOf f) = Exts.infixApp v "Lens.#" pat
       | otherwise = pat
 
     pat = Exts.Var () (Exts.UnQual () (fieldParamName f))
@@ -124,69 +124,87 @@ lensS m t f =
   Exts.TypeSig () [ident (fieldLens f)] $
     tyapp
       ( tyapp
-          (tycon "Lens'")
+          (tycon "Lens.Lens'")
           (signature m t)
       )
       (external m f)
 
 lensD :: Field -> Decl
-lensD f = Exts.sfun (ident l) [] (unguarded rhs) Exts.noBinds
+lensD f =
+  Exts.sfun (ident (fieldLens f)) [] (unguarded rhs) Exts.noBinds
   where
-    l = fieldLens f
-    a = fieldAccessor f
+    accessor = fieldAccessor f
 
     rhs =
       mapping (typeOf f) $
-        Exts.app
-          (Exts.app (var "lens") (var a))
-          ( Exts.paren
-              ( Exts.lamE
-                  [pvar "s", pvar "a"]
-                  (Exts.RecUpdate () (var "s") [field (unqual a) (var "a")])
-              )
-          )
+        Exts.app (Exts.app (var "Lens.lens") get) set
+
+    get =
+      var accessor
+
+    set =
+      Exts.lamE [pvar "s", pvar "a"] $
+        Exts.RecUpdate () (var "s") [field (unqual accessor) (var "a")]
 
 errorS :: Text -> Decl
 errorS n =
-  let cxt = Exts.CxSingle () (Exts.TypeA () (tycon "AsError" `tyapp` tyvar "a"))
-      forall = Exts.TyForall () Nothing (Just cxt)
-   in Exts.TypeSig () [ident n] . forall $
-        tyapp
+  Exts.TypeSig () [ident n] . forall $
+    tyapp
+      ( tyapp
           ( tyapp
-              ( tyapp
-                  (tycon "Getting")
-                  (tyapp (tycon "First") (tycon "ServiceError"))
-              )
-              (tyvar "a")
+              (tycon "Lens.Getting")
+              (tyapp (tycon "Prelude.First") (tycon "Prelude.ServiceError"))
           )
-          (tycon "ServiceError")
+          (tyvar "a")
+      )
+      (tycon "Prelude.ServiceError")
+  where
+    cxt = Exts.CxSingle () (Exts.TypeA () (tycon "Prelude.AsError" `tyapp` tyvar "a"))
+
+    forall = Exts.TyForall () Nothing (Just cxt)
 
 errorD :: HasMetadata a Identity => a -> Text -> Maybe Int -> Text -> Decl
 errorD m n s c =
   Exts.sfun (ident n) [] (unguarded (maybe rhs status s)) Exts.noBinds
   where
     status i =
-      Exts.infixApp rhs "." $
-        var "hasStatus"
+      Exts.infixApp rhs "Prelude.." $
+        var "Prelude.hasStatus"
           `Exts.app` Exts.intE (fromIntegral i)
 
-    rhs = Exts.appFun (var "_MatchServiceError") [var (m ^. serviceConfig), str c]
+    rhs =
+      Exts.appFun
+        (var "Prelude._MatchServiceError")
+        [ var (m ^. serviceConfig),
+          str c
+        ]
 
 dataD :: Id -> [QualConDecl] -> [Derive] -> Decl
-dataD n fs cs = Exts.DataDecl () arity Nothing head' fs [derives]
+dataD n fs cs =
+  Exts.DataDecl () arity Nothing head' fs (stocks ++ newtypes)
   where
-    arity =
+    arity
+      | isNewtype = Exts.NewType ()
+      | otherwise = Exts.DataType ()
+
+    isNewtype =
       case fs of
-        [Exts.QualConDecl _ _ _ (Exts.RecDecl _ _ [_])] ->
-          Exts.NewType ()
-        _ -> Exts.DataType ()
+        [Exts.QualConDecl _ _ _ (Exts.RecDecl _ _ [_])] -> True
+        [Exts.QualConDecl _ _ _ (Exts.ConDecl _ _ [_])] -> True
+        _ -> False
 
     head' =
       Exts.DHead () (ident (typeId n))
 
-    derives =
-      Exts.Deriving () Nothing $
-        map (rule . Text.pack) (mapMaybe derivingName cs)
+    (stocks, newtypes) =
+      bimap
+        (derive Exts.DerivStock)
+        (derive (if isNewtype then Exts.DerivNewtype else Exts.DerivAnyclass))
+        (partitionEithers (map derivingStrategy cs))
+
+    derive strategy = \case
+      [] -> []
+      xs -> [Exts.Deriving () (Just (strategy ())) (map rule xs)]
 
     rule c =
       Exts.IRule () Nothing Nothing (Exts.IHCon () (unqual c))
@@ -196,7 +214,7 @@ recordD m n =
   conD . \case
     [] -> Exts.ConDecl () c []
     [x] -> Exts.RecDecl () c [fieldDecl (internal m) x]
-    xs -> Exts.RecDecl () c (map (fieldDecl (strict . internal m)) xs)
+    xs -> Exts.RecDecl () c (map (fieldDecl (internal m)) xs)
   where
     fieldDecl h f = Exts.FieldDecl () [ident (fieldAccessor f)] (h f)
 
@@ -206,65 +224,86 @@ conD :: ConDecl -> QualConDecl
 conD = Exts.QualConDecl () Nothing Nothing
 
 serviceS :: HasMetadata a Identity => a -> Decl
-serviceS m = Exts.TypeSig () [ident (m ^. serviceConfig)] (tycon "Service")
+serviceS m =
+  Exts.TypeSig () [ident (m ^. serviceConfig)] (tycon "Prelude.Service")
 
 serviceD :: HasMetadata a Identity => a -> Retry -> Decl
-serviceD m r = Exts.patBindWhere (pvar n) rhs bs
+serviceD m r = Exts.patBindWhere (pvar name) record binds
   where
-    bs = [try Exts.noBinds, chk Exts.noBinds]
-
-    rhs =
+    record =
       recconstr
-        (unqual "Service")
-        [ field (unqual "_svcAbbrev") (str abbrev),
-          field (unqual "_svcSigner") (var sig),
-          field (unqual "_svcPrefix") (m ^. endpointPrefix . Lens.to str),
-          field (unqual "_svcVersion") (m ^. apiVersion . Lens.to str),
-          field (unqual "_svcEndpoint") (Exts.app (var "defaultEndpoint") (var n)),
-          field (unqual "_svcTimeout") (Exts.app justE (Exts.intE 70)),
-          field (unqual "_svcCheck") (var "statusSuccess"),
-          field (unqual "_svcError") (var (serviceError m) `Exts.app` str abbrev),
-          field (unqual "_svcRetry") (var "retry")
+        (unqual "Prelude.Service")
+        [ field
+            (unqual "Prelude._svcAbbrev")
+            (str abbrev),
+          field
+            (unqual "Prelude._svcSigner")
+            (var signer),
+          field
+            (unqual "Prelude._svcPrefix")
+            (m ^. endpointPrefix . Lens.to str),
+          field
+            (unqual "Prelude._svcVersion")
+            (m ^. apiVersion . Lens.to str),
+          field
+            (unqual "Prelude._svcEndpoint")
+            (Exts.app (var "Prelude.defaultEndpoint") (var name)),
+          field
+            (unqual "Prelude._svcTimeout")
+            (Exts.app justE (Exts.intE 70)),
+          field
+            (unqual "Prelude._svcCheck")
+            (var "Prelude.statusSuccess"),
+          field
+            (unqual "Prelude._svcError")
+            (var (serviceError m) `Exts.app` str abbrev),
+          field
+            (unqual "Prelude._svcRetry")
+            (var "retry")
         ]
 
-    try =
+    binds = [retry Exts.noBinds, check Exts.noBinds]
+
+    retry =
       Exts.sfun (ident "retry") [] . unguarded $
         recconstr
-          (r ^. delayType . Lens.to unqual)
-          [ field (unqual "_retryBase") (r ^. delayBase . Lens.to frac),
-            field (unqual "_retryGrowth") (r ^. delayGrowth . Lens.to Exts.intE),
-            field (unqual "_retryAttempts") (r ^. retryAttempts . Lens.to Exts.intE),
-            field (unqual "_retryCheck") (var "check")
+          (r ^. delayType . Lens.to (unqual . mappend "Prelude."))
+          [ field (unqual "Prelude._retryBase") (r ^. delayBase . Lens.to frac),
+            field (unqual "Prelude._retryGrowth") (r ^. delayGrowth . Lens.to Exts.intE),
+            field (unqual "Prelude._retryAttempts") (r ^. retryAttempts . Lens.to Exts.intE),
+            field (unqual "Prelude._retryCheck") (var "check")
           ]
 
-    chk =
+    check =
       Exts.sfun (ident "check") [ident "e"] . Exts.GuardedRhss () $
         mapMaybe policy (r ^.. retryPolicies . kvTraversal) ++ [otherE nothingE]
       where
         policy (k, v) = (`guardE` Exts.app justE (str k)) <$> policyE v
 
-    n = m ^. serviceConfig
+    name = m ^. serviceConfig
+
     abbrev = m ^. serviceAbbrev
-    sig = m ^. signatureVersion . Lens.to sigToText
+
+    signer = m ^. signatureVersion . Lens.to (mappend "Prelude." . sigToText)
 
 policyE :: Policy -> Maybe Exp
 policyE = \case
   When (WhenStatus (Just c) s) ->
     Just $
       Exts.appFun
-        (var "has")
+        (var "Lens.has")
         [ Exts.paren $
             Exts.infixApp
-              (Exts.app (var "hasCode") (str c))
-              "."
-              (Exts.app (var "hasStatus") (Exts.intE s)),
+              (Exts.app (var "Prelude.hasCode") (str c))
+              "Prelude.."
+              (Exts.app (var "Prelude.hasStatus") (Exts.intE s)),
           var "e"
         ]
   When (WhenStatus Nothing s) ->
     Just $
       Exts.appFun
-        (var "has")
-        [ Exts.paren $ Exts.app (var "hasStatus") (Exts.intE s),
+        (var "Lens.has")
+        [ Exts.paren $ Exts.app (var "Prelude.hasStatus") (Exts.intE s),
           var "e"
         ]
   _ -> Nothing
@@ -272,7 +311,7 @@ policyE = \case
 pagerD :: Id -> Pager Field -> Decl
 pagerD n p =
   instD
-    "AWSPager"
+    "Prelude.AWSPager"
     n
     [ Exts.InsDecl () $
         Exts.sfun (ident "page") [ident "rq", ident "rs"] (rhs p) Exts.noBinds
@@ -304,26 +343,26 @@ pagerD n p =
       where
         f :: Exp -> Token Field -> Exp
         f e x =
-          Exts.infixApp e "&"
-            . Exts.infixApp (x ^. tokenInput . Lens.to (notationE False)) ".~"
+          Exts.infixApp e "Prelude.&"
+            . Exts.infixApp (x ^. tokenInput . Lens.to (notationE False)) "Prelude..~"
             $ rs (x ^. tokenOutput . Lens.to (notationE False))
 
     check t ts = guardE (Foldable.foldl' f (g t) ts) nothingE
       where
-        f x = Exts.infixApp x "&&" . g
-        g y = Exts.app (var "isNothing") $ rs (y ^. tokenOutput . Lens.to (notationE False))
+        f x = Exts.infixApp x "Prelude.&&" . g
+        g y = Exts.app (var "Prelude.isNothing") $ rs (y ^. tokenOutput . Lens.to (notationE False))
 
-    rq = Exts.infixApp justE "$" (var "rq")
+    rq = Exts.infixApp justE "Prelude.$" (var "rq")
     rs x = Exts.infixApp (var "rs") (qop (getterN x)) x
 
 getterN :: Exp -> Text
-getterN e = if go e then "^?" else "^."
+getterN e = if go e then "Lens.^?" else "Lens.^."
   where
     go = \case
       Exts.App _ x y -> go x || go y
       Exts.InfixApp _ x _ y -> go x || go y
-      Exts.Var _ (Exts.UnQual _ (Exts.Ident _ "_last")) -> True
-      Exts.Var _ (Exts.UnQual _ (Exts.Ident _ "_Just")) -> True
+      Exts.Var _ (Exts.UnQual _ (Exts.Ident _ "Lens._last")) -> True
+      Exts.Var _ (Exts.UnQual _ (Exts.Ident _ "Lens._Just")) -> True
       _ -> False
 
 -- FIXME: doesn't support Maybe fields currently.
@@ -331,7 +370,7 @@ notationE :: Bool -> Notation Field -> Exp
 notationE force = \case
   Deref (k :| ks) -> labels k ks
   Infix _lens x -> notationE force x
-  Choice x y -> Exts.appFun (var "choice") [branch x, branch y]
+  Choice x y -> Exts.appFun (var "Prelude.choice") [branch x, branch y]
   where
     branch x =
       let e = notationE force x
@@ -340,21 +379,21 @@ notationE force = \case
     labels k [] = label force k
     labels k ks = Foldable.foldl' f (label True k) ks
       where
-        f e x = Exts.infixApp e "." (label True x)
+        f e x = Exts.infixApp e "Prelude.." (label True x)
 
     label b = \case
       Key f -> key b f
-      Last f -> Exts.infixApp (key False f) "." (var "_last")
+      Last f -> Exts.infixApp (key False f) "Prelude.." (var "Lens._last")
       Each f ->
-        Exts.app (var "folding")
+        Exts.app (var "Lens.folding")
           . Exts.paren
-          . Exts.app (var "concatOf")
-          $ Exts.infixApp (key b f) "." (Exts.app (var "to") (var "toList"))
+          . Exts.app (var "Lens.concatOf")
+          $ Exts.infixApp (key b f) "Prelude.." (Exts.app (var "Lens.to") (var "Prelude.toList"))
 
     key False f = var (fieldLens f)
     key True f
       | fieldMonoid f = key False f
-      | fieldMaybe f = Exts.infixApp (key False f) "." (var "_Just")
+      | fieldMaybe f = Exts.infixApp (key False f) "Prelude.." (var "Lens._Just")
       | otherwise = key False f
 
 requestD ::
@@ -367,7 +406,7 @@ requestD ::
   Decl
 requestD c m h (a, as) (b, bs) =
   instD
-    "AWSRequest"
+    "Prelude.AWSRequest"
     (identifier a)
     [ assocD (identifier a) "Rs" (typeId (identifier b)),
       funD "request" (requestF c m h a as),
@@ -412,8 +451,8 @@ responseE p r fs = Exts.app (responseF p r fs) bdy
     parseOne f
       | fieldLit f =
         if fieldIsParam f
-          then Exts.app (var "pure") (var "x")
-          else Exts.app (var "pure") (Exts.paren (Exts.app (var "Just") (var "x")))
+          then Exts.app (var "Prelude.pure") (var "x")
+          else Exts.app (var "Prelude.pure") (Exts.paren (Exts.app (var "Prelude.Just") (var "x")))
       -- This ensures anything which is set as a payload,
       -- but is a primitive type is just consumed as a bytestring.
       | otherwise = parseAll
@@ -422,12 +461,12 @@ responseE p r fs = Exts.app (responseF p r fs) bdy
     parseAll =
       flip Exts.app (var "x") $
         if any fieldLitPayload fs
-          then var "pure"
+          then var "Prelude.pure"
           else case p of
-            JSON -> var "eitherParseJSON"
-            RestJSON -> var "eitherParseJSON"
-            APIGateway -> var "eitherParseJSON"
-            _ -> var "parseXML"
+            JSON -> var "Prelude.eitherParseJSON"
+            RestJSON -> var "Prelude.eitherParseJSON"
+            APIGateway -> var "Prelude.eitherParseJSON"
+            _ -> var "Prelude.parseXML"
 
     body = any fieldStream fs
 
@@ -442,34 +481,29 @@ instanceD p n = \case
   ToPath es -> toPathD n es
   ToQuery es -> toQueryD p n es
   ToBody f -> toBodyD n f
-  IsHashable -> hashableD n
-  IsNFData -> nfDataD n
-
-hashableD, nfDataD :: Id -> Decl
-hashableD n = instD "Hashable" n []
-nfDataD n = instD "NFData" n []
 
 -- FIXME: merge D + E constructors where possible
 fromXMLD :: Protocol -> Id -> [Field] -> Decl
-fromXMLD p n = decodeD "FromXML" n "parseXML" (ctorE n) . map (parseXMLE p)
+fromXMLD p n = decodeD "Prelude.FromXML" n "parseXML" (ctorE n) . map (parseXMLE p)
 
 fromJSOND :: Protocol -> Id -> [Field] -> Decl
-fromJSOND p n fs = instD1 "FromJSON" n with
+fromJSOND p n fs = instD1 "Prelude.FromJSON" n with
   where
     with =
       funD "parseJSON" $
         Exts.app
-          (Exts.app (var "withObject") (str (typeId n)))
+          (Exts.app (var "Prelude.withObject") (str (typeId n)))
           (Exts.lamE [Exts.pvar "x"] es)
 
     es = ctorE n $ map (parseJSONE p pJ pJMay pJDef) fs
 
 toElementD :: Protocol -> Id -> Maybe Text -> Either Text Field -> Decl
-toElementD p n ns = instD1 "ToElement" n . funD "toElement" . toElementE p ns
+toElementD p n ns =
+  instD1 "Prelude.ToElement" n . funD "toElement" . toElementE p ns
 
 toXMLD :: Protocol -> Id -> [Field] -> Decl
 toXMLD p n =
-  instD1 "ToXML" n
+  instD1 "Prelude.ToXML" n
     . wildcardD n "toXML" enc memptyE
     . map (Right . toXMLE p)
   where
@@ -477,36 +511,37 @@ toXMLD p n =
 
 toJSOND :: Protocol -> Id -> [Field] -> Decl
 toJSOND p n =
-  instD1 "ToJSON" n
-    . wildcardD n "toJSON" enc (Exts.paren $ Exts.app (var "Object") memptyE)
+  instD1 "Prelude.ToJSON" n
+    . wildcardD n "toJSON" enc (Exts.paren $ Exts.app (var "Prelude.Object") memptyE)
     . map (Right . toJSONE p)
   where
     enc =
-      Exts.app (var "object")
-        . Exts.app (var "catMaybes")
+      Exts.app (var "Prelude.object")
+        . Exts.app (var "Prelude.catMaybes")
         . Exts.listE
         . map (either id id)
 
 toHeadersD :: Protocol -> Id -> [Either (Text, Text) Field] -> Decl
-toHeadersD p n = instD1 "ToHeaders" n . wildcardD n "toHeaders" enc memptyE
+toHeadersD p n =
+  instD1 "Prelude.ToHeaders" n . wildcardD n "toHeaders" enc memptyE
   where
     enc = mconcatE . map (toHeadersE p)
 
 toQueryD :: Protocol -> Id -> [Either (Text, Maybe Text) Field] -> Decl
-toQueryD p n = instD1 "ToQuery" n . wildcardD n "toQuery" enc memptyE
+toQueryD p n = instD1 "Prelude.ToQuery" n . wildcardD n "toQuery" enc memptyE
   where
     enc = mconcatE . map (toQueryE p)
 
 toPathD :: Id -> [Either Text Field] -> Decl
 toPathD n =
-  instD1 "ToPath" n . \case
-    [Left t] -> funD "toPath" . Exts.app (var "const") $ str t
+  instD1 "Prelude.ToPath" n . \case
+    [Left t] -> funD "toPath" . Exts.app (var "Prelude.const") $ str t
     es -> wildcardD n "toPath" enc memptyE es
   where
     enc = mconcatE . map toPathE
 
 toBodyD :: Id -> Field -> Decl
-toBodyD n f = instD "ToBody" n [funD "toBody" (toBodyE f)]
+toBodyD n f = instD "Prelude.ToBody" n [funD "toBody" (toBodyE f)]
 
 wildcardD ::
   Id ->
@@ -518,7 +553,7 @@ wildcardD ::
 wildcardD n f enc xs = \case
   [] -> constD f xs
   es
-    | not (any isRight es) -> funD f $ Exts.app (var "const") (enc es)
+    | not (any isRight es) -> funD f $ Exts.app (var "Prelude.const") (enc es)
     | otherwise -> Exts.InsDecl () (Exts.FunBind () [match prec es])
   where
     match p es =
@@ -550,11 +585,11 @@ assocD n x y = Exts.InsType () (tyapp (tycon x) (tycon (typeId n))) (tycon y)
 decodeD :: Text -> Id -> Text -> ([a] -> Exp) -> [a] -> Decl
 decodeD c n f dec =
   instD1 c n . \case
-    [] -> funD f . Exts.app (var "const") $ dec []
+    [] -> funD f . Exts.app (var "Prelude.const") $ dec []
     es -> funArgsD f ["x"] (dec es)
 
 constD :: Text -> Exp -> InstDecl
-constD f = funArgsD f [] . Exts.app (var "const")
+constD f = funArgsD f [] . Exts.app (var "Prelude.const")
 
 parseXMLE :: Protocol -> Field -> Exp
 parseXMLE p f = case outputNames p f of
@@ -570,12 +605,12 @@ parseXMLE p f = case outputNames p f of
       | req = Exts.appFun g (xs ++ [x])
       | otherwise = Exts.app (may (Exts.appFun g xs)) x
     unflatE (Just n) g xs =
-      Exts.infixApp (defaultMonoidE x n pXMay pXDef) ">>=" $
+      Exts.infixApp (defaultMonoidE x n pXMay pXDef) "Prelude.>>=" $
         if req
           then Exts.appFun g xs
           else may (Exts.appFun g xs)
 
-    may = Exts.app (var "may")
+    may = Exts.app (var "Prelude.may")
     x = var "x"
 
     req = not (fieldMaybe f)
@@ -603,10 +638,10 @@ parseStatusE f
   | fieldMaybe f = Exts.app pureE (Exts.app justE v)
   | otherwise = Exts.app pureE v
   where
-    v = Exts.paren $ Exts.app (var "fromEnum") (var "s")
+    v = Exts.paren $ Exts.app (var "Prelude.fromEnum") (var "s")
 
 toXMLE :: Protocol -> Field -> Exp
-toXMLE p f = toGenericE p opX "toXML" toXMap toXList f
+toXMLE p f = toGenericE p opX "Prelude.toXML" toXMap toXList f
   where
     opX
       | f ^. fieldRef . refXMLAttribute = toXAttr
@@ -615,9 +650,9 @@ toXMLE p f = toGenericE p opX "toXML" toXMap toXList f
 toElementE :: Protocol -> Maybe Text -> Either Text Field -> Exp
 toElementE p ns = either (`root` []) node
   where
-    root n = Exts.appFun (var "mkElement") . (str (qual n) :)
+    root n = Exts.appFun (var "Prelude.mkElement") . (str (qual n) :)
 
-    node f = root n [var ".", var (fieldAccessor f)]
+    node f = root n [var "Prelude..", var (fieldAccessor f)]
       where
         n = memberName p Input f
 
@@ -627,8 +662,8 @@ toElementE p ns = either (`root` []) node
 
 toJSONE :: Protocol -> Field -> Exp
 toJSONE p f
-  | fieldMaybe f = Exts.infixApp (Exts.paren (Exts.app (str n) o)) "<$>" a
-  | otherwise = Exts.app (var "Just") (encodeE n toJ a)
+  | fieldMaybe f = Exts.infixApp (Exts.paren (Exts.app (str n) o)) "Prelude.<$>" a
+  | otherwise = Exts.app (var "Prelude.Just") (encodeE n toJ a)
   where
     n = memberName p Input f
     a = var (fieldAccessor f)
@@ -637,7 +672,7 @@ toJSONE p f
 toHeadersE :: Protocol -> Either (Text, Text) Field -> Exp
 toHeadersE p = either pair field'
   where
-    pair (k, v) = encodeE k toH $ impliesE v (var "ByteString")
+    pair (k, v) = encodeE k toH $ impliesE v (var "Prelude.ByteString")
 
     field' f = encodeE (memberName p Input f) toH $ var (fieldAccessor f)
 
@@ -645,15 +680,15 @@ toQueryE :: Protocol -> Either (Text, Maybe Text) Field -> Exp
 toQueryE p = either pair field'
   where
     pair (k, Nothing) = str k
-    pair (k, Just v) = encodeE k toQ $ impliesE v (var "ByteString")
+    pair (k, Just v) = encodeE k toQ $ impliesE v (var "Prelude.ByteString")
 
-    field' = toGenericE p toQ "toQuery" toQMap toQList
+    field' = toGenericE p toQ "Prelude.toQuery" toQMap toQList
 
 toPathE :: Either Text Field -> Exp
-toPathE = either str (Exts.app (var "toBS") . var . fieldAccessor)
+toPathE = either str (Exts.app (var "Prelude.toBS") . var . fieldAccessor)
 
 toBodyE :: Field -> Exp
-toBodyE = Exts.infixApp (var "toBody") "." . var . fieldAccessor
+toBodyE = Exts.infixApp (var "Prelude.toBody") "Prelude.." . var . fieldAccessor
 
 toGenericE :: Protocol -> QOp -> Text -> Exp -> Exp -> Field -> Exp
 toGenericE p toO toF toM toL f = case inputNames p f of
@@ -668,16 +703,16 @@ toGenericE p toO toF toM toL f = case inputNames p f of
     a = var (fieldAccessor f)
 
 pureE :: Exp
-pureE = var "pure"
+pureE = var "Prelude.pure"
 
 nothingE :: Exp
-nothingE = var "Nothing"
+nothingE = var "Prelude.Nothing"
 
 justE :: Exp
-justE = var "Just"
+justE = var "Prelude.Just"
 
 otherE :: Exp -> GuardedRhs
-otherE = guardE (var "otherwise")
+otherE = guardE (var "Prelude.otherwise")
 
 guardE :: Exp -> Exp -> GuardedRhs
 guardE x = Exts.GuardedRhs () [Exts.qualStmt x]
@@ -686,14 +721,14 @@ ctorE :: Id -> [Exp] -> Exp
 ctorE n = seqE (var (ctorId n)) . map Exts.paren
 
 memptyE :: Exp
-memptyE = var "mempty"
+memptyE = var "Prelude.mempty"
 
 mconcatE :: [Exp] -> Exp
-mconcatE = Exts.app (var "mconcat") . Exts.listE
+mconcatE = Exts.app (var "Prelude.mconcat") . Exts.listE
 
 seqE :: Exp -> [Exp] -> Exp
 seqE l [] = Exts.app pureE l
-seqE l (r : rs) = Exts.infixApp l "<$>" (infixE r "<*>" rs)
+seqE l (r : rs) = Exts.infixApp l "Prelude.<$>" (infixE r "Prelude.<*>" rs)
 
 infixE :: Exp -> QOp -> [Exp] -> Exp
 infixE l _ [] = l
@@ -733,7 +768,7 @@ requestF ::
   Exp
 requestF c meta h r is = maybe e (Foldable.foldr' plugin e) ps
   where
-    plugin x = Exts.infixApp (var x) "."
+    plugin x = Exts.infixApp (var x) "Prelude.."
 
     ps = HashMap.lookup (identifier r) (c ^. operationPlugins)
 
@@ -747,17 +782,17 @@ requestF c meta h r is = maybe e (Foldable.foldr' plugin e) ps
         $ mapMaybe f is
 
     f = \case
-      ToBody {} -> Just "Body"
-      ToJSON {} -> Just "JSON"
-      ToElement {} -> Just "XML"
+      ToBody {} -> Just "Prelude.Body"
+      ToJSON {} -> Just "Prelude.JSON"
+      ToElement {} -> Just "Prelude.XML"
       _
         | p == Query,
           m == POST ->
-          Just "Query"
+          Just "Prelude.Query"
       _
         | p == EC2,
           m == POST ->
-          Just "Query"
+          Just "Prelude.Query"
       _ -> Nothing
 
     m = h ^. method
@@ -768,17 +803,17 @@ requestF c meta h r is = maybe e (Foldable.foldr' plugin e) ps
 -- when the body might be totally empty.
 responseF :: Protocol -> RefF a -> [Field] -> Exp
 responseF p r fs
-  | null fs = var "receiveNull"
-  | any fieldStream fs = var "receiveBody"
-  | any fieldLitPayload fs = var "receiveBytes"
-  | Just x <- r ^. refResultWrapper = Exts.app (var (suf <> "Wrapper")) (str x)
-  | all (not . fieldBody) fs = var "receiveEmpty"
+  | null fs = var "Prelude.receiveNull"
+  | any fieldStream fs = var "Prelude.receiveBody"
+  | any fieldLitPayload fs = var "Prelude.receiveBytes"
+  | Just x <- r ^. refResultWrapper = Exts.app (var (suf <> "Prelude.Wrapper")) (str x)
+  | all (not . fieldBody) fs = var "Prelude.receiveEmpty"
   | otherwise = var suf
   where
-    suf = "receive" <> Protocol.suffix p
+    suf = "Prelude.receive" <> Protocol.suffix p
 
 waiterS :: Id -> Waiter a -> Decl
-waiterS n w = Exts.TypeSig () [ident c] $ tyapp (tycon "Wait") (tycon k)
+waiterS n w = Exts.TypeSig () [ident c] $ tyapp (tycon "Prelude.Wait") (tycon k)
   where
     k = w ^. waitOperation . Lens.to typeId
     c = smartCtorId n
@@ -790,11 +825,11 @@ waiterD n w = Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
 
     rhs =
       recconstr
-        (unqual "Wait")
-        [ field (unqual "_waitName") (str (memberId n)),
-          field (unqual "_waitAttempts") (w ^. waitAttempts . Lens.to Exts.intE),
-          field (unqual "_waitDelay") (w ^. waitDelay . Lens.to Exts.intE),
-          field (unqual "_waitAcceptors")
+        (unqual "Prelude.Wait")
+        [ field (unqual "Prelude._waitName") (str (memberId n)),
+          field (unqual "Prelude._waitAttempts") (w ^. waitAttempts . Lens.to Exts.intE),
+          field (unqual "Prelude._waitDelay") (w ^. waitDelay . Lens.to Exts.intE),
+          field (unqual "Prelude._waitAcceptors")
             . Exts.listE
             $ map match (w ^. waitAcceptors)
         ]
@@ -804,15 +839,15 @@ waiterD n w = Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
         (_, Just (Infix lens _)) ->
           Exts.appFun (var lens) (expect x : criteria x : argument' x)
         (Path, _) ->
-          Exts.appFun (var "matchAll") (expect x : criteria x : argument' x)
+          Exts.appFun (var "Prelude.matchAll") (expect x : criteria x : argument' x)
         (PathAll, _) ->
-          Exts.appFun (var "matchAll") (expect x : criteria x : argument' x)
+          Exts.appFun (var "Prelude.matchAll") (expect x : criteria x : argument' x)
         (PathAny, _) ->
-          Exts.appFun (var "matchAny") (expect x : criteria x : argument' x)
+          Exts.appFun (var "Prelude.matchAny") (expect x : criteria x : argument' x)
         (Status, _) ->
-          Exts.appFun (var "matchStatus") (expect x : criteria x : argument' x)
+          Exts.appFun (var "Prelude.matchStatus") (expect x : criteria x : argument' x)
         (Error, _) ->
-          Exts.appFun (var "matchError") (expect x : criteria x : argument' x)
+          Exts.appFun (var "Prelude.matchError") (expect x : criteria x : argument' x)
 
     expect x =
       case _acceptExpect x of
@@ -822,16 +857,16 @@ waiterD n w = Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
 
     criteria x =
       case _acceptCriteria x of
-        Retry -> var "AcceptRetry"
-        Success -> var "AcceptSuccess"
-        Failure -> var "AcceptFailure"
+        Retry -> var "Prelude.AcceptRetry"
+        Success -> var "Prelude.AcceptSuccess"
+        Failure -> var "Prelude.AcceptFailure"
 
     argument' x = go <$> maybeToList (notationE True <$> _acceptArgument x)
       where
         go y =
           case _acceptExpect x of
             Textual {} ->
-              Exts.infixApp y "." (Exts.app (var "to") (var "toTextCI"))
+              Exts.infixApp y "Prelude.." (Exts.app (var "Prelude.to") (var "Prelude.toText"))
             _ -> y
 
 signature :: HasMetadata a Identity => a -> TType -> Type
@@ -864,76 +899,60 @@ directed i m d (typeOf -> t) = case t of
   where
     go = directed i m d
 
-    nat
-      | i = "Nat"
-      | otherwise = "Natural"
+    nat = "Prelude.Natural"
 
     sensitive
-      | i = tyapp (tycon "Sensitive")
+      | i = tyapp (tycon "Prelude.Sensitive")
       | otherwise = id
 
-    may x@(TMap {}) | not i = go x
-    may x@(TList {}) | not i = go x
-    may x = tyapp (tycon "Maybe") (go x)
+    may = tyapp (tycon "Prelude.Maybe") . go
 
-    list1
-      | i = tyapp (tycon "List1")
-      | otherwise = tyapp (tycon "NonEmpty")
+    list1 = tyapp (tycon "Prelude.NonEmpty")
 
-    hmap k v
-      | i = tyapp (tyapp (tycon "Map") (go k)) (Exts.TyParen () (go v))
-      | otherwise = tyapp (tyapp (tycon "HashMap") (go k)) (Exts.TyParen () (go v))
+    hmap k v =
+      tyapp (tyapp (tycon "Prelude.HashMap") (go k)) (Exts.TyParen () (go v))
 
     stream = case d of
-      Nothing -> "RsBody"
-      Just Output -> "RsBody" -- Response stream.
+      Nothing -> "Prelude.RsBody"
+      Just Output -> "Prelude.RsBody" -- Response stream.
       Just Input
         | m ^. signatureVersion == S3 ->
-          "RqBody" -- If the signer supports chunked encoding, both body types are accepted.
-        | otherwise -> "HashedBody" -- Otherwise only a pre-hashed body is accepted.
+          "Prelude.RqBody" -- If the signer supports chunked encoding, both body types are accepted.
+        | otherwise -> "Prelude.HashedBody" -- Otherwise only a pre-hashed body is accepted.
 
 mapping :: TType -> Exp -> Exp
-mapping t e = infixE e "." (go t)
+mapping t e = infixE e "Prelude.." (go t)
   where
     go = \case
-      TSensitive x -> var "_Sensitive" : go x
-      TMaybe x@(TMap {}) -> var "_Default" : go x
-      TMaybe x@(TList {}) -> var "_Default" : go x
+      TSensitive x -> var "Prelude._Sensitive" : go x
       TMaybe x -> nest (go x)
       x -> maybeToList (iso x)
 
     nest [] = []
-    nest (x : xs) = [Exts.app (var "mapping") (infixE x "." xs)]
+    nest (x : xs) = [Exts.app (var "Lens.mapping") (infixE x "Prelude.." xs)]
 
 iso :: TType -> Maybe Exp
 iso = \case
-  TLit Time -> Just (var "_Time")
-  TLit Base64 -> Just (var "_Base64")
-  TNatural -> Just (var "_Nat")
-  TSensitive x -> Just (infixE (var "_Sensitive") "." (maybeToList (iso x)))
-  TList1 {} -> Just (var "_List1")
-  TList {} -> Just (var "_Coerce")
-  TMap {} -> Just (var "_Map")
+  TLit Time -> Just (var "Prelude._Time")
+  TLit Base64 -> Just (var "Prelude._Base64")
+  TSensitive x -> Just (infixE (var "Prelude._Sensitive") "Prelude.." (maybeToList (iso x)))
   _ -> Nothing
 
 literal :: Bool -> Timestamp -> Lit -> Type
 literal i ts = \case
-  Bool -> tycon "Bool"
-  Int -> tycon "Int"
-  Long -> tycon "Integer"
-  Double -> tycon "Double"
-  Text -> tycon "Text"
-  Bytes -> tycon "ByteString"
+  Bool -> tycon "Prelude.Bool"
+  Int -> tycon "Prelude.Int"
+  Long -> tycon "Prelude.Integer"
+  Double -> tycon "Prelude.Double"
+  Text -> tycon "Prelude.Text"
+  Bytes -> tycon "Prelude.ByteString"
   Base64
-    | i -> tycon "Base64"
-    | otherwise -> tycon "ByteString"
+    | i -> tycon "Prelude.Base64"
+    | otherwise -> tycon "Prelude.ByteString"
   Time
-    | i -> tycon (tsToText ts)
-    | otherwise -> tycon "UTCTime"
-  Json -> tycon "ByteString"
-
-strict :: Type -> Type
-strict = Exts.TyBang () (Exts.BangedTy ()) (Exts.NoUnpackPragma ()) . typaren
+    | i -> tycon ("Prelude." <> tsToText ts)
+    | otherwise -> tycon "Prelude.UTCTime"
+  Json -> tycon "Prelude.ByteString"
 
 tyvar :: Text -> Type
 tyvar = Exts.TyVar () . ident

@@ -12,7 +12,6 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Endpoint where
 
-import qualified Data.CaseInsensitive as CI
 import qualified Data.HashSet as Set
 import Network.AWS.Data.ByteString
 import Network.AWS.Lens ((%~), (.~))
@@ -41,7 +40,7 @@ setEndpoint s h p = serviceEndpoint %~ addr
 -- | Determine the full host address and credential scope
 -- within the specified 'Region'.
 defaultEndpoint :: Service -> Region -> Endpoint
-defaultEndpoint (_svcPrefix -> p) r = go (CI.mk p)
+defaultEndpoint (_svcPrefix -> p) r = go p
   where
     go = \case
       "iam"

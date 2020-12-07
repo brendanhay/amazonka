@@ -51,19 +51,19 @@ operationData cfg m o = do
   (xa, x) <- struct (xr ^. refAnn)
   (ya, y) <- struct (yr ^. refAnn)
 
-  (xd, xs) <- prodData m xa x
-  (yd, ys) <- prodData m ya y
+  let (xd, xs) = prodData m xa x
+      (yd, ys) = prodData m ya y
 
-  xis <- addInstances xa <$> requestInsts m (_opName o) h xr xs
+  xis <- requestInsts m (_opName o) h xr xs
 
-  cls <- pp Print $ requestD cfg m h (xr, xis) (yr, ys)
+  mpage <- fmap (pp Print . pagerD xn) <$> pagerFields m o
 
-  mpage <- pagerFields m o >>= traverse (pp Print . pagerD xn)
-
-  yis' <- renderInsts p yn (responseInsts ys)
-  xis' <-
-    maybe id (HashMap.insert "AWSPager") mpage . HashMap.insert "AWSRequest" cls
-      <$> renderInsts p xn xis
+  let cls = pp Print (requestD cfg m h (xr, xis) (yr, ys))
+      yis' = mempty
+      xis' =
+        maybe id (HashMap.insert "AWSPager") mpage
+          . HashMap.insert "AWSRequest" cls
+          $ ppInsts p xn xis
 
   pure
     $! o
@@ -87,38 +87,45 @@ shapeData ::
   HasMetadata a Identity =>
   a ->
   Shape Solved ->
-  Either String (Maybe SData)
-shapeData m (a :< s) = case s of
-  _ | s ^. infoException -> Just <$> errorData m a (s ^. info)
-  Enum i vs -> Just <$> sumData p a i vs
-  Struct st -> do
-    (d, fs) <- prodData m a st
-    is <- renderInsts p (a ^. annId) (addInstances a (shapeInsts p r fs))
-    pure $! Just $ Prod a d is
-  _ -> pure Nothing
+  Maybe SData
+shapeData m (a :< s) =
+  case s of
+    _
+      | s ^. infoException ->
+        Just (errorData m a (s ^. info))
+    Enum i vs ->
+      Just (patternData p a i vs)
+    Struct st ->
+      let (decl, fields) = prodData m a st
+          instances = ppInsts p (a ^. annId) (shapeInsts p r fields)
+       in Just $ Prod a decl instances
+    --
+    _other -> Nothing
   where
     p = m ^. protocol
     r = a ^. relMode
-
-addInstances :: TypeOf a => a -> [Inst] -> [Inst]
-addInstances s = f isHashable IsHashable . f isNFData IsNFData
-  where
-    f g x
-      | g s = (x :)
-      | otherwise = id
 
 errorData ::
   HasMetadata a Identity =>
   a ->
   Solved ->
   Info ->
-  Either String SData
-errorData m s i = Fun <$> mk
+  SData
+errorData m s i = Fun mk
   where
     mk =
-      Fun' p h
-        <$> pp None (errorS p)
-        <*> pp Print (errorD m p status code)
+      Fun'
+        { _funName = p,
+          _funDoc = h,
+          _funSig = pp None (errorS p),
+          _funDecl = pp Print (errorD m p status code),
+          _funPragmas = [Text.Lazy.fromStrict deprecated]
+        }
+
+    deprecated =
+      "{-# DEPRECATED "
+        <> p
+        <> " \"Use generic-lens or generic-optics instead.\" #-}"
 
     h =
       flip fromMaybe (i ^. infoDocumentation) $
@@ -131,63 +138,80 @@ errorData m s i = Fun <$> mk
     p = Text.cons '_' (typeId n)
     n = s ^. annId
 
-sumData ::
+patternData ::
   Protocol ->
   Solved ->
   Info ->
   HashMap Id Text ->
-  Either String SData
-sumData p s i vs = Sum s <$> mk <*> (HashMap.keys <$> insts)
+  SData
+patternData p s i vs = Sum s mk (HashMap.keys instances)
   where
     mk =
-      Sum' (typeId n) (i ^. infoDocumentation)
-        <$> pp Print decl
-        <*> pure ctor
-        <*> pure bs
+      Sum'
+        { _sumName = typeId name,
+          _sumDoc = i ^. infoDocumentation,
+          _sumDecl = pp Print decl,
+          _sumCtor = constructor,
+          _sumPatterns = patterns
+        }
 
-    decl = dataD n [newt] (derivingOf s)
-      where
-        newt = conD (Exts.ConDecl () (ident ctor) [tyapp (tycon "CI") (tycon "Text")])
+    decl =
+      dataD name [conD (Exts.ConDecl () (ident constructor) [(tycon "Prelude.Text")])] $
+        derivingOf s
 
-    -- Sometimes the values share a name with a type, so we prime the data constructor to avoid clashes.
-    ctor = ((<> "'") . typeId) n
+    name = s ^. annId
 
-    insts = renderInsts p n $ shapeInsts p (s ^. relMode) []
+    -- Disambiguate the constructor name to avoid clashes with type names.
+    constructor = typeId name <> "'"
 
-    n = s ^. annId
-    bs = vs & kvTraversal %~ first (branchId (s ^. annPrefix))
+    patterns = vs & kvTraversal %~ first (branchId (s ^. annPrefix))
+
+    instances = ppInsts p name (shapeInsts p (s ^. relMode) [])
 
 prodData ::
   HasMetadata a Identity =>
   a ->
   Solved ->
   StructF (Shape Solved) ->
-  Either String (Prod, [Field])
-prodData m s st = (,fields) <$> mk
+  (Prod, [Field])
+prodData m s st = (mk, fields)
   where
     mk =
-      Prod' (typeId n) (st ^. infoDocumentation)
-        <$> pp Print decl
-        <*> mkCtor
-        <*> traverse mkLens fields
-        <*> pure dependencies
+      Prod'
+        { _prodName = typeId n,
+          _prodDoc = st ^. infoDocumentation,
+          _prodDecl = pp Print decl,
+          _prodCtor = mkCtor,
+          _prodLenses = map mkLens fields,
+          _prodAccessors =
+            HashMap.fromList [(fieldAccessor f, fieldHelp f) | f <- fields],
+          _prodDeps = dependencies
+        }
 
     decl = dataD n [recordD m n fields] (derivingOf s)
 
     fields :: [Field]
     fields = mkFields m s st
 
-    mkLens :: Field -> Either String Fun
+    mkLens :: Field -> Fun
     mkLens f =
-      Fun' (fieldLens f) (fieldHelp f)
-        <$> pp None (lensS m (s ^. annType) f)
-        <*> pp None (lensD f)
+      Fun'
+        { _funName = fieldLens f,
+          _funDoc = fieldHelp f,
+          _funSig = pp None (lensS m (s ^. annType) f),
+          _funDecl = pp None (lensD f),
+          _funPragmas = [Text.Lazy.fromStrict (fieldDeprecated f)]
+        }
 
-    mkCtor :: Either String Fun
+    mkCtor :: Fun
     mkCtor =
-      Fun' (smartCtorId n) mkHelp
-        <$> (pp None (ctorS m n fields) <&> addParamComments fields)
-        <*> pp Print (ctorD n fields)
+      Fun'
+        { _funName = smartCtorId n,
+          _funDoc = mkHelp,
+          _funSig = pp None (ctorS m n fields) & addParamComments fields,
+          _funDecl = pp Print (ctorD n fields),
+          _funPragmas = []
+        }
 
     mkHelp :: Help
     mkHelp =
@@ -206,7 +230,7 @@ prodData m s st = (,fields) <$> mk
         . Text.Lazy.splitOn "->"
       where
         rel Nothing t = t
-        rel (Just p) t = t <> " -- ^ '" <> Text.Lazy.fromStrict (fieldLens p) <> "'"
+        rel (Just p) t = t <> " -- ^ '" <> Text.Lazy.fromStrict (fieldAccessor p) <> "'"
 
         ps = map Just (filter fieldIsParam fs) ++ repeat Nothing
 
@@ -231,24 +255,30 @@ prodData m s st = (,fields) <$> mk
             then Set.singleton stripped
             else Set.empty
           where
-            stripped = fromMaybe x $ Text.stripPrefix "(Maybe " =<< Text.stripSuffix ")" x
+            stripped =
+              fromMaybe x $
+                Text.stripPrefix "(Maybe " =<< Text.stripSuffix ")" x
 
     n = s ^. annId
 
-renderInsts :: Protocol -> Id -> [Inst] -> Either String (HashMap Text Text.Lazy.Text)
-renderInsts p n = fmap HashMap.fromList . traverse go
-  where
-    go i = (instToText i,) <$> pp Print (instanceD p n i)
+ppInsts :: Protocol -> Id -> [Inst] -> HashMap Text Text.Lazy.Text
+ppInsts p n =
+  HashMap.fromList
+    . map (\i -> (instToText i, pp Print (instanceD p n i)))
 
 serviceData ::
   HasMetadata a Identity =>
   a ->
   Retry ->
-  Either String Fun
+  Fun
 serviceData m r =
-  Fun' (m ^. serviceConfig) (Help help)
-    <$> pp None (serviceS m)
-    <*> pp Print (serviceD m r)
+  Fun'
+    { _funName = m ^. serviceConfig,
+      _funDoc = Help help,
+      _funSig = pp None (serviceS m),
+      _funDecl = pp Print (serviceD m r),
+      _funPragmas = []
+    }
   where
     help =
       "API version @"
@@ -267,10 +297,16 @@ waiterData ::
 waiterData m os n w = do
   o <- maybe (Left missingErr) Right (HashMap.lookup key os)
   wf <- waiterFields m o w
-  c <-
-    Fun' (smartCtorId n) (Help help)
-      <$> pp None (waiterS n wf)
-      <*> pp Print (waiterD n wf)
+
+  let c =
+        Fun'
+          { _funName = smartCtorId n,
+            _funDoc = Help help,
+            _funSig = pp None (waiterS n wf),
+            _funDecl = pp Print (waiterD n wf),
+            _funPragmas = []
+          }
+
   pure $! WData (typeId n) (_opName o) c
   where
     missingErr =
@@ -394,8 +430,8 @@ data PP
   | None
   deriving stock (Eq)
 
-pp :: (Applicative f, Pretty a) => PP -> a -> f Rendered
-pp i d = pure $ Text.Lazy.fromStrict $ Text.Encoding.decodeUtf8 printed
+pp :: Pretty a => PP -> a -> Rendered
+pp i d = Text.Lazy.fromStrict $ Text.Encoding.decodeUtf8 printed
   where
     printed =
       ByteString.Char8.dropWhile Char.isSpace . ByteString.Char8.pack $

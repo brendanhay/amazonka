@@ -1,5 +1,4 @@
 {-# LANGUAGE BangPatterns #-}
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -269,7 +268,7 @@ data AuthError
   | MissingFileError FilePath
   | InvalidFileError Text
   | InvalidIAMError Text
-  deriving (Show, Typeable)
+  deriving (Show)
 
 instance Exception AuthError
 

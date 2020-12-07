@@ -108,31 +108,16 @@ renameBranch = first (renameReserved . go) . join (,)
 
 renameReserved :: Text -> Text
 renameReserved x
-  | x `HashSet.member` xs = x <> "'"
+  | HashSet.member x xs = x <> "'"
   | otherwise = x
   where
     xs =
       HashSet.fromList $
-        [ "head",
-          "tail",
-          "delete",
-          "filter",
-          "True",
-          "False",
-          "map",
-          "object",
-          "get",
-          "group",
-          "role",
-          "GT",
-          "LT",
-          "EQ",
-          "Error",
-          "lex",
-          "Left",
-          "Right"
-        ]
-          ++ map Text.pack (Parsec.Token.reservedNames Parsec.Language.haskellDef)
+        map Text.pack $
+          Parsec.Token.reservedNames Parsec.Language.haskellDef
+            ++ [ "role",
+                 "pattern"
+               ]
 
 -- Pass in Relation, check if Uni directional + not shared and then add
 -- rq + rs to a simplified acronym prefix algo?
@@ -179,6 +164,7 @@ upperAcronym x = Foldable.foldl' (flip (uncurry ICU.Replace.replaceAll)) x xs
         ("Ebs", "EBS"),
         ("Ec2", "EC2"),
         ("Eip", "EIP"),
+        ("en-US", "EN_US"),
         ("Gcm", "GCM"),
         ("Html", "HTML"),
         ("Https", "HTTPS"),

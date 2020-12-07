@@ -39,7 +39,7 @@ library
     , amazonka-ec2          >=2.0.0 && <2.0.1
     , amazonka-s3           >=2.0.0 && <2.0.1
     , amazonka-sqs          >=2.0.0 && <2.0.1
-    , base                  >=4.7
+    , base                  >=4.12
     , bytestring
     , conduit
     , conduit-extra
@@ -47,6 +47,6 @@ library
     , lens
     , semigroups
     , text
-    , time
+    , time                  >=1.9
     , transformers
     , unordered-containers

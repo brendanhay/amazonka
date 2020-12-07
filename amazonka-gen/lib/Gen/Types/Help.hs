@@ -94,7 +94,7 @@ convertHaddock =
     emphasis x = "/" <> escape x <> "/ "
     code x = "'" <> x <> "' "
     mono x = "@" <> x <> "@ "
-    list x = "    * " <> x
+    list x = "\n    * " <> x <> "\n"
 
     escape = Text.concatMap f
       where

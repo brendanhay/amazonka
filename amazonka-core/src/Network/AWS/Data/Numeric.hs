@@ -15,7 +15,6 @@ module Network.AWS.Data.Numeric where
 import Control.DeepSeq
 import Control.Monad
 import Data.Aeson.Types
-import Data.Data (Data, Typeable)
 import Data.Hashable
 import Data.Scientific
 import GHC.Generics (Generic)
@@ -26,47 +25,47 @@ import Network.AWS.Data.XML
 import Network.AWS.Lens (Iso', iso)
 import Numeric.Natural
 
-newtype Nat = Nat {unNat :: Natural}
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Num,
-      Real,
-      Integral,
-      Data,
-      Typeable,
-      Generic,
-      ToByteString,
-      FromText,
-      ToText,
-      FromXML,
-      ToXML,
-      ToQuery
-    )
+-- newtype Nat = Nat {unNat :: Natural}
+--   deriving
+--     ( Eq,
+--       Ord,
+--       Read,
+--       Show,
+--       Enum,
+--       Num,
+--       Real,
+--       Integral,
+--       Data,
+--       Typeable,
+--       Generic,
+--       ToByteString,
+--       FromText,
+--       ToText,
+--       FromXML,
+--       ToXML,
+--       ToQuery
+--     )
 
-_Nat :: Iso' Nat Natural
-_Nat = iso unNat Nat
+-- _Nat :: Iso' Nat Natural
+-- _Nat = iso unNat Nat
 
-instance Hashable Nat where
-  hashWithSalt salt (Nat n) = hashWithSalt salt (toInteger n)
+-- instance Hashable Nat where
+--   hashWithSalt salt (Nat n) = hashWithSalt salt (toInteger n)
 
-instance NFData Nat where
-  rnf = rnf . toInteger . unNat
+-- instance NFData Nat where
+--   rnf = rnf . toInteger . unNat
 
-instance FromJSON Nat where
-  parseJSON = parseJSON >=> go
-    where
-      go n = case floatingOrInteger n of
-        Left (_ :: Double) -> fail (floatErr n)
-        Right i
-          | n < 0 -> fail (negateErr n)
-          | otherwise -> return . Nat $ fromInteger i
+-- instance FromJSON Nat where
+--   parseJSON = parseJSON >=> go
+--     where
+--       go n = case floatingOrInteger n of
+--         Left (_ :: Double) -> fail (floatErr n)
+--         Right i
+--           | n < 0 -> fail (negateErr n)
+--           | otherwise -> return . Nat $ fromInteger i
 
-      floatErr = mappend "Cannot convert float to Natural: " . show
-      negateErr = mappend "Cannot convert negative number to Natural: " . show
+--       floatErr = mappend "Cannot convert float to Natural: " . show
+--       negateErr = mappend "Cannot convert negative number to Natural: " . show
 
-instance ToJSON Nat where
-  toJSON = Number . flip scientific 0 . toInteger . unNat
+-- instance ToJSON Nat where
+--   toJSON = Number . flip scientific 0 . toInteger . unNat

@@ -37,8 +37,6 @@ library
   import:          base
   hs-source-dirs:  src
   exposed-modules:
-    Network.AWS.Compat.Locale
-    Network.AWS.Compat.Time
     Network.AWS.Data.Base64
     Network.AWS.Data.Body
     Network.AWS.Data.ByteString
@@ -94,10 +92,10 @@ library
     , scientific            >=0.3
     , tagged                >=0.7
     , text                  >=1.1
-    , time                  >=1.5
+    , time                  >=1.9
     , transformers          >=0.2
     , transformers-compat   >=0.3
-    , unordered-containers  >=0.2.7
+    , unordered-containers  >=0.2.9
     , xml-conduit           >=1.7.0.1
     , xml-types             >=0.3.4
 

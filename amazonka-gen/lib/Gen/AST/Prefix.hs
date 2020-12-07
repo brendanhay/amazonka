@@ -47,19 +47,19 @@ type MemoP = StateT Env (Either String)
 prefixes :: HashMap Id (Shape Related) -> Either String (HashMap Id (Shape Prefixed))
 prefixes ss = State.evalStateT (traverse assignPrefix ss) env
   where
-    env = Env mempty mempty (smartCtors ss)
+    env = Env mempty mempty mempty
 
--- | Record projected smart constructors in set of seen field names.
-smartCtors :: HashMap Id (Shape a) -> Seen
-smartCtors = HashMap.fromListWith (<>) . mapMaybe go . HashMap.toList
-  where
-    go :: (Id, Shape a) -> Maybe (CI Text, HashSet (CI Text))
-    go (s, _ :< Struct {}) = Just (k, HashSet.singleton v)
-      where
-        n = smartCtorId s
-        k = CI.mk (Text.takeWhile Char.isLower n)
-        v = CI.mk (dropLower n)
-    go _ = Nothing
+-- -- | Record projected smart constructors in set of seen field names.
+-- smartCtors :: HashMap Id (Shape a) -> Seen
+-- smartCtors = HashMap.fromListWith (<>) . mapMaybe go . HashMap.toList
+--   where
+--     go :: (Id, Shape a) -> Maybe (CI Text, HashSet (CI Text))
+--     go (s, _ :< Struct {}) = Just (k, HashSet.singleton v)
+--       where
+--         n = smartCtorId s
+--         k = CI.mk (Text.takeWhile Char.isLower n)
+--         v = CI.mk (dropLower n)
+--     go _ = Nothing
 
 assignPrefix :: Shape Related -> MemoP (Shape Prefixed)
 assignPrefix = annotate Prefixed memo go

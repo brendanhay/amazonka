@@ -28,8 +28,6 @@ data Inst
   | ToQuery [Either (Text, Maybe Text) Field]
   | ToPath [Either Text Field]
   | ToBody Field
-  | IsHashable
-  | IsNFData
 
 instance ToJSON Inst where
   toJSON = Aeson.toJSON . instToText
@@ -45,8 +43,6 @@ instToText = \case
   ToQuery {} -> "ToQuery"
   ToPath {} -> "ToPath"
   ToBody {} -> "ToBody"
-  IsHashable -> "Hashable"
-  IsNFData -> "NFData"
 
 shapeInsts :: Protocol -> Mode -> [Field] -> [Inst]
 shapeInsts p m fs = go m
@@ -74,13 +70,6 @@ shapeInsts p m fs = go m
       Query -> FromXML
       EC2 -> FromXML
       APIGateway -> FromJSON
-
-responseInsts :: [Field] -> [Inst]
-responseInsts fs
-  | stream = mempty
-  | otherwise = [IsNFData]
-  where
-    (not . null -> stream, _) = List.partition fieldStream (notLocated fs)
 
 requestInsts ::
   HasMetadata a f =>

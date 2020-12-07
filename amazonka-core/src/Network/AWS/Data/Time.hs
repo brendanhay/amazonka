@@ -47,11 +47,10 @@ import Data.Scientific
 import Data.Tagged
 import qualified Data.Text as Text
 import Data.Time (Day (..), UTCTime (..))
+import qualified Data.Time as Time
 import Data.Time.Clock.POSIX
 import Data.Time.Format (formatTime)
 import GHC.Generics (Generic)
-import Network.AWS.Compat.Locale
-import Network.AWS.Compat.Time
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.JSON
 import Network.AWS.Data.Query
@@ -104,23 +103,32 @@ type POSIX = Time 'POSIXFormat
 class TimeFormat a where
   format :: Tagged a String
 
-instance TimeFormat RFC822 where format = Tagged "%a, %d %b %Y %H:%M:%S GMT"
+instance TimeFormat RFC822 where
+  format = Tagged "%a, %d %b %Y %H:%M:%S GMT"
 
-instance TimeFormat ISO8601 where format = Tagged (iso8601DateFormat (Just "%XZ"))
+instance TimeFormat ISO8601 where
+  format = Tagged (Time.iso8601DateFormat (Just "%XZ"))
 
-instance TimeFormat BasicTime where format = Tagged "%Y%m%d"
+instance TimeFormat BasicTime where
+  format = Tagged "%Y%m%d"
 
-instance TimeFormat AWSTime where format = Tagged "%Y%m%dT%H%M%SZ"
+instance TimeFormat AWSTime where
+  format = Tagged "%Y%m%dT%H%M%SZ"
 
-instance FromText BasicTime where parser = parseUnixTimestamp <|> parseFormattedTime
+instance FromText BasicTime where
+  fromText = parseText (parseUnixTimestamp <|> parseFormattedTime)
 
-instance FromText AWSTime where parser = parseUnixTimestamp <|> parseFormattedTime
+instance FromText AWSTime where
+  fromText = parseText (parseUnixTimestamp <|> parseFormattedTime)
 
-instance FromText RFC822 where parser = parseUnixTimestamp <|> parseFormattedTime
+instance FromText RFC822 where
+  fromText = parseText (parseUnixTimestamp <|> parseFormattedTime)
 
-instance FromText ISO8601 where parser = parseUnixTimestamp <|> parseFormattedTime
+instance FromText ISO8601 where
+  fromText = parseText (parseUnixTimestamp <|> parseFormattedTime)
 
-instance FromText POSIX where parser = parseUnixTimestamp <|> parseFormattedTime
+instance FromText POSIX where
+  fromText = parseText (parseUnixTimestamp <|> parseFormattedTime)
 
 parseFormattedTime :: Parser (Time a)
 parseFormattedTime = do
@@ -128,7 +136,7 @@ parseFormattedTime = do
 
   let parse :: Tagged b String -> Parser (Time a)
       parse (untag -> fmt) =
-        case parseTime defaultTimeLocale fmt s of
+        case Time.parseTimeM True Time.defaultTimeLocale fmt s of
           Just x -> pure (Time x)
           Nothing ->
             fail
@@ -143,7 +151,7 @@ parseFormattedTime = do
     <|> parse (format :: Tagged BasicTime String)
     <|> parse (format :: Tagged AWSTime String)
     -- Deprecated ISO8601 format exhibited in the AWS-supplied examples.
-    <|> parse (Tagged $ iso8601DateFormat (Just "%X%Q%Z"))
+    <|> parse (Tagged $ Time.iso8601DateFormat (Just "%X%Q%Z"))
     -- Exhaustive Failure
     <|> fail ("Failure parsing Time from value: " ++ show s)
 
@@ -153,38 +161,50 @@ parseUnixTimestamp =
     <$> AText.double <* AText.endOfInput
     <|> fail "Failure parsing Unix Timestamp"
 
-instance ToText RFC822 where toText = Text.pack . renderFormattedTime
+instance ToText RFC822 where
+  toText = Text.pack . renderFormattedTime
 
-instance ToText ISO8601 where toText = Text.pack . renderFormattedTime
+instance ToText ISO8601 where
+  toText = Text.pack . renderFormattedTime
 
-instance ToText BasicTime where toText = Text.pack . renderFormattedTime
+instance ToText BasicTime where
+  toText = Text.pack . renderFormattedTime
 
-instance ToText AWSTime where toText = Text.pack . renderFormattedTime
+instance ToText AWSTime where
+  toText = Text.pack . renderFormattedTime
 
 instance ToText POSIX where
   toText (Time t) = toText (truncate (utcTimeToPOSIXSeconds t) :: Integer)
 
 renderFormattedTime :: forall a. TimeFormat (Time a) => Time a -> String
-renderFormattedTime (Time t) = formatTime defaultTimeLocale (untag f) t
+renderFormattedTime (Time t) = formatTime Time.defaultTimeLocale (untag f) t
   where
     f :: Tagged (Time a) String
     f = format
 
-instance FromXML RFC822 where parseXML = parseXMLText "RFC822"
+instance FromXML RFC822 where
+  parseXML = parseXMLText "RFC822"
 
-instance FromXML ISO8601 where parseXML = parseXMLText "ISO8601"
+instance FromXML ISO8601 where
+  parseXML = parseXMLText "ISO8601"
 
-instance FromXML AWSTime where parseXML = parseXMLText "AWSTime"
+instance FromXML AWSTime where
+  parseXML = parseXMLText "AWSTime"
 
-instance FromXML BasicTime where parseXML = parseXMLText "BasicTime"
+instance FromXML BasicTime where
+  parseXML = parseXMLText "BasicTime"
 
-instance FromJSON RFC822 where parseJSON = parseJSONText "RFC822"
+instance FromJSON RFC822 where
+  parseJSON = parseJSONText "RFC822"
 
-instance FromJSON ISO8601 where parseJSON = parseJSONText "ISO8601"
+instance FromJSON ISO8601 where
+  parseJSON = parseJSONText "ISO8601"
 
-instance FromJSON AWSTime where parseJSON = parseJSONText "AWSTime"
+instance FromJSON AWSTime where
+  parseJSON = parseJSONText "AWSTime"
 
-instance FromJSON BasicTime where parseJSON = parseJSONText "BasicTime"
+instance FromJSON BasicTime where
+  parseJSON = parseJSONText "BasicTime"
 
 -- This is a somewhat unfortunate hack to support the bizzare apigateway
 -- occurence of returning ISO8601 or POSIX timestamps in unknown scenarios.
@@ -206,40 +226,56 @@ instance FromJSON POSIX where
               . realToFrac
           )
 
-instance ToByteString RFC822 where toBS = BS.pack . renderFormattedTime
+instance ToByteString RFC822 where
+  toBS = BS.pack . renderFormattedTime
 
-instance ToByteString ISO8601 where toBS = BS.pack . renderFormattedTime
+instance ToByteString ISO8601 where
+  toBS = BS.pack . renderFormattedTime
 
-instance ToByteString BasicTime where toBS = BS.pack . renderFormattedTime
+instance ToByteString BasicTime where
+  toBS = BS.pack . renderFormattedTime
 
-instance ToByteString AWSTime where toBS = BS.pack . renderFormattedTime
+instance ToByteString AWSTime where
+  toBS = BS.pack . renderFormattedTime
 
-instance ToQuery RFC822 where toQuery = toQuery . toBS
+instance ToQuery RFC822 where
+  toQuery = toQuery . toBS
 
-instance ToQuery ISO8601 where toQuery = toQuery . toBS
+instance ToQuery ISO8601 where
+  toQuery = toQuery . toBS
 
-instance ToQuery BasicTime where toQuery = toQuery . toBS
+instance ToQuery BasicTime where
+  toQuery = toQuery . toBS
 
-instance ToQuery AWSTime where toQuery = toQuery . toBS
+instance ToQuery AWSTime where
+  toQuery = toQuery . toBS
 
 instance ToQuery POSIX where
   toQuery (Time t) = toQuery (truncate (utcTimeToPOSIXSeconds t) :: Integer)
 
-instance ToXML RFC822 where toXML = toXMLText
+instance ToXML RFC822 where
+  toXML = toXMLText
 
-instance ToXML ISO8601 where toXML = toXMLText
+instance ToXML ISO8601 where
+  toXML = toXMLText
 
-instance ToXML AWSTime where toXML = toXMLText
+instance ToXML AWSTime where
+  toXML = toXMLText
 
-instance ToXML BasicTime where toXML = toXMLText
+instance ToXML BasicTime where
+  toXML = toXMLText
 
-instance ToJSON RFC822 where toJSON = toJSONText
+instance ToJSON RFC822 where
+  toJSON = toJSONText
 
-instance ToJSON ISO8601 where toJSON = toJSONText
+instance ToJSON ISO8601 where
+  toJSON = toJSONText
 
-instance ToJSON AWSTime where toJSON = toJSONText
+instance ToJSON AWSTime where
+  toJSON = toJSONText
 
-instance ToJSON BasicTime where toJSON = toJSONText
+instance ToJSON BasicTime where
+  toJSON = toJSONText
 
 instance ToJSON POSIX where
   toJSON (Time t) =

@@ -40,8 +40,8 @@ rewrite versions cfg svc = do
   rewritten <- rewriteService cfg (deprecateOperations ignored)
   rendered <- renderShapes cfg rewritten
 
-  Library versions cfg rendered
-    <$> serviceData (rendered ^. metadata) (rendered ^. retry)
+  pure $! Library versions cfg rendered $
+    serviceData (rendered ^. metadata) (rendered ^. retry)
 
 deprecateOperations :: Service f a b c -> Service f a b c
 deprecateOperations = operations %~ HashMap.filter (not . Lens.view opDeprecated)
@@ -133,7 +133,9 @@ renderShapes cfg svc = do
 
   -- Convert shape ASTs into a rendered Haskell AST declaration,
   xs <- traverse (operationData cfg svc) x
-  ys <- kvTraverseMaybe (const (shapeData svc)) (prune y)
+
+  let ys = HashMap.mapMaybe (shapeData svc) (prune y)
+
   zs <- HashMap.traverseWithKey (waiterData svc x) (svc ^. waiters)
 
   pure

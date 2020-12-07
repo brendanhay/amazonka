@@ -453,12 +453,12 @@ instance ToJSON (Metadata Identity) where
 serviceError :: HasMetadata a f => a -> Text
 serviceError m =
   case m ^. protocol of
-    JSON -> "parseJSONError"
-    RestJSON -> "parseJSONError"
-    RestXML -> "parseXMLError"
-    Query -> "parseXMLError"
-    EC2 -> "parseXMLError"
-    APIGateway -> "parseJSONError"
+    JSON -> "Prelude.parseJSONError"
+    RestJSON -> "Prelude.parseJSONError"
+    RestXML -> "Prelude.parseXMLError"
+    Query -> "Prelude.parseXMLError"
+    EC2 -> "Prelude.parseXMLError"
+    APIGateway -> "Prelude.parseJSONError"
 
 data Service f a b c = Service
   { _metadata' :: Metadata f,

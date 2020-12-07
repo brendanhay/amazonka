@@ -67,7 +67,6 @@ import qualified Data.Text.Lazy as Text.Lazy
 import qualified Data.Text.Lazy.Builder as Text.Lazy.Builder
 import Data.Time as Export (Day, DiffTime, UTCTime)
 import Data.Tree as Export (Forest, Tree)
-import Data.Typeable as Export (Typeable)
 import Data.Void as Export (Void)
 import Data.Word as Export (Word16, Word32, Word64, Word8)
 import GHC.Generics as Export (Generic)

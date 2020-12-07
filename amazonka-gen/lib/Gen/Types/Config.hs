@@ -50,7 +50,7 @@ instance FromJSON Replace where
 
 instance TypeOf Replace where
   typeOf Replace {..} =
-    TType (typeId _replaceName) (derivingBase List.\\ _replaceUnderive)
+    TType (typeId _replaceName) (derivable List.\\ _replaceUnderive)
 
 data Override = Override
   { -- | Rename type

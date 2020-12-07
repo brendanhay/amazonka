@@ -116,21 +116,20 @@ branchId p = f . typeId
       | otherwise = id
 
 smartCtorId :: Id -> Text
-smartCtorId = renameReserved . Manipulate.lowerHead . lowerFirstAcronym . typeId
+smartCtorId = mappend "new" . typeId
 
-accessorId :: Maybe Text -> Id -> Text
-accessorId p = Text.cons '_' . accessor p
+accessorId :: Id -> Text
+accessorId = renameReserved . Manipulate.lowerHead . Lens.view representation
 
 lensId :: Maybe Text -> Id -> Text
 lensId p = renameReserved . accessor p
-
-accessor :: Maybe Text -> Id -> Text
-accessor Nothing = Manipulate.lowerHead . Lens.view representation
-accessor (Just p) = f . Lens.view representation
   where
-    f
-      | Text.null p = Manipulate.lowerHead
-      | otherwise = mappend (Text.toLower p) . Manipulate.upperHead
+    accessor Nothing = Manipulate.lowerHead . Lens.view representation
+    accessor (Just p) = f . Lens.view representation
+      where
+        f
+          | Text.null p = Manipulate.lowerHead
+          | otherwise = mappend (Text.toLower p) . Manipulate.upperHead
 
 prependId :: Text -> Id -> Id
 prependId t i = i & representation %~ mappend t

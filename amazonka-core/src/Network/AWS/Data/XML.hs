@@ -31,6 +31,11 @@ import System.IO.Unsafe (unsafePerformIO)
 import Text.XML
 import qualified Text.XML.Stream.Render as Stream
 import Text.XML.Unresolved (toEvents)
+import Data.List.NonEmpty (NonEmpty (..))
+import qualified Data.List.NonEmpty as NonEmpty
+import Data.Hashable (Hashable)
+import Data.HashMap.Strict (HashMap)
+import qualified Data.HashMap.Strict as HashMap
 
 infixl 7 .@, .@?
 
@@ -197,12 +202,39 @@ instance ToXML Double where toXML = toXMLText
 
 instance ToXML Bool where toXML = toXMLText
 
+parseXMLMap ::
+  (Eq k, Hashable k, FromText k, FromXML v) =>
+  Text ->
+  Text ->
+  Text ->
+  [Node] ->
+  Either String (HashMap k v)
+parseXMLMap e k v =
+  fmap HashMap.fromList . traverse f . mapMaybe (childNodesOf e)
+  where
+    f ns =
+      (,)
+        <$> (ns .@ k >>= fromText)
+        <*> ns .@ v
+
 parseXMLList ::
   FromXML a =>
   Text ->
   [Node] ->
   Either String [a]
 parseXMLList n = traverse parseXML . mapMaybe (childNodesOf n)
+
+parseXMLNonEmpty ::
+  FromXML a =>
+  Text ->
+  [Node] ->
+  Either String (NonEmpty a)
+parseXMLNonEmpty name =
+  parseXMLList name
+    >=> maybe
+      (Left $ "Error parsing empty NonEmpty when expecting at least one element: " ++ show name)
+      pure
+      . NonEmpty.nonEmpty
 
 parseXMLText :: FromText a => String -> [Node] -> Either String a
 parseXMLText n =

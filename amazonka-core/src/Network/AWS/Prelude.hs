@@ -25,9 +25,6 @@ import Network.AWS.Data.ByteString as Export
 import Network.AWS.Data.Crypto as Export hiding (Base (..))
 import Network.AWS.Data.Headers as Export
 import Network.AWS.Data.JSON as Export
-import Network.AWS.Data.List1 as Export
-import Network.AWS.Data.Map as Export
-import Network.AWS.Data.Numeric as Export
 import Network.AWS.Data.Path as Export
 import Network.AWS.Data.Query as Export
 import Network.AWS.Data.Sensitive as Export

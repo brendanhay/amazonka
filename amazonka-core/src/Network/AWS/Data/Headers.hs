@@ -25,6 +25,24 @@ import qualified Data.Text.Encoding as Text
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Text
 import Network.HTTP.Types
+import Data.HashMap.Strict (HashMap)
+import qualified Data.HashMap.Strict as HashMap
+
+parseHeadersMap ::
+  FromText a =>
+  ByteString ->
+  ResponseHeaders ->
+  Either String (HashMap Text a)
+parseHeadersMap p =
+  fmap HashMap.fromList . traverse g . filter f
+  where
+    f = BS8.isPrefixOf p . CI.foldedCase . fst
+
+    g (k, v) =
+      (Text.decodeUtf8 . BS8.drop n $ CI.original k,)
+        <$> fromText (Text.decodeUtf8 v)
+
+    n = BS8.length p
 
 infixl 7 .#, .#?
 

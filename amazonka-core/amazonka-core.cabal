@@ -43,10 +43,7 @@ library
     Network.AWS.Data.Crypto
     Network.AWS.Data.Headers
     Network.AWS.Data.JSON
-    Network.AWS.Data.List1
     Network.AWS.Data.Log
-    Network.AWS.Data.Map
-    Network.AWS.Data.Numeric
     Network.AWS.Data.Path
     Network.AWS.Data.Query
     Network.AWS.Data.Sensitive

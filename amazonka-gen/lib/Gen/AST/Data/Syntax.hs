@@ -284,7 +284,7 @@ serviceD m r = Exts.patBindWhere (pvar name) record binds
 
     abbrev = m ^. serviceAbbrev
 
-    signer = m ^. signatureVersion . Lens.to (mappend "Prelude." . sigToText)
+    signer = m ^. signatureVersion . Lens.to (mappend "Sign." . sigToText)
 
 policyE :: Policy -> Maybe Exp
 policyE = \case

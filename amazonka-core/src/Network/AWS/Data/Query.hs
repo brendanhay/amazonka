@@ -1,5 +1,4 @@
 {-# LANGUAGE DefaultSignatures #-}
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE LambdaCase #-}
@@ -22,11 +21,13 @@ import Data.ByteString.Builder (Builder)
 import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy as LBS
-import Data.Data
 import Data.List (sort)
 import Data.Maybe (fromMaybe)
 import Data.String
 import qualified Data.Text.Encoding as Text
+import Data.Hashable (Hashable)
+import Data.HashMap.Strict (HashMap)
+import qualified Data.HashMap.Strict as HashMap
 import GHC.Exts
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Text
@@ -37,7 +38,7 @@ data QueryString
   = QList [QueryString]
   | QPair ByteString QueryString
   | QValue (Maybe ByteString)
-  deriving (Eq, Show, Data, Typeable)
+  deriving (Eq, Show)
 
 instance Semigroup QueryString where
   a <> b = case (a, b) of
@@ -109,6 +110,18 @@ infixr 7 =:
 
 (=:) :: ToQuery a => ByteString -> a -> QueryString
 k =: v = QPair k (toQuery v)
+
+toQueryMap ::
+  (Hashable k, Eq k, ToQuery k, ToQuery v) =>
+  ByteString ->
+  ByteString ->
+  ByteString ->
+  HashMap k v ->
+  QueryString
+toQueryMap e k v =
+  toQueryList e . map f . HashMap.toList
+  where
+    f (x, y) = QList [k =: toQuery x, v =: toQuery y]
 
 toQueryList ::
   (IsList a, ToQuery (Item a)) =>

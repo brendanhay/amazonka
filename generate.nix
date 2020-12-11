@@ -32,10 +32,10 @@ let
   botocoreDir = "${botocore}/botocore/data";
   botocoreRev = builtins.substring 0 7 botocore.rev;
 
-  annexDir = ./amazonka-gen/annexes;
-  configDir = ./amazonka-gen/config;
-  templateDir = ./amazonka-gen/templates;
-  staticDir = ./amazonka-gen/static;
+  annexDir = ./config/annexes;
+  configDir = ./config/services;
+  templateDir = ./config/templates;
+  staticDir = ./config/assets;
 
   clientVersion = cabalProject.amazonka.identifier.version;
   coreVersion = cabalProject.amazonka-core.identifier.version;

@@ -26,7 +26,7 @@ jobs:
           name: amazonka
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      - run: nix-build -A workflow.core --argstr ghcVersion ${{ matrix.ghc }}
+      - run: nix-build -A workflows.core --argstr ghcVersion ${{ matrix.ghc }}
 
   libs:
     needs:
@@ -47,4 +47,4 @@ jobs:
           name: amazonka
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      - run: nix-build -A workflow.libs --argstr ghcVersion ${{ matrix.ghc }}
+      - run: nix-build -A workflows.libs --argstr ghcVersion ${{ matrix.ghc }}

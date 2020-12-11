@@ -33,7 +33,7 @@ let
     localLib.collectProjectComponents predicate cabalProject;
 
 in cabalProject // {
-  workflow = {
+  workflows = {
     core = components isCore;
     libs = components (name: !(isCore name));
   };

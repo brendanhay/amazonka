@@ -1,17 +1,5 @@
 final: prev: {
   localLib = {
-    cleanGeneratedSource = { src, name ? null }:
-      let
-        clean = prev.lib.cleanSourceWith {
-          inherit name;
-
-          src = prev.lib.cleanSource src;
-          filter = path: type:
-            baseNameOf (toString path) != "gen"
-            && prev.haskell-nix.haskellSourceFilter path type;
-        };
-      in if (builtins.typeOf src) == "path" then clean else src;
-
     collectProjectComponents = predicate: project:
       let
 

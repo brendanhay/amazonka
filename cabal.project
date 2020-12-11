@@ -8,20 +8,19 @@ write-ghc-environment-files: never
 --   cabal new-configure --disable-optimization
 optimization: 1
 
+-- Fix for some generator dependencies with >= GHC 8.10
 allow-newer:
-   base,
-   optparse-applicative
+   base
 
--- Local packages.
+-- Local packages - without amazonka-examples.
 packages:
-   amazonka*/
+   amazonka/
+   amazonka-core/
+   amazonka-gen/
+   amazonka-test/
    lib/amazonka*/
 
--- Extra package constraints to feed the solver.
-extra-packages:
-  ede >= 0.3.2.0
- 
--- Only needs to be presnt until Hackage.nix updates (02.12.2020)
+-- Only needs to be present until Hackage.nix is updated (02.12.2020)
 source-repository-package
   type: git
   location: https://github.com/brendanhay/ede.git

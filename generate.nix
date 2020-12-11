@@ -32,10 +32,10 @@ let
   botocoreDir = "${botocore}/botocore/data";
   botocoreRev = builtins.substring 0 7 botocore.rev;
 
-  annexDir = ./config/annexes;
-  configDir = ./config/services;
-  templateDir = ./config/templates;
-  staticDir = ./config/assets;
+  annexesDir = ./config/annexes;
+  servicesDir = ./config/services;
+  templatesDir = ./config/templates;
+  assetsDir = ./config/assets;
 
   clientVersion = cabalProject.amazonka.identifier.version;
   coreVersion = cabalProject.amazonka-core.identifier.version;
@@ -92,10 +92,10 @@ in pkgs.stdenvNoCC.mkDerivation {
       --library-version=${libraryVersion} \
       --client-version=${clientVersion} \
       --core-version=${coreVersion} \
-      --annexes="${annexDir}" \
-      --configs="${configDir}" \
-      --templates="${templateDir}" \
-      --static="${staticDir}" \
+      --annexes="${annexesDir}" \
+      --configs="${servicesDir}" \
+      --templates="${templatesDir}" \
+      --static="${assetsDir}" \
       --retry=${botocoreDir}/_retry.json \
       ${builtins.concatStringsSep " " modelArguments}
     )
